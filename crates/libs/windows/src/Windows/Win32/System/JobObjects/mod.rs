@@ -108,9 +108,6 @@ impl Default for JOBOBJECT_ASSOCIATE_COMPLETION_PORT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for JOBOBJECT_ASSOCIATE_COMPLETION_PORT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {
@@ -128,9 +125,6 @@ impl Default for JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Threading")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -143,10 +137,6 @@ impl Default for JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Threading")]
-impl windows_core::TypeKind for JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -166,9 +156,6 @@ impl Default for JOBOBJECT_BASIC_LIMIT_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for JOBOBJECT_BASIC_LIMIT_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JOBOBJECT_BASIC_PROCESS_ID_LIST {
@@ -181,9 +168,6 @@ impl Default for JOBOBJECT_BASIC_PROCESS_ID_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for JOBOBJECT_BASIC_PROCESS_ID_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JOBOBJECT_BASIC_UI_RESTRICTIONS {
@@ -193,9 +177,6 @@ impl Default for JOBOBJECT_BASIC_UI_RESTRICTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for JOBOBJECT_BASIC_UI_RESTRICTIONS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -207,9 +188,6 @@ impl Default for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -223,9 +201,6 @@ impl Default for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0_0 {
@@ -237,9 +212,6 @@ impl Default for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JOBOBJECT_END_OF_JOB_TIME_INFORMATION {
@@ -249,9 +221,6 @@ impl Default for JOBOBJECT_END_OF_JOB_TIME_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for JOBOBJECT_END_OF_JOB_TIME_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Threading")]
@@ -269,10 +238,6 @@ impl Default for JOBOBJECT_EXTENDED_LIMIT_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Threading")]
-impl windows_core::TypeKind for JOBOBJECT_EXTENDED_LIMIT_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const JOBOBJECT_IO_ATTRIBUTION_CONTROL_DISABLE: JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS = JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS(2i32);
 pub const JOBOBJECT_IO_ATTRIBUTION_CONTROL_ENABLE: JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS = JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS(1i32);
@@ -292,9 +257,6 @@ impl Default for JOBOBJECT_IO_ATTRIBUTION_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for JOBOBJECT_IO_ATTRIBUTION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JOBOBJECT_IO_ATTRIBUTION_STATS {
@@ -307,9 +269,6 @@ impl Default for JOBOBJECT_IO_ATTRIBUTION_STATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for JOBOBJECT_IO_ATTRIBUTION_STATS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -326,9 +285,6 @@ impl Default for JOBOBJECT_IO_RATE_CONTROL_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for JOBOBJECT_IO_RATE_CONTROL_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {
@@ -344,9 +300,6 @@ impl Default for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -369,9 +322,6 @@ impl Default for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -401,9 +351,6 @@ impl Default for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JOBOBJECT_JOBSET_INFORMATION {
@@ -413,9 +360,6 @@ impl Default for JOBOBJECT_JOBSET_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for JOBOBJECT_JOBSET_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -437,9 +381,6 @@ impl Default for JOBOBJECT_LIMIT_VIOLATION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for JOBOBJECT_LIMIT_VIOLATION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -467,9 +408,6 @@ impl Default for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_0 {
@@ -480,9 +418,6 @@ impl Default for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -495,9 +430,6 @@ impl Default for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_2 {
@@ -508,9 +440,6 @@ impl Default for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -523,9 +452,6 @@ impl Default for JOBOBJECT_NET_RATE_CONTROL_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for JOBOBJECT_NET_RATE_CONTROL_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -542,9 +468,6 @@ impl Default for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -567,9 +490,6 @@ impl Default for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_0 {
@@ -580,9 +500,6 @@ impl Default for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -595,9 +512,6 @@ impl Default for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_2 {
@@ -608,9 +522,6 @@ impl Default for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -633,10 +544,6 @@ impl Default for JOBOBJECT_SECURITY_LIMIT_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for JOBOBJECT_SECURITY_LIMIT_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const JOB_OBJECT_BASIC_LIMIT_VALID_FLAGS: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(255u32);
 #[repr(transparent)]
@@ -926,9 +833,6 @@ impl Default for JOB_SET_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for JOB_SET_ARRAY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const JobObjectAssociateCompletionPortInformation: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(7i32);
 pub const JobObjectBasicAccountingInformation: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(1i32);

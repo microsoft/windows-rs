@@ -34,9 +34,6 @@ impl Default for CDROM_DISK_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CDROM_DISK_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CDROM_DISK_DATA_TRACK: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -49,9 +46,6 @@ impl Default for CDROM_EXCEPTION_PERFORMANCE_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CDROM_EXCEPTION_PERFORMANCE_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CDROM_EXCLUSIVE_ACCESS {
@@ -62,9 +56,6 @@ impl Default for CDROM_EXCLUSIVE_ACCESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CDROM_EXCLUSIVE_ACCESS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CDROM_EXCLUSIVE_CALLER_LENGTH: u32 = 64u32;
 #[repr(C)]
@@ -78,9 +69,6 @@ impl Default for CDROM_EXCLUSIVE_LOCK {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CDROM_EXCLUSIVE_LOCK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CDROM_EXCLUSIVE_LOCK_STATE {
@@ -91,9 +79,6 @@ impl Default for CDROM_EXCLUSIVE_LOCK_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CDROM_EXCLUSIVE_LOCK_STATE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CDROM_IN_EXCLUSIVE_MODE: u32 = 1u32;
 pub const CDROM_LOCK_IGNORE_VOLUME: u32 = 1u32;
@@ -109,9 +94,6 @@ impl Default for CDROM_NOMINAL_PERFORMANCE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CDROM_NOMINAL_PERFORMANCE_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CDROM_NOT_IN_EXCLUSIVE_MODE: u32 = 0u32;
 pub const CDROM_NO_MEDIA_NOTIFICATIONS: u32 = 2u32;
@@ -134,9 +116,6 @@ impl Default for CDROM_PERFORMANCE_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CDROM_PERFORMANCE_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CDROM_PERFORMANCE_REQUEST {
@@ -150,9 +129,6 @@ impl Default for CDROM_PERFORMANCE_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CDROM_PERFORMANCE_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -178,9 +154,6 @@ impl Default for CDROM_PLAY_AUDIO_MSF {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CDROM_PLAY_AUDIO_MSF {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CDROM_READ_TOC_EX {
@@ -193,9 +166,6 @@ impl Default for CDROM_READ_TOC_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CDROM_READ_TOC_EX {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CDROM_READ_TOC_EX_FORMAT_ATIP: u32 = 4u32;
 pub const CDROM_READ_TOC_EX_FORMAT_CDTEXT: u32 = 5u32;
@@ -215,9 +185,6 @@ impl Default for CDROM_SEEK_AUDIO_MSF {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CDROM_SEEK_AUDIO_MSF {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CDROM_SET_SPEED {
@@ -230,9 +197,6 @@ impl Default for CDROM_SET_SPEED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CDROM_SET_SPEED {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -255,9 +219,6 @@ impl Default for CDROM_SET_STREAMING {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CDROM_SET_STREAMING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CDROM_SIMPLE_OPC_INFO {
@@ -269,9 +230,6 @@ impl Default for CDROM_SIMPLE_OPC_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CDROM_SIMPLE_OPC_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -286,9 +244,6 @@ impl Default for CDROM_STREAMING_CONTROL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CDROM_STREAMING_CONTROL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CDROM_SUB_Q_DATA_FORMAT {
@@ -299,9 +254,6 @@ impl Default for CDROM_SUB_Q_DATA_FORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CDROM_SUB_Q_DATA_FORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -316,9 +268,6 @@ impl Default for CDROM_TOC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CDROM_TOC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CDROM_TOC_ATIP_DATA {
@@ -331,9 +280,6 @@ impl Default for CDROM_TOC_ATIP_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CDROM_TOC_ATIP_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -358,9 +304,6 @@ impl Default for CDROM_TOC_ATIP_DATA_BLOCK {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CDROM_TOC_ATIP_DATA_BLOCK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CDROM_TOC_CD_TEXT_DATA {
@@ -373,9 +316,6 @@ impl Default for CDROM_TOC_CD_TEXT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CDROM_TOC_CD_TEXT_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -392,9 +332,6 @@ impl Default for CDROM_TOC_CD_TEXT_DATA_BLOCK {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CDROM_TOC_CD_TEXT_DATA_BLOCK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CDROM_TOC_CD_TEXT_DATA_BLOCK_0 {
@@ -405,9 +342,6 @@ impl Default for CDROM_TOC_CD_TEXT_DATA_BLOCK_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CDROM_TOC_CD_TEXT_DATA_BLOCK_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -421,9 +355,6 @@ impl Default for CDROM_TOC_FULL_TOC_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CDROM_TOC_FULL_TOC_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -441,9 +372,6 @@ impl Default for CDROM_TOC_FULL_TOC_DATA_BLOCK {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CDROM_TOC_FULL_TOC_DATA_BLOCK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CDROM_TOC_PMA_DATA {
@@ -457,9 +385,6 @@ impl Default for CDROM_TOC_PMA_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CDROM_TOC_PMA_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CDROM_TOC_SESSION_DATA {
@@ -472,9 +397,6 @@ impl Default for CDROM_TOC_SESSION_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CDROM_TOC_SESSION_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -490,9 +412,6 @@ impl Default for CDROM_WRITE_SPEED_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CDROM_WRITE_SPEED_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CDROM_WRITE_SPEED_REQUEST {
@@ -502,9 +421,6 @@ impl Default for CDROM_WRITE_SPEED_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CDROM_WRITE_SPEED_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CD_RAW_READ_C2_SIZE: u32 = 296u32;
 pub const CD_RAW_READ_SUBCODE_SIZE: u32 = 96u32;
@@ -598,9 +514,6 @@ impl Default for RAW_READ_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RAW_READ_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const RawWithC2: TRACK_MODE_TYPE = TRACK_MODE_TYPE(4i32);
 pub const RawWithC2AndSubCode: TRACK_MODE_TYPE = TRACK_MODE_TYPE(3i32);
 pub const RawWithSubCode: TRACK_MODE_TYPE = TRACK_MODE_TYPE(5i32);
@@ -619,9 +532,6 @@ impl Default for SUB_Q_CHANNEL_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SUB_Q_CHANNEL_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SUB_Q_CURRENT_POSITION {
@@ -638,9 +548,6 @@ impl Default for SUB_Q_CURRENT_POSITION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SUB_Q_CURRENT_POSITION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SUB_Q_HEADER {
@@ -652,9 +559,6 @@ impl Default for SUB_Q_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SUB_Q_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -669,9 +573,6 @@ impl Default for SUB_Q_MEDIA_CATALOG_NUMBER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SUB_Q_MEDIA_CATALOG_NUMBER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -689,9 +590,6 @@ impl Default for SUB_Q_TRACK_ISRC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SUB_Q_TRACK_ISRC {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SimpleOpcInfo: CDROM_OPC_INFO_TYPE = CDROM_OPC_INFO_TYPE(1i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -707,9 +605,6 @@ impl Default for TRACK_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TRACK_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRACK_MODE_TYPE(pub i32);
@@ -723,9 +618,6 @@ impl Default for VOLUME_CONTROL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VOLUME_CONTROL {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

@@ -119,9 +119,6 @@ impl Default for CAT_MEMBERINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CAT_MEMBERINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CAT_MEMBERINFO2 {
@@ -132,9 +129,6 @@ impl Default for CAT_MEMBERINFO2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CAT_MEMBERINFO2 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CAT_MEMBERINFO2_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.12.2.3");
 pub const CAT_MEMBERINFO2_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2223i32 as _);
@@ -153,10 +147,6 @@ impl Default for CAT_NAMEVALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for CAT_NAMEVALUE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CAT_NAMEVALUE_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.12.2.1");
 pub const CAT_NAMEVALUE_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2221i32 as _);
@@ -187,10 +177,6 @@ impl Default for CONFIG_CI_PROV_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for CONFIG_CI_PROV_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CONFIG_CI_PROV_INFO_RESULT {
@@ -203,9 +189,6 @@ impl Default for CONFIG_CI_PROV_INFO_RESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CONFIG_CI_PROV_INFO_RESULT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -222,9 +205,6 @@ impl Default for CONFIG_CI_PROV_INFO_RESULT2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CONFIG_CI_PROV_INFO_RESULT2 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CPD_CHOICE_SIP: u32 = 1u32;
 pub const CPD_RETURN_LOWER_QUALITY_CHAINS: u32 = 1048576u32;
@@ -263,10 +243,6 @@ impl Default for CRYPT_PROVIDER_CERT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for CRYPT_PROVIDER_CERT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
@@ -312,10 +288,6 @@ impl Default for CRYPT_PROVIDER_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
-impl windows_core::TypeKind for CRYPT_PROVIDER_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 #[derive(Clone, Copy)]
@@ -327,10 +299,6 @@ impl Default for CRYPT_PROVIDER_DATA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
-impl windows_core::TypeKind for CRYPT_PROVIDER_DATA_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -344,9 +312,6 @@ impl Default for CRYPT_PROVIDER_DEFUSAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CRYPT_PROVIDER_DEFUSAGE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
@@ -375,10 +340,6 @@ impl Default for CRYPT_PROVIDER_FUNCTIONS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
-impl windows_core::TypeKind for CRYPT_PROVIDER_FUNCTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CRYPT_PROVIDER_PRIVDATA {
@@ -391,9 +352,6 @@ impl Default for CRYPT_PROVIDER_PRIVDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CRYPT_PROVIDER_PRIVDATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -408,9 +366,6 @@ impl Default for CRYPT_PROVIDER_REGDEFUSAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CRYPT_PROVIDER_REGDEFUSAGE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -432,10 +387,6 @@ impl Default for CRYPT_PROVIDER_SGNR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for CRYPT_PROVIDER_SGNR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -460,10 +411,6 @@ impl Default for CRYPT_PROVIDER_SIGSTATE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for CRYPT_PROVIDER_SIGSTATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CRYPT_PROVUI_DATA {
@@ -482,9 +429,6 @@ impl Default for CRYPT_PROVUI_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_PROVUI_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -501,10 +445,6 @@ impl Default for CRYPT_PROVUI_FUNCS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
-impl windows_core::TypeKind for CRYPT_PROVUI_FUNCS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -524,9 +464,6 @@ impl Default for CRYPT_REGISTER_ACTIONID {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_REGISTER_ACTIONID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CRYPT_TRUST_REG_ENTRY {
@@ -538,9 +475,6 @@ impl Default for CRYPT_TRUST_REG_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CRYPT_TRUST_REG_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DRIVER_ACTION_VERIFY: windows_core::GUID = windows_core::GUID::from_u128(0xf750e6c3_38ee_11d1_85e5_00c04fc295ee);
 pub const DRIVER_CLEANUPPOLICY_FUNCTION: windows_core::PCWSTR = windows_core::w!("DriverCleanupPolicy");
@@ -569,10 +503,6 @@ impl Default for DRIVER_VER_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for DRIVER_VER_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DRIVER_VER_MAJORMINOR {
@@ -583,9 +513,6 @@ impl Default for DRIVER_VER_MAJORMINOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DRIVER_VER_MAJORMINOR {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DWACTION_ALLOCANDFILL: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION = WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION(1u32);
 pub const DWACTION_FREE: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION = WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION(2u32);
@@ -605,9 +532,6 @@ impl Default for INTENT_TO_SEAL_ATTRIBUTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for INTENT_TO_SEAL_ATTRIBUTE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const INTENT_TO_SEAL_ATTRIBUTE_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2010i32 as _);
 pub const OFFICESIGN_ACTION_VERIFY: windows_core::GUID = windows_core::GUID::from_u128(0x5555c2cd_17fb_11d1_85c4_00c04fc295ee);
@@ -664,10 +588,6 @@ impl Default for PROVDATA_SIP {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
-impl windows_core::TypeKind for PROVDATA_SIP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -683,10 +603,6 @@ impl Default for SEALING_SIGNATURE_ATTRIBUTE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for SEALING_SIGNATURE_ATTRIBUTE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SEALING_SIGNATURE_ATTRIBUTE_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2011i32 as _);
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -701,10 +617,6 @@ impl Default for SEALING_TIMESTAMP_ATTRIBUTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for SEALING_TIMESTAMP_ATTRIBUTE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SEALING_TIMESTAMP_ATTRIBUTE_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2012i32 as _);
 pub const SGNR_TYPE_TIMESTAMP: u32 = 16u32;
@@ -726,9 +638,6 @@ impl Default for SPC_FINANCIAL_CRITERIA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SPC_FINANCIAL_CRITERIA {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SPC_FINANCIAL_CRITERIA_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.1.27");
 pub const SPC_FINANCIAL_CRITERIA_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2002i32 as _);
 pub const SPC_GLUE_RDN_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.1.25");
@@ -748,10 +657,6 @@ impl Default for SPC_IMAGE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for SPC_IMAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -765,10 +670,6 @@ impl Default for SPC_INDIRECT_DATA_CONTENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for SPC_INDIRECT_DATA_CONTENT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SPC_INDIRECT_DATA_CONTENT_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2003i32 as _);
 pub const SPC_INDIRECT_DATA_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.1.4");
@@ -788,10 +689,6 @@ impl Default for SPC_LINK {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for SPC_LINK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy)]
@@ -805,10 +702,6 @@ impl Default for SPC_LINK_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for SPC_LINK_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SPC_LINK_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.1.28");
 pub const SPC_LINK_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2005i32 as _);
@@ -829,10 +722,6 @@ impl Default for SPC_PE_IMAGE_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for SPC_PE_IMAGE_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SPC_PE_IMAGE_DATA_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.1.15");
 pub const SPC_PE_IMAGE_DATA_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2004i32 as _);
 pub const SPC_PE_IMAGE_PAGE_HASHES_V1_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.3.1");
@@ -852,10 +741,6 @@ impl Default for SPC_SERIALIZED_OBJECT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for SPC_SERIALIZED_OBJECT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPC_SIGINFO {
@@ -871,9 +756,6 @@ impl Default for SPC_SIGINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SPC_SIGINFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SPC_SIGINFO_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.1.30");
 pub const SPC_SIGINFO_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2130i32 as _);
@@ -892,10 +774,6 @@ impl Default for SPC_SP_AGENCY_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for SPC_SP_AGENCY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SPC_SP_AGENCY_INFO_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.1.10");
 pub const SPC_SP_AGENCY_INFO_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2000i32 as _);
 #[repr(C)]
@@ -912,10 +790,6 @@ impl Default for SPC_SP_OPUS_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for SPC_SP_OPUS_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SPC_SP_OPUS_INFO_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.1.12");
 pub const SPC_SP_OPUS_INFO_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2007i32 as _);
 #[repr(C)]
@@ -928,9 +802,6 @@ impl Default for SPC_STATEMENT_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SPC_STATEMENT_TYPE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SPC_STATEMENT_TYPE_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.1.11");
 pub const SPC_STATEMENT_TYPE_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2006i32 as _);
@@ -995,9 +866,6 @@ impl Default for WINTRUST_BLOB_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINTRUST_BLOB_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1019,10 +887,6 @@ impl Default for WINTRUST_CATALOG_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for WINTRUST_CATALOG_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1040,10 +904,6 @@ impl Default for WINTRUST_CERT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for WINTRUST_CERT_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WINTRUST_CONFIG_REGPATH: windows_core::PCWSTR = windows_core::w!("Software\\Microsoft\\Cryptography\\Wintrust\\Config");
 #[repr(C)]
@@ -1070,10 +930,6 @@ impl Default for WINTRUST_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for WINTRUST_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy)]
@@ -1089,10 +945,6 @@ impl Default for WINTRUST_DATA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for WINTRUST_DATA_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1158,9 +1010,6 @@ impl Default for WINTRUST_FILE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINTRUST_FILE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION(pub u32);
@@ -1220,10 +1069,6 @@ impl Default for WINTRUST_SGNR_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for WINTRUST_SGNR_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1240,10 +1085,6 @@ impl Default for WINTRUST_SIGNATURE_SETTINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for WINTRUST_SIGNATURE_SETTINGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1294,9 +1135,6 @@ impl Default for WIN_CERTIFICATE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WIN_CERTIFICATE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WIN_CERT_REVISION_1_0: u32 = 256u32;
 pub const WIN_CERT_REVISION_2_0: u32 = 512u32;
 pub const WIN_CERT_TYPE_PKCS_SIGNED_DATA: u32 = 2u32;
@@ -1317,9 +1155,6 @@ impl Default for WIN_SPUB_TRUSTED_PUBLISHER_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WIN_SPUB_TRUSTED_PUBLISHER_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIN_TRUST_ACTDATA_CONTEXT_WITH_SUBJECT {
@@ -1332,9 +1167,6 @@ impl Default for WIN_TRUST_ACTDATA_CONTEXT_WITH_SUBJECT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WIN_TRUST_ACTDATA_CONTEXT_WITH_SUBJECT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIN_TRUST_ACTDATA_SUBJECT_ONLY {
@@ -1345,9 +1177,6 @@ impl Default for WIN_TRUST_ACTDATA_SUBJECT_ONLY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WIN_TRUST_ACTDATA_SUBJECT_ONLY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1360,9 +1189,6 @@ impl Default for WIN_TRUST_SUBJECT_FILE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WIN_TRUST_SUBJECT_FILE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIN_TRUST_SUBJECT_FILE_AND_DISPLAY {
@@ -1374,9 +1200,6 @@ impl Default for WIN_TRUST_SUBJECT_FILE_AND_DISPLAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WIN_TRUST_SUBJECT_FILE_AND_DISPLAY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WIN_TRUST_SUBJTYPE_CABINET: windows_core::GUID = windows_core::GUID::from_u128(0xd17c5374_a392_11cf_9df5_00aa00c184e0);
 pub const WIN_TRUST_SUBJTYPE_CABINETEX: windows_core::GUID = windows_core::GUID::from_u128(0x6f458114_c2f1_11cf_8a69_00aa006c3706);
@@ -1425,10 +1248,6 @@ impl Default for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy)]
@@ -1441,10 +1260,6 @@ impl Default for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
@@ -1462,10 +1277,6 @@ impl Default for WTD_GENERIC_CHAIN_POLICY_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
-impl windows_core::TypeKind for WTD_GENERIC_CHAIN_POLICY_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 #[derive(Clone, Copy)]
@@ -1478,10 +1289,6 @@ impl Default for WTD_GENERIC_CHAIN_POLICY_DATA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
-impl windows_core::TypeKind for WTD_GENERIC_CHAIN_POLICY_DATA_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -1501,10 +1308,6 @@ impl Default for WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy)]
@@ -1517,10 +1320,6 @@ impl Default for WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WTD_HASH_ONLY_FLAG: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(512u32);
 pub const WTD_LIFETIME_SIGNING_FLAG: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(2048u32);

@@ -730,9 +730,6 @@ impl Default for DSKTLSYSTEMTIME {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DSKTLSYSTEMTIME {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DTRESULTFIX: u32 = 1u32;
 pub const DTRESULTOK: u32 = 0u32;
 pub const DTRESULTPART: u32 = 3u32;
@@ -855,9 +852,6 @@ impl Default for PVALUEA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PVALUEA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PVALUEW {
@@ -870,9 +864,6 @@ impl Default for PVALUEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PVALUEW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const REGDF_CONFLICTDMA: u32 = 524288u32;
 pub const REGDF_CONFLICTIO: u32 = 65536u32;
@@ -1758,9 +1749,6 @@ impl Default for REG_PROVIDER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REG_PROVIDER {
-    type TypeKind = windows_core::CopyType;
-}
 pub const REG_QWORD: REG_VALUE_TYPE = REG_VALUE_TYPE(11u32);
 pub const REG_QWORD_LITTLE_ENDIAN: REG_VALUE_TYPE = REG_VALUE_TYPE(11u32);
 pub const REG_RESOURCE_LIST: REG_VALUE_TYPE = REG_VALUE_TYPE(8u32);
@@ -1888,9 +1876,6 @@ impl Default for VALENTA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VALENTA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VALENTW {
@@ -1903,9 +1888,6 @@ impl Default for VALENTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VALENTW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const VPDF_DISABLEPWRMGMT: u32 = 1u32;
 pub const VPDF_DISABLEPWRSTATUSPOLL: u32 = 8u32;
@@ -1924,7 +1906,4 @@ impl Default for val_context {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for val_context {
-    type TypeKind = windows_core::CopyType;
 }

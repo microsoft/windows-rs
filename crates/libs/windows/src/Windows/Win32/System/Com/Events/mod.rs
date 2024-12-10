@@ -17,9 +17,6 @@ impl Default for COMEVENTSYSCHANGEINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COMEVENTSYSCHANGEINFO {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EOC_ChangeType(pub i32);

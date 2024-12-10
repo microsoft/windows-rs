@@ -2357,9 +2357,6 @@ impl Default for WSMAN_AUTHENTICATION_CREDENTIALS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSMAN_AUTHENTICATION_CREDENTIALS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WSMAN_AUTHENTICATION_CREDENTIALS_0 {
@@ -2370,9 +2367,6 @@ impl Default for WSMAN_AUTHENTICATION_CREDENTIALS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSMAN_AUTHENTICATION_CREDENTIALS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2387,9 +2381,6 @@ impl Default for WSMAN_AUTHZ_QUOTA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSMAN_AUTHZ_QUOTA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSMAN_CERTIFICATE_DETAILS {
@@ -2402,9 +2393,6 @@ impl Default for WSMAN_CERTIFICATE_DETAILS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSMAN_CERTIFICATE_DETAILS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WSMAN_CMDSHELL_OPTION_CODEPAGE: windows_core::PCWSTR = windows_core::w!("WINRS_CODEPAGE");
 pub const WSMAN_CMDSHELL_OPTION_CONSOLEMODE_STDIN: windows_core::PCWSTR = windows_core::w!("WINRS_CONSOLEMODE_STDIN");
@@ -2419,9 +2407,6 @@ impl Default for WSMAN_COMMAND_ARG_SET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSMAN_COMMAND_ARG_SET {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
@@ -2439,9 +2424,6 @@ impl Default for WSMAN_CONNECT_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSMAN_CONNECT_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSMAN_CREATE_SHELL_DATA {
@@ -2451,9 +2433,6 @@ impl Default for WSMAN_CREATE_SHELL_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSMAN_CREATE_SHELL_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2465,9 +2444,6 @@ impl Default for WSMAN_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSMAN_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2481,9 +2457,6 @@ impl Default for WSMAN_DATA_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSMAN_DATA_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSMAN_DATA_BINARY {
@@ -2494,9 +2467,6 @@ impl Default for WSMAN_DATA_BINARY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSMAN_DATA_BINARY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WSMAN_DATA_NONE: WSManDataType = WSManDataType(0i32);
 #[repr(C)]
@@ -2509,9 +2479,6 @@ impl Default for WSMAN_DATA_TEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSMAN_DATA_TEXT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WSMAN_DATA_TYPE_BINARY: WSManDataType = WSManDataType(2i32);
 pub const WSMAN_DATA_TYPE_DWORD: WSManDataType = WSManDataType(4i32);
@@ -2528,9 +2495,6 @@ impl Default for WSMAN_ENVIRONMENT_VARIABLE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSMAN_ENVIRONMENT_VARIABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSMAN_ENVIRONMENT_VARIABLE_SET {
@@ -2541,9 +2505,6 @@ impl Default for WSMAN_ENVIRONMENT_VARIABLE_SET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSMAN_ENVIRONMENT_VARIABLE_SET {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2559,9 +2520,6 @@ impl Default for WSMAN_ERROR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSMAN_ERROR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSMAN_FILTER {
@@ -2572,9 +2530,6 @@ impl Default for WSMAN_FILTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSMAN_FILTER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WSMAN_FLAG_AUTH_BASIC: WSManAuthenticationFlags = WSManAuthenticationFlags(8i32);
 pub const WSMAN_FLAG_AUTH_CLIENT_CERTIFICATE: WSManAuthenticationFlags = WSManAuthenticationFlags(32i32);
@@ -2616,9 +2571,6 @@ impl Default for WSMAN_FRAGMENT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSMAN_FRAGMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSMAN_KEY {
@@ -2629,9 +2581,6 @@ impl Default for WSMAN_KEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSMAN_KEY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
@@ -2654,9 +2603,6 @@ impl Default for WSMAN_OPERATION_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSMAN_OPERATION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSMAN_OPERATION_INFOEX {
@@ -2673,9 +2619,6 @@ impl Default for WSMAN_OPERATION_INFOEX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSMAN_OPERATION_INFOEX {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WSMAN_OPERATION_INFOV1: u32 = 0u32;
 pub const WSMAN_OPERATION_INFOV2: u32 = 2864434397u32;
 #[repr(C)]
@@ -2689,9 +2632,6 @@ impl Default for WSMAN_OPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSMAN_OPTION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WSMAN_OPTION_ALLOW_NEGOTIATE_IMPLICIT_CREDENTIALS: WSManSessionOption = WSManSessionOption(32i32);
 pub const WSMAN_OPTION_DEFAULT_OPERATION_TIMEOUTMS: WSManSessionOption = WSManSessionOption(1i32);
@@ -2717,9 +2657,6 @@ impl Default for WSMAN_OPTION_SET {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSMAN_OPTION_SET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSMAN_OPTION_SETEX {
@@ -2732,9 +2669,6 @@ impl Default for WSMAN_OPTION_SETEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSMAN_OPTION_SETEX {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WSMAN_OPTION_SHELL_MAX_DATA_SIZE_PER_MESSAGE_KB: WSManSessionOption = WSManSessionOption(29i32);
 pub const WSMAN_OPTION_SKIP_CA_CHECK: WSManSessionOption = WSManSessionOption(18i32);
@@ -2787,9 +2721,6 @@ impl Default for WSMAN_PLUGIN_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSMAN_PLUGIN_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 pub type WSMAN_PLUGIN_SEND = Option<unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const core::ffi::c_void, commandcontext: *const core::ffi::c_void, stream: windows_core::PCWSTR, inbounddata: *const WSMAN_DATA)>;
 pub type WSMAN_PLUGIN_SHELL = Option<unsafe extern "system" fn(plugincontext: *const core::ffi::c_void, requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, startupinfo: *const WSMAN_SHELL_STARTUP_INFO_V11, inboundshellinformation: *const WSMAN_DATA)>;
 pub type WSMAN_PLUGIN_SHUTDOWN = Option<unsafe extern "system" fn(plugincontext: *const core::ffi::c_void, flags: u32, reason: u32) -> u32>;
@@ -2813,9 +2744,6 @@ impl Default for WSMAN_PROXY_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSMAN_PROXY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSMAN_RECEIVE_DATA_RESULT {
@@ -2829,9 +2757,6 @@ impl Default for WSMAN_RECEIVE_DATA_RESULT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSMAN_RECEIVE_DATA_RESULT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WSMAN_RESPONSE_DATA {
@@ -2844,9 +2769,6 @@ impl Default for WSMAN_RESPONSE_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSMAN_RESPONSE_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSMAN_SELECTOR_SET {
@@ -2857,9 +2779,6 @@ impl Default for WSMAN_SELECTOR_SET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSMAN_SELECTOR_SET {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2874,9 +2793,6 @@ impl Default for WSMAN_SENDER_DETAILS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSMAN_SENDER_DETAILS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
@@ -2895,9 +2811,6 @@ impl Default for WSMAN_SHELL_ASYNC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSMAN_SHELL_ASYNC {
-    type TypeKind = windows_core::CopyType;
-}
 pub type WSMAN_SHELL_COMPLETION_FUNCTION = Option<unsafe extern "system" fn(operationcontext: *const core::ffi::c_void, flags: u32, error: *const WSMAN_ERROR, shell: WSMAN_SHELL_HANDLE, command: WSMAN_COMMAND_HANDLE, operationhandle: WSMAN_OPERATION_HANDLE, data: *const WSMAN_RESPONSE_DATA)>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2908,9 +2821,6 @@ impl Default for WSMAN_SHELL_DISCONNECT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSMAN_SHELL_DISCONNECT_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
@@ -2934,9 +2844,6 @@ impl Default for WSMAN_SHELL_STARTUP_INFO_V10 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSMAN_SHELL_STARTUP_INFO_V10 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSMAN_SHELL_STARTUP_INFO_V11 {
@@ -2948,9 +2855,6 @@ impl Default for WSMAN_SHELL_STARTUP_INFO_V11 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSMAN_SHELL_STARTUP_INFO_V11 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSMAN_STREAM_ID_SET {
@@ -2961,9 +2865,6 @@ impl Default for WSMAN_STREAM_ID_SET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSMAN_STREAM_ID_SET {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WSMAN_STREAM_ID_STDERR: windows_core::PCWSTR = windows_core::w!("stderr");
 pub const WSMAN_STREAM_ID_STDIN: windows_core::PCWSTR = windows_core::w!("stdin");
@@ -2978,9 +2879,6 @@ impl Default for WSMAN_USERNAME_PASSWORD_CREDS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSMAN_USERNAME_PASSWORD_CREDS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WSMan: windows_core::GUID = windows_core::GUID::from_u128(0xbced617b_ec03_420b_8508_977dc7a686bd);
 #[repr(transparent)]

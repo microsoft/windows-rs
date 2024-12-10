@@ -3316,9 +3316,6 @@ impl Default for PXE_ADDRESS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PXE_ADDRESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PXE_ADDRESS_0 {
@@ -3329,9 +3326,6 @@ impl Default for PXE_ADDRESS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PXE_ADDRESS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PXE_ADDR_BROADCAST: u32 = 1u32;
 pub const PXE_ADDR_USE_ADDR: u32 = 4u32;
@@ -3360,9 +3354,6 @@ impl Default for PXE_DHCPV6_MESSAGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PXE_DHCPV6_MESSAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct PXE_DHCPV6_MESSAGE_HEADER {
@@ -3373,9 +3364,6 @@ impl Default for PXE_DHCPV6_MESSAGE_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PXE_DHCPV6_MESSAGE_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3390,9 +3378,6 @@ impl Default for PXE_DHCPV6_NESTED_RELAY_MESSAGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PXE_DHCPV6_NESTED_RELAY_MESSAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct PXE_DHCPV6_OPTION {
@@ -3404,9 +3389,6 @@ impl Default for PXE_DHCPV6_OPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PXE_DHCPV6_OPTION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PXE_DHCPV6_RELAY_HOP_COUNT_LIMIT: u32 = 32u32;
 #[repr(C, packed(1))]
@@ -3422,9 +3404,6 @@ impl Default for PXE_DHCPV6_RELAY_MESSAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PXE_DHCPV6_RELAY_MESSAGE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PXE_DHCPV6_SERVER_PORT: u32 = 547u32;
 pub const PXE_DHCP_CLIENT_PORT: u32 = 68u32;
@@ -3456,9 +3435,6 @@ impl Default for PXE_DHCP_MESSAGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PXE_DHCP_MESSAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union PXE_DHCP_MESSAGE_0 {
@@ -3469,9 +3445,6 @@ impl Default for PXE_DHCP_MESSAGE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PXE_DHCP_MESSAGE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -3484,9 +3457,6 @@ impl Default for PXE_DHCP_OPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PXE_DHCP_OPTION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PXE_DHCP_SERVER_PORT: u32 = 67u32;
 pub const PXE_DHCP_SERVER_SIZE: u32 = 64u32;
@@ -3506,9 +3476,6 @@ impl Default for PXE_PROVIDER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PXE_PROVIDER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PXE_PROV_ATTR_FILTER: u32 = 0u32;
 pub const PXE_PROV_ATTR_FILTER_IPV6: u32 = 1u32;
@@ -3538,9 +3505,6 @@ impl Default for TRANSPORTCLIENT_SESSION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TRANSPORTCLIENT_SESSION_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3685,9 +3649,6 @@ impl Default for WDS_CLI_CRED {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WDS_CLI_CRED {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WDS_CLI_FIRMWARE_BIOS: WDS_CLI_FIRMWARE_TYPE = WDS_CLI_FIRMWARE_TYPE(1i32);
 pub const WDS_CLI_FIRMWARE_EFI: WDS_CLI_FIRMWARE_TYPE = WDS_CLI_FIRMWARE_TYPE(2i32);
 #[repr(transparent)]
@@ -3762,9 +3723,6 @@ impl Default for WDS_TRANSPORTCLIENT_CALLBACKS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WDS_TRANSPORTCLIENT_CALLBACKS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WDS_TRANSPORTCLIENT_CURRENT_API_VERSION: u32 = 1u32;
 pub const WDS_TRANSPORTCLIENT_MAX_CALLBACKS: TRANSPORTCLIENT_CALLBACK_ID = TRANSPORTCLIENT_CALLBACK_ID(6i32);
 pub const WDS_TRANSPORTCLIENT_NO_AUTH: WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL = WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL(2u32);
@@ -3790,9 +3748,6 @@ impl Default for WDS_TRANSPORTCLIENT_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WDS_TRANSPORTCLIENT_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3826,10 +3781,6 @@ impl Default for WDS_TRANSPORTPROVIDER_INIT_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Registry")]
-impl windows_core::TypeKind for WDS_TRANSPORTPROVIDER_INIT_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WDS_TRANSPORTPROVIDER_MAX_CALLBACKS: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(12i32);
 pub const WDS_TRANSPORTPROVIDER_OPEN_CONTENT: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(2i32);
 pub const WDS_TRANSPORTPROVIDER_READ_CONTENT: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(5i32);
@@ -3844,9 +3795,6 @@ impl Default for WDS_TRANSPORTPROVIDER_SETTINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WDS_TRANSPORTPROVIDER_SETTINGS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WDS_TRANSPORTPROVIDER_SHUTDOWN: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(8i32);
 pub const WDS_TRANSPORTPROVIDER_USER_ACCESS_CHECK: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(3i32);

@@ -2106,10 +2106,6 @@ impl Default for SW_DEVICE_CREATE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for SW_DEVICE_CREATE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SW_DEVICE_LIFETIME(pub i32);

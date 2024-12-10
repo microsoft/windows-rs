@@ -921,9 +921,6 @@ impl Default for BSTRBLOB {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BSTRBLOB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CABOOL {
@@ -934,9 +931,6 @@ impl Default for CABOOL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CABOOL {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -949,9 +943,6 @@ impl Default for CABSTR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CABSTR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CABSTRBLOB {
@@ -962,9 +953,6 @@ impl Default for CABSTRBLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CABSTRBLOB {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -977,9 +965,6 @@ impl Default for CAC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CAC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CACLIPDATA {
@@ -990,9 +975,6 @@ impl Default for CACLIPDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CACLIPDATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1005,9 +987,6 @@ impl Default for CACLSID {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CACLSID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CACY {
@@ -1018,9 +997,6 @@ impl Default for CACY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CACY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1033,9 +1009,6 @@ impl Default for CADATE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CADATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CADBL {
@@ -1046,9 +1019,6 @@ impl Default for CADBL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CADBL {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1061,9 +1031,6 @@ impl Default for CAFILETIME {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CAFILETIME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CAFLT {
@@ -1074,9 +1041,6 @@ impl Default for CAFLT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CAFLT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1089,9 +1053,6 @@ impl Default for CAH {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CAH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CAI {
@@ -1102,9 +1063,6 @@ impl Default for CAI {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CAI {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1117,9 +1075,6 @@ impl Default for CAL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CAL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CALPSTR {
@@ -1131,9 +1086,6 @@ impl Default for CALPSTR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CALPSTR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CALPWSTR {
@@ -1144,9 +1096,6 @@ impl Default for CALPWSTR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CALPWSTR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
@@ -1161,10 +1110,6 @@ impl Default for CAPROPVARIANT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Variant")]
-impl windows_core::TypeKind for CAPROPVARIANT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CASCODE {
@@ -1175,9 +1120,6 @@ impl Default for CASCODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CASCODE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1190,9 +1132,6 @@ impl Default for CAUB {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CAUB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CAUH {
@@ -1203,9 +1142,6 @@ impl Default for CAUH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CAUH {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1218,9 +1154,6 @@ impl Default for CAUI {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CAUI {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CAUL {
@@ -1231,9 +1164,6 @@ impl Default for CAUL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CAUL {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CCH_MAX_PROPSTG_NAME: u32 = 31u32;
 #[repr(C)]
@@ -1247,9 +1177,6 @@ impl Default for CLIPDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLIPDATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CWCSTORAGENAME: u32 = 32u32;
 windows_core::imp::define_interface!(IDirectWriterLock, IDirectWriterLock_Vtbl, 0x0e6d4d92_6738_11cf_9608_00aa00680db4);
@@ -2593,9 +2520,6 @@ impl Default for OLESTREAM {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OLESTREAM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OLESTREAMVTBL {
@@ -2606,9 +2530,6 @@ impl Default for OLESTREAMVTBL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for OLESTREAMVTBL {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PIDDI_THUMBNAIL: i32 = 2i32;
 pub const PIDDSI_BYTECOUNT: u32 = 4u32;
@@ -2695,10 +2616,6 @@ impl Default for PROPBAG2 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Variant")]
-impl windows_core::TypeKind for PROPBAG2 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const PROPSETFLAG_ANSI: u32 = 2u32;
 pub const PROPSETFLAG_CASE_SENSITIVE: u32 = 8u32;
 pub const PROPSETFLAG_DEFAULT: u32 = 0u32;
@@ -2717,9 +2634,6 @@ impl Default for PROPSPEC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROPSPEC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PROPSPEC_0 {
@@ -2730,9 +2644,6 @@ impl Default for PROPSPEC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PROPSPEC_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2747,10 +2658,6 @@ impl Default for PROPVARIANT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl windows_core::TypeKind for PROPVARIANT {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
@@ -2769,10 +2676,6 @@ impl Default for PROPVARIANT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl windows_core::TypeKind for PROPVARIANT_0 {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
@@ -2794,10 +2697,6 @@ impl Default for PROPVARIANT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl windows_core::TypeKind for PROPVARIANT_0_0 {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
@@ -2887,10 +2786,6 @@ impl Default for PROPVARIANT_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl windows_core::TypeKind for PROPVARIANT_0_0_0 {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3002,9 +2897,6 @@ impl Default for RemSNB {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RemSNB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERIALIZEDPROPERTYVALUE {
@@ -3015,9 +2907,6 @@ impl Default for SERIALIZEDPROPERTYVALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SERIALIZEDPROPERTYVALUE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3035,9 +2924,6 @@ impl Default for STATPROPSETSTG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STATPROPSETSTG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3051,10 +2937,6 @@ impl Default for STATPROPSTG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl windows_core::TypeKind for STATPROPSTG {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3084,9 +2966,6 @@ impl Default for STGOPTIONS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STGOPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const STGOPTIONS_VERSION: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
@@ -3098,7 +2977,4 @@ impl Default for VERSIONEDSTREAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VERSIONEDSTREAM {
-    type TypeKind = windows_core::CloneType;
 }

@@ -106,9 +106,6 @@ impl Default for NFCRM_RADIO_STATE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NFCRM_RADIO_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NFCRM_SET_RADIO_STATE {
@@ -120,9 +117,6 @@ impl Default for NFCRM_SET_RADIO_STATE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NFCRM_SET_RADIO_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NFC_DATA_BUFFER {
@@ -133,9 +127,6 @@ impl Default for NFC_DATA_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NFC_DATA_BUFFER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -154,9 +145,6 @@ impl Default for NFC_LLCP_CONFIG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NFC_LLCP_CONFIG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NFC_LLCP_LINK_STATUS(pub i32);
@@ -172,9 +160,6 @@ impl Default for NFC_LLCP_SERVICE_DISCOVER_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NFC_LLCP_SERVICE_DISCOVER_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NFC_LLCP_SERVICE_DISCOVER_SAP {
@@ -185,9 +170,6 @@ impl Default for NFC_LLCP_SERVICE_DISCOVER_SAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NFC_LLCP_SERVICE_DISCOVER_SAP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -200,9 +182,6 @@ impl Default for NFC_LLCP_SERVICE_NAME_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NFC_LLCP_SERVICE_NAME_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NFC_LLCP_SOCKET_ACCEPT_INFO {
@@ -213,9 +192,6 @@ impl Default for NFC_LLCP_SOCKET_ACCEPT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NFC_LLCP_SOCKET_ACCEPT_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -228,9 +204,6 @@ impl Default for NFC_LLCP_SOCKET_CL_PAYLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NFC_LLCP_SOCKET_CL_PAYLOAD {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -245,9 +218,6 @@ impl Default for NFC_LLCP_SOCKET_CONNECT_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NFC_LLCP_SOCKET_CONNECT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NFC_LLCP_SOCKET_CONNECT_INFO_0 {
@@ -258,9 +228,6 @@ impl Default for NFC_LLCP_SOCKET_CONNECT_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NFC_LLCP_SOCKET_CONNECT_INFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -279,9 +246,6 @@ impl Default for NFC_LLCP_SOCKET_ERROR_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NFC_LLCP_SOCKET_ERROR_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NFC_LLCP_SOCKET_INFO {
@@ -293,9 +257,6 @@ impl Default for NFC_LLCP_SOCKET_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NFC_LLCP_SOCKET_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NFC_LLCP_SOCKET_OPTION {
@@ -306,9 +267,6 @@ impl Default for NFC_LLCP_SOCKET_OPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NFC_LLCP_SOCKET_OPTION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -322,9 +280,6 @@ impl Default for NFC_LLCP_SOCKET_PAYLOAD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NFC_LLCP_SOCKET_PAYLOAD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NFC_LLCP_SOCKET_SERVICE_INFO {
@@ -336,9 +291,6 @@ impl Default for NFC_LLCP_SOCKET_SERVICE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NFC_LLCP_SOCKET_SERVICE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -356,9 +308,6 @@ impl Default for NFC_NDEF_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NFC_NDEF_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NFC_P2P_MODE(pub i32);
@@ -374,9 +323,6 @@ impl Default for NFC_P2P_PARAM_CONFIG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NFC_P2P_PARAM_CONFIG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NFC_RELEASE_TYPE(pub i32);
@@ -390,9 +336,6 @@ impl Default for NFC_REMOTE_DEVICE_DISCONNET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NFC_REMOTE_DEVICE_DISCONNET {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -409,9 +352,6 @@ impl Default for NFC_REMOTE_DEV_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NFC_REMOTE_DEV_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NFC_REMOTE_DEV_RECV_INFO {
@@ -422,9 +362,6 @@ impl Default for NFC_REMOTE_DEV_RECV_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NFC_REMOTE_DEV_RECV_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -437,9 +374,6 @@ impl Default for NFC_REMOTE_DEV_SEND_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NFC_REMOTE_DEV_SEND_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -462,9 +396,6 @@ impl Default for NFC_RF_DISCOVERY_CONFIG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NFC_RF_DISCOVERY_CONFIG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NFC_RF_DISCOVERY_MODE(pub i32);
@@ -481,9 +412,6 @@ impl Default for NFC_SE_AID_ROUTING_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NFC_SE_AID_ROUTING_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NFC_SE_EMULATION_MODE(pub i32);
@@ -498,9 +426,6 @@ impl Default for NFC_SE_EMULATION_MODE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NFC_SE_EMULATION_MODE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NFC_SE_EVENT_INFO {
@@ -514,9 +439,6 @@ impl Default for NFC_SE_EVENT_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NFC_SE_EVENT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NFC_SE_INFO {
@@ -528,9 +450,6 @@ impl Default for NFC_SE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NFC_SE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NFC_SE_LIST {
@@ -541,9 +460,6 @@ impl Default for NFC_SE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NFC_SE_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -557,9 +473,6 @@ impl Default for NFC_SE_PROTO_ROUTING_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NFC_SE_PROTO_ROUTING_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NFC_SE_ROUTING_TABLE {
@@ -571,9 +484,6 @@ impl Default for NFC_SE_ROUTING_TABLE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NFC_SE_ROUTING_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NFC_SE_ROUTING_TABLE_ENTRY {
@@ -584,9 +494,6 @@ impl Default for NFC_SE_ROUTING_TABLE_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NFC_SE_ROUTING_TABLE_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -600,9 +507,6 @@ impl Default for NFC_SE_ROUTING_TABLE_ENTRY_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NFC_SE_ROUTING_TABLE_ENTRY_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NFC_SE_TECH_ROUTING_INFO {
@@ -615,9 +519,6 @@ impl Default for NFC_SE_TECH_ROUTING_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NFC_SE_TECH_ROUTING_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NFC_SNEP_CLIENT_GET_INFO {
@@ -628,9 +529,6 @@ impl Default for NFC_SNEP_CLIENT_GET_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NFC_SNEP_CLIENT_GET_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -645,9 +543,6 @@ impl Default for NFC_SNEP_CLIENT_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NFC_SNEP_CLIENT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NFC_SNEP_CLIENT_PUT_INFO {
@@ -658,9 +553,6 @@ impl Default for NFC_SNEP_CLIENT_PUT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NFC_SNEP_CLIENT_PUT_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -677,9 +569,6 @@ impl Default for NFC_SNEP_SERVER_ACCEPT_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NFC_SNEP_SERVER_ACCEPT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NFC_SNEP_SERVER_INFO {
@@ -694,9 +583,6 @@ impl Default for NFC_SNEP_SERVER_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NFC_SNEP_SERVER_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NFC_SNEP_SERVER_REQUEST {
@@ -710,9 +596,6 @@ impl Default for NFC_SNEP_SERVER_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NFC_SNEP_SERVER_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NFC_SNEP_SERVER_RESPONSE_INFO {
@@ -725,9 +608,6 @@ impl Default for NFC_SNEP_SERVER_RESPONSE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NFC_SNEP_SERVER_RESPONSE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -766,9 +646,6 @@ impl Default for SECURE_ELEMENT_AID_ROUTING_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SECURE_ELEMENT_AID_ROUTING_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURE_ELEMENT_CARD_EMULATION_MODE(pub i32);
@@ -783,9 +660,6 @@ impl Default for SECURE_ELEMENT_ENDPOINT_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SECURE_ELEMENT_ENDPOINT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SECURE_ELEMENT_ENDPOINT_LIST {
@@ -796,9 +670,6 @@ impl Default for SECURE_ELEMENT_ENDPOINT_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SECURE_ELEMENT_ENDPOINT_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -813,9 +684,6 @@ impl Default for SECURE_ELEMENT_EVENT_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SECURE_ELEMENT_EVENT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SECURE_ELEMENT_EVENT_SUBSCRIPTION_INFO {
@@ -826,9 +694,6 @@ impl Default for SECURE_ELEMENT_EVENT_SUBSCRIPTION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SECURE_ELEMENT_EVENT_SUBSCRIPTION_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -845,9 +710,6 @@ impl Default for SECURE_ELEMENT_HCE_ACTIVATION_PAYLOAD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SECURE_ELEMENT_HCE_ACTIVATION_PAYLOAD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SECURE_ELEMENT_HCE_DATA_PACKET {
@@ -859,9 +721,6 @@ impl Default for SECURE_ELEMENT_HCE_DATA_PACKET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SECURE_ELEMENT_HCE_DATA_PACKET {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -875,9 +734,6 @@ impl Default for SECURE_ELEMENT_NFCC_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SECURE_ELEMENT_NFCC_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -893,9 +749,6 @@ impl Default for SECURE_ELEMENT_PROTO_ROUTING_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SECURE_ELEMENT_PROTO_ROUTING_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SECURE_ELEMENT_ROUTING_TABLE {
@@ -906,9 +759,6 @@ impl Default for SECURE_ELEMENT_ROUTING_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SECURE_ELEMENT_ROUTING_TABLE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -921,9 +771,6 @@ impl Default for SECURE_ELEMENT_ROUTING_TABLE_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SECURE_ELEMENT_ROUTING_TABLE_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union SECURE_ELEMENT_ROUTING_TABLE_ENTRY_0 {
@@ -935,9 +782,6 @@ impl Default for SECURE_ELEMENT_ROUTING_TABLE_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SECURE_ELEMENT_ROUTING_TABLE_ENTRY_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -953,9 +797,6 @@ impl Default for SECURE_ELEMENT_SET_CARD_EMULATION_MODE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SECURE_ELEMENT_SET_CARD_EMULATION_MODE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SECURE_ELEMENT_SET_POWER_MODE_INFO {
@@ -967,9 +808,6 @@ impl Default for SECURE_ELEMENT_SET_POWER_MODE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SECURE_ELEMENT_SET_POWER_MODE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SECURE_ELEMENT_TECH_ROUTING_INFO {
@@ -980,9 +818,6 @@ impl Default for SECURE_ELEMENT_TECH_ROUTING_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SECURE_ELEMENT_TECH_ROUTING_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

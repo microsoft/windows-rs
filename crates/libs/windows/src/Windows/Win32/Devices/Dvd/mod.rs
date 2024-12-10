@@ -9,9 +9,6 @@ impl Default for AACS_BINDING_NONCE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AACS_BINDING_NONCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AACS_CERTIFICATE {
@@ -22,9 +19,6 @@ impl Default for AACS_CERTIFICATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AACS_CERTIFICATE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -37,9 +31,6 @@ impl Default for AACS_CHALLENGE_KEY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AACS_CHALLENGE_KEY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AACS_MEDIA_ID {
@@ -50,9 +41,6 @@ impl Default for AACS_MEDIA_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AACS_MEDIA_ID {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -67,9 +55,6 @@ impl Default for AACS_READ_BINDING_NONCE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AACS_READ_BINDING_NONCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union AACS_READ_BINDING_NONCE_0 {
@@ -80,9 +65,6 @@ impl Default for AACS_READ_BINDING_NONCE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AACS_READ_BINDING_NONCE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -95,9 +77,6 @@ impl Default for AACS_SEND_CERTIFICATE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AACS_SEND_CERTIFICATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AACS_SEND_CHALLENGE_KEY {
@@ -108,9 +87,6 @@ impl Default for AACS_SEND_CHALLENGE_KEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AACS_SEND_CHALLENGE_KEY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -123,9 +99,6 @@ impl Default for AACS_SERIAL_NUMBER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AACS_SERIAL_NUMBER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AACS_VOLUME_ID {
@@ -136,9 +109,6 @@ impl Default for AACS_VOLUME_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AACS_VOLUME_ID {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -154,9 +124,6 @@ impl Default for BD_DISC_WRITE_PROTECT_PAC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BD_DISC_WRITE_PROTECT_PAC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -176,9 +143,6 @@ impl Default for BD_PAC_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BD_PAC_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISC_CONTROL_BLOCK_TYPE(pub i32);
@@ -193,9 +157,6 @@ impl Default for DVD_ASF {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DVD_ASF {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_BCA_DESCRIPTOR {
@@ -205,9 +166,6 @@ impl Default for DVD_BCA_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DVD_BCA_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -220,9 +178,6 @@ impl Default for DVD_BD_SPARE_AREA_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DVD_BD_SPARE_AREA_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DVD_CGMS_COPY_ONCE: u32 = 16u32;
 pub const DVD_CGMS_COPY_PERMITTED: u32 = 0u32;
@@ -242,9 +197,6 @@ impl Default for DVD_COPYRIGHT_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DVD_COPYRIGHT_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DVD_COPYRIGHT_MANAGEMENT_DESCRIPTOR {
@@ -255,9 +207,6 @@ impl Default for DVD_COPYRIGHT_MANAGEMENT_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DVD_COPYRIGHT_MANAGEMENT_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -273,9 +222,6 @@ impl Default for DVD_COPYRIGHT_MANAGEMENT_DESCRIPTOR_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DVD_COPYRIGHT_MANAGEMENT_DESCRIPTOR_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_COPYRIGHT_MANAGEMENT_DESCRIPTOR_0_1 {
@@ -285,9 +231,6 @@ impl Default for DVD_COPYRIGHT_MANAGEMENT_DESCRIPTOR_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DVD_COPYRIGHT_MANAGEMENT_DESCRIPTOR_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -299,9 +242,6 @@ impl Default for DVD_COPYRIGHT_MANAGEMENT_DESCRIPTOR_0_3 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DVD_COPYRIGHT_MANAGEMENT_DESCRIPTOR_0_3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_COPYRIGHT_MANAGEMENT_DESCRIPTOR_0_2 {
@@ -312,9 +252,6 @@ impl Default for DVD_COPYRIGHT_MANAGEMENT_DESCRIPTOR_0_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DVD_COPYRIGHT_MANAGEMENT_DESCRIPTOR_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_COPYRIGHT_MANAGEMENT_DESCRIPTOR_0_0 {
@@ -324,9 +261,6 @@ impl Default for DVD_COPYRIGHT_MANAGEMENT_DESCRIPTOR_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DVD_COPYRIGHT_MANAGEMENT_DESCRIPTOR_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DVD_COPYRIGHT_MASK: u32 = 64u32;
 #[repr(C, packed(1))]
@@ -344,9 +278,6 @@ impl Default for DVD_COPY_PROTECT_KEY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DVD_COPY_PROTECT_KEY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union DVD_COPY_PROTECT_KEY_0 {
@@ -357,9 +288,6 @@ impl Default for DVD_COPY_PROTECT_KEY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DVD_COPY_PROTECT_KEY_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -373,9 +301,6 @@ impl Default for DVD_DESCRIPTOR_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DVD_DESCRIPTOR_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DVD_DISC_CONTROL_BLOCK_HEADER {
@@ -388,9 +313,6 @@ impl Default for DVD_DISC_CONTROL_BLOCK_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DVD_DISC_CONTROL_BLOCK_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DVD_DISC_CONTROL_BLOCK_HEADER_0 {
@@ -402,9 +324,6 @@ impl Default for DVD_DISC_CONTROL_BLOCK_HEADER_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DVD_DISC_CONTROL_BLOCK_HEADER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_DISC_CONTROL_BLOCK_HEADER_0_0 {
@@ -415,9 +334,6 @@ impl Default for DVD_DISC_CONTROL_BLOCK_HEADER_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DVD_DISC_CONTROL_BLOCK_HEADER_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -434,9 +350,6 @@ impl Default for DVD_DISC_CONTROL_BLOCK_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DVD_DISC_CONTROL_BLOCK_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_DISC_CONTROL_BLOCK_LIST_DCB {
@@ -446,9 +359,6 @@ impl Default for DVD_DISC_CONTROL_BLOCK_LIST_DCB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DVD_DISC_CONTROL_BLOCK_LIST_DCB {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -466,9 +376,6 @@ impl Default for DVD_DISC_CONTROL_BLOCK_SESSION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DVD_DISC_CONTROL_BLOCK_SESSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_DISC_CONTROL_BLOCK_SESSION_ITEM {
@@ -478,9 +385,6 @@ impl Default for DVD_DISC_CONTROL_BLOCK_SESSION_ITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DVD_DISC_CONTROL_BLOCK_SESSION_ITEM {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -497,9 +401,6 @@ impl Default for DVD_DISC_CONTROL_BLOCK_WRITE_INHIBIT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DVD_DISC_CONTROL_BLOCK_WRITE_INHIBIT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DVD_DISC_CONTROL_BLOCK_WRITE_INHIBIT_0 {
@@ -510,9 +411,6 @@ impl Default for DVD_DISC_CONTROL_BLOCK_WRITE_INHIBIT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DVD_DISC_CONTROL_BLOCK_WRITE_INHIBIT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -525,9 +423,6 @@ impl Default for DVD_DISC_CONTROL_BLOCK_WRITE_INHIBIT_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DVD_DISC_CONTROL_BLOCK_WRITE_INHIBIT_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_DISK_KEY_DESCRIPTOR {
@@ -537,9 +432,6 @@ impl Default for DVD_DISK_KEY_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DVD_DISK_KEY_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -552,9 +444,6 @@ impl Default for DVD_DUAL_LAYER_JUMP_INTERVAL_SIZE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DVD_DUAL_LAYER_JUMP_INTERVAL_SIZE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_DUAL_LAYER_MANUAL_LAYER_JUMP {
@@ -565,9 +454,6 @@ impl Default for DVD_DUAL_LAYER_MANUAL_LAYER_JUMP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DVD_DUAL_LAYER_MANUAL_LAYER_JUMP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -581,9 +467,6 @@ impl Default for DVD_DUAL_LAYER_MIDDLE_ZONE_START_ADDRESS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DVD_DUAL_LAYER_MIDDLE_ZONE_START_ADDRESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_DUAL_LAYER_RECORDING_INFORMATION {
@@ -596,9 +479,6 @@ impl Default for DVD_DUAL_LAYER_RECORDING_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DVD_DUAL_LAYER_RECORDING_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_DUAL_LAYER_REMAPPING_INFORMATION {
@@ -610,9 +490,6 @@ impl Default for DVD_DUAL_LAYER_REMAPPING_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DVD_DUAL_LAYER_REMAPPING_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DVD_FULL_LAYER_DESCRIPTOR {
@@ -623,9 +500,6 @@ impl Default for DVD_FULL_LAYER_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DVD_FULL_LAYER_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -647,9 +521,6 @@ impl Default for DVD_LAYER_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DVD_LAYER_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_LIST_OF_RECOGNIZED_FORMAT_LAYERS {
@@ -659,9 +530,6 @@ impl Default for DVD_LIST_OF_RECOGNIZED_FORMAT_LAYERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DVD_LIST_OF_RECOGNIZED_FORMAT_LAYERS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -674,9 +542,6 @@ impl Default for DVD_LIST_OF_RECOGNIZED_FORMAT_LAYERS_TYPE_CODE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DVD_LIST_OF_RECOGNIZED_FORMAT_LAYERS_TYPE_CODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_MANUFACTURER_DESCRIPTOR {
@@ -686,9 +551,6 @@ impl Default for DVD_MANUFACTURER_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DVD_MANUFACTURER_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DVD_NOT_COPYRIGHTED: u32 = 0u32;
 #[repr(C)]
@@ -721,9 +583,6 @@ impl Default for DVD_PRERECORDED_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DVD_PRERECORDED_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_RAM_MEDIUM_STATUS {
@@ -737,9 +596,6 @@ impl Default for DVD_RAM_MEDIUM_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DVD_RAM_MEDIUM_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_RAM_RECORDING_TYPE {
@@ -750,9 +606,6 @@ impl Default for DVD_RAM_RECORDING_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DVD_RAM_RECORDING_TYPE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -765,9 +618,6 @@ impl Default for DVD_RAM_SPARE_AREA_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DVD_RAM_SPARE_AREA_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -782,9 +632,6 @@ impl Default for DVD_READ_STRUCTURE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DVD_READ_STRUCTURE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_RECORDING_MANAGEMENT_AREA_DATA {
@@ -795,9 +642,6 @@ impl Default for DVD_RECORDING_MANAGEMENT_AREA_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DVD_RECORDING_MANAGEMENT_AREA_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -812,9 +656,6 @@ impl Default for DVD_REGION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DVD_REGION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_RPC_KEY {
@@ -827,9 +668,6 @@ impl Default for DVD_RPC_KEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DVD_RPC_KEY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DVD_SECTOR_NOT_PROTECTED: u32 = 0u32;
 pub const DVD_SECTOR_PROTECTED: u32 = 32u32;
@@ -845,9 +683,6 @@ impl Default for DVD_SET_RPC_KEY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DVD_SET_RPC_KEY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVD_STRUCTURE_FORMAT(pub i32);
@@ -862,9 +697,6 @@ impl Default for DVD_STRUCTURE_LIST_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DVD_STRUCTURE_LIST_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -883,9 +715,6 @@ impl Default for DVD_UNIQUE_DISC_IDENTIFIER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DVD_UNIQUE_DISC_IDENTIFIER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_WRITE_PROTECTION_STATUS {
@@ -896,9 +725,6 @@ impl Default for DVD_WRITE_PROTECTION_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DVD_WRITE_PROTECTION_STATUS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DiscControlBlockList: DISC_CONTROL_BLOCK_TYPE = DISC_CONTROL_BLOCK_TYPE(-1i32);
 pub const DvdAsf: DVD_KEY_TYPE = DVD_KEY_TYPE(5i32);
@@ -928,9 +754,6 @@ impl Default for HD_DVD_R_MEDIUM_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HD_DVD_R_MEDIUM_STATUS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const IOCTL_AACS_END_SESSION: u32 = 3363020u32;
 pub const IOCTL_AACS_GENERATE_BINDING_NONCE: u32 = 3395824u32;
@@ -965,9 +788,6 @@ impl Default for STORAGE_SET_READ_AHEAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STORAGE_SET_READ_AHEAD {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SessionInfoDiscControlBlock: DISC_CONTROL_BLOCK_TYPE = DISC_CONTROL_BLOCK_TYPE(1396982528i32);
 pub const WriteInhibitDiscControlBlock: DISC_CONTROL_BLOCK_TYPE = DISC_CONTROL_BLOCK_TYPE(1464091392i32);

@@ -119,9 +119,6 @@ impl Default for CONTACT_AGGREGATION_BLOB {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CONTACT_AGGREGATION_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONTACT_AGGREGATION_COLLECTION_OPTIONS(pub i32);

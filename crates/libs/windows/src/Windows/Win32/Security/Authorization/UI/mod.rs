@@ -43,9 +43,6 @@ impl Default for EFFPERM_RESULT_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EFFPERM_RESULT_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 windows_core::imp::define_interface!(IEffectivePermission, IEffectivePermission_Vtbl, 0x3853dc76_9f35_407c_88a1_d19344365fbc);
 windows_core::imp::interface_hierarchy!(IEffectivePermission, windows_core::IUnknown);
 impl IEffectivePermission {
@@ -505,9 +502,6 @@ impl Default for SECURITY_OBJECT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SECURITY_OBJECT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SECURITY_OBJECT_ID_CENTRAL_ACCESS_RULE: u32 = 4u32;
 pub const SECURITY_OBJECT_ID_CENTRAL_POLICY: u32 = 3u32;
 pub const SECURITY_OBJECT_ID_OBJECT_SD: u32 = 1u32;
@@ -525,9 +519,6 @@ impl Default for SID_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SID_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SID_INFO_LIST {
@@ -538,9 +529,6 @@ impl Default for SID_INFO_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SID_INFO_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -554,9 +542,6 @@ impl Default for SI_ACCESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SI_ACCESS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SI_ACCESS_CONTAINER: i32 = 262144i32;
 pub const SI_ACCESS_GENERAL: i32 = 131072i32;
@@ -585,9 +570,6 @@ impl Default for SI_INHERIT_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SI_INHERIT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SI_MAY_WRITE: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(268435456u32);
 pub const SI_NO_ACL_PROTECT: i32 = 512i32;
 pub const SI_NO_ADDITIONAL_PERMISSION: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(2097152u32);
@@ -607,9 +589,6 @@ impl Default for SI_OBJECT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SI_OBJECT_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

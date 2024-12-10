@@ -11,9 +11,6 @@ impl Default for CHANGE_ATTRIBUTES_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CHANGE_ATTRIBUTES_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CHANGE_ATTRIBUTES_PARAMETERS_0 {
@@ -25,9 +22,6 @@ impl Default for CHANGE_ATTRIBUTES_PARAMETERS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CHANGE_ATTRIBUTES_PARAMETERS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CHANGE_ATTRIBUTES_PARAMETERS_0_1 {
@@ -38,9 +32,6 @@ impl Default for CHANGE_ATTRIBUTES_PARAMETERS_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CHANGE_ATTRIBUTES_PARAMETERS_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CHANGE_ATTRIBUTES_PARAMETERS_0_0 {
@@ -50,9 +41,6 @@ impl Default for CHANGE_ATTRIBUTES_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CHANGE_ATTRIBUTES_PARAMETERS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -65,9 +53,6 @@ impl Default for CHANGE_PARTITION_TYPE_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CHANGE_PARTITION_TYPE_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CHANGE_PARTITION_TYPE_PARAMETERS_0 {
@@ -79,9 +64,6 @@ impl Default for CHANGE_PARTITION_TYPE_PARAMETERS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CHANGE_PARTITION_TYPE_PARAMETERS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CHANGE_PARTITION_TYPE_PARAMETERS_0_1 {
@@ -92,9 +74,6 @@ impl Default for CHANGE_PARTITION_TYPE_PARAMETERS_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CHANGE_PARTITION_TYPE_PARAMETERS_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CHANGE_PARTITION_TYPE_PARAMETERS_0_0 {
@@ -104,9 +83,6 @@ impl Default for CHANGE_PARTITION_TYPE_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CHANGE_PARTITION_TYPE_PARAMETERS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CLSID_VdsLoader: windows_core::GUID = windows_core::GUID::from_u128(0x9c38ed61_d565_4728_aeee_c80952f0ecde);
 pub const CLSID_VdsService: windows_core::GUID = windows_core::GUID::from_u128(0x7d1933cb_86f6_4a98_8628_01be94c9a575);
@@ -121,9 +97,6 @@ impl Default for CREATE_PARTITION_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CREATE_PARTITION_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CREATE_PARTITION_PARAMETERS_0 {
@@ -134,9 +107,6 @@ impl Default for CREATE_PARTITION_PARAMETERS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CREATE_PARTITION_PARAMETERS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -151,9 +121,6 @@ impl Default for CREATE_PARTITION_PARAMETERS_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CREATE_PARTITION_PARAMETERS_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CREATE_PARTITION_PARAMETERS_0_0 {
@@ -164,9 +131,6 @@ impl Default for CREATE_PARTITION_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CREATE_PARTITION_PARAMETERS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const GPT_PARTITION_NAME_LENGTH: u32 = 36u32;
 windows_core::imp::define_interface!(IEnumVdsObject, IEnumVdsObject_Vtbl, 0x118610b7_8d94_4030_b5b8_500889788e4e);
@@ -5542,9 +5506,6 @@ impl Default for VDS_ADVANCEDDISK_PROP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_ADVANCEDDISK_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union VDS_ADVANCEDDISK_PROP_0 {
@@ -5555,9 +5516,6 @@ impl Default for VDS_ADVANCEDDISK_PROP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_ADVANCEDDISK_PROP_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const VDS_ASYNCOUT_ADDLUNPLEX: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(52i32);
 pub const VDS_ASYNCOUT_ADDPORTAL: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(65i32);
@@ -5606,9 +5564,6 @@ impl Default for VDS_ASYNC_OUTPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_ASYNC_OUTPUT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 pub union VDS_ASYNC_OUTPUT_0 {
     pub cp: VDS_ASYNC_OUTPUT_0_0,
@@ -5630,9 +5585,6 @@ impl Default for VDS_ASYNC_OUTPUT_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_ASYNC_OUTPUT_0 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_2 {
@@ -5643,9 +5595,6 @@ impl Default for VDS_ASYNC_OUTPUT_0_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_ASYNC_OUTPUT_0_2 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_4 {
@@ -5655,9 +5604,6 @@ impl Default for VDS_ASYNC_OUTPUT_0_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_ASYNC_OUTPUT_0_4 {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5670,9 +5616,6 @@ impl Default for VDS_ASYNC_OUTPUT_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_ASYNC_OUTPUT_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_6 {
@@ -5682,9 +5625,6 @@ impl Default for VDS_ASYNC_OUTPUT_0_6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_ASYNC_OUTPUT_0_6 {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
@@ -5696,9 +5636,6 @@ impl Default for VDS_ASYNC_OUTPUT_0_5 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_ASYNC_OUTPUT_0_5 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_1 {
@@ -5708,9 +5645,6 @@ impl Default for VDS_ASYNC_OUTPUT_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_ASYNC_OUTPUT_0_1 {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
@@ -5722,9 +5656,6 @@ impl Default for VDS_ASYNC_OUTPUT_0_7 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_ASYNC_OUTPUT_0_7 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_3 {
@@ -5734,9 +5665,6 @@ impl Default for VDS_ASYNC_OUTPUT_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_ASYNC_OUTPUT_0_3 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5753,9 +5681,6 @@ impl Default for VDS_CONTROLLER_NOTIFICATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_CONTROLLER_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_CONTROLLER_PROP {
@@ -5770,9 +5695,6 @@ impl Default for VDS_CONTROLLER_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_CONTROLLER_PROP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5791,9 +5713,6 @@ impl Default for VDS_CREATE_VDISK_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_CREATE_VDISK_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const VDS_CS_FAILED: VDS_CONTROLLER_STATUS = VDS_CONTROLLER_STATUS(5i32);
 pub const VDS_CS_NOT_READY: VDS_CONTROLLER_STATUS = VDS_CONTROLLER_STATUS(2i32);
@@ -5843,9 +5762,6 @@ impl Default for VDS_DISK_EXTENT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_DISK_EXTENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_DISK_EXTENT_TYPE(pub i32);
@@ -5864,9 +5780,6 @@ impl Default for VDS_DISK_FREE_EXTENT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_DISK_FREE_EXTENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_DISK_NOTIFICATION {
@@ -5877,9 +5790,6 @@ impl Default for VDS_DISK_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_DISK_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5912,9 +5822,6 @@ impl Default for VDS_DISK_PROP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_DISK_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union VDS_DISK_PROP_0 {
@@ -5925,9 +5832,6 @@ impl Default for VDS_DISK_PROP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_DISK_PROP_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5959,9 +5863,6 @@ impl Default for VDS_DISK_PROP2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_DISK_PROP2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union VDS_DISK_PROP2_0 {
@@ -5972,9 +5873,6 @@ impl Default for VDS_DISK_PROP2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_DISK_PROP2_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5998,9 +5896,6 @@ impl Default for VDS_DRIVE_EXTENT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_DRIVE_EXTENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_DRIVE_FLAG(pub i32);
@@ -6019,9 +5914,6 @@ impl Default for VDS_DRIVE_LETTER_NOTIFICATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_DRIVE_LETTER_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_DRIVE_LETTER_PROP {
@@ -6035,9 +5927,6 @@ impl Default for VDS_DRIVE_LETTER_PROP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_DRIVE_LETTER_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_DRIVE_NOTIFICATION {
@@ -6048,9 +5937,6 @@ impl Default for VDS_DRIVE_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_DRIVE_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6069,9 +5955,6 @@ impl Default for VDS_DRIVE_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_DRIVE_PROP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6093,9 +5976,6 @@ impl Default for VDS_DRIVE_PROP2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_DRIVE_PROP2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6482,9 +6362,6 @@ impl Default for VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_FILE_SYSTEM_NOTIFICATION {
@@ -6496,9 +6373,6 @@ impl Default for VDS_FILE_SYSTEM_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_FILE_SYSTEM_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6515,9 +6389,6 @@ impl Default for VDS_FILE_SYSTEM_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_FILE_SYSTEM_PROP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6539,9 +6410,6 @@ impl Default for VDS_FILE_SYSTEM_TYPE_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_FILE_SYSTEM_TYPE_PROP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6598,9 +6466,6 @@ impl Default for VDS_HBAPORT_PROP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_HBAPORT_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_HBAPORT_SPEED_FLAG(pub i32);
@@ -6639,9 +6504,6 @@ impl Default for VDS_HINTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_HINTS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6682,9 +6544,6 @@ impl Default for VDS_HINTS2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_HINTS2 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const VDS_HINT_ALLOCATEHOTSPARE: i32 = 512i32;
 pub const VDS_HINT_BUSTYPE: i32 = 1024i32;
@@ -6782,9 +6641,6 @@ impl Default for VDS_INPUT_DISK {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_INPUT_DISK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_INTERCONNECT {
@@ -6798,9 +6654,6 @@ impl Default for VDS_INTERCONNECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_INTERCONNECT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6823,9 +6676,6 @@ impl Default for VDS_IPADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_IPADDRESS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6853,9 +6703,6 @@ impl Default for VDS_ISCSI_INITIATOR_ADAPTER_PROP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_ISCSI_INITIATOR_ADAPTER_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_ISCSI_INITIATOR_PORTAL_PROP {
@@ -6867,9 +6714,6 @@ impl Default for VDS_ISCSI_INITIATOR_PORTAL_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_ISCSI_INITIATOR_PORTAL_PROP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6884,9 +6728,6 @@ impl Default for VDS_ISCSI_IPSEC_KEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_ISCSI_IPSEC_KEY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6905,9 +6746,6 @@ impl Default for VDS_ISCSI_PORTALGROUP_PROP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_ISCSI_PORTALGROUP_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_ISCSI_PORTAL_PROP {
@@ -6919,9 +6757,6 @@ impl Default for VDS_ISCSI_PORTAL_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_ISCSI_PORTAL_PROP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6937,9 +6772,6 @@ impl Default for VDS_ISCSI_SHARED_SECRET {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_ISCSI_SHARED_SECRET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_ISCSI_TARGET_PROP {
@@ -6952,9 +6784,6 @@ impl Default for VDS_ISCSI_TARGET_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_ISCSI_TARGET_PROP {
-    type TypeKind = windows_core::CopyType;
 }
 pub const VDS_ITF_FIBRE_CHANNEL: VDS_INTERCONNECT_FLAG = VDS_INTERCONNECT_FLAG(2i32);
 pub const VDS_ITF_ISCSI: VDS_INTERCONNECT_FLAG = VDS_INTERCONNECT_FLAG(4i32);
@@ -7071,9 +6900,6 @@ impl Default for VDS_LUN_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_LUN_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_LUN_NOTIFICATION {
@@ -7084,9 +6910,6 @@ impl Default for VDS_LUN_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_LUN_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7108,9 +6931,6 @@ impl Default for VDS_LUN_PLEX_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_LUN_PLEX_PROP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7138,9 +6958,6 @@ impl Default for VDS_LUN_PROP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_LUN_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_LUN_RESERVE_MODE(pub i32);
@@ -7163,9 +6980,6 @@ impl Default for VDS_MOUNT_POINT_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_MOUNT_POINT_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const VDS_MPS_FAILED: VDS_PATH_STATUS = VDS_PATH_STATUS(5i32);
 pub const VDS_MPS_ONLINE: VDS_PATH_STATUS = VDS_PATH_STATUS(1i32);
@@ -7250,9 +7064,6 @@ impl Default for VDS_NOTIFICATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union VDS_NOTIFICATION_0 {
@@ -7277,9 +7088,6 @@ impl Default for VDS_NOTIFICATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_NOTIFICATION_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7341,9 +7149,6 @@ impl Default for VDS_PACK_NOTIFICATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_PACK_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_PACK_PROP {
@@ -7356,9 +7161,6 @@ impl Default for VDS_PACK_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_PACK_PROP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7381,9 +7183,6 @@ impl Default for VDS_PARTITION_INFORMATION_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_PARTITION_INFORMATION_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union VDS_PARTITION_INFORMATION_EX_0 {
@@ -7394,9 +7193,6 @@ impl Default for VDS_PARTITION_INFORMATION_EX_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_PARTITION_INFORMATION_EX_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7411,9 +7207,6 @@ impl Default for VDS_PARTITION_INFO_GPT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_PARTITION_INFO_GPT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_PARTITION_INFO_MBR {
@@ -7427,9 +7220,6 @@ impl Default for VDS_PARTITION_INFO_MBR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_PARTITION_INFO_MBR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_PARTITION_NOTIFICATION {
@@ -7441,9 +7231,6 @@ impl Default for VDS_PARTITION_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_PARTITION_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7460,9 +7247,6 @@ impl Default for VDS_PARTITION_PROP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_PARTITION_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union VDS_PARTITION_PROP_0 {
@@ -7473,9 +7257,6 @@ impl Default for VDS_PARTITION_PROP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_PARTITION_PROP_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7494,9 +7275,6 @@ impl Default for VDS_PATH_ID {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_PATH_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct VDS_PATH_INFO {
@@ -7512,9 +7290,6 @@ impl Default for VDS_PATH_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_PATH_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union VDS_PATH_INFO_0 {
@@ -7525,9 +7300,6 @@ impl Default for VDS_PATH_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_PATH_INFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7540,9 +7312,6 @@ impl Default for VDS_PATH_INFO_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_PATH_INFO_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union VDS_PATH_INFO_2 {
@@ -7553,9 +7322,6 @@ impl Default for VDS_PATH_INFO_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_PATH_INFO_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7568,9 +7334,6 @@ impl Default for VDS_PATH_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_PATH_POLICY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7637,9 +7400,6 @@ impl Default for VDS_POOL_ATTRIBUTES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_POOL_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 pub const VDS_POOL_ATTRIB_ACCS_BDW_WT_HINT: i32 = 16777216i32;
 pub const VDS_POOL_ATTRIB_ACCS_DIR_HINT: i32 = 2097152i32;
 pub const VDS_POOL_ATTRIB_ACCS_LTNCY_HINT: i32 = 8388608i32;
@@ -7679,9 +7439,6 @@ impl Default for VDS_POOL_CUSTOM_ATTRIBUTES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_POOL_CUSTOM_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_PORTAL_GROUP_NOTIFICATION {
@@ -7692,9 +7449,6 @@ impl Default for VDS_PORTAL_GROUP_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_PORTAL_GROUP_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7707,9 +7461,6 @@ impl Default for VDS_PORTAL_NOTIFICATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_PORTAL_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_PORT_NOTIFICATION {
@@ -7720,9 +7471,6 @@ impl Default for VDS_PORT_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_PORT_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7736,9 +7484,6 @@ impl Default for VDS_PORT_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_PORT_PROP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7765,9 +7510,6 @@ impl Default for VDS_PROVIDER_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_PROVIDER_PROP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7818,9 +7560,6 @@ impl Default for VDS_REPARSE_POINT_PROP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_REPARSE_POINT_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 pub const VDS_RT_RAID0: VDS_RAID_TYPE = VDS_RAID_TYPE(10i32);
 pub const VDS_RT_RAID01: VDS_RAID_TYPE = VDS_RAID_TYPE(17i32);
 pub const VDS_RT_RAID03: VDS_RAID_TYPE = VDS_RAID_TYPE(18i32);
@@ -7857,9 +7596,6 @@ impl Default for VDS_SERVICE_NOTIFICATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_SERVICE_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_SERVICE_PROP {
@@ -7870,9 +7606,6 @@ impl Default for VDS_SERVICE_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_SERVICE_PROP {
-    type TypeKind = windows_core::CopyType;
 }
 pub const VDS_SF_CONSISTENCY_CHECK_CAPABLE: VDS_SUB_SYSTEM_FLAG = VDS_SUB_SYSTEM_FLAG(16777216i32);
 pub const VDS_SF_DRIVE_EXTENT_CAPABLE: VDS_SUB_SYSTEM_FLAG = VDS_SUB_SYSTEM_FLAG(8i32);
@@ -7948,9 +7681,6 @@ impl Default for VDS_STORAGE_DEVICE_ID_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_STORAGE_DEVICE_ID_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_STORAGE_IDENTIFIER {
@@ -7963,9 +7693,6 @@ impl Default for VDS_STORAGE_IDENTIFIER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_STORAGE_IDENTIFIER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7985,9 +7712,6 @@ impl Default for VDS_STORAGE_POOL_DRIVE_EXTENT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_STORAGE_POOL_DRIVE_EXTENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_STORAGE_POOL_PROP {
@@ -8005,9 +7729,6 @@ impl Default for VDS_STORAGE_POOL_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_STORAGE_POOL_PROP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8029,9 +7750,6 @@ impl Default for VDS_SUB_SYSTEM_NOTIFICATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_SUB_SYSTEM_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_SUB_SYSTEM_PROP {
@@ -8051,9 +7769,6 @@ impl Default for VDS_SUB_SYSTEM_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_SUB_SYSTEM_PROP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8076,9 +7791,6 @@ impl Default for VDS_SUB_SYSTEM_PROP2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_SUB_SYSTEM_PROP2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8142,9 +7854,6 @@ impl Default for VDS_TARGET_NOTIFICATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_TARGET_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_TRANSITION_STATE(pub i32);
@@ -8174,10 +7883,6 @@ impl Default for VDS_VDISK_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Storage_Vhd")]
-impl windows_core::TypeKind for VDS_VDISK_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8227,9 +7932,6 @@ impl Default for VDS_VOLUME_NOTIFICATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_VOLUME_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_VOLUME_PLEX_PROP {
@@ -8246,9 +7948,6 @@ impl Default for VDS_VOLUME_PLEX_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_VOLUME_PLEX_PROP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8274,9 +7973,6 @@ impl Default for VDS_VOLUME_PROP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VDS_VOLUME_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_VOLUME_PROP2 {
@@ -8296,9 +7992,6 @@ impl Default for VDS_VOLUME_PROP2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_VOLUME_PROP2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8352,9 +8045,6 @@ impl Default for VDS_WWN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDS_WWN {
-    type TypeKind = windows_core::CopyType;
 }
 pub const VER_VDS_LUN_INFORMATION: u32 = 1u32;
 #[repr(transparent)]

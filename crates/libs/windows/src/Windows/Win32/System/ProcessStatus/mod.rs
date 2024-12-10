@@ -282,9 +282,6 @@ impl Default for ENUM_PAGE_FILE_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ENUM_PAGE_FILE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENUM_PROCESS_MODULES_EX_FLAGS(pub u32);
@@ -303,9 +300,6 @@ impl Default for MODULEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MODULEINFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub type PENUM_PAGE_FILE_CALLBACKA = Option<unsafe extern "system" fn(pcontext: *mut core::ffi::c_void, ppagefileinfo: *mut ENUM_PAGE_FILE_INFORMATION, lpfilename: windows_core::PCSTR) -> super::super::Foundation::BOOL>;
 pub type PENUM_PAGE_FILE_CALLBACKW = Option<unsafe extern "system" fn(pcontext: *mut core::ffi::c_void, ppagefileinfo: *mut ENUM_PAGE_FILE_INFORMATION, lpfilename: windows_core::PCWSTR) -> super::super::Foundation::BOOL>;
@@ -332,9 +326,6 @@ impl Default for PERFORMANCE_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PERFORMANCE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROCESS_MEMORY_COUNTERS {
@@ -353,9 +344,6 @@ impl Default for PROCESS_MEMORY_COUNTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PROCESS_MEMORY_COUNTERS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -376,9 +364,6 @@ impl Default for PROCESS_MEMORY_COUNTERS_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PROCESS_MEMORY_COUNTERS_EX {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -402,9 +387,6 @@ impl Default for PROCESS_MEMORY_COUNTERS_EX2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROCESS_MEMORY_COUNTERS_EX2 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const PSAPI_VERSION: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -417,9 +399,6 @@ impl Default for PSAPI_WORKING_SET_BLOCK {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PSAPI_WORKING_SET_BLOCK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PSAPI_WORKING_SET_BLOCK_0 {
@@ -429,9 +408,6 @@ impl Default for PSAPI_WORKING_SET_BLOCK_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PSAPI_WORKING_SET_BLOCK_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -444,9 +420,6 @@ impl Default for PSAPI_WORKING_SET_EX_BLOCK {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PSAPI_WORKING_SET_EX_BLOCK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PSAPI_WORKING_SET_EX_BLOCK_0 {
@@ -458,9 +431,6 @@ impl Default for PSAPI_WORKING_SET_EX_BLOCK_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PSAPI_WORKING_SET_EX_BLOCK_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PSAPI_WORKING_SET_EX_BLOCK_0_0 {
@@ -471,9 +441,6 @@ impl Default for PSAPI_WORKING_SET_EX_BLOCK_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PSAPI_WORKING_SET_EX_BLOCK_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PSAPI_WORKING_SET_EX_BLOCK_0_1 {
@@ -483,9 +450,6 @@ impl Default for PSAPI_WORKING_SET_EX_BLOCK_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PSAPI_WORKING_SET_EX_BLOCK_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -498,9 +462,6 @@ impl Default for PSAPI_WORKING_SET_EX_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PSAPI_WORKING_SET_EX_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PSAPI_WORKING_SET_INFORMATION {
@@ -511,9 +472,6 @@ impl Default for PSAPI_WORKING_SET_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PSAPI_WORKING_SET_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -526,9 +484,6 @@ impl Default for PSAPI_WS_WATCH_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PSAPI_WS_WATCH_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PSAPI_WS_WATCH_INFORMATION_EX {
@@ -540,7 +495,4 @@ impl Default for PSAPI_WS_WATCH_INFORMATION_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PSAPI_WS_WATCH_INFORMATION_EX {
-    type TypeKind = windows_core::CopyType;
 }

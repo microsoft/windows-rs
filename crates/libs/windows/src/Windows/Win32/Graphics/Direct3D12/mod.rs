@@ -84,9 +84,6 @@ impl Default for D3D12_AUTO_BREADCRUMB_NODE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_AUTO_BREADCRUMB_NODE {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_AUTO_BREADCRUMB_NODE1 {
@@ -107,9 +104,6 @@ impl Default for D3D12_AUTO_BREADCRUMB_NODE1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_AUTO_BREADCRUMB_NODE1 {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -250,9 +244,6 @@ impl Default for D3D12_BARRIER_GROUP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_BARRIER_GROUP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union D3D12_BARRIER_GROUP_0 {
@@ -264,9 +255,6 @@ impl Default for D3D12_BARRIER_GROUP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_BARRIER_GROUP_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -318,9 +306,6 @@ impl Default for D3D12_BARRIER_SUBRESOURCE_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_BARRIER_SUBRESOURCE_RANGE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -405,9 +390,6 @@ impl Default for D3D12_BLEND_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_BLEND_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 pub const D3D12_BLEND_DEST_ALPHA: D3D12_BLEND = D3D12_BLEND(7i32);
 pub const D3D12_BLEND_DEST_COLOR: D3D12_BLEND = D3D12_BLEND(9i32);
 pub const D3D12_BLEND_INV_ALPHA_FACTOR: D3D12_BLEND = D3D12_BLEND(21i32);
@@ -448,9 +430,6 @@ impl Default for D3D12_BOX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_BOX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_BROADCASTING_LAUNCH_OVERRIDES {
@@ -468,9 +447,6 @@ impl Default for D3D12_BROADCASTING_LAUNCH_OVERRIDES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_BROADCASTING_LAUNCH_OVERRIDES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_BUFFER_BARRIER {
@@ -487,9 +463,6 @@ impl Default for D3D12_BUFFER_BARRIER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_BUFFER_BARRIER {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_BUFFER_RTV {
@@ -500,9 +473,6 @@ impl Default for D3D12_BUFFER_RTV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_BUFFER_RTV {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -516,9 +486,6 @@ impl Default for D3D12_BUFFER_SRV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_BUFFER_SRV {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -571,9 +538,6 @@ impl Default for D3D12_BUFFER_UAV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_BUFFER_UAV {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -628,10 +592,6 @@ impl Default for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[derive(Clone, Copy)]
@@ -648,10 +608,6 @@ impl Default for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[derive(Clone, Copy)]
@@ -666,10 +622,6 @@ impl Default for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_TOOLS_VISUALIZATION_HEADER {
@@ -681,9 +633,6 @@ impl Default for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_TOOLS_VISUALIZATI
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_TOOLS_VISUALIZATION_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_CACHED_PIPELINE_STATE {
@@ -694,9 +643,6 @@ impl Default for D3D12_CACHED_PIPELINE_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_CACHED_PIPELINE_STATE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const D3D12_CENTER_MULTISAMPLE_PATTERN: D3D12_STANDARD_MULTISAMPLE_QUALITY_LEVELS = D3D12_STANDARD_MULTISAMPLE_QUALITY_LEVELS(-2i32);
 #[repr(transparent)]
@@ -750,10 +696,6 @@ impl Default for D3D12_CLEAR_VALUE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D12_CLEAR_VALUE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[derive(Clone, Copy)]
@@ -766,10 +708,6 @@ impl Default for D3D12_CLEAR_VALUE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D12_CLEAR_VALUE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const D3D12_CLIP_OR_CULL_DISTANCE_COUNT: u32 = 8u32;
 pub const D3D12_CLIP_OR_CULL_DISTANCE_ELEMENT_COUNT: u32 = 2u32;
@@ -787,9 +725,6 @@ impl Default for D3D12_COALESCING_LAUNCH_OVERRIDES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_COALESCING_LAUNCH_OVERRIDES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -941,9 +876,6 @@ impl Default for D3D12_COMMAND_QUEUE_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_COMMAND_QUEUE_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_COMMAND_QUEUE_FLAGS(pub i32);
@@ -1038,9 +970,6 @@ impl Default for D3D12_COMMAND_SIGNATURE_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_COMMAND_SIGNATURE_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 pub const D3D12_COMMONSHADER_CONSTANT_BUFFER_API_SLOT_COUNT: u32 = 14u32;
 pub const D3D12_COMMONSHADER_CONSTANT_BUFFER_COMPONENTS: u32 = 4u32;
 pub const D3D12_COMMONSHADER_CONSTANT_BUFFER_COMPONENT_BIT_COUNT: u32 = 32u32;
@@ -1091,9 +1020,6 @@ impl Default for D3D12_COMMON_COMPUTE_NODE_OVERRIDES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_COMMON_COMPUTE_NODE_OVERRIDES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_COMPARISON_FUNC(pub i32);
@@ -1120,9 +1046,6 @@ impl Default for D3D12_COMPUTE_PIPELINE_STATE_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_COMPUTE_PIPELINE_STATE_DESC {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_CONSERVATIVE_RASTERIZATION_MODE(pub i32);
@@ -1147,9 +1070,6 @@ impl Default for D3D12_CONSTANT_BUFFER_VIEW_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_CONSTANT_BUFFER_VIEW_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_CPU_DESCRIPTOR_HANDLE {
@@ -1159,9 +1079,6 @@ impl Default for D3D12_CPU_DESCRIPTOR_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_CPU_DESCRIPTOR_HANDLE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1253,9 +1170,6 @@ impl Default for D3D12_DEBUG_COMMAND_LIST_GPU_BASED_VALIDATION_SETTINGS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_DEBUG_COMMAND_LIST_GPU_BASED_VALIDATION_SETTINGS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const D3D12_DEBUG_COMMAND_LIST_PARAMETER_GPU_BASED_VALIDATION_SETTINGS: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE = D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE(0i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1272,9 +1186,6 @@ impl Default for D3D12_DEBUG_DEVICE_GPU_BASED_VALIDATION_SETTINGS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_DEBUG_DEVICE_GPU_BASED_VALIDATION_SETTINGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_DEBUG_DEVICE_GPU_SLOWDOWN_PERFORMANCE_FACTOR {
@@ -1284,9 +1195,6 @@ impl Default for D3D12_DEBUG_DEVICE_GPU_SLOWDOWN_PERFORMANCE_FACTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_DEBUG_DEVICE_GPU_SLOWDOWN_PERFORMANCE_FACTOR {
-    type TypeKind = windows_core::CopyType;
 }
 pub const D3D12_DEBUG_DEVICE_PARAMETER_FEATURE_FLAGS: D3D12_DEBUG_DEVICE_PARAMETER_TYPE = D3D12_DEBUG_DEVICE_PARAMETER_TYPE(0i32);
 pub const D3D12_DEBUG_DEVICE_PARAMETER_GPU_BASED_VALIDATION_SETTINGS: D3D12_DEBUG_DEVICE_PARAMETER_TYPE = D3D12_DEBUG_DEVICE_PARAMETER_TYPE(1i32);
@@ -1377,9 +1285,6 @@ impl Default for D3D12_DEPTH_STENCILOP_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_DEPTH_STENCILOP_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_DEPTH_STENCILOP_DESC1 {
@@ -1394,9 +1299,6 @@ impl Default for D3D12_DEPTH_STENCILOP_DESC1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_DEPTH_STENCILOP_DESC1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1414,9 +1316,6 @@ impl Default for D3D12_DEPTH_STENCIL_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_DEPTH_STENCIL_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1436,9 +1335,6 @@ impl Default for D3D12_DEPTH_STENCIL_DESC1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_DEPTH_STENCIL_DESC1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_DEPTH_STENCIL_DESC2 {
@@ -1455,9 +1351,6 @@ impl Default for D3D12_DEPTH_STENCIL_DESC2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_DEPTH_STENCIL_DESC2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1470,10 +1363,6 @@ impl Default for D3D12_DEPTH_STENCIL_FORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D12_DEPTH_STENCIL_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_DEPTH_STENCIL_VALUE {
@@ -1484,9 +1373,6 @@ impl Default for D3D12_DEPTH_STENCIL_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_DEPTH_STENCIL_VALUE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -1502,10 +1388,6 @@ impl Default for D3D12_DEPTH_STENCIL_VIEW_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D12_DEPTH_STENCIL_VIEW_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -1524,10 +1406,6 @@ impl Default for D3D12_DEPTH_STENCIL_VIEW_DESC_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D12_DEPTH_STENCIL_VIEW_DESC_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DEPTH_WRITE_MASK(pub i32);
@@ -1545,9 +1423,6 @@ impl Default for D3D12_DESCRIPTOR_HEAP_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_DESCRIPTOR_HEAP_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1609,9 +1484,6 @@ impl Default for D3D12_DESCRIPTOR_RANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_DESCRIPTOR_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_DESCRIPTOR_RANGE1 {
@@ -1626,9 +1498,6 @@ impl Default for D3D12_DESCRIPTOR_RANGE1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_DESCRIPTOR_RANGE1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1692,9 +1561,6 @@ impl Default for D3D12_DEVICE_CONFIGURATION_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_DEVICE_CONFIGURATION_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1795,9 +1661,6 @@ impl Default for D3D12_DEVICE_REMOVED_EXTENDED_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_DEVICE_REMOVED_EXTENDED_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_DEVICE_REMOVED_EXTENDED_DATA1 {
@@ -1810,9 +1673,6 @@ impl Default for D3D12_DEVICE_REMOVED_EXTENDED_DATA1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_DEVICE_REMOVED_EXTENDED_DATA1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_DEVICE_REMOVED_EXTENDED_DATA2 {
@@ -1824,9 +1684,6 @@ impl Default for D3D12_DEVICE_REMOVED_EXTENDED_DATA2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_DEVICE_REMOVED_EXTENDED_DATA2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1841,9 +1698,6 @@ impl Default for D3D12_DEVICE_REMOVED_EXTENDED_DATA3 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_DEVICE_REMOVED_EXTENDED_DATA3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_DISCARD_REGION {
@@ -1857,9 +1711,6 @@ impl Default for D3D12_DISCARD_REGION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_DISCARD_REGION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_DISPATCH_ARGUMENTS {
@@ -1872,9 +1723,6 @@ impl Default for D3D12_DISPATCH_ARGUMENTS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_DISPATCH_ARGUMENTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3D12_DISPATCH_GRAPH_DESC {
@@ -1885,9 +1733,6 @@ impl Default for D3D12_DISPATCH_GRAPH_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_DISPATCH_GRAPH_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1902,9 +1747,6 @@ impl Default for D3D12_DISPATCH_GRAPH_DESC_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_DISPATCH_GRAPH_DESC_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_DISPATCH_MESH_ARGUMENTS {
@@ -1916,9 +1758,6 @@ impl Default for D3D12_DISPATCH_MESH_ARGUMENTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_DISPATCH_MESH_ARGUMENTS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1943,9 +1782,6 @@ impl Default for D3D12_DISPATCH_RAYS_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_DISPATCH_RAYS_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_DRAW_ARGUMENTS {
@@ -1958,9 +1794,6 @@ impl Default for D3D12_DRAW_ARGUMENTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_DRAW_ARGUMENTS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1976,9 +1809,6 @@ impl Default for D3D12_DRAW_INDEXED_ARGUMENTS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_DRAW_INDEXED_ARGUMENTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_DRED_ALLOCATION_NODE {
@@ -1991,9 +1821,6 @@ impl Default for D3D12_DRED_ALLOCATION_NODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_DRED_ALLOCATION_NODE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
@@ -2008,9 +1835,6 @@ impl Default for D3D12_DRED_ALLOCATION_NODE1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_DRED_ALLOCATION_NODE1 {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2054,9 +1878,6 @@ impl Default for D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1 {
@@ -2066,9 +1887,6 @@ impl Default for D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2080,9 +1898,6 @@ impl Default for D3D12_DRED_BREADCRUMB_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_DRED_BREADCRUMB_CONTEXT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2185,9 +2000,6 @@ impl Default for D3D12_DRED_PAGE_FAULT_OUTPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_DRED_PAGE_FAULT_OUTPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_DRED_PAGE_FAULT_OUTPUT1 {
@@ -2199,9 +2011,6 @@ impl Default for D3D12_DRED_PAGE_FAULT_OUTPUT1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_DRED_PAGE_FAULT_OUTPUT1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2215,9 +2024,6 @@ impl Default for D3D12_DRED_PAGE_FAULT_OUTPUT2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_DRED_PAGE_FAULT_OUTPUT2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2321,9 +2127,6 @@ impl Default for D3D12_DXIL_LIBRARY_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_DXIL_LIBRARY_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_DXIL_SUBOBJECT_TO_EXPORTS_ASSOCIATION {
@@ -2335,9 +2138,6 @@ impl Default for D3D12_DXIL_SUBOBJECT_TO_EXPORTS_ASSOCIATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_DXIL_SUBOBJECT_TO_EXPORTS_ASSOCIATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2361,9 +2161,6 @@ impl Default for D3D12_EXISTING_COLLECTION_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_EXISTING_COLLECTION_DESC {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_EXPORT_DESC {
@@ -2375,9 +2172,6 @@ impl Default for D3D12_EXPORT_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_EXPORT_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2458,9 +2252,6 @@ impl Default for D3D12_FEATURE_DATA_ARCHITECTURE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_ARCHITECTURE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_ARCHITECTURE1 {
@@ -2475,9 +2266,6 @@ impl Default for D3D12_FEATURE_DATA_ARCHITECTURE1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_ARCHITECTURE1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_COMMAND_QUEUE_PRIORITY {
@@ -2490,9 +2278,6 @@ impl Default for D3D12_FEATURE_DATA_COMMAND_QUEUE_PRIORITY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_COMMAND_QUEUE_PRIORITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_CROSS_NODE {
@@ -2503,9 +2288,6 @@ impl Default for D3D12_FEATURE_DATA_CROSS_NODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_CROSS_NODE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2531,9 +2313,6 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_D3D12_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS1 {
@@ -2549,9 +2328,6 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_D3D12_OPTIONS1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS10 {
@@ -2563,9 +2339,6 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS10 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_D3D12_OPTIONS10 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS11 {
@@ -2575,9 +2348,6 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS11 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_D3D12_OPTIONS11 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2590,9 +2360,6 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS12 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_D3D12_OPTIONS12 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2609,9 +2376,6 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS13 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_D3D12_OPTIONS13 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS14 {
@@ -2624,9 +2388,6 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS14 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_D3D12_OPTIONS14 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS15 {
@@ -2637,9 +2398,6 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS15 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_D3D12_OPTIONS15 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2652,9 +2410,6 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS16 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_D3D12_OPTIONS16 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS17 {
@@ -2666,9 +2421,6 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS17 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_D3D12_OPTIONS17 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS18 {
@@ -2678,9 +2430,6 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS18 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_D3D12_OPTIONS18 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2701,9 +2450,6 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS19 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_D3D12_OPTIONS19 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS2 {
@@ -2715,9 +2461,6 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_D3D12_OPTIONS2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS20 {
@@ -2728,9 +2471,6 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS20 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_D3D12_OPTIONS20 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2744,9 +2484,6 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS21 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_D3D12_OPTIONS21 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2762,9 +2499,6 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS3 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_D3D12_OPTIONS3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS4 {
@@ -2777,9 +2511,6 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS4 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_D3D12_OPTIONS4 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS5 {
@@ -2791,9 +2522,6 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_D3D12_OPTIONS5 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2809,9 +2537,6 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS6 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_D3D12_OPTIONS6 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS7 {
@@ -2823,9 +2548,6 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS7 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_D3D12_OPTIONS7 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS8 {
@@ -2835,9 +2557,6 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS8 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_D3D12_OPTIONS8 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2854,9 +2573,6 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS9 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_D3D12_OPTIONS9 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_DISPLAYABLE {
@@ -2868,9 +2584,6 @@ impl Default for D3D12_FEATURE_DATA_DISPLAYABLE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_DISPLAYABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_EXISTING_HEAPS {
@@ -2880,9 +2593,6 @@ impl Default for D3D12_FEATURE_DATA_EXISTING_HEAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_EXISTING_HEAPS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -2898,10 +2608,6 @@ impl Default for D3D12_FEATURE_DATA_FEATURE_LEVELS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_FEATURE_LEVELS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2914,10 +2620,6 @@ impl Default for D3D12_FEATURE_DATA_FORMAT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_FORMAT_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -2933,10 +2635,6 @@ impl Default for D3D12_FEATURE_DATA_FORMAT_SUPPORT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_FORMAT_SUPPORT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_GPU_VIRTUAL_ADDRESS_SUPPORT {
@@ -2948,9 +2646,6 @@ impl Default for D3D12_FEATURE_DATA_GPU_VIRTUAL_ADDRESS_SUPPORT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_GPU_VIRTUAL_ADDRESS_SUPPORT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_HARDWARE_COPY {
@@ -2960,9 +2655,6 @@ impl Default for D3D12_FEATURE_DATA_HARDWARE_COPY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_HARDWARE_COPY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -2979,10 +2671,6 @@ impl Default for D3D12_FEATURE_DATA_MULTISAMPLE_QUALITY_LEVELS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_MULTISAMPLE_QUALITY_LEVELS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2998,10 +2686,6 @@ impl Default for D3D12_FEATURE_DATA_PLACED_RESOURCE_SUPPORT_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_PLACED_RESOURCE_SUPPORT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_PREDICATION {
@@ -3011,9 +2695,6 @@ impl Default for D3D12_FEATURE_DATA_PREDICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_PREDICATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3025,9 +2706,6 @@ impl Default for D3D12_FEATURE_DATA_PROTECTED_RESOURCE_SESSION_SUPPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_PROTECTED_RESOURCE_SESSION_SUPPORT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3041,9 +2719,6 @@ impl Default for D3D12_FEATURE_DATA_PROTECTED_RESOURCE_SESSION_TYPES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_PROTECTED_RESOURCE_SESSION_TYPES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_PROTECTED_RESOURCE_SESSION_TYPE_COUNT {
@@ -3054,9 +2729,6 @@ impl Default for D3D12_FEATURE_DATA_PROTECTED_RESOURCE_SESSION_TYPE_COUNT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_PROTECTED_RESOURCE_SESSION_TYPE_COUNT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3073,9 +2745,6 @@ impl Default for D3D12_FEATURE_DATA_QUERY_META_COMMAND {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_QUERY_META_COMMAND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_ROOT_SIGNATURE {
@@ -3085,9 +2754,6 @@ impl Default for D3D12_FEATURE_DATA_ROOT_SIGNATURE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_ROOT_SIGNATURE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3100,9 +2766,6 @@ impl Default for D3D12_FEATURE_DATA_SERIALIZATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_SERIALIZATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_SHADER_CACHE {
@@ -3113,9 +2776,6 @@ impl Default for D3D12_FEATURE_DATA_SHADER_CACHE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_SHADER_CACHE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_SHADER_MODEL {
@@ -3125,9 +2785,6 @@ impl Default for D3D12_FEATURE_DATA_SHADER_MODEL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_FEATURE_DATA_SHADER_MODEL {
-    type TypeKind = windows_core::CopyType;
 }
 pub const D3D12_FEATURE_DISPLAYABLE: D3D12_FEATURE = D3D12_FEATURE(28i32);
 pub const D3D12_FEATURE_EXISTING_HEAPS: D3D12_FEATURE = D3D12_FEATURE(22i32);
@@ -3422,10 +3079,6 @@ impl Default for D3D12_FUNCTION_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl windows_core::TypeKind for D3D12_FUNCTION_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_GENERIC_PROGRAM_DESC {
@@ -3440,9 +3093,6 @@ impl Default for D3D12_GENERIC_PROGRAM_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_GENERIC_PROGRAM_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_GLOBAL_BARRIER {
@@ -3456,9 +3106,6 @@ impl Default for D3D12_GLOBAL_BARRIER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_GLOBAL_BARRIER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_GLOBAL_ROOT_SIGNATURE {
@@ -3468,9 +3115,6 @@ impl Default for D3D12_GLOBAL_ROOT_SIGNATURE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_GLOBAL_ROOT_SIGNATURE {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3568,9 +3212,6 @@ impl Default for D3D12_GPU_DESCRIPTOR_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_GPU_DESCRIPTOR_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_GPU_VIRTUAL_ADDRESS_AND_STRIDE {
@@ -3581,9 +3222,6 @@ impl Default for D3D12_GPU_VIRTUAL_ADDRESS_AND_STRIDE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_GPU_VIRTUAL_ADDRESS_AND_STRIDE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3596,9 +3234,6 @@ impl Default for D3D12_GPU_VIRTUAL_ADDRESS_RANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_GPU_VIRTUAL_ADDRESS_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_GPU_VIRTUAL_ADDRESS_RANGE_AND_STRIDE {
@@ -3610,9 +3245,6 @@ impl Default for D3D12_GPU_VIRTUAL_ADDRESS_RANGE_AND_STRIDE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_GPU_VIRTUAL_ADDRESS_RANGE_AND_STRIDE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -3645,10 +3277,6 @@ impl Default for D3D12_GRAPHICS_PIPELINE_STATE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D12_GRAPHICS_PIPELINE_STATE_DESC {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3739,9 +3367,6 @@ impl Default for D3D12_HEAP_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_HEAP_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_HEAP_FLAGS(pub i32);
@@ -3809,9 +3434,6 @@ impl Default for D3D12_HEAP_PROPERTIES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_HEAP_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_HEAP_SERIALIZATION_TIER(pub i32);
@@ -3838,9 +3460,6 @@ impl Default for D3D12_HIT_GROUP_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_HIT_GROUP_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3911,9 +3530,6 @@ impl Default for D3D12_IB_STRIP_CUT_VALUE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_IB_STRIP_CUT_VALUE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_INDEX_BUFFER_STRIP_CUT_VALUE(pub i32);
@@ -3934,10 +3550,6 @@ impl Default for D3D12_INDEX_BUFFER_VIEW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D12_INDEX_BUFFER_VIEW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3D12_INDIRECT_ARGUMENT_DESC {
@@ -3948,9 +3560,6 @@ impl Default for D3D12_INDIRECT_ARGUMENT_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_INDIRECT_ARGUMENT_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3967,9 +3576,6 @@ impl Default for D3D12_INDIRECT_ARGUMENT_DESC_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_INDIRECT_ARGUMENT_DESC_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_INDIRECT_ARGUMENT_DESC_0_2 {
@@ -3979,9 +3585,6 @@ impl Default for D3D12_INDIRECT_ARGUMENT_DESC_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_INDIRECT_ARGUMENT_DESC_0_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3995,9 +3598,6 @@ impl Default for D3D12_INDIRECT_ARGUMENT_DESC_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_INDIRECT_ARGUMENT_DESC_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_INDIRECT_ARGUMENT_DESC_0_5 {
@@ -4009,9 +3609,6 @@ impl Default for D3D12_INDIRECT_ARGUMENT_DESC_0_5 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_INDIRECT_ARGUMENT_DESC_0_5 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_INDIRECT_ARGUMENT_DESC_0_3 {
@@ -4021,9 +3618,6 @@ impl Default for D3D12_INDIRECT_ARGUMENT_DESC_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_INDIRECT_ARGUMENT_DESC_0_3 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4035,9 +3629,6 @@ impl Default for D3D12_INDIRECT_ARGUMENT_DESC_0_4 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_INDIRECT_ARGUMENT_DESC_0_4 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_INDIRECT_ARGUMENT_DESC_0_0 {
@@ -4047,9 +3638,6 @@ impl Default for D3D12_INDIRECT_ARGUMENT_DESC_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_INDIRECT_ARGUMENT_DESC_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4078,9 +3666,6 @@ impl Default for D3D12_INFO_QUEUE_FILTER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_INFO_QUEUE_FILTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_INFO_QUEUE_FILTER_DESC {
@@ -4095,9 +3680,6 @@ impl Default for D3D12_INFO_QUEUE_FILTER_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_INFO_QUEUE_FILTER_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4122,10 +3704,6 @@ impl Default for D3D12_INPUT_ELEMENT_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D12_INPUT_ELEMENT_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4138,10 +3716,6 @@ impl Default for D3D12_INPUT_LAYOUT_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D12_INPUT_LAYOUT_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 pub const D3D12_INTEGER_DIVIDE_BY_ZERO_QUOTIENT: u32 = 4294967295u32;
 pub const D3D12_INTEGER_DIVIDE_BY_ZERO_REMAINDER: u32 = 4294967295u32;
@@ -4158,9 +3732,6 @@ impl Default for D3D12_LIBRARY_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_LIBRARY_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4184,9 +3755,6 @@ impl Default for D3D12_LOCAL_ROOT_SIGNATURE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_LOCAL_ROOT_SIGNATURE {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4240,9 +3808,6 @@ impl Default for D3D12_MEMCPY_DEST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_MEMCPY_DEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_MEMORY_POOL(pub i32);
@@ -4267,9 +3832,6 @@ impl Default for D3D12_MESSAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_MESSAGE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5333,9 +4895,6 @@ impl Default for D3D12_META_COMMAND_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_META_COMMAND_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_META_COMMAND_PARAMETER_DESC {
@@ -5349,9 +4908,6 @@ impl Default for D3D12_META_COMMAND_PARAMETER_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_META_COMMAND_PARAMETER_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5426,9 +4982,6 @@ impl Default for D3D12_MIP_REGION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_MIP_REGION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5520,9 +5073,6 @@ impl Default for D3D12_MULTI_NODE_CPU_INPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_MULTI_NODE_CPU_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_MULTI_NODE_GPU_INPUT {
@@ -5533,9 +5083,6 @@ impl Default for D3D12_MULTI_NODE_GPU_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_MULTI_NODE_GPU_INPUT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5548,9 +5095,6 @@ impl Default for D3D12_NODE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_NODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union D3D12_NODE_0 {
@@ -5560,9 +5104,6 @@ impl Default for D3D12_NODE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_NODE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5577,9 +5118,6 @@ impl Default for D3D12_NODE_CPU_INPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_NODE_CPU_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_NODE_GPU_INPUT {
@@ -5592,9 +5130,6 @@ impl Default for D3D12_NODE_GPU_INPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_NODE_GPU_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_NODE_ID {
@@ -5606,9 +5141,6 @@ impl Default for D3D12_NODE_ID {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_NODE_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_NODE_MASK {
@@ -5618,9 +5150,6 @@ impl Default for D3D12_NODE_MASK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_NODE_MASK {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5635,9 +5164,6 @@ impl Default for D3D12_NODE_OUTPUT_OVERRIDES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_NODE_OUTPUT_OVERRIDES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5667,9 +5193,6 @@ impl Default for D3D12_PACKED_MIP_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_PACKED_MIP_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const D3D12_PACKED_TILE: u32 = 4294967295u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -5693,10 +5216,6 @@ impl Default for D3D12_PARAMETER_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl windows_core::TypeKind for D3D12_PARAMETER_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5749,9 +5268,6 @@ impl Default for D3D12_PIPELINE_STATE_STREAM_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_PIPELINE_STATE_STREAM_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_PIPELINE_STATE_SUBOBJECT_TYPE(pub i32);
@@ -5798,10 +5314,6 @@ impl Default for D3D12_PLACED_SUBRESOURCE_FOOTPRINT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D12_PLACED_SUBRESOURCE_FOOTPRINT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_PREDICATION_OP(pub i32);
@@ -5818,9 +5330,6 @@ impl Default for D3D12_PRIMITIVE_TOPOLOGY_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_PRIMITIVE_TOPOLOGY_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5846,9 +5355,6 @@ impl Default for D3D12_PROGRAM_IDENTIFIER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_PROGRAM_IDENTIFIER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_PROGRAM_TYPE(pub i32);
@@ -5867,9 +5373,6 @@ impl Default for D3D12_PROTECTED_RESOURCE_SESSION_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_PROTECTED_RESOURCE_SESSION_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_PROTECTED_RESOURCE_SESSION_DESC1 {
@@ -5881,9 +5384,6 @@ impl Default for D3D12_PROTECTED_RESOURCE_SESSION_DESC1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_PROTECTED_RESOURCE_SESSION_DESC1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6008,9 +5508,6 @@ impl Default for D3D12_QUERY_DATA_PIPELINE_STATISTICS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_QUERY_DATA_PIPELINE_STATISTICS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_QUERY_DATA_PIPELINE_STATISTICS1 {
@@ -6034,9 +5531,6 @@ impl Default for D3D12_QUERY_DATA_PIPELINE_STATISTICS1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_QUERY_DATA_PIPELINE_STATISTICS1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_QUERY_DATA_SO_STATISTICS {
@@ -6047,9 +5541,6 @@ impl Default for D3D12_QUERY_DATA_SO_STATISTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_QUERY_DATA_SO_STATISTICS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6062,9 +5553,6 @@ impl Default for D3D12_QUERY_HEAP_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_QUERY_HEAP_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6100,9 +5588,6 @@ impl Default for D3D12_RANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_RANGE_UINT64 {
@@ -6113,9 +5598,6 @@ impl Default for D3D12_RANGE_UINT64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_RANGE_UINT64 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6137,9 +5619,6 @@ impl Default for D3D12_RASTERIZER_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_RASTERIZER_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_RASTERIZER_DESC1 {
@@ -6160,9 +5639,6 @@ impl Default for D3D12_RASTERIZER_DESC1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_RASTERIZER_DESC1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_RASTERIZER_DESC2 {
@@ -6182,9 +5658,6 @@ impl Default for D3D12_RASTERIZER_DESC2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_RASTERIZER_DESC2 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const D3D12_RAW_UAV_SRV_BYTE_ALIGNMENT: u32 = 16u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6200,9 +5673,6 @@ impl Default for D3D12_RAYTRACING_AABB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_RAYTRACING_AABB {
-    type TypeKind = windows_core::CopyType;
 }
 pub const D3D12_RAYTRACING_AABB_BYTE_ALIGNMENT: u32 = 8u32;
 #[repr(transparent)]
@@ -6268,9 +5738,6 @@ impl Default for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_COMPACTE
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_COMPACTED_SIZE_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 pub const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_CURRENT_SIZE: D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TYPE = D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TYPE(3i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6282,9 +5749,6 @@ impl Default for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_CURRENT_
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_CURRENT_SIZE_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC {
@@ -6295,9 +5759,6 @@ impl Default for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 pub const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_SERIALIZATION: D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TYPE = D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TYPE(2i32);
 #[repr(C)]
@@ -6311,9 +5772,6 @@ impl Default for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_SERIALIZ
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_SERIALIZATION_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 pub const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TOOLS_VISUALIZATION: D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TYPE = D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TYPE(1i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6324,9 +5782,6 @@ impl Default for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TOOLS_VI
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TOOLS_VISUALIZATION_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6343,9 +5798,6 @@ impl Default for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_RAYTRACING_ACCELERATION_STRUCTURE_SRV {
@@ -6355,9 +5807,6 @@ impl Default for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_SRV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_SRV {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6375,9 +5824,6 @@ impl Default for D3D12_RAYTRACING_GEOMETRY_AABBS_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_RAYTRACING_GEOMETRY_AABBS_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[derive(Clone, Copy)]
@@ -6392,10 +5838,6 @@ impl Default for D3D12_RAYTRACING_GEOMETRY_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D12_RAYTRACING_GEOMETRY_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[derive(Clone, Copy)]
@@ -6408,10 +5850,6 @@ impl Default for D3D12_RAYTRACING_GEOMETRY_DESC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D12_RAYTRACING_GEOMETRY_DESC_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6470,10 +5908,6 @@ impl Default for D3D12_RAYTRACING_GEOMETRY_TRIANGLES_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D12_RAYTRACING_GEOMETRY_TRIANGLES_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RAYTRACING_GEOMETRY_TYPE(pub i32);
@@ -6491,9 +5925,6 @@ impl Default for D3D12_RAYTRACING_INSTANCE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_RAYTRACING_INSTANCE_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 pub const D3D12_RAYTRACING_INSTANCE_DESCS_BYTE_ALIGNMENT: u32 = 16u32;
 #[repr(transparent)]
@@ -6554,9 +5985,6 @@ impl Default for D3D12_RAYTRACING_PIPELINE_CONFIG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_RAYTRACING_PIPELINE_CONFIG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_RAYTRACING_PIPELINE_CONFIG1 {
@@ -6567,9 +5995,6 @@ impl Default for D3D12_RAYTRACING_PIPELINE_CONFIG1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_RAYTRACING_PIPELINE_CONFIG1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6620,9 +6045,6 @@ impl Default for D3D12_RAYTRACING_SHADER_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_RAYTRACING_SHADER_CONFIG {
-    type TypeKind = windows_core::CopyType;
 }
 pub const D3D12_RAYTRACING_SHADER_RECORD_BYTE_ALIGNMENT: u32 = 32u32;
 pub const D3D12_RAYTRACING_SHADER_TABLE_BYTE_ALIGNMENT: u32 = 64u32;
@@ -6698,10 +6120,6 @@ impl Default for D3D12_RENDER_PASS_BEGINNING_ACCESS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D12_RENDER_PASS_BEGINNING_ACCESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[derive(Clone, Copy)]
@@ -6715,10 +6133,6 @@ impl Default for D3D12_RENDER_PASS_BEGINNING_ACCESS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D12_RENDER_PASS_BEGINNING_ACCESS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[derive(Clone, Copy)]
@@ -6731,10 +6145,6 @@ impl Default for D3D12_RENDER_PASS_BEGINNING_ACCESS_CLEAR_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D12_RENDER_PASS_BEGINNING_ACCESS_CLEAR_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_RENDER_PASS_BEGINNING_ACCESS_PRESERVE_LOCAL_PARAMETERS {
@@ -6745,9 +6155,6 @@ impl Default for D3D12_RENDER_PASS_BEGINNING_ACCESS_PRESERVE_LOCAL_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_RENDER_PASS_BEGINNING_ACCESS_PRESERVE_LOCAL_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6780,10 +6187,6 @@ impl Default for D3D12_RENDER_PASS_DEPTH_STENCIL_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D12_RENDER_PASS_DEPTH_STENCIL_DESC {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_RENDER_PASS_ENDING_ACCESS {
@@ -6801,10 +6204,6 @@ impl Default for D3D12_RENDER_PASS_ENDING_ACCESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D12_RENDER_PASS_ENDING_ACCESS {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -6824,10 +6223,6 @@ impl Default for D3D12_RENDER_PASS_ENDING_ACCESS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D12_RENDER_PASS_ENDING_ACCESS_0 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_RENDER_PASS_ENDING_ACCESS_PRESERVE_LOCAL_PARAMETERS {
@@ -6838,9 +6233,6 @@ impl Default for D3D12_RENDER_PASS_ENDING_ACCESS_PRESERVE_LOCAL_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_RENDER_PASS_ENDING_ACCESS_PRESERVE_LOCAL_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -6860,10 +6252,6 @@ impl Default for D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_SUBRESOURCE_PARAMETERS {
@@ -6877,9 +6265,6 @@ impl Default for D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_SUBRESOURCE_PARAMETERS 
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_SUBRESOURCE_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6952,10 +6337,6 @@ impl Default for D3D12_RENDER_PASS_RENDER_TARGET_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D12_RENDER_PASS_RENDER_TARGET_DESC {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RENDER_PASS_TIER(pub i32);
@@ -6981,9 +6362,6 @@ impl Default for D3D12_RENDER_TARGET_BLEND_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_RENDER_TARGET_BLEND_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[derive(Clone, Copy)]
@@ -6997,10 +6375,6 @@ impl Default for D3D12_RENDER_TARGET_VIEW_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D12_RENDER_TARGET_VIEW_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -7020,10 +6394,6 @@ impl Default for D3D12_RENDER_TARGET_VIEW_DESC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D12_RENDER_TARGET_VIEW_DESC_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const D3D12_REQ_BLEND_OBJECT_COUNT_PER_DEVICE: u32 = 4096u32;
 pub const D3D12_REQ_BUFFER_RESOURCE_TEXEL_COUNT_2_TO_EXP: u32 = 27u32;
@@ -7118,9 +6488,6 @@ impl Default for D3D12_RESOURCE_ALIASING_BARRIER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_RESOURCE_ALIASING_BARRIER {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_RESOURCE_ALLOCATION_INFO {
@@ -7131,9 +6498,6 @@ impl Default for D3D12_RESOURCE_ALLOCATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_RESOURCE_ALLOCATION_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7146,9 +6510,6 @@ impl Default for D3D12_RESOURCE_ALLOCATION_INFO1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_RESOURCE_ALLOCATION_INFO1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 pub struct D3D12_RESOURCE_BARRIER {
@@ -7166,9 +6527,6 @@ impl Default for D3D12_RESOURCE_BARRIER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_RESOURCE_BARRIER {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 pub union D3D12_RESOURCE_BARRIER_0 {
     pub Transition: core::mem::ManuallyDrop<D3D12_RESOURCE_TRANSITION_BARRIER>,
@@ -7184,9 +6542,6 @@ impl Default for D3D12_RESOURCE_BARRIER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_RESOURCE_BARRIER_0 {
-    type TypeKind = windows_core::CloneType;
 }
 pub const D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES: u32 = 4294967295u32;
 #[repr(transparent)]
@@ -7261,10 +6616,6 @@ impl Default for D3D12_RESOURCE_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D12_RESOURCE_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7286,10 +6637,6 @@ impl Default for D3D12_RESOURCE_DESC1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D12_RESOURCE_DESC1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7431,9 +6778,6 @@ impl Default for D3D12_RESOURCE_TRANSITION_BARRIER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_RESOURCE_TRANSITION_BARRIER {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_RESOURCE_UAV_BARRIER {
@@ -7443,9 +6787,6 @@ impl Default for D3D12_RESOURCE_UAV_BARRIER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_RESOURCE_UAV_BARRIER {
-    type TypeKind = windows_core::CloneType;
 }
 pub const D3D12_RLDO_DETAIL: D3D12_RLDO_FLAGS = D3D12_RLDO_FLAGS(2i32);
 #[repr(transparent)]
@@ -7499,9 +6840,6 @@ impl Default for D3D12_ROOT_CONSTANTS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_ROOT_CONSTANTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_ROOT_DESCRIPTOR {
@@ -7512,9 +6850,6 @@ impl Default for D3D12_ROOT_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_ROOT_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7527,9 +6862,6 @@ impl Default for D3D12_ROOT_DESCRIPTOR1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_ROOT_DESCRIPTOR1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7582,9 +6914,6 @@ impl Default for D3D12_ROOT_DESCRIPTOR_TABLE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_ROOT_DESCRIPTOR_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_ROOT_DESCRIPTOR_TABLE1 {
@@ -7595,9 +6924,6 @@ impl Default for D3D12_ROOT_DESCRIPTOR_TABLE1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_ROOT_DESCRIPTOR_TABLE1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7611,9 +6937,6 @@ impl Default for D3D12_ROOT_PARAMETER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_ROOT_PARAMETER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union D3D12_ROOT_PARAMETER_0 {
@@ -7625,9 +6948,6 @@ impl Default for D3D12_ROOT_PARAMETER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_ROOT_PARAMETER_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7641,9 +6961,6 @@ impl Default for D3D12_ROOT_PARAMETER1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_ROOT_PARAMETER1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union D3D12_ROOT_PARAMETER1_0 {
@@ -7655,9 +6972,6 @@ impl Default for D3D12_ROOT_PARAMETER1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_ROOT_PARAMETER1_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7681,9 +6995,6 @@ impl Default for D3D12_ROOT_SIGNATURE_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_ROOT_SIGNATURE_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_ROOT_SIGNATURE_DESC1 {
@@ -7698,9 +7009,6 @@ impl Default for D3D12_ROOT_SIGNATURE_DESC1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_ROOT_SIGNATURE_DESC1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_ROOT_SIGNATURE_DESC2 {
@@ -7714,9 +7022,6 @@ impl Default for D3D12_ROOT_SIGNATURE_DESC2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_ROOT_SIGNATURE_DESC2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7793,10 +7098,6 @@ impl Default for D3D12_RT_FORMAT_ARRAY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D12_RT_FORMAT_ARRAY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_SAMPLER_DESC {
@@ -7815,9 +7116,6 @@ impl Default for D3D12_SAMPLER_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_SAMPLER_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7839,9 +7137,6 @@ impl Default for D3D12_SAMPLER_DESC2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_SAMPLER_DESC2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union D3D12_SAMPLER_DESC2_0 {
@@ -7852,9 +7147,6 @@ impl Default for D3D12_SAMPLER_DESC2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_SAMPLER_DESC2_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7911,9 +7203,6 @@ impl Default for D3D12_SAMPLE_MASK {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_SAMPLE_MASK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_SAMPLE_POSITION {
@@ -7924,9 +7213,6 @@ impl Default for D3D12_SAMPLE_POSITION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_SAMPLE_POSITION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const D3D12_SDK_VERSION: u32 = 614u32;
 #[repr(C)]
@@ -7939,9 +7225,6 @@ impl Default for D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const D3D12_SERIALIZED_DATA_RAYTRACING_ACCELERATION_STRUCTURE: D3D12_SERIALIZED_DATA_TYPE = D3D12_SERIALIZED_DATA_TYPE(0i32);
 #[repr(transparent)]
@@ -7960,9 +7243,6 @@ impl Default for D3D12_SERIALIZED_RAYTRACING_ACCELERATION_STRUCTURE_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_SERIALIZED_RAYTRACING_ACCELERATION_STRUCTURE_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_SET_GENERIC_PIPELINE_DESC {
@@ -7972,9 +7252,6 @@ impl Default for D3D12_SET_GENERIC_PIPELINE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_SET_GENERIC_PIPELINE_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7986,9 +7263,6 @@ impl Default for D3D12_SET_PROGRAM_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_SET_PROGRAM_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8002,9 +7276,6 @@ impl Default for D3D12_SET_PROGRAM_DESC_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_SET_PROGRAM_DESC_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_SET_RAYTRACING_PIPELINE_DESC {
@@ -8014,9 +7285,6 @@ impl Default for D3D12_SET_RAYTRACING_PIPELINE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_SET_RAYTRACING_PIPELINE_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8030,9 +7298,6 @@ impl Default for D3D12_SET_WORK_GRAPH_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_SET_WORK_GRAPH_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8088,10 +7353,6 @@ impl Default for D3D12_SHADER_BUFFER_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl windows_core::TypeKind for D3D12_SHADER_BUFFER_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_SHADER_BYTECODE {
@@ -8102,9 +7363,6 @@ impl Default for D3D12_SHADER_BYTECODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_SHADER_BYTECODE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8245,9 +7503,6 @@ impl Default for D3D12_SHADER_CACHE_SESSION_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_SHADER_CACHE_SESSION_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 pub const D3D12_SHADER_CACHE_SUPPORT_AUTOMATIC_DISK_CACHE: D3D12_SHADER_CACHE_SUPPORT_FLAGS = D3D12_SHADER_CACHE_SUPPORT_FLAGS(8i32);
 pub const D3D12_SHADER_CACHE_SUPPORT_AUTOMATIC_INPROC_CACHE: D3D12_SHADER_CACHE_SUPPORT_FLAGS = D3D12_SHADER_CACHE_SUPPORT_FLAGS(4i32);
 pub const D3D12_SHADER_CACHE_SUPPORT_DRIVER_MANAGED_CACHE: D3D12_SHADER_CACHE_SUPPORT_FLAGS = D3D12_SHADER_CACHE_SUPPORT_FLAGS(16i32);
@@ -8353,10 +7608,6 @@ impl Default for D3D12_SHADER_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl windows_core::TypeKind for D3D12_SHADER_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 pub const D3D12_SHADER_IDENTIFIER_SIZE_IN_BYTES: u32 = 32u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -8378,10 +7629,6 @@ impl Default for D3D12_SHADER_INPUT_BIND_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl windows_core::TypeKind for D3D12_SHADER_INPUT_BIND_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 pub const D3D12_SHADER_MAJOR_VERSION: u32 = 5u32;
 pub const D3D12_SHADER_MAX_INSTANCES: u32 = 65535u32;
@@ -8440,9 +7687,6 @@ impl Default for D3D12_SHADER_NODE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_SHADER_NODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union D3D12_SHADER_NODE_0 {
@@ -8455,9 +7699,6 @@ impl Default for D3D12_SHADER_NODE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_SHADER_NODE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -8473,10 +7714,6 @@ impl Default for D3D12_SHADER_RESOURCE_VIEW_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D12_SHADER_RESOURCE_VIEW_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -8500,10 +7737,6 @@ impl Default for D3D12_SHADER_RESOURCE_VIEW_DESC_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D12_SHADER_RESOURCE_VIEW_DESC_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8523,10 +7756,6 @@ impl Default for D3D12_SHADER_TYPE_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl windows_core::TypeKind for D3D12_SHADER_TYPE_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_SHADER_VARIABLE_DESC {
@@ -8544,9 +7773,6 @@ impl Default for D3D12_SHADER_VARIABLE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_SHADER_VARIABLE_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8627,10 +7853,6 @@ impl Default for D3D12_SIGNATURE_PARAMETER_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl windows_core::TypeKind for D3D12_SIGNATURE_PARAMETER_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 pub const D3D12_SIMULTANEOUS_RENDER_TARGET_COUNT: u32 = 8u32;
 pub const D3D12_SMALL_MSAA_RESOURCE_PLACEMENT_ALIGNMENT: u32 = 65536u32;
 pub const D3D12_SMALL_RESOURCE_PLACEMENT_ALIGNMENT: u32 = 4096u32;
@@ -8652,9 +7874,6 @@ impl Default for D3D12_SO_DECLARATION_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_SO_DECLARATION_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const D3D12_SO_NO_RASTERIZED_STREAM: u32 = 4294967295u32;
 pub const D3D12_SO_OUTPUT_COMPONENT_COUNT: u32 = 128u32;
@@ -8707,9 +7926,6 @@ impl Default for D3D12_STATE_OBJECT_CONFIG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_STATE_OBJECT_CONFIG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_STATE_OBJECT_DESC {
@@ -8721,9 +7937,6 @@ impl Default for D3D12_STATE_OBJECT_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_STATE_OBJECT_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8781,9 +7994,6 @@ impl Default for D3D12_STATE_SUBOBJECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_STATE_SUBOBJECT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8848,9 +8058,6 @@ impl Default for D3D12_STATIC_SAMPLER_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_STATIC_SAMPLER_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_STATIC_SAMPLER_DESC1 {
@@ -8873,9 +8080,6 @@ impl Default for D3D12_STATIC_SAMPLER_DESC1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_STATIC_SAMPLER_DESC1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8900,9 +8104,6 @@ impl Default for D3D12_STREAM_OUTPUT_BUFFER_VIEW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_STREAM_OUTPUT_BUFFER_VIEW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_STREAM_OUTPUT_DESC {
@@ -8917,9 +8118,6 @@ impl Default for D3D12_STREAM_OUTPUT_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_STREAM_OUTPUT_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_SUBOBJECT_TO_EXPORTS_ASSOCIATION {
@@ -8931,9 +8129,6 @@ impl Default for D3D12_SUBOBJECT_TO_EXPORTS_ASSOCIATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_SUBOBJECT_TO_EXPORTS_ASSOCIATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const D3D12_SUBPIXEL_FRACTIONAL_BIT_COUNT: u32 = 8u32;
 #[repr(C)]
@@ -8947,9 +8142,6 @@ impl Default for D3D12_SUBRESOURCE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_SUBRESOURCE_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -8967,10 +8159,6 @@ impl Default for D3D12_SUBRESOURCE_FOOTPRINT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D12_SUBRESOURCE_FOOTPRINT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_SUBRESOURCE_INFO {
@@ -8983,9 +8171,6 @@ impl Default for D3D12_SUBRESOURCE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_SUBRESOURCE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_SUBRESOURCE_RANGE_UINT64 {
@@ -8996,9 +8181,6 @@ impl Default for D3D12_SUBRESOURCE_RANGE_UINT64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_SUBRESOURCE_RANGE_UINT64 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9012,9 +8194,6 @@ impl Default for D3D12_SUBRESOURCE_TILING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_SUBRESOURCE_TILING {
-    type TypeKind = windows_core::CopyType;
 }
 pub const D3D12_SUBTEXEL_FRACTIONAL_BIT_COUNT: u32 = 8u32;
 pub const D3D12_SYSTEM_RESERVED_REGISTER_SPACE_VALUES_END: u32 = 4294967295u32;
@@ -9038,9 +8217,6 @@ impl Default for D3D12_TEX1D_ARRAY_DSV {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_TEX1D_ARRAY_DSV {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_TEX1D_ARRAY_RTV {
@@ -9052,9 +8228,6 @@ impl Default for D3D12_TEX1D_ARRAY_RTV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_TEX1D_ARRAY_RTV {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9070,9 +8243,6 @@ impl Default for D3D12_TEX1D_ARRAY_SRV {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_TEX1D_ARRAY_SRV {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_TEX1D_ARRAY_UAV {
@@ -9085,9 +8255,6 @@ impl Default for D3D12_TEX1D_ARRAY_UAV {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_TEX1D_ARRAY_UAV {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_TEX1D_DSV {
@@ -9098,9 +8265,6 @@ impl Default for D3D12_TEX1D_DSV {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_TEX1D_DSV {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_TEX1D_RTV {
@@ -9110,9 +8274,6 @@ impl Default for D3D12_TEX1D_RTV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_TEX1D_RTV {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9126,9 +8287,6 @@ impl Default for D3D12_TEX1D_SRV {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_TEX1D_SRV {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_TEX1D_UAV {
@@ -9138,9 +8296,6 @@ impl Default for D3D12_TEX1D_UAV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_TEX1D_UAV {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9153,9 +8308,6 @@ impl Default for D3D12_TEX2DMS_ARRAY_DSV {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_TEX2DMS_ARRAY_DSV {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_TEX2DMS_ARRAY_RTV {
@@ -9166,9 +8318,6 @@ impl Default for D3D12_TEX2DMS_ARRAY_RTV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_TEX2DMS_ARRAY_RTV {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9181,9 +8330,6 @@ impl Default for D3D12_TEX2DMS_ARRAY_SRV {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_TEX2DMS_ARRAY_SRV {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_TEX2DMS_ARRAY_UAV {
@@ -9195,9 +8341,6 @@ impl Default for D3D12_TEX2DMS_ARRAY_UAV {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_TEX2DMS_ARRAY_UAV {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_TEX2DMS_DSV {
@@ -9207,9 +8350,6 @@ impl Default for D3D12_TEX2DMS_DSV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_TEX2DMS_DSV {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9221,9 +8361,6 @@ impl Default for D3D12_TEX2DMS_RTV {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_TEX2DMS_RTV {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_TEX2DMS_SRV {
@@ -9234,9 +8371,6 @@ impl Default for D3D12_TEX2DMS_SRV {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_TEX2DMS_SRV {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_TEX2DMS_UAV {
@@ -9246,9 +8380,6 @@ impl Default for D3D12_TEX2DMS_UAV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_TEX2DMS_UAV {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9262,9 +8393,6 @@ impl Default for D3D12_TEX2D_ARRAY_DSV {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_TEX2D_ARRAY_DSV {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_TEX2D_ARRAY_RTV {
@@ -9277,9 +8405,6 @@ impl Default for D3D12_TEX2D_ARRAY_RTV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_TEX2D_ARRAY_RTV {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9296,9 +8421,6 @@ impl Default for D3D12_TEX2D_ARRAY_SRV {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_TEX2D_ARRAY_SRV {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_TEX2D_ARRAY_UAV {
@@ -9312,9 +8434,6 @@ impl Default for D3D12_TEX2D_ARRAY_UAV {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_TEX2D_ARRAY_UAV {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_TEX2D_DSV {
@@ -9324,9 +8443,6 @@ impl Default for D3D12_TEX2D_DSV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_TEX2D_DSV {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9338,9 +8454,6 @@ impl Default for D3D12_TEX2D_RTV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_TEX2D_RTV {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9355,9 +8468,6 @@ impl Default for D3D12_TEX2D_SRV {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_TEX2D_SRV {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_TEX2D_UAV {
@@ -9368,9 +8478,6 @@ impl Default for D3D12_TEX2D_UAV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_TEX2D_UAV {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9384,9 +8491,6 @@ impl Default for D3D12_TEX3D_RTV {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_TEX3D_RTV {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_TEX3D_SRV {
@@ -9399,9 +8503,6 @@ impl Default for D3D12_TEX3D_SRV {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_TEX3D_SRV {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_TEX3D_UAV {
@@ -9413,9 +8514,6 @@ impl Default for D3D12_TEX3D_UAV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_TEX3D_UAV {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9431,9 +8529,6 @@ impl Default for D3D12_TEXCUBE_ARRAY_SRV {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_TEXCUBE_ARRAY_SRV {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_TEXCUBE_SRV {
@@ -9445,9 +8540,6 @@ impl Default for D3D12_TEXCUBE_SRV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_TEXCUBE_SRV {
-    type TypeKind = windows_core::CopyType;
 }
 pub const D3D12_TEXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 16u32;
 #[repr(transparent)]
@@ -9475,9 +8567,6 @@ impl Default for D3D12_TEXTURE_BARRIER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_TEXTURE_BARRIER {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9536,10 +8625,6 @@ impl Default for D3D12_TEXTURE_COPY_LOCATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D12_TEXTURE_COPY_LOCATION {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[derive(Clone, Copy)]
@@ -9552,10 +8637,6 @@ impl Default for D3D12_TEXTURE_COPY_LOCATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D12_TEXTURE_COPY_LOCATION_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9586,9 +8667,6 @@ impl Default for D3D12_THREAD_LAUNCH_OVERRIDES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_THREAD_LAUNCH_OVERRIDES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_TILED_RESOURCES_TIER(pub i32);
@@ -9609,9 +8687,6 @@ impl Default for D3D12_TILED_RESOURCE_COORDINATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_TILED_RESOURCE_COORDINATE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const D3D12_TILED_RESOURCE_TILE_SIZE_IN_BYTES: u32 = 65536u32;
 #[repr(transparent)]
@@ -9713,9 +8788,6 @@ impl Default for D3D12_TILE_REGION_SIZE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_TILE_REGION_SIZE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_TILE_SHAPE {
@@ -9727,9 +8799,6 @@ impl Default for D3D12_TILE_SHAPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_TILE_SHAPE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const D3D12_TRACKED_WORKLOAD_MAX_INSTANCES: u32 = 32u32;
 #[repr(transparent)]
@@ -9767,10 +8836,6 @@ impl Default for D3D12_UNORDERED_ACCESS_VIEW_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D12_UNORDERED_ACCESS_VIEW_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[derive(Clone, Copy)]
@@ -9790,10 +8855,6 @@ impl Default for D3D12_UNORDERED_ACCESS_VIEW_DESC_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D12_UNORDERED_ACCESS_VIEW_DESC_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VARIABLE_SHADING_RATE_TIER(pub i32);
@@ -9811,9 +8872,6 @@ impl Default for D3D12_VERSIONED_DEVICE_REMOVED_EXTENDED_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_VERSIONED_DEVICE_REMOVED_EXTENDED_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union D3D12_VERSIONED_DEVICE_REMOVED_EXTENDED_DATA_0 {
@@ -9827,9 +8885,6 @@ impl Default for D3D12_VERSIONED_DEVICE_REMOVED_EXTENDED_DATA_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_VERSIONED_DEVICE_REMOVED_EXTENDED_DATA_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3D12_VERSIONED_ROOT_SIGNATURE_DESC {
@@ -9840,9 +8895,6 @@ impl Default for D3D12_VERSIONED_ROOT_SIGNATURE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_VERSIONED_ROOT_SIGNATURE_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -9856,9 +8908,6 @@ impl Default for D3D12_VERSIONED_ROOT_SIGNATURE_DESC_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_VERSIONED_ROOT_SIGNATURE_DESC_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VERTEX_BUFFER_VIEW {
@@ -9870,9 +8919,6 @@ impl Default for D3D12_VERTEX_BUFFER_VIEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_VERTEX_BUFFER_VIEW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const D3D12_VIDEO_DECODE_MAX_ARGUMENTS: u32 = 10u32;
 pub const D3D12_VIDEO_DECODE_MAX_HISTOGRAM_COMPONENTS: u32 = 4u32;
@@ -9901,9 +8947,6 @@ impl Default for D3D12_VIEWPORT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_VIEWPORT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const D3D12_VIEWPORT_AND_SCISSORRECT_MAX_INDEX: u32 = 15u32;
 pub const D3D12_VIEWPORT_AND_SCISSORRECT_OBJECT_COUNT_PER_PIPELINE: u32 = 16u32;
 pub const D3D12_VIEWPORT_BOUNDS_MAX: u32 = 32767u32;
@@ -9919,9 +8962,6 @@ impl Default for D3D12_VIEW_INSTANCE_LOCATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_VIEW_INSTANCE_LOCATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIEW_INSTANCING_DESC {
@@ -9933,9 +8973,6 @@ impl Default for D3D12_VIEW_INSTANCING_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_VIEW_INSTANCING_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -10020,9 +9057,6 @@ impl Default for D3D12_WORK_GRAPH_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_WORK_GRAPH_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_WORK_GRAPH_FLAGS(pub i32);
@@ -10073,9 +9107,6 @@ impl Default for D3D12_WORK_GRAPH_MEMORY_REQUIREMENTS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_WORK_GRAPH_MEMORY_REQUIREMENTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_WRITEBUFFERIMMEDIATE_MODE(pub i32);
@@ -10092,9 +9123,6 @@ impl Default for D3D12_WRITEBUFFERIMMEDIATE_PARAMETER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D12_WRITEBUFFERIMMEDIATE_PARAMETER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const D3D_HIGHEST_SHADER_MODEL: D3D_SHADER_MODEL = D3D_SHADER_MODEL(105i32);
 #[repr(transparent)]

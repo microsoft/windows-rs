@@ -230,10 +230,6 @@ impl Default for D2D1_ARC_SEGMENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for D2D1_ARC_SEGMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_ARC_SIZE(pub i32);
@@ -294,9 +290,6 @@ impl Default for D2D1_BITMAP_BRUSH_PROPERTIES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D2D1_BITMAP_BRUSH_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D1_BITMAP_BRUSH_PROPERTIES1 {
@@ -308,9 +301,6 @@ impl Default for D2D1_BITMAP_BRUSH_PROPERTIES1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D2D1_BITMAP_BRUSH_PROPERTIES1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -372,10 +362,6 @@ impl Default for D2D1_BITMAP_PROPERTIES {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-impl windows_core::TypeKind for D2D1_BITMAP_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 #[derive(Clone, Debug, PartialEq)]
@@ -391,10 +377,6 @@ impl Default for D2D1_BITMAP_PROPERTIES1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-impl windows_core::TypeKind for D2D1_BITMAP_PROPERTIES1 {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -415,9 +397,6 @@ impl Default for D2D1_BLEND_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D2D1_BLEND_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const D2D1_BLEND_DEST_ALPHA: D2D1_BLEND = D2D1_BLEND(7i32);
 pub const D2D1_BLEND_DEST_COLOR: D2D1_BLEND = D2D1_BLEND(9i32);
@@ -471,10 +450,6 @@ impl Default for D2D1_BRUSH_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl windows_core::TypeKind for D2D1_BRUSH_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -696,9 +671,6 @@ impl Default for D2D1_CREATION_PROPERTIES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D2D1_CREATION_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_CROP_PROP(pub i32);
@@ -723,10 +695,6 @@ impl Default for D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -889,10 +857,6 @@ impl Default for D2D1_DRAWING_STATE_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Foundation_Numerics")]
-impl windows_core::TypeKind for D2D1_DRAWING_STATE_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Foundation_Numerics")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -910,10 +874,6 @@ impl Default for D2D1_DRAWING_STATE_DESCRIPTION1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl windows_core::TypeKind for D2D1_DRAWING_STATE_DESCRIPTION1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -983,10 +943,6 @@ impl Default for D2D1_EFFECT_INPUT_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for D2D1_EFFECT_INPUT_DESCRIPTION {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1000,10 +956,6 @@ impl Default for D2D1_ELLIPSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for D2D1_ELLIPSE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1030,9 +982,6 @@ impl Default for D2D1_FACTORY_OPTIONS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D2D1_FACTORY_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_FACTORY_TYPE(pub i32);
@@ -1052,9 +1001,6 @@ impl Default for D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D1_FEATURE_DATA_DOUBLES {
@@ -1064,9 +1010,6 @@ impl Default for D2D1_FEATURE_DATA_DOUBLES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D2D1_FEATURE_DATA_DOUBLES {
-    type TypeKind = windows_core::CopyType;
 }
 pub const D2D1_FEATURE_DOUBLES: D2D1_FEATURE = D2D1_FEATURE(0i32);
 #[repr(transparent)]
@@ -1182,10 +1125,6 @@ impl Default for D2D1_GRADIENT_MESH_PATCH {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for D2D1_GRADIENT_MESH_PATCH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_HDRTONEMAP_DISPLAY_MODE(pub i32);
@@ -1243,10 +1182,6 @@ impl Default for D2D1_HWND_RENDER_TARGET_PROPERTIES {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for D2D1_HWND_RENDER_TARGET_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1261,10 +1196,6 @@ impl Default for D2D1_IMAGE_BRUSH_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for D2D1_IMAGE_BRUSH_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1355,9 +1286,6 @@ impl Default for D2D1_INK_BEZIER_SEGMENT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D2D1_INK_BEZIER_SEGMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_INK_NIB_SHAPE(pub i32);
@@ -1375,9 +1303,6 @@ impl Default for D2D1_INK_POINT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D2D1_INK_POINT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Foundation_Numerics")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1391,10 +1316,6 @@ impl Default for D2D1_INK_STYLE_PROPERTIES {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Foundation_Numerics")]
-impl windows_core::TypeKind for D2D1_INK_STYLE_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D1_INPUT_DESCRIPTION {
@@ -1405,9 +1326,6 @@ impl Default for D2D1_INPUT_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D2D1_INPUT_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -1424,10 +1342,6 @@ impl Default for D2D1_INPUT_ELEMENT_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D2D1_INPUT_ELEMENT_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1544,10 +1458,6 @@ impl Default for D2D1_LAYER_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-impl windows_core::TypeKind for D2D1_LAYER_PARAMETERS {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 #[derive(Clone, Debug, PartialEq)]
@@ -1565,10 +1475,6 @@ impl Default for D2D1_LAYER_PARAMETERS1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-impl windows_core::TypeKind for D2D1_LAYER_PARAMETERS1 {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1599,10 +1505,6 @@ impl Default for D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_LINE_JOIN(pub i32);
@@ -1625,9 +1527,6 @@ impl Default for D2D1_MAPPED_RECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D2D1_MAPPED_RECT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1802,10 +1701,6 @@ impl Default for D2D1_POINT_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for D2D1_POINT_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_POSTERIZE_PROP(pub i32);
@@ -1871,9 +1766,6 @@ impl Default for D2D1_PRINT_CONTROL_PROPERTIES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D2D1_PRINT_CONTROL_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_PRINT_FONT_SUBSET_MODE(pub i32);
@@ -1895,9 +1787,6 @@ impl Default for D2D1_PROPERTY_BINDING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D2D1_PROPERTY_BINDING {
-    type TypeKind = windows_core::CopyType;
 }
 pub const D2D1_PROPERTY_CACHED: D2D1_PROPERTY = D2D1_PROPERTY(-2147483642i32);
 pub const D2D1_PROPERTY_CATEGORY: D2D1_PROPERTY = D2D1_PROPERTY(-2147483645i32);
@@ -1943,10 +1832,6 @@ impl Default for D2D1_QUADRATIC_BEZIER_SEGMENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for D2D1_QUADRATIC_BEZIER_SEGMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1962,10 +1847,6 @@ impl Default for D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1978,10 +1859,6 @@ impl Default for D2D1_RENDERING_CONTROLS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for D2D1_RENDERING_CONTROLS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2004,10 +1881,6 @@ impl Default for D2D1_RENDER_TARGET_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-impl windows_core::TypeKind for D2D1_RENDER_TARGET_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2069,9 +1942,6 @@ impl Default for D2D1_RESOURCE_TEXTURE_PROPERTIES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D2D1_RESOURCE_TEXTURE_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE(pub i32);
@@ -2094,10 +1964,6 @@ impl Default for D2D1_ROUNDED_RECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for D2D1_ROUNDED_RECT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2158,10 +2024,6 @@ impl Default for D2D1_SIMPLE_COLOR_PROFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for D2D1_SIMPLE_COLOR_PROFILE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2274,9 +2136,6 @@ impl Default for D2D1_STROKE_STYLE_PROPERTIES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D2D1_STROKE_STYLE_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D1_STROKE_STYLE_PROPERTIES1 {
@@ -2293,9 +2152,6 @@ impl Default for D2D1_STROKE_STYLE_PROPERTIES1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D2D1_STROKE_STYLE_PROPERTIES1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2369,9 +2225,6 @@ impl Default for D2D1_SVG_LENGTH {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D2D1_SVG_LENGTH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_SVG_LENGTH_UNITS(pub i32);
@@ -2438,9 +2291,6 @@ impl Default for D2D1_SVG_PRESERVE_ASPECT_RATIO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D2D1_SVG_PRESERVE_ASPECT_RATIO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_SVG_UNIT_TYPE(pub i32);
@@ -2458,9 +2308,6 @@ impl Default for D2D1_SVG_VIEWBOX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D2D1_SVG_VIEWBOX {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2562,9 +2409,6 @@ impl Default for D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2578,10 +2422,6 @@ impl Default for D2D1_TRIANGLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for D2D1_TRIANGLE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2610,9 +2450,6 @@ impl Default for D2D1_VERTEX_BUFFER_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D2D1_VERTEX_BUFFER_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2664,9 +2501,6 @@ impl Default for D2D1_VERTEX_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D2D1_VERTEX_RANGE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

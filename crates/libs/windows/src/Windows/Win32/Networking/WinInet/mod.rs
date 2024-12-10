@@ -2062,9 +2062,6 @@ impl Default for APP_CACHE_DOWNLOAD_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for APP_CACHE_DOWNLOAD_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct APP_CACHE_DOWNLOAD_LIST {
@@ -2075,9 +2072,6 @@ impl Default for APP_CACHE_DOWNLOAD_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for APP_CACHE_DOWNLOAD_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const APP_CACHE_ENTRY_TYPE_EXPLICIT: u32 = 2u32;
 pub const APP_CACHE_ENTRY_TYPE_FALLBACK: u32 = 4u32;
@@ -2099,9 +2093,6 @@ impl Default for APP_CACHE_GROUP_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for APP_CACHE_GROUP_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct APP_CACHE_GROUP_LIST {
@@ -2112,9 +2103,6 @@ impl Default for APP_CACHE_GROUP_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for APP_CACHE_GROUP_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const APP_CACHE_LOOKUP_NO_MASTER_ONLY: u32 = 1u32;
 #[repr(transparent)]
@@ -2147,9 +2135,6 @@ impl Default for AUTO_PROXY_SCRIPT_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AUTO_PROXY_SCRIPT_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 pub const AppCacheFinalizeStateComplete: APP_CACHE_FINALIZE_STATE = APP_CACHE_FINALIZE_STATE(2i32);
 pub const AppCacheFinalizeStateIncomplete: APP_CACHE_FINALIZE_STATE = APP_CACHE_FINALIZE_STATE(0i32);
 pub const AppCacheFinalizeStateManifestChange: APP_CACHE_FINALIZE_STATE = APP_CACHE_FINALIZE_STATE(1i32);
@@ -2166,9 +2151,6 @@ impl Default for AutoProxyHelperFunctions {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AutoProxyHelperFunctions {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2187,9 +2169,6 @@ impl Default for AutoProxyHelperVtbl {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AutoProxyHelperVtbl {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CACHEGROUP_ATTRIBUTE_BASIC: u32 = 1u32;
 pub const CACHEGROUP_ATTRIBUTE_FLAG: u32 = 2u32;
@@ -2298,9 +2277,6 @@ impl Default for COOKIE_DLG_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COOKIE_DLG_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const COOKIE_DONT_ALLOW: u32 = 1u32;
 pub const COOKIE_DONT_ALLOW_ALL: u32 = 8u32;
 pub const COOKIE_DOWNGRADED_CACHE_ENTRY: u32 = 16384u32;
@@ -2333,9 +2309,6 @@ impl Default for CookieDecision {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CookieDecision {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DIALENG_OperationComplete: u32 = 65536u32;
 pub const DIALENG_RedialAttempt: u32 = 65537u32;
@@ -2512,9 +2485,6 @@ impl Default for GOPHER_ABSTRACT_ATTRIBUTE_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GOPHER_ABSTRACT_ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const GOPHER_ABSTRACT_CATEGORY: windows_core::PCWSTR = windows_core::w!("+ABSTRACT");
 pub const GOPHER_ADMIN_ATTRIBUTE: windows_core::PCWSTR = windows_core::w!("Admin");
 #[repr(C)]
@@ -2528,9 +2498,6 @@ impl Default for GOPHER_ADMIN_ATTRIBUTE_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GOPHER_ADMIN_ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const GOPHER_ADMIN_CATEGORY: windows_core::PCWSTR = windows_core::w!("+ADMIN");
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2542,9 +2509,6 @@ impl Default for GOPHER_ASK_ATTRIBUTE_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GOPHER_ASK_ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
 }
 pub type GOPHER_ATTRIBUTE_ENUMERATOR = Option<unsafe extern "system" fn(lpattributeinfo: *const GOPHER_ATTRIBUTE_TYPE, dwerror: u32) -> super::super::Foundation::BOOL>;
 pub const GOPHER_ATTRIBUTE_ID_ABSTRACT: u32 = 2882325526u32;
@@ -2577,9 +2541,6 @@ impl Default for GOPHER_ATTRIBUTE_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GOPHER_ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union GOPHER_ATTRIBUTE_TYPE_0 {
@@ -2606,9 +2567,6 @@ impl Default for GOPHER_ATTRIBUTE_TYPE_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GOPHER_ATTRIBUTE_TYPE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const GOPHER_CATEGORY_ID_ABSTRACT: u32 = 2882325509u32;
 pub const GOPHER_CATEGORY_ID_ADMIN: u32 = 2882325507u32;
 pub const GOPHER_CATEGORY_ID_ALL: u32 = 2882325505u32;
@@ -2632,9 +2590,6 @@ impl Default for GOPHER_FIND_DATAA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GOPHER_FIND_DATAA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GOPHER_FIND_DATAW {
@@ -2649,9 +2604,6 @@ impl Default for GOPHER_FIND_DATAW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GOPHER_FIND_DATAW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2668,9 +2620,6 @@ impl Default for GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const GOPHER_GEOG_ATTRIBUTE: windows_core::PCWSTR = windows_core::w!("Geog");
 pub const GOPHER_INFO_CATEGORY: windows_core::PCWSTR = windows_core::w!("+INFO");
 pub const GOPHER_LOCATION_ATTRIBUTE: windows_core::PCWSTR = windows_core::w!("Loc");
@@ -2684,9 +2633,6 @@ impl Default for GOPHER_LOCATION_ATTRIBUTE_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GOPHER_LOCATION_ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const GOPHER_MOD_DATE_ATTRIBUTE: windows_core::PCWSTR = windows_core::w!("Mod-Date");
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2698,9 +2644,6 @@ impl Default for GOPHER_MOD_DATE_ATTRIBUTE_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GOPHER_MOD_DATE_ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GOPHER_ORGANIZATION_ATTRIBUTE_TYPE {
@@ -2710,9 +2653,6 @@ impl Default for GOPHER_ORGANIZATION_ATTRIBUTE_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GOPHER_ORGANIZATION_ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const GOPHER_ORG_ATTRIBUTE: windows_core::PCWSTR = windows_core::w!("Org");
 pub const GOPHER_PROVIDER_ATTRIBUTE: windows_core::PCWSTR = windows_core::w!("Provider");
@@ -2726,9 +2666,6 @@ impl Default for GOPHER_PROVIDER_ATTRIBUTE_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GOPHER_PROVIDER_ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const GOPHER_RANGE_ATTRIBUTE: windows_core::PCWSTR = windows_core::w!("Score-range");
 pub const GOPHER_SCORE_ATTRIBUTE: windows_core::PCWSTR = windows_core::w!("Score");
 #[repr(C)]
@@ -2741,9 +2678,6 @@ impl Default for GOPHER_SCORE_ATTRIBUTE_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GOPHER_SCORE_ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {
@@ -2754,9 +2688,6 @@ impl Default for GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const GOPHER_SITE_ATTRIBUTE: windows_core::PCWSTR = windows_core::w!("Site");
 #[repr(C)]
@@ -2769,9 +2700,6 @@ impl Default for GOPHER_SITE_ATTRIBUTE_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GOPHER_SITE_ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const GOPHER_TIMEZONE_ATTRIBUTE: windows_core::PCWSTR = windows_core::w!("TZ");
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2782,9 +2710,6 @@ impl Default for GOPHER_TIMEZONE_ATTRIBUTE_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GOPHER_TIMEZONE_ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const GOPHER_TREEWALK_ATTRIBUTE: windows_core::PCWSTR = windows_core::w!("treewalk");
 pub const GOPHER_TTL_ATTRIBUTE: windows_core::PCWSTR = windows_core::w!("TTL");
@@ -2797,9 +2722,6 @@ impl Default for GOPHER_TTL_ATTRIBUTE_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GOPHER_TTL_ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2838,9 +2760,6 @@ impl Default for GOPHER_UNKNOWN_ATTRIBUTE_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GOPHER_UNKNOWN_ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GOPHER_VERONICA_ATTRIBUTE_TYPE {
@@ -2850,9 +2769,6 @@ impl Default for GOPHER_VERONICA_ATTRIBUTE_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GOPHER_VERONICA_ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const GOPHER_VERONICA_CATEGORY: windows_core::PCWSTR = windows_core::w!("+VERONICA");
 pub const GOPHER_VERSION_ATTRIBUTE: windows_core::PCWSTR = windows_core::w!("Version");
@@ -2865,9 +2781,6 @@ impl Default for GOPHER_VERSION_ATTRIBUTE_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GOPHER_VERSION_ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const GOPHER_VIEWS_CATEGORY: windows_core::PCWSTR = windows_core::w!("+VIEWS");
 pub const GOPHER_VIEW_ATTRIBUTE: windows_core::PCWSTR = windows_core::w!("View");
@@ -2882,9 +2795,6 @@ impl Default for GOPHER_VIEW_ATTRIBUTE_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GOPHER_VIEW_ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const GROUPNAME_MAX_LENGTH: u32 = 120u32;
 pub const GROUP_OWNER_STORAGE_SIZE: u32 = 4u32;
@@ -2969,9 +2879,6 @@ impl Default for HTTP_PUSH_NOTIFICATION_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HTTP_PUSH_NOTIFICATION_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HTTP_PUSH_TRANSPORT_SETTING {
@@ -2982,9 +2889,6 @@ impl Default for HTTP_PUSH_TRANSPORT_SETTING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HTTP_PUSH_TRANSPORT_SETTING {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -3121,9 +3025,6 @@ impl Default for HTTP_REQUEST_TIMES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HTTP_REQUEST_TIMES {
-    type TypeKind = windows_core::CopyType;
-}
 pub const HTTP_STATUS_MISDIRECTED_REQUEST: u32 = 421u32;
 pub const HTTP_VERSIONA: windows_core::PCSTR = windows_core::s!("HTTP/1.0");
 pub const HTTP_VERSIONW: windows_core::PCWSTR = windows_core::w!("HTTP/1.0");
@@ -3140,9 +3041,6 @@ impl Default for HTTP_WEB_SOCKET_ASYNC_RESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HTTP_WEB_SOCKET_ASYNC_RESULT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const HTTP_WEB_SOCKET_BINARY_FRAGMENT_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = HTTP_WEB_SOCKET_BUFFER_TYPE(1i32);
 pub const HTTP_WEB_SOCKET_BINARY_MESSAGE_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = HTTP_WEB_SOCKET_BUFFER_TYPE(0i32);
@@ -3408,9 +3306,6 @@ impl Default for INTERNET_ASYNC_RESULT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INTERNET_ASYNC_RESULT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_AUTH_NOTIFY_DATA {
@@ -3423,9 +3318,6 @@ impl Default for INTERNET_AUTH_NOTIFY_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for INTERNET_AUTH_NOTIFY_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const INTERNET_AUTH_SCHEME_BASIC: u32 = 0u32;
 pub const INTERNET_AUTH_SCHEME_DIGEST: u32 = 1u32;
@@ -3464,9 +3356,6 @@ impl Default for INTERNET_BUFFERSA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INTERNET_BUFFERSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_BUFFERSW {
@@ -3485,9 +3374,6 @@ impl Default for INTERNET_BUFFERSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for INTERNET_BUFFERSW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3508,9 +3394,6 @@ impl Default for INTERNET_CACHE_CONFIG_INFOA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INTERNET_CACHE_CONFIG_INFOA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union INTERNET_CACHE_CONFIG_INFOA_0 {
@@ -3522,9 +3405,6 @@ impl Default for INTERNET_CACHE_CONFIG_INFOA_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INTERNET_CACHE_CONFIG_INFOA_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_CACHE_CONFIG_INFOA_0_0 {
@@ -3535,9 +3415,6 @@ impl Default for INTERNET_CACHE_CONFIG_INFOA_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for INTERNET_CACHE_CONFIG_INFOA_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3558,9 +3435,6 @@ impl Default for INTERNET_CACHE_CONFIG_INFOW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INTERNET_CACHE_CONFIG_INFOW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union INTERNET_CACHE_CONFIG_INFOW_0 {
@@ -3571,9 +3445,6 @@ impl Default for INTERNET_CACHE_CONFIG_INFOW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for INTERNET_CACHE_CONFIG_INFOW_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3586,9 +3457,6 @@ impl Default for INTERNET_CACHE_CONFIG_INFOW_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INTERNET_CACHE_CONFIG_INFOW_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_CACHE_CONFIG_PATH_ENTRYA {
@@ -3600,9 +3468,6 @@ impl Default for INTERNET_CACHE_CONFIG_PATH_ENTRYA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INTERNET_CACHE_CONFIG_PATH_ENTRYA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_CACHE_CONFIG_PATH_ENTRYW {
@@ -3613,9 +3478,6 @@ impl Default for INTERNET_CACHE_CONFIG_PATH_ENTRYW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for INTERNET_CACHE_CONFIG_PATH_ENTRYW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const INTERNET_CACHE_CONTAINER_AUTODELETE: u32 = 2u32;
 pub const INTERNET_CACHE_CONTAINER_BLOOM_FILTER: u32 = 32u32;
@@ -3633,9 +3495,6 @@ impl Default for INTERNET_CACHE_CONTAINER_INFOA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INTERNET_CACHE_CONTAINER_INFOA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_CACHE_CONTAINER_INFOW {
@@ -3649,9 +3508,6 @@ impl Default for INTERNET_CACHE_CONTAINER_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for INTERNET_CACHE_CONTAINER_INFOW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const INTERNET_CACHE_CONTAINER_MAP_ENABLED: u32 = 16u32;
 pub const INTERNET_CACHE_CONTAINER_NODESKTOPINIT: u32 = 8u32;
@@ -3684,9 +3540,6 @@ impl Default for INTERNET_CACHE_ENTRY_INFOA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INTERNET_CACHE_ENTRY_INFOA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union INTERNET_CACHE_ENTRY_INFOA_0 {
@@ -3697,9 +3550,6 @@ impl Default for INTERNET_CACHE_ENTRY_INFOA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for INTERNET_CACHE_ENTRY_INFOA_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3726,9 +3576,6 @@ impl Default for INTERNET_CACHE_ENTRY_INFOW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INTERNET_CACHE_ENTRY_INFOW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union INTERNET_CACHE_ENTRY_INFOW_0 {
@@ -3739,9 +3586,6 @@ impl Default for INTERNET_CACHE_ENTRY_INFOW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for INTERNET_CACHE_ENTRY_INFOW_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const INTERNET_CACHE_FLAG_ADD_FILENAME_ONLY: u32 = 2048u32;
 pub const INTERNET_CACHE_FLAG_ALLOW_COLLISIONS: u32 = 256u32;
@@ -3765,9 +3609,6 @@ impl Default for INTERNET_CACHE_GROUP_INFOA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INTERNET_CACHE_GROUP_INFOA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_CACHE_GROUP_INFOW {
@@ -3784,9 +3625,6 @@ impl Default for INTERNET_CACHE_GROUP_INFOW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INTERNET_CACHE_GROUP_INFOW {
-    type TypeKind = windows_core::CopyType;
-}
 pub const INTERNET_CACHE_GROUP_REMOVE: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3798,9 +3636,6 @@ impl Default for INTERNET_CACHE_TIMESTAMPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for INTERNET_CACHE_TIMESTAMPS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3816,9 +3651,6 @@ impl Default for INTERNET_CALLBACK_COOKIE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for INTERNET_CALLBACK_COOKIE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3837,9 +3669,6 @@ impl Default for INTERNET_CERTIFICATE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INTERNET_CERTIFICATE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_CONNECTED_INFO {
@@ -3850,9 +3679,6 @@ impl Default for INTERNET_CONNECTED_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for INTERNET_CONNECTED_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3914,9 +3740,6 @@ impl Default for INTERNET_COOKIE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INTERNET_COOKIE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_COOKIE2 {
@@ -3932,9 +3755,6 @@ impl Default for INTERNET_COOKIE2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for INTERNET_COOKIE2 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const INTERNET_COOKIE_ALL_COOKIES: u32 = 536870912u32;
 pub const INTERNET_COOKIE_APPLY_HOST_ONLY: u32 = 32768u32;
@@ -3979,9 +3799,6 @@ impl Default for INTERNET_CREDENTIALS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INTERNET_CREDENTIALS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union INTERNET_CREDENTIALS_0 {
@@ -3993,9 +3810,6 @@ impl Default for INTERNET_CREDENTIALS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INTERNET_CREDENTIALS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_CREDENTIALS_0_0 {
@@ -4006,9 +3820,6 @@ impl Default for INTERNET_CREDENTIALS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for INTERNET_CREDENTIALS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const INTERNET_CUSTOMDIAL_CAN_HANGUP: u32 = 4u32;
 pub const INTERNET_CUSTOMDIAL_CONNECT: u32 = 0u32;
@@ -4033,9 +3844,6 @@ impl Default for INTERNET_DIAGNOSTIC_SOCKET_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INTERNET_DIAGNOSTIC_SOCKET_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const INTERNET_DIALSTATE_DISCONNECTED: u32 = 1u32;
 pub const INTERNET_DIAL_FORCE_PROMPT: u32 = 8192u32;
 pub const INTERNET_DIAL_SHOW_OFFLINE: u32 = 16384u32;
@@ -4051,9 +3859,6 @@ impl Default for INTERNET_DOWNLOAD_MODE_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INTERNET_DOWNLOAD_MODE_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_END_BROWSER_SESSION_DATA {
@@ -4064,9 +3869,6 @@ impl Default for INTERNET_END_BROWSER_SESSION_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for INTERNET_END_BROWSER_SESSION_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const INTERNET_ERROR_BASE: u32 = 12000u32;
 pub const INTERNET_ERROR_LAST: u32 = 12192u32;
@@ -4365,9 +4167,6 @@ impl Default for INTERNET_PER_CONN_OPTIONA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INTERNET_PER_CONN_OPTIONA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union INTERNET_PER_CONN_OPTIONA_0 {
@@ -4380,9 +4179,6 @@ impl Default for INTERNET_PER_CONN_OPTIONA_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INTERNET_PER_CONN_OPTIONA_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct INTERNET_PER_CONN_OPTIONW {
@@ -4393,9 +4189,6 @@ impl Default for INTERNET_PER_CONN_OPTIONW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for INTERNET_PER_CONN_OPTIONW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4408,9 +4201,6 @@ impl Default for INTERNET_PER_CONN_OPTIONW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for INTERNET_PER_CONN_OPTIONW_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4426,9 +4216,6 @@ impl Default for INTERNET_PER_CONN_OPTION_LISTA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INTERNET_PER_CONN_OPTION_LISTA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_PER_CONN_OPTION_LISTW {
@@ -4442,9 +4229,6 @@ impl Default for INTERNET_PER_CONN_OPTION_LISTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for INTERNET_PER_CONN_OPTION_LISTW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const INTERNET_PER_CONN_PROXY_BYPASS: INTERNET_PER_CONN = INTERNET_PER_CONN(3u32);
 pub const INTERNET_PER_CONN_PROXY_SERVER: INTERNET_PER_CONN = INTERNET_PER_CONN(2u32);
@@ -4462,9 +4246,6 @@ impl Default for INTERNET_PREFETCH_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INTERNET_PREFETCH_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const INTERNET_PRIORITY_FOREGROUND: u32 = 1000u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4477,9 +4258,6 @@ impl Default for INTERNET_PROXY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for INTERNET_PROXY_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const INTERNET_RAS_INSTALLED: INTERNET_CONNECTION = INTERNET_CONNECTION(16u32);
 pub const INTERNET_REQFLAG_ASYNC: u32 = 2u32;
@@ -4526,10 +4304,6 @@ impl Default for INTERNET_SECURITY_CONNECTION_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
-impl windows_core::TypeKind for INTERNET_SECURITY_CONNECTION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4548,10 +4322,6 @@ impl Default for INTERNET_SECURITY_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
-impl windows_core::TypeKind for INTERNET_SECURITY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_SERVER_CONNECTION_STATE {
@@ -4568,9 +4338,6 @@ impl Default for INTERNET_SERVER_CONNECTION_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for INTERNET_SERVER_CONNECTION_STATE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const INTERNET_SERVICE_FTP: u32 = 1u32;
 pub const INTERNET_SERVICE_GOPHER: u32 = 2u32;
@@ -4648,9 +4415,6 @@ impl Default for INTERNET_VERSION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for INTERNET_VERSION_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 windows_core::imp::define_interface!(IProofOfPossessionCookieInfoManager, IProofOfPossessionCookieInfoManager_Vtbl, 0xcdaece56_4edf_43df_b113_88e4556fa1bb);
 windows_core::imp::interface_hierarchy!(IProofOfPossessionCookieInfoManager, windows_core::IUnknown);
@@ -4742,9 +4506,6 @@ impl Default for IncomingCookieState {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IncomingCookieState {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct InternetCookieHistory {
@@ -4757,9 +4518,6 @@ impl Default for InternetCookieHistory {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for InternetCookieHistory {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4791,9 +4549,6 @@ impl Default for OutgoingCookieState {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for OutgoingCookieState {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PENDING_DELETE_CACHE_ENTRY: u32 = 4194304u32;
 pub type PFN_AUTH_NOTIFY = Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: *mut core::ffi::c_void) -> u32>;
@@ -4872,9 +4627,6 @@ impl Default for ProofOfPossessionCookieInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ProofOfPossessionCookieInfo {
-    type TypeKind = windows_core::CopyType;
-}
 pub const ProofOfPossessionCookieInfoManager: windows_core::GUID = windows_core::GUID::from_u128(0xa9927f85_a304_4390_8b23_a75f1c668600);
 pub const REDIRECT_CACHE_ENTRY: u32 = 2048u32;
 pub const REGSTR_DIAL_AUTOCONNECT: windows_core::PCSTR = windows_core::s!("AutoConnect");
@@ -4931,9 +4683,6 @@ impl Default for URLCACHE_ENTRY_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for URLCACHE_ENTRY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const URLHISTORY_CACHE_ENTRY: u32 = 2097152u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4962,9 +4711,6 @@ impl Default for URL_COMPONENTSA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for URL_COMPONENTSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct URL_COMPONENTSW {
@@ -4989,9 +4735,6 @@ impl Default for URL_COMPONENTSW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for URL_COMPONENTSW {
-    type TypeKind = windows_core::CopyType;
-}
 pub const UrlCacheLimitTypeAppContainer: URL_CACHE_LIMIT_TYPE = URL_CACHE_LIMIT_TYPE(2i32);
 pub const UrlCacheLimitTypeAppContainerTotal: URL_CACHE_LIMIT_TYPE = URL_CACHE_LIMIT_TYPE(3i32);
 pub const UrlCacheLimitTypeIE: URL_CACHE_LIMIT_TYPE = URL_CACHE_LIMIT_TYPE(0i32);
@@ -5014,9 +4757,6 @@ impl Default for WININET_PROXY_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WININET_PROXY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WININET_PROXY_INFO_LIST {
@@ -5027,9 +4767,6 @@ impl Default for WININET_PROXY_INFO_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WININET_PROXY_INFO_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

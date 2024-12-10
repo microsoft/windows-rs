@@ -5429,9 +5429,6 @@ impl Default for WICBitmapPattern {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WICBitmapPattern {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WICBitmapPlane {
@@ -5445,9 +5442,6 @@ impl Default for WICBitmapPlane {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WICBitmapPlane {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WICBitmapPlaneDescription {
@@ -5459,9 +5453,6 @@ impl Default for WICBitmapPlaneDescription {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WICBitmapPlaneDescription {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WICBitmapTransformFlipHorizontal: WICBitmapTransformOptions = WICBitmapTransformOptions(8i32);
 pub const WICBitmapTransformFlipVertical: WICBitmapTransformOptions = WICBitmapTransformOptions(16i32);
@@ -5524,10 +5515,6 @@ impl Default for WICDdsFormatInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for WICDdsFormatInfo {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5546,10 +5533,6 @@ impl Default for WICDdsParameters {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for WICDdsParameters {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WICDdsTexture1D: WICDdsDimension = WICDdsDimension(0i32);
 pub const WICDdsTexture2D: WICDdsDimension = WICDdsDimension(1i32);
@@ -5632,10 +5615,6 @@ impl Default for WICImageParameters {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-impl windows_core::TypeKind for WICImageParameters {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WICJpegChrominanceProperties(pub i32);
@@ -5660,9 +5639,6 @@ impl Default for WICJpegFrameHeader {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WICJpegFrameHeader {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5689,9 +5665,6 @@ impl Default for WICJpegScanHeader {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WICJpegScanHeader {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5732,9 +5705,6 @@ impl Default for WICMetadataHeader {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WICMetadataHeader {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WICMetadataPattern {
@@ -5748,9 +5718,6 @@ impl Default for WICMetadataPattern {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WICMetadataPattern {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WICMetadataReader: WICComponentType = WICComponentType(8i32);
 pub const WICMetadataWriter: WICComponentType = WICComponentType(16i32);
@@ -5885,9 +5852,6 @@ impl Default for WICRawCapabilitiesInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WICRawCapabilitiesInfo {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WICRawCapabilityFullySupported: WICRawCapabilities = WICRawCapabilities(2i32);
 pub const WICRawCapabilityGetSupported: WICRawCapabilities = WICRawCapabilities(1i32);
 pub const WICRawCapabilityNotSupported: WICRawCapabilities = WICRawCapabilities(0i32);
@@ -5932,9 +5896,6 @@ impl Default for WICRawToneCurve {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WICRawToneCurve {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WICRawToneCurvePoint {
@@ -5945,9 +5906,6 @@ impl Default for WICRawToneCurvePoint {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WICRawToneCurvePoint {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5961,9 +5919,6 @@ impl Default for WICRect {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WICRect {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

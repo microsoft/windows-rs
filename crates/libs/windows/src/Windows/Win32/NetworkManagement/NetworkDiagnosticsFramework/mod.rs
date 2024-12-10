@@ -149,9 +149,6 @@ impl Default for DIAG_SOCKADDR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DIAG_SOCKADDR {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DS_CONFIRMED: DIAGNOSIS_STATUS = DIAGNOSIS_STATUS(1i32);
 pub const DS_DEFERRED: DIAGNOSIS_STATUS = DIAGNOSIS_STATUS(4i32);
 pub const DS_INDETERMINATE: DIAGNOSIS_STATUS = DIAGNOSIS_STATUS(3i32);
@@ -169,9 +166,6 @@ impl Default for DiagnosticsInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DiagnosticsInfo {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HELPER_ATTRIBUTE {
@@ -183,9 +177,6 @@ impl Default for HELPER_ATTRIBUTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HELPER_ATTRIBUTE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -210,9 +201,6 @@ impl Default for HELPER_ATTRIBUTE_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HELPER_ATTRIBUTE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HYPOTHESIS {
@@ -226,9 +214,6 @@ impl Default for HYPOTHESIS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HYPOTHESIS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HelperAttributeInfo {
@@ -240,9 +225,6 @@ impl Default for HelperAttributeInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HelperAttributeInfo {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HypothesisResult {
@@ -253,9 +235,6 @@ impl Default for HypothesisResult {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HypothesisResult {
-    type TypeKind = windows_core::CopyType;
 }
 windows_core::imp::define_interface!(INetDiagExtensibleHelper, INetDiagExtensibleHelper_Vtbl, 0xc0b35748_ebf5_11d8_bbe9_505054503030);
 windows_core::imp::interface_hierarchy!(INetDiagExtensibleHelper, windows_core::IUnknown);
@@ -638,9 +617,6 @@ impl Default for LIFE_TIME {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LIFE_TIME {
-    type TypeKind = windows_core::CopyType;
-}
 pub const NDF_ADD_CAPTURE_TRACE: u32 = 1u32;
 pub const NDF_APPLY_INCLUSION_LIST_FILTER: u32 = 2u32;
 pub const NDF_ERROR_START: u32 = 63744u32;
@@ -664,9 +640,6 @@ impl Default for OCTET_STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for OCTET_STRING {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -733,9 +706,6 @@ impl Default for RepairInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RepairInfo {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RepairInfoEx {
@@ -746,9 +716,6 @@ impl Default for RepairInfoEx {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RepairInfoEx {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -765,9 +732,6 @@ impl Default for RootCauseInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RootCauseInfo {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ShellCommandInfo {
@@ -781,9 +745,6 @@ impl Default for ShellCommandInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ShellCommandInfo {
-    type TypeKind = windows_core::CopyType;
 }
 pub const UIT_DUI: UI_INFO_TYPE = UI_INFO_TYPE(4i32);
 pub const UIT_HELP_PANE: UI_INFO_TYPE = UI_INFO_TYPE(3i32);
@@ -804,9 +765,6 @@ impl Default for UiInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for UiInfo {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union UiInfo_0 {
@@ -819,7 +777,4 @@ impl Default for UiInfo_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for UiInfo_0 {
-    type TypeKind = windows_core::CopyType;
 }

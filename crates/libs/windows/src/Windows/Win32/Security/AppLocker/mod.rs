@@ -79,10 +79,6 @@ impl Default for SAFER_CODE_PROPERTIES_V1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for SAFER_CODE_PROPERTIES_V1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -110,10 +106,6 @@ impl Default for SAFER_CODE_PROPERTIES_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for SAFER_CODE_PROPERTIES_V2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -177,10 +169,6 @@ impl Default for SAFER_HASH_IDENTIFICATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for SAFER_HASH_IDENTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -196,10 +184,6 @@ impl Default for SAFER_HASH_IDENTIFICATION2 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for SAFER_HASH_IDENTIFICATION2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SAFER_IDENTIFICATION_HEADER {
@@ -212,9 +196,6 @@ impl Default for SAFER_IDENTIFICATION_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SAFER_IDENTIFICATION_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -243,9 +224,6 @@ impl Default for SAFER_PATHNAME_IDENTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SAFER_PATHNAME_IDENTIFICATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SAFER_POLICY_BLOCK_CLIENT_UI: u32 = 8192u32;
 pub const SAFER_POLICY_HASH_DUPLICATE: u32 = 262144u32;
@@ -279,9 +257,6 @@ impl Default for SAFER_URLZONE_IDENTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SAFER_URLZONE_IDENTIFICATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SRP_POLICY_APPX: windows_core::PCWSTR = windows_core::w!("APPX");
 pub const SRP_POLICY_DLL: windows_core::PCWSTR = windows_core::w!("DLL");

@@ -828,9 +828,6 @@ impl Default for BlackInformation {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BlackInformation {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CATID_WcsPlugin: windows_core::GUID = windows_core::GUID::from_u128(0xa0b402e0_8240_405f_8a16_8a5b4df2f0dd);
 pub const CMM_DESCRIPTION: u32 = 5u32;
 pub const CMM_DLL_VERSION: u32 = 3u32;
@@ -870,9 +867,6 @@ impl Default for CMYKCOLOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMYKCOLOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union COLOR {
@@ -892,9 +886,6 @@ impl Default for COLOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COLOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COLOR_0 {
@@ -905,9 +896,6 @@ impl Default for COLOR_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for COLOR_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -942,10 +930,6 @@ impl Default for COLORMATCHSETUPA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for COLORMATCHSETUPA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -975,10 +959,6 @@ impl Default for COLORMATCHSETUPW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for COLORMATCHSETUPW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1051,10 +1031,6 @@ impl Default for EMRCREATECOLORSPACE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for EMRCREATECOLORSPACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1071,10 +1047,6 @@ impl Default for EMRCREATECOLORSPACEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for EMRCREATECOLORSPACEW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const ENABLE_GAMUT_CHECKING: u32 = 65536u32;
 #[repr(C)]
@@ -1106,9 +1078,6 @@ impl Default for ENUMTYPEA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ENUMTYPEA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ENUMTYPEW {
@@ -1137,9 +1106,6 @@ impl Default for ENUMTYPEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ENUMTYPEW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const ENUM_TYPE_VERSION: u32 = 768u32;
 pub const ET_ATTRIBUTES: u32 = 8192u32;
@@ -1177,9 +1143,6 @@ impl Default for GENERIC3CHANNEL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GENERIC3CHANNEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GRAYCOLOR {
@@ -1189,9 +1152,6 @@ impl Default for GRAYCOLOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GRAYCOLOR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1208,9 +1168,6 @@ impl Default for GamutBoundaryDescription {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GamutBoundaryDescription {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GamutShell {
@@ -1226,9 +1183,6 @@ impl Default for GamutShell {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GamutShell {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GamutShellTriangle {
@@ -1238,9 +1192,6 @@ impl Default for GamutShellTriangle {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GamutShellTriangle {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -1276,9 +1227,6 @@ impl Default for HiFiCOLOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HiFiCOLOR {
-    type TypeKind = windows_core::CopyType;
 }
 pub type ICMENUMPROCA = Option<unsafe extern "system" fn(param0: windows_core::PCSTR, param1: super::super::Foundation::LPARAM) -> i32>;
 pub type ICMENUMPROCW = Option<unsafe extern "system" fn(param0: windows_core::PCWSTR, param1: super::super::Foundation::LPARAM) -> i32>;
@@ -1530,9 +1478,6 @@ impl Default for JChColorF {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for JChColorF {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JabColorF {
@@ -1544,9 +1489,6 @@ impl Default for JabColorF {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for JabColorF {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1575,10 +1517,6 @@ impl Default for LOGCOLORSPACEA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for LOGCOLORSPACEA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1600,10 +1538,6 @@ impl Default for LOGCOLORSPACEW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for LOGCOLORSPACEW {
-    type TypeKind = windows_core::CopyType;
-}
 pub type LPBMCALLBACKFN = Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1617,9 +1551,6 @@ impl Default for LabCOLOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LabCOLOR {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MAX_COLOR_CHANNELS: u32 = 8u32;
 pub const MicrosoftHardwareColorV2: WCS_DEVICE_CAPABILITIES_TYPE = WCS_DEVICE_CAPABILITIES_TYPE(2i32);
 #[repr(C)]
@@ -1631,9 +1562,6 @@ impl Default for NAMEDCOLOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NAMEDCOLOR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1648,9 +1576,6 @@ impl Default for NAMED_PROFILE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NAMED_PROFILE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const NORMAL_MODE: u32 = 2u32;
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -1669,9 +1594,6 @@ impl Default for PROFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PROFILE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1701,10 +1623,6 @@ impl Default for PROFILEHEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for PROFILEHEADER {
-    type TypeKind = windows_core::CopyType;
-}
 pub const PROFILE_FILENAME: u32 = 1u32;
 pub const PROFILE_MEMBUFFER: u32 = 2u32;
 pub const PROFILE_READ: u32 = 1u32;
@@ -1727,9 +1645,6 @@ impl Default for PrimaryJabColors {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PrimaryJabColors {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PrimaryXYZColors {
@@ -1747,9 +1662,6 @@ impl Default for PrimaryXYZColors {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PrimaryXYZColors {
-    type TypeKind = windows_core::CopyType;
-}
 pub const RESERVED: u32 = 2147483648u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1762,9 +1674,6 @@ impl Default for RGBCOLOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RGBCOLOR {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SEQUENTIAL_TRANSFORM: u32 = 2155872256u32;
 pub const USE_RELATIVE_COLORIMETRIC: u32 = 131072u32;
@@ -1788,9 +1697,6 @@ impl Default for WCS_DEVICE_MHC2_CAPABILITIES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WCS_DEVICE_MHC2_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WCS_DEVICE_VCGT_CAPABILITIES {
@@ -1801,9 +1707,6 @@ impl Default for WCS_DEVICE_VCGT_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WCS_DEVICE_VCGT_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WCS_ICCONLY: i32 = 65536i32;
 #[repr(transparent)]
@@ -1823,9 +1726,6 @@ impl Default for XYZCOLOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XYZCOLOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct XYZColorF {
@@ -1838,9 +1738,6 @@ impl Default for XYZColorF {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XYZColorF {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct YxyCOLOR {
@@ -1852,7 +1749,4 @@ impl Default for YxyCOLOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for YxyCOLOR {
-    type TypeKind = windows_core::CopyType;
 }

@@ -646,9 +646,6 @@ impl Default for ACTRL_ACCESSA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ACTRL_ACCESSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ACTRL_ACCESSW {
@@ -659,9 +656,6 @@ impl Default for ACTRL_ACCESSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ACTRL_ACCESSW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const ACTRL_ACCESS_ALLOWED: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS = ACTRL_ACCESS_ENTRY_ACCESS_FLAGS(1u32);
 pub const ACTRL_ACCESS_DENIED: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS = ACTRL_ACCESS_ENTRY_ACCESS_FLAGS(2u32);
@@ -680,9 +674,6 @@ impl Default for ACTRL_ACCESS_ENTRYA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ACTRL_ACCESS_ENTRYA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ACTRL_ACCESS_ENTRYW {
@@ -698,9 +689,6 @@ impl Default for ACTRL_ACCESS_ENTRYW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ACTRL_ACCESS_ENTRYW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACTRL_ACCESS_ENTRY_ACCESS_FLAGS(pub u32);
@@ -715,9 +703,6 @@ impl Default for ACTRL_ACCESS_ENTRY_LISTA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ACTRL_ACCESS_ENTRY_LISTA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ACTRL_ACCESS_ENTRY_LISTW {
@@ -728,9 +713,6 @@ impl Default for ACTRL_ACCESS_ENTRY_LISTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ACTRL_ACCESS_ENTRY_LISTW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -743,9 +725,6 @@ impl Default for ACTRL_ACCESS_INFOA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ACTRL_ACCESS_INFOA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ACTRL_ACCESS_INFOW {
@@ -756,9 +735,6 @@ impl Default for ACTRL_ACCESS_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ACTRL_ACCESS_INFOW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const ACTRL_ACCESS_NO_OPTIONS: u32 = 0u32;
 pub const ACTRL_ACCESS_PROTECTED: u32 = 1u32;
@@ -778,9 +754,6 @@ impl Default for ACTRL_CONTROL_INFOA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ACTRL_CONTROL_INFOA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ACTRL_CONTROL_INFOW {
@@ -791,9 +764,6 @@ impl Default for ACTRL_CONTROL_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ACTRL_CONTROL_INFOW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const ACTRL_DELETE: u32 = 134217728u32;
 pub const ACTRL_DIR_CREATE_CHILD: u32 = 4u32;
@@ -838,9 +808,6 @@ impl Default for ACTRL_OVERLAPPED {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ACTRL_OVERLAPPED {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union ACTRL_OVERLAPPED_0 {
@@ -851,9 +818,6 @@ impl Default for ACTRL_OVERLAPPED_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ACTRL_OVERLAPPED_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const ACTRL_PERM_1: u32 = 1u32;
 pub const ACTRL_PERM_10: u32 = 512u32;
@@ -892,9 +856,6 @@ impl Default for ACTRL_PROPERTY_ENTRYA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ACTRL_PROPERTY_ENTRYA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ACTRL_PROPERTY_ENTRYW {
@@ -906,9 +867,6 @@ impl Default for ACTRL_PROPERTY_ENTRYW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ACTRL_PROPERTY_ENTRYW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const ACTRL_READ_CONTROL: u32 = 268435456u32;
 pub const ACTRL_REG_CREATE_CHILD: u32 = 4u32;
@@ -967,9 +925,6 @@ impl Default for AUDIT_IP_ADDRESS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AUDIT_IP_ADDRESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AUDIT_OBJECT_TYPE {
@@ -983,9 +938,6 @@ impl Default for AUDIT_OBJECT_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AUDIT_OBJECT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AUDIT_OBJECT_TYPES {
@@ -997,9 +949,6 @@ impl Default for AUDIT_OBJECT_TYPES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AUDIT_OBJECT_TYPES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1014,9 +963,6 @@ impl Default for AUDIT_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AUDIT_PARAM {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1035,9 +981,6 @@ impl Default for AUDIT_PARAM_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AUDIT_PARAM_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union AUDIT_PARAM_1 {
@@ -1048,9 +991,6 @@ impl Default for AUDIT_PARAM_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AUDIT_PARAM_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1064,9 +1004,6 @@ impl Default for AUDIT_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AUDIT_PARAMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1116,9 +1053,6 @@ impl Default for AUTHZ_ACCESS_REPLY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AUTHZ_ACCESS_REPLY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AUTHZ_ACCESS_REQUEST {
@@ -1132,9 +1066,6 @@ impl Default for AUTHZ_ACCESS_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AUTHZ_ACCESS_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const AUTHZ_ALLOW_MULTIPLE_SOURCE_INSTANCES: u32 = 1u32;
 #[repr(transparent)]
@@ -1193,9 +1124,6 @@ impl Default for AUTHZ_AUDIT_EVENT_TYPE_LEGACY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AUTHZ_AUDIT_EVENT_TYPE_LEGACY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct AUTHZ_AUDIT_EVENT_TYPE_OLD {
@@ -1211,9 +1139,6 @@ impl Default for AUTHZ_AUDIT_EVENT_TYPE_OLD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AUTHZ_AUDIT_EVENT_TYPE_OLD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union AUTHZ_AUDIT_EVENT_TYPE_UNION {
@@ -1223,9 +1148,6 @@ impl Default for AUTHZ_AUDIT_EVENT_TYPE_UNION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AUTHZ_AUDIT_EVENT_TYPE_UNION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const AUTHZ_AUDIT_INSTANCE_INFORMATION: u32 = 2u32;
 #[repr(transparent)]
@@ -1307,9 +1229,6 @@ impl Default for AUTHZ_INIT_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AUTHZ_INIT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const AUTHZ_INIT_INFO_VERSION_V1: u32 = 1u32;
 pub const AUTHZ_MIGRATED_LEGACY_PUBLISHER: u32 = 2u32;
 pub const AUTHZ_NO_ALLOC_STRINGS: AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS = AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS(4u32);
@@ -1325,9 +1244,6 @@ impl Default for AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
-    type TypeKind = windows_core::CopyType;
 }
 pub const AUTHZ_REQUIRE_S4U_LOGON: u32 = 4u32;
 #[repr(transparent)]
@@ -1410,9 +1326,6 @@ impl Default for AUTHZ_RPC_INIT_INFO_CLIENT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AUTHZ_RPC_INIT_INFO_CLIENT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const AUTHZ_RPC_INIT_INFO_CLIENT_VERSION_V1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1427,9 +1340,6 @@ impl Default for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {
@@ -1439,9 +1349,6 @@ impl Default for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION: u32 = 1u32;
 pub const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION_V1: u32 = 1u32;
@@ -1492,9 +1399,6 @@ impl Default for AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const AUTHZ_SECURITY_ATTRIBUTE_NON_INHERITABLE: AUTHZ_SECURITY_ATTRIBUTE_FLAGS = AUTHZ_SECURITY_ATTRIBUTE_FLAGS(1u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1506,9 +1410,6 @@ impl Default for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1541,9 +1442,6 @@ impl Default for AUTHZ_SECURITY_ATTRIBUTE_V1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AUTHZ_SECURITY_ATTRIBUTE_V1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union AUTHZ_SECURITY_ATTRIBUTE_V1_0 {
@@ -1557,9 +1455,6 @@ impl Default for AUTHZ_SECURITY_ATTRIBUTE_V1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AUTHZ_SECURITY_ATTRIBUTE_V1_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const AUTHZ_SECURITY_ATTRIBUTE_VALUE_CASE_SENSITIVE: AUTHZ_SECURITY_ATTRIBUTE_FLAGS = AUTHZ_SECURITY_ATTRIBUTE_FLAGS(2u32);
 #[repr(transparent)]
@@ -1605,9 +1500,6 @@ impl Default for AUTHZ_SOURCE_SCHEMA_REGISTRATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AUTHZ_SOURCE_SCHEMA_REGISTRATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
@@ -1618,9 +1510,6 @@ impl Default for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const AUTHZ_WPD_CATEGORY_FLAG: u32 = 16u32;
 pub const AZ_AZSTORE_DEFAULT_DOMAIN_TIMEOUT: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(15000i32);
@@ -1762,9 +1651,6 @@ impl Default for EXPLICIT_ACCESS_A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EXPLICIT_ACCESS_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EXPLICIT_ACCESS_W {
@@ -1778,9 +1664,6 @@ impl Default for EXPLICIT_ACCESS_W {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EXPLICIT_ACCESS_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FN_OBJECT_MGR_FUNCTS {
@@ -1790,9 +1673,6 @@ impl Default for FN_OBJECT_MGR_FUNCTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FN_OBJECT_MGR_FUNCTS {
-    type TypeKind = windows_core::CopyType;
 }
 pub type FN_PROGRESS = Option<unsafe extern "system" fn(pobjectname: windows_core::PCWSTR, status: u32, pinvokesetting: *mut PROG_INVOKE_SETTING, args: *const core::ffi::c_void, securityset: super::super::Foundation::BOOL)>;
 pub const GRANT_ACCESS: ACCESS_MODE = ACCESS_MODE(1i32);
@@ -8834,9 +8714,6 @@ impl Default for INHERITED_FROMA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INHERITED_FROMA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INHERITED_FROMW {
@@ -8847,9 +8724,6 @@ impl Default for INHERITED_FROMW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for INHERITED_FROMW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const INHERITED_GRANDPARENT: u32 = 536870912u32;
 pub const INHERITED_PARENT: u32 = 268435456u32;
@@ -8872,9 +8746,6 @@ impl Default for OBJECTS_AND_NAME_A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OBJECTS_AND_NAME_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OBJECTS_AND_NAME_W {
@@ -8889,9 +8760,6 @@ impl Default for OBJECTS_AND_NAME_W {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OBJECTS_AND_NAME_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OBJECTS_AND_SID {
@@ -8904,9 +8772,6 @@ impl Default for OBJECTS_AND_SID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for OBJECTS_AND_SID {
-    type TypeKind = windows_core::CopyType;
 }
 pub const OLESCRIPT_E_SYNTAX: windows_core::HRESULT = windows_core::HRESULT(0x80020101_u32 as _);
 pub type PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS = Option<unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, args: *const core::ffi::c_void, psidattrarray: *mut *mut super::SID_AND_ATTRIBUTES, psidcount: *mut u32, prestrictedsidattrarray: *mut *mut super::SID_AND_ATTRIBUTES, prestrictedsidcount: *mut u32) -> super::super::Foundation::BOOL>;
@@ -9115,9 +8980,6 @@ impl Default for TRUSTEE_A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TRUSTEE_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRUSTEE_ACCESSA {
@@ -9131,9 +8993,6 @@ impl Default for TRUSTEE_ACCESSA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TRUSTEE_ACCESSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRUSTEE_ACCESSW {
@@ -9146,9 +9005,6 @@ impl Default for TRUSTEE_ACCESSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TRUSTEE_ACCESSW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const TRUSTEE_ACCESS_ALL: i32 = -1i32;
 pub const TRUSTEE_ACCESS_ALLOWED: i32 = 1i32;
@@ -9189,8 +9045,5 @@ impl Default for TRUSTEE_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TRUSTEE_W {
-    type TypeKind = windows_core::CopyType;
 }
 pub const _AUTHZ_SS_MAXSIZE: u32 = 128u32;

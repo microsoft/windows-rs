@@ -84,9 +84,5 @@ impl Default for PDF_RENDER_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for PDF_RENDER_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 pub type PFN_PDF_CREATE_RENDERER = Option<unsafe extern "system" fn(param0: Option<super::super::super::Graphics::Dxgi::IDXGIDevice>, param1: *mut Option<IPdfRendererNative>) -> windows_core::HRESULT>;

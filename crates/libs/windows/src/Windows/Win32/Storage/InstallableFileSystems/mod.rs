@@ -197,9 +197,6 @@ impl Default for FILTER_AGGREGATE_BASIC_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILTER_AGGREGATE_BASIC_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union FILTER_AGGREGATE_BASIC_INFORMATION_0 {
@@ -211,9 +208,6 @@ impl Default for FILTER_AGGREGATE_BASIC_INFORMATION_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILTER_AGGREGATE_BASIC_INFORMATION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
@@ -224,9 +218,6 @@ impl Default for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -243,9 +234,6 @@ impl Default for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILTER_AGGREGATE_STANDARD_INFORMATION {
@@ -258,9 +246,6 @@ impl Default for FILTER_AGGREGATE_STANDARD_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILTER_AGGREGATE_STANDARD_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union FILTER_AGGREGATE_STANDARD_INFORMATION_0 {
@@ -271,9 +256,6 @@ impl Default for FILTER_AGGREGATE_STANDARD_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FILTER_AGGREGATE_STANDARD_INFORMATION_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -288,9 +270,6 @@ impl Default for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -308,9 +287,6 @@ impl Default for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILTER_FULL_INFORMATION {
@@ -324,9 +300,6 @@ impl Default for FILTER_FULL_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FILTER_FULL_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -342,9 +315,6 @@ impl Default for FILTER_MESSAGE_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILTER_MESSAGE_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 pub const FILTER_NAME_MAX_CHARS: u32 = 255u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -357,9 +327,6 @@ impl Default for FILTER_REPLY_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILTER_REPLY_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILTER_VOLUME_BASIC_INFORMATION {
@@ -370,9 +337,6 @@ impl Default for FILTER_VOLUME_BASIC_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FILTER_VOLUME_BASIC_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -391,9 +355,6 @@ impl Default for FILTER_VOLUME_STANDARD_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FILTER_VOLUME_STANDARD_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FLTFL_AGGREGATE_INFO_IS_LEGACYFILTER: u32 = 2u32;
 pub const FLTFL_AGGREGATE_INFO_IS_MINIFILTER: u32 = 1u32;
@@ -496,9 +457,6 @@ impl Default for INSTANCE_AGGREGATE_STANDARD_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INSTANCE_AGGREGATE_STANDARD_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {
@@ -509,9 +467,6 @@ impl Default for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -529,9 +484,6 @@ impl Default for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -554,9 +506,6 @@ impl Default for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INSTANCE_BASIC_INFORMATION {
@@ -568,9 +517,6 @@ impl Default for INSTANCE_BASIC_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for INSTANCE_BASIC_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -590,9 +536,6 @@ impl Default for INSTANCE_FULL_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INSTANCE_FULL_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INSTANCE_INFORMATION_CLASS(pub i32);
@@ -610,9 +553,6 @@ impl Default for INSTANCE_PARTIAL_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for INSTANCE_PARTIAL_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const InstanceAggregateStandardInformation: INSTANCE_INFORMATION_CLASS = INSTANCE_INFORMATION_CLASS(3i32);
 pub const InstanceBasicInformation: INSTANCE_INFORMATION_CLASS = INSTANCE_INFORMATION_CLASS(0i32);

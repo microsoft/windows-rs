@@ -379,9 +379,6 @@ impl Default for QOCINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for QOCINFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SENS: windows_core::GUID = windows_core::GUID::from_u128(0xd597cafe_5b9f_11d1_8dd2_00aa004abd5e);
 pub const SENSGUID_EVENTCLASS_LOGON: windows_core::GUID = windows_core::GUID::from_u128(0xd5978630_5b9f_11d1_8dd2_00aa004abd5e);
 pub const SENSGUID_EVENTCLASS_LOGON2: windows_core::GUID = windows_core::GUID::from_u128(0xd5978650_5b9f_11d1_8dd2_00aa004abd5e);
@@ -405,7 +402,4 @@ impl Default for SENS_QOCINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SENS_QOCINFO {
-    type TypeKind = windows_core::CopyType;
 }

@@ -2992,6 +2992,3 @@ impl Default for __ReferenceRemainingTypes__ {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for __ReferenceRemainingTypes__ {
-    type TypeKind = windows_core::CopyType;
-}

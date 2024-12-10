@@ -17,9 +17,6 @@ impl Default for D2D_SIZE_F {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D2D_SIZE_F {
-    type TypeKind = windows_core::CopyType;
-}
 windows_core::imp::define_interface!(
     ID2D1Bitmap,
     ID2D1Bitmap_Vtbl,

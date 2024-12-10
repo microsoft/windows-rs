@@ -1038,9 +1038,6 @@ impl Default for FWPM_ACTION0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FWPM_ACTION0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union FWPM_ACTION0_0 {
@@ -1051,9 +1048,6 @@ impl Default for FWPM_ACTION0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FWPM_ACTION0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FWPM_ACTRL_ADD: u32 = 1u32;
 pub const FWPM_ACTRL_ADD_LINK: u32 = 2u32;
@@ -1089,9 +1083,6 @@ impl Default for FWPM_CALLOUT0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FWPM_CALLOUT0 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const FWPM_CALLOUT_BUILT_IN_RESERVED_1: windows_core::GUID = windows_core::GUID::from_u128(0x779719a4_e695_47b6_a199_7999fec9163b);
 pub const FWPM_CALLOUT_BUILT_IN_RESERVED_2: windows_core::GUID = windows_core::GUID::from_u128(0xef9661b6_7c5e_48fd_a130_96678ceacc41);
 pub const FWPM_CALLOUT_BUILT_IN_RESERVED_3: windows_core::GUID = windows_core::GUID::from_u128(0x18729c7a_2f62_4be0_966f_974b21b86df1);
@@ -1108,9 +1099,6 @@ impl Default for FWPM_CALLOUT_CHANGE0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FWPM_CALLOUT_CHANGE0 {
-    type TypeKind = windows_core::CopyType;
-}
 pub type FWPM_CALLOUT_CHANGE_CALLBACK0 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, change: *const FWPM_CALLOUT_CHANGE0)>;
 pub const FWPM_CALLOUT_EDGE_TRAVERSAL_ALE_LISTEN_V4: windows_core::GUID = windows_core::GUID::from_u128(0x33486ab5_6d5e_4e65_a00b_a7afed0ba9a1);
 pub const FWPM_CALLOUT_EDGE_TRAVERSAL_ALE_RESOURCE_ASSIGNMENT_V4: windows_core::GUID = windows_core::GUID::from_u128(0x079b1010_f1c5_4fcd_ae05_da41107abd0b);
@@ -1124,9 +1112,6 @@ impl Default for FWPM_CALLOUT_ENUM_TEMPLATE0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FWPM_CALLOUT_ENUM_TEMPLATE0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FWPM_CALLOUT_FLAG_PERSISTENT: u32 = 65536u32;
 pub const FWPM_CALLOUT_FLAG_REGISTERED: u32 = 262144u32;
@@ -1176,9 +1161,6 @@ impl Default for FWPM_CALLOUT_SUBSCRIPTION0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FWPM_CALLOUT_SUBSCRIPTION0 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const FWPM_CALLOUT_TCP_CHIMNEY_ACCEPT_LAYER_V4: windows_core::GUID = windows_core::GUID::from_u128(0xe183ecb2_3a7f_4b54_8ad9_76050ed880ca);
 pub const FWPM_CALLOUT_TCP_CHIMNEY_ACCEPT_LAYER_V6: windows_core::GUID = windows_core::GUID::from_u128(0x0378cf41_bf98_4603_81f2_7f12586079f6);
 pub const FWPM_CALLOUT_TCP_CHIMNEY_CONNECT_LAYER_V4: windows_core::GUID = windows_core::GUID::from_u128(0xf3e10ab3_2c25_4279_ac36_c30fc181bec4);
@@ -1210,10 +1192,6 @@ impl Default for FWPM_CLASSIFY_OPTION0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_CLASSIFY_OPTION0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1226,10 +1204,6 @@ impl Default for FWPM_CLASSIFY_OPTIONS0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_CLASSIFY_OPTIONS0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FWPM_CLASSIFY_OPTIONS_CONTEXT: FWPM_PROVIDER_CONTEXT_TYPE = FWPM_PROVIDER_CONTEXT_TYPE(7i32);
 pub const FWPM_CONDITION_ALE_APP_ID: windows_core::GUID = windows_core::GUID::from_u128(0xd78e1e87_8644_4ea5_9437_d809ecefc971);
@@ -1391,9 +1365,6 @@ impl Default for FWPM_CONNECTION0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FWPM_CONNECTION0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union FWPM_CONNECTION0_0 {
@@ -1405,9 +1376,6 @@ impl Default for FWPM_CONNECTION0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FWPM_CONNECTION0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union FWPM_CONNECTION0_1 {
@@ -1418,9 +1386,6 @@ impl Default for FWPM_CONNECTION0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FWPM_CONNECTION0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 pub type FWPM_CONNECTION_CALLBACK0 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, eventtype: FWPM_CONNECTION_EVENT_TYPE, connection: *const FWPM_CONNECTION0)>;
 pub const FWPM_CONNECTION_ENUM_FLAG_QUERY_BYTES_TRANSFERRED: u32 = 1u32;
@@ -1434,9 +1399,6 @@ impl Default for FWPM_CONNECTION_ENUM_TEMPLATE0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FWPM_CONNECTION_ENUM_TEMPLATE0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FWPM_CONNECTION_EVENT_ADD: FWPM_CONNECTION_EVENT_TYPE = FWPM_CONNECTION_EVENT_TYPE(0i32);
 pub const FWPM_CONNECTION_EVENT_DELETE: FWPM_CONNECTION_EVENT_TYPE = FWPM_CONNECTION_EVENT_TYPE(1i32);
@@ -1456,9 +1418,6 @@ impl Default for FWPM_CONNECTION_SUBSCRIPTION0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FWPM_CONNECTION_SUBSCRIPTION0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FWPM_DISPLAY_DATA0 {
@@ -1469,9 +1428,6 @@ impl Default for FWPM_DISPLAY_DATA0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FWPM_DISPLAY_DATA0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub type FWPM_DYNAMIC_KEYWORD_CALLBACK0 = Option<unsafe extern "system" fn(notification: *mut core::ffi::c_void, context: *mut core::ffi::c_void)>;
 pub const FWPM_ENGINE_COLLECT_NET_EVENTS: FWPM_ENGINE_OPTION = FWPM_ENGINE_OPTION(0i32);
@@ -1499,9 +1455,6 @@ impl Default for FWPM_FIELD0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FWPM_FIELD0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FWPM_FIELD_FLAGS: FWPM_FIELD_TYPE = FWPM_FIELD_TYPE(2i32);
 pub const FWPM_FIELD_IP_ADDRESS: FWPM_FIELD_TYPE = FWPM_FIELD_TYPE(1i32);
@@ -1536,10 +1489,6 @@ impl Default for FWPM_FILTER0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_FILTER0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -1553,10 +1502,6 @@ impl Default for FWPM_FILTER0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_FILTER0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FWPM_FILTER_CHANGE0 {
@@ -1568,9 +1513,6 @@ impl Default for FWPM_FILTER_CHANGE0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FWPM_FILTER_CHANGE0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub type FWPM_FILTER_CHANGE_CALLBACK0 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, change: *const FWPM_FILTER_CHANGE0)>;
 #[repr(C)]
@@ -1586,10 +1528,6 @@ impl Default for FWPM_FILTER_CONDITION0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_FILTER_CONDITION0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -1610,10 +1548,6 @@ impl Default for FWPM_FILTER_ENUM_TEMPLATE0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_FILTER_ENUM_TEMPLATE0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1680,10 +1614,6 @@ impl Default for FWPM_FILTER_SUBSCRIPTION0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_FILTER_SUBSCRIPTION0 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const FWPM_GENERAL_CONTEXT: FWPM_PROVIDER_CONTEXT_TYPE = FWPM_PROVIDER_CONTEXT_TYPE(8i32);
 pub const FWPM_IPSEC_AUTHIP_MM_CONTEXT: FWPM_PROVIDER_CONTEXT_TYPE = FWPM_PROVIDER_CONTEXT_TYPE(6i32);
 pub const FWPM_IPSEC_AUTHIP_QM_TRANSPORT_CONTEXT: FWPM_PROVIDER_CONTEXT_TYPE = FWPM_PROVIDER_CONTEXT_TYPE(3i32);
@@ -1714,9 +1644,6 @@ impl Default for FWPM_LAYER0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FWPM_LAYER0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FWPM_LAYER_ALE_AUTH_CONNECT_V4: windows_core::GUID = windows_core::GUID::from_u128(0xc38d57d1_05a7_4c33_904f_7fbceee60e82);
 pub const FWPM_LAYER_ALE_AUTH_CONNECT_V4_DISCARD: windows_core::GUID = windows_core::GUID::from_u128(0xd632a801_f5ba_4ad6_96e3_607017d9836a);
@@ -1762,9 +1689,6 @@ impl Default for FWPM_LAYER_ENUM_TEMPLATE0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FWPM_LAYER_ENUM_TEMPLATE0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FWPM_LAYER_FLAG_BUFFERED: u32 = 8u32;
 pub const FWPM_LAYER_FLAG_BUILTIN: u32 = 2u32;
@@ -1840,9 +1764,6 @@ impl Default for FWPM_LAYER_STATISTICS0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FWPM_LAYER_STATISTICS0 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const FWPM_LAYER_STREAM_PACKET_V4: windows_core::GUID = windows_core::GUID::from_u128(0xaf52d8ec_cb2d_44e5_ad92_f8dc38d2eb29);
 pub const FWPM_LAYER_STREAM_PACKET_V6: windows_core::GUID = windows_core::GUID::from_u128(0x779a8ca3_f099_468f_b5d4_83535c461c02);
 pub const FWPM_LAYER_STREAM_V4: windows_core::GUID = windows_core::GUID::from_u128(0x3b89653c_c170_49e4_b1cd_e0eeeee19a3e);
@@ -1863,10 +1784,6 @@ impl Default for FWPM_NETWORK_CONNECTION_POLICY_SETTING0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_NETWORK_CONNECTION_POLICY_SETTING0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1879,10 +1796,6 @@ impl Default for FWPM_NETWORK_CONNECTION_POLICY_SETTINGS0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_NETWORK_CONNECTION_POLICY_SETTINGS0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -1897,10 +1810,6 @@ impl Default for FWPM_NET_EVENT0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_NET_EVENT0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -1919,10 +1828,6 @@ impl Default for FWPM_NET_EVENT0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_NET_EVENT0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -1936,10 +1841,6 @@ impl Default for FWPM_NET_EVENT1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_NET_EVENT1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -1958,10 +1859,6 @@ impl Default for FWPM_NET_EVENT1_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_NET_EVENT1_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -1975,10 +1872,6 @@ impl Default for FWPM_NET_EVENT2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_NET_EVENT2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -2001,10 +1894,6 @@ impl Default for FWPM_NET_EVENT2_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_NET_EVENT2_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -2018,10 +1907,6 @@ impl Default for FWPM_NET_EVENT3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_NET_EVENT3 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -2044,10 +1929,6 @@ impl Default for FWPM_NET_EVENT3_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_NET_EVENT3_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -2061,10 +1942,6 @@ impl Default for FWPM_NET_EVENT4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_NET_EVENT4 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -2087,10 +1964,6 @@ impl Default for FWPM_NET_EVENT4_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_NET_EVENT4_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -2104,10 +1977,6 @@ impl Default for FWPM_NET_EVENT5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_NET_EVENT5 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -2132,10 +2001,6 @@ impl Default for FWPM_NET_EVENT5_0 {
     }
 }
 #[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_NET_EVENT5_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Security")]
 pub type FWPM_NET_EVENT_CALLBACK0 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, event: *const FWPM_NET_EVENT1)>;
 #[cfg(feature = "Win32_Security")]
 pub type FWPM_NET_EVENT_CALLBACK1 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, event: *const FWPM_NET_EVENT2)>;
@@ -2157,9 +2022,6 @@ impl Default for FWPM_NET_EVENT_CAPABILITY_ALLOW0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FWPM_NET_EVENT_CAPABILITY_ALLOW0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FWPM_NET_EVENT_CAPABILITY_DROP0 {
@@ -2171,9 +2033,6 @@ impl Default for FWPM_NET_EVENT_CAPABILITY_DROP0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FWPM_NET_EVENT_CAPABILITY_DROP0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2191,9 +2050,6 @@ impl Default for FWPM_NET_EVENT_CLASSIFY_ALLOW0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FWPM_NET_EVENT_CLASSIFY_ALLOW0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FWPM_NET_EVENT_CLASSIFY_DROP0 {
@@ -2204,9 +2060,6 @@ impl Default for FWPM_NET_EVENT_CLASSIFY_DROP0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FWPM_NET_EVENT_CLASSIFY_DROP0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2223,9 +2076,6 @@ impl Default for FWPM_NET_EVENT_CLASSIFY_DROP1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FWPM_NET_EVENT_CLASSIFY_DROP1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2245,9 +2095,6 @@ impl Default for FWPM_NET_EVENT_CLASSIFY_DROP2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FWPM_NET_EVENT_CLASSIFY_DROP2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2277,9 +2124,6 @@ impl Default for FWPM_NET_EVENT_CLASSIFY_DROP_MAC0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FWPM_NET_EVENT_CLASSIFY_DROP_MAC0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2294,10 +2138,6 @@ impl Default for FWPM_NET_EVENT_ENUM_TEMPLATE0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_NET_EVENT_ENUM_TEMPLATE0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FWPM_NET_EVENT_FLAG_APP_ID_SET: u32 = 32u32;
 pub const FWPM_NET_EVENT_FLAG_EFFECTIVE_NAME_SET: u32 = 8192u32;
@@ -2335,10 +2175,6 @@ impl Default for FWPM_NET_EVENT_HEADER0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_NET_EVENT_HEADER0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -2352,10 +2188,6 @@ impl Default for FWPM_NET_EVENT_HEADER0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_NET_EVENT_HEADER0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -2368,10 +2200,6 @@ impl Default for FWPM_NET_EVENT_HEADER0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_NET_EVENT_HEADER0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -2396,10 +2224,6 @@ impl Default for FWPM_NET_EVENT_HEADER1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_NET_EVENT_HEADER1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -2412,10 +2236,6 @@ impl Default for FWPM_NET_EVENT_HEADER1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_NET_EVENT_HEADER1_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -2430,10 +2250,6 @@ impl Default for FWPM_NET_EVENT_HEADER1_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_NET_EVENT_HEADER1_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -2445,10 +2261,6 @@ impl Default for FWPM_NET_EVENT_HEADER1_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_NET_EVENT_HEADER1_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -2463,10 +2275,6 @@ impl Default for FWPM_NET_EVENT_HEADER1_2_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_NET_EVENT_HEADER1_2_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -2478,10 +2286,6 @@ impl Default for FWPM_NET_EVENT_HEADER1_2_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_NET_EVENT_HEADER1_2_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -2502,10 +2306,6 @@ impl Default for FWPM_NET_EVENT_HEADER1_2_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_NET_EVENT_HEADER1_2_0_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -2531,10 +2331,6 @@ impl Default for FWPM_NET_EVENT_HEADER2 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_NET_EVENT_HEADER2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -2548,10 +2344,6 @@ impl Default for FWPM_NET_EVENT_HEADER2_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_NET_EVENT_HEADER2_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -2564,10 +2356,6 @@ impl Default for FWPM_NET_EVENT_HEADER2_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_NET_EVENT_HEADER2_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -2596,10 +2384,6 @@ impl Default for FWPM_NET_EVENT_HEADER3 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_NET_EVENT_HEADER3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -2613,10 +2397,6 @@ impl Default for FWPM_NET_EVENT_HEADER3_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_NET_EVENT_HEADER3_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -2629,10 +2409,6 @@ impl Default for FWPM_NET_EVENT_HEADER3_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_NET_EVENT_HEADER3_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2651,9 +2427,6 @@ impl Default for FWPM_NET_EVENT_IKEEXT_EM_FAILURE0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FWPM_NET_EVENT_IKEEXT_EM_FAILURE0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2680,9 +2453,6 @@ impl Default for FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const FWPM_NET_EVENT_IKEEXT_EM_FAILURE_FLAG_BENIGN: u32 = 2u32;
 pub const FWPM_NET_EVENT_IKEEXT_EM_FAILURE_FLAG_MULTIPLE: u32 = 1u32;
 #[repr(C)]
@@ -2703,9 +2473,6 @@ impl Default for FWPM_NET_EVENT_IKEEXT_MM_FAILURE0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FWPM_NET_EVENT_IKEEXT_MM_FAILURE0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2731,9 +2498,6 @@ impl Default for FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2761,9 +2525,6 @@ impl Default for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const FWPM_NET_EVENT_IKEEXT_MM_FAILURE_FLAG_BENIGN: u32 = 1u32;
 pub const FWPM_NET_EVENT_IKEEXT_MM_FAILURE_FLAG_MULTIPLE: u32 = 2u32;
 #[repr(C)]
@@ -2786,10 +2547,6 @@ impl Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -2802,10 +2559,6 @@ impl Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -2817,10 +2570,6 @@ impl Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -2844,10 +2593,6 @@ impl Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -2860,10 +2605,6 @@ impl Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -2875,10 +2616,6 @@ impl Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2894,9 +2631,6 @@ impl Default for FWPM_NET_EVENT_IPSEC_DOSP_DROP0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FWPM_NET_EVENT_IPSEC_DOSP_DROP0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_IPSEC_DOSP_DROP0_0 {
@@ -2908,9 +2642,6 @@ impl Default for FWPM_NET_EVENT_IPSEC_DOSP_DROP0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FWPM_NET_EVENT_IPSEC_DOSP_DROP0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_IPSEC_DOSP_DROP0_1 {
@@ -2921,9 +2652,6 @@ impl Default for FWPM_NET_EVENT_IPSEC_DOSP_DROP0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FWPM_NET_EVENT_IPSEC_DOSP_DROP0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2938,9 +2666,6 @@ impl Default for FWPM_NET_EVENT_IPSEC_KERNEL_DROP0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FWPM_NET_EVENT_IPSEC_KERNEL_DROP0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FWPM_NET_EVENT_KEYWORD_CAPABILITY_ALLOW: u32 = 8u32;
 pub const FWPM_NET_EVENT_KEYWORD_CAPABILITY_DROP: u32 = 4u32;
@@ -2958,9 +2683,6 @@ impl Default for FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2974,10 +2696,6 @@ impl Default for FWPM_NET_EVENT_SUBSCRIPTION0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_NET_EVENT_SUBSCRIPTION0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3008,9 +2726,6 @@ impl Default for FWPM_PROVIDER0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FWPM_PROVIDER0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FWPM_PROVIDER_CHANGE0 {
@@ -3021,9 +2736,6 @@ impl Default for FWPM_PROVIDER_CHANGE0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FWPM_PROVIDER_CHANGE0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub type FWPM_PROVIDER_CHANGE_CALLBACK0 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, change: *const FWPM_PROVIDER_CHANGE0)>;
 #[repr(C)]
@@ -3045,10 +2757,6 @@ impl Default for FWPM_PROVIDER_CONTEXT0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_PROVIDER_CONTEXT0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -3069,10 +2777,6 @@ impl Default for FWPM_PROVIDER_CONTEXT0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_PROVIDER_CONTEXT0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -3091,10 +2795,6 @@ impl Default for FWPM_PROVIDER_CONTEXT1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_PROVIDER_CONTEXT1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -3119,10 +2819,6 @@ impl Default for FWPM_PROVIDER_CONTEXT1_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_PROVIDER_CONTEXT1_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -3141,10 +2837,6 @@ impl Default for FWPM_PROVIDER_CONTEXT2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_PROVIDER_CONTEXT2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -3170,10 +2862,6 @@ impl Default for FWPM_PROVIDER_CONTEXT2_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_PROVIDER_CONTEXT2_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -3192,10 +2880,6 @@ impl Default for FWPM_PROVIDER_CONTEXT3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_PROVIDER_CONTEXT3 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -3222,10 +2906,6 @@ impl Default for FWPM_PROVIDER_CONTEXT3_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_PROVIDER_CONTEXT3_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FWPM_PROVIDER_CONTEXT_CHANGE0 {
@@ -3238,9 +2918,6 @@ impl Default for FWPM_PROVIDER_CONTEXT_CHANGE0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FWPM_PROVIDER_CONTEXT_CHANGE0 {
-    type TypeKind = windows_core::CopyType;
-}
 pub type FWPM_PROVIDER_CONTEXT_CHANGE_CALLBACK0 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, change: *const FWPM_PROVIDER_CONTEXT_CHANGE0)>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3252,9 +2929,6 @@ impl Default for FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FWPM_PROVIDER_CONTEXT_FLAG_DOWNLEVEL: u32 = 2u32;
 pub const FWPM_PROVIDER_CONTEXT_FLAG_PERSISTENT: u32 = 1u32;
@@ -3272,9 +2946,6 @@ impl Default for FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWPM_PROVIDER_CONTEXT_TYPE(pub i32);
@@ -3288,9 +2959,6 @@ impl Default for FWPM_PROVIDER_ENUM_TEMPLATE0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FWPM_PROVIDER_ENUM_TEMPLATE0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FWPM_PROVIDER_FLAG_DISABLED: u32 = 16u32;
 pub const FWPM_PROVIDER_FLAG_PERSISTENT: u32 = 1u32;
@@ -3312,9 +2980,6 @@ impl Default for FWPM_PROVIDER_SUBSCRIPTION0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FWPM_PROVIDER_SUBSCRIPTION0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FWPM_PROVIDER_TCP_CHIMNEY_OFFLOAD: windows_core::GUID = windows_core::GUID::from_u128(0x896aa19e_9a34_4bcb_ae79_beb9127c84b9);
 pub const FWPM_PROVIDER_TCP_TEMPLATES: windows_core::GUID = windows_core::GUID::from_u128(0x76cfcd30_3394_432d_bed3_441ae50e63c3);
@@ -3345,10 +3010,6 @@ impl Default for FWPM_SESSION0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWPM_SESSION0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FWPM_SESSION_ENUM_TEMPLATE0 {
@@ -3358,9 +3019,6 @@ impl Default for FWPM_SESSION_ENUM_TEMPLATE0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FWPM_SESSION_ENUM_TEMPLATE0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FWPM_SESSION_FLAG_DYNAMIC: u32 = 1u32;
 pub const FWPM_SESSION_FLAG_RESERVED: u32 = 268435456u32;
@@ -3409,9 +3067,6 @@ impl Default for FWPM_STATISTICS0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FWPM_STATISTICS0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FWPM_SUBLAYER0 {
@@ -3427,9 +3082,6 @@ impl Default for FWPM_SUBLAYER0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FWPM_SUBLAYER0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FWPM_SUBLAYER_CHANGE0 {
@@ -3441,9 +3093,6 @@ impl Default for FWPM_SUBLAYER_CHANGE0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FWPM_SUBLAYER_CHANGE0 {
-    type TypeKind = windows_core::CopyType;
-}
 pub type FWPM_SUBLAYER_CHANGE_CALLBACK0 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, change: *const FWPM_SUBLAYER_CHANGE0)>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3454,9 +3103,6 @@ impl Default for FWPM_SUBLAYER_ENUM_TEMPLATE0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FWPM_SUBLAYER_ENUM_TEMPLATE0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FWPM_SUBLAYER_FLAG_PERSISTENT: u32 = 1u32;
 pub const FWPM_SUBLAYER_INSPECTION: windows_core::GUID = windows_core::GUID::from_u128(0x877519e1_e6a9_41a5_81b4_8c4f118e4a60);
@@ -3485,9 +3131,6 @@ impl Default for FWPM_SUBLAYER_SUBSCRIPTION0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FWPM_SUBLAYER_SUBSCRIPTION0 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const FWPM_SUBLAYER_TCP_CHIMNEY_OFFLOAD: windows_core::GUID = windows_core::GUID::from_u128(0x337608b9_b7d5_4d5f_82f9_3618618bc058);
 pub const FWPM_SUBLAYER_TCP_TEMPLATES: windows_core::GUID = windows_core::GUID::from_u128(0x24421dcf_0ac5_4caa_9e14_50f6e3636af0);
 pub const FWPM_SUBLAYER_TEREDO: windows_core::GUID = windows_core::GUID::from_u128(0xba69dc66_5176_4979_9c89_26a7b46a8327);
@@ -3508,9 +3151,6 @@ impl Default for FWPM_SYSTEM_PORTS0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FWPM_SYSTEM_PORTS0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FWPM_SYSTEM_PORTS_BY_TYPE0 {
@@ -3522,9 +3162,6 @@ impl Default for FWPM_SYSTEM_PORTS_BY_TYPE0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FWPM_SYSTEM_PORTS_BY_TYPE0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub type FWPM_SYSTEM_PORTS_CALLBACK0 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, sysports: *const FWPM_SYSTEM_PORTS0)>;
 pub const FWPM_SYSTEM_PORT_IPHTTPS_IN: FWPM_SYSTEM_PORT_TYPE = FWPM_SYSTEM_PORT_TYPE(2i32);
@@ -3551,9 +3188,6 @@ impl Default for FWPM_VSWITCH_EVENT0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FWPM_VSWITCH_EVENT0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union FWPM_VSWITCH_EVENT0_0 {
@@ -3564,9 +3198,6 @@ impl Default for FWPM_VSWITCH_EVENT0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FWPM_VSWITCH_EVENT0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3579,9 +3210,6 @@ impl Default for FWPM_VSWITCH_EVENT0_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FWPM_VSWITCH_EVENT0_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FWPM_VSWITCH_EVENT0_0_1 {
@@ -3593,9 +3221,6 @@ impl Default for FWPM_VSWITCH_EVENT0_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FWPM_VSWITCH_EVENT0_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 pub type FWPM_VSWITCH_EVENT_CALLBACK0 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, vswitchevent: *const FWPM_VSWITCH_EVENT0) -> u32>;
 pub const FWPM_VSWITCH_EVENT_DISABLED_FOR_INSPECTION: FWPM_VSWITCH_EVENT_TYPE = FWPM_VSWITCH_EVENT_TYPE(3i32);
@@ -3614,9 +3239,6 @@ impl Default for FWPM_VSWITCH_EVENT_SUBSCRIPTION0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FWPM_VSWITCH_EVENT_SUBSCRIPTION0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3722,9 +3344,6 @@ impl Default for FWP_BYTE_ARRAY16 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FWP_BYTE_ARRAY16 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const FWP_BYTE_ARRAY16_TYPE: FWP_DATA_TYPE = FWP_DATA_TYPE(11i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3735,9 +3354,6 @@ impl Default for FWP_BYTE_ARRAY6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FWP_BYTE_ARRAY6 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FWP_BYTE_ARRAY6_SIZE: u32 = 6u32;
 pub const FWP_BYTE_ARRAY6_TYPE: FWP_DATA_TYPE = FWP_DATA_TYPE(18i32);
@@ -3751,9 +3367,6 @@ impl Default for FWP_BYTE_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FWP_BYTE_BLOB {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FWP_BYTE_BLOB_TYPE: FWP_DATA_TYPE = FWP_DATA_TYPE(12i32);
 pub const FWP_CALLOUT_FLAG_ALLOW_L2_BATCH_CLASSIFY: u32 = 128u32;
@@ -3838,10 +3451,6 @@ impl Default for FWP_CONDITION_VALUE0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWP_CONDITION_VALUE0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -3873,10 +3482,6 @@ impl Default for FWP_CONDITION_VALUE0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWP_CONDITION_VALUE0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3964,10 +3569,6 @@ impl Default for FWP_RANGE0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWP_RANGE0 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const FWP_RANGE_TYPE: FWP_DATA_TYPE = FWP_DATA_TYPE(258i32);
 pub const FWP_SECURITY_DESCRIPTOR_TYPE: FWP_DATA_TYPE = FWP_DATA_TYPE(14i32);
 pub const FWP_SID: FWP_DATA_TYPE = FWP_DATA_TYPE(13i32);
@@ -3988,10 +3589,6 @@ impl Default for FWP_TOKEN_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWP_TOKEN_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const FWP_TOKEN_INFORMATION_TYPE: FWP_DATA_TYPE = FWP_DATA_TYPE(15i32);
 pub const FWP_UINT16: FWP_DATA_TYPE = FWP_DATA_TYPE(2i32);
 pub const FWP_UINT32: FWP_DATA_TYPE = FWP_DATA_TYPE(3i32);
@@ -4009,9 +3606,6 @@ impl Default for FWP_V4_ADDR_AND_MASK {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FWP_V4_ADDR_AND_MASK {
-    type TypeKind = windows_core::CopyType;
-}
 pub const FWP_V4_ADDR_MASK: FWP_DATA_TYPE = FWP_DATA_TYPE(256i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4023,9 +3617,6 @@ impl Default for FWP_V6_ADDR_AND_MASK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FWP_V6_ADDR_AND_MASK {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FWP_V6_ADDR_MASK: FWP_DATA_TYPE = FWP_DATA_TYPE(257i32);
 pub const FWP_V6_ADDR_SIZE: u32 = 16u32;
@@ -4041,10 +3632,6 @@ impl Default for FWP_VALUE0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWP_VALUE0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -4075,10 +3662,6 @@ impl Default for FWP_VALUE0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FWP_VALUE0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWP_VSWITCH_NETWORK_TYPE(pub i32);
@@ -4101,9 +3684,6 @@ impl Default for IKEEXT_AUTHENTICATION_METHOD0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_AUTHENTICATION_METHOD0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IKEEXT_AUTHENTICATION_METHOD0_0 {
@@ -4119,9 +3699,6 @@ impl Default for IKEEXT_AUTHENTICATION_METHOD0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_AUTHENTICATION_METHOD0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IKEEXT_AUTHENTICATION_METHOD1 {
@@ -4132,9 +3709,6 @@ impl Default for IKEEXT_AUTHENTICATION_METHOD1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IKEEXT_AUTHENTICATION_METHOD1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4152,9 +3726,6 @@ impl Default for IKEEXT_AUTHENTICATION_METHOD1_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_AUTHENTICATION_METHOD1_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IKEEXT_AUTHENTICATION_METHOD2 {
@@ -4165,9 +3736,6 @@ impl Default for IKEEXT_AUTHENTICATION_METHOD2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IKEEXT_AUTHENTICATION_METHOD2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4185,9 +3753,6 @@ impl Default for IKEEXT_AUTHENTICATION_METHOD2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IKEEXT_AUTHENTICATION_METHOD2_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4208,9 +3773,6 @@ impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_CERTIFICATE_AUTHENTICATION0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IKEEXT_CERTIFICATE_AUTHENTICATION0_0 {
@@ -4223,9 +3785,6 @@ impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_CERTIFICATE_AUTHENTICATION0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION0_0_0 {
@@ -4236,9 +3795,6 @@ impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IKEEXT_CERTIFICATE_AUTHENTICATION0_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4252,9 +3808,6 @@ impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_CERTIFICATE_AUTHENTICATION0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION0_1_0 {
@@ -4265,9 +3818,6 @@ impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION0_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IKEEXT_CERTIFICATE_AUTHENTICATION0_1_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4284,9 +3834,6 @@ impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_CERTIFICATE_AUTHENTICATION1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IKEEXT_CERTIFICATE_AUTHENTICATION1_0 {
@@ -4299,9 +3846,6 @@ impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION1_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_CERTIFICATE_AUTHENTICATION1_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION1_0_0 {
@@ -4312,9 +3856,6 @@ impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION1_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IKEEXT_CERTIFICATE_AUTHENTICATION1_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4328,9 +3869,6 @@ impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION1_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_CERTIFICATE_AUTHENTICATION1_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION1_1_0 {
@@ -4341,9 +3879,6 @@ impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION1_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IKEEXT_CERTIFICATE_AUTHENTICATION1_1_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4360,9 +3895,6 @@ impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_CERTIFICATE_AUTHENTICATION2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {
@@ -4375,9 +3907,6 @@ impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {
@@ -4388,9 +3917,6 @@ impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4403,9 +3929,6 @@ impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 {
@@ -4416,9 +3939,6 @@ impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4432,9 +3952,6 @@ impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_CERTIFICATE_AUTHENTICATION2_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {
@@ -4445,9 +3962,6 @@ impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4460,9 +3974,6 @@ impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {
@@ -4473,9 +3984,6 @@ impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4488,9 +3996,6 @@ impl Default for IKEEXT_CERTIFICATE_CREDENTIAL0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IKEEXT_CERTIFICATE_CREDENTIAL0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4505,9 +4010,6 @@ impl Default for IKEEXT_CERTIFICATE_CREDENTIAL1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_CERTIFICATE_CREDENTIAL1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IKEEXT_CERTIFICATE_CRITERIA0 {
@@ -4521,9 +4023,6 @@ impl Default for IKEEXT_CERTIFICATE_CRITERIA0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IKEEXT_CERTIFICATE_CRITERIA0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const IKEEXT_CERTIFICATE_ECDSA_P256: IKEEXT_AUTHENTICATION_METHOD_TYPE = IKEEXT_AUTHENTICATION_METHOD_TYPE(7i32);
 pub const IKEEXT_CERTIFICATE_ECDSA_P384: IKEEXT_AUTHENTICATION_METHOD_TYPE = IKEEXT_AUTHENTICATION_METHOD_TYPE(8i32);
@@ -4601,9 +4100,6 @@ impl Default for IKEEXT_CERT_EKUS0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_CERT_EKUS0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_CERT_FLAGS(pub u32);
@@ -4661,9 +4157,6 @@ impl Default for IKEEXT_CERT_NAME0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_CERT_NAME0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IKEEXT_CERT_ROOT_CONFIG0 {
@@ -4674,9 +4167,6 @@ impl Default for IKEEXT_CERT_ROOT_CONFIG0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IKEEXT_CERT_ROOT_CONFIG0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const IKEEXT_CIPHER_3DES: IKEEXT_CIPHER_TYPE = IKEEXT_CIPHER_TYPE(1i32);
 pub const IKEEXT_CIPHER_AES_128: IKEEXT_CIPHER_TYPE = IKEEXT_CIPHER_TYPE(2i32);
@@ -4695,9 +4185,6 @@ impl Default for IKEEXT_CIPHER_ALGORITHM0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IKEEXT_CIPHER_ALGORITHM0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const IKEEXT_CIPHER_DES: IKEEXT_CIPHER_TYPE = IKEEXT_CIPHER_TYPE(0i32);
 #[repr(transparent)]
@@ -4718,9 +4205,6 @@ impl Default for IKEEXT_COMMON_STATISTICS0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_COMMON_STATISTICS0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IKEEXT_COMMON_STATISTICS1 {
@@ -4735,9 +4219,6 @@ impl Default for IKEEXT_COMMON_STATISTICS1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_COMMON_STATISTICS1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IKEEXT_COOKIE_PAIR0 {
@@ -4748,9 +4229,6 @@ impl Default for IKEEXT_COOKIE_PAIR0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IKEEXT_COOKIE_PAIR0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4764,9 +4242,6 @@ impl Default for IKEEXT_CREDENTIAL0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_CREDENTIAL0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IKEEXT_CREDENTIAL0_0 {
@@ -4778,9 +4253,6 @@ impl Default for IKEEXT_CREDENTIAL0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IKEEXT_CREDENTIAL0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4794,9 +4266,6 @@ impl Default for IKEEXT_CREDENTIAL1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_CREDENTIAL1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IKEEXT_CREDENTIAL1_0 {
@@ -4808,9 +4277,6 @@ impl Default for IKEEXT_CREDENTIAL1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IKEEXT_CREDENTIAL1_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4824,9 +4290,6 @@ impl Default for IKEEXT_CREDENTIAL2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_CREDENTIAL2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IKEEXT_CREDENTIAL2_0 {
@@ -4839,9 +4302,6 @@ impl Default for IKEEXT_CREDENTIAL2_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_CREDENTIAL2_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IKEEXT_CREDENTIALS0 {
@@ -4852,9 +4312,6 @@ impl Default for IKEEXT_CREDENTIALS0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IKEEXT_CREDENTIALS0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4867,9 +4324,6 @@ impl Default for IKEEXT_CREDENTIALS1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_CREDENTIALS1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IKEEXT_CREDENTIALS2 {
@@ -4880,9 +4334,6 @@ impl Default for IKEEXT_CREDENTIALS2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IKEEXT_CREDENTIALS2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4895,9 +4346,6 @@ impl Default for IKEEXT_CREDENTIAL_PAIR0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_CREDENTIAL_PAIR0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IKEEXT_CREDENTIAL_PAIR1 {
@@ -4909,9 +4357,6 @@ impl Default for IKEEXT_CREDENTIAL_PAIR1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_CREDENTIAL_PAIR1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IKEEXT_CREDENTIAL_PAIR2 {
@@ -4922,9 +4367,6 @@ impl Default for IKEEXT_CREDENTIAL_PAIR2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IKEEXT_CREDENTIAL_PAIR2 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const IKEEXT_DH_ECP_256: IKEEXT_DH_GROUP = IKEEXT_DH_GROUP(4i32);
 pub const IKEEXT_DH_ECP_384: IKEEXT_DH_GROUP = IKEEXT_DH_GROUP(5i32);
@@ -4948,9 +4390,6 @@ impl Default for IKEEXT_EAP_AUTHENTICATION0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IKEEXT_EAP_AUTHENTICATION0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5002,9 +4441,6 @@ impl Default for IKEEXT_EM_POLICY0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_EM_POLICY0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IKEEXT_EM_POLICY1 {
@@ -5017,9 +4453,6 @@ impl Default for IKEEXT_EM_POLICY1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_EM_POLICY1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IKEEXT_EM_POLICY2 {
@@ -5031,9 +4464,6 @@ impl Default for IKEEXT_EM_POLICY2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IKEEXT_EM_POLICY2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5058,9 +4488,6 @@ impl Default for IKEEXT_INTEGRITY_ALGORITHM0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_INTEGRITY_ALGORITHM0 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const IKEEXT_INTEGRITY_MD5: IKEEXT_INTEGRITY_TYPE = IKEEXT_INTEGRITY_TYPE(0i32);
 pub const IKEEXT_INTEGRITY_SHA1: IKEEXT_INTEGRITY_TYPE = IKEEXT_INTEGRITY_TYPE(1i32);
 pub const IKEEXT_INTEGRITY_SHA_256: IKEEXT_INTEGRITY_TYPE = IKEEXT_INTEGRITY_TYPE(2i32);
@@ -5084,9 +4511,6 @@ impl Default for IKEEXT_IPV6_CGA_AUTHENTICATION0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_IPV6_CGA_AUTHENTICATION0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0 {
@@ -5098,9 +4522,6 @@ impl Default for IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1 {
@@ -5111,9 +4532,6 @@ impl Default for IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5142,9 +4560,6 @@ impl Default for IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1 {
@@ -5172,9 +4587,6 @@ impl Default for IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const IKEEXT_KERBEROS: IKEEXT_AUTHENTICATION_METHOD_TYPE = IKEEXT_AUTHENTICATION_METHOD_TYPE(2i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5186,9 +4598,6 @@ impl Default for IKEEXT_KERBEROS_AUTHENTICATION0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_KERBEROS_AUTHENTICATION0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IKEEXT_KERBEROS_AUTHENTICATION1 {
@@ -5199,9 +4608,6 @@ impl Default for IKEEXT_KERBEROS_AUTHENTICATION1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IKEEXT_KERBEROS_AUTHENTICATION1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5257,9 +4663,6 @@ impl Default for IKEEXT_KEYMODULE_STATISTICS0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_KEYMODULE_STATISTICS0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IKEEXT_KEYMODULE_STATISTICS1 {
@@ -5274,9 +4677,6 @@ impl Default for IKEEXT_KEYMODULE_STATISTICS1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IKEEXT_KEYMODULE_STATISTICS1 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const IKEEXT_KEY_MODULE_AUTHIP: IKEEXT_KEY_MODULE_TYPE = IKEEXT_KEY_MODULE_TYPE(1i32);
 pub const IKEEXT_KEY_MODULE_IKE: IKEEXT_KEY_MODULE_TYPE = IKEEXT_KEY_MODULE_TYPE(0i32);
@@ -5305,9 +4705,6 @@ impl Default for IKEEXT_NAME_CREDENTIAL0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_NAME_CREDENTIAL0 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const IKEEXT_NTLM_V2: IKEEXT_AUTHENTICATION_METHOD_TYPE = IKEEXT_AUTHENTICATION_METHOD_TYPE(5i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5318,9 +4715,6 @@ impl Default for IKEEXT_NTLM_V2_AUTHENTICATION0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IKEEXT_NTLM_V2_AUTHENTICATION0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const IKEEXT_NTLM_V2_AUTH_DONT_ACCEPT_EXPLICIT_CREDENTIALS: u32 = 1u32;
 #[repr(C)]
@@ -5340,9 +4734,6 @@ impl Default for IKEEXT_POLICY0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_POLICY0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IKEEXT_POLICY1 {
@@ -5361,9 +4752,6 @@ impl Default for IKEEXT_POLICY1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_POLICY1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IKEEXT_POLICY2 {
@@ -5381,9 +4769,6 @@ impl Default for IKEEXT_POLICY2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IKEEXT_POLICY2 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const IKEEXT_POLICY_ENABLE_IKEV2_FRAGMENTATION: u32 = 128u32;
 #[repr(transparent)]
@@ -5441,9 +4826,6 @@ impl Default for IKEEXT_PRESHARED_KEY_AUTHENTICATION0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_PRESHARED_KEY_AUTHENTICATION0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IKEEXT_PRESHARED_KEY_AUTHENTICATION1 {
@@ -5454,9 +4836,6 @@ impl Default for IKEEXT_PRESHARED_KEY_AUTHENTICATION1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IKEEXT_PRESHARED_KEY_AUTHENTICATION1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5508,9 +4887,6 @@ impl Default for IKEEXT_PROPOSAL0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_PROPOSAL0 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const IKEEXT_PSK_FLAG_LOCAL_AUTH_ONLY: IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS = IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS(1u32);
 pub const IKEEXT_PSK_FLAG_REMOTE_AUTH_ONLY: IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS = IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS(2u32);
 #[repr(transparent)]
@@ -5531,9 +4907,6 @@ impl Default for IKEEXT_RESERVED_AUTHENTICATION0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IKEEXT_RESERVED_AUTHENTICATION0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5591,9 +4964,6 @@ impl Default for IKEEXT_SA_DETAILS0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_SA_DETAILS0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IKEEXT_SA_DETAILS0_0 {
@@ -5603,9 +4973,6 @@ impl Default for IKEEXT_SA_DETAILS0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IKEEXT_SA_DETAILS0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5627,9 +4994,6 @@ impl Default for IKEEXT_SA_DETAILS1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_SA_DETAILS1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IKEEXT_SA_DETAILS1_0 {
@@ -5639,9 +5003,6 @@ impl Default for IKEEXT_SA_DETAILS1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IKEEXT_SA_DETAILS1_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5663,9 +5024,6 @@ impl Default for IKEEXT_SA_DETAILS2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_SA_DETAILS2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IKEEXT_SA_DETAILS2_0 {
@@ -5675,9 +5033,6 @@ impl Default for IKEEXT_SA_DETAILS2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IKEEXT_SA_DETAILS2_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -5692,10 +5047,6 @@ impl Default for IKEEXT_SA_ENUM_TEMPLATE0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for IKEEXT_SA_ENUM_TEMPLATE0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5718,9 +5069,6 @@ impl Default for IKEEXT_STATISTICS0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_STATISTICS0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IKEEXT_STATISTICS1 {
@@ -5733,9 +5081,6 @@ impl Default for IKEEXT_STATISTICS1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IKEEXT_STATISTICS1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5750,9 +5095,6 @@ impl Default for IKEEXT_TRAFFIC0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_TRAFFIC0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IKEEXT_TRAFFIC0_0 {
@@ -5764,9 +5106,6 @@ impl Default for IKEEXT_TRAFFIC0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IKEEXT_TRAFFIC0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IKEEXT_TRAFFIC0_1 {
@@ -5777,9 +5116,6 @@ impl Default for IKEEXT_TRAFFIC0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IKEEXT_TRAFFIC0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5793,9 +5129,6 @@ impl Default for IPSEC_ADDRESS_INFO0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IPSEC_ADDRESS_INFO0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5814,9 +5147,6 @@ impl Default for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5837,9 +5167,6 @@ impl Default for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IPSEC_AGGREGATE_SA_STATISTICS0 {
@@ -5856,9 +5183,6 @@ impl Default for IPSEC_AGGREGATE_SA_STATISTICS0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPSEC_AGGREGATE_SA_STATISTICS0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IPSEC_AH_DROP_PACKET_STATISTICS0 {
@@ -5871,9 +5195,6 @@ impl Default for IPSEC_AH_DROP_PACKET_STATISTICS0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IPSEC_AH_DROP_PACKET_STATISTICS0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const IPSEC_AUTH_AES_128: IPSEC_AUTH_TYPE = IPSEC_AUTH_TYPE(3i32);
 pub const IPSEC_AUTH_AES_192: IPSEC_AUTH_TYPE = IPSEC_AUTH_TYPE(4i32);
@@ -5888,9 +5209,6 @@ impl Default for IPSEC_AUTH_AND_CIPHER_TRANSFORM0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IPSEC_AUTH_AND_CIPHER_TRANSFORM0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const IPSEC_AUTH_CONFIG_GCM_AES_128: u32 = 3u32;
 pub const IPSEC_AUTH_CONFIG_GCM_AES_192: u32 = 4u32;
@@ -5914,9 +5232,6 @@ impl Default for IPSEC_AUTH_TRANSFORM0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPSEC_AUTH_TRANSFORM0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IPSEC_AUTH_TRANSFORM_ID0 {
@@ -5927,9 +5242,6 @@ impl Default for IPSEC_AUTH_TRANSFORM_ID0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IPSEC_AUTH_TRANSFORM_ID0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5954,9 +5266,6 @@ impl Default for IPSEC_CIPHER_TRANSFORM0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPSEC_CIPHER_TRANSFORM0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IPSEC_CIPHER_TRANSFORM_ID0 {
@@ -5967,9 +5276,6 @@ impl Default for IPSEC_CIPHER_TRANSFORM_ID0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IPSEC_CIPHER_TRANSFORM_ID0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6054,9 +5360,6 @@ impl Default for IPSEC_DOSP_OPTIONS0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPSEC_DOSP_OPTIONS0 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const IPSEC_DOSP_RATE_LIMIT_DISABLE_VALUE: u32 = 0u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6072,9 +5375,6 @@ impl Default for IPSEC_DOSP_STATE0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPSEC_DOSP_STATE0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IPSEC_DOSP_STATE_ENUM_TEMPLATE0 {
@@ -6085,9 +5385,6 @@ impl Default for IPSEC_DOSP_STATE_ENUM_TEMPLATE0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IPSEC_DOSP_STATE_ENUM_TEMPLATE0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6116,9 +5413,6 @@ impl Default for IPSEC_DOSP_STATISTICS0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPSEC_DOSP_STATISTICS0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IPSEC_ESP_DROP_PACKET_STATISTICS0 {
@@ -6132,9 +5426,6 @@ impl Default for IPSEC_ESP_DROP_PACKET_STATISTICS0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IPSEC_ESP_DROP_PACKET_STATISTICS0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const IPSEC_FAILURE_ME: IPSEC_FAILURE_POINT = IPSEC_FAILURE_POINT(1i32);
 pub const IPSEC_FAILURE_NONE: IPSEC_FAILURE_POINT = IPSEC_FAILURE_POINT(0i32);
@@ -6156,9 +5447,6 @@ impl Default for IPSEC_GETSPI0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPSEC_GETSPI0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IPSEC_GETSPI0_0 {
@@ -6168,9 +5456,6 @@ impl Default for IPSEC_GETSPI0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IPSEC_GETSPI0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6185,9 +5470,6 @@ impl Default for IPSEC_GETSPI1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPSEC_GETSPI1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IPSEC_GETSPI1_0 {
@@ -6197,9 +5479,6 @@ impl Default for IPSEC_GETSPI1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IPSEC_GETSPI1_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6216,9 +5495,6 @@ impl Default for IPSEC_ID0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPSEC_ID0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IPSEC_KEYING_POLICY0 {
@@ -6229,9 +5505,6 @@ impl Default for IPSEC_KEYING_POLICY0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IPSEC_KEYING_POLICY0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6245,9 +5518,6 @@ impl Default for IPSEC_KEYING_POLICY1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPSEC_KEYING_POLICY1 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const IPSEC_KEYING_POLICY_FLAG_TERMINATING_MATCH: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6259,9 +5529,6 @@ impl Default for IPSEC_KEYMODULE_STATE0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IPSEC_KEYMODULE_STATE0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6275,9 +5542,6 @@ impl Default for IPSEC_KEY_MANAGER0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IPSEC_KEY_MANAGER0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -6294,10 +5558,6 @@ impl Default for IPSEC_KEY_MANAGER_CALLBACKS0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for IPSEC_KEY_MANAGER_CALLBACKS0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Security")]
 pub type IPSEC_KEY_MANAGER_DICTATE_KEY0 = Option<unsafe extern "system" fn(inboundsadetails: *mut IPSEC_SA_DETAILS1, outboundsadetails: *mut IPSEC_SA_DETAILS1, keyingmodulegenkey: *mut super::super::Foundation::BOOL) -> u32>;
@@ -6387,9 +5647,6 @@ impl Default for IPSEC_PROPOSAL0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPSEC_PROPOSAL0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IPSEC_SA0 {
@@ -6401,9 +5658,6 @@ impl Default for IPSEC_SA0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IPSEC_SA0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6419,9 +5673,6 @@ impl Default for IPSEC_SA0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPSEC_SA0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IPSEC_SA_AUTH_AND_CIPHER_INFORMATION0 {
@@ -6433,9 +5684,6 @@ impl Default for IPSEC_SA_AUTH_AND_CIPHER_INFORMATION0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPSEC_SA_AUTH_AND_CIPHER_INFORMATION0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IPSEC_SA_AUTH_INFORMATION0 {
@@ -6446,9 +5694,6 @@ impl Default for IPSEC_SA_AUTH_INFORMATION0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IPSEC_SA_AUTH_INFORMATION0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6473,9 +5718,6 @@ impl Default for IPSEC_SA_BUNDLE0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPSEC_SA_BUNDLE0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IPSEC_SA_BUNDLE0_0 {
@@ -6485,9 +5727,6 @@ impl Default for IPSEC_SA_BUNDLE0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IPSEC_SA_BUNDLE0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6514,9 +5753,6 @@ impl Default for IPSEC_SA_BUNDLE1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPSEC_SA_BUNDLE1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IPSEC_SA_BUNDLE1_0 {
@@ -6526,9 +5762,6 @@ impl Default for IPSEC_SA_BUNDLE1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IPSEC_SA_BUNDLE1_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6604,9 +5837,6 @@ impl Default for IPSEC_SA_CIPHER_INFORMATION0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPSEC_SA_CIPHER_INFORMATION0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6620,10 +5850,6 @@ impl Default for IPSEC_SA_CONTEXT0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for IPSEC_SA_CONTEXT0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -6639,10 +5865,6 @@ impl Default for IPSEC_SA_CONTEXT1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for IPSEC_SA_CONTEXT1 {
-    type TypeKind = windows_core::CopyType;
-}
 pub type IPSEC_SA_CONTEXT_CALLBACK0 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, change: *const IPSEC_SA_CONTEXT_CHANGE0)>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6654,9 +5876,6 @@ impl Default for IPSEC_SA_CONTEXT_CHANGE0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IPSEC_SA_CONTEXT_CHANGE0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -6670,10 +5889,6 @@ impl Default for IPSEC_SA_CONTEXT_ENUM_TEMPLATE0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for IPSEC_SA_CONTEXT_ENUM_TEMPLATE0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const IPSEC_SA_CONTEXT_EVENT_ADD: IPSEC_SA_CONTEXT_EVENT_TYPE0 = IPSEC_SA_CONTEXT_EVENT_TYPE0(1i32);
 pub const IPSEC_SA_CONTEXT_EVENT_DELETE: IPSEC_SA_CONTEXT_EVENT_TYPE0 = IPSEC_SA_CONTEXT_EVENT_TYPE0(2i32);
@@ -6695,10 +5910,6 @@ impl Default for IPSEC_SA_CONTEXT_SUBSCRIPTION0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for IPSEC_SA_CONTEXT_SUBSCRIPTION0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -6716,10 +5927,6 @@ impl Default for IPSEC_SA_DETAILS0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for IPSEC_SA_DETAILS0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -6731,10 +5938,6 @@ impl Default for IPSEC_SA_DETAILS0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for IPSEC_SA_DETAILS0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -6754,10 +5957,6 @@ impl Default for IPSEC_SA_DETAILS1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for IPSEC_SA_DETAILS1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -6770,10 +5969,6 @@ impl Default for IPSEC_SA_DETAILS1_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for IPSEC_SA_DETAILS1_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IPSEC_SA_ENUM_TEMPLATE0 {
@@ -6783,9 +5978,6 @@ impl Default for IPSEC_SA_ENUM_TEMPLATE0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IPSEC_SA_ENUM_TEMPLATE0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6797,9 +5989,6 @@ impl Default for IPSEC_SA_IDLE_TIMEOUT0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IPSEC_SA_IDLE_TIMEOUT0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6813,9 +6002,6 @@ impl Default for IPSEC_SA_LIFETIME0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPSEC_SA_LIFETIME0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IPSEC_SA_TRANSFORM0 {
@@ -6826,9 +6012,6 @@ impl Default for IPSEC_SA_TRANSFORM0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IPSEC_SA_TRANSFORM0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6843,9 +6026,6 @@ impl Default for IPSEC_SA_TRANSFORM0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IPSEC_SA_TRANSFORM0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6862,9 +6042,6 @@ impl Default for IPSEC_STATISTICS0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPSEC_STATISTICS0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IPSEC_STATISTICS1 {
@@ -6880,9 +6057,6 @@ impl Default for IPSEC_STATISTICS1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPSEC_STATISTICS1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IPSEC_TOKEN0 {
@@ -6895,9 +6069,6 @@ impl Default for IPSEC_TOKEN0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IPSEC_TOKEN0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6932,9 +6103,6 @@ impl Default for IPSEC_TRAFFIC0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPSEC_TRAFFIC0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IPSEC_TRAFFIC0_0 {
@@ -6945,9 +6113,6 @@ impl Default for IPSEC_TRAFFIC0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IPSEC_TRAFFIC0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6960,9 +6125,6 @@ impl Default for IPSEC_TRAFFIC0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPSEC_TRAFFIC0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IPSEC_TRAFFIC0_2 {
@@ -6973,9 +6135,6 @@ impl Default for IPSEC_TRAFFIC0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IPSEC_TRAFFIC0_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6996,9 +6155,6 @@ impl Default for IPSEC_TRAFFIC1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPSEC_TRAFFIC1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IPSEC_TRAFFIC1_0 {
@@ -7009,9 +6165,6 @@ impl Default for IPSEC_TRAFFIC1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IPSEC_TRAFFIC1_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7024,9 +6177,6 @@ impl Default for IPSEC_TRAFFIC1_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPSEC_TRAFFIC1_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IPSEC_TRAFFIC1_2 {
@@ -7037,9 +6187,6 @@ impl Default for IPSEC_TRAFFIC1_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IPSEC_TRAFFIC1_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7056,9 +6203,6 @@ impl Default for IPSEC_TRAFFIC_SELECTOR0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPSEC_TRAFFIC_SELECTOR0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IPSEC_TRAFFIC_SELECTOR0_0 {
@@ -7070,9 +6214,6 @@ impl Default for IPSEC_TRAFFIC_SELECTOR0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPSEC_TRAFFIC_SELECTOR0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IPSEC_TRAFFIC_SELECTOR0_1 {
@@ -7083,9 +6224,6 @@ impl Default for IPSEC_TRAFFIC_SELECTOR0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IPSEC_TRAFFIC_SELECTOR0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7100,9 +6238,6 @@ impl Default for IPSEC_TRAFFIC_SELECTOR_POLICY0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IPSEC_TRAFFIC_SELECTOR_POLICY0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7119,9 +6254,6 @@ impl Default for IPSEC_TRAFFIC_STATISTICS0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPSEC_TRAFFIC_STATISTICS0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IPSEC_TRAFFIC_STATISTICS1 {
@@ -7137,9 +6269,6 @@ impl Default for IPSEC_TRAFFIC_STATISTICS1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IPSEC_TRAFFIC_STATISTICS1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7171,9 +6300,6 @@ impl Default for IPSEC_TRANSPORT_POLICY0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPSEC_TRANSPORT_POLICY0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IPSEC_TRANSPORT_POLICY1 {
@@ -7188,9 +6314,6 @@ impl Default for IPSEC_TRANSPORT_POLICY1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IPSEC_TRANSPORT_POLICY1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7207,9 +6330,6 @@ impl Default for IPSEC_TRANSPORT_POLICY2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPSEC_TRANSPORT_POLICY2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IPSEC_TUNNEL_ENDPOINT0 {
@@ -7221,9 +6341,6 @@ impl Default for IPSEC_TUNNEL_ENDPOINT0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPSEC_TUNNEL_ENDPOINT0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IPSEC_TUNNEL_ENDPOINT0_0 {
@@ -7234,9 +6351,6 @@ impl Default for IPSEC_TUNNEL_ENDPOINT0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IPSEC_TUNNEL_ENDPOINT0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7250,9 +6364,6 @@ impl Default for IPSEC_TUNNEL_ENDPOINTS0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPSEC_TUNNEL_ENDPOINTS0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IPSEC_TUNNEL_ENDPOINTS0_0 {
@@ -7264,9 +6375,6 @@ impl Default for IPSEC_TUNNEL_ENDPOINTS0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPSEC_TUNNEL_ENDPOINTS0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IPSEC_TUNNEL_ENDPOINTS0_1 {
@@ -7277,9 +6385,6 @@ impl Default for IPSEC_TUNNEL_ENDPOINTS0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IPSEC_TUNNEL_ENDPOINTS0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7294,9 +6399,6 @@ impl Default for IPSEC_TUNNEL_ENDPOINTS1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPSEC_TUNNEL_ENDPOINTS1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IPSEC_TUNNEL_ENDPOINTS1_0 {
@@ -7308,9 +6410,6 @@ impl Default for IPSEC_TUNNEL_ENDPOINTS1_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPSEC_TUNNEL_ENDPOINTS1_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IPSEC_TUNNEL_ENDPOINTS1_1 {
@@ -7321,9 +6420,6 @@ impl Default for IPSEC_TUNNEL_ENDPOINTS1_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IPSEC_TUNNEL_ENDPOINTS1_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7341,9 +6437,6 @@ impl Default for IPSEC_TUNNEL_ENDPOINTS2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPSEC_TUNNEL_ENDPOINTS2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IPSEC_TUNNEL_ENDPOINTS2_0 {
@@ -7355,9 +6448,6 @@ impl Default for IPSEC_TUNNEL_ENDPOINTS2_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPSEC_TUNNEL_ENDPOINTS2_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IPSEC_TUNNEL_ENDPOINTS2_1 {
@@ -7368,9 +6458,6 @@ impl Default for IPSEC_TUNNEL_ENDPOINTS2_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IPSEC_TUNNEL_ENDPOINTS2_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7387,9 +6474,6 @@ impl Default for IPSEC_TUNNEL_POLICY0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPSEC_TUNNEL_POLICY0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IPSEC_TUNNEL_POLICY1 {
@@ -7404,9 +6488,6 @@ impl Default for IPSEC_TUNNEL_POLICY1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IPSEC_TUNNEL_POLICY1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7423,9 +6504,6 @@ impl Default for IPSEC_TUNNEL_POLICY2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IPSEC_TUNNEL_POLICY2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7446,9 +6524,6 @@ impl Default for IPSEC_TUNNEL_POLICY3 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPSEC_TUNNEL_POLICY3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IPSEC_V4_UDP_ENCAPSULATION0 {
@@ -7460,9 +6535,6 @@ impl Default for IPSEC_V4_UDP_ENCAPSULATION0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPSEC_V4_UDP_ENCAPSULATION0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IPSEC_VIRTUAL_IF_TUNNEL_INFO0 {
@@ -7473,7 +6545,4 @@ impl Default for IPSEC_VIRTUAL_IF_TUNNEL_INFO0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IPSEC_VIRTUAL_IF_TUNNEL_INFO0 {
-    type TypeKind = windows_core::CopyType;
 }

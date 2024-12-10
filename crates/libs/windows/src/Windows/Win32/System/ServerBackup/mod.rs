@@ -186,9 +186,6 @@ impl Default for WSB_OB_REGISTRATION_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSB_OB_REGISTRATION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSB_OB_STATUS_ENTRY {
@@ -202,9 +199,6 @@ impl Default for WSB_OB_STATUS_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSB_OB_STATUS_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -220,9 +214,6 @@ impl Default for WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSB_OB_STATUS_INFO {
@@ -234,7 +225,4 @@ impl Default for WSB_OB_STATUS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WSB_OB_STATUS_INFO {
-    type TypeKind = windows_core::CopyType;
 }

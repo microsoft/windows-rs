@@ -13,9 +13,6 @@ impl Default for APPLICATION_EVENT_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for APPLICATION_EVENT_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CONTENT_ID_GLANCE: u32 = 0u32;
 pub const CONTENT_ID_HOME: u32 = 1u32;
 #[repr(C, packed(1))]
@@ -31,9 +28,6 @@ impl Default for CONTENT_MISSING_EVENT_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CONTENT_MISSING_EVENT_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DEVICE_USER_CHANGE_EVENT_DATA {
@@ -44,9 +38,6 @@ impl Default for DEVICE_USER_CHANGE_EVENT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEVICE_USER_CHANGE_EVENT_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -60,9 +51,6 @@ impl Default for EVENT_DATA_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for EVENT_DATA_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const GUID_DEVINTERFACE_SIDESHOW: windows_core::GUID = windows_core::GUID::from_u128(0x152e5811_feb9_4b00_90f4_d32947ae1681);
 windows_core::imp::define_interface!(ISideShowBulkCapabilities, ISideShowBulkCapabilities_Vtbl, 0x3a2b7fbc_3ad5_48bd_bbf1_0e6cfbd10807);
@@ -866,9 +854,6 @@ impl Default for NEW_EVENT_DATA_AVAILABLE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NEW_EVENT_DATA_AVAILABLE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SCF_BUTTON_BACK: SCF_BUTTON_IDS = SCF_BUTTON_IDS(65280i32);
 pub const SCF_BUTTON_DOWN: SCF_BUTTON_IDS = SCF_BUTTON_IDS(4i32);
 pub const SCF_BUTTON_FASTFORWARD: SCF_BUTTON_IDS = SCF_BUTTON_IDS(9i32);
@@ -898,9 +883,6 @@ impl Default for SCF_CONTEXTMENU_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCF_CONTEXTMENU_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SCF_EVENT_CONTEXTMENU: SCF_EVENT_IDS = SCF_EVENT_IDS(3i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -912,9 +894,6 @@ impl Default for SCF_EVENT_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCF_EVENT_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -934,9 +913,6 @@ impl Default for SCF_MENUACTION_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCF_MENUACTION_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCF_NAVIGATION_EVENT {
@@ -948,9 +924,6 @@ impl Default for SCF_NAVIGATION_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCF_NAVIGATION_EVENT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SIDESHOW_APPLICATION_EVENT: windows_core::GUID = windows_core::GUID::from_u128(0x4cb572fa_1d3b_49b3_a17a_2e6bff052854);
 pub const SIDESHOW_CAPABILITY_CLIENT_AREA_HEIGHT: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 16 };

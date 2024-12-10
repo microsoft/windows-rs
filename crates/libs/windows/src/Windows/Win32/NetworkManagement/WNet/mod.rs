@@ -484,9 +484,6 @@ impl Default for CONNECTDLGSTRUCTA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CONNECTDLGSTRUCTA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CONNECTDLGSTRUCTW {
@@ -500,9 +497,6 @@ impl Default for CONNECTDLGSTRUCTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CONNECTDLGSTRUCTW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -573,9 +567,6 @@ impl Default for DISCDLGSTRUCTA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISCDLGSTRUCTA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DISCDLGSTRUCTW {
@@ -589,9 +580,6 @@ impl Default for DISCDLGSTRUCTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DISCDLGSTRUCTW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -645,9 +633,6 @@ impl Default for NETCONNECTINFOSTRUCT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NETCONNECTINFOSTRUCT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NETINFOSTRUCT {
@@ -664,9 +649,6 @@ impl Default for NETINFOSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NETINFOSTRUCT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -725,9 +707,6 @@ impl Default for NETRESOURCEA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NETRESOURCEA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NETRESOURCEW {
@@ -744,9 +723,6 @@ impl Default for NETRESOURCEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NETRESOURCEW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -838,9 +814,6 @@ impl Default for NOTIFYADD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NOTIFYADD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NOTIFYCANCEL {
@@ -854,9 +827,6 @@ impl Default for NOTIFYCANCEL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NOTIFYCANCEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NOTIFYINFO {
@@ -868,9 +838,6 @@ impl Default for NOTIFYINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NOTIFYINFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const NOTIFY_POST: u32 = 2u32;
 pub const NOTIFY_PRE: u32 = 1u32;
@@ -923,9 +890,6 @@ impl Default for REMOTE_NAME_INFOA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REMOTE_NAME_INFOA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REMOTE_NAME_INFOW {
@@ -937,9 +901,6 @@ impl Default for REMOTE_NAME_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for REMOTE_NAME_INFOW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const REMOTE_NAME_INFO_LEVEL: UNC_INFO_LEVEL = UNC_INFO_LEVEL(2u32);
 pub const RESOURCEDISPLAYTYPE_DIRECTORY: u32 = 9u32;
@@ -978,9 +939,6 @@ impl Default for UNIVERSAL_NAME_INFOA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for UNIVERSAL_NAME_INFOA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct UNIVERSAL_NAME_INFOW {
@@ -990,9 +948,6 @@ impl Default for UNIVERSAL_NAME_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for UNIVERSAL_NAME_INFOW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const UNIVERSAL_NAME_INFO_LEVEL: UNC_INFO_LEVEL = UNC_INFO_LEVEL(1u32);
 pub const WNCON_DYNAMIC: u32 = 8u32;

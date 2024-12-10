@@ -50,9 +50,6 @@ impl Default for WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
@@ -67,9 +64,6 @@ impl Default for WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WLX_CONSOLESWITCHCREDENTIAL_TYPE_V1_0: u32 = 1u32;
 #[repr(C)]
@@ -108,9 +102,6 @@ impl Default for WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WLX_CREATE_INSTANCE_ONLY: u32 = 1u32;
 pub const WLX_CREATE_USER: u32 = 2u32;
 pub const WLX_CREDENTIAL_TYPE_V1_0: u32 = 1u32;
@@ -130,10 +121,6 @@ impl Default for WLX_DESKTOP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_StationsAndDesktops")]
-impl windows_core::TypeKind for WLX_DESKTOP {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WLX_DESKTOP_HANDLE: u32 = 2u32;
 pub const WLX_DESKTOP_NAME: u32 = 1u32;
@@ -161,10 +148,6 @@ impl Default for WLX_DISPATCH_VERSION_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for WLX_DISPATCH_VERSION_1_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -194,10 +177,6 @@ impl Default for WLX_DISPATCH_VERSION_1_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for WLX_DISPATCH_VERSION_1_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -226,10 +205,6 @@ impl Default for WLX_DISPATCH_VERSION_1_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for WLX_DISPATCH_VERSION_1_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -266,10 +241,6 @@ impl Default for WLX_DISPATCH_VERSION_1_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for WLX_DISPATCH_VERSION_1_3 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -309,10 +280,6 @@ impl Default for WLX_DISPATCH_VERSION_1_4 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for WLX_DISPATCH_VERSION_1_4 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WLX_DLG_INPUT_TIMEOUT: u32 = 102u32;
 pub const WLX_DLG_SAS: u32 = 101u32;
 pub const WLX_DLG_SCREEN_SAVER_TIMEOUT: u32 = 103u32;
@@ -330,9 +297,6 @@ impl Default for WLX_MPR_NOTIFY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WLX_MPR_NOTIFY_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_StationsAndDesktops")]
@@ -352,10 +316,6 @@ impl Default for WLX_NOTIFICATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_StationsAndDesktops")]
-impl windows_core::TypeKind for WLX_NOTIFICATION_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WLX_OPTION_CONTEXT_POINTER: u32 = 2u32;
 pub const WLX_OPTION_DISPATCH_TABLE_SIZE: u32 = 65539u32;
@@ -379,9 +339,6 @@ impl Default for WLX_PROFILE_V1_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WLX_PROFILE_V1_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLX_PROFILE_V2_0 {
@@ -396,9 +353,6 @@ impl Default for WLX_PROFILE_V2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WLX_PROFILE_V2_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WLX_SAS_ACTION_DELAYED_FORCE_LOGOFF: u32 = 16u32;
 pub const WLX_SAS_ACTION_FORCE_LOGOFF: u32 = 9u32;
@@ -442,9 +396,6 @@ impl Default for WLX_SC_NOTIFICATION_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WLX_SC_NOTIFICATION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLX_SHUTDOWN_TYPE(pub u32);
@@ -459,9 +410,6 @@ impl Default for WLX_TERMINAL_SERVICES_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WLX_TERMINAL_SERVICES_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WLX_VERSION_1_0: u32 = 65536u32;
 pub const WLX_VERSION_1_1: u32 = 65537u32;

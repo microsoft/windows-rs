@@ -9,9 +9,6 @@ impl Default for CapturedMetadataExposureCompensation {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CapturedMetadataExposureCompensation {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CapturedMetadataISOGains {
@@ -22,9 +19,6 @@ impl Default for CapturedMetadataISOGains {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CapturedMetadataISOGains {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -37,9 +31,6 @@ impl Default for CapturedMetadataWhiteBalanceGains {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CapturedMetadataWhiteBalanceGains {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DEVPKEY_Device_DLNACAP: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x88ad39db_0d0c_4a38_8435_4043826b5c91), pid: 16 };
 pub const DEVPKEY_Device_DLNADOC: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x88ad39db_0d0c_4a38_8435_4043826b5c91), pid: 15 };
@@ -67,9 +58,6 @@ impl Default for FaceCharacterization {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FaceCharacterization {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FaceCharacterizationBlobHeader {
@@ -80,9 +68,6 @@ impl Default for FaceCharacterizationBlobHeader {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FaceCharacterizationBlobHeader {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -95,9 +80,6 @@ impl Default for FaceRectInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FaceRectInfo {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FaceRectInfoBlobHeader {
@@ -108,9 +90,6 @@ impl Default for FaceRectInfoBlobHeader {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FaceRectInfoBlobHeader {
-    type TypeKind = windows_core::CopyType;
 }
 pub const GUID_DEVINTERFACE_DMP: windows_core::GUID = windows_core::GUID::from_u128(0x25b4e268_2a05_496e_803b_266837fbda4b);
 pub const GUID_DEVINTERFACE_DMR: windows_core::GUID = windows_core::GUID::from_u128(0xd0875fb4_2196_4c7a_a63d_e416addd60a1);
@@ -126,9 +105,6 @@ impl Default for HistogramBlobHeader {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HistogramBlobHeader {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HistogramDataHeader {
@@ -141,9 +117,6 @@ impl Default for HistogramDataHeader {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HistogramDataHeader {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HistogramGrid {
@@ -155,9 +128,6 @@ impl Default for HistogramGrid {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HistogramGrid {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -172,9 +142,6 @@ impl Default for HistogramHeader {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HistogramHeader {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -198,7 +165,4 @@ impl Default for MetadataTimeStamps {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MetadataTimeStamps {
-    type TypeKind = windows_core::CopyType;
 }

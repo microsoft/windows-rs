@@ -6959,9 +6959,6 @@ impl Default for IMMP_MPV_STORE_DRIVER_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMMP_MPV_STORE_DRIVER_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMultisession, IMultisession_Vtbl, 0x27354150_7f64_5b0f_8f00_5d77afbe261e);
 #[cfg(feature = "Win32_System_Com")]
@@ -9032,9 +9029,6 @@ impl Default for SPropAttrArray {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SPropAttrArray {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SZ_PROGID_SMTPCAT: windows_core::PCSTR = windows_core::s!("Smtp.Cat");
 pub const tagIMMPID_CPV_STRUCT: windows_core::GUID = windows_core::GUID::from_u128(0xa2a76b2a_e52d_11d1_aa64_00c04fa35b82);
 #[repr(C)]
@@ -9048,9 +9042,6 @@ impl Default for tagIMMPID_GUIDLIST_ITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for tagIMMPID_GUIDLIST_ITEM {
-    type TypeKind = windows_core::CopyType;
 }
 pub const tagIMMPID_MPV_STRUCT: windows_core::GUID = windows_core::GUID::from_u128(0xcbe69706_c9bd_11d1_9ff2_00c04fa37348);
 pub const tagIMMPID_MP_STRUCT: windows_core::GUID = windows_core::GUID::from_u128(0x13384cf0_b3c4_11d1_aa92_00aa006bc80b);

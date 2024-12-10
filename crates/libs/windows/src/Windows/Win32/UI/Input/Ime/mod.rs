@@ -491,9 +491,6 @@ impl Default for APPLETIDLIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for APPLETIDLIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct APPLYCANDEXPARAM {
@@ -506,9 +503,6 @@ impl Default for APPLYCANDEXPARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for APPLYCANDEXPARAM {
-    type TypeKind = windows_core::CopyType;
 }
 pub const ATTR_CONVERTED: u32 = 2u32;
 pub const ATTR_FIXEDCONVERTED: u32 = 5u32;
@@ -529,9 +523,6 @@ impl Default for CANDIDATEFORM {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CANDIDATEFORM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CANDIDATEINFO {
@@ -545,9 +536,6 @@ impl Default for CANDIDATEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CANDIDATEINFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -564,9 +552,6 @@ impl Default for CANDIDATELIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CANDIDATELIST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CATID_MSIME_IImePadApplet: windows_core::GUID = windows_core::GUID::from_u128(0x7566cad1_4ec9_4478_9fe9_8ed766619edf);
 pub const CATID_MSIME_IImePadApplet1000: windows_core::GUID = windows_core::GUID::from_u128(0xe081e1d6_2389_43cb_b66f_609f823d9f9c);
@@ -599,9 +584,6 @@ impl Default for COMPOSITIONFORM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for COMPOSITIONFORM {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -636,9 +618,6 @@ impl Default for COMPOSITIONSTRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for COMPOSITIONSTRING {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CPS_CANCEL: NOTIFY_IME_INDEX = NOTIFY_IME_INDEX(4u32);
 pub const CPS_COMPLETE: NOTIFY_IME_INDEX = NOTIFY_IME_INDEX(1u32);
@@ -767,9 +746,6 @@ impl Default for GUIDELINE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GUIDELINE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -4402,10 +4378,6 @@ impl Default for IMEAPPLETCFG {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for IMEAPPLETCFG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMEAPPLETUI {
@@ -4425,9 +4397,6 @@ impl Default for IMEAPPLETUI {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMEAPPLETUI {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMECHARINFO {
@@ -4438,9 +4407,6 @@ impl Default for IMECHARINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IMECHARINFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4455,9 +4421,6 @@ impl Default for IMECHARPOSITION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IMECHARPOSITION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4474,9 +4437,6 @@ impl Default for IMECOMPOSITIONSTRINGINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMECOMPOSITIONSTRINGINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct IMEDLG {
@@ -4490,9 +4450,6 @@ impl Default for IMEDLG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMEDLG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct IMEDP {
@@ -4505,9 +4462,6 @@ impl Default for IMEDP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMEDP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMEFAREASTINFO {
@@ -4519,9 +4473,6 @@ impl Default for IMEFAREASTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IMEFAREASTINFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const IMEFAREASTINFO_TYPE_COMMENT: u32 = 2u32;
 pub const IMEFAREASTINFO_TYPE_COSTTIME: u32 = 3u32;
@@ -4546,9 +4497,6 @@ impl Default for IMEINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMEINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMEITEM {
@@ -4561,9 +4509,6 @@ impl Default for IMEITEM {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMEITEM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMEITEMCANDIDATE {
@@ -4574,9 +4519,6 @@ impl Default for IMEITEMCANDIDATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IMEITEMCANDIDATE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const IMEKEYCTRLMASK_ALT: u32 = 1u32;
 pub const IMEKEYCTRLMASK_CTRL: u32 = 2u32;
@@ -4596,9 +4538,6 @@ impl Default for IMEKMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMEKMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct IMEKMSFUNCDESC {
@@ -4612,9 +4551,6 @@ impl Default for IMEKMSFUNCDESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMEKMSFUNCDESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct IMEKMSINIT {
@@ -4625,9 +4561,6 @@ impl Default for IMEKMSINIT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IMEKMSINIT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -4640,9 +4573,6 @@ impl Default for IMEKMSINVK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IMEKMSINVK {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -4658,9 +4588,6 @@ impl Default for IMEKMSKEY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMEKMSKEY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union IMEKMSKEY_0 {
@@ -4672,9 +4599,6 @@ impl Default for IMEKMSKEY_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMEKMSKEY_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union IMEKMSKEY_1 {
@@ -4685,9 +4609,6 @@ impl Default for IMEKMSKEY_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IMEKMSKEY_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -4705,9 +4626,6 @@ impl Default for IMEKMSKMP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMEKMSKMP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct IMEKMSNTFY {
@@ -4719,9 +4637,6 @@ impl Default for IMEKMSNTFY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IMEKMSNTFY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const IMEKMS_2NDLEVEL: u32 = 4u32;
 pub const IMEKMS_CANDIDATE: u32 = 6u32;
@@ -4751,10 +4666,6 @@ impl Default for IMEMENUITEMINFOA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for IMEMENUITEMINFOA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4774,10 +4685,6 @@ impl Default for IMEMENUITEMINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for IMEMENUITEMINFOW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const IMEMENUITEM_STRING_SIZE: u32 = 80u32;
 pub const IMEMOUSERET_NOTHANDLED: i32 = -1i32;
@@ -4875,9 +4782,6 @@ impl Default for IMESHF {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMESHF {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMESTRINGCANDIDATE {
@@ -4888,9 +4792,6 @@ impl Default for IMESTRINGCANDIDATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IMESTRINGCANDIDATE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4907,9 +4808,6 @@ impl Default for IMESTRINGCANDIDATEINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMESTRINGCANDIDATEINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMESTRINGINFO {
@@ -4920,9 +4818,6 @@ impl Default for IMESTRINGINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IMESTRINGINFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4945,9 +4840,6 @@ impl Default for IMEWRD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMEWRD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union IMEWRD_0 {
@@ -4959,9 +4851,6 @@ impl Default for IMEWRD_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMEWRD_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct IMEWRD_0_0 {
@@ -4972,9 +4861,6 @@ impl Default for IMEWRD_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IMEWRD_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const IME_CAND_CODE: u32 = 2u32;
 pub const IME_CAND_MEANING: u32 = 3u32;
@@ -5248,10 +5134,6 @@ impl Default for INPUTCONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for INPUTCONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
@@ -5264,10 +5146,6 @@ impl Default for INPUTCONTEXT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for INPUTCONTEXT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const IPACFG_CATEGORY: i32 = 262144i32;
 pub const IPACFG_HELP: i32 = 2i32;
@@ -5498,9 +5376,6 @@ impl Default for MORRSLT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MORRSLT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union MORRSLT_0 {
@@ -5511,9 +5386,6 @@ impl Default for MORRSLT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MORRSLT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -5526,9 +5398,6 @@ impl Default for MORRSLT_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MORRSLT_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union MORRSLT_2 {
@@ -5539,9 +5408,6 @@ impl Default for MORRSLT_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MORRSLT_2 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const NI_CHANGECANDIDATELIST: NOTIFY_IME_ACTION = NOTIFY_IME_ACTION(19u32);
 pub const NI_CLOSECANDIDATE: NOTIFY_IME_ACTION = NOTIFY_IME_ACTION(17u32);
@@ -5571,9 +5437,6 @@ impl Default for POSTBL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POSTBL {
-    type TypeKind = windows_core::CopyType;
-}
 pub const POS_UNDEFINED: u32 = 0u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5592,9 +5455,6 @@ impl Default for RECONVERTSTRING {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RECONVERTSTRING {
-    type TypeKind = windows_core::CopyType;
-}
 pub const RECONVOPT_NONE: u32 = 0u32;
 pub const RECONVOPT_USECANCELNOTIFY: u32 = 1u32;
 #[repr(C)]
@@ -5608,9 +5468,6 @@ impl Default for REGISTERWORDA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REGISTERWORDA {
-    type TypeKind = windows_core::CopyType;
-}
 pub type REGISTERWORDENUMPROCA = Option<unsafe extern "system" fn(lpszreading: windows_core::PCSTR, param1: u32, lpszstring: windows_core::PCSTR, param3: *mut core::ffi::c_void) -> i32>;
 pub type REGISTERWORDENUMPROCW = Option<unsafe extern "system" fn(lpszreading: windows_core::PCWSTR, param1: u32, lpszstring: windows_core::PCWSTR, param3: *mut core::ffi::c_void) -> i32>;
 #[repr(C)]
@@ -5623,9 +5480,6 @@ impl Default for REGISTERWORDW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for REGISTERWORDW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const RWM_CHGKEYMAP: windows_core::PCWSTR = windows_core::w!("MSIMEChangeKeyMap");
 pub const RWM_DOCUMENTFEED: windows_core::PCWSTR = windows_core::w!("MSIMEDocumentFeed");
@@ -5667,9 +5521,6 @@ impl Default for SOFTKBDDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SOFTKBDDATA {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SOFTKEYBOARD_TYPE_C1: u32 = 2u32;
 pub const SOFTKEYBOARD_TYPE_T1: u32 = 1u32;
 #[repr(C)]
@@ -5683,9 +5534,6 @@ impl Default for STYLEBUFA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STYLEBUFA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STYLEBUFW {
@@ -5696,9 +5544,6 @@ impl Default for STYLEBUFW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STYLEBUFW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const STYLE_DESCRIPTION_SIZE: u32 = 32u32;
 #[repr(C)]
@@ -5713,9 +5558,6 @@ impl Default for TRANSMSG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TRANSMSG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRANSMSGLIST {
@@ -5726,9 +5568,6 @@ impl Default for TRANSMSGLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TRANSMSGLIST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const UI_CAP_2700: u32 = 1u32;
 pub const UI_CAP_ROT90: u32 = 2u32;
@@ -5760,9 +5599,6 @@ impl Default for WDD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WDD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WDD_0 {
@@ -5774,9 +5610,6 @@ impl Default for WDD_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WDD_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WDD_1 {
@@ -5787,9 +5620,6 @@ impl Default for WDD_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WDD_1 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const cbCommentMax: u32 = 256u32;
 pub type fpCreateIFECommonInstanceType = Option<unsafe extern "system" fn(ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;

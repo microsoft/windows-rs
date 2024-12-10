@@ -133,9 +133,6 @@ impl Default for HEAPENTRY32 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HEAPENTRY32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HEAPENTRY32_FLAGS(pub u32);
@@ -151,9 +148,6 @@ impl Default for HEAPLIST32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HEAPLIST32 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const HF32_DEFAULT: u32 = 1u32;
 pub const HF32_SHARED: u32 = 2u32;
@@ -180,9 +174,6 @@ impl Default for MODULEENTRY32 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MODULEENTRY32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MODULEENTRY32W {
@@ -201,9 +192,6 @@ impl Default for MODULEENTRY32W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MODULEENTRY32W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -224,9 +212,6 @@ impl Default for PROCESSENTRY32 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROCESSENTRY32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROCESSENTRY32W {
@@ -245,9 +230,6 @@ impl Default for PROCESSENTRY32W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PROCESSENTRY32W {
-    type TypeKind = windows_core::CopyType;
 }
 pub const TH32CS_INHERIT: CREATE_TOOLHELP_SNAPSHOT_FLAGS = CREATE_TOOLHELP_SNAPSHOT_FLAGS(2147483648u32);
 pub const TH32CS_SNAPALL: CREATE_TOOLHELP_SNAPSHOT_FLAGS = CREATE_TOOLHELP_SNAPSHOT_FLAGS(15u32);
@@ -271,7 +253,4 @@ impl Default for THREADENTRY32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for THREADENTRY32 {
-    type TypeKind = windows_core::CopyType;
 }

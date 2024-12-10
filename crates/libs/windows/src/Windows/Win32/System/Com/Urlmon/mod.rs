@@ -859,9 +859,6 @@ impl Default for CODEBASEHOLD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CODEBASEHOLD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct CONFIRMSAFETY {
@@ -873,9 +870,6 @@ impl Default for CONFIRMSAFETY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CONFIRMSAFETY {
-    type TypeKind = windows_core::CloneType;
 }
 pub const CONFIRMSAFETYACTION_LOADOBJECT: u32 = 1u32;
 #[repr(C)]
@@ -890,9 +884,6 @@ impl Default for DATAINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DATAINFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const E_PENDING: windows_core::HRESULT = windows_core::HRESULT(0x8000000A_u32 as _);
 pub const FEATURE_ADDON_MANAGEMENT: INTERNETFEATURELIST = INTERNETFEATURELIST(13i32);
@@ -958,9 +949,6 @@ impl Default for HIT_LOGGING_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HIT_LOGGING_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 windows_core::imp::define_interface!(IBindCallbackRedirect, IBindCallbackRedirect_Vtbl, 0x11c81bc2_121e_4ed5_b9c4_b430bd54f2c0);
 windows_core::imp::interface_hierarchy!(IBindCallbackRedirect, windows_core::IUnknown);
@@ -3667,9 +3655,6 @@ impl Default for PROTOCOLDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROTOCOLDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct PROTOCOLFILTERDATA {
@@ -3684,9 +3669,6 @@ impl Default for PROTOCOLFILTERDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROTOCOLFILTERDATA {
-    type TypeKind = windows_core::CloneType;
-}
 pub const PROTOCOLFLAG_NO_PICS_CHECK: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3698,9 +3680,6 @@ impl Default for PROTOCOL_ARGUMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PROTOCOL_ARGUMENT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3767,9 +3746,6 @@ impl Default for REMSECURITY_ATTRIBUTES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REMSECURITY_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct RemBINDINFO {
@@ -3792,9 +3768,6 @@ impl Default for RemBINDINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RemBINDINFO {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RemFORMATETC {
@@ -3808,9 +3781,6 @@ impl Default for RemFORMATETC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RemFORMATETC {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SECURITY_IE_STATE_GREEN: u32 = 0u32;
 pub const SECURITY_IE_STATE_RED: u32 = 1u32;
@@ -3844,9 +3814,6 @@ impl Default for SOFTDISTINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SOFTDISTINFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SOFTDIST_ADSTATE_AVAILABLE: u32 = 1u32;
 pub const SOFTDIST_ADSTATE_DOWNLOADED: u32 = 2u32;
 pub const SOFTDIST_ADSTATE_INSTALLED: u32 = 3u32;
@@ -3872,9 +3839,6 @@ impl Default for StartParam {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for StartParam {
-    type TypeKind = windows_core::CloneType;
 }
 pub const TRUSTEDDOWNLOADPROP: MONIKERPROPERTY = MONIKERPROPERTY(3i32);
 pub const UAS_EXACTLEGACY: u32 = 4096u32;
@@ -4147,7 +4111,4 @@ impl Default for ZONEATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ZONEATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
 }

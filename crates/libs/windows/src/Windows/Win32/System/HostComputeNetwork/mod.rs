@@ -307,9 +307,6 @@ impl Default for HCN_PORT_RANGE_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HCN_PORT_RANGE_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HCN_PORT_RANGE_RESERVATION {
@@ -320,9 +317,6 @@ impl Default for HCN_PORT_RANGE_RESERVATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HCN_PORT_RANGE_RESERVATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const HcnNotificationFlagsReserved: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(-268435456i32);
 pub const HcnNotificationGuestNetworkServiceCreate: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(7i32);

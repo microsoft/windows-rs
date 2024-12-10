@@ -101,9 +101,6 @@ impl Default for PSS_ALLOCATOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PSS_ALLOCATOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PSS_AUXILIARY_PAGES_INFORMATION {
@@ -113,9 +110,6 @@ impl Default for PSS_AUXILIARY_PAGES_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PSS_AUXILIARY_PAGES_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Memory")]
@@ -132,10 +126,6 @@ impl Default for PSS_AUXILIARY_PAGE_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Memory")]
-impl windows_core::TypeKind for PSS_AUXILIARY_PAGE_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -258,9 +248,6 @@ impl Default for PSS_HANDLE_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PSS_HANDLE_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PSS_HANDLE_ENTRY_0 {
@@ -276,9 +263,6 @@ impl Default for PSS_HANDLE_ENTRY_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PSS_HANDLE_ENTRY_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PSS_HANDLE_ENTRY_0_3 {
@@ -289,9 +273,6 @@ impl Default for PSS_HANDLE_ENTRY_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PSS_HANDLE_ENTRY_0_3 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -305,9 +286,6 @@ impl Default for PSS_HANDLE_ENTRY_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PSS_HANDLE_ENTRY_0_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -325,9 +303,6 @@ impl Default for PSS_HANDLE_ENTRY_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PSS_HANDLE_ENTRY_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PSS_HANDLE_ENTRY_0_4 {
@@ -340,9 +315,6 @@ impl Default for PSS_HANDLE_ENTRY_0_4 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PSS_HANDLE_ENTRY_0_4 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PSS_HANDLE_ENTRY_0_5 {
@@ -353,9 +325,6 @@ impl Default for PSS_HANDLE_ENTRY_0_5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PSS_HANDLE_ENTRY_0_5 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -373,9 +342,6 @@ impl Default for PSS_HANDLE_ENTRY_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PSS_HANDLE_ENTRY_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -427,9 +393,6 @@ impl Default for PSS_HANDLE_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PSS_HANDLE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const PSS_HANDLE_NONE: PSS_HANDLE_FLAGS = PSS_HANDLE_FLAGS(0i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -441,9 +404,6 @@ impl Default for PSS_HANDLE_TRACE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PSS_HANDLE_TRACE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -475,9 +435,6 @@ impl Default for PSS_PERFORMANCE_COUNTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PSS_PERFORMANCE_COUNTERS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PSS_PERF_RESOLUTION: u32 = 1000000u32;
 #[repr(transparent)]
@@ -557,9 +514,6 @@ impl Default for PSS_PROCESS_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PSS_PROCESS_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const PSS_QUERY_AUXILIARY_PAGES_INFORMATION: PSS_QUERY_INFORMATION_CLASS = PSS_QUERY_INFORMATION_CLASS(2i32);
 pub const PSS_QUERY_HANDLE_INFORMATION: PSS_QUERY_INFORMATION_CLASS = PSS_QUERY_INFORMATION_CLASS(4i32);
 pub const PSS_QUERY_HANDLE_TRACE_INFORMATION: PSS_QUERY_INFORMATION_CLASS = PSS_QUERY_INFORMATION_CLASS(6i32);
@@ -600,10 +554,6 @@ impl Default for PSS_THREAD_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for PSS_THREAD_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -654,9 +604,6 @@ impl Default for PSS_THREAD_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PSS_THREAD_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PSS_VA_CLONE_INFORMATION {
@@ -666,9 +613,6 @@ impl Default for PSS_VA_CLONE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PSS_VA_CLONE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -692,9 +636,6 @@ impl Default for PSS_VA_SPACE_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PSS_VA_SPACE_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PSS_VA_SPACE_INFORMATION {
@@ -704,9 +645,6 @@ impl Default for PSS_VA_SPACE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PSS_VA_SPACE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PSS_WALK_AUXILIARY_PAGES: PSS_WALK_INFORMATION_CLASS = PSS_WALK_INFORMATION_CLASS(0i32);
 pub const PSS_WALK_HANDLES: PSS_WALK_INFORMATION_CLASS = PSS_WALK_INFORMATION_CLASS(2i32);

@@ -322,9 +322,6 @@ impl Default for BLUETOOTH_ADDRESS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BLUETOOTH_ADDRESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union BLUETOOTH_ADDRESS_0 {
@@ -335,9 +332,6 @@ impl Default for BLUETOOTH_ADDRESS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BLUETOOTH_ADDRESS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -352,9 +346,6 @@ impl Default for BLUETOOTH_AUTHENTICATE_RESPONSE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BLUETOOTH_AUTHENTICATE_RESPONSE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
@@ -367,9 +358,6 @@ impl Default for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -385,9 +373,6 @@ impl Default for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
@@ -398,9 +383,6 @@ impl Default for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -424,9 +406,6 @@ impl Default for BLUETOOTH_COD_PAIRS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BLUETOOTH_COD_PAIRS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct BLUETOOTH_DEVICE_INFO {
@@ -444,9 +423,6 @@ impl Default for BLUETOOTH_DEVICE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BLUETOOTH_DEVICE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const BLUETOOTH_DEVICE_NAME_SIZE: u32 = 256u32;
 #[repr(C)]
@@ -466,9 +442,6 @@ impl Default for BLUETOOTH_DEVICE_SEARCH_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BLUETOOTH_DEVICE_SEARCH_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BLUETOOTH_FIND_RADIO_PARAMS {
@@ -478,9 +451,6 @@ impl Default for BLUETOOTH_FIND_RADIO_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BLUETOOTH_FIND_RADIO_PARAMS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const BLUETOOTH_GATT_FLAG_CONNECTION_AUTHENTICATED: u32 = 2u32;
 pub const BLUETOOTH_GATT_FLAG_CONNECTION_ENCRYPTED: u32 = 1u32;
@@ -502,9 +472,6 @@ impl Default for BLUETOOTH_GATT_VALUE_CHANGED_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BLUETOOTH_GATT_VALUE_CHANGED_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION {
@@ -515,9 +482,6 @@ impl Default for BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -540,9 +504,6 @@ impl Default for BLUETOOTH_LOCAL_SERVICE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BLUETOOTH_LOCAL_SERVICE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const BLUETOOTH_MAX_NAME_SIZE: u32 = 248u32;
 pub const BLUETOOTH_MAX_PASSKEY_BUFFER_SIZE: u32 = 17u32;
 pub const BLUETOOTH_MAX_PASSKEY_SIZE: u32 = 16u32;
@@ -564,9 +525,6 @@ impl Default for BLUETOOTH_NUMERIC_COMPARISON_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BLUETOOTH_NUMERIC_COMPARISON_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BLUETOOTH_OOB_DATA_INFO {
@@ -578,9 +536,6 @@ impl Default for BLUETOOTH_OOB_DATA_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BLUETOOTH_OOB_DATA_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BLUETOOTH_PASSKEY_INFO {
@@ -590,9 +545,6 @@ impl Default for BLUETOOTH_PASSKEY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BLUETOOTH_PASSKEY_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -604,9 +556,6 @@ impl Default for BLUETOOTH_PIN_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BLUETOOTH_PIN_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -622,9 +571,6 @@ impl Default for BLUETOOTH_RADIO_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BLUETOOTH_RADIO_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -649,9 +595,6 @@ impl Default for BLUETOOTH_SELECT_DEVICE_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BLUETOOTH_SELECT_DEVICE_PARAMS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const BLUETOOTH_SERVICE_DISABLE: u32 = 0u32;
 pub const BLUETOOTH_SERVICE_ENABLE: u32 = 1u32;
@@ -682,9 +625,6 @@ impl Default for BTH_DEVICE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BTH_DEVICE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const BTH_EIR_128_UUIDS_COMPLETE_ID: u32 = 7u32;
 pub const BTH_EIR_128_UUIDS_PARTIAL_ID: u32 = 6u32;
@@ -783,9 +723,6 @@ impl Default for BTH_HCI_EVENT_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BTH_HCI_EVENT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const BTH_HOST_FEATURE_ENHANCED_RETRANSMISSION_MODE: u64 = 1u64;
 pub const BTH_HOST_FEATURE_LOW_ENERGY: u64 = 4u64;
 pub const BTH_HOST_FEATURE_SCO_HCI: u64 = 8u64;
@@ -802,9 +739,6 @@ impl Default for BTH_INFO_REQ {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BTH_INFO_REQ {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct BTH_INFO_RSP {
@@ -817,9 +751,6 @@ impl Default for BTH_INFO_RSP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BTH_INFO_RSP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union BTH_INFO_RSP_0 {
@@ -830,9 +761,6 @@ impl Default for BTH_INFO_RSP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BTH_INFO_RSP_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const BTH_IOCTL_BASE: u32 = 0u32;
 #[repr(C)]
@@ -847,9 +775,6 @@ impl Default for BTH_L2CAP_EVENT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BTH_L2CAP_EVENT_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const BTH_LE_ATT_BLUETOOTH_BASE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x00000000_0000_1000_8000_00805f9b34fb);
 pub const BTH_LE_ATT_CID: u32 = 4u32;
@@ -1001,9 +926,6 @@ impl Default for BTH_LE_GATT_CHARACTERISTIC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BTH_LE_GATT_CHARACTERISTIC {
-    type TypeKind = windows_core::CopyType;
-}
 pub const BTH_LE_GATT_CHARACTERISTIC_DESCRIPTOR_AGGREGATE_FORMAT: u32 = 10501u32;
 pub const BTH_LE_GATT_CHARACTERISTIC_DESCRIPTOR_CLIENT_CONFIGURATION: u32 = 10498u32;
 pub const BTH_LE_GATT_CHARACTERISTIC_DESCRIPTOR_EXTENDED_PROPERTIES: u32 = 10496u32;
@@ -1027,9 +949,6 @@ impl Default for BTH_LE_GATT_CHARACTERISTIC_VALUE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BTH_LE_GATT_CHARACTERISTIC_VALUE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const BTH_LE_GATT_DEFAULT_MAX_INCLUDED_SERVICES_DEPTH: u32 = 3u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1044,9 +963,6 @@ impl Default for BTH_LE_GATT_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BTH_LE_GATT_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1065,9 +981,6 @@ impl Default for BTH_LE_GATT_DESCRIPTOR_VALUE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BTH_LE_GATT_DESCRIPTOR_VALUE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union BTH_LE_GATT_DESCRIPTOR_VALUE_0 {
@@ -1081,9 +994,6 @@ impl Default for BTH_LE_GATT_DESCRIPTOR_VALUE_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BTH_LE_GATT_DESCRIPTOR_VALUE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_0 {
@@ -1094,9 +1004,6 @@ impl Default for BTH_LE_GATT_DESCRIPTOR_VALUE_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BTH_LE_GATT_DESCRIPTOR_VALUE_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1112,9 +1019,6 @@ impl Default for BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
@@ -1126,9 +1030,6 @@ impl Default for BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {
@@ -1138,9 +1039,6 @@ impl Default for BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1156,9 +1054,6 @@ impl Default for BTH_LE_GATT_SERVICE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BTH_LE_GATT_SERVICE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const BTH_LE_SERVICE_GAP: u32 = 6144u32;
 pub const BTH_LE_SERVICE_GATT: u32 = 6145u32;
 #[repr(C)]
@@ -1172,9 +1067,6 @@ impl Default for BTH_LE_UUID {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BTH_LE_UUID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union BTH_LE_UUID_0 {
@@ -1185,9 +1077,6 @@ impl Default for BTH_LE_UUID_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BTH_LE_UUID_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const BTH_LINK_KEY_LENGTH: u32 = 16u32;
 pub const BTH_MAJORVERSION: u32 = 2u32;
@@ -1257,9 +1146,6 @@ impl Default for BTH_PING_REQ {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BTH_PING_REQ {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BTH_PING_RSP {
@@ -1271,9 +1157,6 @@ impl Default for BTH_PING_RSP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BTH_PING_RSP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct BTH_QUERY_DEVICE {
@@ -1284,9 +1167,6 @@ impl Default for BTH_QUERY_DEVICE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BTH_QUERY_DEVICE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -1302,9 +1182,6 @@ impl Default for BTH_QUERY_SERVICE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BTH_QUERY_SERVICE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BTH_RADIO_IN_RANGE {
@@ -1315,9 +1192,6 @@ impl Default for BTH_RADIO_IN_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BTH_RADIO_IN_RANGE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const BTH_SDP_VERSION: u32 = 1u32;
 #[repr(C, packed(1))]
@@ -1334,9 +1208,6 @@ impl Default for BTH_SET_SERVICE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BTH_SET_SERVICE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const BTH_VID_DEFAULT_VALUE: u32 = 65535u32;
 pub const BT_PORT_DYN_FIRST: u32 = 4097u32;
@@ -1687,9 +1558,6 @@ impl Default for RFCOMM_COMMAND {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RFCOMM_COMMAND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union RFCOMM_COMMAND_0 {
@@ -1701,9 +1569,6 @@ impl Default for RFCOMM_COMMAND_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RFCOMM_COMMAND_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const RFCOMM_MAX_MTU: u32 = 1011u32;
 pub const RFCOMM_MIN_MTU: u32 = 23u32;
@@ -1718,9 +1583,6 @@ impl Default for RFCOMM_MSC_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RFCOMM_MSC_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 pub const RFCOMM_PROTOCOL_UUID16: u32 = 3u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1731,9 +1593,6 @@ impl Default for RFCOMM_RLS_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RFCOMM_RLS_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1750,9 +1609,6 @@ impl Default for RFCOMM_RPN_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RFCOMM_RPN_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const RLS_ERROR: u32 = 1u32;
 pub const RLS_FRAMING: u32 = 8u32;
@@ -1881,9 +1737,6 @@ impl Default for SDP_ELEMENT_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SDP_ELEMENT_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union SDP_ELEMENT_DATA_0 {
@@ -1911,9 +1764,6 @@ impl Default for SDP_ELEMENT_DATA_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SDP_ELEMENT_DATA_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SDP_ELEMENT_DATA_0_3 {
@@ -1924,9 +1774,6 @@ impl Default for SDP_ELEMENT_DATA_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SDP_ELEMENT_DATA_0_3 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1939,9 +1786,6 @@ impl Default for SDP_ELEMENT_DATA_0_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SDP_ELEMENT_DATA_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SDP_ELEMENT_DATA_0_0 {
@@ -1953,9 +1797,6 @@ impl Default for SDP_ELEMENT_DATA_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SDP_ELEMENT_DATA_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SDP_ELEMENT_DATA_0_1 {
@@ -1966,9 +1807,6 @@ impl Default for SDP_ELEMENT_DATA_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SDP_ELEMENT_DATA_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SDP_ERROR_INSUFFICIENT_RESOURCES: u32 = 6u32;
 pub const SDP_ERROR_INVALID_CONTINUATION_STATE: u32 = 5u32;
@@ -1986,9 +1824,6 @@ impl Default for SDP_LARGE_INTEGER_16 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SDP_LARGE_INTEGER_16 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SDP_MAX_INQUIRY_SECONDS: u32 = 60u32;
 pub const SDP_PROTOCOL_UUID16: u32 = 1u32;
@@ -2014,9 +1849,6 @@ impl Default for SDP_STRING_TYPE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SDP_STRING_TYPE_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SDP_ST_INT128: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(1056i32);
 pub const SDP_ST_INT16: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(288i32);
@@ -2056,9 +1888,6 @@ impl Default for SDP_ULARGE_INTEGER_16 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SDP_ULARGE_INTEGER_16 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SERVICE_OPTION_DO_NOT_PUBLISH: u32 = 2u32;
 pub const SERVICE_OPTION_DO_NOT_PUBLISH_EIR: u32 = 8u32;
 pub const SERVICE_OPTION_NO_PUBLIC_BROWSE: u32 = 4u32;
@@ -2082,9 +1911,6 @@ impl Default for SOCKADDR_BTH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SOCKADDR_BTH {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SOL_L2CAP: u32 = 256u32;
 pub const SOL_RFCOMM: u32 = 3u32;
@@ -2122,9 +1948,6 @@ impl Default for SdpAttributeRange {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SdpAttributeRange {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SdpQueryUuid {
@@ -2135,9 +1958,6 @@ impl Default for SdpQueryUuid {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SdpQueryUuid {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2150,9 +1970,6 @@ impl Default for SdpQueryUuidUnion {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SdpQueryUuidUnion {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SerialPortServiceClassID_UUID16: u32 = 4353u32;
 pub const ServerCharacteristicConfiguration: BTH_LE_GATT_DESCRIPTOR_TYPE = BTH_LE_GATT_DESCRIPTOR_TYPE(3i32);

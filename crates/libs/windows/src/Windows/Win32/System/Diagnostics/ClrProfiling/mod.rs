@@ -10,9 +10,6 @@ impl Default for COR_DEBUG_IL_TO_NATIVE_MAP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COR_DEBUG_IL_TO_NATIVE_MAP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COR_IL_MAP {
@@ -24,9 +21,6 @@ impl Default for COR_IL_MAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for COR_IL_MAP {
-    type TypeKind = windows_core::CopyType;
 }
 pub const COR_PRF_ALL: COR_PRF_MONITOR = COR_PRF_MONITOR(-1879048193i32);
 pub const COR_PRF_ALLOWABLE_AFTER_ATTACH: COR_PRF_MONITOR = COR_PRF_MONITOR(268763902i32);
@@ -48,10 +42,6 @@ impl Default for COR_PRF_ASSEMBLY_REFERENCE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_WinRT_Metadata")]
-impl windows_core::TypeKind for COR_PRF_ASSEMBLY_REFERENCE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const COR_PRF_CACHED_FUNCTION_FOUND: COR_PRF_JIT_CACHE = COR_PRF_JIT_CACHE(0i32);
 pub const COR_PRF_CACHED_FUNCTION_NOT_FOUND: COR_PRF_JIT_CACHE = COR_PRF_JIT_CACHE(1i32);
@@ -77,9 +67,6 @@ impl Default for COR_PRF_CODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for COR_PRF_CODE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const COR_PRF_CORE_CLR: COR_PRF_RUNTIME_TYPE = COR_PRF_RUNTIME_TYPE(2i32);
 pub const COR_PRF_DESKTOP_CLR: COR_PRF_RUNTIME_TYPE = COR_PRF_RUNTIME_TYPE(1i32);
@@ -126,9 +113,6 @@ impl Default for COR_PRF_EVENTPIPE_PARAM_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COR_PRF_EVENTPIPE_PARAM_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COR_PRF_EVENTPIPE_PARAM_TYPE(pub i32);
@@ -144,9 +128,6 @@ impl Default for COR_PRF_EVENTPIPE_PROVIDER_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for COR_PRF_EVENTPIPE_PROVIDER_CONFIG {
-    type TypeKind = windows_core::CopyType;
 }
 pub const COR_PRF_EVENTPIPE_SBYTE: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENTPIPE_PARAM_TYPE(5i32);
 pub const COR_PRF_EVENTPIPE_SINGLE: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENTPIPE_PARAM_TYPE(13i32);
@@ -168,9 +149,6 @@ impl Default for COR_PRF_EVENT_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COR_PRF_EVENT_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COR_PRF_EX_CLAUSE_INFO {
@@ -183,9 +161,6 @@ impl Default for COR_PRF_EX_CLAUSE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for COR_PRF_EX_CLAUSE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const COR_PRF_FIELD_APP_DOMAIN_STATIC: COR_PRF_STATIC_TYPE = COR_PRF_STATIC_TYPE(1i32);
 pub const COR_PRF_FIELD_CONTEXT_STATIC: COR_PRF_STATIC_TYPE = COR_PRF_STATIC_TYPE(4i32);
@@ -204,9 +179,6 @@ impl Default for COR_PRF_FILTER_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COR_PRF_FILTER_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 pub const COR_PRF_FINALIZER_CRITICAL: COR_PRF_FINALIZER_FLAGS = COR_PRF_FINALIZER_FLAGS(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -222,9 +194,6 @@ impl Default for COR_PRF_FUNCTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COR_PRF_FUNCTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COR_PRF_FUNCTION_ARGUMENT_INFO {
@@ -237,9 +206,6 @@ impl Default for COR_PRF_FUNCTION_ARGUMENT_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COR_PRF_FUNCTION_ARGUMENT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COR_PRF_FUNCTION_ARGUMENT_RANGE {
@@ -250,9 +216,6 @@ impl Default for COR_PRF_FUNCTION_ARGUMENT_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for COR_PRF_FUNCTION_ARGUMENT_RANGE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -269,9 +232,6 @@ impl Default for COR_PRF_GC_GENERATION_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for COR_PRF_GC_GENERATION_RANGE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const COR_PRF_GC_GEN_0: COR_PRF_GC_GENERATION = COR_PRF_GC_GENERATION(0i32);
 pub const COR_PRF_GC_GEN_1: COR_PRF_GC_GENERATION = COR_PRF_GC_GENERATION(1i32);
@@ -334,9 +294,6 @@ impl Default for COR_PRF_METHOD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COR_PRF_METHOD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COR_PRF_MISC(pub i32);
@@ -386,9 +343,6 @@ impl Default for COR_PRF_NONGC_HEAP_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for COR_PRF_NONGC_HEAP_RANGE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const COR_PRF_REJIT_BLOCK_INLINING: COR_PRF_REJIT_FLAGS = COR_PRF_REJIT_FLAGS(1i32);
 #[repr(transparent)]
@@ -447,9 +401,6 @@ impl Default for FunctionIDOrClientID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FunctionIDOrClientID {
-    type TypeKind = windows_core::CopyType;
 }
 pub type FunctionLeave = Option<unsafe extern "system" fn(funcid: usize)>;
 pub type FunctionLeave2 = Option<unsafe extern "system" fn(funcid: usize, clientdata: usize, func: usize, retvalrange: *mut COR_PRF_FUNCTION_ARGUMENT_RANGE)>;

@@ -2232,10 +2232,6 @@ impl Default for ADDRESS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for ADDRESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADDRESS64 {
@@ -2247,9 +2243,6 @@ impl Default for ADDRESS64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ADDRESS64 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2265,9 +2258,6 @@ impl Default for AER_BRIDGE_DESCRIPTOR_FLAGS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AER_BRIDGE_DESCRIPTOR_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct AER_BRIDGE_DESCRIPTOR_FLAGS_0 {
@@ -2277,9 +2267,6 @@ impl Default for AER_BRIDGE_DESCRIPTOR_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AER_BRIDGE_DESCRIPTOR_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -2292,9 +2279,6 @@ impl Default for AER_ENDPOINT_DESCRIPTOR_FLAGS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AER_ENDPOINT_DESCRIPTOR_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct AER_ENDPOINT_DESCRIPTOR_FLAGS_0 {
@@ -2304,9 +2288,6 @@ impl Default for AER_ENDPOINT_DESCRIPTOR_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AER_ENDPOINT_DESCRIPTOR_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -2319,9 +2300,6 @@ impl Default for AER_ROOTPORT_DESCRIPTOR_FLAGS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AER_ROOTPORT_DESCRIPTOR_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct AER_ROOTPORT_DESCRIPTOR_FLAGS_0 {
@@ -2331,9 +2309,6 @@ impl Default for AER_ROOTPORT_DESCRIPTOR_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AER_ROOTPORT_DESCRIPTOR_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const AGP_GART_CORRUPTION: BUGCHECK_ERROR = BUGCHECK_ERROR(261u32);
 pub const AGP_ILLEGALLY_REPROGRAMMED: BUGCHECK_ERROR = BUGCHECK_ERROR(262u32);
@@ -2354,10 +2329,6 @@ impl Default for APC_CALLBACK_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for APC_CALLBACK_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 pub const APC_INDEX_MISMATCH: BUGCHECK_ERROR = BUGCHECK_ERROR(1u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2371,9 +2342,6 @@ impl Default for API_VERSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for API_VERSION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const API_VERSION_NUMBER: u32 = 12u32;
 pub const APP_TAGGING_INITIALIZATION_FAILED: BUGCHECK_ERROR = BUGCHECK_ERROR(266u32);
@@ -2400,10 +2368,6 @@ impl Default for ARM64_NT_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-impl windows_core::TypeKind for ARM64_NT_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -2416,10 +2380,6 @@ impl Default for ARM64_NT_CONTEXT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-impl windows_core::TypeKind for ARM64_NT_CONTEXT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
@@ -2463,10 +2423,6 @@ impl Default for ARM64_NT_CONTEXT_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-impl windows_core::TypeKind for ARM64_NT_CONTEXT_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union ARM64_NT_NEON128 {
@@ -2481,9 +2437,6 @@ impl Default for ARM64_NT_NEON128 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ARM64_NT_NEON128 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ARM64_NT_NEON128_0 {
@@ -2494,9 +2447,6 @@ impl Default for ARM64_NT_NEON128_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ARM64_NT_NEON128_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const ASSIGN_DRIVE_LETTERS_FAILED: BUGCHECK_ERROR = BUGCHECK_ERROR(114u32);
 pub const ATDISK_DRIVER_INTERNAL: BUGCHECK_ERROR = BUGCHECK_ERROR(66u32);
@@ -2659,11 +2609,6 @@ impl Default for CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -2721,10 +2666,6 @@ impl Default for CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -2737,10 +2678,6 @@ impl Default for CONTEXT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for CONTEXT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -2771,10 +2708,6 @@ impl Default for CONTEXT_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for CONTEXT_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
 #[derive(Clone, Copy)]
@@ -2798,10 +2731,6 @@ impl Default for CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "aarch64")]
-impl windows_core::TypeKind for CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
 #[derive(Clone, Copy)]
@@ -2814,10 +2743,6 @@ impl Default for CONTEXT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "aarch64")]
-impl windows_core::TypeKind for CONTEXT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
@@ -2860,10 +2785,6 @@ impl Default for CONTEXT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "aarch64")]
-impl windows_core::TypeKind for CONTEXT_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CONTEXT_ALL_AMD64: CONTEXT_FLAGS = CONTEXT_FLAGS(1048607u32);
 pub const CONTEXT_ALL_ARM: CONTEXT_FLAGS = CONTEXT_FLAGS(2097167u32);
@@ -2971,9 +2892,6 @@ impl Default for CPU_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CPU_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct CPU_INFORMATION_1 {
@@ -2983,9 +2901,6 @@ impl Default for CPU_INFORMATION_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CPU_INFORMATION_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2999,9 +2914,6 @@ impl Default for CPU_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CPU_INFORMATION_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CRASHDUMP_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = BUGCHECK_ERROR(486u32);
 pub const CREATE_DELETE_LOCK_NOT_LOCKED: BUGCHECK_ERROR = BUGCHECK_ERROR(20u32);
@@ -3027,10 +2939,6 @@ impl Default for CREATE_PROCESS_DEBUG_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Threading")]
-impl windows_core::TypeKind for CREATE_PROCESS_DEBUG_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CREATE_THREAD_DEBUG_EVENT: DEBUG_EVENT_CODE = DEBUG_EVENT_CODE(2u32);
 #[repr(C)]
 #[cfg(feature = "Win32_System_Threading")]
@@ -3045,10 +2953,6 @@ impl Default for CREATE_THREAD_DEBUG_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Threading")]
-impl windows_core::TypeKind for CREATE_THREAD_DEBUG_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CRITICAL_INITIALIZATION_FAILURE: BUGCHECK_ERROR = BUGCHECK_ERROR(317u32);
 pub const CRITICAL_OBJECT_TERMINATION: BUGCHECK_ERROR = BUGCHECK_ERROR(244u32);
@@ -3073,9 +2977,6 @@ impl Default for DBGHELP_DATA_REPORT_STRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DBGHELP_DATA_REPORT_STRUCT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DBGPROP_ATTRIB_ACCESS_FINAL: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(32768i32);
 pub const DBGPROP_ATTRIB_ACCESS_PRIVATE: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(8192i32);
@@ -3201,10 +3102,6 @@ impl Default for DEBUG_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Threading")]
-impl windows_core::TypeKind for DEBUG_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Threading")]
 #[derive(Clone, Copy)]
@@ -3224,10 +3121,6 @@ impl Default for DEBUG_EVENT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Threading")]
-impl windows_core::TypeKind for DEBUG_EVENT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3267,11 +3160,6 @@ impl Default for DISPATCHER_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for DISPATCHER_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
@@ -3296,11 +3184,6 @@ impl Default for DISPATCHER_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for DISPATCHER_CONTEXT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DMA_COMMON_BUFFER_VECTOR_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(476u32);
 pub const DMP_CONTEXT_RECORD_SIZE_32: u32 = 1200u32;
@@ -3355,9 +3238,6 @@ impl Default for DUMP_FILE_ATTRIBUTES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DUMP_FILE_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DUMP_FILE_ATTRIBUTES_0 {
@@ -3367,9 +3247,6 @@ impl Default for DUMP_FILE_ATTRIBUTES_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DUMP_FILE_ATTRIBUTES_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3418,9 +3295,6 @@ impl Default for DUMP_HEADER32 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DUMP_HEADER32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DUMP_HEADER32_0 {
@@ -3431,9 +3305,6 @@ impl Default for DUMP_HEADER32_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DUMP_HEADER32_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3480,9 +3351,6 @@ impl Default for DUMP_HEADER64 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DUMP_HEADER64 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DUMP_HEADER64_0 {
@@ -3493,9 +3361,6 @@ impl Default for DUMP_HEADER64_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DUMP_HEADER64_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DUMP_SUMMARY_VALID_CURRENT_USER_VA: u32 = 2u32;
 pub const DUMP_SUMMARY_VALID_KERNEL_VA: u32 = 1u32;
@@ -3527,9 +3392,6 @@ impl Default for DebugPropertyInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DebugPropertyInfo {
-    type TypeKind = windows_core::CloneType;
 }
 pub const EFS_FATAL_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(471u32);
 pub const ELAM_DRIVER_DETECTED_FATAL_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(376u32);
@@ -3564,9 +3426,6 @@ impl Default for EXCEPTION_DEBUG_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EXCEPTION_DEBUG_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const EXCEPTION_EXECUTE_HANDLER: i32 = 1i32;
 pub const EXCEPTION_ON_INVALID_STACK: BUGCHECK_ERROR = BUGCHECK_ERROR(426u32);
 #[repr(C)]
@@ -3581,10 +3440,6 @@ impl Default for EXCEPTION_POINTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for EXCEPTION_POINTERS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3601,9 +3456,6 @@ impl Default for EXCEPTION_RECORD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EXCEPTION_RECORD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EXCEPTION_RECORD32 {
@@ -3618,9 +3470,6 @@ impl Default for EXCEPTION_RECORD32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for EXCEPTION_RECORD32 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3638,9 +3487,6 @@ impl Default for EXCEPTION_RECORD64 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EXCEPTION_RECORD64 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const EXCEPTION_SCOPE_INVALID: BUGCHECK_ERROR = BUGCHECK_ERROR(333u32);
 pub const EXFAT_FILE_SYSTEM: BUGCHECK_ERROR = BUGCHECK_ERROR(300u32);
 pub const EXIT_PROCESS_DEBUG_EVENT: DEBUG_EVENT_CODE = DEBUG_EVENT_CODE(5u32);
@@ -3654,9 +3500,6 @@ impl Default for EXIT_PROCESS_DEBUG_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EXIT_PROCESS_DEBUG_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const EXIT_THREAD_DEBUG_EVENT: DEBUG_EVENT_CODE = DEBUG_EVENT_CODE(4u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3667,9 +3510,6 @@ impl Default for EXIT_THREAD_DEBUG_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for EXIT_THREAD_DEBUG_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const EXRESOURCE_TIMEOUT_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(460u32);
 pub const EXT_OUTPUT_VER: u32 = 1u32;
@@ -3709,10 +3549,6 @@ impl Default for ExtendedDebugPropertyInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for ExtendedDebugPropertyInfo {
-    type TypeKind = windows_core::CloneType;
 }
 pub const FACILITY_AAF: FACILITY_CODE = FACILITY_CODE(18u32);
 pub const FACILITY_ACCELERATOR: FACILITY_CODE = FACILITY_CODE(1536u32);
@@ -3937,9 +3773,6 @@ impl Default for FPO_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FPO_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FP_EMULATION_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(166u32);
 pub const FSRTL_EXTRA_CREATE_PARAMETER_VIOLATION: BUGCHECK_ERROR = BUGCHECK_ERROR(268u32);
@@ -4442,9 +4275,6 @@ impl Default for IMAGEHLP_CBA_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGEHLP_CBA_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMAGEHLP_CBA_EVENTW {
@@ -4457,9 +4287,6 @@ impl Default for IMAGEHLP_CBA_EVENTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IMAGEHLP_CBA_EVENTW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4476,9 +4303,6 @@ impl Default for IMAGEHLP_CBA_READ_MEMORY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IMAGEHLP_CBA_READ_MEMORY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -4498,10 +4322,6 @@ impl Default for IMAGEHLP_DEFERRED_SYMBOL_LOAD {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for IMAGEHLP_DEFERRED_SYMBOL_LOAD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMAGEHLP_DEFERRED_SYMBOL_LOAD64 {
@@ -4518,9 +4338,6 @@ impl Default for IMAGEHLP_DEFERRED_SYMBOL_LOAD64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IMAGEHLP_DEFERRED_SYMBOL_LOAD64 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4539,9 +4356,6 @@ impl Default for IMAGEHLP_DEFERRED_SYMBOL_LOADW64 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGEHLP_DEFERRED_SYMBOL_LOADW64 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4557,10 +4371,6 @@ impl Default for IMAGEHLP_DUPLICATE_SYMBOL {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for IMAGEHLP_DUPLICATE_SYMBOL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMAGEHLP_DUPLICATE_SYMBOL64 {
@@ -4573,9 +4383,6 @@ impl Default for IMAGEHLP_DUPLICATE_SYMBOL64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IMAGEHLP_DUPLICATE_SYMBOL64 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4611,9 +4418,6 @@ impl Default for IMAGEHLP_GET_TYPE_INFO_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGEHLP_GET_TYPE_INFO_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const IMAGEHLP_GET_TYPE_INFO_UNCACHED: IMAGEHLP_GET_TYPE_INFO_FLAGS = IMAGEHLP_GET_TYPE_INFO_FLAGS(1u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4629,9 +4433,6 @@ impl Default for IMAGEHLP_JIT_SYMBOLMAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IMAGEHLP_JIT_SYMBOLMAP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -4649,10 +4450,6 @@ impl Default for IMAGEHLP_LINE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for IMAGEHLP_LINE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMAGEHLP_LINE64 {
@@ -4666,9 +4463,6 @@ impl Default for IMAGEHLP_LINE64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IMAGEHLP_LINE64 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -4686,10 +4480,6 @@ impl Default for IMAGEHLP_LINEW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for IMAGEHLP_LINEW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMAGEHLP_LINEW64 {
@@ -4703,9 +4493,6 @@ impl Default for IMAGEHLP_LINEW64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IMAGEHLP_LINEW64 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -4727,10 +4514,6 @@ impl Default for IMAGEHLP_MODULE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for IMAGEHLP_MODULE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4766,9 +4549,6 @@ impl Default for IMAGEHLP_MODULE64 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGEHLP_MODULE64 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMAGEHLP_MODULE64_EX {
@@ -4779,9 +4559,6 @@ impl Default for IMAGEHLP_MODULE64_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IMAGEHLP_MODULE64_EX {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -4803,10 +4580,6 @@ impl Default for IMAGEHLP_MODULEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for IMAGEHLP_MODULEW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4842,9 +4615,6 @@ impl Default for IMAGEHLP_MODULEW64 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGEHLP_MODULEW64 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMAGEHLP_MODULEW64_EX {
@@ -4855,9 +4625,6 @@ impl Default for IMAGEHLP_MODULEW64_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IMAGEHLP_MODULEW64_EX {
-    type TypeKind = windows_core::CopyType;
 }
 pub const IMAGEHLP_MODULE_REGION_ADDITIONAL: u32 = 4u32;
 pub const IMAGEHLP_MODULE_REGION_ALL: u32 = 255u32;
@@ -4893,9 +4660,6 @@ impl Default for IMAGEHLP_STACK_FRAME {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGEHLP_STACK_FRAME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGEHLP_STATUS_REASON(pub i32);
@@ -4916,10 +4680,6 @@ impl Default for IMAGEHLP_SYMBOL {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for IMAGEHLP_SYMBOL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMAGEHLP_SYMBOL64 {
@@ -4935,9 +4695,6 @@ impl Default for IMAGEHLP_SYMBOL64 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGEHLP_SYMBOL64 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMAGEHLP_SYMBOL64_PACKAGE {
@@ -4948,9 +4705,6 @@ impl Default for IMAGEHLP_SYMBOL64_PACKAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IMAGEHLP_SYMBOL64_PACKAGE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -4969,10 +4723,6 @@ impl Default for IMAGEHLP_SYMBOLW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for IMAGEHLP_SYMBOLW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMAGEHLP_SYMBOLW64 {
@@ -4988,9 +4738,6 @@ impl Default for IMAGEHLP_SYMBOLW64 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGEHLP_SYMBOLW64 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMAGEHLP_SYMBOLW64_PACKAGE {
@@ -5001,9 +4748,6 @@ impl Default for IMAGEHLP_SYMBOLW64_PACKAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IMAGEHLP_SYMBOLW64_PACKAGE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -5017,10 +4761,6 @@ impl Default for IMAGEHLP_SYMBOLW_PACKAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for IMAGEHLP_SYMBOLW_PACKAGE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const IMAGEHLP_SYMBOL_FUNCTION: u32 = 2048u32;
 pub const IMAGEHLP_SYMBOL_INFO_CONSTANT: u32 = 256u32;
@@ -5044,10 +4784,6 @@ impl Default for IMAGEHLP_SYMBOL_PACKAGE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for IMAGEHLP_SYMBOL_PACKAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMAGEHLP_SYMBOL_SRC {
@@ -5059,9 +4795,6 @@ impl Default for IMAGEHLP_SYMBOL_SRC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IMAGEHLP_SYMBOL_SRC {
-    type TypeKind = windows_core::CopyType;
 }
 pub const IMAGEHLP_SYMBOL_THUNK: u32 = 8192u32;
 #[repr(transparent)]
@@ -5080,9 +4813,6 @@ impl Default for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0 {
@@ -5094,9 +4824,6 @@ impl Default for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0_0 {
@@ -5106,9 +4833,6 @@ impl Default for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5126,9 +4850,6 @@ impl Default for IMAGE_COFF_SYMBOLS_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IMAGE_COFF_SYMBOLS_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5151,9 +4872,6 @@ impl Default for IMAGE_COR20_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_COR20_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IMAGE_COR20_HEADER_0 {
@@ -5165,9 +4883,6 @@ impl Default for IMAGE_COR20_HEADER_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_COR20_HEADER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMAGE_DATA_DIRECTORY {
@@ -5178,9 +4893,6 @@ impl Default for IMAGE_DATA_DIRECTORY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IMAGE_DATA_DIRECTORY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5198,9 +4910,6 @@ impl Default for IMAGE_DEBUG_DIRECTORY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IMAGE_DEBUG_DIRECTORY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -5245,11 +4954,6 @@ impl Default for IMAGE_DEBUG_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for IMAGE_DEBUG_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5437,10 +5141,6 @@ impl Default for IMAGE_FILE_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemInformation")]
-impl windows_core::TypeKind for IMAGE_FILE_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 pub const IMAGE_FILE_LARGE_ADDRESS_AWARE: IMAGE_FILE_CHARACTERISTICS = IMAGE_FILE_CHARACTERISTICS(32u16);
 pub const IMAGE_FILE_LARGE_ADDRESS_AWARE2: IMAGE_FILE_CHARACTERISTICS2 = IMAGE_FILE_CHARACTERISTICS2(32u32);
 pub const IMAGE_FILE_LINE_NUMS_STRIPPED: IMAGE_FILE_CHARACTERISTICS = IMAGE_FILE_CHARACTERISTICS(4u16);
@@ -5469,9 +5169,6 @@ impl Default for IMAGE_FUNCTION_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_FUNCTION_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct IMAGE_FUNCTION_ENTRY64 {
@@ -5484,9 +5181,6 @@ impl Default for IMAGE_FUNCTION_ENTRY64 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_FUNCTION_ENTRY64 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub union IMAGE_FUNCTION_ENTRY64_0 {
@@ -5497,9 +5191,6 @@ impl Default for IMAGE_FUNCTION_ENTRY64_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IMAGE_FUNCTION_ENTRY64_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5513,9 +5204,6 @@ impl Default for IMAGE_LOAD_CONFIG_CODE_INTEGRITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IMAGE_LOAD_CONFIG_CODE_INTEGRITY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5575,9 +5263,6 @@ impl Default for IMAGE_LOAD_CONFIG_DIRECTORY32 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_LOAD_CONFIG_DIRECTORY32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct IMAGE_LOAD_CONFIG_DIRECTORY64 {
@@ -5636,9 +5321,6 @@ impl Default for IMAGE_LOAD_CONFIG_DIRECTORY64 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_LOAD_CONFIG_DIRECTORY64 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5653,10 +5335,6 @@ impl Default for IMAGE_NT_HEADERS32 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemInformation")]
-impl windows_core::TypeKind for IMAGE_NT_HEADERS32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[derive(Clone, Copy)]
@@ -5670,10 +5348,6 @@ impl Default for IMAGE_NT_HEADERS64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_SystemInformation")]
-impl windows_core::TypeKind for IMAGE_NT_HEADERS64 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const IMAGE_NT_OPTIONAL_HDR32_MAGIC: IMAGE_OPTIONAL_HEADER_MAGIC = IMAGE_OPTIONAL_HEADER_MAGIC(267u16);
 pub const IMAGE_NT_OPTIONAL_HDR64_MAGIC: IMAGE_OPTIONAL_HEADER_MAGIC = IMAGE_OPTIONAL_HEADER_MAGIC(523u16);
@@ -5718,9 +5392,6 @@ impl Default for IMAGE_OPTIONAL_HEADER32 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_OPTIONAL_HEADER32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct IMAGE_OPTIONAL_HEADER64 {
@@ -5760,9 +5431,6 @@ impl Default for IMAGE_OPTIONAL_HEADER64 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_OPTIONAL_HEADER64 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_OPTIONAL_HEADER_MAGIC(pub u16);
@@ -5778,10 +5446,6 @@ impl Default for IMAGE_ROM_HEADERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_SystemInformation")]
-impl windows_core::TypeKind for IMAGE_ROM_HEADERS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const IMAGE_ROM_OPTIONAL_HDR_MAGIC: IMAGE_OPTIONAL_HEADER_MAGIC = IMAGE_OPTIONAL_HEADER_MAGIC(263u16);
 #[repr(C)]
@@ -5806,9 +5470,6 @@ impl Default for IMAGE_ROM_OPTIONAL_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_ROM_OPTIONAL_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMAGE_RUNTIME_FUNCTION_ENTRY {
@@ -5821,9 +5482,6 @@ impl Default for IMAGE_RUNTIME_FUNCTION_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_RUNTIME_FUNCTION_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IMAGE_RUNTIME_FUNCTION_ENTRY_0 {
@@ -5834,9 +5492,6 @@ impl Default for IMAGE_RUNTIME_FUNCTION_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IMAGE_RUNTIME_FUNCTION_ENTRY_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const IMAGE_SCN_ALIGN_1024BYTES: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(11534336u32);
 pub const IMAGE_SCN_ALIGN_128BYTES: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(8388608u32);
@@ -5932,9 +5587,6 @@ impl Default for IMAGE_SECTION_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_SECTION_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IMAGE_SECTION_HEADER_0 {
@@ -5945,9 +5597,6 @@ impl Default for IMAGE_SECTION_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IMAGE_SECTION_HEADER_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6068,9 +5717,6 @@ impl Default for IPMI_OS_SEL_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IPMI_OS_SEL_RECORD {
-    type TypeKind = windows_core::CopyType;
 }
 pub const IPMI_OS_SEL_RECORD_MASK: u32 = 65535u32;
 #[repr(transparent)]
@@ -6210,10 +5856,6 @@ impl Default for KDHELP {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for KDHELP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KDHELP64 {
@@ -6239,9 +5881,6 @@ impl Default for KDHELP64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KDHELP64 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KERNEL_APC_PENDING_DURING_EXIT: BUGCHECK_ERROR = BUGCHECK_ERROR(32u32);
 pub const KERNEL_AUTO_BOOST_INVALID_LOCK_RELEASE: BUGCHECK_ERROR = BUGCHECK_ERROR(354u32);
@@ -6273,10 +5912,6 @@ impl Default for KNONVOLATILE_CONTEXT_POINTERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for KNONVOLATILE_CONTEXT_POINTERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -6290,10 +5925,6 @@ impl Default for KNONVOLATILE_CONTEXT_POINTERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for KNONVOLATILE_CONTEXT_POINTERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -6306,10 +5937,6 @@ impl Default for KNONVOLATILE_CONTEXT_POINTERS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for KNONVOLATILE_CONTEXT_POINTERS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -6338,10 +5965,6 @@ impl Default for KNONVOLATILE_CONTEXT_POINTERS_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for KNONVOLATILE_CONTEXT_POINTERS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -6354,10 +5977,6 @@ impl Default for KNONVOLATILE_CONTEXT_POINTERS_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for KNONVOLATILE_CONTEXT_POINTERS_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -6385,10 +6004,6 @@ impl Default for KNONVOLATILE_CONTEXT_POINTERS_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for KNONVOLATILE_CONTEXT_POINTERS_1_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
@@ -6421,10 +6036,6 @@ impl Default for KNONVOLATILE_CONTEXT_POINTERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "aarch64")]
-impl windows_core::TypeKind for KNONVOLATILE_CONTEXT_POINTERS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KernelMinidumpStatusCallback: MINIDUMP_CALLBACK_TYPE = MINIDUMP_CALLBACK_TYPE(8i32);
 pub const LAST_CHANCE_CALLED_FROM_KMODE: BUGCHECK_ERROR = BUGCHECK_ERROR(21u32);
 #[repr(C)]
@@ -6439,9 +6050,6 @@ impl Default for LDT_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LDT_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union LDT_ENTRY_0 {
@@ -6453,9 +6061,6 @@ impl Default for LDT_ENTRY_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LDT_ENTRY_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LDT_ENTRY_0_1 {
@@ -6465,9 +6070,6 @@ impl Default for LDT_ENTRY_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LDT_ENTRY_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6481,9 +6083,6 @@ impl Default for LDT_ENTRY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LDT_ENTRY_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const LIVE_SYSTEM_DUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(353u32);
 pub const LM_SERVER_INTERNAL_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(84u32);
@@ -6514,11 +6113,6 @@ impl Default for LOADED_IMAGE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
-impl windows_core::TypeKind for LOADED_IMAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
@@ -6546,11 +6140,6 @@ impl Default for LOADED_IMAGE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
-impl windows_core::TypeKind for LOADED_IMAGE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const LOADER_BLOCK_MISMATCH: BUGCHECK_ERROR = BUGCHECK_ERROR(256u32);
 pub const LOADER_ROLLBACK_DETECTED: BUGCHECK_ERROR = BUGCHECK_ERROR(406u32);
 pub const LOAD_DLL_DEBUG_EVENT: DEBUG_EVENT_CODE = DEBUG_EVENT_CODE(6u32);
@@ -6569,9 +6158,6 @@ impl Default for LOAD_DLL_DEBUG_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LOAD_DLL_DEBUG_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const LOCKED_PAGES_TRACKER_CORRUPTION: BUGCHECK_ERROR = BUGCHECK_ERROR(217u32);
 pub type LPCALL_BACK_USER_INTERRUPT_ROUTINE = Option<unsafe extern "system" fn() -> u32>;
 pub const LPC_INITIALIZATION_FAILED: BUGCHECK_ERROR = BUGCHECK_ERROR(106u32);
@@ -6588,9 +6174,6 @@ impl Default for M128A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for M128A {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MACHINE_CHECK_EXCEPTION: BUGCHECK_ERROR = BUGCHECK_ERROR(156u32);
 pub const MAILSLOT_FILE_SYSTEM: BUGCHECK_ERROR = BUGCHECK_ERROR(82u32);
@@ -6622,11 +6205,6 @@ impl Default for MINIDUMP_CALLBACK_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
-impl windows_core::TypeKind for MINIDUMP_CALLBACK_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
@@ -6642,11 +6220,6 @@ impl Default for MINIDUMP_CALLBACK_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
-impl windows_core::TypeKind for MINIDUMP_CALLBACK_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel"))]
 #[derive(Clone, Copy)]
@@ -6661,10 +6234,6 @@ impl Default for MINIDUMP_CALLBACK_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for MINIDUMP_CALLBACK_INPUT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel"))]
@@ -6689,10 +6258,6 @@ impl Default for MINIDUMP_CALLBACK_INPUT_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for MINIDUMP_CALLBACK_INPUT_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_System_Memory")]
 #[derive(Clone, Copy)]
@@ -6704,10 +6269,6 @@ impl Default for MINIDUMP_CALLBACK_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Memory")]
-impl windows_core::TypeKind for MINIDUMP_CALLBACK_OUTPUT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Memory")]
@@ -6730,10 +6291,6 @@ impl Default for MINIDUMP_CALLBACK_OUTPUT_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Memory")]
-impl windows_core::TypeKind for MINIDUMP_CALLBACK_OUTPUT_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_System_Memory")]
 #[derive(Clone, Copy)]
@@ -6746,10 +6303,6 @@ impl Default for MINIDUMP_CALLBACK_OUTPUT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Memory")]
-impl windows_core::TypeKind for MINIDUMP_CALLBACK_OUTPUT_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Memory")]
@@ -6764,10 +6317,6 @@ impl Default for MINIDUMP_CALLBACK_OUTPUT_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Memory")]
-impl windows_core::TypeKind for MINIDUMP_CALLBACK_OUTPUT_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Memory")]
 #[derive(Clone, Copy)]
@@ -6780,10 +6329,6 @@ impl Default for MINIDUMP_CALLBACK_OUTPUT_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Memory")]
-impl windows_core::TypeKind for MINIDUMP_CALLBACK_OUTPUT_0_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Memory")]
@@ -6798,10 +6343,6 @@ impl Default for MINIDUMP_CALLBACK_OUTPUT_0_3 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Memory")]
-impl windows_core::TypeKind for MINIDUMP_CALLBACK_OUTPUT_0_3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Memory")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6814,10 +6355,6 @@ impl Default for MINIDUMP_CALLBACK_OUTPUT_0_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Memory")]
-impl windows_core::TypeKind for MINIDUMP_CALLBACK_OUTPUT_0_4 {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
 pub type MINIDUMP_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(callbackparam: *mut core::ffi::c_void, callbackinput: *const MINIDUMP_CALLBACK_INPUT, callbackoutput: *mut MINIDUMP_CALLBACK_OUTPUT) -> super::super::super::Foundation::BOOL>;
@@ -6835,9 +6372,6 @@ impl Default for MINIDUMP_DIRECTORY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_DIRECTORY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_EXCEPTION {
@@ -6853,9 +6387,6 @@ impl Default for MINIDUMP_EXCEPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MINIDUMP_EXCEPTION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -6873,11 +6404,6 @@ impl Default for MINIDUMP_EXCEPTION_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for MINIDUMP_EXCEPTION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
@@ -6894,11 +6420,6 @@ impl Default for MINIDUMP_EXCEPTION_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for MINIDUMP_EXCEPTION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_EXCEPTION_INFORMATION64 {
@@ -6911,9 +6432,6 @@ impl Default for MINIDUMP_EXCEPTION_INFORMATION64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MINIDUMP_EXCEPTION_INFORMATION64 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
@@ -6928,9 +6446,6 @@ impl Default for MINIDUMP_EXCEPTION_STREAM {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_EXCEPTION_STREAM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_FUNCTION_TABLE_DESCRIPTOR {
@@ -6944,9 +6459,6 @@ impl Default for MINIDUMP_FUNCTION_TABLE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MINIDUMP_FUNCTION_TABLE_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
@@ -6963,9 +6475,6 @@ impl Default for MINIDUMP_FUNCTION_TABLE_STREAM {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_FUNCTION_TABLE_STREAM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_HANDLE_DATA_STREAM {
@@ -6978,9 +6487,6 @@ impl Default for MINIDUMP_HANDLE_DATA_STREAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MINIDUMP_HANDLE_DATA_STREAM {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
@@ -6997,9 +6503,6 @@ impl Default for MINIDUMP_HANDLE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MINIDUMP_HANDLE_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
@@ -7019,9 +6522,6 @@ impl Default for MINIDUMP_HANDLE_DESCRIPTOR_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_HANDLE_DESCRIPTOR_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_HANDLE_OBJECT_INFORMATION {
@@ -7033,9 +6533,6 @@ impl Default for MINIDUMP_HANDLE_OBJECT_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MINIDUMP_HANDLE_OBJECT_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7053,9 +6550,6 @@ impl Default for MINIDUMP_HANDLE_OPERATION_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_HANDLE_OPERATION_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_HEADER {
@@ -7072,9 +6566,6 @@ impl Default for MINIDUMP_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union MINIDUMP_HEADER_0 {
@@ -7086,9 +6577,6 @@ impl Default for MINIDUMP_HEADER_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_HEADER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_INCLUDE_MODULE_CALLBACK {
@@ -7099,9 +6587,6 @@ impl Default for MINIDUMP_INCLUDE_MODULE_CALLBACK {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_INCLUDE_MODULE_CALLBACK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_INCLUDE_THREAD_CALLBACK {
@@ -7111,9 +6596,6 @@ impl Default for MINIDUMP_INCLUDE_THREAD_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MINIDUMP_INCLUDE_THREAD_CALLBACK {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
@@ -7128,9 +6610,6 @@ impl Default for MINIDUMP_IO_CALLBACK {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_IO_CALLBACK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_LOCATION_DESCRIPTOR {
@@ -7142,9 +6621,6 @@ impl Default for MINIDUMP_LOCATION_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_LOCATION_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_LOCATION_DESCRIPTOR64 {
@@ -7155,9 +6631,6 @@ impl Default for MINIDUMP_LOCATION_DESCRIPTOR64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MINIDUMP_LOCATION_DESCRIPTOR64 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
@@ -7171,9 +6644,6 @@ impl Default for MINIDUMP_MEMORY64_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_MEMORY64_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_MEMORY_DESCRIPTOR {
@@ -7185,9 +6655,6 @@ impl Default for MINIDUMP_MEMORY_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_MEMORY_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_MEMORY_DESCRIPTOR64 {
@@ -7198,9 +6665,6 @@ impl Default for MINIDUMP_MEMORY_DESCRIPTOR64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MINIDUMP_MEMORY_DESCRIPTOR64 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_System_Memory")]
@@ -7222,10 +6686,6 @@ impl Default for MINIDUMP_MEMORY_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Memory")]
-impl windows_core::TypeKind for MINIDUMP_MEMORY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_MEMORY_INFO_LIST {
@@ -7238,9 +6698,6 @@ impl Default for MINIDUMP_MEMORY_INFO_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_MEMORY_INFO_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_MEMORY_LIST {
@@ -7251,9 +6708,6 @@ impl Default for MINIDUMP_MEMORY_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MINIDUMP_MEMORY_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MINIDUMP_MISC1_PROCESSOR_POWER_INFO: u32 = 4u32;
 pub const MINIDUMP_MISC1_PROCESS_ID: MINIDUMP_MISC_INFO_FLAGS = MINIDUMP_MISC_INFO_FLAGS(1u32);
@@ -7279,9 +6733,6 @@ impl Default for MINIDUMP_MISC_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_MISC_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_MISC_INFO_2 {
@@ -7301,9 +6752,6 @@ impl Default for MINIDUMP_MISC_INFO_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MINIDUMP_MISC_INFO_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_System_Time")]
@@ -7331,10 +6779,6 @@ impl Default for MINIDUMP_MISC_INFO_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Time")]
-impl windows_core::TypeKind for MINIDUMP_MISC_INFO_3 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_System_Time")]
@@ -7364,10 +6808,6 @@ impl Default for MINIDUMP_MISC_INFO_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Time")]
-impl windows_core::TypeKind for MINIDUMP_MISC_INFO_4 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_System_Time")]
@@ -7399,10 +6839,6 @@ impl Default for MINIDUMP_MISC_INFO_5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Time")]
-impl windows_core::TypeKind for MINIDUMP_MISC_INFO_5 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7461,10 +6897,6 @@ impl Default for MINIDUMP_MODULE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for MINIDUMP_MODULE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[derive(Clone, Copy)]
@@ -7486,10 +6918,6 @@ impl Default for MINIDUMP_MODULE_CALLBACK {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for MINIDUMP_MODULE_CALLBACK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[derive(Clone, Copy)]
@@ -7502,10 +6930,6 @@ impl Default for MINIDUMP_MODULE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for MINIDUMP_MODULE_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MINIDUMP_PROCESS_VM_COUNTERS: u32 = 1u32;
 #[repr(C, packed(4))]
@@ -7527,9 +6951,6 @@ impl Default for MINIDUMP_PROCESS_VM_COUNTERS_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MINIDUMP_PROCESS_VM_COUNTERS_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
@@ -7561,9 +6982,6 @@ impl Default for MINIDUMP_PROCESS_VM_COUNTERS_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_PROCESS_VM_COUNTERS_2 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MINIDUMP_PROCESS_VM_COUNTERS_EX: u32 = 4u32;
 pub const MINIDUMP_PROCESS_VM_COUNTERS_EX2: u32 = 8u32;
 pub const MINIDUMP_PROCESS_VM_COUNTERS_JOB: u32 = 16u32;
@@ -7579,9 +6997,6 @@ impl Default for MINIDUMP_READ_MEMORY_FAILURE_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MINIDUMP_READ_MEMORY_FAILURE_CALLBACK {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7599,9 +7014,6 @@ impl Default for MINIDUMP_STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MINIDUMP_STRING {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MINIDUMP_SYSMEMINFO1_BASICPERF: u32 = 2u32;
 pub const MINIDUMP_SYSMEMINFO1_FILECACHE_TRANSITIONREPURPOSECOUNT_FLAGS: u32 = 1u32;
@@ -7626,9 +7038,6 @@ impl Default for MINIDUMP_SYSTEM_BASIC_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_SYSTEM_BASIC_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_SYSTEM_BASIC_PERFORMANCE_INFORMATION {
@@ -7641,9 +7050,6 @@ impl Default for MINIDUMP_SYSTEM_BASIC_PERFORMANCE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MINIDUMP_SYSTEM_BASIC_PERFORMANCE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
@@ -7662,9 +7068,6 @@ impl Default for MINIDUMP_SYSTEM_FILECACHE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MINIDUMP_SYSTEM_FILECACHE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_System_SystemInformation")]
@@ -7688,10 +7091,6 @@ impl Default for MINIDUMP_SYSTEM_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemInformation")]
-impl windows_core::TypeKind for MINIDUMP_SYSTEM_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[derive(Clone, Copy)]
@@ -7704,10 +7103,6 @@ impl Default for MINIDUMP_SYSTEM_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_SystemInformation")]
-impl windows_core::TypeKind for MINIDUMP_SYSTEM_INFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemInformation")]
@@ -7722,10 +7117,6 @@ impl Default for MINIDUMP_SYSTEM_INFO_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemInformation")]
-impl windows_core::TypeKind for MINIDUMP_SYSTEM_INFO_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[derive(Clone, Copy)]
@@ -7739,10 +7130,6 @@ impl Default for MINIDUMP_SYSTEM_INFO_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemInformation")]
-impl windows_core::TypeKind for MINIDUMP_SYSTEM_INFO_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7755,10 +7142,6 @@ impl Default for MINIDUMP_SYSTEM_INFO_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_SystemInformation")]
-impl windows_core::TypeKind for MINIDUMP_SYSTEM_INFO_1_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
@@ -7774,9 +7157,6 @@ impl Default for MINIDUMP_SYSTEM_MEMORY_INFO_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MINIDUMP_SYSTEM_MEMORY_INFO_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
@@ -7865,9 +7245,6 @@ impl Default for MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_THREAD {
@@ -7883,9 +7260,6 @@ impl Default for MINIDUMP_THREAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MINIDUMP_THREAD {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
@@ -7905,11 +7279,6 @@ impl Default for MINIDUMP_THREAD_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for MINIDUMP_THREAD_CALLBACK {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "aarch64")]
@@ -7930,11 +7299,6 @@ impl Default for MINIDUMP_THREAD_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for MINIDUMP_THREAD_CALLBACK {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
@@ -7953,9 +7317,6 @@ impl Default for MINIDUMP_THREAD_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_THREAD_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
@@ -7976,11 +7337,6 @@ impl Default for MINIDUMP_THREAD_EX_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for MINIDUMP_THREAD_EX_CALLBACK {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "aarch64")]
@@ -8004,11 +7360,6 @@ impl Default for MINIDUMP_THREAD_EX_CALLBACK {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for MINIDUMP_THREAD_EX_CALLBACK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_THREAD_EX_LIST {
@@ -8019,9 +7370,6 @@ impl Default for MINIDUMP_THREAD_EX_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MINIDUMP_THREAD_EX_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
@@ -8041,9 +7389,6 @@ impl Default for MINIDUMP_THREAD_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MINIDUMP_THREAD_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8065,9 +7410,6 @@ impl Default for MINIDUMP_THREAD_INFO_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_THREAD_INFO_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MINIDUMP_THREAD_INFO_WRITING_THREAD: MINIDUMP_THREAD_INFO_DUMP_FLAGS = MINIDUMP_THREAD_INFO_DUMP_FLAGS(2u32);
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
@@ -8080,9 +7422,6 @@ impl Default for MINIDUMP_THREAD_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_THREAD_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_THREAD_NAME {
@@ -8094,9 +7433,6 @@ impl Default for MINIDUMP_THREAD_NAME {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_THREAD_NAME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_THREAD_NAME_LIST {
@@ -8107,9 +7443,6 @@ impl Default for MINIDUMP_THREAD_NAME_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MINIDUMP_THREAD_NAME_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
@@ -8123,9 +7456,6 @@ impl Default for MINIDUMP_TOKEN_INFO_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_TOKEN_INFO_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_TOKEN_INFO_LIST {
@@ -8138,9 +7468,6 @@ impl Default for MINIDUMP_TOKEN_INFO_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MINIDUMP_TOKEN_INFO_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8192,9 +7519,6 @@ impl Default for MINIDUMP_UNLOADED_MODULE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_UNLOADED_MODULE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_UNLOADED_MODULE_LIST {
@@ -8207,9 +7531,6 @@ impl Default for MINIDUMP_UNLOADED_MODULE_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_UNLOADED_MODULE_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_USER_RECORD {
@@ -8221,9 +7542,6 @@ impl Default for MINIDUMP_USER_RECORD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_USER_RECORD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8237,10 +7555,6 @@ impl Default for MINIDUMP_USER_STREAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for MINIDUMP_USER_STREAM {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -8256,10 +7570,6 @@ impl Default for MINIDUMP_USER_STREAM {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for MINIDUMP_USER_STREAM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8273,10 +7583,6 @@ impl Default for MINIDUMP_USER_STREAM_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for MINIDUMP_USER_STREAM_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -8289,10 +7595,6 @@ impl Default for MINIDUMP_USER_STREAM_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for MINIDUMP_USER_STREAM_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MINIDUMP_VERSION: u32 = 42899u32;
 #[repr(C, packed(4))]
@@ -8309,9 +7611,6 @@ impl Default for MINIDUMP_VM_POST_READ_CALLBACK {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_VM_POST_READ_CALLBACK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_VM_PRE_READ_CALLBACK {
@@ -8324,9 +7623,6 @@ impl Default for MINIDUMP_VM_PRE_READ_CALLBACK {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_VM_PRE_READ_CALLBACK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_VM_QUERY_CALLBACK {
@@ -8336,9 +7632,6 @@ impl Default for MINIDUMP_VM_QUERY_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MINIDUMP_VM_QUERY_CALLBACK {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MISALIGNED_POINTER_PARAMETER: BUGCHECK_ERROR = BUGCHECK_ERROR(502u32);
 pub const MISMATCHED_HAL: BUGCHECK_ERROR = BUGCHECK_ERROR(121u32);
@@ -8357,9 +7650,6 @@ impl Default for MODLOAD_CVMISC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MODLOAD_CVMISC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MODLOAD_DATA {
@@ -8373,9 +7663,6 @@ impl Default for MODLOAD_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MODLOAD_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8391,9 +7678,6 @@ impl Default for MODLOAD_PDBGUID_PDBAGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MODLOAD_PDBGUID_PDBAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MODULE_TYPE_INFO {
@@ -8405,9 +7689,6 @@ impl Default for MODULE_TYPE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MODULE_TYPE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8547,9 +7828,6 @@ impl Default for OMAP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OMAP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS(pub u32);
@@ -8566,9 +7844,6 @@ impl Default for OUTPUT_DEBUG_STRING_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for OUTPUT_DEBUG_STRING_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PAGE_FAULT_BEYOND_END_OF_ALLOCATION: BUGCHECK_ERROR = BUGCHECK_ERROR(205u32);
 pub const PAGE_FAULT_IN_FREED_SPECIAL_POOL: BUGCHECK_ERROR = BUGCHECK_ERROR(204u32);
@@ -8632,9 +7907,6 @@ impl Default for PHYSICAL_MEMORY_DESCRIPTOR32 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PHYSICAL_MEMORY_DESCRIPTOR32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PHYSICAL_MEMORY_DESCRIPTOR64 {
@@ -8647,9 +7919,6 @@ impl Default for PHYSICAL_MEMORY_DESCRIPTOR64 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PHYSICAL_MEMORY_DESCRIPTOR64 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PHYSICAL_MEMORY_RUN32 {
@@ -8661,9 +7930,6 @@ impl Default for PHYSICAL_MEMORY_RUN32 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PHYSICAL_MEMORY_RUN32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PHYSICAL_MEMORY_RUN64 {
@@ -8674,9 +7940,6 @@ impl Default for PHYSICAL_MEMORY_RUN64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PHYSICAL_MEMORY_RUN64 {
-    type TypeKind = windows_core::CopyType;
 }
 pub type PIMAGEHLP_STATUS_ROUTINE = Option<unsafe extern "system" fn(reason: IMAGEHLP_STATUS_REASON, imagename: windows_core::PCSTR, dllname: windows_core::PCSTR, va: usize, parameter: usize) -> super::super::super::Foundation::BOOL>;
 pub type PIMAGEHLP_STATUS_ROUTINE32 = Option<unsafe extern "system" fn(reason: IMAGEHLP_STATUS_REASON, imagename: windows_core::PCSTR, dllname: windows_core::PCSTR, va: u32, parameter: usize) -> super::super::super::Foundation::BOOL>;
@@ -8804,9 +8067,6 @@ impl Default for RIP_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RIP_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RIP_INFO_TYPE(pub u32);
@@ -8902,9 +8162,6 @@ impl Default for SOURCEFILE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SOURCEFILE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SOURCEFILEW {
@@ -8915,9 +8172,6 @@ impl Default for SOURCEFILEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SOURCEFILEW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SPECIAL_POOL_DETECTED_MEMORY_CORRUPTION: BUGCHECK_ERROR = BUGCHECK_ERROR(193u32);
 pub const SPIN_LOCK_ALREADY_OWNED: BUGCHECK_ERROR = BUGCHECK_ERROR(15u32);
@@ -8942,9 +8196,6 @@ impl Default for SRCCODEINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SRCCODEINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SRCCODEINFOW {
@@ -8960,9 +8211,6 @@ impl Default for SRCCODEINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SRCCODEINFOW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SSRVACTION_CHECKSUMSTATUS: u32 = 8u32;
 pub const SSRVACTION_EVENT: u32 = 3u32;
@@ -9040,10 +8288,6 @@ impl Default for STACKFRAME {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for STACKFRAME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STACKFRAME64 {
@@ -9063,9 +8307,6 @@ impl Default for STACKFRAME64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STACKFRAME64 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9088,9 +8329,6 @@ impl Default for STACKFRAME_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STACKFRAME_EX {
-    type TypeKind = windows_core::CopyType;
 }
 pub const STORAGE_DEVICE_ABNORMALITY_DETECTED: BUGCHECK_ERROR = BUGCHECK_ERROR(320u32);
 pub const STORAGE_MINIPORT_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(240u32);
@@ -9123,9 +8361,6 @@ impl Default for SYMBOL_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYMBOL_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SYMBOL_INFOW {
@@ -9149,9 +8384,6 @@ impl Default for SYMBOL_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SYMBOL_INFOW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9200,9 +8432,6 @@ impl Default for SYMBOL_INFO_PACKAGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYMBOL_INFO_PACKAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SYMBOL_INFO_PACKAGEW {
@@ -9213,9 +8442,6 @@ impl Default for SYMBOL_INFO_PACKAGEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SYMBOL_INFO_PACKAGEW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SYMENUM_OPTIONS_DEFAULT: u32 = 1u32;
 pub const SYMENUM_OPTIONS_INLINE: u32 = 2u32;
@@ -9311,9 +8537,6 @@ impl Default for SYMSRV_EXTENDED_OUTPUT_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYMSRV_EXTENDED_OUTPUT_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SYMSRV_INDEX_INFO {
@@ -9333,9 +8556,6 @@ impl Default for SYMSRV_INDEX_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYMSRV_INDEX_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SYMSRV_INDEX_INFOW {
@@ -9354,9 +8574,6 @@ impl Default for SYMSRV_INDEX_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SYMSRV_INDEX_INFOW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SYMSRV_VERSION: u32 = 2u32;
 pub const SYMSTOREOPT_ALT_INDEX: u32 = 16u32;
@@ -9506,9 +8723,6 @@ impl Default for TI_FINDCHILDREN_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TI_FINDCHILDREN_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const TI_GET_ADDRESS: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(22i32);
 pub const TI_GET_ADDRESSOFFSET: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(9i32);
 pub const TI_GET_ARRAYINDEXTYPEID: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(6i32);
@@ -9597,9 +8811,6 @@ impl Default for UNLOAD_DLL_DEBUG_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for UNLOAD_DLL_DEBUG_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const UNMOUNTABLE_BOOT_VOLUME: BUGCHECK_ERROR = BUGCHECK_ERROR(237u32);
 pub const UNSUPPORTED_INSTRUCTION_MODE: BUGCHECK_ERROR = BUGCHECK_ERROR(337u32);
 pub const UNSUPPORTED_PROCESSOR: BUGCHECK_ERROR = BUGCHECK_ERROR(93u32);
@@ -9622,10 +8833,6 @@ impl Default for UNWIND_HISTORY_TABLE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for UNWIND_HISTORY_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9639,10 +8846,6 @@ impl Default for UNWIND_HISTORY_TABLE_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for UNWIND_HISTORY_TABLE_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9655,10 +8858,6 @@ impl Default for UNWIND_HISTORY_TABLE_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "aarch64")]
-impl windows_core::TypeKind for UNWIND_HISTORY_TABLE_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const UNWIND_ON_INVALID_STACK: BUGCHECK_ERROR = BUGCHECK_ERROR(427u32);
 pub const UNW_FLAG_CHAININFO: RTL_VIRTUAL_UNWIND_HANDLER_TYPE = RTL_VIRTUAL_UNWIND_HANDLER_TYPE(4u32);
@@ -9716,9 +8915,6 @@ impl Default for WAITCHAIN_NODE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WAITCHAIN_NODE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WAITCHAIN_NODE_INFO_0 {
@@ -9729,9 +8925,6 @@ impl Default for WAITCHAIN_NODE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WAITCHAIN_NODE_INFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9745,9 +8938,6 @@ impl Default for WAITCHAIN_NODE_INFO_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WAITCHAIN_NODE_INFO_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WAITCHAIN_NODE_INFO_0_1 {
@@ -9760,9 +8950,6 @@ impl Default for WAITCHAIN_NODE_INFO_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WAITCHAIN_NODE_INFO_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9805,9 +8992,6 @@ impl Default for WHEA_AER_BRIDGE_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_AER_BRIDGE_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_AER_ENDPOINT_DESCRIPTOR {
@@ -9827,9 +9011,6 @@ impl Default for WHEA_AER_ENDPOINT_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WHEA_AER_ENDPOINT_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -9851,9 +9032,6 @@ impl Default for WHEA_AER_ROOTPORT_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WHEA_AER_ROOTPORT_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WHEA_BAD_PAGE_LIST_LOCATION: u32 = 15u32;
 pub const WHEA_BAD_PAGE_LIST_MAX_SIZE: u32 = 14u32;
@@ -9892,9 +9070,6 @@ impl Default for WHEA_DEVICE_DRIVER_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_DEVICE_DRIVER_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WHEA_DISABLE_DUMMY_WRITE: u32 = 6u32;
 pub const WHEA_DISABLE_OFFLINE: u32 = 0u32;
 #[repr(C, packed(1))]
@@ -9912,9 +9087,6 @@ impl Default for WHEA_DRIVER_BUFFER_SET {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_DRIVER_BUFFER_SET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DD {
@@ -9926,9 +9098,6 @@ impl Default for WHEA_ERROR_SOURCE_CONFIGURATION_DD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WHEA_ERROR_SOURCE_CONFIGURATION_DD {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -9949,9 +9118,6 @@ impl Default for WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1 {
@@ -9966,9 +9132,6 @@ impl Default for WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1 {
-    type TypeKind = windows_core::CopyType;
 }
 pub type WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER = Option<unsafe extern "system" fn(errorsourcedesc: *mut core::ffi::c_void, maximumsectionlength: *mut u32) -> super::super::super::Foundation::NTSTATUS>;
 #[repr(C, packed(1))]
@@ -9991,9 +9154,6 @@ impl Default for WHEA_ERROR_SOURCE_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ERROR_SOURCE_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHEA_ERROR_SOURCE_DESCRIPTOR_0 {
@@ -10014,9 +9174,6 @@ impl Default for WHEA_ERROR_SOURCE_DESCRIPTOR_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WHEA_ERROR_SOURCE_DESCRIPTOR_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_AERBRIDGE: u32 = 8u32;
 pub const WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_AERENDPOINT: u32 = 7u32;
@@ -10064,9 +9221,6 @@ impl Default for WHEA_GENERIC_ERROR_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_GENERIC_ERROR_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_GENERIC_ERROR_DESCRIPTOR_V2 {
@@ -10094,9 +9248,6 @@ impl Default for WHEA_GENERIC_ERROR_DESCRIPTOR_V2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_GENERIC_ERROR_DESCRIPTOR_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WHEA_INTERNAL_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(290u32);
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -10110,9 +9261,6 @@ impl Default for WHEA_IPF_CMC_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_IPF_CMC_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_IPF_CPE_DESCRIPTOR {
@@ -10125,9 +9273,6 @@ impl Default for WHEA_IPF_CPE_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_IPF_CPE_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_IPF_MCA_DESCRIPTOR {
@@ -10139,9 +9284,6 @@ impl Default for WHEA_IPF_MCA_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WHEA_IPF_MCA_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WHEA_MAX_MC_BANKS: u32 = 32u32;
 pub const WHEA_MEM_PERSISTOFFLINE: u32 = 1u32;
@@ -10162,9 +9304,6 @@ impl Default for WHEA_NOTIFICATION_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHEA_NOTIFICATION_DESCRIPTOR_0 {
@@ -10182,9 +9321,6 @@ impl Default for WHEA_NOTIFICATION_DESCRIPTOR_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_7 {
@@ -10199,9 +9335,6 @@ impl Default for WHEA_NOTIFICATION_DESCRIPTOR_0_7 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_7 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -10218,9 +9351,6 @@ impl Default for WHEA_NOTIFICATION_DESCRIPTOR_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_2 {
@@ -10235,9 +9365,6 @@ impl Default for WHEA_NOTIFICATION_DESCRIPTOR_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -10254,9 +9381,6 @@ impl Default for WHEA_NOTIFICATION_DESCRIPTOR_0_4 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_4 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_0 {
@@ -10266,9 +9390,6 @@ impl Default for WHEA_NOTIFICATION_DESCRIPTOR_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -10285,9 +9406,6 @@ impl Default for WHEA_NOTIFICATION_DESCRIPTOR_0_3 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_5 {
@@ -10302,9 +9420,6 @@ impl Default for WHEA_NOTIFICATION_DESCRIPTOR_0_5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_5 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -10321,9 +9436,6 @@ impl Default for WHEA_NOTIFICATION_DESCRIPTOR_0_6 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_6 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_NOTIFICATION_FLAGS {
@@ -10335,9 +9447,6 @@ impl Default for WHEA_NOTIFICATION_FLAGS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_NOTIFICATION_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_NOTIFICATION_FLAGS_0 {
@@ -10347,9 +9456,6 @@ impl Default for WHEA_NOTIFICATION_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WHEA_NOTIFICATION_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WHEA_NOTIFICATION_TYPE_ARMV8_SEA: u32 = 8u32;
 pub const WHEA_NOTIFICATION_TYPE_ARMV8_SEI: u32 = 9u32;
@@ -10374,9 +9480,6 @@ impl Default for WHEA_PCI_SLOT_NUMBER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PCI_SLOT_NUMBER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_PCI_SLOT_NUMBER_0 {
@@ -10388,9 +9491,6 @@ impl Default for WHEA_PCI_SLOT_NUMBER_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PCI_SLOT_NUMBER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_PCI_SLOT_NUMBER_0_0 {
@@ -10400,9 +9500,6 @@ impl Default for WHEA_PCI_SLOT_NUMBER_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WHEA_PCI_SLOT_NUMBER_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WHEA_PENDING_PAGE_LIST_SZ: u32 = 13u32;
 pub const WHEA_RESTORE_CMCI_ATTEMPTS: u32 = 8u32;
@@ -10427,9 +9524,6 @@ impl Default for WHEA_XPF_CMC_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_XPF_CMC_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_XPF_MCE_DESCRIPTOR {
@@ -10445,9 +9539,6 @@ impl Default for WHEA_XPF_MCE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WHEA_XPF_MCE_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -10467,9 +9558,6 @@ impl Default for WHEA_XPF_MC_BANK_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_XPF_MC_BANK_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WHEA_XPF_MC_BANK_STATUSFORMAT_AMD64MCA: u32 = 2u32;
 pub const WHEA_XPF_MC_BANK_STATUSFORMAT_IA32MCA: u32 = 0u32;
 pub const WHEA_XPF_MC_BANK_STATUSFORMAT_Intel64MCA: u32 = 1u32;
@@ -10483,9 +9571,6 @@ impl Default for WHEA_XPF_NMI_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WHEA_XPF_NMI_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WIN32K_ATOMIC_CHECK_FAILURE: BUGCHECK_ERROR = BUGCHECK_ERROR(352u32);
 pub const WIN32K_CALLOUT_WATCHDOG_BUGCHECK: BUGCHECK_ERROR = BUGCHECK_ERROR(418u32);
@@ -10546,9 +9631,6 @@ impl Default for WOW64_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WOW64_CONTEXT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WOW64_CONTEXT_ALL: WOW64_CONTEXT_FLAGS = WOW64_CONTEXT_FLAGS(65599u32);
 pub const WOW64_CONTEXT_CONTROL: WOW64_CONTEXT_FLAGS = WOW64_CONTEXT_FLAGS(65537u32);
@@ -10611,9 +9693,6 @@ impl Default for WOW64_DESCRIPTOR_TABLE_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WOW64_DESCRIPTOR_TABLE_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WOW64_FLOATING_SAVE_AREA {
@@ -10632,9 +9711,6 @@ impl Default for WOW64_FLOATING_SAVE_AREA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WOW64_FLOATING_SAVE_AREA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WOW64_LDT_ENTRY {
@@ -10647,9 +9723,6 @@ impl Default for WOW64_LDT_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WOW64_LDT_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WOW64_LDT_ENTRY_0 {
@@ -10661,9 +9734,6 @@ impl Default for WOW64_LDT_ENTRY_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WOW64_LDT_ENTRY_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WOW64_LDT_ENTRY_0_1 {
@@ -10673,9 +9743,6 @@ impl Default for WOW64_LDT_ENTRY_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WOW64_LDT_ENTRY_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10689,9 +9756,6 @@ impl Default for WOW64_LDT_ENTRY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WOW64_LDT_ENTRY_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WOW64_MAXIMUM_SUPPORTED_EXTENSION: u32 = 512u32;
 pub const WOW64_SIZE_OF_80387_REGISTERS: u32 = 80u32;
@@ -10773,9 +9837,6 @@ impl Default for XPF_MCE_FLAGS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XPF_MCE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct XPF_MCE_FLAGS_0 {
@@ -10785,9 +9846,6 @@ impl Default for XPF_MCE_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for XPF_MCE_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -10800,9 +9858,6 @@ impl Default for XPF_MC_BANK_FLAGS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XPF_MC_BANK_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct XPF_MC_BANK_FLAGS_0 {
@@ -10812,9 +9867,6 @@ impl Default for XPF_MC_BANK_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for XPF_MC_BANK_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10827,9 +9879,6 @@ impl Default for XSAVE_AREA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XSAVE_AREA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct XSAVE_AREA_HEADER {
@@ -10841,9 +9890,6 @@ impl Default for XSAVE_AREA_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for XSAVE_AREA_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -10872,10 +9918,6 @@ impl Default for XSAVE_FORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for XSAVE_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10903,10 +9945,6 @@ impl Default for XSAVE_FORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for XSAVE_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct XSTATE_CONFIGURATION {
@@ -10929,9 +9967,6 @@ impl Default for XSTATE_CONFIGURATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XSTATE_CONFIGURATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union XSTATE_CONFIGURATION_0 {
@@ -10943,9 +9978,6 @@ impl Default for XSTATE_CONFIGURATION_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XSTATE_CONFIGURATION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct XSTATE_CONFIGURATION_0_0 {
@@ -10955,9 +9987,6 @@ impl Default for XSTATE_CONFIGURATION_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for XSTATE_CONFIGURATION_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
@@ -10971,9 +10000,6 @@ impl Default for XSTATE_CONFIG_FEATURE_MSC_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for XSTATE_CONFIG_FEATURE_MSC_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -10993,10 +10019,6 @@ impl Default for XSTATE_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for XSTATE_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -11013,10 +10035,6 @@ impl Default for XSTATE_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for XSTATE_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct XSTATE_FEATURE {
@@ -11027,9 +10045,6 @@ impl Default for XSTATE_FEATURE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for XSTATE_FEATURE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const ceStreamBucketParameters: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(32778i32);
 pub const ceStreamDiagnosisList: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(32780i32);

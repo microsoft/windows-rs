@@ -1749,9 +1749,6 @@ impl Default for BerElement {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BerElement {
-    type TypeKind = windows_core::CopyType;
-}
 pub type DBGPRINT = Option<unsafe extern "system" fn(format: windows_core::PCSTR) -> u32>;
 pub type DEREFERENCECONNECTION = Option<unsafe extern "system" fn(primaryconnection: *mut LDAP, connectiontodereference: *mut LDAP) -> u32>;
 pub const LAPI_MAJOR_VER1: u32 = 1u32;
@@ -1786,9 +1783,6 @@ impl Default for LDAP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LDAP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LDAP_0 {
@@ -1802,9 +1796,6 @@ impl Default for LDAP_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LDAP_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LDAPAPIFeatureInfoA {
@@ -1817,9 +1808,6 @@ impl Default for LDAPAPIFeatureInfoA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LDAPAPIFeatureInfoA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LDAPAPIFeatureInfoW {
@@ -1831,9 +1819,6 @@ impl Default for LDAPAPIFeatureInfoW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LDAPAPIFeatureInfoW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1850,9 +1835,6 @@ impl Default for LDAPAPIInfoA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LDAPAPIInfoA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LDAPAPIInfoW {
@@ -1868,9 +1850,6 @@ impl Default for LDAPAPIInfoW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LDAPAPIInfoW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LDAPControlA {
@@ -1883,9 +1862,6 @@ impl Default for LDAPControlA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LDAPControlA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LDAPControlW {
@@ -1897,9 +1873,6 @@ impl Default for LDAPControlW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LDAPControlW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1923,9 +1896,6 @@ impl Default for LDAPMessage {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LDAPMessage {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct LDAPModA {
@@ -1938,9 +1908,6 @@ impl Default for LDAPModA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LDAPModA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union LDAPModA_0 {
@@ -1951,9 +1918,6 @@ impl Default for LDAPModA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LDAPModA_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1967,9 +1931,6 @@ impl Default for LDAPModW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LDAPModW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union LDAPModW_0 {
@@ -1980,9 +1941,6 @@ impl Default for LDAPModW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LDAPModW_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1996,9 +1954,6 @@ impl Default for LDAPSortKeyA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LDAPSortKeyA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LDAPSortKeyW {
@@ -2010,9 +1965,6 @@ impl Default for LDAPSortKeyW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LDAPSortKeyW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2030,9 +1982,6 @@ impl Default for LDAPVLVInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LDAPVLVInfo {
-    type TypeKind = windows_core::CopyType;
 }
 pub const LDAP_ABANDON_CMD: i32 = 80i32;
 pub const LDAP_ADD_CMD: i32 = 104i32;
@@ -2060,9 +2009,6 @@ impl Default for LDAP_BERVAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LDAP_BERVAL {
-    type TypeKind = windows_core::CopyType;
 }
 pub const LDAP_BIND_CMD: i32 = 96i32;
 pub const LDAP_BUSY: LDAP_RETCODE = LDAP_RETCODE(51i32);
@@ -2300,9 +2246,6 @@ impl Default for LDAP_REFERRAL_CALLBACK {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LDAP_REFERRAL_CALLBACK {
-    type TypeKind = windows_core::CopyType;
-}
 pub const LDAP_REFERRAL_LIMIT_EXCEEDED: LDAP_RETCODE = LDAP_RETCODE(97i32);
 pub const LDAP_REFERRAL_V2: LDAP_RETCODE = LDAP_RETCODE(9i32);
 pub const LDAP_RESULTS_TOO_LARGE: LDAP_RETCODE = LDAP_RETCODE(70i32);
@@ -2432,9 +2375,6 @@ impl Default for LDAP_TIMEVAL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LDAP_TIMEVAL {
-    type TypeKind = windows_core::CopyType;
-}
 pub const LDAP_TTL_EXTENDED_OP_OID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.1466.101.119.1");
 pub const LDAP_TTL_EXTENDED_OP_OID_W: windows_core::PCWSTR = windows_core::w!("1.3.6.1.4.1.1466.101.119.1");
 pub const LDAP_UNAVAILABLE: LDAP_RETCODE = LDAP_RETCODE(52i32);
@@ -2466,9 +2406,6 @@ impl Default for LDAP_VERSION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LDAP_VERSION_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const LDAP_VERSION_MAX: u32 = 3u32;
 pub const LDAP_VERSION_MIN: u32 = 2u32;

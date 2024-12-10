@@ -300,9 +300,6 @@ impl Default for DEADKEY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEADKEY {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DEC_KBD_ANSI_LAYOUT_TYPE: u32 = 1u32;
 pub const DEC_KBD_JIS_LAYOUT_TYPE: u32 = 2u32;
 pub const DIARESIS: u32 = 776u32;
@@ -335,9 +332,6 @@ impl Default for HARDWAREINPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HARDWAREINPUT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -412,9 +406,6 @@ impl Default for INPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union INPUT_0 {
@@ -426,9 +417,6 @@ impl Default for INPUT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for INPUT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const INPUT_HARDWARE: INPUT_TYPE = INPUT_TYPE(2u32);
 pub const INPUT_KEYBOARD: INPUT_TYPE = INPUT_TYPE(1u32);
@@ -457,9 +445,6 @@ impl Default for KBDNLSTABLES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KBDNLSTABLES {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KBDNLS_ALPHANUM: u32 = 5u32;
 pub const KBDNLS_CODEINPUT: u32 = 10u32;
@@ -509,9 +494,6 @@ impl Default for KBDTABLES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KBDTABLES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KBDTABLE_DESC {
@@ -524,9 +506,6 @@ impl Default for KBDTABLE_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KBDTABLE_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KBDTABLE_MULTI {
@@ -537,9 +516,6 @@ impl Default for KBDTABLE_MULTI {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KBDTABLE_MULTI {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KBDTABLE_MULTI_MAX: u32 = 8u32;
 pub const KBD_TYPE: u32 = 4u32;
@@ -555,9 +531,6 @@ impl Default for KBD_TYPE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KBD_TYPE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KBD_VERSION: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -572,9 +545,6 @@ impl Default for KEYBDINPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KEYBDINPUT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -643,9 +613,6 @@ impl Default for LASTINPUTINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LASTINPUTINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LIGATURE1 {
@@ -657,9 +624,6 @@ impl Default for LIGATURE1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LIGATURE1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -673,9 +637,6 @@ impl Default for LIGATURE2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LIGATURE2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LIGATURE3 {
@@ -687,9 +648,6 @@ impl Default for LIGATURE3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LIGATURE3 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -703,9 +661,6 @@ impl Default for LIGATURE4 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LIGATURE4 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LIGATURE5 {
@@ -717,9 +672,6 @@ impl Default for LIGATURE5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LIGATURE5 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MACRON: u32 = 772u32;
 pub const MAPVK_VK_TO_CHAR: MAP_VIRTUAL_KEY_TYPE = MAP_VIRTUAL_KEY_TYPE(2u32);
@@ -751,9 +703,6 @@ impl Default for MODIFIERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MODIFIERS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MOD_ALT: HOT_KEY_MODIFIERS = HOT_KEY_MODIFIERS(1u32);
 pub const MOD_CONTROL: HOT_KEY_MODIFIERS = HOT_KEY_MODIFIERS(2u32);
@@ -789,9 +738,6 @@ impl Default for MOUSEINPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MOUSEINPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MOUSEMOVEPOINT {
@@ -804,9 +750,6 @@ impl Default for MOUSEMOVEPOINT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MOUSEMOVEPOINT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -897,9 +840,6 @@ impl Default for TRACKMOUSEEVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TRACKMOUSEEVENT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1014,9 +954,6 @@ impl Default for VK_F {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VK_F {
-    type TypeKind = windows_core::CopyType;
-}
 pub const VK_F: VIRTUAL_KEY = VIRTUAL_KEY(70u16);
 pub const VK_F1: VIRTUAL_KEY = VIRTUAL_KEY(112u16);
 pub const VK_F10: VIRTUAL_KEY = VIRTUAL_KEY(121u16);
@@ -1053,9 +990,6 @@ impl Default for VK_FPARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VK_FPARAM {
-    type TypeKind = windows_core::CopyType;
 }
 pub const VK_G: VIRTUAL_KEY = VIRTUAL_KEY(71u16);
 pub const VK_GAMEPAD_A: VIRTUAL_KEY = VIRTUAL_KEY(195u16);
@@ -1217,9 +1151,6 @@ impl Default for VK_TO_BIT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VK_TO_BIT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VK_TO_WCHARS1 {
@@ -1231,9 +1162,6 @@ impl Default for VK_TO_WCHARS1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VK_TO_WCHARS1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1247,9 +1175,6 @@ impl Default for VK_TO_WCHARS10 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VK_TO_WCHARS10 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VK_TO_WCHARS2 {
@@ -1261,9 +1186,6 @@ impl Default for VK_TO_WCHARS2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VK_TO_WCHARS2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1277,9 +1199,6 @@ impl Default for VK_TO_WCHARS3 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VK_TO_WCHARS3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VK_TO_WCHARS4 {
@@ -1291,9 +1210,6 @@ impl Default for VK_TO_WCHARS4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VK_TO_WCHARS4 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1307,9 +1223,6 @@ impl Default for VK_TO_WCHARS5 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VK_TO_WCHARS5 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VK_TO_WCHARS6 {
@@ -1321,9 +1234,6 @@ impl Default for VK_TO_WCHARS6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VK_TO_WCHARS6 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1337,9 +1247,6 @@ impl Default for VK_TO_WCHARS7 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VK_TO_WCHARS7 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VK_TO_WCHARS8 {
@@ -1351,9 +1258,6 @@ impl Default for VK_TO_WCHARS8 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VK_TO_WCHARS8 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1367,9 +1271,6 @@ impl Default for VK_TO_WCHARS9 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VK_TO_WCHARS9 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VK_TO_WCHAR_TABLE {
@@ -1381,9 +1282,6 @@ impl Default for VK_TO_WCHAR_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VK_TO_WCHAR_TABLE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const VK_U: VIRTUAL_KEY = VIRTUAL_KEY(85u16);
 pub const VK_UP: VIRTUAL_KEY = VIRTUAL_KEY(38u16);
@@ -1401,9 +1299,6 @@ impl Default for VK_VSC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VK_VSC {
-    type TypeKind = windows_core::CopyType;
 }
 pub const VK_W: VIRTUAL_KEY = VIRTUAL_KEY(87u16);
 pub const VK_X: VIRTUAL_KEY = VIRTUAL_KEY(88u16);
@@ -1424,9 +1319,6 @@ impl Default for VSC_LPWSTR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VSC_LPWSTR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VSC_VK {
@@ -1437,9 +1329,6 @@ impl Default for VSC_VK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VSC_VK {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WCH_DEAD: u32 = 61441u32;
 pub const WCH_LGTR: u32 = 61442u32;

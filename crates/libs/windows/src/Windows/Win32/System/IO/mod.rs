@@ -74,9 +74,6 @@ impl Default for IO_STATUS_BLOCK {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IO_STATUS_BLOCK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IO_STATUS_BLOCK_0 {
@@ -87,9 +84,6 @@ impl Default for IO_STATUS_BLOCK_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IO_STATUS_BLOCK_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub type LPOVERLAPPED_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(dwerrorcode: u32, dwnumberofbytestransfered: u32, lpoverlapped: *mut OVERLAPPED)>;
 #[repr(C)]
@@ -105,9 +99,6 @@ impl Default for OVERLAPPED {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OVERLAPPED {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union OVERLAPPED_0 {
@@ -119,9 +110,6 @@ impl Default for OVERLAPPED_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OVERLAPPED_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OVERLAPPED_0_0 {
@@ -132,9 +120,6 @@ impl Default for OVERLAPPED_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for OVERLAPPED_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -148,8 +133,5 @@ impl Default for OVERLAPPED_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for OVERLAPPED_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 pub type PIO_APC_ROUTINE = Option<unsafe extern "system" fn(apccontext: *mut core::ffi::c_void, iostatusblock: *mut IO_STATUS_BLOCK, reserved: u32)>;

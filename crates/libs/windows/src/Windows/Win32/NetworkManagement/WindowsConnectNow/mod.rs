@@ -532,9 +532,6 @@ impl Default for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WCN_VALUE_TYPE_REQUEST_TYPE(pub i32);
@@ -564,7 +561,4 @@ impl Default for WCN_VENDOR_EXTENSION_SPEC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WCN_VENDOR_EXTENSION_SPEC {
-    type TypeKind = windows_core::CopyType;
 }

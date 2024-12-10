@@ -362,9 +362,6 @@ impl Default for CACHE_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CACHE_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CACHE_RELATIONSHIP {
@@ -382,9 +379,6 @@ impl Default for CACHE_RELATIONSHIP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CACHE_RELATIONSHIP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CACHE_RELATIONSHIP_0 {
@@ -395,9 +389,6 @@ impl Default for CACHE_RELATIONSHIP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CACHE_RELATIONSHIP_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -529,9 +520,6 @@ impl Default for GROUP_AFFINITY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GROUP_AFFINITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GROUP_RELATIONSHIP {
@@ -544,9 +532,6 @@ impl Default for GROUP_RELATIONSHIP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GROUP_RELATIONSHIP {
-    type TypeKind = windows_core::CopyType;
 }
 pub const GlobalDataIdConsoleSharedDataFlags: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(14i32);
 pub const GlobalDataIdCyclesPerYield: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(11i32);
@@ -623,9 +608,6 @@ impl Default for MEMORYSTATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MEMORYSTATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MEMORYSTATUSEX {
@@ -643,9 +625,6 @@ impl Default for MEMORYSTATUSEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MEMORYSTATUSEX {
-    type TypeKind = windows_core::CopyType;
 }
 pub const NTDDI_LONGHORN: u32 = 100663296u32;
 pub const NTDDI_VERSION: u32 = 167772172u32;
@@ -709,9 +688,6 @@ impl Default for NUMA_NODE_RELATIONSHIP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NUMA_NODE_RELATIONSHIP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NUMA_NODE_RELATIONSHIP_0 {
@@ -722,9 +698,6 @@ impl Default for NUMA_NODE_RELATIONSHIP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NUMA_NODE_RELATIONSHIP_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -740,9 +713,6 @@ impl Default for OSVERSIONINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for OSVERSIONINFOA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -764,9 +734,6 @@ impl Default for OSVERSIONINFOEXA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OSVERSIONINFOEXA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OSVERSIONINFOEXW {
@@ -787,9 +754,6 @@ impl Default for OSVERSIONINFOEXW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OSVERSIONINFOEXW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OSVERSIONINFOW {
@@ -804,9 +768,6 @@ impl Default for OSVERSIONINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for OSVERSIONINFOW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const OSVERSION_MASK: u32 = 4294901760u32;
 #[repr(transparent)]
@@ -854,9 +815,6 @@ impl Default for PROCESSOR_GROUP_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROCESSOR_GROUP_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROCESSOR_RELATIONSHIP {
@@ -870,9 +828,6 @@ impl Default for PROCESSOR_RELATIONSHIP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PROCESSOR_RELATIONSHIP {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PRODUCT_BUSINESS: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(6u32);
 pub const PRODUCT_BUSINESS_N: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(16u32);
@@ -998,9 +953,6 @@ impl Default for SYSTEM_CPU_SET_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYSTEM_CPU_SET_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union SYSTEM_CPU_SET_INFORMATION_0 {
@@ -1010,9 +962,6 @@ impl Default for SYSTEM_CPU_SET_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SYSTEM_CPU_SET_INFORMATION_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1033,9 +982,6 @@ impl Default for SYSTEM_CPU_SET_INFORMATION_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYSTEM_CPU_SET_INFORMATION_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union SYSTEM_CPU_SET_INFORMATION_0_0_0 {
@@ -1047,9 +993,6 @@ impl Default for SYSTEM_CPU_SET_INFORMATION_0_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYSTEM_CPU_SET_INFORMATION_0_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
@@ -1059,9 +1002,6 @@ impl Default for SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1073,9 +1013,6 @@ impl Default for SYSTEM_CPU_SET_INFORMATION_0_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SYSTEM_CPU_SET_INFORMATION_0_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SYSTEM_CPU_SET_INFORMATION_ALLOCATED: u32 = 2u32;
 pub const SYSTEM_CPU_SET_INFORMATION_ALLOCATED_TO_TARGET_PROCESS: u32 = 4u32;
@@ -1100,9 +1037,6 @@ impl Default for SYSTEM_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYSTEM_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union SYSTEM_INFO_0 {
@@ -1113,9 +1047,6 @@ impl Default for SYSTEM_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SYSTEM_INFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1128,9 +1059,6 @@ impl Default for SYSTEM_INFO_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYSTEM_INFO_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
@@ -1142,9 +1070,6 @@ impl Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1159,9 +1084,6 @@ impl Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
@@ -1172,9 +1094,6 @@ impl Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
@@ -1184,9 +1103,6 @@ impl Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1199,9 +1115,6 @@ impl Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1216,9 +1129,6 @@ impl Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SYSTEM_POOL_ZEROING_INFORMATION {
@@ -1228,9 +1138,6 @@ impl Default for SYSTEM_POOL_ZEROING_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SYSTEM_POOL_ZEROING_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1242,9 +1149,6 @@ impl Default for SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
@@ -1254,9 +1158,6 @@ impl Default for SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

@@ -2098,10 +2098,6 @@ impl Default for EMRPIXELFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for EMRPIXELFORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const GLU_AUTO_LOAD_MATRIX: u32 = 100200u32;
 pub const GLU_BEGIN: u32 = 100100u32;
 pub const GLU_CCW: u32 = 100121u32;
@@ -2262,9 +2258,6 @@ impl Default for GLYPHMETRICSFLOAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GLYPHMETRICSFLOAT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const GL_2D: u32 = 1536u32;
 pub const GL_2_BYTES: u32 = 5127u32;
@@ -2912,9 +2905,6 @@ impl Default for LAYERPLANEDESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LAYERPLANEDESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 pub const PFD_DEPTH_DONTCARE: PFD_FLAGS = PFD_FLAGS(536870912u32);
 pub const PFD_DIRECT3D_ACCELERATED: PFD_FLAGS = PFD_FLAGS(16384u32);
 pub const PFD_DOUBLEBUFFER: PFD_FLAGS = PFD_FLAGS(1u32);
@@ -3033,9 +3023,6 @@ impl Default for PIXELFORMATDESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PIXELFORMATDESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct POINTFLOAT {
@@ -3046,7 +3033,4 @@ impl Default for POINTFLOAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for POINTFLOAT {
-    type TypeKind = windows_core::CopyType;
 }

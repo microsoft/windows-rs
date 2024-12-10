@@ -21,9 +21,6 @@ impl Default for OPERATION_END_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OPERATION_END_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPERATION_END_PARAMETERS_FLAGS(pub u32);
@@ -107,8 +104,5 @@ impl Default for OPERATION_START_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for OPERATION_START_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const OPERATION_START_TRACE_CURRENT_THREAD: OPERATION_START_FLAGS = OPERATION_START_FLAGS(1u32);

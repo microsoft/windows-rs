@@ -1637,9 +1637,6 @@ impl Default for AUTHENTICATION_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AUTHENTICATION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTH_TYPE(pub i32);
@@ -1685,9 +1682,6 @@ impl Default for BUCKETCATEGORIZE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BUCKETCATEGORIZE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const BUCKET_EXPONENTIAL: u32 = 1u32;
 pub const BUCKET_LINEAR: u32 = 0u32;
 #[repr(transparent)]
@@ -1727,10 +1721,6 @@ impl Default for CATEGORIZATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for CATEGORIZATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy)]
@@ -1745,10 +1735,6 @@ impl Default for CATEGORIZATION_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for CATEGORIZATION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1761,10 +1747,6 @@ impl Default for CATEGORIZATIONSET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for CATEGORIZATIONSET {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CATEGORIZE_BUCKETS: u32 = 2u32;
 pub const CATEGORIZE_CLUSTER: u32 = 1u32;
@@ -1855,10 +1837,6 @@ impl Default for COLUMNSET {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl windows_core::TypeKind for COLUMNSET {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CONDITION_CREATION_DEFAULT: CONDITION_CREATION_OPTIONS = CONDITION_CREATION_OPTIONS(0i32);
 pub const CONDITION_CREATION_NONE: CONDITION_CREATION_OPTIONS = CONDITION_CREATION_OPTIONS(0i32);
 #[repr(transparent)]
@@ -1916,10 +1894,6 @@ impl Default for CONTENTRESTRICTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl windows_core::TypeKind for CONTENTRESTRICTION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CONTENT_SOURCE_E_CONTENT_CLASS_READ: i32 = -2147208188i32;
 pub const CONTENT_SOURCE_E_CONTENT_SOURCE_COLUMN_TYPE: i32 = -2147208185i32;
@@ -2014,9 +1988,6 @@ impl Default for DATE_STRUCT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DATE_STRUCT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBACCESSORFLAGSENUM(pub i32);
@@ -2050,10 +2021,6 @@ impl Default for DBBINDEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for DBBINDEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2066,10 +2033,6 @@ impl Default for DBBINDEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for DBBINDEXT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2102,11 +2065,6 @@ impl Default for DBBINDING {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for DBBINDING {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Com")]
@@ -2134,11 +2092,6 @@ impl Default for DBBINDING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for DBBINDING {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2207,11 +2160,6 @@ impl Default for DBCOLUMNACCESS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl windows_core::TypeKind for DBCOLUMNACCESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
@@ -2233,11 +2181,6 @@ impl Default for DBCOLUMNACCESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl windows_core::TypeKind for DBCOLUMNACCESS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
@@ -2268,11 +2211,6 @@ impl Default for DBCOLUMNDESC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for DBCOLUMNDESC {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2301,11 +2239,6 @@ impl Default for DBCOLUMNDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for DBCOLUMNDESC {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2387,11 +2320,6 @@ impl Default for DBCOLUMNINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
-impl windows_core::TypeKind for DBCOLUMNINFO {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
@@ -2419,11 +2347,6 @@ impl Default for DBCOLUMNINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
-impl windows_core::TypeKind for DBCOLUMNINFO {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2492,11 +2415,6 @@ impl Default for DBCONSTRAINTDESC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for DBCONSTRAINTDESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2523,11 +2441,6 @@ impl Default for DBCONSTRAINTDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for DBCONSTRAINTDESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2569,10 +2482,6 @@ impl Default for DBCOST {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for DBCOST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2586,10 +2495,6 @@ impl Default for DBCOST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for DBCOST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2614,9 +2519,6 @@ impl Default for DBDATE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DBDATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DBDATETIM4 {
@@ -2628,9 +2530,6 @@ impl Default for DBDATETIM4 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DBDATETIM4 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DBDATETIME {
@@ -2641,9 +2540,6 @@ impl Default for DBDATETIME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DBDATETIME {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2683,10 +2579,6 @@ impl Default for DBFAILUREINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for DBFAILUREINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2700,10 +2592,6 @@ impl Default for DBFAILUREINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for DBFAILUREINFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DBGUID_MSSQLXML: windows_core::GUID = windows_core::GUID::from_u128(0x5d531cb2_e6ed_11d2_b252_00c04f681b71);
 pub const DBGUID_ROWDEFAULTSTREAM: windows_core::GUID = windows_core::GUID::from_u128(0x0c733ab7_2a1c_11ce_ade5_00aa0044773d);
@@ -2722,10 +2610,6 @@ impl Default for DBIMPLICITSESSION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for DBIMPLICITSESSION {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Debug, PartialEq)]
@@ -2739,10 +2623,6 @@ impl Default for DBIMPLICITSESSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for DBIMPLICITSESSION {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
@@ -2759,11 +2639,6 @@ impl Default for DBINDEXCOLUMNDESC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl windows_core::TypeKind for DBINDEXCOLUMNDESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
@@ -2778,11 +2653,6 @@ impl Default for DBINDEXCOLUMNDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl windows_core::TypeKind for DBINDEXCOLUMNDESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2815,10 +2685,6 @@ impl Default for DBLITERALINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for DBLITERALINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2835,10 +2701,6 @@ impl Default for DBLITERALINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for DBLITERALINFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DBLITERAL_BINARY_LITERAL: DBLITERALENUM = DBLITERALENUM(1i32);
 pub const DBLITERAL_CATALOG_NAME: DBLITERALENUM = DBLITERALENUM(2i32);
@@ -2894,9 +2756,6 @@ impl Default for DBMONEY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DBMONEY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBMOVEFLAGSENUM(pub i32);
@@ -2918,10 +2777,6 @@ impl Default for DBOBJECT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for DBOBJECT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2934,10 +2789,6 @@ impl Default for DBOBJECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for DBOBJECT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
@@ -2956,10 +2807,6 @@ impl Default for DBPARAMBINDINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for DBPARAMBINDINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2976,10 +2823,6 @@ impl Default for DBPARAMBINDINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for DBPARAMBINDINFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3013,11 +2856,6 @@ impl Default for DBPARAMINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for DBPARAMINFO {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Com")]
@@ -3039,11 +2877,6 @@ impl Default for DBPARAMINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for DBPARAMINFO {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBPARAMIOENUM(pub i32);
@@ -3064,10 +2897,6 @@ impl Default for DBPARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for DBPARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3081,10 +2910,6 @@ impl Default for DBPARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for DBPARAMS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DBPARAMTYPE_INPUT: u32 = 1u32;
 pub const DBPARAMTYPE_INPUTOUTPUT: u32 = 2u32;
@@ -3149,11 +2974,6 @@ impl Default for DBPROP {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for DBPROP {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3177,11 +2997,6 @@ impl Default for DBPROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for DBPROP {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3251,10 +3066,6 @@ impl Default for DBPROPIDSET {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for DBPROPIDSET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3268,10 +3079,6 @@ impl Default for DBPROPIDSET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for DBPROPIDSET {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
@@ -3297,11 +3104,6 @@ impl Default for DBPROPINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for DBPROPINFO {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3325,11 +3127,6 @@ impl Default for DBPROPINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for DBPROPINFO {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
@@ -3347,11 +3144,6 @@ impl Default for DBPROPINFOSET {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for DBPROPINFOSET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3367,11 +3159,6 @@ impl Default for DBPROPINFOSET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for DBPROPINFOSET {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3395,11 +3182,6 @@ impl Default for DBPROPSET {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for DBPROPSET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3415,11 +3197,6 @@ impl Default for DBPROPSET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for DBPROPSET {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DBPROPSET_MSDAORA8_ROWSET: windows_core::GUID = windows_core::GUID::from_u128(0x7f06a375_dd6a_43db_b4e0_1fc121e5e62b);
 pub const DBPROPSET_MSDAORA_ROWSET: windows_core::GUID = windows_core::GUID::from_u128(0xe8cc4cbd_fdff_11d0_b865_00a0c9081c1d);
@@ -4011,10 +3788,6 @@ impl Default for DBROWWATCHCHANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for DBROWWATCHCHANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4029,10 +3802,6 @@ impl Default for DBROWWATCHCHANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for DBROWWATCHCHANGE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DBSCHEMA_LINKEDSERVERS: windows_core::GUID = windows_core::GUID::from_u128(0x9093caf4_2eac_11d1_9809_00c04fc2ad98);
 #[repr(transparent)]
@@ -4127,9 +3896,6 @@ impl Default for DBTIME {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DBTIME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -4148,10 +3914,6 @@ impl Default for DBTIMESTAMP {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for DBTIMESTAMP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4169,10 +3931,6 @@ impl Default for DBTIMESTAMP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for DBTIMESTAMP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4258,9 +4016,6 @@ impl Default for DBVARYBIN {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DBVARYBIN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DBVARYCHAR {
@@ -4271,9 +4026,6 @@ impl Default for DBVARYCHAR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DBVARYCHAR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
@@ -4288,10 +4040,6 @@ impl Default for DBVECTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for DBVECTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4304,10 +4052,6 @@ impl Default for DBVECTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for DBVECTOR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4499,9 +4243,6 @@ impl Default for DB_NUMERIC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DB_NUMERIC {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DB_OUT: u32 = 2u32;
 pub const DB_PROT_LEVEL_CALL: u32 = 2u32;
 pub const DB_PROT_LEVEL_CONNECT: u32 = 1u32;
@@ -4560,9 +4301,6 @@ impl Default for DB_VARNUMERIC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DB_VARNUMERIC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct DCINFO {
@@ -4580,10 +4318,6 @@ impl Default for DCINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for DCINFO {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4845,10 +4579,6 @@ impl Default for ERRORINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for ERRORINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4864,10 +4594,6 @@ impl Default for ERRORINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for ERRORINFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const ERROR_FTE: u32 = 13824u32;
 pub const ERROR_FTE_CB: u32 = 51968u32;
@@ -5105,9 +4831,6 @@ impl Default for FILTERED_DATA_SOURCES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FILTERED_DATA_SOURCES {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FLTRDMN_E_CANNOT_DECRYPT_PASSWORD: i32 = -2147212282i32;
 pub const FLTRDMN_E_ENCRYPTED_DOCUMENT: i32 = -2147212283i32;
@@ -5377,9 +5100,6 @@ impl Default for HITRANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HITRANGE {
-    type TypeKind = windows_core::CopyType;
 }
 windows_core::imp::define_interface!(IAccessor, IAccessor_Vtbl, 0x0c733a8c_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IAccessor, windows_core::IUnknown);
@@ -9407,9 +9127,6 @@ impl Default for INCREMENTAL_ACCESS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for INCREMENTAL_ACCESS_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const INET_E_AGENT_CACHE_SIZE_EXCEEDED: windows_core::HRESULT = windows_core::HRESULT(0x800C0F82_u32 as _);
 pub const INET_E_AGENT_CONNECTION_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x800C0F83_u32 as _);
@@ -15743,10 +15460,6 @@ impl Default for ITEMPROP {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for ITEMPROP {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ITEM_INFO {
@@ -15760,9 +15473,6 @@ impl Default for ITEM_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ITEM_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 windows_core::imp::define_interface!(ITableCreation, ITableCreation_Vtbl, 0x0c733abc_2a1c_11ce_ade5_00aa0044773d);
 impl core::ops::Deref for ITableCreation {
@@ -17384,10 +17094,6 @@ impl Default for KAGGETDIAG {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for KAGGETDIAG {
-    type TypeKind = windows_core::CloneType;
-}
 pub const KAGPROPVAL_CONCUR_LOCK: u32 = 4u32;
 pub const KAGPROPVAL_CONCUR_READ_ONLY: u32 = 8u32;
 pub const KAGPROPVAL_CONCUR_ROWVER: u32 = 1u32;
@@ -17443,10 +17149,6 @@ impl Default for KAGREQDIAG {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Variant")]
-impl windows_core::TypeKind for KAGREQDIAG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KAGREQDIAGFLAGSENUM(pub i32);
@@ -17480,10 +17182,6 @@ impl Default for MDAXISINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for MDAXISINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -17500,10 +17198,6 @@ impl Default for MDAXISINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for MDAXISINFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MDAXIS_CHAPTERS: u32 = 4u32;
 pub const MDAXIS_COLUMNS: u32 = 0u32;
@@ -17730,10 +17424,6 @@ impl Default for NATLANGUAGERESTRICTION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl windows_core::TypeKind for NATLANGUAGERESTRICTION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const NEC_HIGH: NAMED_ENTITY_CERTAINTY = NAMED_ENTITY_CERTAINTY(2i32);
 pub const NEC_LOW: NAMED_ENTITY_CERTAINTY = NAMED_ENTITY_CERTAINTY(0i32);
 pub const NEC_MEDIUM: NAMED_ENTITY_CERTAINTY = NAMED_ENTITY_CERTAINTY(1i32);
@@ -17759,10 +17449,6 @@ impl Default for NODERESTRICTION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for NODERESTRICTION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const NOTESPH_E_ATTACHMENTS: i32 = -2147211770i32;
 pub const NOTESPH_E_DB_ACCESS_DENIED: i32 = -2147211768i32;
 pub const NOTESPH_E_FAIL: i32 = -2147211759i32;
@@ -17785,10 +17471,6 @@ impl Default for NOTRESTRICTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for NOTRESTRICTION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const NOT_N_PARSE_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x8092E_u32 as _);
 pub const NegationCondition: windows_core::GUID = windows_core::GUID::from_u128(0x8de9c74c_605a_4acd_bee3_2b222aa2d23d);
@@ -17848,9 +17530,6 @@ impl Default for ODBC_VS_ARGS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ODBC_VS_ARGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union ODBC_VS_ARGS_0 {
@@ -17862,9 +17541,6 @@ impl Default for ODBC_VS_ARGS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ODBC_VS_ARGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union ODBC_VS_ARGS_1 {
@@ -17875,9 +17551,6 @@ impl Default for ODBC_VS_ARGS_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ODBC_VS_ARGS_1 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const ODBC_VS_FLAG_RETCODE: i32 = 4i32;
 pub const ODBC_VS_FLAG_STOP: i32 = 8i32;
@@ -18349,10 +18022,6 @@ impl Default for PROPERTYRESTRICTION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for PROPERTYRESTRICTION {
-    type TypeKind = windows_core::CloneType;
-}
 pub const PROPID_DBBMK_BOOKMARK: u32 = 2u32;
 pub const PROPID_DBBMK_CHAPTER: u32 = 3u32;
 pub const PROPID_DBSELF_SELF: u32 = 2u32;
@@ -18377,9 +18046,6 @@ impl Default for PROXY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PROXY_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PRRE: u32 = 6u32;
 pub const PRSomeBits: u32 = 8u32;
@@ -18493,10 +18159,6 @@ impl Default for RANGECATEGORIZE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for RANGECATEGORIZE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub struct RESTRICTION {
@@ -18515,10 +18177,6 @@ impl Default for RESTRICTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for RESTRICTION {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -18543,10 +18201,6 @@ impl Default for RESTRICTION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for RESTRICTION_0 {
-    type TypeKind = windows_core::CloneType;
 }
 pub const REXSPH_E_DUPLICATE_PROPERTY: i32 = -2147207927i32;
 pub const REXSPH_E_INVALID_CALL: i32 = -2147207936i32;
@@ -18584,11 +18238,6 @@ impl Default for RMTPACK {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for RMTPACK {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -18615,11 +18264,6 @@ impl Default for RMTPACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for RMTPACK {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -18704,10 +18348,6 @@ impl Default for SEARCH_COLUMN_PROPERTIES {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for SEARCH_COLUMN_PROPERTIES {
-    type TypeKind = windows_core::CloneType;
-}
 pub const SEARCH_HIGH_PRIORITY: SEARCH_NOTIFICATION_PRIORITY = SEARCH_NOTIFICATION_PRIORITY(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -18731,10 +18371,6 @@ impl Default for SEARCH_ITEM_CHANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SEARCH_ITEM_CHANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SEARCH_ITEM_INDEXING_STATUS {
@@ -18745,9 +18381,6 @@ impl Default for SEARCH_ITEM_INDEXING_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SEARCH_ITEM_INDEXING_STATUS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -18761,9 +18394,6 @@ impl Default for SEARCH_ITEM_PERSISTENT_CHANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SEARCH_ITEM_PERSISTENT_CHANGE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -18811,11 +18441,6 @@ impl Default for SEC_OBJECT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl windows_core::TypeKind for SEC_OBJECT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
@@ -18830,11 +18455,6 @@ impl Default for SEC_OBJECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl windows_core::TypeKind for SEC_OBJECT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
@@ -18851,11 +18471,6 @@ impl Default for SEC_OBJECT_ELEMENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl windows_core::TypeKind for SEC_OBJECT_ELEMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
@@ -18870,11 +18485,6 @@ impl Default for SEC_OBJECT_ELEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl windows_core::TypeKind for SEC_OBJECT_ELEMENT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SI_TEMPORARY: u32 = 2147483648u32;
 #[repr(C)]
@@ -18891,10 +18501,6 @@ impl Default for SORTKEY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl windows_core::TypeKind for SORTKEY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -18907,10 +18513,6 @@ impl Default for SORTSET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl windows_core::TypeKind for SORTSET {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SPS_WS_ERROR: i32 = -2147211753i32;
 pub const SQLAOPANY: u32 = 83u32;
@@ -18998,9 +18600,6 @@ impl Default for SQLPERF {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SQLPERF {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SQLTEXT: u32 = 35u32;
 pub const SQLUNIQUEID: u32 = 36u32;
@@ -19633,9 +19232,6 @@ impl Default for SQL_DAY_SECOND_STRUCT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SQL_DAY_SECOND_STRUCT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SQL_DAY_TO_HOUR: u32 = 8u32;
 pub const SQL_DAY_TO_MINUTE: u32 = 9u32;
 pub const SQL_DAY_TO_SECOND: u32 = 10u32;
@@ -20078,9 +19674,6 @@ impl Default for SQL_INTERVAL_STRUCT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SQL_INTERVAL_STRUCT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union SQL_INTERVAL_STRUCT_0 {
@@ -20091,9 +19684,6 @@ impl Default for SQL_INTERVAL_STRUCT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SQL_INTERVAL_STRUCT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SQL_INTERVAL_YEAR: i32 = -80i32;
 pub const SQL_INTERVAL_YEAR_TO_MONTH: i32 = -82i32;
@@ -20278,9 +19868,6 @@ impl Default for SQL_NUMERIC_STRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SQL_NUMERIC_STRUCT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SQL_NUM_FUNCTIONS: u32 = 23u32;
 pub const SQL_OAC_LEVEL1: u32 = 1u32;
@@ -20719,9 +20306,6 @@ impl Default for SQL_YEAR_MONTH_STRUCT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SQL_YEAR_MONTH_STRUCT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SQL_YEAR_TO_MONTH: u32 = 7u32;
 pub const SQLudtBINARY: u32 = 3u32;
 pub const SQLudtBIT: u32 = 16u32;
@@ -20804,9 +20388,6 @@ impl Default for SSERRORINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SSERRORINFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SSPROPVAL_COMMANDTYPE_BULKLOAD: u32 = 22u32;
 pub const SSPROPVAL_COMMANDTYPE_REGULAR: u32 = 21u32;
 pub const SSPROPVAL_USEPROCFORPREP_OFF: u32 = 0u32;
@@ -20869,10 +20450,6 @@ impl Default for SSVARIANT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SSVARIANT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub union SSVARIANT_0 {
@@ -20905,10 +20482,6 @@ impl Default for SSVARIANT_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SSVARIANT_0 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Debug, PartialEq)]
@@ -20921,10 +20494,6 @@ impl Default for SSVARIANT_0_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SSVARIANT_0_4 {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -20940,10 +20509,6 @@ impl Default for SSVARIANT_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SSVARIANT_0_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -20962,10 +20527,6 @@ impl Default for SSVARIANT_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SSVARIANT_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -20983,10 +20544,6 @@ impl Default for SSVARIANT_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SSVARIANT_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -21000,10 +20557,6 @@ impl Default for SSVARIANT_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SSVARIANT_0_3 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const STD_BOOKMARKLENGTH: u32 = 1u32;
 pub const STGM_COLLECTION: i32 = 8192i32;
@@ -21097,9 +20650,6 @@ impl Default for SUBSCRIPTIONINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SUBSCRIPTIONINFO {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SUBSCRIPTIONINFOFLAGS(pub i32);
@@ -21116,9 +20666,6 @@ impl Default for SUBSCRIPTIONITEMINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SUBSCRIPTIONITEMINFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -21172,9 +20719,6 @@ impl Default for TEXT_SOURCE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TEXT_SOURCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TIMEOUT_INFO {
@@ -21186,9 +20730,6 @@ impl Default for TIMEOUT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TIMEOUT_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -21206,9 +20747,6 @@ impl Default for TIMESTAMP_STRUCT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TIMESTAMP_STRUCT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TIME_STRUCT {
@@ -21220,9 +20758,6 @@ impl Default for TIME_STRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TIME_STRUCT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const TRACE_ON: i32 = 1i32;
 pub const TRACE_VERSION: u32 = 1000u32;
@@ -21239,10 +20774,6 @@ impl Default for VECTORRESTRICTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for VECTORRESTRICTION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const VT_SS_BINARY: SQLVARENUM = SQLVARENUM(207i32);
 pub const VT_SS_BIT: SQLVARENUM = SQLVARENUM(11i32);

@@ -64,9 +64,6 @@ impl Default for CMD_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMD_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CMD_FLAG_HIDDEN: NS_CMD_FLAGS = NS_CMD_FLAGS(32i32);
 pub const CMD_FLAG_INTERACTIVE: NS_CMD_FLAGS = NS_CMD_FLAGS(2i32);
 pub const CMD_FLAG_LIMIT_MASK: NS_CMD_FLAGS = NS_CMD_FLAGS(65535i32);
@@ -88,9 +85,6 @@ impl Default for CMD_GROUP_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CMD_GROUP_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DEFAULT_CONTEXT_PRIORITY: u32 = 100u32;
 pub const ERROR_CMD_NOT_FOUND: u32 = 15004u32;
@@ -154,9 +148,6 @@ impl Default for NS_CONTEXT_ATTRIBUTES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NS_CONTEXT_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NS_CONTEXT_ATTRIBUTES_0 {
@@ -168,9 +159,6 @@ impl Default for NS_CONTEXT_ATTRIBUTES_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NS_CONTEXT_ATTRIBUTES_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NS_CONTEXT_ATTRIBUTES_0_0 {
@@ -181,9 +169,6 @@ impl Default for NS_CONTEXT_ATTRIBUTES_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NS_CONTEXT_ATTRIBUTES_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -207,9 +192,6 @@ impl Default for NS_HELPER_ATTRIBUTES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NS_HELPER_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NS_HELPER_ATTRIBUTES_0 {
@@ -221,9 +203,6 @@ impl Default for NS_HELPER_ATTRIBUTES_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NS_HELPER_ATTRIBUTES_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NS_HELPER_ATTRIBUTES_0_0 {
@@ -234,9 +213,6 @@ impl Default for NS_HELPER_ATTRIBUTES_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NS_HELPER_ATTRIBUTES_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -271,9 +247,6 @@ impl Default for TAG_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TAG_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TOKEN_VALUE {
@@ -284,7 +257,4 @@ impl Default for TOKEN_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TOKEN_VALUE {
-    type TypeKind = windows_core::CopyType;
 }

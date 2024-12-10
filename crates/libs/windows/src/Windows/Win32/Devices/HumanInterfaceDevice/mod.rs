@@ -272,9 +272,6 @@ impl Default for CPOINT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CPOINT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DD_KEYBOARD_DEVICE_NAME: windows_core::PCSTR = windows_core::s!("\\Device\\KeyboardClass");
 pub const DD_KEYBOARD_DEVICE_NAME_U: windows_core::PCWSTR = windows_core::w!("\\Device\\KeyboardClass");
 pub const DD_MOUSE_DEVICE_NAME: windows_core::PCSTR = windows_core::s!("\\Device\\PointerClass");
@@ -378,9 +375,6 @@ impl Default for DIACTIONA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DIACTIONA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DIACTIONA_0 {
@@ -391,9 +385,6 @@ impl Default for DIACTIONA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DIACTIONA_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -418,9 +409,6 @@ impl Default for DIACTIONFORMATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DIACTIONFORMATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIACTIONFORMATW {
@@ -444,9 +432,6 @@ impl Default for DIACTIONFORMATW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DIACTIONFORMATW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DIACTIONW {
@@ -463,9 +448,6 @@ impl Default for DIACTIONW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DIACTIONW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DIACTIONW_0 {
@@ -476,9 +458,6 @@ impl Default for DIACTIONW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DIACTIONW_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DIAFTS_NEWDEVICEHIGH: u32 = 4294967295u32;
 pub const DIAFTS_NEWDEVICELOW: u32 = 4294967295u32;
@@ -1341,9 +1320,6 @@ impl Default for DICOLORSET {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DICOLORSET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DICONDITION {
@@ -1358,9 +1334,6 @@ impl Default for DICONDITION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DICONDITION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
@@ -1379,9 +1352,6 @@ impl Default for DICONFIGUREDEVICESPARAMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DICONFIGUREDEVICESPARAMSA {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct DICONFIGUREDEVICESPARAMSW {
@@ -1399,9 +1369,6 @@ impl Default for DICONFIGUREDEVICESPARAMSW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DICONFIGUREDEVICESPARAMSW {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DICONSTANTFORCE {
@@ -1411,9 +1378,6 @@ impl Default for DICONSTANTFORCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DICONSTANTFORCE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1427,9 +1391,6 @@ impl Default for DICUSTOMFORCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DICUSTOMFORCE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DIDAL_BOTTOMALIGNED: u32 = 8u32;
 pub const DIDAL_CENTERED: u32 = 0u32;
@@ -1451,9 +1412,6 @@ impl Default for DIDATAFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DIDATAFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DIDBAM_DEFAULT: u32 = 0u32;
 pub const DIDBAM_HWDEFAULTS: u32 = 4u32;
@@ -1494,9 +1452,6 @@ impl Default for DIDEVCAPS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DIDEVCAPS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIDEVCAPS_DX3 {
@@ -1511,9 +1466,6 @@ impl Default for DIDEVCAPS_DX3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DIDEVCAPS_DX3 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1533,9 +1485,6 @@ impl Default for DIDEVICEIMAGEINFOA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DIDEVICEIMAGEINFOA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIDEVICEIMAGEINFOHEADERA {
@@ -1553,9 +1502,6 @@ impl Default for DIDEVICEIMAGEINFOHEADERA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DIDEVICEIMAGEINFOHEADERA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1575,9 +1521,6 @@ impl Default for DIDEVICEIMAGEINFOHEADERW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DIDEVICEIMAGEINFOHEADERW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIDEVICEIMAGEINFOW {
@@ -1595,9 +1538,6 @@ impl Default for DIDEVICEIMAGEINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DIDEVICEIMAGEINFOW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1617,9 +1557,6 @@ impl Default for DIDEVICEINSTANCEA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DIDEVICEINSTANCEA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIDEVICEINSTANCEW {
@@ -1638,9 +1575,6 @@ impl Default for DIDEVICEINSTANCEW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DIDEVICEINSTANCEW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIDEVICEINSTANCE_DX3A {
@@ -1655,9 +1589,6 @@ impl Default for DIDEVICEINSTANCE_DX3A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DIDEVICEINSTANCE_DX3A {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1674,9 +1605,6 @@ impl Default for DIDEVICEINSTANCE_DX3W {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DIDEVICEINSTANCE_DX3W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIDEVICEOBJECTDATA {
@@ -1691,9 +1619,6 @@ impl Default for DIDEVICEOBJECTDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DIDEVICEOBJECTDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIDEVICEOBJECTDATA_DX3 {
@@ -1706,9 +1631,6 @@ impl Default for DIDEVICEOBJECTDATA_DX3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DIDEVICEOBJECTDATA_DX3 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1734,9 +1656,6 @@ impl Default for DIDEVICEOBJECTINSTANCEA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DIDEVICEOBJECTINSTANCEA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIDEVICEOBJECTINSTANCEW {
@@ -1761,9 +1680,6 @@ impl Default for DIDEVICEOBJECTINSTANCEW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DIDEVICEOBJECTINSTANCEW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIDEVICEOBJECTINSTANCE_DX3A {
@@ -1778,9 +1694,6 @@ impl Default for DIDEVICEOBJECTINSTANCE_DX3A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DIDEVICEOBJECTINSTANCE_DX3A {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1797,9 +1710,6 @@ impl Default for DIDEVICEOBJECTINSTANCE_DX3W {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DIDEVICEOBJECTINSTANCE_DX3W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIDEVICESTATE {
@@ -1811,9 +1721,6 @@ impl Default for DIDEVICESTATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DIDEVICESTATE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DIDEVTYPEJOYSTICK_FLIGHTSTICK: u32 = 3u32;
 pub const DIDEVTYPEJOYSTICK_GAMEPAD: u32 = 4u32;
@@ -1890,9 +1797,6 @@ impl Default for DIDRIVERVERSIONS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DIDRIVERVERSIONS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DIDSAM_DEFAULT: u32 = 0u32;
 pub const DIDSAM_FORCESAVE: u32 = 2u32;
 pub const DIDSAM_NOUSER: u32 = 1u32;
@@ -1937,9 +1841,6 @@ impl Default for DIEFFECT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DIEFFECT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIEFFECTATTRIBUTES {
@@ -1953,9 +1854,6 @@ impl Default for DIEFFECTATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DIEFFECTATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1972,9 +1870,6 @@ impl Default for DIEFFECTINFOA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DIEFFECTINFOA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIEFFECTINFOW {
@@ -1989,9 +1884,6 @@ impl Default for DIEFFECTINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DIEFFECTINFOW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2015,9 +1907,6 @@ impl Default for DIEFFECT_DX5 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DIEFFECT_DX5 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIEFFESCAPE {
@@ -2032,9 +1921,6 @@ impl Default for DIEFFESCAPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DIEFFESCAPE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DIEFF_CARTESIAN: u32 = 16u32;
 pub const DIEFF_OBJECTIDS: u32 = 1u32;
@@ -2072,9 +1958,6 @@ impl Default for DIENVELOPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DIENVELOPE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DIEP_ALLPARAMS: u32 = 1023u32;
 pub const DIEP_ALLPARAMS_DX5: u32 = 511u32;
@@ -2146,9 +2029,6 @@ impl Default for DIFFDEVICEATTRIBUTES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DIFFDEVICEATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIFFOBJECTATTRIBUTES {
@@ -2159,9 +2039,6 @@ impl Default for DIFFOBJECTATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DIFFOBJECTATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2175,9 +2052,6 @@ impl Default for DIFILEEFFECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DIFILEEFFECT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DIGDD_PEEK: u32 = 1u32;
 pub const DIGFFS_ACTUATORSOFF: u32 = 32u32;
@@ -2235,9 +2109,6 @@ impl Default for DIHIDFFINITINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DIHIDFFINITINFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DIJC_CALLOUT: u32 = 8u32;
 pub const DIJC_GAIN: u32 = 4u32;
 pub const DIJC_GUIDINSTANCE: u32 = 1u32;
@@ -2259,9 +2130,6 @@ impl Default for DIJOYCONFIG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DIJOYCONFIG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIJOYCONFIG_DX5 {
@@ -2276,9 +2144,6 @@ impl Default for DIJOYCONFIG_DX5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DIJOYCONFIG_DX5 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2297,9 +2162,6 @@ impl Default for DIJOYSTATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DIJOYSTATE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2340,9 +2202,6 @@ impl Default for DIJOYSTATE2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DIJOYSTATE2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIJOYTYPEINFO {
@@ -2361,9 +2220,6 @@ impl Default for DIJOYTYPEINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DIJOYTYPEINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIJOYTYPEINFO_DX5 {
@@ -2377,9 +2233,6 @@ impl Default for DIJOYTYPEINFO_DX5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DIJOYTYPEINFO_DX5 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2397,9 +2250,6 @@ impl Default for DIJOYTYPEINFO_DX6 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DIJOYTYPEINFO_DX6 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIJOYUSERVALUES {
@@ -2412,9 +2262,6 @@ impl Default for DIJOYUSERVALUES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DIJOYUSERVALUES {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DIJU_GAMEPORTEMULATOR: u32 = 4u32;
 pub const DIJU_GLOBALDRIVER: u32 = 2u32;
@@ -2736,9 +2583,6 @@ impl Default for DIMOUSESTATE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DIMOUSESTATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIMOUSESTATE2 {
@@ -2751,9 +2595,6 @@ impl Default for DIMOUSESTATE2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DIMOUSESTATE2 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DIMSGWP_DX8APPSTART: u32 = 2u32;
 pub const DIMSGWP_DX8MAPPERAPPSTART: u32 = 3u32;
@@ -2770,9 +2611,6 @@ impl Default for DIOBJECTATTRIBUTES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DIOBJECTATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIOBJECTCALIBRATION {
@@ -2784,9 +2622,6 @@ impl Default for DIOBJECTCALIBRATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DIOBJECTCALIBRATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2801,9 +2636,6 @@ impl Default for DIOBJECTDATAFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DIOBJECTDATAFORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIPERIODIC {
@@ -2816,9 +2648,6 @@ impl Default for DIPERIODIC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DIPERIODIC {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DIPH_BYID: u32 = 2u32;
 pub const DIPH_BYOFFSET: u32 = 1u32;
@@ -2834,9 +2663,6 @@ impl Default for DIPOVCALIBRATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DIPOVCALIBRATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DIPOV_ANY_1: u32 = 4278208001u32;
 pub const DIPOV_ANY_2: u32 = 4278208002u32;
@@ -2859,9 +2685,6 @@ impl Default for DIPROPCAL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DIPROPCAL {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DIPROPCALIBRATIONMODE_COOKED: u32 = 0u32;
 pub const DIPROPCALIBRATIONMODE_RAW: u32 = 1u32;
 #[repr(C)]
@@ -2876,9 +2699,6 @@ impl Default for DIPROPCALPOV {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DIPROPCALPOV {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIPROPCPOINTS {
@@ -2891,9 +2711,6 @@ impl Default for DIPROPCPOINTS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DIPROPCPOINTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIPROPDWORD {
@@ -2904,9 +2721,6 @@ impl Default for DIPROPDWORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DIPROPDWORD {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2919,9 +2733,6 @@ impl Default for DIPROPGUIDANDPATH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DIPROPGUIDANDPATH {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2936,9 +2747,6 @@ impl Default for DIPROPHEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DIPROPHEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIPROPPOINTER {
@@ -2949,9 +2757,6 @@ impl Default for DIPROPPOINTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DIPROPPOINTER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2965,9 +2770,6 @@ impl Default for DIPROPRANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DIPROPRANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIPROPSTRING {
@@ -2978,9 +2780,6 @@ impl Default for DIPROPSTRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DIPROPSTRING {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DIPROP_APPDATA: windows_core::GUID = windows_core::GUID::from_u128(0x00000000_0000_0000_0000_000000000016);
 pub const DIPROP_AUTOCENTER: windows_core::GUID = windows_core::GUID::from_u128(0x00000000_0000_0000_0000_000000000009);
@@ -3017,9 +2816,6 @@ impl Default for DIRAMPFORCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DIRAMPFORCE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DIRECTINPUT_HEADER_VERSION: u32 = 2048u32;
 pub const DIRECTINPUT_NOTIFICATION_MSGSTRING: windows_core::PCWSTR = windows_core::w!("DIRECTINPUT_NOTIFICATION_MSGSTRING");
@@ -3213,9 +3009,6 @@ impl Default for HIDD_ATTRIBUTES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HIDD_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct HIDD_CONFIGURATION {
@@ -3228,9 +3021,6 @@ impl Default for HIDD_CONFIGURATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HIDD_CONFIGURATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HIDP_BUTTON_ARRAY_DATA {
@@ -3241,9 +3031,6 @@ impl Default for HIDP_BUTTON_ARRAY_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HIDP_BUTTON_ARRAY_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3269,9 +3056,6 @@ impl Default for HIDP_BUTTON_CAPS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HIDP_BUTTON_CAPS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union HIDP_BUTTON_CAPS_0 {
@@ -3282,9 +3066,6 @@ impl Default for HIDP_BUTTON_CAPS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HIDP_BUTTON_CAPS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3303,9 +3084,6 @@ impl Default for HIDP_BUTTON_CAPS_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HIDP_BUTTON_CAPS_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HIDP_BUTTON_CAPS_0_0 {
@@ -3322,9 +3100,6 @@ impl Default for HIDP_BUTTON_CAPS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HIDP_BUTTON_CAPS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3351,9 +3126,6 @@ impl Default for HIDP_CAPS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HIDP_CAPS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HIDP_DATA {
@@ -3366,9 +3138,6 @@ impl Default for HIDP_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HIDP_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union HIDP_DATA_0 {
@@ -3379,9 +3148,6 @@ impl Default for HIDP_DATA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HIDP_DATA_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
@@ -3396,9 +3162,6 @@ impl Default for HIDP_EXTENDED_ATTRIBUTES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HIDP_EXTENDED_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HIDP_KEYBOARD_DIRECTION(pub i32);
@@ -3412,9 +3175,6 @@ impl Default for HIDP_KEYBOARD_MODIFIER_STATE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HIDP_KEYBOARD_MODIFIER_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union HIDP_KEYBOARD_MODIFIER_STATE_0 {
@@ -3426,9 +3186,6 @@ impl Default for HIDP_KEYBOARD_MODIFIER_STATE_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HIDP_KEYBOARD_MODIFIER_STATE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
@@ -3438,9 +3195,6 @@ impl Default for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
@@ -3458,9 +3212,6 @@ impl Default for HIDP_LINK_COLLECTION_NODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HIDP_LINK_COLLECTION_NODE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3498,9 +3249,6 @@ impl Default for HIDP_UNKNOWN_TOKEN {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HIDP_UNKNOWN_TOKEN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HIDP_VALUE_CAPS {
@@ -3533,9 +3281,6 @@ impl Default for HIDP_VALUE_CAPS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HIDP_VALUE_CAPS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union HIDP_VALUE_CAPS_0 {
@@ -3546,9 +3291,6 @@ impl Default for HIDP_VALUE_CAPS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HIDP_VALUE_CAPS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3567,9 +3309,6 @@ impl Default for HIDP_VALUE_CAPS_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HIDP_VALUE_CAPS_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HIDP_VALUE_CAPS_0_0 {
@@ -3587,9 +3326,6 @@ impl Default for HIDP_VALUE_CAPS_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HIDP_VALUE_CAPS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HID_COLLECTION_INFORMATION {
@@ -3605,9 +3341,6 @@ impl Default for HID_COLLECTION_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HID_COLLECTION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HID_DRIVER_CONFIG {
@@ -3618,9 +3351,6 @@ impl Default for HID_DRIVER_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HID_DRIVER_CONFIG {
-    type TypeKind = windows_core::CopyType;
 }
 pub const HID_REVISION: u32 = 1u32;
 pub const HID_USAGE_ALPHANUMERIC_14_SEGMENT_DIRECT_MAP: u16 = 69u16;
@@ -4249,9 +3979,6 @@ impl Default for HID_XFER_PACKET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HID_XFER_PACKET {
-    type TypeKind = windows_core::CopyType;
 }
 pub const HORIZONTAL_WHEEL_PRESENT: u32 = 32768u32;
 pub const HidP_Feature: HIDP_REPORT_TYPE = HIDP_REPORT_TYPE(2i32);
@@ -6787,9 +6514,6 @@ impl Default for INDICATOR_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INDICATOR_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INPUT_BUTTON_ENABLE_INFO {
@@ -6800,9 +6524,6 @@ impl Default for INPUT_BUTTON_ENABLE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for INPUT_BUTTON_ENABLE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const IOCTL_BUTTON_GET_ENABLED_ON_IDLE: u32 = 721580u32;
 pub const IOCTL_BUTTON_SET_ENABLED_ON_IDLE: u32 = 721576u32;
@@ -6833,9 +6554,6 @@ impl Default for JOYCALIBRATE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for JOYCALIBRATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JOYPOS {
@@ -6851,9 +6569,6 @@ impl Default for JOYPOS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for JOYPOS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JOYRANGE {
@@ -6865,9 +6580,6 @@ impl Default for JOYRANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for JOYRANGE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6883,9 +6595,6 @@ impl Default for JOYREGHWCONFIG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for JOYREGHWCONFIG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JOYREGHWSETTINGS {
@@ -6896,9 +6605,6 @@ impl Default for JOYREGHWSETTINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for JOYREGHWSETTINGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6912,9 +6618,6 @@ impl Default for JOYREGHWVALUES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for JOYREGHWVALUES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JOYREGUSERVALUES {
@@ -6926,9 +6629,6 @@ impl Default for JOYREGUSERVALUES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for JOYREGUSERVALUES {
-    type TypeKind = windows_core::CopyType;
 }
 pub const JOYTYPE_ANALOGCOMPAT: i32 = 8i32;
 pub const JOYTYPE_DEFAULTPROPSHEET: i32 = -2147483648i32;
@@ -7030,9 +6730,6 @@ impl Default for KEYBOARD_ATTRIBUTES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KEYBOARD_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KEYBOARD_CAPS_LOCK_ON: u32 = 4u32;
 pub const KEYBOARD_ERROR_VALUE_BASE: u32 = 10000u32;
 #[repr(C)]
@@ -7051,9 +6748,6 @@ impl Default for KEYBOARD_EXTENDED_ATTRIBUTES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KEYBOARD_EXTENDED_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KEYBOARD_EXTENDED_ATTRIBUTES_STRUCT_VERSION_1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7065,9 +6759,6 @@ impl Default for KEYBOARD_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KEYBOARD_ID {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7081,9 +6772,6 @@ impl Default for KEYBOARD_IME_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KEYBOARD_IME_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KEYBOARD_INDICATOR_PARAMETERS {
@@ -7095,9 +6783,6 @@ impl Default for KEYBOARD_INDICATOR_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KEYBOARD_INDICATOR_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KEYBOARD_INDICATOR_TRANSLATION {
@@ -7108,9 +6793,6 @@ impl Default for KEYBOARD_INDICATOR_TRANSLATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KEYBOARD_INDICATOR_TRANSLATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7125,9 +6807,6 @@ impl Default for KEYBOARD_INPUT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KEYBOARD_INPUT_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KEYBOARD_KANA_LOCK_ON: u32 = 8u32;
 pub const KEYBOARD_LED_INJECTED: u32 = 32768u32;
@@ -7147,9 +6826,6 @@ impl Default for KEYBOARD_TYPEMATIC_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KEYBOARD_TYPEMATIC_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KEYBOARD_UNIT_ID_PARAMETER {
@@ -7159,9 +6835,6 @@ impl Default for KEYBOARD_UNIT_ID_PARAMETER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KEYBOARD_UNIT_ID_PARAMETER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KEY_BREAK: u32 = 1u32;
 pub const KEY_E0: u32 = 2u32;
@@ -7203,9 +6876,6 @@ impl Default for MOUSE_ATTRIBUTES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MOUSE_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MOUSE_BUTTON_1_DOWN: u32 = 1u32;
 pub const MOUSE_BUTTON_1_UP: u32 = 2u32;
 pub const MOUSE_BUTTON_2_DOWN: u32 = 4u32;
@@ -7237,9 +6907,6 @@ impl Default for MOUSE_INPUT_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MOUSE_INPUT_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union MOUSE_INPUT_DATA_0 {
@@ -7251,9 +6918,6 @@ impl Default for MOUSE_INPUT_DATA_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MOUSE_INPUT_DATA_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MOUSE_INPUT_DATA_0_0 {
@@ -7264,9 +6928,6 @@ impl Default for MOUSE_INPUT_DATA_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MOUSE_INPUT_DATA_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MOUSE_LEFT_BUTTON_DOWN: u32 = 1u32;
 pub const MOUSE_LEFT_BUTTON_UP: u32 = 2u32;
@@ -7285,9 +6946,6 @@ impl Default for MOUSE_UNIT_ID_PARAMETER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MOUSE_UNIT_ID_PARAMETER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MOUSE_WHEEL: u32 = 1024u32;
 pub type PFN_HidP_GetVersionInternal = Option<unsafe extern "system" fn(version: *mut u32) -> super::super::Foundation::NTSTATUS>;
@@ -7308,9 +6966,6 @@ impl Default for USAGE_AND_PAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for USAGE_AND_PAGE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WHEELMOUSE_HID_HARDWARE: u32 = 256u32;
 pub const WHEELMOUSE_I8042_HARDWARE: u32 = 32u32;

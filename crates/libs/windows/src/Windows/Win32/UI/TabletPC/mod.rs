@@ -191,9 +191,6 @@ impl Default for CHARACTER_RANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CHARACTER_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONFIDENCE_LEVEL(pub i32);
@@ -770,9 +767,6 @@ impl Default for DYNAMIC_RENDERER_CACHED_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DYNAMIC_RENDERER_CACHED_DATA {
-    type TypeKind = windows_core::CloneType;
-}
 pub const DockedBottom: VisualState = VisualState(3i32);
 pub const DockedTop: VisualState = VisualState(2i32);
 pub const DynamicRenderer: windows_core::GUID = windows_core::GUID::from_u128(0xecd32aea_746f_4dcb_bf68_082757faff18);
@@ -891,9 +885,6 @@ impl Default for FLICK_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FLICK_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLICK_POINT {
@@ -903,9 +894,6 @@ impl Default for FLICK_POINT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FLICK_POINT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FLICK_WM_HANDLED_MASK: u32 = 1u32;
 pub const Floating: VisualState = VisualState(1i32);
@@ -949,9 +937,6 @@ impl Default for GESTURE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GESTURE_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const GESTURE_DIAGONAL_LEFTDOWN: u32 = 61534u32;
 pub const GESTURE_DIAGONAL_LEFTUP: u32 = 61532u32;
@@ -1544,10 +1529,6 @@ impl Default for IEC_GESTUREINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Controls"))]
-impl windows_core::TypeKind for IEC_GESTUREINFO {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
 #[derive(Clone, Debug, PartialEq)]
@@ -1560,10 +1541,6 @@ impl Default for IEC_RECOGNITIONRESULTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
-impl windows_core::TypeKind for IEC_RECOGNITIONRESULTINFO {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
@@ -1578,10 +1555,6 @@ impl Default for IEC_STROKEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
-impl windows_core::TypeKind for IEC_STROKEINFO {
-    type TypeKind = windows_core::CloneType;
 }
 pub const IEC__BASE: u32 = 1536u32;
 pub const IEF_CopyFromOriginal: InkExtractFlags = InkExtractFlags(0i32);
@@ -11377,9 +11350,6 @@ impl Default for INKMETRIC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INKMETRIC {
-    type TypeKind = windows_core::CopyType;
-}
 pub const INKRECOGNITIONPROPERTY_BOXNUMBER: windows_core::PCWSTR = windows_core::w!("{2C243E3A-F733-4EB6-B1F8-B5DC5C2C4CDA}");
 pub const INKRECOGNITIONPROPERTY_CONFIDENCELEVEL: windows_core::PCWSTR = windows_core::w!("{7DFE11A7-FB5D-4958-8765-154ADF0D833F}");
 pub const INKRECOGNITIONPROPERTY_HOTPOINT: windows_core::PCWSTR = windows_core::w!("{CA6F40DC-5292-452a-91FB-2181C0BEC0DE}");
@@ -13739,9 +13709,6 @@ impl Default for InkRecoGuide {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for InkRecoGuide {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkRecognitionAlternatesSelection(pub i32);
@@ -13805,9 +13772,6 @@ impl Default for LATTICE_METRICS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LATTICE_METRICS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const LEFT_BUTTON: MouseButton = MouseButton(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -13822,9 +13786,6 @@ impl Default for LINE_SEGMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LINE_SEGMENT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const LM_ASCENDER: LINE_METRICS = LINE_METRICS(2i32);
 pub const LM_BASELINE: LINE_METRICS = LINE_METRICS(0i32);
@@ -13881,9 +13842,6 @@ impl Default for PACKET_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PACKET_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PACKET_PROPERTY {
@@ -13894,9 +13852,6 @@ impl Default for PACKET_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PACKET_PROPERTY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -13910,9 +13865,6 @@ impl Default for PROPERTY_METRICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PROPERTY_METRICS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -13975,9 +13927,6 @@ impl Default for RECO_ATTRS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RECO_ATTRS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RECO_GUIDE {
@@ -13996,9 +13945,6 @@ impl Default for RECO_GUIDE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RECO_GUIDE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RECO_LATTICE {
@@ -14015,9 +13961,6 @@ impl Default for RECO_LATTICE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RECO_LATTICE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RECO_LATTICE_COLUMN {
@@ -14032,9 +13975,6 @@ impl Default for RECO_LATTICE_COLUMN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RECO_LATTICE_COLUMN {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -14051,9 +13991,6 @@ impl Default for RECO_LATTICE_ELEMENT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RECO_LATTICE_ELEMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RECO_LATTICE_PROPERTIES {
@@ -14064,9 +14001,6 @@ impl Default for RECO_LATTICE_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RECO_LATTICE_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -14080,9 +14014,6 @@ impl Default for RECO_LATTICE_PROPERTY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RECO_LATTICE_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RECO_RANGE {
@@ -14093,9 +14024,6 @@ impl Default for RECO_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RECO_RANGE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -14180,9 +14108,6 @@ impl Default for STROKE_RANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STROKE_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const STR_GUID_ALTITUDEORIENTATION: windows_core::PCWSTR = windows_core::w!("{82DEC5C7-F6BA-4906-894F-66D68DFC456C}");
 pub const STR_GUID_AZIMUTHORIENTATION: windows_core::PCWSTR = windows_core::w!("{029123B4-8828-410B-B250-A0536595E5DC}");
 pub const STR_GUID_BUTTONPRESSURE: windows_core::PCWSTR = windows_core::w!("{8B7FEFC4-96AA-4BFE-AC26-8A5F0BE07BF5}");
@@ -14219,9 +14144,6 @@ impl Default for SYSTEM_EVENT_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYSTEM_EVENT_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ScrollBarsConstants(pub i32);
@@ -14244,9 +14166,6 @@ impl Default for StylusInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for StylusInfo {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

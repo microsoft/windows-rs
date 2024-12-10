@@ -7135,9 +7135,6 @@ impl Default for CALDATETIME {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CALDATETIME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CALDATETIME_DATEUNIT(pub i32);
@@ -7238,9 +7235,6 @@ impl Default for CHARSETINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CHARSETINFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CMLangConvertCharset: windows_core::GUID = windows_core::GUID::from_u128(0xd66d6f99_cdaa_11d0_b822_00c04fc9b31f);
 pub const CMLangString: windows_core::GUID = windows_core::GUID::from_u128(0xc04d65cf_b70d_11d0_b188_00aa0038c969);
 pub const CMultiLanguage: windows_core::GUID = windows_core::GUID::from_u128(0x275c23e2_3747_11d0_9fea_00aa003f8646);
@@ -7305,9 +7299,6 @@ impl Default for CPINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CPINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CPINFOEXA {
@@ -7323,9 +7314,6 @@ impl Default for CPINFOEXA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CPINFOEXA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CPINFOEXW {
@@ -7340,9 +7328,6 @@ impl Default for CPINFOEXW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CPINFOEXW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CPIOD_FORCE_PROMPT: i32 = -2147483648i32;
 pub const CPIOD_PEEK: i32 = 1073741824i32;
@@ -7490,9 +7475,6 @@ impl Default for CURRENCYFMTA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CURRENCYFMTA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CURRENCYFMTW {
@@ -7509,9 +7491,6 @@ impl Default for CURRENCYFMTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CURRENCYFMTW {
-    type TypeKind = windows_core::CopyType;
 }
 pub type DATEFMT_ENUMPROCA = Option<unsafe extern "system" fn(param0: windows_core::PCSTR) -> super::Foundation::BOOL>;
 pub type DATEFMT_ENUMPROCEXA = Option<unsafe extern "system" fn(param0: windows_core::PCSTR, param1: u32) -> super::Foundation::BOOL>;
@@ -7540,9 +7519,6 @@ impl Default for DetectEncodingInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DetectEncodingInfo {
-    type TypeKind = windows_core::CopyType;
-}
 pub const ELS_GUID_LANGUAGE_DETECTION: windows_core::GUID = windows_core::GUID::from_u128(0xcf7e00b1_909b_4d95_a8f4_611f7c377702);
 pub const ELS_GUID_SCRIPT_DETECTION: windows_core::GUID = windows_core::GUID::from_u128(0x2d64b439_6caf_4f6b_b688_e5d0f4faa7d7);
 pub const ELS_GUID_TRANSLITERATION_BENGALI_TO_LATIN: windows_core::GUID = windows_core::GUID::from_u128(0xf4dfd825_91a4_489f_855e_9ad9bee55727);
@@ -7565,10 +7541,6 @@ impl Default for ENUMTEXTMETRICA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for ENUMTEXTMETRICA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7581,10 +7553,6 @@ impl Default for ENUMTEXTMETRICW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for ENUMTEXTMETRICW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const ENUM_ALL_CALENDARS: u32 = 4294967295u32;
 #[repr(transparent)]
@@ -7618,9 +7586,6 @@ impl Default for FILEMUIINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FILEMUIINFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FIND_ENDSWITH: u32 = 2097152u32;
 pub const FIND_FROMEND: u32 = 8388608u32;
@@ -7673,9 +7638,6 @@ impl Default for FONTSIGNATURE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FONTSIGNATURE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const GEOCLASS_ALL: SYSGEOCLASS = SYSGEOCLASS(0i32);
 pub const GEOCLASS_NATION: SYSGEOCLASS = SYSGEOCLASS(16i32);
 pub const GEOCLASS_REGION: SYSGEOCLASS = SYSGEOCLASS(14i32);
@@ -7710,9 +7672,6 @@ impl Default for GOFFSET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GOFFSET {
-    type TypeKind = windows_core::CopyType;
 }
 pub const GSS_ALLOW_INHERITED_COMMON: u32 = 1u32;
 pub const HIGHLEVEL_SERVICE_TYPES: u32 = 1u32;
@@ -10625,9 +10584,6 @@ impl Default for LOCALESIGNATURE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LOCALESIGNATURE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const LOCALE_ALL: u32 = 0u32;
 pub const LOCALE_ALLOW_NEUTRAL_NAMES: u32 = 134217728u32;
 pub const LOCALE_ALTERNATE_SORTS: u32 = 4u32;
@@ -10827,9 +10783,6 @@ impl Default for MAPPING_DATA_RANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MAPPING_DATA_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MAPPING_ENUM_OPTIONS {
@@ -10848,9 +10801,6 @@ impl Default for MAPPING_ENUM_OPTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MAPPING_ENUM_OPTIONS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10877,9 +10827,6 @@ impl Default for MAPPING_OPTIONS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MAPPING_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MAPPING_PROPERTY_BAG {
@@ -10896,9 +10843,6 @@ impl Default for MAPPING_PROPERTY_BAG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MAPPING_PROPERTY_BAG {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10933,9 +10877,6 @@ impl Default for MAPPING_SERVICE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MAPPING_SERVICE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MAP_COMPOSITE: FOLD_STRING_MAP_FLAGS = FOLD_STRING_MAP_FLAGS(64u32);
 pub const MAP_EXPAND_LIGATURES: FOLD_STRING_MAP_FLAGS = FOLD_STRING_MAP_FLAGS(8192u32);
@@ -10989,9 +10930,6 @@ impl Default for MIMECPINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIMECPINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MIMECSETINFO {
@@ -11003,9 +10941,6 @@ impl Default for MIMECSETINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MIMECSETINFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MIN_SPELLING_NTDDI: u32 = 100794368u32;
 #[repr(transparent)]
@@ -11127,10 +11062,6 @@ impl Default for NEWTEXTMETRICEXA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for NEWTEXTMETRICEXA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -11143,10 +11074,6 @@ impl Default for NEWTEXTMETRICEXW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for NEWTEXTMETRICEXW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -11162,9 +11089,6 @@ impl Default for NLSVERSIONINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NLSVERSIONINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NLSVERSIONINFOEX {
@@ -11178,9 +11102,6 @@ impl Default for NLSVERSIONINFOEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NLSVERSIONINFOEX {
-    type TypeKind = windows_core::CopyType;
 }
 pub const NLS_CP_CPINFO: u32 = 268435456u32;
 pub const NLS_CP_MBTOWC: u32 = 1073741824u32;
@@ -11209,9 +11130,6 @@ impl Default for NUMBERFMTA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NUMBERFMTA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NUMBERFMTW {
@@ -11226,9 +11144,6 @@ impl Default for NUMBERFMTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NUMBERFMTW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const NUMSYS_NAME_CAPACITY: u32 = 8u32;
 pub const NormalizationC: NORM_FORM = NORM_FORM(1i32);
@@ -11249,9 +11164,6 @@ impl Default for OPENTYPE_FEATURE_RECORD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OPENTYPE_FEATURE_RECORD {
-    type TypeKind = windows_core::CopyType;
-}
 pub type PFN_MAPPINGCALLBACKPROC = Option<unsafe extern "system" fn(pbag: *mut MAPPING_PROPERTY_BAG, data: *mut core::ffi::c_void, dwdatasize: u32, result: windows_core::HRESULT)>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -11264,9 +11176,6 @@ impl Default for RFC1766INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RFC1766INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -11290,9 +11199,6 @@ impl Default for SCRIPTFONTINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCRIPTFONTINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCRIPTINFO {
@@ -11307,9 +11213,6 @@ impl Default for SCRIPTINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCRIPTINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCRIPT_ANALYSIS {
@@ -11321,9 +11224,6 @@ impl Default for SCRIPT_ANALYSIS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCRIPT_ANALYSIS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCRIPT_CHARPROP {
@@ -11334,9 +11234,6 @@ impl Default for SCRIPT_CHARPROP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCRIPT_CHARPROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCRIPT_CONTROL {
@@ -11346,9 +11243,6 @@ impl Default for SCRIPT_CONTROL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCRIPT_CONTROL {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -11361,9 +11255,6 @@ impl Default for SCRIPT_DIGITSUBSTITUTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCRIPT_DIGITSUBSTITUTE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SCRIPT_DIGITSUBSTITUTE_CONTEXT: u32 = 0u32;
 pub const SCRIPT_DIGITSUBSTITUTE_NATIONAL: u32 = 2u32;
@@ -11384,9 +11275,6 @@ impl Default for SCRIPT_FONTPROPERTIES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCRIPT_FONTPROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCRIPT_GLYPHPROP {
@@ -11397,9 +11285,6 @@ impl Default for SCRIPT_GLYPHPROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCRIPT_GLYPHPROP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -11414,9 +11299,6 @@ impl Default for SCRIPT_ITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCRIPT_ITEM {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -11447,9 +11329,6 @@ impl Default for SCRIPT_LOGATTR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCRIPT_LOGATTR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCRIPT_PROPERTIES {
@@ -11461,9 +11340,6 @@ impl Default for SCRIPT_PROPERTIES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCRIPT_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCRIPT_STATE {
@@ -11473,9 +11349,6 @@ impl Default for SCRIPT_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCRIPT_STATE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -11490,9 +11363,6 @@ impl Default for SCRIPT_TABDEF {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCRIPT_TABDEF {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SCRIPT_TAG_UNKNOWN: u32 = 0u32;
 pub const SCRIPT_UNDEFINED: u32 = 0u32;
 #[repr(C)]
@@ -11504,9 +11374,6 @@ impl Default for SCRIPT_VISATTR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCRIPT_VISATTR {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SGCM_RTL: u32 = 1u32;
 pub const SIC_ASCIIDIGIT: SCRIPT_IS_COMPLEX_FLAGS = SCRIPT_IS_COMPLEX_FLAGS(2u32);
@@ -11562,9 +11429,6 @@ impl Default for TEXTRANGE_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TEXTRANGE_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
 }
 pub type TIMEFMT_ENUMPROCA = Option<unsafe extern "system" fn(param0: windows_core::PCSTR) -> super::Foundation::BOOL>;
 pub type TIMEFMT_ENUMPROCEX = Option<unsafe extern "system" fn(param0: windows_core::PCWSTR, param1: super::Foundation::LPARAM) -> super::Foundation::BOOL>;
@@ -12393,9 +12257,6 @@ impl Default for UCPTrie {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for UCPTrie {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union UCPTrieData {
@@ -12408,9 +12269,6 @@ impl Default for UCPTrieData {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for UCPTrieData {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -12495,9 +12353,6 @@ impl Default for UCharIterator {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for UCharIterator {
-    type TypeKind = windows_core::CopyType;
 }
 pub type UCharIteratorCurrent = Option<unsafe extern "system" fn(iter: *mut UCharIterator) -> i32>;
 pub type UCharIteratorGetIndex = Option<unsafe extern "system" fn(iter: *mut UCharIterator, origin: UCharIteratorOrigin) -> i32>;
@@ -12590,9 +12445,6 @@ impl Default for UConverterFromUnicodeArgs {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for UConverterFromUnicodeArgs {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UConverterPlatform(pub i32);
@@ -12619,9 +12471,6 @@ impl Default for UConverterToUnicodeArgs {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for UConverterToUnicodeArgs {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -12968,9 +12817,6 @@ impl Default for UFieldPosition {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for UFieldPosition {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UFieldPositionIterator(pub isize);
@@ -13060,9 +12906,6 @@ impl Default for UIDNAInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for UIDNAInfo {
-    type TypeKind = windows_core::CopyType;
 }
 pub const UIDNA_CHECK_BIDI: i32 = 4i32;
 pub const UIDNA_CHECK_CONTEXTJ: i32 = 8i32;
@@ -13282,9 +13125,6 @@ impl Default for UNICODERANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for UNICODERANGE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const UNISCRIBE_OPENTYPE: u32 = 256u32;
 pub const UNORM2_COMPOSE: UNormalization2Mode = UNormalization2Mode(0i32);
@@ -13545,9 +13385,6 @@ impl Default for UParseError {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for UParseError {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UPluralRules(pub isize);
@@ -13632,9 +13469,6 @@ impl Default for UReplaceableCallbacks {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for UReplaceableCallbacks {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -13947,9 +13781,6 @@ impl Default for USerializedSet {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for USerializedSet {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct USet(pub isize);
@@ -14128,9 +13959,6 @@ impl Default for UText {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for UText {
-    type TypeKind = windows_core::CopyType;
-}
 pub type UTextAccess = Option<unsafe extern "system" fn(ut: *mut UText, nativeindex: i64, forward: i8) -> i8>;
 pub type UTextClone = Option<unsafe extern "system" fn(dest: *mut UText, src: *const UText, deep: i8, status: *mut UErrorCode) -> *mut UText>;
 pub type UTextClose = Option<unsafe extern "system" fn(ut: *mut UText)>;
@@ -14160,9 +13988,6 @@ impl Default for UTextFuncs {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for UTextFuncs {
-    type TypeKind = windows_core::CopyType;
 }
 pub type UTextMapNativeIndexToUTF16 = Option<unsafe extern "system" fn(ut: *const UText, nativeindex: i64) -> i32>;
 pub type UTextMapOffsetToNative = Option<unsafe extern "system" fn(ut: *const UText) -> i64>;
@@ -14213,9 +14038,6 @@ impl Default for UTransPosition {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for UTransPosition {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

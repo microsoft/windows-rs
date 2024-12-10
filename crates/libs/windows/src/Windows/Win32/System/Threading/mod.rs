@@ -2114,9 +2114,6 @@ impl Default for APP_MEMORY_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for APP_MEMORY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AVRT_PRIORITY(pub i32);
@@ -2135,9 +2132,6 @@ impl Default for CONDITION_VARIABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CONDITION_VARIABLE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CONDITION_VARIABLE_INIT: CONDITION_VARIABLE = CONDITION_VARIABLE { Ptr: core::ptr::null_mut() };
 pub const CONDITION_VARIABLE_LOCKMODE_SHARED: u32 = 1u32;
@@ -2216,10 +2210,6 @@ impl Default for CRITICAL_SECTION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for CRITICAL_SECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2239,10 +2229,6 @@ impl Default for CRITICAL_SECTION_DEBUG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for CRITICAL_SECTION_DEBUG {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DEBUG_ONLY_THIS_PROCESS: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(2u32);
 pub const DEBUG_PROCESS: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(1u32);
@@ -2274,9 +2260,6 @@ impl Default for INIT_ONCE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INIT_ONCE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const INIT_ONCE_ASYNC: u32 = 2u32;
 pub const INIT_ONCE_CHECK_ONLY: u32 = 1u32;
 pub const INIT_ONCE_CTX_RESERVED_BITS: u32 = 2u32;
@@ -2296,9 +2279,6 @@ impl Default for IO_COUNTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IO_COUNTERS {
-    type TypeKind = windows_core::CopyType;
 }
 windows_core::imp::define_interface!(IRtwqAsyncCallback, IRtwqAsyncCallback_Vtbl, 0xa27003cf_2354_4f2a_8d6a_ab7cff15437e);
 windows_core::imp::interface_hierarchy!(IRtwqAsyncCallback, windows_core::IUnknown);
@@ -2560,9 +2540,6 @@ impl Default for MEMORY_PRIORITY_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MEMORY_PRIORITY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MEMORY_PRIORITY_LOW: MEMORY_PRIORITY = MEMORY_PRIORITY(2u32);
 pub const MEMORY_PRIORITY_MEDIUM: MEMORY_PRIORITY = MEMORY_PRIORITY(3u32);
 pub const MEMORY_PRIORITY_NORMAL: MEMORY_PRIORITY = MEMORY_PRIORITY(5u32);
@@ -2580,9 +2557,6 @@ impl Default for OVERRIDE_PREFETCH_PARAMETER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for OVERRIDE_PREFETCH_PARAMETER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
@@ -2614,10 +2588,6 @@ impl Default for PEB {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for PEB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2631,10 +2601,6 @@ impl Default for PEB_LDR_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for PEB_LDR_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub type PFLS_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(lpflsdata: *const core::ffi::c_void)>;
 pub const PF_3DNOW_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(7u32);
@@ -2758,10 +2724,6 @@ impl Default for PROCESS_BASIC_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for PROCESS_BASIC_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const PROCESS_CREATE_PROCESS: PROCESS_ACCESS_RIGHTS = PROCESS_ACCESS_RIGHTS(128u32);
 pub const PROCESS_CREATE_THREAD: PROCESS_ACCESS_RIGHTS = PROCESS_ACCESS_RIGHTS(2u32);
 #[repr(transparent)]
@@ -2852,9 +2814,6 @@ impl Default for PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {
@@ -2868,9 +2827,6 @@ impl Default for PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {
@@ -2882,9 +2838,6 @@ impl Default for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2899,9 +2852,6 @@ impl Default for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROCESS_INFORMATION {
@@ -2914,9 +2864,6 @@ impl Default for PROCESS_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PROCESS_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2931,9 +2878,6 @@ impl Default for PROCESS_LEAP_SECOND_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PROCESS_LEAP_SECOND_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PROCESS_LEAP_SECOND_INFO_FLAG_ENABLE_SIXTY_SECOND: u32 = 1u32;
 pub const PROCESS_LEAP_SECOND_INFO_VALID_FLAGS: u32 = 1u32;
@@ -2951,10 +2895,6 @@ impl Default for PROCESS_MACHINE_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemInformation")]
-impl windows_core::TypeKind for PROCESS_MACHINE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROCESS_MEMORY_EXHAUSTION_INFO {
@@ -2967,9 +2907,6 @@ impl Default for PROCESS_MEMORY_EXHAUSTION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PROCESS_MEMORY_EXHAUSTION_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2999,9 +2936,6 @@ impl Default for PROCESS_POWER_THROTTLING_STATE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROCESS_POWER_THROTTLING_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_PROTECTION_LEVEL(pub u32);
@@ -3014,9 +2948,6 @@ impl Default for PROCESS_PROTECTION_LEVEL_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PROCESS_PROTECTION_LEVEL_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PROCESS_QUERY_INFORMATION: PROCESS_ACCESS_RIGHTS = PROCESS_ACCESS_RIGHTS(1024u32);
 pub const PROCESS_QUERY_LIMITED_INFORMATION: PROCESS_ACCESS_RIGHTS = PROCESS_ACCESS_RIGHTS(4096u32);
@@ -3283,9 +3214,6 @@ impl Default for REASON_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REASON_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union REASON_CONTEXT_0 {
@@ -3296,9 +3224,6 @@ impl Default for REASON_CONTEXT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for REASON_CONTEXT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3312,9 +3237,6 @@ impl Default for REASON_CONTEXT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for REASON_CONTEXT_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const RTL_CRITICAL_SECTION_ALL_FLAG_BITS: u32 = 4278190080u32;
 pub const RTL_CRITICAL_SECTION_DEBUG_FLAG_STATIC_INIT: u32 = 1u32;
@@ -3335,9 +3257,6 @@ impl Default for RTL_USER_PROCESS_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RTL_USER_PROCESS_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 windows_core::imp::define_interface!(RTWQASYNCRESULT, RTWQASYNCRESULT_Vtbl, 0);
 impl core::ops::Deref for RTWQASYNCRESULT {
@@ -3379,9 +3298,6 @@ impl Default for SRWLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SRWLOCK {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SRWLOCK_INIT: SRWLOCK = SRWLOCK { Ptr: core::ptr::null_mut() };
 pub const STACK_SIZE_PARAM_IS_A_RESERVATION: THREAD_CREATION_FLAGS = THREAD_CREATION_FLAGS(65536u32);
@@ -3426,9 +3342,6 @@ impl Default for STARTUPINFOA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STARTUPINFOA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STARTUPINFOEXA {
@@ -3440,9 +3353,6 @@ impl Default for STARTUPINFOEXA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STARTUPINFOEXA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STARTUPINFOEXW {
@@ -3453,9 +3363,6 @@ impl Default for STARTUPINFOEXW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STARTUPINFOEXW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3483,9 +3390,6 @@ impl Default for STARTUPINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STARTUPINFOW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3573,9 +3477,6 @@ impl Default for SYNCHRONIZATION_BARRIER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYNCHRONIZATION_BARRIER {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SYNCHRONIZATION_BARRIER_FLAGS_BLOCK_ONLY: u32 = 2u32;
 pub const SYNCHRONIZATION_BARRIER_FLAGS_NO_DELETE: u32 = 4u32;
 pub const SYNCHRONIZATION_BARRIER_FLAGS_SPIN_ONLY: u32 = 1u32;
@@ -3604,10 +3505,6 @@ impl Default for TEB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for TEB {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3707,9 +3604,6 @@ impl Default for THREAD_POWER_THROTTLING_STATE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for THREAD_POWER_THROTTLING_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const THREAD_POWER_THROTTLING_VALID_FLAGS: u32 = 1u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3759,9 +3653,6 @@ impl Default for TP_CALLBACK_ENVIRON_V3 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TP_CALLBACK_ENVIRON_V3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union TP_CALLBACK_ENVIRON_V3_0 {
@@ -3773,9 +3664,6 @@ impl Default for TP_CALLBACK_ENVIRON_V3_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TP_CALLBACK_ENVIRON_V3_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TP_CALLBACK_ENVIRON_V3_0_0 {
@@ -3785,9 +3673,6 @@ impl Default for TP_CALLBACK_ENVIRON_V3_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TP_CALLBACK_ENVIRON_V3_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3807,9 +3692,6 @@ impl Default for TP_POOL_STACK_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TP_POOL_STACK_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const ThreadAbsoluteCpuPriority: THREAD_INFORMATION_CLASS = THREAD_INFORMATION_CLASS(1i32);
 pub const ThreadDynamicCodePolicy: THREAD_INFORMATION_CLASS = THREAD_INFORMATION_CLASS(2i32);
@@ -3831,10 +3713,6 @@ impl Default for UMS_SCHEDULER_STARTUP_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
-impl windows_core::TypeKind for UMS_SCHEDULER_STARTUP_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct UMS_SYSTEM_THREAD_INFORMATION {
@@ -3845,9 +3723,6 @@ impl Default for UMS_SYSTEM_THREAD_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for UMS_SYSTEM_THREAD_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3860,9 +3735,6 @@ impl Default for UMS_SYSTEM_THREAD_INFORMATION_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for UMS_SYSTEM_THREAD_INFORMATION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct UMS_SYSTEM_THREAD_INFORMATION_0_0 {
@@ -3872,9 +3744,6 @@ impl Default for UMS_SYSTEM_THREAD_INFORMATION_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for UMS_SYSTEM_THREAD_INFORMATION_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

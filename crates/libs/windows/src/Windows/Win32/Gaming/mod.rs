@@ -250,9 +250,6 @@ impl Default for GAMING_DEVICE_MODEL_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GAMING_DEVICE_MODEL_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GAMING_DEVICE_VENDOR_ID(pub i32);

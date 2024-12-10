@@ -47,9 +47,6 @@ impl Default for IPNG_ADDRESS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPNG_ADDRESS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MCAST_API_CURRENT_VERSION: i32 = 1i32;
 pub const MCAST_API_VERSION_0: i32 = 0i32;
 pub const MCAST_API_VERSION_1: i32 = 1i32;
@@ -64,9 +61,6 @@ impl Default for MCAST_CLIENT_UID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCAST_CLIENT_UID {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -85,9 +79,6 @@ impl Default for MCAST_LEASE_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCAST_LEASE_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MCAST_LEASE_RESPONSE {
@@ -102,9 +93,6 @@ impl Default for MCAST_LEASE_RESPONSE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCAST_LEASE_RESPONSE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MCAST_SCOPE_CTX {
@@ -116,9 +104,6 @@ impl Default for MCAST_SCOPE_CTX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCAST_SCOPE_CTX {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -132,7 +117,4 @@ impl Default for MCAST_SCOPE_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCAST_SCOPE_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }

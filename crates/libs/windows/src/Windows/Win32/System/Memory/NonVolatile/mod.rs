@@ -51,6 +51,3 @@ impl Default for NV_MEMORY_RANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NV_MEMORY_RANGE {
-    type TypeKind = windows_core::CopyType;
-}

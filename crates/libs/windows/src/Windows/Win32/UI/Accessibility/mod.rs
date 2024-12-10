@@ -738,9 +738,6 @@ impl Default for ACCESSTIMEOUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ACCESSTIMEOUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACC_UTILITY_STATE_FLAGS(pub u32);
@@ -1049,9 +1046,6 @@ impl Default for ExtendedProperty {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ExtendedProperty {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILTERKEYS {
@@ -1066,9 +1060,6 @@ impl Default for FILTERKEYS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FILTERKEYS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FillColor_Property_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x6e0ec4d0_e2a8_4a56_9de7_953389933b39);
 #[repr(transparent)]
@@ -1121,9 +1112,6 @@ impl Default for HIGHCONTRASTA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HIGHCONTRASTA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HIGHCONTRASTW {
@@ -1135,9 +1123,6 @@ impl Default for HIGHCONTRASTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HIGHCONTRASTW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -16806,9 +16791,6 @@ impl Default for MOUSEKEYS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MOUSEKEYS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MSAAMENUINFO {
@@ -16820,9 +16802,6 @@ impl Default for MSAAMENUINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MSAAMENUINFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MSAA_MENU_SIG: i32 = -1441927155i32;
 pub const MenuBar_Control_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xcc384250_0e7b_4ae8_95ae_a08f261b52ee);
@@ -17089,9 +17068,6 @@ impl Default for SERIALKEYSA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERIALKEYSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERIALKEYSW {
@@ -17107,9 +17083,6 @@ impl Default for SERIALKEYSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SERIALKEYSW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -17198,9 +17171,6 @@ impl Default for SOUNDSENTRYA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SOUNDSENTRYA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SOUNDSENTRYW {
@@ -17221,9 +17191,6 @@ impl Default for SOUNDSENTRYW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SOUNDSENTRYW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -17296,9 +17263,6 @@ impl Default for STICKYKEYS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STICKYKEYS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -17528,9 +17492,6 @@ impl Default for TOGGLEKEYS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TOGGLEKEYS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const TabItem_Control_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x2c6a634f_921b_4e6e_b26e_08fcb0798f4c);
 pub const Tab_Control_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x38cd1f2d_337a_4bd2_a5e3_adb469e30bd3);
@@ -18078,9 +18039,6 @@ impl Default for UIAutomationEventInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for UIAutomationEventInfo {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct UIAutomationMethodInfo {
@@ -18096,9 +18054,6 @@ impl Default for UIAutomationMethodInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for UIAutomationMethodInfo {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct UIAutomationParameter {
@@ -18109,9 +18064,6 @@ impl Default for UIAutomationParameter {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for UIAutomationParameter {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
@@ -18133,9 +18085,6 @@ impl Default for UIAutomationPatternInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for UIAutomationPatternInfo {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct UIAutomationPropertyInfo {
@@ -18147,9 +18096,6 @@ impl Default for UIAutomationPropertyInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for UIAutomationPropertyInfo {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -18229,9 +18175,6 @@ impl Default for UiaAndOrCondition {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for UiaAndOrCondition {
-    type TypeKind = windows_core::CopyType;
-}
 pub const UiaAppendRuntimeId: u32 = 3u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -18245,9 +18188,6 @@ impl Default for UiaAsyncContentLoadedEventArgs {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for UiaAsyncContentLoadedEventArgs {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -18264,9 +18204,6 @@ impl Default for UiaCacheRequest {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for UiaCacheRequest {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -18287,10 +18224,6 @@ impl Default for UiaChangeInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for UiaChangeInfo {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -18306,10 +18239,6 @@ impl Default for UiaChangesEventArgs {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for UiaChangesEventArgs {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct UiaCondition {
@@ -18319,9 +18248,6 @@ impl Default for UiaCondition {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for UiaCondition {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -18333,9 +18259,6 @@ impl Default for UiaEventArgs {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for UiaEventArgs {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
 pub type UiaEventCallback = Option<unsafe extern "system" fn(pargs: *mut UiaEventArgs, prequesteddata: *mut super::super::System::Com::SAFEARRAY, ptreestructure: windows_core::BSTR)>;
@@ -18352,9 +18275,6 @@ impl Default for UiaFindParams {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for UiaFindParams {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct UiaNotCondition {
@@ -18366,9 +18286,6 @@ impl Default for UiaNotCondition {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for UiaNotCondition {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct UiaPoint {
@@ -18379,9 +18296,6 @@ impl Default for UiaPoint {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for UiaPoint {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -18404,10 +18318,6 @@ impl Default for UiaPropertyChangedEventArgs {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for UiaPropertyChangedEventArgs {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct UiaPropertyCondition {
@@ -18428,10 +18338,6 @@ impl Default for UiaPropertyCondition {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for UiaPropertyCondition {
-    type TypeKind = windows_core::CloneType;
-}
 #[cfg(feature = "Win32_System_Com")]
 pub type UiaProviderCallback = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, providertype: ProviderType) -> *mut super::super::System::Com::SAFEARRAY>;
 #[repr(C)]
@@ -18446,9 +18352,6 @@ impl Default for UiaRect {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for UiaRect {
-    type TypeKind = windows_core::CopyType;
 }
 pub const UiaRootObjectId: i32 = -25i32;
 #[repr(C)]
@@ -18465,9 +18368,6 @@ impl Default for UiaStructureChangedEventArgs {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for UiaStructureChangedEventArgs {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -18483,10 +18383,6 @@ impl Default for UiaTextEditTextChangedEventArgs {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for UiaTextEditTextChangedEventArgs {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct UiaWindowClosedEventArgs {
@@ -18499,9 +18395,6 @@ impl Default for UiaWindowClosedEventArgs {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for UiaWindowClosedEventArgs {
-    type TypeKind = windows_core::CopyType;
 }
 pub const Value_IsReadOnly_Property_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xeb090f30_e24c_4799_a705_0d247bc037f8);
 pub const Value_Pattern_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x17faad9e_c877_475b_b933_77332779b637);

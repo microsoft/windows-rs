@@ -1689,9 +1689,6 @@ impl Default for ADDRALIAS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ADDRALIAS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADDRESS_CAPABILITY(pub i32);
@@ -1954,9 +1951,6 @@ impl Default for DTR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DTR {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DT_ILS: DIRECTORY_TYPE = DIRECTORY_TYPE(2i32);
 pub const DT_NTDS: DIRECTORY_TYPE = DIRECTORY_TYPE(1i32);
@@ -16149,9 +16143,6 @@ impl Default for LINEADDRESSCAPS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LINEADDRESSCAPS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const LINEADDRESSMODE_ADDRESSID: u32 = 1u32;
 pub const LINEADDRESSMODE_DIALABLEADDR: u32 = 2u32;
 pub const LINEADDRESSSHARING_BRIDGEDEXCL: u32 = 2u32;
@@ -16193,9 +16184,6 @@ impl Default for LINEADDRESSSTATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LINEADDRESSSTATUS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const LINEADDRESSTYPE_DOMAINNAME: u32 = 8u32;
 pub const LINEADDRESSTYPE_EMAILNAME: u32 = 4u32;
 pub const LINEADDRESSTYPE_IPADDRESS: u32 = 16u32;
@@ -16227,9 +16215,6 @@ impl Default for LINEAGENTACTIVITYENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LINEAGENTACTIVITYENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINEAGENTACTIVITYLIST {
@@ -16244,9 +16229,6 @@ impl Default for LINEAGENTACTIVITYLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LINEAGENTACTIVITYLIST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -16272,9 +16254,6 @@ impl Default for LINEAGENTCAPS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LINEAGENTCAPS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINEAGENTENTRY {
@@ -16290,9 +16269,6 @@ impl Default for LINEAGENTENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LINEAGENTENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const LINEAGENTFEATURE_AGENTSPECIFIC: u32 = 8u32;
 pub const LINEAGENTFEATURE_GETAGENTACTIVITYLIST: u32 = 16u32;
@@ -16312,9 +16288,6 @@ impl Default for LINEAGENTGROUPENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LINEAGENTGROUPENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINEAGENTGROUPENTRY_0 {
@@ -16327,9 +16300,6 @@ impl Default for LINEAGENTGROUPENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LINEAGENTGROUPENTRY_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -16345,9 +16315,6 @@ impl Default for LINEAGENTGROUPLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LINEAGENTGROUPLIST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
@@ -16373,10 +16340,6 @@ impl Default for LINEAGENTINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for LINEAGENTINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINEAGENTLIST {
@@ -16392,9 +16355,6 @@ impl Default for LINEAGENTLIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LINEAGENTLIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINEAGENTSESSIONENTRY {
@@ -16407,9 +16367,6 @@ impl Default for LINEAGENTSESSIONENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LINEAGENTSESSIONENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
@@ -16439,10 +16396,6 @@ impl Default for LINEAGENTSESSIONINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for LINEAGENTSESSIONINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINEAGENTSESSIONLIST {
@@ -16457,9 +16410,6 @@ impl Default for LINEAGENTSESSIONLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LINEAGENTSESSIONLIST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const LINEAGENTSESSIONSTATE_BUSYONCALL: u32 = 4u32;
 pub const LINEAGENTSESSIONSTATE_BUSYWRAPUP: u32 = 8u32;
@@ -16510,9 +16460,6 @@ impl Default for LINEAGENTSTATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LINEAGENTSTATUS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const LINEAGENTSTATUSEX_NEWAGENT: u32 = 1u32;
 pub const LINEAGENTSTATUSEX_STATE: u32 = 2u32;
 pub const LINEAGENTSTATUSEX_UPDATEINFO: u32 = 4u32;
@@ -16546,9 +16493,6 @@ impl Default for LINEAPPINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LINEAPPINFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const LINEBEARERMODE_ALTSPEECHDATA: u32 = 16u32;
 pub const LINEBEARERMODE_DATA: u32 = 8u32;
@@ -16701,9 +16645,6 @@ impl Default for LINECALLINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LINECALLINFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const LINECALLINFOSTATE_APPSPECIFIC: u32 = 32u32;
 pub const LINECALLINFOSTATE_BEARERMODE: u32 = 4u32;
 pub const LINECALLINFOSTATE_CALLDATA: u32 = 1073741824u32;
@@ -16749,9 +16690,6 @@ impl Default for LINECALLLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LINECALLLIST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const LINECALLORIGIN_CONFERENCE: u32 = 64u32;
 pub const LINECALLORIGIN_EXTERNAL: u32 = 4u32;
@@ -16817,9 +16755,6 @@ impl Default for LINECALLPARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LINECALLPARAMS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const LINECALLPARTYID_ADDRESS: u32 = 8u32;
 pub const LINECALLPARTYID_BLOCKED: u32 = 1u32;
@@ -16888,9 +16823,6 @@ impl Default for LINECALLSTATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LINECALLSTATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINECALLTREATMENTENTRY {
@@ -16902,9 +16834,6 @@ impl Default for LINECALLTREATMENTENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LINECALLTREATMENTENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const LINECALLTREATMENT_BUSY: u32 = 3u32;
 pub const LINECALLTREATMENT_MUSIC: u32 = 4u32;
@@ -16929,9 +16858,6 @@ impl Default for LINECARDENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LINECARDENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const LINECARDOPTION_HIDDEN: u32 = 2u32;
 pub const LINECARDOPTION_PREDEFINED: u32 = 1u32;
@@ -16960,9 +16886,6 @@ impl Default for LINECOUNTRYENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LINECOUNTRYENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINECOUNTRYLIST {
@@ -16977,9 +16900,6 @@ impl Default for LINECOUNTRYLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LINECOUNTRYLIST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const LINEDEVCAPFLAGS_CALLHUB: u32 = 1024u32;
 pub const LINEDEVCAPFLAGS_CALLHUBTRACKING: u32 = 2048u32;
@@ -17059,9 +16979,6 @@ impl Default for LINEDEVCAPS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LINEDEVCAPS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const LINEDEVSTATE_BATTERY: u32 = 32768u32;
 pub const LINEDEVSTATE_CAPSCHANGE: u32 = 1048576u32;
 pub const LINEDEVSTATE_CLOSE: u32 = 1024u32;
@@ -17118,9 +17035,6 @@ impl Default for LINEDEVSTATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LINEDEVSTATUS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const LINEDEVSTATUSFLAGS_CONNECTED: u32 = 1u32;
 pub const LINEDEVSTATUSFLAGS_INSERVICE: u32 = 4u32;
 pub const LINEDEVSTATUSFLAGS_LOCKED: u32 = 8u32;
@@ -17137,9 +17051,6 @@ impl Default for LINEDIALPARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LINEDIALPARAMS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const LINEDIALTONEMODE_EXTERNAL: u32 = 8u32;
 pub const LINEDIALTONEMODE_INTERNAL: u32 = 4u32;
@@ -17285,9 +17196,6 @@ impl Default for LINEEXTENSIONID {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LINEEXTENSIONID {
-    type TypeKind = windows_core::CopyType;
-}
 pub const LINEFEATURE_DEVSPECIFIC: u32 = 1u32;
 pub const LINEFEATURE_DEVSPECIFICFEAT: u32 = 2u32;
 pub const LINEFEATURE_FORWARD: u32 = 4u32;
@@ -17312,9 +17220,6 @@ impl Default for LINEFORWARD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LINEFORWARD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINEFORWARDLIST {
@@ -17326,9 +17231,6 @@ impl Default for LINEFORWARDLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LINEFORWARDLIST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const LINEFORWARDMODE_BUSY: u32 = 16u32;
 pub const LINEFORWARDMODE_BUSYEXTERNAL: u32 = 64u32;
@@ -17368,9 +17270,6 @@ impl Default for LINEGENERATETONE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LINEGENERATETONE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const LINEGROUPSTATUS_GROUPREMOVED: u32 = 2u32;
 pub const LINEGROUPSTATUS_NEWGROUP: u32 = 1u32;
 pub const LINEINITIALIZEEXOPTION_CALLHUBTRACKING: u32 = 2147483648u32;
@@ -17392,9 +17291,6 @@ impl Default for LINEINITIALIZEEXPARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LINEINITIALIZEEXPARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union LINEINITIALIZEEXPARAMS_0 {
@@ -17405,9 +17301,6 @@ impl Default for LINEINITIALIZEEXPARAMS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LINEINITIALIZEEXPARAMS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -17435,9 +17328,6 @@ impl Default for LINELOCATIONENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LINELOCATIONENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 pub const LINELOCATIONOPTION_PULSEDIAL: u32 = 1u32;
 pub const LINEMAPPER: u32 = 4294967295u32;
 #[repr(C, packed(1))]
@@ -17451,9 +17341,6 @@ impl Default for LINEMEDIACONTROLCALLSTATE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LINEMEDIACONTROLCALLSTATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINEMEDIACONTROLDIGIT {
@@ -17466,9 +17353,6 @@ impl Default for LINEMEDIACONTROLDIGIT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LINEMEDIACONTROLDIGIT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINEMEDIACONTROLMEDIA {
@@ -17480,9 +17364,6 @@ impl Default for LINEMEDIACONTROLMEDIA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LINEMEDIACONTROLMEDIA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -17498,9 +17379,6 @@ impl Default for LINEMEDIACONTROLTONE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LINEMEDIACONTROLTONE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const LINEMEDIACONTROL_NONE: u32 = 1u32;
 pub const LINEMEDIACONTROL_PAUSE: u32 = 8u32;
@@ -17543,9 +17421,6 @@ impl Default for LINEMESSAGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LINEMESSAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINEMONITORTONE {
@@ -17559,9 +17434,6 @@ impl Default for LINEMONITORTONE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LINEMONITORTONE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const LINEOFFERINGMODE_ACTIVE: u32 = 1u32;
 pub const LINEOFFERINGMODE_INACTIVE: u32 = 2u32;
@@ -17581,9 +17453,6 @@ impl Default for LINEPROVIDERENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LINEPROVIDERENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINEPROVIDERLIST {
@@ -17598,9 +17467,6 @@ impl Default for LINEPROVIDERLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LINEPROVIDERLIST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
@@ -17620,10 +17486,6 @@ impl Default for LINEPROXYREQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for LINEPROXYREQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -17656,10 +17518,6 @@ impl Default for LINEPROXYREQUEST_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for LINEPROXYREQUEST_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
@@ -17674,10 +17532,6 @@ impl Default for LINEPROXYREQUEST_0_5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for LINEPROXYREQUEST_0_5 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
@@ -17696,10 +17550,6 @@ impl Default for LINEPROXYREQUEST_0_12 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for LINEPROXYREQUEST_0_12 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
@@ -17716,10 +17566,6 @@ impl Default for LINEPROXYREQUEST_0_8 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for LINEPROXYREQUEST_0_8 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
@@ -17732,10 +17578,6 @@ impl Default for LINEPROXYREQUEST_0_6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for LINEPROXYREQUEST_0_6 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
@@ -17750,10 +17592,6 @@ impl Default for LINEPROXYREQUEST_0_3 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for LINEPROXYREQUEST_0_3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
@@ -17766,10 +17604,6 @@ impl Default for LINEPROXYREQUEST_0_7 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for LINEPROXYREQUEST_0_7 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
@@ -17784,10 +17618,6 @@ impl Default for LINEPROXYREQUEST_0_11 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for LINEPROXYREQUEST_0_11 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
@@ -17800,10 +17630,6 @@ impl Default for LINEPROXYREQUEST_0_14 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for LINEPROXYREQUEST_0_14 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
@@ -17818,10 +17644,6 @@ impl Default for LINEPROXYREQUEST_0_13 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for LINEPROXYREQUEST_0_13 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
@@ -17835,10 +17657,6 @@ impl Default for LINEPROXYREQUEST_0_4 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for LINEPROXYREQUEST_0_4 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
@@ -17850,10 +17668,6 @@ impl Default for LINEPROXYREQUEST_0_19 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for LINEPROXYREQUEST_0_19 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
@@ -17868,10 +17682,6 @@ impl Default for LINEPROXYREQUEST_0_18 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for LINEPROXYREQUEST_0_18 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
@@ -17884,10 +17694,6 @@ impl Default for LINEPROXYREQUEST_0_16 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for LINEPROXYREQUEST_0_16 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
@@ -17902,10 +17708,6 @@ impl Default for LINEPROXYREQUEST_0_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for LINEPROXYREQUEST_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
@@ -17919,10 +17721,6 @@ impl Default for LINEPROXYREQUEST_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for LINEPROXYREQUEST_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
@@ -17935,10 +17733,6 @@ impl Default for LINEPROXYREQUEST_0_10 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for LINEPROXYREQUEST_0_10 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
@@ -17954,10 +17748,6 @@ impl Default for LINEPROXYREQUEST_0_15 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for LINEPROXYREQUEST_0_15 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
@@ -17971,10 +17761,6 @@ impl Default for LINEPROXYREQUEST_0_9 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for LINEPROXYREQUEST_0_9 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
@@ -17990,10 +17776,6 @@ impl Default for LINEPROXYREQUEST_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for LINEPROXYREQUEST_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
@@ -18006,10 +17788,6 @@ impl Default for LINEPROXYREQUEST_0_17 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for LINEPROXYREQUEST_0_17 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -18025,9 +17803,6 @@ impl Default for LINEPROXYREQUESTLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LINEPROXYREQUESTLIST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const LINEPROXYREQUEST_AGENTSPECIFIC: u32 = 6u32;
 pub const LINEPROXYREQUEST_CREATEAGENT: u32 = 9u32;
@@ -18068,9 +17843,6 @@ impl Default for LINEQUEUEENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LINEQUEUEENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINEQUEUEINFO {
@@ -18093,9 +17865,6 @@ impl Default for LINEQUEUEINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LINEQUEUEINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINEQUEUELIST {
@@ -18110,9 +17879,6 @@ impl Default for LINEQUEUELIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LINEQUEUELIST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const LINEQUEUESTATUS_NEWQUEUE: u32 = 2u32;
 pub const LINEQUEUESTATUS_QUEUEREMOVED: u32 = 4u32;
@@ -18133,9 +17899,6 @@ impl Default for LINEREQMAKECALL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LINEREQMAKECALL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINEREQMAKECALLW {
@@ -18148,9 +17911,6 @@ impl Default for LINEREQMAKECALLW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LINEREQMAKECALLW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -18171,9 +17931,6 @@ impl Default for LINEREQMEDIACALL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LINEREQMEDIACALL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINEREQMEDIACALLW {
@@ -18192,9 +17949,6 @@ impl Default for LINEREQMEDIACALLW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LINEREQMEDIACALLW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const LINEREQUESTMODE_DROP: u32 = 4u32;
 pub const LINEREQUESTMODE_MAKECALL: u32 = 1u32;
@@ -18220,9 +17974,6 @@ impl Default for LINETERMCAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LINETERMCAPS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const LINETERMDEV_HEADSET: u32 = 2u32;
 pub const LINETERMDEV_PHONE: u32 = 1u32;
@@ -18267,9 +18018,6 @@ impl Default for LINETRANSLATECAPS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LINETRANSLATECAPS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const LINETRANSLATEOPTION_CANCELCALLWAITING: u32 = 2u32;
 pub const LINETRANSLATEOPTION_CARDOVERRIDE: u32 = 1u32;
 pub const LINETRANSLATEOPTION_FORCELD: u32 = 8u32;
@@ -18292,9 +18040,6 @@ impl Default for LINETRANSLATEOUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for LINETRANSLATEOUTPUT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const LINETRANSLATERESULT_CANONICAL: u32 = 1u32;
 pub const LINETRANSLATERESULT_DIALBILLING: u32 = 64u32;
@@ -18391,10 +18136,6 @@ impl Default for MSP_EVENT_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for MSP_EVENT_INFO {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub union MSP_EVENT_INFO_0 {
@@ -18419,10 +18160,6 @@ impl Default for MSP_EVENT_INFO_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for MSP_EVENT_INFO_0 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Debug, PartialEq)]
@@ -18436,10 +18173,6 @@ impl Default for MSP_EVENT_INFO_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for MSP_EVENT_INFO_0_0 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Debug, PartialEq)]
@@ -18452,10 +18185,6 @@ impl Default for MSP_EVENT_INFO_0_5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for MSP_EVENT_INFO_0_5 {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -18473,10 +18202,6 @@ impl Default for MSP_EVENT_INFO_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for MSP_EVENT_INFO_0_1 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Debug, PartialEq)]
@@ -18493,10 +18218,6 @@ impl Default for MSP_EVENT_INFO_0_4 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for MSP_EVENT_INFO_0_4 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Debug, PartialEq)]
@@ -18509,10 +18230,6 @@ impl Default for MSP_EVENT_INFO_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for MSP_EVENT_INFO_0_3 {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -18527,10 +18244,6 @@ impl Default for MSP_EVENT_INFO_0_7 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for MSP_EVENT_INFO_0_7 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -18544,10 +18257,6 @@ impl Default for MSP_EVENT_INFO_0_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for MSP_EVENT_INFO_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Debug, PartialEq)]
@@ -18560,10 +18269,6 @@ impl Default for MSP_EVENT_INFO_0_6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for MSP_EVENT_INFO_0_6 {
-    type TypeKind = windows_core::CloneType;
 }
 pub const McastAddressAllocation: windows_core::GUID = windows_core::GUID::from_u128(0xdf0daef2_a289_11d1_8697_006008b0e5d2);
 #[repr(C)]
@@ -18580,9 +18285,6 @@ impl Default for NSID {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NSID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NSID_0 {
@@ -18593,9 +18295,6 @@ impl Default for NSID_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NSID_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const OPENTNEFSTREAM: windows_core::PCSTR = windows_core::s!("OpenTnefStream");
 pub const OPENTNEFSTREAMEX: windows_core::PCSTR = windows_core::s!("OpenTnefStreamEx");
@@ -18752,9 +18451,6 @@ impl Default for PHONEBUTTONINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PHONEBUTTONINFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const PHONEBUTTONMODE_CALL: u32 = 2u32;
 pub const PHONEBUTTONMODE_DISPLAY: u32 = 32u32;
 pub const PHONEBUTTONMODE_DUMMY: u32 = 1u32;
@@ -18821,9 +18517,6 @@ impl Default for PHONECAPS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PHONECAPS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PHONECAPS_BUFFER(pub i32);
@@ -18883,9 +18576,6 @@ impl Default for PHONEEXTENSIONID {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PHONEEXTENSIONID {
-    type TypeKind = windows_core::CopyType;
-}
 pub const PHONEFEATURE_GENERICPHONE: u32 = 268435456u32;
 pub const PHONEFEATURE_GETBUTTONINFO: u32 = 1u32;
 pub const PHONEFEATURE_GETDATA: u32 = 2u32;
@@ -18941,9 +18631,6 @@ impl Default for PHONEINITIALIZEEXPARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PHONEINITIALIZEEXPARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union PHONEINITIALIZEEXPARAMS_0 {
@@ -18954,9 +18641,6 @@ impl Default for PHONEINITIALIZEEXPARAMS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PHONEINITIALIZEEXPARAMS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PHONELAMPMODE_BROKENFLUTTER: u32 = 64u32;
 pub const PHONELAMPMODE_DUMMY: u32 = 1u32;
@@ -18980,9 +18664,6 @@ impl Default for PHONEMESSAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PHONEMESSAGE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PHONEPRIVILEGE_MONITOR: u32 = 1u32;
 pub const PHONEPRIVILEGE_OWNER: u32 = 2u32;
@@ -19044,9 +18725,6 @@ impl Default for PHONESTATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PHONESTATUS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PHONESTATUSFLAGS_CONNECTED: u32 = 1u32;
 pub const PHONESTATUSFLAGS_SUSPENDED: u32 = 2u32;
@@ -19158,9 +18836,6 @@ impl Default for RENDDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RENDDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RND_ADVERTISING_SCOPE(pub i32);
@@ -19189,9 +18864,6 @@ impl Default for STnefProblem {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STnefProblem {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STnefProblemArray {
@@ -19202,9 +18874,6 @@ impl Default for STnefProblemArray {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STnefProblemArray {
-    type TypeKind = windows_core::CopyType;
 }
 pub const TAPI: windows_core::GUID = windows_core::GUID::from_u128(0x21d6d48e_a88b_11d0_83dd_00aa003ccabd);
 pub const TAPIERR_CONNECTED: i32 = 0i32;
@@ -19259,9 +18928,6 @@ impl Default for TAPI_CUSTOMTONE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TAPI_CUSTOMTONE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TAPI_DETECTTONE {
@@ -19275,9 +18941,6 @@ impl Default for TAPI_DETECTTONE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TAPI_DETECTTONE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -19461,9 +19124,6 @@ impl Default for TRP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TRP {
-    type TypeKind = windows_core::CopyType;
-}
 pub const TSPI_LINEACCEPT: u32 = 500u32;
 pub const TSPI_LINEADDTOCONFERENCE: u32 = 501u32;
 pub const TSPI_LINEANSWER: u32 = 502u32;
@@ -19599,9 +19259,6 @@ impl Default for TUISPICREATEDIALOGINSTANCEPARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TUISPICREATEDIALOGINSTANCEPARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 pub type TUISPIDLLCALLBACK = Option<unsafe extern "system" fn(dwobjectid: usize, dwobjecttype: u32, lpparams: *mut core::ffi::c_void, dwsize: u32) -> i32>;
 pub const TUISPIDLL_OBJECT_DIALOGINSTANCE: i32 = 4i32;
 pub const TUISPIDLL_OBJECT_LINEID: i32 = 1i32;
@@ -19621,9 +19278,6 @@ impl Default for VARSTRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VARSTRING {
-    type TypeKind = windows_core::CopyType;
 }
 pub const atypFile: i32 = 1i32;
 pub const atypMax: i32 = 4i32;

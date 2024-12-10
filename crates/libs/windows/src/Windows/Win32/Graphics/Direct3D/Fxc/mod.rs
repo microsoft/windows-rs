@@ -282,9 +282,6 @@ impl Default for D3D_SHADER_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D_SHADER_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 pub type pD3DCompile = Option<unsafe extern "system" fn(psrcdata: *const core::ffi::c_void, srcdatasize: usize, pfilename: windows_core::PCSTR, pdefines: *const super::D3D_SHADER_MACRO, pinclude: Option<super::ID3DInclude>, pentrypoint: windows_core::PCSTR, ptarget: windows_core::PCSTR, flags1: u32, flags2: u32, ppcode: *mut Option<super::ID3DBlob>, pperrormsgs: *mut Option<super::ID3DBlob>) -> windows_core::HRESULT>;
 pub type pD3DDisassemble = Option<unsafe extern "system" fn(psrcdata: *const core::ffi::c_void, srcdatasize: usize, flags: u32, szcomments: windows_core::PCSTR, ppdisassembly: *mut Option<super::ID3DBlob>) -> windows_core::HRESULT>;
 pub type pD3DPreprocess = Option<unsafe extern "system" fn(psrcdata: *const core::ffi::c_void, srcdatasize: usize, pfilename: windows_core::PCSTR, pdefines: *const super::D3D_SHADER_MACRO, pinclude: Option<super::ID3DInclude>, ppcodetext: *mut Option<super::ID3DBlob>, pperrormsgs: *mut Option<super::ID3DBlob>) -> windows_core::HRESULT>;

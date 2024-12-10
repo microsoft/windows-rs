@@ -89,9 +89,6 @@ impl Default for CCAB {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CCAB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ERF {
@@ -103,9 +100,6 @@ impl Default for ERF {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ERF {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -137,9 +131,6 @@ impl Default for FDICABINETINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FDICABINETINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FDICREATE_CPU_TYPE(pub i32);
@@ -155,9 +146,6 @@ impl Default for FDIDECRYPT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FDIDECRYPT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union FDIDECRYPT_0 {
@@ -169,9 +157,6 @@ impl Default for FDIDECRYPT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FDIDECRYPT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -185,9 +170,6 @@ impl Default for FDIDECRYPT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FDIDECRYPT_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -204,9 +186,6 @@ impl Default for FDIDECRYPT_0_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FDIDECRYPT_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FDIDECRYPT_0_1 {
@@ -218,9 +197,6 @@ impl Default for FDIDECRYPT_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FDIDECRYPT_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -263,9 +239,6 @@ impl Default for FDINOTIFICATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FDINOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FDINOTIFICATIONTYPE(pub i32);
@@ -282,10 +255,6 @@ impl Default for FDISPILLFILE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for FDISPILLFILE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -298,10 +267,6 @@ impl Default for FDISPILLFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for FDISPILLFILE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const INCLUDED_FCI: u32 = 1u32;
 pub const INCLUDED_FDI: u32 = 1u32;

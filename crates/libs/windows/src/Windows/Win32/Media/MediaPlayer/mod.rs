@@ -13900,9 +13900,6 @@ impl Default for TimedLevel {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TimedLevel {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMPAccountType(pub i32);
@@ -13935,9 +13932,6 @@ impl Default for WMPContextMenuInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WMPContextMenuInfo {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -14028,9 +14022,6 @@ impl Default for WMP_WMDM_METADATA_ROUND_TRIP_DEVICE2PC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WMP_WMDM_METADATA_ROUND_TRIP_DEVICE2PC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WMP_WMDM_METADATA_ROUND_TRIP_PC2DEVICE {
@@ -14041,9 +14032,6 @@ impl Default for WMP_WMDM_METADATA_ROUND_TRIP_PC2DEVICE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WMP_WMDM_METADATA_ROUND_TRIP_PC2DEVICE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WMProfile_V40_100Video: windows_core::GUID = windows_core::GUID::from_u128(0x8f99ddd8_6684_456b_a0a3_33e1316895f0);
 pub const WMProfile_V40_128Audio: windows_core::GUID = windows_core::GUID::from_u128(0x93ddbe12_13dc_4e32_a35e_40378e34279a);

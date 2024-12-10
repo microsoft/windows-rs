@@ -863,9 +863,6 @@ impl Default for ID_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ID_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ID_PARAMETER_PAIR {
@@ -876,9 +873,6 @@ impl Default for ID_PARAMETER_PAIR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ID_PARAMETER_PAIR {
-    type TypeKind = windows_core::CopyType;
 }
 windows_core::imp::define_interface!(IDataRetrieverCallback, IDataRetrieverCallback_Vtbl, 0x71b4863b_f969_4676_bbc3_3d9fdc3fb2c7);
 windows_core::imp::interface_hierarchy!(IDataRetrieverCallback, windows_core::IUnknown);
@@ -5760,9 +5754,6 @@ impl Default for SYNC_FILTER_CHANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYNC_FILTER_CHANGE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SYNC_FILTER_INFO_COMBINED: u32 = 8u32;
 pub const SYNC_FILTER_INFO_FLAG_CHANGE_UNIT_LIST: u32 = 2u32;
 pub const SYNC_FILTER_INFO_FLAG_CUSTOM: u32 = 4u32;
@@ -5791,9 +5782,6 @@ impl Default for SYNC_RANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYNC_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYNC_REGISTRATION_EVENT(pub i32);
@@ -5818,9 +5806,6 @@ impl Default for SYNC_SESSION_STATISTICS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYNC_SESSION_STATISTICS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYNC_STATISTICS(pub i32);
@@ -5836,9 +5821,6 @@ impl Default for SYNC_TIME {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYNC_TIME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SYNC_VERSION {
@@ -5849,9 +5831,6 @@ impl Default for SYNC_VERSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SYNC_VERSION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SYNC_VERSION_FLAG_FROM_FEED: u32 = 1u32;
 pub const SYNC_VERSION_FLAG_HAS_BY: u32 = 2u32;
@@ -5871,9 +5850,6 @@ impl Default for SyncProviderConfigUIConfiguration {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SyncProviderConfigUIConfiguration {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SyncProviderConfiguration {
@@ -5889,8 +5865,5 @@ impl Default for SyncProviderConfiguration {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SyncProviderConfiguration {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SyncProviderRegistration: windows_core::GUID = windows_core::GUID::from_u128(0xf82b4ef1_93a9_4dde_8015_f7950a1a6e31);

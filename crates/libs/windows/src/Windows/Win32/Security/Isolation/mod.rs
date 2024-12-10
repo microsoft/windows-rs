@@ -258,7 +258,4 @@ impl Default for IsolatedAppLauncherTelemetryParameters {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IsolatedAppLauncherTelemetryParameters {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WDAG_CLIPBOARD_TAG: windows_core::PCWSTR = windows_core::w!("CrossIsolatedEnvironmentContent");

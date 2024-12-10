@@ -1145,9 +1145,6 @@ impl Default for CTAPCBOR_HYBRID_STORAGE_LINKED_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CTAPCBOR_HYBRID_STORAGE_LINKED_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CTAPCBOR_HYBRID_STORAGE_LINKED_DATA_CURRENT_VERSION: u32 = 1u32;
 pub const CTAPCBOR_HYBRID_STORAGE_LINKED_DATA_VERSION_1: u32 = 1u32;
 windows_core::imp::define_interface!(IContentPrefetcherTaskTrigger, IContentPrefetcherTaskTrigger_Vtbl, 0x1b35a14a_6094_4799_a60e_e474e15d4dc9);
@@ -1237,9 +1234,6 @@ impl Default for WEBAUTHN_ASSERTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WEBAUTHN_ASSERTION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WEBAUTHN_ASSERTION_CURRENT_VERSION: u32 = 5u32;
 pub const WEBAUTHN_ASSERTION_VERSION_1: u32 = 1u32;
 pub const WEBAUTHN_ASSERTION_VERSION_2: u32 = 2u32;
@@ -1290,9 +1284,6 @@ impl Default for WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_CURRENT_VERSION: u32 = 7u32;
 pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_1: u32 = 1u32;
 pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_2: u32 = 2u32;
@@ -1330,9 +1321,6 @@ impl Default for WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_CURRENT_VERSION: u32 = 7u32;
 pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_1: u32 = 1u32;
 pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_2: u32 = 2u32;
@@ -1353,9 +1341,6 @@ impl Default for WEBAUTHN_CLIENT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WEBAUTHN_CLIENT_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WEBAUTHN_CLIENT_DATA_CURRENT_VERSION: u32 = 1u32;
 #[repr(C)]
@@ -1379,9 +1364,6 @@ impl Default for WEBAUTHN_COMMON_ATTESTATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WEBAUTHN_COMMON_ATTESTATION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WEBAUTHN_COMMON_ATTESTATION_CURRENT_VERSION: u32 = 1u32;
 pub const WEBAUTHN_COSE_ALGORITHM_ECDSA_P256_WITH_SHA256: i32 = -7i32;
 pub const WEBAUTHN_COSE_ALGORITHM_ECDSA_P384_WITH_SHA384: i32 = -35i32;
@@ -1404,9 +1386,6 @@ impl Default for WEBAUTHN_COSE_CREDENTIAL_PARAMETER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WEBAUTHN_COSE_CREDENTIAL_PARAMETER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WEBAUTHN_COSE_CREDENTIAL_PARAMETERS {
@@ -1417,9 +1396,6 @@ impl Default for WEBAUTHN_COSE_CREDENTIAL_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WEBAUTHN_COSE_CREDENTIAL_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WEBAUTHN_COSE_CREDENTIAL_PARAMETER_CURRENT_VERSION: u32 = 1u32;
 #[repr(C)]
@@ -1435,9 +1411,6 @@ impl Default for WEBAUTHN_CREDENTIAL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WEBAUTHN_CREDENTIAL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WEBAUTHN_CREDENTIALS {
@@ -1448,9 +1421,6 @@ impl Default for WEBAUTHN_CREDENTIALS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WEBAUTHN_CREDENTIALS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1481,9 +1451,6 @@ impl Default for WEBAUTHN_CREDENTIAL_ATTESTATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WEBAUTHN_CREDENTIAL_ATTESTATION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WEBAUTHN_CREDENTIAL_ATTESTATION_CURRENT_VERSION: u32 = 6u32;
 pub const WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_1: u32 = 1u32;
 pub const WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_2: u32 = 2u32;
@@ -1508,9 +1475,6 @@ impl Default for WEBAUTHN_CREDENTIAL_DETAILS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WEBAUTHN_CREDENTIAL_DETAILS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WEBAUTHN_CREDENTIAL_DETAILS_CURRENT_VERSION: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1522,9 +1486,6 @@ impl Default for WEBAUTHN_CREDENTIAL_DETAILS_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WEBAUTHN_CREDENTIAL_DETAILS_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WEBAUTHN_CREDENTIAL_DETAILS_VERSION_1: u32 = 1u32;
 pub const WEBAUTHN_CREDENTIAL_DETAILS_VERSION_2: u32 = 2u32;
@@ -1542,9 +1503,6 @@ impl Default for WEBAUTHN_CREDENTIAL_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WEBAUTHN_CREDENTIAL_EX {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WEBAUTHN_CREDENTIAL_EX_CURRENT_VERSION: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1557,9 +1515,6 @@ impl Default for WEBAUTHN_CREDENTIAL_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WEBAUTHN_CREDENTIAL_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WEBAUTHN_CREDENTIAL_TYPE_PUBLIC_KEY: windows_core::PCWSTR = windows_core::w!("public-key");
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1571,9 +1526,6 @@ impl Default for WEBAUTHN_CRED_BLOB_EXTENSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WEBAUTHN_CRED_BLOB_EXTENSION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WEBAUTHN_CRED_LARGE_BLOB_OPERATION_DELETE: u32 = 3u32;
 pub const WEBAUTHN_CRED_LARGE_BLOB_OPERATION_GET: u32 = 1u32;
@@ -1600,9 +1552,6 @@ impl Default for WEBAUTHN_CRED_PROTECT_EXTENSION_IN {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WEBAUTHN_CRED_PROTECT_EXTENSION_IN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WEBAUTHN_CRED_WITH_HMAC_SECRET_SALT {
@@ -1614,9 +1563,6 @@ impl Default for WEBAUTHN_CRED_WITH_HMAC_SECRET_SALT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WEBAUTHN_CRED_WITH_HMAC_SECRET_SALT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WEBAUTHN_CTAP_ONE_HMAC_SECRET_LENGTH: u32 = 32u32;
 pub const WEBAUTHN_CTAP_TRANSPORT_BLE: u32 = 4u32;
@@ -1641,9 +1587,6 @@ impl Default for WEBAUTHN_EXTENSION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WEBAUTHN_EXTENSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WEBAUTHN_EXTENSIONS {
@@ -1654,9 +1597,6 @@ impl Default for WEBAUTHN_EXTENSIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WEBAUTHN_EXTENSIONS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WEBAUTHN_EXTENSIONS_IDENTIFIER_CRED_BLOB: windows_core::PCWSTR = windows_core::w!("credBlob");
 pub const WEBAUTHN_EXTENSIONS_IDENTIFIER_CRED_PROTECT: windows_core::PCWSTR = windows_core::w!("credProtect");
@@ -1673,9 +1613,6 @@ impl Default for WEBAUTHN_GET_CREDENTIALS_OPTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WEBAUTHN_GET_CREDENTIALS_OPTIONS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WEBAUTHN_GET_CREDENTIALS_OPTIONS_CURRENT_VERSION: u32 = 1u32;
 pub const WEBAUTHN_GET_CREDENTIALS_OPTIONS_VERSION_1: u32 = 1u32;
@@ -1695,9 +1632,6 @@ impl Default for WEBAUTHN_HMAC_SECRET_SALT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WEBAUTHN_HMAC_SECRET_SALT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WEBAUTHN_HMAC_SECRET_SALT_VALUES {
@@ -1709,9 +1643,6 @@ impl Default for WEBAUTHN_HMAC_SECRET_SALT_VALUES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WEBAUTHN_HMAC_SECRET_SALT_VALUES {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WEBAUTHN_LARGE_BLOB_SUPPORT_NONE: u32 = 0u32;
 pub const WEBAUTHN_LARGE_BLOB_SUPPORT_PREFERRED: u32 = 2u32;
@@ -1730,9 +1661,6 @@ impl Default for WEBAUTHN_RP_ENTITY_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WEBAUTHN_RP_ENTITY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WEBAUTHN_RP_ENTITY_INFORMATION_CURRENT_VERSION: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1748,9 +1676,6 @@ impl Default for WEBAUTHN_USER_ENTITY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WEBAUTHN_USER_ENTITY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WEBAUTHN_USER_ENTITY_INFORMATION_CURRENT_VERSION: u32 = 1u32;
 pub const WEBAUTHN_USER_VERIFICATION_ANY: u32 = 0u32;
@@ -1771,9 +1696,6 @@ impl Default for WEBAUTHN_X5C {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WEBAUTHN_X5C {
-    type TypeKind = windows_core::CopyType;
 }
 pub type WS_ABANDON_MESSAGE_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, message: *const WS_MESSAGE, error: *const WS_ERROR) -> windows_core::HRESULT>;
 pub type WS_ABORT_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, error: *const WS_ERROR) -> windows_core::HRESULT>;
@@ -1798,9 +1720,6 @@ impl Default for WS_ANY_ATTRIBUTE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_ANY_ATTRIBUTE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_ANY_ATTRIBUTES {
@@ -1811,9 +1730,6 @@ impl Default for WS_ANY_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_ANY_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_ANY_ATTRIBUTES_FIELD_MAPPING: WS_FIELD_MAPPING = WS_FIELD_MAPPING(12i32);
 pub const WS_ANY_ATTRIBUTES_TYPE: WS_TYPE = WS_TYPE(34i32);
@@ -1832,9 +1748,6 @@ impl Default for WS_ASYNC_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_ASYNC_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 pub type WS_ASYNC_FUNCTION = Option<unsafe extern "system" fn(hr: windows_core::HRESULT, callbackmodel: WS_CALLBACK_MODEL, callbackstate: *const core::ffi::c_void, next: *mut WS_ASYNC_OPERATION, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1845,9 +1758,6 @@ impl Default for WS_ASYNC_OPERATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_ASYNC_OPERATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1863,9 +1773,6 @@ impl Default for WS_ASYNC_STATE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_ASYNC_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_ATTRIBUTE_DESCRIPTION {
@@ -1878,9 +1785,6 @@ impl Default for WS_ATTRIBUTE_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_ATTRIBUTE_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_ATTRIBUTE_FIELD_MAPPING: WS_FIELD_MAPPING = WS_FIELD_MAPPING(1i32);
 pub const WS_ATTRIBUTE_TYPE_MAPPING: WS_TYPE_MAPPING = WS_TYPE_MAPPING(2i32);
@@ -1899,9 +1803,6 @@ impl Default for WS_BOOL_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_BOOL_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WS_BOOL_TYPE: WS_TYPE = WS_TYPE(0i32);
 pub const WS_BOOL_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(0i32);
 pub const WS_BUFFERED_TRANSFER_MODE: WS_TRANSFER_MODE = WS_TRANSFER_MODE(0i32);
@@ -1916,9 +1817,6 @@ impl Default for WS_BUFFERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_BUFFERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_BYTES {
@@ -1929,9 +1827,6 @@ impl Default for WS_BYTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_BYTES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1944,9 +1839,6 @@ impl Default for WS_BYTES_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_BYTES_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WS_BYTES_TYPE: WS_TYPE = WS_TYPE(18i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1958,9 +1850,6 @@ impl Default for WS_BYTE_ARRAY_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_BYTE_ARRAY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_BYTE_ARRAY_TYPE: WS_TYPE = WS_TYPE(24i32);
 #[repr(transparent)]
@@ -1977,9 +1866,6 @@ impl Default for WS_CALL_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_CALL_PROPERTY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_CALL_PROPERTY_CALL_ID: WS_CALL_PROPERTY_ID = WS_CALL_PROPERTY_ID(3i32);
 pub const WS_CALL_PROPERTY_CHECK_MUST_UNDERSTAND: WS_CALL_PROPERTY_ID = WS_CALL_PROPERTY_ID(0i32);
@@ -2000,9 +1886,6 @@ impl Default for WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE_TYPE: WS_SECURITY_KEY_HANDLE_TYPE = WS_SECURITY_KEY_HANDLE_TYPE(3i32);
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub type WS_CERTIFICATE_VALIDATION_CALLBACK = Option<unsafe extern "system" fn(certcontext: *const super::super::Security::Cryptography::CERT_CONTEXT, state: *const core::ffi::c_void) -> windows_core::HRESULT>;
@@ -2019,10 +1902,6 @@ impl Default for WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_CERT_CREDENTIAL {
@@ -2032,9 +1911,6 @@ impl Default for WS_CERT_CREDENTIAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_CERT_CREDENTIAL {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2049,9 +1925,6 @@ impl Default for WS_CERT_ENDPOINT_IDENTITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_CERT_ENDPOINT_IDENTITY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_CERT_ENDPOINT_IDENTITY_TYPE: WS_ENDPOINT_IDENTITY_TYPE = WS_ENDPOINT_IDENTITY_TYPE(5i32);
 pub const WS_CERT_FAILURE_CN_MISMATCH: i32 = 1i32;
@@ -2072,9 +1945,6 @@ impl Default for WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT_TYPE: WS_SECURITY_BINDING_CONSTRAINT_TYPE = WS_SECURITY_BINDING_CONSTRAINT_TYPE(7i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -2092,10 +1962,6 @@ impl Default for WS_CERT_SIGNED_SAML_AUTHENTICATOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for WS_CERT_SIGNED_SAML_AUTHENTICATOR {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_CERT_SIGNED_SAML_AUTHENTICATOR_TYPE: WS_SAML_AUTHENTICATOR_TYPE = WS_SAML_AUTHENTICATOR_TYPE(1i32);
 #[repr(transparent)]
@@ -2123,9 +1989,6 @@ impl Default for WS_CHANNEL_DECODER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_CHANNEL_DECODER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_CHANNEL_ENCODER {
@@ -2142,9 +2005,6 @@ impl Default for WS_CHANNEL_ENCODER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_CHANNEL_ENCODER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_CHANNEL_PROPERTIES {
@@ -2155,9 +2015,6 @@ impl Default for WS_CHANNEL_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_CHANNEL_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2170,9 +2027,6 @@ impl Default for WS_CHANNEL_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_CHANNEL_PROPERTY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_CHANNEL_PROPERTY_ADDRESSING_VERSION: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(6i32);
 pub const WS_CHANNEL_PROPERTY_ALLOW_UNSECURED_FAULTS: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(46i32);
@@ -2193,9 +2047,6 @@ impl Default for WS_CHANNEL_PROPERTY_CONSTRAINT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_CHANNEL_PROPERTY_CONSTRAINT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_CHANNEL_PROPERTY_CONSTRAINT_0 {
@@ -2205,9 +2056,6 @@ impl Default for WS_CHANNEL_PROPERTY_CONSTRAINT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_CHANNEL_PROPERTY_CONSTRAINT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_CHANNEL_PROPERTY_COOKIE_MODE: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(39i32);
 pub const WS_CHANNEL_PROPERTY_CUSTOM_CHANNEL_CALLBACKS: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(24i32);
@@ -2296,9 +2144,6 @@ impl Default for WS_CHAR_ARRAY_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_CHAR_ARRAY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WS_CHAR_ARRAY_TYPE: WS_TYPE = WS_TYPE(22i32);
 pub type WS_CLOSE_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
 pub type WS_CLOSE_LISTENER_CALLBACK = Option<unsafe extern "system" fn(listenerinstance: *const core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
@@ -2312,9 +2157,6 @@ impl Default for WS_CONTRACT_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_CONTRACT_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2339,10 +2181,6 @@ impl Default for WS_CUSTOM_CERT_CREDENTIAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
-impl windows_core::TypeKind for WS_CUSTOM_CERT_CREDENTIAL {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_CUSTOM_CERT_CREDENTIAL_TYPE: WS_CERT_CREDENTIAL_TYPE = WS_CERT_CREDENTIAL_TYPE(3i32);
 pub const WS_CUSTOM_CHANNEL_BINDING: WS_CHANNEL_BINDING = WS_CHANNEL_BINDING(3i32);
@@ -2369,9 +2207,6 @@ impl Default for WS_CUSTOM_CHANNEL_CALLBACKS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_CUSTOM_CHANNEL_CALLBACKS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_CUSTOM_HTTP_PROXY {
@@ -2382,9 +2217,6 @@ impl Default for WS_CUSTOM_HTTP_PROXY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_CUSTOM_HTTP_PROXY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2405,9 +2237,6 @@ impl Default for WS_CUSTOM_LISTENER_CALLBACKS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_CUSTOM_LISTENER_CALLBACKS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WS_CUSTOM_TYPE: WS_TYPE = WS_TYPE(27i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2424,9 +2253,6 @@ impl Default for WS_CUSTOM_TYPE_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_CUSTOM_TYPE_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_DATETIME {
@@ -2438,9 +2264,6 @@ impl Default for WS_DATETIME {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_DATETIME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_DATETIME_DESCRIPTION {
@@ -2451,9 +2274,6 @@ impl Default for WS_DATETIME_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_DATETIME_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2474,9 +2294,6 @@ impl Default for WS_DECIMAL_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_DECIMAL_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WS_DECIMAL_TYPE: WS_TYPE = WS_TYPE(11i32);
 pub const WS_DECIMAL_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(11i32);
 pub type WS_DECODER_DECODE_CALLBACK = Option<unsafe extern "system" fn(encodercontext: *const core::ffi::c_void, buffer: *mut core::ffi::c_void, maxlength: u32, length: *mut u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
@@ -2494,9 +2311,6 @@ impl Default for WS_DEFAULT_VALUE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_DEFAULT_VALUE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_DEFAULT_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
@@ -2506,9 +2320,6 @@ impl Default for WS_DEFAULT_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_DEFAULT_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_DEFAULT_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE: WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE = WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE(2i32);
 pub const WS_DESCRIPTION_TYPE: WS_TYPE = WS_TYPE(25i32);
@@ -2523,9 +2334,6 @@ impl Default for WS_DISALLOWED_USER_AGENT_SUBSTRINGS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_DISALLOWED_USER_AGENT_SUBSTRINGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_DNS_ENDPOINT_IDENTITY {
@@ -2536,9 +2344,6 @@ impl Default for WS_DNS_ENDPOINT_IDENTITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_DNS_ENDPOINT_IDENTITY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_DNS_ENDPOINT_IDENTITY_TYPE: WS_ENDPOINT_IDENTITY_TYPE = WS_ENDPOINT_IDENTITY_TYPE(1i32);
 #[repr(C)]
@@ -2551,9 +2356,6 @@ impl Default for WS_DOUBLE_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_DOUBLE_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_DOUBLE_TYPE: WS_TYPE = WS_TYPE(10i32);
 pub const WS_DOUBLE_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(10i32);
@@ -2576,9 +2378,6 @@ impl Default for WS_DURATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_DURATION {
-    type TypeKind = windows_core::CopyType;
-}
 pub type WS_DURATION_COMPARISON_CALLBACK = Option<unsafe extern "system" fn(duration1: *const WS_DURATION, duration2: *const WS_DURATION, result: *mut i32, error: *const WS_ERROR) -> windows_core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2591,9 +2390,6 @@ impl Default for WS_DURATION_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_DURATION_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_DURATION_TYPE: WS_TYPE = WS_TYPE(32i32);
 pub const WS_DURATION_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(15i32);
@@ -2612,9 +2408,6 @@ impl Default for WS_ELEMENT_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_ELEMENT_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_ELEMENT_FIELD_MAPPING: WS_FIELD_MAPPING = WS_FIELD_MAPPING(2i32);
 pub const WS_ELEMENT_TYPE_MAPPING: WS_TYPE_MAPPING = WS_TYPE_MAPPING(1i32);
@@ -2647,9 +2440,6 @@ impl Default for WS_ENDPOINT_ADDRESS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_ENDPOINT_ADDRESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_ENDPOINT_ADDRESS_DESCRIPTION {
@@ -2659,9 +2449,6 @@ impl Default for WS_ENDPOINT_ADDRESS_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_ENDPOINT_ADDRESS_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_ENDPOINT_ADDRESS_EXTENSION_METADATA_ADDRESS: WS_ENDPOINT_ADDRESS_EXTENSION_TYPE = WS_ENDPOINT_ADDRESS_EXTENSION_TYPE(1i32);
 #[repr(transparent)]
@@ -2677,9 +2464,6 @@ impl Default for WS_ENDPOINT_IDENTITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_ENDPOINT_IDENTITY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2697,9 +2481,6 @@ impl Default for WS_ENDPOINT_POLICY_EXTENSION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_ENDPOINT_POLICY_EXTENSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_ENDPOINT_POLICY_EXTENSION_0 {
@@ -2709,9 +2490,6 @@ impl Default for WS_ENDPOINT_POLICY_EXTENSION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_ENDPOINT_POLICY_EXTENSION_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_ENDPOINT_POLICY_EXTENSION_TYPE: WS_POLICY_EXTENSION_TYPE = WS_POLICY_EXTENSION_TYPE(1i32);
 #[repr(C)]
@@ -2727,9 +2505,6 @@ impl Default for WS_ENUM_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_ENUM_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WS_ENUM_TYPE: WS_TYPE = WS_TYPE(31i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2741,9 +2516,6 @@ impl Default for WS_ENUM_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_ENUM_VALUE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2768,9 +2540,6 @@ impl Default for WS_ERROR_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_ERROR_PROPERTY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2811,9 +2580,6 @@ impl Default for WS_FAULT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_FAULT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_FAULT_CODE {
@@ -2825,9 +2591,6 @@ impl Default for WS_FAULT_CODE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_FAULT_CODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_FAULT_DESCRIPTION {
@@ -2837,9 +2600,6 @@ impl Default for WS_FAULT_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_FAULT_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2851,9 +2611,6 @@ impl Default for WS_FAULT_DETAIL_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_FAULT_DETAIL_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2875,9 +2632,6 @@ impl Default for WS_FAULT_REASON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_FAULT_REASON {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_FAULT_TO_HEADER: WS_HEADER_TYPE = WS_HEADER_TYPE(7i32);
 pub const WS_FAULT_TYPE: WS_TYPE = WS_TYPE(29i32);
@@ -2902,9 +2656,6 @@ impl Default for WS_FIELD_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_FIELD_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_FIELD_MAPPING(pub i32);
@@ -2923,9 +2674,6 @@ impl Default for WS_FLOAT_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_FLOAT_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_FLOAT_TYPE: WS_TYPE = WS_TYPE(9i32);
 pub const WS_FLOAT_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(9i32);
@@ -2949,9 +2697,6 @@ impl Default for WS_GUID_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_GUID_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WS_GUID_TYPE: WS_TYPE = WS_TYPE(14i32);
 pub const WS_GUID_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(14i32);
 #[repr(transparent)]
@@ -2974,9 +2719,6 @@ impl Default for WS_HEAP_PROPERTIES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_HEAP_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_HEAP_PROPERTY {
@@ -2988,9 +2730,6 @@ impl Default for WS_HEAP_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_HEAP_PROPERTY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_HEAP_PROPERTY_ACTUAL_SIZE: WS_HEAP_PROPERTY_ID = WS_HEAP_PROPERTY_ID(3i32);
 #[repr(transparent)]
@@ -3010,9 +2749,6 @@ impl Default for WS_HOST_NAMES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_HOST_NAMES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_HTTPS_URL {
@@ -3029,9 +2765,6 @@ impl Default for WS_HTTPS_URL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_HTTPS_URL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_HTTP_BINDING_TEMPLATE {
@@ -3041,9 +2774,6 @@ impl Default for WS_HTTP_BINDING_TEMPLATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_HTTP_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_HTTP_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(0i32);
 pub const WS_HTTP_CHANNEL_BINDING: WS_CHANNEL_BINDING = WS_CHANNEL_BINDING(0i32);
@@ -3059,9 +2789,6 @@ impl Default for WS_HTTP_HEADER_AUTH_BINDING_TEMPLATE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_HTTP_HEADER_AUTH_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WS_HTTP_HEADER_AUTH_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(2i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3074,9 +2801,6 @@ impl Default for WS_HTTP_HEADER_AUTH_POLICY_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_HTTP_HEADER_AUTH_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_HTTP_HEADER_AUTH_SCHEME_BASIC: i32 = 2i32;
 pub const WS_HTTP_HEADER_AUTH_SCHEME_DIGEST: i32 = 4i32;
@@ -3095,9 +2819,6 @@ impl Default for WS_HTTP_HEADER_AUTH_SECURITY_BINDING {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_HTTP_HEADER_AUTH_SECURITY_BINDING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_HTTP_HEADER_AUTH_SECURITY_BINDING_CONSTRAINT {
@@ -3107,9 +2828,6 @@ impl Default for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_CONSTRAINT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_CONSTRAINT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_HTTP_HEADER_AUTH_SECURITY_BINDING_CONSTRAINT_TYPE: WS_SECURITY_BINDING_CONSTRAINT_TYPE = WS_SECURITY_BINDING_CONSTRAINT_TYPE(3i32);
 #[repr(C)]
@@ -3122,9 +2840,6 @@ impl Default for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_POLICY_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE {
@@ -3135,9 +2850,6 @@ impl Default for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = WS_SECURITY_BINDING_TYPE(3i32);
 #[repr(transparent)]
@@ -3155,9 +2867,6 @@ impl Default for WS_HTTP_HEADER_MAPPING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_HTTP_HEADER_MAPPING {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_HTTP_HEADER_MAPPING_COMMA_SEPARATOR: i32 = 1i32;
 pub const WS_HTTP_HEADER_MAPPING_QUOTED_VALUE: i32 = 4i32;
@@ -3177,9 +2886,6 @@ impl Default for WS_HTTP_MESSAGE_MAPPING {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_HTTP_MESSAGE_MAPPING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_HTTP_POLICY_DESCRIPTION {
@@ -3189,9 +2895,6 @@ impl Default for WS_HTTP_POLICY_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_HTTP_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3211,9 +2914,6 @@ impl Default for WS_HTTP_REDIRECT_CALLBACK_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_HTTP_REDIRECT_CALLBACK_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WS_HTTP_REQUEST_MAPPING_VERB: i32 = 2i32;
 pub const WS_HTTP_RESPONSE_MAPPING_STATUS_CODE: i32 = 1i32;
 pub const WS_HTTP_RESPONSE_MAPPING_STATUS_TEXT: i32 = 2i32;
@@ -3229,9 +2929,6 @@ impl Default for WS_HTTP_SSL_BINDING_TEMPLATE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_HTTP_SSL_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WS_HTTP_SSL_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(1i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3245,9 +2942,6 @@ impl Default for WS_HTTP_SSL_HEADER_AUTH_BINDING_TEMPLATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_HTTP_SSL_HEADER_AUTH_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_HTTP_SSL_HEADER_AUTH_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(3i32);
 #[repr(C)]
@@ -3263,9 +2957,6 @@ impl Default for WS_HTTP_SSL_HEADER_AUTH_POLICY_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_HTTP_SSL_HEADER_AUTH_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_HTTP_SSL_KERBEROS_APREQ_BINDING_TEMPLATE {
@@ -3278,9 +2969,6 @@ impl Default for WS_HTTP_SSL_KERBEROS_APREQ_BINDING_TEMPLATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_HTTP_SSL_KERBEROS_APREQ_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_HTTP_SSL_KERBEROS_APREQ_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(5i32);
 #[repr(C)]
@@ -3296,9 +2984,6 @@ impl Default for WS_HTTP_SSL_KERBEROS_APREQ_POLICY_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_HTTP_SSL_KERBEROS_APREQ_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {
@@ -3312,9 +2997,6 @@ impl Default for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(11i32);
 #[repr(C)]
@@ -3331,9 +3013,6 @@ impl Default for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION 
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_HTTP_SSL_POLICY_DESCRIPTION {
@@ -3345,9 +3024,6 @@ impl Default for WS_HTTP_SSL_POLICY_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_HTTP_SSL_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3361,9 +3037,6 @@ impl Default for WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(4i32);
 #[repr(C)]
@@ -3379,9 +3052,6 @@ impl Default for WS_HTTP_SSL_USERNAME_POLICY_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_HTTP_SSL_USERNAME_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
@@ -3395,9 +3065,6 @@ impl Default for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(10i32);
 #[repr(C)]
@@ -3413,9 +3080,6 @@ impl Default for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3433,9 +3097,6 @@ impl Default for WS_HTTP_URL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_HTTP_URL {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WS_INCLUSIVE_WITH_COMMENTS_XML_CANONICALIZATION_ALGORITHM: WS_XML_CANONICALIZATION_ALGORITHM = WS_XML_CANONICALIZATION_ALGORITHM(3i32);
 pub const WS_INCLUSIVE_XML_CANONICALIZATION_ALGORITHM: WS_XML_CANONICALIZATION_ALGORITHM = WS_XML_CANONICALIZATION_ALGORITHM(2i32);
 #[repr(C)]
@@ -3448,9 +3109,6 @@ impl Default for WS_INT16_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_INT16_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_INT16_TYPE: WS_TYPE = WS_TYPE(2i32);
 pub const WS_INT16_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(2i32);
@@ -3465,9 +3123,6 @@ impl Default for WS_INT32_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_INT32_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WS_INT32_TYPE: WS_TYPE = WS_TYPE(3i32);
 pub const WS_INT32_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(3i32);
 #[repr(C)]
@@ -3481,9 +3136,6 @@ impl Default for WS_INT64_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_INT64_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WS_INT64_TYPE: WS_TYPE = WS_TYPE(4i32);
 pub const WS_INT64_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(4i32);
 #[repr(C)]
@@ -3496,9 +3148,6 @@ impl Default for WS_INT8_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_INT8_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_INT8_TYPE: WS_TYPE = WS_TYPE(1i32);
 pub const WS_INT8_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(1i32);
@@ -3524,9 +3173,6 @@ impl Default for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_0 {
@@ -3537,9 +3183,6 @@ impl Default for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_TYPE: WS_SECURITY_BINDING_CONSTRAINT_TYPE = WS_SECURITY_BINDING_CONSTRAINT_TYPE(6i32);
 pub type WS_IS_DEFAULT_VALUE_CALLBACK = Option<unsafe extern "system" fn(descriptiondata: *const core::ffi::c_void, value: *const core::ffi::c_void, defaultvalue: *const core::ffi::c_void, valuesize: u32, isdefault: *mut super::super::Foundation::BOOL, error: *const WS_ERROR) -> windows_core::HRESULT>;
@@ -3554,9 +3197,6 @@ impl Default for WS_ITEM_RANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_ITEM_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING {
@@ -3569,9 +3209,6 @@ impl Default for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_CONSTRAINT {
@@ -3582,9 +3219,6 @@ impl Default for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_CONSTRAINT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_CONSTRAINT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_CONSTRAINT_TYPE: WS_SECURITY_BINDING_CONSTRAINT_TYPE = WS_SECURITY_BINDING_CONSTRAINT_TYPE(5i32);
 #[repr(C)]
@@ -3598,9 +3232,6 @@ impl Default for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE {
@@ -3611,9 +3242,6 @@ impl Default for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = WS_SECURITY_BINDING_TYPE(5i32);
 #[repr(transparent)]
@@ -3633,9 +3261,6 @@ impl Default for WS_LISTENER_PROPERTIES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_LISTENER_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_LISTENER_PROPERTY {
@@ -3647,9 +3272,6 @@ impl Default for WS_LISTENER_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_LISTENER_PROPERTY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_LISTENER_PROPERTY_ASYNC_CALLBACK_MODEL: WS_LISTENER_PROPERTY_ID = WS_LISTENER_PROPERTY_ID(3i32);
 pub const WS_LISTENER_PROPERTY_CHANNEL_BINDING: WS_LISTENER_PROPERTY_ID = WS_LISTENER_PROPERTY_ID(5i32);
@@ -3709,9 +3331,6 @@ impl Default for WS_MESSAGE_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_MESSAGE_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 pub type WS_MESSAGE_DONE_CALLBACK = Option<unsafe extern "system" fn(donecallbackstate: *const core::ffi::c_void)>;
 pub const WS_MESSAGE_ID_HEADER: WS_HEADER_TYPE = WS_HEADER_TYPE(3i32);
 #[repr(transparent)]
@@ -3728,9 +3347,6 @@ impl Default for WS_MESSAGE_PROPERTIES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_MESSAGE_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_MESSAGE_PROPERTY {
@@ -3742,9 +3358,6 @@ impl Default for WS_MESSAGE_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_MESSAGE_PROPERTY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_MESSAGE_PROPERTY_ADDRESSING_VERSION: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(3i32);
 pub const WS_MESSAGE_PROPERTY_BODY_READER: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(6i32);
@@ -3806,9 +3419,6 @@ impl Default for WS_METADATA_ENDPOINT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_METADATA_ENDPOINT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_METADATA_ENDPOINTS {
@@ -3819,9 +3429,6 @@ impl Default for WS_METADATA_ENDPOINTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_METADATA_ENDPOINTS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3840,9 +3447,6 @@ impl Default for WS_METADATA_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_METADATA_PROPERTY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_METADATA_PROPERTY_HEAP_PROPERTIES: WS_METADATA_PROPERTY_ID = WS_METADATA_PROPERTY_ID(2i32);
 pub const WS_METADATA_PROPERTY_HEAP_REQUESTED_SIZE: WS_METADATA_PROPERTY_ID = WS_METADATA_PROPERTY_ID(4i32);
@@ -3889,9 +3493,6 @@ impl Default for WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = WS_SECURITY_BINDING_TYPE(9i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -3905,10 +3506,6 @@ impl Default for WS_NCRYPT_ASYMMETRIC_SECURITY_KEY_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for WS_NCRYPT_ASYMMETRIC_SECURITY_KEY_HANDLE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_NCRYPT_ASYMMETRIC_SECURITY_KEY_HANDLE_TYPE: WS_SECURITY_KEY_HANDLE_TYPE = WS_SECURITY_KEY_HANDLE_TYPE(2i32);
 #[repr(C)]
@@ -3927,9 +3524,6 @@ impl Default for WS_NETPIPE_URL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_NETPIPE_URL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_NETTCP_URL {
@@ -3946,9 +3540,6 @@ impl Default for WS_NETTCP_URL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_NETTCP_URL {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WS_NON_RPC_LITERAL_OPERATION: WS_OPERATION_STYLE = WS_OPERATION_STYLE(0i32);
 pub const WS_NO_FIELD_MAPPING: WS_FIELD_MAPPING = WS_FIELD_MAPPING(5i32);
 #[repr(C)]
@@ -3961,9 +3552,6 @@ impl Default for WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE: WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE = WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE(3i32);
 pub type WS_OPEN_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, endpointaddress: *const WS_ENDPOINT_ADDRESS, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
@@ -4005,9 +3593,6 @@ impl Default for WS_OPERATION_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_OPERATION_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 pub type WS_OPERATION_FREE_STATE_CALLBACK = Option<unsafe extern "system" fn(state: *const core::ffi::c_void)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4023,9 +3608,6 @@ impl Default for WS_PARAMETER_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_PARAMETER_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4055,9 +3637,6 @@ impl Default for WS_POLICY_CONSTRAINTS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_POLICY_CONSTRAINTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_POLICY_EXTENSION {
@@ -4067,9 +3646,6 @@ impl Default for WS_POLICY_EXTENSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_POLICY_EXTENSION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4085,9 +3661,6 @@ impl Default for WS_POLICY_PROPERTIES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_POLICY_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_POLICY_PROPERTY {
@@ -4099,9 +3672,6 @@ impl Default for WS_POLICY_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_POLICY_PROPERTY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4134,9 +3704,6 @@ impl Default for WS_PROXY_MESSAGE_CALLBACK_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_PROXY_MESSAGE_CALLBACK_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_PROXY_PROPERTY {
@@ -4148,9 +3715,6 @@ impl Default for WS_PROXY_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_PROXY_PROPERTY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_PROXY_PROPERTY_CALL_TIMEOUT: WS_PROXY_PROPERTY_ID = WS_PROXY_PROPERTY_ID(0i32);
 #[repr(transparent)]
@@ -4173,9 +3737,6 @@ impl Default for WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE_TYPE: WS_SECURITY_KEY_HANDLE_TYPE = WS_SECURITY_KEY_HANDLE_TYPE(1i32);
 pub type WS_READ_CALLBACK = Option<unsafe extern "system" fn(callbackstate: *const core::ffi::c_void, bytes: *mut core::ffi::c_void, maxsize: u32, actualsize: *mut u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
@@ -4225,9 +3786,6 @@ impl Default for WS_REQUEST_SECURITY_TOKEN_PROPERTY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_REQUEST_SECURITY_TOKEN_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WS_REQUEST_SECURITY_TOKEN_PROPERTY_APPLIES_TO: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID = WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID(1i32);
 pub const WS_REQUEST_SECURITY_TOKEN_PROPERTY_BEARER_KEY_TYPE_VERSION: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID = WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID(13i32);
 #[repr(C)]
@@ -4243,9 +3801,6 @@ impl Default for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT_0 {
@@ -4255,9 +3810,6 @@ impl Default for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_REQUEST_SECURITY_TOKEN_PROPERTY_EXISTING_TOKEN: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID = WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID(6i32);
 #[repr(transparent)]
@@ -4288,9 +3840,6 @@ impl Default for WS_RSA_ENDPOINT_IDENTITY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_RSA_ENDPOINT_IDENTITY {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WS_RSA_ENDPOINT_IDENTITY_TYPE: WS_ENDPOINT_IDENTITY_TYPE = WS_ENDPOINT_IDENTITY_TYPE(4i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4301,9 +3850,6 @@ impl Default for WS_SAML_AUTHENTICATOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_SAML_AUTHENTICATOR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4319,9 +3865,6 @@ impl Default for WS_SAML_MESSAGE_SECURITY_BINDING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_SAML_MESSAGE_SECURITY_BINDING {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_SAML_MESSAGE_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = WS_SECURITY_BINDING_TYPE(7i32);
 #[repr(transparent)]
@@ -4367,9 +3910,6 @@ impl Default for WS_SECURITY_ALGORITHM_PROPERTY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_SECURITY_ALGORITHM_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_SECURITY_ALGORITHM_PROPERTY_ID(pub i32);
@@ -4395,9 +3935,6 @@ impl Default for WS_SECURITY_ALGORITHM_SUITE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_SECURITY_ALGORITHM_SUITE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4436,9 +3973,6 @@ impl Default for WS_SECURITY_BINDING {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_SECURITY_BINDING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_SECURITY_BINDING_CONSTRAINT {
@@ -4450,9 +3984,6 @@ impl Default for WS_SECURITY_BINDING_CONSTRAINT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_SECURITY_BINDING_CONSTRAINT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4468,9 +3999,6 @@ impl Default for WS_SECURITY_BINDING_PROPERTIES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_SECURITY_BINDING_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_SECURITY_BINDING_PROPERTY {
@@ -4482,9 +4010,6 @@ impl Default for WS_SECURITY_BINDING_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_SECURITY_BINDING_PROPERTY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_SECURITY_BINDING_PROPERTY_ALLOWED_IMPERSONATION_LEVEL: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(5i32);
 pub const WS_SECURITY_BINDING_PROPERTY_ALLOW_ANONYMOUS_CLIENTS: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(4i32);
@@ -4503,9 +4028,6 @@ impl Default for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_SECURITY_BINDING_PROPERTY_CONSTRAINT_0 {
@@ -4515,9 +4037,6 @@ impl Default for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_SECURITY_BINDING_PROPERTY_DISABLE_CERT_REVOCATION_CHECK: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(21i32);
 pub const WS_SECURITY_BINDING_PROPERTY_DISALLOWED_SECURE_PROTOCOLS: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(22i32);
@@ -4557,9 +4076,6 @@ impl Default for WS_SECURITY_CONSTRAINTS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_SECURITY_CONSTRAINTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct WS_SECURITY_CONTEXT(pub isize);
@@ -4578,9 +4094,6 @@ impl Default for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
@@ -4592,9 +4105,6 @@ impl Default for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_CONSTRAINT_TYPE: WS_SECURITY_BINDING_CONSTRAINT_TYPE = WS_SECURITY_BINDING_CONSTRAINT_TYPE(8i32);
 #[repr(C)]
@@ -4608,9 +4118,6 @@ impl Default for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_TEMPLATE {
@@ -4620,9 +4127,6 @@ impl Default for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_TEMPLATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = WS_SECURITY_BINDING_TYPE(8i32);
 #[repr(C)]
@@ -4636,9 +4140,6 @@ impl Default for WS_SECURITY_CONTEXT_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_SECURITY_CONTEXT_PROPERTY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4658,9 +4159,6 @@ impl Default for WS_SECURITY_CONTEXT_SECURITY_BINDING_POLICY_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_SECURITY_CONTEXT_SECURITY_BINDING_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE {
@@ -4671,9 +4169,6 @@ impl Default for WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4687,9 +4182,6 @@ impl Default for WS_SECURITY_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_SECURITY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4719,9 +4211,6 @@ impl Default for WS_SECURITY_KEY_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_SECURITY_KEY_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_SECURITY_KEY_HANDLE_TYPE(pub i32);
@@ -4742,9 +4231,6 @@ impl Default for WS_SECURITY_PROPERTIES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_SECURITY_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_SECURITY_PROPERTY {
@@ -4756,9 +4242,6 @@ impl Default for WS_SECURITY_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_SECURITY_PROPERTY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_SECURITY_PROPERTY_ALGORITHM_SUITE: WS_SECURITY_PROPERTY_ID = WS_SECURITY_PROPERTY_ID(2i32);
 pub const WS_SECURITY_PROPERTY_ALGORITHM_SUITE_NAME: WS_SECURITY_PROPERTY_ID = WS_SECURITY_PROPERTY_ID(3i32);
@@ -4775,9 +4258,6 @@ impl Default for WS_SECURITY_PROPERTY_CONSTRAINT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_SECURITY_PROPERTY_CONSTRAINT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_SECURITY_PROPERTY_CONSTRAINT_0 {
@@ -4787,9 +4267,6 @@ impl Default for WS_SECURITY_PROPERTY_CONSTRAINT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_SECURITY_PROPERTY_CONSTRAINT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_SECURITY_PROPERTY_EXTENDED_PROTECTION_POLICY: WS_SECURITY_PROPERTY_ID = WS_SECURITY_PROPERTY_ID(10i32);
 pub const WS_SECURITY_PROPERTY_EXTENDED_PROTECTION_SCENARIO: WS_SECURITY_PROPERTY_ID = WS_SECURITY_PROPERTY_ID(11i32);
@@ -4852,9 +4329,6 @@ impl Default for WS_SERVICE_CONTRACT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_SERVICE_CONTRACT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_SERVICE_ENDPOINT {
@@ -4873,9 +4347,6 @@ impl Default for WS_SERVICE_ENDPOINT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_SERVICE_ENDPOINT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_SERVICE_ENDPOINT_METADATA {
@@ -4888,9 +4359,6 @@ impl Default for WS_SERVICE_ENDPOINT_METADATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_SERVICE_ENDPOINT_METADATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_SERVICE_ENDPOINT_PROPERTY {
@@ -4902,9 +4370,6 @@ impl Default for WS_SERVICE_ENDPOINT_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_SERVICE_ENDPOINT_PROPERTY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_SERVICE_ENDPOINT_PROPERTY_ACCEPT_CHANNEL_CALLBACK: WS_SERVICE_ENDPOINT_PROPERTY_ID = WS_SERVICE_ENDPOINT_PROPERTY_ID(0i32);
 pub const WS_SERVICE_ENDPOINT_PROPERTY_BODY_HEAP_MAX_SIZE: WS_SERVICE_ENDPOINT_PROPERTY_ID = WS_SERVICE_ENDPOINT_PROPERTY_ID(4i32);
@@ -4954,9 +4419,6 @@ impl Default for WS_SERVICE_METADATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_SERVICE_METADATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_SERVICE_METADATA_DOCUMENT {
@@ -4967,9 +4429,6 @@ impl Default for WS_SERVICE_METADATA_DOCUMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_SERVICE_METADATA_DOCUMENT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_SERVICE_OPERATION_MESSAGE_NILLABLE_ELEMENT: i32 = 1i32;
 #[repr(C)]
@@ -4984,9 +4443,6 @@ impl Default for WS_SERVICE_PROPERTY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_SERVICE_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_SERVICE_PROPERTY_ACCEPT_CALLBACK {
@@ -4997,9 +4453,6 @@ impl Default for WS_SERVICE_PROPERTY_ACCEPT_CALLBACK {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_SERVICE_PROPERTY_ACCEPT_CALLBACK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_SERVICE_PROPERTY_CLOSE_CALLBACK {
@@ -5009,9 +4462,6 @@ impl Default for WS_SERVICE_PROPERTY_CLOSE_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_SERVICE_PROPERTY_CLOSE_CALLBACK {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_SERVICE_PROPERTY_CLOSE_TIMEOUT: WS_SERVICE_PROPERTY_ID = WS_SERVICE_PROPERTY_ID(5i32);
 pub const WS_SERVICE_PROPERTY_FAULT_DISCLOSURE: WS_SERVICE_PROPERTY_ID = WS_SERVICE_PROPERTY_ID(1i32);
@@ -5049,9 +4499,6 @@ impl Default for WS_SERVICE_SECURITY_IDENTITIES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_SERVICE_SECURITY_IDENTITIES {
-    type TypeKind = windows_core::CopyType;
-}
 pub type WS_SERVICE_STUB_CALLBACK = Option<unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, frame: *const core::ffi::c_void, callback: *const core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
 pub type WS_SET_CHANNEL_PROPERTY_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, id: WS_CHANNEL_PROPERTY_ID, value: *const core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::HRESULT>;
 pub type WS_SET_LISTENER_PROPERTY_CALLBACK = Option<unsafe extern "system" fn(listenerinstance: *const core::ffi::c_void, id: WS_LISTENER_PROPERTY_ID, value: *const core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::HRESULT>;
@@ -5074,9 +4521,6 @@ impl Default for WS_SOAPUDP_URL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_SOAPUDP_URL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_SPN_ENDPOINT_IDENTITY {
@@ -5087,9 +4531,6 @@ impl Default for WS_SPN_ENDPOINT_IDENTITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_SPN_ENDPOINT_IDENTITY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_SPN_ENDPOINT_IDENTITY_TYPE: WS_ENDPOINT_IDENTITY_TYPE = WS_ENDPOINT_IDENTITY_TYPE(3i32);
 #[repr(C)]
@@ -5103,9 +4544,6 @@ impl Default for WS_SSL_TRANSPORT_SECURITY_BINDING {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_SSL_TRANSPORT_SECURITY_BINDING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
@@ -5117,9 +4555,6 @@ impl Default for WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT_0 {
@@ -5129,9 +4564,6 @@ impl Default for WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT_TYPE: WS_SECURITY_BINDING_CONSTRAINT_TYPE = WS_SECURITY_BINDING_CONSTRAINT_TYPE(1i32);
 #[repr(C)]
@@ -5144,9 +4576,6 @@ impl Default for WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE {
@@ -5158,9 +4587,6 @@ impl Default for WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WS_SSL_TRANSPORT_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = WS_SECURITY_BINDING_TYPE(1i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5171,9 +4597,6 @@ impl Default for WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_STREAMED_INPUT_TRANSFER_MODE: WS_TRANSFER_MODE = WS_TRANSFER_MODE(1i32);
 pub const WS_STREAMED_OUTPUT_TRANSFER_MODE: WS_TRANSFER_MODE = WS_TRANSFER_MODE(2i32);
@@ -5189,9 +4612,6 @@ impl Default for WS_STRING {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_STRING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_STRING_DESCRIPTION {
@@ -5202,9 +4622,6 @@ impl Default for WS_STRING_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_STRING_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_STRING_TYPE: WS_TYPE = WS_TYPE(16i32);
 #[repr(C)]
@@ -5219,9 +4636,6 @@ impl Default for WS_STRING_USERNAME_CREDENTIAL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_STRING_USERNAME_CREDENTIAL {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WS_STRING_USERNAME_CREDENTIAL_TYPE: WS_USERNAME_CREDENTIAL_TYPE = WS_USERNAME_CREDENTIAL_TYPE(1i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5235,9 +4649,6 @@ impl Default for WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE: WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE = WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE(1i32);
 pub const WS_STRUCT_ABSTRACT: i32 = 1i32;
@@ -5260,9 +4671,6 @@ impl Default for WS_STRUCT_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_STRUCT_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WS_STRUCT_IGNORE_TRAILING_ELEMENT_CONTENT: i32 = 2i32;
 pub const WS_STRUCT_IGNORE_UNHANDLED_ATTRIBUTES: i32 = 4i32;
 pub const WS_STRUCT_TYPE: WS_TYPE = WS_TYPE(26i32);
@@ -5279,9 +4687,6 @@ impl Default for WS_SUBJECT_NAME_CERT_CREDENTIAL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_SUBJECT_NAME_CERT_CREDENTIAL {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WS_SUBJECT_NAME_CERT_CREDENTIAL_TYPE: WS_CERT_CREDENTIAL_TYPE = WS_CERT_CREDENTIAL_TYPE(1i32);
 pub const WS_SUPPORTING_MESSAGE_SECURITY_USAGE: WS_MESSAGE_SECURITY_USAGE = WS_MESSAGE_SECURITY_USAGE(1i32);
 #[repr(C)]
@@ -5293,9 +4698,6 @@ impl Default for WS_TCP_BINDING_TEMPLATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_TCP_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_TCP_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(6i32);
 pub const WS_TCP_CHANNEL_BINDING: WS_CHANNEL_BINDING = WS_CHANNEL_BINDING(1i32);
@@ -5309,9 +4711,6 @@ impl Default for WS_TCP_POLICY_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_TCP_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_TCP_SSPI_BINDING_TEMPLATE {
@@ -5323,9 +4722,6 @@ impl Default for WS_TCP_SSPI_BINDING_TEMPLATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_TCP_SSPI_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_TCP_SSPI_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(7i32);
 #[repr(C)]
@@ -5341,9 +4737,6 @@ impl Default for WS_TCP_SSPI_KERBEROS_APREQ_BINDING_TEMPLATE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_TCP_SSPI_KERBEROS_APREQ_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WS_TCP_SSPI_KERBEROS_APREQ_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(9i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5358,9 +4751,6 @@ impl Default for WS_TCP_SSPI_KERBEROS_APREQ_POLICY_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_TCP_SSPI_KERBEROS_APREQ_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {
@@ -5374,9 +4764,6 @@ impl Default for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(13i32);
 #[repr(C)]
@@ -5393,9 +4780,6 @@ impl Default for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION 
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_TCP_SSPI_POLICY_DESCRIPTION {
@@ -5408,9 +4792,6 @@ impl Default for WS_TCP_SSPI_POLICY_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_TCP_SSPI_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING {
@@ -5422,9 +4803,6 @@ impl Default for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
@@ -5434,9 +4812,6 @@ impl Default for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_CONSTRAINT_TYPE: WS_SECURITY_BINDING_CONSTRAINT_TYPE = WS_SECURITY_BINDING_CONSTRAINT_TYPE(2i32);
 #[repr(C)]
@@ -5449,9 +4824,6 @@ impl Default for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = WS_SECURITY_BINDING_TYPE(2i32);
 #[repr(C)]
@@ -5467,9 +4839,6 @@ impl Default for WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(8i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5484,9 +4853,6 @@ impl Default for WS_TCP_SSPI_USERNAME_POLICY_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_TCP_SSPI_USERNAME_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
@@ -5500,9 +4866,6 @@ impl Default for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(12i32);
 #[repr(C)]
@@ -5519,9 +4882,6 @@ impl Default for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WS_TEXT_FIELD_MAPPING: WS_FIELD_MAPPING = WS_FIELD_MAPPING(4i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5536,9 +4896,6 @@ impl Default for WS_THUMBPRINT_CERT_CREDENTIAL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_THUMBPRINT_CERT_CREDENTIAL {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WS_THUMBPRINT_CERT_CREDENTIAL_TYPE: WS_CERT_CREDENTIAL_TYPE = WS_CERT_CREDENTIAL_TYPE(2i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5550,9 +4907,6 @@ impl Default for WS_TIMESPAN {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_TIMESPAN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_TIMESPAN_DESCRIPTION {
@@ -5563,9 +4917,6 @@ impl Default for WS_TIMESPAN_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_TIMESPAN_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_TIMESPAN_TYPE: WS_TYPE = WS_TYPE(13i32);
 pub const WS_TIMESPAN_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(13i32);
@@ -5796,9 +5147,6 @@ impl Default for WS_UINT16_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_UINT16_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WS_UINT16_TYPE: WS_TYPE = WS_TYPE(6i32);
 pub const WS_UINT16_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(6i32);
 #[repr(C)]
@@ -5811,9 +5159,6 @@ impl Default for WS_UINT32_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_UINT32_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_UINT32_TYPE: WS_TYPE = WS_TYPE(7i32);
 pub const WS_UINT32_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(7i32);
@@ -5828,9 +5173,6 @@ impl Default for WS_UINT64_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_UINT64_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WS_UINT64_TYPE: WS_TYPE = WS_TYPE(8i32);
 pub const WS_UINT64_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(8i32);
 #[repr(C)]
@@ -5843,9 +5185,6 @@ impl Default for WS_UINT8_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_UINT8_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_UINT8_TYPE: WS_TYPE = WS_TYPE(5i32);
 pub const WS_UINT8_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(5i32);
@@ -5865,9 +5204,6 @@ impl Default for WS_UNION_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_UNION_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_UNION_FIELD_DESCRIPTION {
@@ -5878,9 +5214,6 @@ impl Default for WS_UNION_FIELD_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_UNION_FIELD_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_UNION_TYPE: WS_TYPE = WS_TYPE(33i32);
 #[repr(C)]
@@ -5894,9 +5227,6 @@ impl Default for WS_UNIQUE_ID {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_UNIQUE_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_UNIQUE_ID_DESCRIPTION {
@@ -5907,9 +5237,6 @@ impl Default for WS_UNIQUE_ID_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_UNIQUE_ID_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_UNIQUE_ID_TYPE: WS_TYPE = WS_TYPE(15i32);
 #[repr(C)]
@@ -5923,9 +5250,6 @@ impl Default for WS_UNKNOWN_ENDPOINT_IDENTITY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_UNKNOWN_ENDPOINT_IDENTITY {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WS_UNKNOWN_ENDPOINT_IDENTITY_TYPE: WS_ENDPOINT_IDENTITY_TYPE = WS_ENDPOINT_IDENTITY_TYPE(6i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5938,9 +5262,6 @@ impl Default for WS_UPN_ENDPOINT_IDENTITY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_UPN_ENDPOINT_IDENTITY {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WS_UPN_ENDPOINT_IDENTITY_TYPE: WS_ENDPOINT_IDENTITY_TYPE = WS_ENDPOINT_IDENTITY_TYPE(2i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5951,9 +5272,6 @@ impl Default for WS_URL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_URL {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_URL_FLAGS_ALLOW_HOST_WILDCARDS: i32 = 1i32;
 pub const WS_URL_FLAGS_NO_PATH_COLLAPSE: i32 = 2i32;
@@ -5976,9 +5294,6 @@ impl Default for WS_USERNAME_CREDENTIAL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_USERNAME_CREDENTIAL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_USERNAME_CREDENTIAL_TYPE(pub i32);
@@ -5996,9 +5311,6 @@ impl Default for WS_USERNAME_MESSAGE_SECURITY_BINDING {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_USERNAME_MESSAGE_SECURITY_BINDING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_USERNAME_MESSAGE_SECURITY_BINDING_CONSTRAINT {
@@ -6009,9 +5321,6 @@ impl Default for WS_USERNAME_MESSAGE_SECURITY_BINDING_CONSTRAINT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_USERNAME_MESSAGE_SECURITY_BINDING_CONSTRAINT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_USERNAME_MESSAGE_SECURITY_BINDING_CONSTRAINT_TYPE: WS_SECURITY_BINDING_CONSTRAINT_TYPE = WS_SECURITY_BINDING_CONSTRAINT_TYPE(4i32);
 #[repr(C)]
@@ -6024,9 +5333,6 @@ impl Default for WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6041,9 +5347,6 @@ impl Default for WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WS_USERNAME_MESSAGE_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = WS_SECURITY_BINDING_TYPE(4i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6055,9 +5358,6 @@ impl Default for WS_UTF8_ARRAY_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_UTF8_ARRAY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_UTF8_ARRAY_TYPE: WS_TYPE = WS_TYPE(23i32);
 pub type WS_VALIDATE_PASSWORD_CALLBACK = Option<unsafe extern "system" fn(passwordvalidatorcallbackstate: *const core::ffi::c_void, username: *const WS_STRING, password: *const WS_STRING, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
@@ -6075,9 +5375,6 @@ impl Default for WS_VOID_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_VOID_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WS_VOID_TYPE: WS_TYPE = WS_TYPE(30i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6088,9 +5385,6 @@ impl Default for WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6123,9 +5417,6 @@ impl Default for WS_WSZ_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_WSZ_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WS_WSZ_TYPE: WS_TYPE = WS_TYPE(17i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6142,9 +5433,6 @@ impl Default for WS_XML_ATTRIBUTE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_XML_ATTRIBUTE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WS_XML_ATTRIBUTE_FIELD_MAPPING: WS_FIELD_MAPPING = WS_FIELD_MAPPING(6i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6158,9 +5446,6 @@ impl Default for WS_XML_BASE64_TEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_XML_BASE64_TEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_XML_BOOL_TEXT {
@@ -6171,9 +5456,6 @@ impl Default for WS_XML_BOOL_TEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_XML_BOOL_TEXT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
@@ -6193,9 +5475,6 @@ impl Default for WS_XML_BUFFER_PROPERTY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_XML_BUFFER_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_XML_BUFFER_PROPERTY_ID(pub i32);
@@ -6214,9 +5493,6 @@ impl Default for WS_XML_CANONICALIZATION_INCLUSIVE_PREFIXES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_XML_CANONICALIZATION_INCLUSIVE_PREFIXES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_XML_CANONICALIZATION_PROPERTY {
@@ -6228,9 +5504,6 @@ impl Default for WS_XML_CANONICALIZATION_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_XML_CANONICALIZATION_PROPERTY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_XML_CANONICALIZATION_PROPERTY_ALGORITHM: WS_XML_CANONICALIZATION_PROPERTY_ID = WS_XML_CANONICALIZATION_PROPERTY_ID(0i32);
 #[repr(transparent)]
@@ -6250,9 +5523,6 @@ impl Default for WS_XML_COMMENT_NODE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_XML_COMMENT_NODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_XML_DATETIME_TEXT {
@@ -6264,9 +5534,6 @@ impl Default for WS_XML_DATETIME_TEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_XML_DATETIME_TEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WS_XML_DECIMAL_TEXT {
@@ -6277,9 +5544,6 @@ impl Default for WS_XML_DECIMAL_TEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_XML_DECIMAL_TEXT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6294,9 +5558,6 @@ impl Default for WS_XML_DICTIONARY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_XML_DICTIONARY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_XML_DOUBLE_TEXT {
@@ -6307,9 +5568,6 @@ impl Default for WS_XML_DOUBLE_TEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_XML_DOUBLE_TEXT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6327,9 +5585,6 @@ impl Default for WS_XML_ELEMENT_NODE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_XML_ELEMENT_NODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_XML_FLOAT_TEXT {
@@ -6340,9 +5595,6 @@ impl Default for WS_XML_FLOAT_TEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_XML_FLOAT_TEXT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6355,9 +5607,6 @@ impl Default for WS_XML_GUID_TEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_XML_GUID_TEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_XML_INT32_TEXT {
@@ -6369,9 +5618,6 @@ impl Default for WS_XML_INT32_TEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_XML_INT32_TEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_XML_INT64_TEXT {
@@ -6382,9 +5628,6 @@ impl Default for WS_XML_INT64_TEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_XML_INT64_TEXT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6398,9 +5641,6 @@ impl Default for WS_XML_LIST_TEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_XML_LIST_TEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_XML_NODE {
@@ -6410,9 +5650,6 @@ impl Default for WS_XML_NODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_XML_NODE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6424,9 +5661,6 @@ impl Default for WS_XML_NODE_POSITION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_XML_NODE_POSITION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6450,9 +5684,6 @@ impl Default for WS_XML_QNAME {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_XML_QNAME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_XML_QNAME_DESCRIPTION {
@@ -6466,9 +5697,6 @@ impl Default for WS_XML_QNAME_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_XML_QNAME_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_XML_QNAME_TEXT {
@@ -6481,9 +5709,6 @@ impl Default for WS_XML_QNAME_TEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_XML_QNAME_TEXT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_XML_QNAME_TYPE: WS_TYPE = WS_TYPE(20i32);
 #[repr(transparent)]
@@ -6504,9 +5729,6 @@ impl Default for WS_XML_READER_BINARY_ENCODING {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_XML_READER_BINARY_ENCODING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_XML_READER_BUFFER_INPUT {
@@ -6519,9 +5741,6 @@ impl Default for WS_XML_READER_BUFFER_INPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_XML_READER_BUFFER_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_XML_READER_ENCODING {
@@ -6531,9 +5750,6 @@ impl Default for WS_XML_READER_ENCODING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_XML_READER_ENCODING {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6551,9 +5767,6 @@ impl Default for WS_XML_READER_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_XML_READER_INPUT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6575,9 +5788,6 @@ impl Default for WS_XML_READER_MTOM_ENCODING {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_XML_READER_MTOM_ENCODING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_XML_READER_PROPERTIES {
@@ -6588,9 +5798,6 @@ impl Default for WS_XML_READER_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_XML_READER_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6603,9 +5810,6 @@ impl Default for WS_XML_READER_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_XML_READER_PROPERTY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_XML_READER_PROPERTY_ALLOW_FRAGMENT: WS_XML_READER_PROPERTY_ID = WS_XML_READER_PROPERTY_ID(1i32);
 pub const WS_XML_READER_PROPERTY_ALLOW_INVALID_CHARACTER_REFERENCES: WS_XML_READER_PROPERTY_ID = WS_XML_READER_PROPERTY_ID(13i32);
@@ -6635,9 +5839,6 @@ impl Default for WS_XML_READER_RAW_ENCODING {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_XML_READER_RAW_ENCODING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_XML_READER_STREAM_INPUT {
@@ -6650,9 +5851,6 @@ impl Default for WS_XML_READER_STREAM_INPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_XML_READER_STREAM_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_XML_READER_TEXT_ENCODING {
@@ -6663,9 +5861,6 @@ impl Default for WS_XML_READER_TEXT_ENCODING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_XML_READER_TEXT_ENCODING {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6678,9 +5873,6 @@ impl Default for WS_XML_SECURITY_TOKEN_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_XML_SECURITY_TOKEN_PROPERTY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_XML_SECURITY_TOKEN_PROPERTY_ATTACHED_REFERENCE: WS_XML_SECURITY_TOKEN_PROPERTY_ID = WS_XML_SECURITY_TOKEN_PROPERTY_ID(1i32);
 #[repr(transparent)]
@@ -6702,9 +5894,6 @@ impl Default for WS_XML_STRING {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_XML_STRING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_XML_STRING_DESCRIPTION {
@@ -6715,9 +5904,6 @@ impl Default for WS_XML_STRING_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_XML_STRING_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_XML_STRING_TYPE: WS_TYPE = WS_TYPE(19i32);
 #[repr(C)]
@@ -6730,9 +5916,6 @@ impl Default for WS_XML_TEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_XML_TEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_XML_TEXT_NODE {
@@ -6743,9 +5926,6 @@ impl Default for WS_XML_TEXT_NODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_XML_TEXT_NODE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6777,9 +5957,6 @@ impl Default for WS_XML_TIMESPAN_TEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_XML_TIMESPAN_TEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_XML_TOKEN_MESSAGE_SECURITY_BINDING {
@@ -6791,9 +5968,6 @@ impl Default for WS_XML_TOKEN_MESSAGE_SECURITY_BINDING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_XML_TOKEN_MESSAGE_SECURITY_BINDING {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_XML_TOKEN_MESSAGE_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = WS_SECURITY_BINDING_TYPE(6i32);
 #[repr(C)]
@@ -6807,9 +5981,6 @@ impl Default for WS_XML_UINT64_TEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_XML_UINT64_TEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_XML_UNIQUE_ID_TEXT {
@@ -6820,9 +5991,6 @@ impl Default for WS_XML_UNIQUE_ID_TEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_XML_UNIQUE_ID_TEXT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6836,9 +6004,6 @@ impl Default for WS_XML_UTF16_TEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_XML_UTF16_TEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_XML_UTF8_TEXT {
@@ -6849,9 +6014,6 @@ impl Default for WS_XML_UTF8_TEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_XML_UTF8_TEXT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
@@ -6872,9 +6034,6 @@ impl Default for WS_XML_WRITER_BINARY_ENCODING {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_XML_WRITER_BINARY_ENCODING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_XML_WRITER_BUFFER_OUTPUT {
@@ -6885,9 +6044,6 @@ impl Default for WS_XML_WRITER_BUFFER_OUTPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_XML_WRITER_BUFFER_OUTPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_XML_WRITER_ENCODING {
@@ -6897,9 +6053,6 @@ impl Default for WS_XML_WRITER_ENCODING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_XML_WRITER_ENCODING {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6924,9 +6077,6 @@ impl Default for WS_XML_WRITER_MTOM_ENCODING {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_XML_WRITER_MTOM_ENCODING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_XML_WRITER_OUTPUT {
@@ -6936,9 +6086,6 @@ impl Default for WS_XML_WRITER_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_XML_WRITER_OUTPUT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6956,9 +6103,6 @@ impl Default for WS_XML_WRITER_PROPERTIES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_XML_WRITER_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_XML_WRITER_PROPERTY {
@@ -6970,9 +6114,6 @@ impl Default for WS_XML_WRITER_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_XML_WRITER_PROPERTY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WS_XML_WRITER_PROPERTY_ALLOW_FRAGMENT: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(1i32);
 pub const WS_XML_WRITER_PROPERTY_ALLOW_INVALID_CHARACTER_REFERENCES: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(13i32);
@@ -7006,9 +6147,6 @@ impl Default for WS_XML_WRITER_RAW_ENCODING {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_XML_WRITER_RAW_ENCODING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_XML_WRITER_STREAM_OUTPUT {
@@ -7021,9 +6159,6 @@ impl Default for WS_XML_WRITER_STREAM_OUTPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WS_XML_WRITER_STREAM_OUTPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_XML_WRITER_TEXT_ENCODING {
@@ -7034,7 +6169,4 @@ impl Default for WS_XML_WRITER_TEXT_ENCODING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WS_XML_WRITER_TEXT_ENCODING {
-    type TypeKind = windows_core::CopyType;
 }

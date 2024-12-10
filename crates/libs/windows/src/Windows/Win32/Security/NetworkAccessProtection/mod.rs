@@ -11,9 +11,6 @@ impl Default for CorrelationId {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CorrelationId {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CountedString {
@@ -24,9 +21,6 @@ impl Default for CountedString {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CountedString {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -44,9 +38,6 @@ impl Default for FailureCategoryMapping {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FailureCategoryMapping {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FixupInfo {
@@ -59,9 +50,6 @@ impl Default for FixupInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FixupInfo {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -76,9 +64,6 @@ impl Default for Ipv4Address {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for Ipv4Address {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Ipv6Address {
@@ -88,9 +73,6 @@ impl Default for Ipv6Address {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for Ipv6Address {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -104,9 +86,6 @@ impl Default for IsolationInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IsolationInfo {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IsolationInfoEx {
@@ -119,9 +98,6 @@ impl Default for IsolationInfoEx {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IsolationInfoEx {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -144,9 +120,6 @@ impl Default for NapComponentRegistrationInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NapComponentRegistrationInfo {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NapNotifyType(pub i32);
@@ -164,9 +137,6 @@ impl Default for NetworkSoH {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NetworkSoH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PrivateData {
@@ -177,9 +147,6 @@ impl Default for PrivateData {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PrivateData {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -195,9 +162,6 @@ impl Default for ResultCodes {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ResultCodes {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SoH {
@@ -208,9 +172,6 @@ impl Default for SoH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SoH {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -224,9 +185,6 @@ impl Default for SoHAttribute {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SoHAttribute {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SystemHealthAgentState {
@@ -239,9 +197,6 @@ impl Default for SystemHealthAgentState {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SystemHealthAgentState {
-    type TypeKind = windows_core::CopyType;
 }
 pub const extendedIsolationStateInfected: ExtendedIsolationState = ExtendedIsolationState(2i32);
 pub const extendedIsolationStateNoData: ExtendedIsolationState = ExtendedIsolationState(0i32);

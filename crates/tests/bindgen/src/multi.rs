@@ -17,7 +17,4 @@ impl Default for HTTP_VERSION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HTTP_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const HTTP_VERSION: windows_core::PCWSTR = windows_core::w!("HTTP/1.0");

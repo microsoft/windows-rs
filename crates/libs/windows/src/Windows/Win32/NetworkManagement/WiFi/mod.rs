@@ -580,10 +580,6 @@ impl Default for DOT11EXT_APIS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
-impl windows_core::TypeKind for DOT11EXT_APIS {
-    type TypeKind = windows_core::CopyType;
-}
 pub type DOT11EXT_FREE_BUFFER = Option<unsafe extern "system" fn(pvmemory: *const core::ffi::c_void)>;
 pub type DOT11EXT_GET_PROFILE_CUSTOM_USER_DATA = Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, dwsessionid: u32, pdwdatasize: *mut u32, ppvdata: *mut *mut core::ffi::c_void) -> u32>;
 #[repr(transparent)]
@@ -599,9 +595,6 @@ impl Default for DOT11EXT_IHV_CONNECTIVITY_PROFILE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11EXT_IHV_CONNECTIVITY_PROFILE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11EXT_IHV_DISCOVERY_PROFILE {
@@ -613,9 +606,6 @@ impl Default for DOT11EXT_IHV_DISCOVERY_PROFILE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11EXT_IHV_DISCOVERY_PROFILE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11EXT_IHV_DISCOVERY_PROFILE_LIST {
@@ -626,9 +616,6 @@ impl Default for DOT11EXT_IHV_DISCOVERY_PROFILE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11EXT_IHV_DISCOVERY_PROFILE_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Security_ExtensibleAuthenticationProtocol", feature = "Win32_System_RemoteDesktop"))]
@@ -660,10 +647,6 @@ impl Default for DOT11EXT_IHV_HANDLERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Security_ExtensibleAuthenticationProtocol", feature = "Win32_System_RemoteDesktop"))]
-impl windows_core::TypeKind for DOT11EXT_IHV_HANDLERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11EXT_IHV_INDICATION_TYPE(pub i32);
@@ -682,10 +665,6 @@ impl Default for DOT11EXT_IHV_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl windows_core::TypeKind for DOT11EXT_IHV_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -700,10 +679,6 @@ impl Default for DOT11EXT_IHV_PROFILE_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl windows_core::TypeKind for DOT11EXT_IHV_PROFILE_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11EXT_IHV_SECURITY_PROFILE {
@@ -715,9 +690,6 @@ impl Default for DOT11EXT_IHV_SECURITY_PROFILE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11EXT_IHV_SECURITY_PROFILE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11EXT_IHV_SSID_LIST {
@@ -728,9 +700,6 @@ impl Default for DOT11EXT_IHV_SSID_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11EXT_IHV_SSID_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -745,9 +714,6 @@ impl Default for DOT11EXT_IHV_UI_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11EXT_IHV_UI_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 pub type DOT11EXT_NIC_SPECIFIC_EXTENSION = Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, dwinbuffersize: u32, pvinbuffer: *const core::ffi::c_void, pdwoutbuffersize: *mut u32, pvoutbuffer: *mut core::ffi::c_void) -> u32>;
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
@@ -788,9 +754,6 @@ impl Default for DOT11EXT_VIRTUAL_STATION_APIS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11EXT_VIRTUAL_STATION_APIS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11EXT_VIRTUAL_STATION_AP_PROPERTY {
@@ -806,9 +769,6 @@ impl Default for DOT11EXT_VIRTUAL_STATION_AP_PROPERTY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11EXT_VIRTUAL_STATION_AP_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_ACCESSNETWORKOPTIONS {
@@ -822,9 +782,6 @@ impl Default for DOT11_ACCESSNETWORKOPTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_ACCESSNETWORKOPTIONS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -841,9 +798,6 @@ impl Default for DOT11_ADAPTER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_ADAPTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -859,10 +813,6 @@ impl Default for DOT11_ADDITIONAL_IE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_ADDITIONAL_IE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_ADDITIONAL_IE_REVISION_1: u32 = 1u32;
 #[repr(transparent)]
@@ -907,10 +857,6 @@ impl Default for DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_ANQP_QUERY_COMPLETE_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -927,9 +873,6 @@ impl Default for DOT11_AP_JOIN_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_AP_JOIN_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -968,10 +911,6 @@ impl Default for DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_ASSOCIATION_COMPLETION_PARAMETERS_REVISION_1: u32 = 1u32;
 pub const DOT11_ASSOCIATION_COMPLETION_PARAMETERS_REVISION_2: u32 = 2u32;
 #[repr(C)]
@@ -996,9 +935,6 @@ impl Default for DOT11_ASSOCIATION_INFO_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_ASSOCIATION_INFO_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1013,10 +949,6 @@ impl Default for DOT11_ASSOCIATION_INFO_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_ASSOCIATION_INFO_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_ASSOCIATION_INFO_LIST_REVISION_1: u32 = 1u32;
 #[repr(C)]
@@ -1034,10 +966,6 @@ impl Default for DOT11_ASSOCIATION_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_ASSOCIATION_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_ASSOCIATION_PARAMS_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -1054,10 +982,6 @@ impl Default for DOT11_ASSOCIATION_START_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_ASSOCIATION_START_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_ASSOCIATION_START_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(transparent)]
@@ -1084,10 +1008,6 @@ impl Default for DOT11_AUTH_ALGORITHM_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_AUTH_ALGORITHM_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_AUTH_ALGORITHM_LIST_REVISION_1: u32 = 1u32;
 pub const DOT11_AUTH_ALGO_80211_OPEN: DOT11_AUTH_ALGORITHM = DOT11_AUTH_ALGORITHM(1i32);
@@ -1116,9 +1036,6 @@ impl Default for DOT11_AUTH_CIPHER_PAIR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_AUTH_CIPHER_PAIR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1133,10 +1050,6 @@ impl Default for DOT11_AUTH_CIPHER_PAIR_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_AUTH_CIPHER_PAIR_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_AUTH_CIPHER_PAIR_LIST_REVISION_1: u32 = 1u32;
 #[repr(C)]
@@ -1154,10 +1067,6 @@ impl Default for DOT11_AVAILABLE_CHANNEL_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_AVAILABLE_CHANNEL_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_AVAILABLE_CHANNEL_LIST_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -1174,10 +1083,6 @@ impl Default for DOT11_AVAILABLE_FREQUENCY_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_AVAILABLE_FREQUENCY_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_AVAILABLE_FREQUENCY_LIST_REVISION_1: u32 = 1u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1193,9 +1098,6 @@ impl Default for DOT11_BSSID_CANDIDATE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_BSSID_CANDIDATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1210,10 +1112,6 @@ impl Default for DOT11_BSSID_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_BSSID_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_BSSID_LIST_REVISION_1: u32 = 1u32;
 #[repr(C)]
@@ -1232,9 +1130,6 @@ impl Default for DOT11_BSS_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_BSS_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1258,9 +1153,6 @@ impl Default for DOT11_BSS_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_BSS_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_BSS_ENTRY_BYTE_ARRAY_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1272,9 +1164,6 @@ impl Default for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1288,9 +1177,6 @@ impl Default for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_BSS_LIST {
@@ -1301,9 +1187,6 @@ impl Default for DOT11_BSS_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_BSS_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1323,10 +1206,6 @@ impl Default for DOT11_BYTE_ARRAY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_BYTE_ARRAY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1339,10 +1218,6 @@ impl Default for DOT11_CAN_SUSTAIN_AP_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_CAN_SUSTAIN_AP_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_CAN_SUSTAIN_AP_PARAMETERS_REVISION_1: u32 = 1u32;
 pub const DOT11_CAN_SUSTAIN_AP_REASON_IHV_END: u32 = 4294967295u32;
@@ -1373,9 +1248,6 @@ impl Default for DOT11_CHANNEL_HINT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_CHANNEL_HINT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_CIPHER_ALGORITHM(pub i32);
@@ -1393,10 +1265,6 @@ impl Default for DOT11_CIPHER_ALGORITHM_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_CIPHER_ALGORITHM_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_CIPHER_ALGORITHM_LIST_REVISION_1: u32 = 1u32;
 pub const DOT11_CIPHER_ALGO_BIP: DOT11_CIPHER_ALGORITHM = DOT11_CIPHER_ALGORITHM(6i32);
@@ -1435,10 +1303,6 @@ impl Default for DOT11_CIPHER_DEFAULT_KEY_VALUE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_CIPHER_DEFAULT_KEY_VALUE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_CIPHER_DEFAULT_KEY_VALUE_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1456,9 +1320,6 @@ impl Default for DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_CIPHER_KEY_MAPPING_KEY_VALUE_BYTE_ARRAY_REVISION_1: u32 = 1u32;
 pub const DOT11_CONF_ALGO_TKIP: u32 = 2u32;
 pub const DOT11_CONF_ALGO_WEP_RC4: u32 = 1u32;
@@ -1475,10 +1336,6 @@ impl Default for DOT11_CONNECTION_COMPLETION_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_CONNECTION_COMPLETION_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_CONNECTION_COMPLETION_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -1494,10 +1351,6 @@ impl Default for DOT11_CONNECTION_START_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_CONNECTION_START_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_CONNECTION_START_PARAMETERS_REVISION_1: u32 = 1u32;
 pub const DOT11_CONNECTION_STATUS_SUCCESS: u32 = 0u32;
@@ -1523,9 +1376,6 @@ impl Default for DOT11_COUNTERS_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_COUNTERS_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1541,10 +1391,6 @@ impl Default for DOT11_COUNTRY_OR_REGION_STRING_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_COUNTRY_OR_REGION_STRING_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_COUNTRY_OR_REGION_STRING_LIST_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1557,9 +1403,6 @@ impl Default for DOT11_CURRENT_OFFLOAD_CAPABILITY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_CURRENT_OFFLOAD_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_CURRENT_OPERATION_MODE {
@@ -1570,9 +1413,6 @@ impl Default for DOT11_CURRENT_OPERATION_MODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_CURRENT_OPERATION_MODE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1588,9 +1428,6 @@ impl Default for DOT11_CURRENT_OPTIONAL_CAPABILITY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_CURRENT_OPTIONAL_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_DATA_RATE_MAPPING_ENTRY {
@@ -1602,9 +1439,6 @@ impl Default for DOT11_DATA_RATE_MAPPING_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_DATA_RATE_MAPPING_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -1619,10 +1453,6 @@ impl Default for DOT11_DATA_RATE_MAPPING_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_DATA_RATE_MAPPING_TABLE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_DATA_RATE_MAPPING_TABLE_REVISION_1: u32 = 1u32;
 #[repr(C)]
@@ -1648,9 +1478,6 @@ impl Default for DOT11_DEFAULT_WEP_OFFLOAD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_DEFAULT_WEP_OFFLOAD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_DEFAULT_WEP_UPLOAD {
@@ -1665,9 +1492,6 @@ impl Default for DOT11_DEFAULT_WEP_UPLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_DEFAULT_WEP_UPLOAD {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_DEVICE_ENTRY_BYTE_ARRAY_REVISION_1: u32 = 1u32;
 #[repr(transparent)]
@@ -1690,10 +1514,6 @@ impl Default for DOT11_DISASSOCIATE_PEER_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_DISASSOCIATE_PEER_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_DISASSOCIATE_PEER_REQUEST_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -1711,10 +1531,6 @@ impl Default for DOT11_DISASSOCIATION_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_DISASSOCIATION_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_DISASSOCIATION_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1727,9 +1543,6 @@ impl Default for DOT11_DIVERSITY_SELECTION_RX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_DIVERSITY_SELECTION_RX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_DIVERSITY_SELECTION_RX_LIST {
@@ -1741,9 +1554,6 @@ impl Default for DOT11_DIVERSITY_SELECTION_RX_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_DIVERSITY_SELECTION_RX_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1767,10 +1577,6 @@ impl Default for DOT11_EAP_RESULT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl windows_core::TypeKind for DOT11_EAP_RESULT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_ENCAP_802_1H: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1782,9 +1588,6 @@ impl Default for DOT11_ENCAP_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_ENCAP_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_ENCAP_RFC_1042: u32 = 1u32;
 #[repr(C)]
@@ -1799,9 +1602,6 @@ impl Default for DOT11_ERP_PHY_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_ERP_PHY_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_EXEMPT_ALWAYS: u32 = 1u32;
 pub const DOT11_EXEMPT_BOTH: u32 = 3u32;
@@ -1833,10 +1633,6 @@ impl Default for DOT11_EXTAP_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_EXTAP_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_EXTAP_ATTRIBUTES_REVISION_1: u32 = 1u32;
 pub const DOT11_EXTAP_RECV_CONTEXT_REVISION_1: u32 = 1u32;
@@ -1886,10 +1682,6 @@ impl Default for DOT11_EXTSTA_ATTRIBUTES {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_EXTSTA_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_EXTSTA_ATTRIBUTES_REVISION_1: u32 = 1u32;
 pub const DOT11_EXTSTA_ATTRIBUTES_REVISION_2: u32 = 2u32;
 pub const DOT11_EXTSTA_ATTRIBUTES_REVISION_3: u32 = 3u32;
@@ -1919,10 +1711,6 @@ impl Default for DOT11_EXTSTA_CAPABILITY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_EXTSTA_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_EXTSTA_CAPABILITY_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -1945,10 +1733,6 @@ impl Default for DOT11_EXTSTA_RECV_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_EXTSTA_RECV_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_EXTSTA_RECV_CONTEXT_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -1966,10 +1750,6 @@ impl Default for DOT11_EXTSTA_SEND_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_EXTSTA_SEND_CONTEXT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_EXTSTA_SEND_CONTEXT_REVISION_1: u32 = 1u32;
 pub const DOT11_FLAGS_80211B_CHANNEL_AGILITY: u32 = 4u32;
@@ -1991,9 +1771,6 @@ impl Default for DOT11_FRAGMENT_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_FRAGMENT_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_FREQUENCY_BANDS_LOWER: u32 = 1u32;
 pub const DOT11_FREQUENCY_BANDS_MIDDLE: u32 = 2u32;
 pub const DOT11_FREQUENCY_BANDS_UPPER: u32 = 4u32;
@@ -2014,10 +1791,6 @@ impl Default for DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -2035,10 +1808,6 @@ impl Default for DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
@@ -2058,10 +1827,6 @@ impl Default for DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1u32;
 pub const DOT11_HESSID_LENGTH: u32 = 6u32;
 #[repr(C)]
@@ -2075,9 +1840,6 @@ impl Default for DOT11_HOPPING_PATTERN_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_HOPPING_PATTERN_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_HOPPING_PATTERN_ENTRY_LIST {
@@ -2089,9 +1851,6 @@ impl Default for DOT11_HOPPING_PATTERN_ENTRY_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_HOPPING_PATTERN_ENTRY_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2108,9 +1867,6 @@ impl Default for DOT11_HRDSSS_PHY_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_HRDSSS_PHY_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_HR_CCA_MODE_CS_AND_ED: u32 = 4u32;
 pub const DOT11_HR_CCA_MODE_CS_ONLY: u32 = 2u32;
@@ -2138,10 +1894,6 @@ impl Default for DOT11_IBSS_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_IBSS_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_IBSS_PARAMS_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2153,9 +1905,6 @@ impl Default for DOT11_IHV_VERSION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_IHV_VERSION_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -2185,10 +1934,6 @@ impl Default for DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -2206,10 +1951,6 @@ impl Default for DOT11_INCOMING_ASSOC_DECISION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_INCOMING_ASSOC_DECISION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_INCOMING_ASSOC_DECISION_REVISION_1: u32 = 1u32;
 pub const DOT11_INCOMING_ASSOC_DECISION_REVISION_2: u32 = 2u32;
@@ -2231,10 +1972,6 @@ impl Default for DOT11_INCOMING_ASSOC_DECISION_V2 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_INCOMING_ASSOC_DECISION_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2251,10 +1988,6 @@ impl Default for DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -2268,10 +2001,6 @@ impl Default for DOT11_INCOMING_ASSOC_STARTED_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_INCOMING_ASSOC_STARTED_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_INCOMING_ASSOC_STARTED_PARAMETERS_REVISION_1: u32 = 1u32;
 pub const DOT11_INVALID_CHANNEL_NUMBER: u32 = 0u32;
@@ -2293,10 +2022,6 @@ impl Default for DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -2315,10 +2040,6 @@ impl Default for DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2330,9 +2051,6 @@ impl Default for DOT11_IV48_COUNTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_IV48_COUNTER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2347,9 +2065,6 @@ impl Default for DOT11_JOIN_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_JOIN_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_KEY_ALGO_BIP {
@@ -2361,9 +2076,6 @@ impl Default for DOT11_KEY_ALGO_BIP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_KEY_ALGO_BIP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2377,9 +2089,6 @@ impl Default for DOT11_KEY_ALGO_BIP_GMAC_256 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_KEY_ALGO_BIP_GMAC_256 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_KEY_ALGO_CCMP {
@@ -2391,9 +2100,6 @@ impl Default for DOT11_KEY_ALGO_CCMP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_KEY_ALGO_CCMP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2407,9 +2113,6 @@ impl Default for DOT11_KEY_ALGO_GCMP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_KEY_ALGO_GCMP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_KEY_ALGO_GCMP_256 {
@@ -2421,9 +2124,6 @@ impl Default for DOT11_KEY_ALGO_GCMP_256 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_KEY_ALGO_GCMP_256 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2437,9 +2137,6 @@ impl Default for DOT11_KEY_ALGO_TKIP_MIC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_KEY_ALGO_TKIP_MIC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2455,9 +2152,6 @@ impl Default for DOT11_LINK_QUALITY_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_LINK_QUALITY_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2471,10 +2165,6 @@ impl Default for DOT11_LINK_QUALITY_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_LINK_QUALITY_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_LINK_QUALITY_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
@@ -2491,10 +2181,6 @@ impl Default for DOT11_MAC_ADDRESS_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_MAC_ADDRESS_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_MAC_ADDRESS_LIST_REVISION_1: u32 = 1u32;
 #[repr(C)]
@@ -2520,9 +2206,6 @@ impl Default for DOT11_MAC_FRAME_STATISTICS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_MAC_FRAME_STATISTICS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_MAC_INFO {
@@ -2534,9 +2217,6 @@ impl Default for DOT11_MAC_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_MAC_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -2550,10 +2230,6 @@ impl Default for DOT11_MAC_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_MAC_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_MAC_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
@@ -2571,10 +2247,6 @@ impl Default for DOT11_MANUFACTURING_CALLBACK_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_MANUFACTURING_CALLBACK_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_MANUFACTURING_CALLBACK_REVISION_1: u32 = 1u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2591,9 +2263,6 @@ impl Default for DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX {
@@ -2606,9 +2275,6 @@ impl Default for DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2624,9 +2290,6 @@ impl Default for DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2644,9 +2307,6 @@ impl Default for DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS {
@@ -2661,9 +2321,6 @@ impl Default for DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2683,9 +2340,6 @@ impl Default for DOT11_MANUFACTURING_TEST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_MANUFACTURING_TEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_MANUFACTURING_TEST_QUERY_DATA {
@@ -2699,9 +2353,6 @@ impl Default for DOT11_MANUFACTURING_TEST_QUERY_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_MANUFACTURING_TEST_QUERY_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_MANUFACTURING_TEST_REVISION_1: u32 = 1u32;
 #[repr(C)]
@@ -2717,9 +2368,6 @@ impl Default for DOT11_MANUFACTURING_TEST_SET_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_MANUFACTURING_TEST_SET_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_MANUFACTURING_TEST_SLEEP {
@@ -2730,9 +2378,6 @@ impl Default for DOT11_MANUFACTURING_TEST_SLEEP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_MANUFACTURING_TEST_SLEEP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2755,9 +2400,6 @@ impl Default for DOT11_MD_CAPABILITY_ENTRY_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_MD_CAPABILITY_ENTRY_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_MIN_PDU_SIZE: u32 = 256u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -2772,10 +2414,6 @@ impl Default for DOT11_MPDU_MAX_LENGTH_INDICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_MPDU_MAX_LENGTH_INDICATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_MPDU_MAX_LENGTH_INDICATION_REVISION_1: u32 = 1u32;
 pub const DOT11_MSONEX_FAILURE: DOT11_MSONEX_RESULT = DOT11_MSONEX_RESULT(1i32);
@@ -2801,10 +2439,6 @@ impl Default for DOT11_MSONEX_RESULT_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl windows_core::TypeKind for DOT11_MSONEX_RESULT_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_MSONEX_SUCCESS: DOT11_MSONEX_RESULT = DOT11_MSONEX_RESULT(0i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
@@ -2823,10 +2457,6 @@ impl Default for DOT11_MSSECURITY_SETTINGS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl windows_core::TypeKind for DOT11_MSSECURITY_SETTINGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY {
@@ -2840,9 +2470,6 @@ impl Default for DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_NETWORK {
@@ -2853,9 +2480,6 @@ impl Default for DOT11_NETWORK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_NETWORK {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2869,9 +2493,6 @@ impl Default for DOT11_NETWORK_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_NETWORK_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_NIC_SPECIFIC_EXTENSION {
@@ -2883,9 +2504,6 @@ impl Default for DOT11_NIC_SPECIFIC_EXTENSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_NIC_SPECIFIC_EXTENSION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_NLO_FLAG_SCAN_AT_SYSTEM_RESUME: u32 = 4u32;
 pub const DOT11_NLO_FLAG_SCAN_ON_AOAC_PLATFORM: u32 = 2u32;
@@ -2899,9 +2517,6 @@ impl Default for DOT11_OFDM_PHY_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_OFDM_PHY_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2919,9 +2534,6 @@ impl Default for DOT11_OFFLOAD_CAPABILITY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_OFFLOAD_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_OFFLOAD_NETWORK {
@@ -2934,9 +2546,6 @@ impl Default for DOT11_OFFLOAD_NETWORK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_OFFLOAD_NETWORK {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -2956,10 +2565,6 @@ impl Default for DOT11_OFFLOAD_NETWORK_LIST_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_OFFLOAD_NETWORK_LIST_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_OFFLOAD_NETWORK_LIST_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -2973,10 +2578,6 @@ impl Default for DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(transparent)]
@@ -2992,9 +2593,6 @@ impl Default for DOT11_OI {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_OI {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_OI_MAX_LENGTH: u32 = 5u32;
 pub const DOT11_OI_MIN_LENGTH: u32 = 3u32;
@@ -3013,9 +2611,6 @@ impl Default for DOT11_OPERATION_MODE_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_OPERATION_MODE_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_OPERATION_MODE_EXTENSIBLE_AP: u32 = 8u32;
 pub const DOT11_OPERATION_MODE_EXTENSIBLE_STATION: u32 = 4u32;
@@ -3038,9 +2633,6 @@ impl Default for DOT11_OPTIONAL_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_OPTIONAL_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_PACKET_TYPE_ALL_MULTICAST_CTRL: u32 = 4096u32;
 pub const DOT11_PACKET_TYPE_ALL_MULTICAST_DATA: u32 = 16384u32;
@@ -3079,9 +2671,6 @@ impl Default for DOT11_PEER_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_PEER_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3096,10 +2685,6 @@ impl Default for DOT11_PEER_INFO_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_PEER_INFO_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_PEER_INFO_LIST_REVISION_1: u32 = 1u32;
 #[repr(C)]
@@ -3117,9 +2702,6 @@ impl Default for DOT11_PEER_STATISTICS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_PEER_STATISTICS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_PER_MSDU_COUNTERS {
@@ -3133,9 +2715,6 @@ impl Default for DOT11_PER_MSDU_COUNTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_PER_MSDU_COUNTERS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -3162,10 +2741,6 @@ impl Default for DOT11_PHY_ATTRIBUTES {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_PHY_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[derive(Clone, Copy)]
@@ -3179,10 +2754,6 @@ impl Default for DOT11_PHY_ATTRIBUTES_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_PHY_ATTRIBUTES_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_PHY_ATTRIBUTES_REVISION_1: u32 = 1u32;
 #[repr(C)]
@@ -3212,9 +2783,6 @@ impl Default for DOT11_PHY_FRAME_STATISTICS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_PHY_FRAME_STATISTICS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[derive(Clone, Copy)]
@@ -3229,10 +2797,6 @@ impl Default for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[derive(Clone, Copy)]
@@ -3245,10 +2809,6 @@ impl Default for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
@@ -3266,10 +2826,6 @@ impl Default for DOT11_PHY_ID_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_PHY_ID_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_PHY_ID_LIST_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -3285,10 +2841,6 @@ impl Default for DOT11_PHY_STATE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_PHY_STATE_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_PHY_STATE_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(transparent)]
@@ -3311,9 +2863,6 @@ impl Default for DOT11_PHY_TYPE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_PHY_TYPE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3328,10 +2877,6 @@ impl Default for DOT11_PHY_TYPE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_PHY_TYPE_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_PHY_TYPE_LIST_REVISION_1: u32 = 1u32;
 #[repr(C)]
@@ -3348,10 +2893,6 @@ impl Default for DOT11_PMKID_CANDIDATE_LIST_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_PMKID_CANDIDATE_LIST_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_PMKID_CANDIDATE_LIST_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3364,9 +2905,6 @@ impl Default for DOT11_PMKID_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_PMKID_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -3383,10 +2921,6 @@ impl Default for DOT11_PMKID_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_PMKID_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_PMKID_LIST_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3400,9 +2934,6 @@ impl Default for DOT11_PORT_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_PORT_STATE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -3418,10 +2949,6 @@ impl Default for DOT11_PORT_STATE_NOTIFICATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_PORT_STATE_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_PORT_STATE_NOTIFICATION_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -3435,10 +2962,6 @@ impl Default for DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_POWER_MGMT_AUTO_MODE_ENABLED_REVISION_1: u32 = 1u32;
 #[repr(C)]
@@ -3455,9 +2978,6 @@ impl Default for DOT11_POWER_MGMT_MODE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_POWER_MGMT_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3472,10 +2992,6 @@ impl Default for DOT11_POWER_MGMT_MODE_STATUS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_POWER_MGMT_MODE_STATUS_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_POWER_MGMT_MODE_STATUS_INFO_REVISION_1: u32 = 1u32;
 #[repr(transparent)]
@@ -3504,9 +3020,6 @@ impl Default for DOT11_PRIVACY_EXEMPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_PRIVACY_EXEMPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3521,10 +3034,6 @@ impl Default for DOT11_PRIVACY_EXEMPTION_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_PRIVACY_EXEMPTION_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_PRIVACY_EXEMPTION_LIST_REVISION_1: u32 = 1u32;
 #[repr(C)]
@@ -3545,10 +3054,6 @@ impl Default for DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -3567,10 +3072,6 @@ impl Default for DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1u32;
 pub const DOT11_PSD_IE_MAX_DATA_SIZE: u32 = 240u32;
 pub const DOT11_PSD_IE_MAX_ENTRY_NUMBER: u32 = 5u32;
@@ -3587,10 +3088,6 @@ impl Default for DOT11_QOS_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_QOS_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_QOS_PARAMS_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3604,9 +3101,6 @@ impl Default for DOT11_QOS_TX_DURATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_QOS_TX_DURATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_QOS_TX_MEDIUM_TIME {
@@ -3618,9 +3112,6 @@ impl Default for DOT11_QOS_TX_MEDIUM_TIME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_QOS_TX_MEDIUM_TIME {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3635,9 +3126,6 @@ impl Default for DOT11_RATE_SET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_RATE_SET {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_RATE_SET_MAX_LENGTH: u32 = 126u32;
 #[repr(C)]
@@ -3655,10 +3143,6 @@ impl Default for DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
@@ -3678,10 +3162,6 @@ impl Default for DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -3699,10 +3179,6 @@ impl Default for DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
@@ -3723,10 +3199,6 @@ impl Default for DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -3744,10 +3216,6 @@ impl Default for DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
@@ -3768,10 +3236,6 @@ impl Default for DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -3789,10 +3253,6 @@ impl Default for DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS_REVISION_1: u32 = 1u32;
 pub const DOT11_RECV_CONTEXT_REVISION_1: u32 = 1u32;
@@ -3828,9 +3288,6 @@ impl Default for DOT11_RECV_EXTENSION_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_RECV_EXTENSION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_RECV_EXTENSION_INFO_V2 {
@@ -3861,9 +3318,6 @@ impl Default for DOT11_RECV_EXTENSION_INFO_V2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_RECV_EXTENSION_INFO_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_RECV_SENSITIVITY {
@@ -3875,9 +3329,6 @@ impl Default for DOT11_RECV_SENSITIVITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_RECV_SENSITIVITY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3892,9 +3343,6 @@ impl Default for DOT11_RECV_SENSITIVITY_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_RECV_SENSITIVITY_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DOT11_RECV_SENSITIVITY_LIST_0 {
@@ -3905,9 +3353,6 @@ impl Default for DOT11_RECV_SENSITIVITY_LIST_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_RECV_SENSITIVITY_LIST_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3920,9 +3365,6 @@ impl Default for DOT11_REG_DOMAINS_SUPPORT_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_REG_DOMAINS_SUPPORT_VALUE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_REG_DOMAIN_DOC: u32 = 32u32;
 pub const DOT11_REG_DOMAIN_ETSI: u32 = 48u32;
@@ -3942,9 +3384,6 @@ impl Default for DOT11_REG_DOMAIN_VALUE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_REG_DOMAIN_VALUE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_RESET_REQUEST {
@@ -3956,9 +3395,6 @@ impl Default for DOT11_RESET_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_RESET_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3976,10 +3412,6 @@ impl Default for DOT11_ROAMING_COMPLETION_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_ROAMING_COMPLETION_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_ROAMING_COMPLETION_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -3996,10 +3428,6 @@ impl Default for DOT11_ROAMING_START_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_ROAMING_START_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_ROAMING_START_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4012,9 +3440,6 @@ impl Default for DOT11_RSSI_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_RSSI_RANGE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4037,9 +3462,6 @@ impl Default for DOT11_SCAN_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_SCAN_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4064,9 +3486,6 @@ impl Default for DOT11_SCAN_REQUEST_V2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_SCAN_REQUEST_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_SCAN_TYPE(pub i32);
@@ -4081,9 +3500,6 @@ impl Default for DOT11_SECURITY_PACKET_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_SECURITY_PACKET_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_SEND_CONTEXT_REVISION_1: u32 = 1u32;
 #[repr(C)]
@@ -4108,10 +3524,6 @@ impl Default for DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -4133,10 +3545,6 @@ impl Default for DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
@@ -4164,10 +3572,6 @@ impl Default for DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -4194,10 +3598,6 @@ impl Default for DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_SEND_INVITATION_REQUEST_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -4223,10 +3623,6 @@ impl Default for DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_SEND_INVITATION_RESPONSE_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -4248,10 +3644,6 @@ impl Default for DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -4271,10 +3663,6 @@ impl Default for DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS_REVISION_1: u32 = 1u32;
 pub const DOT11_SERVICE_CLASS_REORDERABLE_MULTICAST: u32 = 0u32;
 pub const DOT11_SERVICE_CLASS_STRICTLY_ORDERED: u32 = 1u32;
@@ -4288,9 +3676,6 @@ impl Default for DOT11_SSID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_SSID {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -4307,10 +3692,6 @@ impl Default for DOT11_SSID_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_SSID_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_SSID_LIST_REVISION_1: u32 = 1u32;
 pub const DOT11_SSID_MAX_LENGTH: u32 = 32u32;
 #[repr(C)]
@@ -4325,9 +3706,6 @@ impl Default for DOT11_START_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_START_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -4346,10 +3724,6 @@ impl Default for DOT11_STATISTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_STATISTICS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_STATISTICS_REVISION_1: u32 = 1u32;
 pub const DOT11_STATUS_AP_JOIN_CONFIRM: u32 = 5u32;
@@ -4370,9 +3744,6 @@ impl Default for DOT11_STATUS_INDICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_STATUS_INDICATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_STATUS_JOIN_CONFIRM: u32 = 2u32;
 pub const DOT11_STATUS_MPDU_MAX_LENGTH_CHANGED: u32 = 6u32;
@@ -4404,10 +3775,6 @@ impl Default for DOT11_STOP_AP_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_STOP_AP_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_STOP_AP_PARAMETERS_REVISION_1: u32 = 1u32;
 pub const DOT11_STOP_AP_REASON_AP_ACTIVE: u32 = 3u32;
 pub const DOT11_STOP_AP_REASON_CHANNEL_NOT_AVAILABLE: u32 = 2u32;
@@ -4425,9 +3792,6 @@ impl Default for DOT11_SUPPORTED_ANTENNA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_SUPPORTED_ANTENNA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_SUPPORTED_ANTENNA_LIST {
@@ -4440,9 +3804,6 @@ impl Default for DOT11_SUPPORTED_ANTENNA_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_SUPPORTED_ANTENNA_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_SUPPORTED_DATA_RATES_VALUE {
@@ -4453,9 +3814,6 @@ impl Default for DOT11_SUPPORTED_DATA_RATES_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_SUPPORTED_DATA_RATES_VALUE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4468,9 +3826,6 @@ impl Default for DOT11_SUPPORTED_DATA_RATES_VALUE_V2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_SUPPORTED_DATA_RATES_VALUE_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_SUPPORTED_DSSS_CHANNEL {
@@ -4480,9 +3835,6 @@ impl Default for DOT11_SUPPORTED_DSSS_CHANNEL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_SUPPORTED_DSSS_CHANNEL {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4496,9 +3848,6 @@ impl Default for DOT11_SUPPORTED_DSSS_CHANNEL_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_SUPPORTED_DSSS_CHANNEL_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_SUPPORTED_OFDM_FREQUENCY {
@@ -4508,9 +3857,6 @@ impl Default for DOT11_SUPPORTED_OFDM_FREQUENCY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_SUPPORTED_OFDM_FREQUENCY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4524,9 +3870,6 @@ impl Default for DOT11_SUPPORTED_OFDM_FREQUENCY_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_SUPPORTED_OFDM_FREQUENCY_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_SUPPORTED_PHY_TYPES {
@@ -4539,9 +3882,6 @@ impl Default for DOT11_SUPPORTED_PHY_TYPES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_SUPPORTED_PHY_TYPES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_SUPPORTED_POWER_LEVELS {
@@ -4552,9 +3892,6 @@ impl Default for DOT11_SUPPORTED_POWER_LEVELS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_SUPPORTED_POWER_LEVELS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4574,10 +3911,6 @@ impl Default for DOT11_TKIPMIC_FAILURE_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_TKIPMIC_FAILURE_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_TKIPMIC_FAILURE_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4590,9 +3923,6 @@ impl Default for DOT11_UPDATE_IE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_UPDATE_IE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4608,9 +3938,6 @@ impl Default for DOT11_VENUEINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_VENUEINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4624,10 +3951,6 @@ impl Default for DOT11_VWIFI_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_VWIFI_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_VWIFI_ATTRIBUTES_REVISION_1: u32 = 1u32;
 #[repr(C)]
@@ -4644,10 +3967,6 @@ impl Default for DOT11_VWIFI_COMBINATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_VWIFI_COMBINATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_VWIFI_COMBINATION_REVISION_1: u32 = 1u32;
 pub const DOT11_VWIFI_COMBINATION_REVISION_2: u32 = 2u32;
@@ -4668,10 +3987,6 @@ impl Default for DOT11_VWIFI_COMBINATION_V2 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_VWIFI_COMBINATION_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4688,10 +4003,6 @@ impl Default for DOT11_VWIFI_COMBINATION_V3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_VWIFI_COMBINATION_V3 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4717,9 +4028,6 @@ impl Default for DOT11_WEP_OFFLOAD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_WEP_OFFLOAD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_WEP_UPLOAD {
@@ -4734,9 +4042,6 @@ impl Default for DOT11_WEP_UPLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_WEP_UPLOAD {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -4756,10 +4061,6 @@ impl Default for DOT11_WFD_ADDITIONAL_IE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_WFD_ADDITIONAL_IE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_WFD_ADDITIONAL_IE_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4774,9 +4075,6 @@ impl Default for DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_WFD_ADVERTISED_SERVICE_LIST {
@@ -4788,9 +4086,6 @@ impl Default for DOT11_WFD_ADVERTISED_SERVICE_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_WFD_ADVERTISED_SERVICE_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_WFD_ADVERTISEMENT_ID {
@@ -4801,9 +4096,6 @@ impl Default for DOT11_WFD_ADVERTISEMENT_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_WFD_ADVERTISEMENT_ID {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_WFD_APS2_SERVICE_TYPE_MAX_LENGTH: u32 = 21u32;
 pub const DOT11_WFD_ASP2_INSTANCE_NAME_MAX_LENGTH: u32 = 63u32;
@@ -4833,10 +4125,6 @@ impl Default for DOT11_WFD_ATTRIBUTES {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_WFD_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_WFD_ATTRIBUTES_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4850,9 +4138,6 @@ impl Default for DOT11_WFD_CHANNEL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_WFD_CHANNEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_WFD_CONFIGURATION_TIMEOUT {
@@ -4863,9 +4148,6 @@ impl Default for DOT11_WFD_CONFIGURATION_TIMEOUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_WFD_CONFIGURATION_TIMEOUT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_WFD_DEVICE_AUTO_AVAILABILITY: u32 = 16u32;
 pub const DOT11_WFD_DEVICE_CAPABILITY_CONCURRENT_OPERATION: u32 = 4u32;
@@ -4887,10 +4169,6 @@ impl Default for DOT11_WFD_DEVICE_CAPABILITY_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_WFD_DEVICE_CAPABILITY_CONFIG {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_WFD_DEVICE_CAPABILITY_CONFIG_REVISION_1: u32 = 1u32;
 pub const DOT11_WFD_DEVICE_CAPABILITY_P2P_CLIENT_DISCOVERABILITY: u32 = 2u32;
@@ -4925,9 +4203,6 @@ impl Default for DOT11_WFD_DEVICE_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_WFD_DEVICE_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_WFD_DEVICE_HIGH_AVAILABILITY: u32 = 24u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -4945,10 +4220,6 @@ impl Default for DOT11_WFD_DEVICE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_WFD_DEVICE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_WFD_DEVICE_INFO_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -4963,10 +4234,6 @@ impl Default for DOT11_WFD_DEVICE_LISTEN_CHANNEL {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_WFD_DEVICE_LISTEN_CHANNEL {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_WFD_DEVICE_LISTEN_CHANNEL_REVISION_1: u32 = 1u32;
 pub const DOT11_WFD_DEVICE_NOT_DISCOVERABLE: u32 = 0u32;
 #[repr(C)]
@@ -4980,9 +4247,6 @@ impl Default for DOT11_WFD_DEVICE_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_WFD_DEVICE_TYPE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_WFD_DISCOVER_COMPLETE_MAX_LIST_SIZE: u32 = 128u32;
 #[repr(C)]
@@ -5002,10 +4266,6 @@ impl Default for DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5018,9 +4278,6 @@ impl Default for DOT11_WFD_DISCOVER_DEVICE_FILTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_WFD_DISCOVER_DEVICE_FILTER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -5042,10 +4299,6 @@ impl Default for DOT11_WFD_DISCOVER_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_WFD_DISCOVER_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_WFD_DISCOVER_REQUEST_REVISION_1: u32 = 1u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5059,9 +4312,6 @@ impl Default for DOT11_WFD_GO_INTENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_WFD_GO_INTENT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_WFD_GROUP_CAPABILITY_CROSS_CONNECTION_SUPPORTED: u32 = 16u32;
 pub const DOT11_WFD_GROUP_CAPABILITY_EAPOL_KEY_IP_ADDRESS_ALLOCATION_SUPPORTED: u32 = 128u32;
@@ -5084,9 +4334,6 @@ impl Default for DOT11_WFD_GROUP_ID {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_WFD_GROUP_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5102,10 +4349,6 @@ impl Default for DOT11_WFD_GROUP_JOIN_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_WFD_GROUP_JOIN_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_WFD_GROUP_JOIN_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
@@ -5125,10 +4368,6 @@ impl Default for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_REVISION_1: u32 = 1u32;
 pub const DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_REVISION_2: u32 = 2u32;
@@ -5151,10 +4390,6 @@ impl Default for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5168,10 +4403,6 @@ impl Default for DOT11_WFD_GROUP_START_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_WFD_GROUP_START_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_WFD_GROUP_START_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5182,9 +4413,6 @@ impl Default for DOT11_WFD_INVITATION_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_WFD_INVITATION_FLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_WFD_MINOR_REASON_DISASSOCIATED_FROM_WLAN_CROSS_CONNECTION_POLICY: u32 = 1u32;
 pub const DOT11_WFD_MINOR_REASON_DISASSOCIATED_INFRASTRUCTURE_MANAGED_POLICY: u32 = 4u32;
@@ -5209,10 +4437,6 @@ impl Default for DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5224,9 +4448,6 @@ impl Default for DOT11_WFD_SERVICE_HASH_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_WFD_SERVICE_HASH_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_WFD_SERVICE_INFORMATION_MAX_LENGTH: u32 = 65535u32;
 pub const DOT11_WFD_SERVICE_NAME_MAX_LENGTH: u32 = 255u32;
@@ -5241,9 +4462,6 @@ impl Default for DOT11_WFD_SESSION_ID {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_WFD_SESSION_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_WFD_SESSION_INFO {
@@ -5254,9 +4472,6 @@ impl Default for DOT11_WFD_SESSION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_WFD_SESSION_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_WFD_SESSION_INFO_MAX_LENGTH: u32 = 144u32;
 pub const DOT11_WFD_STATUS_FAILED_INCOMPATIBLE_PARAMETERS: u32 = 2u32;
@@ -5286,9 +4501,6 @@ impl Default for DOT11_WME_AC_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_WME_AC_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_WME_AC_PARAMETERS_LIST {
@@ -5300,9 +4512,6 @@ impl Default for DOT11_WME_AC_PARAMETERS_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_WME_AC_PARAMETERS_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_WME_PACKET: u32 = 256u32;
 #[repr(C)]
@@ -5320,9 +4529,6 @@ impl Default for DOT11_WME_UPDATE_IE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOT11_WME_UPDATE_IE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_WPA_TSC {
@@ -5335,9 +4541,6 @@ impl Default for DOT11_WPA_TSC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_WPA_TSC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5359,9 +4562,6 @@ impl Default for DOT11_WPS_DEVICE_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOT11_WPS_DEVICE_NAME {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOT11_WPS_DEVICE_NAME_MAX_LENGTH: u32 = 32u32;
 #[repr(transparent)]
@@ -6303,9 +5503,6 @@ impl Default for L2_NOTIFICATION_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for L2_NOTIFICATION_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 pub const L2_NOTIFICATION_SOURCE_ALL: u32 = 65535u32;
 pub const L2_NOTIFICATION_SOURCE_DOT3_AUTO_CONFIG: u32 = 1u32;
 pub const L2_NOTIFICATION_SOURCE_NONE: u32 = 0u32;
@@ -6487,9 +5684,6 @@ impl Default for ONEX_AUTH_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ONEX_AUTH_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ONEX_AUTH_RESTART_REASON(pub i32);
@@ -6515,10 +5709,6 @@ impl Default for ONEX_EAP_ERROR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl windows_core::TypeKind for ONEX_EAP_ERROR {
-    type TypeKind = windows_core::CopyType;
 }
 pub const ONEX_EAP_FAILURE_RECEIVED: ONEX_REASON_CODE = ONEX_REASON_CODE(327685i32);
 #[repr(transparent)]
@@ -6560,9 +5750,6 @@ impl Default for ONEX_RESULT_UPDATE_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ONEX_RESULT_UPDATE_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ONEX_STATUS {
@@ -6574,9 +5761,6 @@ impl Default for ONEX_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ONEX_STATUS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const ONEX_UI_CANCELLED: ONEX_REASON_CODE = ONEX_REASON_CODE(327697i32);
 pub const ONEX_UI_DISABLED: ONEX_REASON_CODE = ONEX_REASON_CODE(327683i32);
@@ -6596,9 +5780,6 @@ impl Default for ONEX_USER_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ONEX_USER_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ONEX_VARIABLE_BLOB {
@@ -6609,9 +5790,6 @@ impl Default for ONEX_VARIABLE_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ONEX_VARIABLE_BLOB {
-    type TypeKind = windows_core::CopyType;
 }
 pub const OneXAuthFailure: ONEX_AUTH_STATUS = ONEX_AUTH_STATUS(4i32);
 pub const OneXAuthIdentityExplicitUser: ONEX_AUTH_IDENTITY = ONEX_AUTH_IDENTITY(3i32);
@@ -6656,9 +5834,6 @@ impl Default for WDIAG_IHV_WLAN_ID {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WDIAG_IHV_WLAN_ID {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WDIAG_IHV_WLAN_ID_FLAG_SECURITY_ENABLED: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6671,9 +5846,6 @@ impl Default for WFDSVC_CONNECTION_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WFDSVC_CONNECTION_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WFDSVC_CONNECTION_CAPABILITY_CLIENT: u32 = 2u32;
 pub const WFDSVC_CONNECTION_CAPABILITY_GO: u32 = 4u32;
@@ -6690,9 +5862,6 @@ impl Default for WFD_GROUP_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WFD_GROUP_ID {
-    type TypeKind = windows_core::CopyType;
 }
 pub type WFD_OPEN_SESSION_COMPLETE_CALLBACK = Option<unsafe extern "system" fn(hsessionhandle: super::super::Foundation::HANDLE, pvcontext: *const core::ffi::c_void, guidsessioninterface: windows_core::GUID, dwerror: u32, dwreasoncode: u32)>;
 #[repr(transparent)]
@@ -6726,9 +5895,6 @@ impl Default for WLAN_ASSOCIATION_ATTRIBUTES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WLAN_ASSOCIATION_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLAN_AUTH_CIPHER_PAIR_LIST {
@@ -6739,9 +5905,6 @@ impl Default for WLAN_AUTH_CIPHER_PAIR_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WLAN_AUTH_CIPHER_PAIR_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6770,9 +5933,6 @@ impl Default for WLAN_AVAILABLE_NETWORK {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WLAN_AVAILABLE_NETWORK {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WLAN_AVAILABLE_NETWORK_ANQP_SUPPORTED: u32 = 32u32;
 pub const WLAN_AVAILABLE_NETWORK_AUTO_CONNECT_FAILED: u32 = 256u32;
 pub const WLAN_AVAILABLE_NETWORK_CONNECTED: u32 = 1u32;
@@ -6796,9 +5956,6 @@ impl Default for WLAN_AVAILABLE_NETWORK_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WLAN_AVAILABLE_NETWORK_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLAN_AVAILABLE_NETWORK_LIST_V2 {
@@ -6810,9 +5967,6 @@ impl Default for WLAN_AVAILABLE_NETWORK_LIST_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WLAN_AVAILABLE_NETWORK_LIST_V2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6841,9 +5995,6 @@ impl Default for WLAN_AVAILABLE_NETWORK_V2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WLAN_AVAILABLE_NETWORK_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLAN_BSS_ENTRY {
@@ -6869,9 +6020,6 @@ impl Default for WLAN_BSS_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WLAN_BSS_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLAN_BSS_LIST {
@@ -6883,9 +6031,6 @@ impl Default for WLAN_BSS_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WLAN_BSS_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WLAN_CONNECTION_ADHOC_JOIN_ONLY: u32 = 2u32;
 #[repr(C)]
@@ -6901,9 +6046,6 @@ impl Default for WLAN_CONNECTION_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WLAN_CONNECTION_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WLAN_CONNECTION_EAPOL_PASSTHROUGH: u32 = 8u32;
 pub const WLAN_CONNECTION_HIDDEN_NETWORK: u32 = 1u32;
@@ -6930,9 +6072,6 @@ impl Default for WLAN_CONNECTION_NOTIFICATION_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WLAN_CONNECTION_NOTIFICATION_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_CONNECTION_NOTIFICATION_FLAGS(pub u32);
@@ -6953,10 +6092,6 @@ impl Default for WLAN_CONNECTION_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for WLAN_CONNECTION_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6976,10 +6111,6 @@ impl Default for WLAN_CONNECTION_PARAMETERS_V2 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for WLAN_CONNECTION_PARAMETERS_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WLAN_CONNECTION_PERSIST_DISCOVERY_PROFILE: u32 = 16u32;
 pub const WLAN_CONNECTION_PERSIST_DISCOVERY_PROFILE_CONNECTION_MODE_AUTO: u32 = 32u32;
 pub const WLAN_CONNECTION_PERSIST_DISCOVERY_PROFILE_OVERWRITE_EXISTING: u32 = 64u32;
@@ -6994,9 +6125,6 @@ impl Default for WLAN_COUNTRY_OR_REGION_STRING_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WLAN_COUNTRY_OR_REGION_STRING_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLAN_DEVICE_SERVICE_GUID_LIST {
@@ -7008,9 +6136,6 @@ impl Default for WLAN_DEVICE_SERVICE_GUID_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WLAN_DEVICE_SERVICE_GUID_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7024,9 +6149,6 @@ impl Default for WLAN_DEVICE_SERVICE_NOTIFICATION_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WLAN_DEVICE_SERVICE_NOTIFICATION_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7042,9 +6164,6 @@ impl Default for WLAN_HOSTED_NETWORK_CONNECTION_SETTINGS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WLAN_HOSTED_NETWORK_CONNECTION_SETTINGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE {
@@ -7056,9 +6175,6 @@ impl Default for WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7080,9 +6196,6 @@ impl Default for WLAN_HOSTED_NETWORK_PEER_STATE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WLAN_HOSTED_NETWORK_PEER_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLAN_HOSTED_NETWORK_RADIO_STATE {
@@ -7093,9 +6206,6 @@ impl Default for WLAN_HOSTED_NETWORK_RADIO_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WLAN_HOSTED_NETWORK_RADIO_STATE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7110,9 +6220,6 @@ impl Default for WLAN_HOSTED_NETWORK_SECURITY_SETTINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WLAN_HOSTED_NETWORK_SECURITY_SETTINGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7129,9 +6236,6 @@ impl Default for WLAN_HOSTED_NETWORK_STATE_CHANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WLAN_HOSTED_NETWORK_STATE_CHANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLAN_HOSTED_NETWORK_STATUS {
@@ -7147,9 +6251,6 @@ impl Default for WLAN_HOSTED_NETWORK_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WLAN_HOSTED_NETWORK_STATUS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7169,9 +6270,6 @@ impl Default for WLAN_INTERFACE_CAPABILITY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WLAN_INTERFACE_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLAN_INTERFACE_INFO {
@@ -7184,9 +6282,6 @@ impl Default for WLAN_INTERFACE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WLAN_INTERFACE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLAN_INTERFACE_INFO_LIST {
@@ -7198,9 +6293,6 @@ impl Default for WLAN_INTERFACE_INFO_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WLAN_INTERFACE_INFO_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7232,9 +6324,6 @@ impl Default for WLAN_MAC_FRAME_STATISTICS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WLAN_MAC_FRAME_STATISTICS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WLAN_MAX_NAME_LENGTH: u32 = 256u32;
 pub const WLAN_MAX_PHY_INDEX: u32 = 64u32;
 pub const WLAN_MAX_PHY_TYPE_NUMBER: u32 = 8u32;
@@ -7255,9 +6344,6 @@ impl Default for WLAN_MSM_NOTIFICATION_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WLAN_MSM_NOTIFICATION_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7347,9 +6433,6 @@ impl Default for WLAN_PHY_FRAME_STATISTICS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WLAN_PHY_FRAME_STATISTICS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLAN_PHY_RADIO_STATE {
@@ -7361,9 +6444,6 @@ impl Default for WLAN_PHY_RADIO_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WLAN_PHY_RADIO_STATE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7383,9 +6463,6 @@ impl Default for WLAN_PROFILE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WLAN_PROFILE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLAN_PROFILE_INFO_LIST {
@@ -7397,9 +6474,6 @@ impl Default for WLAN_PROFILE_INFO_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WLAN_PROFILE_INFO_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WLAN_PROFILE_USER: u32 = 2u32;
 #[repr(C)]
@@ -7413,9 +6487,6 @@ impl Default for WLAN_RADIO_STATE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WLAN_RADIO_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLAN_RATE_SET {
@@ -7427,9 +6498,6 @@ impl Default for WLAN_RATE_SET {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WLAN_RATE_SET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLAN_RAW_DATA {
@@ -7440,9 +6508,6 @@ impl Default for WLAN_RAW_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WLAN_RAW_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7456,9 +6521,6 @@ impl Default for WLAN_RAW_DATA_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WLAN_RAW_DATA_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLAN_RAW_DATA_LIST_0 {
@@ -7469,9 +6531,6 @@ impl Default for WLAN_RAW_DATA_LIST_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WLAN_RAW_DATA_LIST_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WLAN_REASON_CODE_AC_BASE: u32 = 131072u32;
 pub const WLAN_REASON_CODE_AC_CONNECT_BASE: u32 = 163840u32;
@@ -7645,9 +6704,6 @@ impl Default for WLAN_SECURITY_ATTRIBUTES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WLAN_SECURITY_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WLAN_SET_EAPHOST_DATA_ALL_USERS: WLAN_SET_EAPHOST_FLAGS = WLAN_SET_EAPHOST_FLAGS(1u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7667,9 +6723,6 @@ impl Default for WLAN_STATISTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WLAN_STATISTICS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WLAN_UI_API_INITIAL_VERSION: u32 = 1u32;
 pub const WLAN_UI_API_VERSION: u32 = 1u32;

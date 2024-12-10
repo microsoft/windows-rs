@@ -1554,9 +1554,6 @@ impl Default for ADDJOB_INFO_1A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ADDJOB_INFO_1A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADDJOB_INFO_1W {
@@ -1567,9 +1564,6 @@ impl Default for ADDJOB_INFO_1W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ADDJOB_INFO_1W {
-    type TypeKind = windows_core::CopyType;
 }
 pub const ALREADY_REGISTERED: PrintAsyncNotifyError = PrintAsyncNotifyError(15i32);
 pub const ALREADY_UNREGISTERED: PrintAsyncNotifyError = PrintAsyncNotifyError(14i32);
@@ -1599,9 +1593,6 @@ impl Default for ATTRIBUTE_INFO_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ATTRIBUTE_INFO_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ATTRIBUTE_INFO_2 {
@@ -1618,9 +1609,6 @@ impl Default for ATTRIBUTE_INFO_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ATTRIBUTE_INFO_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1640,9 +1628,6 @@ impl Default for ATTRIBUTE_INFO_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ATTRIBUTE_INFO_3 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1668,9 +1653,6 @@ impl Default for ATTRIBUTE_INFO_4 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ATTRIBUTE_INFO_4 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const BIDI_ACCESS_ADMINISTRATOR: u32 = 1u32;
 pub const BIDI_ACCESS_USER: u32 = 2u32;
 pub const BIDI_ACTION_ENUM_SCHEMA: windows_core::PCWSTR = windows_core::w!("EnumSchema");
@@ -1691,9 +1673,6 @@ impl Default for BIDI_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BIDI_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union BIDI_DATA_0 {
@@ -1707,9 +1686,6 @@ impl Default for BIDI_DATA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BIDI_DATA_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const BIDI_ENUM: BIDI_TYPE = BIDI_TYPE(6i32);
 pub const BIDI_FLOAT: BIDI_TYPE = BIDI_TYPE(2i32);
@@ -1728,9 +1704,6 @@ impl Default for BIDI_REQUEST_CONTAINER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BIDI_REQUEST_CONTAINER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct BIDI_REQUEST_DATA {
@@ -1742,9 +1715,6 @@ impl Default for BIDI_REQUEST_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BIDI_REQUEST_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1759,9 +1729,6 @@ impl Default for BIDI_RESPONSE_CONTAINER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BIDI_RESPONSE_CONTAINER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct BIDI_RESPONSE_DATA {
@@ -1774,9 +1741,6 @@ impl Default for BIDI_RESPONSE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BIDI_RESPONSE_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const BIDI_STRING: BIDI_TYPE = BIDI_TYPE(4i32);
 pub const BIDI_TEXT: BIDI_TYPE = BIDI_TYPE(5i32);
@@ -1793,9 +1757,6 @@ impl Default for BINARY_CONTAINER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BINARY_CONTAINER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const BOOKLET_EDGE_LEFT: u32 = 0u32;
 pub const BOOKLET_EDGE_RIGHT: u32 = 1u32;
@@ -1816,9 +1777,6 @@ impl Default for BranchOfficeJobData {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BranchOfficeJobData {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union BranchOfficeJobData_0 {
@@ -1833,9 +1791,6 @@ impl Default for BranchOfficeJobData_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BranchOfficeJobData_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct BranchOfficeJobDataContainer {
@@ -1846,9 +1801,6 @@ impl Default for BranchOfficeJobDataContainer {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BranchOfficeJobDataContainer {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1871,9 +1823,6 @@ impl Default for BranchOfficeJobDataError {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BranchOfficeJobDataError {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BranchOfficeJobDataPipelineFailed {
@@ -1885,9 +1834,6 @@ impl Default for BranchOfficeJobDataPipelineFailed {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BranchOfficeJobDataPipelineFailed {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1906,9 +1852,6 @@ impl Default for BranchOfficeJobDataPrinted {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BranchOfficeJobDataPrinted {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BranchOfficeJobDataRendered {
@@ -1925,9 +1868,6 @@ impl Default for BranchOfficeJobDataRendered {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BranchOfficeJobDataRendered {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BranchOfficeLogOfflineFileFull {
@@ -1937,9 +1877,6 @@ impl Default for BranchOfficeLogOfflineFileFull {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for BranchOfficeLogOfflineFileFull {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CC_BIG5: i32 = -10i32;
 pub const CC_CP437: i32 = -1i32;
@@ -2008,10 +1945,6 @@ impl Default for COMPROPSHEETUI {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for COMPROPSHEETUI {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CONFIG_INFO_DATA_1 {
@@ -2022,9 +1955,6 @@ impl Default for CONFIG_INFO_DATA_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CONFIG_INFO_DATA_1 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const COPYFILE_EVENT_ADD_PRINTER_CONNECTION: u32 = 3u32;
 pub const COPYFILE_EVENT_DELETE_PRINTER: u32 = 2u32;
@@ -2046,9 +1976,6 @@ impl Default for CORE_PRINTER_DRIVERA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CORE_PRINTER_DRIVERA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CORE_PRINTER_DRIVERW {
@@ -2061,9 +1988,6 @@ impl Default for CORE_PRINTER_DRIVERW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CORE_PRINTER_DRIVERW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CPSFUNC_ADD_HPROPSHEETPAGE: u32 = 0u32;
 pub const CPSFUNC_ADD_PCOMPROPSHEETUI: u32 = 3u32;
@@ -2119,10 +2043,6 @@ impl Default for CPSUICBPARAM {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for CPSUICBPARAM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
@@ -2135,10 +2055,6 @@ impl Default for CPSUICBPARAM_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for CPSUICBPARAM_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CPSUICB_ACTION_ITEMS_APPLIED: u32 = 4u32;
 pub const CPSUICB_ACTION_NONE: u32 = 0u32;
@@ -2168,9 +2084,6 @@ impl Default for CPSUIDATABLOCK {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CPSUIDATABLOCK {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CPSUIF_ABOUT_CALLBACK: u32 = 4u32;
 pub const CPSUIF_ICONID_AS_HICON: u32 = 2u32;
 pub const CPSUIF_UPDATE_PERMISSION: u32 = 1u32;
@@ -2196,9 +2109,6 @@ impl Default for CUSTOMSIZEPARAM {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CUSTOMSIZEPARAM {
-    type TypeKind = windows_core::CopyType;
-}
 pub const Compression_Fast: EXpsCompressionOptions = EXpsCompressionOptions(3i32);
 pub const Compression_Normal: EXpsCompressionOptions = EXpsCompressionOptions(1i32);
 pub const Compression_NotCompressed: EXpsCompressionOptions = EXpsCompressionOptions(0i32);
@@ -2213,9 +2123,6 @@ impl Default for DATATYPES_INFO_1A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DATATYPES_INFO_1A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DATATYPES_INFO_1W {
@@ -2225,9 +2132,6 @@ impl Default for DATATYPES_INFO_1W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DATATYPES_INFO_1W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2243,9 +2147,6 @@ impl Default for DATA_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DATA_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DEF_PRIORITY: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2260,9 +2161,6 @@ impl Default for DELETE_PORT_DATA_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DELETE_PORT_DATA_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEVICEPROPERTYHEADER {
@@ -2275,9 +2173,6 @@ impl Default for DEVICEPROPERTYHEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEVICEPROPERTYHEADER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2296,10 +2191,6 @@ impl Default for DEVQUERYPRINT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for DEVQUERYPRINT_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DF_BKSP_OK: u32 = 64u32;
 pub const DF_NOITALIC: u32 = 1u32;
@@ -2467,10 +2358,6 @@ impl Default for DLGPAGE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for DLGPAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
@@ -2483,10 +2370,6 @@ impl Default for DLGPAGE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for DLGPAGE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DMPUB_BOOKLET_EDGE: u32 = 21u32;
 pub const DMPUB_COLOR: u32 = 6u32;
@@ -2537,10 +2420,6 @@ impl Default for DOCEVENT_CREATEDCPRE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for DOCEVENT_CREATEDCPRE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOCEVENT_ESCAPE {
@@ -2552,9 +2431,6 @@ impl Default for DOCEVENT_ESCAPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOCEVENT_ESCAPE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2569,9 +2445,6 @@ impl Default for DOCEVENT_FILTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOCEVENT_FILTER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOCUMENTEVENT_ABORTDOC: u32 = 9u32;
 pub const DOCUMENTEVENT_CREATEDCPOST: u32 = 2u32;
@@ -2627,10 +2500,6 @@ impl Default for DOCUMENTPROPERTYHEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for DOCUMENTPROPERTYHEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOC_INFO_1A {
@@ -2643,9 +2512,6 @@ impl Default for DOC_INFO_1A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOC_INFO_1A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOC_INFO_1W {
@@ -2657,9 +2523,6 @@ impl Default for DOC_INFO_1W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOC_INFO_1W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2675,9 +2538,6 @@ impl Default for DOC_INFO_2A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOC_INFO_2A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOC_INFO_2W {
@@ -2692,9 +2552,6 @@ impl Default for DOC_INFO_2W {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOC_INFO_2W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOC_INFO_3A {
@@ -2707,9 +2564,6 @@ impl Default for DOC_INFO_3A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOC_INFO_3A {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2724,9 +2578,6 @@ impl Default for DOC_INFO_3W {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOC_INFO_3W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOC_INFO_INTERNAL {
@@ -2740,9 +2591,6 @@ impl Default for DOC_INFO_INTERNAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DOC_INFO_INTERNAL {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DOC_INFO_INTERNAL_LEVEL: u32 = 100u32;
 pub const DPD_DELETE_ALL_FILES: u32 = 4u32;
@@ -2767,9 +2615,6 @@ impl Default for DRIVER_INFO_1A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DRIVER_INFO_1A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DRIVER_INFO_1W {
@@ -2779,9 +2624,6 @@ impl Default for DRIVER_INFO_1W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DRIVER_INFO_1W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2798,9 +2640,6 @@ impl Default for DRIVER_INFO_2A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DRIVER_INFO_2A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DRIVER_INFO_2W {
@@ -2815,9 +2654,6 @@ impl Default for DRIVER_INFO_2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DRIVER_INFO_2W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2838,9 +2674,6 @@ impl Default for DRIVER_INFO_3A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DRIVER_INFO_3A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DRIVER_INFO_3W {
@@ -2859,9 +2692,6 @@ impl Default for DRIVER_INFO_3W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DRIVER_INFO_3W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2883,9 +2713,6 @@ impl Default for DRIVER_INFO_4A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DRIVER_INFO_4A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DRIVER_INFO_4W {
@@ -2906,9 +2733,6 @@ impl Default for DRIVER_INFO_4W {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DRIVER_INFO_4W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DRIVER_INFO_5A {
@@ -2927,9 +2751,6 @@ impl Default for DRIVER_INFO_5A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DRIVER_INFO_5A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DRIVER_INFO_5W {
@@ -2947,9 +2768,6 @@ impl Default for DRIVER_INFO_5W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DRIVER_INFO_5W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2977,9 +2795,6 @@ impl Default for DRIVER_INFO_6A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DRIVER_INFO_6A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DRIVER_INFO_6W {
@@ -3005,9 +2820,6 @@ impl Default for DRIVER_INFO_6W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DRIVER_INFO_6W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3043,9 +2855,6 @@ impl Default for DRIVER_INFO_8A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DRIVER_INFO_8A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DRIVER_INFO_8W {
@@ -3080,9 +2889,6 @@ impl Default for DRIVER_INFO_8W {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DRIVER_INFO_8W {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DRIVER_KERNELMODE: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3094,9 +2900,6 @@ impl Default for DRIVER_UPGRADE_INFO_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DRIVER_UPGRADE_INFO_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3119,9 +2922,6 @@ impl Default for DRIVER_UPGRADE_INFO_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DRIVER_UPGRADE_INFO_2 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DRIVER_USERMODE: u32 = 2u32;
 pub const DSPRINT_PENDING: u32 = 2147483648u32;
@@ -3247,9 +3047,6 @@ impl Default for EXTCHKBOX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EXTCHKBOX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
@@ -3268,10 +3065,6 @@ impl Default for EXTPUSH {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for EXTPUSH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
@@ -3285,10 +3078,6 @@ impl Default for EXTPUSH_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for EXTPUSH_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
@@ -3301,10 +3090,6 @@ impl Default for EXTPUSH_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for EXTPUSH_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3340,9 +3125,6 @@ impl Default for EXTTEXTMETRIC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for EXTTEXTMETRIC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3398,9 +3180,6 @@ impl Default for FORM_INFO_1A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FORM_INFO_1A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FORM_INFO_1W {
@@ -3413,9 +3192,6 @@ impl Default for FORM_INFO_1W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FORM_INFO_1W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3436,9 +3212,6 @@ impl Default for FORM_INFO_2A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FORM_INFO_2A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FORM_INFO_2W {
@@ -3458,9 +3231,6 @@ impl Default for FORM_INFO_2W {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FORM_INFO_2W {
-    type TypeKind = windows_core::CopyType;
-}
 pub const FORM_PRINTER: u32 = 2u32;
 pub const FORM_USER: u32 = 0u32;
 pub const FinalPageCount: PageCountType = PageCountType(0i32);
@@ -3476,9 +3246,6 @@ impl Default for GLYPHRUN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GLYPHRUN {
-    type TypeKind = windows_core::CopyType;
 }
 pub const GPD_OEMCUSTOMDATA: u32 = 1u32;
 pub const GUID_DEVINTERFACE_IPPUSB_PRINT: windows_core::GUID = windows_core::GUID::from_u128(0xf2f40381_f46d_4e51_bce7_62de6cf2d098);
@@ -4808,9 +4575,6 @@ impl Default for INSERTPSUIPAGE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INSERTPSUIPAGE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const INSPSUIPAGE_MODE_AFTER: u32 = 1u32;
 pub const INSPSUIPAGE_MODE_BEFORE: u32 = 0u32;
 pub const INSPSUIPAGE_MODE_FIRST_CHILD: u32 = 2u32;
@@ -4828,9 +4592,6 @@ impl Default for INVOC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for INVOC {
-    type TypeKind = windows_core::CopyType;
 }
 pub const IOCTL_USBPRINT_ADD_CHILD_DEVICE: u32 = 2228316u32;
 pub const IOCTL_USBPRINT_ADD_MSIPP_COMPAT_ID: u32 = 2228308u32;
@@ -10864,9 +10625,6 @@ impl Default for ImgErrorInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ImgErrorInfo {
-    type TypeKind = windows_core::CloneType;
-}
 pub const IntermediatePageCount: PageCountType = PageCountType(1i32);
 pub const JOB_ACCESS_ADMINISTER: u32 = 16u32;
 pub const JOB_ACCESS_READ: u32 = 32u32;
@@ -10902,9 +10660,6 @@ impl Default for JOB_INFO_1A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for JOB_INFO_1A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JOB_INFO_1W {
@@ -10926,9 +10681,6 @@ impl Default for JOB_INFO_1W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for JOB_INFO_1W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
@@ -10964,10 +10716,6 @@ impl Default for JOB_INFO_2A {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl windows_core::TypeKind for JOB_INFO_2A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -11002,10 +10750,6 @@ impl Default for JOB_INFO_2W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl windows_core::TypeKind for JOB_INFO_2W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JOB_INFO_3 {
@@ -11017,9 +10761,6 @@ impl Default for JOB_INFO_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for JOB_INFO_3 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
@@ -11056,10 +10797,6 @@ impl Default for JOB_INFO_4A {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl windows_core::TypeKind for JOB_INFO_4A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -11094,10 +10831,6 @@ impl Default for JOB_INFO_4W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl windows_core::TypeKind for JOB_INFO_4W {
-    type TypeKind = windows_core::CopyType;
 }
 pub const JOB_NOTIFY_FIELD_BYTES_PRINTED: u32 = 23u32;
 pub const JOB_NOTIFY_FIELD_DATATYPE: u32 = 5u32;
@@ -11155,10 +10888,6 @@ impl Default for KERNDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Devices_Display")]
-impl windows_core::TypeKind for KERNDATA {
-    type TypeKind = windows_core::CopyType;
-}
 pub const LOCAL_ONLY_REGISTRATION: PrintAsyncNotifyError = PrintAsyncNotifyError(23i32);
 pub const LPR: u32 = 2u32;
 #[repr(C)]
@@ -11172,9 +10901,6 @@ impl Default for MAPTABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MAPTABLE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MAX_ADDRESS_STR_LEN: u32 = 13u32;
 pub const MAX_CHANNEL_COUNT_EXCEEDED: PrintAsyncNotifyError = PrintAsyncNotifyError(22i32);
@@ -11209,9 +10935,6 @@ impl Default for MESSAGEBOX_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MESSAGEBOX_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MIN_PRIORITY: u32 = 1u32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
@@ -11240,10 +10963,6 @@ impl Default for MONITOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for MONITOR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
@@ -11279,10 +10998,6 @@ impl Default for MONITOR2 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for MONITOR2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -11295,10 +11010,6 @@ impl Default for MONITOREX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for MONITOREX {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
@@ -11316,10 +11027,6 @@ impl Default for MONITORINIT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Registry")]
-impl windows_core::TypeKind for MONITORINIT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -11341,9 +11048,6 @@ impl Default for MONITORREG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MONITORREG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MONITORUI {
@@ -11357,9 +11061,6 @@ impl Default for MONITORUI {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MONITORUI {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MONITOR_INFO_1A {
@@ -11370,9 +11071,6 @@ impl Default for MONITOR_INFO_1A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MONITOR_INFO_1A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MONITOR_INFO_1W {
@@ -11382,9 +11080,6 @@ impl Default for MONITOR_INFO_1W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MONITOR_INFO_1W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -11398,9 +11093,6 @@ impl Default for MONITOR_INFO_2A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MONITOR_INFO_2A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MONITOR_INFO_2W {
@@ -11412,9 +11104,6 @@ impl Default for MONITOR_INFO_2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MONITOR_INFO_2W {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MS_PRINT_JOB_OUTPUT_FILE: windows_core::PCWSTR = windows_core::w!("MsPrintJobOutputFile");
 pub const MTYPE_ADD: u32 = 64u32;
@@ -11454,9 +11143,6 @@ impl Default for MXDC_ESCAPE_HEADER_T {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MXDC_ESCAPE_HEADER_T {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MXDC_GET_FILENAME_DATA_T {
@@ -11467,9 +11153,6 @@ impl Default for MXDC_GET_FILENAME_DATA_T {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MXDC_GET_FILENAME_DATA_T {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MXDC_IMAGETYPE_JPEGHIGH_COMPRESSION: MXDC_IMAGE_TYPE_ENUMS = MXDC_IMAGE_TYPE_ENUMS(1i32);
 pub const MXDC_IMAGETYPE_JPEGLOW_COMPRESSION: MXDC_IMAGE_TYPE_ENUMS = MXDC_IMAGE_TYPE_ENUMS(3i32);
@@ -11495,9 +11178,6 @@ impl Default for MXDC_PRINTTICKET_DATA_T {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MXDC_PRINTTICKET_DATA_T {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MXDC_PRINTTICKET_ESCAPE_T {
@@ -11508,9 +11188,6 @@ impl Default for MXDC_PRINTTICKET_ESCAPE_T {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MXDC_PRINTTICKET_ESCAPE_T {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MXDC_RESOURCE_DICTIONARY: MXDC_S0_PAGE_ENUMS = MXDC_S0_PAGE_ENUMS(5i32);
 pub const MXDC_RESOURCE_ICC_PROFILE: MXDC_S0_PAGE_ENUMS = MXDC_S0_PAGE_ENUMS(6i32);
@@ -11533,9 +11210,6 @@ impl Default for MXDC_S0PAGE_DATA_T {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MXDC_S0PAGE_DATA_T {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MXDC_S0PAGE_PASSTHROUGH_ESCAPE_T {
@@ -11547,9 +11221,6 @@ impl Default for MXDC_S0PAGE_PASSTHROUGH_ESCAPE_T {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MXDC_S0PAGE_PASSTHROUGH_ESCAPE_T {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MXDC_S0PAGE_RESOURCE_ESCAPE_T {
@@ -11560,9 +11231,6 @@ impl Default for MXDC_S0PAGE_RESOURCE_ESCAPE_T {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MXDC_S0PAGE_RESOURCE_ESCAPE_T {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -11580,9 +11248,6 @@ impl Default for MXDC_XPS_S0PAGE_RESOURCE_T {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MXDC_XPS_S0PAGE_RESOURCE_T {
-    type TypeKind = windows_core::CopyType;
 }
 pub const NORMAL_PRINT: u32 = 0u32;
 #[repr(transparent)]
@@ -11603,9 +11268,6 @@ impl Default for NOTIFICATION_CONFIG_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NOTIFICATION_CONFIG_1 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const NOTIFICATION_CONFIG_ASYNC_CHANNEL: NOTIFICATION_CONFIG_FLAGS = NOTIFICATION_CONFIG_FLAGS(8i32);
 pub const NOTIFICATION_CONFIG_CREATE_EVENT: NOTIFICATION_CONFIG_FLAGS = NOTIFICATION_CONFIG_FLAGS(1i32);
@@ -11648,10 +11310,6 @@ impl Default for OEMCUIPPARAM {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for OEMCUIPPARAM {
-    type TypeKind = windows_core::CopyType;
-}
 pub const OEMCUIP_DOCPROP: u32 = 1u32;
 pub const OEMCUIP_PRNPROP: u32 = 2u32;
 #[repr(C)]
@@ -11674,10 +11332,6 @@ impl Default for OEMDMPARAM {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for OEMDMPARAM {
-    type TypeKind = windows_core::CopyType;
-}
 pub const OEMDM_CONVERT: u32 = 3u32;
 pub const OEMDM_DEFAULT: u32 = 2u32;
 pub const OEMDM_MERGE: u32 = 4u32;
@@ -11696,9 +11350,6 @@ impl Default for OEMFONTINSTPARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for OEMFONTINSTPARAM {
-    type TypeKind = windows_core::CopyType;
 }
 pub const OEMGDS_FREEMEM: u32 = 32769u32;
 pub const OEMGDS_JOBTIMEOUT: u32 = 32770u32;
@@ -11740,9 +11391,6 @@ impl Default for OEMUIOBJ {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OEMUIOBJ {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OEMUIPROCS {
@@ -11753,9 +11401,6 @@ impl Default for OEMUIPROCS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for OEMUIPROCS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -11779,10 +11424,6 @@ impl Default for OEMUIPSPARAM {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for OEMUIPSPARAM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OEM_DMEXTRAHEADER {
@@ -11794,9 +11435,6 @@ impl Default for OEM_DMEXTRAHEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for OEM_DMEXTRAHEADER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const OEM_MODE_PUBLISHER: u32 = 1u32;
 #[repr(C)]
@@ -11812,9 +11450,6 @@ impl Default for OIEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for OIEXT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const OIEXTF_ANSI_STRING: u32 = 1u32;
 pub const OPTCF_HIDE: u32 = 1u32;
@@ -11833,9 +11468,6 @@ impl Default for OPTCOMBO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for OPTCOMBO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const OPTIF_CALLBACK: i32 = 4i32;
 pub const OPTIF_CHANGED: i32 = 8i32;
@@ -11881,10 +11513,6 @@ impl Default for OPTITEM {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for OPTITEM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
@@ -11898,10 +11526,6 @@ impl Default for OPTITEM_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for OPTITEM_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
@@ -11914,10 +11538,6 @@ impl Default for OPTITEM_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for OPTITEM_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -11934,9 +11554,6 @@ impl Default for OPTPARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for OPTPARAM {
-    type TypeKind = windows_core::CopyType;
 }
 pub const OPTPF_DISABLED: u32 = 2u32;
 pub const OPTPF_HIDE: u32 = 1u32;
@@ -11966,9 +11583,6 @@ impl Default for OPTTYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for OPTTYPE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const OTS_LBCB_INCL_ITEM_NONE: u32 = 8u32;
 pub const OTS_LBCB_NO_ICON16_IN_ITEM: u32 = 16u32;
@@ -12054,9 +11668,6 @@ impl Default for PORT_DATA_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PORT_DATA_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PORT_DATA_2 {
@@ -12080,9 +11691,6 @@ impl Default for PORT_DATA_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PORT_DATA_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PORT_DATA_LIST_1 {
@@ -12095,9 +11703,6 @@ impl Default for PORT_DATA_LIST_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PORT_DATA_LIST_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PORT_INFO_1A {
@@ -12108,9 +11713,6 @@ impl Default for PORT_INFO_1A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PORT_INFO_1A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PORT_INFO_1W {
@@ -12120,9 +11722,6 @@ impl Default for PORT_INFO_1W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PORT_INFO_1W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -12138,9 +11737,6 @@ impl Default for PORT_INFO_2A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PORT_INFO_2A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PORT_INFO_2W {
@@ -12155,9 +11751,6 @@ impl Default for PORT_INFO_2W {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PORT_INFO_2W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PORT_INFO_3A {
@@ -12170,9 +11763,6 @@ impl Default for PORT_INFO_3A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PORT_INFO_3A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PORT_INFO_3W {
@@ -12184,9 +11774,6 @@ impl Default for PORT_INFO_3W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PORT_INFO_3W {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PORT_STATUS_DOOR_OPEN: u32 = 7u32;
 pub const PORT_STATUS_NO_TONER: u32 = 6u32;
@@ -12314,9 +11901,6 @@ impl Default for PRINTER_CONNECTION_INFO_1A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PRINTER_CONNECTION_INFO_1A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PRINTER_CONNECTION_INFO_1W {
@@ -12327,9 +11911,6 @@ impl Default for PRINTER_CONNECTION_INFO_1W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PRINTER_CONNECTION_INFO_1W {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PRINTER_CONNECTION_MISMATCH: u32 = 32u32;
 pub const PRINTER_CONNECTION_NO_UI: u32 = 64u32;
@@ -12351,10 +11932,6 @@ impl Default for PRINTER_DEFAULTSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for PRINTER_DEFAULTSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -12368,10 +11945,6 @@ impl Default for PRINTER_DEFAULTSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for PRINTER_DEFAULTSW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PRINTER_DELETE: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(65536u32);
 pub const PRINTER_DRIVER_CATEGORY_3D: u32 = 4096u32;
@@ -12424,9 +11997,6 @@ impl Default for PRINTER_ENUM_VALUESA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PRINTER_ENUM_VALUESA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PRINTER_ENUM_VALUESW {
@@ -12440,9 +12010,6 @@ impl Default for PRINTER_ENUM_VALUESW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PRINTER_ENUM_VALUESW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PRINTER_ERROR_INFORMATION: u32 = 2147483648u32;
 pub const PRINTER_ERROR_JAM: u32 = 2u32;
@@ -12464,9 +12031,6 @@ impl Default for PRINTER_EVENT_ATTRIBUTES_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PRINTER_EVENT_ATTRIBUTES_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PRINTER_EVENT_CACHE_DELETE: u32 = 6u32;
 pub const PRINTER_EVENT_CACHE_REFRESH: u32 = 5u32;
@@ -12491,9 +12055,6 @@ impl Default for PRINTER_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PRINTER_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PRINTER_INFO_1A {
@@ -12507,9 +12068,6 @@ impl Default for PRINTER_INFO_1A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PRINTER_INFO_1A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PRINTER_INFO_1W {
@@ -12522,9 +12080,6 @@ impl Default for PRINTER_INFO_1W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PRINTER_INFO_1W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
@@ -12558,10 +12113,6 @@ impl Default for PRINTER_INFO_2A {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl windows_core::TypeKind for PRINTER_INFO_2A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -12594,10 +12145,6 @@ impl Default for PRINTER_INFO_2W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl windows_core::TypeKind for PRINTER_INFO_2W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -12609,10 +12156,6 @@ impl Default for PRINTER_INFO_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for PRINTER_INFO_3 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -12626,9 +12169,6 @@ impl Default for PRINTER_INFO_4A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PRINTER_INFO_4A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PRINTER_INFO_4W {
@@ -12640,9 +12180,6 @@ impl Default for PRINTER_INFO_4W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PRINTER_INFO_4W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -12658,9 +12195,6 @@ impl Default for PRINTER_INFO_5A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PRINTER_INFO_5A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PRINTER_INFO_5W {
@@ -12675,9 +12209,6 @@ impl Default for PRINTER_INFO_5W {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PRINTER_INFO_5W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PRINTER_INFO_6 {
@@ -12687,9 +12218,6 @@ impl Default for PRINTER_INFO_6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PRINTER_INFO_6 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -12702,9 +12230,6 @@ impl Default for PRINTER_INFO_7A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PRINTER_INFO_7A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PRINTER_INFO_7W {
@@ -12715,9 +12240,6 @@ impl Default for PRINTER_INFO_7W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PRINTER_INFO_7W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -12731,10 +12253,6 @@ impl Default for PRINTER_INFO_8A {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for PRINTER_INFO_8A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -12746,10 +12264,6 @@ impl Default for PRINTER_INFO_8W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for PRINTER_INFO_8W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -12763,10 +12277,6 @@ impl Default for PRINTER_INFO_9A {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for PRINTER_INFO_9A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -12778,10 +12288,6 @@ impl Default for PRINTER_INFO_9W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for PRINTER_INFO_9W {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PRINTER_NOTIFY_CATEGORY_3D: u32 = 8192u32;
 pub const PRINTER_NOTIFY_CATEGORY_ALL: u32 = 4096u32;
@@ -12827,9 +12333,6 @@ impl Default for PRINTER_NOTIFY_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PRINTER_NOTIFY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PRINTER_NOTIFY_INFO_DATA {
@@ -12844,9 +12347,6 @@ impl Default for PRINTER_NOTIFY_INFO_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PRINTER_NOTIFY_INFO_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PRINTER_NOTIFY_INFO_DATA_0 {
@@ -12858,9 +12358,6 @@ impl Default for PRINTER_NOTIFY_INFO_DATA_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PRINTER_NOTIFY_INFO_DATA_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PRINTER_NOTIFY_INFO_DATA_0_0 {
@@ -12871,9 +12368,6 @@ impl Default for PRINTER_NOTIFY_INFO_DATA_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PRINTER_NOTIFY_INFO_DATA_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PRINTER_NOTIFY_INFO_DATA_COMPACT: u32 = 1u32;
 pub const PRINTER_NOTIFY_INFO_DISCARDED: u32 = 1u32;
@@ -12889,9 +12383,6 @@ impl Default for PRINTER_NOTIFY_INIT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PRINTER_NOTIFY_INIT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PRINTER_NOTIFY_OPTIONS {
@@ -12904,9 +12395,6 @@ impl Default for PRINTER_NOTIFY_OPTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PRINTER_NOTIFY_OPTIONS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PRINTER_NOTIFY_OPTIONS_REFRESH: u32 = 1u32;
 #[repr(C)]
@@ -12924,9 +12412,6 @@ impl Default for PRINTER_NOTIFY_OPTIONS_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PRINTER_NOTIFY_OPTIONS_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const PRINTER_NOTIFY_STATUS_ENDPOINT: u32 = 1u32;
 pub const PRINTER_NOTIFY_STATUS_INFO: u32 = 4u32;
 pub const PRINTER_NOTIFY_STATUS_POLL: u32 = 2u32;
@@ -12943,9 +12428,6 @@ impl Default for PRINTER_OPTIONSA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PRINTER_OPTIONSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PRINTER_OPTIONSW {
@@ -12956,9 +12438,6 @@ impl Default for PRINTER_OPTIONSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PRINTER_OPTIONSW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PRINTER_OPTION_CACHE: PRINTER_OPTION_FLAGS = PRINTER_OPTION_FLAGS(2i32);
 pub const PRINTER_OPTION_CLIENT_CHANGE: PRINTER_OPTION_FLAGS = PRINTER_OPTION_FLAGS(4i32);
@@ -13074,10 +12553,6 @@ impl Default for PRINTIFI32 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for PRINTIFI32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -13096,10 +12571,6 @@ impl Default for PRINTPROCESSOROPENDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for PRINTPROCESSOROPENDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PRINTPROCESSOR_CAPS_1 {
@@ -13112,9 +12583,6 @@ impl Default for PRINTPROCESSOR_CAPS_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PRINTPROCESSOR_CAPS_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -13134,9 +12602,6 @@ impl Default for PRINTPROCESSOR_CAPS_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PRINTPROCESSOR_CAPS_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PRINTPROCESSOR_INFO_1A {
@@ -13147,9 +12612,6 @@ impl Default for PRINTPROCESSOR_INFO_1A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PRINTPROCESSOR_INFO_1A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PRINTPROCESSOR_INFO_1W {
@@ -13159,9 +12621,6 @@ impl Default for PRINTPROCESSOR_INFO_1W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PRINTPROCESSOR_INFO_1W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -13280,9 +12739,6 @@ impl Default for PRINTPROVIDOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PRINTPROVIDOR {
-    type TypeKind = windows_core::CopyType;
-}
 pub const PRINT_APP_BIDI_NOTIFY_CHANNEL: windows_core::GUID = windows_core::GUID::from_u128(0x2abad223_b994_4aca_82fc_4571b1b585ac);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -13303,9 +12759,6 @@ impl Default for PRINT_EXECUTION_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PRINT_EXECUTION_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PRINT_FEATURE_OPTION {
@@ -13316,9 +12769,6 @@ impl Default for PRINT_FEATURE_OPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PRINT_FEATURE_OPTION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PRINT_PORT_MONITOR_NOTIFY_CHANNEL: windows_core::GUID = windows_core::GUID::from_u128(0x25df3b0e_74a9_47f5_80ce_79b4b1eb5c58);
 #[repr(C)]
@@ -13336,10 +12786,6 @@ impl Default for PROPSHEETUI_GETICON_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for PROPSHEETUI_GETICON_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -13359,9 +12805,6 @@ impl Default for PROPSHEETUI_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROPSHEETUI_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
@@ -13379,10 +12822,6 @@ impl Default for PROPSHEETUI_INFO_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for PROPSHEETUI_INFO_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
@@ -13395,10 +12834,6 @@ impl Default for PROPSHEETUI_INFO_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for PROPSHEETUI_INFO_HEADER_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PROPSHEETUI_INFO_VERSION: u32 = 256u32;
 pub const PROPSHEETUI_REASON_BEFORE_INIT: u32 = 5u32;
@@ -13422,9 +12857,6 @@ impl Default for PROVIDOR_INFO_1A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROVIDOR_INFO_1A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROVIDOR_INFO_1W {
@@ -13437,9 +12869,6 @@ impl Default for PROVIDOR_INFO_1W {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROVIDOR_INFO_1W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROVIDOR_INFO_2A {
@@ -13449,9 +12878,6 @@ impl Default for PROVIDOR_INFO_2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PROVIDOR_INFO_2A {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -13463,9 +12889,6 @@ impl Default for PROVIDOR_INFO_2W {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROVIDOR_INFO_2W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PSCRIPT5_PRIVATE_DEVMODE {
@@ -13476,9 +12899,6 @@ impl Default for PSCRIPT5_PRIVATE_DEVMODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PSCRIPT5_PRIVATE_DEVMODE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -13493,9 +12913,6 @@ impl Default for PSPINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PSPINFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PSUIHDRF_DEFTITLE: u32 = 16u32;
 pub const PSUIHDRF_EXACT_PTITLE: u32 = 32u32;
@@ -13523,9 +12940,6 @@ impl Default for PUBLISHERINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PUBLISHERINFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PUSHBUTTON_TYPE_CALLBACK: u32 = 1u32;
 pub const PUSHBUTTON_TYPE_DLGPROC: u32 = 0u32;
@@ -13571,9 +12985,6 @@ impl Default for PrintNamedProperty {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PrintNamedProperty {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PrintPropertiesCollection {
@@ -13585,9 +12996,6 @@ impl Default for PrintPropertiesCollection {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PrintPropertiesCollection {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PrintPropertyValue {
@@ -13598,9 +13006,6 @@ impl Default for PrintPropertyValue {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PrintPropertyValue {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -13616,9 +13021,6 @@ impl Default for PrintPropertyValue_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PrintPropertyValue_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PrintPropertyValue_0_0 {
@@ -13629,9 +13031,6 @@ impl Default for PrintPropertyValue_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PrintPropertyValue_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PrintSchemaAsyncOperation: windows_core::GUID = windows_core::GUID::from_u128(0x43b2f83d_10f2_48ab_831b_55fdbdbd34a4);
 #[repr(transparent)]
@@ -13694,9 +13093,6 @@ impl Default for SETRESULT_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SETRESULT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHIMOPTS(pub i32);
@@ -13711,9 +13107,6 @@ impl Default for SHOWUIPARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SHOWUIPARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SIMULATE_CAPS_1 {
@@ -13727,9 +13120,6 @@ impl Default for SIMULATE_CAPS_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SIMULATE_CAPS_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -13747,9 +13137,6 @@ impl Default for SPLCLIENT_INFO_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SPLCLIENT_INFO_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPLCLIENT_INFO_2_W2K {
@@ -13759,9 +13146,6 @@ impl Default for SPLCLIENT_INFO_2_W2K {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SPLCLIENT_INFO_2_W2K {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -13775,10 +13159,6 @@ impl Default for SPLCLIENT_INFO_2_WINXP {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SPLCLIENT_INFO_2_WINXP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -13790,10 +13170,6 @@ impl Default for SPLCLIENT_INFO_2_WINXP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SPLCLIENT_INFO_2_WINXP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -13813,9 +13189,6 @@ impl Default for SPLCLIENT_INFO_3_VISTA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SPLCLIENT_INFO_3_VISTA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -13837,9 +13210,6 @@ impl Default for SPLCLIENT_INFO_INTERNAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SPLCLIENT_INFO_INTERNAL {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SPLCLIENT_INFO_INTERNAL_LEVEL: u32 = 100u32;
 pub const SPLDS_ASSET_NUMBER: windows_core::PCWSTR = windows_core::w!("assetNumber");
@@ -13951,9 +13321,6 @@ impl Default for TRANSDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TRANSDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union TRANSDATA_0 {
@@ -13965,9 +13332,6 @@ impl Default for TRANSDATA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TRANSDATA_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const TTDOWNLOAD_BITMAP: u32 = 2u32;
 pub const TTDOWNLOAD_DONTCARE: u32 = 0u32;
@@ -14006,9 +13370,6 @@ impl Default for UFF_FILEHEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for UFF_FILEHEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct UFF_FONTDIRECTORY {
@@ -14028,9 +13389,6 @@ impl Default for UFF_FONTDIRECTORY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for UFF_FONTDIRECTORY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const UFF_VERSION_NUMBER: u32 = 65537u32;
 pub const UFM_CART: u32 = 2u32;
@@ -14074,9 +13432,6 @@ impl Default for UNIDRVINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for UNIDRVINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct UNIDRV_PRIVATE_DEVMODE {
@@ -14087,9 +13442,6 @@ impl Default for UNIDRV_PRIVATE_DEVMODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for UNIDRV_PRIVATE_DEVMODE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -14110,9 +13462,6 @@ impl Default for UNIFM_HDR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for UNIFM_HDR {
-    type TypeKind = windows_core::CopyType;
-}
 pub const UNIFM_VERSION_1_0: u32 = 65536u32;
 pub const UNIRECTIONAL_NOTIFICATION_LOST: PrintAsyncNotifyError = PrintAsyncNotifyError(5i32);
 #[repr(C)]
@@ -14126,9 +13475,6 @@ impl Default for UNI_CODEPAGEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for UNI_CODEPAGEINFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -14149,9 +13495,6 @@ impl Default for UNI_GLYPHSETDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for UNI_GLYPHSETDATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const UNI_GLYPHSETDATA_VERSION_1_0: u32 = 65536u32;
 pub const UNKNOWN_PROTOCOL: u32 = 0u32;
@@ -14175,9 +13518,6 @@ impl Default for USERDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for USERDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIDTHRUN {
@@ -14190,9 +13530,6 @@ impl Default for WIDTHRUN {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WIDTHRUN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIDTHTABLE {
@@ -14204,9 +13541,6 @@ impl Default for WIDTHTABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WIDTHTABLE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WM_FI_FILENAME: u32 = 900u32;
 #[repr(transparent)]
@@ -14260,9 +13594,6 @@ impl Default for _SPLCLIENT_INFO_2_V3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for _SPLCLIENT_INFO_2_V3 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const kADT_ASCII: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(5i32);
 pub const kADT_BINARY: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(7i32);

@@ -53,9 +53,6 @@ impl Default for RESTOREPOINTINFOA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RESTOREPOINTINFOA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct RESTOREPOINTINFOEX {
@@ -70,9 +67,6 @@ impl Default for RESTOREPOINTINFOEX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RESTOREPOINTINFOEX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct RESTOREPOINTINFOW {
@@ -85,9 +79,6 @@ impl Default for RESTOREPOINTINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RESTOREPOINTINFOW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -105,9 +96,6 @@ impl Default for STATEMGRSTATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STATEMGRSTATUS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WINDOWS_BOOT: u32 = 9u32;
 pub const WINDOWS_SHUTDOWN: u32 = 8u32;

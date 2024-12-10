@@ -318,9 +318,6 @@ impl Default for D3DVECTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DVECTOR {
-    type TypeKind = windows_core::CopyType;
-}
 pub const D3D_CBF_USERPACKED: D3D_SHADER_CBUFFER_FLAGS = D3D_SHADER_CBUFFER_FLAGS(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -609,9 +606,6 @@ impl Default for D3D_SHADER_MACRO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D_SHADER_MACRO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

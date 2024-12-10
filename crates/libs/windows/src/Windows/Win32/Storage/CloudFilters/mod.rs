@@ -574,10 +574,6 @@ impl Default for CF_CALLBACK_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_CorrelationVector")]
-impl windows_core::TypeKind for CF_CALLBACK_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_OPEN_COMPLETION_FLAGS(pub i32);
@@ -628,9 +624,6 @@ impl Default for CF_CALLBACK_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CF_CALLBACK_PARAMETERS_0 {
@@ -652,9 +645,6 @@ impl Default for CF_CALLBACK_PARAMETERS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CF_CALLBACK_PARAMETERS_0_0 {
@@ -666,9 +656,6 @@ impl Default for CF_CALLBACK_PARAMETERS_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CF_CALLBACK_PARAMETERS_0_0_0 {
@@ -678,9 +665,6 @@ impl Default for CF_CALLBACK_PARAMETERS_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -693,9 +677,6 @@ impl Default for CF_CALLBACK_PARAMETERS_0_0_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_0_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_5 {
@@ -705,9 +686,6 @@ impl Default for CF_CALLBACK_PARAMETERS_0_5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_5 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -720,9 +698,6 @@ impl Default for CF_CALLBACK_PARAMETERS_0_7 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_7 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_6 {
@@ -734,9 +709,6 @@ impl Default for CF_CALLBACK_PARAMETERS_0_6 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_6 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_9 {
@@ -747,9 +719,6 @@ impl Default for CF_CALLBACK_PARAMETERS_0_9 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_9 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_8 {
@@ -759,9 +728,6 @@ impl Default for CF_CALLBACK_PARAMETERS_0_8 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_8 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -779,9 +745,6 @@ impl Default for CF_CALLBACK_PARAMETERS_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_3 {
@@ -793,9 +756,6 @@ impl Default for CF_CALLBACK_PARAMETERS_0_3 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_4 {
@@ -805,9 +765,6 @@ impl Default for CF_CALLBACK_PARAMETERS_0_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_4 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -820,9 +777,6 @@ impl Default for CF_CALLBACK_PARAMETERS_0_11 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_11 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_10 {
@@ -833,9 +787,6 @@ impl Default for CF_CALLBACK_PARAMETERS_0_10 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_10 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -849,9 +800,6 @@ impl Default for CF_CALLBACK_PARAMETERS_0_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_CorrelationVector")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -864,10 +812,6 @@ impl Default for CF_CALLBACK_REGISTRATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_CorrelationVector")]
-impl windows_core::TypeKind for CF_CALLBACK_REGISTRATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1190,9 +1134,6 @@ impl Default for CF_FILE_RANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CF_FILE_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1205,10 +1146,6 @@ impl Default for CF_FS_METADATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for CF_FS_METADATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1295,9 +1232,6 @@ impl Default for CF_HYDRATION_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CF_HYDRATION_POLICY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CF_HYDRATION_POLICY_ALWAYS_FULL: CF_HYDRATION_POLICY_PRIMARY = CF_HYDRATION_POLICY_PRIMARY(3u16);
 pub const CF_HYDRATION_POLICY_FULL: CF_HYDRATION_POLICY_PRIMARY = CF_HYDRATION_POLICY_PRIMARY(2u16);
@@ -1613,10 +1547,6 @@ impl Default for CF_OPERATION_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_CorrelationVector")]
-impl windows_core::TypeKind for CF_OPERATION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[derive(Clone, Copy)]
@@ -1629,10 +1559,6 @@ impl Default for CF_OPERATION_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for CF_OPERATION_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -1653,10 +1579,6 @@ impl Default for CF_OPERATION_PARAMETERS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1671,10 +1593,6 @@ impl Default for CF_OPERATION_PARAMETERS_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -1691,10 +1609,6 @@ impl Default for CF_OPERATION_PARAMETERS_0_5 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0_5 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1708,10 +1622,6 @@ impl Default for CF_OPERATION_PARAMETERS_0_7 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0_7 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1724,10 +1634,6 @@ impl Default for CF_OPERATION_PARAMETERS_0_6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0_6 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -1743,10 +1649,6 @@ impl Default for CF_OPERATION_PARAMETERS_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0_3 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -1764,10 +1666,6 @@ impl Default for CF_OPERATION_PARAMETERS_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1783,10 +1681,6 @@ impl Default for CF_OPERATION_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -1804,10 +1698,6 @@ impl Default for CF_OPERATION_PARAMETERS_0_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0_4 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1994,9 +1884,6 @@ impl Default for CF_PLACEHOLDER_BASIC_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CF_PLACEHOLDER_BASIC_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_PLACEHOLDER_CREATE_FLAGS(pub i32);
@@ -2056,10 +1943,6 @@ impl Default for CF_PLACEHOLDER_CREATE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for CF_PLACEHOLDER_CREATE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CF_PLACEHOLDER_INFO_BASIC: CF_PLACEHOLDER_INFO_CLASS = CF_PLACEHOLDER_INFO_CLASS(0i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2097,9 +1980,6 @@ impl Default for CF_PLACEHOLDER_STANDARD_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CF_PLACEHOLDER_STANDARD_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2157,9 +2037,6 @@ impl Default for CF_PLATFORM_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CF_PLATFORM_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_POPULATION_POLICY {
@@ -2170,9 +2047,6 @@ impl Default for CF_POPULATION_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CF_POPULATION_POLICY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CF_POPULATION_POLICY_ALWAYS_FULL: CF_POPULATION_POLICY_PRIMARY = CF_POPULATION_POLICY_PRIMARY(3u16);
 pub const CF_POPULATION_POLICY_FULL: CF_POPULATION_POLICY_PRIMARY = CF_POPULATION_POLICY_PRIMARY(2u16);
@@ -2232,9 +2106,6 @@ impl Default for CF_PROCESS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CF_PROCESS_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CF_PROVIDER_STATUS_CLEAR_FLAGS: CF_SYNC_PROVIDER_STATUS = CF_SYNC_PROVIDER_STATUS(2147483648u32);
 pub const CF_PROVIDER_STATUS_CONNECTIVITY_LOST: CF_SYNC_PROVIDER_STATUS = CF_SYNC_PROVIDER_STATUS(64u32);
@@ -2417,9 +2288,6 @@ impl Default for CF_SYNC_POLICIES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CF_SYNC_POLICIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_SYNC_PROVIDER_STATUS(pub u32);
@@ -2473,9 +2341,6 @@ impl Default for CF_SYNC_REGISTRATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CF_SYNC_REGISTRATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_SYNC_ROOT_BASIC_INFO {
@@ -2485,9 +2350,6 @@ impl Default for CF_SYNC_ROOT_BASIC_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CF_SYNC_ROOT_BASIC_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CF_SYNC_ROOT_INFO_BASIC: CF_SYNC_ROOT_INFO_CLASS = CF_SYNC_ROOT_INFO_CLASS(0i32);
 #[repr(transparent)]
@@ -2506,9 +2368,6 @@ impl Default for CF_SYNC_ROOT_PROVIDER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CF_SYNC_ROOT_PROVIDER_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2529,9 +2388,6 @@ impl Default for CF_SYNC_ROOT_STANDARD_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CF_SYNC_ROOT_STANDARD_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_SYNC_STATUS {
@@ -2546,9 +2402,6 @@ impl Default for CF_SYNC_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CF_SYNC_STATUS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

@@ -18,6 +18,3 @@ impl Default for SUBSCRIBED_MESSAGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SUBSCRIBED_MESSAGE {
-    type TypeKind = windows_core::CopyType;
-}

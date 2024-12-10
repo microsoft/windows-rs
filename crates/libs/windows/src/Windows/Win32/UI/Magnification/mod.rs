@@ -111,9 +111,6 @@ impl Default for MAGCOLOREFFECT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MAGCOLOREFFECT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MAGIMAGEHEADER {
@@ -129,9 +126,6 @@ impl Default for MAGIMAGEHEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MAGIMAGEHEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MAGTRANSFORM {
@@ -141,9 +135,6 @@ impl Default for MAGTRANSFORM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MAGTRANSFORM {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MS_CLIPAROUNDCURSOR: i32 = 2i32;
 pub const MS_INVERTCOLORS: i32 = 4i32;

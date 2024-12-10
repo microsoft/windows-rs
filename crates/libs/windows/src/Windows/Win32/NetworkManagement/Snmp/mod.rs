@@ -453,9 +453,6 @@ impl Default for AsnAny {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AsnAny {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub union AsnAny_0 {
@@ -477,9 +474,6 @@ impl Default for AsnAny_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AsnAny_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -493,10 +487,6 @@ impl Default for AsnObjectIdentifier {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for AsnObjectIdentifier {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -509,10 +499,6 @@ impl Default for AsnObjectIdentifier {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for AsnObjectIdentifier {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -528,10 +514,6 @@ impl Default for AsnOctetString {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for AsnOctetString {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -545,10 +527,6 @@ impl Default for AsnOctetString {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for AsnOctetString {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DEFAULT_SNMPTRAP_PORT_IPX: u32 = 36880u32;
 pub const DEFAULT_SNMPTRAP_PORT_UDP: u32 = 162u32;
@@ -753,9 +731,6 @@ impl Default for SnmpVarBind {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SnmpVarBind {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -768,10 +743,6 @@ impl Default for SnmpVarBindList {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SnmpVarBindList {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -786,10 +757,6 @@ impl Default for SnmpVarBindList {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SnmpVarBindList {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct smiCNTR64 {
@@ -800,9 +767,6 @@ impl Default for smiCNTR64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for smiCNTR64 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -815,9 +779,6 @@ impl Default for smiOCTETS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for smiOCTETS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct smiOID {
@@ -829,9 +790,6 @@ impl Default for smiOID {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for smiOID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct smiVALUE {
@@ -842,9 +800,6 @@ impl Default for smiVALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for smiVALUE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -861,9 +816,6 @@ impl Default for smiVALUE_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for smiVALUE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct smiVENDORINFO {
@@ -877,7 +829,4 @@ impl Default for smiVENDORINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for smiVENDORINFO {
-    type TypeKind = windows_core::CopyType;
 }

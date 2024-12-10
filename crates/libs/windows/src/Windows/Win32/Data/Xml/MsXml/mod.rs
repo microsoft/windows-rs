@@ -12248,9 +12248,6 @@ impl Default for XHR_CERT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XHR_CERT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const XHR_CERT_ERROR_ALL_SERVER_ERRORS: XHR_CERT_ERROR_FLAG = XHR_CERT_ERROR_FLAG(125829120u32);
 pub const XHR_CERT_ERROR_CERT_CN_INVALID: XHR_CERT_ERROR_FLAG = XHR_CERT_ERROR_FLAG(33554432u32);
 pub const XHR_CERT_ERROR_CERT_DATE_INVALID: XHR_CERT_ERROR_FLAG = XHR_CERT_ERROR_FLAG(67108864u32);
@@ -12281,9 +12278,6 @@ impl Default for XHR_COOKIE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for XHR_COOKIE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const XHR_COOKIE_APPLY_P3P: XHR_COOKIE_FLAG = XHR_COOKIE_FLAG(128i32);
 pub const XHR_COOKIE_EVALUATE_P3P: XHR_COOKIE_FLAG = XHR_COOKIE_FLAG(64i32);
@@ -12393,9 +12387,6 @@ impl Default for XML_ERROR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XML_ERROR {
-    type TypeKind = windows_core::CloneType;
-}
 pub const XSLTemplate60: windows_core::GUID = windows_core::GUID::from_u128(0x88d96a08_f192_11d4_a65f_0040963251e5);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -12427,7 +12418,4 @@ impl Default for __msxml6_ReferenceRemainingTypes__ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for __msxml6_ReferenceRemainingTypes__ {
-    type TypeKind = windows_core::CopyType;
 }

@@ -228,18 +228,6 @@ impl CppFn {
                     }
                 }
             }
-            ReturnHint::ReturnVoid => {
-                let where_clause = method.write_where(writer, false);
-
-                quote! {
-                    #cfg
-                    #[inline]
-                    pub unsafe fn #name<#generics>(#params) #abi_return_type #where_clause {
-                        #link
-                        #name(#args)
-                    }
-                }
-            }
         };
 
         quote! {

@@ -224,9 +224,6 @@ impl Default for DFS_GET_PKT_ENTRY_STATE_ARG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DFS_GET_PKT_ENTRY_STATE_ARG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_1 {
@@ -236,9 +233,6 @@ impl Default for DFS_INFO_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DFS_INFO_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -250,9 +244,6 @@ impl Default for DFS_INFO_100 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DFS_INFO_100 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_101 {
@@ -263,9 +254,6 @@ impl Default for DFS_INFO_101 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DFS_INFO_101 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_102 {
@@ -275,9 +263,6 @@ impl Default for DFS_INFO_102 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DFS_INFO_102 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -290,9 +275,6 @@ impl Default for DFS_INFO_103 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DFS_INFO_103 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_104 {
@@ -302,9 +284,6 @@ impl Default for DFS_INFO_104 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DFS_INFO_104 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -320,9 +299,6 @@ impl Default for DFS_INFO_105 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DFS_INFO_105 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_106 {
@@ -333,9 +309,6 @@ impl Default for DFS_INFO_106 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DFS_INFO_106 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -355,10 +328,6 @@ impl Default for DFS_INFO_107 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for DFS_INFO_107 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -372,10 +341,6 @@ impl Default for DFS_INFO_150 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for DFS_INFO_150 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -387,10 +352,6 @@ impl Default for DFS_INFO_1_32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for DFS_INFO_1_32 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -405,9 +366,6 @@ impl Default for DFS_INFO_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DFS_INFO_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_200 {
@@ -417,9 +375,6 @@ impl Default for DFS_INFO_200 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DFS_INFO_200 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -436,10 +391,6 @@ impl Default for DFS_INFO_2_32 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for DFS_INFO_2_32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_3 {
@@ -454,9 +405,6 @@ impl Default for DFS_INFO_3 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DFS_INFO_3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_300 {
@@ -467,9 +415,6 @@ impl Default for DFS_INFO_300 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DFS_INFO_300 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -487,10 +432,6 @@ impl Default for DFS_INFO_3_32 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for DFS_INFO_3_32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_4 {
@@ -506,9 +447,6 @@ impl Default for DFS_INFO_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DFS_INFO_4 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -528,10 +466,6 @@ impl Default for DFS_INFO_4_32 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for DFS_INFO_4_32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_5 {
@@ -549,9 +483,6 @@ impl Default for DFS_INFO_5 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DFS_INFO_5 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_50 {
@@ -563,9 +494,6 @@ impl Default for DFS_INFO_50 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DFS_INFO_50 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -585,9 +513,6 @@ impl Default for DFS_INFO_6 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DFS_INFO_6 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_7 {
@@ -597,9 +522,6 @@ impl Default for DFS_INFO_7 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DFS_INFO_7 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -622,10 +544,6 @@ impl Default for DFS_INFO_8 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for DFS_INFO_8 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -647,10 +565,6 @@ impl Default for DFS_INFO_9 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for DFS_INFO_9 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DFS_MOVE_FLAG_REPLACE_IF_EXISTS: u32 = 1u32;
 #[repr(transparent)]
@@ -677,9 +591,6 @@ impl Default for DFS_SITELIST_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DFS_SITELIST_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_SITENAME_INFO {
@@ -690,9 +601,6 @@ impl Default for DFS_SITENAME_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DFS_SITENAME_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DFS_SITE_PRIMARY: u32 = 1u32;
 pub const DFS_STORAGE_FLAVOR_UNUSED2: u32 = 768u32;
@@ -708,9 +616,6 @@ impl Default for DFS_STORAGE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DFS_STORAGE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -725,10 +630,6 @@ impl Default for DFS_STORAGE_INFO_0_32 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for DFS_STORAGE_INFO_0_32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_STORAGE_INFO_1 {
@@ -741,9 +642,6 @@ impl Default for DFS_STORAGE_INFO_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DFS_STORAGE_INFO_1 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DFS_STORAGE_STATES: u32 = 15u32;
 pub const DFS_STORAGE_STATE_ACTIVE: u32 = 4u32;
@@ -764,9 +662,6 @@ impl Default for DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_TARGET_PRIORITY {
@@ -778,9 +673,6 @@ impl Default for DFS_TARGET_PRIORITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DFS_TARGET_PRIORITY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

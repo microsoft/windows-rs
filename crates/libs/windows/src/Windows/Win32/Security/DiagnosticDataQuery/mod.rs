@@ -222,9 +222,6 @@ impl Default for DIAGNOSTIC_DATA_EVENT_BINARY_STATS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DIAGNOSTIC_DATA_EVENT_BINARY_STATS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION {
@@ -236,9 +233,6 @@ impl Default for DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION {
@@ -248,9 +242,6 @@ impl Default for DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -264,9 +255,6 @@ impl Default for DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIAGNOSTIC_DATA_EVENT_TAG_STATS {
@@ -277,9 +265,6 @@ impl Default for DIAGNOSTIC_DATA_EVENT_TAG_STATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DIAGNOSTIC_DATA_EVENT_TAG_STATS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -292,9 +277,6 @@ impl Default for DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -309,9 +291,6 @@ impl Default for DIAGNOSTIC_DATA_GENERAL_STATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DIAGNOSTIC_DATA_GENERAL_STATS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -336,9 +315,6 @@ impl Default for DIAGNOSTIC_DATA_RECORD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DIAGNOSTIC_DATA_RECORD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIAGNOSTIC_DATA_SEARCH_CRITERIA {
@@ -355,9 +331,6 @@ impl Default for DIAGNOSTIC_DATA_SEARCH_CRITERIA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DIAGNOSTIC_DATA_SEARCH_CRITERIA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -385,9 +358,6 @@ impl Default for DIAGNOSTIC_REPORT_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DIAGNOSTIC_REPORT_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIAGNOSTIC_REPORT_PARAMETER {
@@ -399,9 +369,6 @@ impl Default for DIAGNOSTIC_REPORT_PARAMETER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DIAGNOSTIC_REPORT_PARAMETER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIAGNOSTIC_REPORT_SIGNATURE {
@@ -412,9 +379,6 @@ impl Default for DIAGNOSTIC_REPORT_SIGNATURE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DIAGNOSTIC_REPORT_SIGNATURE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

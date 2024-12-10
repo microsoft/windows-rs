@@ -29,9 +29,6 @@ impl Default for GNSS_AGNSS_INJECT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GNSS_AGNSS_INJECT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union GNSS_AGNSS_INJECT_0 {
@@ -43,9 +40,6 @@ impl Default for GNSS_AGNSS_INJECT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GNSS_AGNSS_INJECT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -63,9 +57,6 @@ impl Default for GNSS_AGNSS_INJECTBLOB {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GNSS_AGNSS_INJECTBLOB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_AGNSS_INJECTPOSITION {
@@ -80,9 +71,6 @@ impl Default for GNSS_AGNSS_INJECTPOSITION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GNSS_AGNSS_INJECTPOSITION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_AGNSS_INJECTTIME {
@@ -95,9 +83,6 @@ impl Default for GNSS_AGNSS_INJECTTIME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GNSS_AGNSS_INJECTTIME {
-    type TypeKind = windows_core::CopyType;
 }
 pub const GNSS_AGNSS_PositionInjection: GNSS_AGNSS_REQUEST_TYPE = GNSS_AGNSS_REQUEST_TYPE(2i32);
 #[repr(C)]
@@ -112,9 +97,6 @@ impl Default for GNSS_AGNSS_REQUEST_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GNSS_AGNSS_REQUEST_PARAM {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -132,9 +114,6 @@ impl Default for GNSS_BREADCRUMBING_ALERT_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GNSS_BREADCRUMBING_ALERT_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_BREADCRUMBING_PARAM {
@@ -150,9 +129,6 @@ impl Default for GNSS_BREADCRUMBING_PARAM {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GNSS_BREADCRUMBING_PARAM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct GNSS_BREADCRUMB_LIST {
@@ -166,9 +142,6 @@ impl Default for GNSS_BREADCRUMB_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GNSS_BREADCRUMB_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union GNSS_BREADCRUMB_LIST_0 {
@@ -178,9 +151,6 @@ impl Default for GNSS_BREADCRUMB_LIST_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GNSS_BREADCRUMB_LIST_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -202,9 +172,6 @@ impl Default for GNSS_BREADCRUMB_V1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GNSS_BREADCRUMB_V1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_CHIPSETINFO {
@@ -220,9 +187,6 @@ impl Default for GNSS_CHIPSETINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GNSS_CHIPSETINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_CONTINUOUSTRACKING_PARAM {
@@ -234,9 +198,6 @@ impl Default for GNSS_CONTINUOUSTRACKING_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GNSS_CONTINUOUSTRACKING_PARAM {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -250,9 +211,6 @@ impl Default for GNSS_CP_NI_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GNSS_CP_NI_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -268,9 +226,6 @@ impl Default for GNSS_CWTESTDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GNSS_CWTESTDATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const GNSS_ClearAgnssData: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(10i32);
 pub const GNSS_CustomCommand: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(256i32);
@@ -310,9 +265,6 @@ impl Default for GNSS_DEVICE_CAPABILITY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GNSS_DEVICE_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_DISTANCETRACKING_PARAM {
@@ -324,9 +276,6 @@ impl Default for GNSS_DISTANCETRACKING_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GNSS_DISTANCETRACKING_PARAM {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -343,9 +292,6 @@ impl Default for GNSS_DRIVERCOMMAND_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GNSS_DRIVERCOMMAND_PARAM {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -365,9 +311,6 @@ impl Default for GNSS_DRIVER_REQUEST_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GNSS_DRIVER_REQUEST_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const GNSS_DRIVER_VERSION_1: u32 = 1u32;
 pub const GNSS_DRIVER_VERSION_2: u32 = 2u32;
@@ -390,9 +333,6 @@ impl Default for GNSS_ERRORINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GNSS_ERRORINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct GNSS_EVENT {
@@ -407,9 +347,6 @@ impl Default for GNSS_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GNSS_EVENT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -430,9 +367,6 @@ impl Default for GNSS_EVENT_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GNSS_EVENT_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct GNSS_EVENT_2 {
@@ -447,9 +381,6 @@ impl Default for GNSS_EVENT_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GNSS_EVENT_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -470,9 +401,6 @@ impl Default for GNSS_EVENT_2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GNSS_EVENT_2_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -507,9 +435,6 @@ impl Default for GNSS_FIXDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GNSS_FIXDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_FIXDATA_2 {
@@ -528,9 +453,6 @@ impl Default for GNSS_FIXDATA_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GNSS_FIXDATA_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -556,9 +478,6 @@ impl Default for GNSS_FIXDATA_ACCURACY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GNSS_FIXDATA_ACCURACY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -587,9 +506,6 @@ impl Default for GNSS_FIXDATA_ACCURACY_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GNSS_FIXDATA_ACCURACY_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_FIXDATA_BASIC {
@@ -605,9 +521,6 @@ impl Default for GNSS_FIXDATA_BASIC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GNSS_FIXDATA_BASIC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -626,9 +539,6 @@ impl Default for GNSS_FIXDATA_BASIC_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GNSS_FIXDATA_BASIC_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_FIXDATA_SATELLITE {
@@ -641,9 +551,6 @@ impl Default for GNSS_FIXDATA_SATELLITE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GNSS_FIXDATA_SATELLITE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const GNSS_FIXDETAIL_ACCURACY: u32 = 2u32;
 pub const GNSS_FIXDETAIL_BASIC: u32 = 1u32;
@@ -670,9 +577,6 @@ impl Default for GNSS_FIXSESSION_PARAM {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GNSS_FIXSESSION_PARAM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union GNSS_FIXSESSION_PARAM_0 {
@@ -686,9 +590,6 @@ impl Default for GNSS_FIXSESSION_PARAM_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GNSS_FIXSESSION_PARAM_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const GNSS_FixSession_ContinuousTracking: GNSS_FIXSESSIONTYPE = GNSS_FIXSESSIONTYPE(3i32);
 pub const GNSS_FixSession_DistanceTracking: GNSS_FIXSESSIONTYPE = GNSS_FIXSESSIONTYPE(2i32);
@@ -712,9 +613,6 @@ impl Default for GNSS_GEOFENCES_TRACKINGSTATUS_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GNSS_GEOFENCES_TRACKINGSTATUS_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_GEOFENCE_ALERT_DATA {
@@ -731,9 +629,6 @@ impl Default for GNSS_GEOFENCE_ALERT_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GNSS_GEOFENCE_ALERT_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct GNSS_GEOFENCE_CREATE_PARAM {
@@ -749,9 +644,6 @@ impl Default for GNSS_GEOFENCE_CREATE_PARAM {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GNSS_GEOFENCE_CREATE_PARAM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_GEOFENCE_CREATE_RESPONSE {
@@ -766,9 +658,6 @@ impl Default for GNSS_GEOFENCE_CREATE_RESPONSE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GNSS_GEOFENCE_CREATE_RESPONSE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_GEOFENCE_DELETE_PARAM {
@@ -781,9 +670,6 @@ impl Default for GNSS_GEOFENCE_DELETE_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GNSS_GEOFENCE_DELETE_PARAM {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -801,9 +687,6 @@ impl Default for GNSS_GEOREGION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GNSS_GEOREGION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union GNSS_GEOREGION_0 {
@@ -814,9 +697,6 @@ impl Default for GNSS_GEOREGION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GNSS_GEOREGION_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -833,9 +713,6 @@ impl Default for GNSS_GEOREGION_CIRCLE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GNSS_GEOREGION_CIRCLE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const GNSS_GeoRegion_Circle: GNSS_GEOREGIONTYPE = GNSS_GEOREGIONTYPE(1i32);
 pub const GNSS_GeofenceState_Entered: GNSS_GEOFENCE_STATE = GNSS_GEOFENCE_STATE(1i32);
 pub const GNSS_GeofenceState_Exited: GNSS_GEOFENCE_STATE = GNSS_GEOFENCE_STATE(2i32);
@@ -850,9 +727,6 @@ impl Default for GNSS_LKGFIX_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GNSS_LKGFIX_PARAM {
-    type TypeKind = windows_core::CopyType;
 }
 pub const GNSS_MAXSATELLITE: u32 = 64u32;
 pub const GNSS_NI_CP: GNSS_NI_PLANE_TYPE = GNSS_NI_PLANE_TYPE(2i32);
@@ -885,9 +759,6 @@ impl Default for GNSS_NI_REQUEST_PARAM {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GNSS_NI_REQUEST_PARAM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union GNSS_NI_REQUEST_PARAM_0 {
@@ -899,9 +770,6 @@ impl Default for GNSS_NI_REQUEST_PARAM_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GNSS_NI_REQUEST_PARAM_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -918,9 +786,6 @@ impl Default for GNSS_NI_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GNSS_NI_RESPONSE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const GNSS_NI_Request_AreaTrigger: GNSS_NI_REQUEST_TYPE = GNSS_NI_REQUEST_TYPE(2i32);
 pub const GNSS_NI_Request_SingleShot: GNSS_NI_REQUEST_TYPE = GNSS_NI_REQUEST_TYPE(1i32);
@@ -942,9 +807,6 @@ impl Default for GNSS_NMEA_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GNSS_NMEA_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const GNSS_Ni_UserResponseAccept: GNSS_NI_USER_RESPONSE = GNSS_NI_USER_RESPONSE(1i32);
 pub const GNSS_Ni_UserResponseDeny: GNSS_NI_USER_RESPONSE = GNSS_NI_USER_RESPONSE(2i32);
@@ -970,9 +832,6 @@ impl Default for GNSS_PLATFORM_CAPABILITY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GNSS_PLATFORM_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 pub const GNSS_ResetEngine: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(9i32);
 pub const GNSS_ResetGeofencesTracking: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(16i32);
 #[repr(C)]
@@ -988,9 +847,6 @@ impl Default for GNSS_SATELLITEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GNSS_SATELLITEINFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const GNSS_SATELLITE_ANY: u32 = 0u32;
 pub const GNSS_SATELLITE_BEIDOU: u32 = 4u32;
@@ -1012,9 +868,6 @@ impl Default for GNSS_SELFTESTCONFIG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GNSS_SELFTESTCONFIG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_SELFTESTRESULT {
@@ -1032,9 +885,6 @@ impl Default for GNSS_SELFTESTRESULT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GNSS_SELFTESTRESULT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_SINGLESHOT_PARAM {
@@ -1046,9 +896,6 @@ impl Default for GNSS_SINGLESHOT_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GNSS_SINGLESHOT_PARAM {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1062,9 +909,6 @@ impl Default for GNSS_STOPFIXSESSION_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GNSS_STOPFIXSESSION_PARAM {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1085,9 +929,6 @@ impl Default for GNSS_SUPL_CERT_CONFIG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GNSS_SUPL_CERT_CONFIG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_SUPL_HSLP_CONFIG {
@@ -1103,9 +944,6 @@ impl Default for GNSS_SUPL_HSLP_CONFIG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GNSS_SUPL_HSLP_CONFIG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_SUPL_NI_INFO {
@@ -1120,9 +958,6 @@ impl Default for GNSS_SUPL_NI_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GNSS_SUPL_NI_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_SUPL_VERSION {
@@ -1133,9 +968,6 @@ impl Default for GNSS_SUPL_VERSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GNSS_SUPL_VERSION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1148,9 +980,6 @@ impl Default for GNSS_SUPL_VERSION_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GNSS_SUPL_VERSION_2 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const GNSS_SetLocationNIRequestAllowed: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(2i32);
 pub const GNSS_SetLocationServiceEnabled: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(1i32);
@@ -1177,9 +1006,6 @@ impl Default for GNSS_V2UPL_CONFIG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GNSS_V2UPL_CONFIG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_V2UPL_NI_INFO {
@@ -1191,9 +1017,6 @@ impl Default for GNSS_V2UPL_NI_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GNSS_V2UPL_NI_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const GUID_DEVINTERFACE_GNSS: windows_core::GUID = windows_core::GUID::from_u128(0x3336e5e4_018a_4669_84c5_bd05f3bd368b);
 windows_core::imp::define_interface!(ICivicAddressReport, ICivicAddressReport_Vtbl, 0xc0b19f70_4adf_445d_87f2_cad8fd711792);

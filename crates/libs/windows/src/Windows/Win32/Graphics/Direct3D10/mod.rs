@@ -287,9 +287,6 @@ impl Default for D3D10_BLEND_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D10_BLEND_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D10_BLEND_DESC1 {
@@ -301,9 +298,6 @@ impl Default for D3D10_BLEND_DESC1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D10_BLEND_DESC1 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const D3D10_BLEND_DEST_ALPHA: D3D10_BLEND = D3D10_BLEND(7i32);
 pub const D3D10_BLEND_DEST_COLOR: D3D10_BLEND = D3D10_BLEND(9i32);
@@ -344,9 +338,6 @@ impl Default for D3D10_BOX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D10_BOX {
-    type TypeKind = windows_core::CopyType;
-}
 pub const D3D10_BREAKON_CATEGORY: windows_core::PCWSTR = windows_core::w!("BreakOn_CATEGORY_%s");
 pub const D3D10_BREAKON_ID_DECIMAL: windows_core::PCWSTR = windows_core::w!("BreakOn_ID_%d");
 pub const D3D10_BREAKON_ID_STRING: windows_core::PCWSTR = windows_core::w!("BreakOn_ID_%s");
@@ -365,9 +356,6 @@ impl Default for D3D10_BUFFER_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D10_BUFFER_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3D10_BUFFER_RTV {
@@ -378,9 +366,6 @@ impl Default for D3D10_BUFFER_RTV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D10_BUFFER_RTV {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -393,9 +378,6 @@ impl Default for D3D10_BUFFER_RTV_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D10_BUFFER_RTV_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union D3D10_BUFFER_RTV_1 {
@@ -406,9 +388,6 @@ impl Default for D3D10_BUFFER_RTV_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D10_BUFFER_RTV_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -421,9 +400,6 @@ impl Default for D3D10_BUFFER_SRV {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D10_BUFFER_SRV {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union D3D10_BUFFER_SRV_0 {
@@ -435,9 +411,6 @@ impl Default for D3D10_BUFFER_SRV_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D10_BUFFER_SRV_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union D3D10_BUFFER_SRV_1 {
@@ -448,9 +421,6 @@ impl Default for D3D10_BUFFER_SRV_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D10_BUFFER_SRV_1 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const D3D10_CENTER_MULTISAMPLE_PATTERN: D3D10_STANDARD_MULTISAMPLE_QUALITY_LEVELS = D3D10_STANDARD_MULTISAMPLE_QUALITY_LEVELS(-2i32);
 pub const D3D10_CLEAR_DEPTH: D3D10_CLEAR_FLAG = D3D10_CLEAR_FLAG(1i32);
@@ -528,9 +498,6 @@ impl Default for D3D10_COUNTER_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D10_COUNTER_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 pub const D3D10_COUNTER_DEVICE_DEPENDENT_0: D3D10_COUNTER = D3D10_COUNTER(1073741824i32);
 pub const D3D10_COUNTER_FILLRATE_THROUGHPUT_UTILIZATION: D3D10_COUNTER = D3D10_COUNTER(9i32);
 pub const D3D10_COUNTER_GEOMETRY_PROCESSING: D3D10_COUNTER = D3D10_COUNTER(2i32);
@@ -549,9 +516,6 @@ impl Default for D3D10_COUNTER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D10_COUNTER_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const D3D10_COUNTER_LOCAL_VIDMEM_BANDWIDTH_UTILIZATION: D3D10_COUNTER = D3D10_COUNTER(6i32);
 pub const D3D10_COUNTER_OTHER_GPU_PROCESSING: D3D10_COUNTER = D3D10_COUNTER(4i32);
@@ -637,9 +601,6 @@ impl Default for D3D10_DEPTH_STENCILOP_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D10_DEPTH_STENCILOP_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D10_DEPTH_STENCIL_DESC {
@@ -657,9 +618,6 @@ impl Default for D3D10_DEPTH_STENCIL_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D10_DEPTH_STENCIL_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[derive(Clone, Copy)]
@@ -673,10 +631,6 @@ impl Default for D3D10_DEPTH_STENCIL_VIEW_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D10_DEPTH_STENCIL_VIEW_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -694,10 +648,6 @@ impl Default for D3D10_DEPTH_STENCIL_VIEW_DESC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D10_DEPTH_STENCIL_VIEW_DESC_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -766,9 +716,6 @@ impl Default for D3D10_EFFECT_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D10_EFFECT_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D10_EFFECT_SHADER_DESC {
@@ -784,9 +731,6 @@ impl Default for D3D10_EFFECT_SHADER_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D10_EFFECT_SHADER_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 pub const D3D10_EFFECT_SINGLE_THREADED: u32 = 8u32;
 #[repr(C)]
@@ -810,10 +754,6 @@ impl Default for D3D10_EFFECT_TYPE_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl windows_core::TypeKind for D3D10_EFFECT_TYPE_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 pub const D3D10_EFFECT_VARIABLE_ANNOTATION: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -829,9 +769,6 @@ impl Default for D3D10_EFFECT_VARIABLE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D10_EFFECT_VARIABLE_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 pub const D3D10_EFFECT_VARIABLE_EXPLICIT_BIND_POINT: u32 = 4u32;
 pub const D3D10_EFFECT_VARIABLE_POOLED: u32 = 1u32;
@@ -958,9 +895,6 @@ impl Default for D3D10_INFO_QUEUE_FILTER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D10_INFO_QUEUE_FILTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D10_INFO_QUEUE_FILTER_DESC {
@@ -975,9 +909,6 @@ impl Default for D3D10_INFO_QUEUE_FILTER_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D10_INFO_QUEUE_FILTER_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1000,10 +931,6 @@ impl Default for D3D10_INPUT_ELEMENT_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D10_INPUT_ELEMENT_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 pub const D3D10_INPUT_PER_INSTANCE_DATA: D3D10_INPUT_CLASSIFICATION = D3D10_INPUT_CLASSIFICATION(1i32);
 pub const D3D10_INPUT_PER_VERTEX_DATA: D3D10_INPUT_CLASSIFICATION = D3D10_INPUT_CLASSIFICATION(0i32);
 pub const D3D10_INTEGER_DIVIDE_BY_ZERO_QUOTIENT: u32 = 4294967295u32;
@@ -1024,9 +951,6 @@ impl Default for D3D10_MAPPED_TEXTURE2D {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D10_MAPPED_TEXTURE2D {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D10_MAPPED_TEXTURE3D {
@@ -1038,9 +962,6 @@ impl Default for D3D10_MAPPED_TEXTURE3D {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D10_MAPPED_TEXTURE3D {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1070,9 +991,6 @@ impl Default for D3D10_MESSAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D10_MESSAGE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1638,9 +1556,6 @@ impl Default for D3D10_PASS_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D10_PASS_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct D3D10_PASS_SHADER_DESC {
@@ -1651,9 +1566,6 @@ impl Default for D3D10_PASS_SHADER_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D10_PASS_SHADER_DESC {
-    type TypeKind = windows_core::CloneType;
 }
 pub const D3D10_PIXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 13u32;
 pub const D3D10_PRE_SCISSOR_PIXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 15u32;
@@ -1693,9 +1605,6 @@ impl Default for D3D10_QUERY_DATA_PIPELINE_STATISTICS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D10_QUERY_DATA_PIPELINE_STATISTICS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D10_QUERY_DATA_SO_STATISTICS {
@@ -1706,9 +1615,6 @@ impl Default for D3D10_QUERY_DATA_SO_STATISTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D10_QUERY_DATA_SO_STATISTICS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1721,9 +1627,6 @@ impl Default for D3D10_QUERY_DATA_TIMESTAMP_DISJOINT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D10_QUERY_DATA_TIMESTAMP_DISJOINT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D10_QUERY_DESC {
@@ -1734,9 +1637,6 @@ impl Default for D3D10_QUERY_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D10_QUERY_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 pub const D3D10_QUERY_EVENT: D3D10_QUERY = D3D10_QUERY(0i32);
 #[repr(transparent)]
@@ -1773,9 +1673,6 @@ impl Default for D3D10_RASTERIZER_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D10_RASTERIZER_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 pub const D3D10_REGKEY_PATH: windows_core::PCWSTR = windows_core::w!("Software\\Microsoft\\Direct3D");
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1794,9 +1691,6 @@ impl Default for D3D10_RENDER_TARGET_BLEND_DESC1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D10_RENDER_TARGET_BLEND_DESC1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[derive(Clone, Copy)]
@@ -1810,10 +1704,6 @@ impl Default for D3D10_RENDER_TARGET_VIEW_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D10_RENDER_TARGET_VIEW_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -1833,10 +1723,6 @@ impl Default for D3D10_RENDER_TARGET_VIEW_DESC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D10_RENDER_TARGET_VIEW_DESC_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const D3D10_REQ_BLEND_OBJECT_COUNT_PER_CONTEXT: u32 = 4096u32;
 pub const D3D10_REQ_BUFFER_RESOURCE_TEXEL_COUNT_2_TO_EXP: u32 = 27u32;
@@ -1909,9 +1795,6 @@ impl Default for D3D10_SAMPLER_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D10_SAMPLER_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 pub const D3D10_SDK_LAYERS_VERSION: u32 = 11u32;
 pub const D3D10_SDK_VERSION: u32 = 29u32;
 pub const D3D10_SHADER_AVOID_FLOW_CONTROL: u32 = 512u32;
@@ -1931,10 +1814,6 @@ impl Default for D3D10_SHADER_BUFFER_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl windows_core::TypeKind for D3D10_SHADER_BUFFER_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 pub const D3D10_SHADER_DEBUG: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1948,9 +1827,6 @@ impl Default for D3D10_SHADER_DEBUG_FILE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D10_SHADER_DEBUG_FILE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1982,9 +1858,6 @@ impl Default for D3D10_SHADER_DEBUG_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D10_SHADER_DEBUG_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D10_SHADER_DEBUG_INPUT_INFO {
@@ -1999,9 +1872,6 @@ impl Default for D3D10_SHADER_DEBUG_INPUT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D10_SHADER_DEBUG_INPUT_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2022,9 +1892,6 @@ impl Default for D3D10_SHADER_DEBUG_INST_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D10_SHADER_DEBUG_INST_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const D3D10_SHADER_DEBUG_NAME_FOR_BINARY: u32 = 8388608u32;
 pub const D3D10_SHADER_DEBUG_NAME_FOR_SOURCE: u32 = 4194304u32;
 #[repr(C)]
@@ -2043,9 +1910,6 @@ impl Default for D3D10_SHADER_DEBUG_OUTPUTREG_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D10_SHADER_DEBUG_OUTPUTREG_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D10_SHADER_DEBUG_OUTPUTVAR {
@@ -2063,9 +1927,6 @@ impl Default for D3D10_SHADER_DEBUG_OUTPUTVAR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D10_SHADER_DEBUG_OUTPUTVAR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2106,10 +1967,6 @@ impl Default for D3D10_SHADER_DEBUG_SCOPEVAR_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl windows_core::TypeKind for D3D10_SHADER_DEBUG_SCOPEVAR_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const D3D10_SHADER_DEBUG_SCOPE_ANNOTATION: D3D10_SHADER_DEBUG_SCOPETYPE = D3D10_SHADER_DEBUG_SCOPETYPE(7i32);
 pub const D3D10_SHADER_DEBUG_SCOPE_BLOCK: D3D10_SHADER_DEBUG_SCOPETYPE = D3D10_SHADER_DEBUG_SCOPETYPE(1i32);
 pub const D3D10_SHADER_DEBUG_SCOPE_FORLOOP: D3D10_SHADER_DEBUG_SCOPETYPE = D3D10_SHADER_DEBUG_SCOPETYPE(2i32);
@@ -2129,9 +1986,6 @@ impl Default for D3D10_SHADER_DEBUG_SCOPE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D10_SHADER_DEBUG_SCOPE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const D3D10_SHADER_DEBUG_SCOPE_NAMESPACE: D3D10_SHADER_DEBUG_SCOPETYPE = D3D10_SHADER_DEBUG_SCOPETYPE(6i32);
 pub const D3D10_SHADER_DEBUG_SCOPE_STATEBLOCK: D3D10_SHADER_DEBUG_SCOPETYPE = D3D10_SHADER_DEBUG_SCOPETYPE(5i32);
 pub const D3D10_SHADER_DEBUG_SCOPE_STRUCT: D3D10_SHADER_DEBUG_SCOPETYPE = D3D10_SHADER_DEBUG_SCOPETYPE(3i32);
@@ -2148,9 +2002,6 @@ impl Default for D3D10_SHADER_DEBUG_TOKEN_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D10_SHADER_DEBUG_TOKEN_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2172,10 +2023,6 @@ impl Default for D3D10_SHADER_DEBUG_VAR_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl windows_core::TypeKind for D3D10_SHADER_DEBUG_VAR_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const D3D10_SHADER_DEBUG_VAR_VARIABLE: D3D10_SHADER_DEBUG_VARTYPE = D3D10_SHADER_DEBUG_VARTYPE(0i32);
 #[repr(C)]
@@ -2217,10 +2064,6 @@ impl Default for D3D10_SHADER_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl windows_core::TypeKind for D3D10_SHADER_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 pub const D3D10_SHADER_ENABLE_BACKWARDS_COMPATIBILITY: u32 = 4096u32;
 pub const D3D10_SHADER_ENABLE_STRICTNESS: u32 = 2048u32;
 pub const D3D10_SHADER_FLAGS2_FORCE_ROOT_SIGNATURE_1_0: u32 = 16u32;
@@ -2248,10 +2091,6 @@ impl Default for D3D10_SHADER_INPUT_BIND_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl windows_core::TypeKind for D3D10_SHADER_INPUT_BIND_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 pub const D3D10_SHADER_MAJOR_VERSION: u32 = 4u32;
 pub const D3D10_SHADER_MINOR_VERSION: u32 = 0u32;
 pub const D3D10_SHADER_NO_PRESHADER: u32 = 256u32;
@@ -2277,10 +2116,6 @@ impl Default for D3D10_SHADER_RESOURCE_VIEW_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-impl windows_core::TypeKind for D3D10_SHADER_RESOURCE_VIEW_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 #[derive(Clone, Copy)]
@@ -2301,10 +2136,6 @@ impl Default for D3D10_SHADER_RESOURCE_VIEW_DESC_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-impl windows_core::TypeKind for D3D10_SHADER_RESOURCE_VIEW_DESC_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 #[derive(Clone, Copy)]
@@ -2318,10 +2149,6 @@ impl Default for D3D10_SHADER_RESOURCE_VIEW_DESC1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-impl windows_core::TypeKind for D3D10_SHADER_RESOURCE_VIEW_DESC1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -2344,10 +2171,6 @@ impl Default for D3D10_SHADER_RESOURCE_VIEW_DESC1_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-impl windows_core::TypeKind for D3D10_SHADER_RESOURCE_VIEW_DESC1_0 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const D3D10_SHADER_SKIP_OPTIMIZATION: u32 = 4u32;
 pub const D3D10_SHADER_SKIP_VALIDATION: u32 = 2u32;
 #[repr(C)]
@@ -2368,10 +2191,6 @@ impl Default for D3D10_SHADER_TYPE_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl windows_core::TypeKind for D3D10_SHADER_TYPE_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D10_SHADER_VARIABLE_DESC {
@@ -2385,9 +2204,6 @@ impl Default for D3D10_SHADER_VARIABLE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D10_SHADER_VARIABLE_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 pub const D3D10_SHADER_WARNINGS_ARE_ERRORS: u32 = 262144u32;
 pub const D3D10_SHIFT_INSTRUCTION_PAD_VALUE: u32 = 0u32;
@@ -2410,10 +2226,6 @@ impl Default for D3D10_SIGNATURE_PARAMETER_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl windows_core::TypeKind for D3D10_SIGNATURE_PARAMETER_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 pub const D3D10_SIMULTANEOUS_RENDER_TARGET_COUNT: u32 = 8u32;
 pub const D3D10_SO_BUFFER_MAX_STRIDE_IN_BYTES: u32 = 2048u32;
 pub const D3D10_SO_BUFFER_MAX_WRITE_WINDOW_IN_BYTES: u32 = 256u32;
@@ -2432,9 +2244,6 @@ impl Default for D3D10_SO_DECLARATION_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D10_SO_DECLARATION_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const D3D10_SO_MULTIPLE_BUFFER_ELEMENTS_PER_BUFFER: u32 = 1u32;
 pub const D3D10_SO_SINGLE_BUFFER_COMPONENT_LIMIT: u32 = 64u32;
@@ -2490,9 +2299,6 @@ impl Default for D3D10_STATE_BLOCK_MASK {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D10_STATE_BLOCK_MASK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_STENCIL_OP(pub i32);
@@ -2517,9 +2323,6 @@ impl Default for D3D10_SUBRESOURCE_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D10_SUBRESOURCE_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 pub const D3D10_SUBTEXEL_FRACTIONAL_BIT_COUNT: u32 = 6u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2533,9 +2336,6 @@ impl Default for D3D10_TECHNIQUE_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D10_TECHNIQUE_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D10_TEX1D_ARRAY_DSV {
@@ -2548,9 +2348,6 @@ impl Default for D3D10_TEX1D_ARRAY_DSV {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D10_TEX1D_ARRAY_DSV {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D10_TEX1D_ARRAY_RTV {
@@ -2562,9 +2359,6 @@ impl Default for D3D10_TEX1D_ARRAY_RTV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D10_TEX1D_ARRAY_RTV {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2579,9 +2373,6 @@ impl Default for D3D10_TEX1D_ARRAY_SRV {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D10_TEX1D_ARRAY_SRV {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D10_TEX1D_DSV {
@@ -2592,9 +2383,6 @@ impl Default for D3D10_TEX1D_DSV {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D10_TEX1D_DSV {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D10_TEX1D_RTV {
@@ -2604,9 +2392,6 @@ impl Default for D3D10_TEX1D_RTV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D10_TEX1D_RTV {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2619,9 +2404,6 @@ impl Default for D3D10_TEX1D_SRV {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D10_TEX1D_SRV {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D10_TEX2DMS_ARRAY_DSV {
@@ -2632,9 +2414,6 @@ impl Default for D3D10_TEX2DMS_ARRAY_DSV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D10_TEX2DMS_ARRAY_DSV {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2647,9 +2426,6 @@ impl Default for D3D10_TEX2DMS_ARRAY_RTV {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D10_TEX2DMS_ARRAY_RTV {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D10_TEX2DMS_ARRAY_SRV {
@@ -2661,9 +2437,6 @@ impl Default for D3D10_TEX2DMS_ARRAY_SRV {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D10_TEX2DMS_ARRAY_SRV {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D10_TEX2DMS_DSV {
@@ -2673,9 +2446,6 @@ impl Default for D3D10_TEX2DMS_DSV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D10_TEX2DMS_DSV {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2687,9 +2457,6 @@ impl Default for D3D10_TEX2DMS_RTV {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D10_TEX2DMS_RTV {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D10_TEX2DMS_SRV {
@@ -2699,9 +2466,6 @@ impl Default for D3D10_TEX2DMS_SRV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D10_TEX2DMS_SRV {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2715,9 +2479,6 @@ impl Default for D3D10_TEX2D_ARRAY_DSV {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D10_TEX2D_ARRAY_DSV {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D10_TEX2D_ARRAY_RTV {
@@ -2729,9 +2490,6 @@ impl Default for D3D10_TEX2D_ARRAY_RTV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D10_TEX2D_ARRAY_RTV {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2746,9 +2504,6 @@ impl Default for D3D10_TEX2D_ARRAY_SRV {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D10_TEX2D_ARRAY_SRV {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D10_TEX2D_DSV {
@@ -2758,9 +2513,6 @@ impl Default for D3D10_TEX2D_DSV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D10_TEX2D_DSV {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2772,9 +2524,6 @@ impl Default for D3D10_TEX2D_RTV {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D10_TEX2D_RTV {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D10_TEX2D_SRV {
@@ -2785,9 +2534,6 @@ impl Default for D3D10_TEX2D_SRV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D10_TEX2D_SRV {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2801,9 +2547,6 @@ impl Default for D3D10_TEX3D_RTV {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D10_TEX3D_RTV {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D10_TEX3D_SRV {
@@ -2814,9 +2557,6 @@ impl Default for D3D10_TEX3D_SRV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D10_TEX3D_SRV {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2831,9 +2571,6 @@ impl Default for D3D10_TEXCUBE_ARRAY_SRV1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D10_TEXCUBE_ARRAY_SRV1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D10_TEXCUBE_SRV {
@@ -2844,9 +2581,6 @@ impl Default for D3D10_TEXCUBE_SRV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D10_TEXCUBE_SRV {
-    type TypeKind = windows_core::CopyType;
 }
 pub const D3D10_TEXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 18u32;
 #[repr(C)]
@@ -2867,10 +2601,6 @@ impl Default for D3D10_TEXTURE1D_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D10_TEXTURE1D_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -2893,10 +2623,6 @@ impl Default for D3D10_TEXTURE2D_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D10_TEXTURE2D_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2916,10 +2642,6 @@ impl Default for D3D10_TEXTURE3D_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for D3D10_TEXTURE3D_DESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2962,9 +2684,6 @@ impl Default for D3D10_VIEWPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D10_VIEWPORT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const D3D10_VIEWPORT_AND_SCISSORRECT_MAX_INDEX: u32 = 15u32;
 pub const D3D10_VIEWPORT_AND_SCISSORRECT_OBJECT_COUNT_PER_PIPELINE: u32 = 16u32;

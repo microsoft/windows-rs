@@ -449,9 +449,6 @@ impl Default for AAAccountingData {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AAAccountingData {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AAAccountingDataType(pub i32);
@@ -498,9 +495,6 @@ impl Default for AE_CURRENT_POSITION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AE_CURRENT_POSITION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AE_POSITION_FLAGS(pub i32);
@@ -516,9 +510,6 @@ impl Default for BITMAP_RENDERER_STATISTICS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BITMAP_RENDERER_STATISTICS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CHANNEL_BUFFER_SIZE: u32 = 65535u32;
 pub const CHANNEL_CHUNK_LENGTH: u32 = 1600u32;
 #[repr(C, packed(1))]
@@ -531,9 +522,6 @@ impl Default for CHANNEL_DEF {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CHANNEL_DEF {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -549,9 +537,6 @@ impl Default for CHANNEL_ENTRY_POINTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CHANNEL_ENTRY_POINTS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CHANNEL_EVENT_CONNECTED: u32 = 1u32;
 pub const CHANNEL_EVENT_DATA_RECEIVED: u32 = 10u32;
@@ -589,9 +574,6 @@ impl Default for CHANNEL_PDU_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CHANNEL_PDU_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CHANNEL_RC_ALREADY_CONNECTED: u32 = 3u32;
 pub const CHANNEL_RC_ALREADY_INITIALIZED: u32 = 1u32;
 pub const CHANNEL_RC_ALREADY_OPEN: u32 = 14u32;
@@ -626,9 +608,6 @@ impl Default for CLIENT_DISPLAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLIENT_DISPLAY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CLIENT_MESSAGE_CONNECTION_ERROR: CLIENT_MESSAGE_TYPE = CLIENT_MESSAGE_TYPE(2i32);
 pub const CLIENT_MESSAGE_CONNECTION_INVALID: CLIENT_MESSAGE_TYPE = CLIENT_MESSAGE_TYPE(0i32);
@@ -8884,9 +8863,6 @@ impl Default for PRODUCT_INFOA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PRODUCT_INFOA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PRODUCT_INFOW {
@@ -8897,9 +8873,6 @@ impl Default for PRODUCT_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PRODUCT_INFOW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PROPERTY_DYNAMIC_TIME_ZONE_INFORMATION: windows_core::GUID = windows_core::GUID::from_u128(0x0cdfd28e_d0b9_4c1f_a5eb_6d1f6c6535b9);
 pub const PROPERTY_TYPE_ENABLE_UNIVERSAL_APPS_FOR_CUSTOM_SHELL: windows_core::GUID = windows_core::GUID::from_u128(0xed2c3fda_338d_4d3f_81a3_e767310d908e);
@@ -8973,9 +8946,6 @@ impl Default for RFX_GFX_MONITOR_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RFX_GFX_MONITOR_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {
@@ -8985,9 +8955,6 @@ impl Default for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -9003,9 +8970,6 @@ impl Default for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {
@@ -9015,9 +8979,6 @@ impl Default for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -9033,9 +8994,6 @@ impl Default for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct RFX_GFX_MSG_DESKTOP_INPUT_RESET {
@@ -9048,9 +9006,6 @@ impl Default for RFX_GFX_MSG_DESKTOP_INPUT_RESET {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RFX_GFX_MSG_DESKTOP_INPUT_RESET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {
@@ -9061,9 +9016,6 @@ impl Default for RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -9076,9 +9028,6 @@ impl Default for RFX_GFX_MSG_DISCONNECT_NOTIFY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RFX_GFX_MSG_DISCONNECT_NOTIFY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct RFX_GFX_MSG_HEADER {
@@ -9089,9 +9038,6 @@ impl Default for RFX_GFX_MSG_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RFX_GFX_MSG_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const RFX_GFX_MSG_PREFIX: u32 = 48u32;
 pub const RFX_GFX_MSG_PREFIX_MASK: u32 = 48u32;
@@ -9106,9 +9052,6 @@ impl Default for RFX_GFX_MSG_RDP_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RFX_GFX_MSG_RDP_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct RFX_GFX_RECT {
@@ -9121,9 +9064,6 @@ impl Default for RFX_GFX_RECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RFX_GFX_RECT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const RFX_RDP_MSG_PREFIX: u32 = 0u32;
 pub const RemoteActionAppSwitch: RemoteActionType = RemoteActionType(4i32);
@@ -9242,9 +9182,6 @@ impl Default for TSSD_ConnectionPoint {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TSSD_ConnectionPoint {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TSSESSION_STATE(pub i32);
@@ -9280,9 +9217,6 @@ impl Default for VM_NOTIFY_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VM_NOTIFY_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VM_NOTIFY_INFO {
@@ -9293,9 +9227,6 @@ impl Default for VM_NOTIFY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VM_NOTIFY_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9316,9 +9247,6 @@ impl Default for VM_PATCH_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VM_PATCH_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WINSTATIONNAME_LENGTH: u32 = 32u32;
 pub const WKS_FLAG_CLEAR_CREDS_ON_LAST_RESOURCE: u32 = 1u32;
 pub const WKS_FLAG_CREDS_AUTHENTICATED: u32 = 4u32;
@@ -9336,9 +9264,6 @@ impl Default for WRDS_CONNECTION_SETTING {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WRDS_CONNECTION_SETTING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WRDS_CONNECTION_SETTINGS {
@@ -9349,9 +9274,6 @@ impl Default for WRDS_CONNECTION_SETTINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WRDS_CONNECTION_SETTINGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -9427,9 +9349,6 @@ impl Default for WRDS_CONNECTION_SETTINGS_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WRDS_CONNECTION_SETTINGS_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WRDS_CONNECTION_SETTING_LEVEL(pub i32);
@@ -9457,9 +9376,6 @@ impl Default for WRDS_DYNAMIC_TIME_ZONE_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WRDS_DYNAMIC_TIME_ZONE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WRDS_IMEFILENAME_LENGTH: u32 = 32u32;
 pub const WRDS_INITIALPROGRAM_LENGTH: u32 = 256u32;
 pub const WRDS_KEY_EXCHANGE_ALG_DH: u32 = 2u32;
@@ -9476,9 +9392,6 @@ impl Default for WRDS_LISTENER_SETTING {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WRDS_LISTENER_SETTING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WRDS_LISTENER_SETTINGS {
@@ -9489,9 +9402,6 @@ impl Default for WRDS_LISTENER_SETTINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WRDS_LISTENER_SETTINGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9504,9 +9414,6 @@ impl Default for WRDS_LISTENER_SETTINGS_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WRDS_LISTENER_SETTINGS_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9541,9 +9448,6 @@ impl Default for WRDS_SETTING {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WRDS_SETTING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WRDS_SETTINGS {
@@ -9555,9 +9459,6 @@ impl Default for WRDS_SETTINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WRDS_SETTINGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9598,9 +9499,6 @@ impl Default for WRDS_SETTINGS_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WRDS_SETTINGS_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9662,9 +9560,6 @@ impl Default for WTSCLIENTA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WTSCLIENTA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTSCLIENTW {
@@ -9693,9 +9588,6 @@ impl Default for WTSCLIENTW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WTSCLIENTW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTSCONFIGINFOA {
@@ -9716,9 +9608,6 @@ impl Default for WTSCONFIGINFOA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WTSCONFIGINFOA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTSCONFIGINFOW {
@@ -9738,9 +9627,6 @@ impl Default for WTSCONFIGINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WTSCONFIGINFOW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WTSClientAddress: WTS_INFO_CLASS = WTS_INFO_CLASS(14i32);
 pub const WTSClientBuildNumber: WTS_INFO_CLASS = WTS_INFO_CLASS(9i32);
@@ -9783,9 +9669,6 @@ impl Default for WTSINFOA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WTSINFOA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WTSINFOEXA {
@@ -9797,9 +9680,6 @@ impl Default for WTSINFOEXA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WTSINFOEXA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WTSINFOEXW {
@@ -9810,9 +9690,6 @@ impl Default for WTSINFOEXW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WTSINFOEXW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9840,9 +9717,6 @@ impl Default for WTSINFOEX_LEVEL1_A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WTSINFOEX_LEVEL1_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTSINFOEX_LEVEL1_W {
@@ -9869,9 +9743,6 @@ impl Default for WTSINFOEX_LEVEL1_W {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WTSINFOEX_LEVEL1_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WTSINFOEX_LEVEL_A {
@@ -9882,9 +9753,6 @@ impl Default for WTSINFOEX_LEVEL_A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WTSINFOEX_LEVEL_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WTSINFOEX_LEVEL_W {
@@ -9894,9 +9762,6 @@ impl Default for WTSINFOEX_LEVEL_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WTSINFOEX_LEVEL_W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9922,9 +9787,6 @@ impl Default for WTSINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WTSINFOW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WTSIdle: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(5i32);
 pub const WTSIdleTime: WTS_INFO_CLASS = WTS_INFO_CLASS(17i32);
@@ -9973,9 +9835,6 @@ impl Default for WTSLISTENERCONFIGA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WTSLISTENERCONFIGA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTSLISTENERCONFIGW {
@@ -10016,9 +9875,6 @@ impl Default for WTSLISTENERCONFIGW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WTSLISTENERCONFIGW {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WTSListen: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(6i32);
 pub const WTSLogonTime: WTS_INFO_CLASS = WTS_INFO_CLASS(18i32);
 pub const WTSOEMId: WTS_INFO_CLASS = WTS_INFO_CLASS(3i32);
@@ -10046,9 +9902,6 @@ impl Default for WTSSBX_IP_ADDRESS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WTSSBX_IP_ADDRESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTSSBX_MACHINE_CONNECT_INFO {
@@ -10061,9 +9914,6 @@ impl Default for WTSSBX_MACHINE_CONNECT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WTSSBX_MACHINE_CONNECT_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -10087,9 +9937,6 @@ impl Default for WTSSBX_MACHINE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WTSSBX_MACHINE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -10126,9 +9973,6 @@ impl Default for WTSSBX_SESSION_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WTSSBX_SESSION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WTSSBX_SESSION_STATE(pub i32);
@@ -10145,9 +9989,6 @@ impl Default for WTSSESSION_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WTSSESSION_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WTSSessionAddressV4: WTS_INFO_CLASS = WTS_INFO_CLASS(28i32);
 pub const WTSSessionId: WTS_INFO_CLASS = WTS_INFO_CLASS(4i32);
@@ -10184,9 +10025,6 @@ impl Default for WTSUSERCONFIGA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WTSUSERCONFIGA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTSUSERCONFIGW {
@@ -10213,9 +10051,6 @@ impl Default for WTSUSERCONFIGW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WTSUSERCONFIGW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WTSUserConfigBrokenTimeoutSettings: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(10i32);
 pub const WTSUserConfigInitialProgram: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(0i32);
@@ -10257,9 +10092,6 @@ impl Default for WTS_CACHE_STATS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WTS_CACHE_STATS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WTS_CACHE_STATS_UN {
@@ -10271,9 +10103,6 @@ impl Default for WTS_CACHE_STATS_UN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WTS_CACHE_STATS_UN {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -10299,9 +10128,6 @@ impl Default for WTS_CLIENT_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WTS_CLIENT_ADDRESS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -10367,9 +10193,6 @@ impl Default for WTS_CLIENT_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WTS_CLIENT_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTS_CLIENT_DISPLAY {
@@ -10381,9 +10204,6 @@ impl Default for WTS_CLIENT_DISPLAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WTS_CLIENT_DISPLAY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WTS_CLIENT_PRODUCT_ID_LENGTH: u32 = 32u32;
 pub const WTS_COMMENT_LENGTH: u32 = 60u32;
@@ -10412,9 +10232,6 @@ impl Default for WTS_DISPLAY_IOCTL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WTS_DISPLAY_IOCTL {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WTS_DOMAIN_LENGTH: u32 = 255u32;
 pub const WTS_DRAIN_IN_DRAIN: WTS_RCM_DRAIN_STATE = WTS_RCM_DRAIN_STATE(1i32);
@@ -10455,9 +10272,6 @@ impl Default for WTS_LICENSE_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WTS_LICENSE_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WTS_LICENSE_PREAMBLE_VERSION: u32 = 3u32;
 pub const WTS_LICENSE_PROTOCOL_VERSION: u32 = 65536u32;
@@ -10507,9 +10321,6 @@ impl Default for WTS_POLICY_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WTS_POLICY_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10525,10 +10336,6 @@ impl Default for WTS_PROCESS_INFOA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for WTS_PROCESS_INFOA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10543,10 +10350,6 @@ impl Default for WTS_PROCESS_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for WTS_PROCESS_INFOW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -10571,10 +10374,6 @@ impl Default for WTS_PROCESS_INFO_EXA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for WTS_PROCESS_INFO_EXA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10598,10 +10397,6 @@ impl Default for WTS_PROCESS_INFO_EXW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for WTS_PROCESS_INFO_EXW {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WTS_PROCESS_INFO_LEVEL_0: u32 = 0u32;
 pub const WTS_PROCESS_INFO_LEVEL_1: u32 = 1u32;
 pub const WTS_PROPERTY_DEFAULT_CONFIG: windows_core::PCWSTR = windows_core::w!("DefaultConfig");
@@ -10616,9 +10411,6 @@ impl Default for WTS_PROPERTY_VALUE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WTS_PROPERTY_VALUE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WTS_PROPERTY_VALUE_0 {
@@ -10632,9 +10424,6 @@ impl Default for WTS_PROPERTY_VALUE_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WTS_PROPERTY_VALUE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTS_PROPERTY_VALUE_0_1 {
@@ -10645,9 +10434,6 @@ impl Default for WTS_PROPERTY_VALUE_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WTS_PROPERTY_VALUE_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10660,9 +10446,6 @@ impl Default for WTS_PROPERTY_VALUE_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WTS_PROPERTY_VALUE_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTS_PROTOCOL_CACHE {
@@ -10673,9 +10456,6 @@ impl Default for WTS_PROTOCOL_CACHE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WTS_PROTOCOL_CACHE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10704,9 +10484,6 @@ impl Default for WTS_PROTOCOL_COUNTERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WTS_PROTOCOL_COUNTERS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WTS_PROTOCOL_NAME_LENGTH: u32 = 8u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -10722,9 +10499,6 @@ impl Default for WTS_PROTOCOL_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WTS_PROTOCOL_STATUS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WTS_PROTOCOL_TYPE_CONSOLE: u32 = 0u32;
 pub const WTS_PROTOCOL_TYPE_ICA: u32 = 1u32;
@@ -10800,9 +10574,6 @@ impl Default for WTS_SERVER_INFOA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WTS_SERVER_INFOA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTS_SERVER_INFOW {
@@ -10812,9 +10583,6 @@ impl Default for WTS_SERVER_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WTS_SERVER_INFOW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WTS_SERVICE_NONE: WTS_RCM_SERVICE_STATE = WTS_RCM_SERVICE_STATE(0i32);
 pub const WTS_SERVICE_START: WTS_RCM_SERVICE_STATE = WTS_RCM_SERVICE_STATE(1i32);
@@ -10828,9 +10596,6 @@ impl Default for WTS_SERVICE_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WTS_SERVICE_STATE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WTS_SERVICE_STOP: WTS_RCM_SERVICE_STATE = WTS_RCM_SERVICE_STATE(2i32);
 pub const WTS_SESSIONSTATE_LOCK: u32 = 0u32;
@@ -10847,9 +10612,6 @@ impl Default for WTS_SESSION_ADDRESS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WTS_SESSION_ADDRESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTS_SESSION_ID {
@@ -10860,9 +10622,6 @@ impl Default for WTS_SESSION_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WTS_SESSION_ID {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10876,9 +10635,6 @@ impl Default for WTS_SESSION_INFOA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WTS_SESSION_INFOA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTS_SESSION_INFOW {
@@ -10890,9 +10646,6 @@ impl Default for WTS_SESSION_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WTS_SESSION_INFOW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10911,9 +10664,6 @@ impl Default for WTS_SESSION_INFO_1A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WTS_SESSION_INFO_1A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTS_SESSION_INFO_1W {
@@ -10931,9 +10681,6 @@ impl Default for WTS_SESSION_INFO_1W {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WTS_SESSION_INFO_1W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTS_SMALL_RECT {
@@ -10947,9 +10694,6 @@ impl Default for WTS_SMALL_RECT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WTS_SMALL_RECT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WTS_SOCKADDR {
@@ -10961,9 +10705,6 @@ impl Default for WTS_SOCKADDR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WTS_SOCKADDR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WTS_SOCKADDR_0 {
@@ -10974,9 +10715,6 @@ impl Default for WTS_SOCKADDR_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WTS_SOCKADDR_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10990,9 +10728,6 @@ impl Default for WTS_SOCKADDR_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WTS_SOCKADDR_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTS_SOCKADDR_0_1 {
@@ -11005,9 +10740,6 @@ impl Default for WTS_SOCKADDR_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WTS_SOCKADDR_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -11026,9 +10758,6 @@ impl Default for WTS_SYSTEMTIME {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WTS_SYSTEMTIME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTS_TIME_ZONE_INFORMATION {
@@ -11044,9 +10773,6 @@ impl Default for WTS_TIME_ZONE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WTS_TIME_ZONE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -11064,9 +10790,6 @@ impl Default for WTS_USER_CREDENTIAL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WTS_USER_CREDENTIAL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTS_USER_DATA {
@@ -11078,9 +10801,6 @@ impl Default for WTS_USER_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WTS_USER_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -11096,9 +10816,6 @@ impl Default for WTS_VALIDATION_INFORMATIONA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WTS_VALIDATION_INFORMATIONA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTS_VALIDATION_INFORMATIONW {
@@ -11112,9 +10829,6 @@ impl Default for WTS_VALIDATION_INFORMATIONW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WTS_VALIDATION_INFORMATIONW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WTS_VALUE_TYPE_BINARY: u32 = 3u32;
 pub const WTS_VALUE_TYPE_GUID: u32 = 4u32;
@@ -11178,9 +10892,6 @@ impl Default for pluginResource {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for pluginResource {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct pluginResource2 {
@@ -11196,9 +10907,6 @@ impl Default for pluginResource2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for pluginResource2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct pluginResource2FileAssociation {
@@ -11211,7 +10919,4 @@ impl Default for pluginResource2FileAssociation {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for pluginResource2FileAssociation {
-    type TypeKind = windows_core::CopyType;
 }

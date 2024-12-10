@@ -99,9 +99,6 @@ impl Default for XINPUT_BATTERY_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XINPUT_BATTERY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct XINPUT_CAPABILITIES {
@@ -115,9 +112,6 @@ impl Default for XINPUT_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for XINPUT_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -235,9 +229,6 @@ impl Default for XINPUT_GAMEPAD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XINPUT_GAMEPAD {
-    type TypeKind = windows_core::CopyType;
-}
 pub const XINPUT_GAMEPAD_A: XINPUT_GAMEPAD_BUTTON_FLAGS = XINPUT_GAMEPAD_BUTTON_FLAGS(4096u16);
 pub const XINPUT_GAMEPAD_B: XINPUT_GAMEPAD_BUTTON_FLAGS = XINPUT_GAMEPAD_BUTTON_FLAGS(8192u16);
 pub const XINPUT_GAMEPAD_BACK: XINPUT_GAMEPAD_BUTTON_FLAGS = XINPUT_GAMEPAD_BUTTON_FLAGS(32u16);
@@ -305,9 +296,6 @@ impl Default for XINPUT_KEYSTROKE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XINPUT_KEYSTROKE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XINPUT_KEYSTROKE_FLAGS(pub u16);
@@ -358,9 +346,6 @@ impl Default for XINPUT_STATE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XINPUT_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct XINPUT_VIBRATION {
@@ -371,9 +356,6 @@ impl Default for XINPUT_VIBRATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for XINPUT_VIBRATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

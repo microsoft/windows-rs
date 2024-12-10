@@ -41,9 +41,6 @@ impl Default for HID_XFER_PACKET {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HID_XFER_PACKET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VHF_CONFIG {
@@ -72,7 +69,4 @@ impl Default for VHF_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VHF_CONFIG {
-    type TypeKind = windows_core::CopyType;
 }

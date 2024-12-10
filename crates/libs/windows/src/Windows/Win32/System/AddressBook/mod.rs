@@ -367,10 +367,6 @@ impl Default for ADRENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for ADRENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -383,10 +379,6 @@ impl Default for ADRLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for ADRLIST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -417,10 +409,6 @@ impl Default for ADRPARM {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for ADRPARM {
-    type TypeKind = windows_core::CopyType;
-}
 pub type CALLERRELEASE = Option<unsafe extern "system" fn(ulcallerdata: u32, lptbldata: Option<ITableData>, lpvue: Option<IMAPITable>)>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -434,9 +422,6 @@ impl Default for DTBLBUTTON {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DTBLBUTTON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DTBLCHECKBOX {
@@ -448,9 +433,6 @@ impl Default for DTBLCHECKBOX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DTBLCHECKBOX {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -466,9 +448,6 @@ impl Default for DTBLCOMBOBOX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DTBLCOMBOBOX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DTBLDDLBX {
@@ -481,9 +460,6 @@ impl Default for DTBLDDLBX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DTBLDDLBX {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -498,9 +474,6 @@ impl Default for DTBLEDIT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DTBLEDIT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DTBLGROUPBOX {
@@ -512,9 +485,6 @@ impl Default for DTBLGROUPBOX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DTBLGROUPBOX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DTBLLABEL {
@@ -525,9 +495,6 @@ impl Default for DTBLLABEL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DTBLLABEL {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -541,9 +508,6 @@ impl Default for DTBLLBX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DTBLLBX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DTBLMVDDLBX {
@@ -555,9 +519,6 @@ impl Default for DTBLMVDDLBX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DTBLMVDDLBX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DTBLMVLISTBOX {
@@ -568,9 +529,6 @@ impl Default for DTBLMVLISTBOX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DTBLMVLISTBOX {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -585,9 +543,6 @@ impl Default for DTBLPAGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DTBLPAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DTBLRADIOBUTTON {
@@ -601,9 +556,6 @@ impl Default for DTBLRADIOBUTTON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DTBLRADIOBUTTON {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -620,9 +572,6 @@ impl Default for DTCTL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DTCTL {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -646,9 +595,6 @@ impl Default for DTCTL_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DTCTL_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DTPAGE {
@@ -662,9 +608,6 @@ impl Default for DTPAGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DTPAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DTPAGE_0 {
@@ -676,9 +619,6 @@ impl Default for DTPAGE_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DTPAGE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ENTRYID {
@@ -689,9 +629,6 @@ impl Default for ENTRYID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ENTRYID {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -707,9 +644,6 @@ impl Default for ERROR_NOTIFICATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ERROR_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EXTENDED_NOTIFICATION {
@@ -721,9 +655,6 @@ impl Default for EXTENDED_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for EXTENDED_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const E_IMAPI_BURN_VERIFICATION_FAILED: windows_core::HRESULT = windows_core::HRESULT(0xC0AA0007_u32 as _);
 pub const E_IMAPI_DF2DATA_CLIENT_NAME_IS_NOT_VALID: windows_core::HRESULT = windows_core::HRESULT(0xC0AA0408_u32 as _);
@@ -821,9 +752,6 @@ impl Default for FLATENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FLATENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLATENTRYLIST {
@@ -835,9 +763,6 @@ impl Default for FLATENTRYLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FLATENTRYLIST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -851,9 +776,6 @@ impl Default for FLATMTSIDLIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FLATMTSIDLIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FlagList {
@@ -864,9 +786,6 @@ impl Default for FlagList {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FlagList {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3287,9 +3206,6 @@ impl Default for MAPIERROR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MAPIERROR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MAPINAMEID {
@@ -3302,9 +3218,6 @@ impl Default for MAPINAMEID {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MAPINAMEID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union MAPINAMEID_0 {
@@ -3316,9 +3229,6 @@ impl Default for MAPINAMEID_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MAPINAMEID_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MAPIUID {
@@ -3328,9 +3238,6 @@ impl Default for MAPIUID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MAPIUID {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MAPI_COMPOUND: u32 = 128u32;
 pub const MAPI_DIM: u32 = 1u32;
@@ -3362,9 +3269,6 @@ impl Default for MTSID {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MTSID {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MV_FLAG: u32 = 4096u32;
 pub const MV_INSTANCE: u32 = 8192u32;
 #[repr(C)]
@@ -3383,9 +3287,6 @@ impl Default for NEWMAIL_NOTIFICATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NEWMAIL_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
@@ -3399,10 +3300,6 @@ impl Default for NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -3421,10 +3318,6 @@ impl Default for NOTIFICATION_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for NOTIFICATION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NOTIFKEY {
@@ -3435,9 +3328,6 @@ impl Default for NOTIFKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NOTIFKEY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3457,9 +3347,6 @@ impl Default for OBJECT_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for OBJECT_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const OPENSTREAMONFILE: windows_core::PCSTR = windows_core::s!("OpenStreamOnFile");
 pub type PFNIDLE = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
@@ -3483,10 +3370,6 @@ impl Default for SAndRestriction {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SAndRestriction {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SAppTimeArray {
@@ -3497,9 +3380,6 @@ impl Default for SAppTimeArray {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SAppTimeArray {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3512,9 +3392,6 @@ impl Default for SBinary {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SBinary {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SBinaryArray {
@@ -3525,9 +3402,6 @@ impl Default for SBinaryArray {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SBinaryArray {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3540,9 +3414,6 @@ impl Default for SBitMaskRestriction {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SBitMaskRestriction {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -3558,10 +3429,6 @@ impl Default for SCommentRestriction {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SCommentRestriction {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SComparePropsRestriction {
@@ -3573,9 +3440,6 @@ impl Default for SComparePropsRestriction {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SComparePropsRestriction {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -3591,10 +3455,6 @@ impl Default for SContentRestriction {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SContentRestriction {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3608,10 +3468,6 @@ impl Default for SCurrencyArray {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SCurrencyArray {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SDateTimeArray {
@@ -3623,9 +3479,6 @@ impl Default for SDateTimeArray {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SDateTimeArray {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SDoubleArray {
@@ -3636,9 +3489,6 @@ impl Default for SDoubleArray {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SDoubleArray {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SERVICE_UI_ALLOWED: u32 = 16u32;
 pub const SERVICE_UI_ALWAYS: u32 = 2u32;
@@ -3654,9 +3504,6 @@ impl Default for SExistRestriction {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SExistRestriction {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SGuidArray {
@@ -3667,9 +3514,6 @@ impl Default for SGuidArray {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SGuidArray {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3682,9 +3526,6 @@ impl Default for SLPSTRArray {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SLPSTRArray {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SLargeIntegerArray {
@@ -3696,9 +3537,6 @@ impl Default for SLargeIntegerArray {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SLargeIntegerArray {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SLongArray {
@@ -3709,9 +3547,6 @@ impl Default for SLongArray {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SLongArray {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -3726,10 +3561,6 @@ impl Default for SNotRestriction {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SNotRestriction {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3743,10 +3574,6 @@ impl Default for SOrRestriction {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SOrRestriction {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPropProblem {
@@ -3759,9 +3586,6 @@ impl Default for SPropProblem {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SPropProblem {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPropProblemArray {
@@ -3773,9 +3597,6 @@ impl Default for SPropProblemArray {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SPropProblemArray {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPropTagArray {
@@ -3786,9 +3607,6 @@ impl Default for SPropTagArray {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SPropTagArray {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -3804,10 +3622,6 @@ impl Default for SPropValue {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SPropValue {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3822,10 +3636,6 @@ impl Default for SPropertyRestriction {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SPropertyRestriction {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SRealArray {
@@ -3836,9 +3646,6 @@ impl Default for SRealArray {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SRealArray {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -3852,10 +3659,6 @@ impl Default for SRestriction {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SRestriction {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -3879,10 +3682,6 @@ impl Default for SRestriction_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SRestriction_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3897,10 +3696,6 @@ impl Default for SRow {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SRow {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3914,10 +3709,6 @@ impl Default for SRowSet {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SRowSet {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SShortArray {
@@ -3928,9 +3719,6 @@ impl Default for SShortArray {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SShortArray {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3944,9 +3732,6 @@ impl Default for SSizeRestriction {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SSizeRestriction {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SSortOrder {
@@ -3957,9 +3742,6 @@ impl Default for SSortOrder {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SSortOrder {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3974,9 +3756,6 @@ impl Default for SSortOrderSet {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SSortOrderSet {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3989,10 +3768,6 @@ impl Default for SSubRestriction {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SSubRestriction {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -4009,10 +3784,6 @@ impl Default for STATUS_OBJECT_NOTIFICATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for STATUS_OBJECT_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SWStringArray {
@@ -4023,9 +3794,6 @@ impl Default for SWStringArray {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SWStringArray {
-    type TypeKind = windows_core::CopyType;
 }
 pub const S_IMAPI_BOTHADJUSTED: windows_core::HRESULT = windows_core::HRESULT(0xAA0006_u32 as _);
 pub const S_IMAPI_COMMAND_HAS_SENSE_DATA: windows_core::HRESULT = windows_core::HRESULT(0xAA0200_u32 as _);
@@ -4051,10 +3819,6 @@ impl Default for TABLE_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for TABLE_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const TABLE_RELOAD: u32 = 9u32;
 pub const TABLE_RESTRICT_DONE: u32 = 7u32;
@@ -4084,9 +3848,6 @@ impl Default for WABEXTDISPLAY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WABEXTDISPLAY {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct WABIMPORTPARAM {
@@ -4100,9 +3861,6 @@ impl Default for WABIMPORTPARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WABIMPORTPARAM {
-    type TypeKind = windows_core::CloneType;
 }
 pub const WABOBJECT_LDAPURL_RETURN_MAILUSER: u32 = 1u32;
 pub const WABOBJECT_ME_NEW: u32 = 1u32;
@@ -4128,9 +3886,6 @@ impl Default for WAB_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WAB_PARAM {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WAB_PROFILE_CONTENTS: u32 = 2097152u32;
 pub const WAB_USE_OE_SENDMAIL: u32 = 1u32;
@@ -4174,10 +3929,6 @@ impl Default for __UPV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for __UPV {
-    type TypeKind = windows_core::CopyType;
 }
 pub const cchProfileNameMax: u32 = 64u32;
 pub const cchProfilePassMax: u32 = 64u32;

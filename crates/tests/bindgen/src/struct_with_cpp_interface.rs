@@ -16,9 +16,6 @@ impl Default for D3D12_RESOURCE_UAV_BARRIER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3D12_RESOURCE_UAV_BARRIER {
-    type TypeKind = windows_core::CloneType;
-}
 windows_core::imp::define_interface!(
     ID3D12DeviceChild,
     ID3D12DeviceChild_Vtbl,

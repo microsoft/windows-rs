@@ -11,9 +11,6 @@ impl Default for PERCEPTION_PAYLOAD_FIELD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PERCEPTION_PAYLOAD_FIELD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PERCEPTION_STATE_STREAM_TIMESTAMPS {
@@ -24,7 +21,4 @@ impl Default for PERCEPTION_STATE_STREAM_TIMESTAMPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PERCEPTION_STATE_STREAM_TIMESTAMPS {
-    type TypeKind = windows_core::CopyType;
 }

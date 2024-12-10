@@ -2942,9 +2942,6 @@ impl Default for CLRES_CALLBACK_FUNCTION_TABLE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLRES_CALLBACK_FUNCTION_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
 #[derive(Clone, Copy)]
@@ -2958,10 +2955,6 @@ impl Default for CLRES_FUNCTION_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Registry")]
-impl windows_core::TypeKind for CLRES_FUNCTION_TABLE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
@@ -2977,10 +2970,6 @@ impl Default for CLRES_FUNCTION_TABLE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Registry")]
-impl windows_core::TypeKind for CLRES_FUNCTION_TABLE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
@@ -3003,10 +2992,6 @@ impl Default for CLRES_V1_FUNCTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Registry")]
-impl windows_core::TypeKind for CLRES_V1_FUNCTIONS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
@@ -3031,10 +3016,6 @@ impl Default for CLRES_V2_FUNCTIONS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Registry")]
-impl windows_core::TypeKind for CLRES_V2_FUNCTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3057,10 +3038,6 @@ impl Default for CLRES_V3_FUNCTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Registry")]
-impl windows_core::TypeKind for CLRES_V3_FUNCTIONS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
@@ -3086,10 +3063,6 @@ impl Default for CLRES_V4_FUNCTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Registry")]
-impl windows_core::TypeKind for CLRES_V4_FUNCTIONS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CLRES_VERSION_V1_00: u32 = 256u32;
 pub const CLRES_VERSION_V2_00: u32 = 512u32;
@@ -3137,9 +3110,6 @@ impl Default for CLUSAPI_REASON_HANDLER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLUSAPI_REASON_HANDLER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CLUSAPI_RESOURCE_OFFLINE_DO_NOT_UPDATE_PERSISTENT_STATE: u32 = 4u32;
 pub const CLUSAPI_RESOURCE_OFFLINE_FORCE_WITH_TERMINATION: u32 = 2u32;
@@ -3259,9 +3229,6 @@ impl Default for CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CLUSCTL_GROUP_GET_NAME: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331689i32);
 pub const CLUSCTL_GROUP_GET_PRIVATE_PROPERTIES: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331777i32);
@@ -3449,9 +3416,6 @@ impl Default for CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CLUSCTL_RESOURCE_STATE_CHANGE_REASON_VERSION_1: u32 = 1u32;
 pub const CLUSCTL_RESOURCE_STORAGE_GET_DIRTY: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777753i32);
 pub const CLUSCTL_RESOURCE_STORAGE_GET_DISKID: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777733i32);
@@ -3534,9 +3498,6 @@ impl Default for CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INT: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33562593i32);
 pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_DISKID: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554949i32);
 pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_DRIVELETTERS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554925i32);
@@ -3589,9 +3550,6 @@ impl Default for CLUSPROP_BINARY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUSPROP_BINARY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -3631,10 +3589,6 @@ impl Default for CLUSPROP_BUFFER_HELPER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for CLUSPROP_BUFFER_HELPER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUSPROP_DWORD {
@@ -3646,9 +3600,6 @@ impl Default for CLUSPROP_DWORD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUSPROP_DWORD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUSPROP_FILETIME {
@@ -3659,9 +3610,6 @@ impl Default for CLUSPROP_FILETIME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLUSPROP_FILETIME {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CLUSPROP_FORMAT_BINARY: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(1i32);
 pub const CLUSPROP_FORMAT_DWORD: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(2i32);
@@ -3690,9 +3638,6 @@ impl Default for CLUSPROP_FTSET_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUSPROP_FTSET_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSPROP_IPADDR_ENABLENETBIOS(pub i32);
@@ -3710,9 +3655,6 @@ impl Default for CLUSPROP_LARGE_INTEGER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUSPROP_LARGE_INTEGER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUSPROP_LIST {
@@ -3723,9 +3665,6 @@ impl Default for CLUSPROP_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLUSPROP_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3738,9 +3677,6 @@ impl Default for CLUSPROP_LONG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUSPROP_LONG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUSPROP_PARTITION_INFO {
@@ -3751,9 +3687,6 @@ impl Default for CLUSPROP_PARTITION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLUSPROP_PARTITION_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3766,9 +3699,6 @@ impl Default for CLUSPROP_PARTITION_INFO_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUSPROP_PARTITION_INFO_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUSPROP_PARTITION_INFO_EX2 {
@@ -3779,9 +3709,6 @@ impl Default for CLUSPROP_PARTITION_INFO_EX2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLUSPROP_PARTITION_INFO_EX2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3806,9 +3733,6 @@ impl Default for CLUSPROP_REQUIRED_DEPENDENCY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUSPROP_REQUIRED_DEPENDENCY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUSPROP_RESOURCE_CLASS {
@@ -3819,9 +3743,6 @@ impl Default for CLUSPROP_RESOURCE_CLASS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLUSPROP_RESOURCE_CLASS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3834,9 +3755,6 @@ impl Default for CLUSPROP_RESOURCE_CLASS_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUSPROP_RESOURCE_CLASS_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUSPROP_SCSI_ADDRESS {
@@ -3847,9 +3765,6 @@ impl Default for CLUSPROP_SCSI_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLUSPROP_SCSI_ADDRESS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -3864,10 +3779,6 @@ impl Default for CLUSPROP_SECURITY_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for CLUSPROP_SECURITY_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -3881,10 +3792,6 @@ impl Default for CLUSPROP_SECURITY_DESCRIPTOR_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for CLUSPROP_SECURITY_DESCRIPTOR_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CLUSPROP_SYNTAX {
@@ -3896,9 +3803,6 @@ impl Default for CLUSPROP_SYNTAX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUSPROP_SYNTAX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLUSPROP_SYNTAX_0 {
@@ -3909,9 +3813,6 @@ impl Default for CLUSPROP_SYNTAX_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLUSPROP_SYNTAX_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CLUSPROP_SYNTAX_DISK_GUID: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(720899u32);
 pub const CLUSPROP_SYNTAX_DISK_NUMBER: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(458754u32);
@@ -3951,9 +3852,6 @@ impl Default for CLUSPROP_SZ {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUSPROP_SZ {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CLUSPROP_TYPE_DISK_GUID: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(11i32);
 pub const CLUSPROP_TYPE_DISK_NUMBER: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(7i32);
 pub const CLUSPROP_TYPE_DISK_SERIALNUMBER: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(10i32);
@@ -3983,9 +3881,6 @@ impl Default for CLUSPROP_ULARGE_INTEGER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUSPROP_ULARGE_INTEGER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUSPROP_VALUE {
@@ -3997,9 +3892,6 @@ impl Default for CLUSPROP_VALUE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUSPROP_VALUE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUSPROP_WORD {
@@ -4010,9 +3902,6 @@ impl Default for CLUSPROP_WORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLUSPROP_WORD {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CLUSREG_COMMAND_NONE: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(0i32);
 pub const CLUSREG_CONDITION_EXISTS: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(11i32);
@@ -4375,9 +4264,6 @@ impl Default for CLUSTERVERSIONINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUSTERVERSIONINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLUSTERVERSIONINFO_NT4 {
@@ -4393,9 +4279,6 @@ impl Default for CLUSTERVERSIONINFO_NT4 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUSTERVERSIONINFO_NT4 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CLUSTER_ADD_EVICT_DELAY: windows_core::PCWSTR = windows_core::w!("AddEvictDelay");
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4409,9 +4292,6 @@ impl Default for CLUSTER_AVAILABILITY_SET_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLUSTER_AVAILABILITY_SET_CONFIG {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CLUSTER_AVAILABILITY_SET_CONFIG_V1: u32 = 1u32;
 #[repr(C)]
@@ -4427,9 +4307,6 @@ impl Default for CLUSTER_BATCH_COMMAND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLUSTER_BATCH_COMMAND {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4619,9 +4496,6 @@ impl Default for CLUSTER_CREATE_GROUP_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUSTER_CREATE_GROUP_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CLUSTER_CREATE_GROUP_INFO_VERSION: u32 = 1u32;
 pub const CLUSTER_CREATE_GROUP_INFO_VERSION_1: u32 = 1u32;
 pub const CLUSTER_CSA_VSS_STATE: windows_core::PCWSTR = windows_core::w!("BackupInProgress");
@@ -4652,9 +4526,6 @@ impl Default for CLUSTER_ENUM_ITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLUSTER_ENUM_ITEM {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CLUSTER_ENUM_ITEM_VERSION: u32 = 1u32;
 pub const CLUSTER_ENUM_ITEM_VERSION_1: u32 = 1u32;
@@ -4695,9 +4566,6 @@ impl Default for CLUSTER_GROUP_ENUM_ITEM {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUSTER_GROUP_ENUM_ITEM {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CLUSTER_GROUP_ENUM_ITEM_VERSION: u32 = 1u32;
 pub const CLUSTER_GROUP_ENUM_ITEM_VERSION_1: u32 = 1u32;
 pub const CLUSTER_GROUP_ENUM_NODES: CLUSTER_GROUP_ENUM = CLUSTER_GROUP_ENUM(2i32);
@@ -4726,9 +4594,6 @@ impl Default for CLUSTER_HEALTH_FAULT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUSTER_HEALTH_FAULT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CLUSTER_HEALTH_FAULT_ARGS: u32 = 7u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4740,9 +4605,6 @@ impl Default for CLUSTER_HEALTH_FAULT_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLUSTER_HEALTH_FAULT_ARRAY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CLUSTER_HEALTH_FAULT_DESCRIPTION: u32 = 3u32;
 pub const CLUSTER_HEALTH_FAULT_DESCRIPTION_LABEL: windows_core::PCWSTR = windows_core::w!("Description");
@@ -4771,9 +4633,6 @@ impl Default for CLUSTER_IP_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUSTER_IP_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLUSTER_MEMBERSHIP_INFO {
@@ -4785,9 +4644,6 @@ impl Default for CLUSTER_MEMBERSHIP_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLUSTER_MEMBERSHIP_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4892,9 +4748,6 @@ impl Default for CLUSTER_READ_BATCH_COMMAND {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUSTER_READ_BATCH_COMMAND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_REG_COMMAND(pub i32);
@@ -4938,9 +4791,6 @@ impl Default for CLUSTER_RESOURCE_ENUM_ITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLUSTER_RESOURCE_ENUM_ITEM {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CLUSTER_RESOURCE_ENUM_ITEM_VERSION: u32 = 1u32;
 pub const CLUSTER_RESOURCE_ENUM_ITEM_VERSION_1: u32 = 1u32;
@@ -5003,9 +4853,6 @@ impl Default for CLUSTER_SET_PASSWORD_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUSTER_SET_PASSWORD_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CLUSTER_SHARED_VOLUMES_ROOT: windows_core::PCWSTR = windows_core::w!("SharedVolumesRoot");
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5021,9 +4868,6 @@ impl Default for CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT {
@@ -5034,9 +4878,6 @@ impl Default for CLUSTER_SHARED_VOLUME_RENAME_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLUSTER_SHARED_VOLUME_RENAME_INPUT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5049,9 +4890,6 @@ impl Default for CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME {
@@ -5061,9 +4899,6 @@ impl Default for CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5079,9 +4914,6 @@ impl Default for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0 {
@@ -5094,9 +4926,6 @@ impl Default for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5116,9 +4945,6 @@ impl Default for CLUSTER_SHARED_VOLUME_STATE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUSTER_SHARED_VOLUME_STATE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLUSTER_SHARED_VOLUME_STATE_INFO_EX {
@@ -5133,9 +4959,6 @@ impl Default for CLUSTER_SHARED_VOLUME_STATE_INFO_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLUSTER_SHARED_VOLUME_STATE_INFO_EX {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CLUSTER_SHARED_VOLUME_VSS_WRITER_OPERATION_TIMEOUT: windows_core::PCWSTR = windows_core::w!("SharedVolumeVssWriterOperationTimeout");
 #[repr(transparent)]
@@ -5154,9 +4977,6 @@ impl Default for CLUSTER_VALIDATE_CSV_FILENAME {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUSTER_VALIDATE_CSV_FILENAME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLUSTER_VALIDATE_DIRECTORY {
@@ -5166,9 +4986,6 @@ impl Default for CLUSTER_VALIDATE_DIRECTORY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLUSTER_VALIDATE_DIRECTORY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5180,9 +4997,6 @@ impl Default for CLUSTER_VALIDATE_NETNAME {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUSTER_VALIDATE_NETNAME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLUSTER_VALIDATE_PATH {
@@ -5192,9 +5006,6 @@ impl Default for CLUSTER_VALIDATE_PATH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLUSTER_VALIDATE_PATH {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CLUSTER_VERSION_FLAG_MIXED_MODE: u32 = 1u32;
 pub const CLUSTER_VERSION_UNKNOWN: u32 = 4294967295u32;
@@ -5250,9 +5061,6 @@ impl Default for CLUS_CHKDSK_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUS_CHKDSK_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CLUS_CREATE_CRYPT_CONTAINER_NOT_FOUND: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5264,9 +5072,6 @@ impl Default for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT {
@@ -5276,9 +5081,6 @@ impl Default for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5290,9 +5092,6 @@ impl Default for CLUS_CSV_MAINTENANCE_MODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLUS_CSV_MAINTENANCE_MODE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5309,9 +5108,6 @@ impl Default for CLUS_CSV_VOLUME_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUS_CSV_VOLUME_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLUS_CSV_VOLUME_NAME {
@@ -5324,9 +5120,6 @@ impl Default for CLUS_CSV_VOLUME_NAME {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUS_CSV_VOLUME_NAME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLUS_DISK_NUMBER_INFO {
@@ -5337,9 +5130,6 @@ impl Default for CLUS_DISK_NUMBER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLUS_DISK_NUMBER_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5352,9 +5142,6 @@ impl Default for CLUS_DNN_LEADER_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUS_DNN_LEADER_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLUS_DNN_SODAFS_CLONE_STATUS {
@@ -5365,9 +5152,6 @@ impl Default for CLUS_DNN_SODAFS_CLONE_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLUS_DNN_SODAFS_CLONE_STATUS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5386,9 +5170,6 @@ impl Default for CLUS_FORCE_QUORUM_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUS_FORCE_QUORUM_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLUS_FTSET_INFO {
@@ -5399,9 +5180,6 @@ impl Default for CLUS_FTSET_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLUS_FTSET_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CLUS_GLOBAL: u32 = 1u32;
 pub const CLUS_GROUP_DO_NOT_START: CLUS_GROUP_START_SETTING = CLUS_GROUP_START_SETTING(1i32);
@@ -5423,9 +5201,6 @@ impl Default for CLUS_MAINTENANCE_MODE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUS_MAINTENANCE_MODE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLUS_MAINTENANCE_MODE_INFOEX {
@@ -5438,9 +5213,6 @@ impl Default for CLUS_MAINTENANCE_MODE_INFOEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLUS_MAINTENANCE_MODE_INFOEX {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CLUS_MODIFY: u32 = 1u32;
 pub const CLUS_NAME_RES_TYPE_CLUSTER_GROUPID: windows_core::PCWSTR = windows_core::w!("ClusterGroupId");
@@ -5468,9 +5240,6 @@ impl Default for CLUS_NETNAME_IP_INFO_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUS_NETNAME_IP_INFO_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL {
@@ -5482,9 +5251,6 @@ impl Default for CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5499,9 +5265,6 @@ impl Default for CLUS_NETNAME_PWD_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUS_NETNAME_PWD_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLUS_NETNAME_PWD_INFOEX {
@@ -5515,9 +5278,6 @@ impl Default for CLUS_NETNAME_PWD_INFOEX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUS_NETNAME_PWD_INFOEX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLUS_NETNAME_VS_TOKEN_INFO {
@@ -5529,9 +5289,6 @@ impl Default for CLUS_NETNAME_VS_TOKEN_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLUS_NETNAME_VS_TOKEN_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CLUS_NODE_MAJORITY_QUORUM: u32 = 0u32;
 pub const CLUS_NOT_GLOBAL: u32 = 0u32;
@@ -5563,9 +5320,6 @@ impl Default for CLUS_PARTITION_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUS_PARTITION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLUS_PARTITION_INFO_EX {
@@ -5587,9 +5341,6 @@ impl Default for CLUS_PARTITION_INFO_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUS_PARTITION_INFO_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLUS_PARTITION_INFO_EX2 {
@@ -5602,9 +5353,6 @@ impl Default for CLUS_PARTITION_INFO_EX2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUS_PARTITION_INFO_EX2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLUS_PROVIDER_STATE_CHANGE_INFO {
@@ -5616,9 +5364,6 @@ impl Default for CLUS_PROVIDER_STATE_CHANGE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLUS_PROVIDER_STATE_CHANGE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CLUS_RESCLASS_NETWORK: CLUSTER_RESOURCE_CLASS = CLUSTER_RESOURCE_CLASS(2i32);
 pub const CLUS_RESCLASS_STORAGE: CLUSTER_RESOURCE_CLASS = CLUSTER_RESOURCE_CLASS(1i32);
@@ -5648,9 +5393,6 @@ impl Default for CLUS_RESOURCE_CLASS_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUS_RESOURCE_CLASS_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CLUS_RESOURCE_CLASS_INFO_0 {
@@ -5661,9 +5403,6 @@ impl Default for CLUS_RESOURCE_CLASS_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLUS_RESOURCE_CLASS_INFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5676,9 +5415,6 @@ impl Default for CLUS_RESOURCE_CLASS_INFO_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUS_RESOURCE_CLASS_INFO_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CLUS_RESOURCE_CLASS_INFO_0_0_0 {
@@ -5689,9 +5425,6 @@ impl Default for CLUS_RESOURCE_CLASS_INFO_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLUS_RESOURCE_CLASS_INFO_0_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5772,9 +5505,6 @@ impl Default for CLUS_SCSI_ADDRESS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUS_SCSI_ADDRESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CLUS_SCSI_ADDRESS_0 {
@@ -5785,9 +5515,6 @@ impl Default for CLUS_SCSI_ADDRESS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLUS_SCSI_ADDRESS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5802,9 +5529,6 @@ impl Default for CLUS_SCSI_ADDRESS_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUS_SCSI_ADDRESS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLUS_SET_MAINTENANCE_MODE_INPUT {
@@ -5816,9 +5540,6 @@ impl Default for CLUS_SET_MAINTENANCE_MODE_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLUS_SET_MAINTENANCE_MODE_INPUT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5832,9 +5553,6 @@ impl Default for CLUS_SHARED_VOLUME_BACKUP_MODE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUS_SHARED_VOLUME_BACKUP_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLUS_STARTING_PARAMS {
@@ -5847,9 +5565,6 @@ impl Default for CLUS_STARTING_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUS_STARTING_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS {
@@ -5859,9 +5574,6 @@ impl Default for CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5874,9 +5586,6 @@ impl Default for CLUS_STORAGE_REMAP_DRIVELETTER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUS_STORAGE_REMAP_DRIVELETTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLUS_STORAGE_SET_DRIVELETTER {
@@ -5888,9 +5597,6 @@ impl Default for CLUS_STORAGE_SET_DRIVELETTER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLUS_STORAGE_SET_DRIVELETTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLUS_WORKER {
@@ -5901,9 +5607,6 @@ impl Default for CLUS_WORKER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CLUS_WORKER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CREATEDC_PRESENT: u32 = 2u32;
 #[repr(C)]
@@ -5924,9 +5627,6 @@ impl Default for CREATE_CLUSTER_CONFIG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CREATE_CLUSTER_CONFIG {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CREATE_CLUSTER_MAJOR_VERSION_MASK: u32 = 4294967040u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5945,9 +5645,6 @@ impl Default for CREATE_CLUSTER_NAME_ACCOUNT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CREATE_CLUSTER_NAME_ACCOUNT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CREATE_CLUSTER_VERSION: u32 = 1536u32;
 pub const CTCTL_GET_FAULT_DOMAIN_STATE: CLCTL_CODES = CLCTL_CODES(789i32);
@@ -6187,9 +5884,6 @@ impl Default for FILESHARE_CHANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILESHARE_CHANGE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const FILESHARE_CHANGE_ADD: FILESHARE_CHANGE_ENUM = FILESHARE_CHANGE_ENUM(1i32);
 pub const FILESHARE_CHANGE_DEL: FILESHARE_CHANGE_ENUM = FILESHARE_CHANGE_ENUM(2i32);
 #[repr(transparent)]
@@ -6205,9 +5899,6 @@ impl Default for FILESHARE_CHANGE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FILESHARE_CHANGE_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FILESHARE_CHANGE_MODIFY: FILESHARE_CHANGE_ENUM = FILESHARE_CHANGE_ENUM(3i32);
 pub const FILESHARE_CHANGE_NONE: FILESHARE_CHANGE_ENUM = FILESHARE_CHANGE_ENUM(0i32);
@@ -6226,9 +5917,6 @@ impl Default for GET_OPERATION_CONTEXT_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GET_OPERATION_CONTEXT_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const GROUPSET_READY_SETTING_APPLICATION_READY: u32 = 4u32;
 pub const GROUPSET_READY_SETTING_DELAY: u32 = 1u32;
 pub const GROUPSET_READY_SETTING_ONLINE: u32 = 2u32;
@@ -6244,9 +5932,6 @@ impl Default for GROUP_FAILURE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GROUP_FAILURE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GROUP_FAILURE_INFO_BUFFER {
@@ -6257,9 +5942,6 @@ impl Default for GROUP_FAILURE_INFO_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GROUP_FAILURE_INFO_BUFFER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const GROUP_FAILURE_INFO_VERSION_1: u32 = 1u32;
 #[repr(transparent)]
@@ -13472,9 +13154,6 @@ impl Default for MONITOR_STATE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MONITOR_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MaintenanceModeTypeDisableIsAliveCheck: MAINTENANCE_MODE_TYPE_ENUM = MAINTENANCE_MODE_TYPE_ENUM(1i32);
 pub const MaintenanceModeTypeOfflineResource: MAINTENANCE_MODE_TYPE_ENUM = MAINTENANCE_MODE_TYPE_ENUM(2i32);
 pub const MaintenanceModeTypeUnclusterResource: MAINTENANCE_MODE_TYPE_ENUM = MAINTENANCE_MODE_TYPE_ENUM(3i32);
@@ -13496,9 +13175,6 @@ impl Default for NOTIFY_FILTER_AND_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NOTIFY_FILTER_AND_TYPE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const NT10_MAJOR_VERSION: u32 = 9u32;
 pub const NT11_MAJOR_VERSION: u32 = 10u32;
@@ -13535,9 +13211,6 @@ impl Default for NodeUtilizationInfoElement {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NodeUtilizationInfoElement {
-    type TypeKind = windows_core::CopyType;
 }
 pub const OperationalQuorum: CLUSTER_QUORUM_TYPE = CLUSTER_QUORUM_TYPE(0i32);
 pub type PARBITRATE_ROUTINE = Option<unsafe extern "system" fn(resource: *mut core::ffi::c_void, lostquorumresource: PQUORUM_RESOURCE_LOST) -> u32>;
@@ -13890,9 +13563,6 @@ impl Default for POST_UPGRADE_VERSION_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POST_UPGRADE_VERSION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub type PQUERY_APPINSTANCE_VERSION = Option<unsafe extern "system" fn(appinstanceid: *const windows_core::GUID, instanceversionhigh: *mut u64, instanceversionlow: *mut u64, versionstatus: *mut super::super::Foundation::NTSTATUS) -> u32>;
 pub type PQUORUM_RESOURCE_LOST = Option<unsafe extern "system" fn(resource: isize)>;
 pub type PRAISE_RES_TYPE_NOTIFICATION = Option<unsafe extern "system" fn(resourcetype: windows_core::PCWSTR, ppayload: *const u8, payloadsize: u32) -> u32>;
@@ -14052,9 +13722,6 @@ impl Default for PaxosTagCStruct {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PaxosTagCStruct {
-    type TypeKind = windows_core::CopyType;
-}
 pub const PriorityDisabled: CLUSTER_GROUP_PRIORITY = CLUSTER_GROUP_PRIORITY(0i32);
 pub const PriorityHigh: CLUSTER_GROUP_PRIORITY = CLUSTER_GROUP_PRIORITY(3000i32);
 pub const PriorityLow: CLUSTER_GROUP_PRIORITY = CLUSTER_GROUP_PRIORITY(1000i32);
@@ -14076,9 +13743,6 @@ impl Default for RESOURCE_FAILURE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RESOURCE_FAILURE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RESOURCE_FAILURE_INFO_BUFFER {
@@ -14089,9 +13753,6 @@ impl Default for RESOURCE_FAILURE_INFO_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RESOURCE_FAILURE_INFO_BUFFER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const RESOURCE_FAILURE_INFO_VERSION_1: u32 = 1u32;
 #[repr(transparent)]
@@ -14110,9 +13771,6 @@ impl Default for RESOURCE_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RESOURCE_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RESOURCE_STATUS_EX {
@@ -14128,9 +13786,6 @@ impl Default for RESOURCE_STATUS_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RESOURCE_STATUS_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RESOURCE_TERMINAL_FAILURE_INFO_BUFFER {
@@ -14141,9 +13796,6 @@ impl Default for RESOURCE_TERMINAL_FAILURE_INFO_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RESOURCE_TERMINAL_FAILURE_INFO_BUFFER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const RESTYPE_MONITOR_SHUTTING_DOWN_CLUSSVC_CRASH: u32 = 2u32;
 pub const RESTYPE_MONITOR_SHUTTING_DOWN_NODE_STOP: u32 = 1u32;
@@ -14159,9 +13811,6 @@ impl Default for RESUTIL_FILETIME_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RESUTIL_FILETIME_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RESUTIL_LARGEINT_DATA {
@@ -14173,9 +13822,6 @@ impl Default for RESUTIL_LARGEINT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RESUTIL_LARGEINT_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14194,9 +13840,6 @@ impl Default for RESUTIL_PROPERTY_ITEM {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RESUTIL_PROPERTY_ITEM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union RESUTIL_PROPERTY_ITEM_0 {
@@ -14211,9 +13854,6 @@ impl Default for RESUTIL_PROPERTY_ITEM_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RESUTIL_PROPERTY_ITEM_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const RESUTIL_PROPITEM_IN_MEMORY: u32 = 8u32;
 pub const RESUTIL_PROPITEM_READ_ONLY: u32 = 1u32;
@@ -14230,9 +13870,6 @@ impl Default for RESUTIL_ULARGEINT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RESUTIL_ULARGEINT_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const RS3_UPGRADE_VERSION: u32 = 1u32;
 pub const RS4_UPGRADE_VERSION: u32 = 2u32;
@@ -14264,9 +13901,6 @@ impl Default for ResourceUtilizationInfoElement {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ResourceUtilizationInfoElement {
-    type TypeKind = windows_core::CopyType;
 }
 pub const RmonArbitrateResource: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(10i32);
 pub const RmonDeadlocked: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(15i32);
@@ -14315,9 +13949,6 @@ impl Default for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT {
@@ -14328,9 +13959,6 @@ impl Default for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -14343,9 +13971,6 @@ impl Default for SR_RESOURCE_TYPE_DISK_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SR_RESOURCE_TYPE_DISK_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {
@@ -14356,9 +13981,6 @@ impl Default for SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -14371,9 +13993,6 @@ impl Default for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS {
@@ -14384,9 +14003,6 @@ impl Default for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -14401,9 +14017,6 @@ impl Default for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SR_RESOURCE_TYPE_REPLICATED_DISK {
@@ -14417,9 +14030,6 @@ impl Default for SR_RESOURCE_TYPE_REPLICATED_DISK {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SR_RESOURCE_TYPE_REPLICATED_DISK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT {
@@ -14430,9 +14040,6 @@ impl Default for SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -14445,9 +14052,6 @@ impl Default for SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO {
@@ -14458,9 +14062,6 @@ impl Default for SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const STARTUP_EX_ROUTINE: windows_core::PCSTR = windows_core::s!("StartupEx");
 pub const STARTUP_ROUTINE: windows_core::PCSTR = windows_core::s!("Startup");
@@ -14523,9 +14124,6 @@ impl Default for WitnessTagHelper {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WitnessTagHelper {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WitnessTagUpdateHelper {
@@ -14537,9 +14135,6 @@ impl Default for WitnessTagUpdateHelper {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WitnessTagUpdateHelper {
-    type TypeKind = windows_core::CopyType;
 }
 pub const eResourceStateChangeReasonFailedMove: CLUSTER_RESOURCE_STATE_CHANGE_REASON = CLUSTER_RESOURCE_STATE_CHANGE_REASON(3i32);
 pub const eResourceStateChangeReasonFailover: CLUSTER_RESOURCE_STATE_CHANGE_REASON = CLUSTER_RESOURCE_STATE_CHANGE_REASON(2i32);

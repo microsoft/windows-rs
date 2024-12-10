@@ -8223,9 +8223,6 @@ impl Default for PDH_BROWSE_DLG_CONFIG_A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PDH_BROWSE_DLG_CONFIG_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PDH_BROWSE_DLG_CONFIG_HA {
@@ -8244,9 +8241,6 @@ impl Default for PDH_BROWSE_DLG_CONFIG_HA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PDH_BROWSE_DLG_CONFIG_HA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8267,9 +8261,6 @@ impl Default for PDH_BROWSE_DLG_CONFIG_HW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PDH_BROWSE_DLG_CONFIG_HW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PDH_BROWSE_DLG_CONFIG_W {
@@ -8288,9 +8279,6 @@ impl Default for PDH_BROWSE_DLG_CONFIG_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PDH_BROWSE_DLG_CONFIG_W {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PDH_CALC_NEGATIVE_DENOMINATOR: u32 = 2147485654u32;
 pub const PDH_CALC_NEGATIVE_TIMEBASE: u32 = 2147485655u32;
@@ -8321,9 +8309,6 @@ impl Default for PDH_COUNTER_INFO_A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PDH_COUNTER_INFO_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PDH_COUNTER_INFO_A_0 {
@@ -8335,9 +8320,6 @@ impl Default for PDH_COUNTER_INFO_A_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PDH_COUNTER_INFO_A_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8353,9 +8335,6 @@ impl Default for PDH_COUNTER_INFO_A_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PDH_COUNTER_INFO_A_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8378,9 +8357,6 @@ impl Default for PDH_COUNTER_INFO_W {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PDH_COUNTER_INFO_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PDH_COUNTER_INFO_W_0 {
@@ -8392,9 +8368,6 @@ impl Default for PDH_COUNTER_INFO_W_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PDH_COUNTER_INFO_W_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8411,9 +8384,6 @@ impl Default for PDH_COUNTER_INFO_W_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PDH_COUNTER_INFO_W_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PDH_COUNTER_PATH_ELEMENTS_A {
@@ -8429,9 +8399,6 @@ impl Default for PDH_COUNTER_PATH_ELEMENTS_A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PDH_COUNTER_PATH_ELEMENTS_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PDH_COUNTER_PATH_ELEMENTS_W {
@@ -8446,9 +8413,6 @@ impl Default for PDH_COUNTER_PATH_ELEMENTS_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PDH_COUNTER_PATH_ELEMENTS_W {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PDH_CSTATUS_BAD_COUNTERNAME: u32 = 3221228480u32;
 pub const PDH_CSTATUS_INVALID_DATA: u32 = 3221228474u32;
@@ -8474,9 +8438,6 @@ impl Default for PDH_DATA_ITEM_PATH_ELEMENTS_A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PDH_DATA_ITEM_PATH_ELEMENTS_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PDH_DATA_ITEM_PATH_ELEMENTS_W {
@@ -8489,9 +8450,6 @@ impl Default for PDH_DATA_ITEM_PATH_ELEMENTS_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PDH_DATA_ITEM_PATH_ELEMENTS_W {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PDH_DATA_SOURCE_IS_LOG_FILE: u32 = 3221228494u32;
 pub const PDH_DATA_SOURCE_IS_REAL_TIME: u32 = 3221228495u32;
@@ -8519,9 +8477,6 @@ impl Default for PDH_FMT_COUNTERVALUE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PDH_FMT_COUNTERVALUE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PDH_FMT_COUNTERVALUE_0 {
@@ -8536,9 +8491,6 @@ impl Default for PDH_FMT_COUNTERVALUE_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PDH_FMT_COUNTERVALUE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PDH_FMT_COUNTERVALUE_ITEM_A {
@@ -8550,9 +8502,6 @@ impl Default for PDH_FMT_COUNTERVALUE_ITEM_A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PDH_FMT_COUNTERVALUE_ITEM_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PDH_FMT_COUNTERVALUE_ITEM_W {
@@ -8563,9 +8512,6 @@ impl Default for PDH_FMT_COUNTERVALUE_ITEM_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PDH_FMT_COUNTERVALUE_ITEM_W {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PDH_FMT_DOUBLE: PDH_FMT = PDH_FMT(512u32);
 pub const PDH_FMT_LARGE: PDH_FMT = PDH_FMT(1024u32);
@@ -8676,9 +8622,6 @@ impl Default for PDH_LOG_SERVICE_QUERY_INFO_A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PDH_LOG_SERVICE_QUERY_INFO_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PDH_LOG_SERVICE_QUERY_INFO_A_0 {
@@ -8689,9 +8632,6 @@ impl Default for PDH_LOG_SERVICE_QUERY_INFO_A_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PDH_LOG_SERVICE_QUERY_INFO_A_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8709,9 +8649,6 @@ impl Default for PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8732,9 +8669,6 @@ impl Default for PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_W {
@@ -8753,9 +8687,6 @@ impl Default for PDH_LOG_SERVICE_QUERY_INFO_W {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PDH_LOG_SERVICE_QUERY_INFO_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PDH_LOG_SERVICE_QUERY_INFO_W_0 {
@@ -8766,9 +8697,6 @@ impl Default for PDH_LOG_SERVICE_QUERY_INFO_W_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PDH_LOG_SERVICE_QUERY_INFO_W_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8786,9 +8714,6 @@ impl Default for PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8808,9 +8733,6 @@ impl Default for PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8877,9 +8799,6 @@ impl Default for PDH_RAW_COUNTER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PDH_RAW_COUNTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PDH_RAW_COUNTER_ITEM_A {
@@ -8891,9 +8810,6 @@ impl Default for PDH_RAW_COUNTER_ITEM_A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PDH_RAW_COUNTER_ITEM_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PDH_RAW_COUNTER_ITEM_W {
@@ -8904,9 +8820,6 @@ impl Default for PDH_RAW_COUNTER_ITEM_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PDH_RAW_COUNTER_ITEM_W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8920,9 +8833,6 @@ impl Default for PDH_RAW_LOG_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PDH_RAW_LOG_RECORD {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PDH_REFRESHCOUNTERS: u32 = 4u32;
 pub const PDH_RETRY: u32 = 2147485652u32;
@@ -8952,9 +8862,6 @@ impl Default for PDH_STATISTICS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PDH_STATISTICS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const PDH_STRING_NOT_FOUND: u32 = 3221228500u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8967,9 +8874,6 @@ impl Default for PDH_TIME_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PDH_TIME_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PDH_UNABLE_MAP_NAME_FILES: u32 = 2147486677u32;
 pub const PDH_UNABLE_READ_LOG_HEADER: u32 = 3221228496u32;
@@ -9011,9 +8915,6 @@ impl Default for PERF_COUNTERSET_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PERF_COUNTERSET_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PERF_COUNTERSET_INSTANCE {
@@ -9027,9 +8928,6 @@ impl Default for PERF_COUNTERSET_INSTANCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PERF_COUNTERSET_INSTANCE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PERF_COUNTERSET_MULTI_INSTANCES: u32 = 2u32;
 #[repr(C)]
@@ -9045,9 +8943,6 @@ impl Default for PERF_COUNTERSET_REG_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PERF_COUNTERSET_REG_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PERF_COUNTERSET_SINGLE_AGGREGATE: u32 = 4u32;
 pub const PERF_COUNTERSET_SINGLE_INSTANCE: u32 = 0u32;
@@ -9065,9 +8960,6 @@ impl Default for PERF_COUNTER_BLOCK {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PERF_COUNTER_BLOCK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PERF_COUNTER_DATA {
@@ -9078,9 +8970,6 @@ impl Default for PERF_COUNTER_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PERF_COUNTER_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -9103,10 +8992,6 @@ impl Default for PERF_COUNTER_DEFINITION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for PERF_COUNTER_DEFINITION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9128,10 +9013,6 @@ impl Default for PERF_COUNTER_DEFINITION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for PERF_COUNTER_DEFINITION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const PERF_COUNTER_ELAPSED: u32 = 262144u32;
 pub const PERF_COUNTER_FRACTION: u32 = 131072u32;
 #[repr(C)]
@@ -9146,9 +9027,6 @@ impl Default for PERF_COUNTER_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PERF_COUNTER_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PERF_COUNTER_HISTOGRAM: u32 = 393216u32;
 pub const PERF_COUNTER_HISTOGRAM_TYPE: u32 = 2147483648u32;
@@ -9168,9 +9046,6 @@ impl Default for PERF_COUNTER_IDENTIFIER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PERF_COUNTER_IDENTIFIER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PERF_COUNTER_IDENTITY {
@@ -9187,9 +9062,6 @@ impl Default for PERF_COUNTER_IDENTITY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PERF_COUNTER_IDENTITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PERF_COUNTER_INFO {
@@ -9205,9 +9077,6 @@ impl Default for PERF_COUNTER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PERF_COUNTER_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PERF_COUNTER_PRECISION: u32 = 458752u32;
 pub const PERF_COUNTER_QUEUELEN: u32 = 327680u32;
@@ -9231,9 +9100,6 @@ impl Default for PERF_COUNTER_REG_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PERF_COUNTER_REG_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PERF_COUNTER_VALUE: u32 = 0u32;
 #[repr(C)]
@@ -9259,9 +9125,6 @@ impl Default for PERF_DATA_BLOCK {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PERF_DATA_BLOCK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PERF_DATA_HEADER {
@@ -9276,9 +9139,6 @@ impl Default for PERF_DATA_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PERF_DATA_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PERF_DATA_REVISION: u32 = 1u32;
 pub const PERF_DATA_VERSION: u32 = 1u32;
@@ -9314,9 +9174,6 @@ impl Default for PERF_INSTANCE_DEFINITION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PERF_INSTANCE_DEFINITION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PERF_INSTANCE_HEADER {
@@ -9327,9 +9184,6 @@ impl Default for PERF_INSTANCE_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PERF_INSTANCE_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PERF_INVERSE_COUNTER: u32 = 16777216u32;
 pub const PERF_MAX_INSTANCE_NAME: u32 = 1024u32;
@@ -9351,9 +9205,6 @@ impl Default for PERF_MULTI_COUNTERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PERF_MULTI_COUNTERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PERF_MULTI_INSTANCES {
@@ -9364,9 +9215,6 @@ impl Default for PERF_MULTI_INSTANCES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PERF_MULTI_INSTANCES {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PERF_NO_INSTANCES: i32 = -1i32;
 pub const PERF_NO_UNIQUE_ID: i32 = -1i32;
@@ -9399,10 +9247,6 @@ impl Default for PERF_OBJECT_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for PERF_OBJECT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9428,10 +9272,6 @@ impl Default for PERF_OBJECT_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for PERF_OBJECT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PERF_PROVIDER_CONTEXT {
@@ -9446,9 +9286,6 @@ impl Default for PERF_PROVIDER_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PERF_PROVIDER_CONTEXT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PERF_PROVIDER_DRIVER: u32 = 2u32;
 pub const PERF_PROVIDER_KERNEL_MODE: u32 = 1u32;
@@ -9480,9 +9317,6 @@ impl Default for PERF_STRING_BUFFER_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PERF_STRING_BUFFER_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PERF_STRING_COUNTER_HEADER {
@@ -9493,9 +9327,6 @@ impl Default for PERF_STRING_COUNTER_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PERF_STRING_COUNTER_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PERF_TEXT_ASCII: u32 = 65536u32;
 pub const PERF_TEXT_UNICODE: u32 = 0u32;

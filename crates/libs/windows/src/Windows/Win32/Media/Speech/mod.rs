@@ -14743,9 +14743,6 @@ impl Default for SPAUDIOBUFFERINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SPAUDIOBUFFERINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPAUDIOOPTIONS(pub i32);
@@ -14768,9 +14765,6 @@ impl Default for SPAUDIOSTATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SPAUDIOSTATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPBINARYGRAMMAR {
@@ -14780,9 +14774,6 @@ impl Default for SPBINARYGRAMMAR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SPBINARYGRAMMAR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -14850,9 +14841,6 @@ impl Default for SPDISPLAYPHRASE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SPDISPLAYPHRASE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPDISPLAYTOKEN {
@@ -14864,9 +14852,6 @@ impl Default for SPDISPLAYTOKEN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SPDISPLAYTOKEN {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SPDKL_CurrentConfig: SPDATAKEYLOCATION = SPDATAKEYLOCATION(5i32);
 pub const SPDKL_CurrentUser: SPDATAKEYLOCATION = SPDATAKEYLOCATION(1i32);
@@ -14950,9 +14935,6 @@ impl Default for SPEVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SPEVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPEVENTENUM(pub i32);
@@ -14971,9 +14953,6 @@ impl Default for SPEVENTEX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SPEVENTEX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPEVENTLPARAMTYPE(pub i32);
@@ -14988,9 +14967,6 @@ impl Default for SPEVENTSOURCEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SPEVENTSOURCEINFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -15098,9 +15074,6 @@ impl Default for SPNORMALIZATIONLIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SPNORMALIZATIONLIST {
-    type TypeKind = windows_core::CopyType;
-}
 pub type SPNOTIFYCALLBACK = Option<unsafe extern "system" fn(wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM)>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -15121,9 +15094,6 @@ impl Default for SPPARSEINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SPPARSEINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPPARTOFSPEECH(pub i32);
@@ -15138,9 +15108,6 @@ impl Default for SPPATHENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SPPATHENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -15154,10 +15121,6 @@ impl Default for SPPHRASE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for SPPHRASE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
@@ -15174,9 +15137,6 @@ impl Default for SPPHRASEALT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SPPHRASEALT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct SPPHRASEALTREQUEST {
@@ -15192,9 +15152,6 @@ impl Default for SPPHRASEALTREQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SPPHRASEALTREQUEST {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -15218,9 +15175,6 @@ impl Default for SPPHRASEELEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SPPHRASEELEMENT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -15248,10 +15202,6 @@ impl Default for SPPHRASEPROPERTY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for SPPHRASEPROPERTY {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy)]
@@ -15264,10 +15214,6 @@ impl Default for SPPHRASEPROPERTY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for SPPHRASEPROPERTY_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -15282,10 +15228,6 @@ impl Default for SPPHRASEPROPERTY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for SPPHRASEPROPERTY_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -15319,9 +15261,6 @@ impl Default for SPPHRASEREPLACEMENT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SPPHRASEREPLACEMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPPHRASERNG(pub i32);
@@ -15341,9 +15280,6 @@ impl Default for SPPHRASERULE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SPPHRASERULE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -15389,10 +15325,6 @@ impl Default for SPPHRASE_50 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for SPPHRASE_50 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SPPPUT_ARRAY_INDEX: SPPHRASEPROPERTYUNIONTYPE = SPPHRASEPROPERTYUNIONTYPE(1i32);
 pub const SPPPUT_UNUSED: SPPHRASEPROPERTYUNIONTYPE = SPPHRASEPROPERTYUNIONTYPE(0i32);
 #[repr(transparent)]
@@ -15417,10 +15349,6 @@ impl Default for SPPROPERTYINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for SPPROPERTYINFO {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -15491,9 +15419,6 @@ impl Default for SPRECOCONTEXTSTATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SPRECOCONTEXTSTATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPRECOEVENTFLAGS(pub i32);
@@ -15514,9 +15439,6 @@ impl Default for SPRECOGNIZERSTATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SPRECOGNIZERSTATUS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
@@ -15539,9 +15461,6 @@ impl Default for SPRECORESULTINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SPRECORESULTINFO {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct SPRECORESULTINFOEX {
@@ -15553,9 +15472,6 @@ impl Default for SPRECORESULTINFOEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SPRECORESULTINFOEX {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -15569,9 +15485,6 @@ impl Default for SPRECORESULTTIMES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SPRECORESULTTIMES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -15621,9 +15534,6 @@ impl Default for SPRULE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SPRULE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPRULEENTRY {
@@ -15637,9 +15547,6 @@ impl Default for SPRULEENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SPRULEENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -15680,9 +15587,6 @@ impl Default for SPSEMANTICERRORINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SPSEMANTICERRORINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPSEMANTICFORMAT(pub i32);
@@ -15700,9 +15604,6 @@ impl Default for SPSERIALIZEDEVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SPSERIALIZEDEVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPSERIALIZEDEVENT64 {
@@ -15717,9 +15618,6 @@ impl Default for SPSERIALIZEDEVENT64 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SPSERIALIZEDEVENT64 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPSERIALIZEDPHRASE {
@@ -15730,9 +15628,6 @@ impl Default for SPSERIALIZEDPHRASE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SPSERIALIZEDPHRASE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPSERIALIZEDRESULT {
@@ -15742,9 +15637,6 @@ impl Default for SPSERIALIZEDRESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SPSERIALIZEDRESULT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SPSF_11kHz16BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(10i32);
 pub const SPSF_11kHz16BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(11i32);
@@ -15832,9 +15724,6 @@ impl Default for SPSHORTCUTPAIR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SPSHORTCUTPAIR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPSHORTCUTPAIRLIST {
@@ -15846,9 +15735,6 @@ impl Default for SPSHORTCUTPAIRLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SPSHORTCUTPAIRLIST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -15899,9 +15785,6 @@ impl Default for SPSTATEINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SPSTATEINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPSTREAMFORMAT(pub i32);
@@ -15923,9 +15806,6 @@ impl Default for SPTEXTSELECTIONINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SPTEXTSELECTIONINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPTMTHREADINFO {
@@ -15938,9 +15818,6 @@ impl Default for SPTMTHREADINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SPTMTHREADINFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SPTOKENKEY_ATTRIBUTES: windows_core::PCWSTR = windows_core::w!("Attributes");
 pub const SPTOKENKEY_AUDIO_LATENCY_TRUNCATE: windows_core::PCWSTR = windows_core::w!("LatencyTruncateThreshold");
@@ -15969,9 +15846,6 @@ impl Default for SPTRANSITIONENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SPTRANSITIONENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPTRANSITIONENTRY_0 {
@@ -15981,9 +15855,6 @@ impl Default for SPTRANSITIONENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SPTRANSITIONENTRY_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15997,9 +15868,6 @@ impl Default for SPTRANSITIONENTRY_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SPTRANSITIONENTRY_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPTRANSITIONENTRY_1_0 {
@@ -16012,9 +15880,6 @@ impl Default for SPTRANSITIONENTRY_1_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SPTRANSITIONENTRY_1_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPTRANSITIONENTRY_1_1 {
@@ -16026,9 +15891,6 @@ impl Default for SPTRANSITIONENTRY_1_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SPTRANSITIONENTRY_1_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPTRANSITIONENTRY_1_2 {
@@ -16038,9 +15900,6 @@ impl Default for SPTRANSITIONENTRY_1_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SPTRANSITIONENTRY_1_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -16078,10 +15937,6 @@ impl Default for SPTRANSITIONPROPERTY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for SPTRANSITIONPROPERTY {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPTRANSITIONTYPE(pub i32);
@@ -16113,9 +15968,6 @@ impl Default for SPVCONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SPVCONTEXT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -16159,9 +16011,6 @@ impl Default for SPVOICESTATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SPVOICESTATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPVPITCH {
@@ -16172,9 +16021,6 @@ impl Default for SPVPITCH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SPVPITCH {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -16205,9 +16051,6 @@ impl Default for SPVSTATE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SPVSTATE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SPVST_SENTENCE: SPVSKIPTYPE = SPVSKIPTYPE(1i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -16222,9 +16065,6 @@ impl Default for SPVTEXTFRAG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SPVTEXTFRAG {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SPWF_INPUT: SPSTREAMFORMATTYPE = SPSTREAMFORMATTYPE(0i32);
 pub const SPWF_SRENGINE: SPSTREAMFORMATTYPE = SPSTREAMFORMATTYPE(1i32);
@@ -16246,9 +16086,6 @@ impl Default for SPWORD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SPWORD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPWORDENTRY {
@@ -16263,9 +16100,6 @@ impl Default for SPWORDENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SPWORDENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -16298,9 +16132,6 @@ impl Default for SPWORDLIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SPWORDLIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPWORDPRONOUNCEABLE(pub i32);
@@ -16319,9 +16150,6 @@ impl Default for SPWORDPRONUNCIATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SPWORDPRONUNCIATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPWORDPRONUNCIATIONLIST {
@@ -16333,9 +16161,6 @@ impl Default for SPWORDPRONUNCIATIONLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SPWORDPRONUNCIATIONLIST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

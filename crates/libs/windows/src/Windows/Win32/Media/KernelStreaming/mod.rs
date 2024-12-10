@@ -112,9 +112,6 @@ impl Default for ALLOCATOR_PROPERTIES_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ALLOCATOR_PROPERTIES_EX {
-    type TypeKind = windows_core::CloneType;
-}
 pub const APO_CLASS_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x5989fce8_9cd0_467d_8a6a_5419e31529d4);
 pub const AUDIOENDPOINT_CLASS_UUID: windows_core::GUID = windows_core::GUID::from_u128(0xc166523c_fe0c_4a94_a586_f1a80cfbbf3e);
 pub const AUDIOMODULE_MAX_DATA_SIZE: u32 = 64000u32;
@@ -136,9 +133,6 @@ impl Default for AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -195,9 +189,6 @@ impl Default for CC_BYTE_PAIR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CC_BYTE_PAIR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CC_HW_FIELD {
@@ -210,9 +201,6 @@ impl Default for CC_HW_FIELD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CC_HW_FIELD {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CC_MAX_HW_DECODE_LINES: u32 = 12u32;
 pub const CLSID_KsIBasicAudioInterfaceHandler: windows_core::GUID = windows_core::GUID::from_u128(0xb9f8ac3e_0f71_11d2_b72c_00c04fb6bd3d);
@@ -254,9 +242,6 @@ impl Default for DEVCAPS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVCAPS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DEVPKEY_KsAudio_Controller_DeviceInterface_Path: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x13e004d6_b066_43bd_913b_a415cd13da87), pid: 3 };
 pub const DEVPKEY_KsAudio_PacketSize_Constraints: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x13e004d6_b066_43bd_913b_a415cd13da87), pid: 2 };
 pub const DEVPKEY_KsAudio_PacketSize_Constraints2: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x9404f781_7191_409b_8b0b_80bf6ec229ae), pid: 2 };
@@ -273,9 +258,6 @@ impl Default for DS3DVECTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DS3DVECTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DS3DVECTOR_0 {
@@ -286,9 +268,6 @@ impl Default for DS3DVECTOR_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DS3DVECTOR_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -301,9 +280,6 @@ impl Default for DS3DVECTOR_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DS3DVECTOR_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DS3DVECTOR_2 {
@@ -314,9 +290,6 @@ impl Default for DS3DVECTOR_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DS3DVECTOR_2 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DS3D_HRTF_VERSION_1: KSDS3D_HRTF_FILTER_VERSION = KSDS3D_HRTF_FILTER_VERSION(0i32);
 #[repr(transparent)]
@@ -2001,9 +1974,6 @@ impl Default for INTERLEAVED_AUDIO_FORMAT_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INTERLEAVED_AUDIO_FORMAT_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const IOCTL_KS_DISABLE_EVENT: u32 = 3080203u32;
 pub const IOCTL_KS_ENABLE_EVENT: u32 = 3080199u32;
 pub const IOCTL_KS_HANDSHAKE: u32 = 3080223u32;
@@ -2025,9 +1995,6 @@ impl Default for KSAC3_ALTERNATE_AUDIO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSAC3_ALTERNATE_AUDIO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KSAC3_ALTERNATE_AUDIO_1: u32 = 1u32;
 pub const KSAC3_ALTERNATE_AUDIO_2: u32 = 2u32;
 pub const KSAC3_ALTERNATE_AUDIO_BOTH: u32 = 3u32;
@@ -2041,9 +2008,6 @@ impl Default for KSAC3_BIT_STREAM_MODE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSAC3_BIT_STREAM_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSAC3_DIALOGUE_LEVEL {
@@ -2053,9 +2017,6 @@ impl Default for KSAC3_DIALOGUE_LEVEL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSAC3_DIALOGUE_LEVEL {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2068,9 +2029,6 @@ impl Default for KSAC3_DOWNMIX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSAC3_DOWNMIX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSAC3_ERROR_CONCEALMENT {
@@ -2082,9 +2040,6 @@ impl Default for KSAC3_ERROR_CONCEALMENT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSAC3_ERROR_CONCEALMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSAC3_ROOM_TYPE {
@@ -2094,9 +2049,6 @@ impl Default for KSAC3_ROOM_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSAC3_ROOM_TYPE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSAC3_SERVICE_COMMENTARY: u32 = 5u32;
 pub const KSAC3_SERVICE_DIALOG_ONLY: u32 = 4u32;
@@ -2140,9 +2092,6 @@ impl Default for KSALLOCATOR_FRAMING {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSALLOCATOR_FRAMING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union KSALLOCATOR_FRAMING_0 {
@@ -2154,9 +2103,6 @@ impl Default for KSALLOCATOR_FRAMING_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSALLOCATOR_FRAMING_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union KSALLOCATOR_FRAMING_1 {
@@ -2167,9 +2113,6 @@ impl Default for KSALLOCATOR_FRAMING_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSALLOCATOR_FRAMING_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2184,9 +2127,6 @@ impl Default for KSALLOCATOR_FRAMING_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSALLOCATOR_FRAMING_EX {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSALLOCATOR_OPTIONF_COMPATIBLE: u32 = 1u32;
 pub const KSALLOCATOR_OPTIONF_SYSTEM_MEMORY: u32 = 2u32;
@@ -2209,9 +2149,6 @@ impl Default for KSATTRIBUTE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSATTRIBUTE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KSATTRIBUTEID_AUDIOSIGNALPROCESSING_MODE: windows_core::GUID = windows_core::GUID::from_u128(0xe1f89eb5_5f46_419b_967b_ff6770b98401);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2223,9 +2160,6 @@ impl Default for KSATTRIBUTE_AUDIOSIGNALPROCESSING_MODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSATTRIBUTE_AUDIOSIGNALPROCESSING_MODE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSATTRIBUTE_REQUIRED: u32 = 1u32;
 pub const KSAUDDECOUTMODE_PCM_51: u32 = 2u32;
@@ -2293,9 +2227,6 @@ impl Default for KSAUDIOENGINE_BUFFER_SIZE_RANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSAUDIOENGINE_BUFFER_SIZE_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSAUDIOENGINE_DESCRIPTOR {
@@ -2307,9 +2238,6 @@ impl Default for KSAUDIOENGINE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSAUDIOENGINE_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2323,9 +2251,6 @@ impl Default for KSAUDIOENGINE_DEVICECONTROLS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSAUDIOENGINE_DEVICECONTROLS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSAUDIOENGINE_VOLUMELEVEL {
@@ -2337,9 +2262,6 @@ impl Default for KSAUDIOENGINE_VOLUMELEVEL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSAUDIOENGINE_VOLUMELEVEL {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2355,9 +2277,6 @@ impl Default for KSAUDIOMODULE_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSAUDIOMODULE_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSAUDIOMODULE_NOTIFICATION {
@@ -2367,9 +2286,6 @@ impl Default for KSAUDIOMODULE_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSAUDIOMODULE_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2381,9 +2297,6 @@ impl Default for KSAUDIOMODULE_NOTIFICATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSAUDIOMODULE_NOTIFICATION_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2398,9 +2311,6 @@ impl Default for KSAUDIOMODULE_NOTIFICATION_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSAUDIOMODULE_NOTIFICATION_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSAUDIOMODULE_PROPERTY {
@@ -2413,9 +2323,6 @@ impl Default for KSAUDIOMODULE_PROPERTY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSAUDIOMODULE_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSAUDIO_CHANNEL_CONFIG {
@@ -2425,9 +2332,6 @@ impl Default for KSAUDIO_CHANNEL_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSAUDIO_CHANNEL_CONFIG {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2439,9 +2343,6 @@ impl Default for KSAUDIO_COPY_PROTECTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSAUDIO_COPY_PROTECTION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSAUDIO_CPU_RESOURCES_HOST_CPU: u32 = 2147483647u32;
 pub const KSAUDIO_CPU_RESOURCES_NOT_HOST_CPU: u32 = 0u32;
@@ -2455,9 +2356,6 @@ impl Default for KSAUDIO_DYNAMIC_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSAUDIO_DYNAMIC_RANGE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2473,9 +2371,6 @@ impl Default for KSAUDIO_MICROPHONE_COORDINATES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSAUDIO_MICROPHONE_COORDINATES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2496,9 +2391,6 @@ impl Default for KSAUDIO_MIC_ARRAY_GEOMETRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSAUDIO_MIC_ARRAY_GEOMETRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSAUDIO_MIXCAP_TABLE {
@@ -2511,9 +2403,6 @@ impl Default for KSAUDIO_MIXCAP_TABLE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSAUDIO_MIXCAP_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSAUDIO_MIXLEVEL {
@@ -2524,9 +2413,6 @@ impl Default for KSAUDIO_MIXLEVEL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSAUDIO_MIXLEVEL {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2541,9 +2427,6 @@ impl Default for KSAUDIO_MIX_CAPS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSAUDIO_MIX_CAPS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union KSAUDIO_MIX_CAPS_0 {
@@ -2554,9 +2437,6 @@ impl Default for KSAUDIO_MIX_CAPS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSAUDIO_MIX_CAPS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2572,9 +2452,6 @@ impl Default for KSAUDIO_PACKETSIZE_CONSTRAINTS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSAUDIO_PACKETSIZE_CONSTRAINTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSAUDIO_PACKETSIZE_CONSTRAINTS2 {
@@ -2589,9 +2466,6 @@ impl Default for KSAUDIO_PACKETSIZE_CONSTRAINTS2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSAUDIO_PACKETSIZE_CONSTRAINTS2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT {
@@ -2604,9 +2478,6 @@ impl Default for KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSAUDIO_POSITION {
@@ -2617,9 +2488,6 @@ impl Default for KSAUDIO_POSITION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSAUDIO_POSITION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2634,9 +2502,6 @@ impl Default for KSAUDIO_POSITIONEX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSAUDIO_POSITIONEX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSAUDIO_PRESENTATION_POSITION {
@@ -2647,9 +2512,6 @@ impl Default for KSAUDIO_PRESENTATION_POSITION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSAUDIO_PRESENTATION_POSITION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSAUDIO_QUALITY_ADVANCED: u32 = 3u32;
 pub const KSAUDIO_QUALITY_BASIC: u32 = 2u32;
@@ -2707,9 +2569,6 @@ impl Default for KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS_0 {
@@ -2720,9 +2579,6 @@ impl Default for KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_MASK: u64 = 2u64;
 pub const KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_OFF: u64 = 0u64;
@@ -2739,9 +2595,6 @@ impl Default for KSCAMERA_EXTENDEDPROP_CAMERAOFFSET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_CAMERAOFFSET {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSCAMERA_EXTENDEDPROP_CAPS_ASYNCCONTROL: u64 = 9223372036854775808u64;
 pub const KSCAMERA_EXTENDEDPROP_CAPS_CANCELLABLE: u64 = 4611686018427387904u64;
@@ -2767,9 +2620,6 @@ impl Default for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPSHEADER {
@@ -2780,9 +2630,6 @@ impl Default for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPSHEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPSHEADER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_MANUAL: u64 = 0u64;
 #[repr(C)]
@@ -2798,9 +2645,6 @@ impl Default for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSCAMERA_EXTENDEDPROP_EVCOMPENSATION {
@@ -2814,9 +2658,6 @@ impl Default for KSCAMERA_EXTENDEDPROP_EVCOMPENSATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_EVCOMPENSATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSCAMERA_EXTENDEDPROP_EVCOMP_FULLSTEP: u64 = 16u64;
 pub const KSCAMERA_EXTENDEDPROP_EVCOMP_HALFSTEP: u64 = 8u64;
@@ -2848,9 +2689,6 @@ impl Default for KSCAMERA_EXTENDEDPROP_FIELDOFVIEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_FIELDOFVIEW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSCAMERA_EXTENDEDPROP_FILTERSCOPE: u32 = 4294967295u32;
 pub const KSCAMERA_EXTENDEDPROP_FLAG_CANCELOPERATION: u64 = 9223372036854775808u64;
@@ -2904,9 +2742,6 @@ impl Default for KSCAMERA_EXTENDEDPROP_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KSCAMERA_EXTENDEDPROP_HISTOGRAM_OFF: u64 = 0u64;
 pub const KSCAMERA_EXTENDEDPROP_HISTOGRAM_ON: u64 = 1u64;
 pub const KSCAMERA_EXTENDEDPROP_IRTORCHMODE_ALTERNATING_FRAME_ILLUMINATION: u64 = 4u64;
@@ -2935,9 +2770,6 @@ impl Default for KSCAMERA_EXTENDEDPROP_METADATAINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_METADATAINFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSCAMERA_EXTENDEDPROP_METADATA_ALIGNMENTREQUIRED: u64 = 256u64;
 pub const KSCAMERA_EXTENDEDPROP_METADATA_MEMORYTYPE_MASK: u64 = 255u64;
@@ -2979,9 +2811,6 @@ impl Default for KSCAMERA_EXTENDEDPROP_PHOTOMODE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_PHOTOMODE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KSCAMERA_EXTENDEDPROP_PHOTOMODE_NORMAL: u64 = 0u64;
 pub const KSCAMERA_EXTENDEDPROP_PHOTOMODE_SEQUENCE: u64 = 1u64;
 pub const KSCAMERA_EXTENDEDPROP_PHOTOMODE_SEQUENCE_SUB_NONE: u32 = 0u32;
@@ -3003,9 +2832,6 @@ impl Default for KSCAMERA_EXTENDEDPROP_PROFILE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_PROFILE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KSCAMERA_EXTENDEDPROP_RELATIVEPANELOPTIMIZATION_DYNAMIC: u64 = 2u64;
 pub const KSCAMERA_EXTENDEDPROP_RELATIVEPANELOPTIMIZATION_OFF: u64 = 0u64;
 pub const KSCAMERA_EXTENDEDPROP_RELATIVEPANELOPTIMIZATION_ON: u64 = 1u64;
@@ -3026,9 +2852,6 @@ impl Default for KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPSHEADER {
@@ -3041,9 +2864,6 @@ impl Default for KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPSHEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPSHEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSCAMERA_EXTENDEDPROP_ROI_EXPOSURE {
@@ -3055,9 +2875,6 @@ impl Default for KSCAMERA_EXTENDEDPROP_ROI_EXPOSURE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_ROI_EXPOSURE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSCAMERA_EXTENDEDPROP_ROI_FOCUS {
@@ -3068,9 +2885,6 @@ impl Default for KSCAMERA_EXTENDEDPROP_ROI_FOCUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_ROI_FOCUS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3085,9 +2899,6 @@ impl Default for KSCAMERA_EXTENDEDPROP_ROI_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_ROI_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROL {
@@ -3101,9 +2912,6 @@ impl Default for KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROLHEADER {
@@ -3116,9 +2924,6 @@ impl Default for KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROLHEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROLHEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSCAMERA_EXTENDEDPROP_ROI_WHITEBALANCE {
@@ -3129,9 +2934,6 @@ impl Default for KSCAMERA_EXTENDEDPROP_ROI_WHITEBALANCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_ROI_WHITEBALANCE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSCAMERA_EXTENDEDPROP_SCENEMODE_AUTO: u64 = 0u64;
 pub const KSCAMERA_EXTENDEDPROP_SCENEMODE_BACKLIT: u64 = 1024u64;
@@ -3158,9 +2960,6 @@ impl Default for KSCAMERA_EXTENDEDPROP_VALUE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_VALUE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union KSCAMERA_EXTENDEDPROP_VALUE_0 {
@@ -3175,9 +2974,6 @@ impl Default for KSCAMERA_EXTENDEDPROP_VALUE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_VALUE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSCAMERA_EXTENDEDPROP_VFR_OFF: u64 = 0u64;
 pub const KSCAMERA_EXTENDEDPROP_VFR_ON: u64 = 1u64;
@@ -3201,9 +2997,6 @@ impl Default for KSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSCAMERA_EXTENDEDPROP_VIDEOSTABILIZATION_AUTO: u64 = 2u64;
 pub const KSCAMERA_EXTENDEDPROP_VIDEOSTABILIZATION_OFF: u64 = 0u64;
@@ -3248,9 +3041,6 @@ impl Default for KSCAMERA_MAXVIDEOFPS_FORPHOTORES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSCAMERA_MAXVIDEOFPS_FORPHOTORES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK {
@@ -3264,9 +3054,6 @@ impl Default for KSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3292,9 +3079,6 @@ impl Default for KSCAMERA_METADATA_CAPTURESTATS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSCAMERA_METADATA_CAPTURESTATS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KSCAMERA_METADATA_CAPTURESTATS_FLAG_EXPOSURECOMPENSATION: u32 = 2u32;
 pub const KSCAMERA_METADATA_CAPTURESTATS_FLAG_EXPOSURETIME: u32 = 1u32;
 pub const KSCAMERA_METADATA_CAPTURESTATS_FLAG_FLASH: u32 = 64u32;
@@ -3317,9 +3101,6 @@ impl Default for KSCAMERA_METADATA_DIGITALWINDOW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSCAMERA_METADATA_DIGITALWINDOW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSCAMERA_METADATA_FRAMEILLUMINATION {
@@ -3331,9 +3112,6 @@ impl Default for KSCAMERA_METADATA_FRAMEILLUMINATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSCAMERA_METADATA_FRAMEILLUMINATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSCAMERA_METADATA_FRAMEILLUMINATION_FLAG_ON: u32 = 1u32;
 #[repr(C)]
@@ -3347,9 +3125,6 @@ impl Default for KSCAMERA_METADATA_ITEMHEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSCAMERA_METADATA_ITEMHEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSCAMERA_METADATA_PHOTOCONFIRMATION {
@@ -3361,9 +3136,6 @@ impl Default for KSCAMERA_METADATA_PHOTOCONFIRMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSCAMERA_METADATA_PHOTOCONFIRMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3381,9 +3153,6 @@ impl Default for KSCAMERA_PERFRAMESETTING_CAP_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSCAMERA_PERFRAMESETTING_CAP_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSCAMERA_PERFRAMESETTING_CAP_ITEM_HEADER {
@@ -3395,9 +3164,6 @@ impl Default for KSCAMERA_PERFRAMESETTING_CAP_ITEM_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSCAMERA_PERFRAMESETTING_CAP_ITEM_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3411,9 +3177,6 @@ impl Default for KSCAMERA_PERFRAMESETTING_CUSTOM_ITEM {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSCAMERA_PERFRAMESETTING_CUSTOM_ITEM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSCAMERA_PERFRAMESETTING_FRAME_HEADER {
@@ -3426,9 +3189,6 @@ impl Default for KSCAMERA_PERFRAMESETTING_FRAME_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSCAMERA_PERFRAMESETTING_FRAME_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3444,9 +3204,6 @@ impl Default for KSCAMERA_PERFRAMESETTING_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSCAMERA_PERFRAMESETTING_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSCAMERA_PERFRAMESETTING_ITEM_CUSTOM: KSCAMERA_PERFRAMESETTING_ITEM_TYPE = KSCAMERA_PERFRAMESETTING_ITEM_TYPE(7i32);
 pub const KSCAMERA_PERFRAMESETTING_ITEM_EXPOSURE_COMPENSATION: KSCAMERA_PERFRAMESETTING_ITEM_TYPE = KSCAMERA_PERFRAMESETTING_ITEM_TYPE(3i32);
@@ -3464,9 +3221,6 @@ impl Default for KSCAMERA_PERFRAMESETTING_ITEM_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSCAMERA_PERFRAMESETTING_ITEM_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSCAMERA_PERFRAMESETTING_ITEM_ISO: KSCAMERA_PERFRAMESETTING_ITEM_TYPE = KSCAMERA_PERFRAMESETTING_ITEM_TYPE(4i32);
 pub const KSCAMERA_PERFRAMESETTING_ITEM_PHOTOCONFIRMATION: KSCAMERA_PERFRAMESETTING_ITEM_TYPE = KSCAMERA_PERFRAMESETTING_ITEM_TYPE(6i32);
@@ -3487,9 +3241,6 @@ impl Default for KSCAMERA_PROFILE_CONCURRENCYINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSCAMERA_PROFILE_CONCURRENCYINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSCAMERA_PROFILE_INFO {
@@ -3502,9 +3253,6 @@ impl Default for KSCAMERA_PROFILE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSCAMERA_PROFILE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3522,9 +3270,6 @@ impl Default for KSCAMERA_PROFILE_MEDIAINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSCAMERA_PROFILE_MEDIAINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSCAMERA_PROFILE_MEDIAINFO_1 {
@@ -3536,9 +3281,6 @@ impl Default for KSCAMERA_PROFILE_MEDIAINFO_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSCAMERA_PROFILE_MEDIAINFO_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSCAMERA_PROFILE_MEDIAINFO_0 {
@@ -3549,9 +3291,6 @@ impl Default for KSCAMERA_PROFILE_MEDIAINFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSCAMERA_PROFILE_MEDIAINFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3566,9 +3305,6 @@ impl Default for KSCAMERA_PROFILE_PININFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSCAMERA_PROFILE_PININFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union KSCAMERA_PROFILE_PININFO_0 {
@@ -3580,9 +3316,6 @@ impl Default for KSCAMERA_PROFILE_PININFO_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSCAMERA_PROFILE_PININFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSCAMERA_PROFILE_PININFO_0_0 {
@@ -3593,9 +3326,6 @@ impl Default for KSCAMERA_PROFILE_PININFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSCAMERA_PROFILE_PININFO_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSCATEGORY_ACOUSTIC_ECHO_CANCEL: windows_core::GUID = windows_core::GUID::from_u128(0xbf963d80_c559_11d0_8a2b_00a0c9255ac1);
 pub const KSCATEGORY_AUDIO: windows_core::GUID = windows_core::GUID::from_u128(0x6994ad04_93ef_11d0_a3cc_00a0c9223196);
@@ -3644,9 +3374,6 @@ impl Default for KSCLOCK_CREATE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSCLOCK_CREATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSCOMPONENTID {
@@ -3662,9 +3389,6 @@ impl Default for KSCOMPONENTID {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSCOMPONENTID {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KSCOMPONENTID_USBAUDIO: windows_core::GUID = windows_core::GUID::from_u128(0x8f1275f0_26e9_4264_ba4d_39fff01d94aa);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3676,9 +3400,6 @@ impl Default for KSCORRELATED_TIME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSCORRELATED_TIME {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSCREATE_ITEM_FREEONSTOP: u32 = 8u32;
 pub const KSCREATE_ITEM_NOPARAMETERS: u32 = 4u32;
@@ -3701,9 +3422,6 @@ impl Default for KSDATAFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSDATAFORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSDATAFORMAT_0 {
@@ -3719,9 +3437,6 @@ impl Default for KSDATAFORMAT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSDATAFORMAT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSDATAFORMAT_BIT_ATTRIBUTES: u32 = 1u32;
 pub const KSDATAFORMAT_BIT_TEMPORAL_COMPRESSION: u32 = 0u32;
@@ -3853,9 +3568,6 @@ impl Default for KSDATARANGE_AUDIO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSDATARANGE_AUDIO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KSDATARANGE_BIT_ATTRIBUTES: u32 = 1u32;
 pub const KSDATARANGE_BIT_REQUIRED_ATTRIBUTES: u32 = 2u32;
 #[repr(C)]
@@ -3871,9 +3583,6 @@ impl Default for KSDATARANGE_MUSIC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSDATARANGE_MUSIC {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSDEGRADESETID_Standard: windows_core::GUID = windows_core::GUID::from_u128(0x9f564180_704c_11d0_a5d6_28db04c10000);
 #[repr(transparent)]
@@ -3900,9 +3609,6 @@ impl Default for KSDEVICE_PROFILE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSDEVICE_PROFILE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union KSDEVICE_PROFILE_INFO_0 {
@@ -3912,9 +3618,6 @@ impl Default for KSDEVICE_PROFILE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSDEVICE_PROFILE_INFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3928,9 +3631,6 @@ impl Default for KSDEVICE_PROFILE_INFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSDEVICE_PROFILE_INFO_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSDEVICE_PROFILE_TYPE_CAMERA: u32 = 1u32;
 pub const KSDEVICE_PROFILE_TYPE_UNKNOWN: u32 = 0u32;
@@ -3953,9 +3653,6 @@ impl Default for KSDISPLAYCHANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSDISPLAYCHANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSDS3D_BUFFER_ALL {
@@ -3974,9 +3671,6 @@ impl Default for KSDS3D_BUFFER_ALL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSDS3D_BUFFER_ALL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSDS3D_BUFFER_CONE_ANGLES {
@@ -3987,9 +3681,6 @@ impl Default for KSDS3D_BUFFER_CONE_ANGLES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSDS3D_BUFFER_CONE_ANGLES {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSDS3D_COEFF_COUNT: KSDS3D_HRTF_COEFF_FORMAT = KSDS3D_HRTF_COEFF_FORMAT(2i32);
 pub const KSDS3D_FILTER_METHOD_COUNT: KSDS3D_HRTF_FILTER_METHOD = KSDS3D_HRTF_FILTER_METHOD(2i32);
@@ -4009,9 +3700,6 @@ impl Default for KSDS3D_HRTF_FILTER_FORMAT_MSG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSDS3D_HRTF_FILTER_FORMAT_MSG {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4039,9 +3727,6 @@ impl Default for KSDS3D_HRTF_INIT_MSG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSDS3D_HRTF_INIT_MSG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSDS3D_HRTF_PARAMS_MSG {
@@ -4056,9 +3741,6 @@ impl Default for KSDS3D_HRTF_PARAMS_MSG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSDS3D_HRTF_PARAMS_MSG {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4075,9 +3757,6 @@ impl Default for KSDS3D_ITD_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSDS3D_ITD_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSDS3D_ITD_PARAMS_MSG {
@@ -4090,9 +3769,6 @@ impl Default for KSDS3D_ITD_PARAMS_MSG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSDS3D_ITD_PARAMS_MSG {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4110,9 +3786,6 @@ impl Default for KSDS3D_LISTENER_ALL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSDS3D_LISTENER_ALL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSDS3D_LISTENER_ORIENTATION {
@@ -4123,9 +3796,6 @@ impl Default for KSDS3D_LISTENER_ORIENTATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSDS3D_LISTENER_ORIENTATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSDSOUND_3D_MODE_DISABLE: u32 = 2u32;
 pub const KSDSOUND_3D_MODE_HEADRELATIVE: u32 = 1u32;
@@ -4151,9 +3821,6 @@ impl Default for KSERROR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSERROR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSEVENTDATA {
@@ -4164,9 +3831,6 @@ impl Default for KSEVENTDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSEVENTDATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4180,9 +3844,6 @@ impl Default for KSEVENTDATA_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSEVENTDATA_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSEVENTDATA_0_2 {
@@ -4193,9 +3854,6 @@ impl Default for KSEVENTDATA_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSEVENTDATA_0_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4208,9 +3866,6 @@ impl Default for KSEVENTDATA_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSEVENTDATA_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSEVENTDATA_0_1 {
@@ -4222,9 +3877,6 @@ impl Default for KSEVENTDATA_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSEVENTDATA_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSEVENTF_DPC: u32 = 16u32;
 pub const KSEVENTF_EVENT_HANDLE: u32 = 1u32;
@@ -4341,9 +3993,6 @@ impl Default for KSEVENT_TIME_INTERVAL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSEVENT_TIME_INTERVAL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSEVENT_TIME_MARK {
@@ -4354,9 +4003,6 @@ impl Default for KSEVENT_TIME_MARK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSEVENT_TIME_MARK {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4374,9 +4020,6 @@ impl Default for KSEVENT_TUNER_INITIATE_SCAN_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSEVENT_TUNER_INITIATE_SCAN_S {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4423,9 +4066,6 @@ impl Default for KSE_NODE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSE_NODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSE_PIN {
@@ -4437,9 +4077,6 @@ impl Default for KSE_PIN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSE_PIN {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSFILTER_FLAG_CRITICAL_PROCESSING: u32 = 2u32;
 pub const KSFILTER_FLAG_DENY_USERMODE_ACCESS: u32 = 2147483648u32;
@@ -4459,9 +4096,6 @@ impl Default for KSFRAMETIME {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSFRAMETIME {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KSFRAMETIME_VARIABLESIZE: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4476,9 +4110,6 @@ impl Default for KSGOP_USERDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSGOP_USERDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSIDENTIFIER {
@@ -4488,9 +4119,6 @@ impl Default for KSIDENTIFIER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSIDENTIFIER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4503,9 +4131,6 @@ impl Default for KSIDENTIFIER_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSIDENTIFIER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSIDENTIFIER_0_0 {
@@ -4517,9 +4142,6 @@ impl Default for KSIDENTIFIER_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSIDENTIFIER_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSINTERFACESETID_FileIo: windows_core::GUID = windows_core::GUID::from_u128(0x8c6f932c_e771_11d0_b8ff_00a0c9223196);
 pub const KSINTERFACESETID_Media: windows_core::GUID = windows_core::GUID::from_u128(0x3a13eb40_30a7_11d0_a5d6_28db04c10000);
@@ -4551,9 +4173,6 @@ impl Default for KSINTERVAL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSINTERVAL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSIOOPERATION(pub i32);
@@ -4573,9 +4192,6 @@ impl Default for KSJACK_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSJACK_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSJACK_DESCRIPTION2 {
@@ -4587,9 +4203,6 @@ impl Default for KSJACK_DESCRIPTION2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSJACK_DESCRIPTION2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSJACK_DESCRIPTION3 {
@@ -4599,9 +4212,6 @@ impl Default for KSJACK_DESCRIPTION3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSJACK_DESCRIPTION3 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4625,9 +4235,6 @@ impl Default for KSJACK_SINK_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSJACK_SINK_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSMEDIUMSETID_MidiBus: windows_core::GUID = windows_core::GUID::from_u128(0x05908040_3246_11d0_a5d6_28db04c10000);
 pub const KSMEDIUMSETID_Standard: windows_core::GUID = windows_core::GUID::from_u128(0x4747b320_62ce_11cf_a5d6_28db04c10000);
@@ -4711,9 +4318,6 @@ impl Default for KSMPEGVID_RECT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSMPEGVID_RECT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSMULTIPLE_DATA_PROP {
@@ -4724,9 +4328,6 @@ impl Default for KSMULTIPLE_DATA_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSMULTIPLE_DATA_PROP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4739,9 +4340,6 @@ impl Default for KSMULTIPLE_ITEM {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSMULTIPLE_ITEM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSMUSICFORMAT {
@@ -4752,9 +4350,6 @@ impl Default for KSMUSICFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSMUSICFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSMUSIC_TECHNOLOGY_FMSYNTH: windows_core::GUID = windows_core::GUID::from_u128(0x252c5c80_62e9_11cf_a5d6_28db04c10000);
 pub const KSMUSIC_TECHNOLOGY_PORT: windows_core::GUID = windows_core::GUID::from_u128(0x86c92e60_62e8_11cf_a5d6_28db04c10000);
@@ -4772,9 +4367,6 @@ impl Default for KSM_NODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSM_NODE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSNAME_Allocator: windows_core::GUID = windows_core::GUID::from_u128(0x642f5d00_4791_11d0_a5d6_28db04c10000);
 pub const KSNAME_Clock: windows_core::GUID = windows_core::GUID::from_u128(0x53172480_4791_11d0_a5d6_28db04c10000);
@@ -4803,9 +4395,6 @@ impl Default for KSNODEPROPERTY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSNODEPROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -4820,10 +4409,6 @@ impl Default for KSNODEPROPERTY_AUDIO_3D_LISTENER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for KSNODEPROPERTY_AUDIO_3D_LISTENER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -4836,10 +4421,6 @@ impl Default for KSNODEPROPERTY_AUDIO_3D_LISTENER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for KSNODEPROPERTY_AUDIO_3D_LISTENER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4852,9 +4433,6 @@ impl Default for KSNODEPROPERTY_AUDIO_CHANNEL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSNODEPROPERTY_AUDIO_CHANNEL {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4869,9 +4447,6 @@ impl Default for KSNODEPROPERTY_AUDIO_DEV_SPECIFIC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSNODEPROPERTY_AUDIO_DEV_SPECIFIC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -4887,10 +4462,6 @@ impl Default for KSNODEPROPERTY_AUDIO_PROPERTY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for KSNODEPROPERTY_AUDIO_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -4904,10 +4475,6 @@ impl Default for KSNODEPROPERTY_AUDIO_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for KSNODEPROPERTY_AUDIO_PROPERTY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSNODETYPE_1394_DA_STREAM: windows_core::GUID = windows_core::GUID::from_u128(0xdff21fe6_f70f_11d0_b917_00a0c9223196);
 pub const KSNODETYPE_1394_DV_STREAM_SOUNDTRACK: windows_core::GUID = windows_core::GUID::from_u128(0xdff21fe7_f70f_11d0_b917_00a0c9223196);
@@ -5019,9 +4586,6 @@ impl Default for KSNODE_CREATE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSNODE_CREATE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KSNOTIFICATIONID_AudioModule: windows_core::GUID = windows_core::GUID::from_u128(0x9c2220f0_d9a6_4d5c_a036_573857fd50d2);
 pub const KSNOTIFICATIONID_SoundDetector: windows_core::GUID = windows_core::GUID::from_u128(0x6389d844_bb32_4c4c_a802_f4b4b77afead);
 #[repr(transparent)]
@@ -5037,9 +4601,6 @@ impl Default for KSPIN_CINSTANCES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPIN_CINSTANCES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5062,9 +4623,6 @@ impl Default for KSPIN_CONNECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPIN_CONNECT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5105,9 +4663,6 @@ impl Default for KSPIN_MDL_CACHING_NOTIFICATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPIN_MDL_CACHING_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSPIN_MDL_CACHING_NOTIFICATION32 {
@@ -5118,9 +4673,6 @@ impl Default for KSPIN_MDL_CACHING_NOTIFICATION32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPIN_MDL_CACHING_NOTIFICATION32 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSPIN_MDL_CACHING_NOTIFY_ADDSAMPLE: KSPIN_MDL_CACHING_EVENT = KSPIN_MDL_CACHING_EVENT(3i32);
 pub const KSPIN_MDL_CACHING_NOTIFY_CLEANALL_NOWAIT: KSPIN_MDL_CACHING_EVENT = KSPIN_MDL_CACHING_EVENT(2i32);
@@ -5138,9 +4690,6 @@ impl Default for KSPIN_PHYSICALCONNECTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPIN_PHYSICALCONNECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPPROPERTY_ALLOCATOR_MDLCACHING(pub i32);
@@ -5154,9 +4703,6 @@ impl Default for KSPRIORITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPRIORITY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSPRIORITY_EXCLUSIVE: u32 = 4294967295u32;
 pub const KSPRIORITY_HIGH: u32 = 2147483648u32;
@@ -5197,9 +4743,6 @@ impl Default for KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_CAPS_S {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_CAPS_S {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_INTERLEAVE: KSPROPERTY_ALLOCATOR_CONTROL = KSPROPERTY_ALLOCATOR_CONTROL(3i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5210,9 +4753,6 @@ impl Default for KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_INTERLEAVE_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_INTERLEAVE_S {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSPROPERTY_ALLOCATOR_CONTROL_HONOR_COUNT: KSPROPERTY_ALLOCATOR_CONTROL = KSPROPERTY_ALLOCATOR_CONTROL(0i32);
 pub const KSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE: KSPROPERTY_ALLOCATOR_CONTROL = KSPROPERTY_ALLOCATOR_CONTROL(1i32);
@@ -5226,9 +4766,6 @@ impl Default for KSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE_S {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSPROPERTY_ATN_READER: KSPROPERTY_TIMECODE = KSPROPERTY_TIMECODE(1i32);
 #[repr(transparent)]
@@ -5381,9 +4918,6 @@ impl Default for KSPROPERTY_BOUNDS_LONG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_BOUNDS_LONG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSPROPERTY_BOUNDS_LONG_0 {
@@ -5394,9 +4928,6 @@ impl Default for KSPROPERTY_BOUNDS_LONG_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_BOUNDS_LONG_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5409,9 +4940,6 @@ impl Default for KSPROPERTY_BOUNDS_LONG_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_BOUNDS_LONG_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union KSPROPERTY_BOUNDS_LONGLONG {
@@ -5422,9 +4950,6 @@ impl Default for KSPROPERTY_BOUNDS_LONGLONG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_BOUNDS_LONGLONG {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5437,9 +4962,6 @@ impl Default for KSPROPERTY_BOUNDS_LONGLONG_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_BOUNDS_LONGLONG_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSPROPERTY_BOUNDS_LONGLONG_1 {
@@ -5450,9 +4972,6 @@ impl Default for KSPROPERTY_BOUNDS_LONGLONG_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_BOUNDS_LONGLONG_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5534,9 +5053,6 @@ impl Default for KSPROPERTY_CAMERACONTROL_FLASH_S {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_CAMERACONTROL_FLASH_S {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KSPROPERTY_CAMERACONTROL_FOCAL_LENGTH: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(18i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5550,9 +5066,6 @@ impl Default for KSPROPERTY_CAMERACONTROL_FOCAL_LENGTH_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_CAMERACONTROL_FOCAL_LENGTH_S {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSPROPERTY_CAMERACONTROL_FOCUS: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(6i32);
 pub const KSPROPERTY_CAMERACONTROL_FOCUS_RELATIVE: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(16i32);
@@ -5572,9 +5085,6 @@ impl Default for KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_S {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_S {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_SEQUENCE_EXCLUSIVE_WITH_RECORD: i32 = 2i32;
 pub const KSPROPERTY_CAMERACONTROL_IRIS: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(5i32);
 pub const KSPROPERTY_CAMERACONTROL_IRIS_RELATIVE: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(15i32);
@@ -5591,9 +5101,6 @@ impl Default for KSPROPERTY_CAMERACONTROL_NODE_FOCAL_LENGTH_S {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_CAMERACONTROL_NODE_FOCAL_LENGTH_S {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_CAMERACONTROL_NODE_S {
@@ -5606,9 +5113,6 @@ impl Default for KSPROPERTY_CAMERACONTROL_NODE_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_CAMERACONTROL_NODE_S {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5623,9 +5127,6 @@ impl Default for KSPROPERTY_CAMERACONTROL_NODE_S2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_CAMERACONTROL_NODE_S2 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSPROPERTY_CAMERACONTROL_PAN: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(0i32);
 pub const KSPROPERTY_CAMERACONTROL_PANTILT: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(9i32);
@@ -5663,9 +5164,6 @@ impl Default for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S_0 {
@@ -5676,9 +5174,6 @@ impl Default for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSPROPERTY_CAMERACONTROL_ROLL: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(2i32);
 pub const KSPROPERTY_CAMERACONTROL_ROLL_RELATIVE: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(12i32);
@@ -5695,9 +5190,6 @@ impl Default for KSPROPERTY_CAMERACONTROL_S {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_CAMERACONTROL_S {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_CAMERACONTROL_S2 {
@@ -5711,9 +5203,6 @@ impl Default for KSPROPERTY_CAMERACONTROL_S2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_CAMERACONTROL_S2 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSPROPERTY_CAMERACONTROL_SCANMODE: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(7i32);
 #[repr(C)]
@@ -5729,9 +5218,6 @@ impl Default for KSPROPERTY_CAMERACONTROL_S_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_CAMERACONTROL_S_EX {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSPROPERTY_CAMERACONTROL_TILT: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(1i32);
 pub const KSPROPERTY_CAMERACONTROL_TILT_RELATIVE: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(11i32);
@@ -5752,9 +5238,6 @@ impl Default for KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_S {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5803,9 +5286,6 @@ impl Default for KSPROPERTY_CROSSBAR_ACTIVE_S {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_CROSSBAR_ACTIVE_S {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KSPROPERTY_CROSSBAR_CAN_ROUTE: KSPROPERTY_VIDCAP_CROSSBAR = KSPROPERTY_VIDCAP_CROSSBAR(2i32);
 pub const KSPROPERTY_CROSSBAR_CAPS: KSPROPERTY_VIDCAP_CROSSBAR = KSPROPERTY_VIDCAP_CROSSBAR(0i32);
 #[repr(C)]
@@ -5819,9 +5299,6 @@ impl Default for KSPROPERTY_CROSSBAR_CAPS_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_CROSSBAR_CAPS_S {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSPROPERTY_CROSSBAR_INPUT_ACTIVE: KSPROPERTY_VIDCAP_CROSSBAR = KSPROPERTY_VIDCAP_CROSSBAR(4i32);
 pub const KSPROPERTY_CROSSBAR_PININFO: KSPROPERTY_VIDCAP_CROSSBAR = KSPROPERTY_VIDCAP_CROSSBAR(1i32);
@@ -5840,9 +5317,6 @@ impl Default for KSPROPERTY_CROSSBAR_PININFO_S {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_CROSSBAR_PININFO_S {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KSPROPERTY_CROSSBAR_ROUTE: KSPROPERTY_VIDCAP_CROSSBAR = KSPROPERTY_VIDCAP_CROSSBAR(3i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5856,9 +5330,6 @@ impl Default for KSPROPERTY_CROSSBAR_ROUTE_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_CROSSBAR_ROUTE_S {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSPROPERTY_CURRENT_CAPTURE_SURFACE: KSPROPERTY_VIDMEM_TRANSPORT = KSPROPERTY_VIDMEM_TRANSPORT(3i32);
 #[repr(transparent)]
@@ -5878,9 +5349,6 @@ impl Default for KSPROPERTY_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5925,9 +5393,6 @@ impl Default for KSPROPERTY_DROPPEDFRAMES_CURRENT_S {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_DROPPEDFRAMES_CURRENT_S {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KSPROPERTY_DVDCOPY_CHLG_KEY: KSPROPERTY_COPYPROT = KSPROPERTY_COPYPROT(1i32);
 pub const KSPROPERTY_DVDCOPY_DEC_KEY2: KSPROPERTY_COPYPROT = KSPROPERTY_COPYPROT(3i32);
 pub const KSPROPERTY_DVDCOPY_DISC_KEY: KSPROPERTY_COPYPROT = KSPROPERTY_COPYPROT(128i32);
@@ -5959,9 +5424,6 @@ impl Default for KSPROPERTY_EXTDEVICE_S {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_EXTDEVICE_S {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union KSPROPERTY_EXTDEVICE_S_0 {
@@ -5975,9 +5437,6 @@ impl Default for KSPROPERTY_EXTDEVICE_S_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_EXTDEVICE_S_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSPROPERTY_EXTDEVICE_VERSION: KSPROPERTY_EXTDEVICE = KSPROPERTY_EXTDEVICE(1i32);
 #[repr(transparent)]
@@ -6005,9 +5464,6 @@ impl Default for KSPROPERTY_EXTXPORT_NODE_S {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_EXTXPORT_NODE_S {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union KSPROPERTY_EXTXPORT_NODE_S_0 {
@@ -6026,9 +5482,6 @@ impl Default for KSPROPERTY_EXTXPORT_NODE_S_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_EXTXPORT_NODE_S_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSPROPERTY_EXTXPORT_NODE_S_0_1 {
@@ -6039,9 +5492,6 @@ impl Default for KSPROPERTY_EXTXPORT_NODE_S_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_EXTXPORT_NODE_S_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6056,9 +5506,6 @@ impl Default for KSPROPERTY_EXTXPORT_NODE_S_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_EXTXPORT_NODE_S_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KSPROPERTY_EXTXPORT_OUTPUT_SIGNAL_MODE: KSPROPERTY_EXTXPORT = KSPROPERTY_EXTXPORT(2i32);
 pub const KSPROPERTY_EXTXPORT_RTC_SEARCH: KSPROPERTY_EXTXPORT = KSPROPERTY_EXTXPORT(9i32);
 #[repr(C)]
@@ -6071,9 +5518,6 @@ impl Default for KSPROPERTY_EXTXPORT_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_EXTXPORT_S {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6093,9 +5537,6 @@ impl Default for KSPROPERTY_EXTXPORT_S_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_EXTXPORT_S_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSPROPERTY_EXTXPORT_S_0_1 {
@@ -6106,9 +5547,6 @@ impl Default for KSPROPERTY_EXTXPORT_S_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_EXTXPORT_S_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6122,9 +5560,6 @@ impl Default for KSPROPERTY_EXTXPORT_S_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_EXTXPORT_S_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSPROPERTY_EXTXPORT_STATE: KSPROPERTY_EXTXPORT = KSPROPERTY_EXTXPORT(5i32);
 pub const KSPROPERTY_EXTXPORT_STATE_NOTIFY: KSPROPERTY_EXTXPORT = KSPROPERTY_EXTXPORT(6i32);
@@ -6177,9 +5612,6 @@ impl Default for KSPROPERTY_MEDIAAVAILABLE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_MEDIAAVAILABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_MEDIASEEKING(pub i32);
@@ -6205,9 +5637,6 @@ impl Default for KSPROPERTY_MEMBERSHEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_MEMBERSHEADER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSPROPERTY_MEMBER_FLAG_BASICSUPPORT_MULTICHANNEL: u32 = 2u32;
 pub const KSPROPERTY_MEMBER_FLAG_BASICSUPPORT_UNIFORM: u32 = 4u32;
@@ -6240,9 +5669,6 @@ impl Default for KSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KSPROPERTY_NETWORKCAMERACONTROL_METADATA: KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY = KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY(2i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6259,9 +5685,6 @@ impl Default for KSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE(pub i32);
@@ -6277,9 +5700,6 @@ impl Default for KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6338,9 +5758,6 @@ impl Default for KSPROPERTY_POSITIONS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_POSITIONS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KSPROPERTY_PREFERRED_CAPTURE_SURFACE: KSPROPERTY_VIDMEM_TRANSPORT = KSPROPERTY_VIDMEM_TRANSPORT(2i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6379,9 +5796,6 @@ impl Default for KSPROPERTY_SELECTOR_NODE_S {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_SELECTOR_NODE_S {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KSPROPERTY_SELECTOR_NUM_SOURCES: KSPROPERTY_VIDCAP_SELECTOR = KSPROPERTY_VIDCAP_SELECTOR(1i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6396,9 +5810,6 @@ impl Default for KSPROPERTY_SELECTOR_S {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_SELECTOR_S {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KSPROPERTY_SELECTOR_SOURCE_NODE_ID: KSPROPERTY_VIDCAP_SELECTOR = KSPROPERTY_VIDCAP_SELECTOR(0i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6412,9 +5823,6 @@ impl Default for KSPROPERTY_SERIAL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_SERIAL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_SERIALHDR {
@@ -6425,9 +5833,6 @@ impl Default for KSPROPERTY_SERIALHDR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_SERIALHDR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6456,9 +5861,6 @@ impl Default for KSPROPERTY_SPHLI {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_SPHLI {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSPROPERTY_SPPAL {
@@ -6468,9 +5870,6 @@ impl Default for KSPROPERTY_SPPAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_SPPAL {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6484,9 +5883,6 @@ impl Default for KSPROPERTY_STEPPING_LONG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_STEPPING_LONG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_STEPPING_LONGLONG {
@@ -6497,9 +5893,6 @@ impl Default for KSPROPERTY_STEPPING_LONGLONG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_STEPPING_LONGLONG {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6547,9 +5940,6 @@ impl Default for KSPROPERTY_TIMECODE_NODE_S {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_TIMECODE_NODE_S {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KSPROPERTY_TIMECODE_READER: KSPROPERTY_TIMECODE = KSPROPERTY_TIMECODE(0i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6561,9 +5951,6 @@ impl Default for KSPROPERTY_TIMECODE_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_TIMECODE_S {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6595,9 +5982,6 @@ impl Default for KSPROPERTY_TUNER_CAPS_S {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_TUNER_CAPS_S {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KSPROPERTY_TUNER_FREQUENCY: KSPROPERTY_TUNER = KSPROPERTY_TUNER(4i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6616,9 +6000,6 @@ impl Default for KSPROPERTY_TUNER_FREQUENCY_S {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_TUNER_FREQUENCY_S {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KSPROPERTY_TUNER_IF_MEDIUM: KSPROPERTY_TUNER = KSPROPERTY_TUNER(7i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6631,9 +6012,6 @@ impl Default for KSPROPERTY_TUNER_IF_MEDIUM_S {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_TUNER_IF_MEDIUM_S {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KSPROPERTY_TUNER_INPUT: KSPROPERTY_TUNER = KSPROPERTY_TUNER(5i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6645,9 +6023,6 @@ impl Default for KSPROPERTY_TUNER_INPUT_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_TUNER_INPUT_S {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSPROPERTY_TUNER_MODE: KSPROPERTY_TUNER = KSPROPERTY_TUNER(2i32);
 #[repr(transparent)]
@@ -6674,9 +6049,6 @@ impl Default for KSPROPERTY_TUNER_MODE_CAPS_S {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_TUNER_MODE_CAPS_S {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KSPROPERTY_TUNER_MODE_DSS: KSPROPERTY_TUNER_MODES = KSPROPERTY_TUNER_MODES(8i32);
 pub const KSPROPERTY_TUNER_MODE_FM_RADIO: KSPROPERTY_TUNER_MODES = KSPROPERTY_TUNER_MODES(2i32);
 #[repr(C)]
@@ -6689,9 +6061,6 @@ impl Default for KSPROPERTY_TUNER_MODE_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_TUNER_MODE_S {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSPROPERTY_TUNER_MODE_TV: KSPROPERTY_TUNER_MODES = KSPROPERTY_TUNER_MODES(1i32);
 pub const KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS: KSPROPERTY_TUNER = KSPROPERTY_TUNER(11i32);
@@ -6708,9 +6077,6 @@ impl Default for KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KSPROPERTY_TUNER_SCAN_CAPS: KSPROPERTY_TUNER = KSPROPERTY_TUNER(8i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6726,9 +6092,6 @@ impl Default for KSPROPERTY_TUNER_SCAN_CAPS_S {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_TUNER_SCAN_CAPS_S {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KSPROPERTY_TUNER_SCAN_STATUS: KSPROPERTY_TUNER = KSPROPERTY_TUNER(9i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6741,9 +6104,6 @@ impl Default for KSPROPERTY_TUNER_SCAN_STATUS_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_TUNER_SCAN_STATUS_S {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSPROPERTY_TUNER_STANDARD: KSPROPERTY_TUNER = KSPROPERTY_TUNER(3i32);
 pub const KSPROPERTY_TUNER_STANDARD_MODE: KSPROPERTY_TUNER = KSPROPERTY_TUNER(10i32);
@@ -6758,9 +6118,6 @@ impl Default for KSPROPERTY_TUNER_STANDARD_MODE_S {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_TUNER_STANDARD_MODE_S {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_TUNER_STANDARD_S {
@@ -6771,9 +6128,6 @@ impl Default for KSPROPERTY_TUNER_STANDARD_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_TUNER_STANDARD_S {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSPROPERTY_TUNER_STATUS: KSPROPERTY_TUNER = KSPROPERTY_TUNER(6i32);
 #[repr(C)]
@@ -6790,9 +6144,6 @@ impl Default for KSPROPERTY_TUNER_STATUS_S {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_TUNER_STATUS_S {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KSPROPERTY_TVAUDIO_CAPS: KSPROPERTY_VIDCAP_TVAUDIO = KSPROPERTY_VIDCAP_TVAUDIO(0i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6807,9 +6158,6 @@ impl Default for KSPROPERTY_TVAUDIO_CAPS_S {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_TVAUDIO_CAPS_S {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KSPROPERTY_TVAUDIO_CURRENTLY_AVAILABLE_MODES: KSPROPERTY_VIDCAP_TVAUDIO = KSPROPERTY_VIDCAP_TVAUDIO(2i32);
 pub const KSPROPERTY_TVAUDIO_MODE: KSPROPERTY_VIDCAP_TVAUDIO = KSPROPERTY_VIDCAP_TVAUDIO(1i32);
 #[repr(C)]
@@ -6822,9 +6170,6 @@ impl Default for KSPROPERTY_TVAUDIO_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_TVAUDIO_S {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSPROPERTY_TYPE_BASICSUPPORT: u32 = 512u32;
 pub const KSPROPERTY_TYPE_COPYPAYLOAD: u32 = 2147483648u32;
@@ -6860,9 +6205,6 @@ impl Default for KSPROPERTY_VBICODECFILTERING_CC_SUBSTREAMS_S {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_VBICODECFILTERING_CC_SUBSTREAMS_S {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_VBICODECFILTERING_NABTS_SUBSTREAMS_S {
@@ -6873,9 +6215,6 @@ impl Default for KSPROPERTY_VBICODECFILTERING_NABTS_SUBSTREAMS_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_VBICODECFILTERING_NABTS_SUBSTREAMS_S {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSPROPERTY_VBICODECFILTERING_SCANLINES_DISCOVERED_BIT_ARRAY: KSPROPERTY_VBICODECFILTERING = KSPROPERTY_VBICODECFILTERING(2i32);
 pub const KSPROPERTY_VBICODECFILTERING_SCANLINES_REQUESTED_BIT_ARRAY: KSPROPERTY_VBICODECFILTERING = KSPROPERTY_VBICODECFILTERING(1i32);
@@ -6890,9 +6229,6 @@ impl Default for KSPROPERTY_VBICODECFILTERING_SCANLINES_S {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_VBICODECFILTERING_SCANLINES_S {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KSPROPERTY_VBICODECFILTERING_STATISTICS: KSPROPERTY_VBICODECFILTERING = KSPROPERTY_VBICODECFILTERING(5i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6905,9 +6241,6 @@ impl Default for KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_PIN_S {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_PIN_S {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_S {
@@ -6918,9 +6251,6 @@ impl Default for KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_S {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6933,9 +6263,6 @@ impl Default for KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_PIN_S {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_PIN_S {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_S {
@@ -6946,9 +6273,6 @@ impl Default for KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_S {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6961,9 +6285,6 @@ impl Default for KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_PIN_S {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_PIN_S {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_S {
@@ -6974,9 +6295,6 @@ impl Default for KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_S {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSPROPERTY_VBICODECFILTERING_SUBSTREAMS_DISCOVERED_BIT_ARRAY: KSPROPERTY_VBICODECFILTERING = KSPROPERTY_VBICODECFILTERING(4i32);
 pub const KSPROPERTY_VBICODECFILTERING_SUBSTREAMS_REQUESTED_BIT_ARRAY: KSPROPERTY_VBICODECFILTERING = KSPROPERTY_VBICODECFILTERING(3i32);
@@ -7027,9 +6345,6 @@ impl Default for KSPROPERTY_VIDEOCOMPRESSION_GETINFO_S {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_VIDEOCOMPRESSION_GETINFO_S {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KSPROPERTY_VIDEOCOMPRESSION_KEYFRAME_RATE: KSPROPERTY_VIDCAP_VIDEOCOMPRESSION = KSPROPERTY_VIDCAP_VIDEOCOMPRESSION(1i32);
 pub const KSPROPERTY_VIDEOCOMPRESSION_OVERRIDE_FRAME_SIZE: KSPROPERTY_VIDCAP_VIDEOCOMPRESSION = KSPROPERTY_VIDCAP_VIDEOCOMPRESSION(5i32);
 pub const KSPROPERTY_VIDEOCOMPRESSION_OVERRIDE_KEYFRAME: KSPROPERTY_VIDCAP_VIDEOCOMPRESSION = KSPROPERTY_VIDCAP_VIDEOCOMPRESSION(4i32);
@@ -7047,9 +6362,6 @@ impl Default for KSPROPERTY_VIDEOCOMPRESSION_S {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_VIDEOCOMPRESSION_S {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_VIDEOCOMPRESSION_S1 {
@@ -7062,9 +6374,6 @@ impl Default for KSPROPERTY_VIDEOCOMPRESSION_S1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_VIDEOCOMPRESSION_S1 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSPROPERTY_VIDEOCOMPRESSION_WINDOWSIZE: KSPROPERTY_VIDCAP_VIDEOCOMPRESSION = KSPROPERTY_VIDCAP_VIDEOCOMPRESSION(6i32);
 pub const KSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE: KSPROPERTY_VIDCAP_VIDEOCONTROL = KSPROPERTY_VIDCAP_VIDEOCONTROL(1i32);
@@ -7083,9 +6392,6 @@ impl Default for KSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE_S {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE_S {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KSPROPERTY_VIDEOCONTROL_CAPS: KSPROPERTY_VIDCAP_VIDEOCONTROL = KSPROPERTY_VIDCAP_VIDEOCONTROL(0i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7098,9 +6404,6 @@ impl Default for KSPROPERTY_VIDEOCONTROL_CAPS_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_VIDEOCONTROL_CAPS_S {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSPROPERTY_VIDEOCONTROL_FRAME_RATES: KSPROPERTY_VIDCAP_VIDEOCONTROL = KSPROPERTY_VIDCAP_VIDEOCONTROL(2i32);
 #[repr(C)]
@@ -7116,9 +6419,6 @@ impl Default for KSPROPERTY_VIDEOCONTROL_FRAME_RATES_S {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_VIDEOCONTROL_FRAME_RATES_S {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KSPROPERTY_VIDEOCONTROL_MODE: KSPROPERTY_VIDCAP_VIDEOCONTROL = KSPROPERTY_VIDCAP_VIDEOCONTROL(3i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7131,9 +6431,6 @@ impl Default for KSPROPERTY_VIDEOCONTROL_MODE_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_VIDEOCONTROL_MODE_S {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSPROPERTY_VIDEODECODER_CAPS: KSPROPERTY_VIDCAP_VIDEODECODER = KSPROPERTY_VIDCAP_VIDEODECODER(0i32);
 #[repr(C)]
@@ -7150,9 +6447,6 @@ impl Default for KSPROPERTY_VIDEODECODER_CAPS_S {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_VIDEODECODER_CAPS_S {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KSPROPERTY_VIDEODECODER_OUTPUT_ENABLE: KSPROPERTY_VIDCAP_VIDEODECODER = KSPROPERTY_VIDCAP_VIDEODECODER(3i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7164,9 +6458,6 @@ impl Default for KSPROPERTY_VIDEODECODER_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_VIDEODECODER_S {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSPROPERTY_VIDEODECODER_STANDARD: KSPROPERTY_VIDCAP_VIDEODECODER = KSPROPERTY_VIDCAP_VIDEODECODER(1i32);
 pub const KSPROPERTY_VIDEODECODER_STATUS: KSPROPERTY_VIDCAP_VIDEODECODER = KSPROPERTY_VIDCAP_VIDEODECODER(2i32);
@@ -7184,9 +6475,6 @@ impl Default for KSPROPERTY_VIDEODECODER_STATUS2_S {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_VIDEODECODER_STATUS2_S {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_VIDEODECODER_STATUS_S {
@@ -7198,9 +6486,6 @@ impl Default for KSPROPERTY_VIDEODECODER_STATUS_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_VIDEODECODER_STATUS_S {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSPROPERTY_VIDEODECODER_VCR_TIMING: KSPROPERTY_VIDCAP_VIDEODECODER = KSPROPERTY_VIDCAP_VIDEODECODER(4i32);
 pub const KSPROPERTY_VIDEOENCODER_CAPS: KSPROPERTY_VIDCAP_VIDEOENCODER = KSPROPERTY_VIDCAP_VIDEOENCODER(0i32);
@@ -7218,9 +6503,6 @@ impl Default for KSPROPERTY_VIDEOENCODER_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_VIDEOENCODER_S {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSPROPERTY_VIDEOENCODER_STANDARD: KSPROPERTY_VIDCAP_VIDEOENCODER = KSPROPERTY_VIDCAP_VIDEOENCODER(1i32);
 pub const KSPROPERTY_VIDEOPROCAMP_BACKLIGHT_COMPENSATION: KSPROPERTY_VIDCAP_VIDEOPROCAMP = KSPROPERTY_VIDCAP_VIDEOPROCAMP(8i32);
@@ -7247,9 +6529,6 @@ impl Default for KSPROPERTY_VIDEOPROCAMP_NODE_S {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_VIDEOPROCAMP_NODE_S {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_VIDEOPROCAMP_NODE_S2 {
@@ -7263,9 +6542,6 @@ impl Default for KSPROPERTY_VIDEOPROCAMP_NODE_S2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_VIDEOPROCAMP_NODE_S2 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSPROPERTY_VIDEOPROCAMP_POWERLINE_FREQUENCY: KSPROPERTY_VIDCAP_VIDEOPROCAMP = KSPROPERTY_VIDCAP_VIDEOPROCAMP(13i32);
 #[repr(C)]
@@ -7281,9 +6557,6 @@ impl Default for KSPROPERTY_VIDEOPROCAMP_S {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPROPERTY_VIDEOPROCAMP_S {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_VIDEOPROCAMP_S2 {
@@ -7297,9 +6570,6 @@ impl Default for KSPROPERTY_VIDEOPROCAMP_S2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSPROPERTY_VIDEOPROCAMP_S2 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSPROPERTY_VIDEOPROCAMP_SATURATION: KSPROPERTY_VIDCAP_VIDEOPROCAMP = KSPROPERTY_VIDCAP_VIDEOPROCAMP(3i32);
 pub const KSPROPERTY_VIDEOPROCAMP_SHARPNESS: KSPROPERTY_VIDCAP_VIDEOPROCAMP = KSPROPERTY_VIDCAP_VIDEOPROCAMP(4i32);
@@ -7402,9 +6672,6 @@ impl Default for KSP_NODE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSP_NODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSP_PIN {
@@ -7417,9 +6684,6 @@ impl Default for KSP_PIN {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSP_PIN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union KSP_PIN_0 {
@@ -7430,9 +6694,6 @@ impl Default for KSP_PIN_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSP_PIN_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7447,9 +6708,6 @@ impl Default for KSP_TIMEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSP_TIMEFORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSQUALITY {
@@ -7462,9 +6720,6 @@ impl Default for KSQUALITY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSQUALITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSQUALITY_MANAGER {
@@ -7475,9 +6730,6 @@ impl Default for KSQUALITY_MANAGER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSQUALITY_MANAGER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7490,9 +6742,6 @@ impl Default for KSQUERYBUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSQUERYBUFFER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7508,9 +6757,6 @@ impl Default for KSRATE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSRATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSRATE_CAPABILITY {
@@ -7521,9 +6767,6 @@ impl Default for KSRATE_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSRATE_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSRATE_NOPRESENTATIONDURATION: u32 = 2u32;
 pub const KSRATE_NOPRESENTATIONSTART: u32 = 1u32;
@@ -7542,9 +6785,6 @@ impl Default for KSRELATIVEEVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSRELATIVEEVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union KSRELATIVEEVENT_0 {
@@ -7555,9 +6795,6 @@ impl Default for KSRELATIVEEVENT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSRELATIVEEVENT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSRELATIVEEVENT_FLAG_HANDLE: u32 = 1u32;
 pub const KSRELATIVEEVENT_FLAG_POINTER: u32 = 2u32;
@@ -7577,9 +6814,6 @@ impl Default for KSRESOLUTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSRESOLUTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSRTAUDIO_BUFFER {
@@ -7591,9 +6825,6 @@ impl Default for KSRTAUDIO_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSRTAUDIO_BUFFER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7607,9 +6838,6 @@ impl Default for KSRTAUDIO_BUFFER32 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSRTAUDIO_BUFFER32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSRTAUDIO_BUFFER_PROPERTY {
@@ -7622,9 +6850,6 @@ impl Default for KSRTAUDIO_BUFFER_PROPERTY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSRTAUDIO_BUFFER_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSRTAUDIO_BUFFER_PROPERTY32 {
@@ -7636,9 +6861,6 @@ impl Default for KSRTAUDIO_BUFFER_PROPERTY32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSRTAUDIO_BUFFER_PROPERTY32 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7653,9 +6875,6 @@ impl Default for KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION32 {
@@ -7668,9 +6887,6 @@ impl Default for KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION32 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7685,9 +6901,6 @@ impl Default for KSRTAUDIO_GETREADPACKET_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSRTAUDIO_GETREADPACKET_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSRTAUDIO_HWLATENCY {
@@ -7699,9 +6912,6 @@ impl Default for KSRTAUDIO_HWLATENCY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSRTAUDIO_HWLATENCY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7717,9 +6927,6 @@ impl Default for KSRTAUDIO_HWREGISTER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSRTAUDIO_HWREGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSRTAUDIO_HWREGISTER32 {
@@ -7734,9 +6941,6 @@ impl Default for KSRTAUDIO_HWREGISTER32 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSRTAUDIO_HWREGISTER32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSRTAUDIO_HWREGISTER_PROPERTY {
@@ -7747,9 +6951,6 @@ impl Default for KSRTAUDIO_HWREGISTER_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSRTAUDIO_HWREGISTER_PROPERTY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7762,9 +6963,6 @@ impl Default for KSRTAUDIO_HWREGISTER_PROPERTY32 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSRTAUDIO_HWREGISTER_PROPERTY32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY {
@@ -7776,9 +6974,6 @@ impl Default for KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32 {
@@ -7789,9 +6984,6 @@ impl Default for KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7805,9 +6997,6 @@ impl Default for KSRTAUDIO_PACKETVREGISTER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSRTAUDIO_PACKETVREGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSRTAUDIO_PACKETVREGISTER_PROPERTY {
@@ -7818,9 +7007,6 @@ impl Default for KSRTAUDIO_PACKETVREGISTER_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSRTAUDIO_PACKETVREGISTER_PROPERTY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7834,9 +7020,6 @@ impl Default for KSRTAUDIO_SETWRITEPACKET_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSRTAUDIO_SETWRITEPACKET_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSSOUNDDETECTORPROPERTY {
@@ -7847,9 +7030,6 @@ impl Default for KSSOUNDDETECTORPROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSSOUNDDETECTORPROPERTY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7870,9 +7050,6 @@ impl Default for KSSTREAMALLOCATOR_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSSTREAMALLOCATOR_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSSTREAMALLOCATOR_STATUS_EX {
@@ -7884,9 +7061,6 @@ impl Default for KSSTREAMALLOCATOR_STATUS_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSSTREAMALLOCATOR_STATUS_EX {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSSTREAM_FAILUREEXCEPTION: u32 = 8192u32;
 #[repr(C)]
@@ -7908,10 +7082,6 @@ impl Default for KSSTREAM_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for KSSTREAM_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7931,10 +7101,6 @@ impl Default for KSSTREAM_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for KSSTREAM_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSSTREAM_HEADER_OPTIONSF_BUFFEREDTRANSFER: u32 = 1024u32;
 pub const KSSTREAM_HEADER_OPTIONSF_DATADISCONTINUITY: u32 = 4u32;
@@ -7970,9 +7136,6 @@ impl Default for KSSTREAM_METADATA_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSSTREAM_METADATA_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KSSTREAM_NONPAGED_DATA: u32 = 256u32;
 pub const KSSTREAM_PAGED_DATA: u32 = 0u32;
 pub const KSSTREAM_READ: u32 = 0u32;
@@ -7989,9 +7152,6 @@ impl Default for KSSTREAM_SEGMENT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSSTREAM_SEGMENT {
-    type TypeKind = windows_core::CloneType;
-}
 pub const KSSTREAM_SYNCHRONOUS: u32 = 4096u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8003,9 +7163,6 @@ impl Default for KSSTREAM_UVC_METADATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSSTREAM_UVC_METADATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8021,9 +7178,6 @@ impl Default for KSSTREAM_UVC_METADATATYPE_TIMESTAMP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSSTREAM_UVC_METADATATYPE_TIMESTAMP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0 {
@@ -8035,9 +7189,6 @@ impl Default for KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0_0 {
@@ -8047,9 +7198,6 @@ impl Default for KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSSTREAM_UVC_SECURE_ATTRIBUTE_SIZE: u32 = 8192u32;
 pub const KSSTREAM_WRITE: u32 = 1u32;
@@ -8070,9 +7218,6 @@ impl Default for KSTELEPHONY_CALLCONTROL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSTELEPHONY_CALLCONTROL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSTELEPHONY_CALLINFO {
@@ -8083,9 +7228,6 @@ impl Default for KSTELEPHONY_CALLINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSTELEPHONY_CALLINFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8098,9 +7240,6 @@ impl Default for KSTELEPHONY_PROVIDERCHANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSTELEPHONY_PROVIDERCHANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSTIME {
@@ -8112,9 +7251,6 @@ impl Default for KSTIME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSTIME {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSTIME_FORMAT_BYTE: windows_core::GUID = windows_core::GUID::from_u128(0x7b785571_8c82_11cf_bc0c_00aa00ac74f6);
 pub const KSTIME_FORMAT_FIELD: windows_core::GUID = windows_core::GUID::from_u128(0x7b785573_8c82_11cf_bc0c_00aa00ac74f6);
@@ -8138,9 +7274,6 @@ impl Default for KSTOPOLOGY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSTOPOLOGY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSTOPOLOGY_CONNECTION {
@@ -8154,9 +7287,6 @@ impl Default for KSTOPOLOGY_CONNECTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSTOPOLOGY_CONNECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSTOPOLOGY_ENDPOINTID {
@@ -8168,9 +7298,6 @@ impl Default for KSTOPOLOGY_ENDPOINTID {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSTOPOLOGY_ENDPOINTID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSTOPOLOGY_ENDPOINTIDPAIR {
@@ -8181,9 +7308,6 @@ impl Default for KSTOPOLOGY_ENDPOINTIDPAIR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSTOPOLOGY_ENDPOINTIDPAIR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8197,9 +7321,6 @@ impl Default for KSVPMAXPIXELRATE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSVPMAXPIXELRATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSVPSIZE_PROP {
@@ -8210,9 +7331,6 @@ impl Default for KSVPSIZE_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSVPSIZE_PROP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8225,9 +7343,6 @@ impl Default for KSVPSURFACEPARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSVPSURFACEPARAMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8244,9 +7359,6 @@ impl Default for KSWAVETABLE_WAVE_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSWAVETABLE_WAVE_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSWAVE_BUFFER {
@@ -8259,9 +7371,6 @@ impl Default for KSWAVE_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSWAVE_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KSWAVE_BUFFER_ATTRIBUTEF_LOOPING: u32 = 1u32;
 pub const KSWAVE_BUFFER_ATTRIBUTEF_STATIC: u32 = 2u32;
 #[repr(C)]
@@ -8273,9 +7382,6 @@ impl Default for KSWAVE_COMPATCAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSWAVE_COMPATCAPS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSWAVE_COMPATCAPS_INPUT: u32 = 0u32;
 pub const KSWAVE_COMPATCAPS_OUTPUT: u32 = 1u32;
@@ -8294,9 +7400,6 @@ impl Default for KSWAVE_INPUT_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSWAVE_INPUT_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8327,9 +7430,6 @@ impl Default for KSWAVE_OUTPUT_CAPABILITIES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSWAVE_OUTPUT_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSWAVE_VOLUME {
@@ -8340,9 +7440,6 @@ impl Default for KSWAVE_VOLUME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KSWAVE_VOLUME {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KS_AMCONTROL_COLORINFO_PRESENT: u32 = 128u32;
 pub const KS_AMCONTROL_PAD_TO_16x9: u32 = 4u32;
@@ -8373,9 +7470,6 @@ impl Default for KS_AMVPDATAINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KS_AMVPDATAINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KS_AMVPDIMINFO {
@@ -8390,9 +7484,6 @@ impl Default for KS_AMVPDIMINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KS_AMVPDIMINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KS_AMVPSIZE {
@@ -8403,9 +7494,6 @@ impl Default for KS_AMVPSIZE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KS_AMVPSIZE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KS_AMVP_BEST_BANDWIDTH: KS_AMVP_SELECTFORMATBY = KS_AMVP_SELECTFORMATBY(1i32);
 pub const KS_AMVP_DO_NOT_CARE: KS_AMVP_SELECTFORMATBY = KS_AMVP_SELECTFORMATBY(0i32);
@@ -8432,9 +7520,6 @@ impl Default for KS_AM_ExactRateChange {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KS_AM_ExactRateChange {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_AM_PROPERTY_TS_RATE_CHANGE(pub i32);
@@ -8453,9 +7538,6 @@ impl Default for KS_AM_SimpleRateChange {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KS_AM_SimpleRateChange {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KS_AM_UseNewCSSKey: i32 = 1i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8470,9 +7552,6 @@ impl Default for KS_ANALOGVIDEOINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KS_ANALOGVIDEOINFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8521,9 +7600,6 @@ impl Default for KS_BITMAPINFOHEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KS_BITMAPINFOHEADER {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KS_BI_BITFIELDS: i32 = 3i32;
 pub const KS_BI_JPEG: i32 = 4i32;
 pub const KS_BI_RGB: i32 = 0i32;
@@ -8564,9 +7640,6 @@ impl Default for KS_COLCON {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KS_COLCON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KS_COMPRESSION {
@@ -8579,9 +7652,6 @@ impl Default for KS_COMPRESSION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KS_COMPRESSION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KS_COPYPROTECT_RestrictDuplication: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8592,9 +7662,6 @@ impl Default for KS_COPY_MACROVISION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KS_COPY_MACROVISION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8621,9 +7688,6 @@ impl Default for KS_DATAFORMAT_H264VIDEOINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KS_DATAFORMAT_H264VIDEOINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KS_DATAFORMAT_IMAGEINFO {
@@ -8634,9 +7698,6 @@ impl Default for KS_DATAFORMAT_IMAGEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KS_DATAFORMAT_IMAGEINFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8649,9 +7710,6 @@ impl Default for KS_DATAFORMAT_MPEGVIDEOINFO2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KS_DATAFORMAT_MPEGVIDEOINFO2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KS_DATAFORMAT_VBIINFOHEADER {
@@ -8662,9 +7720,6 @@ impl Default for KS_DATAFORMAT_VBIINFOHEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KS_DATAFORMAT_VBIINFOHEADER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8677,9 +7732,6 @@ impl Default for KS_DATAFORMAT_VIDEOINFOHEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KS_DATAFORMAT_VIDEOINFOHEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KS_DATAFORMAT_VIDEOINFOHEADER2 {
@@ -8690,9 +7742,6 @@ impl Default for KS_DATAFORMAT_VIDEOINFOHEADER2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KS_DATAFORMAT_VIDEOINFOHEADER2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8705,9 +7754,6 @@ impl Default for KS_DATAFORMAT_VIDEOINFO_PALETTE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KS_DATAFORMAT_VIDEOINFO_PALETTE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KS_DATARANGE_ANALOGVIDEO {
@@ -8718,9 +7764,6 @@ impl Default for KS_DATARANGE_ANALOGVIDEO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KS_DATARANGE_ANALOGVIDEO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8738,9 +7781,6 @@ impl Default for KS_DATARANGE_H264_VIDEO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KS_DATARANGE_H264_VIDEO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KS_DATARANGE_IMAGE {
@@ -8752,9 +7792,6 @@ impl Default for KS_DATARANGE_IMAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KS_DATARANGE_IMAGE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8772,9 +7809,6 @@ impl Default for KS_DATARANGE_MPEG1_VIDEO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KS_DATARANGE_MPEG1_VIDEO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KS_DATARANGE_MPEG2_VIDEO {
@@ -8790,9 +7824,6 @@ impl Default for KS_DATARANGE_MPEG2_VIDEO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KS_DATARANGE_MPEG2_VIDEO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8810,9 +7841,6 @@ impl Default for KS_DATARANGE_VIDEO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KS_DATARANGE_VIDEO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KS_DATARANGE_VIDEO2 {
@@ -8828,9 +7856,6 @@ impl Default for KS_DATARANGE_VIDEO2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KS_DATARANGE_VIDEO2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8848,9 +7873,6 @@ impl Default for KS_DATARANGE_VIDEO_PALETTE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KS_DATARANGE_VIDEO_PALETTE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KS_DATARANGE_VIDEO_VBI {
@@ -8866,9 +7888,6 @@ impl Default for KS_DATARANGE_VIDEO_VBI {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KS_DATARANGE_VIDEO_VBI {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8889,9 +7908,6 @@ impl Default for KS_DVDCOPY_BUSKEY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KS_DVDCOPY_BUSKEY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KS_DVDCOPY_CHLGKEY {
@@ -8903,9 +7919,6 @@ impl Default for KS_DVDCOPY_CHLGKEY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KS_DVDCOPY_CHLGKEY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KS_DVDCOPY_DISCKEY {
@@ -8915,9 +7928,6 @@ impl Default for KS_DVDCOPY_DISCKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KS_DVDCOPY_DISCKEY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8931,9 +7941,6 @@ impl Default for KS_DVDCOPY_REGION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KS_DVDCOPY_REGION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KS_DVDCOPY_SET_COPY_STATE {
@@ -8943,9 +7950,6 @@ impl Default for KS_DVDCOPY_SET_COPY_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KS_DVDCOPY_SET_COPY_STATE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8959,9 +7963,6 @@ impl Default for KS_DVDCOPY_TITLEKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KS_DVDCOPY_TITLEKEY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KS_DVD_CGMS_COPY_ONCE: u32 = 16u32;
 pub const KS_DVD_CGMS_COPY_PERMITTED: u32 = 0u32;
@@ -8987,9 +7988,6 @@ impl Default for KS_DVD_YCrCb {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KS_DVD_YCrCb {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KS_DVD_YUV {
@@ -9002,9 +8000,6 @@ impl Default for KS_DVD_YUV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KS_DVD_YUV {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -9025,9 +8020,6 @@ impl Default for KS_FRAME_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KS_FRAME_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union KS_FRAME_INFO_0 {
@@ -9038,9 +8030,6 @@ impl Default for KS_FRAME_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KS_FRAME_INFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -9053,9 +8042,6 @@ impl Default for KS_FRAME_INFO_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KS_FRAME_INFO_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KS_FRAME_INFO_1_0 {
@@ -9066,9 +8052,6 @@ impl Default for KS_FRAME_INFO_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KS_FRAME_INFO_1_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -9089,9 +8072,6 @@ impl Default for KS_FRAMING_ITEM {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KS_FRAMING_ITEM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union KS_FRAMING_ITEM_0 {
@@ -9102,9 +8082,6 @@ impl Default for KS_FRAMING_ITEM_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KS_FRAMING_ITEM_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9118,9 +8095,6 @@ impl Default for KS_FRAMING_RANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KS_FRAMING_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KS_FRAMING_RANGE_WEIGHTED {
@@ -9132,9 +8106,6 @@ impl Default for KS_FRAMING_RANGE_WEIGHTED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KS_FRAMING_RANGE_WEIGHTED {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9183,9 +8154,6 @@ impl Default for KS_H264VIDEOINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KS_H264VIDEOINFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KS_INTERLACE_1FieldPerSample: u32 = 2u32;
 pub const KS_INTERLACE_DisplayModeBobOnly: u32 = 0u32;
 pub const KS_INTERLACE_DisplayModeBobOrWeave: u32 = 128u32;
@@ -9219,9 +8187,6 @@ impl Default for KS_MPEG1VIDEOINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KS_MPEG1VIDEOINFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9261,9 +8226,6 @@ impl Default for KS_MPEGAUDIOINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KS_MPEGAUDIOINFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KS_MPEGAUDIOINFO_27MhzTimebase: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -9280,9 +8242,6 @@ impl Default for KS_MPEGVIDEOINFO2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KS_MPEGVIDEOINFO2 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KS_MemoryTypeAnyHost: KS_LogicalMemoryType = KS_LogicalMemoryType(6i32);
 pub const KS_MemoryTypeDeviceHostMapped: KS_LogicalMemoryType = KS_LogicalMemoryType(3i32);
@@ -9350,9 +8309,6 @@ impl Default for KS_RGBQUAD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KS_RGBQUAD {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KS_SECURE_CAMERA_SCENARIO_ID: windows_core::GUID = windows_core::GUID::from_u128(0xae53fc6e_8d89_4488_9d2e_4d008731c5fd);
 pub const KS_SEEKING_AbsolutePositioning: KS_SEEKING_FLAGS = KS_SEEKING_FLAGS(1i32);
 #[repr(transparent)]
@@ -9390,9 +8346,6 @@ impl Default for KS_TRUECOLORINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KS_TRUECOLORINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_TUNER_STRATEGY(pub i32);
@@ -9429,9 +8382,6 @@ impl Default for KS_TVTUNER_CHANGE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KS_TVTUNER_CHANGE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KS_VBICAP_PROTECTION_MV_DETECTED: i32 = 4i32;
 pub const KS_VBICAP_PROTECTION_MV_HARDWARE: i32 = 2i32;
 pub const KS_VBICAP_PROTECTION_MV_PRESENT: i32 = 1i32;
@@ -9457,9 +8407,6 @@ impl Default for KS_VBIINFOHEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KS_VBIINFOHEADER {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KS_VBI_FLAG_FIELD1: i32 = 1i32;
 pub const KS_VBI_FLAG_FIELD2: i32 = 2i32;
 pub const KS_VBI_FLAG_FRAME: i32 = 0i32;
@@ -9484,9 +8431,6 @@ impl Default for KS_VBI_FRAME_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KS_VBI_FRAME_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_VIDEODECODER_FLAGS(pub i32);
@@ -9509,9 +8453,6 @@ impl Default for KS_VIDEOINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KS_VIDEOINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union KS_VIDEOINFO_0 {
@@ -9523,9 +8464,6 @@ impl Default for KS_VIDEOINFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KS_VIDEOINFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9541,9 +8479,6 @@ impl Default for KS_VIDEOINFOHEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KS_VIDEOINFOHEADER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -9566,9 +8501,6 @@ impl Default for KS_VIDEOINFOHEADER2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KS_VIDEOINFOHEADER2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union KS_VIDEOINFOHEADER2_0 {
@@ -9579,9 +8511,6 @@ impl Default for KS_VIDEOINFOHEADER2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for KS_VIDEOINFOHEADER2_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KS_VIDEOSTREAM_CAPTURE: u32 = 2u32;
 pub const KS_VIDEOSTREAM_CC: u32 = 256u32;
@@ -9636,9 +8565,6 @@ impl Default for KS_VIDEO_STREAM_CONFIG_CAPS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KS_VIDEO_STREAM_CONFIG_CAPS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KS_VideoControlFlag_ExternalTriggerEnable: KS_VideoControlFlags = KS_VideoControlFlags(4i32);
 pub const KS_VideoControlFlag_FlipHorizontal: KS_VideoControlFlags = KS_VideoControlFlags(1i32);
 pub const KS_VideoControlFlag_FlipVertical: KS_VideoControlFlags = KS_VideoControlFlags(2i32);
@@ -9680,9 +8606,6 @@ impl Default for LOOPEDSTREAMING_POSITION_EVENT_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LOOPEDSTREAMING_POSITION_EVENT_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MAX_NABTS_VBI_LINES_PER_FIELD: u32 = 11u32;
 pub const MAX_RESOURCEGROUPID_LENGTH: u32 = 256u32;
 pub const MAX_SINK_DESCRIPTION_NAME_LENGTH: u32 = 32u32;
@@ -9699,9 +8622,6 @@ impl Default for MEDIUM_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MEDIUM_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union MF_MDL_SHARED_PAYLOAD_KEY {
@@ -9712,9 +8632,6 @@ impl Default for MF_MDL_SHARED_PAYLOAD_KEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MF_MDL_SHARED_PAYLOAD_KEY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9727,9 +8644,6 @@ impl Default for MF_MDL_SHARED_PAYLOAD_KEY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MF_MDL_SHARED_PAYLOAD_KEY_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MIN_DEV_VER_FOR_FLAGS: u32 = 272u32;
 pub const MIN_DEV_VER_FOR_QI: u32 = 256u32;
@@ -9757,9 +8671,6 @@ impl Default for NABTSFEC_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NABTSFEC_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct NABTS_BUFFER {
@@ -9772,9 +8683,6 @@ impl Default for NABTS_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NABTS_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NABTS_BUFFER_LINE {
@@ -9785,9 +8693,6 @@ impl Default for NABTS_BUFFER_LINE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NABTS_BUFFER_LINE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const NABTS_BUFFER_PICTURENUMBER_SUPPORT: u32 = 1u32;
 pub const NABTS_BYTES_PER_LINE: u32 = 36u32;
@@ -9805,9 +8710,6 @@ impl Default for OPTIMAL_WEIGHT_TOTALS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for OPTIMAL_WEIGHT_TOTALS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PINNAME_DISPLAYPORT_OUT: windows_core::GUID = windows_core::GUID::from_u128(0x21fbb329_1a4a_48da_a076_2318a3c59b26);
 pub const PINNAME_HDMI_OUT: windows_core::GUID = windows_core::GUID::from_u128(0x387bfc03_e7ef_4901_86e0_35b7c32b00ef);
@@ -9843,9 +8745,6 @@ impl Default for PIPE_DIMENSIONS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PIPE_DIMENSIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PIPE_STATE(pub i32);
@@ -9863,9 +8762,6 @@ impl Default for PIPE_TERMINATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PIPE_TERMINATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PROPSETID_ALLOCATOR_CONTROL: windows_core::GUID = windows_core::GUID::from_u128(0x53171960_148e_11d2_9979_0000c0cc16ba);
 pub const PROPSETID_EXT_DEVICE: windows_core::GUID = windows_core::GUID::from_u128(0xb5730a90_1a2c_11cf_8c23_00aa006b6814);
@@ -9923,9 +8819,6 @@ impl Default for SECURE_BUFFER_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SECURE_BUFFER_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SHORT_COEFF: KSDS3D_HRTF_COEFF_FORMAT = KSDS3D_HRTF_COEFF_FORMAT(1i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9937,9 +8830,6 @@ impl Default for SOUNDDETECTOR_PATTERNHEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SOUNDDETECTOR_PATTERNHEADER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SPEAKER_ALL: u32 = 2147483648u32;
 pub const SPEAKER_BACK_CENTER: u32 = 256u32;
@@ -10001,9 +8891,6 @@ impl Default for TRANSPORTAUDIOPARMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TRANSPORTAUDIOPARMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRANSPORTBASICPARMS {
@@ -10043,9 +8930,6 @@ impl Default for TRANSPORTBASICPARMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TRANSPORTBASICPARMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRANSPORTSTATUS {
@@ -10068,9 +8952,6 @@ impl Default for TRANSPORTSTATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TRANSPORTSTATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRANSPORTVIDEOPARMS {
@@ -10082,9 +8963,6 @@ impl Default for TRANSPORTVIDEOPARMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TRANSPORTVIDEOPARMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRANSPORT_STATE {
@@ -10095,9 +8973,6 @@ impl Default for TRANSPORT_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TRANSPORT_STATE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10115,9 +8990,6 @@ impl Default for TUNER_ANALOG_CAPS_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TUNER_ANALOG_CAPS_S {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -10137,9 +9009,6 @@ impl Default for VBICAP_PROPERTIES_PROTECTION_S {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VBICAP_PROPERTIES_PROTECTION_S {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VBICODECFILTERING_CC_SUBSTREAMS {
@@ -10149,9 +9018,6 @@ impl Default for VBICODECFILTERING_CC_SUBSTREAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VBICODECFILTERING_CC_SUBSTREAMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10163,9 +9029,6 @@ impl Default for VBICODECFILTERING_NABTS_SUBSTREAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VBICODECFILTERING_NABTS_SUBSTREAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VBICODECFILTERING_SCANLINES {
@@ -10175,9 +9038,6 @@ impl Default for VBICODECFILTERING_SCANLINES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VBICODECFILTERING_SCANLINES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10189,9 +9049,6 @@ impl Default for VBICODECFILTERING_STATISTICS_CC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VBICODECFILTERING_STATISTICS_CC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VBICODECFILTERING_STATISTICS_CC_PIN {
@@ -10201,9 +9058,6 @@ impl Default for VBICODECFILTERING_STATISTICS_CC_PIN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VBICODECFILTERING_STATISTICS_CC_PIN {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10228,9 +9082,6 @@ impl Default for VBICODECFILTERING_STATISTICS_COMMON {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VBICODECFILTERING_STATISTICS_COMMON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VBICODECFILTERING_STATISTICS_COMMON_PIN {
@@ -10247,9 +9098,6 @@ impl Default for VBICODECFILTERING_STATISTICS_COMMON_PIN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VBICODECFILTERING_STATISTICS_COMMON_PIN {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10268,9 +9116,6 @@ impl Default for VBICODECFILTERING_STATISTICS_NABTS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VBICODECFILTERING_STATISTICS_NABTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VBICODECFILTERING_STATISTICS_NABTS_PIN {
@@ -10280,9 +9125,6 @@ impl Default for VBICODECFILTERING_STATISTICS_NABTS_PIN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VBICODECFILTERING_STATISTICS_NABTS_PIN {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10294,9 +9136,6 @@ impl Default for VBICODECFILTERING_STATISTICS_TELETEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VBICODECFILTERING_STATISTICS_TELETEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VBICODECFILTERING_STATISTICS_TELETEXT_PIN {
@@ -10306,9 +9145,6 @@ impl Default for VBICODECFILTERING_STATISTICS_TELETEXT_PIN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VBICODECFILTERING_STATISTICS_TELETEXT_PIN {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10327,9 +9163,6 @@ impl Default for VRAM_SURFACE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VRAM_SURFACE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct VRAM_SURFACE_INFO_PROPERTY_S {
@@ -10340,9 +9173,6 @@ impl Default for VRAM_SURFACE_INFO_PROPERTY_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VRAM_SURFACE_INFO_PROPERTY_S {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WAVE_FORMAT_EXTENSIBLE: u32 = 65534u32;
 #[repr(C)]
@@ -10358,9 +9188,6 @@ impl Default for WNF_KSCAMERA_STREAMSTATE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WNF_KSCAMERA_STREAMSTATE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WST_BUFFER {
@@ -10372,9 +9199,6 @@ impl Default for WST_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WST_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WST_BUFFER_LINE {
@@ -10385,9 +9209,6 @@ impl Default for WST_BUFFER_LINE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WST_BUFFER_LINE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WST_BYTES_PER_LINE: u32 = 42u32;
 pub const WST_TVTUNER_CHANGE_BEGIN_TUNE: i32 = 4096i32;

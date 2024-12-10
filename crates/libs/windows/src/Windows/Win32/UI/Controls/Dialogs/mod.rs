@@ -213,10 +213,6 @@ impl Default for CHOOSECOLORA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for CHOOSECOLORA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -236,10 +232,6 @@ impl Default for CHOOSECOLORA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for CHOOSECOLORA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
@@ -261,10 +253,6 @@ impl Default for CHOOSECOLORW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for CHOOSECOLORW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -284,10 +272,6 @@ impl Default for CHOOSECOLORW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for CHOOSECOLORW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -354,11 +338,6 @@ impl Default for CHOOSEFONTA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for CHOOSEFONTA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -387,11 +366,6 @@ impl Default for CHOOSEFONTA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for CHOOSEFONTA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
@@ -422,11 +396,6 @@ impl Default for CHOOSEFONTW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for CHOOSEFONTW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -455,11 +424,6 @@ impl Default for CHOOSEFONTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for CHOOSEFONTW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -584,10 +548,6 @@ impl Default for DEVNAMES {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for DEVNAMES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -602,10 +562,6 @@ impl Default for DEVNAMES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for DEVNAMES {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DLG_COLOR: u32 = 10u32;
 pub const DN_DEFAULTPRN: u32 = 1u32;
@@ -637,10 +593,6 @@ impl Default for FINDREPLACEA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for FINDREPLACEA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -662,10 +614,6 @@ impl Default for FINDREPLACEA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for FINDREPLACEA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
@@ -689,10 +637,6 @@ impl Default for FINDREPLACEW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for FINDREPLACEW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -714,10 +658,6 @@ impl Default for FINDREPLACEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for FINDREPLACEW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -929,10 +869,6 @@ impl Default for OFNOTIFYA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for OFNOTIFYA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -947,10 +883,6 @@ impl Default for OFNOTIFYA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for OFNOTIFYA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -965,10 +897,6 @@ impl Default for OFNOTIFYEXA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for OFNOTIFYEXA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -985,10 +913,6 @@ impl Default for OFNOTIFYEXA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for OFNOTIFYEXA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -1003,10 +927,6 @@ impl Default for OFNOTIFYEXW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for OFNOTIFYEXW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -1023,10 +943,6 @@ impl Default for OFNOTIFYEXW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for OFNOTIFYEXW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -1041,10 +957,6 @@ impl Default for OFNOTIFYW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for OFNOTIFYW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1058,10 +970,6 @@ impl Default for OFNOTIFYW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for OFNOTIFYW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const OFN_ALLOWMULTISELECT: OPEN_FILENAME_FLAGS = OPEN_FILENAME_FLAGS(512u32);
 pub const OFN_CREATEPROMPT: OPEN_FILENAME_FLAGS = OPEN_FILENAME_FLAGS(8192u32);
@@ -1128,10 +1036,6 @@ impl Default for OPENFILENAMEA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for OPENFILENAMEA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1166,10 +1070,6 @@ impl Default for OPENFILENAMEA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for OPENFILENAMEA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -1203,10 +1103,6 @@ impl Default for OPENFILENAMEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for OPENFILENAMEW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -1242,10 +1138,6 @@ impl Default for OPENFILENAMEW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for OPENFILENAMEW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -1276,10 +1168,6 @@ impl Default for OPENFILENAME_NT4A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for OPENFILENAME_NT4A {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -1312,10 +1200,6 @@ impl Default for OPENFILENAME_NT4A {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for OPENFILENAME_NT4A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -1347,10 +1231,6 @@ impl Default for OPENFILENAME_NT4W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for OPENFILENAME_NT4W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1381,10 +1261,6 @@ impl Default for OPENFILENAME_NT4W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for OPENFILENAME_NT4W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1483,10 +1359,6 @@ impl Default for PAGESETUPDLGA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for PAGESETUPDLGA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1511,10 +1383,6 @@ impl Default for PAGESETUPDLGA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for PAGESETUPDLGA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
@@ -1541,10 +1409,6 @@ impl Default for PAGESETUPDLGW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for PAGESETUPDLGW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1569,10 +1433,6 @@ impl Default for PAGESETUPDLGW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for PAGESETUPDLGW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1686,11 +1546,6 @@ impl Default for PRINTDLGA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for PRINTDLGA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1723,11 +1578,6 @@ impl Default for PRINTDLGA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for PRINTDLGA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1760,11 +1610,6 @@ impl Default for PRINTDLGEXA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for PRINTDLGEXA {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -1800,11 +1645,6 @@ impl Default for PRINTDLGEXA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for PRINTDLGEXA {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1837,11 +1677,6 @@ impl Default for PRINTDLGEXW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for PRINTDLGEXW {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -1876,11 +1711,6 @@ impl Default for PRINTDLGEXW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for PRINTDLGEXW {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1950,11 +1780,6 @@ impl Default for PRINTDLGW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for PRINTDLGW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1987,11 +1812,6 @@ impl Default for PRINTDLGW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for PRINTDLGW {
-    type TypeKind = windows_core::CopyType;
-}
 pub const PRINTER_FONTTYPE: CHOOSEFONT_FONT_TYPE = CHOOSEFONT_FONT_TYPE(16384u16);
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
@@ -2006,10 +1826,6 @@ impl Default for PRINTPAGERANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for PRINTPAGERANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2022,10 +1838,6 @@ impl Default for PRINTPAGERANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for PRINTPAGERANGE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PSD_DEFAULTMINMARGINS: PAGESETUPDLG_FLAGS = PAGESETUPDLG_FLAGS(0u32);
 pub const PSD_DISABLEMARGINS: PAGESETUPDLG_FLAGS = PAGESETUPDLG_FLAGS(16u32);

@@ -421,9 +421,6 @@ impl Default for FAX_CONFIGURATIONA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FAX_CONFIGURATIONA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FAX_CONFIGURATIONW {
@@ -446,9 +443,6 @@ impl Default for FAX_CONFIGURATIONW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FAX_CONFIGURATIONW {
-    type TypeKind = windows_core::CopyType;
-}
 pub const FAX_CONFIG_QUERY: u32 = 4u32;
 pub const FAX_CONFIG_SET: u32 = 8u32;
 #[repr(C)]
@@ -465,10 +459,6 @@ impl Default for FAX_CONTEXT_INFOA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for FAX_CONTEXT_INFOA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -482,10 +472,6 @@ impl Default for FAX_CONTEXT_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for FAX_CONTEXT_INFOW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -525,9 +511,6 @@ impl Default for FAX_COVERPAGE_INFOA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FAX_COVERPAGE_INFOA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FAX_COVERPAGE_INFOW {
@@ -566,9 +549,6 @@ impl Default for FAX_COVERPAGE_INFOW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FAX_COVERPAGE_INFOW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAX_COVERPAGE_TYPE_ENUM(pub i32);
@@ -604,9 +584,6 @@ impl Default for FAX_DEVICE_STATUSA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FAX_DEVICE_STATUSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FAX_DEVICE_STATUSW {
@@ -636,9 +613,6 @@ impl Default for FAX_DEVICE_STATUSW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FAX_DEVICE_STATUSW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FAX_DEV_STATUS {
@@ -656,9 +630,6 @@ impl Default for FAX_DEV_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FAX_DEV_STATUS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -710,9 +681,6 @@ impl Default for FAX_EVENTA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FAX_EVENTA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FAX_EVENTW {
@@ -726,9 +694,6 @@ impl Default for FAX_EVENTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FAX_EVENTW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FAX_E_BAD_GROUP_CONFIGURATION: windows_core::HRESULT = windows_core::HRESULT(0x80041B5B_u32 as _);
 pub const FAX_E_DEVICE_NUM_LIMIT_EXCEEDED: windows_core::HRESULT = windows_core::HRESULT(0x80041B62_u32 as _);
@@ -759,9 +724,6 @@ impl Default for FAX_GLOBAL_ROUTING_INFOA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FAX_GLOBAL_ROUTING_INFOA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FAX_GLOBAL_ROUTING_INFOW {
@@ -777,9 +739,6 @@ impl Default for FAX_GLOBAL_ROUTING_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FAX_GLOBAL_ROUTING_INFOW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -813,9 +772,6 @@ impl Default for FAX_JOB_ENTRYA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FAX_JOB_ENTRYA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FAX_JOB_ENTRYW {
@@ -844,9 +800,6 @@ impl Default for FAX_JOB_ENTRYW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FAX_JOB_ENTRYW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -879,9 +832,6 @@ impl Default for FAX_JOB_PARAMA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FAX_JOB_PARAMA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FAX_JOB_PARAMW {
@@ -906,9 +856,6 @@ impl Default for FAX_JOB_PARAMW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FAX_JOB_PARAMW {
-    type TypeKind = windows_core::CopyType;
-}
 pub const FAX_JOB_QUERY: u32 = 2u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -929,9 +876,6 @@ impl Default for FAX_LOG_CATEGORYA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FAX_LOG_CATEGORYA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FAX_LOG_CATEGORYW {
@@ -943,9 +887,6 @@ impl Default for FAX_LOG_CATEGORYW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FAX_LOG_CATEGORYW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -968,9 +909,6 @@ impl Default for FAX_PORT_INFOA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FAX_PORT_INFOA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FAX_PORT_INFOW {
@@ -988,9 +926,6 @@ impl Default for FAX_PORT_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FAX_PORT_INFOW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FAX_PORT_QUERY: u32 = 16u32;
 pub const FAX_PORT_SET: u32 = 32u32;
@@ -1014,9 +949,6 @@ impl Default for FAX_PRINT_INFOA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FAX_PRINT_INFOA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FAX_PRINT_INFOW {
@@ -1036,9 +968,6 @@ impl Default for FAX_PRINT_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FAX_PRINT_INFOW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1062,9 +991,6 @@ impl Default for FAX_RECEIVE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FAX_RECEIVE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1090,9 +1016,6 @@ impl Default for FAX_ROUTE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FAX_ROUTE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FAX_ROUTE_CALLBACKROUTINES {
@@ -1107,9 +1030,6 @@ impl Default for FAX_ROUTE_CALLBACKROUTINES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FAX_ROUTE_CALLBACKROUTINES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1129,9 +1049,6 @@ impl Default for FAX_ROUTING_METHODA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FAX_ROUTING_METHODA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FAX_ROUTING_METHODW {
@@ -1149,9 +1066,6 @@ impl Default for FAX_ROUTING_METHODW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FAX_ROUTING_METHODW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1180,9 +1094,6 @@ impl Default for FAX_SEND {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FAX_SEND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAX_SERVER_APIVERSION_ENUM(pub i32);
@@ -1202,9 +1113,6 @@ impl Default for FAX_TIME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FAX_TIME {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FEI_ABORTING: u32 = 15u32;
 pub const FEI_ANSWERED: u32 = 21u32;
@@ -13157,9 +13065,6 @@ impl Default for STINOTIFY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STINOTIFY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STISUBSCRIBE {
@@ -13174,9 +13079,6 @@ impl Default for STISUBSCRIBE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STISUBSCRIBE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const STI_ADD_DEVICE_BROADCAST_ACTION: windows_core::PCSTR = windows_core::s!("Arrival");
 pub const STI_ADD_DEVICE_BROADCAST_STRING: windows_core::PCSTR = windows_core::s!("STI\\");
@@ -13205,9 +13107,6 @@ impl Default for STI_DEVICE_INFORMATIONW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STI_DEVICE_INFORMATIONW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STI_DEVICE_MJ_TYPE(pub i32);
@@ -13225,9 +13124,6 @@ impl Default for STI_DEVICE_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STI_DEVICE_STATUS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const STI_DEVICE_VALUE_DEFAULT_LAUNCHAPP: windows_core::PCWSTR = windows_core::w!("DefaultLaunchApp");
 pub const STI_DEVICE_VALUE_DEFAULT_LAUNCHAPP_A: windows_core::PCSTR = windows_core::s!("DefaultLaunchApp");
@@ -13253,9 +13149,6 @@ impl Default for STI_DEV_CAPS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STI_DEV_CAPS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STI_DIAG {
@@ -13269,9 +13162,6 @@ impl Default for STI_DIAG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STI_DIAG {
-    type TypeKind = windows_core::CopyType;
 }
 pub const STI_DIAGCODE_HWPRESENCE: u32 = 1u32;
 pub const STI_ERROR_NO_ERROR: i32 = 0i32;
@@ -13327,9 +13217,6 @@ impl Default for STI_USD_CAPS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STI_USD_CAPS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const STI_USD_GENCAP_NATIVE_PUSHSUPPORT: u32 = 1u32;
 pub const STI_VERSION: u32 = 2u32;
 pub const STI_VERSION_FLAG_MASK: u32 = 4278190080u32;
@@ -13357,9 +13244,6 @@ impl Default for STI_WIA_DEVICE_INFORMATIONW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STI_WIA_DEVICE_INFORMATIONW {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SUPPORTS_MSCPLUS_STR: windows_core::PCWSTR = windows_core::w!("SupportsMSCPlus");
 pub const SUPPORTS_MSCPLUS_VAL: u32 = 1u32;
 #[repr(transparent)]
@@ -13382,9 +13266,6 @@ impl Default for _ERROR_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for _ERROR_INFOW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const faetFXSSVC_ENDED: FAX_ACCOUNT_EVENTS_TYPE_ENUM = FAX_ACCOUNT_EVENTS_TYPE_ENUM(16i32);
 pub const faetIN_ARCHIVE: FAX_ACCOUNT_EVENTS_TYPE_ENUM = FAX_ACCOUNT_EVENTS_TYPE_ENUM(4i32);

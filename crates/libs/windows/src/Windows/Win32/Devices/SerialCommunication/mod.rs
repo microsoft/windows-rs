@@ -135,9 +135,6 @@ impl Default for SERENUM_PORT_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERENUM_PORT_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERENUM_PORT_PARAMETERS {
@@ -155,9 +152,6 @@ impl Default for SERENUM_PORT_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERENUM_PORT_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERIALCONFIG {
@@ -172,9 +166,6 @@ impl Default for SERIALCONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SERIALCONFIG {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -191,9 +182,6 @@ impl Default for SERIALPERF_STATS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERIALPERF_STATS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERIAL_BASIC_SETTINGS {
@@ -207,9 +195,6 @@ impl Default for SERIAL_BASIC_SETTINGS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERIAL_BASIC_SETTINGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERIAL_BAUD_RATE {
@@ -219,9 +204,6 @@ impl Default for SERIAL_BAUD_RATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SERIAL_BAUD_RATE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -237,9 +219,6 @@ impl Default for SERIAL_CHARS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SERIAL_CHARS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -268,9 +247,6 @@ impl Default for SERIAL_COMMPROP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERIAL_COMMPROP {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SERIAL_EV_BREAK: u32 = 64u32;
 pub const SERIAL_EV_CTS: u32 = 8u32;
 pub const SERIAL_EV_DSR: u32 = 16u32;
@@ -297,9 +273,6 @@ impl Default for SERIAL_HANDFLOW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERIAL_HANDFLOW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERIAL_LINE_CONTROL {
@@ -311,9 +284,6 @@ impl Default for SERIAL_LINE_CONTROL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SERIAL_LINE_CONTROL {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SERIAL_LSRMST_ESCAPE: u16 = 0u16;
 pub const SERIAL_LSRMST_LSR_DATA: u16 = 1u16;
@@ -334,9 +304,6 @@ impl Default for SERIAL_QUEUE_SIZE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERIAL_QUEUE_SIZE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERIAL_STATUS {
@@ -352,9 +319,6 @@ impl Default for SERIAL_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERIAL_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERIAL_TIMEOUTS {
@@ -369,9 +333,6 @@ impl Default for SERIAL_TIMEOUTS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERIAL_TIMEOUTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERIAL_XOFF_COUNTER {
@@ -383,9 +344,6 @@ impl Default for SERIAL_XOFF_COUNTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SERIAL_XOFF_COUNTER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SPACE_PARITY: u32 = 4u32;
 pub const STOP_BITS_1_5: u32 = 1u32;

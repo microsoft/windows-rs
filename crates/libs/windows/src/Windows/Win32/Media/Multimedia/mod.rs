@@ -1159,9 +1159,6 @@ impl Default for ADPCMCOEFSET {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ADPCMCOEFSET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy)]
@@ -1174,10 +1171,6 @@ impl Default for ADPCMEWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for ADPCMEWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -1194,10 +1187,6 @@ impl Default for ADPCMWAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for ADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy)]
@@ -1209,10 +1198,6 @@ impl Default for APTXWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for APTXWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -1226,10 +1211,6 @@ impl Default for AUDIOFILE_AF10WAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for AUDIOFILE_AF10WAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy)]
@@ -1241,10 +1222,6 @@ impl Default for AUDIOFILE_AF36WAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for AUDIOFILE_AF36WAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const AUXDM_GETDEVCAPS: u32 = 4u32;
 pub const AUXDM_GETNUMDEVS: u32 = 3u32;
@@ -1276,9 +1253,6 @@ impl Default for AVICOMPRESSOPTIONS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AVICOMPRESSOPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const AVIERR_OK: i32 = 0i32;
 pub const AVIFILECAPS_ALLKEYFRAMES: u32 = 16u32;
 pub const AVIFILECAPS_CANREAD: u32 = 1u32;
@@ -1308,9 +1282,6 @@ impl Default for AVIFILEINFOA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AVIFILEINFOA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AVIFILEINFOW {
@@ -1331,9 +1302,6 @@ impl Default for AVIFILEINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AVIFILEINFOW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const AVIFILEINFO_COPYRIGHTED: u32 = 131072u32;
 pub const AVIFILEINFO_HASINDEX: u32 = 16u32;
@@ -1371,9 +1339,6 @@ impl Default for AVISTREAMINFOA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AVISTREAMINFOA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AVISTREAMINFOW {
@@ -1400,9 +1365,6 @@ impl Default for AVISTREAMINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for AVISTREAMINFOW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const AVISTREAMINFO_DISABLED: u32 = 1u32;
 pub const AVISTREAMINFO_FORMATCHANGES: u32 = 65536u32;
@@ -1431,9 +1393,6 @@ impl Default for CAPDRIVERCAPS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CAPDRIVERCAPS {
-    type TypeKind = windows_core::CopyType;
-}
 pub type CAPERRORCALLBACKA = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: windows_core::PCSTR) -> super::super::Foundation::LRESULT>;
 pub type CAPERRORCALLBACKW = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: windows_core::PCWSTR) -> super::super::Foundation::LRESULT>;
 #[repr(C)]
@@ -1447,9 +1406,6 @@ impl Default for CAPINFOCHUNK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CAPINFOCHUNK {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1479,10 +1435,6 @@ impl Default for CAPSTATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for CAPSTATUS {
-    type TypeKind = windows_core::CopyType;
 }
 pub type CAPSTATUSCALLBACKA = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: windows_core::PCSTR) -> super::super::Foundation::LRESULT>;
 pub type CAPSTATUSCALLBACKW = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: windows_core::PCWSTR) -> super::super::Foundation::LRESULT>;
@@ -1519,9 +1471,6 @@ impl Default for CAPTUREPARMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CAPTUREPARMS {
-    type TypeKind = windows_core::CopyType;
-}
 pub type CAPVIDEOCALLBACK = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, lpvhdr: *const VIDEOHDR) -> super::super::Foundation::LRESULT>;
 #[cfg(feature = "Win32_Media_Audio")]
 pub type CAPWAVECALLBACK = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, lpwhdr: *const super::Audio::WAVEHDR) -> super::super::Foundation::LRESULT>;
@@ -1543,9 +1492,6 @@ impl Default for CHANNEL_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CHANNEL_CAPS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CLSID_AVIFile: windows_core::GUID = windows_core::GUID::from_u128(0x00020000_0000_0000_c000_000000000046);
 pub const CLSID_AVISimpleUnMarshal: windows_core::GUID = windows_core::GUID::from_u128(0x00020009_0000_0000_c000_000000000046);
@@ -1576,10 +1522,6 @@ impl Default for COMPVARS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for COMPVARS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy)]
@@ -1593,10 +1535,6 @@ impl Default for CONTRESCR10WAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for CONTRESCR10WAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy)]
@@ -1609,10 +1547,6 @@ impl Default for CONTRESVQLPCWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for CONTRESVQLPCWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CONTROLCALLBACK_CAPTURING: u32 = 2u32;
 pub const CONTROLCALLBACK_PREROLL: u32 = 1u32;
@@ -1629,10 +1563,6 @@ impl Default for CREATIVEADPCMWAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for CREATIVEADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy)]
@@ -1645,10 +1575,6 @@ impl Default for CREATIVEFASTSPEECH10WAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for CREATIVEFASTSPEECH10WAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -1663,10 +1589,6 @@ impl Default for CREATIVEFASTSPEECH8WAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for CREATIVEFASTSPEECH8WAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CRYSTAL_NET_SFM_CODEC: u32 = 1u32;
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -1679,10 +1601,6 @@ impl Default for CSIMAADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for CSIMAADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DCB_EVENT: u32 = 5u32;
 pub const DCB_FUNCTION: u32 = 3u32;
@@ -1720,10 +1638,6 @@ impl Default for DIALOGICOKIADPCMWAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for DIALOGICOKIADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy)]
@@ -1737,10 +1651,6 @@ impl Default for DIGIADPCMWAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for DIGIADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy)]
@@ -1752,10 +1662,6 @@ impl Default for DIGIFIXWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for DIGIFIXWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -1770,10 +1676,6 @@ impl Default for DIGIREALWAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for DIGIREALWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy)]
@@ -1785,10 +1687,6 @@ impl Default for DIGISTDWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for DIGISTDWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DLG_ACMFILTERCHOOSE_ID: u32 = 71u32;
 pub const DLG_ACMFORMATCHOOSE_ID: u32 = 70u32;
@@ -1805,10 +1703,6 @@ impl Default for DOLBYAC2WAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for DOLBYAC2WAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DRAWDIBTIME {
@@ -1824,9 +1718,6 @@ impl Default for DRAWDIBTIME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DRAWDIBTIME {
-    type TypeKind = windows_core::CopyType;
 }
 pub type DRIVERMSGPROC = Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: usize, param3: usize, param4: usize) -> u32>;
 pub type DRIVERPROC = Option<unsafe extern "system" fn(param0: usize, param1: HDRVR, param2: u32, param3: super::super::Foundation::LPARAM, param4: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
@@ -1846,10 +1737,6 @@ impl Default for DRMWAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for DRMWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DRVCNF_CANCEL: u32 = 0u32;
 pub const DRVCNF_OK: u32 = 1u32;
 pub const DRVCNF_RESTART: u32 = 2u32;
@@ -1865,9 +1752,6 @@ impl Default for DRVCONFIGINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DRVCONFIGINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DRVCONFIGINFOEX {
@@ -1880,9 +1764,6 @@ impl Default for DRVCONFIGINFOEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DRVCONFIGINFOEX {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DRVM_ADD_THRU: u32 = 257u32;
 pub const DRVM_DISABLE: u32 = 102u32;
@@ -1903,9 +1784,6 @@ impl Default for DRVM_IOCTL_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DRVM_IOCTL_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DRVM_IOCTL_LAST: u32 = 261u32;
 pub const DRVM_MAPPER_CONSOLEVOICECOM_GET: u32 = 8215u32;
@@ -1956,10 +1834,6 @@ impl Default for DVIADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for DVIADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DVM_CONFIGURE_END: u32 = 8191u32;
 pub const DVM_CONFIGURE_START: u32 = 4096u32;
@@ -2017,10 +1891,6 @@ impl Default for ECHOSC1WAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for ECHOSC1WAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
@@ -2033,10 +1903,6 @@ impl Default for EXBMINFOHEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for EXBMINFOHEADER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FACILITY_NS: u32 = 13u32;
 pub const FACILITY_NS_WIN32: u32 = 7u32;
@@ -2067,10 +1933,6 @@ impl Default for FMTOWNS_SND_WAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for FMTOWNS_SND_WAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy)]
@@ -2083,10 +1945,6 @@ impl Default for G721_ADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for G721_ADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -2102,10 +1960,6 @@ impl Default for G723_ADPCMWAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for G723_ADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy)]
@@ -2118,10 +1972,6 @@ impl Default for GSM610WAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for GSM610WAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -2601,10 +2451,6 @@ impl Default for ICCOMPRESS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for ICCOMPRESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2632,10 +2478,6 @@ impl Default for ICCOMPRESSFRAMES {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for ICCOMPRESSFRAMES {
-    type TypeKind = windows_core::CopyType;
-}
 pub const ICCOMPRESSFRAMES_PADDING: u32 = 1u32;
 pub const ICCOMPRESS_KEYFRAME: i32 = 1i32;
 #[repr(C)]
@@ -2654,10 +2496,6 @@ impl Default for ICDECOMPRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for ICDECOMPRESS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2683,10 +2521,6 @@ impl Default for ICDECOMPRESSEX {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for ICDECOMPRESSEX {
-    type TypeKind = windows_core::CopyType;
-}
 pub const ICDECOMPRESS_HURRYUP: i32 = -2147483648i32;
 pub const ICDECOMPRESS_NOTKEYFRAME: i32 = 134217728i32;
 pub const ICDECOMPRESS_NULLFRAME: i32 = 268435456i32;
@@ -2705,9 +2539,6 @@ impl Default for ICDRAW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ICDRAW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2735,10 +2566,6 @@ impl Default for ICDRAWBEGIN {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for ICDRAWBEGIN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2756,10 +2583,6 @@ impl Default for ICDRAWSUGGEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for ICDRAWSUGGEST {
-    type TypeKind = windows_core::CopyType;
 }
 pub const ICDRAW_ANIMATE: i32 = 8i32;
 pub const ICDRAW_BUFFER: i32 = 256i32;
@@ -2811,9 +2634,6 @@ impl Default for ICINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ICINFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const ICINSTALL_DRIVER: u32 = 2u32;
 pub const ICINSTALL_DRIVERW: u32 = 32770u32;
@@ -2912,9 +2732,6 @@ impl Default for ICOPEN {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ICOPEN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2930,10 +2747,6 @@ impl Default for ICPALETTE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for ICPALETTE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const ICQUALITY_DEFAULT: i32 = -1i32;
 pub const ICQUALITY_HIGH: u32 = 10000u32;
 pub const ICQUALITY_LOW: u32 = 0u32;
@@ -2948,9 +2761,6 @@ impl Default for ICSETSTATUSPROC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ICSETSTATUSPROC {
-    type TypeKind = windows_core::CopyType;
 }
 pub const ICSTATUS_END: u32 = 2u32;
 pub const ICSTATUS_ERROR: u32 = 3u32;
@@ -3109,10 +2919,6 @@ impl Default for IMAADPCMWAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for IMAADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const JDD_CONFIGCHANGED: u32 = 2307u32;
 pub const JDD_GETDEVCAPS: u32 = 2050u32;
 pub const JDD_GETNUMDEVS: u32 = 2049u32;
@@ -3214,9 +3020,6 @@ impl Default for JOYCAPS2A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for JOYCAPS2A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct JOYCAPS2W {
@@ -3253,9 +3056,6 @@ impl Default for JOYCAPS2W {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for JOYCAPS2W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct JOYCAPSA {
@@ -3288,9 +3088,6 @@ impl Default for JOYCAPSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for JOYCAPSA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -3325,9 +3122,6 @@ impl Default for JOYCAPSW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for JOYCAPSW {
-    type TypeKind = windows_core::CopyType;
-}
 pub const JOYCAPS_HASPOV: u32 = 16u32;
 pub const JOYCAPS_HASR: u32 = 2u32;
 pub const JOYCAPS_HASU: u32 = 4u32;
@@ -3352,9 +3146,6 @@ impl Default for JOYINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for JOYINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct JOYINFOEX {
@@ -3376,9 +3167,6 @@ impl Default for JOYINFOEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for JOYINFOEX {
-    type TypeKind = windows_core::CopyType;
 }
 pub const JOYSTICKID1: u32 = 0u32;
 pub const JOYSTICKID2: u32 = 1u32;
@@ -3461,9 +3249,6 @@ impl Default for JPEGINFOHEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for JPEGINFOHEADER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const JPEG_PROCESS_BASELINE: u32 = 0u32;
 pub const JPEG_RGB: u32 = 3u32;
@@ -3694,9 +3479,6 @@ impl Default for MCI_ANIM_OPEN_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_ANIM_OPEN_PARMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_ANIM_OPEN_PARMSW {
@@ -3713,9 +3495,6 @@ impl Default for MCI_ANIM_OPEN_PARMSW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_ANIM_OPEN_PARMSW {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MCI_ANIM_OPEN_WS: i32 = 65536i32;
 pub const MCI_ANIM_PLAY_FAST: i32 = 262144i32;
 #[repr(C, packed(1))]
@@ -3730,9 +3509,6 @@ impl Default for MCI_ANIM_PLAY_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_ANIM_PLAY_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MCI_ANIM_PLAY_REVERSE: i32 = 131072i32;
 pub const MCI_ANIM_PLAY_SCAN: i32 = 1048576i32;
@@ -3754,9 +3530,6 @@ impl Default for MCI_ANIM_RECT_PARMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_ANIM_RECT_PARMS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MCI_ANIM_STATUS_FORWARD: i32 = 16386i32;
 pub const MCI_ANIM_STATUS_HPAL: i32 = 16388i32;
 pub const MCI_ANIM_STATUS_HWND: i32 = 16387i32;
@@ -3774,9 +3547,6 @@ impl Default for MCI_ANIM_STEP_PARMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_ANIM_STEP_PARMS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MCI_ANIM_STEP_REVERSE: i32 = 65536i32;
 pub const MCI_ANIM_UPDATE_HDC: i32 = 131072i32;
 #[repr(C, packed(1))]
@@ -3792,10 +3562,6 @@ impl Default for MCI_ANIM_UPDATE_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for MCI_ANIM_UPDATE_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MCI_ANIM_WHERE_DESTINATION: i32 = 262144i32;
 pub const MCI_ANIM_WHERE_SOURCE: i32 = 131072i32;
@@ -3816,9 +3582,6 @@ impl Default for MCI_ANIM_WINDOW_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_ANIM_WINDOW_PARMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_ANIM_WINDOW_PARMSW {
@@ -3831,9 +3594,6 @@ impl Default for MCI_ANIM_WINDOW_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_ANIM_WINDOW_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MCI_ANIM_WINDOW_STATE: i32 = 262144i32;
 pub const MCI_ANIM_WINDOW_TEXT: i32 = 524288i32;
@@ -3858,9 +3618,6 @@ impl Default for MCI_BREAK_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_BREAK_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MCI_CAPTURE: u32 = 2160u32;
 pub const MCI_CDA_STATUS_TYPE_TRACK: i32 = 16385i32;
@@ -3905,9 +3662,6 @@ impl Default for MCI_DGV_CAPTURE_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_CAPTURE_PARMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_DGV_CAPTURE_PARMSW {
@@ -3919,9 +3673,6 @@ impl Default for MCI_DGV_CAPTURE_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_CAPTURE_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MCI_DGV_COPY_AT: i32 = 65536i32;
 pub const MCI_DGV_COPY_AUDIO_STREAM: i32 = 131072i32;
@@ -3940,9 +3691,6 @@ impl Default for MCI_DGV_COPY_PARMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_COPY_PARMS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MCI_DGV_COPY_VIDEO_STREAM: i32 = 262144i32;
 pub const MCI_DGV_CUE_INPUT: i32 = 65536i32;
 pub const MCI_DGV_CUE_NOSHOW: i32 = 262144i32;
@@ -3957,9 +3705,6 @@ impl Default for MCI_DGV_CUE_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_CUE_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MCI_DGV_CUT_AT: i32 = 65536i32;
 pub const MCI_DGV_CUT_AUDIO_STREAM: i32 = 131072i32;
@@ -3978,9 +3723,6 @@ impl Default for MCI_DGV_CUT_PARMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_CUT_PARMS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MCI_DGV_CUT_VIDEO_STREAM: i32 = 262144i32;
 pub const MCI_DGV_DELETE_AT: i32 = 65536i32;
 pub const MCI_DGV_DELETE_AUDIO_STREAM: i32 = 131072i32;
@@ -3998,9 +3740,6 @@ impl Default for MCI_DGV_DELETE_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_DELETE_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MCI_DGV_DELETE_VIDEO_STREAM: i32 = 262144i32;
 pub const MCI_DGV_FF_AVI: i32 = 16385i32;
@@ -4049,9 +3788,6 @@ impl Default for MCI_DGV_INFO_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_INFO_PARMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_DGV_INFO_PARMSW {
@@ -4064,9 +3800,6 @@ impl Default for MCI_DGV_INFO_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_INFO_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MCI_DGV_INFO_STILL_ALG: i32 = 16389i32;
 pub const MCI_DGV_INFO_STILL_QUALITY: i32 = 16386i32;
@@ -4097,9 +3830,6 @@ impl Default for MCI_DGV_LIST_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_LIST_PARMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_DGV_LIST_PARMSW {
@@ -4114,9 +3844,6 @@ impl Default for MCI_DGV_LIST_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_LIST_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MCI_DGV_LIST_STILL_ALG: i32 = 16387i32;
 pub const MCI_DGV_LIST_STILL_QUALITY: i32 = 16388i32;
@@ -4142,9 +3869,6 @@ impl Default for MCI_DGV_MONITOR_PARMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_MONITOR_PARMS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MCI_DGV_MONITOR_SOURCE: i32 = 131072i32;
 pub const MCI_DGV_OPEN_16BIT: i32 = 524288i32;
 pub const MCI_DGV_OPEN_32BIT: i32 = 1048576i32;
@@ -4166,9 +3890,6 @@ impl Default for MCI_DGV_OPEN_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_OPEN_PARMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_DGV_OPEN_PARMSW {
@@ -4184,9 +3905,6 @@ impl Default for MCI_DGV_OPEN_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_OPEN_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MCI_DGV_OPEN_WS: i32 = 65536i32;
 pub const MCI_DGV_PASTE_AT: i32 = 65536i32;
@@ -4206,9 +3924,6 @@ impl Default for MCI_DGV_PASTE_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_PASTE_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MCI_DGV_PASTE_VIDEO_STREAM: i32 = 262144i32;
 pub const MCI_DGV_PLAY_REPEAT: i32 = 65536i32;
@@ -4233,9 +3948,6 @@ impl Default for MCI_DGV_QUALITY_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_QUALITY_PARMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_DGV_QUALITY_PARMSW {
@@ -4249,9 +3961,6 @@ impl Default for MCI_DGV_QUALITY_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_QUALITY_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MCI_DGV_REALIZE_BKGD: i32 = 131072i32;
 pub const MCI_DGV_REALIZE_NORM: i32 = 65536i32;
@@ -4272,9 +3981,6 @@ impl Default for MCI_DGV_RECORD_PARMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_RECORD_PARMS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MCI_DGV_RECORD_VIDEO_STREAM: i32 = 524288i32;
 pub const MCI_DGV_RECT: i32 = 65536i32;
 #[repr(C, packed(1))]
@@ -4287,9 +3993,6 @@ impl Default for MCI_DGV_RECT_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_RECT_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MCI_DGV_RESERVE_IN: i32 = 65536i32;
 #[repr(C, packed(1))]
@@ -4304,9 +4007,6 @@ impl Default for MCI_DGV_RESERVE_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_RESERVE_PARMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_DGV_RESERVE_PARMSW {
@@ -4318,9 +4018,6 @@ impl Default for MCI_DGV_RESERVE_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_RESERVE_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MCI_DGV_RESERVE_SIZE: i32 = 131072i32;
 pub const MCI_DGV_RESTORE_AT: i32 = 131072i32;
@@ -4337,9 +4034,6 @@ impl Default for MCI_DGV_RESTORE_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_RESTORE_PARMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_DGV_RESTORE_PARMSW {
@@ -4351,9 +4045,6 @@ impl Default for MCI_DGV_RESTORE_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_RESTORE_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MCI_DGV_SAVE_ABORT: i32 = 131072i32;
 pub const MCI_DGV_SAVE_KEEPRESERVE: i32 = 262144i32;
@@ -4369,9 +4060,6 @@ impl Default for MCI_DGV_SAVE_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_SAVE_PARMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_DGV_SAVE_PARMSW {
@@ -4383,9 +4071,6 @@ impl Default for MCI_DGV_SAVE_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_SAVE_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MCI_DGV_SETAUDIO_ALG: i32 = 262144i32;
 pub const MCI_DGV_SETAUDIO_AVGBYTESPERSEC: i32 = 16390i32;
@@ -4413,9 +4098,6 @@ impl Default for MCI_DGV_SETAUDIO_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_SETAUDIO_PARMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_DGV_SETAUDIO_PARMSW {
@@ -4430,9 +4112,6 @@ impl Default for MCI_DGV_SETAUDIO_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_SETAUDIO_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MCI_DGV_SETAUDIO_QUALITY: i32 = 524288i32;
 pub const MCI_DGV_SETAUDIO_RECORD: i32 = 1048576i32;
@@ -4482,9 +4161,6 @@ impl Default for MCI_DGV_SETVIDEO_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_SETVIDEO_PARMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_DGV_SETVIDEO_PARMSW {
@@ -4500,9 +4176,6 @@ impl Default for MCI_DGV_SETVIDEO_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_SETVIDEO_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MCI_DGV_SETVIDEO_QUALITY: i32 = 65536i32;
 pub const MCI_DGV_SETVIDEO_RECORD: i32 = 4194304i32;
@@ -4540,9 +4213,6 @@ impl Default for MCI_DGV_SET_PARMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_SET_PARMS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MCI_DGV_SET_SEEK_EXACTLY: i32 = 65536i32;
 pub const MCI_DGV_SET_SPEED: i32 = 131072i32;
 pub const MCI_DGV_SET_STILL: i32 = 262144i32;
@@ -4561,9 +4231,6 @@ impl Default for MCI_DGV_SIGNAL_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_SIGNAL_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MCI_DGV_SIGNAL_POSITION: i32 = 1048576i32;
 pub const MCI_DGV_SIGNAL_USERVAL: i32 = 262144i32;
@@ -4612,9 +4279,6 @@ impl Default for MCI_DGV_STATUS_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_STATUS_PARMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_DGV_STATUS_PARMSW {
@@ -4629,9 +4293,6 @@ impl Default for MCI_DGV_STATUS_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_STATUS_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MCI_DGV_STATUS_PAUSE_MODE: i32 = 16422i32;
 pub const MCI_DGV_STATUS_RECORD: i32 = 16777216i32;
@@ -4668,9 +4329,6 @@ impl Default for MCI_DGV_STEP_PARMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_STEP_PARMS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MCI_DGV_STEP_REVERSE: i32 = 65536i32;
 pub const MCI_DGV_STOP_HOLD: i32 = 65536i32;
 pub const MCI_DGV_UPDATE_HDC: i32 = 131072i32;
@@ -4688,10 +4346,6 @@ impl Default for MCI_DGV_UPDATE_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for MCI_DGV_UPDATE_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MCI_DGV_WHERE_DESTINATION: i32 = 262144i32;
 pub const MCI_DGV_WHERE_FRAME: i32 = 524288i32;
@@ -4714,9 +4368,6 @@ impl Default for MCI_DGV_WINDOW_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_WINDOW_PARMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_DGV_WINDOW_PARMSW {
@@ -4729,9 +4380,6 @@ impl Default for MCI_DGV_WINDOW_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_WINDOW_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MCI_DGV_WINDOW_STATE: i32 = 262144i32;
 pub const MCI_DGV_WINDOW_TEXT: i32 = 524288i32;
@@ -4776,9 +4424,6 @@ impl Default for MCI_GENERIC_PARMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_GENERIC_PARMS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MCI_GETDEVCAPS: u32 = 2059u32;
 pub const MCI_GETDEVCAPS_CAN_EJECT: i32 = 7i32;
 pub const MCI_GETDEVCAPS_CAN_PLAY: i32 = 8i32;
@@ -4800,9 +4445,6 @@ impl Default for MCI_GETDEVCAPS_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_GETDEVCAPS_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MCI_GETDEVCAPS_USES_FILES: i32 = 5i32;
 pub const MCI_HDC: u32 = 12u32;
@@ -4826,9 +4468,6 @@ impl Default for MCI_INFO_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_INFO_PARMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_INFO_PARMSW {
@@ -4840,9 +4479,6 @@ impl Default for MCI_INFO_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_INFO_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MCI_INFO_PRODUCT: i32 = 256i32;
 pub const MCI_INFO_VERSION: i32 = 1024i32;
@@ -4864,9 +4500,6 @@ impl Default for MCI_LOAD_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_LOAD_PARMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_LOAD_PARMSW {
@@ -4877,9 +4510,6 @@ impl Default for MCI_LOAD_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_LOAD_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MCI_MAX_DEVICE_TYPE_LENGTH: u32 = 80u32;
 pub const MCI_MCIAVI_PLAY_FULLBY2: i32 = 67108864i32;
@@ -4918,9 +4548,6 @@ impl Default for MCI_OPEN_DRIVER_PARMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_OPEN_DRIVER_PARMS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MCI_OPEN_ELEMENT: i32 = 512i32;
 pub const MCI_OPEN_ELEMENT_ID: i32 = 2048i32;
 #[repr(C, packed(1))]
@@ -4937,9 +4564,6 @@ impl Default for MCI_OPEN_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_OPEN_PARMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_OPEN_PARMSW {
@@ -4953,9 +4577,6 @@ impl Default for MCI_OPEN_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_OPEN_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MCI_OPEN_SHAREABLE: i32 = 256i32;
 pub const MCI_OPEN_TYPE: i32 = 8192i32;
@@ -4976,9 +4597,6 @@ impl Default for MCI_OVLY_LOAD_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_OVLY_LOAD_PARMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_OVLY_LOAD_PARMSW {
@@ -4990,9 +4608,6 @@ impl Default for MCI_OVLY_LOAD_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_OVLY_LOAD_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MCI_OVLY_OPEN_PARENT: i32 = 131072i32;
 #[repr(C, packed(1))]
@@ -5011,9 +4626,6 @@ impl Default for MCI_OVLY_OPEN_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_OVLY_OPEN_PARMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_OVLY_OPEN_PARMSW {
@@ -5029,9 +4641,6 @@ impl Default for MCI_OVLY_OPEN_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_OVLY_OPEN_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MCI_OVLY_OPEN_WS: i32 = 65536i32;
 pub const MCI_OVLY_PUT_DESTINATION: i32 = 262144i32;
@@ -5050,9 +4659,6 @@ impl Default for MCI_OVLY_RECT_PARMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_OVLY_RECT_PARMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_OVLY_SAVE_PARMSA {
@@ -5065,9 +4671,6 @@ impl Default for MCI_OVLY_SAVE_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_OVLY_SAVE_PARMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_OVLY_SAVE_PARMSW {
@@ -5079,9 +4682,6 @@ impl Default for MCI_OVLY_SAVE_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_OVLY_SAVE_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MCI_OVLY_STATUS_HWND: i32 = 16385i32;
 pub const MCI_OVLY_STATUS_STRETCH: i32 = 16386i32;
@@ -5106,9 +4706,6 @@ impl Default for MCI_OVLY_WINDOW_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_OVLY_WINDOW_PARMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_OVLY_WINDOW_PARMSW {
@@ -5121,9 +4718,6 @@ impl Default for MCI_OVLY_WINDOW_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_OVLY_WINDOW_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MCI_OVLY_WINDOW_STATE: i32 = 262144i32;
 pub const MCI_OVLY_WINDOW_TEXT: i32 = 524288i32;
@@ -5141,9 +4735,6 @@ impl Default for MCI_PLAY_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_PLAY_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MCI_PUT: u32 = 2114u32;
 pub const MCI_QUALITY: u32 = 2167u32;
@@ -5171,9 +4762,6 @@ impl Default for MCI_RECORD_PARMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_RECORD_PARMS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MCI_RECT: u32 = 7u32;
 pub const MCI_RESERVE: u32 = 2162u32;
 pub const MCI_RESOURCE_DRIVER: u32 = 1048576u32;
@@ -5194,9 +4782,6 @@ impl Default for MCI_SAVE_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_SAVE_PARMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_SAVE_PARMSW {
@@ -5207,9 +4792,6 @@ impl Default for MCI_SAVE_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_SAVE_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MCI_SECTION: windows_core::PCWSTR = windows_core::w!("MCI32");
 pub const MCI_SEEK: u32 = 2055u32;
@@ -5223,9 +4805,6 @@ impl Default for MCI_SEEK_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_SEEK_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MCI_SEEK_TO_END: i32 = 512i32;
 pub const MCI_SEEK_TO_START: i32 = 256i32;
@@ -5257,9 +4836,6 @@ impl Default for MCI_SEQ_SET_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_SEQ_SET_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MCI_SEQ_SET_PORT: i32 = 131072i32;
 pub const MCI_SEQ_SET_SLAVE: i32 = 262144i32;
@@ -5297,9 +4873,6 @@ impl Default for MCI_SET_PARMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_SET_PARMS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MCI_SET_TIME_FORMAT: i32 = 1024i32;
 pub const MCI_SET_VIDEO: i32 = 4096i32;
 pub const MCI_SIGNAL: u32 = 2165u32;
@@ -5323,9 +4896,6 @@ impl Default for MCI_STATUS_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_STATUS_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MCI_STATUS_POSITION: i32 = 2i32;
 pub const MCI_STATUS_READY: i32 = 7i32;
@@ -5352,9 +4922,6 @@ impl Default for MCI_SYSINFO_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_SYSINFO_PARMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_SYSINFO_PARMSW {
@@ -5368,9 +4935,6 @@ impl Default for MCI_SYSINFO_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_SYSINFO_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MCI_SYSINFO_QUANTITY: i32 = 256i32;
 pub const MCI_TEST: i32 = 32i32;
@@ -5392,9 +4956,6 @@ impl Default for MCI_VD_ESCAPE_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_VD_ESCAPE_PARMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_VD_ESCAPE_PARMSW {
@@ -5405,9 +4966,6 @@ impl Default for MCI_VD_ESCAPE_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_VD_ESCAPE_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MCI_VD_ESCAPE_STRING: i32 = 256i32;
 pub const MCI_VD_FORMAT_TRACK: u32 = 16385u32;
@@ -5436,9 +4994,6 @@ impl Default for MCI_VD_PLAY_PARMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_VD_PLAY_PARMS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MCI_VD_PLAY_REVERSE: i32 = 65536i32;
 pub const MCI_VD_PLAY_SCAN: i32 = 524288i32;
 pub const MCI_VD_PLAY_SLOW: i32 = 1048576i32;
@@ -5463,9 +5018,6 @@ impl Default for MCI_VD_STEP_PARMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_VD_STEP_PARMS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MCI_VD_STEP_REVERSE: i32 = 131072i32;
 pub const MCI_WAIT: i32 = 2i32;
 #[repr(C, packed(1))]
@@ -5479,9 +5031,6 @@ impl Default for MCI_WAVE_DELETE_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_WAVE_DELETE_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MCI_WAVE_GETDEVCAPS_INPUTS: i32 = 16385i32;
 pub const MCI_WAVE_GETDEVCAPS_OUTPUTS: i32 = 16386i32;
@@ -5503,9 +5052,6 @@ impl Default for MCI_WAVE_OPEN_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_WAVE_OPEN_PARMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_WAVE_OPEN_PARMSW {
@@ -5520,9 +5066,6 @@ impl Default for MCI_WAVE_OPEN_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_WAVE_OPEN_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MCI_WAVE_OUTPUT: i32 = 8388608i32;
 pub const MCI_WAVE_PCM: u32 = 1152u32;
@@ -5557,9 +5100,6 @@ impl Default for MCI_WAVE_SET_PARMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_WAVE_SET_PARMS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MCI_WAVE_SET_SAMPLESPERSEC: i32 = 262144i32;
 pub const MCI_WAVE_STATUS_AVGBYTESPERSEC: i32 = 16388i32;
 pub const MCI_WAVE_STATUS_BITSPERSAMPLE: i32 = 16390i32;
@@ -5585,10 +5125,6 @@ impl Default for MEDIASPACEADPCMWAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for MEDIASPACEADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MIDIMAPPER_S: u32 = 1227u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -5600,9 +5136,6 @@ impl Default for MIDIOPENSTRMID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MIDIOPENSTRMID {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MIDI_IO_COOKED: i32 = 2i32;
 pub const MIDI_IO_PACKED: i32 = 0i32;
@@ -5639,10 +5172,6 @@ impl Default for MIXEROPENDESC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for MIXEROPENDESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MMCKINFO {
@@ -5656,9 +5185,6 @@ impl Default for MMCKINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MMCKINFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MMIOERR_ACCESSDENIED: u32 = 268u32;
 pub const MMIOERR_BASE: u32 = 256u32;
@@ -5701,9 +5227,6 @@ impl Default for MMIOINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MMIOINFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MMIOM_CLOSE: u32 = 4u32;
 pub const MMIOM_OPEN: u32 = 3u32;
@@ -7296,10 +6819,6 @@ impl Default for MSAUDIO1WAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for MSAUDIO1WAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MSAUDIO1_BITS_PER_SAMPLE: u32 = 16u32;
 pub const MSAUDIO1_MAX_CHANNELS: u32 = 2u32;
 pub const MXDM_BASE: u32 = 1u32;
@@ -7326,10 +6845,6 @@ impl Default for NMS_VBXADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for NMS_VBXADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const NS_DRM_E_MIGRATION_IMAGE_ALREADY_EXISTS: windows_core::HRESULT = windows_core::HRESULT(0xC00D278E_u32 as _);
 pub const NS_DRM_E_MIGRATION_SOURCE_MACHINE_IN_USE: windows_core::HRESULT = windows_core::HRESULT(0xC00D278C_u32 as _);
@@ -8548,10 +8063,6 @@ impl Default for OLIADPCMWAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for OLIADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy)]
@@ -8563,10 +8074,6 @@ impl Default for OLICELPWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for OLICELPWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -8580,10 +8087,6 @@ impl Default for OLIGSMWAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for OLIGSMWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy)]
@@ -8596,10 +8099,6 @@ impl Default for OLIOPRWAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for OLIOPRWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy)]
@@ -8611,10 +8110,6 @@ impl Default for OLISBCWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for OLISBCWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const PD_CAN_DRAW_DIB: u32 = 1u32;
 pub const PD_CAN_STRETCHDIB: u32 = 2u32;
@@ -8654,10 +8149,6 @@ impl Default for SIERRAADPCMWAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for SIERRAADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy)]
@@ -8670,10 +8161,6 @@ impl Default for SONARCWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for SONARCWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const TARGET_DEVICE_FRIENDLY_NAME: windows_core::PCSTR = windows_core::s!("TargetDeviceFriendlyName");
 pub const TARGET_DEVICE_OPEN_EXCLUSIVELY: windows_core::PCSTR = windows_core::s!("TargetDeviceOpenExclusively");
@@ -8700,9 +8187,6 @@ impl Default for TIMEREVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TIMEREVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy)]
@@ -8717,10 +8201,6 @@ impl Default for TRUESPEECHWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for TRUESPEECHWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const VADMAD_Device_ID: u32 = 1092u32;
 pub const VCAPS_CAN_SCALE: u32 = 8u32;
@@ -8763,9 +8243,6 @@ impl Default for VIDEOHDR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VIDEOHDR {
-    type TypeKind = windows_core::CopyType;
 }
 pub const VIDEO_CONFIGURE_CURRENT: u32 = 16u32;
 pub const VIDEO_CONFIGURE_GET: u32 = 8192u32;
@@ -8834,10 +8311,6 @@ impl Default for WAVEOPENDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for WAVEOPENDESC {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WAVE_FILTER_DEVELOPMENT: u32 = 65535u32;
 pub const WAVE_FILTER_ECHO: u32 = 2u32;
@@ -9141,10 +8614,6 @@ impl Default for WMAUDIO2WAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for WMAUDIO2WAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WMAUDIO2_BITS_PER_SAMPLE: u32 = 16u32;
 pub const WMAUDIO2_MAX_CHANNELS: u32 = 2u32;
 #[repr(C, packed(1))]
@@ -9164,10 +8633,6 @@ impl Default for WMAUDIO3WAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for WMAUDIO3WAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WMAUDIO_BITS_PER_SAMPLE: u32 = 16u32;
 pub const WMAUDIO_MAX_CHANNELS: u32 = 2u32;
@@ -9287,10 +8752,6 @@ impl Default for YAMAHA_ADPCMWAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for YAMAHA_ADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 pub type YIELDPROC = Option<unsafe extern "system" fn(mciid: u32, dwyielddata: u32) -> u32>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9307,7 +8768,4 @@ impl Default for s_RIFFWAVE_inst {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for s_RIFFWAVE_inst {
-    type TypeKind = windows_core::CopyType;
 }

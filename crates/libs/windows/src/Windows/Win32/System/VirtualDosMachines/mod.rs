@@ -60,9 +60,6 @@ impl Default for GLOBALENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GLOBALENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 pub const GLOBAL_ALL: u32 = 0u32;
 pub const GLOBAL_FREE: u32 = 2u32;
 pub const GLOBAL_LRU: u32 = 1u32;
@@ -90,9 +87,6 @@ impl Default for IMAGE_NOTE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_NOTE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MAX_MODULE_NAME: u32 = 9u32;
 pub const MAX_PATH16: u32 = 255u32;
 #[repr(C, packed(4))]
@@ -109,9 +103,6 @@ impl Default for MODULEENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MODULEENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 pub type PROCESSENUMPROC = Option<unsafe extern "system" fn(dwprocessid: u32, dwattributes: u32, lpuserdefined: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
 #[repr(C)]
@@ -130,9 +121,6 @@ impl Default for SEGMENT_NOTE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SEGMENT_NOTE {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SN_CODE: u32 = 0u32;
 pub const SN_DATA: u32 = 1u32;
 pub const SN_V86: u32 = 2u32;
@@ -150,9 +138,6 @@ impl Default for TEMP_BP_NOTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TEMP_BP_NOTE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const V86FLAGS_ALIGNMENT: u32 = 262144u32;
 pub const V86FLAGS_AUXCARRY: u32 = 16u32;
@@ -210,11 +195,6 @@ impl Default for VDMCONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for VDMCONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -249,10 +229,6 @@ impl Default for VDMCONTEXT_WITHOUT_XSAVE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for VDMCONTEXT_WITHOUT_XSAVE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const VDMCONTEXT_i386: u32 = 65536u32;
 pub const VDMCONTEXT_i486: u32 = 65536u32;
@@ -313,10 +289,6 @@ impl Default for VDMLDT_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for VDMLDT_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -330,10 +302,6 @@ impl Default for VDMLDT_ENTRY_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for VDMLDT_ENTRY_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -345,10 +313,6 @@ impl Default for VDMLDT_ENTRY_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for VDMLDT_ENTRY_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -364,10 +328,6 @@ impl Default for VDMLDT_ENTRY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for VDMLDT_ENTRY_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
 pub type VDMMODULEFIRSTPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut MODULEENTRY, param3: DEBUGEVENTPROC, param4: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
@@ -400,8 +360,5 @@ impl Default for VDM_SEGINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VDM_SEGINFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WOW_SYSTEM: u32 = 1u32;

@@ -450,10 +450,6 @@ impl Default for CERT_CONTEXT_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for CERT_CONTEXT_EX {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CLSID_IImgCtx: windows_core::GUID = windows_core::GUID::from_u128(0x3050f3d6_98b5_11cf_bb82_00aa00bdce0b);
 pub const CLSID_IisServiceControl: windows_core::GUID = windows_core::GUID::from_u128(0xe8fb8621_588f_11d2_9d61_00c04f79c5fe);
 pub const CLSID_MSAdminBase_W: windows_core::GUID = windows_core::GUID::from_u128(0xa9e69610_b80d_11d0_b9b9_00a0c922e750);
@@ -473,9 +469,6 @@ impl Default for CONFIGURATION_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CONFIGURATION_ENTRY {
-    type TypeKind = windows_core::CloneType;
 }
 pub const DISPID_HTTPREQUEST_ABORT: u32 = 12u32;
 pub const DISPID_HTTPREQUEST_BASE: u32 = 1u32;
@@ -528,9 +521,6 @@ impl Default for EXTENSION_CONTROL_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for EXTENSION_CONTROL_BLOCK {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FP_MD_ID_BEGIN_RESERVED: u32 = 32768u32;
 pub const FP_MD_ID_END_RESERVED: u32 = 36863u32;
@@ -588,9 +578,6 @@ impl Default for HSE_CUSTOM_ERROR_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HSE_CUSTOM_ERROR_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HSE_EXEC_UNICODE_URL_INFO {
@@ -606,9 +593,6 @@ impl Default for HSE_EXEC_UNICODE_URL_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HSE_EXEC_UNICODE_URL_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HSE_EXEC_UNICODE_URL_USER_INFO {
@@ -621,9 +605,6 @@ impl Default for HSE_EXEC_UNICODE_URL_USER_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HSE_EXEC_UNICODE_URL_USER_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const HSE_EXEC_URL_DISABLE_CUSTOM_ERROR: u32 = 32u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -635,9 +616,6 @@ impl Default for HSE_EXEC_URL_ENTITY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HSE_EXEC_URL_ENTITY_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const HSE_EXEC_URL_HTTP_CACHE_ELIGIBLE: u32 = 128u32;
 pub const HSE_EXEC_URL_IGNORE_CURRENT_INTERCEPTOR: u32 = 4u32;
@@ -657,9 +635,6 @@ impl Default for HSE_EXEC_URL_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HSE_EXEC_URL_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const HSE_EXEC_URL_NO_HEADERS: u32 = 2u32;
 pub const HSE_EXEC_URL_SSI_CMD: u32 = 64u32;
 #[repr(C)]
@@ -674,9 +649,6 @@ impl Default for HSE_EXEC_URL_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HSE_EXEC_URL_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HSE_EXEC_URL_USER_INFO {
@@ -688,9 +660,6 @@ impl Default for HSE_EXEC_URL_USER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HSE_EXEC_URL_USER_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const HSE_IO_ASYNC: u32 = 2u32;
 pub const HSE_IO_CACHE_RESPONSE: u32 = 32u32;
@@ -758,9 +727,6 @@ impl Default for HSE_RESPONSE_VECTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HSE_RESPONSE_VECTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HSE_SEND_HEADER_EX_INFO {
@@ -774,9 +740,6 @@ impl Default for HSE_SEND_HEADER_EX_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HSE_SEND_HEADER_EX_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const HSE_STATUS_ERROR: u32 = 4u32;
 pub const HSE_STATUS_PENDING: u32 = 3u32;
@@ -804,9 +767,6 @@ impl Default for HSE_TF_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HSE_TF_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HSE_TRACE_INFO {
@@ -820,9 +780,6 @@ impl Default for HSE_TRACE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HSE_TRACE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HSE_UNICODE_URL_MAPEX_INFO {
@@ -835,9 +792,6 @@ impl Default for HSE_UNICODE_URL_MAPEX_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HSE_UNICODE_URL_MAPEX_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const HSE_URL_FLAGS_DONT_CACHE: u32 = 16u32;
 pub const HSE_URL_FLAGS_EXECUTE: u32 = 4u32;
@@ -865,9 +819,6 @@ impl Default for HSE_URL_MAPEX_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HSE_URL_MAPEX_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HSE_VECTOR_ELEMENT {
@@ -881,9 +832,6 @@ impl Default for HSE_VECTOR_ELEMENT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HSE_VECTOR_ELEMENT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const HSE_VECTOR_ELEMENT_TYPE_FILE_HANDLE: u32 = 1u32;
 pub const HSE_VECTOR_ELEMENT_TYPE_MEMORY_BUFFER: u32 = 0u32;
 #[repr(C)]
@@ -896,9 +844,6 @@ impl Default for HSE_VERSION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HSE_VERSION_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const HSE_VERSION_MAJOR: u32 = 8u32;
 pub const HSE_VERSION_MINOR: u32 = 0u32;
@@ -914,9 +859,6 @@ impl Default for HTTP_FILTER_ACCESS_DENIED {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HTTP_FILTER_ACCESS_DENIED {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HTTP_FILTER_AUTHENT {
@@ -929,9 +871,6 @@ impl Default for HTTP_FILTER_AUTHENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HTTP_FILTER_AUTHENT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -948,9 +887,6 @@ impl Default for HTTP_FILTER_AUTH_COMPLETE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HTTP_FILTER_AUTH_COMPLETE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -972,9 +908,6 @@ impl Default for HTTP_FILTER_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HTTP_FILTER_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HTTP_FILTER_LOG {
@@ -995,9 +928,6 @@ impl Default for HTTP_FILTER_LOG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HTTP_FILTER_LOG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HTTP_FILTER_PREPROC_HEADERS {
@@ -1012,9 +942,6 @@ impl Default for HTTP_FILTER_PREPROC_HEADERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HTTP_FILTER_PREPROC_HEADERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HTTP_FILTER_RAW_DATA {
@@ -1028,9 +955,6 @@ impl Default for HTTP_FILTER_RAW_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HTTP_FILTER_RAW_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HTTP_FILTER_URL_MAP {
@@ -1042,9 +966,6 @@ impl Default for HTTP_FILTER_URL_MAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HTTP_FILTER_URL_MAP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1062,9 +983,6 @@ impl Default for HTTP_FILTER_URL_MAP_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HTTP_FILTER_URL_MAP_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HTTP_FILTER_VERSION {
@@ -1078,9 +996,6 @@ impl Default for HTTP_FILTER_VERSION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HTTP_FILTER_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HTTP_TRACE_CONFIGURATION {
@@ -1093,9 +1008,6 @@ impl Default for HTTP_TRACE_CONFIGURATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HTTP_TRACE_CONFIGURATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1119,9 +1031,6 @@ impl Default for HTTP_TRACE_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HTTP_TRACE_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const HTTP_TRACE_EVENT_FLAG_STATIC_DESCRIPTIVE_FIELDS: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1136,9 +1045,6 @@ impl Default for HTTP_TRACE_EVENT_ITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HTTP_TRACE_EVENT_ITEM {
-    type TypeKind = windows_core::CopyType;
 }
 pub const HTTP_TRACE_LEVEL_END: u32 = 7u32;
 pub const HTTP_TRACE_LEVEL_START: u32 = 6u32;
@@ -2277,9 +2183,6 @@ impl Default for LOGGING_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LOGGING_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MB_DONT_IMPERSONATE: u32 = 9033u32;
 pub const MD_ACCESS_EXECUTE: u32 = 4u32;
 pub const MD_ACCESS_MAP_CERT: u32 = 128u32;
@@ -2498,9 +2401,6 @@ impl Default for MD_CHANGE_OBJECT_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MD_CHANGE_OBJECT_W {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MD_CHANGE_TYPE_ADD_OBJECT: u32 = 2u32;
 pub const MD_CHANGE_TYPE_DELETE_DATA: u32 = 8u32;
@@ -2954,9 +2854,6 @@ impl Default for METADATA_GETALL_INTERNAL_RECORD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for METADATA_GETALL_INTERNAL_RECORD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union METADATA_GETALL_INTERNAL_RECORD_0 {
@@ -2967,9 +2864,6 @@ impl Default for METADATA_GETALL_INTERNAL_RECORD_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for METADATA_GETALL_INTERNAL_RECORD_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2987,9 +2881,6 @@ impl Default for METADATA_GETALL_RECORD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for METADATA_GETALL_RECORD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct METADATA_HANDLE_INFO {
@@ -3000,9 +2891,6 @@ impl Default for METADATA_HANDLE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for METADATA_HANDLE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const METADATA_INHERIT: u32 = 1u32;
 pub const METADATA_INSERT_PATH: u32 = 64u32;
@@ -3030,9 +2918,6 @@ impl Default for METADATA_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for METADATA_RECORD {
-    type TypeKind = windows_core::CopyType;
 }
 pub const METADATA_REFERENCE: u32 = 8u32;
 pub const METADATA_SECURE: u32 = 4u32;
@@ -3086,9 +2971,6 @@ impl Default for POST_PROCESS_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POST_PROCESS_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PRE_PROCESS_PARAMETERS {
@@ -3110,9 +2992,6 @@ impl Default for PRE_PROCESS_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PRE_PROCESS_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SF_DENIED_APPLICATION: u32 = 8u32;
 pub const SF_DENIED_BY_CONFIG: u32 = 65536u32;

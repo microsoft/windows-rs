@@ -1486,9 +1486,6 @@ impl Default for MILMatrixF {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MILMatrixF {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MilPoint2D {
@@ -1499,9 +1496,6 @@ impl Default for MilPoint2D {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MilPoint2D {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1515,7 +1509,4 @@ impl Default for MilRectD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MilRectD {
-    type TypeKind = windows_core::CopyType;
 }

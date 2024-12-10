@@ -28,6 +28,3 @@ impl Default for MEMORYSTATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MEMORYSTATUS {
-    type TypeKind = windows_core::CopyType;
-}

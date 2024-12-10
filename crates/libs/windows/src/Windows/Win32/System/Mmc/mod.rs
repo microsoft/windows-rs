@@ -89,9 +89,6 @@ impl Default for CONTEXTMENUITEM {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CONTEXTMENUITEM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CONTEXTMENUITEM2 {
@@ -107,9 +104,6 @@ impl Default for CONTEXTMENUITEM2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CONTEXTMENUITEM2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(Column, Column_Vtbl, 0xfd1c5f63_2b16_4d06_9ab3_f45350b940ab);
@@ -4408,9 +4402,6 @@ impl Default for MENUBUTTONDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MENUBUTTONDATA {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MFCC_DISABLE: MMC_FILTER_CHANGE_CODE = MMC_FILTER_CHANGE_CODE(0i32);
 pub const MFCC_ENABLE: MMC_FILTER_CHANGE_CODE = MMC_FILTER_CHANGE_CODE(1i32);
 pub const MFCC_VALUE_CHANGE: MMC_FILTER_CHANGE_CODE = MMC_FILTER_CHANGE_CODE(2i32);
@@ -4428,9 +4419,6 @@ impl Default for MMCBUTTON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MMCBUTTON {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MMCC_STANDARD_VIEW_SELECT: MMC_MENU_COMMAND_IDS = MMC_MENU_COMMAND_IDS(-1i32);
 pub const MMCLV_AUTO: i32 = -1i32;
@@ -4503,9 +4491,6 @@ impl Default for MMC_COLUMN_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MMC_COLUMN_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MMC_COLUMN_SET_DATA {
@@ -4517,9 +4502,6 @@ impl Default for MMC_COLUMN_SET_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MMC_COLUMN_SET_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4541,9 +4523,6 @@ impl Default for MMC_EXPANDSYNC_STRUCT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MMC_EXPANDSYNC_STRUCT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MMC_EXT_VIEW_DATA {
@@ -4558,9 +4537,6 @@ impl Default for MMC_EXT_VIEW_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MMC_EXT_VIEW_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MMC_FILTERDATA {
@@ -4572,9 +4548,6 @@ impl Default for MMC_FILTERDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MMC_FILTERDATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4599,9 +4572,6 @@ impl Default for MMC_LISTPAD_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MMC_LISTPAD_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4646,9 +4616,6 @@ impl Default for MMC_RESTORE_VIEW {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MMC_RESTORE_VIEW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MMC_RESULT_VIEW_STYLE(pub i32);
@@ -4679,10 +4646,6 @@ impl Default for MMC_SNAPIN_PROPERTY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for MMC_SNAPIN_PROPERTY {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MMC_SORT_DATA {
@@ -4695,9 +4658,6 @@ impl Default for MMC_SORT_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MMC_SORT_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MMC_SORT_SET_DATA {
@@ -4709,9 +4669,6 @@ impl Default for MMC_SORT_SET_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MMC_SORT_SET_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MMC_STRING_FILTER: MMC_FILTER_TYPE = MMC_FILTER_TYPE(0i32);
 #[repr(C)]
@@ -4728,9 +4685,6 @@ impl Default for MMC_TASK {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MMC_TASK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union MMC_TASK_0 {
@@ -4743,9 +4697,6 @@ impl Default for MMC_TASK_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MMC_TASK_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MMC_TASK_DISPLAY_BITMAP {
@@ -4756,9 +4707,6 @@ impl Default for MMC_TASK_DISPLAY_BITMAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MMC_TASK_DISPLAY_BITMAP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4771,9 +4719,6 @@ impl Default for MMC_TASK_DISPLAY_OBJECT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MMC_TASK_DISPLAY_OBJECT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union MMC_TASK_DISPLAY_OBJECT_0 {
@@ -4784,9 +4729,6 @@ impl Default for MMC_TASK_DISPLAY_OBJECT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MMC_TASK_DISPLAY_OBJECT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4799,9 +4741,6 @@ impl Default for MMC_TASK_DISPLAY_SYMBOL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MMC_TASK_DISPLAY_SYMBOL {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4850,9 +4789,6 @@ impl Default for MMC_VISIBLE_COLUMNS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MMC_VISIBLE_COLUMNS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MMC_WINDOW_COOKIE: i32 = -3i32;
 #[cfg(feature = "Win32_System_Com")]
@@ -5390,9 +5326,6 @@ impl Default for RDCOMPARE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RDCOMPARE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RDITEMHDR {
@@ -5404,9 +5337,6 @@ impl Default for RDITEMHDR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RDITEMHDR {
-    type TypeKind = windows_core::CopyType;
 }
 pub const RDI_IMAGE: u32 = 4u32;
 pub const RDI_INDENT: u32 = 64u32;
@@ -5433,9 +5363,6 @@ impl Default for RESULTDATAITEM {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RESULTDATAITEM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RESULTFINDINFO {
@@ -5447,9 +5374,6 @@ impl Default for RESULTFINDINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RESULTFINDINFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 pub struct RESULT_VIEW_TYPE_INFO {
@@ -5468,9 +5392,6 @@ impl Default for RESULT_VIEW_TYPE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RESULT_VIEW_TYPE_INFO {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 pub union RESULT_VIEW_TYPE_INFO_0 {
     pub dwListOptions: u32,
@@ -5487,9 +5408,6 @@ impl Default for RESULT_VIEW_TYPE_INFO_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RESULT_VIEW_TYPE_INFO_0 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RESULT_VIEW_TYPE_INFO_0_0 {
@@ -5501,9 +5419,6 @@ impl Default for RESULT_VIEW_TYPE_INFO_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RESULT_VIEW_TYPE_INFO_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct RESULT_VIEW_TYPE_INFO_0_1 {
@@ -5514,9 +5429,6 @@ impl Default for RESULT_VIEW_TYPE_INFO_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RESULT_VIEW_TYPE_INFO_0_1 {
-    type TypeKind = windows_core::CloneType;
 }
 pub const RFI_PARTIAL: u32 = 1u32;
 pub const RFI_WRAP: u32 = 2u32;
@@ -5554,9 +5466,6 @@ impl Default for SCOPEDATAITEM {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCOPEDATAITEM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SColumnSetID {
@@ -5568,9 +5477,6 @@ impl Default for SColumnSetID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SColumnSetID {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SDI_CHILDREN: u32 = 64u32;
 pub const SDI_FIRST: u32 = 134217728u32;
@@ -5595,10 +5501,6 @@ impl Default for SMMCDataObjects {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SMMCDataObjects {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SMMCObjectTypes {
@@ -5609,9 +5511,6 @@ impl Default for SMMCObjectTypes {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SMMCObjectTypes {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5624,9 +5523,6 @@ impl Default for SNodeID {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SNodeID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SNodeID2 {
@@ -5638,9 +5534,6 @@ impl Default for SNodeID2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SNodeID2 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SPECIAL_COOKIE_MAX: i32 = -1i32;
 pub const SPECIAL_COOKIE_MIN: i32 = -10i32;

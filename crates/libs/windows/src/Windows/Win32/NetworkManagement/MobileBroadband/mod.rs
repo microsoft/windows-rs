@@ -3856,9 +3856,6 @@ impl Default for MBN_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MBN_CONTEXT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MBN_CONTEXT_CONSTANTS(pub i32);
@@ -3918,9 +3915,6 @@ impl Default for MBN_DEVICE_SERVICE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MBN_DEVICE_SERVICE {
-    type TypeKind = windows_core::CloneType;
-}
 pub const MBN_DEVICE_SERVICES_CAPABLE_INTERFACE_ARRIVAL: MBN_DEVICE_SERVICES_INTERFACE_STATE = MBN_DEVICE_SERVICES_INTERFACE_STATE(0i32);
 pub const MBN_DEVICE_SERVICES_CAPABLE_INTERFACE_REMOVAL: MBN_DEVICE_SERVICES_INTERFACE_STATE = MBN_DEVICE_SERVICES_INTERFACE_STATE(1i32);
 #[repr(transparent)]
@@ -3953,9 +3947,6 @@ impl Default for MBN_INTERFACE_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MBN_INTERFACE_CAPS {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3991,9 +3982,6 @@ impl Default for MBN_PIN_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MBN_PIN_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MBN_PIN_LENGTH_UNKNOWN: MBN_PIN_CONSTANTS = MBN_PIN_CONSTANTS(-1i32);
 #[repr(transparent)]
@@ -4034,9 +4022,6 @@ impl Default for MBN_PROVIDER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MBN_PROVIDER {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct MBN_PROVIDER2 {
@@ -4049,9 +4034,6 @@ impl Default for MBN_PROVIDER2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MBN_PROVIDER2 {
-    type TypeKind = windows_core::CloneType;
 }
 pub const MBN_PROVIDERID_LEN: MBN_PROVIDER_CONSTANTS = MBN_PROVIDER_CONSTANTS(6i32);
 pub const MBN_PROVIDERNAME_LEN: MBN_PROVIDER_CONSTANTS = MBN_PROVIDER_CONSTANTS(20i32);
@@ -4154,9 +4136,6 @@ impl Default for MBN_SMS_FILTER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MBN_SMS_FILTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MBN_SMS_FLAG(pub i32);
@@ -4189,9 +4168,6 @@ impl Default for MBN_SMS_STATUS_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MBN_SMS_STATUS_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MBN_USERNAME_LEN: MBN_CONTEXT_CONSTANTS = MBN_CONTEXT_CONSTANTS(255i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4223,9 +4199,6 @@ impl Default for __DummyPinType__ {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for __DummyPinType__ {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct __mbnapi_ReferenceRemainingTypes__ {
@@ -4248,7 +4221,4 @@ impl Default for __mbnapi_ReferenceRemainingTypes__ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for __mbnapi_ReferenceRemainingTypes__ {
-    type TypeKind = windows_core::CopyType;
 }

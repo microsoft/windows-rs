@@ -15,9 +15,6 @@ impl Default for ACTION_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ACTION_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADAPTER_STATUS {
@@ -54,9 +51,6 @@ impl Default for ADAPTER_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ADAPTER_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 pub const ALL_TRANSPORTS: windows_core::PCSTR = windows_core::s!("M\u{0}\u{0}\u{0}");
 pub const ASYNCH: u32 = 128u32;
 pub const CALL_PENDING: u32 = 2u32;
@@ -78,9 +72,6 @@ impl Default for FIND_NAME_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FIND_NAME_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FIND_NAME_HEADER {
@@ -92,9 +83,6 @@ impl Default for FIND_NAME_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FIND_NAME_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const GROUP_NAME: u32 = 128u32;
 pub const HANGUP_COMPLETE: u32 = 5u32;
@@ -110,9 +98,6 @@ impl Default for LANA_ENUM {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LANA_ENUM {
-    type TypeKind = windows_core::CopyType;
-}
 pub const LISTEN_OUTSTANDING: u32 = 1u32;
 pub const MAX_LANA: u32 = 254u32;
 pub const MS_NBF: windows_core::PCSTR = windows_core::s!("MNBF");
@@ -127,9 +112,6 @@ impl Default for NAME_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NAME_BUFFER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const NAME_FLAGS_MASK: u32 = 135u32;
 #[repr(C)]
@@ -158,10 +140,6 @@ impl Default for NCB {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for NCB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -187,10 +165,6 @@ impl Default for NCB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for NCB {
-    type TypeKind = windows_core::CopyType;
 }
 pub const NCBACTION: u32 = 119u32;
 pub const NCBADDGRNAME: u32 = 54u32;
@@ -276,9 +250,6 @@ impl Default for SESSION_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SESSION_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SESSION_ESTABLISHED: u32 = 3u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -292,8 +263,5 @@ impl Default for SESSION_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SESSION_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const UNIQUE_NAME: u32 = 0u32;

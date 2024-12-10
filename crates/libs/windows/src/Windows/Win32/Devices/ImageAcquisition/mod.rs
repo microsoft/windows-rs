@@ -86,9 +86,6 @@ impl Default for DEVICEDIALOGDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICEDIALOGDATA {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct DEVICEDIALOGDATA2 {
@@ -106,9 +103,6 @@ impl Default for DEVICEDIALOGDATA2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEVICEDIALOGDATA2 {
-    type TypeKind = windows_core::CloneType;
 }
 pub const DEVICE_ATTENTION: u32 = 1024u32;
 pub const DUP: u32 = 4u32;
@@ -3330,9 +3324,6 @@ impl Default for MINIDRV_TRANSFER_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDRV_TRANSFER_CONTEXT {
-    type TypeKind = windows_core::CloneType;
-}
 pub const MIRRORED: u32 = 1u32;
 pub const MULTIPLE_FEED: u32 = 512u32;
 pub const NEXT_PAGE: u32 = 128u32;
@@ -3355,9 +3346,6 @@ impl Default for RANGEVALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RANGEVALUE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const RIGHT_JUSTIFIED: u32 = 2u32;
 pub const ROT180: u32 = 2u32;
@@ -3407,9 +3395,6 @@ impl Default for SCANINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCANINFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SCANMODE_FINALSCAN: u32 = 0u32;
 pub const SCANMODE_PREVIEWSCAN: u32 = 1u32;
 #[repr(C)]
@@ -3424,9 +3409,6 @@ impl Default for SCANWINDOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCANWINDOW {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SCAN_FINISHED: u32 = 30u32;
 pub const SCAN_FIRST: u32 = 10u32;
@@ -3458,9 +3440,6 @@ impl Default for TWAIN_CAPABILITY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TWAIN_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 pub const TYMED_CALLBACK: u32 = 128u32;
 pub const TYMED_MULTIPAGE_CALLBACK: u32 = 512u32;
 pub const TYMED_MULTIPAGE_FILE: u32 = 256u32;
@@ -3481,9 +3460,6 @@ impl Default for VAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VAL {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WHITEBALANCE_AUTO: u32 = 2u32;
 pub const WHITEBALANCE_DAYLIGHT: u32 = 4u32;
@@ -3509,9 +3485,6 @@ impl Default for WIAS_CHANGED_VALUE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WIAS_CHANGED_VALUE_INFO {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 pub union WIAS_CHANGED_VALUE_INFO_1 {
     pub lVal: i32,
@@ -3529,9 +3502,6 @@ impl Default for WIAS_CHANGED_VALUE_INFO_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WIAS_CHANGED_VALUE_INFO_1 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 pub union WIAS_CHANGED_VALUE_INFO_0 {
     pub lVal: i32,
@@ -3548,9 +3518,6 @@ impl Default for WIAS_CHANGED_VALUE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WIAS_CHANGED_VALUE_INFO_0 {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3573,9 +3540,6 @@ impl Default for WIAS_DOWN_SAMPLE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WIAS_DOWN_SAMPLE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIAS_ENDORSER_INFO {
@@ -3588,9 +3552,6 @@ impl Default for WIAS_ENDORSER_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WIAS_ENDORSER_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIAS_ENDORSER_VALUE {
@@ -3601,9 +3562,6 @@ impl Default for WIAS_ENDORSER_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WIAS_ENDORSER_VALUE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WIAU_DEBUG_TSTR: windows_core::PCSTR = windows_core::s!("S");
 pub const WIAVIDEO_CREATING_VIDEO: WIAVIDEO_STATE = WIAVIDEO_STATE(2i32);
@@ -3647,9 +3605,6 @@ impl Default for WIA_BARCODES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WIA_BARCODES {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WIA_BARCODE_AUTO_SEARCH: u32 = 4u32;
 pub const WIA_BARCODE_AZTEC: u32 = 36u32;
 pub const WIA_BARCODE_CODABAR: u32 = 2u32;
@@ -3691,9 +3646,6 @@ impl Default for WIA_BARCODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WIA_BARCODE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WIA_BARCODE_INTELLIGENT_MAIL: u32 = 23u32;
 pub const WIA_BARCODE_INTERLEAVED_2OF5: u32 = 4u32;
@@ -3786,9 +3738,6 @@ impl Default for WIA_DATA_CALLBACK_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WIA_DATA_CALLBACK_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WIA_DATA_COLOR: u32 = 3u32;
 pub const WIA_DATA_COLOR_DITHER: u32 = 5u32;
 pub const WIA_DATA_COLOR_THRESHOLD: u32 = 4u32;
@@ -3817,9 +3766,6 @@ impl Default for WIA_DATA_TRANSFER_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WIA_DATA_TRANSFER_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WIA_DEPTH_AUTO: u32 = 0u32;
 pub const WIA_DEVICE_COMMANDS: u32 = 1u32;
 pub const WIA_DEVICE_CONNECTED: u32 = 1u32;
@@ -3844,9 +3790,6 @@ impl Default for WIA_DEV_CAP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WIA_DEV_CAP {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIA_DEV_CAP_DRV {
@@ -3860,9 +3803,6 @@ impl Default for WIA_DEV_CAP_DRV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WIA_DEV_CAP_DRV {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WIA_DIP_BAUDRATE: u32 = 12u32;
 pub const WIA_DIP_BAUDRATE_STR: windows_core::PCWSTR = windows_core::w!("BaudRate");
@@ -3911,9 +3851,6 @@ impl Default for WIA_DITHER_PATTERN_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WIA_DITHER_PATTERN_DATA {
-    type TypeKind = windows_core::CloneType;
 }
 pub const WIA_DONT_SHOW_PREVIEW_CONTROL: u32 = 1u32;
 pub const WIA_DONT_USE_SEGMENTATION_FILTER: u32 = 1u32;
@@ -4171,9 +4108,6 @@ impl Default for WIA_EXTENDED_TRANSFER_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WIA_EXTENDED_TRANSFER_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WIA_FEEDER_CONTROL_AUTO: u32 = 0u32;
 pub const WIA_FEEDER_CONTROL_MANUAL: u32 = 1u32;
 pub const WIA_FILM_BW_NEGATIVE: u32 = 2u32;
@@ -4193,9 +4127,6 @@ impl Default for WIA_FORMAT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WIA_FORMAT_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WIA_IMAGEPROC_FILTER_STR: windows_core::PCWSTR = windows_core::w!("ImageProcessingFilter");
 pub const WIA_INTENT_BEST_PREVIEW: u32 = 262144u32;
@@ -4534,9 +4465,6 @@ impl Default for WIA_MICR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WIA_MICR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIA_MICR_INFO {
@@ -4549,9 +4477,6 @@ impl Default for WIA_MICR_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WIA_MICR_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WIA_MICR_READER_AUTO: u32 = 1u32;
 pub const WIA_MICR_READER_DISABLED: u32 = 0u32;
@@ -4647,9 +4572,6 @@ impl Default for WIA_PATCH_CODES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WIA_PATCH_CODES {
-    type TypeKind = windows_core::CopyType;
-}
 pub const WIA_PATCH_CODE_1: u32 = 1u32;
 pub const WIA_PATCH_CODE_10: u32 = 10u32;
 pub const WIA_PATCH_CODE_11: u32 = 11u32;
@@ -4673,9 +4595,6 @@ impl Default for WIA_PATCH_CODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WIA_PATCH_CODE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WIA_PATCH_CODE_READER_AUTO: u32 = 1u32;
 pub const WIA_PATCH_CODE_READER_DISABLED: u32 = 0u32;
@@ -4761,9 +4680,6 @@ impl Default for WIA_PROPERTY_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WIA_PROPERTY_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
 pub struct WIA_PROPERTY_INFO {
@@ -4782,10 +4698,6 @@ impl Default for WIA_PROPERTY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl windows_core::TypeKind for WIA_PROPERTY_INFO {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
@@ -4811,10 +4723,6 @@ impl Default for WIA_PROPERTY_INFO_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Variant")]
-impl windows_core::TypeKind for WIA_PROPERTY_INFO_0 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4827,10 +4735,6 @@ impl Default for WIA_PROPERTY_INFO_0_6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl windows_core::TypeKind for WIA_PROPERTY_INFO_0_6 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
@@ -4846,10 +4750,6 @@ impl Default for WIA_PROPERTY_INFO_0_5 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Variant")]
-impl windows_core::TypeKind for WIA_PROPERTY_INFO_0_5 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4863,10 +4763,6 @@ impl Default for WIA_PROPERTY_INFO_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl windows_core::TypeKind for WIA_PROPERTY_INFO_0_3 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
@@ -4882,10 +4778,6 @@ impl Default for WIA_PROPERTY_INFO_0_4 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Variant")]
-impl windows_core::TypeKind for WIA_PROPERTY_INFO_0_4 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4900,10 +4792,6 @@ impl Default for WIA_PROPERTY_INFO_0_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Variant")]
-impl windows_core::TypeKind for WIA_PROPERTY_INFO_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4915,10 +4803,6 @@ impl Default for WIA_PROPERTY_INFO_0_7 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl windows_core::TypeKind for WIA_PROPERTY_INFO_0_7 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
@@ -4935,10 +4819,6 @@ impl Default for WIA_PROPERTY_INFO_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Variant")]
-impl windows_core::TypeKind for WIA_PROPERTY_INFO_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4954,10 +4834,6 @@ impl Default for WIA_PROPERTY_INFO_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Variant")]
-impl windows_core::TypeKind for WIA_PROPERTY_INFO_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIA_PROPID_TO_NAME {
@@ -4968,9 +4844,6 @@ impl Default for WIA_PROPID_TO_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WIA_PROPID_TO_NAME {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WIA_PROPPAGE_CAMERA_ITEM_GENERAL: u32 = 2u32;
 pub const WIA_PROPPAGE_DEVICE_GENERAL: u32 = 4u32;
@@ -5015,9 +4888,6 @@ impl Default for WIA_RAW_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WIA_RAW_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WIA_REGISTER_EVENT_CALLBACK: u32 = 1u32;
 pub const WIA_RESERVED_FOR_NEW_PROPS: u32 = 1024u32;
@@ -5154,9 +5024,6 @@ impl Default for WiaTransferParams {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WiaTransferParams {
-    type TypeKind = windows_core::CopyType;
 }
 pub const WiaVideo: windows_core::GUID = windows_core::GUID::from_u128(0x3908c3cd_4478_4536_af2f_10c25d4ef89a);
 pub const g_dwDebugFlags: u32 = 0u32;

@@ -3255,9 +3255,6 @@ impl Default for PROPPRG {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROPPRG {
-    type TypeKind = windows_core::CopyType;
-}
 pub const PSC_DIRTY: PSC_STATE = PSC_STATE(2i32);
 pub const PSC_NORMAL: PSC_STATE = PSC_STATE(0i32);
 pub const PSC_NOTINSOURCE: PSC_STATE = PSC_STATE(1i32);

@@ -380,9 +380,6 @@ impl Default for GPOBROWSEINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GPOBROWSEINFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const GPOTypeDS: GROUP_POLICY_OBJECT_TYPE = GROUP_POLICY_OBJECT_TYPE(2i32);
 pub const GPOTypeLocal: GROUP_POLICY_OBJECT_TYPE = GROUP_POLICY_OBJECT_TYPE(0i32);
 pub const GPOTypeLocalGroup: GROUP_POLICY_OBJECT_TYPE = GROUP_POLICY_OBJECT_TYPE(4i32);
@@ -500,9 +497,6 @@ impl Default for GROUP_POLICY_OBJECTA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GROUP_POLICY_OBJECTA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GROUP_POLICY_OBJECTW {
@@ -524,9 +518,6 @@ impl Default for GROUP_POLICY_OBJECTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GROUP_POLICY_OBJECTW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7868,9 +7859,6 @@ impl Default for INSTALLDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INSTALLDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union INSTALLSPEC {
@@ -7884,9 +7872,6 @@ impl Default for INSTALLSPEC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INSTALLSPEC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INSTALLSPEC_0 {
@@ -7898,9 +7883,6 @@ impl Default for INSTALLSPEC_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INSTALLSPEC_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INSTALLSPEC_1 {
@@ -7911,9 +7893,6 @@ impl Default for INSTALLSPEC_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for INSTALLSPEC_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7994,9 +7973,6 @@ impl Default for LOCALMANAGEDAPPLICATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LOCALMANAGEDAPPLICATION {
-    type TypeKind = windows_core::CopyType;
-}
 pub const LOCALSTATE_ASSIGNED: u32 = 1u32;
 pub const LOCALSTATE_ORPHANED: u32 = 32u32;
 pub const LOCALSTATE_POLICYREMOVE_ORPHAN: u32 = 8u32;
@@ -8029,9 +8005,6 @@ impl Default for MANAGEDAPPLICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MANAGEDAPPLICATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MANAGED_APPS_FROMCATEGORY: u32 = 2u32;
 pub const MANAGED_APPS_INFOLEVEL_DEFAULT: u32 = 65536u32;
@@ -8072,9 +8045,6 @@ impl Default for POLICYSETTINGSTATUSINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POLICYSETTINGSTATUSINFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const PROGID: INSTALLSPECTYPE = INSTALLSPECTYPE(3i32);
 pub const PT_MANDATORY: u32 = 4u32;
 pub const PT_ROAMING: u32 = 2u32;
@@ -8114,10 +8084,6 @@ impl Default for RSOP_TARGET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Wmi"))]
-impl windows_core::TypeKind for RSOP_TARGET {
-    type TypeKind = windows_core::CloneType;
 }
 pub const RSOP_TEMPNAMESPACE_EXISTS: u32 = 4u32;
 pub const RSOP_USER_ACCESS_DENIED: u32 = 1u32;

@@ -1705,9 +1705,6 @@ impl Default for DATE_TIME {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DATE_TIME {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DEFAULTQUARSETTING: QuarantineStatus = QuarantineStatus(5i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1723,9 +1720,6 @@ impl Default for DHCPAPI_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCPAPI_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCPCAPI_CLASSID {
@@ -1738,9 +1732,6 @@ impl Default for DHCPCAPI_CLASSID {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCPCAPI_CLASSID {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DHCPCAPI_DEREGISTER_HANDLE_EVENT: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1752,9 +1743,6 @@ impl Default for DHCPCAPI_PARAMS_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCPCAPI_PARAMS_ARRAY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DHCPCAPI_REGISTER_HANDLE_EVENT: u32 = 1u32;
 pub const DHCPCAPI_REQUEST_ASYNCHRONOUS: u32 = 4u32;
@@ -1778,9 +1766,6 @@ impl Default for DHCPDS_SERVER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCPDS_SERVER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCPDS_SERVERS {
@@ -1792,9 +1777,6 @@ impl Default for DHCPDS_SERVERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCPDS_SERVERS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1826,9 +1808,6 @@ impl Default for DHCPV4_FAILOVER_CLIENT_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCPV4_FAILOVER_CLIENT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {
@@ -1839,9 +1818,6 @@ impl Default for DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1874,9 +1850,6 @@ impl Default for DHCPV4_FAILOVER_CLIENT_INFO_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCPV4_FAILOVER_CLIENT_INFO_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCPV6CAPI_CLASSID {
@@ -1888,9 +1861,6 @@ impl Default for DHCPV6CAPI_CLASSID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCPV6CAPI_CLASSID {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1906,9 +1876,6 @@ impl Default for DHCPV6CAPI_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCPV6CAPI_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCPV6CAPI_PARAMS_ARRAY {
@@ -1919,9 +1886,6 @@ impl Default for DHCPV6CAPI_PARAMS_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCPV6CAPI_PARAMS_ARRAY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1936,9 +1900,6 @@ impl Default for DHCPV6Prefix {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCPV6Prefix {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1959,9 +1920,6 @@ impl Default for DHCPV6PrefixLeaseInformation {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCPV6PrefixLeaseInformation {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCPV6_BIND_ELEMENT {
@@ -1979,9 +1937,6 @@ impl Default for DHCPV6_BIND_ELEMENT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCPV6_BIND_ELEMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCPV6_BIND_ELEMENT_ARRAY {
@@ -1993,9 +1948,6 @@ impl Default for DHCPV6_BIND_ELEMENT_ARRAY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCPV6_BIND_ELEMENT_ARRAY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCPV6_IP_ARRAY {
@@ -2006,9 +1958,6 @@ impl Default for DHCPV6_IP_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCPV6_IP_ARRAY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DHCPV6_OPTION_CLIENTID: u32 = 1u32;
 pub const DHCPV6_OPTION_DNS_SERVERS: u32 = 23u32;
@@ -2042,9 +1991,6 @@ impl Default for DHCPV6_STATELESS_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCPV6_STATELESS_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCPV6_STATELESS_PARAM_TYPE(pub i32);
@@ -2060,9 +2006,6 @@ impl Default for DHCPV6_STATELESS_SCOPE_STATS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCPV6_STATELESS_SCOPE_STATS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCPV6_STATELESS_STATS {
@@ -2073,9 +2016,6 @@ impl Default for DHCPV6_STATELESS_STATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCPV6_STATELESS_STATS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2091,9 +2031,6 @@ impl Default for DHCP_ADDR_PATTERN {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_ADDR_PATTERN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_ALL_OPTIONS {
@@ -2107,9 +2044,6 @@ impl Default for DHCP_ALL_OPTIONS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_ALL_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_ALL_OPTIONS_0 {
@@ -2122,9 +2056,6 @@ impl Default for DHCP_ALL_OPTIONS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_ALL_OPTIONS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_ALL_OPTION_VALUES {
@@ -2136,9 +2067,6 @@ impl Default for DHCP_ALL_OPTION_VALUES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_ALL_OPTION_VALUES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2153,9 +2081,6 @@ impl Default for DHCP_ALL_OPTION_VALUES_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_ALL_OPTION_VALUES_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_ALL_OPTION_VALUES_PB {
@@ -2167,9 +2092,6 @@ impl Default for DHCP_ALL_OPTION_VALUES_PB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_ALL_OPTION_VALUES_PB {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2184,9 +2106,6 @@ impl Default for DHCP_ALL_OPTION_VALUES_PB_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_ALL_OPTION_VALUES_PB_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_ATTRIB {
@@ -2199,9 +2118,6 @@ impl Default for DHCP_ATTRIB {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_ATTRIB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DHCP_ATTRIB_0 {
@@ -2213,9 +2129,6 @@ impl Default for DHCP_ATTRIB_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_ATTRIB_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_ATTRIB_ARRAY {
@@ -2226,9 +2139,6 @@ impl Default for DHCP_ATTRIB_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_ATTRIB_ARRAY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DHCP_ATTRIB_BOOL_IS_ADMIN: u32 = 5u32;
 pub const DHCP_ATTRIB_BOOL_IS_BINDING_AWARE: u32 = 4u32;
@@ -2249,9 +2159,6 @@ impl Default for DHCP_BINARY_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_BINARY_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_BIND_ELEMENT {
@@ -2268,9 +2175,6 @@ impl Default for DHCP_BIND_ELEMENT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_BIND_ELEMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_BIND_ELEMENT_ARRAY {
@@ -2281,9 +2185,6 @@ impl Default for DHCP_BIND_ELEMENT_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_BIND_ELEMENT_ARRAY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2297,9 +2198,6 @@ impl Default for DHCP_BOOTP_IP_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_BOOTP_IP_RANGE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DHCP_CALLOUT_ENTRY_POINT: windows_core::PCSTR = windows_core::s!("DhcpServerCalloutEntry");
 pub const DHCP_CALLOUT_LIST_KEY: windows_core::PCWSTR = windows_core::w!("System\\CurrentControlSet\\Services\\DHCPServer\\Parameters");
@@ -2323,9 +2221,6 @@ impl Default for DHCP_CALLOUT_TABLE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_CALLOUT_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_CLASS_INFO {
@@ -2341,9 +2236,6 @@ impl Default for DHCP_CLASS_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_CLASS_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_CLASS_INFO_ARRAY {
@@ -2355,9 +2247,6 @@ impl Default for DHCP_CLASS_INFO_ARRAY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_CLASS_INFO_ARRAY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_CLASS_INFO_ARRAY_V6 {
@@ -2368,9 +2257,6 @@ impl Default for DHCP_CLASS_INFO_ARRAY_V6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_CLASS_INFO_ARRAY_V6 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2387,9 +2273,6 @@ impl Default for DHCP_CLASS_INFO_V6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_CLASS_INFO_V6 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DHCP_CLIENT_BOOTP: u32 = 805306371u32;
 pub const DHCP_CLIENT_DHCP: u32 = 805306372u32;
@@ -2415,9 +2298,6 @@ impl Default for DHCP_CLIENT_FILTER_STATUS_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_CLIENT_FILTER_STATUS_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {
@@ -2428,9 +2308,6 @@ impl Default for DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2448,9 +2325,6 @@ impl Default for DHCP_CLIENT_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_CLIENT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_CLIENT_INFO_ARRAY {
@@ -2461,9 +2335,6 @@ impl Default for DHCP_CLIENT_INFO_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_CLIENT_INFO_ARRAY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2476,9 +2347,6 @@ impl Default for DHCP_CLIENT_INFO_ARRAY_V4 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_CLIENT_INFO_ARRAY_V4 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_CLIENT_INFO_ARRAY_V5 {
@@ -2489,9 +2357,6 @@ impl Default for DHCP_CLIENT_INFO_ARRAY_V5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_CLIENT_INFO_ARRAY_V5 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2504,9 +2369,6 @@ impl Default for DHCP_CLIENT_INFO_ARRAY_V6 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_CLIENT_INFO_ARRAY_V6 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_CLIENT_INFO_ARRAY_VQ {
@@ -2517,9 +2379,6 @@ impl Default for DHCP_CLIENT_INFO_ARRAY_VQ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_CLIENT_INFO_ARRAY_VQ {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2545,9 +2404,6 @@ impl Default for DHCP_CLIENT_INFO_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_CLIENT_INFO_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_CLIENT_INFO_EX_ARRAY {
@@ -2558,9 +2414,6 @@ impl Default for DHCP_CLIENT_INFO_EX_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_CLIENT_INFO_EX_ARRAY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2585,9 +2438,6 @@ impl Default for DHCP_CLIENT_INFO_PB {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_CLIENT_INFO_PB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_CLIENT_INFO_PB_ARRAY {
@@ -2598,9 +2448,6 @@ impl Default for DHCP_CLIENT_INFO_PB_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_CLIENT_INFO_PB_ARRAY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2618,9 +2465,6 @@ impl Default for DHCP_CLIENT_INFO_V4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_CLIENT_INFO_V4 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2640,9 +2484,6 @@ impl Default for DHCP_CLIENT_INFO_V5 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_CLIENT_INFO_V5 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_CLIENT_INFO_V6 {
@@ -2660,9 +2501,6 @@ impl Default for DHCP_CLIENT_INFO_V6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_CLIENT_INFO_V6 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2684,9 +2522,6 @@ impl Default for DHCP_CLIENT_INFO_VQ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_CLIENT_INFO_VQ {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DHCP_CONTROL_CONTINUE: u32 = 4u32;
 pub const DHCP_CONTROL_PAUSE: u32 = 3u32;
@@ -2734,9 +2569,6 @@ impl Default for DHCP_FAILOVER_RELATIONSHIP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_FAILOVER_RELATIONSHIP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_FAILOVER_RELATIONSHIP_ARRAY {
@@ -2747,9 +2579,6 @@ impl Default for DHCP_FAILOVER_RELATIONSHIP_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_FAILOVER_RELATIONSHIP_ARRAY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2770,9 +2599,6 @@ impl Default for DHCP_FAILOVER_STATISTICS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_FAILOVER_STATISTICS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_FILTER_ADD_INFO {
@@ -2785,9 +2611,6 @@ impl Default for DHCP_FILTER_ADD_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_FILTER_ADD_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_FILTER_ENUM_INFO {
@@ -2799,9 +2622,6 @@ impl Default for DHCP_FILTER_ENUM_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_FILTER_ENUM_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_FILTER_GLOBAL_INFO {
@@ -2812,9 +2632,6 @@ impl Default for DHCP_FILTER_GLOBAL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_FILTER_GLOBAL_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2829,9 +2646,6 @@ impl Default for DHCP_FILTER_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_FILTER_RECORD {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DHCP_FLAGS_DONT_ACCESS_DS: u32 = 1u32;
 pub const DHCP_FLAGS_DONT_DO_RPC: u32 = 2u32;
@@ -2853,9 +2667,6 @@ impl Default for DHCP_HOST_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_HOST_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_HOST_INFO_V6 {
@@ -2868,9 +2679,6 @@ impl Default for DHCP_HOST_INFO_V6 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_HOST_INFO_V6 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_IPV6_ADDRESS {
@@ -2881,9 +2689,6 @@ impl Default for DHCP_IPV6_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_IPV6_ADDRESS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2896,9 +2701,6 @@ impl Default for DHCP_IP_ARRAY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_IP_ARRAY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_IP_CLUSTER {
@@ -2909,9 +2711,6 @@ impl Default for DHCP_IP_CLUSTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_IP_CLUSTER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2924,9 +2723,6 @@ impl Default for DHCP_IP_RANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_IP_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_IP_RANGE_ARRAY {
@@ -2937,9 +2733,6 @@ impl Default for DHCP_IP_RANGE_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_IP_RANGE_ARRAY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2952,9 +2745,6 @@ impl Default for DHCP_IP_RANGE_V6 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_IP_RANGE_V6 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_IP_RESERVATION {
@@ -2965,9 +2755,6 @@ impl Default for DHCP_IP_RESERVATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_IP_RESERVATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2984,9 +2771,6 @@ impl Default for DHCP_IP_RESERVATION_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_IP_RESERVATION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_IP_RESERVATION_V4 {
@@ -2999,9 +2783,6 @@ impl Default for DHCP_IP_RESERVATION_V4 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_IP_RESERVATION_V4 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_IP_RESERVATION_V6 {
@@ -3013,9 +2794,6 @@ impl Default for DHCP_IP_RESERVATION_V6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_IP_RESERVATION_V6 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DHCP_MAX_DELAY: u32 = 1000u32;
 #[repr(C)]
@@ -3036,9 +2814,6 @@ impl Default for DHCP_MIB_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_MIB_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3068,9 +2843,6 @@ impl Default for DHCP_MIB_INFO_V5 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_MIB_INFO_V5 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_MIB_INFO_V6 {
@@ -3092,9 +2864,6 @@ impl Default for DHCP_MIB_INFO_V6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_MIB_INFO_V6 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3122,9 +2891,6 @@ impl Default for DHCP_MIB_INFO_VQ {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_MIB_INFO_VQ {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DHCP_MIN_DELAY: u32 = 0u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3140,9 +2906,6 @@ impl Default for DHCP_OPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_OPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_OPTION_ARRAY {
@@ -3153,9 +2916,6 @@ impl Default for DHCP_OPTION_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_OPTION_ARRAY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3168,9 +2928,6 @@ impl Default for DHCP_OPTION_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_OPTION_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_OPTION_DATA_ELEMENT {
@@ -3181,9 +2938,6 @@ impl Default for DHCP_OPTION_DATA_ELEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_OPTION_DATA_ELEMENT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3203,9 +2957,6 @@ impl Default for DHCP_OPTION_DATA_ELEMENT_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_OPTION_DATA_ELEMENT_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_OPTION_DATA_TYPE(pub i32);
@@ -3220,9 +2971,6 @@ impl Default for DHCP_OPTION_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_OPTION_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_OPTION_SCOPE_INFO {
@@ -3233,9 +2981,6 @@ impl Default for DHCP_OPTION_SCOPE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_OPTION_SCOPE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3251,9 +2996,6 @@ impl Default for DHCP_OPTION_SCOPE_INFO_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_OPTION_SCOPE_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_OPTION_SCOPE_INFO6 {
@@ -3264,9 +3006,6 @@ impl Default for DHCP_OPTION_SCOPE_INFO6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_OPTION_SCOPE_INFO6 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3279,9 +3018,6 @@ impl Default for DHCP_OPTION_SCOPE_INFO6_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_OPTION_SCOPE_INFO6_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3303,9 +3039,6 @@ impl Default for DHCP_OPTION_VALUE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_OPTION_VALUE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_OPTION_VALUE_ARRAY {
@@ -3316,9 +3049,6 @@ impl Default for DHCP_OPTION_VALUE_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_OPTION_VALUE_ARRAY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DHCP_OPT_ENUM_IGNORE_VENDOR: u32 = 1u32;
 pub const DHCP_OPT_ENUM_USE_CLASSNAME: u32 = 2u32;
@@ -3350,9 +3080,6 @@ impl Default for DHCP_PERF_STATS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_PERF_STATS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_POLICY {
@@ -3371,9 +3098,6 @@ impl Default for DHCP_POLICY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_POLICY_ARRAY {
@@ -3384,9 +3108,6 @@ impl Default for DHCP_POLICY_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_POLICY_ARRAY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3407,9 +3128,6 @@ impl Default for DHCP_POLICY_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_POLICY_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_POLICY_EX_ARRAY {
@@ -3420,9 +3138,6 @@ impl Default for DHCP_POLICY_EX_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_POLICY_EX_ARRAY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3450,9 +3165,6 @@ impl Default for DHCP_POL_COND {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_POL_COND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_POL_COND_ARRAY {
@@ -3463,9 +3175,6 @@ impl Default for DHCP_POL_COND_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_POL_COND_ARRAY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3478,9 +3187,6 @@ impl Default for DHCP_POL_EXPR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_POL_EXPR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_POL_EXPR_ARRAY {
@@ -3491,9 +3197,6 @@ impl Default for DHCP_POL_EXPR_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_POL_EXPR_ARRAY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3514,9 +3217,6 @@ impl Default for DHCP_PROPERTY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DHCP_PROPERTY_0 {
@@ -3531,9 +3231,6 @@ impl Default for DHCP_PROPERTY_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_PROPERTY_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_PROPERTY_ARRAY {
@@ -3544,9 +3241,6 @@ impl Default for DHCP_PROPERTY_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_PROPERTY_ARRAY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3565,9 +3259,6 @@ impl Default for DHCP_RESERVATION_INFO_ARRAY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_RESERVATION_INFO_ARRAY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_RESERVED_SCOPE {
@@ -3579,9 +3270,6 @@ impl Default for DHCP_RESERVED_SCOPE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_RESERVED_SCOPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_RESERVED_SCOPE6 {
@@ -3592,9 +3280,6 @@ impl Default for DHCP_RESERVED_SCOPE6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_RESERVED_SCOPE6 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3610,9 +3295,6 @@ impl Default for DHCP_SCAN_ITEM {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_SCAN_ITEM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_SCAN_LIST {
@@ -3623,9 +3305,6 @@ impl Default for DHCP_SCAN_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_SCAN_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3638,9 +3317,6 @@ impl Default for DHCP_SEARCH_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_SEARCH_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DHCP_SEARCH_INFO_0 {
@@ -3652,9 +3328,6 @@ impl Default for DHCP_SEARCH_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_SEARCH_INFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3673,9 +3346,6 @@ impl Default for DHCP_SEARCH_INFO_V6 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_SEARCH_INFO_V6 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DHCP_SEARCH_INFO_V6_0 {
@@ -3687,9 +3357,6 @@ impl Default for DHCP_SEARCH_INFO_V6_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_SEARCH_INFO_V6_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DHCP_SEND_PACKET: u32 = 268435456u32;
 #[repr(C)]
@@ -3709,9 +3376,6 @@ impl Default for DHCP_SERVER_CONFIG_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_SERVER_CONFIG_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3735,9 +3399,6 @@ impl Default for DHCP_SERVER_CONFIG_INFO_V4 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_SERVER_CONFIG_INFO_V4 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_SERVER_CONFIG_INFO_V6 {
@@ -3755,9 +3416,6 @@ impl Default for DHCP_SERVER_CONFIG_INFO_V6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_SERVER_CONFIG_INFO_V6 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3783,9 +3441,6 @@ impl Default for DHCP_SERVER_CONFIG_INFO_VQ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_SERVER_CONFIG_INFO_VQ {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3821,9 +3476,6 @@ impl Default for DHCP_SERVER_OPTIONS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_SERVER_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_SERVER_SPECIFIC_STRINGS {
@@ -3835,9 +3487,6 @@ impl Default for DHCP_SERVER_SPECIFIC_STRINGS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_SERVER_SPECIFIC_STRINGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_SUBNET_ELEMENT_DATA {
@@ -3848,9 +3497,6 @@ impl Default for DHCP_SUBNET_ELEMENT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_SUBNET_ELEMENT_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3866,9 +3512,6 @@ impl Default for DHCP_SUBNET_ELEMENT_DATA_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_SUBNET_ELEMENT_DATA_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_SUBNET_ELEMENT_DATA_V4 {
@@ -3879,9 +3522,6 @@ impl Default for DHCP_SUBNET_ELEMENT_DATA_V4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_SUBNET_ELEMENT_DATA_V4 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3897,9 +3537,6 @@ impl Default for DHCP_SUBNET_ELEMENT_DATA_V4_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_SUBNET_ELEMENT_DATA_V4_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_SUBNET_ELEMENT_DATA_V5 {
@@ -3910,9 +3547,6 @@ impl Default for DHCP_SUBNET_ELEMENT_DATA_V5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_SUBNET_ELEMENT_DATA_V5 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3928,9 +3562,6 @@ impl Default for DHCP_SUBNET_ELEMENT_DATA_V5_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_SUBNET_ELEMENT_DATA_V5_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_SUBNET_ELEMENT_DATA_V6 {
@@ -3941,9 +3572,6 @@ impl Default for DHCP_SUBNET_ELEMENT_DATA_V6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_SUBNET_ELEMENT_DATA_V6 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3957,9 +3585,6 @@ impl Default for DHCP_SUBNET_ELEMENT_DATA_V6_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_SUBNET_ELEMENT_DATA_V6_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY {
@@ -3970,9 +3595,6 @@ impl Default for DHCP_SUBNET_ELEMENT_INFO_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_SUBNET_ELEMENT_INFO_ARRAY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3985,9 +3607,6 @@ impl Default for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {
@@ -3999,9 +3618,6 @@ impl Default for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
@@ -4012,9 +3628,6 @@ impl Default for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4037,9 +3650,6 @@ impl Default for DHCP_SUBNET_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_SUBNET_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_SUBNET_INFO_V6 {
@@ -4055,9 +3665,6 @@ impl Default for DHCP_SUBNET_INFO_V6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_SUBNET_INFO_V6 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4079,9 +3686,6 @@ impl Default for DHCP_SUBNET_INFO_VQ {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_SUBNET_INFO_VQ {
-    type TypeKind = windows_core::CopyType;
-}
 pub const DHCP_SUBNET_INFO_VQ_FLAG_QUARANTINE: u32 = 1u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4097,9 +3701,6 @@ impl Default for DHCP_SUPER_SCOPE_TABLE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DHCP_SUPER_SCOPE_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_SUPER_SCOPE_TABLE_ENTRY {
@@ -4112,9 +3713,6 @@ impl Default for DHCP_SUPER_SCOPE_TABLE_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DHCP_SUPER_SCOPE_TABLE_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DNS_FLAG_CLEANUP_EXPIRED: u32 = 4u32;
 pub const DNS_FLAG_DISABLE_PTR_UPDATE: u32 = 64u32;
@@ -4134,9 +3732,6 @@ impl Default for DWORD_DWORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DWORD_DWORD {
-    type TypeKind = windows_core::CopyType;
 }
 pub const Deny: DHCP_FILTER_LIST_TYPE = DHCP_FILTER_LIST_TYPE(0i32);
 pub const DhcpArrayTypeOption: DHCP_OPTION_TYPE = DHCP_OPTION_TYPE(1i32);
@@ -4460,9 +4055,6 @@ impl Default for SCOPE_MIB_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCOPE_MIB_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCOPE_MIB_INFO_V5 {
@@ -4476,9 +4068,6 @@ impl Default for SCOPE_MIB_INFO_V5 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCOPE_MIB_INFO_V5 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCOPE_MIB_INFO_V6 {
@@ -4491,9 +4080,6 @@ impl Default for SCOPE_MIB_INFO_V6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCOPE_MIB_INFO_V6 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4513,9 +4099,6 @@ impl Default for SCOPE_MIB_INFO_VQ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SCOPE_MIB_INFO_VQ {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SHAREDSECRET: u32 = 64u32;
 pub const SHUTDOWN: FSM_STATE = FSM_STATE(13i32);

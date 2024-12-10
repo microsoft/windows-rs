@@ -3921,9 +3921,6 @@ impl Default for BUSNUMBER_DES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BUSNUMBER_DES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct BUSNUMBER_RANGE {
@@ -3937,9 +3934,6 @@ impl Default for BUSNUMBER_RANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BUSNUMBER_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct BUSNUMBER_RESOURCE {
@@ -3951,9 +3945,6 @@ impl Default for BUSNUMBER_RESOURCE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BUSNUMBER_RESOURCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -3969,10 +3960,6 @@ impl Default for CABINET_INFO_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for CABINET_INFO_A {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -3990,10 +3977,6 @@ impl Default for CABINET_INFO_A {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for CABINET_INFO_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -4010,10 +3993,6 @@ impl Default for CABINET_INFO_W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for CABINET_INFO_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4029,10 +4008,6 @@ impl Default for CABINET_INFO_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for CABINET_INFO_W {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CM_ADD_ID_BITS: u32 = 1u32;
 pub const CM_ADD_ID_COMPATIBLE: u32 = 1u32;
@@ -4417,9 +4392,6 @@ impl Default for CM_NOTIFY_EVENT_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_NOTIFY_EVENT_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CM_NOTIFY_EVENT_DATA_0 {
@@ -4431,9 +4403,6 @@ impl Default for CM_NOTIFY_EVENT_DATA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CM_NOTIFY_EVENT_DATA_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4448,9 +4417,6 @@ impl Default for CM_NOTIFY_EVENT_DATA_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_NOTIFY_EVENT_DATA_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CM_NOTIFY_EVENT_DATA_0_2 {
@@ -4460,9 +4426,6 @@ impl Default for CM_NOTIFY_EVENT_DATA_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CM_NOTIFY_EVENT_DATA_0_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4474,9 +4437,6 @@ impl Default for CM_NOTIFY_EVENT_DATA_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CM_NOTIFY_EVENT_DATA_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4492,9 +4452,6 @@ impl Default for CM_NOTIFY_FILTER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_NOTIFY_FILTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CM_NOTIFY_FILTER_0 {
@@ -4507,9 +4464,6 @@ impl Default for CM_NOTIFY_FILTER_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_NOTIFY_FILTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CM_NOTIFY_FILTER_0_1 {
@@ -4519,9 +4473,6 @@ impl Default for CM_NOTIFY_FILTER_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CM_NOTIFY_FILTER_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4533,9 +4484,6 @@ impl Default for CM_NOTIFY_FILTER_0_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_NOTIFY_FILTER_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CM_NOTIFY_FILTER_0_0 {
@@ -4545,9 +4493,6 @@ impl Default for CM_NOTIFY_FILTER_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CM_NOTIFY_FILTER_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CM_NOTIFY_FILTER_FLAG_ALL_DEVICE_INSTANCES: u32 = 2u32;
 pub const CM_NOTIFY_FILTER_FLAG_ALL_INTERFACE_CLASSES: u32 = 1u32;
@@ -4732,10 +4677,6 @@ impl Default for COINSTALLER_CONTEXT_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for COINSTALLER_CONTEXT_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4749,10 +4690,6 @@ impl Default for COINSTALLER_CONTEXT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for COINSTALLER_CONTEXT_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CONFIGFLAG_BOOT_DEVICE: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(262144u32);
 pub const CONFIGFLAG_CANTSTOPACHILD: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(128u32);
@@ -4793,9 +4730,6 @@ impl Default for CONFLICT_DETAILS_A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CONFLICT_DETAILS_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CONFLICT_DETAILS_W {
@@ -4810,9 +4744,6 @@ impl Default for CONFLICT_DETAILS_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CONFLICT_DETAILS_W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -4830,9 +4761,6 @@ impl Default for CONNECTION_DES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CONNECTION_DES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct CONNECTION_RESOURCE {
@@ -4842,9 +4770,6 @@ impl Default for CONNECTION_RESOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CONNECTION_RESOURCE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const COPYFLG_FORCE_FILE_IN_USE: u32 = 8u32;
 pub const COPYFLG_IN_USE_TRY_RENAME: u32 = 16384u32;
@@ -4938,9 +4863,6 @@ impl Default for CS_DES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CS_DES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct CS_RESOURCE {
@@ -4950,9 +4872,6 @@ impl Default for CS_RESOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CS_RESOURCE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5007,9 +4926,6 @@ impl Default for DEVPRIVATE_DES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVPRIVATE_DES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DEVPRIVATE_RANGE {
@@ -5022,9 +4938,6 @@ impl Default for DEVPRIVATE_RANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVPRIVATE_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DEVPRIVATE_RESOURCE {
@@ -5035,9 +4948,6 @@ impl Default for DEVPRIVATE_RESOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DEVPRIVATE_RESOURCE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DIBCI_NODISPLAYCLASS: u32 = 2u32;
 pub const DIBCI_NOINSTALLCLASS: u32 = 1u32;
@@ -5397,9 +5307,6 @@ impl Default for DMA_DES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DMA_DES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DMA_RANGE {
@@ -5412,9 +5319,6 @@ impl Default for DMA_RANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DMA_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DMA_RESOURCE {
@@ -5425,9 +5329,6 @@ impl Default for DMA_RESOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DMA_RESOURCE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const DMI_BKCOLOR: u32 = 2u32;
 pub const DMI_MASK: u32 = 1u32;
@@ -5550,10 +5451,6 @@ impl Default for FILEPATHS_A {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for FILEPATHS_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5569,10 +5466,6 @@ impl Default for FILEPATHS_A {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for FILEPATHS_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -5590,10 +5483,6 @@ impl Default for FILEPATHS_SIGNERINFO_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for FILEPATHS_SIGNERINFO_A {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -5613,10 +5502,6 @@ impl Default for FILEPATHS_SIGNERINFO_A {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for FILEPATHS_SIGNERINFO_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -5634,10 +5519,6 @@ impl Default for FILEPATHS_SIGNERINFO_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for FILEPATHS_SIGNERINFO_W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -5657,10 +5538,6 @@ impl Default for FILEPATHS_SIGNERINFO_W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for FILEPATHS_SIGNERINFO_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -5676,10 +5553,6 @@ impl Default for FILEPATHS_W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for FILEPATHS_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5694,10 +5567,6 @@ impl Default for FILEPATHS_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for FILEPATHS_W {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FILE_COMPRESSION_MSZIP: FILE_COMPRESSION_TYPE = FILE_COMPRESSION_TYPE(2u32);
 pub const FILE_COMPRESSION_NONE: FILE_COMPRESSION_TYPE = FILE_COMPRESSION_TYPE(0u32);
@@ -5757,10 +5626,6 @@ impl Default for FILE_IN_CABINET_INFO_A {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for FILE_IN_CABINET_INFO_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5778,10 +5643,6 @@ impl Default for FILE_IN_CABINET_INFO_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for FILE_IN_CABINET_INFO_A {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
@@ -5801,10 +5662,6 @@ impl Default for FILE_IN_CABINET_INFO_W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for FILE_IN_CABINET_INFO_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5822,10 +5679,6 @@ impl Default for FILE_IN_CABINET_INFO_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for FILE_IN_CABINET_INFO_W {
-    type TypeKind = windows_core::CopyType;
 }
 pub const FILTERED_LOG_CONF: CM_LOG_CONF = CM_LOG_CONF(1u32);
 pub const FLG_ADDPROPERTY_AND: u32 = 16u32;
@@ -6111,9 +5964,6 @@ impl Default for HWPROFILEINFO_A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HWPROFILEINFO_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct HWPROFILEINFO_W {
@@ -6125,9 +5975,6 @@ impl Default for HWPROFILEINFO_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HWPROFILEINFO_W {
-    type TypeKind = windows_core::CopyType;
 }
 pub const IDD_DYNAWIZ_ANALYZEDEV_PAGE: u32 = 10010u32;
 pub const IDD_DYNAWIZ_ANALYZE_NEXTPAGE: u32 = 10004u32;
@@ -6178,10 +6025,6 @@ impl Default for INFCONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for INFCONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6196,10 +6039,6 @@ impl Default for INFCONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for INFCONTEXT {
-    type TypeKind = windows_core::CopyType;
 }
 pub const INFINFO_DEFAULT_SEARCH: u32 = 3u32;
 pub const INFINFO_INF_NAME_IS_ABSOLUTE: u32 = 2u32;
@@ -6492,9 +6331,6 @@ impl Default for IO_DES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IO_DES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct IO_RANGE {
@@ -6510,9 +6346,6 @@ impl Default for IO_RANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IO_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IO_RESOURCE {
@@ -6523,9 +6356,6 @@ impl Default for IO_RESOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IO_RESOURCE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6577,9 +6407,6 @@ impl Default for IRQ_DES_32 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IRQ_DES_32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct IRQ_DES_64 {
@@ -6594,9 +6421,6 @@ impl Default for IRQ_DES_64 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IRQ_DES_64 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct IRQ_RANGE {
@@ -6609,9 +6433,6 @@ impl Default for IRQ_RANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IRQ_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct IRQ_RESOURCE_32 {
@@ -6623,9 +6444,6 @@ impl Default for IRQ_RESOURCE_32 {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IRQ_RESOURCE_32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct IRQ_RESOURCE_64 {
@@ -6636,9 +6454,6 @@ impl Default for IRQ_RESOURCE_64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IRQ_RESOURCE_64 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const LCPRI_BOOTCONFIG: u32 = 1u32;
 pub const LCPRI_DESIRED: u32 = 8192u32;
@@ -6737,9 +6552,6 @@ impl Default for MEM_DES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MEM_DES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MEM_LARGE_DES {
@@ -6754,9 +6566,6 @@ impl Default for MEM_LARGE_DES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MEM_LARGE_DES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -6773,9 +6582,6 @@ impl Default for MEM_LARGE_RANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MEM_LARGE_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MEM_LARGE_RESOURCE {
@@ -6786,9 +6592,6 @@ impl Default for MEM_LARGE_RESOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MEM_LARGE_RESOURCE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -6805,9 +6608,6 @@ impl Default for MEM_RANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MEM_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MEM_RESOURCE {
@@ -6818,9 +6618,6 @@ impl Default for MEM_RESOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MEM_RESOURCE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -6838,9 +6635,6 @@ impl Default for MFCARD_DES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MFCARD_DES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MFCARD_RESOURCE {
@@ -6850,9 +6644,6 @@ impl Default for MFCARD_RESOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MFCARD_RESOURCE {
-    type TypeKind = windows_core::CopyType;
 }
 pub const MIN_IDD_DYNAWIZ_RESOURCE_ID: u32 = 10000u32;
 pub const NDW_INSTALLFLAG_CI_PICKED_OEM: u32 = 32768u32;
@@ -6903,9 +6694,6 @@ impl Default for PCCARD_DES {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCCARD_DES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct PCCARD_RESOURCE {
@@ -6915,9 +6703,6 @@ impl Default for PCCARD_RESOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PCCARD_RESOURCE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7340,10 +7125,6 @@ impl Default for SOURCE_MEDIA_A {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SOURCE_MEDIA_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7360,10 +7141,6 @@ impl Default for SOURCE_MEDIA_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SOURCE_MEDIA_A {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
@@ -7382,10 +7159,6 @@ impl Default for SOURCE_MEDIA_W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SOURCE_MEDIA_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7402,10 +7175,6 @@ impl Default for SOURCE_MEDIA_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SOURCE_MEDIA_W {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SPCRP_CHARACTERISTICS: u32 = 27u32;
 pub const SPCRP_DEVTYPE: u32 = 25u32;
@@ -7627,11 +7396,6 @@ impl Default for SP_ALTPLATFORM_INFO_V1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
@@ -7651,11 +7415,6 @@ impl Default for SP_ALTPLATFORM_INFO_V1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
@@ -7677,11 +7436,6 @@ impl Default for SP_ALTPLATFORM_INFO_V2 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
-impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
@@ -7696,11 +7450,6 @@ impl Default for SP_ALTPLATFORM_INFO_V2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
-impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V2_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -7723,11 +7472,6 @@ impl Default for SP_ALTPLATFORM_INFO_V2 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
-impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
@@ -7742,11 +7486,6 @@ impl Default for SP_ALTPLATFORM_INFO_V2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
-impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V2_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
@@ -7770,10 +7509,6 @@ impl Default for SP_ALTPLATFORM_INFO_V3 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -7786,10 +7521,6 @@ impl Default for SP_ALTPLATFORM_INFO_V3_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V3_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -7813,10 +7544,6 @@ impl Default for SP_ALTPLATFORM_INFO_V3 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -7829,10 +7556,6 @@ impl Default for SP_ALTPLATFORM_INFO_V3_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V3_0 {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SP_BACKUP_BACKUPPASS: u32 = 1u32;
 pub const SP_BACKUP_BOOTFILE: u32 = 8u32;
@@ -7851,10 +7574,6 @@ impl Default for SP_BACKUP_QUEUE_PARAMS_V1_A {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V1_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7869,10 +7588,6 @@ impl Default for SP_BACKUP_QUEUE_PARAMS_V1_A {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V1_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -7887,10 +7602,6 @@ impl Default for SP_BACKUP_QUEUE_PARAMS_V1_W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V1_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7904,10 +7615,6 @@ impl Default for SP_BACKUP_QUEUE_PARAMS_V1_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V1_W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
@@ -7924,10 +7631,6 @@ impl Default for SP_BACKUP_QUEUE_PARAMS_V2_A {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V2_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7942,10 +7645,6 @@ impl Default for SP_BACKUP_QUEUE_PARAMS_V2_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V2_A {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
@@ -7962,10 +7661,6 @@ impl Default for SP_BACKUP_QUEUE_PARAMS_V2_W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V2_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7980,10 +7675,6 @@ impl Default for SP_BACKUP_QUEUE_PARAMS_V2_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V2_W {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SP_BACKUP_SPECIAL: u32 = 4u32;
 #[repr(C, packed(1))]
@@ -8002,11 +7693,6 @@ impl Default for SP_CLASSIMAGELIST_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_UI_Controls")]
-impl windows_core::TypeKind for SP_CLASSIMAGELIST_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_Controls")]
@@ -8023,11 +7709,6 @@ impl Default for SP_CLASSIMAGELIST_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_UI_Controls")]
-impl windows_core::TypeKind for SP_CLASSIMAGELIST_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -8041,10 +7722,6 @@ impl Default for SP_CLASSINSTALL_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_CLASSINSTALL_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8057,10 +7734,6 @@ impl Default for SP_CLASSINSTALL_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_CLASSINSTALL_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SP_COPY_ALREADYDECOMP: SP_COPY_STYLE = SP_COPY_STYLE(4194304u32);
 pub const SP_COPY_DELETESOURCE: SP_COPY_STYLE = SP_COPY_STYLE(1u32);
@@ -8140,10 +7813,6 @@ impl Default for SP_DETECTDEVICE_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DETECTDEVICE_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8158,10 +7827,6 @@ impl Default for SP_DETECTDEVICE_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DETECTDEVICE_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -8176,10 +7841,6 @@ impl Default for SP_DEVICE_INTERFACE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DEVICE_INTERFACE_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -8196,10 +7857,6 @@ impl Default for SP_DEVICE_INTERFACE_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DEVICE_INTERFACE_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -8212,10 +7869,6 @@ impl Default for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -8230,10 +7883,6 @@ impl Default for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -8247,10 +7896,6 @@ impl Default for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8263,10 +7908,6 @@ impl Default for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
@@ -8283,10 +7924,6 @@ impl Default for SP_DEVINFO_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DEVINFO_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8302,10 +7939,6 @@ impl Default for SP_DEVINFO_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DEVINFO_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -8320,10 +7953,6 @@ impl Default for SP_DEVINFO_LIST_DETAIL_DATA_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DEVINFO_LIST_DETAIL_DATA_A {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -8340,10 +7969,6 @@ impl Default for SP_DEVINFO_LIST_DETAIL_DATA_A {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DEVINFO_LIST_DETAIL_DATA_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -8359,10 +7984,6 @@ impl Default for SP_DEVINFO_LIST_DETAIL_DATA_W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DEVINFO_LIST_DETAIL_DATA_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8377,10 +7998,6 @@ impl Default for SP_DEVINFO_LIST_DETAIL_DATA_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DEVINFO_LIST_DETAIL_DATA_W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
@@ -8403,10 +8020,6 @@ impl Default for SP_DEVINSTALL_PARAMS_A {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DEVINSTALL_PARAMS_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8428,10 +8041,6 @@ impl Default for SP_DEVINSTALL_PARAMS_A {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DEVINSTALL_PARAMS_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -8452,10 +8061,6 @@ impl Default for SP_DEVINSTALL_PARAMS_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DEVINSTALL_PARAMS_W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -8478,10 +8083,6 @@ impl Default for SP_DEVINSTALL_PARAMS_W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DEVINSTALL_PARAMS_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -8498,10 +8099,6 @@ impl Default for SP_DRVINFO_DATA_V1_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DRVINFO_DATA_V1_A {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -8520,10 +8117,6 @@ impl Default for SP_DRVINFO_DATA_V1_A {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DRVINFO_DATA_V1_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -8541,10 +8134,6 @@ impl Default for SP_DRVINFO_DATA_V1_W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DRVINFO_DATA_V1_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8561,10 +8150,6 @@ impl Default for SP_DRVINFO_DATA_V1_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DRVINFO_DATA_V1_W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
@@ -8585,10 +8170,6 @@ impl Default for SP_DRVINFO_DATA_V2_A {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DRVINFO_DATA_V2_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8607,10 +8188,6 @@ impl Default for SP_DRVINFO_DATA_V2_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DRVINFO_DATA_V2_A {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
@@ -8631,10 +8208,6 @@ impl Default for SP_DRVINFO_DATA_V2_W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DRVINFO_DATA_V2_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8653,10 +8226,6 @@ impl Default for SP_DRVINFO_DATA_V2_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DRVINFO_DATA_V2_W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
@@ -8678,10 +8247,6 @@ impl Default for SP_DRVINFO_DETAIL_DATA_A {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DRVINFO_DETAIL_DATA_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8702,10 +8267,6 @@ impl Default for SP_DRVINFO_DETAIL_DATA_A {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DRVINFO_DETAIL_DATA_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -8725,10 +8286,6 @@ impl Default for SP_DRVINFO_DETAIL_DATA_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DRVINFO_DETAIL_DATA_W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -8750,10 +8307,6 @@ impl Default for SP_DRVINFO_DETAIL_DATA_W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DRVINFO_DETAIL_DATA_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -8769,10 +8322,6 @@ impl Default for SP_DRVINSTALL_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DRVINSTALL_PARAMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -8790,10 +8339,6 @@ impl Default for SP_DRVINSTALL_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DRVINSTALL_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -8808,10 +8353,6 @@ impl Default for SP_ENABLECLASS_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_ENABLECLASS_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8825,10 +8366,6 @@ impl Default for SP_ENABLECLASS_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_ENABLECLASS_PARAMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
@@ -8853,10 +8390,6 @@ impl Default for SP_FILE_COPY_PARAMS_A {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_FILE_COPY_PARAMS_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8879,10 +8412,6 @@ impl Default for SP_FILE_COPY_PARAMS_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_FILE_COPY_PARAMS_A {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
@@ -8907,10 +8436,6 @@ impl Default for SP_FILE_COPY_PARAMS_W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_FILE_COPY_PARAMS_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8933,10 +8458,6 @@ impl Default for SP_FILE_COPY_PARAMS_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_FILE_COPY_PARAMS_W {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SP_FLAG_CABINETCONTINUATION: u32 = 2048u32;
 #[repr(C, packed(1))]
@@ -8953,10 +8474,6 @@ impl Default for SP_INF_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_INF_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8971,10 +8488,6 @@ impl Default for SP_INF_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_INF_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -8989,10 +8502,6 @@ impl Default for SP_INF_SIGNER_INFO_V1_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V1_A {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -9009,10 +8518,6 @@ impl Default for SP_INF_SIGNER_INFO_V1_A {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V1_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -9028,10 +8533,6 @@ impl Default for SP_INF_SIGNER_INFO_V1_W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V1_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9046,10 +8547,6 @@ impl Default for SP_INF_SIGNER_INFO_V1_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V1_W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
@@ -9067,10 +8564,6 @@ impl Default for SP_INF_SIGNER_INFO_V2_A {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V2_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9086,10 +8579,6 @@ impl Default for SP_INF_SIGNER_INFO_V2_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V2_A {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
@@ -9107,10 +8596,6 @@ impl Default for SP_INF_SIGNER_INFO_V2_W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V2_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9126,10 +8611,6 @@ impl Default for SP_INF_SIGNER_INFO_V2_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V2_W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
@@ -9152,11 +8633,6 @@ impl Default for SP_INSTALLWIZARD_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_UI_Controls")]
-impl windows_core::TypeKind for SP_INSTALLWIZARD_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_Controls")]
@@ -9177,11 +8653,6 @@ impl Default for SP_INSTALLWIZARD_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_UI_Controls")]
-impl windows_core::TypeKind for SP_INSTALLWIZARD_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SP_MAX_MACHINENAME_LENGTH: u32 = 263u32;
 #[repr(C, packed(1))]
@@ -9202,11 +8673,6 @@ impl Default for SP_NEWDEVICEWIZARD_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_UI_Controls")]
-impl windows_core::TypeKind for SP_NEWDEVICEWIZARD_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_Controls")]
@@ -9225,11 +8691,6 @@ impl Default for SP_NEWDEVICEWIZARD_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_UI_Controls")]
-impl windows_core::TypeKind for SP_NEWDEVICEWIZARD_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -9243,10 +8704,6 @@ impl Default for SP_ORIGINAL_FILE_INFO_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_ORIGINAL_FILE_INFO_A {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -9262,10 +8719,6 @@ impl Default for SP_ORIGINAL_FILE_INFO_A {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_ORIGINAL_FILE_INFO_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -9280,10 +8733,6 @@ impl Default for SP_ORIGINAL_FILE_INFO_W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_ORIGINAL_FILE_INFO_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9297,10 +8746,6 @@ impl Default for SP_ORIGINAL_FILE_INFO_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_ORIGINAL_FILE_INFO_W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9313,9 +8758,6 @@ impl Default for SP_POWERMESSAGEWAKE_PARAMS_A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SP_POWERMESSAGEWAKE_PARAMS_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -9329,10 +8771,6 @@ impl Default for SP_POWERMESSAGEWAKE_PARAMS_W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_POWERMESSAGEWAKE_PARAMS_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9345,10 +8783,6 @@ impl Default for SP_POWERMESSAGEWAKE_PARAMS_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_POWERMESSAGEWAKE_PARAMS_W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
@@ -9365,10 +8799,6 @@ impl Default for SP_PROPCHANGE_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_PROPCHANGE_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9384,10 +8814,6 @@ impl Default for SP_PROPCHANGE_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_PROPCHANGE_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -9402,10 +8828,6 @@ impl Default for SP_PROPSHEETPAGE_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_PROPSHEETPAGE_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -9422,10 +8844,6 @@ impl Default for SP_PROPSHEETPAGE_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_PROPSHEETPAGE_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -9440,10 +8858,6 @@ impl Default for SP_REGISTER_CONTROL_STATUSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_REGISTER_CONTROL_STATUSA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -9460,10 +8874,6 @@ impl Default for SP_REGISTER_CONTROL_STATUSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_REGISTER_CONTROL_STATUSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -9478,10 +8888,6 @@ impl Default for SP_REGISTER_CONTROL_STATUSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_REGISTER_CONTROL_STATUSW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -9498,10 +8904,6 @@ impl Default for SP_REGISTER_CONTROL_STATUSW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_REGISTER_CONTROL_STATUSW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -9516,10 +8918,6 @@ impl Default for SP_REMOVEDEVICE_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_REMOVEDEVICE_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9533,10 +8931,6 @@ impl Default for SP_REMOVEDEVICE_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_REMOVEDEVICE_PARAMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9553,9 +8947,6 @@ impl Default for SP_SELECTDEVICE_PARAMS_A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SP_SELECTDEVICE_PARAMS_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -9572,10 +8963,6 @@ impl Default for SP_SELECTDEVICE_PARAMS_W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_SELECTDEVICE_PARAMS_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9591,10 +8978,6 @@ impl Default for SP_SELECTDEVICE_PARAMS_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_SELECTDEVICE_PARAMS_W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9608,9 +8991,6 @@ impl Default for SP_TROUBLESHOOTER_PARAMS_A {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SP_TROUBLESHOOTER_PARAMS_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -9624,10 +9004,6 @@ impl Default for SP_TROUBLESHOOTER_PARAMS_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_TROUBLESHOOTER_PARAMS_W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -9643,10 +9019,6 @@ impl Default for SP_TROUBLESHOOTER_PARAMS_W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_TROUBLESHOOTER_PARAMS_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -9661,10 +9033,6 @@ impl Default for SP_UNREMOVEDEVICE_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_UNREMOVEDEVICE_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9678,10 +9046,6 @@ impl Default for SP_UNREMOVEDEVICE_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_UNREMOVEDEVICE_PARAMS {
-    type TypeKind = windows_core::CopyType;
 }
 pub const SRCINFO_DESCRIPTION: u32 = 3u32;
 pub const SRCINFO_FLAGS: u32 = 4u32;
