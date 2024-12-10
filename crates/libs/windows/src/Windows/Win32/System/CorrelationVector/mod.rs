@@ -11,12 +11,12 @@ pub unsafe fn RtlIncrementCorrelationVector(correlationvector: *mut CORRELATION_
 #[inline]
 pub unsafe fn RtlInitializeCorrelationVector(correlationvector: *mut CORRELATION_VECTOR, version: i32, guid: Option<*const windows_core::GUID>) -> u32 {
     windows_targets::link!("ntdll.dll" "system" fn RtlInitializeCorrelationVector(correlationvector : *mut CORRELATION_VECTOR, version : i32, guid : *const windows_core::GUID) -> u32);
-    RtlInitializeCorrelationVector(core::mem::transmute(correlationvector), core::mem::transmute(version), core::mem::transmute(guid.unwrap_or(core::mem::zeroed())))
+    RtlInitializeCorrelationVector(core::mem::transmute(correlationvector), version, core::mem::transmute(guid.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn RtlValidateCorrelationVector(vector: *const CORRELATION_VECTOR) -> u32 {
     windows_targets::link!("ntdll.dll" "system" fn RtlValidateCorrelationVector(vector : *const CORRELATION_VECTOR) -> u32);
-    RtlValidateCorrelationVector(core::mem::transmute(vector))
+    RtlValidateCorrelationVector(vector)
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]

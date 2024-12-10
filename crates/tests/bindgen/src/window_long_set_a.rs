@@ -9,11 +9,7 @@
 #[inline]
 pub unsafe fn SetWindowLongA(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX, dwnewlong: i32) -> i32 {
     windows_targets::link!("user32.dll" "system" fn SetWindowLongA(hwnd : HWND, nindex : WINDOW_LONG_PTR_INDEX, dwnewlong : i32) -> i32);
-    SetWindowLongA(
-        core::mem::transmute(hwnd),
-        core::mem::transmute(nindex),
-        core::mem::transmute(dwnewlong),
-    )
+    SetWindowLongA(hwnd, nindex, dwnewlong)
 }
 #[cfg(any(
     target_arch = "aarch64",
@@ -27,11 +23,7 @@ pub unsafe fn SetWindowLongPtrA(
     dwnewlong: isize,
 ) -> isize {
     windows_targets::link!("user32.dll" "system" fn SetWindowLongPtrA(hwnd : HWND, nindex : WINDOW_LONG_PTR_INDEX, dwnewlong : isize) -> isize);
-    SetWindowLongPtrA(
-        core::mem::transmute(hwnd),
-        core::mem::transmute(nindex),
-        core::mem::transmute(dwnewlong),
-    )
+    SetWindowLongPtrA(hwnd, nindex, dwnewlong)
 }
 #[cfg(target_pointer_width = "32")]
 pub use SetWindowLongA as SetWindowLongPtrA;

@@ -7,11 +7,11 @@ impl IDisplayDeviceInterop {
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateSharedHandle)(windows_core::Interface::as_raw(self), pobject.param().abi(), core::mem::transmute(psecurityattributes), core::mem::transmute(access), core::mem::transmute_copy(name), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).CreateSharedHandle)(windows_core::Interface::as_raw(self), pobject.param().abi(), psecurityattributes, access, core::mem::transmute_copy(name), &mut result__).map(|| result__)
     }
     pub unsafe fn OpenSharedHandle(&self, nthandle: super::super::super::Foundation::HANDLE, riid: windows_core::GUID) -> windows_core::Result<*mut core::ffi::c_void> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).OpenSharedHandle)(windows_core::Interface::as_raw(self), core::mem::transmute(nthandle), core::mem::transmute(riid), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).OpenSharedHandle)(windows_core::Interface::as_raw(self), nthandle, core::mem::transmute(riid), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]

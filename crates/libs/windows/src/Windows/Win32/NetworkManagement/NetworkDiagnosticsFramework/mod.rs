@@ -1,7 +1,7 @@
 #[inline]
 pub unsafe fn NdfCancelIncident(handle: *const core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("ndfapi.dll" "system" fn NdfCancelIncident(handle : *const core::ffi::c_void) -> windows_core::HRESULT);
-    NdfCancelIncident(core::mem::transmute(handle)).ok()
+    NdfCancelIncident(handle).ok()
 }
 #[inline]
 pub unsafe fn NdfCloseIncident(handle: *mut core::ffi::c_void) -> windows_core::Result<()> {
@@ -19,7 +19,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ndfapi.dll" "system" fn NdfCreateDNSIncident(hostname : windows_core::PCWSTR, querytype : u16, handle : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    NdfCreateDNSIncident(hostname.param().abi(), core::mem::transmute(querytype), core::mem::transmute(handle)).ok()
+    NdfCreateDNSIncident(hostname.param().abi(), querytype, core::mem::transmute(handle)).ok()
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
@@ -90,28 +90,28 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ndfapi.dll" "system" fn NdfCreateWinSockIncident(sock : super::super::Networking::WinSock:: SOCKET, host : windows_core::PCWSTR, port : u16, appid : windows_core::PCWSTR, userid : *const super::super::Security:: SID, handle : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    NdfCreateWinSockIncident(core::mem::transmute(sock), host.param().abi(), core::mem::transmute(port), appid.param().abi(), core::mem::transmute(userid.unwrap_or(core::mem::zeroed())), core::mem::transmute(handle)).ok()
+    NdfCreateWinSockIncident(sock, host.param().abi(), port, appid.param().abi(), core::mem::transmute(userid.unwrap_or(core::mem::zeroed())), core::mem::transmute(handle)).ok()
 }
 #[inline]
 pub unsafe fn NdfDiagnoseIncident(handle: *const core::ffi::c_void, rootcausecount: *mut u32, rootcauses: *mut *mut RootCauseInfo, dwwait: u32, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("ndfapi.dll" "system" fn NdfDiagnoseIncident(handle : *const core::ffi::c_void, rootcausecount : *mut u32, rootcauses : *mut *mut RootCauseInfo, dwwait : u32, dwflags : u32) -> windows_core::HRESULT);
-    NdfDiagnoseIncident(core::mem::transmute(handle), core::mem::transmute(rootcausecount), core::mem::transmute(rootcauses), core::mem::transmute(dwwait), core::mem::transmute(dwflags)).ok()
+    NdfDiagnoseIncident(handle, core::mem::transmute(rootcausecount), core::mem::transmute(rootcauses), dwwait, dwflags).ok()
 }
 #[inline]
 pub unsafe fn NdfExecuteDiagnosis(handle: *const core::ffi::c_void, hwnd: Option<super::super::Foundation::HWND>) -> windows_core::Result<()> {
     windows_targets::link!("ndfapi.dll" "system" fn NdfExecuteDiagnosis(handle : *const core::ffi::c_void, hwnd : super::super::Foundation:: HWND) -> windows_core::HRESULT);
-    NdfExecuteDiagnosis(core::mem::transmute(handle), core::mem::transmute(hwnd.unwrap_or(core::mem::zeroed()))).ok()
+    NdfExecuteDiagnosis(handle, core::mem::transmute(hwnd.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn NdfGetTraceFile(handle: *const core::ffi::c_void) -> windows_core::Result<windows_core::PCWSTR> {
     windows_targets::link!("ndfapi.dll" "system" fn NdfGetTraceFile(handle : *const core::ffi::c_void, tracefilelocation : *mut windows_core::PCWSTR) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    NdfGetTraceFile(core::mem::transmute(handle), &mut result__).map(|| core::mem::transmute(result__))
+    NdfGetTraceFile(handle, &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn NdfRepairIncident(handle: *const core::ffi::c_void, repairex: *const RepairInfoEx, dwwait: u32) -> windows_core::Result<()> {
     windows_targets::link!("ndfapi.dll" "system" fn NdfRepairIncident(handle : *const core::ffi::c_void, repairex : *const RepairInfoEx, dwwait : u32) -> windows_core::HRESULT);
-    NdfRepairIncident(core::mem::transmute(handle), core::mem::transmute(repairex), core::mem::transmute(dwwait)).ok()
+    NdfRepairIncident(handle, repairex, dwwait).ok()
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -300,13 +300,13 @@ impl INetDiagHelper {
         (windows_core::Interface::vtable(self).GetUpStreamHypotheses)(windows_core::Interface::as_raw(self), core::mem::transmute(pcelt), core::mem::transmute(pprghypotheses)).ok()
     }
     pub unsafe fn Repair(&self, pinfo: *const RepairInfo, pdeferredtime: *mut i32, pstatus: *mut REPAIR_STATUS) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Repair)(windows_core::Interface::as_raw(self), core::mem::transmute(pinfo), core::mem::transmute(pdeferredtime), core::mem::transmute(pstatus)).ok()
+        (windows_core::Interface::vtable(self).Repair)(windows_core::Interface::as_raw(self), pinfo, core::mem::transmute(pdeferredtime), core::mem::transmute(pstatus)).ok()
     }
     pub unsafe fn Validate(&self, problem: PROBLEM_TYPE, pdeferredtime: *mut i32, pstatus: *mut REPAIR_STATUS) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Validate)(windows_core::Interface::as_raw(self), core::mem::transmute(problem), core::mem::transmute(pdeferredtime), core::mem::transmute(pstatus)).ok()
+        (windows_core::Interface::vtable(self).Validate)(windows_core::Interface::as_raw(self), problem, core::mem::transmute(pdeferredtime), core::mem::transmute(pstatus)).ok()
     }
     pub unsafe fn GetRepairInfo(&self, problem: PROBLEM_TYPE, pcelt: *mut u32, ppinfo: *mut *mut RepairInfo) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetRepairInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(problem), core::mem::transmute(pcelt), core::mem::transmute(ppinfo)).ok()
+        (windows_core::Interface::vtable(self).GetRepairInfo)(windows_core::Interface::as_raw(self), problem, core::mem::transmute(pcelt), core::mem::transmute(ppinfo)).ok()
     }
     pub unsafe fn GetLifeTime(&self) -> windows_core::Result<LIFE_TIME> {
         let mut result__ = core::mem::zeroed();

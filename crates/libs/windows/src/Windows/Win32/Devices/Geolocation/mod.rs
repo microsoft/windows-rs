@@ -1224,11 +1224,11 @@ impl IDefaultLocation {
     where
         P1: windows_core::Param<ILocationReport>,
     {
-        (windows_core::Interface::vtable(self).SetReport)(windows_core::Interface::as_raw(self), core::mem::transmute(reporttype), plocationreport.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetReport)(windows_core::Interface::as_raw(self), reporttype, plocationreport.param().abi()).ok()
     }
     pub unsafe fn GetReport(&self, reporttype: *const windows_core::GUID) -> windows_core::Result<ILocationReport> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetReport)(windows_core::Interface::as_raw(self), core::mem::transmute(reporttype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetReport)(windows_core::Interface::as_raw(self), reporttype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -1747,34 +1747,34 @@ impl ILocation {
     where
         P0: windows_core::Param<ILocationEvents>,
     {
-        (windows_core::Interface::vtable(self).RegisterForReport)(windows_core::Interface::as_raw(self), pevents.param().abi(), core::mem::transmute(reporttype), core::mem::transmute(dwrequestedreportinterval)).ok()
+        (windows_core::Interface::vtable(self).RegisterForReport)(windows_core::Interface::as_raw(self), pevents.param().abi(), reporttype, dwrequestedreportinterval).ok()
     }
     pub unsafe fn UnregisterForReport(&self, reporttype: *const windows_core::GUID) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).UnregisterForReport)(windows_core::Interface::as_raw(self), core::mem::transmute(reporttype)).ok()
+        (windows_core::Interface::vtable(self).UnregisterForReport)(windows_core::Interface::as_raw(self), reporttype).ok()
     }
     pub unsafe fn GetReport(&self, reporttype: *const windows_core::GUID) -> windows_core::Result<ILocationReport> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetReport)(windows_core::Interface::as_raw(self), core::mem::transmute(reporttype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetReport)(windows_core::Interface::as_raw(self), reporttype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetReportStatus(&self, reporttype: *const windows_core::GUID) -> windows_core::Result<LOCATION_REPORT_STATUS> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetReportStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(reporttype), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetReportStatus)(windows_core::Interface::as_raw(self), reporttype, &mut result__).map(|| result__)
     }
     pub unsafe fn GetReportInterval(&self, reporttype: *const windows_core::GUID) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetReportInterval)(windows_core::Interface::as_raw(self), core::mem::transmute(reporttype), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetReportInterval)(windows_core::Interface::as_raw(self), reporttype, &mut result__).map(|| result__)
     }
     pub unsafe fn SetReportInterval(&self, reporttype: *const windows_core::GUID, millisecondsrequested: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetReportInterval)(windows_core::Interface::as_raw(self), core::mem::transmute(reporttype), core::mem::transmute(millisecondsrequested)).ok()
+        (windows_core::Interface::vtable(self).SetReportInterval)(windows_core::Interface::as_raw(self), reporttype, millisecondsrequested).ok()
     }
     #[cfg(feature = "Win32_Devices_Sensors")]
     pub unsafe fn GetDesiredAccuracy(&self, reporttype: *const windows_core::GUID) -> windows_core::Result<super::Sensors::LOCATION_DESIRED_ACCURACY> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetDesiredAccuracy)(windows_core::Interface::as_raw(self), core::mem::transmute(reporttype), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetDesiredAccuracy)(windows_core::Interface::as_raw(self), reporttype, &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_Devices_Sensors")]
     pub unsafe fn SetDesiredAccuracy(&self, reporttype: *const windows_core::GUID, desiredaccuracy: super::Sensors::LOCATION_DESIRED_ACCURACY) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetDesiredAccuracy)(windows_core::Interface::as_raw(self), core::mem::transmute(reporttype), core::mem::transmute(desiredaccuracy)).ok()
+        (windows_core::Interface::vtable(self).SetDesiredAccuracy)(windows_core::Interface::as_raw(self), reporttype, desiredaccuracy).ok()
     }
     pub unsafe fn RequestPermissions(&self, hparent: Option<super::super::Foundation::HWND>, preporttypes: &[windows_core::GUID], fmodal: bool) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RequestPermissions)(windows_core::Interface::as_raw(self), core::mem::transmute(hparent.unwrap_or(core::mem::zeroed())), core::mem::transmute(preporttypes.as_ptr()), preporttypes.len().try_into().unwrap(), fmodal.into()).ok()
@@ -1900,10 +1900,10 @@ impl ILocationEvents {
     where
         P1: windows_core::Param<ILocationReport>,
     {
-        (windows_core::Interface::vtable(self).OnLocationChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(reporttype), plocationreport.param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnLocationChanged)(windows_core::Interface::as_raw(self), reporttype, plocationreport.param().abi()).ok()
     }
     pub unsafe fn OnStatusChanged(&self, reporttype: *const windows_core::GUID, newstatus: LOCATION_REPORT_STATUS) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).OnStatusChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(reporttype), core::mem::transmute(newstatus)).ok()
+        (windows_core::Interface::vtable(self).OnStatusChanged)(windows_core::Interface::as_raw(self), reporttype, newstatus).ok()
     }
 }
 #[repr(C)]
@@ -1988,7 +1988,7 @@ impl ILocationReport {
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetValue(&self, pkey: *const super::super::Foundation::PROPERTYKEY) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), core::mem::transmute(pkey), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), pkey, &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[repr(C)]
@@ -2067,7 +2067,7 @@ windows_core::imp::interface_hierarchy!(ILocationReportFactory, windows_core::IU
 #[cfg(feature = "Win32_System_Com")]
 impl ILocationReportFactory {
     pub unsafe fn ListenForReports(&self, requestedreportinterval: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ListenForReports)(windows_core::Interface::as_raw(self), core::mem::transmute(requestedreportinterval)).ok()
+        (windows_core::Interface::vtable(self).ListenForReports)(windows_core::Interface::as_raw(self), requestedreportinterval).ok()
     }
     pub unsafe fn StopListeningForReports(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).StopListeningForReports)(windows_core::Interface::as_raw(self)).ok()
@@ -2081,17 +2081,17 @@ impl ILocationReportFactory {
         (windows_core::Interface::vtable(self).ReportInterval)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetReportInterval(&self, millisecondsrequested: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetReportInterval)(windows_core::Interface::as_raw(self), core::mem::transmute(millisecondsrequested)).ok()
+        (windows_core::Interface::vtable(self).SetReportInterval)(windows_core::Interface::as_raw(self), millisecondsrequested).ok()
     }
     pub unsafe fn DesiredAccuracy(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DesiredAccuracy)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetDesiredAccuracy(&self, desiredaccuracy: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetDesiredAccuracy)(windows_core::Interface::as_raw(self), core::mem::transmute(desiredaccuracy)).ok()
+        (windows_core::Interface::vtable(self).SetDesiredAccuracy)(windows_core::Interface::as_raw(self), desiredaccuracy).ok()
     }
     pub unsafe fn RequestPermissions(&self, hwnd: *const u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RequestPermissions)(windows_core::Interface::as_raw(self), core::mem::transmute(hwnd)).ok()
+        (windows_core::Interface::vtable(self).RequestPermissions)(windows_core::Interface::as_raw(self), hwnd).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]

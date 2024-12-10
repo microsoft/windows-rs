@@ -103,7 +103,7 @@ impl ID3D12Object {
     ) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetPrivateData)(
             windows_core::Interface::as_raw(self),
-            core::mem::transmute(guid),
+            guid,
             core::mem::transmute(pdatasize),
             core::mem::transmute(pdata.unwrap_or(core::mem::zeroed())),
         )
@@ -117,8 +117,8 @@ impl ID3D12Object {
     ) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetPrivateData)(
             windows_core::Interface::as_raw(self),
-            core::mem::transmute(guid),
-            core::mem::transmute(datasize),
+            guid,
+            datasize,
             core::mem::transmute(pdata.unwrap_or(core::mem::zeroed())),
         )
         .ok()
@@ -133,7 +133,7 @@ impl ID3D12Object {
     {
         (windows_core::Interface::vtable(self).SetPrivateDataInterface)(
             windows_core::Interface::as_raw(self),
-            core::mem::transmute(guid),
+            guid,
             pdata.param().abi(),
         )
         .ok()

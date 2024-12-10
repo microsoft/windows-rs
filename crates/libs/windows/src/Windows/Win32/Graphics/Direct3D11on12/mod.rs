@@ -7,12 +7,12 @@ where
     windows_targets::link!("d3d11.dll" "system" fn D3D11On12CreateDevice(pdevice : * mut core::ffi::c_void, flags : u32, pfeaturelevels : *const super::Direct3D:: D3D_FEATURE_LEVEL, featurelevels : u32, ppcommandqueues : *const * mut core::ffi::c_void, numqueues : u32, nodemask : u32, ppdevice : *mut * mut core::ffi::c_void, ppimmediatecontext : *mut * mut core::ffi::c_void, pchosenfeaturelevel : *mut super::Direct3D:: D3D_FEATURE_LEVEL) -> windows_core::HRESULT);
     D3D11On12CreateDevice(
         pdevice.param().abi(),
-        core::mem::transmute(flags),
+        flags,
         core::mem::transmute(pfeaturelevels.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
         pfeaturelevels.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         core::mem::transmute(ppcommandqueues.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
         ppcommandqueues.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-        core::mem::transmute(nodemask),
+        nodemask,
         core::mem::transmute(ppdevice.unwrap_or(core::mem::zeroed())),
         core::mem::transmute(ppimmediatecontext.unwrap_or(core::mem::zeroed())),
         core::mem::transmute(pchosenfeaturelevel.unwrap_or(core::mem::zeroed())),
@@ -41,7 +41,7 @@ impl ID3D11On12Device {
         P0: windows_core::Param<windows_core::IUnknown>,
         T: windows_core::Interface,
     {
-        (windows_core::Interface::vtable(self).CreateWrappedResource)(windows_core::Interface::as_raw(self), presource12.param().abi(), core::mem::transmute(pflags11), core::mem::transmute(instate), core::mem::transmute(outstate), &T::IID, result__ as *mut _ as *mut _).ok()
+        (windows_core::Interface::vtable(self).CreateWrappedResource)(windows_core::Interface::as_raw(self), presource12.param().abi(), pflags11, instate, outstate, &T::IID, result__ as *mut _ as *mut _).ok()
     }
     #[cfg(feature = "Win32_Graphics_Direct3D11")]
     pub unsafe fn ReleaseWrappedResources(&self, ppresources: &[Option<super::Direct3D11::ID3D11Resource>]) {
@@ -175,7 +175,7 @@ impl ID3D11On12Device2 {
     where
         P0: windows_core::Param<super::Direct3D11::ID3D11Resource>,
     {
-        (windows_core::Interface::vtable(self).ReturnUnderlyingResource)(windows_core::Interface::as_raw(self), presource11.param().abi(), core::mem::transmute(numsync), core::mem::transmute(psignalvalues), core::mem::transmute(ppfences)).ok()
+        (windows_core::Interface::vtable(self).ReturnUnderlyingResource)(windows_core::Interface::as_raw(self), presource11.param().abi(), numsync, psignalvalues, core::mem::transmute(ppfences)).ok()
     }
 }
 #[repr(C)]

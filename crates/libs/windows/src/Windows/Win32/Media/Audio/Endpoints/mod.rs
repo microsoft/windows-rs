@@ -23,7 +23,7 @@ windows_core::imp::define_interface!(IAudioEndpointFormatControl, IAudioEndpoint
 windows_core::imp::interface_hierarchy!(IAudioEndpointFormatControl, windows_core::IUnknown);
 impl IAudioEndpointFormatControl {
     pub unsafe fn ResetToDefault(&self, resetflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ResetToDefault)(windows_core::Interface::as_raw(self), core::mem::transmute(resetflags)).ok()
+        (windows_core::Interface::vtable(self).ResetToDefault)(windows_core::Interface::as_raw(self), resetflags).ok()
     }
 }
 #[repr(C)]
@@ -55,7 +55,7 @@ impl IAudioEndpointLastBufferControl {
     }
     #[cfg(feature = "Win32_Media_Audio_Apo")]
     pub unsafe fn ReleaseOutputDataPointerForLastBuffer(&self, pconnectionproperty: *const super::Apo::APO_CONNECTION_PROPERTY) {
-        (windows_core::Interface::vtable(self).ReleaseOutputDataPointerForLastBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute(pconnectionproperty))
+        (windows_core::Interface::vtable(self).ReleaseOutputDataPointerForLastBuffer)(windows_core::Interface::as_raw(self), pconnectionproperty)
     }
 }
 #[repr(C)]
@@ -104,7 +104,7 @@ impl IAudioEndpointOffloadStreamMeter {
     }
     pub unsafe fn GetMeteringData(&self, u32channelcount: u32) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetMeteringData)(windows_core::Interface::as_raw(self), core::mem::transmute(u32channelcount), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetMeteringData)(windows_core::Interface::as_raw(self), u32channelcount, &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -154,7 +154,7 @@ windows_core::imp::define_interface!(IAudioEndpointOffloadStreamMute, IAudioEndp
 windows_core::imp::interface_hierarchy!(IAudioEndpointOffloadStreamMute, windows_core::IUnknown);
 impl IAudioEndpointOffloadStreamMute {
     pub unsafe fn SetMute(&self, bmuted: u8) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetMute)(windows_core::Interface::as_raw(self), core::mem::transmute(bmuted)).ok()
+        (windows_core::Interface::vtable(self).SetMute)(windows_core::Interface::as_raw(self), bmuted).ok()
     }
     pub unsafe fn GetMute(&self) -> windows_core::Result<u8> {
         let mut result__ = core::mem::zeroed();
@@ -203,11 +203,11 @@ impl IAudioEndpointOffloadStreamVolume {
     }
     #[cfg(feature = "Win32_Media_KernelStreaming")]
     pub unsafe fn SetChannelVolumes(&self, u32channelcount: u32, pf32volumes: *const f32, u32curvetype: super::super::KernelStreaming::AUDIO_CURVE_TYPE, pcurveduration: *const i64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetChannelVolumes)(windows_core::Interface::as_raw(self), core::mem::transmute(u32channelcount), core::mem::transmute(pf32volumes), core::mem::transmute(u32curvetype), core::mem::transmute(pcurveduration)).ok()
+        (windows_core::Interface::vtable(self).SetChannelVolumes)(windows_core::Interface::as_raw(self), u32channelcount, pf32volumes, u32curvetype, pcurveduration).ok()
     }
     pub unsafe fn GetChannelVolumes(&self, u32channelcount: u32) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetChannelVolumes)(windows_core::Interface::as_raw(self), core::mem::transmute(u32channelcount), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetChannelVolumes)(windows_core::Interface::as_raw(self), u32channelcount, &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -286,10 +286,10 @@ impl IAudioEndpointVolume {
         (windows_core::Interface::vtable(self).GetChannelCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetMasterVolumeLevel(&self, fleveldb: f32, pguideventcontext: *const windows_core::GUID) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetMasterVolumeLevel)(windows_core::Interface::as_raw(self), core::mem::transmute(fleveldb), core::mem::transmute(pguideventcontext)).ok()
+        (windows_core::Interface::vtable(self).SetMasterVolumeLevel)(windows_core::Interface::as_raw(self), fleveldb, pguideventcontext).ok()
     }
     pub unsafe fn SetMasterVolumeLevelScalar(&self, flevel: f32, pguideventcontext: *const windows_core::GUID) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetMasterVolumeLevelScalar)(windows_core::Interface::as_raw(self), core::mem::transmute(flevel), core::mem::transmute(pguideventcontext)).ok()
+        (windows_core::Interface::vtable(self).SetMasterVolumeLevelScalar)(windows_core::Interface::as_raw(self), flevel, pguideventcontext).ok()
     }
     pub unsafe fn GetMasterVolumeLevel(&self) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
@@ -300,21 +300,21 @@ impl IAudioEndpointVolume {
         (windows_core::Interface::vtable(self).GetMasterVolumeLevelScalar)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetChannelVolumeLevel(&self, nchannel: u32, fleveldb: f32, pguideventcontext: *const windows_core::GUID) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetChannelVolumeLevel)(windows_core::Interface::as_raw(self), core::mem::transmute(nchannel), core::mem::transmute(fleveldb), core::mem::transmute(pguideventcontext)).ok()
+        (windows_core::Interface::vtable(self).SetChannelVolumeLevel)(windows_core::Interface::as_raw(self), nchannel, fleveldb, pguideventcontext).ok()
     }
     pub unsafe fn SetChannelVolumeLevelScalar(&self, nchannel: u32, flevel: f32, pguideventcontext: *const windows_core::GUID) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetChannelVolumeLevelScalar)(windows_core::Interface::as_raw(self), core::mem::transmute(nchannel), core::mem::transmute(flevel), core::mem::transmute(pguideventcontext)).ok()
+        (windows_core::Interface::vtable(self).SetChannelVolumeLevelScalar)(windows_core::Interface::as_raw(self), nchannel, flevel, pguideventcontext).ok()
     }
     pub unsafe fn GetChannelVolumeLevel(&self, nchannel: u32) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetChannelVolumeLevel)(windows_core::Interface::as_raw(self), core::mem::transmute(nchannel), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetChannelVolumeLevel)(windows_core::Interface::as_raw(self), nchannel, &mut result__).map(|| result__)
     }
     pub unsafe fn GetChannelVolumeLevelScalar(&self, nchannel: u32) -> windows_core::Result<f32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetChannelVolumeLevelScalar)(windows_core::Interface::as_raw(self), core::mem::transmute(nchannel), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetChannelVolumeLevelScalar)(windows_core::Interface::as_raw(self), nchannel, &mut result__).map(|| result__)
     }
     pub unsafe fn SetMute(&self, bmute: bool, pguideventcontext: *const windows_core::GUID) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetMute)(windows_core::Interface::as_raw(self), bmute.into(), core::mem::transmute(pguideventcontext)).ok()
+        (windows_core::Interface::vtable(self).SetMute)(windows_core::Interface::as_raw(self), bmute.into(), pguideventcontext).ok()
     }
     pub unsafe fn GetMute(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -324,10 +324,10 @@ impl IAudioEndpointVolume {
         (windows_core::Interface::vtable(self).GetVolumeStepInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pnstep), core::mem::transmute(pnstepcount)).ok()
     }
     pub unsafe fn VolumeStepUp(&self, pguideventcontext: *const windows_core::GUID) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).VolumeStepUp)(windows_core::Interface::as_raw(self), core::mem::transmute(pguideventcontext)).ok()
+        (windows_core::Interface::vtable(self).VolumeStepUp)(windows_core::Interface::as_raw(self), pguideventcontext).ok()
     }
     pub unsafe fn VolumeStepDown(&self, pguideventcontext: *const windows_core::GUID) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).VolumeStepDown)(windows_core::Interface::as_raw(self), core::mem::transmute(pguideventcontext)).ok()
+        (windows_core::Interface::vtable(self).VolumeStepDown)(windows_core::Interface::as_raw(self), pguideventcontext).ok()
     }
     pub unsafe fn QueryHardwareSupport(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -560,7 +560,7 @@ impl core::ops::Deref for IAudioEndpointVolumeEx {
 windows_core::imp::interface_hierarchy!(IAudioEndpointVolumeEx, windows_core::IUnknown, IAudioEndpointVolume);
 impl IAudioEndpointVolumeEx {
     pub unsafe fn GetVolumeRangeChannel(&self, ichannel: u32, pflvolumemindb: *mut f32, pflvolumemaxdb: *mut f32, pflvolumeincrementdb: *mut f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetVolumeRangeChannel)(windows_core::Interface::as_raw(self), core::mem::transmute(ichannel), core::mem::transmute(pflvolumemindb), core::mem::transmute(pflvolumemaxdb), core::mem::transmute(pflvolumeincrementdb)).ok()
+        (windows_core::Interface::vtable(self).GetVolumeRangeChannel)(windows_core::Interface::as_raw(self), ichannel, core::mem::transmute(pflvolumemindb), core::mem::transmute(pflvolumemaxdb), core::mem::transmute(pflvolumeincrementdb)).ok()
     }
 }
 #[repr(C)]
@@ -722,7 +722,7 @@ impl IHardwareAudioEngineBase {
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAvailableOffloadConnectorCount)(windows_core::Interface::as_raw(self), _pwstrdeviceid.param().abi(), core::mem::transmute(_uconnectorid), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetAvailableOffloadConnectorCount)(windows_core::Interface::as_raw(self), _pwstrdeviceid.param().abi(), _uconnectorid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetEngineFormat<P0>(&self, pdevice: P0, _brequestdeviceformat: bool, _ppwfxformat: *mut *mut super::WAVEFORMATEX) -> windows_core::Result<()>
     where

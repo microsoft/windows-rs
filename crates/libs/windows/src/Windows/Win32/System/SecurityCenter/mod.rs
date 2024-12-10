@@ -7,7 +7,7 @@ pub unsafe fn WscGetAntiMalwareUri() -> windows_core::Result<windows_core::PWSTR
 #[inline]
 pub unsafe fn WscGetSecurityProviderHealth(providers: u32, phealth: *mut WSC_SECURITY_PROVIDER_HEALTH) -> windows_core::Result<()> {
     windows_targets::link!("wscapi.dll" "system" fn WscGetSecurityProviderHealth(providers : u32, phealth : *mut WSC_SECURITY_PROVIDER_HEALTH) -> windows_core::HRESULT);
-    WscGetSecurityProviderHealth(core::mem::transmute(providers), core::mem::transmute(phealth)).ok()
+    WscGetSecurityProviderHealth(providers, core::mem::transmute(phealth)).ok()
 }
 #[inline]
 pub unsafe fn WscQueryAntiMalwareUri() -> windows_core::Result<()> {
@@ -18,7 +18,7 @@ pub unsafe fn WscQueryAntiMalwareUri() -> windows_core::Result<()> {
 #[inline]
 pub unsafe fn WscRegisterForChanges(reserved: *mut core::ffi::c_void, phcallbackregistration: *mut super::super::Foundation::HANDLE, lpcallbackaddress: super::Threading::LPTHREAD_START_ROUTINE, pcontext: *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("wscapi.dll" "system" fn WscRegisterForChanges(reserved : *mut core::ffi::c_void, phcallbackregistration : *mut super::super::Foundation:: HANDLE, lpcallbackaddress : super::Threading:: LPTHREAD_START_ROUTINE, pcontext : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    WscRegisterForChanges(core::mem::transmute(reserved), core::mem::transmute(phcallbackregistration), core::mem::transmute(lpcallbackaddress), core::mem::transmute(pcontext)).ok()
+    WscRegisterForChanges(core::mem::transmute(reserved), core::mem::transmute(phcallbackregistration), lpcallbackaddress, core::mem::transmute(pcontext)).ok()
 }
 #[inline]
 pub unsafe fn WscRegisterForUserNotifications() -> windows_core::Result<()> {
@@ -28,7 +28,7 @@ pub unsafe fn WscRegisterForUserNotifications() -> windows_core::Result<()> {
 #[inline]
 pub unsafe fn WscUnRegisterChanges(hregistrationhandle: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("wscapi.dll" "system" fn WscUnRegisterChanges(hregistrationhandle : super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
-    WscUnRegisterChanges(core::mem::transmute(hregistrationhandle)).ok()
+    WscUnRegisterChanges(hregistrationhandle).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWSCDefaultProduct, IWSCDefaultProduct_Vtbl, 0x0476d69c_f21a_11e5_9ce9_5e5517507c66);
@@ -44,7 +44,7 @@ windows_core::imp::interface_hierarchy!(IWSCDefaultProduct, windows_core::IUnkno
 #[cfg(feature = "Win32_System_Com")]
 impl IWSCDefaultProduct {
     pub unsafe fn SetDefaultProduct(&self, etype: SECURITY_PRODUCT_TYPE, pguid: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetDefaultProduct)(windows_core::Interface::as_raw(self), core::mem::transmute(etype), core::mem::transmute_copy(pguid)).ok()
+        (windows_core::Interface::vtable(self).SetDefaultProduct)(windows_core::Interface::as_raw(self), etype, core::mem::transmute_copy(pguid)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -94,7 +94,7 @@ impl IWSCProductList {
     }
     pub unsafe fn get_Item(&self, index: u32) -> windows_core::Result<IWscProduct> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute(index), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]

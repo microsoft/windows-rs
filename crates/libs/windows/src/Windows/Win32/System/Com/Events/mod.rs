@@ -55,7 +55,7 @@ impl IEnumEventObject {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self))
     }
     pub unsafe fn Skip(&self, cskipelem: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), core::mem::transmute(cskipelem)).ok()
+        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), cskipelem).ok()
     }
 }
 #[repr(C)]
@@ -490,7 +490,7 @@ impl IEventControl {
     }
     pub unsafe fn GetSubscriptions(&self, methodname: &windows_core::BSTR, optionalcriteria: &windows_core::BSTR, optionalerrorindex: *const i32) -> windows_core::Result<IEventObjectCollection> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetSubscriptions)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(methodname), core::mem::transmute_copy(optionalcriteria), core::mem::transmute(optionalerrorindex), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetSubscriptions)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(methodname), core::mem::transmute_copy(optionalcriteria), optionalerrorindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetDefaultQuery(&self, methodname: &windows_core::BSTR, criteria: &windows_core::BSTR) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
@@ -574,13 +574,13 @@ windows_core::imp::define_interface!(IEventObjectChange, IEventObjectChange_Vtbl
 windows_core::imp::interface_hierarchy!(IEventObjectChange, windows_core::IUnknown);
 impl IEventObjectChange {
     pub unsafe fn ChangedSubscription(&self, changetype: EOC_ChangeType, bstrsubscriptionid: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ChangedSubscription)(windows_core::Interface::as_raw(self), core::mem::transmute(changetype), core::mem::transmute_copy(bstrsubscriptionid)).ok()
+        (windows_core::Interface::vtable(self).ChangedSubscription)(windows_core::Interface::as_raw(self), changetype, core::mem::transmute_copy(bstrsubscriptionid)).ok()
     }
     pub unsafe fn ChangedEventClass(&self, changetype: EOC_ChangeType, bstreventclassid: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ChangedEventClass)(windows_core::Interface::as_raw(self), core::mem::transmute(changetype), core::mem::transmute_copy(bstreventclassid)).ok()
+        (windows_core::Interface::vtable(self).ChangedEventClass)(windows_core::Interface::as_raw(self), changetype, core::mem::transmute_copy(bstreventclassid)).ok()
     }
     pub unsafe fn ChangedPublisher(&self, changetype: EOC_ChangeType, bstrpublisherid: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ChangedPublisher)(windows_core::Interface::as_raw(self), core::mem::transmute(changetype), core::mem::transmute_copy(bstrpublisherid)).ok()
+        (windows_core::Interface::vtable(self).ChangedPublisher)(windows_core::Interface::as_raw(self), changetype, core::mem::transmute_copy(bstrpublisherid)).ok()
     }
 }
 #[repr(C)]
@@ -1787,11 +1787,11 @@ impl IMultiInterfaceEventControl {
     }
     pub unsafe fn GetSubscriptions(&self, eventiid: *const windows_core::GUID, bstrmethodname: &windows_core::BSTR, optionalcriteria: &windows_core::BSTR, optionalerrorindex: *const i32) -> windows_core::Result<IEventObjectCollection> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetSubscriptions)(windows_core::Interface::as_raw(self), core::mem::transmute(eventiid), core::mem::transmute_copy(bstrmethodname), core::mem::transmute_copy(optionalcriteria), core::mem::transmute(optionalerrorindex), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetSubscriptions)(windows_core::Interface::as_raw(self), eventiid, core::mem::transmute_copy(bstrmethodname), core::mem::transmute_copy(optionalcriteria), optionalerrorindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetDefaultQuery(&self, eventiid: *const windows_core::GUID, bstrmethodname: &windows_core::BSTR, bstrcriteria: &windows_core::BSTR) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).SetDefaultQuery)(windows_core::Interface::as_raw(self), core::mem::transmute(eventiid), core::mem::transmute_copy(bstrmethodname), core::mem::transmute_copy(bstrcriteria), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).SetDefaultQuery)(windows_core::Interface::as_raw(self), eventiid, core::mem::transmute_copy(bstrmethodname), core::mem::transmute_copy(bstrcriteria), &mut result__).map(|| result__)
     }
     pub unsafe fn AllowInprocActivation(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -1911,7 +1911,7 @@ impl IMultiInterfacePublisherFilter {
     where
         P2: windows_core::Param<IFiringControl>,
     {
-        (windows_core::Interface::vtable(self).PrepareToFire)(windows_core::Interface::as_raw(self), core::mem::transmute(iid), core::mem::transmute_copy(methodname), firingcontrol.param().abi()).ok()
+        (windows_core::Interface::vtable(self).PrepareToFire)(windows_core::Interface::as_raw(self), iid, core::mem::transmute_copy(methodname), firingcontrol.param().abi()).ok()
     }
 }
 #[repr(C)]

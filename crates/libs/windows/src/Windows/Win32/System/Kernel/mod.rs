@@ -1,7 +1,7 @@
 #[inline]
 pub unsafe fn RtlFirstEntrySList(listhead: *const SLIST_HEADER) -> *mut SLIST_ENTRY {
     windows_targets::link!("ntdll.dll" "system" fn RtlFirstEntrySList(listhead : *const SLIST_HEADER) -> *mut SLIST_ENTRY);
-    RtlFirstEntrySList(core::mem::transmute(listhead))
+    RtlFirstEntrySList(listhead)
 }
 #[inline]
 pub unsafe fn RtlInitializeSListHead() -> SLIST_HEADER {
@@ -28,12 +28,12 @@ pub unsafe fn RtlInterlockedPushEntrySList(listhead: *mut SLIST_HEADER, listentr
 #[inline]
 pub unsafe fn RtlInterlockedPushListSListEx(listhead: *mut SLIST_HEADER, list: *mut SLIST_ENTRY, listend: *mut SLIST_ENTRY, count: u32) -> *mut SLIST_ENTRY {
     windows_targets::link!("ntdll.dll" "system" fn RtlInterlockedPushListSListEx(listhead : *mut SLIST_HEADER, list : *mut SLIST_ENTRY, listend : *mut SLIST_ENTRY, count : u32) -> *mut SLIST_ENTRY);
-    RtlInterlockedPushListSListEx(core::mem::transmute(listhead), core::mem::transmute(list), core::mem::transmute(listend), core::mem::transmute(count))
+    RtlInterlockedPushListSListEx(core::mem::transmute(listhead), core::mem::transmute(list), core::mem::transmute(listend), count)
 }
 #[inline]
 pub unsafe fn RtlQueryDepthSList(listhead: *const SLIST_HEADER) -> u16 {
     windows_targets::link!("ntdll.dll" "system" fn RtlQueryDepthSList(listhead : *const SLIST_HEADER) -> u16);
-    RtlQueryDepthSList(core::mem::transmute(listhead))
+    RtlQueryDepthSList(listhead)
 }
 pub const BackOffice: SUITE_TYPE = SUITE_TYPE(2i32);
 pub const Blade: SUITE_TYPE = SUITE_TYPE(10i32);

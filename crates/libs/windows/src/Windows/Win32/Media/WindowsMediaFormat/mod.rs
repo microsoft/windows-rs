@@ -32,7 +32,7 @@ where
 {
     windows_targets::link!("wmvcore.dll" "system" fn WMCreateReader(punkcert : * mut core::ffi::c_void, dwrights : u32, ppreader : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    WMCreateReader(punkcert.param().abi(), core::mem::transmute(dwrights), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    WMCreateReader(punkcert.param().abi(), dwrights, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn WMCreateSyncReader<P0>(punkcert: P0, dwrights: u32) -> windows_core::Result<IWMSyncReader>
@@ -41,7 +41,7 @@ where
 {
     windows_targets::link!("wmvcore.dll" "system" fn WMCreateSyncReader(punkcert : * mut core::ffi::c_void, dwrights : u32, ppsyncreader : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    WMCreateSyncReader(punkcert.param().abi(), core::mem::transmute(dwrights), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    WMCreateSyncReader(punkcert.param().abi(), dwrights, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn WMCreateWriter<P0>(punkcert: P0) -> windows_core::Result<IWMWriter>
@@ -194,7 +194,7 @@ impl INSNetSourceCreator {
         P3: windows_core::Param<windows_core::IUnknown>,
         P4: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).CreateNetSource)(windows_core::Interface::as_raw(self), pszstreamname.param().abi(), pmonitor.param().abi(), core::mem::transmute(pdata), pusercontext.param().abi(), pcallback.param().abi(), core::mem::transmute(qwcontext)).ok()
+        (windows_core::Interface::vtable(self).CreateNetSource)(windows_core::Interface::as_raw(self), pszstreamname.param().abi(), pmonitor.param().abi(), pdata, pusercontext.param().abi(), pcallback.param().abi(), qwcontext).ok()
     }
     pub unsafe fn GetNetSourceProperties<P0>(&self, pszstreamname: P0) -> windows_core::Result<windows_core::IUnknown>
     where
@@ -220,7 +220,7 @@ impl INSNetSourceCreator {
         (windows_core::Interface::vtable(self).GetNumProtocolsSupported)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetProtocolName(&self, dwprotocolnum: u32, pwszprotocolname: windows_core::PWSTR, pcchprotocolname: *mut u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetProtocolName)(windows_core::Interface::as_raw(self), core::mem::transmute(dwprotocolnum), core::mem::transmute(pwszprotocolname), core::mem::transmute(pcchprotocolname)).ok()
+        (windows_core::Interface::vtable(self).GetProtocolName)(windows_core::Interface::as_raw(self), dwprotocolnum, core::mem::transmute(pwszprotocolname), core::mem::transmute(pcchprotocolname)).ok()
     }
     pub unsafe fn Shutdown(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Shutdown)(windows_core::Interface::as_raw(self)).ok()
@@ -337,7 +337,7 @@ impl INSSBuffer {
         (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetLength(&self, dwlength: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetLength)(windows_core::Interface::as_raw(self), core::mem::transmute(dwlength)).ok()
+        (windows_core::Interface::vtable(self).SetLength)(windows_core::Interface::as_raw(self), dwlength).ok()
     }
     pub unsafe fn GetMaxLength(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -432,10 +432,10 @@ windows_core::imp::interface_hierarchy!(INSSBuffer2, windows_core::IUnknown, INS
 impl INSSBuffer2 {
     pub unsafe fn GetSampleProperties(&self, cbproperties: u32) -> windows_core::Result<u8> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetSampleProperties)(windows_core::Interface::as_raw(self), core::mem::transmute(cbproperties), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetSampleProperties)(windows_core::Interface::as_raw(self), cbproperties, &mut result__).map(|| result__)
     }
     pub unsafe fn SetSampleProperties(&self, cbproperties: u32, pbproperties: *const u8) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetSampleProperties)(windows_core::Interface::as_raw(self), core::mem::transmute(cbproperties), core::mem::transmute(pbproperties)).ok()
+        (windows_core::Interface::vtable(self).SetSampleProperties)(windows_core::Interface::as_raw(self), cbproperties, pbproperties).ok()
     }
 }
 #[repr(C)]
@@ -485,7 +485,7 @@ impl core::ops::Deref for INSSBuffer3 {
 windows_core::imp::interface_hierarchy!(INSSBuffer3, windows_core::IUnknown, INSSBuffer, INSSBuffer2);
 impl INSSBuffer3 {
     pub unsafe fn SetProperty(&self, guidbufferproperty: windows_core::GUID, pvbufferproperty: *const core::ffi::c_void, dwbufferpropertysize: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(guidbufferproperty), core::mem::transmute(pvbufferproperty), core::mem::transmute(dwbufferpropertysize)).ok()
+        (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(guidbufferproperty), pvbufferproperty, dwbufferpropertysize).ok()
     }
     pub unsafe fn GetProperty(&self, guidbufferproperty: windows_core::GUID, pvbufferproperty: *mut core::ffi::c_void, pdwbufferpropertysize: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(guidbufferproperty), core::mem::transmute(pvbufferproperty), core::mem::transmute(pdwbufferpropertysize)).ok()
@@ -532,7 +532,7 @@ impl INSSBuffer4 {
         (windows_core::Interface::vtable(self).GetPropertyCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetPropertyByIndex(&self, dwbufferpropertyindex: u32, pguidbufferproperty: *mut windows_core::GUID, pvbufferproperty: *mut core::ffi::c_void, pdwbufferpropertysize: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetPropertyByIndex)(windows_core::Interface::as_raw(self), core::mem::transmute(dwbufferpropertyindex), core::mem::transmute(pguidbufferproperty), core::mem::transmute(pvbufferproperty), core::mem::transmute(pdwbufferpropertysize)).ok()
+        (windows_core::Interface::vtable(self).GetPropertyByIndex)(windows_core::Interface::as_raw(self), dwbufferpropertyindex, core::mem::transmute(pguidbufferproperty), core::mem::transmute(pvbufferproperty), core::mem::transmute(pdwbufferpropertysize)).ok()
     }
 }
 #[repr(C)]
@@ -577,17 +577,17 @@ windows_core::imp::interface_hierarchy!(IWMAddressAccess, windows_core::IUnknown
 impl IWMAddressAccess {
     pub unsafe fn GetAccessEntryCount(&self, aetype: WM_AETYPE) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAccessEntryCount)(windows_core::Interface::as_raw(self), core::mem::transmute(aetype), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetAccessEntryCount)(windows_core::Interface::as_raw(self), aetype, &mut result__).map(|| result__)
     }
     pub unsafe fn GetAccessEntry(&self, aetype: WM_AETYPE, dwentrynum: u32) -> windows_core::Result<WM_ADDRESS_ACCESSENTRY> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAccessEntry)(windows_core::Interface::as_raw(self), core::mem::transmute(aetype), core::mem::transmute(dwentrynum), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetAccessEntry)(windows_core::Interface::as_raw(self), aetype, dwentrynum, &mut result__).map(|| result__)
     }
     pub unsafe fn AddAccessEntry(&self, aetype: WM_AETYPE, paddraccessentry: *const WM_ADDRESS_ACCESSENTRY) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).AddAccessEntry)(windows_core::Interface::as_raw(self), core::mem::transmute(aetype), core::mem::transmute(paddraccessentry)).ok()
+        (windows_core::Interface::vtable(self).AddAccessEntry)(windows_core::Interface::as_raw(self), aetype, paddraccessentry).ok()
     }
     pub unsafe fn RemoveAccessEntry(&self, aetype: WM_AETYPE, dwentrynum: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemoveAccessEntry)(windows_core::Interface::as_raw(self), core::mem::transmute(aetype), core::mem::transmute(dwentrynum)).ok()
+        (windows_core::Interface::vtable(self).RemoveAccessEntry)(windows_core::Interface::as_raw(self), aetype, dwentrynum).ok()
     }
 }
 #[repr(C)]
@@ -657,10 +657,10 @@ impl core::ops::Deref for IWMAddressAccess2 {
 windows_core::imp::interface_hierarchy!(IWMAddressAccess2, windows_core::IUnknown, IWMAddressAccess);
 impl IWMAddressAccess2 {
     pub unsafe fn GetAccessEntryEx(&self, aetype: WM_AETYPE, dwentrynum: u32, pbstraddress: *mut windows_core::BSTR, pbstrmask: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetAccessEntryEx)(windows_core::Interface::as_raw(self), core::mem::transmute(aetype), core::mem::transmute(dwentrynum), core::mem::transmute(pbstraddress), core::mem::transmute(pbstrmask)).ok()
+        (windows_core::Interface::vtable(self).GetAccessEntryEx)(windows_core::Interface::as_raw(self), aetype, dwentrynum, core::mem::transmute(pbstraddress), core::mem::transmute(pbstrmask)).ok()
     }
     pub unsafe fn AddAccessEntryEx(&self, aetype: WM_AETYPE, bstraddress: &windows_core::BSTR, bstrmask: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).AddAccessEntryEx)(windows_core::Interface::as_raw(self), core::mem::transmute(aetype), core::mem::transmute_copy(bstraddress), core::mem::transmute_copy(bstrmask)).ok()
+        (windows_core::Interface::vtable(self).AddAccessEntryEx)(windows_core::Interface::as_raw(self), aetype, core::mem::transmute_copy(bstraddress), core::mem::transmute_copy(bstrmask)).ok()
     }
 }
 #[repr(C)]
@@ -703,11 +703,11 @@ impl IWMAuthorizer {
     }
     pub unsafe fn GetCert(&self, dwindex: u32) -> windows_core::Result<*mut u8> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetCert)(windows_core::Interface::as_raw(self), core::mem::transmute(dwindex), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetCert)(windows_core::Interface::as_raw(self), dwindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetSharedData(&self, dwcertindex: u32, pbshareddata: *const u8, pbcert: *const u8) -> windows_core::Result<*mut u8> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetSharedData)(windows_core::Interface::as_raw(self), core::mem::transmute(dwcertindex), core::mem::transmute(pbshareddata), core::mem::transmute(pbcert), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetSharedData)(windows_core::Interface::as_raw(self), dwcertindex, pbshareddata, pbcert, &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -774,7 +774,7 @@ impl IWMBackupRestoreProps {
         (windows_core::Interface::vtable(self).GetPropCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetPropByIndex(&self, windex: u16, pwszname: windows_core::PWSTR, pcchnamelen: *mut u16, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetPropByIndex)(windows_core::Interface::as_raw(self), core::mem::transmute(windex), core::mem::transmute(pwszname), core::mem::transmute(pcchnamelen), core::mem::transmute(ptype), core::mem::transmute(pvalue), core::mem::transmute(pcblength)).ok()
+        (windows_core::Interface::vtable(self).GetPropByIndex)(windows_core::Interface::as_raw(self), windex, core::mem::transmute(pwszname), core::mem::transmute(pcchnamelen), core::mem::transmute(ptype), core::mem::transmute(pvalue), core::mem::transmute(pcblength)).ok()
     }
     pub unsafe fn GetPropByName<P0>(&self, pszname: P0, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> windows_core::Result<()>
     where
@@ -786,7 +786,7 @@ impl IWMBackupRestoreProps {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetProp)(windows_core::Interface::as_raw(self), pszname.param().abi(), core::mem::transmute(r#type), core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
+        (windows_core::Interface::vtable(self).SetProp)(windows_core::Interface::as_raw(self), pszname.param().abi(), r#type, core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
     }
     pub unsafe fn RemoveProp<P0>(&self, pcwszname: P0) -> windows_core::Result<()>
     where
@@ -877,13 +877,13 @@ impl IWMBandwidthSharing {
         (windows_core::Interface::vtable(self).GetType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetType(&self, guidtype: *const windows_core::GUID) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetType)(windows_core::Interface::as_raw(self), core::mem::transmute(guidtype)).ok()
+        (windows_core::Interface::vtable(self).SetType)(windows_core::Interface::as_raw(self), guidtype).ok()
     }
     pub unsafe fn GetBandwidth(&self, pdwbitrate: *mut u32, pmsbufferwindow: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetBandwidth)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwbitrate), core::mem::transmute(pmsbufferwindow)).ok()
     }
     pub unsafe fn SetBandwidth(&self, dwbitrate: u32, msbufferwindow: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetBandwidth)(windows_core::Interface::as_raw(self), core::mem::transmute(dwbitrate), core::mem::transmute(msbufferwindow)).ok()
+        (windows_core::Interface::vtable(self).SetBandwidth)(windows_core::Interface::as_raw(self), dwbitrate, msbufferwindow).ok()
     }
 }
 #[repr(C)]
@@ -946,7 +946,7 @@ impl IWMClientConnections {
     }
     pub unsafe fn GetClientProperties(&self, dwclientnum: u32) -> windows_core::Result<WM_CLIENT_PROPERTIES> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetClientProperties)(windows_core::Interface::as_raw(self), core::mem::transmute(dwclientnum), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetClientProperties)(windows_core::Interface::as_raw(self), dwclientnum, &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -1002,7 +1002,7 @@ impl core::ops::Deref for IWMClientConnections2 {
 windows_core::imp::interface_hierarchy!(IWMClientConnections2, windows_core::IUnknown, IWMClientConnections);
 impl IWMClientConnections2 {
     pub unsafe fn GetClientInfo(&self, dwclientnum: u32, pwsznetworkaddress: windows_core::PWSTR, pcchnetworkaddress: *mut u32, pwszport: windows_core::PWSTR, pcchport: *mut u32, pwszdnsname: windows_core::PWSTR, pcchdnsname: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetClientInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(dwclientnum), core::mem::transmute(pwsznetworkaddress), core::mem::transmute(pcchnetworkaddress), core::mem::transmute(pwszport), core::mem::transmute(pcchport), core::mem::transmute(pwszdnsname), core::mem::transmute(pcchdnsname)).ok()
+        (windows_core::Interface::vtable(self).GetClientInfo)(windows_core::Interface::as_raw(self), dwclientnum, core::mem::transmute(pwsznetworkaddress), core::mem::transmute(pcchnetworkaddress), core::mem::transmute(pwszport), core::mem::transmute(pcchport), core::mem::transmute(pwszdnsname), core::mem::transmute(pcchdnsname)).ok()
     }
 }
 #[repr(C)]
@@ -1031,15 +1031,15 @@ windows_core::imp::interface_hierarchy!(IWMCodecInfo, windows_core::IUnknown);
 impl IWMCodecInfo {
     pub unsafe fn GetCodecInfoCount(&self, guidtype: *const windows_core::GUID) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetCodecInfoCount)(windows_core::Interface::as_raw(self), core::mem::transmute(guidtype), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetCodecInfoCount)(windows_core::Interface::as_raw(self), guidtype, &mut result__).map(|| result__)
     }
     pub unsafe fn GetCodecFormatCount(&self, guidtype: *const windows_core::GUID, dwcodecindex: u32) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetCodecFormatCount)(windows_core::Interface::as_raw(self), core::mem::transmute(guidtype), core::mem::transmute(dwcodecindex), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetCodecFormatCount)(windows_core::Interface::as_raw(self), guidtype, dwcodecindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetCodecFormat(&self, guidtype: *const windows_core::GUID, dwcodecindex: u32, dwformatindex: u32) -> windows_core::Result<IWMStreamConfig> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetCodecFormat)(windows_core::Interface::as_raw(self), core::mem::transmute(guidtype), core::mem::transmute(dwcodecindex), core::mem::transmute(dwformatindex), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetCodecFormat)(windows_core::Interface::as_raw(self), guidtype, dwcodecindex, dwformatindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -1108,10 +1108,10 @@ impl core::ops::Deref for IWMCodecInfo2 {
 windows_core::imp::interface_hierarchy!(IWMCodecInfo2, windows_core::IUnknown, IWMCodecInfo);
 impl IWMCodecInfo2 {
     pub unsafe fn GetCodecName(&self, guidtype: *const windows_core::GUID, dwcodecindex: u32, wszname: windows_core::PWSTR, pcchname: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetCodecName)(windows_core::Interface::as_raw(self), core::mem::transmute(guidtype), core::mem::transmute(dwcodecindex), core::mem::transmute(wszname), core::mem::transmute(pcchname)).ok()
+        (windows_core::Interface::vtable(self).GetCodecName)(windows_core::Interface::as_raw(self), guidtype, dwcodecindex, core::mem::transmute(wszname), core::mem::transmute(pcchname)).ok()
     }
     pub unsafe fn GetCodecFormatDesc(&self, guidtype: *const windows_core::GUID, dwcodecindex: u32, dwformatindex: u32, ppistreamconfig: *mut Option<IWMStreamConfig>, wszdesc: windows_core::PWSTR, pcchdesc: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetCodecFormatDesc)(windows_core::Interface::as_raw(self), core::mem::transmute(guidtype), core::mem::transmute(dwcodecindex), core::mem::transmute(dwformatindex), core::mem::transmute(ppistreamconfig), core::mem::transmute(wszdesc), core::mem::transmute(pcchdesc)).ok()
+        (windows_core::Interface::vtable(self).GetCodecFormatDesc)(windows_core::Interface::as_raw(self), guidtype, dwcodecindex, dwformatindex, core::mem::transmute(ppistreamconfig), core::mem::transmute(wszdesc), core::mem::transmute(pcchdesc)).ok()
     }
 }
 #[repr(C)]
@@ -1158,25 +1158,25 @@ impl IWMCodecInfo3 {
     where
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetCodecFormatProp)(windows_core::Interface::as_raw(self), core::mem::transmute(guidtype), core::mem::transmute(dwcodecindex), core::mem::transmute(dwformatindex), pszname.param().abi(), core::mem::transmute(ptype), core::mem::transmute(pvalue), core::mem::transmute(pdwsize)).ok()
+        (windows_core::Interface::vtable(self).GetCodecFormatProp)(windows_core::Interface::as_raw(self), guidtype, dwcodecindex, dwformatindex, pszname.param().abi(), core::mem::transmute(ptype), core::mem::transmute(pvalue), core::mem::transmute(pdwsize)).ok()
     }
     pub unsafe fn GetCodecProp<P2>(&self, guidtype: *const windows_core::GUID, dwcodecindex: u32, pszname: P2, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> windows_core::Result<()>
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetCodecProp)(windows_core::Interface::as_raw(self), core::mem::transmute(guidtype), core::mem::transmute(dwcodecindex), pszname.param().abi(), core::mem::transmute(ptype), core::mem::transmute(pvalue), core::mem::transmute(pdwsize)).ok()
+        (windows_core::Interface::vtable(self).GetCodecProp)(windows_core::Interface::as_raw(self), guidtype, dwcodecindex, pszname.param().abi(), core::mem::transmute(ptype), core::mem::transmute(pvalue), core::mem::transmute(pdwsize)).ok()
     }
     pub unsafe fn SetCodecEnumerationSetting<P2>(&self, guidtype: *const windows_core::GUID, dwcodecindex: u32, pszname: P2, r#type: WMT_ATTR_DATATYPE, pvalue: &[u8]) -> windows_core::Result<()>
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetCodecEnumerationSetting)(windows_core::Interface::as_raw(self), core::mem::transmute(guidtype), core::mem::transmute(dwcodecindex), pszname.param().abi(), core::mem::transmute(r#type), core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
+        (windows_core::Interface::vtable(self).SetCodecEnumerationSetting)(windows_core::Interface::as_raw(self), guidtype, dwcodecindex, pszname.param().abi(), r#type, core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetCodecEnumerationSetting<P2>(&self, guidtype: *const windows_core::GUID, dwcodecindex: u32, pszname: P2, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> windows_core::Result<()>
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetCodecEnumerationSetting)(windows_core::Interface::as_raw(self), core::mem::transmute(guidtype), core::mem::transmute(dwcodecindex), pszname.param().abi(), core::mem::transmute(ptype), core::mem::transmute(pvalue), core::mem::transmute(pdwsize)).ok()
+        (windows_core::Interface::vtable(self).GetCodecEnumerationSetting)(windows_core::Interface::as_raw(self), guidtype, dwcodecindex, pszname.param().abi(), core::mem::transmute(ptype), core::mem::transmute(pvalue), core::mem::transmute(pdwsize)).ok()
     }
 }
 #[repr(C)]
@@ -1232,7 +1232,7 @@ impl IWMCredentialCallback {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AcquireCredentials)(windows_core::Interface::as_raw(self), pwszrealm.param().abi(), pwszsite.param().abi(), core::mem::transmute(pwszuser.as_ptr()), pwszuser.len().try_into().unwrap(), core::mem::transmute(pwszpassword.as_ptr()), pwszpassword.len().try_into().unwrap(), core::mem::transmute(hrstatus), core::mem::transmute(pdwflags)).ok()
+        (windows_core::Interface::vtable(self).AcquireCredentials)(windows_core::Interface::as_raw(self), pwszrealm.param().abi(), pwszsite.param().abi(), core::mem::transmute(pwszuser.as_ptr()), pwszuser.len().try_into().unwrap(), core::mem::transmute(pwszpassword.as_ptr()), pwszpassword.len().try_into().unwrap(), hrstatus, core::mem::transmute(pdwflags)).ok()
     }
 }
 #[repr(C)]
@@ -1332,13 +1332,13 @@ windows_core::imp::define_interface!(IWMDRMReader, IWMDRMReader_Vtbl, 0xd2827540
 windows_core::imp::interface_hierarchy!(IWMDRMReader, windows_core::IUnknown);
 impl IWMDRMReader {
     pub unsafe fn AcquireLicense(&self, dwflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).AcquireLicense)(windows_core::Interface::as_raw(self), core::mem::transmute(dwflags)).ok()
+        (windows_core::Interface::vtable(self).AcquireLicense)(windows_core::Interface::as_raw(self), dwflags).ok()
     }
     pub unsafe fn CancelLicenseAcquisition(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CancelLicenseAcquisition)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Individualize(&self, dwflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Individualize)(windows_core::Interface::as_raw(self), core::mem::transmute(dwflags)).ok()
+        (windows_core::Interface::vtable(self).Individualize)(windows_core::Interface::as_raw(self), dwflags).ok()
     }
     pub unsafe fn CancelIndividualization(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CancelIndividualization)(windows_core::Interface::as_raw(self)).ok()
@@ -1353,7 +1353,7 @@ impl IWMDRMReader {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetDRMProperty)(windows_core::Interface::as_raw(self), pwstrname.param().abi(), core::mem::transmute(dwtype), core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
+        (windows_core::Interface::vtable(self).SetDRMProperty)(windows_core::Interface::as_raw(self), pwstrname.param().abi(), dwtype, core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetDRMProperty<P0>(&self, pwstrname: P0, pdwtype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> windows_core::Result<()>
     where
@@ -1578,13 +1578,13 @@ impl IWMDRMTranscryptor {
     where
         P4: windows_core::Param<IWMStatusCallback>,
     {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrfilename), core::mem::transmute(pblicenserequestmsg), core::mem::transmute(cblicenserequestmsg), core::mem::transmute(pplicenseresponsemsg), pcallback.param().abi(), core::mem::transmute(pvcontext)).ok()
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrfilename), core::mem::transmute(pblicenserequestmsg), cblicenserequestmsg, core::mem::transmute(pplicenseresponsemsg), pcallback.param().abi(), pvcontext).ok()
     }
     pub unsafe fn Seek(&self, hnstime: u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Seek)(windows_core::Interface::as_raw(self), core::mem::transmute(hnstime)).ok()
+        (windows_core::Interface::vtable(self).Seek)(windows_core::Interface::as_raw(self), hnstime).ok()
     }
     pub unsafe fn Read(&self, pbdata: *const u8, pcbdata: *const u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), core::mem::transmute(pbdata), core::mem::transmute(pcbdata)).ok()
+        (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), pbdata, pcbdata).ok()
     }
     pub unsafe fn Close(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok()
@@ -1645,7 +1645,7 @@ impl core::ops::Deref for IWMDRMTranscryptor2 {
 windows_core::imp::interface_hierarchy!(IWMDRMTranscryptor2, windows_core::IUnknown, IWMDRMTranscryptor);
 impl IWMDRMTranscryptor2 {
     pub unsafe fn SeekEx(&self, cnsstarttime: u64, cnsduration: u64, flrate: f32, fincludefileheader: bool) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SeekEx)(windows_core::Interface::as_raw(self), core::mem::transmute(cnsstarttime), core::mem::transmute(cnsduration), core::mem::transmute(flrate), fincludefileheader.into()).ok()
+        (windows_core::Interface::vtable(self).SeekEx)(windows_core::Interface::as_raw(self), cnsstarttime, cnsduration, flrate, fincludefileheader.into()).ok()
     }
     pub unsafe fn ZeroAdjustTimestamps(&self, fenable: bool) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ZeroAdjustTimestamps)(windows_core::Interface::as_raw(self), fenable.into()).ok()
@@ -1732,7 +1732,7 @@ impl IWMDRMWriter {
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetDRMAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnum), pszname.param().abi(), core::mem::transmute(r#type), core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
+        (windows_core::Interface::vtable(self).SetDRMAttribute)(windows_core::Interface::as_raw(self), wstreamnum, pszname.param().abi(), r#type, core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
     }
 }
 #[repr(C)]
@@ -1790,7 +1790,7 @@ impl core::ops::Deref for IWMDRMWriter2 {
 windows_core::imp::interface_hierarchy!(IWMDRMWriter2, windows_core::IUnknown, IWMDRMWriter);
 impl IWMDRMWriter2 {
     pub unsafe fn SetWMDRMNetEncryption(&self, fsamplesencrypted: bool, pbkeyid: *const u8, cbkeyid: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetWMDRMNetEncryption)(windows_core::Interface::as_raw(self), fsamplesencrypted.into(), core::mem::transmute(pbkeyid), core::mem::transmute(cbkeyid)).ok()
+        (windows_core::Interface::vtable(self).SetWMDRMNetEncryption)(windows_core::Interface::as_raw(self), fsamplesencrypted.into(), pbkeyid, cbkeyid).ok()
     }
 }
 #[repr(C)]
@@ -1824,7 +1824,7 @@ impl core::ops::Deref for IWMDRMWriter3 {
 windows_core::imp::interface_hierarchy!(IWMDRMWriter3, windows_core::IUnknown, IWMDRMWriter, IWMDRMWriter2);
 impl IWMDRMWriter3 {
     pub unsafe fn SetProtectStreamSamples(&self, pimportinitstruct: *const WMDRM_IMPORT_INIT_STRUCT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetProtectStreamSamples)(windows_core::Interface::as_raw(self), core::mem::transmute(pimportinitstruct)).ok()
+        (windows_core::Interface::vtable(self).SetProtectStreamSamples)(windows_core::Interface::as_raw(self), pimportinitstruct).ok()
     }
 }
 #[repr(C)]
@@ -1853,18 +1853,18 @@ windows_core::imp::interface_hierarchy!(IWMDeviceRegistration, windows_core::IUn
 impl IWMDeviceRegistration {
     pub unsafe fn RegisterDevice(&self, dwregistertype: u32, pbcertificate: &[u8], serialnumber: DRM_VAL16) -> windows_core::Result<IWMRegisteredDevice> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).RegisterDevice)(windows_core::Interface::as_raw(self), core::mem::transmute(dwregistertype), core::mem::transmute(pbcertificate.as_ptr()), pbcertificate.len().try_into().unwrap(), core::mem::transmute(serialnumber), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).RegisterDevice)(windows_core::Interface::as_raw(self), dwregistertype, core::mem::transmute(pbcertificate.as_ptr()), pbcertificate.len().try_into().unwrap(), core::mem::transmute(serialnumber), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn UnregisterDevice(&self, dwregistertype: u32, pbcertificate: &[u8], serialnumber: DRM_VAL16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).UnregisterDevice)(windows_core::Interface::as_raw(self), core::mem::transmute(dwregistertype), core::mem::transmute(pbcertificate.as_ptr()), pbcertificate.len().try_into().unwrap(), core::mem::transmute(serialnumber)).ok()
+        (windows_core::Interface::vtable(self).UnregisterDevice)(windows_core::Interface::as_raw(self), dwregistertype, core::mem::transmute(pbcertificate.as_ptr()), pbcertificate.len().try_into().unwrap(), core::mem::transmute(serialnumber)).ok()
     }
     pub unsafe fn GetRegistrationStats(&self, dwregistertype: u32) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetRegistrationStats)(windows_core::Interface::as_raw(self), core::mem::transmute(dwregistertype), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetRegistrationStats)(windows_core::Interface::as_raw(self), dwregistertype, &mut result__).map(|| result__)
     }
     pub unsafe fn GetFirstRegisteredDevice(&self, dwregistertype: u32) -> windows_core::Result<IWMRegisteredDevice> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetFirstRegisteredDevice)(windows_core::Interface::as_raw(self), core::mem::transmute(dwregistertype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetFirstRegisteredDevice)(windows_core::Interface::as_raw(self), dwregistertype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetNextRegisteredDevice(&self) -> windows_core::Result<IWMRegisteredDevice> {
         let mut result__ = core::mem::zeroed();
@@ -1872,7 +1872,7 @@ impl IWMDeviceRegistration {
     }
     pub unsafe fn GetRegisteredDeviceByID(&self, dwregistertype: u32, pbcertificate: &[u8], serialnumber: DRM_VAL16) -> windows_core::Result<IWMRegisteredDevice> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetRegisteredDeviceByID)(windows_core::Interface::as_raw(self), core::mem::transmute(dwregistertype), core::mem::transmute(pbcertificate.as_ptr()), pbcertificate.len().try_into().unwrap(), core::mem::transmute(serialnumber), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetRegisteredDeviceByID)(windows_core::Interface::as_raw(self), dwregistertype, core::mem::transmute(pbcertificate.as_ptr()), pbcertificate.len().try_into().unwrap(), core::mem::transmute(serialnumber), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -2004,10 +2004,10 @@ windows_core::imp::interface_hierarchy!(IWMHeaderInfo, windows_core::IUnknown);
 impl IWMHeaderInfo {
     pub unsafe fn GetAttributeCount(&self, wstreamnum: u16) -> windows_core::Result<u16> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAttributeCount)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnum), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetAttributeCount)(windows_core::Interface::as_raw(self), wstreamnum, &mut result__).map(|| result__)
     }
     pub unsafe fn GetAttributeByIndex(&self, windex: u16, pwstreamnum: *mut u16, pwszname: windows_core::PWSTR, pcchnamelen: *mut u16, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetAttributeByIndex)(windows_core::Interface::as_raw(self), core::mem::transmute(windex), core::mem::transmute(pwstreamnum), core::mem::transmute(pwszname), core::mem::transmute(pcchnamelen), core::mem::transmute(ptype), core::mem::transmute(pvalue), core::mem::transmute(pcblength)).ok()
+        (windows_core::Interface::vtable(self).GetAttributeByIndex)(windows_core::Interface::as_raw(self), windex, core::mem::transmute(pwstreamnum), core::mem::transmute(pwszname), core::mem::transmute(pcchnamelen), core::mem::transmute(ptype), core::mem::transmute(pvalue), core::mem::transmute(pcblength)).ok()
     }
     pub unsafe fn GetAttributeByName<P1>(&self, pwstreamnum: *mut u16, pszname: P1, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> windows_core::Result<()>
     where
@@ -2019,40 +2019,40 @@ impl IWMHeaderInfo {
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnum), pszname.param().abi(), core::mem::transmute(r#type), core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
+        (windows_core::Interface::vtable(self).SetAttribute)(windows_core::Interface::as_raw(self), wstreamnum, pszname.param().abi(), r#type, core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetMarkerCount(&self) -> windows_core::Result<u16> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetMarkerCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetMarker(&self, windex: u16, pwszmarkername: windows_core::PWSTR, pcchmarkernamelen: *mut u16, pcnsmarkertime: *mut u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetMarker)(windows_core::Interface::as_raw(self), core::mem::transmute(windex), core::mem::transmute(pwszmarkername), core::mem::transmute(pcchmarkernamelen), core::mem::transmute(pcnsmarkertime)).ok()
+        (windows_core::Interface::vtable(self).GetMarker)(windows_core::Interface::as_raw(self), windex, core::mem::transmute(pwszmarkername), core::mem::transmute(pcchmarkernamelen), core::mem::transmute(pcnsmarkertime)).ok()
     }
     pub unsafe fn AddMarker<P0>(&self, pwszmarkername: P0, cnsmarkertime: u64) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AddMarker)(windows_core::Interface::as_raw(self), pwszmarkername.param().abi(), core::mem::transmute(cnsmarkertime)).ok()
+        (windows_core::Interface::vtable(self).AddMarker)(windows_core::Interface::as_raw(self), pwszmarkername.param().abi(), cnsmarkertime).ok()
     }
     pub unsafe fn RemoveMarker(&self, windex: u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemoveMarker)(windows_core::Interface::as_raw(self), core::mem::transmute(windex)).ok()
+        (windows_core::Interface::vtable(self).RemoveMarker)(windows_core::Interface::as_raw(self), windex).ok()
     }
     pub unsafe fn GetScriptCount(&self) -> windows_core::Result<u16> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetScriptCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetScript(&self, windex: u16, pwsztype: windows_core::PWSTR, pcchtypelen: *mut u16, pwszcommand: windows_core::PWSTR, pcchcommandlen: *mut u16, pcnsscripttime: *mut u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetScript)(windows_core::Interface::as_raw(self), core::mem::transmute(windex), core::mem::transmute(pwsztype), core::mem::transmute(pcchtypelen), core::mem::transmute(pwszcommand), core::mem::transmute(pcchcommandlen), core::mem::transmute(pcnsscripttime)).ok()
+        (windows_core::Interface::vtable(self).GetScript)(windows_core::Interface::as_raw(self), windex, core::mem::transmute(pwsztype), core::mem::transmute(pcchtypelen), core::mem::transmute(pwszcommand), core::mem::transmute(pcchcommandlen), core::mem::transmute(pcnsscripttime)).ok()
     }
     pub unsafe fn AddScript<P0, P1>(&self, pwsztype: P0, pwszcommand: P1, cnsscripttime: u64) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AddScript)(windows_core::Interface::as_raw(self), pwsztype.param().abi(), pwszcommand.param().abi(), core::mem::transmute(cnsscripttime)).ok()
+        (windows_core::Interface::vtable(self).AddScript)(windows_core::Interface::as_raw(self), pwsztype.param().abi(), pwszcommand.param().abi(), cnsscripttime).ok()
     }
     pub unsafe fn RemoveScript(&self, windex: u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemoveScript)(windows_core::Interface::as_raw(self), core::mem::transmute(windex)).ok()
+        (windows_core::Interface::vtable(self).RemoveScript)(windows_core::Interface::as_raw(self), windex).ok()
     }
 }
 #[repr(C)]
@@ -2188,7 +2188,7 @@ impl IWMHeaderInfo2 {
         (windows_core::Interface::vtable(self).GetCodecInfoCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCodecInfo(&self, windex: u32, pcchname: *mut u16, pwszname: windows_core::PWSTR, pcchdescription: *mut u16, pwszdescription: windows_core::PWSTR, pcodectype: *mut WMT_CODEC_INFO_TYPE, pcbcodecinfo: *mut u16, pbcodecinfo: *mut u8) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetCodecInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(windex), core::mem::transmute(pcchname), core::mem::transmute(pwszname), core::mem::transmute(pcchdescription), core::mem::transmute(pwszdescription), core::mem::transmute(pcodectype), core::mem::transmute(pcbcodecinfo), core::mem::transmute(pbcodecinfo)).ok()
+        (windows_core::Interface::vtable(self).GetCodecInfo)(windows_core::Interface::as_raw(self), windex, core::mem::transmute(pcchname), core::mem::transmute(pwszname), core::mem::transmute(pcchdescription), core::mem::transmute(pwszdescription), core::mem::transmute(pcodectype), core::mem::transmute(pcbcodecinfo), core::mem::transmute(pbcodecinfo)).ok()
     }
 }
 #[repr(C)]
@@ -2239,35 +2239,35 @@ windows_core::imp::interface_hierarchy!(IWMHeaderInfo3, windows_core::IUnknown, 
 impl IWMHeaderInfo3 {
     pub unsafe fn GetAttributeCountEx(&self, wstreamnum: u16) -> windows_core::Result<u16> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAttributeCountEx)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnum), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetAttributeCountEx)(windows_core::Interface::as_raw(self), wstreamnum, &mut result__).map(|| result__)
     }
     pub unsafe fn GetAttributeIndices<P1>(&self, wstreamnum: u16, pwszname: P1, pwlangindex: *const u16, pwindices: *mut u16, pwcount: *mut u16) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetAttributeIndices)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnum), pwszname.param().abi(), core::mem::transmute(pwlangindex), core::mem::transmute(pwindices), core::mem::transmute(pwcount)).ok()
+        (windows_core::Interface::vtable(self).GetAttributeIndices)(windows_core::Interface::as_raw(self), wstreamnum, pwszname.param().abi(), pwlangindex, core::mem::transmute(pwindices), core::mem::transmute(pwcount)).ok()
     }
     pub unsafe fn GetAttributeByIndexEx(&self, wstreamnum: u16, windex: u16, pwszname: windows_core::PWSTR, pwnamelen: *mut u16, ptype: *mut WMT_ATTR_DATATYPE, pwlangindex: *mut u16, pvalue: *mut u8, pdwdatalength: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetAttributeByIndexEx)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnum), core::mem::transmute(windex), core::mem::transmute(pwszname), core::mem::transmute(pwnamelen), core::mem::transmute(ptype), core::mem::transmute(pwlangindex), core::mem::transmute(pvalue), core::mem::transmute(pdwdatalength)).ok()
+        (windows_core::Interface::vtable(self).GetAttributeByIndexEx)(windows_core::Interface::as_raw(self), wstreamnum, windex, core::mem::transmute(pwszname), core::mem::transmute(pwnamelen), core::mem::transmute(ptype), core::mem::transmute(pwlangindex), core::mem::transmute(pvalue), core::mem::transmute(pdwdatalength)).ok()
     }
     pub unsafe fn ModifyAttribute(&self, wstreamnum: u16, windex: u16, r#type: WMT_ATTR_DATATYPE, wlangindex: u16, pvalue: &[u8]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ModifyAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnum), core::mem::transmute(windex), core::mem::transmute(r#type), core::mem::transmute(wlangindex), core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
+        (windows_core::Interface::vtable(self).ModifyAttribute)(windows_core::Interface::as_raw(self), wstreamnum, windex, r#type, wlangindex, core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
     }
     pub unsafe fn AddAttribute<P1>(&self, wstreamnum: u16, pszname: P1, pwindex: *mut u16, r#type: WMT_ATTR_DATATYPE, wlangindex: u16, pvalue: &[u8]) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AddAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnum), pszname.param().abi(), core::mem::transmute(pwindex), core::mem::transmute(r#type), core::mem::transmute(wlangindex), core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
+        (windows_core::Interface::vtable(self).AddAttribute)(windows_core::Interface::as_raw(self), wstreamnum, pszname.param().abi(), core::mem::transmute(pwindex), r#type, wlangindex, core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
     }
     pub unsafe fn DeleteAttribute(&self, wstreamnum: u16, windex: u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).DeleteAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnum), core::mem::transmute(windex)).ok()
+        (windows_core::Interface::vtable(self).DeleteAttribute)(windows_core::Interface::as_raw(self), wstreamnum, windex).ok()
     }
     pub unsafe fn AddCodecInfo<P0, P1>(&self, pwszname: P0, pwszdescription: P1, codectype: WMT_CODEC_INFO_TYPE, pbcodecinfo: &[u8]) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AddCodecInfo)(windows_core::Interface::as_raw(self), pwszname.param().abi(), pwszdescription.param().abi(), core::mem::transmute(codectype), pbcodecinfo.len().try_into().unwrap(), core::mem::transmute(pbcodecinfo.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).AddCodecInfo)(windows_core::Interface::as_raw(self), pwszname.param().abi(), pwszdescription.param().abi(), codectype, pbcodecinfo.len().try_into().unwrap(), core::mem::transmute(pbcodecinfo.as_ptr())).ok()
     }
 }
 #[repr(C)]
@@ -2381,7 +2381,7 @@ impl IWMImageInfo {
         (windows_core::Interface::vtable(self).GetImageCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetImage(&self, windex: u32, pcchmimetype: *mut u16, pwszmimetype: windows_core::PWSTR, pcchdescription: *mut u16, pwszdescription: windows_core::PWSTR, pimagetype: *mut u16, pcbimagedata: *mut u32, pbimagedata: *mut u8) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetImage)(windows_core::Interface::as_raw(self), core::mem::transmute(windex), core::mem::transmute(pcchmimetype), core::mem::transmute(pwszmimetype), core::mem::transmute(pcchdescription), core::mem::transmute(pwszdescription), core::mem::transmute(pimagetype), core::mem::transmute(pcbimagedata), core::mem::transmute(pbimagedata)).ok()
+        (windows_core::Interface::vtable(self).GetImage)(windows_core::Interface::as_raw(self), windex, core::mem::transmute(pcchmimetype), core::mem::transmute(pwszmimetype), core::mem::transmute(pcchdescription), core::mem::transmute(pwszdescription), core::mem::transmute(pimagetype), core::mem::transmute(pcbimagedata), core::mem::transmute(pbimagedata)).ok()
     }
 }
 #[repr(C)]
@@ -2429,7 +2429,7 @@ impl IWMIndexer {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<IWMStatusCallback>,
     {
-        (windows_core::Interface::vtable(self).StartIndexing)(windows_core::Interface::as_raw(self), pwszurl.param().abi(), pcallback.param().abi(), core::mem::transmute(pvcontext)).ok()
+        (windows_core::Interface::vtable(self).StartIndexing)(windows_core::Interface::as_raw(self), pwszurl.param().abi(), pcallback.param().abi(), pvcontext).ok()
     }
     pub unsafe fn Cancel(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self)).ok()
@@ -2476,7 +2476,7 @@ impl core::ops::Deref for IWMIndexer2 {
 windows_core::imp::interface_hierarchy!(IWMIndexer2, windows_core::IUnknown, IWMIndexer);
 impl IWMIndexer2 {
     pub unsafe fn Configure(&self, wstreamnum: u16, nindexertype: WMT_INDEXER_TYPE, pvinterval: *const core::ffi::c_void, pvindextype: *const core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Configure)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnum), core::mem::transmute(nindexertype), core::mem::transmute(pvinterval), core::mem::transmute(pvindextype)).ok()
+        (windows_core::Interface::vtable(self).Configure)(windows_core::Interface::as_raw(self), wstreamnum, nindexertype, pvinterval, pvindextype).ok()
     }
 }
 #[repr(C)]
@@ -2555,7 +2555,7 @@ impl IWMLanguageList {
         (windows_core::Interface::vtable(self).GetLanguageCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLanguageDetails(&self, windex: u16, pwszlanguagestring: windows_core::PWSTR, pcchlanguagestringlength: *mut u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetLanguageDetails)(windows_core::Interface::as_raw(self), core::mem::transmute(windex), core::mem::transmute(pwszlanguagestring), core::mem::transmute(pcchlanguagestringlength)).ok()
+        (windows_core::Interface::vtable(self).GetLanguageDetails)(windows_core::Interface::as_raw(self), windex, core::mem::transmute(pwszlanguagestring), core::mem::transmute(pcchlanguagestringlength)).ok()
     }
     pub unsafe fn AddLanguageByRFC1766String<P0>(&self, pwszlanguagestring: P0) -> windows_core::Result<u16>
     where
@@ -2622,7 +2622,7 @@ impl IWMLicenseBackup {
     where
         P1: windows_core::Param<IWMStatusCallback>,
     {
-        (windows_core::Interface::vtable(self).BackupLicenses)(windows_core::Interface::as_raw(self), core::mem::transmute(dwflags), pcallback.param().abi()).ok()
+        (windows_core::Interface::vtable(self).BackupLicenses)(windows_core::Interface::as_raw(self), dwflags, pcallback.param().abi()).ok()
     }
     pub unsafe fn CancelLicenseBackup(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CancelLicenseBackup)(windows_core::Interface::as_raw(self)).ok()
@@ -2666,7 +2666,7 @@ impl IWMLicenseRestore {
     where
         P1: windows_core::Param<IWMStatusCallback>,
     {
-        (windows_core::Interface::vtable(self).RestoreLicenses)(windows_core::Interface::as_raw(self), core::mem::transmute(dwflags), pcallback.param().abi()).ok()
+        (windows_core::Interface::vtable(self).RestoreLicenses)(windows_core::Interface::as_raw(self), dwflags, pcallback.param().abi()).ok()
     }
     pub unsafe fn CancelLicenseRestore(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CancelLicenseRestore)(windows_core::Interface::as_raw(self)).ok()
@@ -2707,10 +2707,10 @@ windows_core::imp::define_interface!(IWMLicenseRevocationAgent, IWMLicenseRevoca
 windows_core::imp::interface_hierarchy!(IWMLicenseRevocationAgent, windows_core::IUnknown);
 impl IWMLicenseRevocationAgent {
     pub unsafe fn GetLRBChallenge(&self, pmachineid: *const u8, dwmachineidlength: u32, pchallenge: *const u8, dwchallengelength: u32, pchallengeoutput: *mut u8, pdwchallengeoutputlength: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetLRBChallenge)(windows_core::Interface::as_raw(self), core::mem::transmute(pmachineid), core::mem::transmute(dwmachineidlength), core::mem::transmute(pchallenge), core::mem::transmute(dwchallengelength), core::mem::transmute(pchallengeoutput), core::mem::transmute(pdwchallengeoutputlength)).ok()
+        (windows_core::Interface::vtable(self).GetLRBChallenge)(windows_core::Interface::as_raw(self), pmachineid, dwmachineidlength, pchallenge, dwchallengelength, core::mem::transmute(pchallengeoutput), core::mem::transmute(pdwchallengeoutputlength)).ok()
     }
     pub unsafe fn ProcessLRB(&self, psignedlrb: *const u8, dwsignedlrblength: u32, psignedack: *mut u8, pdwsignedacklength: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ProcessLRB)(windows_core::Interface::as_raw(self), core::mem::transmute(psignedlrb), core::mem::transmute(dwsignedlrblength), core::mem::transmute(psignedack), core::mem::transmute(pdwsignedacklength)).ok()
+        (windows_core::Interface::vtable(self).ProcessLRB)(windows_core::Interface::as_raw(self), psignedlrb, dwsignedlrblength, core::mem::transmute(psignedack), core::mem::transmute(pdwsignedacklength)).ok()
     }
 }
 #[repr(C)]
@@ -2869,7 +2869,7 @@ impl IWMMetadataEditor2 {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OpenEx)(windows_core::Interface::as_raw(self), pwszfilename.param().abi(), core::mem::transmute(dwdesiredaccess), core::mem::transmute(dwsharemode)).ok()
+        (windows_core::Interface::vtable(self).OpenEx)(windows_core::Interface::as_raw(self), pwszfilename.param().abi(), dwdesiredaccess, dwsharemode).ok()
     }
 }
 #[repr(C)]
@@ -2907,7 +2907,7 @@ impl IWMMutualExclusion {
         (windows_core::Interface::vtable(self).GetType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetType(&self, guidtype: *const windows_core::GUID) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetType)(windows_core::Interface::as_raw(self), core::mem::transmute(guidtype)).ok()
+        (windows_core::Interface::vtable(self).SetType)(windows_core::Interface::as_raw(self), guidtype).ok()
     }
 }
 #[repr(C)]
@@ -2969,25 +2969,25 @@ impl IWMMutualExclusion2 {
         (windows_core::Interface::vtable(self).AddRecord)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn RemoveRecord(&self, wrecordnumber: u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemoveRecord)(windows_core::Interface::as_raw(self), core::mem::transmute(wrecordnumber)).ok()
+        (windows_core::Interface::vtable(self).RemoveRecord)(windows_core::Interface::as_raw(self), wrecordnumber).ok()
     }
     pub unsafe fn GetRecordName(&self, wrecordnumber: u16, pwszrecordname: windows_core::PWSTR, pcchrecordname: *mut u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetRecordName)(windows_core::Interface::as_raw(self), core::mem::transmute(wrecordnumber), core::mem::transmute(pwszrecordname), core::mem::transmute(pcchrecordname)).ok()
+        (windows_core::Interface::vtable(self).GetRecordName)(windows_core::Interface::as_raw(self), wrecordnumber, core::mem::transmute(pwszrecordname), core::mem::transmute(pcchrecordname)).ok()
     }
     pub unsafe fn SetRecordName<P1>(&self, wrecordnumber: u16, pwszrecordname: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetRecordName)(windows_core::Interface::as_raw(self), core::mem::transmute(wrecordnumber), pwszrecordname.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetRecordName)(windows_core::Interface::as_raw(self), wrecordnumber, pwszrecordname.param().abi()).ok()
     }
     pub unsafe fn GetStreamsForRecord(&self, wrecordnumber: u16, pwstreamnumarray: *mut u16, pcstreams: *mut u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetStreamsForRecord)(windows_core::Interface::as_raw(self), core::mem::transmute(wrecordnumber), core::mem::transmute(pwstreamnumarray), core::mem::transmute(pcstreams)).ok()
+        (windows_core::Interface::vtable(self).GetStreamsForRecord)(windows_core::Interface::as_raw(self), wrecordnumber, core::mem::transmute(pwstreamnumarray), core::mem::transmute(pcstreams)).ok()
     }
     pub unsafe fn AddStreamForRecord(&self, wrecordnumber: u16, wstreamnumber: u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).AddStreamForRecord)(windows_core::Interface::as_raw(self), core::mem::transmute(wrecordnumber), core::mem::transmute(wstreamnumber)).ok()
+        (windows_core::Interface::vtable(self).AddStreamForRecord)(windows_core::Interface::as_raw(self), wrecordnumber, wstreamnumber).ok()
     }
     pub unsafe fn RemoveStreamForRecord(&self, wrecordnumber: u16, wstreamnumber: u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemoveStreamForRecord)(windows_core::Interface::as_raw(self), core::mem::transmute(wrecordnumber), core::mem::transmute(wstreamnumber)).ok()
+        (windows_core::Interface::vtable(self).RemoveStreamForRecord)(windows_core::Interface::as_raw(self), wrecordnumber, wstreamnumber).ok()
     }
 }
 #[repr(C)]
@@ -3138,7 +3138,7 @@ impl IWMPacketSize {
         (windows_core::Interface::vtable(self).GetMaxPacketSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetMaxPacketSize(&self, dwmaxpacketsize: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetMaxPacketSize)(windows_core::Interface::as_raw(self), core::mem::transmute(dwmaxpacketsize)).ok()
+        (windows_core::Interface::vtable(self).SetMaxPacketSize)(windows_core::Interface::as_raw(self), dwmaxpacketsize).ok()
     }
 }
 #[repr(C)]
@@ -3192,7 +3192,7 @@ impl IWMPacketSize2 {
         (windows_core::Interface::vtable(self).GetMinPacketSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetMinPacketSize(&self, dwminpacketsize: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetMinPacketSize)(windows_core::Interface::as_raw(self), core::mem::transmute(dwminpacketsize)).ok()
+        (windows_core::Interface::vtable(self).SetMinPacketSize)(windows_core::Interface::as_raw(self), dwminpacketsize).ok()
     }
 }
 #[repr(C)]
@@ -3265,7 +3265,7 @@ windows_core::imp::interface_hierarchy!(IWMPlayerTimestampHook, windows_core::IU
 impl IWMPlayerTimestampHook {
     pub unsafe fn MapTimestamp(&self, rtin: i64) -> windows_core::Result<i64> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).MapTimestamp)(windows_core::Interface::as_raw(self), core::mem::transmute(rtin), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).MapTimestamp)(windows_core::Interface::as_raw(self), rtin, &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -3326,11 +3326,11 @@ impl IWMProfile {
     }
     pub unsafe fn GetStream(&self, dwstreamindex: u32) -> windows_core::Result<IWMStreamConfig> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetStream)(windows_core::Interface::as_raw(self), core::mem::transmute(dwstreamindex), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetStream)(windows_core::Interface::as_raw(self), dwstreamindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetStreamByNumber(&self, wstreamnum: u16) -> windows_core::Result<IWMStreamConfig> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetStreamByNumber)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnum), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetStreamByNumber)(windows_core::Interface::as_raw(self), wstreamnum, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RemoveStream<P0>(&self, pconfig: P0) -> windows_core::Result<()>
     where
@@ -3339,7 +3339,7 @@ impl IWMProfile {
         (windows_core::Interface::vtable(self).RemoveStream)(windows_core::Interface::as_raw(self), pconfig.param().abi()).ok()
     }
     pub unsafe fn RemoveStreamByNumber(&self, wstreamnum: u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemoveStreamByNumber)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnum)).ok()
+        (windows_core::Interface::vtable(self).RemoveStreamByNumber)(windows_core::Interface::as_raw(self), wstreamnum).ok()
     }
     pub unsafe fn AddStream<P0>(&self, pconfig: P0) -> windows_core::Result<()>
     where
@@ -3355,7 +3355,7 @@ impl IWMProfile {
     }
     pub unsafe fn CreateNewStream(&self, guidstreamtype: *const windows_core::GUID) -> windows_core::Result<IWMStreamConfig> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateNewStream)(windows_core::Interface::as_raw(self), core::mem::transmute(guidstreamtype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateNewStream)(windows_core::Interface::as_raw(self), guidstreamtype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetMutualExclusionCount(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -3363,7 +3363,7 @@ impl IWMProfile {
     }
     pub unsafe fn GetMutualExclusion(&self, dwmeindex: u32) -> windows_core::Result<IWMMutualExclusion> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetMutualExclusion)(windows_core::Interface::as_raw(self), core::mem::transmute(dwmeindex), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetMutualExclusion)(windows_core::Interface::as_raw(self), dwmeindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RemoveMutualExclusion<P0>(&self, pme: P0) -> windows_core::Result<()>
     where
@@ -3628,7 +3628,7 @@ impl IWMProfile3 {
         (windows_core::Interface::vtable(self).GetStorageFormat)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetStorageFormat(&self, nstorageformat: WMT_STORAGE_FORMAT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetStorageFormat)(windows_core::Interface::as_raw(self), core::mem::transmute(nstorageformat)).ok()
+        (windows_core::Interface::vtable(self).SetStorageFormat)(windows_core::Interface::as_raw(self), nstorageformat).ok()
     }
     pub unsafe fn GetBandwidthSharingCount(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -3636,7 +3636,7 @@ impl IWMProfile3 {
     }
     pub unsafe fn GetBandwidthSharing(&self, dwbsindex: u32) -> windows_core::Result<IWMBandwidthSharing> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetBandwidthSharing)(windows_core::Interface::as_raw(self), core::mem::transmute(dwbsindex), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetBandwidthSharing)(windows_core::Interface::as_raw(self), dwbsindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RemoveBandwidthSharing<P0>(&self, pbs: P0) -> windows_core::Result<()>
     where
@@ -3673,7 +3673,7 @@ impl IWMProfile3 {
     }
     pub unsafe fn GetExpectedPacketCount(&self, msduration: u64) -> windows_core::Result<u64> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetExpectedPacketCount)(windows_core::Interface::as_raw(self), core::mem::transmute(msduration), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetExpectedPacketCount)(windows_core::Interface::as_raw(self), msduration, &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -3824,11 +3824,11 @@ windows_core::imp::interface_hierarchy!(IWMProfileManager, windows_core::IUnknow
 impl IWMProfileManager {
     pub unsafe fn CreateEmptyProfile(&self, dwversion: WMT_VERSION) -> windows_core::Result<IWMProfile> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateEmptyProfile)(windows_core::Interface::as_raw(self), core::mem::transmute(dwversion), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateEmptyProfile)(windows_core::Interface::as_raw(self), dwversion, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn LoadProfileByID(&self, guidprofile: *const windows_core::GUID) -> windows_core::Result<IWMProfile> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).LoadProfileByID)(windows_core::Interface::as_raw(self), core::mem::transmute(guidprofile), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).LoadProfileByID)(windows_core::Interface::as_raw(self), guidprofile, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn LoadProfileByData<P0>(&self, pwszprofile: P0) -> windows_core::Result<IWMProfile>
     where
@@ -3850,7 +3850,7 @@ impl IWMProfileManager {
     }
     pub unsafe fn LoadSystemProfile(&self, dwprofileindex: u32) -> windows_core::Result<IWMProfile> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).LoadSystemProfile)(windows_core::Interface::as_raw(self), core::mem::transmute(dwprofileindex), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).LoadSystemProfile)(windows_core::Interface::as_raw(self), dwprofileindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -3955,7 +3955,7 @@ impl IWMProfileManager2 {
         (windows_core::Interface::vtable(self).GetSystemProfileVersion)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwversion)).ok()
     }
     pub unsafe fn SetSystemProfileVersion(&self, dwversion: WMT_VERSION) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetSystemProfileVersion)(windows_core::Interface::as_raw(self), core::mem::transmute(dwversion)).ok()
+        (windows_core::Interface::vtable(self).SetSystemProfileVersion)(windows_core::Interface::as_raw(self), dwversion).ok()
     }
 }
 #[repr(C)]
@@ -3996,7 +3996,7 @@ impl IWMProfileManagerLanguage {
         (windows_core::Interface::vtable(self).GetUserLanguageID)(windows_core::Interface::as_raw(self), core::mem::transmute(wlangid)).ok()
     }
     pub unsafe fn SetUserLanguageID(&self, wlangid: u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetUserLanguageID)(windows_core::Interface::as_raw(self), core::mem::transmute(wlangid)).ok()
+        (windows_core::Interface::vtable(self).SetUserLanguageID)(windows_core::Interface::as_raw(self), wlangid).ok()
     }
 }
 #[repr(C)]
@@ -4034,7 +4034,7 @@ windows_core::imp::define_interface!(IWMPropertyVault, IWMPropertyVault_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(IWMPropertyVault, windows_core::IUnknown);
 impl IWMPropertyVault {
     pub unsafe fn GetPropertyCount(&self, pdwcount: *const u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetPropertyCount)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwcount)).ok()
+        (windows_core::Interface::vtable(self).GetPropertyCount)(windows_core::Interface::as_raw(self), pdwcount).ok()
     }
     pub unsafe fn GetPropertyByName<P0>(&self, pszname: P0, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> windows_core::Result<()>
     where
@@ -4046,10 +4046,10 @@ impl IWMPropertyVault {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), pszname.param().abi(), core::mem::transmute(ptype), core::mem::transmute(pvalue), core::mem::transmute(dwsize)).ok()
+        (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), pszname.param().abi(), ptype, pvalue, dwsize).ok()
     }
     pub unsafe fn GetPropertyByIndex(&self, dwindex: u32, pszname: windows_core::PWSTR, pdwnamelen: *mut u32, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetPropertyByIndex)(windows_core::Interface::as_raw(self), core::mem::transmute(dwindex), core::mem::transmute(pszname), core::mem::transmute(pdwnamelen), core::mem::transmute(ptype), core::mem::transmute(pvalue), core::mem::transmute(pdwsize)).ok()
+        (windows_core::Interface::vtable(self).GetPropertyByIndex)(windows_core::Interface::as_raw(self), dwindex, core::mem::transmute(pszname), core::mem::transmute(pdwnamelen), core::mem::transmute(ptype), core::mem::transmute(pvalue), core::mem::transmute(pdwsize)).ok()
     }
     pub unsafe fn CopyPropertiesFrom<P0>(&self, piwmpropertyvault: P0) -> windows_core::Result<()>
     where
@@ -4127,7 +4127,7 @@ impl IWMProximityDetection {
     where
         P6: windows_core::Param<IWMStatusCallback>,
     {
-        (windows_core::Interface::vtable(self).StartDetection)(windows_core::Interface::as_raw(self), core::mem::transmute(pbregistrationmsg.as_ptr()), pbregistrationmsg.len().try_into().unwrap(), core::mem::transmute(pblocaladdress.as_ptr()), pblocaladdress.len().try_into().unwrap(), core::mem::transmute(dwextraportsallowed), core::mem::transmute(ppregistrationresponsemsg), pcallback.param().abi(), core::mem::transmute(pvcontext)).ok()
+        (windows_core::Interface::vtable(self).StartDetection)(windows_core::Interface::as_raw(self), core::mem::transmute(pbregistrationmsg.as_ptr()), pbregistrationmsg.len().try_into().unwrap(), core::mem::transmute(pblocaladdress.as_ptr()), pblocaladdress.len().try_into().unwrap(), dwextraportsallowed, core::mem::transmute(ppregistrationresponsemsg), pcallback.param().abi(), pvcontext).ok()
     }
 }
 #[repr(C)]
@@ -4159,7 +4159,7 @@ impl IWMReader {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<IWMReaderCallback>,
     {
-        (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), pwszurl.param().abi(), pcallback.param().abi(), core::mem::transmute(pvcontext)).ok()
+        (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), pwszurl.param().abi(), pcallback.param().abi(), pvcontext).ok()
     }
     pub unsafe fn Close(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok()
@@ -4170,24 +4170,24 @@ impl IWMReader {
     }
     pub unsafe fn GetOutputProps(&self, dwoutputnum: u32) -> windows_core::Result<IWMOutputMediaProps> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetOutputProps)(windows_core::Interface::as_raw(self), core::mem::transmute(dwoutputnum), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetOutputProps)(windows_core::Interface::as_raw(self), dwoutputnum, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetOutputProps<P1>(&self, dwoutputnum: u32, poutput: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<IWMOutputMediaProps>,
     {
-        (windows_core::Interface::vtable(self).SetOutputProps)(windows_core::Interface::as_raw(self), core::mem::transmute(dwoutputnum), poutput.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOutputProps)(windows_core::Interface::as_raw(self), dwoutputnum, poutput.param().abi()).ok()
     }
     pub unsafe fn GetOutputFormatCount(&self, dwoutputnumber: u32) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetOutputFormatCount)(windows_core::Interface::as_raw(self), core::mem::transmute(dwoutputnumber), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetOutputFormatCount)(windows_core::Interface::as_raw(self), dwoutputnumber, &mut result__).map(|| result__)
     }
     pub unsafe fn GetOutputFormat(&self, dwoutputnumber: u32, dwformatnumber: u32) -> windows_core::Result<IWMOutputMediaProps> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetOutputFormat)(windows_core::Interface::as_raw(self), core::mem::transmute(dwoutputnumber), core::mem::transmute(dwformatnumber), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetOutputFormat)(windows_core::Interface::as_raw(self), dwoutputnumber, dwformatnumber, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Start(&self, cnsstart: u64, cnsduration: u64, frate: f32, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self), core::mem::transmute(cnsstart), core::mem::transmute(cnsduration), core::mem::transmute(frate), core::mem::transmute(pvcontext)).ok()
+        (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self), cnsstart, cnsduration, frate, pvcontext).ok()
     }
     pub unsafe fn Stop(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self)).ok()
@@ -4321,10 +4321,10 @@ windows_core::imp::define_interface!(IWMReaderAccelerator, IWMReaderAccelerator_
 windows_core::imp::interface_hierarchy!(IWMReaderAccelerator, windows_core::IUnknown);
 impl IWMReaderAccelerator {
     pub unsafe fn GetCodecInterface(&self, dwoutputnum: u32, riid: *const windows_core::GUID, ppvcodecinterface: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetCodecInterface)(windows_core::Interface::as_raw(self), core::mem::transmute(dwoutputnum), core::mem::transmute(riid), core::mem::transmute(ppvcodecinterface)).ok()
+        (windows_core::Interface::vtable(self).GetCodecInterface)(windows_core::Interface::as_raw(self), dwoutputnum, riid, core::mem::transmute(ppvcodecinterface)).ok()
     }
     pub unsafe fn Notify(&self, dwoutputnum: u32, psubtype: *const WM_MEDIA_TYPE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Notify)(windows_core::Interface::as_raw(self), core::mem::transmute(dwoutputnum), core::mem::transmute(psubtype)).ok()
+        (windows_core::Interface::vtable(self).Notify)(windows_core::Interface::as_raw(self), dwoutputnum, core::mem::transmute(psubtype)).ok()
     }
 }
 #[repr(C)]
@@ -4369,7 +4369,7 @@ impl IWMReaderAdvanced {
         (windows_core::Interface::vtable(self).GetUserProvidedClock)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn DeliverTime(&self, cnstime: u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).DeliverTime)(windows_core::Interface::as_raw(self), core::mem::transmute(cnstime)).ok()
+        (windows_core::Interface::vtable(self).DeliverTime)(windows_core::Interface::as_raw(self), cnstime).ok()
     }
     pub unsafe fn SetManualStreamSelection(&self, fselection: bool) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetManualStreamSelection)(windows_core::Interface::as_raw(self), fselection.into()).ok()
@@ -4379,11 +4379,11 @@ impl IWMReaderAdvanced {
         (windows_core::Interface::vtable(self).GetManualStreamSelection)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetStreamsSelected(&self, cstreamcount: u16, pwstreamnumbers: *const u16, pselections: *const WMT_STREAM_SELECTION) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetStreamsSelected)(windows_core::Interface::as_raw(self), core::mem::transmute(cstreamcount), core::mem::transmute(pwstreamnumbers), core::mem::transmute(pselections)).ok()
+        (windows_core::Interface::vtable(self).SetStreamsSelected)(windows_core::Interface::as_raw(self), cstreamcount, pwstreamnumbers, pselections).ok()
     }
     pub unsafe fn GetStreamSelected(&self, wstreamnum: u16) -> windows_core::Result<WMT_STREAM_SELECTION> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetStreamSelected)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnum), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetStreamSelected)(windows_core::Interface::as_raw(self), wstreamnum, &mut result__).map(|| result__)
     }
     pub unsafe fn SetReceiveSelectionCallbacks(&self, fgetcallbacks: bool) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetReceiveSelectionCallbacks)(windows_core::Interface::as_raw(self), fgetcallbacks.into()).ok()
@@ -4393,42 +4393,42 @@ impl IWMReaderAdvanced {
         (windows_core::Interface::vtable(self).GetReceiveSelectionCallbacks)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetReceiveStreamSamples(&self, wstreamnum: u16, freceivestreamsamples: bool) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetReceiveStreamSamples)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnum), freceivestreamsamples.into()).ok()
+        (windows_core::Interface::vtable(self).SetReceiveStreamSamples)(windows_core::Interface::as_raw(self), wstreamnum, freceivestreamsamples.into()).ok()
     }
     pub unsafe fn GetReceiveStreamSamples(&self, wstreamnum: u16) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetReceiveStreamSamples)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnum), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetReceiveStreamSamples)(windows_core::Interface::as_raw(self), wstreamnum, &mut result__).map(|| result__)
     }
     pub unsafe fn SetAllocateForOutput(&self, dwoutputnum: u32, fallocate: bool) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetAllocateForOutput)(windows_core::Interface::as_raw(self), core::mem::transmute(dwoutputnum), fallocate.into()).ok()
+        (windows_core::Interface::vtable(self).SetAllocateForOutput)(windows_core::Interface::as_raw(self), dwoutputnum, fallocate.into()).ok()
     }
     pub unsafe fn GetAllocateForOutput(&self, dwoutputnum: u32) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAllocateForOutput)(windows_core::Interface::as_raw(self), core::mem::transmute(dwoutputnum), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetAllocateForOutput)(windows_core::Interface::as_raw(self), dwoutputnum, &mut result__).map(|| result__)
     }
     pub unsafe fn SetAllocateForStream(&self, wstreamnum: u16, fallocate: bool) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetAllocateForStream)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnum), fallocate.into()).ok()
+        (windows_core::Interface::vtable(self).SetAllocateForStream)(windows_core::Interface::as_raw(self), wstreamnum, fallocate.into()).ok()
     }
     pub unsafe fn GetAllocateForStream(&self, dwsreamnum: u16) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAllocateForStream)(windows_core::Interface::as_raw(self), core::mem::transmute(dwsreamnum), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetAllocateForStream)(windows_core::Interface::as_raw(self), dwsreamnum, &mut result__).map(|| result__)
     }
     pub unsafe fn GetStatistics(&self, pstatistics: *mut WM_READER_STATISTICS) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetStatistics)(windows_core::Interface::as_raw(self), core::mem::transmute(pstatistics)).ok()
     }
     pub unsafe fn SetClientInfo(&self, pclientinfo: *const WM_READER_CLIENTINFO) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetClientInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pclientinfo)).ok()
+        (windows_core::Interface::vtable(self).SetClientInfo)(windows_core::Interface::as_raw(self), pclientinfo).ok()
     }
     pub unsafe fn GetMaxOutputSampleSize(&self, dwoutput: u32) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetMaxOutputSampleSize)(windows_core::Interface::as_raw(self), core::mem::transmute(dwoutput), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetMaxOutputSampleSize)(windows_core::Interface::as_raw(self), dwoutput, &mut result__).map(|| result__)
     }
     pub unsafe fn GetMaxStreamSampleSize(&self, wstream: u16) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetMaxStreamSampleSize)(windows_core::Interface::as_raw(self), core::mem::transmute(wstream), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetMaxStreamSampleSize)(windows_core::Interface::as_raw(self), wstream, &mut result__).map(|| result__)
     }
     pub unsafe fn NotifyLateDelivery(&self, cnslateness: u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).NotifyLateDelivery)(windows_core::Interface::as_raw(self), core::mem::transmute(cnslateness)).ok()
+        (windows_core::Interface::vtable(self).NotifyLateDelivery)(windows_core::Interface::as_raw(self), cnslateness).ok()
     }
 }
 #[repr(C)]
@@ -4652,7 +4652,7 @@ impl core::ops::Deref for IWMReaderAdvanced2 {
 windows_core::imp::interface_hierarchy!(IWMReaderAdvanced2, windows_core::IUnknown, IWMReaderAdvanced);
 impl IWMReaderAdvanced2 {
     pub unsafe fn SetPlayMode(&self, mode: WMT_PLAY_MODE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetPlayMode)(windows_core::Interface::as_raw(self), core::mem::transmute(mode)).ok()
+        (windows_core::Interface::vtable(self).SetPlayMode)(windows_core::Interface::as_raw(self), mode).ok()
     }
     pub unsafe fn GetPlayMode(&self) -> windows_core::Result<WMT_PLAY_MODE> {
         let mut result__ = core::mem::zeroed();
@@ -4678,22 +4678,22 @@ impl IWMReaderAdvanced2 {
         (windows_core::Interface::vtable(self).GetProtocolName)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszprotocol), core::mem::transmute(pcchprotocol)).ok()
     }
     pub unsafe fn StartAtMarker(&self, wmarkerindex: u16, cnsduration: u64, frate: f32, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).StartAtMarker)(windows_core::Interface::as_raw(self), core::mem::transmute(wmarkerindex), core::mem::transmute(cnsduration), core::mem::transmute(frate), core::mem::transmute(pvcontext)).ok()
+        (windows_core::Interface::vtable(self).StartAtMarker)(windows_core::Interface::as_raw(self), wmarkerindex, cnsduration, frate, pvcontext).ok()
     }
     pub unsafe fn GetOutputSetting<P1>(&self, dwoutputnum: u32, pszname: P1, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetOutputSetting)(windows_core::Interface::as_raw(self), core::mem::transmute(dwoutputnum), pszname.param().abi(), core::mem::transmute(ptype), core::mem::transmute(pvalue), core::mem::transmute(pcblength)).ok()
+        (windows_core::Interface::vtable(self).GetOutputSetting)(windows_core::Interface::as_raw(self), dwoutputnum, pszname.param().abi(), core::mem::transmute(ptype), core::mem::transmute(pvalue), core::mem::transmute(pcblength)).ok()
     }
     pub unsafe fn SetOutputSetting<P1>(&self, dwoutputnum: u32, pszname: P1, r#type: WMT_ATTR_DATATYPE, pvalue: &[u8]) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetOutputSetting)(windows_core::Interface::as_raw(self), core::mem::transmute(dwoutputnum), pszname.param().abi(), core::mem::transmute(r#type), core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
+        (windows_core::Interface::vtable(self).SetOutputSetting)(windows_core::Interface::as_raw(self), dwoutputnum, pszname.param().abi(), r#type, core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
     }
     pub unsafe fn Preroll(&self, cnsstart: u64, cnsduration: u64, frate: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Preroll)(windows_core::Interface::as_raw(self), core::mem::transmute(cnsstart), core::mem::transmute(cnsduration), core::mem::transmute(frate)).ok()
+        (windows_core::Interface::vtable(self).Preroll)(windows_core::Interface::as_raw(self), cnsstart, cnsduration, frate).ok()
     }
     pub unsafe fn SetLogClientID(&self, flogclientid: bool) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetLogClientID)(windows_core::Interface::as_raw(self), flogclientid.into()).ok()
@@ -4711,7 +4711,7 @@ impl IWMReaderAdvanced2 {
         P0: windows_core::Param<super::super::System::Com::IStream>,
         P1: windows_core::Param<IWMReaderCallback>,
     {
-        (windows_core::Interface::vtable(self).OpenStream)(windows_core::Interface::as_raw(self), pstream.param().abi(), pcallback.param().abi(), core::mem::transmute(pvcontext)).ok()
+        (windows_core::Interface::vtable(self).OpenStream)(windows_core::Interface::as_raw(self), pstream.param().abi(), pcallback.param().abi(), pvcontext).ok()
     }
 }
 #[repr(C)]
@@ -4873,7 +4873,7 @@ impl IWMReaderAdvanced3 {
         (windows_core::Interface::vtable(self).StopNetStreaming)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn StartAtPosition(&self, wstreamnum: u16, pvoffsetstart: *const core::ffi::c_void, pvduration: *const core::ffi::c_void, dwoffsetformat: WMT_OFFSET_FORMAT, frate: f32, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).StartAtPosition)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnum), core::mem::transmute(pvoffsetstart), core::mem::transmute(pvduration), core::mem::transmute(dwoffsetformat), core::mem::transmute(frate), core::mem::transmute(pvcontext)).ok()
+        (windows_core::Interface::vtable(self).StartAtPosition)(windows_core::Interface::as_raw(self), wstreamnum, pvoffsetstart, pvduration, dwoffsetformat, frate, pvcontext).ok()
     }
 }
 #[repr(C)]
@@ -4921,10 +4921,10 @@ windows_core::imp::interface_hierarchy!(IWMReaderAdvanced4, windows_core::IUnkno
 impl IWMReaderAdvanced4 {
     pub unsafe fn GetLanguageCount(&self, dwoutputnum: u32) -> windows_core::Result<u16> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetLanguageCount)(windows_core::Interface::as_raw(self), core::mem::transmute(dwoutputnum), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetLanguageCount)(windows_core::Interface::as_raw(self), dwoutputnum, &mut result__).map(|| result__)
     }
     pub unsafe fn GetLanguage(&self, dwoutputnum: u32, wlanguage: u16, pwszlanguagestring: windows_core::PWSTR, pcchlanguagestringlength: *mut u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetLanguage)(windows_core::Interface::as_raw(self), core::mem::transmute(dwoutputnum), core::mem::transmute(wlanguage), core::mem::transmute(pwszlanguagestring), core::mem::transmute(pcchlanguagestringlength)).ok()
+        (windows_core::Interface::vtable(self).GetLanguage)(windows_core::Interface::as_raw(self), dwoutputnum, wlanguage, core::mem::transmute(pwszlanguagestring), core::mem::transmute(pcchlanguagestringlength)).ok()
     }
     pub unsafe fn GetMaxSpeedFactor(&self) -> windows_core::Result<f64> {
         let mut result__ = core::mem::zeroed();
@@ -5076,7 +5076,7 @@ impl IWMReaderAdvanced5 {
     where
         P1: windows_core::Param<IWMPlayerHook>,
     {
-        (windows_core::Interface::vtable(self).SetPlayerHook)(windows_core::Interface::as_raw(self), core::mem::transmute(dwoutputnum), phook.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetPlayerHook)(windows_core::Interface::as_raw(self), dwoutputnum, phook.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -5113,7 +5113,7 @@ impl core::ops::Deref for IWMReaderAdvanced6 {
 windows_core::imp::interface_hierarchy!(IWMReaderAdvanced6, windows_core::IUnknown, IWMReaderAdvanced, IWMReaderAdvanced2, IWMReaderAdvanced3, IWMReaderAdvanced4, IWMReaderAdvanced5);
 impl IWMReaderAdvanced6 {
     pub unsafe fn SetProtectStreamSamples(&self, pbcertificate: &[u8], dwcertificatetype: u32, dwflags: u32, pbinitializationvector: *mut u8, pcbinitializationvector: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetProtectStreamSamples)(windows_core::Interface::as_raw(self), core::mem::transmute(pbcertificate.as_ptr()), pbcertificate.len().try_into().unwrap(), core::mem::transmute(dwcertificatetype), core::mem::transmute(dwflags), core::mem::transmute(pbinitializationvector), core::mem::transmute(pcbinitializationvector)).ok()
+        (windows_core::Interface::vtable(self).SetProtectStreamSamples)(windows_core::Interface::as_raw(self), core::mem::transmute(pbcertificate.as_ptr()), pbcertificate.len().try_into().unwrap(), dwcertificatetype, dwflags, core::mem::transmute(pbinitializationvector), core::mem::transmute(pcbinitializationvector)).ok()
     }
 }
 #[repr(C)]
@@ -5144,10 +5144,10 @@ windows_core::imp::define_interface!(IWMReaderAllocatorEx, IWMReaderAllocatorEx_
 windows_core::imp::interface_hierarchy!(IWMReaderAllocatorEx, windows_core::IUnknown);
 impl IWMReaderAllocatorEx {
     pub unsafe fn AllocateForStreamEx(&self, wstreamnum: u16, cbbuffer: u32, ppbuffer: *mut Option<INSSBuffer>, dwflags: u32, cnssampletime: u64, cnssampleduration: u64, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).AllocateForStreamEx)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnum), core::mem::transmute(cbbuffer), core::mem::transmute(ppbuffer), core::mem::transmute(dwflags), core::mem::transmute(cnssampletime), core::mem::transmute(cnssampleduration), core::mem::transmute(pvcontext)).ok()
+        (windows_core::Interface::vtable(self).AllocateForStreamEx)(windows_core::Interface::as_raw(self), wstreamnum, cbbuffer, core::mem::transmute(ppbuffer), dwflags, cnssampletime, cnssampleduration, pvcontext).ok()
     }
     pub unsafe fn AllocateForOutputEx(&self, dwoutputnum: u32, cbbuffer: u32, ppbuffer: *mut Option<INSSBuffer>, dwflags: u32, cnssampletime: u64, cnssampleduration: u64, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).AllocateForOutputEx)(windows_core::Interface::as_raw(self), core::mem::transmute(dwoutputnum), core::mem::transmute(cbbuffer), core::mem::transmute(ppbuffer), core::mem::transmute(dwflags), core::mem::transmute(cnssampletime), core::mem::transmute(cnssampleduration), core::mem::transmute(pvcontext)).ok()
+        (windows_core::Interface::vtable(self).AllocateForOutputEx)(windows_core::Interface::as_raw(self), dwoutputnum, cbbuffer, core::mem::transmute(ppbuffer), dwflags, cnssampletime, cnssampleduration, pvcontext).ok()
     }
 }
 #[repr(C)]
@@ -5194,7 +5194,7 @@ impl IWMReaderCallback {
     where
         P4: windows_core::Param<INSSBuffer>,
     {
-        (windows_core::Interface::vtable(self).OnSample)(windows_core::Interface::as_raw(self), core::mem::transmute(dwoutputnum), core::mem::transmute(cnssampletime), core::mem::transmute(cnssampleduration), core::mem::transmute(dwflags), psample.param().abi(), core::mem::transmute(pvcontext)).ok()
+        (windows_core::Interface::vtable(self).OnSample)(windows_core::Interface::as_raw(self), dwoutputnum, cnssampletime, cnssampleduration, dwflags, psample.param().abi(), pvcontext).ok()
     }
 }
 #[repr(C)]
@@ -5225,22 +5225,22 @@ impl IWMReaderCallbackAdvanced {
     where
         P4: windows_core::Param<INSSBuffer>,
     {
-        (windows_core::Interface::vtable(self).OnStreamSample)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnum), core::mem::transmute(cnssampletime), core::mem::transmute(cnssampleduration), core::mem::transmute(dwflags), psample.param().abi(), core::mem::transmute(pvcontext)).ok()
+        (windows_core::Interface::vtable(self).OnStreamSample)(windows_core::Interface::as_raw(self), wstreamnum, cnssampletime, cnssampleduration, dwflags, psample.param().abi(), pvcontext).ok()
     }
     pub unsafe fn OnTime(&self, cnscurrenttime: u64, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).OnTime)(windows_core::Interface::as_raw(self), core::mem::transmute(cnscurrenttime), core::mem::transmute(pvcontext)).ok()
+        (windows_core::Interface::vtable(self).OnTime)(windows_core::Interface::as_raw(self), cnscurrenttime, pvcontext).ok()
     }
     pub unsafe fn OnStreamSelection(&self, wstreamcount: u16, pstreamnumbers: *const u16, pselections: *const WMT_STREAM_SELECTION, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).OnStreamSelection)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamcount), core::mem::transmute(pstreamnumbers), core::mem::transmute(pselections), core::mem::transmute(pvcontext)).ok()
+        (windows_core::Interface::vtable(self).OnStreamSelection)(windows_core::Interface::as_raw(self), wstreamcount, pstreamnumbers, pselections, pvcontext).ok()
     }
     pub unsafe fn OnOutputPropsChanged(&self, dwoutputnum: u32, pmediatype: *const WM_MEDIA_TYPE, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).OnOutputPropsChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(dwoutputnum), core::mem::transmute(pmediatype), core::mem::transmute(pvcontext)).ok()
+        (windows_core::Interface::vtable(self).OnOutputPropsChanged)(windows_core::Interface::as_raw(self), dwoutputnum, core::mem::transmute(pmediatype), pvcontext).ok()
     }
     pub unsafe fn AllocateForStream(&self, wstreamnum: u16, cbbuffer: u32, ppbuffer: *mut Option<INSSBuffer>, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).AllocateForStream)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnum), core::mem::transmute(cbbuffer), core::mem::transmute(ppbuffer), core::mem::transmute(pvcontext)).ok()
+        (windows_core::Interface::vtable(self).AllocateForStream)(windows_core::Interface::as_raw(self), wstreamnum, cbbuffer, core::mem::transmute(ppbuffer), pvcontext).ok()
     }
     pub unsafe fn AllocateForOutput(&self, dwoutputnum: u32, cbbuffer: u32, ppbuffer: *mut Option<INSSBuffer>, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).AllocateForOutput)(windows_core::Interface::as_raw(self), core::mem::transmute(dwoutputnum), core::mem::transmute(cbbuffer), core::mem::transmute(ppbuffer), core::mem::transmute(pvcontext)).ok()
+        (windows_core::Interface::vtable(self).AllocateForOutput)(windows_core::Interface::as_raw(self), dwoutputnum, cbbuffer, core::mem::transmute(ppbuffer), pvcontext).ok()
     }
 }
 #[repr(C)]
@@ -5310,7 +5310,7 @@ impl IWMReaderNetworkConfig {
         (windows_core::Interface::vtable(self).GetBufferingTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetBufferingTime(&self, cnsbufferingtime: u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetBufferingTime)(windows_core::Interface::as_raw(self), core::mem::transmute(cnsbufferingtime)).ok()
+        (windows_core::Interface::vtable(self).SetBufferingTime)(windows_core::Interface::as_raw(self), cnsbufferingtime).ok()
     }
     pub unsafe fn GetUDPPortRanges(&self, prangearray: *mut WM_PORT_NUMBER_RANGE, pcranges: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetUDPPortRanges)(windows_core::Interface::as_raw(self), core::mem::transmute(prangearray), core::mem::transmute(pcranges)).ok()
@@ -5329,7 +5329,7 @@ impl IWMReaderNetworkConfig {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetProxySettings)(windows_core::Interface::as_raw(self), pwszprotocol.param().abi(), core::mem::transmute(proxysetting)).ok()
+        (windows_core::Interface::vtable(self).SetProxySettings)(windows_core::Interface::as_raw(self), pwszprotocol.param().abi(), proxysetting).ok()
     }
     pub unsafe fn GetProxyHostName<P0>(&self, pwszprotocol: P0, pwszhostname: windows_core::PWSTR, pcchhostname: *mut u32) -> windows_core::Result<()>
     where
@@ -5355,7 +5355,7 @@ impl IWMReaderNetworkConfig {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetProxyPort)(windows_core::Interface::as_raw(self), pwszprotocol.param().abi(), core::mem::transmute(dwport)).ok()
+        (windows_core::Interface::vtable(self).SetProxyPort)(windows_core::Interface::as_raw(self), pwszprotocol.param().abi(), dwport).ok()
     }
     pub unsafe fn GetProxyExceptionList<P0>(&self, pwszprotocol: P0, pwszexceptionlist: windows_core::PWSTR, pcchexceptionlist: *mut u32) -> windows_core::Result<()>
     where
@@ -5426,14 +5426,14 @@ impl IWMReaderNetworkConfig {
         (windows_core::Interface::vtable(self).GetConnectionBandwidth)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetConnectionBandwidth(&self, dwconnectionbandwidth: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetConnectionBandwidth)(windows_core::Interface::as_raw(self), core::mem::transmute(dwconnectionbandwidth)).ok()
+        (windows_core::Interface::vtable(self).SetConnectionBandwidth)(windows_core::Interface::as_raw(self), dwconnectionbandwidth).ok()
     }
     pub unsafe fn GetNumProtocolsSupported(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetNumProtocolsSupported)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetSupportedProtocolName(&self, dwprotocolnum: u32, pwszprotocolname: windows_core::PWSTR, pcchprotocolname: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetSupportedProtocolName)(windows_core::Interface::as_raw(self), core::mem::transmute(dwprotocolnum), core::mem::transmute(pwszprotocolname), core::mem::transmute(pcchprotocolname)).ok()
+        (windows_core::Interface::vtable(self).GetSupportedProtocolName)(windows_core::Interface::as_raw(self), dwprotocolnum, core::mem::transmute(pwszprotocolname), core::mem::transmute(pcchprotocolname)).ok()
     }
     pub unsafe fn AddLoggingUrl<P0>(&self, pwszurl: P0) -> windows_core::Result<()>
     where
@@ -5442,7 +5442,7 @@ impl IWMReaderNetworkConfig {
         (windows_core::Interface::vtable(self).AddLoggingUrl)(windows_core::Interface::as_raw(self), pwszurl.param().abi()).ok()
     }
     pub unsafe fn GetLoggingUrl(&self, dwindex: u32, pwszurl: windows_core::PWSTR, pcchurl: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetLoggingUrl)(windows_core::Interface::as_raw(self), core::mem::transmute(dwindex), core::mem::transmute(pwszurl), core::mem::transmute(pcchurl)).ok()
+        (windows_core::Interface::vtable(self).GetLoggingUrl)(windows_core::Interface::as_raw(self), dwindex, core::mem::transmute(pwszurl), core::mem::transmute(pcchurl)).ok()
     }
     pub unsafe fn GetLoggingUrlCount(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -5800,14 +5800,14 @@ impl IWMReaderNetworkConfig2 {
         (windows_core::Interface::vtable(self).GetAcceleratedStreamingDuration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetAcceleratedStreamingDuration(&self, cnsaccelduration: u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetAcceleratedStreamingDuration)(windows_core::Interface::as_raw(self), core::mem::transmute(cnsaccelduration)).ok()
+        (windows_core::Interface::vtable(self).SetAcceleratedStreamingDuration)(windows_core::Interface::as_raw(self), cnsaccelduration).ok()
     }
     pub unsafe fn GetAutoReconnectLimit(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetAutoReconnectLimit)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetAutoReconnectLimit(&self, dwautoreconnectlimit: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetAutoReconnectLimit)(windows_core::Interface::as_raw(self), core::mem::transmute(dwautoreconnectlimit)).ok()
+        (windows_core::Interface::vtable(self).SetAutoReconnectLimit)(windows_core::Interface::as_raw(self), dwautoreconnectlimit).ok()
     }
     pub unsafe fn GetEnableResends(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -5985,17 +5985,17 @@ impl IWMReaderPlaylistBurn {
     where
         P2: windows_core::Param<IWMStatusCallback>,
     {
-        (windows_core::Interface::vtable(self).InitPlaylistBurn)(windows_core::Interface::as_raw(self), core::mem::transmute(cfiles), core::mem::transmute(ppwszfilenames), pcallback.param().abi(), core::mem::transmute(pvcontext)).ok()
+        (windows_core::Interface::vtable(self).InitPlaylistBurn)(windows_core::Interface::as_raw(self), cfiles, ppwszfilenames, pcallback.param().abi(), pvcontext).ok()
     }
     pub unsafe fn GetInitResults(&self, cfiles: u32) -> windows_core::Result<windows_core::HRESULT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetInitResults)(windows_core::Interface::as_raw(self), core::mem::transmute(cfiles), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetInitResults)(windows_core::Interface::as_raw(self), cfiles, &mut result__).map(|| result__)
     }
     pub unsafe fn Cancel(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn EndPlaylistBurn(&self, hrburnresult: windows_core::HRESULT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).EndPlaylistBurn)(windows_core::Interface::as_raw(self), core::mem::transmute(hrburnresult)).ok()
+        (windows_core::Interface::vtable(self).EndPlaylistBurn)(windows_core::Interface::as_raw(self), hrburnresult).ok()
     }
 }
 #[repr(C)]
@@ -6053,14 +6053,14 @@ windows_core::imp::define_interface!(IWMReaderStreamClock, IWMReaderStreamClock_
 windows_core::imp::interface_hierarchy!(IWMReaderStreamClock, windows_core::IUnknown);
 impl IWMReaderStreamClock {
     pub unsafe fn GetTime(&self, pcnsnow: *const u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetTime)(windows_core::Interface::as_raw(self), core::mem::transmute(pcnsnow)).ok()
+        (windows_core::Interface::vtable(self).GetTime)(windows_core::Interface::as_raw(self), pcnsnow).ok()
     }
     pub unsafe fn SetTimer(&self, cnswhen: u64, pvparam: *const core::ffi::c_void) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).SetTimer)(windows_core::Interface::as_raw(self), core::mem::transmute(cnswhen), core::mem::transmute(pvparam), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).SetTimer)(windows_core::Interface::as_raw(self), cnswhen, pvparam, &mut result__).map(|| result__)
     }
     pub unsafe fn KillTimer(&self, dwtimerid: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).KillTimer)(windows_core::Interface::as_raw(self), core::mem::transmute(dwtimerid)).ok()
+        (windows_core::Interface::vtable(self).KillTimer)(windows_core::Interface::as_raw(self), dwtimerid).ok()
     }
 }
 #[repr(C)]
@@ -6112,10 +6112,10 @@ windows_core::imp::interface_hierarchy!(IWMReaderTimecode, windows_core::IUnknow
 impl IWMReaderTimecode {
     pub unsafe fn GetTimecodeRangeCount(&self, wstreamnum: u16) -> windows_core::Result<u16> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetTimecodeRangeCount)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnum), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetTimecodeRangeCount)(windows_core::Interface::as_raw(self), wstreamnum, &mut result__).map(|| result__)
     }
     pub unsafe fn GetTimecodeRangeBounds(&self, wstreamnum: u16, wrangenum: u16, pstarttimecode: *mut u32, pendtimecode: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetTimecodeRangeBounds)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnum), core::mem::transmute(wrangenum), core::mem::transmute(pstarttimecode), core::mem::transmute(pendtimecode)).ok()
+        (windows_core::Interface::vtable(self).GetTimecodeRangeBounds)(windows_core::Interface::as_raw(self), wstreamnum, wrangenum, core::mem::transmute(pstarttimecode), core::mem::transmute(pendtimecode)).ok()
     }
 }
 #[repr(C)]
@@ -6162,7 +6162,7 @@ impl IWMReaderTypeNegotiation {
     where
         P1: windows_core::Param<IWMOutputMediaProps>,
     {
-        (windows_core::Interface::vtable(self).TryOutputProps)(windows_core::Interface::as_raw(self), core::mem::transmute(dwoutputnum), poutput.param().abi()).ok()
+        (windows_core::Interface::vtable(self).TryOutputProps)(windows_core::Interface::as_raw(self), dwoutputnum, poutput.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -6193,13 +6193,13 @@ impl IWMRegisterCallback {
     where
         P0: windows_core::Param<IWMStatusCallback>,
     {
-        (windows_core::Interface::vtable(self).Advise)(windows_core::Interface::as_raw(self), pcallback.param().abi(), core::mem::transmute(pvcontext)).ok()
+        (windows_core::Interface::vtable(self).Advise)(windows_core::Interface::as_raw(self), pcallback.param().abi(), pvcontext).ok()
     }
     pub unsafe fn Unadvise<P0>(&self, pcallback: P0, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IWMStatusCallback>,
     {
-        (windows_core::Interface::vtable(self).Unadvise)(windows_core::Interface::as_raw(self), pcallback.param().abi(), core::mem::transmute(pvcontext)).ok()
+        (windows_core::Interface::vtable(self).Unadvise)(windows_core::Interface::as_raw(self), pcallback.param().abi(), pvcontext).ok()
     }
 }
 #[repr(C)]
@@ -6249,7 +6249,7 @@ impl IWMRegisteredDevice {
         (windows_core::Interface::vtable(self).GetAttributeCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetAttributeByIndex(&self, dwindex: u32, pbstrname: *mut windows_core::BSTR, pbstrvalue: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetAttributeByIndex)(windows_core::Interface::as_raw(self), core::mem::transmute(dwindex), core::mem::transmute(pbstrname), core::mem::transmute(pbstrvalue)).ok()
+        (windows_core::Interface::vtable(self).GetAttributeByIndex)(windows_core::Interface::as_raw(self), dwindex, core::mem::transmute(pbstrname), core::mem::transmute(pbstrvalue)).ok()
     }
     pub unsafe fn GetAttributeByName(&self, bstrname: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
@@ -6458,11 +6458,11 @@ windows_core::imp::interface_hierarchy!(IWMSBufferAllocator, windows_core::IUnkn
 impl IWMSBufferAllocator {
     pub unsafe fn AllocateBuffer(&self, dwmaxbuffersize: u32) -> windows_core::Result<INSSBuffer> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).AllocateBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute(dwmaxbuffersize), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).AllocateBuffer)(windows_core::Interface::as_raw(self), dwmaxbuffersize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn AllocatePageSizeBuffer(&self, dwmaxbuffersize: u32) -> windows_core::Result<INSSBuffer> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).AllocatePageSizeBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute(dwmaxbuffersize), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).AllocatePageSizeBuffer)(windows_core::Interface::as_raw(self), dwmaxbuffersize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -6537,20 +6537,20 @@ impl IWMSInternalAdminNetSource {
         (windows_core::Interface::vtable(self).GetCredentialFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetCredentialFlags(&self, dwflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetCredentialFlags)(windows_core::Interface::as_raw(self), core::mem::transmute(dwflags)).ok()
+        (windows_core::Interface::vtable(self).SetCredentialFlags)(windows_core::Interface::as_raw(self), dwflags).ok()
     }
     pub unsafe fn FindProxyForURL(&self, bstrprotocol: &windows_core::BSTR, bstrhost: &windows_core::BSTR, pfproxyenabled: *mut super::super::Foundation::BOOL, pbstrproxyserver: *mut windows_core::BSTR, pdwproxyport: *mut u32, pdwproxycontext: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).FindProxyForURL)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprotocol), core::mem::transmute_copy(bstrhost), core::mem::transmute(pfproxyenabled), core::mem::transmute(pbstrproxyserver), core::mem::transmute(pdwproxyport), core::mem::transmute(pdwproxycontext)).ok()
     }
     pub unsafe fn RegisterProxyFailure(&self, hrparam: windows_core::HRESULT, dwproxycontext: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RegisterProxyFailure)(windows_core::Interface::as_raw(self), core::mem::transmute(hrparam), core::mem::transmute(dwproxycontext)).ok()
+        (windows_core::Interface::vtable(self).RegisterProxyFailure)(windows_core::Interface::as_raw(self), hrparam, dwproxycontext).ok()
     }
     pub unsafe fn ShutdownProxyContext(&self, dwproxycontext: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ShutdownProxyContext)(windows_core::Interface::as_raw(self), core::mem::transmute(dwproxycontext)).ok()
+        (windows_core::Interface::vtable(self).ShutdownProxyContext)(windows_core::Interface::as_raw(self), dwproxycontext).ok()
     }
     pub unsafe fn IsUsingIE(&self, dwproxycontext: u32) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).IsUsingIE)(windows_core::Interface::as_raw(self), core::mem::transmute(dwproxycontext), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).IsUsingIE)(windows_core::Interface::as_raw(self), dwproxycontext, &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -6743,14 +6743,14 @@ impl IWMSInternalAdminNetSource3 {
         (windows_core::Interface::vtable(self).FindProxyForURLEx2)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprotocol), core::mem::transmute_copy(bstrhost), core::mem::transmute_copy(bstrurl), core::mem::transmute(pfproxyenabled), core::mem::transmute(pbstrproxyserver), core::mem::transmute(pdwproxyport), core::mem::transmute(pqwproxycontext)).ok()
     }
     pub unsafe fn RegisterProxyFailure2(&self, hrparam: windows_core::HRESULT, qwproxycontext: u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RegisterProxyFailure2)(windows_core::Interface::as_raw(self), core::mem::transmute(hrparam), core::mem::transmute(qwproxycontext)).ok()
+        (windows_core::Interface::vtable(self).RegisterProxyFailure2)(windows_core::Interface::as_raw(self), hrparam, qwproxycontext).ok()
     }
     pub unsafe fn ShutdownProxyContext2(&self, qwproxycontext: u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ShutdownProxyContext2)(windows_core::Interface::as_raw(self), core::mem::transmute(qwproxycontext)).ok()
+        (windows_core::Interface::vtable(self).ShutdownProxyContext2)(windows_core::Interface::as_raw(self), qwproxycontext).ok()
     }
     pub unsafe fn IsUsingIE2(&self, qwproxycontext: u64) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).IsUsingIE2)(windows_core::Interface::as_raw(self), core::mem::transmute(qwproxycontext), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).IsUsingIE2)(windows_core::Interface::as_raw(self), qwproxycontext, &mut result__).map(|| result__)
     }
     pub unsafe fn SetCredentialsEx2(&self, bstrrealm: &windows_core::BSTR, bstrurl: &windows_core::BSTR, fproxy: bool, bstrname: &windows_core::BSTR, bstrpassword: &windows_core::BSTR, fpersist: bool, fconfirmedgood: bool, fcleartextauthentication: bool) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetCredentialsEx2)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrrealm), core::mem::transmute_copy(bstrurl), fproxy.into(), core::mem::transmute_copy(bstrname), core::mem::transmute_copy(bstrpassword), fpersist.into(), fconfirmedgood.into(), fcleartextauthentication.into()).ok()
@@ -6853,7 +6853,7 @@ impl IWMSecureChannel {
         (windows_core::Interface::vtable(self).WMSC_AddCertificate)(windows_core::Interface::as_raw(self), pcert.param().abi()).ok()
     }
     pub unsafe fn WMSC_AddSignature(&self, pbcertsig: *const u8, cbcertsig: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).WMSC_AddSignature)(windows_core::Interface::as_raw(self), core::mem::transmute(pbcertsig), core::mem::transmute(cbcertsig)).ok()
+        (windows_core::Interface::vtable(self).WMSC_AddSignature)(windows_core::Interface::as_raw(self), pbcertsig, cbcertsig).ok()
     }
     pub unsafe fn WMSC_Connect<P0>(&self, potherside: P0) -> windows_core::Result<()>
     where
@@ -6872,10 +6872,10 @@ impl IWMSecureChannel {
         (windows_core::Interface::vtable(self).WMSC_GetValidCertificate)(windows_core::Interface::as_raw(self), core::mem::transmute(ppbcertificate), core::mem::transmute(pdwsignature)).ok()
     }
     pub unsafe fn WMSC_Encrypt(&self, pbdata: *const u8, cbdata: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).WMSC_Encrypt)(windows_core::Interface::as_raw(self), core::mem::transmute(pbdata), core::mem::transmute(cbdata)).ok()
+        (windows_core::Interface::vtable(self).WMSC_Encrypt)(windows_core::Interface::as_raw(self), pbdata, cbdata).ok()
     }
     pub unsafe fn WMSC_Decrypt(&self, pbdata: *const u8, cbdata: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).WMSC_Decrypt)(windows_core::Interface::as_raw(self), core::mem::transmute(pbdata), core::mem::transmute(cbdata)).ok()
+        (windows_core::Interface::vtable(self).WMSC_Decrypt)(windows_core::Interface::as_raw(self), pbdata, cbdata).ok()
     }
     pub unsafe fn WMSC_Lock(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).WMSC_Lock)(windows_core::Interface::as_raw(self)).ok()
@@ -6884,7 +6884,7 @@ impl IWMSecureChannel {
         (windows_core::Interface::vtable(self).WMSC_Unlock)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn WMSC_SetSharedData(&self, dwcertindex: u32, pbshareddata: *const u8) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).WMSC_SetSharedData)(windows_core::Interface::as_raw(self), core::mem::transmute(dwcertindex), core::mem::transmute(pbshareddata)).ok()
+        (windows_core::Interface::vtable(self).WMSC_SetSharedData)(windows_core::Interface::as_raw(self), dwcertindex, pbshareddata).ok()
     }
 }
 #[repr(C)]
@@ -6991,7 +6991,7 @@ windows_core::imp::define_interface!(IWMStatusCallback, IWMStatusCallback_Vtbl, 
 windows_core::imp::interface_hierarchy!(IWMStatusCallback, windows_core::IUnknown);
 impl IWMStatusCallback {
     pub unsafe fn OnStatus(&self, status: WMT_STATUS, hr: windows_core::HRESULT, dwtype: WMT_ATTR_DATATYPE, pvalue: *const u8, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).OnStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(status), core::mem::transmute(hr), core::mem::transmute(dwtype), core::mem::transmute(pvalue), core::mem::transmute(pvcontext)).ok()
+        (windows_core::Interface::vtable(self).OnStatus)(windows_core::Interface::as_raw(self), status, hr, dwtype, pvalue, pvcontext).ok()
     }
 }
 #[repr(C)]
@@ -7027,7 +7027,7 @@ impl IWMStreamConfig {
         (windows_core::Interface::vtable(self).GetStreamNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetStreamNumber(&self, wstreamnum: u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetStreamNumber)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnum)).ok()
+        (windows_core::Interface::vtable(self).SetStreamNumber)(windows_core::Interface::as_raw(self), wstreamnum).ok()
     }
     pub unsafe fn GetStreamName(&self, pwszstreamname: windows_core::PWSTR, pcchstreamname: *mut u16) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetStreamName)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszstreamname), core::mem::transmute(pcchstreamname)).ok()
@@ -7052,14 +7052,14 @@ impl IWMStreamConfig {
         (windows_core::Interface::vtable(self).GetBitrate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetBitrate(&self, pdwbitrate: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetBitrate)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwbitrate)).ok()
+        (windows_core::Interface::vtable(self).SetBitrate)(windows_core::Interface::as_raw(self), pdwbitrate).ok()
     }
     pub unsafe fn GetBufferWindow(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetBufferWindow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetBufferWindow(&self, msbufferwindow: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetBufferWindow)(windows_core::Interface::as_raw(self), core::mem::transmute(msbufferwindow)).ok()
+        (windows_core::Interface::vtable(self).SetBufferWindow)(windows_core::Interface::as_raw(self), msbufferwindow).ok()
     }
 }
 #[repr(C)]
@@ -7194,17 +7194,17 @@ impl IWMStreamConfig2 {
         (windows_core::Interface::vtable(self).GetTransportType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetTransportType(&self, ntransporttype: WMT_TRANSPORT_TYPE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetTransportType)(windows_core::Interface::as_raw(self), core::mem::transmute(ntransporttype)).ok()
+        (windows_core::Interface::vtable(self).SetTransportType)(windows_core::Interface::as_raw(self), ntransporttype).ok()
     }
     pub unsafe fn AddDataUnitExtension(&self, guidextensionsystemid: windows_core::GUID, cbextensiondatasize: u16, pbextensionsysteminfo: &[u8]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).AddDataUnitExtension)(windows_core::Interface::as_raw(self), core::mem::transmute(guidextensionsystemid), core::mem::transmute(cbextensiondatasize), core::mem::transmute(pbextensionsysteminfo.as_ptr()), pbextensionsysteminfo.len().try_into().unwrap()).ok()
+        (windows_core::Interface::vtable(self).AddDataUnitExtension)(windows_core::Interface::as_raw(self), core::mem::transmute(guidextensionsystemid), cbextensiondatasize, core::mem::transmute(pbextensionsysteminfo.as_ptr()), pbextensionsysteminfo.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetDataUnitExtensionCount(&self) -> windows_core::Result<u16> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDataUnitExtensionCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetDataUnitExtension(&self, wdataunitextensionnumber: u16, pguidextensionsystemid: *mut windows_core::GUID, pcbextensiondatasize: *mut u16, pbextensionsysteminfo: *mut u8, pcbextensionsysteminfo: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetDataUnitExtension)(windows_core::Interface::as_raw(self), core::mem::transmute(wdataunitextensionnumber), core::mem::transmute(pguidextensionsystemid), core::mem::transmute(pcbextensiondatasize), core::mem::transmute(pbextensionsysteminfo), core::mem::transmute(pcbextensionsysteminfo)).ok()
+        (windows_core::Interface::vtable(self).GetDataUnitExtension)(windows_core::Interface::as_raw(self), wdataunitextensionnumber, core::mem::transmute(pguidextensionsystemid), core::mem::transmute(pcbextensiondatasize), core::mem::transmute(pbextensionsysteminfo), core::mem::transmute(pcbextensionsysteminfo)).ok()
     }
     pub unsafe fn RemoveAllDataUnitExtensions(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveAllDataUnitExtensions)(windows_core::Interface::as_raw(self)).ok()
@@ -7338,10 +7338,10 @@ impl IWMStreamList {
         (windows_core::Interface::vtable(self).GetStreams)(windows_core::Interface::as_raw(self), core::mem::transmute(pwstreamnumarray), core::mem::transmute(pcstreams)).ok()
     }
     pub unsafe fn AddStream(&self, wstreamnum: u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).AddStream)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnum)).ok()
+        (windows_core::Interface::vtable(self).AddStream)(windows_core::Interface::as_raw(self), wstreamnum).ok()
     }
     pub unsafe fn RemoveStream(&self, wstreamnum: u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemoveStream)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnum)).ok()
+        (windows_core::Interface::vtable(self).RemoveStream)(windows_core::Interface::as_raw(self), wstreamnum).ok()
     }
 }
 #[repr(C)]
@@ -7389,7 +7389,7 @@ impl IWMStreamPrioritization {
         (windows_core::Interface::vtable(self).GetPriorityRecords)(windows_core::Interface::as_raw(self), core::mem::transmute(precordarray), core::mem::transmute(pcrecords)).ok()
     }
     pub unsafe fn SetPriorityRecords(&self, precordarray: *const WM_STREAM_PRIORITY_RECORD, crecords: u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetPriorityRecords)(windows_core::Interface::as_raw(self), core::mem::transmute(precordarray), core::mem::transmute(crecords)).ok()
+        (windows_core::Interface::vtable(self).SetPriorityRecords)(windows_core::Interface::as_raw(self), precordarray, crecords).ok()
     }
 }
 #[repr(C)]
@@ -7436,39 +7436,39 @@ impl IWMSyncReader {
         (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn SetRange(&self, cnsstarttime: u64, cnsduration: i64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetRange)(windows_core::Interface::as_raw(self), core::mem::transmute(cnsstarttime), core::mem::transmute(cnsduration)).ok()
+        (windows_core::Interface::vtable(self).SetRange)(windows_core::Interface::as_raw(self), cnsstarttime, cnsduration).ok()
     }
     pub unsafe fn SetRangeByFrame(&self, wstreamnum: u16, qwframenumber: u64, cframestoread: i64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetRangeByFrame)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnum), core::mem::transmute(qwframenumber), core::mem::transmute(cframestoread)).ok()
+        (windows_core::Interface::vtable(self).SetRangeByFrame)(windows_core::Interface::as_raw(self), wstreamnum, qwframenumber, cframestoread).ok()
     }
     pub unsafe fn GetNextSample(&self, wstreamnum: u16, ppsample: *mut Option<INSSBuffer>, pcnssampletime: *mut u64, pcnsduration: *mut u64, pdwflags: *mut u32, pdwoutputnum: *mut u32, pwstreamnum: *mut u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetNextSample)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnum), core::mem::transmute(ppsample), core::mem::transmute(pcnssampletime), core::mem::transmute(pcnsduration), core::mem::transmute(pdwflags), core::mem::transmute(pdwoutputnum), core::mem::transmute(pwstreamnum)).ok()
+        (windows_core::Interface::vtable(self).GetNextSample)(windows_core::Interface::as_raw(self), wstreamnum, core::mem::transmute(ppsample), core::mem::transmute(pcnssampletime), core::mem::transmute(pcnsduration), core::mem::transmute(pdwflags), core::mem::transmute(pdwoutputnum), core::mem::transmute(pwstreamnum)).ok()
     }
     pub unsafe fn SetStreamsSelected(&self, cstreamcount: u16, pwstreamnumbers: *const u16, pselections: *const WMT_STREAM_SELECTION) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetStreamsSelected)(windows_core::Interface::as_raw(self), core::mem::transmute(cstreamcount), core::mem::transmute(pwstreamnumbers), core::mem::transmute(pselections)).ok()
+        (windows_core::Interface::vtable(self).SetStreamsSelected)(windows_core::Interface::as_raw(self), cstreamcount, pwstreamnumbers, pselections).ok()
     }
     pub unsafe fn GetStreamSelected(&self, wstreamnum: u16) -> windows_core::Result<WMT_STREAM_SELECTION> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetStreamSelected)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnum), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetStreamSelected)(windows_core::Interface::as_raw(self), wstreamnum, &mut result__).map(|| result__)
     }
     pub unsafe fn SetReadStreamSamples(&self, wstreamnum: u16, fcompressed: bool) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetReadStreamSamples)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnum), fcompressed.into()).ok()
+        (windows_core::Interface::vtable(self).SetReadStreamSamples)(windows_core::Interface::as_raw(self), wstreamnum, fcompressed.into()).ok()
     }
     pub unsafe fn GetReadStreamSamples(&self, wstreamnum: u16) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetReadStreamSamples)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnum), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetReadStreamSamples)(windows_core::Interface::as_raw(self), wstreamnum, &mut result__).map(|| result__)
     }
     pub unsafe fn GetOutputSetting<P1>(&self, dwoutputnum: u32, pszname: P1, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetOutputSetting)(windows_core::Interface::as_raw(self), core::mem::transmute(dwoutputnum), pszname.param().abi(), core::mem::transmute(ptype), core::mem::transmute(pvalue), core::mem::transmute(pcblength)).ok()
+        (windows_core::Interface::vtable(self).GetOutputSetting)(windows_core::Interface::as_raw(self), dwoutputnum, pszname.param().abi(), core::mem::transmute(ptype), core::mem::transmute(pvalue), core::mem::transmute(pcblength)).ok()
     }
     pub unsafe fn SetOutputSetting<P1>(&self, dwoutputnum: u32, pszname: P1, r#type: WMT_ATTR_DATATYPE, pvalue: &[u8]) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetOutputSetting)(windows_core::Interface::as_raw(self), core::mem::transmute(dwoutputnum), pszname.param().abi(), core::mem::transmute(r#type), core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
+        (windows_core::Interface::vtable(self).SetOutputSetting)(windows_core::Interface::as_raw(self), dwoutputnum, pszname.param().abi(), r#type, core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetOutputCount(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -7476,37 +7476,37 @@ impl IWMSyncReader {
     }
     pub unsafe fn GetOutputProps(&self, dwoutputnum: u32) -> windows_core::Result<IWMOutputMediaProps> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetOutputProps)(windows_core::Interface::as_raw(self), core::mem::transmute(dwoutputnum), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetOutputProps)(windows_core::Interface::as_raw(self), dwoutputnum, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetOutputProps<P1>(&self, dwoutputnum: u32, poutput: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<IWMOutputMediaProps>,
     {
-        (windows_core::Interface::vtable(self).SetOutputProps)(windows_core::Interface::as_raw(self), core::mem::transmute(dwoutputnum), poutput.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOutputProps)(windows_core::Interface::as_raw(self), dwoutputnum, poutput.param().abi()).ok()
     }
     pub unsafe fn GetOutputFormatCount(&self, dwoutputnum: u32) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetOutputFormatCount)(windows_core::Interface::as_raw(self), core::mem::transmute(dwoutputnum), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetOutputFormatCount)(windows_core::Interface::as_raw(self), dwoutputnum, &mut result__).map(|| result__)
     }
     pub unsafe fn GetOutputFormat(&self, dwoutputnum: u32, dwformatnum: u32) -> windows_core::Result<IWMOutputMediaProps> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetOutputFormat)(windows_core::Interface::as_raw(self), core::mem::transmute(dwoutputnum), core::mem::transmute(dwformatnum), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetOutputFormat)(windows_core::Interface::as_raw(self), dwoutputnum, dwformatnum, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetOutputNumberForStream(&self, wstreamnum: u16) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetOutputNumberForStream)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnum), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetOutputNumberForStream)(windows_core::Interface::as_raw(self), wstreamnum, &mut result__).map(|| result__)
     }
     pub unsafe fn GetStreamNumberForOutput(&self, dwoutputnum: u32) -> windows_core::Result<u16> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetStreamNumberForOutput)(windows_core::Interface::as_raw(self), core::mem::transmute(dwoutputnum), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetStreamNumberForOutput)(windows_core::Interface::as_raw(self), dwoutputnum, &mut result__).map(|| result__)
     }
     pub unsafe fn GetMaxOutputSampleSize(&self, dwoutput: u32) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetMaxOutputSampleSize)(windows_core::Interface::as_raw(self), core::mem::transmute(dwoutput), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetMaxOutputSampleSize)(windows_core::Interface::as_raw(self), dwoutput, &mut result__).map(|| result__)
     }
     pub unsafe fn GetMaxStreamSampleSize(&self, wstream: u16) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetMaxStreamSampleSize)(windows_core::Interface::as_raw(self), core::mem::transmute(wstream), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetMaxStreamSampleSize)(windows_core::Interface::as_raw(self), wstream, &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenStream<P0>(&self, pstream: P0) -> windows_core::Result<()>
@@ -7756,31 +7756,31 @@ impl core::ops::Deref for IWMSyncReader2 {
 windows_core::imp::interface_hierarchy!(IWMSyncReader2, windows_core::IUnknown, IWMSyncReader);
 impl IWMSyncReader2 {
     pub unsafe fn SetRangeByTimecode(&self, wstreamnum: u16, pstart: *const WMT_TIMECODE_EXTENSION_DATA, pend: *const WMT_TIMECODE_EXTENSION_DATA) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetRangeByTimecode)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnum), core::mem::transmute(pstart), core::mem::transmute(pend)).ok()
+        (windows_core::Interface::vtable(self).SetRangeByTimecode)(windows_core::Interface::as_raw(self), wstreamnum, pstart, pend).ok()
     }
     pub unsafe fn SetRangeByFrameEx(&self, wstreamnum: u16, qwframenumber: u64, cframestoread: i64) -> windows_core::Result<u64> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).SetRangeByFrameEx)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnum), core::mem::transmute(qwframenumber), core::mem::transmute(cframestoread), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).SetRangeByFrameEx)(windows_core::Interface::as_raw(self), wstreamnum, qwframenumber, cframestoread, &mut result__).map(|| result__)
     }
     pub unsafe fn SetAllocateForOutput<P1>(&self, dwoutputnum: u32, pallocator: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<IWMReaderAllocatorEx>,
     {
-        (windows_core::Interface::vtable(self).SetAllocateForOutput)(windows_core::Interface::as_raw(self), core::mem::transmute(dwoutputnum), pallocator.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAllocateForOutput)(windows_core::Interface::as_raw(self), dwoutputnum, pallocator.param().abi()).ok()
     }
     pub unsafe fn GetAllocateForOutput(&self, dwoutputnum: u32) -> windows_core::Result<IWMReaderAllocatorEx> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAllocateForOutput)(windows_core::Interface::as_raw(self), core::mem::transmute(dwoutputnum), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetAllocateForOutput)(windows_core::Interface::as_raw(self), dwoutputnum, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetAllocateForStream<P1>(&self, wstreamnum: u16, pallocator: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<IWMReaderAllocatorEx>,
     {
-        (windows_core::Interface::vtable(self).SetAllocateForStream)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnum), pallocator.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAllocateForStream)(windows_core::Interface::as_raw(self), wstreamnum, pallocator.param().abi()).ok()
     }
     pub unsafe fn GetAllocateForStream(&self, dwsreamnum: u16) -> windows_core::Result<IWMReaderAllocatorEx> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAllocateForStream)(windows_core::Interface::as_raw(self), core::mem::transmute(dwsreamnum), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetAllocateForStream)(windows_core::Interface::as_raw(self), dwsreamnum, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -7877,14 +7877,14 @@ impl IWMVideoMediaProps {
         (windows_core::Interface::vtable(self).GetMaxKeyFrameSpacing)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetMaxKeyFrameSpacing(&self, lltime: i64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetMaxKeyFrameSpacing)(windows_core::Interface::as_raw(self), core::mem::transmute(lltime)).ok()
+        (windows_core::Interface::vtable(self).SetMaxKeyFrameSpacing)(windows_core::Interface::as_raw(self), lltime).ok()
     }
     pub unsafe fn GetQuality(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetQuality)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetQuality(&self, dwquality: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetQuality)(windows_core::Interface::as_raw(self), core::mem::transmute(dwquality)).ok()
+        (windows_core::Interface::vtable(self).SetQuality)(windows_core::Interface::as_raw(self), dwquality).ok()
     }
 }
 #[repr(C)]
@@ -7949,10 +7949,10 @@ windows_core::imp::interface_hierarchy!(IWMWatermarkInfo, windows_core::IUnknown
 impl IWMWatermarkInfo {
     pub unsafe fn GetWatermarkEntryCount(&self, wmettype: WMT_WATERMARK_ENTRY_TYPE) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetWatermarkEntryCount)(windows_core::Interface::as_raw(self), core::mem::transmute(wmettype), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetWatermarkEntryCount)(windows_core::Interface::as_raw(self), wmettype, &mut result__).map(|| result__)
     }
     pub unsafe fn GetWatermarkEntry(&self, wmettype: WMT_WATERMARK_ENTRY_TYPE, dwentrynum: u32, pentry: *mut WMT_WATERMARK_ENTRY) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetWatermarkEntry)(windows_core::Interface::as_raw(self), core::mem::transmute(wmettype), core::mem::transmute(dwentrynum), core::mem::transmute(pentry)).ok()
+        (windows_core::Interface::vtable(self).GetWatermarkEntry)(windows_core::Interface::as_raw(self), wmettype, dwentrynum, core::mem::transmute(pentry)).ok()
     }
 }
 #[repr(C)]
@@ -7996,7 +7996,7 @@ windows_core::imp::define_interface!(IWMWriter, IWMWriter_Vtbl, 0x96406bd4_2b2b_
 windows_core::imp::interface_hierarchy!(IWMWriter, windows_core::IUnknown);
 impl IWMWriter {
     pub unsafe fn SetProfileByID(&self, guidprofile: *const windows_core::GUID) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetProfileByID)(windows_core::Interface::as_raw(self), core::mem::transmute(guidprofile)).ok()
+        (windows_core::Interface::vtable(self).SetProfileByID)(windows_core::Interface::as_raw(self), guidprofile).ok()
     }
     pub unsafe fn SetProfile<P0>(&self, pprofile: P0) -> windows_core::Result<()>
     where
@@ -8016,21 +8016,21 @@ impl IWMWriter {
     }
     pub unsafe fn GetInputProps(&self, dwinputnum: u32) -> windows_core::Result<IWMInputMediaProps> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetInputProps)(windows_core::Interface::as_raw(self), core::mem::transmute(dwinputnum), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetInputProps)(windows_core::Interface::as_raw(self), dwinputnum, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetInputProps<P1>(&self, dwinputnum: u32, pinput: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<IWMInputMediaProps>,
     {
-        (windows_core::Interface::vtable(self).SetInputProps)(windows_core::Interface::as_raw(self), core::mem::transmute(dwinputnum), pinput.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetInputProps)(windows_core::Interface::as_raw(self), dwinputnum, pinput.param().abi()).ok()
     }
     pub unsafe fn GetInputFormatCount(&self, dwinputnumber: u32) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetInputFormatCount)(windows_core::Interface::as_raw(self), core::mem::transmute(dwinputnumber), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetInputFormatCount)(windows_core::Interface::as_raw(self), dwinputnumber, &mut result__).map(|| result__)
     }
     pub unsafe fn GetInputFormat(&self, dwinputnumber: u32, dwformatnumber: u32) -> windows_core::Result<IWMInputMediaProps> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetInputFormat)(windows_core::Interface::as_raw(self), core::mem::transmute(dwinputnumber), core::mem::transmute(dwformatnumber), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetInputFormat)(windows_core::Interface::as_raw(self), dwinputnumber, dwformatnumber, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn BeginWriting(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).BeginWriting)(windows_core::Interface::as_raw(self)).ok()
@@ -8040,13 +8040,13 @@ impl IWMWriter {
     }
     pub unsafe fn AllocateSample(&self, dwsamplesize: u32) -> windows_core::Result<INSSBuffer> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).AllocateSample)(windows_core::Interface::as_raw(self), core::mem::transmute(dwsamplesize), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).AllocateSample)(windows_core::Interface::as_raw(self), dwsamplesize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn WriteSample<P3>(&self, dwinputnum: u32, cnssampletime: u64, dwflags: u32, psample: P3) -> windows_core::Result<()>
     where
         P3: windows_core::Param<INSSBuffer>,
     {
-        (windows_core::Interface::vtable(self).WriteSample)(windows_core::Interface::as_raw(self), core::mem::transmute(dwinputnum), core::mem::transmute(cnssampletime), core::mem::transmute(dwflags), psample.param().abi()).ok()
+        (windows_core::Interface::vtable(self).WriteSample)(windows_core::Interface::as_raw(self), dwinputnum, cnssampletime, dwflags, psample.param().abi()).ok()
     }
     pub unsafe fn Flush(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Flush)(windows_core::Interface::as_raw(self)).ok()
@@ -8199,7 +8199,7 @@ impl IWMWriterAdvanced {
     }
     pub unsafe fn GetSink(&self, dwsinknum: u32) -> windows_core::Result<IWMWriterSink> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetSink)(windows_core::Interface::as_raw(self), core::mem::transmute(dwsinknum), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetSink)(windows_core::Interface::as_raw(self), dwsinknum, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn AddSink<P0>(&self, psink: P0) -> windows_core::Result<()>
     where
@@ -8217,7 +8217,7 @@ impl IWMWriterAdvanced {
     where
         P5: windows_core::Param<INSSBuffer>,
     {
-        (windows_core::Interface::vtable(self).WriteStreamSample)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnum), core::mem::transmute(cnssampletime), core::mem::transmute(mssamplesendtime), core::mem::transmute(cnssampleduration), core::mem::transmute(dwflags), psample.param().abi()).ok()
+        (windows_core::Interface::vtable(self).WriteStreamSample)(windows_core::Interface::as_raw(self), wstreamnum, cnssampletime, mssamplesendtime, cnssampleduration, dwflags, psample.param().abi()).ok()
     }
     pub unsafe fn SetLiveSource(&self, fislivesource: bool) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetLiveSource)(windows_core::Interface::as_raw(self), fislivesource.into()).ok()
@@ -8231,10 +8231,10 @@ impl IWMWriterAdvanced {
         (windows_core::Interface::vtable(self).GetWriterTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetStatistics(&self, wstreamnum: u16, pstats: *mut WM_WRITER_STATISTICS) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetStatistics)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnum), core::mem::transmute(pstats)).ok()
+        (windows_core::Interface::vtable(self).GetStatistics)(windows_core::Interface::as_raw(self), wstreamnum, core::mem::transmute(pstats)).ok()
     }
     pub unsafe fn SetSyncTolerance(&self, mswindow: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetSyncTolerance)(windows_core::Interface::as_raw(self), core::mem::transmute(mswindow)).ok()
+        (windows_core::Interface::vtable(self).SetSyncTolerance)(windows_core::Interface::as_raw(self), mswindow).ok()
     }
     pub unsafe fn GetSyncTolerance(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -8378,13 +8378,13 @@ impl IWMWriterAdvanced2 {
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetInputSetting)(windows_core::Interface::as_raw(self), core::mem::transmute(dwinputnum), pszname.param().abi(), core::mem::transmute(ptype), core::mem::transmute(pvalue), core::mem::transmute(pcblength)).ok()
+        (windows_core::Interface::vtable(self).GetInputSetting)(windows_core::Interface::as_raw(self), dwinputnum, pszname.param().abi(), core::mem::transmute(ptype), core::mem::transmute(pvalue), core::mem::transmute(pcblength)).ok()
     }
     pub unsafe fn SetInputSetting<P1>(&self, dwinputnum: u32, pszname: P1, r#type: WMT_ATTR_DATATYPE, pvalue: &[u8]) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetInputSetting)(windows_core::Interface::as_raw(self), core::mem::transmute(dwinputnum), pszname.param().abi(), core::mem::transmute(r#type), core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
+        (windows_core::Interface::vtable(self).SetInputSetting)(windows_core::Interface::as_raw(self), dwinputnum, pszname.param().abi(), r#type, core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
     }
 }
 #[repr(C)]
@@ -8428,7 +8428,7 @@ impl core::ops::Deref for IWMWriterAdvanced3 {
 windows_core::imp::interface_hierarchy!(IWMWriterAdvanced3, windows_core::IUnknown, IWMWriterAdvanced, IWMWriterAdvanced2);
 impl IWMWriterAdvanced3 {
     pub unsafe fn GetStatisticsEx(&self, wstreamnum: u16, pstats: *mut WM_WRITER_STATISTICS_EX) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetStatisticsEx)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnum), core::mem::transmute(pstats)).ok()
+        (windows_core::Interface::vtable(self).GetStatisticsEx)(windows_core::Interface::as_raw(self), wstreamnum, core::mem::transmute(pstats)).ok()
     }
     pub unsafe fn SetNonBlocking(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetNonBlocking)(windows_core::Interface::as_raw(self)).ok()
@@ -8512,10 +8512,10 @@ impl core::ops::Deref for IWMWriterFileSink2 {
 windows_core::imp::interface_hierarchy!(IWMWriterFileSink2, windows_core::IUnknown, IWMWriterSink, IWMWriterFileSink);
 impl IWMWriterFileSink2 {
     pub unsafe fn Start(&self, cnsstarttime: u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self), core::mem::transmute(cnsstarttime)).ok()
+        (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self), cnsstarttime).ok()
     }
     pub unsafe fn Stop(&self, cnsstoptime: u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self), core::mem::transmute(cnsstoptime)).ok()
+        (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self), cnsstoptime).ok()
     }
     pub unsafe fn IsStopped(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -8644,7 +8644,7 @@ impl IWMWriterFileSink3 {
         (windows_core::Interface::vtable(self).GetAutoIndexing)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetControlStream(&self, wstreamnumber: u16, fshouldcontrolstartandstop: bool) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetControlStream)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnumber), fshouldcontrolstartandstop.into()).ok()
+        (windows_core::Interface::vtable(self).SetControlStream)(windows_core::Interface::as_raw(self), wstreamnumber, fshouldcontrolstartandstop.into()).ok()
     }
     pub unsafe fn GetMode(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -8765,14 +8765,14 @@ impl core::ops::Deref for IWMWriterNetworkSink {
 windows_core::imp::interface_hierarchy!(IWMWriterNetworkSink, windows_core::IUnknown, IWMWriterSink);
 impl IWMWriterNetworkSink {
     pub unsafe fn SetMaximumClients(&self, dwmaxclients: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetMaximumClients)(windows_core::Interface::as_raw(self), core::mem::transmute(dwmaxclients)).ok()
+        (windows_core::Interface::vtable(self).SetMaximumClients)(windows_core::Interface::as_raw(self), dwmaxclients).ok()
     }
     pub unsafe fn GetMaximumClients(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetMaximumClients)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetNetworkProtocol(&self, protocol: WMT_NET_PROTOCOL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetNetworkProtocol)(windows_core::Interface::as_raw(self), core::mem::transmute(protocol)).ok()
+        (windows_core::Interface::vtable(self).SetNetworkProtocol)(windows_core::Interface::as_raw(self), protocol).ok()
     }
     pub unsafe fn GetNetworkProtocol(&self) -> windows_core::Result<WMT_NET_PROTOCOL> {
         let mut result__ = core::mem::zeroed();
@@ -8886,36 +8886,36 @@ impl IWMWriterPostView {
         (windows_core::Interface::vtable(self).SetPostViewCallback)(windows_core::Interface::as_raw(self), pcallback.param().abi(), core::mem::transmute(pvcontext)).ok()
     }
     pub unsafe fn SetReceivePostViewSamples(&self, wstreamnum: u16, freceivepostviewsamples: bool) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetReceivePostViewSamples)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnum), freceivepostviewsamples.into()).ok()
+        (windows_core::Interface::vtable(self).SetReceivePostViewSamples)(windows_core::Interface::as_raw(self), wstreamnum, freceivepostviewsamples.into()).ok()
     }
     pub unsafe fn GetReceivePostViewSamples(&self, wstreamnum: u16) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetReceivePostViewSamples)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnum), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetReceivePostViewSamples)(windows_core::Interface::as_raw(self), wstreamnum, &mut result__).map(|| result__)
     }
     pub unsafe fn GetPostViewProps(&self, wstreamnumber: u16) -> windows_core::Result<IWMMediaProps> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetPostViewProps)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnumber), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetPostViewProps)(windows_core::Interface::as_raw(self), wstreamnumber, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetPostViewProps<P1>(&self, wstreamnumber: u16, poutput: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<IWMMediaProps>,
     {
-        (windows_core::Interface::vtable(self).SetPostViewProps)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnumber), poutput.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetPostViewProps)(windows_core::Interface::as_raw(self), wstreamnumber, poutput.param().abi()).ok()
     }
     pub unsafe fn GetPostViewFormatCount(&self, wstreamnumber: u16) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetPostViewFormatCount)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnumber), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetPostViewFormatCount)(windows_core::Interface::as_raw(self), wstreamnumber, &mut result__).map(|| result__)
     }
     pub unsafe fn GetPostViewFormat(&self, wstreamnumber: u16, dwformatnumber: u32) -> windows_core::Result<IWMMediaProps> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetPostViewFormat)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnumber), core::mem::transmute(dwformatnumber), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetPostViewFormat)(windows_core::Interface::as_raw(self), wstreamnumber, dwformatnumber, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetAllocateForPostView(&self, wstreamnumber: u16, fallocate: bool) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetAllocateForPostView)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnumber), fallocate.into()).ok()
+        (windows_core::Interface::vtable(self).SetAllocateForPostView)(windows_core::Interface::as_raw(self), wstreamnumber, fallocate.into()).ok()
     }
     pub unsafe fn GetAllocateForPostView(&self, wstreamnumber: u16) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAllocateForPostView)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnumber), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetAllocateForPostView)(windows_core::Interface::as_raw(self), wstreamnumber, &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -9041,10 +9041,10 @@ impl IWMWriterPostViewCallback {
     where
         P4: windows_core::Param<INSSBuffer>,
     {
-        (windows_core::Interface::vtable(self).OnPostViewSample)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnumber), core::mem::transmute(cnssampletime), core::mem::transmute(cnssampleduration), core::mem::transmute(dwflags), psample.param().abi(), core::mem::transmute(pvcontext)).ok()
+        (windows_core::Interface::vtable(self).OnPostViewSample)(windows_core::Interface::as_raw(self), wstreamnumber, cnssampletime, cnssampleduration, dwflags, psample.param().abi(), pvcontext).ok()
     }
     pub unsafe fn AllocateForPostView(&self, wstreamnum: u16, cbbuffer: u32, ppbuffer: *mut Option<INSSBuffer>, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).AllocateForPostView)(windows_core::Interface::as_raw(self), core::mem::transmute(wstreamnum), core::mem::transmute(cbbuffer), core::mem::transmute(ppbuffer), core::mem::transmute(pvcontext)).ok()
+        (windows_core::Interface::vtable(self).AllocateForPostView)(windows_core::Interface::as_raw(self), wstreamnum, cbbuffer, core::mem::transmute(ppbuffer), pvcontext).ok()
     }
 }
 #[repr(C)]
@@ -9083,22 +9083,22 @@ windows_core::imp::interface_hierarchy!(IWMWriterPreprocess, windows_core::IUnkn
 impl IWMWriterPreprocess {
     pub unsafe fn GetMaxPreprocessingPasses(&self, dwinputnum: u32, dwflags: u32) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetMaxPreprocessingPasses)(windows_core::Interface::as_raw(self), core::mem::transmute(dwinputnum), core::mem::transmute(dwflags), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetMaxPreprocessingPasses)(windows_core::Interface::as_raw(self), dwinputnum, dwflags, &mut result__).map(|| result__)
     }
     pub unsafe fn SetNumPreprocessingPasses(&self, dwinputnum: u32, dwflags: u32, dwnumpasses: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetNumPreprocessingPasses)(windows_core::Interface::as_raw(self), core::mem::transmute(dwinputnum), core::mem::transmute(dwflags), core::mem::transmute(dwnumpasses)).ok()
+        (windows_core::Interface::vtable(self).SetNumPreprocessingPasses)(windows_core::Interface::as_raw(self), dwinputnum, dwflags, dwnumpasses).ok()
     }
     pub unsafe fn BeginPreprocessingPass(&self, dwinputnum: u32, dwflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).BeginPreprocessingPass)(windows_core::Interface::as_raw(self), core::mem::transmute(dwinputnum), core::mem::transmute(dwflags)).ok()
+        (windows_core::Interface::vtable(self).BeginPreprocessingPass)(windows_core::Interface::as_raw(self), dwinputnum, dwflags).ok()
     }
     pub unsafe fn PreprocessSample<P3>(&self, dwinputnum: u32, cnssampletime: u64, dwflags: u32, psample: P3) -> windows_core::Result<()>
     where
         P3: windows_core::Param<INSSBuffer>,
     {
-        (windows_core::Interface::vtable(self).PreprocessSample)(windows_core::Interface::as_raw(self), core::mem::transmute(dwinputnum), core::mem::transmute(cnssampletime), core::mem::transmute(dwflags), psample.param().abi()).ok()
+        (windows_core::Interface::vtable(self).PreprocessSample)(windows_core::Interface::as_raw(self), dwinputnum, cnssampletime, dwflags, psample.param().abi()).ok()
     }
     pub unsafe fn EndPreprocessingPass(&self, dwinputnum: u32, dwflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).EndPreprocessingPass)(windows_core::Interface::as_raw(self), core::mem::transmute(dwinputnum), core::mem::transmute(dwflags)).ok()
+        (windows_core::Interface::vtable(self).EndPreprocessingPass)(windows_core::Interface::as_raw(self), dwinputnum, dwflags).ok()
     }
 }
 #[repr(C)]
@@ -9235,7 +9235,7 @@ impl IWMWriterSink {
     }
     pub unsafe fn AllocateDataUnit(&self, cbdataunit: u32) -> windows_core::Result<INSSBuffer> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).AllocateDataUnit)(windows_core::Interface::as_raw(self), core::mem::transmute(cbdataunit), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).AllocateDataUnit)(windows_core::Interface::as_raw(self), cbdataunit, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn OnDataUnit<P0>(&self, pdataunit: P0) -> windows_core::Result<()>
     where

@@ -1,12 +1,12 @@
 #[inline]
 pub unsafe fn CallEnclave(lproutine: isize, lpparameter: *const core::ffi::c_void, fwaitforthread: bool, lpreturnvalue: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("vertdll.dll" "system" fn CallEnclave(lproutine : isize, lpparameter : *const core::ffi::c_void, fwaitforthread : super::super::Foundation:: BOOL, lpreturnvalue : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    CallEnclave(core::mem::transmute(lproutine), core::mem::transmute(lpparameter), fwaitforthread.into(), core::mem::transmute(lpreturnvalue)).ok()
+    CallEnclave(lproutine, lpparameter, fwaitforthread.into(), core::mem::transmute(lpreturnvalue)).ok()
 }
 #[inline]
 pub unsafe fn CreateEnclave(hprocess: super::super::Foundation::HANDLE, lpaddress: Option<*const core::ffi::c_void>, dwsize: usize, dwinitialcommitment: usize, flenclavetype: u32, lpenclaveinformation: *const core::ffi::c_void, dwinfolength: u32, lpenclaveerror: Option<*mut u32>) -> *mut core::ffi::c_void {
     windows_targets::link!("kernel32.dll" "system" fn CreateEnclave(hprocess : super::super::Foundation:: HANDLE, lpaddress : *const core::ffi::c_void, dwsize : usize, dwinitialcommitment : usize, flenclavetype : u32, lpenclaveinformation : *const core::ffi::c_void, dwinfolength : u32, lpenclaveerror : *mut u32) -> *mut core::ffi::c_void);
-    CreateEnclave(core::mem::transmute(hprocess), core::mem::transmute(lpaddress.unwrap_or(core::mem::zeroed())), core::mem::transmute(dwsize), core::mem::transmute(dwinitialcommitment), core::mem::transmute(flenclavetype), core::mem::transmute(lpenclaveinformation), core::mem::transmute(dwinfolength), core::mem::transmute(lpenclaveerror.unwrap_or(core::mem::zeroed())))
+    CreateEnclave(hprocess, core::mem::transmute(lpaddress.unwrap_or(core::mem::zeroed())), dwsize, dwinitialcommitment, flenclavetype, lpenclaveinformation, dwinfolength, core::mem::transmute(lpenclaveerror.unwrap_or(core::mem::zeroed())))
 }
 #[inline]
 pub unsafe fn CreateEnvironmentBlock(lpenvironment: *mut *mut core::ffi::c_void, htoken: Option<super::super::Foundation::HANDLE>, binherit: bool) -> windows_core::Result<()> {
@@ -16,37 +16,37 @@ pub unsafe fn CreateEnvironmentBlock(lpenvironment: *mut *mut core::ffi::c_void,
 #[inline]
 pub unsafe fn DeleteEnclave(lpaddress: *const core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("api-ms-win-core-enclave-l1-1-1.dll" "system" fn DeleteEnclave(lpaddress : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    DeleteEnclave(core::mem::transmute(lpaddress)).ok()
+    DeleteEnclave(lpaddress).ok()
 }
 #[inline]
 pub unsafe fn DestroyEnvironmentBlock(lpenvironment: *const core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("userenv.dll" "system" fn DestroyEnvironmentBlock(lpenvironment : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    DestroyEnvironmentBlock(core::mem::transmute(lpenvironment)).ok()
+    DestroyEnvironmentBlock(lpenvironment).ok()
 }
 #[inline]
 pub unsafe fn EnclaveGetAttestationReport(enclavedata: Option<&[u8; 64]>, report: Option<*mut core::ffi::c_void>, buffersize: u32, outputsize: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("vertdll.dll" "system" fn EnclaveGetAttestationReport(enclavedata : *const u8, report : *mut core::ffi::c_void, buffersize : u32, outputsize : *mut u32) -> windows_core::HRESULT);
-    EnclaveGetAttestationReport(core::mem::transmute(enclavedata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(report.unwrap_or(core::mem::zeroed())), core::mem::transmute(buffersize), core::mem::transmute(outputsize)).ok()
+    EnclaveGetAttestationReport(core::mem::transmute(enclavedata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(report.unwrap_or(core::mem::zeroed())), buffersize, core::mem::transmute(outputsize)).ok()
 }
 #[inline]
 pub unsafe fn EnclaveGetEnclaveInformation(informationsize: u32, enclaveinformation: *mut ENCLAVE_INFORMATION) -> windows_core::Result<()> {
     windows_targets::link!("vertdll.dll" "system" fn EnclaveGetEnclaveInformation(informationsize : u32, enclaveinformation : *mut ENCLAVE_INFORMATION) -> windows_core::HRESULT);
-    EnclaveGetEnclaveInformation(core::mem::transmute(informationsize), core::mem::transmute(enclaveinformation)).ok()
+    EnclaveGetEnclaveInformation(informationsize, core::mem::transmute(enclaveinformation)).ok()
 }
 #[inline]
 pub unsafe fn EnclaveSealData(datatoencrypt: *const core::ffi::c_void, datatoencryptsize: u32, identitypolicy: ENCLAVE_SEALING_IDENTITY_POLICY, runtimepolicy: u32, protectedblob: Option<*mut core::ffi::c_void>, buffersize: u32, protectedblobsize: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("vertdll.dll" "system" fn EnclaveSealData(datatoencrypt : *const core::ffi::c_void, datatoencryptsize : u32, identitypolicy : ENCLAVE_SEALING_IDENTITY_POLICY, runtimepolicy : u32, protectedblob : *mut core::ffi::c_void, buffersize : u32, protectedblobsize : *mut u32) -> windows_core::HRESULT);
-    EnclaveSealData(core::mem::transmute(datatoencrypt), core::mem::transmute(datatoencryptsize), core::mem::transmute(identitypolicy), core::mem::transmute(runtimepolicy), core::mem::transmute(protectedblob.unwrap_or(core::mem::zeroed())), core::mem::transmute(buffersize), core::mem::transmute(protectedblobsize)).ok()
+    EnclaveSealData(datatoencrypt, datatoencryptsize, identitypolicy, runtimepolicy, core::mem::transmute(protectedblob.unwrap_or(core::mem::zeroed())), buffersize, core::mem::transmute(protectedblobsize)).ok()
 }
 #[inline]
 pub unsafe fn EnclaveUnsealData(protectedblob: *const core::ffi::c_void, protectedblobsize: u32, decrypteddata: Option<*mut core::ffi::c_void>, buffersize: u32, decrypteddatasize: *mut u32, sealingidentity: Option<*mut ENCLAVE_IDENTITY>, unsealingflags: Option<*mut u32>) -> windows_core::Result<()> {
     windows_targets::link!("vertdll.dll" "system" fn EnclaveUnsealData(protectedblob : *const core::ffi::c_void, protectedblobsize : u32, decrypteddata : *mut core::ffi::c_void, buffersize : u32, decrypteddatasize : *mut u32, sealingidentity : *mut ENCLAVE_IDENTITY, unsealingflags : *mut u32) -> windows_core::HRESULT);
-    EnclaveUnsealData(core::mem::transmute(protectedblob), core::mem::transmute(protectedblobsize), core::mem::transmute(decrypteddata.unwrap_or(core::mem::zeroed())), core::mem::transmute(buffersize), core::mem::transmute(decrypteddatasize), core::mem::transmute(sealingidentity.unwrap_or(core::mem::zeroed())), core::mem::transmute(unsealingflags.unwrap_or(core::mem::zeroed()))).ok()
+    EnclaveUnsealData(protectedblob, protectedblobsize, core::mem::transmute(decrypteddata.unwrap_or(core::mem::zeroed())), buffersize, core::mem::transmute(decrypteddatasize), core::mem::transmute(sealingidentity.unwrap_or(core::mem::zeroed())), core::mem::transmute(unsealingflags.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn EnclaveVerifyAttestationReport(enclavetype: u32, report: *const core::ffi::c_void, reportsize: u32) -> windows_core::Result<()> {
     windows_targets::link!("vertdll.dll" "system" fn EnclaveVerifyAttestationReport(enclavetype : u32, report : *const core::ffi::c_void, reportsize : u32) -> windows_core::HRESULT);
-    EnclaveVerifyAttestationReport(core::mem::transmute(enclavetype), core::mem::transmute(report), core::mem::transmute(reportsize)).ok()
+    EnclaveVerifyAttestationReport(enclavetype, report, reportsize).ok()
 }
 #[inline]
 pub unsafe fn ExpandEnvironmentStringsA<P0>(lpsrc: P0, lpdst: Option<&mut [u8]>) -> u32
@@ -145,17 +145,17 @@ where
 #[inline]
 pub unsafe fn InitializeEnclave(hprocess: super::super::Foundation::HANDLE, lpaddress: *const core::ffi::c_void, lpenclaveinformation: *const core::ffi::c_void, dwinfolength: u32, lpenclaveerror: Option<*mut u32>) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn InitializeEnclave(hprocess : super::super::Foundation:: HANDLE, lpaddress : *const core::ffi::c_void, lpenclaveinformation : *const core::ffi::c_void, dwinfolength : u32, lpenclaveerror : *mut u32) -> super::super::Foundation:: BOOL);
-    InitializeEnclave(core::mem::transmute(hprocess), core::mem::transmute(lpaddress), core::mem::transmute(lpenclaveinformation), core::mem::transmute(dwinfolength), core::mem::transmute(lpenclaveerror.unwrap_or(core::mem::zeroed()))).ok()
+    InitializeEnclave(hprocess, lpaddress, lpenclaveinformation, dwinfolength, core::mem::transmute(lpenclaveerror.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn IsEnclaveTypeSupported(flenclavetype: u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn IsEnclaveTypeSupported(flenclavetype : u32) -> super::super::Foundation:: BOOL);
-    IsEnclaveTypeSupported(core::mem::transmute(flenclavetype)).ok()
+    IsEnclaveTypeSupported(flenclavetype).ok()
 }
 #[inline]
 pub unsafe fn LoadEnclaveData(hprocess: super::super::Foundation::HANDLE, lpaddress: *const core::ffi::c_void, lpbuffer: *const core::ffi::c_void, nsize: usize, flprotect: u32, lppageinformation: *const core::ffi::c_void, dwinfolength: u32, lpnumberofbyteswritten: *mut usize, lpenclaveerror: Option<*mut u32>) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn LoadEnclaveData(hprocess : super::super::Foundation:: HANDLE, lpaddress : *const core::ffi::c_void, lpbuffer : *const core::ffi::c_void, nsize : usize, flprotect : u32, lppageinformation : *const core::ffi::c_void, dwinfolength : u32, lpnumberofbyteswritten : *mut usize, lpenclaveerror : *mut u32) -> super::super::Foundation:: BOOL);
-    LoadEnclaveData(core::mem::transmute(hprocess), core::mem::transmute(lpaddress), core::mem::transmute(lpbuffer), core::mem::transmute(nsize), core::mem::transmute(flprotect), core::mem::transmute(lppageinformation), core::mem::transmute(dwinfolength), core::mem::transmute(lpnumberofbyteswritten), core::mem::transmute(lpenclaveerror.unwrap_or(core::mem::zeroed()))).ok()
+    LoadEnclaveData(hprocess, lpaddress, lpbuffer, nsize, flprotect, lppageinformation, dwinfolength, core::mem::transmute(lpnumberofbyteswritten), core::mem::transmute(lpenclaveerror.unwrap_or(core::mem::zeroed()))).ok()
 }
 #[inline]
 pub unsafe fn LoadEnclaveImageA<P1>(lpenclaveaddress: *const core::ffi::c_void, lpimagename: P1) -> super::super::Foundation::BOOL
@@ -163,7 +163,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("api-ms-win-core-enclave-l1-1-1.dll" "system" fn LoadEnclaveImageA(lpenclaveaddress : *const core::ffi::c_void, lpimagename : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
-    LoadEnclaveImageA(core::mem::transmute(lpenclaveaddress), lpimagename.param().abi())
+    LoadEnclaveImageA(lpenclaveaddress, lpimagename.param().abi())
 }
 #[inline]
 pub unsafe fn LoadEnclaveImageW<P1>(lpenclaveaddress: *const core::ffi::c_void, lpimagename: P1) -> windows_core::Result<()>
@@ -171,7 +171,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("api-ms-win-core-enclave-l1-1-1.dll" "system" fn LoadEnclaveImageW(lpenclaveaddress : *const core::ffi::c_void, lpimagename : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
-    LoadEnclaveImageW(core::mem::transmute(lpenclaveaddress), lpimagename.param().abi()).ok()
+    LoadEnclaveImageW(lpenclaveaddress, lpimagename.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn NeedCurrentDirectoryForExePathA<P0>(exename: P0) -> super::super::Foundation::BOOL
@@ -234,7 +234,7 @@ where
 #[inline]
 pub unsafe fn TerminateEnclave(lpaddress: *const core::ffi::c_void, fwait: bool) -> windows_core::Result<()> {
     windows_targets::link!("vertdll.dll" "system" fn TerminateEnclave(lpaddress : *const core::ffi::c_void, fwait : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    TerminateEnclave(core::mem::transmute(lpaddress), fwait.into()).ok()
+    TerminateEnclave(lpaddress, fwait.into()).ok()
 }
 pub const ENCLAVE_FLAG_DYNAMIC_DEBUG_ACTIVE: u32 = 4u32;
 pub const ENCLAVE_FLAG_DYNAMIC_DEBUG_ENABLED: u32 = 2u32;

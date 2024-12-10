@@ -81,7 +81,7 @@ impl IRendezvousSession {
         (windows_core::Interface::vtable(self).SendContextData)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdata)).ok()
     }
     pub unsafe fn Terminate(&self, hr: windows_core::HRESULT, bstrappdata: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Terminate)(windows_core::Interface::as_raw(self), core::mem::transmute(hr), core::mem::transmute_copy(bstrappdata)).ok()
+        (windows_core::Interface::vtable(self).Terminate)(windows_core::Interface::as_raw(self), hr, core::mem::transmute_copy(bstrappdata)).ok()
     }
 }
 #[repr(C)]

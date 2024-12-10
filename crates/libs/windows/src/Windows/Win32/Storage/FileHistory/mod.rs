@@ -1,12 +1,12 @@
 #[inline]
 pub unsafe fn FhServiceBlockBackup(pipe: FH_SERVICE_PIPE_HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceBlockBackup(pipe : FH_SERVICE_PIPE_HANDLE) -> windows_core::HRESULT);
-    FhServiceBlockBackup(core::mem::transmute(pipe)).ok()
+    FhServiceBlockBackup(pipe).ok()
 }
 #[inline]
 pub unsafe fn FhServiceClosePipe(pipe: FH_SERVICE_PIPE_HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceClosePipe(pipe : FH_SERVICE_PIPE_HANDLE) -> windows_core::HRESULT);
-    FhServiceClosePipe(core::mem::transmute(pipe)).ok()
+    FhServiceClosePipe(pipe).ok()
 }
 #[inline]
 pub unsafe fn FhServiceOpenPipe(startserviceifstopped: bool) -> windows_core::Result<FH_SERVICE_PIPE_HANDLE> {
@@ -17,22 +17,22 @@ pub unsafe fn FhServiceOpenPipe(startserviceifstopped: bool) -> windows_core::Re
 #[inline]
 pub unsafe fn FhServiceReloadConfiguration(pipe: FH_SERVICE_PIPE_HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceReloadConfiguration(pipe : FH_SERVICE_PIPE_HANDLE) -> windows_core::HRESULT);
-    FhServiceReloadConfiguration(core::mem::transmute(pipe)).ok()
+    FhServiceReloadConfiguration(pipe).ok()
 }
 #[inline]
 pub unsafe fn FhServiceStartBackup(pipe: FH_SERVICE_PIPE_HANDLE, lowpriorityio: bool) -> windows_core::Result<()> {
     windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceStartBackup(pipe : FH_SERVICE_PIPE_HANDLE, lowpriorityio : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    FhServiceStartBackup(core::mem::transmute(pipe), lowpriorityio.into()).ok()
+    FhServiceStartBackup(pipe, lowpriorityio.into()).ok()
 }
 #[inline]
 pub unsafe fn FhServiceStopBackup(pipe: FH_SERVICE_PIPE_HANDLE, stoptracking: bool) -> windows_core::Result<()> {
     windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceStopBackup(pipe : FH_SERVICE_PIPE_HANDLE, stoptracking : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    FhServiceStopBackup(core::mem::transmute(pipe), stoptracking.into()).ok()
+    FhServiceStopBackup(pipe, stoptracking.into()).ok()
 }
 #[inline]
 pub unsafe fn FhServiceUnblockBackup(pipe: FH_SERVICE_PIPE_HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceUnblockBackup(pipe : FH_SERVICE_PIPE_HANDLE) -> windows_core::HRESULT);
-    FhServiceUnblockBackup(core::mem::transmute(pipe)).ok()
+    FhServiceUnblockBackup(pipe).ok()
 }
 pub const BackupCancelled: FhBackupStopReason = FhBackupStopReason(4i32);
 pub const BackupInvalidStopReason: FhBackupStopReason = FhBackupStopReason(0i32);
@@ -168,25 +168,25 @@ impl IFhConfigMgr {
         (windows_core::Interface::vtable(self).SaveConfiguration)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn AddRemoveExcludeRule(&self, add: bool, category: FH_PROTECTED_ITEM_CATEGORY, item: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).AddRemoveExcludeRule)(windows_core::Interface::as_raw(self), add.into(), core::mem::transmute(category), core::mem::transmute_copy(item)).ok()
+        (windows_core::Interface::vtable(self).AddRemoveExcludeRule)(windows_core::Interface::as_raw(self), add.into(), category, core::mem::transmute_copy(item)).ok()
     }
     pub unsafe fn GetIncludeExcludeRules(&self, include: bool, category: FH_PROTECTED_ITEM_CATEGORY) -> windows_core::Result<IFhScopeIterator> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetIncludeExcludeRules)(windows_core::Interface::as_raw(self), include.into(), core::mem::transmute(category), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetIncludeExcludeRules)(windows_core::Interface::as_raw(self), include.into(), category, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetLocalPolicy(&self, localpolicytype: FH_LOCAL_POLICY_TYPE) -> windows_core::Result<u64> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetLocalPolicy)(windows_core::Interface::as_raw(self), core::mem::transmute(localpolicytype), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetLocalPolicy)(windows_core::Interface::as_raw(self), localpolicytype, &mut result__).map(|| result__)
     }
     pub unsafe fn SetLocalPolicy(&self, localpolicytype: FH_LOCAL_POLICY_TYPE, policyvalue: u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetLocalPolicy)(windows_core::Interface::as_raw(self), core::mem::transmute(localpolicytype), core::mem::transmute(policyvalue)).ok()
+        (windows_core::Interface::vtable(self).SetLocalPolicy)(windows_core::Interface::as_raw(self), localpolicytype, policyvalue).ok()
     }
     pub unsafe fn GetBackupStatus(&self) -> windows_core::Result<FH_BACKUP_STATUS> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetBackupStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetBackupStatus(&self, backupstatus: FH_BACKUP_STATUS) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetBackupStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(backupstatus)).ok()
+        (windows_core::Interface::vtable(self).SetBackupStatus)(windows_core::Interface::as_raw(self), backupstatus).ok()
     }
     pub unsafe fn GetDefaultTarget(&self) -> windows_core::Result<IFhTarget> {
         let mut result__ = core::mem::zeroed();
@@ -362,10 +362,10 @@ impl IFhReassociation {
         (windows_core::Interface::vtable(self).ScanTargetForConfigurations)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(targeturl)).ok()
     }
     pub unsafe fn GetConfigurationDetails(&self, index: u32, username: *mut windows_core::BSTR, pcname: *mut windows_core::BSTR, backuptime: *mut super::super::Foundation::FILETIME) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetConfigurationDetails)(windows_core::Interface::as_raw(self), core::mem::transmute(index), core::mem::transmute(username), core::mem::transmute(pcname), core::mem::transmute(backuptime)).ok()
+        (windows_core::Interface::vtable(self).GetConfigurationDetails)(windows_core::Interface::as_raw(self), index, core::mem::transmute(username), core::mem::transmute(pcname), core::mem::transmute(backuptime)).ok()
     }
     pub unsafe fn SelectConfiguration(&self, index: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SelectConfiguration)(windows_core::Interface::as_raw(self), core::mem::transmute(index)).ok()
+        (windows_core::Interface::vtable(self).SelectConfiguration)(windows_core::Interface::as_raw(self), index).ok()
     }
     pub unsafe fn PerformReassociation(&self, overwriteifexists: bool) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).PerformReassociation)(windows_core::Interface::as_raw(self), overwriteifexists.into()).ok()
@@ -482,11 +482,11 @@ windows_core::imp::interface_hierarchy!(IFhTarget, windows_core::IUnknown);
 impl IFhTarget {
     pub unsafe fn GetStringProperty(&self, propertytype: FH_TARGET_PROPERTY_TYPE) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetStringProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(propertytype), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetStringProperty)(windows_core::Interface::as_raw(self), propertytype, &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn GetNumericalProperty(&self, propertytype: FH_TARGET_PROPERTY_TYPE) -> windows_core::Result<u64> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetNumericalProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(propertytype), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetNumericalProperty)(windows_core::Interface::as_raw(self), propertytype, &mut result__).map(|| result__)
     }
 }
 #[repr(C)]

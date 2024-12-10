@@ -327,7 +327,7 @@ windows_core::imp::define_interface!(IPresentationContent, IPresentationContent_
 windows_core::imp::interface_hierarchy!(IPresentationContent, windows_core::IUnknown);
 impl IPresentationContent {
     pub unsafe fn SetTag(&self, tag: usize) {
-        (windows_core::Interface::vtable(self).SetTag)(windows_core::Interface::as_raw(self), core::mem::transmute(tag))
+        (windows_core::Interface::vtable(self).SetTag)(windows_core::Interface::as_raw(self), tag)
     }
 }
 #[repr(C)]
@@ -421,7 +421,7 @@ impl IPresentationManager {
     }
     pub unsafe fn CreatePresentationSurface(&self, compositionsurfacehandle: super::super::Foundation::HANDLE) -> windows_core::Result<IPresentationSurface> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreatePresentationSurface)(windows_core::Interface::as_raw(self), core::mem::transmute(compositionsurfacehandle), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreatePresentationSurface)(windows_core::Interface::as_raw(self), compositionsurfacehandle, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetNextPresentId(&self) -> u64 {
         (windows_core::Interface::vtable(self).GetNextPresentId)(windows_core::Interface::as_raw(self))
@@ -433,7 +433,7 @@ impl IPresentationManager {
         (windows_core::Interface::vtable(self).SetPreferredPresentDuration)(windows_core::Interface::as_raw(self), core::mem::transmute(preferredduration), core::mem::transmute(deviationtolerance)).ok()
     }
     pub unsafe fn ForceVSyncInterrupt(&self, forcevsyncinterrupt: u8) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ForceVSyncInterrupt)(windows_core::Interface::as_raw(self), core::mem::transmute(forcevsyncinterrupt)).ok()
+        (windows_core::Interface::vtable(self).ForceVSyncInterrupt)(windows_core::Interface::as_raw(self), forcevsyncinterrupt).ok()
     }
     pub unsafe fn Present(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Present)(windows_core::Interface::as_raw(self)).ok()
@@ -446,7 +446,7 @@ impl IPresentationManager {
         (windows_core::Interface::vtable(self).GetPresentRetiringFence)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CancelPresentsFrom(&self, presentidtocancelfrom: u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).CancelPresentsFrom)(windows_core::Interface::as_raw(self), core::mem::transmute(presentidtocancelfrom)).ok()
+        (windows_core::Interface::vtable(self).CancelPresentsFrom)(windows_core::Interface::as_raw(self), presentidtocancelfrom).ok()
     }
     pub unsafe fn GetLostEvent(&self) -> windows_core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = core::mem::zeroed();
@@ -457,7 +457,7 @@ impl IPresentationManager {
         (windows_core::Interface::vtable(self).GetPresentStatisticsAvailableEvent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn EnablePresentStatisticsKind(&self, presentstatisticskind: PresentStatisticsKind, enabled: u8) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).EnablePresentStatisticsKind)(windows_core::Interface::as_raw(self), core::mem::transmute(presentstatisticskind), core::mem::transmute(enabled)).ok()
+        (windows_core::Interface::vtable(self).EnablePresentStatisticsKind)(windows_core::Interface::as_raw(self), presentstatisticskind, enabled).ok()
     }
     pub unsafe fn GetNextPresentStatistics(&self) -> windows_core::Result<IPresentStatistics> {
         let mut result__ = core::mem::zeroed();
@@ -619,17 +619,17 @@ impl IPresentationSurface {
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn SetColorSpace(&self, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetColorSpace)(windows_core::Interface::as_raw(self), core::mem::transmute(colorspace)).ok()
+        (windows_core::Interface::vtable(self).SetColorSpace)(windows_core::Interface::as_raw(self), colorspace).ok()
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn SetAlphaMode(&self, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetAlphaMode)(windows_core::Interface::as_raw(self), core::mem::transmute(alphamode)).ok()
+        (windows_core::Interface::vtable(self).SetAlphaMode)(windows_core::Interface::as_raw(self), alphamode).ok()
     }
     pub unsafe fn SetSourceRect(&self, sourcerect: *const super::super::Foundation::RECT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetSourceRect)(windows_core::Interface::as_raw(self), core::mem::transmute(sourcerect)).ok()
+        (windows_core::Interface::vtable(self).SetSourceRect)(windows_core::Interface::as_raw(self), sourcerect).ok()
     }
     pub unsafe fn SetTransform(&self, transform: *const PresentationTransform) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(transform)).ok()
+        (windows_core::Interface::vtable(self).SetTransform)(windows_core::Interface::as_raw(self), transform).ok()
     }
     pub unsafe fn RestrictToOutput<P0>(&self, output: P0) -> windows_core::Result<()>
     where
@@ -638,10 +638,10 @@ impl IPresentationSurface {
         (windows_core::Interface::vtable(self).RestrictToOutput)(windows_core::Interface::as_raw(self), output.param().abi()).ok()
     }
     pub unsafe fn SetDisableReadback(&self, value: u8) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetDisableReadback)(windows_core::Interface::as_raw(self), core::mem::transmute(value)).ok()
+        (windows_core::Interface::vtable(self).SetDisableReadback)(windows_core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn SetLetterboxingMargins(&self, leftletterboxsize: f32, topletterboxsize: f32, rightletterboxsize: f32, bottomletterboxsize: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetLetterboxingMargins)(windows_core::Interface::as_raw(self), core::mem::transmute(leftletterboxsize), core::mem::transmute(topletterboxsize), core::mem::transmute(rightletterboxsize), core::mem::transmute(bottomletterboxsize)).ok()
+        (windows_core::Interface::vtable(self).SetLetterboxingMargins)(windows_core::Interface::as_raw(self), leftletterboxsize, topletterboxsize, rightletterboxsize, bottomletterboxsize).ok()
     }
 }
 #[repr(C)]

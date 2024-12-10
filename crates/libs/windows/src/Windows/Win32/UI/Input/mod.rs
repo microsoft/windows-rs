@@ -15,7 +15,7 @@ pub mod XboxController;
 #[inline]
 pub unsafe fn DefRawInputProc(parawinput: &[*const RAWINPUT], cbsizeheader: u32) -> super::super::Foundation::LRESULT {
     windows_targets::link!("user32.dll" "system" fn DefRawInputProc(parawinput : *const *const RAWINPUT, ninput : i32, cbsizeheader : u32) -> super::super::Foundation:: LRESULT);
-    DefRawInputProc(core::mem::transmute(parawinput.as_ptr()), parawinput.len().try_into().unwrap(), core::mem::transmute(cbsizeheader))
+    DefRawInputProc(core::mem::transmute(parawinput.as_ptr()), parawinput.len().try_into().unwrap(), cbsizeheader)
 }
 #[inline]
 pub unsafe fn GetCIMSSM(inputmessagesource: *mut INPUT_MESSAGE_SOURCE) -> super::super::Foundation::BOOL {
@@ -30,37 +30,37 @@ pub unsafe fn GetCurrentInputMessageSource(inputmessagesource: *mut INPUT_MESSAG
 #[inline]
 pub unsafe fn GetRawInputBuffer(pdata: Option<*mut RAWINPUT>, pcbsize: *mut u32, cbsizeheader: u32) -> u32 {
     windows_targets::link!("user32.dll" "system" fn GetRawInputBuffer(pdata : *mut RAWINPUT, pcbsize : *mut u32, cbsizeheader : u32) -> u32);
-    GetRawInputBuffer(core::mem::transmute(pdata.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbsize), core::mem::transmute(cbsizeheader))
+    GetRawInputBuffer(core::mem::transmute(pdata.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbsize), cbsizeheader)
 }
 #[inline]
 pub unsafe fn GetRawInputData(hrawinput: HRAWINPUT, uicommand: RAW_INPUT_DATA_COMMAND_FLAGS, pdata: Option<*mut core::ffi::c_void>, pcbsize: *mut u32, cbsizeheader: u32) -> u32 {
     windows_targets::link!("user32.dll" "system" fn GetRawInputData(hrawinput : HRAWINPUT, uicommand : RAW_INPUT_DATA_COMMAND_FLAGS, pdata : *mut core::ffi::c_void, pcbsize : *mut u32, cbsizeheader : u32) -> u32);
-    GetRawInputData(core::mem::transmute(hrawinput), core::mem::transmute(uicommand), core::mem::transmute(pdata.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbsize), core::mem::transmute(cbsizeheader))
+    GetRawInputData(hrawinput, uicommand, core::mem::transmute(pdata.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbsize), cbsizeheader)
 }
 #[inline]
 pub unsafe fn GetRawInputDeviceInfoA(hdevice: Option<super::super::Foundation::HANDLE>, uicommand: RAW_INPUT_DEVICE_INFO_COMMAND, pdata: Option<*mut core::ffi::c_void>, pcbsize: *mut u32) -> u32 {
     windows_targets::link!("user32.dll" "system" fn GetRawInputDeviceInfoA(hdevice : super::super::Foundation:: HANDLE, uicommand : RAW_INPUT_DEVICE_INFO_COMMAND, pdata : *mut core::ffi::c_void, pcbsize : *mut u32) -> u32);
-    GetRawInputDeviceInfoA(core::mem::transmute(hdevice.unwrap_or(core::mem::zeroed())), core::mem::transmute(uicommand), core::mem::transmute(pdata.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbsize))
+    GetRawInputDeviceInfoA(core::mem::transmute(hdevice.unwrap_or(core::mem::zeroed())), uicommand, core::mem::transmute(pdata.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbsize))
 }
 #[inline]
 pub unsafe fn GetRawInputDeviceInfoW(hdevice: Option<super::super::Foundation::HANDLE>, uicommand: RAW_INPUT_DEVICE_INFO_COMMAND, pdata: Option<*mut core::ffi::c_void>, pcbsize: *mut u32) -> u32 {
     windows_targets::link!("user32.dll" "system" fn GetRawInputDeviceInfoW(hdevice : super::super::Foundation:: HANDLE, uicommand : RAW_INPUT_DEVICE_INFO_COMMAND, pdata : *mut core::ffi::c_void, pcbsize : *mut u32) -> u32);
-    GetRawInputDeviceInfoW(core::mem::transmute(hdevice.unwrap_or(core::mem::zeroed())), core::mem::transmute(uicommand), core::mem::transmute(pdata.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbsize))
+    GetRawInputDeviceInfoW(core::mem::transmute(hdevice.unwrap_or(core::mem::zeroed())), uicommand, core::mem::transmute(pdata.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbsize))
 }
 #[inline]
 pub unsafe fn GetRawInputDeviceList(prawinputdevicelist: Option<*mut RAWINPUTDEVICELIST>, puinumdevices: *mut u32, cbsize: u32) -> u32 {
     windows_targets::link!("user32.dll" "system" fn GetRawInputDeviceList(prawinputdevicelist : *mut RAWINPUTDEVICELIST, puinumdevices : *mut u32, cbsize : u32) -> u32);
-    GetRawInputDeviceList(core::mem::transmute(prawinputdevicelist.unwrap_or(core::mem::zeroed())), core::mem::transmute(puinumdevices), core::mem::transmute(cbsize))
+    GetRawInputDeviceList(core::mem::transmute(prawinputdevicelist.unwrap_or(core::mem::zeroed())), core::mem::transmute(puinumdevices), cbsize)
 }
 #[inline]
 pub unsafe fn GetRegisteredRawInputDevices(prawinputdevices: Option<*mut RAWINPUTDEVICE>, puinumdevices: *mut u32, cbsize: u32) -> u32 {
     windows_targets::link!("user32.dll" "system" fn GetRegisteredRawInputDevices(prawinputdevices : *mut RAWINPUTDEVICE, puinumdevices : *mut u32, cbsize : u32) -> u32);
-    GetRegisteredRawInputDevices(core::mem::transmute(prawinputdevices.unwrap_or(core::mem::zeroed())), core::mem::transmute(puinumdevices), core::mem::transmute(cbsize))
+    GetRegisteredRawInputDevices(core::mem::transmute(prawinputdevices.unwrap_or(core::mem::zeroed())), core::mem::transmute(puinumdevices), cbsize)
 }
 #[inline]
 pub unsafe fn RegisterRawInputDevices(prawinputdevices: &[RAWINPUTDEVICE], cbsize: u32) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn RegisterRawInputDevices(prawinputdevices : *const RAWINPUTDEVICE, uinumdevices : u32, cbsize : u32) -> super::super::Foundation:: BOOL);
-    RegisterRawInputDevices(core::mem::transmute(prawinputdevices.as_ptr()), prawinputdevices.len().try_into().unwrap(), core::mem::transmute(cbsize)).ok()
+    RegisterRawInputDevices(core::mem::transmute(prawinputdevices.as_ptr()), prawinputdevices.len().try_into().unwrap(), cbsize).ok()
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]

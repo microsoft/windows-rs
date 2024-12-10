@@ -221,7 +221,7 @@ windows_core::imp::define_interface!(IEnhancedStorageACT, IEnhancedStorageACT_Vt
 windows_core::imp::interface_hierarchy!(IEnhancedStorageACT, windows_core::IUnknown);
 impl IEnhancedStorageACT {
     pub unsafe fn Authorize(&self, hwndparent: u32, dwflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Authorize)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndparent), core::mem::transmute(dwflags)).ok()
+        (windows_core::Interface::vtable(self).Authorize)(windows_core::Interface::as_raw(self), hwndparent, dwflags).ok()
     }
     pub unsafe fn Unauthorize(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Unauthorize)(windows_core::Interface::as_raw(self)).ok()
@@ -390,7 +390,7 @@ impl core::ops::Deref for IEnhancedStorageACT3 {
 windows_core::imp::interface_hierarchy!(IEnhancedStorageACT3, windows_core::IUnknown, IEnhancedStorageACT, IEnhancedStorageACT2);
 impl IEnhancedStorageACT3 {
     pub unsafe fn UnauthorizeEx(&self, dwflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).UnauthorizeEx)(windows_core::Interface::as_raw(self), core::mem::transmute(dwflags)).ok()
+        (windows_core::Interface::vtable(self).UnauthorizeEx)(windows_core::Interface::as_raw(self), dwflags).ok()
     }
     pub unsafe fn IsQueueFrozen(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -462,7 +462,7 @@ impl IEnhancedStorageSilo {
         (windows_core::Interface::vtable(self).GetActions)(windows_core::Interface::as_raw(self), core::mem::transmute(pppienhancedstoragesiloactions), core::mem::transmute(pcenhancedstoragesiloactions)).ok()
     }
     pub unsafe fn SendCommand(&self, command: u8, pbcommandbuffer: &[u8], pbresponsebuffer: *mut u8, pcbresponsebuffer: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SendCommand)(windows_core::Interface::as_raw(self), core::mem::transmute(command), core::mem::transmute(pbcommandbuffer.as_ptr()), pbcommandbuffer.len().try_into().unwrap(), core::mem::transmute(pbresponsebuffer), core::mem::transmute(pcbresponsebuffer)).ok()
+        (windows_core::Interface::vtable(self).SendCommand)(windows_core::Interface::as_raw(self), command, core::mem::transmute(pbcommandbuffer.as_ptr()), pbcommandbuffer.len().try_into().unwrap(), core::mem::transmute(pbresponsebuffer), core::mem::transmute(pcbresponsebuffer)).ok()
     }
     #[cfg(feature = "Win32_Devices_PortableDevices")]
     pub unsafe fn GetPortableDevice(&self) -> windows_core::Result<super::super::Devices::PortableDevices::IPortableDevice> {

@@ -27,22 +27,22 @@ pub mod WindowsMediaFormat;
 #[inline]
 pub unsafe fn timeBeginPeriod(uperiod: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn timeBeginPeriod(uperiod : u32) -> u32);
-    timeBeginPeriod(core::mem::transmute(uperiod))
+    timeBeginPeriod(uperiod)
 }
 #[inline]
 pub unsafe fn timeEndPeriod(uperiod: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn timeEndPeriod(uperiod : u32) -> u32);
-    timeEndPeriod(core::mem::transmute(uperiod))
+    timeEndPeriod(uperiod)
 }
 #[inline]
 pub unsafe fn timeGetDevCaps(ptc: *mut TIMECAPS, cbtc: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn timeGetDevCaps(ptc : *mut TIMECAPS, cbtc : u32) -> u32);
-    timeGetDevCaps(core::mem::transmute(ptc), core::mem::transmute(cbtc))
+    timeGetDevCaps(core::mem::transmute(ptc), cbtc)
 }
 #[inline]
 pub unsafe fn timeGetSystemTime(pmmt: *mut MMTIME, cbmmt: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn timeGetSystemTime(pmmt : *mut MMTIME, cbmmt : u32) -> u32);
-    timeGetSystemTime(core::mem::transmute(pmmt), core::mem::transmute(cbmmt))
+    timeGetSystemTime(core::mem::transmute(pmmt), cbmmt)
 }
 #[inline]
 pub unsafe fn timeGetTime() -> u32 {
@@ -52,12 +52,12 @@ pub unsafe fn timeGetTime() -> u32 {
 #[inline]
 pub unsafe fn timeKillEvent(utimerid: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn timeKillEvent(utimerid : u32) -> u32);
-    timeKillEvent(core::mem::transmute(utimerid))
+    timeKillEvent(utimerid)
 }
 #[inline]
 pub unsafe fn timeSetEvent(udelay: u32, uresolution: u32, fptc: LPTIMECALLBACK, dwuser: usize, fuevent: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn timeSetEvent(udelay : u32, uresolution : u32, fptc : LPTIMECALLBACK, dwuser : usize, fuevent : u32) -> u32);
-    timeSetEvent(core::mem::transmute(udelay), core::mem::transmute(uresolution), core::mem::transmute(fptc), core::mem::transmute(dwuser), core::mem::transmute(fuevent))
+    timeSetEvent(udelay, uresolution, fptc, dwuser, fuevent)
 }
 pub const ED_DEVCAP_ATN_READ: TIMECODE_SAMPLE_FLAGS = TIMECODE_SAMPLE_FLAGS(5047u32);
 pub const ED_DEVCAP_RTC_READ: TIMECODE_SAMPLE_FLAGS = TIMECODE_SAMPLE_FLAGS(5050u32);
@@ -84,14 +84,14 @@ impl IReferenceClock {
     }
     pub unsafe fn AdviseTime(&self, basetime: i64, streamtime: i64, hevent: super::Foundation::HANDLE) -> windows_core::Result<usize> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).AdviseTime)(windows_core::Interface::as_raw(self), core::mem::transmute(basetime), core::mem::transmute(streamtime), core::mem::transmute(hevent), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).AdviseTime)(windows_core::Interface::as_raw(self), basetime, streamtime, hevent, &mut result__).map(|| result__)
     }
     pub unsafe fn AdvisePeriodic(&self, starttime: i64, periodtime: i64, hsemaphore: super::Foundation::HANDLE) -> windows_core::Result<usize> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).AdvisePeriodic)(windows_core::Interface::as_raw(self), core::mem::transmute(starttime), core::mem::transmute(periodtime), core::mem::transmute(hsemaphore), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).AdvisePeriodic)(windows_core::Interface::as_raw(self), starttime, periodtime, hsemaphore, &mut result__).map(|| result__)
     }
     pub unsafe fn Unadvise(&self, dwadvisecookie: usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Unadvise)(windows_core::Interface::as_raw(self), core::mem::transmute(dwadvisecookie)).ok()
+        (windows_core::Interface::vtable(self).Unadvise)(windows_core::Interface::as_raw(self), dwadvisecookie).ok()
     }
 }
 #[repr(C)]
@@ -183,7 +183,7 @@ windows_core::imp::define_interface!(IReferenceClockTimerControl, IReferenceCloc
 windows_core::imp::interface_hierarchy!(IReferenceClockTimerControl, windows_core::IUnknown);
 impl IReferenceClockTimerControl {
     pub unsafe fn SetDefaultTimerResolution(&self, timerresolution: i64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetDefaultTimerResolution)(windows_core::Interface::as_raw(self), core::mem::transmute(timerresolution)).ok()
+        (windows_core::Interface::vtable(self).SetDefaultTimerResolution)(windows_core::Interface::as_raw(self), timerresolution).ok()
     }
     pub unsafe fn GetDefaultTimerResolution(&self) -> windows_core::Result<i64> {
         let mut result__ = core::mem::zeroed();
