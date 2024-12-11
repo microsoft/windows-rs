@@ -211,8 +211,12 @@ jobs:
         run:  cargo test -p test_enums --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_error
         run:  cargo test -p test_error --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test test_event
-        run:  cargo test -p test_event --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_event_core
+        run:  cargo test -p test_event_core --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_events
+        run:  cargo test -p test_events --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_events_client
+        run:  cargo test -p test_events_client --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_extensions
         run:  cargo test -p test_extensions --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_handles
@@ -255,12 +259,12 @@ jobs:
         run:  cargo test -p test_readme --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_reference
         run:  cargo test -p test_reference --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Clean
+        run:  cargo clean
       - name: Test test_reference_client
         run:  cargo test -p test_reference_client --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_reference_float
         run:  cargo test -p test_reference_float --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Clean
-        run:  cargo clean
       - name: Test test_registry
         run:  cargo test -p test_registry --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_registry_default
