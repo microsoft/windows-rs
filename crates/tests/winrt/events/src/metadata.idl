@@ -1,0 +1,10 @@
+namespace test_events
+{
+    runtimeclass Class
+    {
+        Class();
+
+        Int32 Signal(Int32 value);
+        event Windows.Foundation.TypedEventHandler<Class, Int32> Event;
+    }
+}
