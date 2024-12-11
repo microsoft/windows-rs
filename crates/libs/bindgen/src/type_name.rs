@@ -24,6 +24,8 @@ impl TypeName {
     pub const IsConst: Self = Self("System.Runtime.CompilerServices", "IsConst");
 
     pub const HResult: Self = Self("Windows.Foundation", "HResult");
+    pub const EventRegistrationToken: Self = Self("Windows.Foundation", "EventRegistrationToken");
+
     pub const IAsyncAction: Self = Self("Windows.Foundation", "IAsyncAction");
     pub const IAsyncActionWithProgress: Self =
         Self("Windows.Foundation", "IAsyncActionWithProgress");

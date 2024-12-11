@@ -676,17 +676,6 @@ impl<T: windows_core::RuntimeType + 'static, F: FnMut(Option<&windows_core::IIns
         (this.invoke)(windows_core::from_raw_borrowed(&sender), core::mem::transmute(&args)).into()
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct EventRegistrationToken {
-    pub Value: i64,
-}
-impl windows_core::TypeKind for EventRegistrationToken {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for EventRegistrationToken {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.EventRegistrationToken;i8)");
-}
 pub struct GuidHelper;
 impl GuidHelper {
     pub fn CreateNewGuid() -> windows_core::Result<windows_core::GUID> {
@@ -1573,17 +1562,17 @@ impl IMemoryBufferReference {
             (windows_core::Interface::vtable(this).Capacity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Closed<P0>(&self, handler: P0) -> windows_core::Result<EventRegistrationToken>
+    pub fn Closed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<TypedEventHandler<IMemoryBufferReference, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveClosed(&self, cookie: EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveClosed(&self, cookie: i64) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveClosed)(windows_core::Interface::as_raw(this), cookie).ok() }
     }
@@ -1597,8 +1586,8 @@ impl windows_core::RuntimeName for IMemoryBufferReference {
 }
 pub trait IMemoryBufferReference_Impl: IClosable_Impl {
     fn Capacity(&self) -> windows_core::Result<u32>;
-    fn Closed(&self, handler: Option<&TypedEventHandler<IMemoryBufferReference, windows_core::IInspectable>>) -> windows_core::Result<EventRegistrationToken>;
-    fn RemoveClosed(&self, cookie: &EventRegistrationToken) -> windows_core::Result<()>;
+    fn Closed(&self, handler: Option<&TypedEventHandler<IMemoryBufferReference, windows_core::IInspectable>>) -> windows_core::Result<i64>;
+    fn RemoveClosed(&self, cookie: i64) -> windows_core::Result<()>;
 }
 impl IMemoryBufferReference_Vtbl {
     pub const fn new<Identity: IMemoryBufferReference_Impl, const OFFSET: isize>() -> Self {
@@ -1612,7 +1601,7 @@ impl IMemoryBufferReference_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Closed<Identity: IMemoryBufferReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut EventRegistrationToken) -> windows_core::HRESULT {
+        unsafe extern "system" fn Closed<Identity: IMemoryBufferReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMemoryBufferReference_Impl::Closed(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
@@ -1622,9 +1611,9 @@ impl IMemoryBufferReference_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveClosed<Identity: IMemoryBufferReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: EventRegistrationToken) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveClosed<Identity: IMemoryBufferReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IMemoryBufferReference_Impl::RemoveClosed(this, core::mem::transmute(&cookie)).into()
+            IMemoryBufferReference_Impl::RemoveClosed(this, cookie).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IMemoryBufferReference, OFFSET>(),
@@ -1641,8 +1630,8 @@ impl IMemoryBufferReference_Vtbl {
 pub struct IMemoryBufferReference_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Capacity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub Closed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveClosed: unsafe extern "system" fn(*mut core::ffi::c_void, EventRegistrationToken) -> windows_core::HRESULT,
+    pub Closed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveClosed: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPropertyValue, IPropertyValue_Vtbl, 0x4bd682dd_7554_40e9_9a9b_82654ede7e62);
 impl windows_core::RuntimeType for IPropertyValue {

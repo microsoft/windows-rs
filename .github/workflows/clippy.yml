@@ -185,8 +185,12 @@ jobs:
         run:  cargo clippy -p test_enums
       - name: Clippy test_error
         run:  cargo clippy -p test_error
-      - name: Clippy test_event
-        run:  cargo clippy -p test_event
+      - name: Clippy test_event_core
+        run:  cargo clippy -p test_event_core
+      - name: Clippy test_events
+        run:  cargo clippy -p test_events
+      - name: Clippy test_events_client
+        run:  cargo clippy -p test_events_client
       - name: Clippy test_extensions
         run:  cargo clippy -p test_extensions
       - name: Clippy test_handles

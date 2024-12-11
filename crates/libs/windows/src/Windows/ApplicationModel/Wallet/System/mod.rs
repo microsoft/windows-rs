@@ -40,11 +40,11 @@ impl windows_core::RuntimeType for IWalletItemSystemStore2 {
 pub struct IWalletItemSystemStore2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
-    pub ItemsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub ItemsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     ItemsChanged: usize,
     #[cfg(feature = "deprecated")]
-    pub RemoveItemsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveItemsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     RemoveItemsChanged: usize,
 }
@@ -138,18 +138,18 @@ impl WalletItemSystemStore {
         }
     }
     #[cfg(feature = "deprecated")]
-    pub fn ItemsChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    pub fn ItemsChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<WalletItemSystemStore, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IWalletItemSystemStore2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ItemsChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ItemsChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "deprecated")]
-    pub fn RemoveItemsChanged(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveItemsChanged(&self, cookie: i64) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IWalletItemSystemStore2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveItemsChanged)(windows_core::Interface::as_raw(this), cookie).ok() }
     }

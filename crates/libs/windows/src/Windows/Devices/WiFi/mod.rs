@@ -11,8 +11,8 @@ pub struct IWiFiAdapter_Vtbl {
     NetworkAdapter: usize,
     pub ScanAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub NetworkReport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AvailableNetworksChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveAvailableNetworksChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub AvailableNetworksChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveAvailableNetworksChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub ConnectAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, WiFiReconnectionKind, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Security_Credentials")]
     pub ConnectWithPasswordCredentialAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, WiFiReconnectionKind, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -220,17 +220,17 @@ impl WiFiAdapter {
             (windows_core::Interface::vtable(this).NetworkReport)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn AvailableNetworksChanged<P0>(&self, args: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    pub fn AvailableNetworksChanged<P0>(&self, args: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WiFiAdapter, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AvailableNetworksChanged)(windows_core::Interface::as_raw(this), args.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).AvailableNetworksChanged)(windows_core::Interface::as_raw(this), args.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveAvailableNetworksChanged(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveAvailableNetworksChanged(&self, eventcookie: i64) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveAvailableNetworksChanged)(windows_core::Interface::as_raw(this), eventcookie).ok() }
     }

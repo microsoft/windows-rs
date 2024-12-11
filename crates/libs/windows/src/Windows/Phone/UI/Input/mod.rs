@@ -46,52 +46,52 @@ unsafe impl Send for CameraEventArgs {}
 unsafe impl Sync for CameraEventArgs {}
 pub struct HardwareButtons;
 impl HardwareButtons {
-    pub fn BackPressed<P0>(handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    pub fn BackPressed<P0>(handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::EventHandler<BackPressedEventArgs>>,
     {
         Self::IHardwareButtonsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BackPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).BackPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveBackPressed(token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveBackPressed(token: i64) -> windows_core::Result<()> {
         Self::IHardwareButtonsStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveBackPressed)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    pub fn CameraHalfPressed<P0>(handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    pub fn CameraHalfPressed<P0>(handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::EventHandler<CameraEventArgs>>,
     {
         Self::IHardwareButtonsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CameraHalfPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).CameraHalfPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveCameraHalfPressed(token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveCameraHalfPressed(token: i64) -> windows_core::Result<()> {
         Self::IHardwareButtonsStatics2(|this| unsafe { (windows_core::Interface::vtable(this).RemoveCameraHalfPressed)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    pub fn CameraPressed<P0>(handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    pub fn CameraPressed<P0>(handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::EventHandler<CameraEventArgs>>,
     {
         Self::IHardwareButtonsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CameraPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).CameraPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveCameraPressed(token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveCameraPressed(token: i64) -> windows_core::Result<()> {
         Self::IHardwareButtonsStatics2(|this| unsafe { (windows_core::Interface::vtable(this).RemoveCameraPressed)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    pub fn CameraReleased<P0>(handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    pub fn CameraReleased<P0>(handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::EventHandler<CameraEventArgs>>,
     {
         Self::IHardwareButtonsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CameraReleased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).CameraReleased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveCameraReleased(token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveCameraReleased(token: i64) -> windows_core::Result<()> {
         Self::IHardwareButtonsStatics2(|this| unsafe { (windows_core::Interface::vtable(this).RemoveCameraReleased)(windows_core::Interface::as_raw(this), token).ok() })
     }
     fn IHardwareButtonsStatics<R, F: FnOnce(&IHardwareButtonsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -131,8 +131,8 @@ impl windows_core::RuntimeType for IHardwareButtonsStatics {
 #[repr(C)]
 pub struct IHardwareButtonsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub BackPressed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveBackPressed: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub BackPressed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveBackPressed: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHardwareButtonsStatics2, IHardwareButtonsStatics2_Vtbl, 0x39c6c274_993f_40dd_854c_831a8934b92e);
 impl windows_core::RuntimeType for IHardwareButtonsStatics2 {
@@ -141,10 +141,10 @@ impl windows_core::RuntimeType for IHardwareButtonsStatics2 {
 #[repr(C)]
 pub struct IHardwareButtonsStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub CameraHalfPressed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveCameraHalfPressed: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub CameraPressed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveCameraPressed: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub CameraReleased: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveCameraReleased: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub CameraHalfPressed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveCameraHalfPressed: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+    pub CameraPressed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveCameraPressed: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+    pub CameraReleased: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveCameraReleased: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }

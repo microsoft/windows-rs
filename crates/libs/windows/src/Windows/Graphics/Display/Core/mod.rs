@@ -107,17 +107,17 @@ impl HdmiDisplayInformation {
             (windows_core::Interface::vtable(this).RequestSetCurrentDisplayModeWithHdrAndMetadataAsync)(windows_core::Interface::as_raw(this), mode.param().abi(), hdroption, hdrmetadata, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DisplayModesChanged<P0>(&self, value: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    pub fn DisplayModesChanged<P0>(&self, value: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<HdmiDisplayInformation, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayModesChanged)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).DisplayModesChanged)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveDisplayModesChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveDisplayModesChanged(&self, token: i64) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveDisplayModesChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -280,8 +280,8 @@ pub struct IHdmiDisplayInformation_Vtbl {
     pub RequestSetCurrentDisplayModeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RequestSetCurrentDisplayModeWithHdrAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, HdmiDisplayHdrOption, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RequestSetCurrentDisplayModeWithHdrAndMetadataAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, HdmiDisplayHdrOption, HdmiDisplayHdr2086Metadata, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub DisplayModesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveDisplayModesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub DisplayModesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveDisplayModesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHdmiDisplayInformationStatics, IHdmiDisplayInformationStatics_Vtbl, 0x6ce6b260_f42a_4a15_914c_7b8e2a5a65df);
 impl windows_core::RuntimeType for IHdmiDisplayInformationStatics {

@@ -106,17 +106,17 @@ impl windows_core::RuntimeType for IGpioPinProvider {
 }
 windows_core::imp::interface_hierarchy!(IGpioPinProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl IGpioPinProvider {
-    pub fn ValueChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    pub fn ValueChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<IGpioPinProvider, GpioPinProviderValueChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ValueChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ValueChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveValueChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveValueChanged(&self, token: i64) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveValueChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -179,8 +179,8 @@ impl windows_core::RuntimeName for IGpioPinProvider {
     const NAME: &'static str = "Windows.Devices.Gpio.Provider.IGpioPinProvider";
 }
 pub trait IGpioPinProvider_Impl: windows_core::IUnknownImpl {
-    fn ValueChanged(&self, handler: Option<&super::super::super::Foundation::TypedEventHandler<IGpioPinProvider, GpioPinProviderValueChangedEventArgs>>) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveValueChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()>;
+    fn ValueChanged(&self, handler: Option<&super::super::super::Foundation::TypedEventHandler<IGpioPinProvider, GpioPinProviderValueChangedEventArgs>>) -> windows_core::Result<i64>;
+    fn RemoveValueChanged(&self, token: i64) -> windows_core::Result<()>;
     fn DebounceTimeout(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan>;
     fn SetDebounceTimeout(&self, value: &super::super::super::Foundation::TimeSpan) -> windows_core::Result<()>;
     fn PinNumber(&self) -> windows_core::Result<i32>;
@@ -193,7 +193,7 @@ pub trait IGpioPinProvider_Impl: windows_core::IUnknownImpl {
 }
 impl IGpioPinProvider_Vtbl {
     pub const fn new<Identity: IGpioPinProvider_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ValueChanged<Identity: IGpioPinProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
+        unsafe extern "system" fn ValueChanged<Identity: IGpioPinProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IGpioPinProvider_Impl::ValueChanged(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
@@ -203,9 +203,9 @@ impl IGpioPinProvider_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveValueChanged<Identity: IGpioPinProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveValueChanged<Identity: IGpioPinProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IGpioPinProvider_Impl::RemoveValueChanged(this, core::mem::transmute(&token)).into()
+            IGpioPinProvider_Impl::RemoveValueChanged(this, token).into()
         }
         unsafe extern "system" fn DebounceTimeout<Identity: IGpioPinProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -301,8 +301,8 @@ impl IGpioPinProvider_Vtbl {
 #[repr(C)]
 pub struct IGpioPinProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub ValueChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveValueChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub ValueChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveValueChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub DebounceTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
     pub SetDebounceTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
     pub PinNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
