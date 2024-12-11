@@ -111,22 +111,18 @@ impl Writer {
 
             if let Some(attribute) = def.find_attribute("AlsoUsableForAttribute") {
                 if let Some((_, Value::Str(type_name))) = attribute.args().first() {
-                    if let Some(ty) = def
-                        .reader()
-                        .with_full_name(def.namespace(), type_name)
-                        .next()
-                    {
-                        let ty = ty.write_name(self);
+                    let ty = def.reader().unwrap_full_name(def.namespace(), type_name);
 
-                        result.combine(quote! {
-                            impl windows_core::imp::CanInto<#ty> for #name {}
-                            impl From<#name> for #ty {
-                                fn from(value: #name) -> Self {
-                                    Self(value.0)
-                                }
+                    let ty = ty.write_name(self);
+
+                    result.combine(quote! {
+                        impl windows_core::imp::CanInto<#ty> for #name {}
+                        impl From<#name> for #ty {
+                            fn from(value: #name) -> Self {
+                                Self(value.0)
                             }
-                        });
-                    }
+                        }
+                    });
                 }
             }
 

@@ -261,11 +261,9 @@ impl Class {
                 break;
             }
 
-            let Some(Type::Class(base)) = reader
-                .with_full_name(extends.namespace(), extends.name())
-                .next()
+            let Type::Class(base) = reader.unwrap_full_name(extends.namespace(), extends.name())
             else {
-                panic!("Type not found");
+                panic!("type not found: {extends}");
             };
 
             def = base.def;
@@ -319,17 +317,15 @@ impl Class {
 
             for (_, arg) in attribute.args() {
                 if let Value::TypeName(tn) = arg {
-                    let Some(Type::Interface(mut interface)) = self
+                    let Type::Interface(mut interface) = self
                         .def
                         .reader()
-                        .with_full_name(tn.namespace(), tn.name())
-                        .next()
+                        .unwrap_full_name(tn.namespace(), tn.name())
                     else {
-                        panic!("Type not found");
+                        panic!("type not found: {tn}");
                     };
 
                     interface.kind = kind;
-
                     set.push(interface);
                     break;
                 }

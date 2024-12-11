@@ -170,6 +170,7 @@ impl Reader {
         reader
     }
 
+    #[track_caller]
     pub fn unwrap_full_name(&self, namespace: &str, name: &str) -> Type {
         if let Some(ty) = self.with_full_name(namespace, name).next() {
             ty

@@ -61,11 +61,9 @@ impl MethodDef {
                     if !param_is_output {
                         if let Some(attribute) = param.find_attribute("AssociatedEnumAttribute") {
                             if let Some((_, Value::Str(name))) = attribute.args().first() {
-                                if let Some(overload) =
-                                    param.reader().with_full_name(namespace, name).next()
-                                {
-                                    ty = Type::PrimitiveOrEnum(Box::new(ty), Box::new(overload));
-                                }
+                                let overload = param.reader().unwrap_full_name(namespace, name);
+
+                                ty = Type::PrimitiveOrEnum(Box::new(ty), Box::new(overload));
                             }
                         }
                     }

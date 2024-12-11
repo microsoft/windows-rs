@@ -28,7 +28,7 @@ fn combine_libraries(
 
             // Windows libs are always produced with lower case module names.
             let library = ty.method.module_name().to_lowercase();
-            let impl_map = ty.method.impl_map().expect("ImplMap not found");
+            let impl_map = ty.method.impl_map().unwrap();
             let flags = impl_map.flags();
             let name = impl_map.import_name().to_string();
 
