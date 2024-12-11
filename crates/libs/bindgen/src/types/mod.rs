@@ -169,6 +169,7 @@ impl Type {
             TypeName::BOOLEAN => Remap::Type(Self::Bool),
             TypeName::IUnknown => Remap::Type(Self::IUnknown),
             TypeName::Type => Remap::Type(Self::Type),
+            TypeName::EventRegistrationToken => Remap::Type(Type::I64),
 
             TypeName::D2D_MATRIX_3X2_F => Remap::Name(TypeName::Matrix3x2),
             TypeName::D3DMATRIX => Remap::Name(TypeName::Matrix4x4),
