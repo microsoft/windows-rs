@@ -7,7 +7,6 @@ pub fn read_file_lines(path: &str) -> Vec<String> {
     };
 
     let file = std::io::BufReader::new(file);
-
     let mut lines = vec![];
 
     for line in file.lines() {
