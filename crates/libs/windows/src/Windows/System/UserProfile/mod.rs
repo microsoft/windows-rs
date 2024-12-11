@@ -667,11 +667,11 @@ pub struct IUserInformationStatics_Vtbl {
     #[cfg(not(all(feature = "Storage_Streams", feature = "deprecated")))]
     SetAccountPicturesFromStreamsAsync: usize,
     #[cfg(feature = "deprecated")]
-    pub AccountPictureChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub AccountPictureChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     AccountPictureChanged: usize,
     #[cfg(feature = "deprecated")]
-    pub RemoveAccountPictureChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveAccountPictureChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     RemoveAccountPictureChanged: usize,
     #[cfg(feature = "deprecated")]
@@ -888,17 +888,17 @@ impl UserInformation {
         })
     }
     #[cfg(feature = "deprecated")]
-    pub fn AccountPictureChanged<P0>(changehandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    pub fn AccountPictureChanged<P0>(changehandler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AccountPictureChanged)(windows_core::Interface::as_raw(this), changehandler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).AccountPictureChanged)(windows_core::Interface::as_raw(this), changehandler.param().abi(), &mut result__).map(|| result__)
         })
     }
     #[cfg(feature = "deprecated")]
-    pub fn RemoveAccountPictureChanged(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveAccountPictureChanged(token: i64) -> windows_core::Result<()> {
         Self::IUserInformationStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveAccountPictureChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
     #[cfg(feature = "deprecated")]
