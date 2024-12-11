@@ -201,16 +201,19 @@ enum ArgKind {
     Derive,
 }
 
+#[track_caller]
 fn expand_args<I, S>(args: I) -> Vec<String>
 where
     I: IntoIterator<Item = S>,
     S: AsRef<str>,
 {
     // This function is needed to avoid a recursion limit in the Rust compiler.
+    #[track_caller]
     fn from_string(result: &mut Vec<String>, value: &str) {
         expand_args(result, value.split_whitespace().map(|arg| arg.to_string()))
     }
 
+    #[track_caller]
     fn expand_args<I, S>(result: &mut Vec<String>, args: I)
     where
         I: IntoIterator<Item = S>,
@@ -241,7 +244,9 @@ where
     result
 }
 
+#[track_caller]
 fn expand_input(input: &[&str]) -> Vec<File> {
+    #[track_caller]
     fn expand_input(result: &mut Vec<String>, input: &str) {
         let path = std::path::Path::new(input);
 
@@ -295,12 +300,17 @@ fn expand_input(input: &[&str]) -> Vec<File> {
         .collect();
     }
 
-    input.extend(paths.iter().map(|path| {
-        let bytes =
-            std::fs::read(path).unwrap_or_else(|_| panic!("failed to read binary file `{path}`"));
+    for path in &paths {
+        let Ok(bytes) = std::fs::read(path) else {
+            panic!("failed to read binary file `{path}`");
+        };
 
-        File::new(bytes).unwrap_or_else(|| panic!("failed to read .winmd format `{path}`"))
-    }));
+        let Some(file) = File::new(bytes) else {
+            panic!("failed to read .winmd format `{path}`");
+        };
+
+        input.push(file);
+    }
 
     input
 }

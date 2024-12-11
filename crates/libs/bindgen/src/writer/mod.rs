@@ -20,6 +20,7 @@ impl Writer {
         clone
     }
 
+    #[track_caller]
     pub fn write(&self, tree: TypeTree) {
         if self.config.package {
             self.write_package(&tree);
@@ -28,6 +29,7 @@ impl Writer {
         }
     }
 
+    #[track_caller]
     fn write_file(&self, tree: TypeTree) {
         let tokens = if self.config.flat {
             self.write_flat(tree)
