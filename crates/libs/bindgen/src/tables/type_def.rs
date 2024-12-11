@@ -57,7 +57,7 @@ impl TypeDef {
     }
 
     pub fn underlying_type(&self) -> Type {
-        let field = self.fields().next().expect("field not found");
+        let field = self.fields().next().unwrap();
         if let Some(constant) = field.constant() {
             constant.ty()
         } else {

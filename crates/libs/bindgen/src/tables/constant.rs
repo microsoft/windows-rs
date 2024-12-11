@@ -8,7 +8,7 @@ impl std::fmt::Debug for Constant {
 
 impl Constant {
     pub fn ty(&self) -> Type {
-        Type::from_element_type(self.usize(0)).unwrap_or_else(|| panic!("`Constant` type invalid"))
+        Type::from_element_type(self.usize(0)).unwrap()
     }
 
     pub fn value(&self) -> Value {

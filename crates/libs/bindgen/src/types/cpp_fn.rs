@@ -30,7 +30,7 @@ impl CppFn {
     pub fn write_link(&self, writer: &Writer, underlying_types: bool) -> TokenStream {
         let name = self.method.name();
         let library = self.method.module_name().to_lowercase();
-        let impl_map = self.method.impl_map().expect("ImplMap not found");
+        let impl_map = self.method.impl_map().unwrap();
         let mut symbol = Some(impl_map.import_name());
 
         if symbol == Some(name) {
@@ -263,28 +263,19 @@ impl CppFn {
             .signature(self.namespace, &[])
             .dependencies(dependencies);
 
-        match self.method.name() {
-            "GetWindowLongPtrA" => self
-                .method
+        let dependency = match self.method.name() {
+            "GetWindowLongPtrA" => Some("GetWindowLongA"),
+            "GetWindowLongPtrW" => Some("GetWindowLongW"),
+            "SetWindowLongPtrA" => Some("SetWindowLongA"),
+            "SetWindowLongPtrW" => Some("SetWindowLongW"),
+            _ => None,
+        };
+
+        if let Some(dependency) = dependency {
+            self.method
                 .reader()
-                .unwrap_full_name("Windows.Win32.UI.WindowsAndMessaging", "GetWindowLongA")
-                .dependencies(dependencies),
-            "GetWindowLongPtrW" => self
-                .method
-                .reader()
-                .unwrap_full_name("Windows.Win32.UI.WindowsAndMessaging", "GetWindowLongW")
-                .dependencies(dependencies),
-            "SetWindowLongPtrA" => self
-                .method
-                .reader()
-                .unwrap_full_name("Windows.Win32.UI.WindowsAndMessaging", "SetWindowLongA")
-                .dependencies(dependencies),
-            "SetWindowLongPtrW" => self
-                .method
-                .reader()
-                .unwrap_full_name("Windows.Win32.UI.WindowsAndMessaging", "SetWindowLongW")
-                .dependencies(dependencies),
-            _ => {}
+                .unwrap_full_name(self.namespace, dependency)
+                .dependencies(dependencies);
         }
     }
 }

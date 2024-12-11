@@ -206,6 +206,6 @@ fn write_lib() {
     cmd.arg("lib.rs");
 
     if !cmd.status().unwrap().success() {
-        panic!("Failed to run rustfmt");
+        panic!("failed to run rustfmt");
     }
 }
