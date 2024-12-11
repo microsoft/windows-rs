@@ -157,8 +157,8 @@ pub struct IVoiceCommandServiceConnection_Vtbl {
     pub Language: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Globalization"))]
     Language: usize,
-    pub VoiceCommandCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveVoiceCommandCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub VoiceCommandCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveVoiceCommandCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVoiceCommandServiceConnectionStatics, IVoiceCommandServiceConnectionStatics_Vtbl, 0x370ebffb_2d34_42df_8770_074d0f334697);
 impl windows_core::RuntimeType for IVoiceCommandServiceConnectionStatics {
@@ -725,17 +725,17 @@ impl VoiceCommandServiceConnection {
             (windows_core::Interface::vtable(this).Language)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn VoiceCommandCompleted<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    pub fn VoiceCommandCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<VoiceCommandServiceConnection, VoiceCommandCompletedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).VoiceCommandCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).VoiceCommandCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveVoiceCommandCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveVoiceCommandCompleted(&self, token: i64) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveVoiceCommandCompleted)(windows_core::Interface::as_raw(this), token).ok() }
     }

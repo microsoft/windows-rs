@@ -578,10 +578,10 @@ impl windows_core::RuntimeType for ISmartCardEmulator2 {
 #[repr(C)]
 pub struct ISmartCardEmulator2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub ApduReceived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveApduReceived: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub ConnectionDeactivated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveConnectionDeactivated: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub ApduReceived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveApduReceived: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+    pub ConnectionDeactivated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveConnectionDeactivated: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsHostCardEmulationSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
@@ -804,10 +804,10 @@ pub struct ISmartCardReader_Vtbl {
     pub FindAllCardsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     FindAllCardsAsync: usize,
-    pub CardAdded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveCardAdded: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub CardRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveCardRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub CardAdded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveCardAdded: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+    pub CardRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveCardRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISmartCardReaderStatics, ISmartCardReaderStatics_Vtbl, 0x103c04e1_a1ca_48f2_a281_5b6f669af107);
 impl windows_core::RuntimeType for ISmartCardReaderStatics {
@@ -2442,31 +2442,31 @@ impl SmartCardEmulator {
             (windows_core::Interface::vtable(this).EnablementPolicy)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ApduReceived<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    pub fn ApduReceived<P0>(&self, value: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SmartCardEmulator, SmartCardEmulatorApduReceivedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ISmartCardEmulator2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ApduReceived)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ApduReceived)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveApduReceived(&self, value: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveApduReceived(&self, value: i64) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ISmartCardEmulator2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveApduReceived)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ConnectionDeactivated<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    pub fn ConnectionDeactivated<P0>(&self, value: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SmartCardEmulator, SmartCardEmulatorConnectionDeactivatedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ISmartCardEmulator2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConnectionDeactivated)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ConnectionDeactivated)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveConnectionDeactivated(&self, value: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveConnectionDeactivated(&self, value: i64) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ISmartCardEmulator2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveConnectionDeactivated)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -3179,31 +3179,31 @@ impl SmartCardReader {
             (windows_core::Interface::vtable(this).FindAllCardsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CardAdded<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    pub fn CardAdded<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SmartCardReader, CardAddedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CardAdded)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).CardAdded)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveCardAdded(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveCardAdded(&self, token: i64) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveCardAdded)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn CardRemoved<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    pub fn CardRemoved<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SmartCardReader, CardRemovedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CardRemoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).CardRemoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveCardRemoved(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveCardRemoved(&self, token: i64) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveCardRemoved)(windows_core::Interface::as_raw(this), token).ok() }
     }

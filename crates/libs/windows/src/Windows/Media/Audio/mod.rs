@@ -284,17 +284,17 @@ impl AudioEffectsPackConfiguration {
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn StatusChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    pub fn StatusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AudioEffectsPackConfiguration, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StatusChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).StatusChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveStatusChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveStatusChanged(&self, token: i64) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveStatusChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -426,17 +426,17 @@ impl AudioFileInputNode {
             (windows_core::Interface::vtable(this).SourceFile)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FileCompleted<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    pub fn FileCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AudioFileInputNode, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FileCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).FileCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveFileCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveFileCompleted(&self, token: i64) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveFileCompleted)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -748,31 +748,31 @@ impl AudioFrameInputNode {
             (windows_core::Interface::vtable(this).QueuedSampleCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn AudioFrameCompleted<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    pub fn AudioFrameCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AudioFrameInputNode, AudioFrameCompletedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AudioFrameCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).AudioFrameCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveAudioFrameCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveAudioFrameCompleted(&self, token: i64) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveAudioFrameCompleted)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn QuantumStarted<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    pub fn QuantumStarted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AudioFrameInputNode, FrameInputNodeQuantumStartedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).QuantumStarted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).QuantumStarted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveQuantumStarted(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveQuantumStarted(&self, token: i64) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveQuantumStarted)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -1135,45 +1135,45 @@ impl AudioGraph {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ResetAllNodes)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn QuantumStarted<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    pub fn QuantumStarted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AudioGraph, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).QuantumStarted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).QuantumStarted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveQuantumStarted(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveQuantumStarted(&self, token: i64) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveQuantumStarted)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn QuantumProcessed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    pub fn QuantumProcessed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AudioGraph, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).QuantumProcessed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).QuantumProcessed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveQuantumProcessed(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveQuantumProcessed(&self, token: i64) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveQuantumProcessed)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn UnrecoverableErrorOccurred<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    pub fn UnrecoverableErrorOccurred<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AudioGraph, AudioGraphUnrecoverableErrorOccurredEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UnrecoverableErrorOccurred)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).UnrecoverableErrorOccurred)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveUnrecoverableErrorOccurred(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveUnrecoverableErrorOccurred(&self, token: i64) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveUnrecoverableErrorOccurred)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -2077,17 +2077,17 @@ impl AudioPlaybackConnection {
             (windows_core::Interface::vtable(this).OpenAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StateChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    pub fn StateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AudioPlaybackConnection, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).StateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveStateChanged(&self, token: i64) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveStateChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -2189,17 +2189,17 @@ impl windows_core::RuntimeType for AudioPlaybackConnectionState {
 pub struct AudioStateMonitor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioStateMonitor, windows_core::IUnknown, windows_core::IInspectable);
 impl AudioStateMonitor {
-    pub fn SoundLevelChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    pub fn SoundLevelChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AudioStateMonitor, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SoundLevelChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).SoundLevelChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveSoundLevelChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveSoundLevelChanged(&self, token: i64) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveSoundLevelChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -2903,8 +2903,8 @@ pub struct IAudioEffectsPackConfiguration_Vtbl {
     pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EffectsPackId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AudioEffectsPackStatus) -> windows_core::HRESULT,
-    pub StatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub StatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioEffectsPackConfigurationStatics, IAudioEffectsPackConfigurationStatics_Vtbl, 0x61c20413_530c_55ff_ba2b_8e68a9b56a04);
 impl windows_core::RuntimeType for IAudioEffectsPackConfigurationStatics {
@@ -2938,8 +2938,8 @@ pub struct IAudioFileInputNode_Vtbl {
     pub SourceFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     SourceFile: usize,
-    pub FileCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveFileCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub FileCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveFileCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioFileOutputNode, IAudioFileOutputNode_Vtbl, 0x50e01980_5166_4093_80f8_ada00089e9cf);
 impl windows_core::RuntimeType for IAudioFileOutputNode {
@@ -2982,10 +2982,10 @@ pub struct IAudioFrameInputNode_Vtbl {
     pub AddFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DiscardQueuedFrames: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub QueuedSampleCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    pub AudioFrameCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveAudioFrameCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub QuantumStarted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveQuantumStarted: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub AudioFrameCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveAudioFrameCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+    pub QuantumStarted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveQuantumStarted: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioFrameOutputNode, IAudioFrameOutputNode_Vtbl, 0xb847371b_3299_45f5_88b3_c9d12a3f1cc8);
 impl windows_core::RuntimeType for IAudioFrameOutputNode {
@@ -3046,12 +3046,12 @@ pub struct IAudioGraph_Vtbl {
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ResetAllNodes: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub QuantumStarted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveQuantumStarted: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub QuantumProcessed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveQuantumProcessed: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub UnrecoverableErrorOccurred: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveUnrecoverableErrorOccurred: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub QuantumStarted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveQuantumStarted: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+    pub QuantumProcessed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveQuantumProcessed: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+    pub UnrecoverableErrorOccurred: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveUnrecoverableErrorOccurred: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub CompletedQuantumCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
     #[cfg(feature = "Media_MediaProperties")]
     pub EncodingProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4029,8 +4029,8 @@ pub struct IAudioPlaybackConnection_Vtbl {
     pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AudioPlaybackConnectionState) -> windows_core::HRESULT,
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub OpenAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub StateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveStateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub StateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveStateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioPlaybackConnectionOpenResult, IAudioPlaybackConnectionOpenResult_Vtbl, 0x4e656aef_39f9_5fc9_a519_a5bbfd9fe921);
 impl windows_core::RuntimeType for IAudioPlaybackConnectionOpenResult {
@@ -4059,8 +4059,8 @@ impl windows_core::RuntimeType for IAudioStateMonitor {
 #[repr(C)]
 pub struct IAudioStateMonitor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub SoundLevelChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveSoundLevelChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub SoundLevelChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveSoundLevelChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub SoundLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::SoundLevel) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioStateMonitorStatics, IAudioStateMonitorStatics_Vtbl, 0x6374ea4c_1b3b_4001_94d9_dd225330fa40);
@@ -4339,8 +4339,8 @@ pub struct IMediaSourceAudioInputNode_Vtbl {
     pub MediaSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Media_Core", feature = "Media_Playback")))]
     MediaSource: usize,
-    pub MediaSourceCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveMediaSourceCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub MediaSourceCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveMediaSourceCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Media_Effects")]
 windows_core::imp::define_interface!(IReverbEffectDefinition, IReverbEffectDefinition_Vtbl, 0x4606aa89_f563_4d0a_8f6e_f0cddff35d84);
@@ -4433,8 +4433,8 @@ pub struct ISpatialAudioDeviceConfiguration_Vtbl {
     pub ActiveSpatialAudioFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DefaultSpatialAudioFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetDefaultSpatialAudioFormatAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ConfigurationChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveConfigurationChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub ConfigurationChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveConfigurationChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialAudioDeviceConfigurationStatics, ISpatialAudioDeviceConfigurationStatics_Vtbl, 0x3ec37f7b_936d_4e04_9728_2827d9f758c4);
 impl windows_core::RuntimeType for ISpatialAudioDeviceConfigurationStatics {
@@ -4758,17 +4758,17 @@ impl MediaSourceAudioInputNode {
             (windows_core::Interface::vtable(this).MediaSource)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn MediaSourceCompleted<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    pub fn MediaSourceCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MediaSourceAudioInputNode, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MediaSourceCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).MediaSourceCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveMediaSourceCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveMediaSourceCompleted(&self, token: i64) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveMediaSourceCompleted)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -5225,17 +5225,17 @@ impl SpatialAudioDeviceConfiguration {
             (windows_core::Interface::vtable(this).SetDefaultSpatialAudioFormatAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(subtype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ConfigurationChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    pub fn ConfigurationChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SpatialAudioDeviceConfiguration, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConfigurationChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ConfigurationChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveConfigurationChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveConfigurationChanged(&self, token: i64) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveConfigurationChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }

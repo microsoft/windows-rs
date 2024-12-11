@@ -112,73 +112,73 @@ impl AdaptiveMediaSource {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetInboundBitsPerSecondWindow)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn DownloadBitrateChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    pub fn DownloadBitrateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<AdaptiveMediaSource, AdaptiveMediaSourceDownloadBitrateChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DownloadBitrateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).DownloadBitrateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveDownloadBitrateChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveDownloadBitrateChanged(&self, token: i64) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveDownloadBitrateChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn PlaybackBitrateChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    pub fn PlaybackBitrateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<AdaptiveMediaSource, AdaptiveMediaSourcePlaybackBitrateChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PlaybackBitrateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PlaybackBitrateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemovePlaybackBitrateChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemovePlaybackBitrateChanged(&self, token: i64) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemovePlaybackBitrateChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn DownloadRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    pub fn DownloadRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<AdaptiveMediaSource, AdaptiveMediaSourceDownloadRequestedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DownloadRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).DownloadRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveDownloadRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveDownloadRequested(&self, token: i64) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveDownloadRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn DownloadCompleted<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    pub fn DownloadCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<AdaptiveMediaSource, AdaptiveMediaSourceDownloadCompletedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DownloadCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).DownloadCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveDownloadCompleted(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveDownloadCompleted(&self, token: i64) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveDownloadCompleted)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn DownloadFailed<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    pub fn DownloadFailed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<AdaptiveMediaSource, AdaptiveMediaSourceDownloadFailedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DownloadFailed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).DownloadFailed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveDownloadFailed(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveDownloadFailed(&self, token: i64) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveDownloadFailed)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -595,17 +595,17 @@ impl windows_core::RuntimeType for AdaptiveMediaSourceDiagnosticType {
 pub struct AdaptiveMediaSourceDiagnostics(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AdaptiveMediaSourceDiagnostics, windows_core::IUnknown, windows_core::IInspectable);
 impl AdaptiveMediaSourceDiagnostics {
-    pub fn DiagnosticAvailable<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    pub fn DiagnosticAvailable<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<AdaptiveMediaSourceDiagnostics, AdaptiveMediaSourceDiagnosticAvailableEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DiagnosticAvailable)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).DiagnosticAvailable)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveDiagnosticAvailable(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveDiagnosticAvailable(&self, token: i64) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveDiagnosticAvailable)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -1219,16 +1219,16 @@ pub struct IAdaptiveMediaSource_Vtbl {
     pub InboundBitsPerSecond: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
     pub InboundBitsPerSecondWindow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
     pub SetInboundBitsPerSecondWindow: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub DownloadBitrateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveDownloadBitrateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub PlaybackBitrateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemovePlaybackBitrateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub DownloadRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveDownloadRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub DownloadCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveDownloadCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub DownloadFailed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveDownloadFailed: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub DownloadBitrateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveDownloadBitrateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+    pub PlaybackBitrateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemovePlaybackBitrateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+    pub DownloadRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveDownloadRequested: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+    pub DownloadCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveDownloadCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+    pub DownloadFailed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveDownloadFailed: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAdaptiveMediaSource2, IAdaptiveMediaSource2_Vtbl, 0x17890342_6760_4bb9_a58a_f7aa98b08c0e);
 impl windows_core::RuntimeType for IAdaptiveMediaSource2 {
@@ -1347,8 +1347,8 @@ impl windows_core::RuntimeType for IAdaptiveMediaSourceDiagnostics {
 #[repr(C)]
 pub struct IAdaptiveMediaSourceDiagnostics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub DiagnosticAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveDiagnosticAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub DiagnosticAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveDiagnosticAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAdaptiveMediaSourceDownloadBitrateChangedEventArgs, IAdaptiveMediaSourceDownloadBitrateChangedEventArgs_Vtbl, 0x670c0a44_e04e_4eff_816a_17399f78f4ba);
 impl windows_core::RuntimeType for IAdaptiveMediaSourceDownloadBitrateChangedEventArgs {

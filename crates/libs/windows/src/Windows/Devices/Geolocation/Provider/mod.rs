@@ -28,17 +28,17 @@ impl GeolocationProvider {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ClearOverridePosition)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn IsOverriddenChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    pub fn IsOverriddenChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsOverriddenChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).IsOverriddenChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveIsOverriddenChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveIsOverriddenChanged(&self, token: i64) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveIsOverriddenChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -65,8 +65,8 @@ pub struct IGeolocationProvider_Vtbl {
     pub IsOverridden: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetOverridePosition: unsafe extern "system" fn(*mut core::ffi::c_void, super::BasicGeoposition, super::PositionSource, f64, *mut LocationOverrideStatus) -> windows_core::HRESULT,
     pub ClearOverridePosition: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub IsOverriddenChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveIsOverriddenChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub IsOverriddenChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveIsOverriddenChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

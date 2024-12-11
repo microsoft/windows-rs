@@ -204,8 +204,8 @@ impl windows_core::RuntimeType for IUserActivityRequestManager {
 #[repr(C)]
 pub struct IUserActivityRequestManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub UserActivityRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveUserActivityRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub UserActivityRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveUserActivityRequested: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUserActivityRequestManagerStatics, IUserActivityRequestManagerStatics_Vtbl, 0xc0392df1_224a_432c_81e5_0c76b4c4cefa);
 impl windows_core::RuntimeType for IUserActivityRequestManagerStatics {
@@ -713,17 +713,17 @@ unsafe impl Sync for UserActivityRequest {}
 pub struct UserActivityRequestManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserActivityRequestManager, windows_core::IUnknown, windows_core::IInspectable);
 impl UserActivityRequestManager {
-    pub fn UserActivityRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    pub fn UserActivityRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<UserActivityRequestManager, UserActivityRequestedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UserActivityRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).UserActivityRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveUserActivityRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveUserActivityRequested(&self, token: i64) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveUserActivityRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }

@@ -190,17 +190,17 @@ impl ApplicationData {
             (windows_core::Interface::vtable(this).TemporaryFolder)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DataChanged<P0>(&self, handler: P0) -> windows_core::Result<super::Foundation::EventRegistrationToken>
+    pub fn DataChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::Foundation::TypedEventHandler<ApplicationData, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DataChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).DataChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveDataChanged(&self, token: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveDataChanged(&self, token: i64) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveDataChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -359,17 +359,17 @@ impl ApplicationDataCompositeValue {
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn MapChanged<P0>(&self, vhnd: P0) -> windows_core::Result<super::Foundation::EventRegistrationToken>
+    pub fn MapChanged<P0>(&self, vhnd: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::Foundation::Collections::MapChangedEventHandler<windows_core::HSTRING, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<super::Foundation::Collections::IObservableMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveMapChanged(&self, token: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveMapChanged(&self, token: i64) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::Foundation::Collections::IObservableMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveMapChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -536,17 +536,17 @@ impl ApplicationDataContainerSettings {
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn MapChanged<P0>(&self, vhnd: P0) -> windows_core::Result<super::Foundation::EventRegistrationToken>
+    pub fn MapChanged<P0>(&self, vhnd: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::Foundation::Collections::MapChangedEventHandler<windows_core::HSTRING, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<super::Foundation::Collections::IObservableMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveMapChanged(&self, token: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveMapChanged(&self, token: i64) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::Foundation::Collections::IObservableMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveMapChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -1080,8 +1080,8 @@ pub struct IApplicationData_Vtbl {
     pub TemporaryFolder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Search"))]
     TemporaryFolder: usize,
-    pub DataChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveDataChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub DataChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveDataChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub SignalDataChanged: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RoamingStorageQuota: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
 }
@@ -3339,8 +3339,8 @@ pub struct IStorageLibrary_Vtbl {
     pub SaveFolder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Search"))]
     SaveFolder: usize,
-    pub DefinitionChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveDefinitionChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub DefinitionChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveDefinitionChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageLibrary2, IStorageLibrary2_Vtbl, 0x5b0ce348_fcb3_4031_afb0_a68d7bd44534);
 impl windows_core::RuntimeType for IStorageLibrary2 {
@@ -5107,17 +5107,17 @@ impl StorageLibrary {
             (windows_core::Interface::vtable(this).SaveFolder)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DefinitionChanged<P0>(&self, handler: P0) -> windows_core::Result<super::Foundation::EventRegistrationToken>
+    pub fn DefinitionChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::Foundation::TypedEventHandler<StorageLibrary, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DefinitionChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).DefinitionChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveDefinitionChanged(&self, eventcookie: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveDefinitionChanged(&self, eventcookie: i64) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveDefinitionChanged)(windows_core::Interface::as_raw(this), eventcookie).ok() }
     }

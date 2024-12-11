@@ -84,6 +84,16 @@ impl IMemoryBufferReference {
             .map(|| result__)
         }
     }
+    pub fn RemoveClosed(&self, cookie: i64) -> windows_core::Result<()> {
+        let this = self;
+        unsafe {
+            (windows_core::Interface::vtable(this).RemoveClosed)(
+                windows_core::Interface::as_raw(this),
+                cookie,
+            )
+            .ok()
+        }
+    }
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IClosable>(self)?;
         unsafe {
@@ -97,6 +107,7 @@ impl windows_core::RuntimeName for IMemoryBufferReference {
 }
 pub trait IMemoryBufferReference_Impl: IClosable_Impl {
     fn Capacity(&self) -> windows_core::Result<u32>;
+    fn RemoveClosed(&self, cookie: i64) -> windows_core::Result<()>;
 }
 impl IMemoryBufferReference_Vtbl {
     pub const fn new<Identity: IMemoryBufferReference_Impl, const OFFSET: isize>() -> Self {
@@ -116,12 +127,22 @@ impl IMemoryBufferReference_Vtbl {
                 Err(err) => err.into(),
             }
         }
+        unsafe extern "system" fn RemoveClosed<
+            Identity: IMemoryBufferReference_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            cookie: i64,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMemoryBufferReference_Impl::RemoveClosed(this, cookie).into()
+        }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IMemoryBufferReference, OFFSET>(
             ),
             Capacity: Capacity::<Identity, OFFSET>,
             add_Closed: 0,
-            remove_Closed: 0,
+            RemoveClosed: RemoveClosed::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -134,5 +155,6 @@ pub struct IMemoryBufferReference_Vtbl {
     pub Capacity:
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     add_Closed: usize,
-    remove_Closed: usize,
+    pub RemoveClosed:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }

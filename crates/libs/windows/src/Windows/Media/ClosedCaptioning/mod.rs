@@ -128,16 +128,16 @@ impl ClosedCaptionProperties {
             (windows_core::Interface::vtable(this).RegionOpacity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn PropertiesChanged<P0>(handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    pub fn PropertiesChanged<P0>(handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
         Self::IClosedCaptionPropertiesStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PropertiesChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PropertiesChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemovePropertiesChanged(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemovePropertiesChanged(token: i64) -> windows_core::Result<()> {
         Self::IClosedCaptionPropertiesStatics2(|this| unsafe { (windows_core::Interface::vtable(this).RemovePropertiesChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
     fn IClosedCaptionPropertiesStatics<R, F: FnOnce(&IClosedCaptionPropertiesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -223,6 +223,6 @@ impl windows_core::RuntimeType for IClosedCaptionPropertiesStatics2 {
 #[repr(C)]
 pub struct IClosedCaptionPropertiesStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub PropertiesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemovePropertiesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub PropertiesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemovePropertiesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }

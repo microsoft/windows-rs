@@ -1100,17 +1100,17 @@ impl DownloadOperation {
             (windows_core::Interface::vtable(this).GetDownloadedRanges)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RangesDownloaded<P0>(&self, eventhandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    pub fn RangesDownloaded<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DownloadOperation, BackgroundTransferRangesDownloadedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IDownloadOperation3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RangesDownloaded)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).RangesDownloaded)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveRangesDownloaded(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveRangesDownloaded(&self, eventcookie: i64) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IDownloadOperation3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveRangesDownloaded)(windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
@@ -2107,8 +2107,8 @@ pub struct IDownloadOperation3_Vtbl {
     pub GetDownloadedRanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     GetDownloadedRanges: usize,
-    pub RangesDownloaded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveRangesDownloaded: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RangesDownloaded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveRangesDownloaded: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub SetRequestedUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Foundation_Collections", feature = "Web"))]
     pub RecoverableWebErrorStatuses: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

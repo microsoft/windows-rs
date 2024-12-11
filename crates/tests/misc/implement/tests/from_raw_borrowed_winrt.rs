@@ -1,7 +1,7 @@
 #![allow(non_snake_case)]
 
 use std::sync::*;
-use windows::{core::*, ApplicationModel::Background::*, Foundation::*, Win32::Foundation::*};
+use windows::{core::*, ApplicationModel::Background::*, Win32::Foundation::*};
 
 #[interface("a563f463-3d23-42cd-a2b5-6d21ee898aae")]
 unsafe trait IBorrowed: IUnknown {
@@ -44,13 +44,10 @@ impl IBackgroundTaskInstance_Impl for Borrowed_Impl {
     fn TriggerDetails(&self) -> Result<IInspectable> {
         unimplemented!()
     }
-    fn Canceled(
-        &self,
-        _cancelhandler: Option<&BackgroundTaskCanceledEventHandler>,
-    ) -> Result<EventRegistrationToken> {
+    fn Canceled(&self, _cancelhandler: Option<&BackgroundTaskCanceledEventHandler>) -> Result<i64> {
         unimplemented!()
     }
-    fn RemoveCanceled(&self, _cookie: &EventRegistrationToken) -> Result<()> {
+    fn RemoveCanceled(&self, _cookie: i64) -> Result<()> {
         unimplemented!()
     }
     fn SuspendedCount(&self) -> Result<u32> {

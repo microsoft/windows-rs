@@ -21,10 +21,10 @@ pub struct IPrintSupportExtensionSession_Vtbl {
     pub Printer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Devices_Printers"))]
     Printer: usize,
-    pub PrintTicketValidationRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemovePrintTicketValidationRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub PrintDeviceCapabilitiesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemovePrintDeviceCapabilitiesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub PrintTicketValidationRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemovePrintTicketValidationRequested: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+    pub PrintDeviceCapabilitiesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemovePrintDeviceCapabilitiesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintSupportExtensionSession2, IPrintSupportExtensionSession2_Vtbl, 0x10fa8c11_6de8_5765_8fcf_e716e0f27ed1);
@@ -34,8 +34,8 @@ impl windows_core::RuntimeType for IPrintSupportExtensionSession2 {
 #[repr(C)]
 pub struct IPrintSupportExtensionSession2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub PrinterSelected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemovePrinterSelected: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub PrinterSelected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemovePrinterSelected: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintSupportExtensionSession3, IPrintSupportExtensionSession3_Vtbl, 0x0d1b755d_1273_5e14_81d3_b6bb582b9ed8);
 impl windows_core::RuntimeType for IPrintSupportExtensionSession3 {
@@ -44,8 +44,8 @@ impl windows_core::RuntimeType for IPrintSupportExtensionSession3 {
 #[repr(C)]
 pub struct IPrintSupportExtensionSession3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub CommunicationErrorDetected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveCommunicationErrorDetected: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub CommunicationErrorDetected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveCommunicationErrorDetected: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintSupportExtensionTriggerDetails, IPrintSupportExtensionTriggerDetails_Vtbl, 0xae083711_9b09_55d1_a0ae_2a14c5f83d6a);
 impl windows_core::RuntimeType for IPrintSupportExtensionTriggerDetails {
@@ -386,31 +386,31 @@ impl PrintSupportExtensionSession {
             (windows_core::Interface::vtable(this).Printer)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn PrintTicketValidationRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    pub fn PrintTicketValidationRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintSupportExtensionSession, PrintSupportPrintTicketValidationRequestedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PrintTicketValidationRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PrintTicketValidationRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemovePrintTicketValidationRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemovePrintTicketValidationRequested(&self, token: i64) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemovePrintTicketValidationRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn PrintDeviceCapabilitiesChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    pub fn PrintDeviceCapabilitiesChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintSupportExtensionSession, PrintSupportPrintDeviceCapabilitiesChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PrintDeviceCapabilitiesChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PrintDeviceCapabilitiesChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemovePrintDeviceCapabilitiesChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemovePrintDeviceCapabilitiesChanged(&self, token: i64) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemovePrintDeviceCapabilitiesChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -418,31 +418,31 @@ impl PrintSupportExtensionSession {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn PrinterSelected<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    pub fn PrinterSelected<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintSupportExtensionSession, PrintSupportPrinterSelectedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IPrintSupportExtensionSession2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PrinterSelected)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PrinterSelected)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemovePrinterSelected(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemovePrinterSelected(&self, token: i64) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IPrintSupportExtensionSession2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemovePrinterSelected)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn CommunicationErrorDetected<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    pub fn CommunicationErrorDetected<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintSupportExtensionSession, PrintSupportCommunicationErrorDetectedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IPrintSupportExtensionSession3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CommunicationErrorDetected)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).CommunicationErrorDetected)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveCommunicationErrorDetected(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveCommunicationErrorDetected(&self, token: i64) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IPrintSupportExtensionSession3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveCommunicationErrorDetected)(windows_core::Interface::as_raw(this), token).ok() }
     }

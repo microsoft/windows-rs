@@ -119,8 +119,8 @@ pub struct ISpatialSurfaceObserver_Vtbl {
     pub SetBoundingVolumes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     SetBoundingVolumes: usize,
-    pub ObservedSurfacesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveObservedSurfacesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub ObservedSurfacesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveObservedSurfacesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialSurfaceObserverStatics, ISpatialSurfaceObserverStatics_Vtbl, 0x165951ed_2108_4168_9175_87e027bc9285);
 impl windows_core::RuntimeType for ISpatialSurfaceObserverStatics {
@@ -444,17 +444,17 @@ impl SpatialSurfaceObserver {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetBoundingVolumes)(windows_core::Interface::as_raw(this), bounds.param().abi()).ok() }
     }
-    pub fn ObservedSurfacesChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    pub fn ObservedSurfacesChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialSurfaceObserver, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ObservedSurfacesChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ObservedSurfacesChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveObservedSurfacesChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveObservedSurfacesChanged(&self, token: i64) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveObservedSurfacesChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }

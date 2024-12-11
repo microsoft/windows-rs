@@ -780,17 +780,17 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     const QUERY: bool = true;
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> IObservableMap<K, V> {
-    pub fn MapChanged<P0>(&self, vhnd: P0) -> windows_core::Result<super::EventRegistrationToken>
+    pub fn MapChanged<P0>(&self, vhnd: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<MapChangedEventHandler<K, V>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveMapChanged(&self, token: super::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveMapChanged(&self, token: i64) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveMapChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -880,12 +880,12 @@ where
     K: windows_core::RuntimeType + 'static,
     V: windows_core::RuntimeType + 'static,
 {
-    fn MapChanged(&self, vhnd: Option<&MapChangedEventHandler<K, V>>) -> windows_core::Result<super::EventRegistrationToken>;
-    fn RemoveMapChanged(&self, token: &super::EventRegistrationToken) -> windows_core::Result<()>;
+    fn MapChanged(&self, vhnd: Option<&MapChangedEventHandler<K, V>>) -> windows_core::Result<i64>;
+    fn RemoveMapChanged(&self, token: i64) -> windows_core::Result<()>;
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> IObservableMap_Vtbl<K, V> {
     pub const fn new<Identity: IObservableMap_Impl<K, V>, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn MapChanged<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, Identity: IObservableMap_Impl<K, V>, const OFFSET: isize>(this: *mut core::ffi::c_void, vhnd: *mut core::ffi::c_void, result__: *mut super::EventRegistrationToken) -> windows_core::HRESULT {
+        unsafe extern "system" fn MapChanged<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, Identity: IObservableMap_Impl<K, V>, const OFFSET: isize>(this: *mut core::ffi::c_void, vhnd: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IObservableMap_Impl::MapChanged(this, windows_core::from_raw_borrowed(&vhnd)) {
                 Ok(ok__) => {
@@ -895,9 +895,9 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveMapChanged<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, Identity: IObservableMap_Impl<K, V>, const OFFSET: isize>(this: *mut core::ffi::c_void, token: super::EventRegistrationToken) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveMapChanged<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, Identity: IObservableMap_Impl<K, V>, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IObservableMap_Impl::RemoveMapChanged(this, core::mem::transmute(&token)).into()
+            IObservableMap_Impl::RemoveMapChanged(this, token).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IObservableMap<K, V>, OFFSET>(),
@@ -918,8 +918,8 @@ where
     V: windows_core::RuntimeType + 'static,
 {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub MapChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveMapChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::EventRegistrationToken) -> windows_core::HRESULT,
+    pub MapChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveMapChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     K: core::marker::PhantomData<K>,
     V: core::marker::PhantomData<V>,
 }
@@ -944,17 +944,17 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IVector<
     const QUERY: bool = true;
 }
 impl<T: windows_core::RuntimeType + 'static> IObservableVector<T> {
-    pub fn VectorChanged<P0>(&self, vhnd: P0) -> windows_core::Result<super::EventRegistrationToken>
+    pub fn VectorChanged<P0>(&self, vhnd: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<VectorChangedEventHandler<T>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).VectorChanged)(windows_core::Interface::as_raw(this), vhnd.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).VectorChanged)(windows_core::Interface::as_raw(this), vhnd.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveVectorChanged(&self, token: super::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveVectorChanged(&self, token: i64) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveVectorChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -1062,12 +1062,12 @@ pub trait IObservableVector_Impl<T>: IIterable_Impl<T> + IVector_Impl<T>
 where
     T: windows_core::RuntimeType + 'static,
 {
-    fn VectorChanged(&self, vhnd: Option<&VectorChangedEventHandler<T>>) -> windows_core::Result<super::EventRegistrationToken>;
-    fn RemoveVectorChanged(&self, token: &super::EventRegistrationToken) -> windows_core::Result<()>;
+    fn VectorChanged(&self, vhnd: Option<&VectorChangedEventHandler<T>>) -> windows_core::Result<i64>;
+    fn RemoveVectorChanged(&self, token: i64) -> windows_core::Result<()>;
 }
 impl<T: windows_core::RuntimeType + 'static> IObservableVector_Vtbl<T> {
     pub const fn new<Identity: IObservableVector_Impl<T>, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn VectorChanged<T: windows_core::RuntimeType + 'static, Identity: IObservableVector_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void, vhnd: *mut core::ffi::c_void, result__: *mut super::EventRegistrationToken) -> windows_core::HRESULT {
+        unsafe extern "system" fn VectorChanged<T: windows_core::RuntimeType + 'static, Identity: IObservableVector_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void, vhnd: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IObservableVector_Impl::VectorChanged(this, windows_core::from_raw_borrowed(&vhnd)) {
                 Ok(ok__) => {
@@ -1077,9 +1077,9 @@ impl<T: windows_core::RuntimeType + 'static> IObservableVector_Vtbl<T> {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveVectorChanged<T: windows_core::RuntimeType + 'static, Identity: IObservableVector_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void, token: super::EventRegistrationToken) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveVectorChanged<T: windows_core::RuntimeType + 'static, Identity: IObservableVector_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IObservableVector_Impl::RemoveVectorChanged(this, core::mem::transmute(&token)).into()
+            IObservableVector_Impl::RemoveVectorChanged(this, token).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IObservableVector<T>, OFFSET>(),
@@ -1098,8 +1098,8 @@ where
     T: windows_core::RuntimeType + 'static,
 {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub VectorChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveVectorChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::EventRegistrationToken) -> windows_core::HRESULT,
+    pub VectorChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveVectorChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     T: core::marker::PhantomData<T>,
 }
 windows_core::imp::define_interface!(IPropertySet, IPropertySet_Vtbl, 0x8a43ed9f_f4e6_4421_acf9_1dab2986820c);
@@ -1162,17 +1162,17 @@ impl IPropertySet {
         let this = &windows_core::Interface::cast::<IMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn MapChanged<P0>(&self, vhnd: P0) -> windows_core::Result<super::EventRegistrationToken>
+    pub fn MapChanged<P0>(&self, vhnd: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<MapChangedEventHandler<windows_core::HSTRING, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IObservableMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveMapChanged(&self, token: super::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveMapChanged(&self, token: i64) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IObservableMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveMapChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -1833,17 +1833,17 @@ impl PropertySet {
         let this = &windows_core::Interface::cast::<IMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn MapChanged<P0>(&self, vhnd: P0) -> windows_core::Result<super::EventRegistrationToken>
+    pub fn MapChanged<P0>(&self, vhnd: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<MapChangedEventHandler<windows_core::HSTRING, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IObservableMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveMapChanged(&self, token: super::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveMapChanged(&self, token: i64) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IObservableMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveMapChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -1937,17 +1937,17 @@ impl StringMap {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn MapChanged<P0>(&self, vhnd: P0) -> windows_core::Result<super::EventRegistrationToken>
+    pub fn MapChanged<P0>(&self, vhnd: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<MapChangedEventHandler<windows_core::HSTRING, windows_core::HSTRING>>,
     {
         let this = &windows_core::Interface::cast::<IObservableMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveMapChanged(&self, token: super::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveMapChanged(&self, token: i64) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IObservableMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveMapChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -2044,17 +2044,17 @@ impl ValueSet {
         let this = &windows_core::Interface::cast::<IMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn MapChanged<P0>(&self, vhnd: P0) -> windows_core::Result<super::EventRegistrationToken>
+    pub fn MapChanged<P0>(&self, vhnd: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<MapChangedEventHandler<windows_core::HSTRING, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IObservableMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveMapChanged(&self, token: super::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveMapChanged(&self, token: i64) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IObservableMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveMapChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }

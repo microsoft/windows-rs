@@ -1275,17 +1275,17 @@ impl ResourceQualifierObservableMap {
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn MapChanged<P0>(&self, vhnd: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    pub fn MapChanged<P0>(&self, vhnd: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::Collections::MapChangedEventHandler<windows_core::HSTRING, windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveMapChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveMapChanged(&self, token: i64) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveMapChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }

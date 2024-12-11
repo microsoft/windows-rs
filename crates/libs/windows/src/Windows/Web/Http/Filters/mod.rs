@@ -162,17 +162,17 @@ impl HttpBaseProtocolFilter {
         let this = &windows_core::Interface::cast::<IHttpBaseProtocolFilter3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetCookieUsageBehavior)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ServerCustomValidationRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    pub fn ServerCustomValidationRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<HttpBaseProtocolFilter, HttpServerCustomValidationRequestedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IHttpBaseProtocolFilter4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ServerCustomValidationRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ServerCustomValidationRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveServerCustomValidationRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveServerCustomValidationRequested(&self, token: i64) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IHttpBaseProtocolFilter4>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveServerCustomValidationRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -449,8 +449,8 @@ impl windows_core::RuntimeType for IHttpBaseProtocolFilter4 {
 #[repr(C)]
 pub struct IHttpBaseProtocolFilter4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub ServerCustomValidationRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveServerCustomValidationRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub ServerCustomValidationRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveServerCustomValidationRequested: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub ClearAuthenticationCache: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHttpBaseProtocolFilter5, IHttpBaseProtocolFilter5_Vtbl, 0x416e4993_31e3_4816_bf09_e018ee8dc1f5);

@@ -150,8 +150,8 @@ impl windows_core::RuntimeType for IUserDataAccountStore2 {
 pub struct IUserDataAccountStore2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateAccountWithPackageRelativeAppIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub StoreChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveStoreChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub StoreChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveStoreChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUserDataAccountStore3, IUserDataAccountStore3_Vtbl, 0x8142c094_f3c9_478b_b117_6585bebb6789);
 impl windows_core::RuntimeType for IUserDataAccountStore3 {
@@ -549,17 +549,17 @@ impl UserDataAccountStore {
             (windows_core::Interface::vtable(this).CreateAccountWithPackageRelativeAppIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(userdisplayname), core::mem::transmute_copy(packagerelativeappid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StoreChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    pub fn StoreChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<UserDataAccountStore, UserDataAccountStoreChangedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IUserDataAccountStore2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StoreChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).StoreChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveStoreChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveStoreChanged(&self, token: i64) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IUserDataAccountStore2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveStoreChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }

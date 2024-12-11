@@ -14,40 +14,40 @@ impl GameList {
             (windows_core::Interface::vtable(this).FindAllAsyncPackageFamilyName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefamilyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GameAdded<P0>(handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    pub fn GameAdded<P0>(handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<GameListChangedEventHandler>,
     {
         Self::IGameListStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GameAdded)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).GameAdded)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveGameAdded(token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveGameAdded(token: i64) -> windows_core::Result<()> {
         Self::IGameListStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveGameAdded)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    pub fn GameRemoved<P0>(handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    pub fn GameRemoved<P0>(handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<GameListRemovedEventHandler>,
     {
         Self::IGameListStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GameRemoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).GameRemoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveGameRemoved(token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveGameRemoved(token: i64) -> windows_core::Result<()> {
         Self::IGameListStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveGameRemoved)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    pub fn GameUpdated<P0>(handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    pub fn GameUpdated<P0>(handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<GameListChangedEventHandler>,
     {
         Self::IGameListStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GameUpdated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).GameUpdated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveGameUpdated(token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveGameUpdated(token: i64) -> windows_core::Result<()> {
         Self::IGameListStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveGameUpdated)(windows_core::Interface::as_raw(this), token).ok() })
     }
     pub fn MergeEntriesAsync<P0, P1>(left: P0, right: P1) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GameListEntry>>
@@ -711,12 +711,12 @@ pub struct IGameListStatics_Vtbl {
     pub FindAllAsyncPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     FindAllAsyncPackageFamilyName: usize,
-    pub GameAdded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveGameAdded: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub GameRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveGameRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub GameUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveGameUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub GameAdded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveGameAdded: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+    pub GameRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveGameRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+    pub GameUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveGameUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGameListStatics2, IGameListStatics2_Vtbl, 0x395f2098_ea1a_45aa_9268_a83905686f27);
 impl windows_core::RuntimeType for IGameListStatics2 {

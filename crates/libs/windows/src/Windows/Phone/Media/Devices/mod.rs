@@ -33,17 +33,17 @@ impl AudioRoutingManager {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAudioEndpoint)(windows_core::Interface::as_raw(this), endpoint).ok() }
     }
-    pub fn AudioEndpointChanged<P0>(&self, endpointchangehandler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    pub fn AudioEndpointChanged<P0>(&self, endpointchangehandler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<AudioRoutingManager, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AudioEndpointChanged)(windows_core::Interface::as_raw(this), endpointchangehandler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).AudioEndpointChanged)(windows_core::Interface::as_raw(this), endpointchangehandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveAudioEndpointChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveAudioEndpointChanged(&self, token: i64) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveAudioEndpointChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -134,8 +134,8 @@ pub struct IAudioRoutingManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetAudioEndpoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AudioRoutingEndpoint) -> windows_core::HRESULT,
     pub SetAudioEndpoint: unsafe extern "system" fn(*mut core::ffi::c_void, AudioRoutingEndpoint) -> windows_core::HRESULT,
-    pub AudioEndpointChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveAudioEndpointChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub AudioEndpointChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveAudioEndpointChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub AvailableAudioEndpoints: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AvailableAudioRoutingEndpoints) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioRoutingManagerStatics, IAudioRoutingManagerStatics_Vtbl, 0x977fb2a4_5590_4a6f_adde_6a3d0ad58250);

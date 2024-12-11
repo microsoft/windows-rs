@@ -17,17 +17,17 @@ impl AppBroadcastingMonitor {
             (windows_core::Interface::vtable(this).IsCurrentAppBroadcasting)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsCurrentAppBroadcastingChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    pub fn IsCurrentAppBroadcastingChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppBroadcastingMonitor, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsCurrentAppBroadcastingChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).IsCurrentAppBroadcastingChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveIsCurrentAppBroadcastingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveIsCurrentAppBroadcastingChanged(&self, token: i64) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveIsCurrentAppBroadcastingChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -207,8 +207,8 @@ impl windows_core::RuntimeType for IAppBroadcastingMonitor {
 pub struct IAppBroadcastingMonitor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsCurrentAppBroadcasting: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub IsCurrentAppBroadcastingChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveIsCurrentAppBroadcastingChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub IsCurrentAppBroadcastingChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveIsCurrentAppBroadcastingChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppBroadcastingStatus, IAppBroadcastingStatus_Vtbl, 0x1225e4df_03a1_42f8_8b80_c9228cd9cf2e);
 impl windows_core::RuntimeType for IAppBroadcastingStatus {
