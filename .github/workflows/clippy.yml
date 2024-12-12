@@ -231,6 +231,8 @@ jobs:
         run:  cargo clippy -p test_query_signature
       - name: Clippy test_readme
         run:  cargo clippy -p test_readme
+      - name: Clippy test_ref_params
+        run:  cargo clippy -p test_ref_params
       - name: Clippy test_reference
         run:  cargo clippy -p test_reference
       - name: Clippy test_reference_client
