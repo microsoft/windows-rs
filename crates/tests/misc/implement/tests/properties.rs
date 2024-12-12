@@ -13,7 +13,7 @@ use windows::{
 struct Object(std::sync::RwLock<PROPVARIANT>);
 
 impl IInitializeWithStream_Impl for Object_Impl {
-    fn Initialize(&self, _: Option<&IStream>, _: u32) -> Result<()> {
+    fn Initialize(&self, _: Ref<IStream>, _: u32) -> Result<()> {
         Ok(())
     }
 }

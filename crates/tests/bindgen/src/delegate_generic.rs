@@ -26,7 +26,7 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for Event
 impl<T: windows_core::RuntimeType + 'static> EventHandler<T> {
     pub fn new<
         F: FnMut(
-                Option<&windows_core::IInspectable>,
+                windows_core::Ref<'_, windows_core::IInspectable>,
                 &<T as windows_core::Type<T>>::Default,
             ) -> windows_core::Result<()>
             + Send
@@ -74,7 +74,7 @@ where
 struct EventHandlerBox<
     T,
     F: FnMut(
-            Option<&windows_core::IInspectable>,
+            windows_core::Ref<'_, windows_core::IInspectable>,
             &<T as windows_core::Type<T>>::Default,
         ) -> windows_core::Result<()>
         + Send
@@ -89,7 +89,7 @@ struct EventHandlerBox<
 impl<
         T: windows_core::RuntimeType + 'static,
         F: FnMut(
-                Option<&windows_core::IInspectable>,
+                windows_core::Ref<'_, windows_core::IInspectable>,
                 &<T as windows_core::Type<T>>::Default,
             ) -> windows_core::Result<()>
             + Send
@@ -148,7 +148,7 @@ impl<
     ) -> windows_core::HRESULT {
         let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
         (this.invoke)(
-            windows_core::from_raw_borrowed(&sender),
+            core::mem::transmute_copy(&sender),
             core::mem::transmute(&args),
         )
         .into()

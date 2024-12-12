@@ -315,10 +315,10 @@ pub trait IClass_Impl: windows_core::IUnknownImpl {
     ) -> windows_core::Result<windows_core::Array<windows_core::HSTRING>>;
     fn Input(
         &self,
-        a: Option<&windows_core::IInspectable>,
-        b: Option<&Class>,
-        c: Option<&windows::Foundation::IStringable>,
-        d: Option<&Callback>,
+        a: windows_core::Ref<'_, windows_core::IInspectable>,
+        b: windows_core::Ref<'_, Class>,
+        c: windows_core::Ref<'_, windows::Foundation::IStringable>,
+        d: windows_core::Ref<'_, Callback>,
     ) -> windows_core::Result<()>;
 }
 impl IClass_Vtbl {
@@ -434,10 +434,10 @@ impl IClass_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IClass_Impl::Input(
                 this,
-                windows_core::from_raw_borrowed(&a),
-                windows_core::from_raw_borrowed(&b),
-                windows_core::from_raw_borrowed(&c),
-                windows_core::from_raw_borrowed(&d),
+                core::mem::transmute_copy(&a),
+                core::mem::transmute_copy(&b),
+                core::mem::transmute_copy(&c),
+                core::mem::transmute_copy(&d),
             )
             .into()
         }

@@ -140,6 +140,9 @@ fn main() {
     test("--out bool.rs --filter EnableMouseInPointer --reference windows,skip-root,Windows");
     test("--out bool_event.rs --filter CreateEventW SetEvent NtWaitForSingleObject WaitForSingleObjectEx --reference windows,skip-root,Windows");
 
+    // Tests Ref and OutRef for COM interfaces since we can't use MIDLRT for that.
+    test("--out ref_params.rs --filter IDynamicConceptProviderConcept IModelObject IKeyStore");
+
     // Tests simulating reference dependency and dependent
     test_raw(
         "--no-comment --out reference_dependency_flat.rs --filter IMemoryBufferReference --flat",

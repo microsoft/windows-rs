@@ -21,7 +21,7 @@ impl windows_core::RuntimeName for IReference {
 pub trait IReference_Impl: windows_core::IUnknownImpl {
     fn Method(
         &self,
-        stringable: Option<&windows::Foundation::IStringable>,
+        stringable: windows_core::Ref<'_, windows::Foundation::IStringable>,
     ) -> windows_core::Result<windows_core::HSTRING>;
 }
 impl IReference_Vtbl {
@@ -32,7 +32,7 @@ impl IReference_Vtbl {
             result__: *mut *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IReference_Impl::Method(this, windows_core::from_raw_borrowed(&stringable)) {
+            match IReference_Impl::Method(this, core::mem::transmute_copy(&stringable)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);

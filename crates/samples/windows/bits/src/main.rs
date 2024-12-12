@@ -39,7 +39,7 @@ fn main() -> Result<()> {
 struct Callback;
 
 impl IBackgroundCopyCallback_Impl for Callback_Impl {
-    fn JobTransferred(&self, job: Option<&IBackgroundCopyJob>) -> Result<()> {
+    fn JobTransferred(&self, job: Ref<IBackgroundCopyJob>) -> Result<()> {
         let job = job.unwrap();
         unsafe { job.Complete()? };
         println!("done");
@@ -48,8 +48,8 @@ impl IBackgroundCopyCallback_Impl for Callback_Impl {
 
     fn JobError(
         &self,
-        job: Option<&IBackgroundCopyJob>,
-        error: Option<&IBackgroundCopyError>,
+        job: Ref<IBackgroundCopyJob>,
+        error: Ref<IBackgroundCopyError>,
     ) -> Result<()> {
         let job = job.unwrap();
         let error = error.unwrap();
@@ -60,7 +60,7 @@ impl IBackgroundCopyCallback_Impl for Callback_Impl {
         std::process::exit(0);
     }
 
-    fn JobModification(&self, _: Option<&IBackgroundCopyJob>, _: u32) -> Result<()> {
+    fn JobModification(&self, _: Ref<IBackgroundCopyJob>, _: u32) -> Result<()> {
         Ok(())
     }
 }

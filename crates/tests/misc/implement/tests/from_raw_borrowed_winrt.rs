@@ -18,13 +18,9 @@ impl IBorrowed_Impl for Borrowed_Impl {
 }
 
 impl IBackgroundTask_Impl for Borrowed_Impl {
-    fn Run(&self, instance: Option<&IBackgroundTaskInstance>) -> Result<()> {
-        if let Some(instance) = instance {
-            assert_eq!(instance.SuspendedCount()?, *self.0.read().unwrap());
-            Ok(())
-        } else {
-            Err(E_INVALIDARG.into())
-        }
+    fn Run(&self, instance: Ref<IBackgroundTaskInstance>) -> Result<()> {
+        assert_eq!(instance.ok()?.SuspendedCount()?, *self.0.read().unwrap());
+        Ok(())
     }
 }
 
@@ -44,7 +40,7 @@ impl IBackgroundTaskInstance_Impl for Borrowed_Impl {
     fn TriggerDetails(&self) -> Result<IInspectable> {
         unimplemented!()
     }
-    fn Canceled(&self, _cancelhandler: Option<&BackgroundTaskCanceledEventHandler>) -> Result<i64> {
+    fn Canceled(&self, _cancelhandler: Ref<BackgroundTaskCanceledEventHandler>) -> Result<i64> {
         unimplemented!()
     }
     fn RemoveCanceled(&self, _cookie: i64) -> Result<()> {
@@ -67,11 +63,11 @@ fn test() -> Result<()> {
         let task = one_two_three.cast::<IBackgroundTask>()?;
         let instance = one_two_three.cast::<IBackgroundTaskInstance>()?;
 
-        assert_eq!(task.Run(None).unwrap_err().code(), E_INVALIDARG);
+        assert_eq!(task.Run(None).unwrap_err().code(), E_POINTER);
         task.Run(&instance)?;
 
         let handler = BackgroundTaskCanceledEventHandler::new(|instance, reason| {
-            if let Some(instance) = instance {
+            if let Some(instance) = &*instance {
                 assert_eq!(
                     instance.SuspendedCount()?,
                     instance.cast::<IBorrowed>()?.Call()

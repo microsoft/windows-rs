@@ -1,0 +1,21 @@
+[package]
+name = "test_ref_params"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+doc = false
+doctest = false
+
+[dependencies.windows-core]
+workspace = true
+
+[build-dependencies.windows-bindgen]
+workspace = true
+
+[build-dependencies]
+cc = "1.0"
+
+[build-dependencies.cppwinrt]
+workspace = true

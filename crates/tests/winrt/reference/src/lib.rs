@@ -34,7 +34,7 @@ impl IStringable_Impl for Reference_Impl {
 }
 
 impl bindings::IReference_Impl for Reference_Impl {
-    fn Method(&self, stringable: Option<&IStringable>) -> Result<HSTRING> {
+    fn Method(&self, stringable: Ref<IStringable>) -> Result<HSTRING> {
         stringable.unwrap().ToString()
     }
 }

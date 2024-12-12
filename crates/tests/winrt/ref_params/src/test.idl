@@ -1,0 +1,10 @@
+namespace Test
+{
+    interface ITest
+    {
+        Int32 Input(ITest input);
+        void Output(Int32 value, out ITest output);
+
+        Int32 Current { get; set; };
+    }
+}
