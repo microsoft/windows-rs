@@ -342,11 +342,11 @@ impl Type {
             Self::PtrMut(ty, pointers) => Self::PtrMut(ty.clone(), pointers - 1),
             Self::PSTR | Self::PCSTR => Self::U8,
             Self::PWSTR | Self::PCWSTR => Self::U16,
-            rest => panic!("{rest:?}"),
+            _ => self.clone(),
         }
     }
 
-    pub fn is_nullable(&self) -> bool {
+    pub fn is_interface(&self) -> bool {
         matches!(
             self,
             Self::Class(_)
@@ -472,7 +472,7 @@ impl Type {
 
             if matches!(self, Self::Param(_)) {
                 quote! { <#tokens as windows_core::Type<#tokens>>::Default }
-            } else if self.is_nullable() && !writer.config.sys {
+            } else if self.is_interface() && !writer.config.sys {
                 quote! { Option<#tokens> }
             } else {
                 tokens

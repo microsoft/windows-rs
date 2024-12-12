@@ -130,7 +130,7 @@ impl CppFn {
                 let where_clause = method.write_where(writer, false);
                 let return_type = signature.params[signature.params.len() - 1].0.deref();
 
-                let map = if !return_type.is_nullable() {
+                let map = if !return_type.is_interface() {
                     quote! { map(||core::mem::transmute(result__)) }
                 } else {
                     quote! { and_then(||windows_core::Type::from_abi(result__)) }
@@ -167,7 +167,7 @@ impl CppFn {
                     .0
                     .deref();
 
-                if return_type.is_nullable() {
+                if return_type.is_interface() {
                     let return_type = return_type.write_name(writer);
 
                     quote! {

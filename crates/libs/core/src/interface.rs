@@ -259,12 +259,6 @@ pub unsafe trait Interface: Sized + Clone {
     }
 }
 
-/// # Safety
-#[doc(hidden)]
-pub unsafe fn from_raw_borrowed<T: Interface>(raw: &*mut c_void) -> Option<&T> {
-    T::from_raw_borrowed(raw)
-}
-
 /// This has the same memory representation as `IFoo`, but represents a borrowed interface pointer.
 ///
 /// This type has no `Drop` impl; it does not AddRef/Release the given interface. However, because

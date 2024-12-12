@@ -37,10 +37,8 @@ impl Method {
                     quote! { core::slice::from_raw_parts(core::mem::transmute_copy(&#name), #abi_size_name as usize) }
                 } else if param.0.is_primitive() {
                     quote! { #name }
-                } else if param.0.is_const_ref() {
+                } else if param.0.is_const_ref() || param.0.is_interface() {
                     quote! { core::mem::transmute_copy(&#name) }
-                } else if param.0.is_nullable() {
-                    quote! { windows_core::from_raw_borrowed(&#name) }
                 } else {
                     quote! { core::mem::transmute(&#name) }
                 }
@@ -144,9 +142,9 @@ impl Method {
                     quote! { &[#default_type] }
                 } else if p.0.is_primitive() {
                     quote! { #default_type }
-                } else if p.0.is_nullable() {
+                } else if p.0.is_interface() {
                     let type_name = p.0.write_name(writer);
-                    quote! { Option<&#type_name> }
+                    quote! { windows_core::Ref<'_, #type_name> }
                 } else {
                     quote! { &#default_type }
                 }
@@ -155,6 +153,9 @@ impl Method {
             } else if p.0.is_winrt_array_ref() {
                 let kind = p.0.write_name(writer);
                 quote! { &mut windows_core::Array<#kind> }
+            } else if p.0.is_interface() {
+                let type_name = p.0.write_name(writer);
+                quote! { windows_core::OutRef<'_, #type_name> }
             } else {
                 quote! { &mut #default_type }
             };
@@ -180,7 +181,7 @@ impl Method {
         };
 
         let return_type_tokens = if noexcept {
-            if self.signature.return_type.0.is_nullable() {
+            if self.signature.return_type.0.is_interface() {
                 quote! { -> Option<#return_type_tokens> }
             } else if self.signature.return_type.0 == Type::Void {
                 quote! {}
@@ -431,7 +432,7 @@ impl Method {
         let noexcept = self.def.has_attribute("NoExceptionAttribute");
 
         let return_type = if noexcept {
-            if self.signature.return_type.0.is_nullable() {
+            if self.signature.return_type.0.is_interface() {
                 quote! { -> Option<#return_type> }
             } else if self.signature.return_type.0 == Type::Void {
                 quote! {}
