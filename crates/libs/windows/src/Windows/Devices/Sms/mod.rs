@@ -311,15 +311,15 @@ impl windows_core::RuntimeName for ISmsDevice {
 }
 #[cfg(feature = "deprecated")]
 pub trait ISmsDevice_Impl: windows_core::IUnknownImpl {
-    fn SendMessageAsync(&self, message: Option<&ISmsMessage>) -> windows_core::Result<SendSmsMessageOperation>;
-    fn CalculateLength(&self, message: Option<&SmsTextMessage>) -> windows_core::Result<SmsEncodedLength>;
+    fn SendMessageAsync(&self, message: windows_core::Ref<'_, ISmsMessage>) -> windows_core::Result<SendSmsMessageOperation>;
+    fn CalculateLength(&self, message: windows_core::Ref<'_, SmsTextMessage>) -> windows_core::Result<SmsEncodedLength>;
     fn AccountPhoneNumber(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn CellularClass(&self) -> windows_core::Result<CellularClass>;
     fn MessageStore(&self) -> windows_core::Result<SmsDeviceMessageStore>;
     fn DeviceStatus(&self) -> windows_core::Result<SmsDeviceStatus>;
-    fn SmsMessageReceived(&self, eventHandler: Option<&SmsMessageReceivedEventHandler>) -> windows_core::Result<i64>;
+    fn SmsMessageReceived(&self, eventHandler: windows_core::Ref<'_, SmsMessageReceivedEventHandler>) -> windows_core::Result<i64>;
     fn RemoveSmsMessageReceived(&self, eventCookie: i64) -> windows_core::Result<()>;
-    fn SmsDeviceStatusChanged(&self, eventHandler: Option<&SmsDeviceStatusChangedEventHandler>) -> windows_core::Result<i64>;
+    fn SmsDeviceStatusChanged(&self, eventHandler: windows_core::Ref<'_, SmsDeviceStatusChangedEventHandler>) -> windows_core::Result<i64>;
     fn RemoveSmsDeviceStatusChanged(&self, eventCookie: i64) -> windows_core::Result<()>;
 }
 #[cfg(feature = "deprecated")]
@@ -327,7 +327,7 @@ impl ISmsDevice_Vtbl {
     pub const fn new<Identity: ISmsDevice_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SendMessageAsync<Identity: ISmsDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, message: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ISmsDevice_Impl::SendMessageAsync(this, windows_core::from_raw_borrowed(&message)) {
+            match ISmsDevice_Impl::SendMessageAsync(this, core::mem::transmute_copy(&message)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -338,7 +338,7 @@ impl ISmsDevice_Vtbl {
         }
         unsafe extern "system" fn CalculateLength<Identity: ISmsDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, message: *mut core::ffi::c_void, result__: *mut SmsEncodedLength) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ISmsDevice_Impl::CalculateLength(this, windows_core::from_raw_borrowed(&message)) {
+            match ISmsDevice_Impl::CalculateLength(this, core::mem::transmute_copy(&message)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -390,7 +390,7 @@ impl ISmsDevice_Vtbl {
         }
         unsafe extern "system" fn SmsMessageReceived<Identity: ISmsDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventhandler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ISmsDevice_Impl::SmsMessageReceived(this, windows_core::from_raw_borrowed(&eventhandler)) {
+            match ISmsDevice_Impl::SmsMessageReceived(this, core::mem::transmute_copy(&eventhandler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -404,7 +404,7 @@ impl ISmsDevice_Vtbl {
         }
         unsafe extern "system" fn SmsDeviceStatusChanged<Identity: ISmsDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventhandler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ISmsDevice_Impl::SmsDeviceStatusChanged(this, windows_core::from_raw_borrowed(&eventhandler)) {
+            match ISmsDevice_Impl::SmsDeviceStatusChanged(this, core::mem::transmute_copy(&eventhandler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -2191,7 +2191,7 @@ impl windows_core::RuntimeType for SmsDeviceStatusChangedEventHandler {
 }
 #[cfg(feature = "deprecated")]
 impl SmsDeviceStatusChangedEventHandler {
-    pub fn new<F: FnMut(Option<&SmsDevice>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(windows_core::Ref<'_, SmsDevice>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = SmsDeviceStatusChangedEventHandlerBox { vtable: &SmsDeviceStatusChangedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -2211,13 +2211,13 @@ pub struct SmsDeviceStatusChangedEventHandler_Vtbl {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
-struct SmsDeviceStatusChangedEventHandlerBox<F: FnMut(Option<&SmsDevice>) -> windows_core::Result<()> + Send + 'static> {
+struct SmsDeviceStatusChangedEventHandlerBox<F: FnMut(windows_core::Ref<'_, SmsDevice>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const SmsDeviceStatusChangedEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
 #[cfg(feature = "deprecated")]
-impl<F: FnMut(Option<&SmsDevice>) -> windows_core::Result<()> + Send + 'static> SmsDeviceStatusChangedEventHandlerBox<F> {
+impl<F: FnMut(windows_core::Ref<'_, SmsDevice>) -> windows_core::Result<()> + Send + 'static> SmsDeviceStatusChangedEventHandlerBox<F> {
     const VTABLE: SmsDeviceStatusChangedEventHandler_Vtbl = SmsDeviceStatusChangedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         let this = this as *mut *mut core::ffi::c_void as *mut Self;
@@ -2246,7 +2246,7 @@ impl<F: FnMut(Option<&SmsDevice>) -> windows_core::Result<()> + Send + 'static> 
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT {
         let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(windows_core::from_raw_borrowed(&sender)).into()
+        (this.invoke)(core::mem::transmute_copy(&sender)).into()
     }
 }
 #[repr(C)]
@@ -2572,7 +2572,7 @@ impl windows_core::RuntimeType for SmsMessageReceivedEventHandler {
 }
 #[cfg(feature = "deprecated")]
 impl SmsMessageReceivedEventHandler {
-    pub fn new<F: FnMut(Option<&SmsDevice>, Option<&SmsMessageReceivedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(windows_core::Ref<'_, SmsDevice>, windows_core::Ref<'_, SmsMessageReceivedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = SmsMessageReceivedEventHandlerBox { vtable: &SmsMessageReceivedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -2593,13 +2593,13 @@ pub struct SmsMessageReceivedEventHandler_Vtbl {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
-struct SmsMessageReceivedEventHandlerBox<F: FnMut(Option<&SmsDevice>, Option<&SmsMessageReceivedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
+struct SmsMessageReceivedEventHandlerBox<F: FnMut(windows_core::Ref<'_, SmsDevice>, windows_core::Ref<'_, SmsMessageReceivedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const SmsMessageReceivedEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
 #[cfg(feature = "deprecated")]
-impl<F: FnMut(Option<&SmsDevice>, Option<&SmsMessageReceivedEventArgs>) -> windows_core::Result<()> + Send + 'static> SmsMessageReceivedEventHandlerBox<F> {
+impl<F: FnMut(windows_core::Ref<'_, SmsDevice>, windows_core::Ref<'_, SmsMessageReceivedEventArgs>) -> windows_core::Result<()> + Send + 'static> SmsMessageReceivedEventHandlerBox<F> {
     const VTABLE: SmsMessageReceivedEventHandler_Vtbl = SmsMessageReceivedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         let this = this as *mut *mut core::ffi::c_void as *mut Self;
@@ -2628,7 +2628,7 @@ impl<F: FnMut(Option<&SmsDevice>, Option<&SmsMessageReceivedEventArgs>) -> windo
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT {
         let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&e)).into()
+        (this.invoke)(core::mem::transmute_copy(&sender), core::mem::transmute_copy(&e)).into()
     }
 }
 #[repr(transparent)]

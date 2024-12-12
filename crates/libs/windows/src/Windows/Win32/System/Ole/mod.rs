@@ -3881,7 +3881,7 @@ pub struct IClassFactory2_Vtbl {
 pub trait IClassFactory2_Impl: super::Com::IClassFactory_Impl {
     fn GetLicInfo(&self, plicinfo: *mut LICINFO) -> windows_core::Result<()>;
     fn RequestLicKey(&self, dwreserved: u32) -> windows_core::Result<windows_core::BSTR>;
-    fn CreateInstanceLic(&self, punkouter: Option<&windows_core::IUnknown>, punkreserved: Option<windows_core::IUnknown>, riid: *const windows_core::GUID, bstrkey: &windows_core::BSTR, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateInstanceLic(&self, punkouter: windows_core::Ref<'_, windows_core::IUnknown>, punkreserved: windows_core::Ref<'_, windows_core::IUnknown>, riid: *const windows_core::GUID, bstrkey: &windows_core::BSTR, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IClassFactory2_Vtbl {
@@ -3902,7 +3902,7 @@ impl IClassFactory2_Vtbl {
         }
         unsafe extern "system" fn CreateInstanceLic<Identity: IClassFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, punkreserved: *mut core::ffi::c_void, riid: *const windows_core::GUID, bstrkey: *mut core::ffi::c_void, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IClassFactory2_Impl::CreateInstanceLic(this, windows_core::from_raw_borrowed(&punkouter), core::mem::transmute(&punkreserved), core::mem::transmute_copy(&riid), core::mem::transmute(&bstrkey), core::mem::transmute_copy(&ppvobj)).into()
+            IClassFactory2_Impl::CreateInstanceLic(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&punkreserved), core::mem::transmute_copy(&riid), core::mem::transmute(&bstrkey), core::mem::transmute_copy(&ppvobj)).into()
         }
         Self {
             base__: super::Com::IClassFactory_Vtbl::new::<Identity, OFFSET>(),
@@ -4222,7 +4222,7 @@ pub trait ICreateTypeInfo_Impl: windows_core::IUnknownImpl {
     fn SetDocString(&self, pstrdoc: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SetHelpContext(&self, dwhelpcontext: u32) -> windows_core::Result<()>;
     fn SetVersion(&self, wmajorvernum: u16, wminorvernum: u16) -> windows_core::Result<()>;
-    fn AddRefTypeInfo(&self, ptinfo: Option<&super::Com::ITypeInfo>, phreftype: *const u32) -> windows_core::Result<()>;
+    fn AddRefTypeInfo(&self, ptinfo: windows_core::Ref<'_, super::Com::ITypeInfo>, phreftype: *const u32) -> windows_core::Result<()>;
     fn AddFuncDesc(&self, index: u32, pfuncdesc: *const super::Com::FUNCDESC) -> windows_core::Result<()>;
     fn AddImplType(&self, index: u32, hreftype: u32) -> windows_core::Result<()>;
     fn SetImplTypeFlags(&self, index: u32, impltypeflags: super::Com::IMPLTYPEFLAGS) -> windows_core::Result<()>;
@@ -4266,7 +4266,7 @@ impl ICreateTypeInfo_Vtbl {
         }
         unsafe extern "system" fn AddRefTypeInfo<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptinfo: *mut core::ffi::c_void, phreftype: *const u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICreateTypeInfo_Impl::AddRefTypeInfo(this, windows_core::from_raw_borrowed(&ptinfo), core::mem::transmute_copy(&phreftype)).into()
+            ICreateTypeInfo_Impl::AddRefTypeInfo(this, core::mem::transmute_copy(&ptinfo), core::mem::transmute_copy(&phreftype)).into()
         }
         unsafe extern "system" fn AddFuncDesc<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, pfuncdesc: *const super::Com::FUNCDESC) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -5119,7 +5119,7 @@ pub struct IDispatchEx_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 pub trait IDispatchEx_Impl: super::Com::IDispatch_Impl {
     fn GetDispID(&self, bstrname: &windows_core::BSTR, grfdex: u32) -> windows_core::Result<i32>;
-    fn InvokeEx(&self, id: i32, lcid: u32, wflags: u16, pdp: *const super::Com::DISPPARAMS, pvarres: *mut super::Variant::VARIANT, pei: *mut super::Com::EXCEPINFO, pspcaller: Option<&super::Com::IServiceProvider>) -> windows_core::Result<()>;
+    fn InvokeEx(&self, id: i32, lcid: u32, wflags: u16, pdp: *const super::Com::DISPPARAMS, pvarres: *mut super::Variant::VARIANT, pei: *mut super::Com::EXCEPINFO, pspcaller: windows_core::Ref<'_, super::Com::IServiceProvider>) -> windows_core::Result<()>;
     fn DeleteMemberByName(&self, bstrname: &windows_core::BSTR, grfdex: u32) -> windows_core::Result<()>;
     fn DeleteMemberByDispID(&self, id: i32) -> windows_core::Result<()>;
     fn GetMemberProperties(&self, id: i32, grfdexfetch: u32) -> windows_core::Result<FDEX_PROP_FLAGS>;
@@ -5142,7 +5142,7 @@ impl IDispatchEx_Vtbl {
         }
         unsafe extern "system" fn InvokeEx<Identity: IDispatchEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: i32, lcid: u32, wflags: u16, pdp: *const super::Com::DISPPARAMS, pvarres: *mut super::Variant::VARIANT, pei: *mut super::Com::EXCEPINFO, pspcaller: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDispatchEx_Impl::InvokeEx(this, core::mem::transmute_copy(&id), core::mem::transmute_copy(&lcid), core::mem::transmute_copy(&wflags), core::mem::transmute_copy(&pdp), core::mem::transmute_copy(&pvarres), core::mem::transmute_copy(&pei), windows_core::from_raw_borrowed(&pspcaller)).into()
+            IDispatchEx_Impl::InvokeEx(this, core::mem::transmute_copy(&id), core::mem::transmute_copy(&lcid), core::mem::transmute_copy(&wflags), core::mem::transmute_copy(&pdp), core::mem::transmute_copy(&pvarres), core::mem::transmute_copy(&pei), core::mem::transmute_copy(&pspcaller)).into()
         }
         unsafe extern "system" fn DeleteMemberByName<Identity: IDispatchEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: *mut core::ffi::c_void, grfdex: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -5343,17 +5343,17 @@ pub struct IDropTarget_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_SystemServices"))]
 pub trait IDropTarget_Impl: windows_core::IUnknownImpl {
-    fn DragEnter(&self, pdataobj: Option<&super::Com::IDataObject>, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS, pt: &super::super::Foundation::POINTL, pdweffect: *mut DROPEFFECT) -> windows_core::Result<()>;
+    fn DragEnter(&self, pdataobj: windows_core::Ref<'_, super::Com::IDataObject>, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS, pt: &super::super::Foundation::POINTL, pdweffect: *mut DROPEFFECT) -> windows_core::Result<()>;
     fn DragOver(&self, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS, pt: &super::super::Foundation::POINTL, pdweffect: *mut DROPEFFECT) -> windows_core::Result<()>;
     fn DragLeave(&self) -> windows_core::Result<()>;
-    fn Drop(&self, pdataobj: Option<&super::Com::IDataObject>, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS, pt: &super::super::Foundation::POINTL, pdweffect: *mut DROPEFFECT) -> windows_core::Result<()>;
+    fn Drop(&self, pdataobj: windows_core::Ref<'_, super::Com::IDataObject>, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS, pt: &super::super::Foundation::POINTL, pdweffect: *mut DROPEFFECT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_SystemServices"))]
 impl IDropTarget_Vtbl {
     pub const fn new<Identity: IDropTarget_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DragEnter<Identity: IDropTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdataobj: *mut core::ffi::c_void, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS, pt: super::super::Foundation::POINTL, pdweffect: *mut DROPEFFECT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDropTarget_Impl::DragEnter(this, windows_core::from_raw_borrowed(&pdataobj), core::mem::transmute_copy(&grfkeystate), core::mem::transmute(&pt), core::mem::transmute_copy(&pdweffect)).into()
+            IDropTarget_Impl::DragEnter(this, core::mem::transmute_copy(&pdataobj), core::mem::transmute_copy(&grfkeystate), core::mem::transmute(&pt), core::mem::transmute_copy(&pdweffect)).into()
         }
         unsafe extern "system" fn DragOver<Identity: IDropTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS, pt: super::super::Foundation::POINTL, pdweffect: *mut DROPEFFECT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -5365,7 +5365,7 @@ impl IDropTarget_Vtbl {
         }
         unsafe extern "system" fn Drop<Identity: IDropTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdataobj: *mut core::ffi::c_void, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS, pt: super::super::Foundation::POINTL, pdweffect: *mut DROPEFFECT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDropTarget_Impl::Drop(this, windows_core::from_raw_borrowed(&pdataobj), core::mem::transmute_copy(&grfkeystate), core::mem::transmute(&pt), core::mem::transmute_copy(&pdweffect)).into()
+            IDropTarget_Impl::Drop(this, core::mem::transmute_copy(&pdataobj), core::mem::transmute_copy(&grfkeystate), core::mem::transmute(&pt), core::mem::transmute_copy(&pdweffect)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -5533,7 +5533,7 @@ pub struct IEnumOleDocumentViews_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumOleDocumentViews_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, cviews: u32, rgpview: *mut Option<IOleDocumentView>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, cviews: u32, rgpview: windows_core::OutRef<'_, IOleDocumentView>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, cviews: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumOleDocumentViews>;
@@ -5601,7 +5601,7 @@ pub struct IEnumOleUndoUnits_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumOleUndoUnits_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgelt: *mut Option<IOleUndoUnit>, pceltfetched: *mut u32) -> windows_core::HRESULT;
+    fn Next(&self, celt: u32, rgelt: windows_core::OutRef<'_, IOleUndoUnit>, pceltfetched: *mut u32) -> windows_core::HRESULT;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumOleUndoUnits>;
@@ -5883,7 +5883,7 @@ pub trait IFont_Impl: windows_core::IUnknownImpl {
     fn SetCharset(&self, charset: i16) -> windows_core::Result<()>;
     fn hFont(&self) -> windows_core::Result<super::super::Graphics::Gdi::HFONT>;
     fn Clone(&self) -> windows_core::Result<IFont>;
-    fn IsEqual(&self, pfontother: Option<&IFont>) -> windows_core::Result<()>;
+    fn IsEqual(&self, pfontother: windows_core::Ref<'_, IFont>) -> windows_core::Result<()>;
     fn SetRatio(&self, cylogical: i32, cyhimetric: i32) -> windows_core::Result<()>;
     fn QueryTextMetrics(&self, ptm: *mut super::super::Graphics::Gdi::TEXTMETRICW) -> windows_core::Result<()>;
     fn AddRefHfont(&self, hfont: super::super::Graphics::Gdi::HFONT) -> windows_core::Result<()>;
@@ -6027,7 +6027,7 @@ impl IFont_Vtbl {
         }
         unsafe extern "system" fn IsEqual<Identity: IFont_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfontother: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IFont_Impl::IsEqual(this, windows_core::from_raw_borrowed(&pfontother)).into()
+            IFont_Impl::IsEqual(this, core::mem::transmute_copy(&pfontother)).into()
         }
         unsafe extern "system" fn SetRatio<Identity: IFont_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cylogical: i32, cyhimetric: i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -6284,13 +6284,13 @@ pub struct IObjectIdentity_Vtbl {
     pub IsEqualObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IObjectIdentity_Impl: windows_core::IUnknownImpl {
-    fn IsEqualObject(&self, punk: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn IsEqualObject(&self, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl IObjectIdentity_Vtbl {
     pub const fn new<Identity: IObjectIdentity_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn IsEqualObject<Identity: IObjectIdentity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punk: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IObjectIdentity_Impl::IsEqualObject(this, windows_core::from_raw_borrowed(&punk)).into()
+            IObjectIdentity_Impl::IsEqualObject(this, core::mem::transmute_copy(&punk)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), IsEqualObject: IsEqualObject::<Identity, OFFSET> }
     }
@@ -6323,14 +6323,14 @@ pub struct IObjectWithSite_Vtbl {
     pub GetSite: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IObjectWithSite_Impl: windows_core::IUnknownImpl {
-    fn SetSite(&self, punksite: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetSite(&self, punksite: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetSite(&self, riid: *const windows_core::GUID, ppvsite: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 impl IObjectWithSite_Vtbl {
     pub const fn new<Identity: IObjectWithSite_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetSite<Identity: IObjectWithSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punksite: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IObjectWithSite_Impl::SetSite(this, windows_core::from_raw_borrowed(&punksite)).into()
+            IObjectWithSite_Impl::SetSite(this, core::mem::transmute_copy(&punksite)).into()
         }
         unsafe extern "system" fn GetSite<Identity: IObjectWithSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvsite: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -6397,10 +6397,10 @@ pub struct IOleAdviseHolder_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IOleAdviseHolder_Impl: windows_core::IUnknownImpl {
-    fn Advise(&self, padvise: Option<&super::Com::IAdviseSink>) -> windows_core::Result<u32>;
+    fn Advise(&self, padvise: windows_core::Ref<'_, super::Com::IAdviseSink>) -> windows_core::Result<u32>;
     fn Unadvise(&self, dwconnection: u32) -> windows_core::Result<()>;
     fn EnumAdvise(&self) -> windows_core::Result<super::Com::IEnumSTATDATA>;
-    fn SendOnRename(&self, pmk: Option<&super::Com::IMoniker>) -> windows_core::Result<()>;
+    fn SendOnRename(&self, pmk: windows_core::Ref<'_, super::Com::IMoniker>) -> windows_core::Result<()>;
     fn SendOnSave(&self) -> windows_core::Result<()>;
     fn SendOnClose(&self) -> windows_core::Result<()>;
 }
@@ -6409,7 +6409,7 @@ impl IOleAdviseHolder_Vtbl {
     pub const fn new<Identity: IOleAdviseHolder_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Advise<Identity: IOleAdviseHolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, padvise: *mut core::ffi::c_void, pdwconnection: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IOleAdviseHolder_Impl::Advise(this, windows_core::from_raw_borrowed(&padvise)) {
+            match IOleAdviseHolder_Impl::Advise(this, core::mem::transmute_copy(&padvise)) {
                 Ok(ok__) => {
                     pdwconnection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6433,7 +6433,7 @@ impl IOleAdviseHolder_Vtbl {
         }
         unsafe extern "system" fn SendOnRename<Identity: IOleAdviseHolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmk: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOleAdviseHolder_Impl::SendOnRename(this, windows_core::from_raw_borrowed(&pmk)).into()
+            IOleAdviseHolder_Impl::SendOnRename(this, core::mem::transmute_copy(&pmk)).into()
         }
         unsafe extern "system" fn SendOnSave<Identity: IOleAdviseHolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -6513,7 +6513,7 @@ pub trait IOleCache_Impl: windows_core::IUnknownImpl {
     fn Cache(&self, pformatetc: *const super::Com::FORMATETC, advf: u32) -> windows_core::Result<u32>;
     fn Uncache(&self, dwconnection: u32) -> windows_core::Result<()>;
     fn EnumCache(&self) -> windows_core::Result<super::Com::IEnumSTATDATA>;
-    fn InitCache(&self, pdataobject: Option<&super::Com::IDataObject>) -> windows_core::Result<()>;
+    fn InitCache(&self, pdataobject: windows_core::Ref<'_, super::Com::IDataObject>) -> windows_core::Result<()>;
     fn SetData(&self, pformatetc: *const super::Com::FORMATETC, pmedium: *const super::Com::STGMEDIUM, frelease: super::super::Foundation::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
@@ -6545,7 +6545,7 @@ impl IOleCache_Vtbl {
         }
         unsafe extern "system" fn InitCache<Identity: IOleCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdataobject: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOleCache_Impl::InitCache(this, windows_core::from_raw_borrowed(&pdataobject)).into()
+            IOleCache_Impl::InitCache(this, core::mem::transmute_copy(&pdataobject)).into()
         }
         unsafe extern "system" fn SetData<Identity: IOleCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pformatetc: *const super::Com::FORMATETC, pmedium: *const super::Com::STGMEDIUM, frelease: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -6597,7 +6597,7 @@ pub struct IOleCache2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IOleCache2_Impl: IOleCache_Impl {
-    fn UpdateCache(&self, pdataobject: Option<&super::Com::IDataObject>, grfupdf: UPDFCACHE_FLAGS, preserved: *const core::ffi::c_void) -> windows_core::Result<()>;
+    fn UpdateCache(&self, pdataobject: windows_core::Ref<'_, super::Com::IDataObject>, grfupdf: UPDFCACHE_FLAGS, preserved: *const core::ffi::c_void) -> windows_core::Result<()>;
     fn DiscardCache(&self, dwdiscardoptions: u32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
@@ -6605,7 +6605,7 @@ impl IOleCache2_Vtbl {
     pub const fn new<Identity: IOleCache2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn UpdateCache<Identity: IOleCache2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdataobject: *mut core::ffi::c_void, grfupdf: UPDFCACHE_FLAGS, preserved: *const core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOleCache2_Impl::UpdateCache(this, windows_core::from_raw_borrowed(&pdataobject), core::mem::transmute_copy(&grfupdf), core::mem::transmute_copy(&preserved)).into()
+            IOleCache2_Impl::UpdateCache(this, core::mem::transmute_copy(&pdataobject), core::mem::transmute_copy(&grfupdf), core::mem::transmute_copy(&preserved)).into()
         }
         unsafe extern "system" fn DiscardCache<Identity: IOleCache2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwdiscardoptions: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -6644,7 +6644,7 @@ pub struct IOleCacheControl_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IOleCacheControl_Impl: windows_core::IUnknownImpl {
-    fn OnRun(&self, pdataobject: Option<&super::Com::IDataObject>) -> windows_core::Result<()>;
+    fn OnRun(&self, pdataobject: windows_core::Ref<'_, super::Com::IDataObject>) -> windows_core::Result<()>;
     fn OnStop(&self) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6652,7 +6652,7 @@ impl IOleCacheControl_Vtbl {
     pub const fn new<Identity: IOleCacheControl_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnRun<Identity: IOleCacheControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdataobject: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOleCacheControl_Impl::OnRun(this, windows_core::from_raw_borrowed(&pdataobject)).into()
+            IOleCacheControl_Impl::OnRun(this, core::mem::transmute_copy(&pdataobject)).into()
         }
         unsafe extern "system" fn OnStop<Identity: IOleCacheControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -7086,16 +7086,16 @@ pub struct IOleDocument_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IOleDocument_Impl: windows_core::IUnknownImpl {
-    fn CreateView(&self, pipsite: Option<&IOleInPlaceSite>, pstm: Option<&super::Com::IStream>, dwreserved: u32) -> windows_core::Result<IOleDocumentView>;
+    fn CreateView(&self, pipsite: windows_core::Ref<'_, IOleInPlaceSite>, pstm: windows_core::Ref<'_, super::Com::IStream>, dwreserved: u32) -> windows_core::Result<IOleDocumentView>;
     fn GetDocMiscStatus(&self) -> windows_core::Result<u32>;
-    fn EnumViews(&self, ppenum: *mut Option<IEnumOleDocumentViews>, ppview: *mut Option<IOleDocumentView>) -> windows_core::Result<()>;
+    fn EnumViews(&self, ppenum: windows_core::OutRef<'_, IEnumOleDocumentViews>, ppview: windows_core::OutRef<'_, IOleDocumentView>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IOleDocument_Vtbl {
     pub const fn new<Identity: IOleDocument_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateView<Identity: IOleDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pipsite: *mut core::ffi::c_void, pstm: *mut core::ffi::c_void, dwreserved: u32, ppview: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IOleDocument_Impl::CreateView(this, windows_core::from_raw_borrowed(&pipsite), windows_core::from_raw_borrowed(&pstm), core::mem::transmute_copy(&dwreserved)) {
+            match IOleDocument_Impl::CreateView(this, core::mem::transmute_copy(&pipsite), core::mem::transmute_copy(&pstm), core::mem::transmute_copy(&dwreserved)) {
                 Ok(ok__) => {
                     ppview.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7146,13 +7146,13 @@ pub struct IOleDocumentSite_Vtbl {
     pub ActivateMe: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IOleDocumentSite_Impl: windows_core::IUnknownImpl {
-    fn ActivateMe(&self, pviewtoactivate: Option<&IOleDocumentView>) -> windows_core::Result<()>;
+    fn ActivateMe(&self, pviewtoactivate: windows_core::Ref<'_, IOleDocumentView>) -> windows_core::Result<()>;
 }
 impl IOleDocumentSite_Vtbl {
     pub const fn new<Identity: IOleDocumentSite_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ActivateMe<Identity: IOleDocumentSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pviewtoactivate: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOleDocumentSite_Impl::ActivateMe(this, windows_core::from_raw_borrowed(&pviewtoactivate)).into()
+            IOleDocumentSite_Impl::ActivateMe(this, core::mem::transmute_copy(&pviewtoactivate)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ActivateMe: ActivateMe::<Identity, OFFSET> }
     }
@@ -7247,7 +7247,7 @@ pub struct IOleDocumentView_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IOleDocumentView_Impl: windows_core::IUnknownImpl {
-    fn SetInPlaceSite(&self, pipsite: Option<&IOleInPlaceSite>) -> windows_core::Result<()>;
+    fn SetInPlaceSite(&self, pipsite: windows_core::Ref<'_, IOleInPlaceSite>) -> windows_core::Result<()>;
     fn GetInPlaceSite(&self) -> windows_core::Result<IOleInPlaceSite>;
     fn GetDocument(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn SetRect(&self, prcview: *const super::super::Foundation::RECT) -> windows_core::Result<()>;
@@ -7257,16 +7257,16 @@ pub trait IOleDocumentView_Impl: windows_core::IUnknownImpl {
     fn UIActivate(&self, fuiactivate: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn Open(&self) -> windows_core::Result<()>;
     fn CloseView(&self, dwreserved: u32) -> windows_core::Result<()>;
-    fn SaveViewState(&self, pstm: Option<&super::Com::IStream>) -> windows_core::Result<()>;
-    fn ApplyViewState(&self, pstm: Option<&super::Com::IStream>) -> windows_core::Result<()>;
-    fn Clone(&self, pipsitenew: Option<&IOleInPlaceSite>) -> windows_core::Result<IOleDocumentView>;
+    fn SaveViewState(&self, pstm: windows_core::Ref<'_, super::Com::IStream>) -> windows_core::Result<()>;
+    fn ApplyViewState(&self, pstm: windows_core::Ref<'_, super::Com::IStream>) -> windows_core::Result<()>;
+    fn Clone(&self, pipsitenew: windows_core::Ref<'_, IOleInPlaceSite>) -> windows_core::Result<IOleDocumentView>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IOleDocumentView_Vtbl {
     pub const fn new<Identity: IOleDocumentView_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetInPlaceSite<Identity: IOleDocumentView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pipsite: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOleDocumentView_Impl::SetInPlaceSite(this, windows_core::from_raw_borrowed(&pipsite)).into()
+            IOleDocumentView_Impl::SetInPlaceSite(this, core::mem::transmute_copy(&pipsite)).into()
         }
         unsafe extern "system" fn GetInPlaceSite<Identity: IOleDocumentView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppipsite: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -7324,15 +7324,15 @@ impl IOleDocumentView_Vtbl {
         }
         unsafe extern "system" fn SaveViewState<Identity: IOleDocumentView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstm: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOleDocumentView_Impl::SaveViewState(this, windows_core::from_raw_borrowed(&pstm)).into()
+            IOleDocumentView_Impl::SaveViewState(this, core::mem::transmute_copy(&pstm)).into()
         }
         unsafe extern "system" fn ApplyViewState<Identity: IOleDocumentView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstm: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOleDocumentView_Impl::ApplyViewState(this, windows_core::from_raw_borrowed(&pstm)).into()
+            IOleDocumentView_Impl::ApplyViewState(this, core::mem::transmute_copy(&pstm)).into()
         }
         unsafe extern "system" fn Clone<Identity: IOleDocumentView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pipsitenew: *mut core::ffi::c_void, ppviewnew: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IOleDocumentView_Impl::Clone(this, windows_core::from_raw_borrowed(&pipsitenew)) {
+            match IOleDocumentView_Impl::Clone(this, core::mem::transmute_copy(&pipsitenew)) {
                 Ok(ok__) => {
                     ppviewnew.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7409,7 +7409,7 @@ pub trait IOleInPlaceActiveObject_Impl: IOleWindow_Impl {
     fn TranslateAccelerator(&self, lpmsg: *const super::super::UI::WindowsAndMessaging::MSG) -> windows_core::Result<()>;
     fn OnFrameWindowActivate(&self, factivate: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn OnDocWindowActivate(&self, factivate: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn ResizeBorder(&self, prcborder: *const super::super::Foundation::RECT, puiwindow: Option<&IOleInPlaceUIWindow>, fframewindow: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn ResizeBorder(&self, prcborder: *const super::super::Foundation::RECT, puiwindow: windows_core::Ref<'_, IOleInPlaceUIWindow>, fframewindow: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn EnableModeless(&self, fenable: super::super::Foundation::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -7429,7 +7429,7 @@ impl IOleInPlaceActiveObject_Vtbl {
         }
         unsafe extern "system" fn ResizeBorder<Identity: IOleInPlaceActiveObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prcborder: *const super::super::Foundation::RECT, puiwindow: *mut core::ffi::c_void, fframewindow: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOleInPlaceActiveObject_Impl::ResizeBorder(this, core::mem::transmute_copy(&prcborder), windows_core::from_raw_borrowed(&puiwindow), core::mem::transmute_copy(&fframewindow)).into()
+            IOleInPlaceActiveObject_Impl::ResizeBorder(this, core::mem::transmute_copy(&prcborder), core::mem::transmute_copy(&puiwindow), core::mem::transmute_copy(&fframewindow)).into()
         }
         unsafe extern "system" fn EnableModeless<Identity: IOleInPlaceActiveObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fenable: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -7750,7 +7750,7 @@ pub trait IOleInPlaceSite_Impl: IOleWindow_Impl {
     fn CanInPlaceActivate(&self) -> windows_core::Result<()>;
     fn OnInPlaceActivate(&self) -> windows_core::Result<()>;
     fn OnUIActivate(&self) -> windows_core::Result<()>;
-    fn GetWindowContext(&self, ppframe: *mut Option<IOleInPlaceFrame>, ppdoc: *mut Option<IOleInPlaceUIWindow>, lprcposrect: *mut super::super::Foundation::RECT, lprccliprect: *mut super::super::Foundation::RECT, lpframeinfo: *mut OLEINPLACEFRAMEINFO) -> windows_core::Result<()>;
+    fn GetWindowContext(&self, ppframe: windows_core::OutRef<'_, IOleInPlaceFrame>, ppdoc: windows_core::OutRef<'_, IOleInPlaceUIWindow>, lprcposrect: *mut super::super::Foundation::RECT, lprccliprect: *mut super::super::Foundation::RECT, lpframeinfo: *mut OLEINPLACEFRAMEINFO) -> windows_core::Result<()>;
     fn Scroll(&self, scrollextant: &super::super::Foundation::SIZE) -> windows_core::Result<()>;
     fn OnUIDeactivate(&self, fundoable: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn OnInPlaceDeactivate(&self) -> windows_core::Result<()>;
@@ -8096,7 +8096,7 @@ pub trait IOleInPlaceUIWindow_Impl: IOleWindow_Impl {
     fn GetBorder(&self) -> windows_core::Result<super::super::Foundation::RECT>;
     fn RequestBorderSpace(&self, pborderwidths: *const super::super::Foundation::RECT) -> windows_core::Result<()>;
     fn SetBorderSpace(&self, pborderwidths: *const super::super::Foundation::RECT) -> windows_core::Result<()>;
-    fn SetActiveObject(&self, pactiveobject: Option<&IOleInPlaceActiveObject>, pszobjname: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetActiveObject(&self, pactiveobject: windows_core::Ref<'_, IOleInPlaceActiveObject>, pszobjname: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 impl IOleInPlaceUIWindow_Vtbl {
     pub const fn new<Identity: IOleInPlaceUIWindow_Impl, const OFFSET: isize>() -> Self {
@@ -8120,7 +8120,7 @@ impl IOleInPlaceUIWindow_Vtbl {
         }
         unsafe extern "system" fn SetActiveObject<Identity: IOleInPlaceUIWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pactiveobject: *mut core::ffi::c_void, pszobjname: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOleInPlaceUIWindow_Impl::SetActiveObject(this, windows_core::from_raw_borrowed(&pactiveobject), core::mem::transmute(&pszobjname)).into()
+            IOleInPlaceUIWindow_Impl::SetActiveObject(this, core::mem::transmute_copy(&pactiveobject), core::mem::transmute(&pszobjname)).into()
         }
         Self {
             base__: IOleWindow_Vtbl::new::<Identity, OFFSET>(),
@@ -8186,8 +8186,8 @@ pub struct IOleItemContainer_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IOleItemContainer_Impl: IOleContainer_Impl {
-    fn GetObject(&self, pszitem: &windows_core::PCWSTR, dwspeedneeded: u32, pbc: Option<&super::Com::IBindCtx>, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetObjectStorage(&self, pszitem: &windows_core::PCWSTR, pbc: Option<&super::Com::IBindCtx>, riid: *const windows_core::GUID, ppvstorage: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetObject(&self, pszitem: &windows_core::PCWSTR, dwspeedneeded: u32, pbc: windows_core::Ref<'_, super::Com::IBindCtx>, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetObjectStorage(&self, pszitem: &windows_core::PCWSTR, pbc: windows_core::Ref<'_, super::Com::IBindCtx>, riid: *const windows_core::GUID, ppvstorage: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn IsRunning(&self, pszitem: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8195,11 +8195,11 @@ impl IOleItemContainer_Vtbl {
     pub const fn new<Identity: IOleItemContainer_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetObject<Identity: IOleItemContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszitem: windows_core::PCWSTR, dwspeedneeded: u32, pbc: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOleItemContainer_Impl::GetObject(this, core::mem::transmute(&pszitem), core::mem::transmute_copy(&dwspeedneeded), windows_core::from_raw_borrowed(&pbc), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobject)).into()
+            IOleItemContainer_Impl::GetObject(this, core::mem::transmute(&pszitem), core::mem::transmute_copy(&dwspeedneeded), core::mem::transmute_copy(&pbc), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobject)).into()
         }
         unsafe extern "system" fn GetObjectStorage<Identity: IOleItemContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszitem: windows_core::PCWSTR, pbc: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvstorage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOleItemContainer_Impl::GetObjectStorage(this, core::mem::transmute(&pszitem), windows_core::from_raw_borrowed(&pbc), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvstorage)).into()
+            IOleItemContainer_Impl::GetObjectStorage(this, core::mem::transmute(&pszitem), core::mem::transmute_copy(&pbc), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvstorage)).into()
         }
         unsafe extern "system" fn IsRunning<Identity: IOleItemContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszitem: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -8306,15 +8306,15 @@ pub struct IOleLink_Vtbl {
 pub trait IOleLink_Impl: windows_core::IUnknownImpl {
     fn SetUpdateOptions(&self, dwupdateopt: u32) -> windows_core::Result<()>;
     fn GetUpdateOptions(&self) -> windows_core::Result<u32>;
-    fn SetSourceMoniker(&self, pmk: Option<&super::Com::IMoniker>, rclsid: *const windows_core::GUID) -> windows_core::Result<()>;
+    fn SetSourceMoniker(&self, pmk: windows_core::Ref<'_, super::Com::IMoniker>, rclsid: *const windows_core::GUID) -> windows_core::Result<()>;
     fn GetSourceMoniker(&self) -> windows_core::Result<super::Com::IMoniker>;
     fn SetSourceDisplayName(&self, pszstatustext: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetSourceDisplayName(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn BindToSource(&self, bindflags: u32, pbc: Option<&super::Com::IBindCtx>) -> windows_core::Result<()>;
+    fn BindToSource(&self, bindflags: u32, pbc: windows_core::Ref<'_, super::Com::IBindCtx>) -> windows_core::Result<()>;
     fn BindIfRunning(&self) -> windows_core::Result<()>;
     fn GetBoundSource(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn UnbindSource(&self) -> windows_core::Result<()>;
-    fn Update(&self, pbc: Option<&super::Com::IBindCtx>) -> windows_core::Result<()>;
+    fn Update(&self, pbc: windows_core::Ref<'_, super::Com::IBindCtx>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IOleLink_Vtbl {
@@ -8335,7 +8335,7 @@ impl IOleLink_Vtbl {
         }
         unsafe extern "system" fn SetSourceMoniker<Identity: IOleLink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmk: *mut core::ffi::c_void, rclsid: *const windows_core::GUID) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOleLink_Impl::SetSourceMoniker(this, windows_core::from_raw_borrowed(&pmk), core::mem::transmute_copy(&rclsid)).into()
+            IOleLink_Impl::SetSourceMoniker(this, core::mem::transmute_copy(&pmk), core::mem::transmute_copy(&rclsid)).into()
         }
         unsafe extern "system" fn GetSourceMoniker<Identity: IOleLink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppmk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -8363,7 +8363,7 @@ impl IOleLink_Vtbl {
         }
         unsafe extern "system" fn BindToSource<Identity: IOleLink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bindflags: u32, pbc: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOleLink_Impl::BindToSource(this, core::mem::transmute_copy(&bindflags), windows_core::from_raw_borrowed(&pbc)).into()
+            IOleLink_Impl::BindToSource(this, core::mem::transmute_copy(&bindflags), core::mem::transmute_copy(&pbc)).into()
         }
         unsafe extern "system" fn BindIfRunning<Identity: IOleLink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -8385,7 +8385,7 @@ impl IOleLink_Vtbl {
         }
         unsafe extern "system" fn Update<Identity: IOleLink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbc: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOleLink_Impl::Update(this, windows_core::from_raw_borrowed(&pbc)).into()
+            IOleLink_Impl::Update(this, core::mem::transmute_copy(&pbc)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -8575,15 +8575,15 @@ pub struct IOleObject_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IOleObject_Impl: windows_core::IUnknownImpl {
-    fn SetClientSite(&self, pclientsite: Option<&IOleClientSite>) -> windows_core::Result<()>;
+    fn SetClientSite(&self, pclientsite: windows_core::Ref<'_, IOleClientSite>) -> windows_core::Result<()>;
     fn GetClientSite(&self) -> windows_core::Result<IOleClientSite>;
     fn SetHostNames(&self, szcontainerapp: &windows_core::PCWSTR, szcontainerobj: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Close(&self, dwsaveoption: &OLECLOSE) -> windows_core::Result<()>;
-    fn SetMoniker(&self, dwwhichmoniker: &OLEWHICHMK, pmk: Option<&super::Com::IMoniker>) -> windows_core::Result<()>;
+    fn SetMoniker(&self, dwwhichmoniker: &OLEWHICHMK, pmk: windows_core::Ref<'_, super::Com::IMoniker>) -> windows_core::Result<()>;
     fn GetMoniker(&self, dwassign: &OLEGETMONIKER, dwwhichmoniker: &OLEWHICHMK) -> windows_core::Result<super::Com::IMoniker>;
-    fn InitFromData(&self, pdataobject: Option<&super::Com::IDataObject>, fcreation: super::super::Foundation::BOOL, dwreserved: u32) -> windows_core::Result<()>;
+    fn InitFromData(&self, pdataobject: windows_core::Ref<'_, super::Com::IDataObject>, fcreation: super::super::Foundation::BOOL, dwreserved: u32) -> windows_core::Result<()>;
     fn GetClipboardData(&self, dwreserved: u32) -> windows_core::Result<super::Com::IDataObject>;
-    fn DoVerb(&self, iverb: i32, lpmsg: *const super::super::UI::WindowsAndMessaging::MSG, pactivesite: Option<&IOleClientSite>, lindex: i32, hwndparent: super::super::Foundation::HWND, lprcposrect: *const super::super::Foundation::RECT) -> windows_core::Result<()>;
+    fn DoVerb(&self, iverb: i32, lpmsg: *const super::super::UI::WindowsAndMessaging::MSG, pactivesite: windows_core::Ref<'_, IOleClientSite>, lindex: i32, hwndparent: super::super::Foundation::HWND, lprcposrect: *const super::super::Foundation::RECT) -> windows_core::Result<()>;
     fn EnumVerbs(&self) -> windows_core::Result<IEnumOLEVERB>;
     fn Update(&self) -> windows_core::Result<()>;
     fn IsUpToDate(&self) -> windows_core::Result<()>;
@@ -8591,7 +8591,7 @@ pub trait IOleObject_Impl: windows_core::IUnknownImpl {
     fn GetUserType(&self, dwformoftype: &USERCLASSTYPE) -> windows_core::Result<windows_core::PWSTR>;
     fn SetExtent(&self, dwdrawaspect: super::Com::DVASPECT, psizel: *const super::super::Foundation::SIZE) -> windows_core::Result<()>;
     fn GetExtent(&self, dwdrawaspect: super::Com::DVASPECT) -> windows_core::Result<super::super::Foundation::SIZE>;
-    fn Advise(&self, padvsink: Option<&super::Com::IAdviseSink>) -> windows_core::Result<u32>;
+    fn Advise(&self, padvsink: windows_core::Ref<'_, super::Com::IAdviseSink>) -> windows_core::Result<u32>;
     fn Unadvise(&self, dwconnection: u32) -> windows_core::Result<()>;
     fn EnumAdvise(&self) -> windows_core::Result<super::Com::IEnumSTATDATA>;
     fn GetMiscStatus(&self, dwaspect: super::Com::DVASPECT) -> windows_core::Result<OLEMISC>;
@@ -8602,7 +8602,7 @@ impl IOleObject_Vtbl {
     pub const fn new<Identity: IOleObject_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetClientSite<Identity: IOleObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pclientsite: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOleObject_Impl::SetClientSite(this, windows_core::from_raw_borrowed(&pclientsite)).into()
+            IOleObject_Impl::SetClientSite(this, core::mem::transmute_copy(&pclientsite)).into()
         }
         unsafe extern "system" fn GetClientSite<Identity: IOleObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppclientsite: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -8624,7 +8624,7 @@ impl IOleObject_Vtbl {
         }
         unsafe extern "system" fn SetMoniker<Identity: IOleObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwwhichmoniker: u32, pmk: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOleObject_Impl::SetMoniker(this, core::mem::transmute(&dwwhichmoniker), windows_core::from_raw_borrowed(&pmk)).into()
+            IOleObject_Impl::SetMoniker(this, core::mem::transmute(&dwwhichmoniker), core::mem::transmute_copy(&pmk)).into()
         }
         unsafe extern "system" fn GetMoniker<Identity: IOleObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwassign: u32, dwwhichmoniker: u32, ppmk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -8638,7 +8638,7 @@ impl IOleObject_Vtbl {
         }
         unsafe extern "system" fn InitFromData<Identity: IOleObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdataobject: *mut core::ffi::c_void, fcreation: super::super::Foundation::BOOL, dwreserved: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOleObject_Impl::InitFromData(this, windows_core::from_raw_borrowed(&pdataobject), core::mem::transmute_copy(&fcreation), core::mem::transmute_copy(&dwreserved)).into()
+            IOleObject_Impl::InitFromData(this, core::mem::transmute_copy(&pdataobject), core::mem::transmute_copy(&fcreation), core::mem::transmute_copy(&dwreserved)).into()
         }
         unsafe extern "system" fn GetClipboardData<Identity: IOleObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwreserved: u32, ppdataobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -8652,7 +8652,7 @@ impl IOleObject_Vtbl {
         }
         unsafe extern "system" fn DoVerb<Identity: IOleObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iverb: i32, lpmsg: *const super::super::UI::WindowsAndMessaging::MSG, pactivesite: *mut core::ffi::c_void, lindex: i32, hwndparent: super::super::Foundation::HWND, lprcposrect: *const super::super::Foundation::RECT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOleObject_Impl::DoVerb(this, core::mem::transmute_copy(&iverb), core::mem::transmute_copy(&lpmsg), windows_core::from_raw_borrowed(&pactivesite), core::mem::transmute_copy(&lindex), core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&lprcposrect)).into()
+            IOleObject_Impl::DoVerb(this, core::mem::transmute_copy(&iverb), core::mem::transmute_copy(&lpmsg), core::mem::transmute_copy(&pactivesite), core::mem::transmute_copy(&lindex), core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&lprcposrect)).into()
         }
         unsafe extern "system" fn EnumVerbs<Identity: IOleObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumoleverb: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -8708,7 +8708,7 @@ impl IOleObject_Vtbl {
         }
         unsafe extern "system" fn Advise<Identity: IOleObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, padvsink: *mut core::ffi::c_void, pdwconnection: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IOleObject_Impl::Advise(this, windows_core::from_raw_borrowed(&padvsink)) {
+            match IOleObject_Impl::Advise(this, core::mem::transmute_copy(&padvsink)) {
                 Ok(ok__) => {
                     pdwconnection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8823,29 +8823,29 @@ pub struct IOleParentUndoUnit_Vtbl {
     pub GetParentState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IOleParentUndoUnit_Impl: IOleUndoUnit_Impl {
-    fn Open(&self, ppuu: Option<&IOleParentUndoUnit>) -> windows_core::Result<()>;
-    fn Close(&self, ppuu: Option<&IOleParentUndoUnit>, fcommit: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn Add(&self, puu: Option<&IOleUndoUnit>) -> windows_core::Result<()>;
-    fn FindUnit(&self, puu: Option<&IOleUndoUnit>) -> windows_core::Result<()>;
+    fn Open(&self, ppuu: windows_core::Ref<'_, IOleParentUndoUnit>) -> windows_core::Result<()>;
+    fn Close(&self, ppuu: windows_core::Ref<'_, IOleParentUndoUnit>, fcommit: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn Add(&self, puu: windows_core::Ref<'_, IOleUndoUnit>) -> windows_core::Result<()>;
+    fn FindUnit(&self, puu: windows_core::Ref<'_, IOleUndoUnit>) -> windows_core::Result<()>;
     fn GetParentState(&self) -> windows_core::Result<u32>;
 }
 impl IOleParentUndoUnit_Vtbl {
     pub const fn new<Identity: IOleParentUndoUnit_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Open<Identity: IOleParentUndoUnit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppuu: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOleParentUndoUnit_Impl::Open(this, windows_core::from_raw_borrowed(&ppuu)).into()
+            IOleParentUndoUnit_Impl::Open(this, core::mem::transmute_copy(&ppuu)).into()
         }
         unsafe extern "system" fn Close<Identity: IOleParentUndoUnit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppuu: *mut core::ffi::c_void, fcommit: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOleParentUndoUnit_Impl::Close(this, windows_core::from_raw_borrowed(&ppuu), core::mem::transmute_copy(&fcommit)).into()
+            IOleParentUndoUnit_Impl::Close(this, core::mem::transmute_copy(&ppuu), core::mem::transmute_copy(&fcommit)).into()
         }
         unsafe extern "system" fn Add<Identity: IOleParentUndoUnit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puu: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOleParentUndoUnit_Impl::Add(this, windows_core::from_raw_borrowed(&puu)).into()
+            IOleParentUndoUnit_Impl::Add(this, core::mem::transmute_copy(&puu)).into()
         }
         unsafe extern "system" fn FindUnit<Identity: IOleParentUndoUnit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puu: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOleParentUndoUnit_Impl::FindUnit(this, windows_core::from_raw_borrowed(&puu)).into()
+            IOleParentUndoUnit_Impl::FindUnit(this, core::mem::transmute_copy(&puu)).into()
         }
         unsafe extern "system" fn GetParentState<Identity: IOleParentUndoUnit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwstate: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -9397,13 +9397,13 @@ pub struct IOleUndoManager_Vtbl {
     pub Enable: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 pub trait IOleUndoManager_Impl: windows_core::IUnknownImpl {
-    fn Open(&self, ppuu: Option<&IOleParentUndoUnit>) -> windows_core::Result<()>;
-    fn Close(&self, ppuu: Option<&IOleParentUndoUnit>, fcommit: super::super::Foundation::BOOL) -> windows_core::HRESULT;
-    fn Add(&self, puu: Option<&IOleUndoUnit>) -> windows_core::Result<()>;
+    fn Open(&self, ppuu: windows_core::Ref<'_, IOleParentUndoUnit>) -> windows_core::Result<()>;
+    fn Close(&self, ppuu: windows_core::Ref<'_, IOleParentUndoUnit>, fcommit: super::super::Foundation::BOOL) -> windows_core::HRESULT;
+    fn Add(&self, puu: windows_core::Ref<'_, IOleUndoUnit>) -> windows_core::Result<()>;
     fn GetOpenParentState(&self) -> windows_core::Result<u32>;
-    fn DiscardFrom(&self, puu: Option<&IOleUndoUnit>) -> windows_core::Result<()>;
-    fn UndoTo(&self, puu: Option<&IOleUndoUnit>) -> windows_core::Result<()>;
-    fn RedoTo(&self, puu: Option<&IOleUndoUnit>) -> windows_core::Result<()>;
+    fn DiscardFrom(&self, puu: windows_core::Ref<'_, IOleUndoUnit>) -> windows_core::Result<()>;
+    fn UndoTo(&self, puu: windows_core::Ref<'_, IOleUndoUnit>) -> windows_core::Result<()>;
+    fn RedoTo(&self, puu: windows_core::Ref<'_, IOleUndoUnit>) -> windows_core::Result<()>;
     fn EnumUndoable(&self) -> windows_core::Result<IEnumOleUndoUnits>;
     fn EnumRedoable(&self) -> windows_core::Result<IEnumOleUndoUnits>;
     fn GetLastUndoDescription(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -9414,15 +9414,15 @@ impl IOleUndoManager_Vtbl {
     pub const fn new<Identity: IOleUndoManager_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Open<Identity: IOleUndoManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppuu: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOleUndoManager_Impl::Open(this, windows_core::from_raw_borrowed(&ppuu)).into()
+            IOleUndoManager_Impl::Open(this, core::mem::transmute_copy(&ppuu)).into()
         }
         unsafe extern "system" fn Close<Identity: IOleUndoManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppuu: *mut core::ffi::c_void, fcommit: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOleUndoManager_Impl::Close(this, windows_core::from_raw_borrowed(&ppuu), core::mem::transmute_copy(&fcommit))
+            IOleUndoManager_Impl::Close(this, core::mem::transmute_copy(&ppuu), core::mem::transmute_copy(&fcommit))
         }
         unsafe extern "system" fn Add<Identity: IOleUndoManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puu: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOleUndoManager_Impl::Add(this, windows_core::from_raw_borrowed(&puu)).into()
+            IOleUndoManager_Impl::Add(this, core::mem::transmute_copy(&puu)).into()
         }
         unsafe extern "system" fn GetOpenParentState<Identity: IOleUndoManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwstate: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -9436,15 +9436,15 @@ impl IOleUndoManager_Vtbl {
         }
         unsafe extern "system" fn DiscardFrom<Identity: IOleUndoManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puu: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOleUndoManager_Impl::DiscardFrom(this, windows_core::from_raw_borrowed(&puu)).into()
+            IOleUndoManager_Impl::DiscardFrom(this, core::mem::transmute_copy(&puu)).into()
         }
         unsafe extern "system" fn UndoTo<Identity: IOleUndoManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puu: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOleUndoManager_Impl::UndoTo(this, windows_core::from_raw_borrowed(&puu)).into()
+            IOleUndoManager_Impl::UndoTo(this, core::mem::transmute_copy(&puu)).into()
         }
         unsafe extern "system" fn RedoTo<Identity: IOleUndoManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puu: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOleUndoManager_Impl::RedoTo(this, windows_core::from_raw_borrowed(&puu)).into()
+            IOleUndoManager_Impl::RedoTo(this, core::mem::transmute_copy(&puu)).into()
         }
         unsafe extern "system" fn EnumUndoable<Identity: IOleUndoManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -9540,7 +9540,7 @@ pub struct IOleUndoUnit_Vtbl {
     pub OnNextAdd: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IOleUndoUnit_Impl: windows_core::IUnknownImpl {
-    fn Do(&self, pundomanager: Option<&IOleUndoManager>) -> windows_core::Result<()>;
+    fn Do(&self, pundomanager: windows_core::Ref<'_, IOleUndoManager>) -> windows_core::Result<()>;
     fn GetDescription(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetUnitType(&self, pclsid: *mut windows_core::GUID, plid: *mut i32) -> windows_core::Result<()>;
     fn OnNextAdd(&self) -> windows_core::Result<()>;
@@ -9549,7 +9549,7 @@ impl IOleUndoUnit_Vtbl {
     pub const fn new<Identity: IOleUndoUnit_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Do<Identity: IOleUndoUnit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pundomanager: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOleUndoUnit_Impl::Do(this, windows_core::from_raw_borrowed(&pundomanager)).into()
+            IOleUndoUnit_Impl::Do(this, core::mem::transmute_copy(&pundomanager)).into()
         }
         unsafe extern "system" fn GetDescription<Identity: IOleUndoUnit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstr: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -9652,14 +9652,14 @@ pub struct IParseDisplayName_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IParseDisplayName_Impl: windows_core::IUnknownImpl {
-    fn ParseDisplayName(&self, pbc: Option<&super::Com::IBindCtx>, pszdisplayname: &windows_core::PCWSTR, pcheaten: *mut u32, ppmkout: *mut Option<super::Com::IMoniker>) -> windows_core::Result<()>;
+    fn ParseDisplayName(&self, pbc: windows_core::Ref<'_, super::Com::IBindCtx>, pszdisplayname: &windows_core::PCWSTR, pcheaten: *mut u32, ppmkout: windows_core::OutRef<'_, super::Com::IMoniker>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IParseDisplayName_Vtbl {
     pub const fn new<Identity: IParseDisplayName_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ParseDisplayName<Identity: IParseDisplayName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbc: *mut core::ffi::c_void, pszdisplayname: windows_core::PCWSTR, pcheaten: *mut u32, ppmkout: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IParseDisplayName_Impl::ParseDisplayName(this, windows_core::from_raw_borrowed(&pbc), core::mem::transmute(&pszdisplayname), core::mem::transmute_copy(&pcheaten), core::mem::transmute_copy(&ppmkout)).into()
+            IParseDisplayName_Impl::ParseDisplayName(this, core::mem::transmute_copy(&pbc), core::mem::transmute(&pszdisplayname), core::mem::transmute_copy(&pcheaten), core::mem::transmute_copy(&ppmkout)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ParseDisplayName: ParseDisplayName::<Identity, OFFSET> }
     }
@@ -9807,8 +9807,8 @@ pub struct IPersistPropertyBag_Vtbl {
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait IPersistPropertyBag_Impl: super::Com::IPersist_Impl {
     fn InitNew(&self) -> windows_core::Result<()>;
-    fn Load(&self, ppropbag: Option<&super::Com::StructuredStorage::IPropertyBag>, perrorlog: Option<&super::Com::IErrorLog>) -> windows_core::Result<()>;
-    fn Save(&self, ppropbag: Option<&super::Com::StructuredStorage::IPropertyBag>, fcleardirty: super::super::Foundation::BOOL, fsaveallproperties: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn Load(&self, ppropbag: windows_core::Ref<'_, super::Com::StructuredStorage::IPropertyBag>, perrorlog: windows_core::Ref<'_, super::Com::IErrorLog>) -> windows_core::Result<()>;
+    fn Save(&self, ppropbag: windows_core::Ref<'_, super::Com::StructuredStorage::IPropertyBag>, fcleardirty: super::super::Foundation::BOOL, fsaveallproperties: super::super::Foundation::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl IPersistPropertyBag_Vtbl {
@@ -9819,11 +9819,11 @@ impl IPersistPropertyBag_Vtbl {
         }
         unsafe extern "system" fn Load<Identity: IPersistPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppropbag: *mut core::ffi::c_void, perrorlog: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPersistPropertyBag_Impl::Load(this, windows_core::from_raw_borrowed(&ppropbag), windows_core::from_raw_borrowed(&perrorlog)).into()
+            IPersistPropertyBag_Impl::Load(this, core::mem::transmute_copy(&ppropbag), core::mem::transmute_copy(&perrorlog)).into()
         }
         unsafe extern "system" fn Save<Identity: IPersistPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppropbag: *mut core::ffi::c_void, fcleardirty: super::super::Foundation::BOOL, fsaveallproperties: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPersistPropertyBag_Impl::Save(this, windows_core::from_raw_borrowed(&ppropbag), core::mem::transmute_copy(&fcleardirty), core::mem::transmute_copy(&fsaveallproperties)).into()
+            IPersistPropertyBag_Impl::Save(this, core::mem::transmute_copy(&ppropbag), core::mem::transmute_copy(&fcleardirty), core::mem::transmute_copy(&fsaveallproperties)).into()
         }
         Self {
             base__: super::Com::IPersist_Vtbl::new::<Identity, OFFSET>(),
@@ -9891,8 +9891,8 @@ pub struct IPersistPropertyBag2_Vtbl {
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait IPersistPropertyBag2_Impl: super::Com::IPersist_Impl {
     fn InitNew(&self) -> windows_core::Result<()>;
-    fn Load(&self, ppropbag: Option<&super::Com::StructuredStorage::IPropertyBag2>, perrlog: Option<&super::Com::IErrorLog>) -> windows_core::Result<()>;
-    fn Save(&self, ppropbag: Option<&super::Com::StructuredStorage::IPropertyBag2>, fcleardirty: super::super::Foundation::BOOL, fsaveallproperties: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn Load(&self, ppropbag: windows_core::Ref<'_, super::Com::StructuredStorage::IPropertyBag2>, perrlog: windows_core::Ref<'_, super::Com::IErrorLog>) -> windows_core::Result<()>;
+    fn Save(&self, ppropbag: windows_core::Ref<'_, super::Com::StructuredStorage::IPropertyBag2>, fcleardirty: super::super::Foundation::BOOL, fsaveallproperties: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn IsDirty(&self) -> windows_core::HRESULT;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -9904,11 +9904,11 @@ impl IPersistPropertyBag2_Vtbl {
         }
         unsafe extern "system" fn Load<Identity: IPersistPropertyBag2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppropbag: *mut core::ffi::c_void, perrlog: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPersistPropertyBag2_Impl::Load(this, windows_core::from_raw_borrowed(&ppropbag), windows_core::from_raw_borrowed(&perrlog)).into()
+            IPersistPropertyBag2_Impl::Load(this, core::mem::transmute_copy(&ppropbag), core::mem::transmute_copy(&perrlog)).into()
         }
         unsafe extern "system" fn Save<Identity: IPersistPropertyBag2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppropbag: *mut core::ffi::c_void, fcleardirty: super::super::Foundation::BOOL, fsaveallproperties: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPersistPropertyBag2_Impl::Save(this, windows_core::from_raw_borrowed(&ppropbag), core::mem::transmute_copy(&fcleardirty), core::mem::transmute_copy(&fsaveallproperties)).into()
+            IPersistPropertyBag2_Impl::Save(this, core::mem::transmute_copy(&ppropbag), core::mem::transmute_copy(&fcleardirty), core::mem::transmute_copy(&fsaveallproperties)).into()
         }
         unsafe extern "system" fn IsDirty<Identity: IPersistPropertyBag2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -10034,7 +10034,7 @@ pub trait IPicture_Impl: windows_core::IUnknownImpl {
     fn KeepOriginalFormat(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn SetKeepOriginalFormat(&self, keep: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn PictureChanged(&self) -> windows_core::Result<()>;
-    fn SaveAsFile(&self, pstream: Option<&super::Com::IStream>, fsavememcopy: super::super::Foundation::BOOL) -> windows_core::Result<i32>;
+    fn SaveAsFile(&self, pstream: windows_core::Ref<'_, super::Com::IStream>, fsavememcopy: super::super::Foundation::BOOL) -> windows_core::Result<i32>;
     fn Attributes(&self) -> windows_core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
@@ -10132,7 +10132,7 @@ impl IPicture_Vtbl {
         }
         unsafe extern "system" fn SaveAsFile<Identity: IPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstream: *mut core::ffi::c_void, fsavememcopy: super::super::Foundation::BOOL, pcbsize: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IPicture_Impl::SaveAsFile(this, windows_core::from_raw_borrowed(&pstream), core::mem::transmute_copy(&fsavememcopy)) {
+            match IPicture_Impl::SaveAsFile(this, core::mem::transmute_copy(&pstream), core::mem::transmute_copy(&fsavememcopy)) {
                 Ok(ok__) => {
                     pcbsize.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -10280,7 +10280,7 @@ pub trait IPicture2_Impl: windows_core::IUnknownImpl {
     fn KeepOriginalFormat(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn SetKeepOriginalFormat(&self, keep: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn PictureChanged(&self) -> windows_core::Result<()>;
-    fn SaveAsFile(&self, pstream: Option<&super::Com::IStream>, fsavememcopy: super::super::Foundation::BOOL) -> windows_core::Result<i32>;
+    fn SaveAsFile(&self, pstream: windows_core::Ref<'_, super::Com::IStream>, fsavememcopy: super::super::Foundation::BOOL) -> windows_core::Result<i32>;
     fn Attributes(&self) -> windows_core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
@@ -10378,7 +10378,7 @@ impl IPicture2_Vtbl {
         }
         unsafe extern "system" fn SaveAsFile<Identity: IPicture2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstream: *mut core::ffi::c_void, fsavememcopy: super::super::Foundation::BOOL, pcbsize: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IPicture2_Impl::SaveAsFile(this, windows_core::from_raw_borrowed(&pstream), core::mem::transmute_copy(&fsavememcopy)) {
+            match IPicture2_Impl::SaveAsFile(this, core::mem::transmute_copy(&pstream), core::mem::transmute_copy(&fsavememcopy)) {
                 Ok(ok__) => {
                     pcbsize.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -10538,7 +10538,7 @@ pub struct IPrint_Vtbl {
 pub trait IPrint_Impl: windows_core::IUnknownImpl {
     fn SetInitialPageNum(&self, nfirstpage: i32) -> windows_core::Result<()>;
     fn GetPageInfo(&self, pnfirstpage: *mut i32, pcpages: *mut i32) -> windows_core::Result<()>;
-    fn Print(&self, grfflags: u32, pptd: *mut *mut super::Com::DVTARGETDEVICE, pppageset: *mut *mut PAGESET, pstgmoptions: *mut super::Com::STGMEDIUM, pcallback: Option<&IContinueCallback>, nfirstpage: i32, pcpagesprinted: *mut i32, pnlastpage: *mut i32) -> windows_core::Result<()>;
+    fn Print(&self, grfflags: u32, pptd: *mut *mut super::Com::DVTARGETDEVICE, pppageset: *mut *mut PAGESET, pstgmoptions: *mut super::Com::STGMEDIUM, pcallback: windows_core::Ref<'_, IContinueCallback>, nfirstpage: i32, pcpagesprinted: *mut i32, pnlastpage: *mut i32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 impl IPrint_Vtbl {
@@ -10553,7 +10553,7 @@ impl IPrint_Vtbl {
         }
         unsafe extern "system" fn Print<Identity: IPrint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grfflags: u32, pptd: *mut *mut super::Com::DVTARGETDEVICE, pppageset: *mut *mut PAGESET, pstgmoptions: *mut super::Com::STGMEDIUM, pcallback: *mut core::ffi::c_void, nfirstpage: i32, pcpagesprinted: *mut i32, pnlastpage: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPrint_Impl::Print(this, core::mem::transmute_copy(&grfflags), core::mem::transmute_copy(&pptd), core::mem::transmute_copy(&pppageset), core::mem::transmute_copy(&pstgmoptions), windows_core::from_raw_borrowed(&pcallback), core::mem::transmute_copy(&nfirstpage), core::mem::transmute_copy(&pcpagesprinted), core::mem::transmute_copy(&pnlastpage)).into()
+            IPrint_Impl::Print(this, core::mem::transmute_copy(&grfflags), core::mem::transmute_copy(&pptd), core::mem::transmute_copy(&pppageset), core::mem::transmute_copy(&pstgmoptions), core::mem::transmute_copy(&pcallback), core::mem::transmute_copy(&nfirstpage), core::mem::transmute_copy(&pcpagesprinted), core::mem::transmute_copy(&pnlastpage)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -10673,7 +10673,7 @@ pub struct IPropertyPage_Vtbl {
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub trait IPropertyPage_Impl: windows_core::IUnknownImpl {
-    fn SetPageSite(&self, ppagesite: Option<&IPropertyPageSite>) -> windows_core::Result<()>;
+    fn SetPageSite(&self, ppagesite: windows_core::Ref<'_, IPropertyPageSite>) -> windows_core::Result<()>;
     fn Activate(&self, hwndparent: super::super::Foundation::HWND, prect: *const super::super::Foundation::RECT, bmodal: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn Deactivate(&self) -> windows_core::Result<()>;
     fn GetPageInfo(&self, ppageinfo: *mut PROPPAGEINFO) -> windows_core::Result<()>;
@@ -10690,7 +10690,7 @@ impl IPropertyPage_Vtbl {
     pub const fn new<Identity: IPropertyPage_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetPageSite<Identity: IPropertyPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppagesite: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPropertyPage_Impl::SetPageSite(this, windows_core::from_raw_borrowed(&ppagesite)).into()
+            IPropertyPage_Impl::SetPageSite(this, core::mem::transmute_copy(&ppagesite)).into()
         }
         unsafe extern "system" fn Activate<Identity: IPropertyPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::Foundation::HWND, prect: *const super::super::Foundation::RECT, bmodal: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -11117,7 +11117,7 @@ pub struct IProvideMultipleClassInfo_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait IProvideMultipleClassInfo_Impl: IProvideClassInfo2_Impl {
     fn GetMultiTypeInfoCount(&self) -> windows_core::Result<u32>;
-    fn GetInfoOfIndex(&self, iti: u32, dwflags: MULTICLASSINFO_FLAGS, ppticoclass: *mut Option<super::Com::ITypeInfo>, pdwtiflags: *mut u32, pcdispidreserved: *mut u32, piidprimary: *mut windows_core::GUID, piidsource: *mut windows_core::GUID) -> windows_core::Result<()>;
+    fn GetInfoOfIndex(&self, iti: u32, dwflags: MULTICLASSINFO_FLAGS, ppticoclass: windows_core::OutRef<'_, super::Com::ITypeInfo>, pdwtiflags: *mut u32, pcdispidreserved: *mut u32, piidprimary: *mut windows_core::GUID, piidsource: *mut windows_core::GUID) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IProvideMultipleClassInfo_Vtbl {
@@ -11367,7 +11367,7 @@ pub trait IRecordInfo_Impl: windows_core::IUnknownImpl {
     fn PutField(&self, wflags: u32, pvdata: *mut core::ffi::c_void, szfieldname: &windows_core::PCWSTR, pvarfield: *const super::Variant::VARIANT) -> windows_core::Result<()>;
     fn PutFieldNoCopy(&self, wflags: u32, pvdata: *mut core::ffi::c_void, szfieldname: &windows_core::PCWSTR, pvarfield: *const super::Variant::VARIANT) -> windows_core::Result<()>;
     fn GetFieldNames(&self, pcnames: *mut u32, rgbstrnames: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn IsMatchingType(&self, precordinfo: Option<&IRecordInfo>) -> super::super::Foundation::BOOL;
+    fn IsMatchingType(&self, precordinfo: windows_core::Ref<'_, IRecordInfo>) -> super::super::Foundation::BOOL;
     fn RecordCreate(&self) -> *mut core::ffi::c_void;
     fn RecordCreateCopy(&self, pvsource: *const core::ffi::c_void, ppvdest: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn RecordDestroy(&self, pvrecord: *const core::ffi::c_void) -> windows_core::Result<()>;
@@ -11455,7 +11455,7 @@ impl IRecordInfo_Vtbl {
         }
         unsafe extern "system" fn IsMatchingType<Identity: IRecordInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, precordinfo: *mut core::ffi::c_void) -> super::super::Foundation::BOOL {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IRecordInfo_Impl::IsMatchingType(this, windows_core::from_raw_borrowed(&precordinfo))
+            IRecordInfo_Impl::IsMatchingType(this, core::mem::transmute_copy(&precordinfo))
         }
         unsafe extern "system" fn RecordCreate<Identity: IRecordInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> *mut core::ffi::c_void {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -11606,15 +11606,15 @@ pub struct ITypeChangeEvents_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITypeChangeEvents_Impl: windows_core::IUnknownImpl {
-    fn RequestTypeChange(&self, changekind: CHANGEKIND, ptinfobefore: Option<&super::Com::ITypeInfo>, pstrname: &windows_core::PCWSTR) -> windows_core::Result<i32>;
-    fn AfterTypeChange(&self, changekind: CHANGEKIND, ptinfoafter: Option<&super::Com::ITypeInfo>, pstrname: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn RequestTypeChange(&self, changekind: CHANGEKIND, ptinfobefore: windows_core::Ref<'_, super::Com::ITypeInfo>, pstrname: &windows_core::PCWSTR) -> windows_core::Result<i32>;
+    fn AfterTypeChange(&self, changekind: CHANGEKIND, ptinfoafter: windows_core::Ref<'_, super::Com::ITypeInfo>, pstrname: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ITypeChangeEvents_Vtbl {
     pub const fn new<Identity: ITypeChangeEvents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RequestTypeChange<Identity: ITypeChangeEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, changekind: CHANGEKIND, ptinfobefore: *mut core::ffi::c_void, pstrname: windows_core::PCWSTR, pfcancel: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITypeChangeEvents_Impl::RequestTypeChange(this, core::mem::transmute_copy(&changekind), windows_core::from_raw_borrowed(&ptinfobefore), core::mem::transmute(&pstrname)) {
+            match ITypeChangeEvents_Impl::RequestTypeChange(this, core::mem::transmute_copy(&changekind), core::mem::transmute_copy(&ptinfobefore), core::mem::transmute(&pstrname)) {
                 Ok(ok__) => {
                     pfcancel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -11624,7 +11624,7 @@ impl ITypeChangeEvents_Vtbl {
         }
         unsafe extern "system" fn AfterTypeChange<Identity: ITypeChangeEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, changekind: CHANGEKIND, ptinfoafter: *mut core::ffi::c_void, pstrname: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITypeChangeEvents_Impl::AfterTypeChange(this, core::mem::transmute_copy(&changekind), windows_core::from_raw_borrowed(&ptinfoafter), core::mem::transmute(&pstrname)).into()
+            ITypeChangeEvents_Impl::AfterTypeChange(this, core::mem::transmute_copy(&changekind), core::mem::transmute_copy(&ptinfoafter), core::mem::transmute(&pstrname)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -11660,14 +11660,14 @@ pub struct ITypeFactory_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITypeFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateFromTypeInfo(&self, ptypeinfo: Option<&super::Com::ITypeInfo>, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>;
+    fn CreateFromTypeInfo(&self, ptypeinfo: windows_core::Ref<'_, super::Com::ITypeInfo>, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ITypeFactory_Vtbl {
     pub const fn new<Identity: ITypeFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateFromTypeInfo<Identity: ITypeFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptypeinfo: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITypeFactory_Impl::CreateFromTypeInfo(this, windows_core::from_raw_borrowed(&ptypeinfo), core::mem::transmute_copy(&riid)) {
+            match ITypeFactory_Impl::CreateFromTypeInfo(this, core::mem::transmute_copy(&ptypeinfo), core::mem::transmute_copy(&riid)) {
                 Ok(ok__) => {
                     ppv.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -11924,8 +11924,8 @@ pub trait IViewObject_Impl: windows_core::IUnknownImpl {
     fn GetColorSet(&self, dwdrawaspect: super::Com::DVASPECT, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *const super::Com::DVTARGETDEVICE, hictargetdev: super::super::Graphics::Gdi::HDC, ppcolorset: *mut *mut super::super::Graphics::Gdi::LOGPALETTE) -> windows_core::Result<()>;
     fn Freeze(&self, dwdrawaspect: super::Com::DVASPECT, lindex: i32, pvaspect: *mut core::ffi::c_void, pdwfreeze: *mut u32) -> windows_core::Result<()>;
     fn Unfreeze(&self, dwfreeze: u32) -> windows_core::Result<()>;
-    fn SetAdvise(&self, aspects: super::Com::DVASPECT, advf: u32, padvsink: Option<&super::Com::IAdviseSink>) -> windows_core::Result<()>;
-    fn GetAdvise(&self, paspects: *mut u32, padvf: *mut u32, ppadvsink: *mut Option<super::Com::IAdviseSink>) -> windows_core::Result<()>;
+    fn SetAdvise(&self, aspects: super::Com::DVASPECT, advf: u32, padvsink: windows_core::Ref<'_, super::Com::IAdviseSink>) -> windows_core::Result<()>;
+    fn GetAdvise(&self, paspects: *mut u32, padvf: *mut u32, ppadvsink: windows_core::OutRef<'_, super::Com::IAdviseSink>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 impl IViewObject_Vtbl {
@@ -11948,7 +11948,7 @@ impl IViewObject_Vtbl {
         }
         unsafe extern "system" fn SetAdvise<Identity: IViewObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, aspects: super::Com::DVASPECT, advf: u32, padvsink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IViewObject_Impl::SetAdvise(this, core::mem::transmute_copy(&aspects), core::mem::transmute_copy(&advf), windows_core::from_raw_borrowed(&padvsink)).into()
+            IViewObject_Impl::SetAdvise(this, core::mem::transmute_copy(&aspects), core::mem::transmute_copy(&advf), core::mem::transmute_copy(&padvsink)).into()
         }
         unsafe extern "system" fn GetAdvise<Identity: IViewObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paspects: *mut u32, padvf: *mut u32, ppadvsink: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);

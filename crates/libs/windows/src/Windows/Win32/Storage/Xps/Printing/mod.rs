@@ -199,14 +199,14 @@ pub struct IPrintDocumentPackageTargetFactory_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrintDocumentPackageTargetFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateDocumentPackageTargetForPrintJob(&self, printername: &windows_core::PCWSTR, jobname: &windows_core::PCWSTR, joboutputstream: Option<&super::super::super::System::Com::IStream>, jobprintticketstream: Option<&super::super::super::System::Com::IStream>) -> windows_core::Result<IPrintDocumentPackageTarget>;
+    fn CreateDocumentPackageTargetForPrintJob(&self, printername: &windows_core::PCWSTR, jobname: &windows_core::PCWSTR, joboutputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, jobprintticketstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>) -> windows_core::Result<IPrintDocumentPackageTarget>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IPrintDocumentPackageTargetFactory_Vtbl {
     pub const fn new<Identity: IPrintDocumentPackageTargetFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateDocumentPackageTargetForPrintJob<Identity: IPrintDocumentPackageTargetFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, printername: windows_core::PCWSTR, jobname: windows_core::PCWSTR, joboutputstream: *mut core::ffi::c_void, jobprintticketstream: *mut core::ffi::c_void, docpackagetarget: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IPrintDocumentPackageTargetFactory_Impl::CreateDocumentPackageTargetForPrintJob(this, core::mem::transmute(&printername), core::mem::transmute(&jobname), windows_core::from_raw_borrowed(&joboutputstream), windows_core::from_raw_borrowed(&jobprintticketstream)) {
+            match IPrintDocumentPackageTargetFactory_Impl::CreateDocumentPackageTargetForPrintJob(this, core::mem::transmute(&printername), core::mem::transmute(&jobname), core::mem::transmute_copy(&joboutputstream), core::mem::transmute_copy(&jobprintticketstream)) {
                 Ok(ok__) => {
                     docpackagetarget.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)

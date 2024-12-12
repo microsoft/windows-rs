@@ -348,7 +348,7 @@ impl windows_core::RuntimeName for IMediaEnginePlaybackSource {
 #[cfg(feature = "deprecated")]
 pub trait IMediaEnginePlaybackSource_Impl: windows_core::IUnknownImpl {
     fn CurrentItem(&self) -> windows_core::Result<MediaPlaybackItem>;
-    fn SetPlaybackSource(&self, source: Option<&IMediaPlaybackSource>) -> windows_core::Result<()>;
+    fn SetPlaybackSource(&self, source: windows_core::Ref<'_, IMediaPlaybackSource>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "deprecated")]
 impl IMediaEnginePlaybackSource_Vtbl {
@@ -366,7 +366,7 @@ impl IMediaEnginePlaybackSource_Vtbl {
         }
         unsafe extern "system" fn SetPlaybackSource<Identity: IMediaEnginePlaybackSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, source: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IMediaEnginePlaybackSource_Impl::SetPlaybackSource(this, windows_core::from_raw_borrowed(&source)).into()
+            IMediaEnginePlaybackSource_Impl::SetPlaybackSource(this, core::mem::transmute_copy(&source)).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IMediaEnginePlaybackSource, OFFSET>(),

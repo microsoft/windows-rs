@@ -9411,7 +9411,7 @@ pub trait ISClusResDependencies_Impl: super::super::System::Com::IDispatch_Impl 
     fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusResource>;
     fn CreateItem(&self, bstrresourcename: &windows_core::BSTR, bstrresourcetype: &windows_core::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> windows_core::Result<ISClusResource>;
     fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn AddItem(&self, presource: Option<&ISClusResource>) -> windows_core::Result<()>;
+    fn AddItem(&self, presource: windows_core::Ref<'_, ISClusResource>) -> windows_core::Result<()>;
     fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -9467,7 +9467,7 @@ impl ISClusResDependencies_Vtbl {
         }
         unsafe extern "system" fn AddItem<Identity: ISClusResDependencies_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISClusResDependencies_Impl::AddItem(this, windows_core::from_raw_borrowed(&presource)).into()
+            ISClusResDependencies_Impl::AddItem(this, core::mem::transmute_copy(&presource)).into()
         }
         unsafe extern "system" fn RemoveItem<Identity: ISClusResDependencies_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -9569,7 +9569,7 @@ pub trait ISClusResDependents_Impl: super::super::System::Com::IDispatch_Impl {
     fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusResource>;
     fn CreateItem(&self, bstrresourcename: &windows_core::BSTR, bstrresourcetype: &windows_core::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> windows_core::Result<ISClusResource>;
     fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn AddItem(&self, presource: Option<&ISClusResource>) -> windows_core::Result<()>;
+    fn AddItem(&self, presource: windows_core::Ref<'_, ISClusResource>) -> windows_core::Result<()>;
     fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -9625,7 +9625,7 @@ impl ISClusResDependents_Vtbl {
         }
         unsafe extern "system" fn AddItem<Identity: ISClusResDependents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISClusResDependents_Impl::AddItem(this, windows_core::from_raw_borrowed(&presource)).into()
+            ISClusResDependents_Impl::AddItem(this, core::mem::transmute_copy(&presource)).into()
         }
         unsafe extern "system" fn RemoveItem<Identity: ISClusResDependents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -10037,11 +10037,11 @@ pub trait ISClusResGroupPreferredOwnerNodes_Impl: super::super::System::Com::IDi
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Refresh(&self) -> windows_core::Result<()>;
     fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusNode>;
-    fn InsertItem(&self, pnode: Option<&ISClusNode>, nposition: i32) -> windows_core::Result<()>;
+    fn InsertItem(&self, pnode: windows_core::Ref<'_, ISClusNode>, nposition: i32) -> windows_core::Result<()>;
     fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn Modified(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn SaveChanges(&self) -> windows_core::Result<()>;
-    fn AddItem(&self, pnode: Option<&ISClusNode>) -> windows_core::Result<()>;
+    fn AddItem(&self, pnode: windows_core::Ref<'_, ISClusNode>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusResGroupPreferredOwnerNodes_Vtbl {
@@ -10082,7 +10082,7 @@ impl ISClusResGroupPreferredOwnerNodes_Vtbl {
         }
         unsafe extern "system" fn InsertItem<Identity: ISClusResGroupPreferredOwnerNodes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnode: *mut core::ffi::c_void, nposition: i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISClusResGroupPreferredOwnerNodes_Impl::InsertItem(this, windows_core::from_raw_borrowed(&pnode), core::mem::transmute_copy(&nposition)).into()
+            ISClusResGroupPreferredOwnerNodes_Impl::InsertItem(this, core::mem::transmute_copy(&pnode), core::mem::transmute_copy(&nposition)).into()
         }
         unsafe extern "system" fn RemoveItem<Identity: ISClusResGroupPreferredOwnerNodes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -10104,7 +10104,7 @@ impl ISClusResGroupPreferredOwnerNodes_Vtbl {
         }
         unsafe extern "system" fn AddItem<Identity: ISClusResGroupPreferredOwnerNodes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnode: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISClusResGroupPreferredOwnerNodes_Impl::AddItem(this, windows_core::from_raw_borrowed(&pnode)).into()
+            ISClusResGroupPreferredOwnerNodes_Impl::AddItem(this, core::mem::transmute_copy(&pnode)).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(),
@@ -10459,7 +10459,7 @@ pub trait ISClusResPossibleOwnerNodes_Impl: super::super::System::Com::IDispatch
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Refresh(&self) -> windows_core::Result<()>;
     fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusNode>;
-    fn AddItem(&self, pnode: Option<&ISClusNode>) -> windows_core::Result<()>;
+    fn AddItem(&self, pnode: windows_core::Ref<'_, ISClusNode>) -> windows_core::Result<()>;
     fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn Modified(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
 }
@@ -10502,7 +10502,7 @@ impl ISClusResPossibleOwnerNodes_Vtbl {
         }
         unsafe extern "system" fn AddItem<Identity: ISClusResPossibleOwnerNodes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnode: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISClusResPossibleOwnerNodes_Impl::AddItem(this, windows_core::from_raw_borrowed(&pnode)).into()
+            ISClusResPossibleOwnerNodes_Impl::AddItem(this, core::mem::transmute_copy(&pnode)).into()
         }
         unsafe extern "system" fn RemoveItem<Identity: ISClusResPossibleOwnerNodes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -11306,10 +11306,10 @@ pub trait ISClusResource_Impl: super::super::System::Com::IDispatch_Impl {
     fn Fail(&self) -> windows_core::Result<()>;
     fn Online(&self, ntimeout: i32) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn Offline(&self, ntimeout: i32) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn ChangeResourceGroup(&self, presourcegroup: Option<&ISClusResGroup>) -> windows_core::Result<()>;
-    fn AddResourceNode(&self, pnode: Option<&ISClusNode>) -> windows_core::Result<()>;
-    fn RemoveResourceNode(&self, pnode: Option<&ISClusNode>) -> windows_core::Result<()>;
-    fn CanResourceBeDependent(&self, presource: Option<&ISClusResource>) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn ChangeResourceGroup(&self, presourcegroup: windows_core::Ref<'_, ISClusResGroup>) -> windows_core::Result<()>;
+    fn AddResourceNode(&self, pnode: windows_core::Ref<'_, ISClusNode>) -> windows_core::Result<()>;
+    fn RemoveResourceNode(&self, pnode: windows_core::Ref<'_, ISClusNode>) -> windows_core::Result<()>;
+    fn CanResourceBeDependent(&self, presource: windows_core::Ref<'_, ISClusResource>) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn PossibleOwnerNodes(&self) -> windows_core::Result<ISClusResPossibleOwnerNodes>;
     fn Dependencies(&self) -> windows_core::Result<ISClusResDependencies>;
     fn Dependents(&self) -> windows_core::Result<ISClusResDependents>;
@@ -11446,19 +11446,19 @@ impl ISClusResource_Vtbl {
         }
         unsafe extern "system" fn ChangeResourceGroup<Identity: ISClusResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presourcegroup: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISClusResource_Impl::ChangeResourceGroup(this, windows_core::from_raw_borrowed(&presourcegroup)).into()
+            ISClusResource_Impl::ChangeResourceGroup(this, core::mem::transmute_copy(&presourcegroup)).into()
         }
         unsafe extern "system" fn AddResourceNode<Identity: ISClusResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnode: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISClusResource_Impl::AddResourceNode(this, windows_core::from_raw_borrowed(&pnode)).into()
+            ISClusResource_Impl::AddResourceNode(this, core::mem::transmute_copy(&pnode)).into()
         }
         unsafe extern "system" fn RemoveResourceNode<Identity: ISClusResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnode: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISClusResource_Impl::RemoveResourceNode(this, windows_core::from_raw_borrowed(&pnode)).into()
+            ISClusResource_Impl::RemoveResourceNode(this, core::mem::transmute_copy(&pnode)).into()
         }
         unsafe extern "system" fn CanResourceBeDependent<Identity: ISClusResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void, pvardependent: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ISClusResource_Impl::CanResourceBeDependent(this, windows_core::from_raw_borrowed(&presource)) {
+            match ISClusResource_Impl::CanResourceBeDependent(this, core::mem::transmute_copy(&presource)) {
                 Ok(ok__) => {
                     pvardependent.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -12234,7 +12234,7 @@ pub trait ISCluster_Impl: super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetName(&self, bstrclustername: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Version(&self) -> windows_core::Result<ISClusVersion>;
-    fn SetQuorumResource(&self, pclusterresource: Option<&ISClusResource>) -> windows_core::Result<()>;
+    fn SetQuorumResource(&self, pclusterresource: windows_core::Ref<'_, ISClusResource>) -> windows_core::Result<()>;
     fn QuorumResource(&self) -> windows_core::Result<ISClusResource>;
     fn QuorumLogSize(&self) -> windows_core::Result<i32>;
     fn SetQuorumLogSize(&self, nlogsize: i32) -> windows_core::Result<()>;
@@ -12330,7 +12330,7 @@ impl ISCluster_Vtbl {
         }
         unsafe extern "system" fn SetQuorumResource<Identity: ISCluster_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pclusterresource: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISCluster_Impl::SetQuorumResource(this, windows_core::from_raw_borrowed(&pclusterresource)).into()
+            ISCluster_Impl::SetQuorumResource(this, core::mem::transmute_copy(&pclusterresource)).into()
         }
         unsafe extern "system" fn QuorumResource<Identity: ISCluster_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pclusterresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -12833,13 +12833,13 @@ pub struct IWEExtendContextMenu_Vtbl {
     pub AddContextMenuItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWEExtendContextMenu_Impl: windows_core::IUnknownImpl {
-    fn AddContextMenuItems(&self, pidata: Option<&windows_core::IUnknown>, picallback: Option<&IWCContextMenuCallback>) -> windows_core::Result<()>;
+    fn AddContextMenuItems(&self, pidata: windows_core::Ref<'_, windows_core::IUnknown>, picallback: windows_core::Ref<'_, IWCContextMenuCallback>) -> windows_core::Result<()>;
 }
 impl IWEExtendContextMenu_Vtbl {
     pub const fn new<Identity: IWEExtendContextMenu_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddContextMenuItems<Identity: IWEExtendContextMenu_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidata: *mut core::ffi::c_void, picallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWEExtendContextMenu_Impl::AddContextMenuItems(this, windows_core::from_raw_borrowed(&pidata), windows_core::from_raw_borrowed(&picallback)).into()
+            IWEExtendContextMenu_Impl::AddContextMenuItems(this, core::mem::transmute_copy(&pidata), core::mem::transmute_copy(&picallback)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AddContextMenuItems: AddContextMenuItems::<Identity, OFFSET> }
     }
@@ -12865,13 +12865,13 @@ pub struct IWEExtendPropertySheet_Vtbl {
     pub CreatePropertySheetPages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWEExtendPropertySheet_Impl: windows_core::IUnknownImpl {
-    fn CreatePropertySheetPages(&self, pidata: Option<&windows_core::IUnknown>, picallback: Option<&IWCPropertySheetCallback>) -> windows_core::Result<()>;
+    fn CreatePropertySheetPages(&self, pidata: windows_core::Ref<'_, windows_core::IUnknown>, picallback: windows_core::Ref<'_, IWCPropertySheetCallback>) -> windows_core::Result<()>;
 }
 impl IWEExtendPropertySheet_Vtbl {
     pub const fn new<Identity: IWEExtendPropertySheet_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreatePropertySheetPages<Identity: IWEExtendPropertySheet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidata: *mut core::ffi::c_void, picallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWEExtendPropertySheet_Impl::CreatePropertySheetPages(this, windows_core::from_raw_borrowed(&pidata), windows_core::from_raw_borrowed(&picallback)).into()
+            IWEExtendPropertySheet_Impl::CreatePropertySheetPages(this, core::mem::transmute_copy(&pidata), core::mem::transmute_copy(&picallback)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreatePropertySheetPages: CreatePropertySheetPages::<Identity, OFFSET> }
     }
@@ -12897,13 +12897,13 @@ pub struct IWEExtendWizard_Vtbl {
     pub CreateWizardPages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWEExtendWizard_Impl: windows_core::IUnknownImpl {
-    fn CreateWizardPages(&self, pidata: Option<&windows_core::IUnknown>, picallback: Option<&IWCWizardCallback>) -> windows_core::Result<()>;
+    fn CreateWizardPages(&self, pidata: windows_core::Ref<'_, windows_core::IUnknown>, picallback: windows_core::Ref<'_, IWCWizardCallback>) -> windows_core::Result<()>;
 }
 impl IWEExtendWizard_Vtbl {
     pub const fn new<Identity: IWEExtendWizard_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateWizardPages<Identity: IWEExtendWizard_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidata: *mut core::ffi::c_void, picallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWEExtendWizard_Impl::CreateWizardPages(this, windows_core::from_raw_borrowed(&pidata), windows_core::from_raw_borrowed(&picallback)).into()
+            IWEExtendWizard_Impl::CreateWizardPages(this, core::mem::transmute_copy(&pidata), core::mem::transmute_copy(&picallback)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateWizardPages: CreateWizardPages::<Identity, OFFSET> }
     }
@@ -12929,13 +12929,13 @@ pub struct IWEExtendWizard97_Vtbl {
     pub CreateWizard97Pages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWEExtendWizard97_Impl: windows_core::IUnknownImpl {
-    fn CreateWizard97Pages(&self, pidata: Option<&windows_core::IUnknown>, picallback: Option<&IWCWizard97Callback>) -> windows_core::Result<()>;
+    fn CreateWizard97Pages(&self, pidata: windows_core::Ref<'_, windows_core::IUnknown>, picallback: windows_core::Ref<'_, IWCWizard97Callback>) -> windows_core::Result<()>;
 }
 impl IWEExtendWizard97_Vtbl {
     pub const fn new<Identity: IWEExtendWizard97_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateWizard97Pages<Identity: IWEExtendWizard97_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidata: *mut core::ffi::c_void, picallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWEExtendWizard97_Impl::CreateWizard97Pages(this, windows_core::from_raw_borrowed(&pidata), windows_core::from_raw_borrowed(&picallback)).into()
+            IWEExtendWizard97_Impl::CreateWizard97Pages(this, core::mem::transmute_copy(&pidata), core::mem::transmute_copy(&picallback)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateWizard97Pages: CreateWizard97Pages::<Identity, OFFSET> }
     }
@@ -12960,13 +12960,13 @@ pub struct IWEInvokeCommand_Vtbl {
     pub InvokeCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWEInvokeCommand_Impl: windows_core::IUnknownImpl {
-    fn InvokeCommand(&self, ncommandid: u32, pidata: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn InvokeCommand(&self, ncommandid: u32, pidata: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl IWEInvokeCommand_Vtbl {
     pub const fn new<Identity: IWEInvokeCommand_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InvokeCommand<Identity: IWEInvokeCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ncommandid: u32, pidata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWEInvokeCommand_Impl::InvokeCommand(this, core::mem::transmute_copy(&ncommandid), windows_core::from_raw_borrowed(&pidata)).into()
+            IWEInvokeCommand_Impl::InvokeCommand(this, core::mem::transmute_copy(&ncommandid), core::mem::transmute_copy(&pidata)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), InvokeCommand: InvokeCommand::<Identity, OFFSET> }
     }

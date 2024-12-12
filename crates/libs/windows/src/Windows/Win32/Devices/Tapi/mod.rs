@@ -2146,7 +2146,7 @@ pub struct IEnumACDGroup_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumACDGroup_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: *mut Option<ITACDGroup>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppelements: windows_core::OutRef<'_, ITACDGroup>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumACDGroup>;
@@ -2221,7 +2221,7 @@ pub struct IEnumAddress_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumAddress_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: *mut Option<ITAddress>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppelements: windows_core::OutRef<'_, ITAddress>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumAddress>;
@@ -2296,7 +2296,7 @@ pub struct IEnumAgent_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumAgent_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: *mut Option<ITAgent>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppelements: windows_core::OutRef<'_, ITAgent>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumAgent>;
@@ -2371,7 +2371,7 @@ pub struct IEnumAgentHandler_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumAgentHandler_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: *mut Option<ITAgentHandler>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppelements: windows_core::OutRef<'_, ITAgentHandler>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumAgentHandler>;
@@ -2446,7 +2446,7 @@ pub struct IEnumAgentSession_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumAgentSession_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: *mut Option<ITAgentSession>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppelements: windows_core::OutRef<'_, ITAgentSession>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumAgentSession>;
@@ -2589,7 +2589,7 @@ pub struct IEnumCall_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumCall_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: *mut Option<ITCallInfo>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppelements: windows_core::OutRef<'_, ITCallInfo>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumCall>;
@@ -2664,7 +2664,7 @@ pub struct IEnumCallHub_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumCallHub_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: *mut Option<ITCallHub>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppelements: windows_core::OutRef<'_, ITCallHub>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumCallHub>;
@@ -2739,7 +2739,7 @@ pub struct IEnumCallingCard_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumCallingCard_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: *mut Option<ITCallingCard>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppelements: windows_core::OutRef<'_, ITCallingCard>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumCallingCard>;
@@ -2882,7 +2882,7 @@ pub struct IEnumDirectory_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumDirectory_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: *mut Option<ITDirectory>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppelements: windows_core::OutRef<'_, ITDirectory>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumDirectory>;
@@ -2957,7 +2957,7 @@ pub struct IEnumDirectoryObject_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumDirectoryObject_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, pval: *mut Option<ITDirectoryObject>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, pval: windows_core::OutRef<'_, ITDirectoryObject>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumDirectoryObject>;
@@ -3032,7 +3032,7 @@ pub struct IEnumLocation_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumLocation_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: *mut Option<ITLocationInfo>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppelements: windows_core::OutRef<'_, ITLocationInfo>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumLocation>;
@@ -3107,7 +3107,7 @@ pub struct IEnumMcastScope_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumMcastScope_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppscopes: *mut Option<IMcastScope>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppscopes: windows_core::OutRef<'_, IMcastScope>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumMcastScope>;
@@ -3182,7 +3182,7 @@ pub struct IEnumPhone_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumPhone_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: *mut Option<ITPhone>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppelements: windows_core::OutRef<'_, ITPhone>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumPhone>;
@@ -3257,7 +3257,7 @@ pub struct IEnumPluggableSuperclassInfo_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumPluggableSuperclassInfo_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: *mut Option<ITPluggableTerminalSuperclassInfo>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppelements: windows_core::OutRef<'_, ITPluggableTerminalSuperclassInfo>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumPluggableSuperclassInfo>;
@@ -3332,7 +3332,7 @@ pub struct IEnumPluggableTerminalClassInfo_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumPluggableTerminalClassInfo_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: *mut Option<ITPluggableTerminalClassInfo>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppelements: windows_core::OutRef<'_, ITPluggableTerminalClassInfo>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumPluggableTerminalClassInfo>;
@@ -3407,7 +3407,7 @@ pub struct IEnumQueue_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumQueue_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: *mut Option<ITQueue>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppelements: windows_core::OutRef<'_, ITQueue>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumQueue>;
@@ -3482,7 +3482,7 @@ pub struct IEnumStream_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumStream_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: *mut Option<ITStream>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppelements: windows_core::OutRef<'_, ITStream>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumStream>;
@@ -3557,7 +3557,7 @@ pub struct IEnumSubStream_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumSubStream_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: *mut Option<ITSubStream>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppelements: windows_core::OutRef<'_, ITSubStream>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumSubStream>;
@@ -3632,7 +3632,7 @@ pub struct IEnumTerminal_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumTerminal_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: *mut Option<ITTerminal>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppelements: windows_core::OutRef<'_, ITTerminal>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumTerminal>;
@@ -3822,9 +3822,9 @@ pub struct IMcastAddressAllocation_Vtbl {
 pub trait IMcastAddressAllocation_Impl: super::super::System::Com::IDispatch_Impl {
     fn Scopes(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn EnumerateScopes(&self) -> windows_core::Result<IEnumMcastScope>;
-    fn RequestAddress(&self, pscope: Option<&IMcastScope>, leasestarttime: f64, leasestoptime: f64, numaddresses: i32) -> windows_core::Result<IMcastLeaseInfo>;
-    fn RenewAddress(&self, lreserved: i32, prenewrequest: Option<&IMcastLeaseInfo>) -> windows_core::Result<IMcastLeaseInfo>;
-    fn ReleaseAddress(&self, preleaserequest: Option<&IMcastLeaseInfo>) -> windows_core::Result<()>;
+    fn RequestAddress(&self, pscope: windows_core::Ref<'_, IMcastScope>, leasestarttime: f64, leasestoptime: f64, numaddresses: i32) -> windows_core::Result<IMcastLeaseInfo>;
+    fn RenewAddress(&self, lreserved: i32, prenewrequest: windows_core::Ref<'_, IMcastLeaseInfo>) -> windows_core::Result<IMcastLeaseInfo>;
+    fn ReleaseAddress(&self, preleaserequest: windows_core::Ref<'_, IMcastLeaseInfo>) -> windows_core::Result<()>;
     fn CreateLeaseInfo(&self, leasestarttime: f64, leasestoptime: f64, dwnumaddresses: u32, ppaddresses: *const windows_core::PCWSTR, prequestid: &windows_core::PCWSTR, pserveraddress: &windows_core::PCWSTR) -> windows_core::Result<IMcastLeaseInfo>;
     fn CreateLeaseInfoFromVariant(&self, leasestarttime: f64, leasestoptime: f64, vaddresses: &super::super::System::Variant::VARIANT, prequestid: &windows_core::BSTR, pserveraddress: &windows_core::BSTR) -> windows_core::Result<IMcastLeaseInfo>;
 }
@@ -3853,7 +3853,7 @@ impl IMcastAddressAllocation_Vtbl {
         }
         unsafe extern "system" fn RequestAddress<Identity: IMcastAddressAllocation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pscope: *mut core::ffi::c_void, leasestarttime: f64, leasestoptime: f64, numaddresses: i32, ppleaseresponse: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IMcastAddressAllocation_Impl::RequestAddress(this, windows_core::from_raw_borrowed(&pscope), core::mem::transmute_copy(&leasestarttime), core::mem::transmute_copy(&leasestoptime), core::mem::transmute_copy(&numaddresses)) {
+            match IMcastAddressAllocation_Impl::RequestAddress(this, core::mem::transmute_copy(&pscope), core::mem::transmute_copy(&leasestarttime), core::mem::transmute_copy(&leasestoptime), core::mem::transmute_copy(&numaddresses)) {
                 Ok(ok__) => {
                     ppleaseresponse.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3863,7 +3863,7 @@ impl IMcastAddressAllocation_Vtbl {
         }
         unsafe extern "system" fn RenewAddress<Identity: IMcastAddressAllocation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lreserved: i32, prenewrequest: *mut core::ffi::c_void, pprenewresponse: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IMcastAddressAllocation_Impl::RenewAddress(this, core::mem::transmute_copy(&lreserved), windows_core::from_raw_borrowed(&prenewrequest)) {
+            match IMcastAddressAllocation_Impl::RenewAddress(this, core::mem::transmute_copy(&lreserved), core::mem::transmute_copy(&prenewrequest)) {
                 Ok(ok__) => {
                     pprenewresponse.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3873,7 +3873,7 @@ impl IMcastAddressAllocation_Vtbl {
         }
         unsafe extern "system" fn ReleaseAddress<Identity: IMcastAddressAllocation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, preleaserequest: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IMcastAddressAllocation_Impl::ReleaseAddress(this, windows_core::from_raw_borrowed(&preleaserequest)).into()
+            IMcastAddressAllocation_Impl::ReleaseAddress(this, core::mem::transmute_copy(&preleaserequest)).into()
         }
         unsafe extern "system" fn CreateLeaseInfo<Identity: IMcastAddressAllocation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, leasestarttime: f64, leasestoptime: f64, dwnumaddresses: u32, ppaddresses: *const windows_core::PCWSTR, prequestid: windows_core::PCWSTR, pserveraddress: windows_core::PCWSTR, ppreleaserequest: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -4639,7 +4639,7 @@ pub trait ITAddress_Impl: super::super::System::Com::IDispatch_Impl {
     fn EnumerateCalls(&self) -> windows_core::Result<IEnumCall>;
     fn DialableAddress(&self) -> windows_core::Result<windows_core::BSTR>;
     fn CreateForwardInfoObject(&self) -> windows_core::Result<ITForwardInformation>;
-    fn Forward(&self, pforwardinfo: Option<&ITForwardInformation>, pcall: Option<&ITBasicCallControl>) -> windows_core::Result<()>;
+    fn Forward(&self, pforwardinfo: windows_core::Ref<'_, ITForwardInformation>, pcall: windows_core::Ref<'_, ITBasicCallControl>) -> windows_core::Result<()>;
     fn CurrentForwardInfo(&self) -> windows_core::Result<ITForwardInformation>;
     fn SetMessageWaiting(&self, fmessagewaiting: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn MessageWaiting(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -4741,7 +4741,7 @@ impl ITAddress_Vtbl {
         }
         unsafe extern "system" fn Forward<Identity: ITAddress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pforwardinfo: *mut core::ffi::c_void, pcall: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITAddress_Impl::Forward(this, windows_core::from_raw_borrowed(&pforwardinfo), windows_core::from_raw_borrowed(&pcall)).into()
+            ITAddress_Impl::Forward(this, core::mem::transmute_copy(&pforwardinfo), core::mem::transmute_copy(&pcall)).into()
         }
         unsafe extern "system" fn CurrentForwardInfo<Identity: ITAddress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppforwardinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -4897,13 +4897,13 @@ pub struct ITAddress2_Vtbl {
 pub trait ITAddress2_Impl: ITAddress_Impl {
     fn Phones(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn EnumeratePhones(&self) -> windows_core::Result<IEnumPhone>;
-    fn GetPhoneFromTerminal(&self, pterminal: Option<&ITTerminal>) -> windows_core::Result<ITPhone>;
+    fn GetPhoneFromTerminal(&self, pterminal: windows_core::Ref<'_, ITTerminal>) -> windows_core::Result<ITPhone>;
     fn PreferredPhones(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn EnumeratePreferredPhones(&self) -> windows_core::Result<IEnumPhone>;
     fn get_EventFilter(&self, tapievent: TAPI_EVENT, lsubevent: i32) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn put_EventFilter(&self, tapievent: TAPI_EVENT, lsubevent: i32, benable: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn DeviceSpecific(&self, pcall: Option<&ITCallInfo>, pparams: *const u8, dwsize: u32) -> windows_core::Result<()>;
-    fn DeviceSpecificVariant(&self, pcall: Option<&ITCallInfo>, vardevspecificbytearray: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
+    fn DeviceSpecific(&self, pcall: windows_core::Ref<'_, ITCallInfo>, pparams: *const u8, dwsize: u32) -> windows_core::Result<()>;
+    fn DeviceSpecificVariant(&self, pcall: windows_core::Ref<'_, ITCallInfo>, vardevspecificbytearray: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn NegotiateExtVersion(&self, llowversion: i32, lhighversion: i32) -> windows_core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -4931,7 +4931,7 @@ impl ITAddress2_Vtbl {
         }
         unsafe extern "system" fn GetPhoneFromTerminal<Identity: ITAddress2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pterminal: *mut core::ffi::c_void, ppphone: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITAddress2_Impl::GetPhoneFromTerminal(this, windows_core::from_raw_borrowed(&pterminal)) {
+            match ITAddress2_Impl::GetPhoneFromTerminal(this, core::mem::transmute_copy(&pterminal)) {
                 Ok(ok__) => {
                     ppphone.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4975,11 +4975,11 @@ impl ITAddress2_Vtbl {
         }
         unsafe extern "system" fn DeviceSpecific<Identity: ITAddress2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcall: *mut core::ffi::c_void, pparams: *const u8, dwsize: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITAddress2_Impl::DeviceSpecific(this, windows_core::from_raw_borrowed(&pcall), core::mem::transmute_copy(&pparams), core::mem::transmute_copy(&dwsize)).into()
+            ITAddress2_Impl::DeviceSpecific(this, core::mem::transmute_copy(&pcall), core::mem::transmute_copy(&pparams), core::mem::transmute_copy(&dwsize)).into()
         }
         unsafe extern "system" fn DeviceSpecificVariant<Identity: ITAddress2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcall: *mut core::ffi::c_void, vardevspecificbytearray: super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITAddress2_Impl::DeviceSpecificVariant(this, windows_core::from_raw_borrowed(&pcall), core::mem::transmute(&vardevspecificbytearray)).into()
+            ITAddress2_Impl::DeviceSpecificVariant(this, core::mem::transmute_copy(&pcall), core::mem::transmute(&vardevspecificbytearray)).into()
         }
         unsafe extern "system" fn NegotiateExtVersion<Identity: ITAddress2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, llowversion: i32, lhighversion: i32, plextversion: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -5779,8 +5779,8 @@ pub struct ITAgent_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITAgent_Impl: super::super::System::Com::IDispatch_Impl {
     fn EnumerateAgentSessions(&self) -> windows_core::Result<IEnumAgentSession>;
-    fn CreateSession(&self, pacdgroup: Option<&ITACDGroup>, paddress: Option<&ITAddress>) -> windows_core::Result<ITAgentSession>;
-    fn CreateSessionWithPIN(&self, pacdgroup: Option<&ITACDGroup>, paddress: Option<&ITAddress>, ppin: &windows_core::BSTR) -> windows_core::Result<ITAgentSession>;
+    fn CreateSession(&self, pacdgroup: windows_core::Ref<'_, ITACDGroup>, paddress: windows_core::Ref<'_, ITAddress>) -> windows_core::Result<ITAgentSession>;
+    fn CreateSessionWithPIN(&self, pacdgroup: windows_core::Ref<'_, ITACDGroup>, paddress: windows_core::Ref<'_, ITAddress>, ppin: &windows_core::BSTR) -> windows_core::Result<ITAgentSession>;
     fn ID(&self) -> windows_core::Result<windows_core::BSTR>;
     fn User(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetState(&self, agentstate: AGENT_STATE) -> windows_core::Result<()>;
@@ -5811,7 +5811,7 @@ impl ITAgent_Vtbl {
         }
         unsafe extern "system" fn CreateSession<Identity: ITAgent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pacdgroup: *mut core::ffi::c_void, paddress: *mut core::ffi::c_void, ppagentsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITAgent_Impl::CreateSession(this, windows_core::from_raw_borrowed(&pacdgroup), windows_core::from_raw_borrowed(&paddress)) {
+            match ITAgent_Impl::CreateSession(this, core::mem::transmute_copy(&pacdgroup), core::mem::transmute_copy(&paddress)) {
                 Ok(ok__) => {
                     ppagentsession.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5821,7 +5821,7 @@ impl ITAgent_Vtbl {
         }
         unsafe extern "system" fn CreateSessionWithPIN<Identity: ITAgent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pacdgroup: *mut core::ffi::c_void, paddress: *mut core::ffi::c_void, ppin: *mut core::ffi::c_void, ppagentsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITAgent_Impl::CreateSessionWithPIN(this, windows_core::from_raw_borrowed(&pacdgroup), windows_core::from_raw_borrowed(&paddress), core::mem::transmute(&ppin)) {
+            match ITAgent_Impl::CreateSessionWithPIN(this, core::mem::transmute_copy(&pacdgroup), core::mem::transmute_copy(&paddress), core::mem::transmute(&ppin)) {
                 Ok(ok__) => {
                     ppagentsession.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6985,8 +6985,8 @@ pub trait ITAutomatedPhoneControl_Impl: super::super::System::Com::IDispatch_Imp
     fn AutoVolumeControlRepeatDelay(&self) -> windows_core::Result<i32>;
     fn SetAutoVolumeControlRepeatPeriod(&self, lperiod: i32) -> windows_core::Result<()>;
     fn AutoVolumeControlRepeatPeriod(&self) -> windows_core::Result<i32>;
-    fn SelectCall(&self, pcall: Option<&ITCallInfo>, fselectdefaultterminals: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn UnselectCall(&self, pcall: Option<&ITCallInfo>) -> windows_core::Result<()>;
+    fn SelectCall(&self, pcall: windows_core::Ref<'_, ITCallInfo>, fselectdefaultterminals: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn UnselectCall(&self, pcall: windows_core::Ref<'_, ITCallInfo>) -> windows_core::Result<()>;
     fn EnumerateSelectedCalls(&self) -> windows_core::Result<IEnumCall>;
     fn SelectedCalls(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
 }
@@ -7185,11 +7185,11 @@ impl ITAutomatedPhoneControl_Vtbl {
         }
         unsafe extern "system" fn SelectCall<Identity: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcall: *mut core::ffi::c_void, fselectdefaultterminals: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITAutomatedPhoneControl_Impl::SelectCall(this, windows_core::from_raw_borrowed(&pcall), core::mem::transmute_copy(&fselectdefaultterminals)).into()
+            ITAutomatedPhoneControl_Impl::SelectCall(this, core::mem::transmute_copy(&pcall), core::mem::transmute_copy(&fselectdefaultterminals)).into()
         }
         unsafe extern "system" fn UnselectCall<Identity: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcall: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITAutomatedPhoneControl_Impl::UnselectCall(this, windows_core::from_raw_borrowed(&pcall)).into()
+            ITAutomatedPhoneControl_Impl::UnselectCall(this, core::mem::transmute_copy(&pcall)).into()
         }
         unsafe extern "system" fn EnumerateSelectedCalls<Identity: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcallenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -7451,10 +7451,10 @@ pub trait ITBasicCallControl_Impl: super::super::System::Com::IDispatch_Impl {
     fn Hold(&self, fhold: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn HandoffDirect(&self, papplicationname: &windows_core::BSTR) -> windows_core::Result<()>;
     fn HandoffIndirect(&self, lmediatype: i32) -> windows_core::Result<()>;
-    fn Conference(&self, pcall: Option<&ITBasicCallControl>, fsync: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn Transfer(&self, pcall: Option<&ITBasicCallControl>, fsync: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn Conference(&self, pcall: windows_core::Ref<'_, ITBasicCallControl>, fsync: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn Transfer(&self, pcall: windows_core::Ref<'_, ITBasicCallControl>, fsync: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn BlindTransfer(&self, pdestaddress: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SwapHold(&self, pcall: Option<&ITBasicCallControl>) -> windows_core::Result<()>;
+    fn SwapHold(&self, pcall: windows_core::Ref<'_, ITBasicCallControl>) -> windows_core::Result<()>;
     fn ParkDirect(&self, pparkaddress: &windows_core::BSTR) -> windows_core::Result<()>;
     fn ParkIndirect(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Unpark(&self) -> windows_core::Result<()>;
@@ -7493,11 +7493,11 @@ impl ITBasicCallControl_Vtbl {
         }
         unsafe extern "system" fn Conference<Identity: ITBasicCallControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcall: *mut core::ffi::c_void, fsync: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITBasicCallControl_Impl::Conference(this, windows_core::from_raw_borrowed(&pcall), core::mem::transmute_copy(&fsync)).into()
+            ITBasicCallControl_Impl::Conference(this, core::mem::transmute_copy(&pcall), core::mem::transmute_copy(&fsync)).into()
         }
         unsafe extern "system" fn Transfer<Identity: ITBasicCallControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcall: *mut core::ffi::c_void, fsync: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITBasicCallControl_Impl::Transfer(this, windows_core::from_raw_borrowed(&pcall), core::mem::transmute_copy(&fsync)).into()
+            ITBasicCallControl_Impl::Transfer(this, core::mem::transmute_copy(&pcall), core::mem::transmute_copy(&fsync)).into()
         }
         unsafe extern "system" fn BlindTransfer<Identity: ITBasicCallControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdestaddress: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -7505,7 +7505,7 @@ impl ITBasicCallControl_Vtbl {
         }
         unsafe extern "system" fn SwapHold<Identity: ITBasicCallControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcall: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITBasicCallControl_Impl::SwapHold(this, windows_core::from_raw_borrowed(&pcall)).into()
+            ITBasicCallControl_Impl::SwapHold(this, core::mem::transmute_copy(&pcall)).into()
         }
         unsafe extern "system" fn ParkDirect<Identity: ITBasicCallControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pparkaddress: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -7614,8 +7614,8 @@ pub struct ITBasicCallControl2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITBasicCallControl2_Impl: ITBasicCallControl_Impl {
     fn RequestTerminal(&self, bstrterminalclassguid: &windows_core::BSTR, lmediatype: i32, direction: TERMINAL_DIRECTION) -> windows_core::Result<ITTerminal>;
-    fn SelectTerminalOnCall(&self, pterminal: Option<&ITTerminal>) -> windows_core::Result<()>;
-    fn UnselectTerminalOnCall(&self, pterminal: Option<&ITTerminal>) -> windows_core::Result<()>;
+    fn SelectTerminalOnCall(&self, pterminal: windows_core::Ref<'_, ITTerminal>) -> windows_core::Result<()>;
+    fn UnselectTerminalOnCall(&self, pterminal: windows_core::Ref<'_, ITTerminal>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITBasicCallControl2_Vtbl {
@@ -7632,11 +7632,11 @@ impl ITBasicCallControl2_Vtbl {
         }
         unsafe extern "system" fn SelectTerminalOnCall<Identity: ITBasicCallControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pterminal: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITBasicCallControl2_Impl::SelectTerminalOnCall(this, windows_core::from_raw_borrowed(&pterminal)).into()
+            ITBasicCallControl2_Impl::SelectTerminalOnCall(this, core::mem::transmute_copy(&pterminal)).into()
         }
         unsafe extern "system" fn UnselectTerminalOnCall<Identity: ITBasicCallControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pterminal: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITBasicCallControl2_Impl::UnselectTerminalOnCall(this, windows_core::from_raw_borrowed(&pterminal)).into()
+            ITBasicCallControl2_Impl::UnselectTerminalOnCall(this, core::mem::transmute_copy(&pterminal)).into()
         }
         Self {
             base__: ITBasicCallControl_Vtbl::new::<Identity, OFFSET>(),
@@ -9558,10 +9558,10 @@ pub trait ITDirectory_Impl: super::super::System::Com::IDispatch_Impl {
     fn EnableAutoRefresh(&self, fenable: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn Connect(&self, fsecure: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn Bind(&self, pdomainname: &windows_core::BSTR, pusername: &windows_core::BSTR, ppassword: &windows_core::BSTR, lflags: i32) -> windows_core::Result<()>;
-    fn AddDirectoryObject(&self, pdirectoryobject: Option<&ITDirectoryObject>) -> windows_core::Result<()>;
-    fn ModifyDirectoryObject(&self, pdirectoryobject: Option<&ITDirectoryObject>) -> windows_core::Result<()>;
-    fn RefreshDirectoryObject(&self, pdirectoryobject: Option<&ITDirectoryObject>) -> windows_core::Result<()>;
-    fn DeleteDirectoryObject(&self, pdirectoryobject: Option<&ITDirectoryObject>) -> windows_core::Result<()>;
+    fn AddDirectoryObject(&self, pdirectoryobject: windows_core::Ref<'_, ITDirectoryObject>) -> windows_core::Result<()>;
+    fn ModifyDirectoryObject(&self, pdirectoryobject: windows_core::Ref<'_, ITDirectoryObject>) -> windows_core::Result<()>;
+    fn RefreshDirectoryObject(&self, pdirectoryobject: windows_core::Ref<'_, ITDirectoryObject>) -> windows_core::Result<()>;
+    fn DeleteDirectoryObject(&self, pdirectoryobject: windows_core::Ref<'_, ITDirectoryObject>) -> windows_core::Result<()>;
     fn get_DirectoryObjects(&self, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: &windows_core::BSTR) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn EnumerateDirectoryObjects(&self, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: &windows_core::BSTR) -> windows_core::Result<IEnumDirectoryObject>;
 }
@@ -9626,19 +9626,19 @@ impl ITDirectory_Vtbl {
         }
         unsafe extern "system" fn AddDirectoryObject<Identity: ITDirectory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdirectoryobject: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITDirectory_Impl::AddDirectoryObject(this, windows_core::from_raw_borrowed(&pdirectoryobject)).into()
+            ITDirectory_Impl::AddDirectoryObject(this, core::mem::transmute_copy(&pdirectoryobject)).into()
         }
         unsafe extern "system" fn ModifyDirectoryObject<Identity: ITDirectory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdirectoryobject: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITDirectory_Impl::ModifyDirectoryObject(this, windows_core::from_raw_borrowed(&pdirectoryobject)).into()
+            ITDirectory_Impl::ModifyDirectoryObject(this, core::mem::transmute_copy(&pdirectoryobject)).into()
         }
         unsafe extern "system" fn RefreshDirectoryObject<Identity: ITDirectory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdirectoryobject: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITDirectory_Impl::RefreshDirectoryObject(this, windows_core::from_raw_borrowed(&pdirectoryobject)).into()
+            ITDirectory_Impl::RefreshDirectoryObject(this, core::mem::transmute_copy(&pdirectoryobject)).into()
         }
         unsafe extern "system" fn DeleteDirectoryObject<Identity: ITDirectory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdirectoryobject: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITDirectory_Impl::DeleteDirectoryObject(this, windows_core::from_raw_borrowed(&pdirectoryobject)).into()
+            ITDirectory_Impl::DeleteDirectoryObject(this, core::mem::transmute_copy(&pdirectoryobject)).into()
         }
         unsafe extern "system" fn get_DirectoryObjects<Identity: ITDirectory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: *mut core::ffi::c_void, pvariant: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -9751,7 +9751,7 @@ pub trait ITDirectoryObject_Impl: super::super::System::Com::IDispatch_Impl {
     fn get_DialableAddrs(&self, dwaddresstype: i32) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn EnumerateDialableAddrs(&self, dwaddresstype: u32) -> windows_core::Result<IEnumDialableAddrs>;
     fn SecurityDescriptor(&self) -> windows_core::Result<super::super::System::Com::IDispatch>;
-    fn SetSecurityDescriptor(&self, psecdes: Option<&super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
+    fn SetSecurityDescriptor(&self, psecdes: windows_core::Ref<'_, super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITDirectoryObject_Vtbl {
@@ -9812,7 +9812,7 @@ impl ITDirectoryObject_Vtbl {
         }
         unsafe extern "system" fn SetSecurityDescriptor<Identity: ITDirectoryObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psecdes: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITDirectoryObject_Impl::SetSecurityDescriptor(this, windows_core::from_raw_borrowed(&psecdes)).into()
+            ITDirectoryObject_Impl::SetSecurityDescriptor(this, core::mem::transmute_copy(&psecdes)).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(),
@@ -10163,14 +10163,14 @@ pub struct ITDispatchMapper_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITDispatchMapper_Impl: super::super::System::Com::IDispatch_Impl {
-    fn QueryDispatchInterface(&self, piid: &windows_core::BSTR, pinterfacetomap: Option<&super::super::System::Com::IDispatch>) -> windows_core::Result<super::super::System::Com::IDispatch>;
+    fn QueryDispatchInterface(&self, piid: &windows_core::BSTR, pinterfacetomap: windows_core::Ref<'_, super::super::System::Com::IDispatch>) -> windows_core::Result<super::super::System::Com::IDispatch>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITDispatchMapper_Vtbl {
     pub const fn new<Identity: ITDispatchMapper_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryDispatchInterface<Identity: ITDispatchMapper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piid: *mut core::ffi::c_void, pinterfacetomap: *mut core::ffi::c_void, ppreturnedinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITDispatchMapper_Impl::QueryDispatchInterface(this, core::mem::transmute(&piid), windows_core::from_raw_borrowed(&pinterfacetomap)) {
+            match ITDispatchMapper_Impl::QueryDispatchInterface(this, core::mem::transmute(&piid), core::mem::transmute_copy(&pinterfacetomap)) {
                 Ok(ok__) => {
                     ppreturnedinterface.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -10387,7 +10387,7 @@ pub trait ITFileTrack_Impl: super::super::System::Com::IDispatch_Impl {
     fn SetFormat(&self, pmt: *const super::super::Media::MediaFoundation::AM_MEDIA_TYPE) -> windows_core::Result<()>;
     fn ControllingTerminal(&self) -> windows_core::Result<ITTerminal>;
     fn AudioFormatForScripting(&self) -> windows_core::Result<ITScriptableAudioFormat>;
-    fn SetAudioFormatForScripting(&self, paudioformat: Option<&ITScriptableAudioFormat>) -> windows_core::Result<()>;
+    fn SetAudioFormatForScripting(&self, paudioformat: windows_core::Ref<'_, ITScriptableAudioFormat>) -> windows_core::Result<()>;
     fn EmptyAudioFormatForScripting(&self) -> windows_core::Result<ITScriptableAudioFormat>;
 }
 #[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -10429,7 +10429,7 @@ impl ITFileTrack_Vtbl {
         }
         unsafe extern "system" fn SetAudioFormatForScripting<Identity: ITFileTrack_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paudioformat: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITFileTrack_Impl::SetAudioFormatForScripting(this, windows_core::from_raw_borrowed(&paudioformat)).into()
+            ITFileTrack_Impl::SetAudioFormatForScripting(this, core::mem::transmute_copy(&paudioformat)).into()
         }
         unsafe extern "system" fn EmptyAudioFormatForScripting<Identity: ITFileTrack_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppaudioformat: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -10994,10 +10994,10 @@ pub trait ITLegacyCallMediaControl2_Impl: ITLegacyCallMediaControl_Impl {
     fn GenerateDigits2(&self, pdigits: &windows_core::BSTR, digitmode: i32, lduration: i32) -> windows_core::Result<()>;
     fn GatherDigits(&self, digitmode: i32, lnumdigits: i32, pterminationdigits: &windows_core::BSTR, lfirstdigittimeout: i32, linterdigittimeout: i32) -> windows_core::Result<()>;
     fn DetectTones(&self, ptonelist: *const TAPI_DETECTTONE, lnumtones: i32) -> windows_core::Result<()>;
-    fn DetectTonesByCollection(&self, pdetecttonecollection: Option<&ITCollection2>) -> windows_core::Result<()>;
+    fn DetectTonesByCollection(&self, pdetecttonecollection: windows_core::Ref<'_, ITCollection2>) -> windows_core::Result<()>;
     fn GenerateTone(&self, tonemode: TAPI_TONEMODE, lduration: i32) -> windows_core::Result<()>;
     fn GenerateCustomTones(&self, ptonelist: *const TAPI_CUSTOMTONE, lnumtones: i32, lduration: i32) -> windows_core::Result<()>;
-    fn GenerateCustomTonesByCollection(&self, pcustomtonecollection: Option<&ITCollection2>, lduration: i32) -> windows_core::Result<()>;
+    fn GenerateCustomTonesByCollection(&self, pcustomtonecollection: windows_core::Ref<'_, ITCollection2>, lduration: i32) -> windows_core::Result<()>;
     fn CreateDetectToneObject(&self) -> windows_core::Result<ITDetectTone>;
     fn CreateCustomToneObject(&self) -> windows_core::Result<ITCustomTone>;
     fn GetIDAsVariant(&self, bstrdeviceclass: &windows_core::BSTR) -> windows_core::Result<super::super::System::Variant::VARIANT>;
@@ -11019,7 +11019,7 @@ impl ITLegacyCallMediaControl2_Vtbl {
         }
         unsafe extern "system" fn DetectTonesByCollection<Identity: ITLegacyCallMediaControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdetecttonecollection: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITLegacyCallMediaControl2_Impl::DetectTonesByCollection(this, windows_core::from_raw_borrowed(&pdetecttonecollection)).into()
+            ITLegacyCallMediaControl2_Impl::DetectTonesByCollection(this, core::mem::transmute_copy(&pdetecttonecollection)).into()
         }
         unsafe extern "system" fn GenerateTone<Identity: ITLegacyCallMediaControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tonemode: TAPI_TONEMODE, lduration: i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -11031,7 +11031,7 @@ impl ITLegacyCallMediaControl2_Vtbl {
         }
         unsafe extern "system" fn GenerateCustomTonesByCollection<Identity: ITLegacyCallMediaControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcustomtonecollection: *mut core::ffi::c_void, lduration: i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITLegacyCallMediaControl2_Impl::GenerateCustomTonesByCollection(this, windows_core::from_raw_borrowed(&pcustomtonecollection), core::mem::transmute_copy(&lduration)).into()
+            ITLegacyCallMediaControl2_Impl::GenerateCustomTonesByCollection(this, core::mem::transmute_copy(&pcustomtonecollection), core::mem::transmute_copy(&lduration)).into()
         }
         unsafe extern "system" fn CreateDetectToneObject<Identity: ITLegacyCallMediaControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdetecttone: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -11399,9 +11399,9 @@ pub struct ITMSPAddress_Vtbl {
 pub trait ITMSPAddress_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self, hevent: *const i32) -> windows_core::Result<()>;
     fn Shutdown(&self) -> windows_core::Result<()>;
-    fn CreateMSPCall(&self, hcall: *const i32, dwreserved: u32, dwmediatype: u32, pouterunknown: Option<&windows_core::IUnknown>) -> windows_core::Result<windows_core::IUnknown>;
-    fn ShutdownMSPCall(&self, pstreamcontrol: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn ReceiveTSPData(&self, pmspcall: Option<&windows_core::IUnknown>, pbuffer: *const u8, dwsize: u32) -> windows_core::Result<()>;
+    fn CreateMSPCall(&self, hcall: *const i32, dwreserved: u32, dwmediatype: u32, pouterunknown: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<windows_core::IUnknown>;
+    fn ShutdownMSPCall(&self, pstreamcontrol: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn ReceiveTSPData(&self, pmspcall: windows_core::Ref<'_, windows_core::IUnknown>, pbuffer: *const u8, dwsize: u32) -> windows_core::Result<()>;
     fn GetEvent(&self, pdwsize: *mut u32, peventbuffer: *mut u8) -> windows_core::Result<()>;
 }
 impl ITMSPAddress_Vtbl {
@@ -11416,7 +11416,7 @@ impl ITMSPAddress_Vtbl {
         }
         unsafe extern "system" fn CreateMSPCall<Identity: ITMSPAddress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hcall: *const i32, dwreserved: u32, dwmediatype: u32, pouterunknown: *mut core::ffi::c_void, ppstreamcontrol: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITMSPAddress_Impl::CreateMSPCall(this, core::mem::transmute_copy(&hcall), core::mem::transmute_copy(&dwreserved), core::mem::transmute_copy(&dwmediatype), windows_core::from_raw_borrowed(&pouterunknown)) {
+            match ITMSPAddress_Impl::CreateMSPCall(this, core::mem::transmute_copy(&hcall), core::mem::transmute_copy(&dwreserved), core::mem::transmute_copy(&dwmediatype), core::mem::transmute_copy(&pouterunknown)) {
                 Ok(ok__) => {
                     ppstreamcontrol.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -11426,11 +11426,11 @@ impl ITMSPAddress_Vtbl {
         }
         unsafe extern "system" fn ShutdownMSPCall<Identity: ITMSPAddress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstreamcontrol: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITMSPAddress_Impl::ShutdownMSPCall(this, windows_core::from_raw_borrowed(&pstreamcontrol)).into()
+            ITMSPAddress_Impl::ShutdownMSPCall(this, core::mem::transmute_copy(&pstreamcontrol)).into()
         }
         unsafe extern "system" fn ReceiveTSPData<Identity: ITMSPAddress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmspcall: *mut core::ffi::c_void, pbuffer: *const u8, dwsize: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITMSPAddress_Impl::ReceiveTSPData(this, windows_core::from_raw_borrowed(&pmspcall), core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&dwsize)).into()
+            ITMSPAddress_Impl::ReceiveTSPData(this, core::mem::transmute_copy(&pmspcall), core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&dwsize)).into()
         }
         unsafe extern "system" fn GetEvent<Identity: ITMSPAddress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwsize: *mut u32, peventbuffer: *mut u8) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -11796,7 +11796,7 @@ pub trait ITMultiTrackTerminal_Impl: super::super::System::Com::IDispatch_Impl {
     fn CreateTrackTerminal(&self, mediatype: i32, terminaldirection: TERMINAL_DIRECTION) -> windows_core::Result<ITTerminal>;
     fn MediaTypesInUse(&self) -> windows_core::Result<i32>;
     fn DirectionsInUse(&self) -> windows_core::Result<TERMINAL_DIRECTION>;
-    fn RemoveTrackTerminal(&self, ptrackterminaltoremove: Option<&ITTerminal>) -> windows_core::Result<()>;
+    fn RemoveTrackTerminal(&self, ptrackterminaltoremove: windows_core::Ref<'_, ITTerminal>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITMultiTrackTerminal_Vtbl {
@@ -11853,7 +11853,7 @@ impl ITMultiTrackTerminal_Vtbl {
         }
         unsafe extern "system" fn RemoveTrackTerminal<Identity: ITMultiTrackTerminal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptrackterminaltoremove: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITMultiTrackTerminal_Impl::RemoveTrackTerminal(this, windows_core::from_raw_borrowed(&ptrackterminaltoremove)).into()
+            ITMultiTrackTerminal_Impl::RemoveTrackTerminal(this, core::mem::transmute_copy(&ptrackterminaltoremove)).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(),
@@ -12076,8 +12076,8 @@ pub trait ITPhone_Impl: super::super::System::Com::IDispatch_Impl {
     fn EnumerateAddresses(&self) -> windows_core::Result<IEnumAddress>;
     fn get_PhoneCapsLong(&self, pclcap: PHONECAPS_LONG) -> windows_core::Result<i32>;
     fn get_PhoneCapsString(&self, pcscap: PHONECAPS_STRING) -> windows_core::Result<windows_core::BSTR>;
-    fn get_Terminals(&self, paddress: Option<&ITAddress>) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn EnumerateTerminals(&self, paddress: Option<&ITAddress>) -> windows_core::Result<IEnumTerminal>;
+    fn get_Terminals(&self, paddress: windows_core::Ref<'_, ITAddress>) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn EnumerateTerminals(&self, paddress: windows_core::Ref<'_, ITAddress>) -> windows_core::Result<IEnumTerminal>;
     fn get_ButtonMode(&self, lbuttonid: i32) -> windows_core::Result<PHONE_BUTTON_MODE>;
     fn put_ButtonMode(&self, lbuttonid: i32, buttonmode: PHONE_BUTTON_MODE) -> windows_core::Result<()>;
     fn get_ButtonFunction(&self, lbuttonid: i32) -> windows_core::Result<PHONE_BUTTON_FUNCTION>;
@@ -12157,7 +12157,7 @@ impl ITPhone_Vtbl {
         }
         unsafe extern "system" fn get_Terminals<Identity: ITPhone_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paddress: *mut core::ffi::c_void, pterminals: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITPhone_Impl::get_Terminals(this, windows_core::from_raw_borrowed(&paddress)) {
+            match ITPhone_Impl::get_Terminals(this, core::mem::transmute_copy(&paddress)) {
                 Ok(ok__) => {
                     pterminals.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -12167,7 +12167,7 @@ impl ITPhone_Vtbl {
         }
         unsafe extern "system" fn EnumerateTerminals<Identity: ITPhone_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paddress: *mut core::ffi::c_void, ppenumterminal: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITPhone_Impl::EnumerateTerminals(this, windows_core::from_raw_borrowed(&paddress)) {
+            match ITPhone_Impl::EnumerateTerminals(this, core::mem::transmute_copy(&paddress)) {
                 Ok(ok__) => {
                     ppenumterminal.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -12902,14 +12902,14 @@ pub struct ITPluggableTerminalEventSinkRegistration_Vtbl {
     pub UnregisterSink: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITPluggableTerminalEventSinkRegistration_Impl: windows_core::IUnknownImpl {
-    fn RegisterSink(&self, peventsink: Option<&ITPluggableTerminalEventSink>) -> windows_core::Result<()>;
+    fn RegisterSink(&self, peventsink: windows_core::Ref<'_, ITPluggableTerminalEventSink>) -> windows_core::Result<()>;
     fn UnregisterSink(&self) -> windows_core::Result<()>;
 }
 impl ITPluggableTerminalEventSinkRegistration_Vtbl {
     pub const fn new<Identity: ITPluggableTerminalEventSinkRegistration_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RegisterSink<Identity: ITPluggableTerminalEventSinkRegistration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peventsink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITPluggableTerminalEventSinkRegistration_Impl::RegisterSink(this, windows_core::from_raw_borrowed(&peventsink)).into()
+            ITPluggableTerminalEventSinkRegistration_Impl::RegisterSink(this, core::mem::transmute_copy(&peventsink)).into()
         }
         unsafe extern "system" fn UnregisterSink<Identity: ITPluggableTerminalEventSinkRegistration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -14108,8 +14108,8 @@ pub trait ITStream_Impl: super::super::System::Com::IDispatch_Impl {
     fn StartStream(&self) -> windows_core::Result<()>;
     fn PauseStream(&self) -> windows_core::Result<()>;
     fn StopStream(&self) -> windows_core::Result<()>;
-    fn SelectTerminal(&self, pterminal: Option<&ITTerminal>) -> windows_core::Result<()>;
-    fn UnselectTerminal(&self, pterminal: Option<&ITTerminal>) -> windows_core::Result<()>;
+    fn SelectTerminal(&self, pterminal: windows_core::Ref<'_, ITTerminal>) -> windows_core::Result<()>;
+    fn UnselectTerminal(&self, pterminal: windows_core::Ref<'_, ITTerminal>) -> windows_core::Result<()>;
     fn EnumerateTerminals(&self) -> windows_core::Result<IEnumTerminal>;
     fn Terminals(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
 }
@@ -14160,11 +14160,11 @@ impl ITStream_Vtbl {
         }
         unsafe extern "system" fn SelectTerminal<Identity: ITStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pterminal: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITStream_Impl::SelectTerminal(this, windows_core::from_raw_borrowed(&pterminal)).into()
+            ITStream_Impl::SelectTerminal(this, core::mem::transmute_copy(&pterminal)).into()
         }
         unsafe extern "system" fn UnselectTerminal<Identity: ITStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pterminal: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITStream_Impl::UnselectTerminal(this, windows_core::from_raw_borrowed(&pterminal)).into()
+            ITStream_Impl::UnselectTerminal(this, core::mem::transmute_copy(&pterminal)).into()
         }
         unsafe extern "system" fn EnumerateTerminals<Identity: ITStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumterminal: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -14254,7 +14254,7 @@ pub struct ITStreamControl_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITStreamControl_Impl: super::super::System::Com::IDispatch_Impl {
     fn CreateStream(&self, lmediatype: i32, td: TERMINAL_DIRECTION) -> windows_core::Result<ITStream>;
-    fn RemoveStream(&self, pstream: Option<&ITStream>) -> windows_core::Result<()>;
+    fn RemoveStream(&self, pstream: windows_core::Ref<'_, ITStream>) -> windows_core::Result<()>;
     fn EnumerateStreams(&self) -> windows_core::Result<IEnumStream>;
     fn Streams(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
 }
@@ -14273,7 +14273,7 @@ impl ITStreamControl_Vtbl {
         }
         unsafe extern "system" fn RemoveStream<Identity: ITStreamControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstream: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITStreamControl_Impl::RemoveStream(this, windows_core::from_raw_borrowed(&pstream)).into()
+            ITStreamControl_Impl::RemoveStream(this, core::mem::transmute_copy(&pstream)).into()
         }
         unsafe extern "system" fn EnumerateStreams<Identity: ITStreamControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumstream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -14378,8 +14378,8 @@ pub trait ITSubStream_Impl: super::super::System::Com::IDispatch_Impl {
     fn StartSubStream(&self) -> windows_core::Result<()>;
     fn PauseSubStream(&self) -> windows_core::Result<()>;
     fn StopSubStream(&self) -> windows_core::Result<()>;
-    fn SelectTerminal(&self, pterminal: Option<&ITTerminal>) -> windows_core::Result<()>;
-    fn UnselectTerminal(&self, pterminal: Option<&ITTerminal>) -> windows_core::Result<()>;
+    fn SelectTerminal(&self, pterminal: windows_core::Ref<'_, ITTerminal>) -> windows_core::Result<()>;
+    fn UnselectTerminal(&self, pterminal: windows_core::Ref<'_, ITTerminal>) -> windows_core::Result<()>;
     fn EnumerateTerminals(&self) -> windows_core::Result<IEnumTerminal>;
     fn Terminals(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn Stream(&self) -> windows_core::Result<ITStream>;
@@ -14401,11 +14401,11 @@ impl ITSubStream_Vtbl {
         }
         unsafe extern "system" fn SelectTerminal<Identity: ITSubStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pterminal: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITSubStream_Impl::SelectTerminal(this, windows_core::from_raw_borrowed(&pterminal)).into()
+            ITSubStream_Impl::SelectTerminal(this, core::mem::transmute_copy(&pterminal)).into()
         }
         unsafe extern "system" fn UnselectTerminal<Identity: ITSubStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pterminal: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITSubStream_Impl::UnselectTerminal(this, windows_core::from_raw_borrowed(&pterminal)).into()
+            ITSubStream_Impl::UnselectTerminal(this, core::mem::transmute_copy(&pterminal)).into()
         }
         unsafe extern "system" fn EnumerateTerminals<Identity: ITSubStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumterminal: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -14503,7 +14503,7 @@ pub struct ITSubStreamControl_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITSubStreamControl_Impl: super::super::System::Com::IDispatch_Impl {
     fn CreateSubStream(&self) -> windows_core::Result<ITSubStream>;
-    fn RemoveSubStream(&self, psubstream: Option<&ITSubStream>) -> windows_core::Result<()>;
+    fn RemoveSubStream(&self, psubstream: windows_core::Ref<'_, ITSubStream>) -> windows_core::Result<()>;
     fn EnumerateSubStreams(&self) -> windows_core::Result<IEnumSubStream>;
     fn SubStreams(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
 }
@@ -14522,7 +14522,7 @@ impl ITSubStreamControl_Vtbl {
         }
         unsafe extern "system" fn RemoveSubStream<Identity: ITSubStreamControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psubstream: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITSubStreamControl_Impl::RemoveSubStream(this, windows_core::from_raw_borrowed(&psubstream)).into()
+            ITSubStreamControl_Impl::RemoveSubStream(this, core::mem::transmute_copy(&psubstream)).into()
         }
         unsafe extern "system" fn EnumerateSubStreams<Identity: ITSubStreamControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumsubstream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -14678,7 +14678,7 @@ pub trait ITTAPI_Impl: super::super::System::Com::IDispatch_Impl {
     fn Shutdown(&self) -> windows_core::Result<()>;
     fn Addresses(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn EnumerateAddresses(&self) -> windows_core::Result<IEnumAddress>;
-    fn RegisterCallNotifications(&self, paddress: Option<&ITAddress>, fmonitor: super::super::Foundation::VARIANT_BOOL, fowner: super::super::Foundation::VARIANT_BOOL, lmediatypes: i32, lcallbackinstance: i32) -> windows_core::Result<i32>;
+    fn RegisterCallNotifications(&self, paddress: windows_core::Ref<'_, ITAddress>, fmonitor: super::super::Foundation::VARIANT_BOOL, fowner: super::super::Foundation::VARIANT_BOOL, lmediatypes: i32, lcallbackinstance: i32) -> windows_core::Result<i32>;
     fn UnregisterNotifications(&self, lregister: i32) -> windows_core::Result<()>;
     fn CallHubs(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn EnumerateCallHubs(&self) -> windows_core::Result<IEnumCallHub>;
@@ -14724,7 +14724,7 @@ impl ITTAPI_Vtbl {
         }
         unsafe extern "system" fn RegisterCallNotifications<Identity: ITTAPI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paddress: *mut core::ffi::c_void, fmonitor: super::super::Foundation::VARIANT_BOOL, fowner: super::super::Foundation::VARIANT_BOOL, lmediatypes: i32, lcallbackinstance: i32, plregister: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITTAPI_Impl::RegisterCallNotifications(this, windows_core::from_raw_borrowed(&paddress), core::mem::transmute_copy(&fmonitor), core::mem::transmute_copy(&fowner), core::mem::transmute_copy(&lmediatypes), core::mem::transmute_copy(&lcallbackinstance)) {
+            match ITTAPI_Impl::RegisterCallNotifications(this, core::mem::transmute_copy(&paddress), core::mem::transmute_copy(&fmonitor), core::mem::transmute_copy(&fowner), core::mem::transmute_copy(&lmediatypes), core::mem::transmute_copy(&lcallbackinstance)) {
                 Ok(ok__) => {
                     plregister.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -15045,14 +15045,14 @@ pub struct ITTAPIEventNotification_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITTAPIEventNotification_Impl: windows_core::IUnknownImpl {
-    fn Event(&self, tapievent: TAPI_EVENT, pevent: Option<&super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
+    fn Event(&self, tapievent: TAPI_EVENT, pevent: windows_core::Ref<'_, super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ITTAPIEventNotification_Vtbl {
     pub const fn new<Identity: ITTAPIEventNotification_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Event<Identity: ITTAPIEventNotification_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tapievent: TAPI_EVENT, pevent: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITTAPIEventNotification_Impl::Event(this, core::mem::transmute_copy(&tapievent), windows_core::from_raw_borrowed(&pevent)).into()
+            ITTAPIEventNotification_Impl::Event(this, core::mem::transmute_copy(&tapievent), core::mem::transmute_copy(&pevent)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Event: Event::<Identity, OFFSET> }
     }
@@ -15954,9 +15954,9 @@ pub trait ITnef_Impl: windows_core::IUnknownImpl {
     fn AddProps(&self, ulflags: u32, ulelemid: u32, lpvdata: *mut core::ffi::c_void, lpproplist: *mut super::super::System::AddressBook::SPropTagArray) -> windows_core::Result<()>;
     fn ExtractProps(&self, ulflags: u32, lpproplist: *mut super::super::System::AddressBook::SPropTagArray, lpproblems: *mut *mut STnefProblemArray) -> windows_core::Result<()>;
     fn Finish(&self, ulflags: u32, lpkey: *mut u16, lpproblems: *mut *mut STnefProblemArray) -> windows_core::Result<()>;
-    fn OpenTaggedBody(&self, lpmessage: Option<&super::super::System::AddressBook::IMessage>, ulflags: u32) -> windows_core::Result<super::super::System::Com::IStream>;
+    fn OpenTaggedBody(&self, lpmessage: windows_core::Ref<'_, super::super::System::AddressBook::IMessage>, ulflags: u32) -> windows_core::Result<super::super::System::Com::IStream>;
     fn SetProps(&self, ulflags: u32, ulelemid: u32, cvalues: u32, lpprops: *mut super::super::System::AddressBook::SPropValue) -> windows_core::Result<()>;
-    fn EncodeRecips(&self, ulflags: u32, lprecipienttable: Option<&super::super::System::AddressBook::IMAPITable>) -> windows_core::Result<()>;
+    fn EncodeRecips(&self, ulflags: u32, lprecipienttable: windows_core::Ref<'_, super::super::System::AddressBook::IMAPITable>) -> windows_core::Result<()>;
     fn FinishComponent(&self, ulflags: u32, ulcomponentid: u32, lpcustomproplist: *mut super::super::System::AddressBook::SPropTagArray, lpcustomprops: *mut super::super::System::AddressBook::SPropValue, lpproplist: *mut super::super::System::AddressBook::SPropTagArray, lpproblems: *mut *mut STnefProblemArray) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
@@ -15976,7 +15976,7 @@ impl ITnef_Vtbl {
         }
         unsafe extern "system" fn OpenTaggedBody<Identity: ITnef_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpmessage: *mut core::ffi::c_void, ulflags: u32, lppstream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITnef_Impl::OpenTaggedBody(this, windows_core::from_raw_borrowed(&lpmessage), core::mem::transmute_copy(&ulflags)) {
+            match ITnef_Impl::OpenTaggedBody(this, core::mem::transmute_copy(&lpmessage), core::mem::transmute_copy(&ulflags)) {
                 Ok(ok__) => {
                     lppstream.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -15990,7 +15990,7 @@ impl ITnef_Vtbl {
         }
         unsafe extern "system" fn EncodeRecips<Identity: ITnef_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulflags: u32, lprecipienttable: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITnef_Impl::EncodeRecips(this, core::mem::transmute_copy(&ulflags), windows_core::from_raw_borrowed(&lprecipienttable)).into()
+            ITnef_Impl::EncodeRecips(this, core::mem::transmute_copy(&ulflags), core::mem::transmute_copy(&lprecipienttable)).into()
         }
         unsafe extern "system" fn FinishComponent<Identity: ITnef_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulflags: u32, ulcomponentid: u32, lpcustomproplist: *mut super::super::System::AddressBook::SPropTagArray, lpcustomprops: *mut super::super::System::AddressBook::SPropValue, lpproplist: *mut super::super::System::AddressBook::SPropTagArray, lpproblems: *mut *mut STnefProblemArray) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);

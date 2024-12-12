@@ -3172,7 +3172,7 @@ pub struct IDialEngine_Vtbl {
     pub GetConnectHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut usize) -> windows_core::HRESULT,
 }
 pub trait IDialEngine_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, pwzconnectoid: &windows_core::PCWSTR, pides: Option<&IDialEventSink>) -> windows_core::Result<()>;
+    fn Initialize(&self, pwzconnectoid: &windows_core::PCWSTR, pides: windows_core::Ref<'_, IDialEventSink>) -> windows_core::Result<()>;
     fn GetProperty(&self, pwzproperty: &windows_core::PCWSTR, pwzvalue: &windows_core::PCWSTR, dwbufsize: u32) -> windows_core::Result<()>;
     fn SetProperty(&self, pwzproperty: &windows_core::PCWSTR, pwzvalue: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Dial(&self) -> windows_core::Result<()>;
@@ -3184,7 +3184,7 @@ impl IDialEngine_Vtbl {
     pub const fn new<Identity: IDialEngine_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IDialEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwzconnectoid: windows_core::PCWSTR, pides: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDialEngine_Impl::Initialize(this, core::mem::transmute(&pwzconnectoid), windows_core::from_raw_borrowed(&pides)).into()
+            IDialEngine_Impl::Initialize(this, core::mem::transmute(&pwzconnectoid), core::mem::transmute_copy(&pides)).into()
         }
         unsafe extern "system" fn GetProperty<Identity: IDialEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwzproperty: windows_core::PCWSTR, pwzvalue: windows_core::PCWSTR, dwbufsize: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -4443,13 +4443,13 @@ pub struct IProofOfPossessionCookieInfoManager2_Vtbl {
     pub GetCookieInfoWithUriForAccount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, *mut u32, *mut *mut ProofOfPossessionCookieInfo) -> windows_core::HRESULT,
 }
 pub trait IProofOfPossessionCookieInfoManager2_Impl: windows_core::IUnknownImpl {
-    fn GetCookieInfoWithUriForAccount(&self, webaccount: Option<&windows_core::IInspectable>, uri: &windows_core::PCWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> windows_core::Result<()>;
+    fn GetCookieInfoWithUriForAccount(&self, webaccount: windows_core::Ref<'_, windows_core::IInspectable>, uri: &windows_core::PCWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> windows_core::Result<()>;
 }
 impl IProofOfPossessionCookieInfoManager2_Vtbl {
     pub const fn new<Identity: IProofOfPossessionCookieInfoManager2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCookieInfoWithUriForAccount<Identity: IProofOfPossessionCookieInfoManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, webaccount: *mut core::ffi::c_void, uri: windows_core::PCWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IProofOfPossessionCookieInfoManager2_Impl::GetCookieInfoWithUriForAccount(this, windows_core::from_raw_borrowed(&webaccount), core::mem::transmute(&uri), core::mem::transmute_copy(&cookieinfocount), core::mem::transmute_copy(&cookieinfo)).into()
+            IProofOfPossessionCookieInfoManager2_Impl::GetCookieInfoWithUriForAccount(this, core::mem::transmute_copy(&webaccount), core::mem::transmute(&uri), core::mem::transmute_copy(&cookieinfocount), core::mem::transmute_copy(&cookieinfo)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

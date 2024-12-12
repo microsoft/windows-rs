@@ -46,13 +46,13 @@ impl windows_core::RuntimeName for ISpiControllerProvider {
     const NAME: &'static str = "Windows.Devices.Spi.Provider.ISpiControllerProvider";
 }
 pub trait ISpiControllerProvider_Impl: windows_core::IUnknownImpl {
-    fn GetDeviceProvider(&self, settings: Option<&ProviderSpiConnectionSettings>) -> windows_core::Result<ISpiDeviceProvider>;
+    fn GetDeviceProvider(&self, settings: windows_core::Ref<'_, ProviderSpiConnectionSettings>) -> windows_core::Result<ISpiDeviceProvider>;
 }
 impl ISpiControllerProvider_Vtbl {
     pub const fn new<Identity: ISpiControllerProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDeviceProvider<Identity: ISpiControllerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, settings: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ISpiControllerProvider_Impl::GetDeviceProvider(this, windows_core::from_raw_borrowed(&settings)) {
+            match ISpiControllerProvider_Impl::GetDeviceProvider(this, core::mem::transmute_copy(&settings)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);

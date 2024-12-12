@@ -26,15 +26,15 @@ pub struct IUIApplication_Vtbl {
     pub OnDestroyUICommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, UI_COMMANDTYPE, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIApplication_Impl: windows_core::IUnknownImpl {
-    fn OnViewChanged(&self, viewid: u32, typeid: UI_VIEWTYPE, view: Option<&windows_core::IUnknown>, verb: UI_VIEWVERB, ureasoncode: i32) -> windows_core::Result<()>;
+    fn OnViewChanged(&self, viewid: u32, typeid: UI_VIEWTYPE, view: windows_core::Ref<'_, windows_core::IUnknown>, verb: UI_VIEWVERB, ureasoncode: i32) -> windows_core::Result<()>;
     fn OnCreateUICommand(&self, commandid: u32, typeid: UI_COMMANDTYPE) -> windows_core::Result<IUICommandHandler>;
-    fn OnDestroyUICommand(&self, commandid: u32, typeid: UI_COMMANDTYPE, commandhandler: Option<&IUICommandHandler>) -> windows_core::Result<()>;
+    fn OnDestroyUICommand(&self, commandid: u32, typeid: UI_COMMANDTYPE, commandhandler: windows_core::Ref<'_, IUICommandHandler>) -> windows_core::Result<()>;
 }
 impl IUIApplication_Vtbl {
     pub const fn new<Identity: IUIApplication_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnViewChanged<Identity: IUIApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, viewid: u32, typeid: UI_VIEWTYPE, view: *mut core::ffi::c_void, verb: UI_VIEWVERB, ureasoncode: i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IUIApplication_Impl::OnViewChanged(this, core::mem::transmute_copy(&viewid), core::mem::transmute_copy(&typeid), windows_core::from_raw_borrowed(&view), core::mem::transmute_copy(&verb), core::mem::transmute_copy(&ureasoncode)).into()
+            IUIApplication_Impl::OnViewChanged(this, core::mem::transmute_copy(&viewid), core::mem::transmute_copy(&typeid), core::mem::transmute_copy(&view), core::mem::transmute_copy(&verb), core::mem::transmute_copy(&ureasoncode)).into()
         }
         unsafe extern "system" fn OnCreateUICommand<Identity: IUIApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, commandid: u32, typeid: UI_COMMANDTYPE, commandhandler: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -48,7 +48,7 @@ impl IUIApplication_Vtbl {
         }
         unsafe extern "system" fn OnDestroyUICommand<Identity: IUIApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, commandid: u32, typeid: UI_COMMANDTYPE, commandhandler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IUIApplication_Impl::OnDestroyUICommand(this, core::mem::transmute_copy(&commandid), core::mem::transmute_copy(&typeid), windows_core::from_raw_borrowed(&commandhandler)).into()
+            IUIApplication_Impl::OnDestroyUICommand(this, core::mem::transmute_copy(&commandid), core::mem::transmute_copy(&typeid), core::mem::transmute_copy(&commandhandler)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -112,10 +112,10 @@ pub struct IUICollection_Vtbl {
 pub trait IUICollection_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<u32>;
     fn GetItem(&self, index: u32) -> windows_core::Result<windows_core::IUnknown>;
-    fn Add(&self, item: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn Insert(&self, index: u32, item: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Add(&self, item: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Insert(&self, index: u32, item: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn RemoveAt(&self, index: u32) -> windows_core::Result<()>;
-    fn Replace(&self, indexreplaced: u32, itemreplacewith: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Replace(&self, indexreplaced: u32, itemreplacewith: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
 }
 impl IUICollection_Vtbl {
@@ -142,11 +142,11 @@ impl IUICollection_Vtbl {
         }
         unsafe extern "system" fn Add<Identity: IUICollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, item: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IUICollection_Impl::Add(this, windows_core::from_raw_borrowed(&item)).into()
+            IUICollection_Impl::Add(this, core::mem::transmute_copy(&item)).into()
         }
         unsafe extern "system" fn Insert<Identity: IUICollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, item: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IUICollection_Impl::Insert(this, core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&item)).into()
+            IUICollection_Impl::Insert(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&item)).into()
         }
         unsafe extern "system" fn RemoveAt<Identity: IUICollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -154,7 +154,7 @@ impl IUICollection_Vtbl {
         }
         unsafe extern "system" fn Replace<Identity: IUICollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, indexreplaced: u32, itemreplacewith: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IUICollection_Impl::Replace(this, core::mem::transmute_copy(&indexreplaced), windows_core::from_raw_borrowed(&itemreplacewith)).into()
+            IUICollection_Impl::Replace(this, core::mem::transmute_copy(&indexreplaced), core::mem::transmute_copy(&itemreplacewith)).into()
         }
         unsafe extern "system" fn Clear<Identity: IUICollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -193,13 +193,13 @@ pub struct IUICollectionChangedEvent_Vtbl {
     pub OnChanged: unsafe extern "system" fn(*mut core::ffi::c_void, UI_COLLECTIONCHANGE, u32, *mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUICollectionChangedEvent_Impl: windows_core::IUnknownImpl {
-    fn OnChanged(&self, action: UI_COLLECTIONCHANGE, oldindex: u32, olditem: Option<&windows_core::IUnknown>, newindex: u32, newitem: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn OnChanged(&self, action: UI_COLLECTIONCHANGE, oldindex: u32, olditem: windows_core::Ref<'_, windows_core::IUnknown>, newindex: u32, newitem: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl IUICollectionChangedEvent_Vtbl {
     pub const fn new<Identity: IUICollectionChangedEvent_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnChanged<Identity: IUICollectionChangedEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, action: UI_COLLECTIONCHANGE, oldindex: u32, olditem: *mut core::ffi::c_void, newindex: u32, newitem: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IUICollectionChangedEvent_Impl::OnChanged(this, core::mem::transmute_copy(&action), core::mem::transmute_copy(&oldindex), windows_core::from_raw_borrowed(&olditem), core::mem::transmute_copy(&newindex), windows_core::from_raw_borrowed(&newitem)).into()
+            IUICollectionChangedEvent_Impl::OnChanged(this, core::mem::transmute_copy(&action), core::mem::transmute_copy(&oldindex), core::mem::transmute_copy(&olditem), core::mem::transmute_copy(&newindex), core::mem::transmute_copy(&newitem)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnChanged: OnChanged::<Identity, OFFSET> }
     }
@@ -238,7 +238,7 @@ pub struct IUICommandHandler_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IUICommandHandler_Impl: windows_core::IUnknownImpl {
-    fn Execute(&self, commandid: u32, verb: UI_EXECUTIONVERB, key: *const super::super::Foundation::PROPERTYKEY, currentvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, commandexecutionproperties: Option<&IUISimplePropertySet>) -> windows_core::Result<()>;
+    fn Execute(&self, commandid: u32, verb: UI_EXECUTIONVERB, key: *const super::super::Foundation::PROPERTYKEY, currentvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, commandexecutionproperties: windows_core::Ref<'_, IUISimplePropertySet>) -> windows_core::Result<()>;
     fn UpdateProperty(&self, commandid: u32, key: *const super::super::Foundation::PROPERTYKEY, currentvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -246,7 +246,7 @@ impl IUICommandHandler_Vtbl {
     pub const fn new<Identity: IUICommandHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Execute<Identity: IUICommandHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, commandid: u32, verb: UI_EXECUTIONVERB, key: *const super::super::Foundation::PROPERTYKEY, currentvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, commandexecutionproperties: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IUICommandHandler_Impl::Execute(this, core::mem::transmute_copy(&commandid), core::mem::transmute_copy(&verb), core::mem::transmute_copy(&key), core::mem::transmute_copy(&currentvalue), windows_core::from_raw_borrowed(&commandexecutionproperties)).into()
+            IUICommandHandler_Impl::Execute(this, core::mem::transmute_copy(&commandid), core::mem::transmute_copy(&verb), core::mem::transmute_copy(&key), core::mem::transmute_copy(&currentvalue), core::mem::transmute_copy(&commandexecutionproperties)).into()
         }
         unsafe extern "system" fn UpdateProperty<Identity: IUICommandHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, commandid: u32, key: *const super::super::Foundation::PROPERTYKEY, currentvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, newvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -342,13 +342,13 @@ pub struct IUIEventingManager_Vtbl {
     pub SetEventLogger: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIEventingManager_Impl: windows_core::IUnknownImpl {
-    fn SetEventLogger(&self, eventlogger: Option<&IUIEventLogger>) -> windows_core::Result<()>;
+    fn SetEventLogger(&self, eventlogger: windows_core::Ref<'_, IUIEventLogger>) -> windows_core::Result<()>;
 }
 impl IUIEventingManager_Vtbl {
     pub const fn new<Identity: IUIEventingManager_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetEventLogger<Identity: IUIEventingManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventlogger: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IUIEventingManager_Impl::SetEventLogger(this, windows_core::from_raw_borrowed(&eventlogger)).into()
+            IUIEventingManager_Impl::SetEventLogger(this, core::mem::transmute_copy(&eventlogger)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetEventLogger: SetEventLogger::<Identity, OFFSET> }
     }
@@ -418,7 +418,7 @@ pub struct IUIFramework_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IUIFramework_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, framewnd: super::super::Foundation::HWND, application: Option<&IUIApplication>) -> windows_core::Result<()>;
+    fn Initialize(&self, framewnd: super::super::Foundation::HWND, application: windows_core::Ref<'_, IUIApplication>) -> windows_core::Result<()>;
     fn Destroy(&self) -> windows_core::Result<()>;
     fn LoadUI(&self, instance: super::super::Foundation::HINSTANCE, resourcename: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetView(&self, viewid: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
@@ -433,7 +433,7 @@ impl IUIFramework_Vtbl {
     pub const fn new<Identity: IUIFramework_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IUIFramework_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, framewnd: super::super::Foundation::HWND, application: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IUIFramework_Impl::Initialize(this, core::mem::transmute_copy(&framewnd), windows_core::from_raw_borrowed(&application)).into()
+            IUIFramework_Impl::Initialize(this, core::mem::transmute_copy(&framewnd), core::mem::transmute_copy(&application)).into()
         }
         unsafe extern "system" fn Destroy<Identity: IUIFramework_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -614,8 +614,8 @@ pub struct IUIRibbon_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUIRibbon_Impl: windows_core::IUnknownImpl {
     fn GetHeight(&self) -> windows_core::Result<u32>;
-    fn LoadSettingsFromStream(&self, pstream: Option<&super::super::System::Com::IStream>) -> windows_core::Result<()>;
-    fn SaveSettingsToStream(&self, pstream: Option<&super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn LoadSettingsFromStream(&self, pstream: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn SaveSettingsToStream(&self, pstream: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IUIRibbon_Vtbl {
@@ -632,11 +632,11 @@ impl IUIRibbon_Vtbl {
         }
         unsafe extern "system" fn LoadSettingsFromStream<Identity: IUIRibbon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstream: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IUIRibbon_Impl::LoadSettingsFromStream(this, windows_core::from_raw_borrowed(&pstream)).into()
+            IUIRibbon_Impl::LoadSettingsFromStream(this, core::mem::transmute_copy(&pstream)).into()
         }
         unsafe extern "system" fn SaveSettingsToStream<Identity: IUIRibbon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstream: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IUIRibbon_Impl::SaveSettingsToStream(this, windows_core::from_raw_borrowed(&pstream)).into()
+            IUIRibbon_Impl::SaveSettingsToStream(this, core::mem::transmute_copy(&pstream)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

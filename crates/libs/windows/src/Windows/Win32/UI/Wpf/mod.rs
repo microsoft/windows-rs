@@ -42,16 +42,16 @@ pub struct IMILBitmapEffect_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Imaging")]
 pub trait IMILBitmapEffect_Impl: windows_core::IUnknownImpl {
-    fn GetOutput(&self, uiindex: u32, pcontext: Option<&IMILBitmapEffectRenderContext>) -> windows_core::Result<super::super::Graphics::Imaging::IWICBitmapSource>;
+    fn GetOutput(&self, uiindex: u32, pcontext: windows_core::Ref<'_, IMILBitmapEffectRenderContext>) -> windows_core::Result<super::super::Graphics::Imaging::IWICBitmapSource>;
     fn GetParentEffect(&self) -> windows_core::Result<IMILBitmapEffectGroup>;
-    fn SetInputSource(&self, uiindex: u32, pbitmapsource: Option<&super::super::Graphics::Imaging::IWICBitmapSource>) -> windows_core::Result<()>;
+    fn SetInputSource(&self, uiindex: u32, pbitmapsource: windows_core::Ref<'_, super::super::Graphics::Imaging::IWICBitmapSource>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Imaging")]
 impl IMILBitmapEffect_Vtbl {
     pub const fn new<Identity: IMILBitmapEffect_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetOutput<Identity: IMILBitmapEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uiindex: u32, pcontext: *mut core::ffi::c_void, ppbitmapsource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IMILBitmapEffect_Impl::GetOutput(this, core::mem::transmute_copy(&uiindex), windows_core::from_raw_borrowed(&pcontext)) {
+            match IMILBitmapEffect_Impl::GetOutput(this, core::mem::transmute_copy(&uiindex), core::mem::transmute_copy(&pcontext)) {
                 Ok(ok__) => {
                     ppbitmapsource.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -71,7 +71,7 @@ impl IMILBitmapEffect_Vtbl {
         }
         unsafe extern "system" fn SetInputSource<Identity: IMILBitmapEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uiindex: u32, pbitmapsource: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IMILBitmapEffect_Impl::SetInputSource(this, core::mem::transmute_copy(&uiindex), windows_core::from_raw_borrowed(&pbitmapsource)).into()
+            IMILBitmapEffect_Impl::SetInputSource(this, core::mem::transmute_copy(&uiindex), core::mem::transmute_copy(&pbitmapsource)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -403,18 +403,18 @@ pub struct IMILBitmapEffectEvents_Vtbl {
     pub DirtyRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const MilRectD) -> windows_core::HRESULT,
 }
 pub trait IMILBitmapEffectEvents_Impl: windows_core::IUnknownImpl {
-    fn PropertyChange(&self, peffect: Option<&IMILBitmapEffect>, bstrpropertyname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn DirtyRegion(&self, peffect: Option<&IMILBitmapEffect>, prect: *const MilRectD) -> windows_core::Result<()>;
+    fn PropertyChange(&self, peffect: windows_core::Ref<'_, IMILBitmapEffect>, bstrpropertyname: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn DirtyRegion(&self, peffect: windows_core::Ref<'_, IMILBitmapEffect>, prect: *const MilRectD) -> windows_core::Result<()>;
 }
 impl IMILBitmapEffectEvents_Vtbl {
     pub const fn new<Identity: IMILBitmapEffectEvents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn PropertyChange<Identity: IMILBitmapEffectEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peffect: *mut core::ffi::c_void, bstrpropertyname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IMILBitmapEffectEvents_Impl::PropertyChange(this, windows_core::from_raw_borrowed(&peffect), core::mem::transmute(&bstrpropertyname)).into()
+            IMILBitmapEffectEvents_Impl::PropertyChange(this, core::mem::transmute_copy(&peffect), core::mem::transmute(&bstrpropertyname)).into()
         }
         unsafe extern "system" fn DirtyRegion<Identity: IMILBitmapEffectEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peffect: *mut core::ffi::c_void, prect: *const MilRectD) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IMILBitmapEffectEvents_Impl::DirtyRegion(this, windows_core::from_raw_borrowed(&peffect), core::mem::transmute_copy(&prect)).into()
+            IMILBitmapEffectEvents_Impl::DirtyRegion(this, core::mem::transmute_copy(&peffect), core::mem::transmute_copy(&prect)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -527,7 +527,7 @@ pub struct IMILBitmapEffectGroup_Vtbl {
 pub trait IMILBitmapEffectGroup_Impl: windows_core::IUnknownImpl {
     fn GetInteriorInputConnector(&self, uiindex: u32) -> windows_core::Result<IMILBitmapEffectOutputConnector>;
     fn GetInteriorOutputConnector(&self, uiindex: u32) -> windows_core::Result<IMILBitmapEffectInputConnector>;
-    fn Add(&self, peffect: Option<&IMILBitmapEffect>) -> windows_core::Result<()>;
+    fn Add(&self, peffect: windows_core::Ref<'_, IMILBitmapEffect>) -> windows_core::Result<()>;
 }
 impl IMILBitmapEffectGroup_Vtbl {
     pub const fn new<Identity: IMILBitmapEffectGroup_Impl, const OFFSET: isize>() -> Self {
@@ -553,7 +553,7 @@ impl IMILBitmapEffectGroup_Vtbl {
         }
         unsafe extern "system" fn Add<Identity: IMILBitmapEffectGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peffect: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IMILBitmapEffectGroup_Impl::Add(this, windows_core::from_raw_borrowed(&peffect)).into()
+            IMILBitmapEffectGroup_Impl::Add(this, core::mem::transmute_copy(&peffect)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -593,7 +593,7 @@ pub struct IMILBitmapEffectGroupImpl_Vtbl {
     pub GetChildren: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMILBitmapEffectGroupImpl_Impl: windows_core::IUnknownImpl {
-    fn Preprocess(&self, pcontext: Option<&IMILBitmapEffectRenderContext>) -> windows_core::Result<()>;
+    fn Preprocess(&self, pcontext: windows_core::Ref<'_, IMILBitmapEffectRenderContext>) -> windows_core::Result<()>;
     fn GetNumberChildren(&self) -> windows_core::Result<u32>;
     fn GetChildren(&self) -> windows_core::Result<IMILBitmapEffects>;
 }
@@ -601,7 +601,7 @@ impl IMILBitmapEffectGroupImpl_Vtbl {
     pub const fn new<Identity: IMILBitmapEffectGroupImpl_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Preprocess<Identity: IMILBitmapEffectGroupImpl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IMILBitmapEffectGroupImpl_Impl::Preprocess(this, windows_core::from_raw_borrowed(&pcontext)).into()
+            IMILBitmapEffectGroupImpl_Impl::Preprocess(this, core::mem::transmute_copy(&pcontext)).into()
         }
         unsafe extern "system" fn GetNumberChildren<Identity: IMILBitmapEffectGroupImpl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puinumberchildren: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -704,20 +704,20 @@ pub struct IMILBitmapEffectImpl_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Imaging")]
 pub trait IMILBitmapEffectImpl_Impl: windows_core::IUnknownImpl {
-    fn IsInPlaceModificationAllowed(&self, poutputconnector: Option<&IMILBitmapEffectOutputConnector>) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetParentEffect(&self, pparenteffect: Option<&IMILBitmapEffectGroup>) -> windows_core::Result<()>;
+    fn IsInPlaceModificationAllowed(&self, poutputconnector: windows_core::Ref<'_, IMILBitmapEffectOutputConnector>) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetParentEffect(&self, pparenteffect: windows_core::Ref<'_, IMILBitmapEffectGroup>) -> windows_core::Result<()>;
     fn GetInputSource(&self, uiindex: u32) -> windows_core::Result<super::super::Graphics::Imaging::IWICBitmapSource>;
     fn GetInputSourceBounds(&self, uiindex: u32, prect: *mut MilRectD) -> windows_core::Result<()>;
-    fn GetInputBitmapSource(&self, uiindex: u32, prendercontext: Option<&IMILBitmapEffectRenderContext>, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<super::super::Graphics::Imaging::IWICBitmapSource>;
-    fn GetOutputBitmapSource(&self, uiindex: u32, prendercontext: Option<&IMILBitmapEffectRenderContext>, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<super::super::Graphics::Imaging::IWICBitmapSource>;
-    fn Initialize(&self, pinner: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetInputBitmapSource(&self, uiindex: u32, prendercontext: windows_core::Ref<'_, IMILBitmapEffectRenderContext>, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<super::super::Graphics::Imaging::IWICBitmapSource>;
+    fn GetOutputBitmapSource(&self, uiindex: u32, prendercontext: windows_core::Ref<'_, IMILBitmapEffectRenderContext>, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<super::super::Graphics::Imaging::IWICBitmapSource>;
+    fn Initialize(&self, pinner: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Imaging")]
 impl IMILBitmapEffectImpl_Vtbl {
     pub const fn new<Identity: IMILBitmapEffectImpl_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn IsInPlaceModificationAllowed<Identity: IMILBitmapEffectImpl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, poutputconnector: *mut core::ffi::c_void, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IMILBitmapEffectImpl_Impl::IsInPlaceModificationAllowed(this, windows_core::from_raw_borrowed(&poutputconnector)) {
+            match IMILBitmapEffectImpl_Impl::IsInPlaceModificationAllowed(this, core::mem::transmute_copy(&poutputconnector)) {
                 Ok(ok__) => {
                     pfmodifyinplace.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -727,7 +727,7 @@ impl IMILBitmapEffectImpl_Vtbl {
         }
         unsafe extern "system" fn SetParentEffect<Identity: IMILBitmapEffectImpl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pparenteffect: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IMILBitmapEffectImpl_Impl::SetParentEffect(this, windows_core::from_raw_borrowed(&pparenteffect)).into()
+            IMILBitmapEffectImpl_Impl::SetParentEffect(this, core::mem::transmute_copy(&pparenteffect)).into()
         }
         unsafe extern "system" fn GetInputSource<Identity: IMILBitmapEffectImpl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uiindex: u32, ppbitmapsource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -745,7 +745,7 @@ impl IMILBitmapEffectImpl_Vtbl {
         }
         unsafe extern "system" fn GetInputBitmapSource<Identity: IMILBitmapEffectImpl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uiindex: u32, prendercontext: *mut core::ffi::c_void, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL, ppbitmapsource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IMILBitmapEffectImpl_Impl::GetInputBitmapSource(this, core::mem::transmute_copy(&uiindex), windows_core::from_raw_borrowed(&prendercontext), core::mem::transmute_copy(&pfmodifyinplace)) {
+            match IMILBitmapEffectImpl_Impl::GetInputBitmapSource(this, core::mem::transmute_copy(&uiindex), core::mem::transmute_copy(&prendercontext), core::mem::transmute_copy(&pfmodifyinplace)) {
                 Ok(ok__) => {
                     ppbitmapsource.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -755,7 +755,7 @@ impl IMILBitmapEffectImpl_Vtbl {
         }
         unsafe extern "system" fn GetOutputBitmapSource<Identity: IMILBitmapEffectImpl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uiindex: u32, prendercontext: *mut core::ffi::c_void, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL, ppbitmapsource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IMILBitmapEffectImpl_Impl::GetOutputBitmapSource(this, core::mem::transmute_copy(&uiindex), windows_core::from_raw_borrowed(&prendercontext), core::mem::transmute_copy(&pfmodifyinplace)) {
+            match IMILBitmapEffectImpl_Impl::GetOutputBitmapSource(this, core::mem::transmute_copy(&uiindex), core::mem::transmute_copy(&prendercontext), core::mem::transmute_copy(&pfmodifyinplace)) {
                 Ok(ok__) => {
                     ppbitmapsource.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -765,7 +765,7 @@ impl IMILBitmapEffectImpl_Vtbl {
         }
         unsafe extern "system" fn Initialize<Identity: IMILBitmapEffectImpl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinner: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IMILBitmapEffectImpl_Impl::Initialize(this, windows_core::from_raw_borrowed(&pinner)).into()
+            IMILBitmapEffectImpl_Impl::Initialize(this, core::mem::transmute_copy(&pinner)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -811,14 +811,14 @@ pub struct IMILBitmapEffectInputConnector_Vtbl {
     pub GetConnection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMILBitmapEffectInputConnector_Impl: IMILBitmapEffectConnector_Impl {
-    fn ConnectTo(&self, pconnector: Option<&IMILBitmapEffectOutputConnector>) -> windows_core::Result<()>;
+    fn ConnectTo(&self, pconnector: windows_core::Ref<'_, IMILBitmapEffectOutputConnector>) -> windows_core::Result<()>;
     fn GetConnection(&self) -> windows_core::Result<IMILBitmapEffectOutputConnector>;
 }
 impl IMILBitmapEffectInputConnector_Vtbl {
     pub const fn new<Identity: IMILBitmapEffectInputConnector_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ConnectTo<Identity: IMILBitmapEffectInputConnector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pconnector: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IMILBitmapEffectInputConnector_Impl::ConnectTo(this, windows_core::from_raw_borrowed(&pconnector)).into()
+            IMILBitmapEffectInputConnector_Impl::ConnectTo(this, core::mem::transmute_copy(&pconnector)).into()
         }
         unsafe extern "system" fn GetConnection<Identity: IMILBitmapEffectInputConnector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppconnector: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -995,18 +995,18 @@ pub struct IMILBitmapEffectOutputConnectorImpl_Vtbl {
     pub RemoveBackLink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMILBitmapEffectOutputConnectorImpl_Impl: windows_core::IUnknownImpl {
-    fn AddBackLink(&self, pconnection: Option<&IMILBitmapEffectInputConnector>) -> windows_core::Result<()>;
-    fn RemoveBackLink(&self, pconnection: Option<&IMILBitmapEffectInputConnector>) -> windows_core::Result<()>;
+    fn AddBackLink(&self, pconnection: windows_core::Ref<'_, IMILBitmapEffectInputConnector>) -> windows_core::Result<()>;
+    fn RemoveBackLink(&self, pconnection: windows_core::Ref<'_, IMILBitmapEffectInputConnector>) -> windows_core::Result<()>;
 }
 impl IMILBitmapEffectOutputConnectorImpl_Vtbl {
     pub const fn new<Identity: IMILBitmapEffectOutputConnectorImpl_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddBackLink<Identity: IMILBitmapEffectOutputConnectorImpl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pconnection: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IMILBitmapEffectOutputConnectorImpl_Impl::AddBackLink(this, windows_core::from_raw_borrowed(&pconnection)).into()
+            IMILBitmapEffectOutputConnectorImpl_Impl::AddBackLink(this, core::mem::transmute_copy(&pconnection)).into()
         }
         unsafe extern "system" fn RemoveBackLink<Identity: IMILBitmapEffectOutputConnectorImpl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pconnection: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IMILBitmapEffectOutputConnectorImpl_Impl::RemoveBackLink(this, windows_core::from_raw_borrowed(&pconnection)).into()
+            IMILBitmapEffectOutputConnectorImpl_Impl::RemoveBackLink(this, core::mem::transmute_copy(&pconnection)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -1073,9 +1073,9 @@ pub struct IMILBitmapEffectPrimitive_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dwm", feature = "Win32_Graphics_Imaging"))]
 pub trait IMILBitmapEffectPrimitive_Impl: windows_core::IUnknownImpl {
-    fn GetOutput(&self, uiindex: u32, pcontext: Option<&IMILBitmapEffectRenderContext>, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<super::super::Graphics::Imaging::IWICBitmapSource>;
-    fn TransformPoint(&self, uiindex: u32, p: *mut MilPoint2D, fforwardtransform: super::super::Foundation::VARIANT_BOOL, pcontext: Option<&IMILBitmapEffectRenderContext>, pfpointtransformed: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn TransformRect(&self, uiindex: u32, p: *mut MilRectD, fforwardtransform: super::super::Foundation::VARIANT_BOOL, pcontext: Option<&IMILBitmapEffectRenderContext>) -> windows_core::Result<()>;
+    fn GetOutput(&self, uiindex: u32, pcontext: windows_core::Ref<'_, IMILBitmapEffectRenderContext>, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<super::super::Graphics::Imaging::IWICBitmapSource>;
+    fn TransformPoint(&self, uiindex: u32, p: *mut MilPoint2D, fforwardtransform: super::super::Foundation::VARIANT_BOOL, pcontext: windows_core::Ref<'_, IMILBitmapEffectRenderContext>, pfpointtransformed: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn TransformRect(&self, uiindex: u32, p: *mut MilRectD, fforwardtransform: super::super::Foundation::VARIANT_BOOL, pcontext: windows_core::Ref<'_, IMILBitmapEffectRenderContext>) -> windows_core::Result<()>;
     fn HasAffineTransform(&self, uiindex: u32) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn HasInverseTransform(&self, uiindex: u32) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn GetAffineMatrix(&self, uiindex: u32, pmatrix: *mut super::super::Graphics::Dwm::MilMatrix3x2D) -> windows_core::Result<()>;
@@ -1085,7 +1085,7 @@ impl IMILBitmapEffectPrimitive_Vtbl {
     pub const fn new<Identity: IMILBitmapEffectPrimitive_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetOutput<Identity: IMILBitmapEffectPrimitive_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uiindex: u32, pcontext: *mut core::ffi::c_void, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL, ppbitmapsource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IMILBitmapEffectPrimitive_Impl::GetOutput(this, core::mem::transmute_copy(&uiindex), windows_core::from_raw_borrowed(&pcontext), core::mem::transmute_copy(&pfmodifyinplace)) {
+            match IMILBitmapEffectPrimitive_Impl::GetOutput(this, core::mem::transmute_copy(&uiindex), core::mem::transmute_copy(&pcontext), core::mem::transmute_copy(&pfmodifyinplace)) {
                 Ok(ok__) => {
                     ppbitmapsource.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1095,11 +1095,11 @@ impl IMILBitmapEffectPrimitive_Vtbl {
         }
         unsafe extern "system" fn TransformPoint<Identity: IMILBitmapEffectPrimitive_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uiindex: u32, p: *mut MilPoint2D, fforwardtransform: super::super::Foundation::VARIANT_BOOL, pcontext: *mut core::ffi::c_void, pfpointtransformed: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IMILBitmapEffectPrimitive_Impl::TransformPoint(this, core::mem::transmute_copy(&uiindex), core::mem::transmute_copy(&p), core::mem::transmute_copy(&fforwardtransform), windows_core::from_raw_borrowed(&pcontext), core::mem::transmute_copy(&pfpointtransformed)).into()
+            IMILBitmapEffectPrimitive_Impl::TransformPoint(this, core::mem::transmute_copy(&uiindex), core::mem::transmute_copy(&p), core::mem::transmute_copy(&fforwardtransform), core::mem::transmute_copy(&pcontext), core::mem::transmute_copy(&pfpointtransformed)).into()
         }
         unsafe extern "system" fn TransformRect<Identity: IMILBitmapEffectPrimitive_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uiindex: u32, p: *mut MilRectD, fforwardtransform: super::super::Foundation::VARIANT_BOOL, pcontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IMILBitmapEffectPrimitive_Impl::TransformRect(this, core::mem::transmute_copy(&uiindex), core::mem::transmute_copy(&p), core::mem::transmute_copy(&fforwardtransform), windows_core::from_raw_borrowed(&pcontext)).into()
+            IMILBitmapEffectPrimitive_Impl::TransformRect(this, core::mem::transmute_copy(&uiindex), core::mem::transmute_copy(&p), core::mem::transmute_copy(&fforwardtransform), core::mem::transmute_copy(&pcontext)).into()
         }
         unsafe extern "system" fn HasAffineTransform<Identity: IMILBitmapEffectPrimitive_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uiindex: u32, pfaffine: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);

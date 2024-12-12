@@ -402,7 +402,7 @@ pub trait IIndexableContent_Impl: windows_core::IUnknownImpl {
     fn SetId(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>;
     fn Stream(&self) -> windows_core::Result<super::Streams::IRandomAccessStream>;
-    fn SetStream(&self, value: Option<&super::Streams::IRandomAccessStream>) -> windows_core::Result<()>;
+    fn SetStream(&self, value: windows_core::Ref<'_, super::Streams::IRandomAccessStream>) -> windows_core::Result<()>;
     fn StreamContentType(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn SetStreamContentType(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
 }
@@ -448,7 +448,7 @@ impl IIndexableContent_Vtbl {
         }
         unsafe extern "system" fn SetStream<Identity: IIndexableContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IIndexableContent_Impl::SetStream(this, windows_core::from_raw_borrowed(&value)).into()
+            IIndexableContent_Impl::SetStream(this, core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn StreamContentType<Identity: IIndexableContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -743,18 +743,18 @@ pub trait IStorageFolderQueryOperations_Impl: windows_core::IUnknownImpl {
     fn GetIndexedStateAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IndexedState>>;
     fn CreateFileQueryOverloadDefault(&self) -> windows_core::Result<StorageFileQueryResult>;
     fn CreateFileQuery(&self, query: CommonFileQuery) -> windows_core::Result<StorageFileQueryResult>;
-    fn CreateFileQueryWithOptions(&self, queryOptions: Option<&QueryOptions>) -> windows_core::Result<StorageFileQueryResult>;
+    fn CreateFileQueryWithOptions(&self, queryOptions: windows_core::Ref<'_, QueryOptions>) -> windows_core::Result<StorageFileQueryResult>;
     fn CreateFolderQueryOverloadDefault(&self) -> windows_core::Result<StorageFolderQueryResult>;
     fn CreateFolderQuery(&self, query: CommonFolderQuery) -> windows_core::Result<StorageFolderQueryResult>;
-    fn CreateFolderQueryWithOptions(&self, queryOptions: Option<&QueryOptions>) -> windows_core::Result<StorageFolderQueryResult>;
+    fn CreateFolderQueryWithOptions(&self, queryOptions: windows_core::Ref<'_, QueryOptions>) -> windows_core::Result<StorageFolderQueryResult>;
     fn CreateItemQuery(&self) -> windows_core::Result<StorageItemQueryResult>;
-    fn CreateItemQueryWithOptions(&self, queryOptions: Option<&QueryOptions>) -> windows_core::Result<StorageItemQueryResult>;
+    fn CreateItemQueryWithOptions(&self, queryOptions: windows_core::Ref<'_, QueryOptions>) -> windows_core::Result<StorageItemQueryResult>;
     fn GetFilesAsync(&self, query: CommonFileQuery, startIndex: u32, maxItemsToRetrieve: u32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>>;
     fn GetFilesAsyncOverloadDefaultStartAndCount(&self, query: CommonFileQuery) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>>;
     fn GetFoldersAsync(&self, query: CommonFolderQuery, startIndex: u32, maxItemsToRetrieve: u32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>>;
     fn GetFoldersAsyncOverloadDefaultStartAndCount(&self, query: CommonFolderQuery) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>>;
     fn GetItemsAsync(&self, startIndex: u32, maxItemsToRetrieve: u32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::IStorageItem>>>;
-    fn AreQueryOptionsSupported(&self, queryOptions: Option<&QueryOptions>) -> windows_core::Result<bool>;
+    fn AreQueryOptionsSupported(&self, queryOptions: windows_core::Ref<'_, QueryOptions>) -> windows_core::Result<bool>;
     fn IsCommonFolderQuerySupported(&self, query: CommonFolderQuery) -> windows_core::Result<bool>;
     fn IsCommonFileQuerySupported(&self, query: CommonFileQuery) -> windows_core::Result<bool>;
 }
@@ -796,7 +796,7 @@ impl IStorageFolderQueryOperations_Vtbl {
         }
         unsafe extern "system" fn CreateFileQueryWithOptions<Identity: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, queryoptions: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IStorageFolderQueryOperations_Impl::CreateFileQueryWithOptions(this, windows_core::from_raw_borrowed(&queryoptions)) {
+            match IStorageFolderQueryOperations_Impl::CreateFileQueryWithOptions(this, core::mem::transmute_copy(&queryoptions)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -829,7 +829,7 @@ impl IStorageFolderQueryOperations_Vtbl {
         }
         unsafe extern "system" fn CreateFolderQueryWithOptions<Identity: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, queryoptions: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IStorageFolderQueryOperations_Impl::CreateFolderQueryWithOptions(this, windows_core::from_raw_borrowed(&queryoptions)) {
+            match IStorageFolderQueryOperations_Impl::CreateFolderQueryWithOptions(this, core::mem::transmute_copy(&queryoptions)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -851,7 +851,7 @@ impl IStorageFolderQueryOperations_Vtbl {
         }
         unsafe extern "system" fn CreateItemQueryWithOptions<Identity: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, queryoptions: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IStorageFolderQueryOperations_Impl::CreateItemQueryWithOptions(this, windows_core::from_raw_borrowed(&queryoptions)) {
+            match IStorageFolderQueryOperations_Impl::CreateItemQueryWithOptions(this, core::mem::transmute_copy(&queryoptions)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -917,7 +917,7 @@ impl IStorageFolderQueryOperations_Vtbl {
         }
         unsafe extern "system" fn AreQueryOptionsSupported<Identity: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, queryoptions: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IStorageFolderQueryOperations_Impl::AreQueryOptionsSupported(this, windows_core::from_raw_borrowed(&queryoptions)) {
+            match IStorageFolderQueryOperations_Impl::AreQueryOptionsSupported(this, core::mem::transmute_copy(&queryoptions)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -1137,13 +1137,13 @@ impl windows_core::RuntimeName for IStorageQueryResultBase {
 pub trait IStorageQueryResultBase_Impl: windows_core::IUnknownImpl {
     fn GetItemCountAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<u32>>;
     fn Folder(&self) -> windows_core::Result<super::StorageFolder>;
-    fn ContentsChanged(&self, handler: Option<&super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, windows_core::IInspectable>>) -> windows_core::Result<i64>;
+    fn ContentsChanged(&self, handler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, windows_core::IInspectable>>) -> windows_core::Result<i64>;
     fn RemoveContentsChanged(&self, eventCookie: i64) -> windows_core::Result<()>;
-    fn OptionsChanged(&self, changedHandler: Option<&super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, windows_core::IInspectable>>) -> windows_core::Result<i64>;
+    fn OptionsChanged(&self, changedHandler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, windows_core::IInspectable>>) -> windows_core::Result<i64>;
     fn RemoveOptionsChanged(&self, eventCookie: i64) -> windows_core::Result<()>;
-    fn FindStartIndexAsync(&self, value: Option<&windows_core::IInspectable>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<u32>>;
+    fn FindStartIndexAsync(&self, value: windows_core::Ref<'_, windows_core::IInspectable>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<u32>>;
     fn GetCurrentQueryOptions(&self) -> windows_core::Result<QueryOptions>;
-    fn ApplyNewQueryOptions(&self, newQueryOptions: Option<&QueryOptions>) -> windows_core::Result<()>;
+    fn ApplyNewQueryOptions(&self, newQueryOptions: windows_core::Ref<'_, QueryOptions>) -> windows_core::Result<()>;
 }
 impl IStorageQueryResultBase_Vtbl {
     pub const fn new<Identity: IStorageQueryResultBase_Impl, const OFFSET: isize>() -> Self {
@@ -1171,7 +1171,7 @@ impl IStorageQueryResultBase_Vtbl {
         }
         unsafe extern "system" fn ContentsChanged<Identity: IStorageQueryResultBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IStorageQueryResultBase_Impl::ContentsChanged(this, windows_core::from_raw_borrowed(&handler)) {
+            match IStorageQueryResultBase_Impl::ContentsChanged(this, core::mem::transmute_copy(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -1185,7 +1185,7 @@ impl IStorageQueryResultBase_Vtbl {
         }
         unsafe extern "system" fn OptionsChanged<Identity: IStorageQueryResultBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, changedhandler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IStorageQueryResultBase_Impl::OptionsChanged(this, windows_core::from_raw_borrowed(&changedhandler)) {
+            match IStorageQueryResultBase_Impl::OptionsChanged(this, core::mem::transmute_copy(&changedhandler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -1199,7 +1199,7 @@ impl IStorageQueryResultBase_Vtbl {
         }
         unsafe extern "system" fn FindStartIndexAsync<Identity: IStorageQueryResultBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IStorageQueryResultBase_Impl::FindStartIndexAsync(this, windows_core::from_raw_borrowed(&value)) {
+            match IStorageQueryResultBase_Impl::FindStartIndexAsync(this, core::mem::transmute_copy(&value)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1221,7 +1221,7 @@ impl IStorageQueryResultBase_Vtbl {
         }
         unsafe extern "system" fn ApplyNewQueryOptions<Identity: IStorageQueryResultBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newqueryoptions: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IStorageQueryResultBase_Impl::ApplyNewQueryOptions(this, windows_core::from_raw_borrowed(&newqueryoptions)).into()
+            IStorageQueryResultBase_Impl::ApplyNewQueryOptions(this, core::mem::transmute_copy(&newqueryoptions)).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IStorageQueryResultBase, OFFSET>(),

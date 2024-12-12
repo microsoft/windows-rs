@@ -370,7 +370,7 @@ pub struct IWICBitmap_Vtbl {
 }
 pub trait IWICBitmap_Impl: IWICBitmapSource_Impl {
     fn Lock(&self, prclock: *const WICRect, flags: u32) -> windows_core::Result<IWICBitmapLock>;
-    fn SetPalette(&self, pipalette: Option<&IWICPalette>) -> windows_core::Result<()>;
+    fn SetPalette(&self, pipalette: windows_core::Ref<'_, IWICPalette>) -> windows_core::Result<()>;
     fn SetResolution(&self, dpix: f64, dpiy: f64) -> windows_core::Result<()>;
 }
 impl IWICBitmap_Vtbl {
@@ -387,7 +387,7 @@ impl IWICBitmap_Vtbl {
         }
         unsafe extern "system" fn SetPalette<Identity: IWICBitmap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pipalette: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWICBitmap_Impl::SetPalette(this, windows_core::from_raw_borrowed(&pipalette)).into()
+            IWICBitmap_Impl::SetPalette(this, core::mem::transmute_copy(&pipalette)).into()
         }
         unsafe extern "system" fn SetResolution<Identity: IWICBitmap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dpix: f64, dpiy: f64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -427,13 +427,13 @@ pub struct IWICBitmapClipper_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const WICRect) -> windows_core::HRESULT,
 }
 pub trait IWICBitmapClipper_Impl: IWICBitmapSource_Impl {
-    fn Initialize(&self, pisource: Option<&IWICBitmapSource>, prc: *const WICRect) -> windows_core::Result<()>;
+    fn Initialize(&self, pisource: windows_core::Ref<'_, IWICBitmapSource>, prc: *const WICRect) -> windows_core::Result<()>;
 }
 impl IWICBitmapClipper_Vtbl {
     pub const fn new<Identity: IWICBitmapClipper_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IWICBitmapClipper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pisource: *mut core::ffi::c_void, prc: *const WICRect) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWICBitmapClipper_Impl::Initialize(this, windows_core::from_raw_borrowed(&pisource), core::mem::transmute_copy(&prc)).into()
+            IWICBitmapClipper_Impl::Initialize(this, core::mem::transmute_copy(&pisource), core::mem::transmute_copy(&prc)).into()
         }
         Self { base__: IWICBitmapSource_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, OFFSET> }
     }
@@ -741,14 +741,14 @@ pub struct IWICBitmapDecoder_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWICBitmapDecoder_Impl: windows_core::IUnknownImpl {
-    fn QueryCapability(&self, pistream: Option<&super::super::System::Com::IStream>) -> windows_core::Result<u32>;
-    fn Initialize(&self, pistream: Option<&super::super::System::Com::IStream>, cacheoptions: WICDecodeOptions) -> windows_core::Result<()>;
+    fn QueryCapability(&self, pistream: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<u32>;
+    fn Initialize(&self, pistream: windows_core::Ref<'_, super::super::System::Com::IStream>, cacheoptions: WICDecodeOptions) -> windows_core::Result<()>;
     fn GetContainerFormat(&self) -> windows_core::Result<windows_core::GUID>;
     fn GetDecoderInfo(&self) -> windows_core::Result<IWICBitmapDecoderInfo>;
-    fn CopyPalette(&self, pipalette: Option<&IWICPalette>) -> windows_core::Result<()>;
+    fn CopyPalette(&self, pipalette: windows_core::Ref<'_, IWICPalette>) -> windows_core::Result<()>;
     fn GetMetadataQueryReader(&self) -> windows_core::Result<IWICMetadataQueryReader>;
     fn GetPreview(&self) -> windows_core::Result<IWICBitmapSource>;
-    fn GetColorContexts(&self, ccount: u32, ppicolorcontexts: *mut Option<IWICColorContext>, pcactualcount: *mut u32) -> windows_core::Result<()>;
+    fn GetColorContexts(&self, ccount: u32, ppicolorcontexts: windows_core::OutRef<'_, IWICColorContext>, pcactualcount: *mut u32) -> windows_core::Result<()>;
     fn GetThumbnail(&self) -> windows_core::Result<IWICBitmapSource>;
     fn GetFrameCount(&self) -> windows_core::Result<u32>;
     fn GetFrame(&self, index: u32) -> windows_core::Result<IWICBitmapFrameDecode>;
@@ -758,7 +758,7 @@ impl IWICBitmapDecoder_Vtbl {
     pub const fn new<Identity: IWICBitmapDecoder_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryCapability<Identity: IWICBitmapDecoder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pistream: *mut core::ffi::c_void, pdwcapability: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWICBitmapDecoder_Impl::QueryCapability(this, windows_core::from_raw_borrowed(&pistream)) {
+            match IWICBitmapDecoder_Impl::QueryCapability(this, core::mem::transmute_copy(&pistream)) {
                 Ok(ok__) => {
                     pdwcapability.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -768,7 +768,7 @@ impl IWICBitmapDecoder_Vtbl {
         }
         unsafe extern "system" fn Initialize<Identity: IWICBitmapDecoder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pistream: *mut core::ffi::c_void, cacheoptions: WICDecodeOptions) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWICBitmapDecoder_Impl::Initialize(this, windows_core::from_raw_borrowed(&pistream), core::mem::transmute_copy(&cacheoptions)).into()
+            IWICBitmapDecoder_Impl::Initialize(this, core::mem::transmute_copy(&pistream), core::mem::transmute_copy(&cacheoptions)).into()
         }
         unsafe extern "system" fn GetContainerFormat<Identity: IWICBitmapDecoder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidcontainerformat: *mut windows_core::GUID) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -792,7 +792,7 @@ impl IWICBitmapDecoder_Vtbl {
         }
         unsafe extern "system" fn CopyPalette<Identity: IWICBitmapDecoder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pipalette: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWICBitmapDecoder_Impl::CopyPalette(this, windows_core::from_raw_borrowed(&pipalette)).into()
+            IWICBitmapDecoder_Impl::CopyPalette(this, core::mem::transmute_copy(&pipalette)).into()
         }
         unsafe extern "system" fn GetMetadataQueryReader<Identity: IWICBitmapDecoder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppimetadataqueryreader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -907,7 +907,7 @@ pub struct IWICBitmapDecoderInfo_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWICBitmapDecoderInfo_Impl: IWICBitmapCodecInfo_Impl {
     fn GetPatterns(&self, cbsizepatterns: u32, ppatterns: *mut WICBitmapPattern, pcpatterns: *mut u32, pcbpatternsactual: *mut u32) -> windows_core::Result<()>;
-    fn MatchesPattern(&self, pistream: Option<&super::super::System::Com::IStream>) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn MatchesPattern(&self, pistream: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn CreateInstance(&self) -> windows_core::Result<IWICBitmapDecoder>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -919,7 +919,7 @@ impl IWICBitmapDecoderInfo_Vtbl {
         }
         unsafe extern "system" fn MatchesPattern<Identity: IWICBitmapDecoderInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pistream: *mut core::ffi::c_void, pfmatches: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWICBitmapDecoderInfo_Impl::MatchesPattern(this, windows_core::from_raw_borrowed(&pistream)) {
+            match IWICBitmapDecoderInfo_Impl::MatchesPattern(this, core::mem::transmute_copy(&pistream)) {
                 Ok(ok__) => {
                     pfmatches.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1023,14 +1023,14 @@ pub struct IWICBitmapEncoder_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait IWICBitmapEncoder_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, pistream: Option<&super::super::System::Com::IStream>, cacheoption: WICBitmapEncoderCacheOption) -> windows_core::Result<()>;
+    fn Initialize(&self, pistream: windows_core::Ref<'_, super::super::System::Com::IStream>, cacheoption: WICBitmapEncoderCacheOption) -> windows_core::Result<()>;
     fn GetContainerFormat(&self) -> windows_core::Result<windows_core::GUID>;
     fn GetEncoderInfo(&self) -> windows_core::Result<IWICBitmapEncoderInfo>;
     fn SetColorContexts(&self, ccount: u32, ppicolorcontext: *const Option<IWICColorContext>) -> windows_core::Result<()>;
-    fn SetPalette(&self, pipalette: Option<&IWICPalette>) -> windows_core::Result<()>;
-    fn SetThumbnail(&self, pithumbnail: Option<&IWICBitmapSource>) -> windows_core::Result<()>;
-    fn SetPreview(&self, pipreview: Option<&IWICBitmapSource>) -> windows_core::Result<()>;
-    fn CreateNewFrame(&self, ppiframeencode: *mut Option<IWICBitmapFrameEncode>, ppiencoderoptions: *mut Option<super::super::System::Com::StructuredStorage::IPropertyBag2>) -> windows_core::Result<()>;
+    fn SetPalette(&self, pipalette: windows_core::Ref<'_, IWICPalette>) -> windows_core::Result<()>;
+    fn SetThumbnail(&self, pithumbnail: windows_core::Ref<'_, IWICBitmapSource>) -> windows_core::Result<()>;
+    fn SetPreview(&self, pipreview: windows_core::Ref<'_, IWICBitmapSource>) -> windows_core::Result<()>;
+    fn CreateNewFrame(&self, ppiframeencode: windows_core::OutRef<'_, IWICBitmapFrameEncode>, ppiencoderoptions: windows_core::OutRef<'_, super::super::System::Com::StructuredStorage::IPropertyBag2>) -> windows_core::Result<()>;
     fn Commit(&self) -> windows_core::Result<()>;
     fn GetMetadataQueryWriter(&self) -> windows_core::Result<IWICMetadataQueryWriter>;
 }
@@ -1039,7 +1039,7 @@ impl IWICBitmapEncoder_Vtbl {
     pub const fn new<Identity: IWICBitmapEncoder_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IWICBitmapEncoder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pistream: *mut core::ffi::c_void, cacheoption: WICBitmapEncoderCacheOption) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWICBitmapEncoder_Impl::Initialize(this, windows_core::from_raw_borrowed(&pistream), core::mem::transmute_copy(&cacheoption)).into()
+            IWICBitmapEncoder_Impl::Initialize(this, core::mem::transmute_copy(&pistream), core::mem::transmute_copy(&cacheoption)).into()
         }
         unsafe extern "system" fn GetContainerFormat<Identity: IWICBitmapEncoder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidcontainerformat: *mut windows_core::GUID) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -1067,15 +1067,15 @@ impl IWICBitmapEncoder_Vtbl {
         }
         unsafe extern "system" fn SetPalette<Identity: IWICBitmapEncoder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pipalette: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWICBitmapEncoder_Impl::SetPalette(this, windows_core::from_raw_borrowed(&pipalette)).into()
+            IWICBitmapEncoder_Impl::SetPalette(this, core::mem::transmute_copy(&pipalette)).into()
         }
         unsafe extern "system" fn SetThumbnail<Identity: IWICBitmapEncoder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pithumbnail: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWICBitmapEncoder_Impl::SetThumbnail(this, windows_core::from_raw_borrowed(&pithumbnail)).into()
+            IWICBitmapEncoder_Impl::SetThumbnail(this, core::mem::transmute_copy(&pithumbnail)).into()
         }
         unsafe extern "system" fn SetPreview<Identity: IWICBitmapEncoder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pipreview: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWICBitmapEncoder_Impl::SetPreview(this, windows_core::from_raw_borrowed(&pipreview)).into()
+            IWICBitmapEncoder_Impl::SetPreview(this, core::mem::transmute_copy(&pipreview)).into()
         }
         unsafe extern "system" fn CreateNewFrame<Identity: IWICBitmapEncoder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppiframeencode: *mut *mut core::ffi::c_void, ppiencoderoptions: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -1178,13 +1178,13 @@ pub struct IWICBitmapFlipRotator_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, WICBitmapTransformOptions) -> windows_core::HRESULT,
 }
 pub trait IWICBitmapFlipRotator_Impl: IWICBitmapSource_Impl {
-    fn Initialize(&self, pisource: Option<&IWICBitmapSource>, options: WICBitmapTransformOptions) -> windows_core::Result<()>;
+    fn Initialize(&self, pisource: windows_core::Ref<'_, IWICBitmapSource>, options: WICBitmapTransformOptions) -> windows_core::Result<()>;
 }
 impl IWICBitmapFlipRotator_Vtbl {
     pub const fn new<Identity: IWICBitmapFlipRotator_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IWICBitmapFlipRotator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pisource: *mut core::ffi::c_void, options: WICBitmapTransformOptions) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWICBitmapFlipRotator_Impl::Initialize(this, windows_core::from_raw_borrowed(&pisource), core::mem::transmute_copy(&options)).into()
+            IWICBitmapFlipRotator_Impl::Initialize(this, core::mem::transmute_copy(&pisource), core::mem::transmute_copy(&options)).into()
         }
         Self { base__: IWICBitmapSource_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, OFFSET> }
     }
@@ -1223,7 +1223,7 @@ pub struct IWICBitmapFrameDecode_Vtbl {
 }
 pub trait IWICBitmapFrameDecode_Impl: IWICBitmapSource_Impl {
     fn GetMetadataQueryReader(&self) -> windows_core::Result<IWICMetadataQueryReader>;
-    fn GetColorContexts(&self, ccount: u32, ppicolorcontexts: *mut Option<IWICColorContext>, pcactualcount: *mut u32) -> windows_core::Result<()>;
+    fn GetColorContexts(&self, ccount: u32, ppicolorcontexts: windows_core::OutRef<'_, IWICColorContext>, pcactualcount: *mut u32) -> windows_core::Result<()>;
     fn GetThumbnail(&self) -> windows_core::Result<IWICBitmapSource>;
 }
 impl IWICBitmapFrameDecode_Vtbl {
@@ -1335,15 +1335,15 @@ pub struct IWICBitmapFrameEncode_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait IWICBitmapFrameEncode_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, piencoderoptions: Option<&super::super::System::Com::StructuredStorage::IPropertyBag2>) -> windows_core::Result<()>;
+    fn Initialize(&self, piencoderoptions: windows_core::Ref<'_, super::super::System::Com::StructuredStorage::IPropertyBag2>) -> windows_core::Result<()>;
     fn SetSize(&self, uiwidth: u32, uiheight: u32) -> windows_core::Result<()>;
     fn SetResolution(&self, dpix: f64, dpiy: f64) -> windows_core::Result<()>;
     fn SetPixelFormat(&self, ppixelformat: *mut windows_core::GUID) -> windows_core::Result<()>;
     fn SetColorContexts(&self, ccount: u32, ppicolorcontext: *const Option<IWICColorContext>) -> windows_core::Result<()>;
-    fn SetPalette(&self, pipalette: Option<&IWICPalette>) -> windows_core::Result<()>;
-    fn SetThumbnail(&self, pithumbnail: Option<&IWICBitmapSource>) -> windows_core::Result<()>;
+    fn SetPalette(&self, pipalette: windows_core::Ref<'_, IWICPalette>) -> windows_core::Result<()>;
+    fn SetThumbnail(&self, pithumbnail: windows_core::Ref<'_, IWICBitmapSource>) -> windows_core::Result<()>;
     fn WritePixels(&self, linecount: u32, cbstride: u32, cbbuffersize: u32, pbpixels: *const u8) -> windows_core::Result<()>;
-    fn WriteSource(&self, pibitmapsource: Option<&IWICBitmapSource>, prc: *const WICRect) -> windows_core::Result<()>;
+    fn WriteSource(&self, pibitmapsource: windows_core::Ref<'_, IWICBitmapSource>, prc: *const WICRect) -> windows_core::Result<()>;
     fn Commit(&self) -> windows_core::Result<()>;
     fn GetMetadataQueryWriter(&self) -> windows_core::Result<IWICMetadataQueryWriter>;
 }
@@ -1352,7 +1352,7 @@ impl IWICBitmapFrameEncode_Vtbl {
     pub const fn new<Identity: IWICBitmapFrameEncode_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IWICBitmapFrameEncode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piencoderoptions: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWICBitmapFrameEncode_Impl::Initialize(this, windows_core::from_raw_borrowed(&piencoderoptions)).into()
+            IWICBitmapFrameEncode_Impl::Initialize(this, core::mem::transmute_copy(&piencoderoptions)).into()
         }
         unsafe extern "system" fn SetSize<Identity: IWICBitmapFrameEncode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uiwidth: u32, uiheight: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -1372,11 +1372,11 @@ impl IWICBitmapFrameEncode_Vtbl {
         }
         unsafe extern "system" fn SetPalette<Identity: IWICBitmapFrameEncode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pipalette: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWICBitmapFrameEncode_Impl::SetPalette(this, windows_core::from_raw_borrowed(&pipalette)).into()
+            IWICBitmapFrameEncode_Impl::SetPalette(this, core::mem::transmute_copy(&pipalette)).into()
         }
         unsafe extern "system" fn SetThumbnail<Identity: IWICBitmapFrameEncode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pithumbnail: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWICBitmapFrameEncode_Impl::SetThumbnail(this, windows_core::from_raw_borrowed(&pithumbnail)).into()
+            IWICBitmapFrameEncode_Impl::SetThumbnail(this, core::mem::transmute_copy(&pithumbnail)).into()
         }
         unsafe extern "system" fn WritePixels<Identity: IWICBitmapFrameEncode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, linecount: u32, cbstride: u32, cbbuffersize: u32, pbpixels: *const u8) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -1384,7 +1384,7 @@ impl IWICBitmapFrameEncode_Vtbl {
         }
         unsafe extern "system" fn WriteSource<Identity: IWICBitmapFrameEncode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pibitmapsource: *mut core::ffi::c_void, prc: *const WICRect) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWICBitmapFrameEncode_Impl::WriteSource(this, windows_core::from_raw_borrowed(&pibitmapsource), core::mem::transmute_copy(&prc)).into()
+            IWICBitmapFrameEncode_Impl::WriteSource(this, core::mem::transmute_copy(&pibitmapsource), core::mem::transmute_copy(&prc)).into()
         }
         unsafe extern "system" fn Commit<Identity: IWICBitmapFrameEncode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -1518,13 +1518,13 @@ pub struct IWICBitmapScaler_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, WICBitmapInterpolationMode) -> windows_core::HRESULT,
 }
 pub trait IWICBitmapScaler_Impl: IWICBitmapSource_Impl {
-    fn Initialize(&self, pisource: Option<&IWICBitmapSource>, uiwidth: u32, uiheight: u32, mode: WICBitmapInterpolationMode) -> windows_core::Result<()>;
+    fn Initialize(&self, pisource: windows_core::Ref<'_, IWICBitmapSource>, uiwidth: u32, uiheight: u32, mode: WICBitmapInterpolationMode) -> windows_core::Result<()>;
 }
 impl IWICBitmapScaler_Vtbl {
     pub const fn new<Identity: IWICBitmapScaler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IWICBitmapScaler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pisource: *mut core::ffi::c_void, uiwidth: u32, uiheight: u32, mode: WICBitmapInterpolationMode) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWICBitmapScaler_Impl::Initialize(this, windows_core::from_raw_borrowed(&pisource), core::mem::transmute_copy(&uiwidth), core::mem::transmute_copy(&uiheight), core::mem::transmute_copy(&mode)).into()
+            IWICBitmapScaler_Impl::Initialize(this, core::mem::transmute_copy(&pisource), core::mem::transmute_copy(&uiwidth), core::mem::transmute_copy(&uiheight), core::mem::transmute_copy(&mode)).into()
         }
         Self { base__: IWICBitmapSource_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, OFFSET> }
     }
@@ -1569,7 +1569,7 @@ pub trait IWICBitmapSource_Impl: windows_core::IUnknownImpl {
     fn GetSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> windows_core::Result<()>;
     fn GetPixelFormat(&self) -> windows_core::Result<windows_core::GUID>;
     fn GetResolution(&self, pdpix: *mut f64, pdpiy: *mut f64) -> windows_core::Result<()>;
-    fn CopyPalette(&self, pipalette: Option<&IWICPalette>) -> windows_core::Result<()>;
+    fn CopyPalette(&self, pipalette: windows_core::Ref<'_, IWICPalette>) -> windows_core::Result<()>;
     fn CopyPixels(&self, prc: *const WICRect, cbstride: u32, cbbuffersize: u32, pbbuffer: *mut u8) -> windows_core::Result<()>;
 }
 impl IWICBitmapSource_Vtbl {
@@ -1594,7 +1594,7 @@ impl IWICBitmapSource_Vtbl {
         }
         unsafe extern "system" fn CopyPalette<Identity: IWICBitmapSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pipalette: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWICBitmapSource_Impl::CopyPalette(this, windows_core::from_raw_borrowed(&pipalette)).into()
+            IWICBitmapSource_Impl::CopyPalette(this, core::mem::transmute_copy(&pipalette)).into()
         }
         unsafe extern "system" fn CopyPixels<Identity: IWICBitmapSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prc: *const WICRect, cbstride: u32, cbbuffersize: u32, pbbuffer: *mut u8) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -1804,13 +1804,13 @@ pub struct IWICColorTransform_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 pub trait IWICColorTransform_Impl: IWICBitmapSource_Impl {
-    fn Initialize(&self, pibitmapsource: Option<&IWICBitmapSource>, picontextsource: Option<&IWICColorContext>, picontextdest: Option<&IWICColorContext>, pixelfmtdest: *const windows_core::GUID) -> windows_core::Result<()>;
+    fn Initialize(&self, pibitmapsource: windows_core::Ref<'_, IWICBitmapSource>, picontextsource: windows_core::Ref<'_, IWICColorContext>, picontextdest: windows_core::Ref<'_, IWICColorContext>, pixelfmtdest: *const windows_core::GUID) -> windows_core::Result<()>;
 }
 impl IWICColorTransform_Vtbl {
     pub const fn new<Identity: IWICColorTransform_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IWICColorTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pibitmapsource: *mut core::ffi::c_void, picontextsource: *mut core::ffi::c_void, picontextdest: *mut core::ffi::c_void, pixelfmtdest: *const windows_core::GUID) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWICColorTransform_Impl::Initialize(this, windows_core::from_raw_borrowed(&pibitmapsource), windows_core::from_raw_borrowed(&picontextsource), windows_core::from_raw_borrowed(&picontextdest), core::mem::transmute_copy(&pixelfmtdest)).into()
+            IWICColorTransform_Impl::Initialize(this, core::mem::transmute_copy(&pibitmapsource), core::mem::transmute_copy(&picontextsource), core::mem::transmute_copy(&picontextdest), core::mem::transmute_copy(&pixelfmtdest)).into()
         }
         Self { base__: IWICBitmapSource_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, OFFSET> }
     }
@@ -1897,12 +1897,12 @@ pub struct IWICComponentFactory_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IWICComponentFactory_Impl: IWICImagingFactory_Impl {
-    fn CreateMetadataReader(&self, guidmetadataformat: *const windows_core::GUID, pguidvendor: *const windows_core::GUID, dwoptions: u32, pistream: Option<&super::super::System::Com::IStream>) -> windows_core::Result<IWICMetadataReader>;
-    fn CreateMetadataReaderFromContainer(&self, guidcontainerformat: *const windows_core::GUID, pguidvendor: *const windows_core::GUID, dwoptions: u32, pistream: Option<&super::super::System::Com::IStream>) -> windows_core::Result<IWICMetadataReader>;
+    fn CreateMetadataReader(&self, guidmetadataformat: *const windows_core::GUID, pguidvendor: *const windows_core::GUID, dwoptions: u32, pistream: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<IWICMetadataReader>;
+    fn CreateMetadataReaderFromContainer(&self, guidcontainerformat: *const windows_core::GUID, pguidvendor: *const windows_core::GUID, dwoptions: u32, pistream: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<IWICMetadataReader>;
     fn CreateMetadataWriter(&self, guidmetadataformat: *const windows_core::GUID, pguidvendor: *const windows_core::GUID, dwmetadataoptions: u32) -> windows_core::Result<IWICMetadataWriter>;
-    fn CreateMetadataWriterFromReader(&self, pireader: Option<&IWICMetadataReader>, pguidvendor: *const windows_core::GUID) -> windows_core::Result<IWICMetadataWriter>;
-    fn CreateQueryReaderFromBlockReader(&self, piblockreader: Option<&IWICMetadataBlockReader>) -> windows_core::Result<IWICMetadataQueryReader>;
-    fn CreateQueryWriterFromBlockWriter(&self, piblockwriter: Option<&IWICMetadataBlockWriter>) -> windows_core::Result<IWICMetadataQueryWriter>;
+    fn CreateMetadataWriterFromReader(&self, pireader: windows_core::Ref<'_, IWICMetadataReader>, pguidvendor: *const windows_core::GUID) -> windows_core::Result<IWICMetadataWriter>;
+    fn CreateQueryReaderFromBlockReader(&self, piblockreader: windows_core::Ref<'_, IWICMetadataBlockReader>) -> windows_core::Result<IWICMetadataQueryReader>;
+    fn CreateQueryWriterFromBlockWriter(&self, piblockwriter: windows_core::Ref<'_, IWICMetadataBlockWriter>) -> windows_core::Result<IWICMetadataQueryWriter>;
     fn CreateEncoderPropertyBag(&self, ppropoptions: *const super::super::System::Com::StructuredStorage::PROPBAG2, ccount: u32) -> windows_core::Result<super::super::System::Com::StructuredStorage::IPropertyBag2>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -1910,7 +1910,7 @@ impl IWICComponentFactory_Vtbl {
     pub const fn new<Identity: IWICComponentFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateMetadataReader<Identity: IWICComponentFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidmetadataformat: *const windows_core::GUID, pguidvendor: *const windows_core::GUID, dwoptions: u32, pistream: *mut core::ffi::c_void, ppireader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWICComponentFactory_Impl::CreateMetadataReader(this, core::mem::transmute_copy(&guidmetadataformat), core::mem::transmute_copy(&pguidvendor), core::mem::transmute_copy(&dwoptions), windows_core::from_raw_borrowed(&pistream)) {
+            match IWICComponentFactory_Impl::CreateMetadataReader(this, core::mem::transmute_copy(&guidmetadataformat), core::mem::transmute_copy(&pguidvendor), core::mem::transmute_copy(&dwoptions), core::mem::transmute_copy(&pistream)) {
                 Ok(ok__) => {
                     ppireader.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1920,7 +1920,7 @@ impl IWICComponentFactory_Vtbl {
         }
         unsafe extern "system" fn CreateMetadataReaderFromContainer<Identity: IWICComponentFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidcontainerformat: *const windows_core::GUID, pguidvendor: *const windows_core::GUID, dwoptions: u32, pistream: *mut core::ffi::c_void, ppireader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWICComponentFactory_Impl::CreateMetadataReaderFromContainer(this, core::mem::transmute_copy(&guidcontainerformat), core::mem::transmute_copy(&pguidvendor), core::mem::transmute_copy(&dwoptions), windows_core::from_raw_borrowed(&pistream)) {
+            match IWICComponentFactory_Impl::CreateMetadataReaderFromContainer(this, core::mem::transmute_copy(&guidcontainerformat), core::mem::transmute_copy(&pguidvendor), core::mem::transmute_copy(&dwoptions), core::mem::transmute_copy(&pistream)) {
                 Ok(ok__) => {
                     ppireader.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1940,7 +1940,7 @@ impl IWICComponentFactory_Vtbl {
         }
         unsafe extern "system" fn CreateMetadataWriterFromReader<Identity: IWICComponentFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pireader: *mut core::ffi::c_void, pguidvendor: *const windows_core::GUID, ppiwriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWICComponentFactory_Impl::CreateMetadataWriterFromReader(this, windows_core::from_raw_borrowed(&pireader), core::mem::transmute_copy(&pguidvendor)) {
+            match IWICComponentFactory_Impl::CreateMetadataWriterFromReader(this, core::mem::transmute_copy(&pireader), core::mem::transmute_copy(&pguidvendor)) {
                 Ok(ok__) => {
                     ppiwriter.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1950,7 +1950,7 @@ impl IWICComponentFactory_Vtbl {
         }
         unsafe extern "system" fn CreateQueryReaderFromBlockReader<Identity: IWICComponentFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piblockreader: *mut core::ffi::c_void, ppiqueryreader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWICComponentFactory_Impl::CreateQueryReaderFromBlockReader(this, windows_core::from_raw_borrowed(&piblockreader)) {
+            match IWICComponentFactory_Impl::CreateQueryReaderFromBlockReader(this, core::mem::transmute_copy(&piblockreader)) {
                 Ok(ok__) => {
                     ppiqueryreader.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1960,7 +1960,7 @@ impl IWICComponentFactory_Vtbl {
         }
         unsafe extern "system" fn CreateQueryWriterFromBlockWriter<Identity: IWICComponentFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piblockwriter: *mut core::ffi::c_void, ppiquerywriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWICComponentFactory_Impl::CreateQueryWriterFromBlockWriter(this, windows_core::from_raw_borrowed(&piblockwriter)) {
+            match IWICComponentFactory_Impl::CreateQueryWriterFromBlockWriter(this, core::mem::transmute_copy(&piblockwriter)) {
                 Ok(ok__) => {
                     ppiquerywriter.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2211,7 +2211,7 @@ pub struct IWICDdsEncoder_Vtbl {
 pub trait IWICDdsEncoder_Impl: windows_core::IUnknownImpl {
     fn SetParameters(&self, pparameters: *const WICDdsParameters) -> windows_core::Result<()>;
     fn GetParameters(&self, pparameters: *mut WICDdsParameters) -> windows_core::Result<()>;
-    fn CreateNewFrame(&self, ppiframeencode: *mut Option<IWICBitmapFrameEncode>, parrayindex: *mut u32, pmiplevel: *mut u32, psliceindex: *mut u32) -> windows_core::Result<()>;
+    fn CreateNewFrame(&self, ppiframeencode: windows_core::OutRef<'_, IWICBitmapFrameEncode>, parrayindex: *mut u32, pmiplevel: *mut u32, psliceindex: *mut u32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl IWICDdsEncoder_Vtbl {
@@ -2496,14 +2496,14 @@ pub trait IWICDevelopRaw_Impl: IWICBitmapFrameDecode_Impl {
     fn GetTint(&self) -> windows_core::Result<f64>;
     fn SetNoiseReduction(&self, noisereduction: f64) -> windows_core::Result<()>;
     fn GetNoiseReduction(&self) -> windows_core::Result<f64>;
-    fn SetDestinationColorContext(&self, pcolorcontext: Option<&IWICColorContext>) -> windows_core::Result<()>;
+    fn SetDestinationColorContext(&self, pcolorcontext: windows_core::Ref<'_, IWICColorContext>) -> windows_core::Result<()>;
     fn SetToneCurve(&self, cbtonecurvesize: u32, ptonecurve: *const WICRawToneCurve) -> windows_core::Result<()>;
     fn GetToneCurve(&self, cbtonecurvebuffersize: u32, ptonecurve: *mut WICRawToneCurve, pcbactualtonecurvebuffersize: *mut u32) -> windows_core::Result<()>;
     fn SetRotation(&self, rotation: f64) -> windows_core::Result<()>;
     fn GetRotation(&self) -> windows_core::Result<f64>;
     fn SetRenderMode(&self, rendermode: WICRawRenderMode) -> windows_core::Result<()>;
     fn GetRenderMode(&self) -> windows_core::Result<WICRawRenderMode>;
-    fn SetNotificationCallback(&self, pcallback: Option<&IWICDevelopRawNotificationCallback>) -> windows_core::Result<()>;
+    fn SetNotificationCallback(&self, pcallback: windows_core::Ref<'_, IWICDevelopRawNotificationCallback>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl IWICDevelopRaw_Vtbl {
@@ -2666,7 +2666,7 @@ impl IWICDevelopRaw_Vtbl {
         }
         unsafe extern "system" fn SetDestinationColorContext<Identity: IWICDevelopRaw_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcolorcontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWICDevelopRaw_Impl::SetDestinationColorContext(this, windows_core::from_raw_borrowed(&pcolorcontext)).into()
+            IWICDevelopRaw_Impl::SetDestinationColorContext(this, core::mem::transmute_copy(&pcolorcontext)).into()
         }
         unsafe extern "system" fn SetToneCurve<Identity: IWICDevelopRaw_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbtonecurvesize: u32, ptonecurve: *const WICRawToneCurve) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -2706,7 +2706,7 @@ impl IWICDevelopRaw_Vtbl {
         }
         unsafe extern "system" fn SetNotificationCallback<Identity: IWICDevelopRaw_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWICDevelopRaw_Impl::SetNotificationCallback(this, windows_core::from_raw_borrowed(&pcallback)).into()
+            IWICDevelopRaw_Impl::SetNotificationCallback(this, core::mem::transmute_copy(&pcallback)).into()
         }
         Self {
             base__: IWICBitmapFrameDecode_Vtbl::new::<Identity, OFFSET>(),
@@ -2929,14 +2929,14 @@ pub struct IWICFormatConverter_Vtbl {
     pub CanConvert: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 pub trait IWICFormatConverter_Impl: IWICBitmapSource_Impl {
-    fn Initialize(&self, pisource: Option<&IWICBitmapSource>, dstformat: *const windows_core::GUID, dither: WICBitmapDitherType, pipalette: Option<&IWICPalette>, alphathresholdpercent: f64, palettetranslate: WICBitmapPaletteType) -> windows_core::Result<()>;
+    fn Initialize(&self, pisource: windows_core::Ref<'_, IWICBitmapSource>, dstformat: *const windows_core::GUID, dither: WICBitmapDitherType, pipalette: windows_core::Ref<'_, IWICPalette>, alphathresholdpercent: f64, palettetranslate: WICBitmapPaletteType) -> windows_core::Result<()>;
     fn CanConvert(&self, srcpixelformat: *const windows_core::GUID, dstpixelformat: *const windows_core::GUID) -> windows_core::Result<super::super::Foundation::BOOL>;
 }
 impl IWICFormatConverter_Vtbl {
     pub const fn new<Identity: IWICFormatConverter_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IWICFormatConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pisource: *mut core::ffi::c_void, dstformat: *const windows_core::GUID, dither: WICBitmapDitherType, pipalette: *mut core::ffi::c_void, alphathresholdpercent: f64, palettetranslate: WICBitmapPaletteType) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWICFormatConverter_Impl::Initialize(this, windows_core::from_raw_borrowed(&pisource), core::mem::transmute_copy(&dstformat), core::mem::transmute_copy(&dither), windows_core::from_raw_borrowed(&pipalette), core::mem::transmute_copy(&alphathresholdpercent), core::mem::transmute_copy(&palettetranslate)).into()
+            IWICFormatConverter_Impl::Initialize(this, core::mem::transmute_copy(&pisource), core::mem::transmute_copy(&dstformat), core::mem::transmute_copy(&dither), core::mem::transmute_copy(&pipalette), core::mem::transmute_copy(&alphathresholdpercent), core::mem::transmute_copy(&palettetranslate)).into()
         }
         unsafe extern "system" fn CanConvert<Identity: IWICFormatConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, srcpixelformat: *const windows_core::GUID, dstpixelformat: *const windows_core::GUID, pfcanconvert: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3186,7 +3186,7 @@ pub struct IWICImagingFactory_Vtbl {
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IWICImagingFactory_Impl: windows_core::IUnknownImpl {
     fn CreateDecoderFromFilename(&self, wzfilename: &windows_core::PCWSTR, pguidvendor: *const windows_core::GUID, dwdesiredaccess: super::super::Foundation::GENERIC_ACCESS_RIGHTS, metadataoptions: WICDecodeOptions) -> windows_core::Result<IWICBitmapDecoder>;
-    fn CreateDecoderFromStream(&self, pistream: Option<&super::super::System::Com::IStream>, pguidvendor: *const windows_core::GUID, metadataoptions: WICDecodeOptions) -> windows_core::Result<IWICBitmapDecoder>;
+    fn CreateDecoderFromStream(&self, pistream: windows_core::Ref<'_, super::super::System::Com::IStream>, pguidvendor: *const windows_core::GUID, metadataoptions: WICDecodeOptions) -> windows_core::Result<IWICBitmapDecoder>;
     fn CreateDecoderFromFileHandle(&self, hfile: usize, pguidvendor: *const windows_core::GUID, metadataoptions: WICDecodeOptions) -> windows_core::Result<IWICBitmapDecoder>;
     fn CreateComponentInfo(&self, clsidcomponent: *const windows_core::GUID) -> windows_core::Result<IWICComponentInfo>;
     fn CreateDecoder(&self, guidcontainerformat: *const windows_core::GUID, pguidvendor: *const windows_core::GUID) -> windows_core::Result<IWICBitmapDecoder>;
@@ -3200,16 +3200,16 @@ pub trait IWICImagingFactory_Impl: windows_core::IUnknownImpl {
     fn CreateColorContext(&self) -> windows_core::Result<IWICColorContext>;
     fn CreateColorTransformer(&self) -> windows_core::Result<IWICColorTransform>;
     fn CreateBitmap(&self, uiwidth: u32, uiheight: u32, pixelformat: *const windows_core::GUID, option: WICBitmapCreateCacheOption) -> windows_core::Result<IWICBitmap>;
-    fn CreateBitmapFromSource(&self, pibitmapsource: Option<&IWICBitmapSource>, option: WICBitmapCreateCacheOption) -> windows_core::Result<IWICBitmap>;
-    fn CreateBitmapFromSourceRect(&self, pibitmapsource: Option<&IWICBitmapSource>, x: u32, y: u32, width: u32, height: u32) -> windows_core::Result<IWICBitmap>;
+    fn CreateBitmapFromSource(&self, pibitmapsource: windows_core::Ref<'_, IWICBitmapSource>, option: WICBitmapCreateCacheOption) -> windows_core::Result<IWICBitmap>;
+    fn CreateBitmapFromSourceRect(&self, pibitmapsource: windows_core::Ref<'_, IWICBitmapSource>, x: u32, y: u32, width: u32, height: u32) -> windows_core::Result<IWICBitmap>;
     fn CreateBitmapFromMemory(&self, uiwidth: u32, uiheight: u32, pixelformat: *const windows_core::GUID, cbstride: u32, cbbuffersize: u32, pbbuffer: *const u8) -> windows_core::Result<IWICBitmap>;
     fn CreateBitmapFromHBITMAP(&self, hbitmap: super::Gdi::HBITMAP, hpalette: super::Gdi::HPALETTE, options: WICBitmapAlphaChannelOption) -> windows_core::Result<IWICBitmap>;
     fn CreateBitmapFromHICON(&self, hicon: super::super::UI::WindowsAndMessaging::HICON) -> windows_core::Result<IWICBitmap>;
     fn CreateComponentEnumerator(&self, componenttypes: u32, options: u32) -> windows_core::Result<super::super::System::Com::IEnumUnknown>;
-    fn CreateFastMetadataEncoderFromDecoder(&self, pidecoder: Option<&IWICBitmapDecoder>) -> windows_core::Result<IWICFastMetadataEncoder>;
-    fn CreateFastMetadataEncoderFromFrameDecode(&self, piframedecoder: Option<&IWICBitmapFrameDecode>) -> windows_core::Result<IWICFastMetadataEncoder>;
+    fn CreateFastMetadataEncoderFromDecoder(&self, pidecoder: windows_core::Ref<'_, IWICBitmapDecoder>) -> windows_core::Result<IWICFastMetadataEncoder>;
+    fn CreateFastMetadataEncoderFromFrameDecode(&self, piframedecoder: windows_core::Ref<'_, IWICBitmapFrameDecode>) -> windows_core::Result<IWICFastMetadataEncoder>;
     fn CreateQueryWriter(&self, guidmetadataformat: *const windows_core::GUID, pguidvendor: *const windows_core::GUID) -> windows_core::Result<IWICMetadataQueryWriter>;
-    fn CreateQueryWriterFromReader(&self, piqueryreader: Option<&IWICMetadataQueryReader>, pguidvendor: *const windows_core::GUID) -> windows_core::Result<IWICMetadataQueryWriter>;
+    fn CreateQueryWriterFromReader(&self, piqueryreader: windows_core::Ref<'_, IWICMetadataQueryReader>, pguidvendor: *const windows_core::GUID) -> windows_core::Result<IWICMetadataQueryWriter>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IWICImagingFactory_Vtbl {
@@ -3226,7 +3226,7 @@ impl IWICImagingFactory_Vtbl {
         }
         unsafe extern "system" fn CreateDecoderFromStream<Identity: IWICImagingFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pistream: *mut core::ffi::c_void, pguidvendor: *const windows_core::GUID, metadataoptions: WICDecodeOptions, ppidecoder: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWICImagingFactory_Impl::CreateDecoderFromStream(this, windows_core::from_raw_borrowed(&pistream), core::mem::transmute_copy(&pguidvendor), core::mem::transmute_copy(&metadataoptions)) {
+            match IWICImagingFactory_Impl::CreateDecoderFromStream(this, core::mem::transmute_copy(&pistream), core::mem::transmute_copy(&pguidvendor), core::mem::transmute_copy(&metadataoptions)) {
                 Ok(ok__) => {
                     ppidecoder.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3366,7 +3366,7 @@ impl IWICImagingFactory_Vtbl {
         }
         unsafe extern "system" fn CreateBitmapFromSource<Identity: IWICImagingFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pibitmapsource: *mut core::ffi::c_void, option: WICBitmapCreateCacheOption, ppibitmap: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWICImagingFactory_Impl::CreateBitmapFromSource(this, windows_core::from_raw_borrowed(&pibitmapsource), core::mem::transmute_copy(&option)) {
+            match IWICImagingFactory_Impl::CreateBitmapFromSource(this, core::mem::transmute_copy(&pibitmapsource), core::mem::transmute_copy(&option)) {
                 Ok(ok__) => {
                     ppibitmap.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3376,7 +3376,7 @@ impl IWICImagingFactory_Vtbl {
         }
         unsafe extern "system" fn CreateBitmapFromSourceRect<Identity: IWICImagingFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pibitmapsource: *mut core::ffi::c_void, x: u32, y: u32, width: u32, height: u32, ppibitmap: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWICImagingFactory_Impl::CreateBitmapFromSourceRect(this, windows_core::from_raw_borrowed(&pibitmapsource), core::mem::transmute_copy(&x), core::mem::transmute_copy(&y), core::mem::transmute_copy(&width), core::mem::transmute_copy(&height)) {
+            match IWICImagingFactory_Impl::CreateBitmapFromSourceRect(this, core::mem::transmute_copy(&pibitmapsource), core::mem::transmute_copy(&x), core::mem::transmute_copy(&y), core::mem::transmute_copy(&width), core::mem::transmute_copy(&height)) {
                 Ok(ok__) => {
                     ppibitmap.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3426,7 +3426,7 @@ impl IWICImagingFactory_Vtbl {
         }
         unsafe extern "system" fn CreateFastMetadataEncoderFromDecoder<Identity: IWICImagingFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidecoder: *mut core::ffi::c_void, ppifastencoder: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWICImagingFactory_Impl::CreateFastMetadataEncoderFromDecoder(this, windows_core::from_raw_borrowed(&pidecoder)) {
+            match IWICImagingFactory_Impl::CreateFastMetadataEncoderFromDecoder(this, core::mem::transmute_copy(&pidecoder)) {
                 Ok(ok__) => {
                     ppifastencoder.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3436,7 +3436,7 @@ impl IWICImagingFactory_Vtbl {
         }
         unsafe extern "system" fn CreateFastMetadataEncoderFromFrameDecode<Identity: IWICImagingFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piframedecoder: *mut core::ffi::c_void, ppifastencoder: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWICImagingFactory_Impl::CreateFastMetadataEncoderFromFrameDecode(this, windows_core::from_raw_borrowed(&piframedecoder)) {
+            match IWICImagingFactory_Impl::CreateFastMetadataEncoderFromFrameDecode(this, core::mem::transmute_copy(&piframedecoder)) {
                 Ok(ok__) => {
                     ppifastencoder.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3456,7 +3456,7 @@ impl IWICImagingFactory_Vtbl {
         }
         unsafe extern "system" fn CreateQueryWriterFromReader<Identity: IWICImagingFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piqueryreader: *mut core::ffi::c_void, pguidvendor: *const windows_core::GUID, ppiquerywriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWICImagingFactory_Impl::CreateQueryWriterFromReader(this, windows_core::from_raw_borrowed(&piqueryreader), core::mem::transmute_copy(&pguidvendor)) {
+            match IWICImagingFactory_Impl::CreateQueryWriterFromReader(this, core::mem::transmute_copy(&piqueryreader), core::mem::transmute_copy(&pguidvendor)) {
                 Ok(ok__) => {
                     ppiquerywriter.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3860,10 +3860,10 @@ pub struct IWICMetadataBlockWriter_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWICMetadataBlockWriter_Impl: IWICMetadataBlockReader_Impl {
-    fn InitializeFromBlockReader(&self, pimdblockreader: Option<&IWICMetadataBlockReader>) -> windows_core::Result<()>;
+    fn InitializeFromBlockReader(&self, pimdblockreader: windows_core::Ref<'_, IWICMetadataBlockReader>) -> windows_core::Result<()>;
     fn GetWriterByIndex(&self, nindex: u32) -> windows_core::Result<IWICMetadataWriter>;
-    fn AddWriter(&self, pimetadatawriter: Option<&IWICMetadataWriter>) -> windows_core::Result<()>;
-    fn SetWriterByIndex(&self, nindex: u32, pimetadatawriter: Option<&IWICMetadataWriter>) -> windows_core::Result<()>;
+    fn AddWriter(&self, pimetadatawriter: windows_core::Ref<'_, IWICMetadataWriter>) -> windows_core::Result<()>;
+    fn SetWriterByIndex(&self, nindex: u32, pimetadatawriter: windows_core::Ref<'_, IWICMetadataWriter>) -> windows_core::Result<()>;
     fn RemoveWriterByIndex(&self, nindex: u32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3871,7 +3871,7 @@ impl IWICMetadataBlockWriter_Vtbl {
     pub const fn new<Identity: IWICMetadataBlockWriter_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitializeFromBlockReader<Identity: IWICMetadataBlockWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pimdblockreader: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWICMetadataBlockWriter_Impl::InitializeFromBlockReader(this, windows_core::from_raw_borrowed(&pimdblockreader)).into()
+            IWICMetadataBlockWriter_Impl::InitializeFromBlockReader(this, core::mem::transmute_copy(&pimdblockreader)).into()
         }
         unsafe extern "system" fn GetWriterByIndex<Identity: IWICMetadataBlockWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: u32, ppimetadatawriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3885,11 +3885,11 @@ impl IWICMetadataBlockWriter_Vtbl {
         }
         unsafe extern "system" fn AddWriter<Identity: IWICMetadataBlockWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pimetadatawriter: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWICMetadataBlockWriter_Impl::AddWriter(this, windows_core::from_raw_borrowed(&pimetadatawriter)).into()
+            IWICMetadataBlockWriter_Impl::AddWriter(this, core::mem::transmute_copy(&pimetadatawriter)).into()
         }
         unsafe extern "system" fn SetWriterByIndex<Identity: IWICMetadataBlockWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: u32, pimetadatawriter: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWICMetadataBlockWriter_Impl::SetWriterByIndex(this, core::mem::transmute_copy(&nindex), windows_core::from_raw_borrowed(&pimetadatawriter)).into()
+            IWICMetadataBlockWriter_Impl::SetWriterByIndex(this, core::mem::transmute_copy(&nindex), core::mem::transmute_copy(&pimetadatawriter)).into()
         }
         unsafe extern "system" fn RemoveWriterByIndex<Identity: IWICMetadataBlockWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -4342,7 +4342,7 @@ pub struct IWICMetadataReaderInfo_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWICMetadataReaderInfo_Impl: IWICMetadataHandlerInfo_Impl {
     fn GetPatterns(&self, guidcontainerformat: *const windows_core::GUID, cbsize: u32, ppattern: *mut WICMetadataPattern, pccount: *mut u32, pcbactual: *mut u32) -> windows_core::Result<()>;
-    fn MatchesPattern(&self, guidcontainerformat: *const windows_core::GUID, pistream: Option<&super::super::System::Com::IStream>) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn MatchesPattern(&self, guidcontainerformat: *const windows_core::GUID, pistream: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn CreateInstance(&self) -> windows_core::Result<IWICMetadataReader>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4354,7 +4354,7 @@ impl IWICMetadataReaderInfo_Vtbl {
         }
         unsafe extern "system" fn MatchesPattern<Identity: IWICMetadataReaderInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidcontainerformat: *const windows_core::GUID, pistream: *mut core::ffi::c_void, pfmatches: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWICMetadataReaderInfo_Impl::MatchesPattern(this, core::mem::transmute_copy(&guidcontainerformat), windows_core::from_raw_borrowed(&pistream)) {
+            match IWICMetadataReaderInfo_Impl::MatchesPattern(this, core::mem::transmute_copy(&guidcontainerformat), core::mem::transmute_copy(&pistream)) {
                 Ok(ok__) => {
                     pfmatches.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4583,8 +4583,8 @@ pub struct IWICPalette_Vtbl {
 pub trait IWICPalette_Impl: windows_core::IUnknownImpl {
     fn InitializePredefined(&self, epalettetype: WICBitmapPaletteType, faddtransparentcolor: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn InitializeCustom(&self, pcolors: *const u32, ccount: u32) -> windows_core::Result<()>;
-    fn InitializeFromBitmap(&self, pisurface: Option<&IWICBitmapSource>, ccount: u32, faddtransparentcolor: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn InitializeFromPalette(&self, pipalette: Option<&IWICPalette>) -> windows_core::Result<()>;
+    fn InitializeFromBitmap(&self, pisurface: windows_core::Ref<'_, IWICBitmapSource>, ccount: u32, faddtransparentcolor: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn InitializeFromPalette(&self, pipalette: windows_core::Ref<'_, IWICPalette>) -> windows_core::Result<()>;
     fn GetType(&self) -> windows_core::Result<WICBitmapPaletteType>;
     fn GetColorCount(&self) -> windows_core::Result<u32>;
     fn GetColors(&self, ccount: u32, pcolors: *mut u32, pcactualcolors: *mut u32) -> windows_core::Result<()>;
@@ -4604,11 +4604,11 @@ impl IWICPalette_Vtbl {
         }
         unsafe extern "system" fn InitializeFromBitmap<Identity: IWICPalette_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pisurface: *mut core::ffi::c_void, ccount: u32, faddtransparentcolor: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWICPalette_Impl::InitializeFromBitmap(this, windows_core::from_raw_borrowed(&pisurface), core::mem::transmute_copy(&ccount), core::mem::transmute_copy(&faddtransparentcolor)).into()
+            IWICPalette_Impl::InitializeFromBitmap(this, core::mem::transmute_copy(&pisurface), core::mem::transmute_copy(&ccount), core::mem::transmute_copy(&faddtransparentcolor)).into()
         }
         unsafe extern "system" fn InitializeFromPalette<Identity: IWICPalette_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pipalette: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWICPalette_Impl::InitializeFromPalette(this, windows_core::from_raw_borrowed(&pipalette)).into()
+            IWICPalette_Impl::InitializeFromPalette(this, core::mem::transmute_copy(&pipalette)).into()
         }
         unsafe extern "system" fn GetType<Identity: IWICPalette_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pepalettetype: *mut WICBitmapPaletteType) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -4726,19 +4726,19 @@ pub struct IWICPersistStream_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWICPersistStream_Impl: super::super::System::Com::IPersistStream_Impl {
-    fn LoadEx(&self, pistream: Option<&super::super::System::Com::IStream>, pguidpreferredvendor: *const windows_core::GUID, dwpersistoptions: u32) -> windows_core::Result<()>;
-    fn SaveEx(&self, pistream: Option<&super::super::System::Com::IStream>, dwpersistoptions: u32, fcleardirty: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn LoadEx(&self, pistream: windows_core::Ref<'_, super::super::System::Com::IStream>, pguidpreferredvendor: *const windows_core::GUID, dwpersistoptions: u32) -> windows_core::Result<()>;
+    fn SaveEx(&self, pistream: windows_core::Ref<'_, super::super::System::Com::IStream>, dwpersistoptions: u32, fcleardirty: super::super::Foundation::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IWICPersistStream_Vtbl {
     pub const fn new<Identity: IWICPersistStream_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn LoadEx<Identity: IWICPersistStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pistream: *mut core::ffi::c_void, pguidpreferredvendor: *const windows_core::GUID, dwpersistoptions: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWICPersistStream_Impl::LoadEx(this, windows_core::from_raw_borrowed(&pistream), core::mem::transmute_copy(&pguidpreferredvendor), core::mem::transmute_copy(&dwpersistoptions)).into()
+            IWICPersistStream_Impl::LoadEx(this, core::mem::transmute_copy(&pistream), core::mem::transmute_copy(&pguidpreferredvendor), core::mem::transmute_copy(&dwpersistoptions)).into()
         }
         unsafe extern "system" fn SaveEx<Identity: IWICPersistStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pistream: *mut core::ffi::c_void, dwpersistoptions: u32, fcleardirty: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWICPersistStream_Impl::SaveEx(this, windows_core::from_raw_borrowed(&pistream), core::mem::transmute_copy(&dwpersistoptions), core::mem::transmute_copy(&fcleardirty)).into()
+            IWICPersistStream_Impl::SaveEx(this, core::mem::transmute_copy(&pistream), core::mem::transmute_copy(&dwpersistoptions), core::mem::transmute_copy(&fcleardirty)).into()
         }
         Self {
             base__: super::super::System::Com::IPersistStream_Vtbl::new::<Identity, OFFSET>(),
@@ -5027,14 +5027,14 @@ pub struct IWICPlanarFormatConverter_Vtbl {
     pub CanConvert: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, *const windows_core::GUID, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 pub trait IWICPlanarFormatConverter_Impl: IWICBitmapSource_Impl {
-    fn Initialize(&self, ppplanes: *const Option<IWICBitmapSource>, cplanes: u32, dstformat: *const windows_core::GUID, dither: WICBitmapDitherType, pipalette: Option<&IWICPalette>, alphathresholdpercent: f64, palettetranslate: WICBitmapPaletteType) -> windows_core::Result<()>;
+    fn Initialize(&self, ppplanes: *const Option<IWICBitmapSource>, cplanes: u32, dstformat: *const windows_core::GUID, dither: WICBitmapDitherType, pipalette: windows_core::Ref<'_, IWICPalette>, alphathresholdpercent: f64, palettetranslate: WICBitmapPaletteType) -> windows_core::Result<()>;
     fn CanConvert(&self, psrcpixelformats: *const windows_core::GUID, csrcplanes: u32, dstpixelformat: *const windows_core::GUID) -> windows_core::Result<super::super::Foundation::BOOL>;
 }
 impl IWICPlanarFormatConverter_Vtbl {
     pub const fn new<Identity: IWICPlanarFormatConverter_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IWICPlanarFormatConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppplanes: *const *mut core::ffi::c_void, cplanes: u32, dstformat: *const windows_core::GUID, dither: WICBitmapDitherType, pipalette: *mut core::ffi::c_void, alphathresholdpercent: f64, palettetranslate: WICBitmapPaletteType) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWICPlanarFormatConverter_Impl::Initialize(this, core::mem::transmute_copy(&ppplanes), core::mem::transmute_copy(&cplanes), core::mem::transmute_copy(&dstformat), core::mem::transmute_copy(&dither), windows_core::from_raw_borrowed(&pipalette), core::mem::transmute_copy(&alphathresholdpercent), core::mem::transmute_copy(&palettetranslate)).into()
+            IWICPlanarFormatConverter_Impl::Initialize(this, core::mem::transmute_copy(&ppplanes), core::mem::transmute_copy(&cplanes), core::mem::transmute_copy(&dstformat), core::mem::transmute_copy(&dither), core::mem::transmute_copy(&pipalette), core::mem::transmute_copy(&alphathresholdpercent), core::mem::transmute_copy(&palettetranslate)).into()
         }
         unsafe extern "system" fn CanConvert<Identity: IWICPlanarFormatConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psrcpixelformats: *const windows_core::GUID, csrcplanes: u32, dstpixelformat: *const windows_core::GUID, pfcanconvert: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -5192,17 +5192,17 @@ pub struct IWICStream_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWICStream_Impl: super::super::System::Com::IStream_Impl {
-    fn InitializeFromIStream(&self, pistream: Option<&super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn InitializeFromIStream(&self, pistream: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<()>;
     fn InitializeFromFilename(&self, wzfilename: &windows_core::PCWSTR, dwdesiredaccess: u32) -> windows_core::Result<()>;
     fn InitializeFromMemory(&self, pbbuffer: *const u8, cbbuffersize: u32) -> windows_core::Result<()>;
-    fn InitializeFromIStreamRegion(&self, pistream: Option<&super::super::System::Com::IStream>, uloffset: u64, ulmaxsize: u64) -> windows_core::Result<()>;
+    fn InitializeFromIStreamRegion(&self, pistream: windows_core::Ref<'_, super::super::System::Com::IStream>, uloffset: u64, ulmaxsize: u64) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IWICStream_Vtbl {
     pub const fn new<Identity: IWICStream_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitializeFromIStream<Identity: IWICStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pistream: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWICStream_Impl::InitializeFromIStream(this, windows_core::from_raw_borrowed(&pistream)).into()
+            IWICStream_Impl::InitializeFromIStream(this, core::mem::transmute_copy(&pistream)).into()
         }
         unsafe extern "system" fn InitializeFromFilename<Identity: IWICStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wzfilename: windows_core::PCWSTR, dwdesiredaccess: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -5214,7 +5214,7 @@ impl IWICStream_Vtbl {
         }
         unsafe extern "system" fn InitializeFromIStreamRegion<Identity: IWICStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pistream: *mut core::ffi::c_void, uloffset: u64, ulmaxsize: u64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWICStream_Impl::InitializeFromIStreamRegion(this, windows_core::from_raw_borrowed(&pistream), core::mem::transmute_copy(&uloffset), core::mem::transmute_copy(&ulmaxsize)).into()
+            IWICStream_Impl::InitializeFromIStreamRegion(this, core::mem::transmute_copy(&pistream), core::mem::transmute_copy(&uloffset), core::mem::transmute_copy(&ulmaxsize)).into()
         }
         Self {
             base__: super::super::System::Com::IStream_Vtbl::new::<Identity, OFFSET>(),

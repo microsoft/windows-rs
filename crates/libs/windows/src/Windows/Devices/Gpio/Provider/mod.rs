@@ -179,7 +179,7 @@ impl windows_core::RuntimeName for IGpioPinProvider {
     const NAME: &'static str = "Windows.Devices.Gpio.Provider.IGpioPinProvider";
 }
 pub trait IGpioPinProvider_Impl: windows_core::IUnknownImpl {
-    fn ValueChanged(&self, handler: Option<&super::super::super::Foundation::TypedEventHandler<IGpioPinProvider, GpioPinProviderValueChangedEventArgs>>) -> windows_core::Result<i64>;
+    fn ValueChanged(&self, handler: windows_core::Ref<'_, super::super::super::Foundation::TypedEventHandler<IGpioPinProvider, GpioPinProviderValueChangedEventArgs>>) -> windows_core::Result<i64>;
     fn RemoveValueChanged(&self, token: i64) -> windows_core::Result<()>;
     fn DebounceTimeout(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan>;
     fn SetDebounceTimeout(&self, value: &super::super::super::Foundation::TimeSpan) -> windows_core::Result<()>;
@@ -195,7 +195,7 @@ impl IGpioPinProvider_Vtbl {
     pub const fn new<Identity: IGpioPinProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ValueChanged<Identity: IGpioPinProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IGpioPinProvider_Impl::ValueChanged(this, windows_core::from_raw_borrowed(&handler)) {
+            match IGpioPinProvider_Impl::ValueChanged(this, core::mem::transmute_copy(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)

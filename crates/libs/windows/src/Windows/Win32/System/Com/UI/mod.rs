@@ -65,19 +65,19 @@ pub struct IThumbnailExtractor_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IThumbnailExtractor_Impl: windows_core::IUnknownImpl {
-    fn ExtractThumbnail(&self, pstg: Option<&super::StructuredStorage::IStorage>, ullength: u32, ulheight: u32, puloutputlength: *mut u32, puloutputheight: *mut u32, phoutputbitmap: *mut super::super::super::Graphics::Gdi::HBITMAP) -> windows_core::Result<()>;
-    fn OnFileUpdated(&self, pstg: Option<&super::StructuredStorage::IStorage>) -> windows_core::Result<()>;
+    fn ExtractThumbnail(&self, pstg: windows_core::Ref<'_, super::StructuredStorage::IStorage>, ullength: u32, ulheight: u32, puloutputlength: *mut u32, puloutputheight: *mut u32, phoutputbitmap: *mut super::super::super::Graphics::Gdi::HBITMAP) -> windows_core::Result<()>;
+    fn OnFileUpdated(&self, pstg: windows_core::Ref<'_, super::StructuredStorage::IStorage>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 impl IThumbnailExtractor_Vtbl {
     pub const fn new<Identity: IThumbnailExtractor_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ExtractThumbnail<Identity: IThumbnailExtractor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstg: *mut core::ffi::c_void, ullength: u32, ulheight: u32, puloutputlength: *mut u32, puloutputheight: *mut u32, phoutputbitmap: *mut super::super::super::Graphics::Gdi::HBITMAP) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IThumbnailExtractor_Impl::ExtractThumbnail(this, windows_core::from_raw_borrowed(&pstg), core::mem::transmute_copy(&ullength), core::mem::transmute_copy(&ulheight), core::mem::transmute_copy(&puloutputlength), core::mem::transmute_copy(&puloutputheight), core::mem::transmute_copy(&phoutputbitmap)).into()
+            IThumbnailExtractor_Impl::ExtractThumbnail(this, core::mem::transmute_copy(&pstg), core::mem::transmute_copy(&ullength), core::mem::transmute_copy(&ulheight), core::mem::transmute_copy(&puloutputlength), core::mem::transmute_copy(&puloutputheight), core::mem::transmute_copy(&phoutputbitmap)).into()
         }
         unsafe extern "system" fn OnFileUpdated<Identity: IThumbnailExtractor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstg: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IThumbnailExtractor_Impl::OnFileUpdated(this, windows_core::from_raw_borrowed(&pstg)).into()
+            IThumbnailExtractor_Impl::OnFileUpdated(this, core::mem::transmute_copy(&pstg)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

@@ -101,7 +101,7 @@ impl windows_core::RuntimeType for GameListChangedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl GameListChangedEventHandler {
-    pub fn new<F: FnMut(Option<&GameListEntry>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(windows_core::Ref<'_, GameListEntry>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = GameListChangedEventHandlerBox { vtable: &GameListChangedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -119,12 +119,12 @@ pub struct GameListChangedEventHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, game: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct GameListChangedEventHandlerBox<F: FnMut(Option<&GameListEntry>) -> windows_core::Result<()> + Send + 'static> {
+struct GameListChangedEventHandlerBox<F: FnMut(windows_core::Ref<'_, GameListEntry>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const GameListChangedEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: FnMut(Option<&GameListEntry>) -> windows_core::Result<()> + Send + 'static> GameListChangedEventHandlerBox<F> {
+impl<F: FnMut(windows_core::Ref<'_, GameListEntry>) -> windows_core::Result<()> + Send + 'static> GameListChangedEventHandlerBox<F> {
     const VTABLE: GameListChangedEventHandler_Vtbl = GameListChangedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         let this = this as *mut *mut core::ffi::c_void as *mut Self;
@@ -153,7 +153,7 @@ impl<F: FnMut(Option<&GameListEntry>) -> windows_core::Result<()> + Send + 'stat
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, game: *mut core::ffi::c_void) -> windows_core::HRESULT {
         let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(windows_core::from_raw_borrowed(&game)).into()
+        (this.invoke)(core::mem::transmute_copy(&game)).into()
     }
 }
 #[repr(transparent)]

@@ -356,7 +356,7 @@ impl windows_core::RuntimeName for II2cDeviceStatics {
 pub trait II2cDeviceStatics_Impl: windows_core::IUnknownImpl {
     fn GetDeviceSelector(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn GetDeviceSelectorFromFriendlyName(&self, friendlyName: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING>;
-    fn FromIdAsync(&self, deviceId: &windows_core::HSTRING, settings: Option<&I2cConnectionSettings>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<I2cDevice>>;
+    fn FromIdAsync(&self, deviceId: &windows_core::HSTRING, settings: windows_core::Ref<'_, I2cConnectionSettings>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<I2cDevice>>;
 }
 impl II2cDeviceStatics_Vtbl {
     pub const fn new<Identity: II2cDeviceStatics_Impl, const OFFSET: isize>() -> Self {
@@ -384,7 +384,7 @@ impl II2cDeviceStatics_Vtbl {
         }
         unsafe extern "system" fn FromIdAsync<Identity: II2cDeviceStatics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deviceid: *mut core::ffi::c_void, settings: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match II2cDeviceStatics_Impl::FromIdAsync(this, core::mem::transmute(&deviceid), windows_core::from_raw_borrowed(&settings)) {
+            match II2cDeviceStatics_Impl::FromIdAsync(this, core::mem::transmute(&deviceid), core::mem::transmute_copy(&settings)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);

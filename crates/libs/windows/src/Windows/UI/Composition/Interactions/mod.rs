@@ -807,38 +807,38 @@ impl windows_core::RuntimeName for IInteractionTrackerOwner {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTrackerOwner";
 }
 pub trait IInteractionTrackerOwner_Impl: windows_core::IUnknownImpl {
-    fn CustomAnimationStateEntered(&self, sender: Option<&InteractionTracker>, args: Option<&InteractionTrackerCustomAnimationStateEnteredArgs>) -> windows_core::Result<()>;
-    fn IdleStateEntered(&self, sender: Option<&InteractionTracker>, args: Option<&InteractionTrackerIdleStateEnteredArgs>) -> windows_core::Result<()>;
-    fn InertiaStateEntered(&self, sender: Option<&InteractionTracker>, args: Option<&InteractionTrackerInertiaStateEnteredArgs>) -> windows_core::Result<()>;
-    fn InteractingStateEntered(&self, sender: Option<&InteractionTracker>, args: Option<&InteractionTrackerInteractingStateEnteredArgs>) -> windows_core::Result<()>;
-    fn RequestIgnored(&self, sender: Option<&InteractionTracker>, args: Option<&InteractionTrackerRequestIgnoredArgs>) -> windows_core::Result<()>;
-    fn ValuesChanged(&self, sender: Option<&InteractionTracker>, args: Option<&InteractionTrackerValuesChangedArgs>) -> windows_core::Result<()>;
+    fn CustomAnimationStateEntered(&self, sender: windows_core::Ref<'_, InteractionTracker>, args: windows_core::Ref<'_, InteractionTrackerCustomAnimationStateEnteredArgs>) -> windows_core::Result<()>;
+    fn IdleStateEntered(&self, sender: windows_core::Ref<'_, InteractionTracker>, args: windows_core::Ref<'_, InteractionTrackerIdleStateEnteredArgs>) -> windows_core::Result<()>;
+    fn InertiaStateEntered(&self, sender: windows_core::Ref<'_, InteractionTracker>, args: windows_core::Ref<'_, InteractionTrackerInertiaStateEnteredArgs>) -> windows_core::Result<()>;
+    fn InteractingStateEntered(&self, sender: windows_core::Ref<'_, InteractionTracker>, args: windows_core::Ref<'_, InteractionTrackerInteractingStateEnteredArgs>) -> windows_core::Result<()>;
+    fn RequestIgnored(&self, sender: windows_core::Ref<'_, InteractionTracker>, args: windows_core::Ref<'_, InteractionTrackerRequestIgnoredArgs>) -> windows_core::Result<()>;
+    fn ValuesChanged(&self, sender: windows_core::Ref<'_, InteractionTracker>, args: windows_core::Ref<'_, InteractionTrackerValuesChangedArgs>) -> windows_core::Result<()>;
 }
 impl IInteractionTrackerOwner_Vtbl {
     pub const fn new<Identity: IInteractionTrackerOwner_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CustomAnimationStateEntered<Identity: IInteractionTrackerOwner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IInteractionTrackerOwner_Impl::CustomAnimationStateEntered(this, windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&args)).into()
+            IInteractionTrackerOwner_Impl::CustomAnimationStateEntered(this, core::mem::transmute_copy(&sender), core::mem::transmute_copy(&args)).into()
         }
         unsafe extern "system" fn IdleStateEntered<Identity: IInteractionTrackerOwner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IInteractionTrackerOwner_Impl::IdleStateEntered(this, windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&args)).into()
+            IInteractionTrackerOwner_Impl::IdleStateEntered(this, core::mem::transmute_copy(&sender), core::mem::transmute_copy(&args)).into()
         }
         unsafe extern "system" fn InertiaStateEntered<Identity: IInteractionTrackerOwner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IInteractionTrackerOwner_Impl::InertiaStateEntered(this, windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&args)).into()
+            IInteractionTrackerOwner_Impl::InertiaStateEntered(this, core::mem::transmute_copy(&sender), core::mem::transmute_copy(&args)).into()
         }
         unsafe extern "system" fn InteractingStateEntered<Identity: IInteractionTrackerOwner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IInteractionTrackerOwner_Impl::InteractingStateEntered(this, windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&args)).into()
+            IInteractionTrackerOwner_Impl::InteractingStateEntered(this, core::mem::transmute_copy(&sender), core::mem::transmute_copy(&args)).into()
         }
         unsafe extern "system" fn RequestIgnored<Identity: IInteractionTrackerOwner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IInteractionTrackerOwner_Impl::RequestIgnored(this, windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&args)).into()
+            IInteractionTrackerOwner_Impl::RequestIgnored(this, core::mem::transmute_copy(&sender), core::mem::transmute_copy(&args)).into()
         }
         unsafe extern "system" fn ValuesChanged<Identity: IInteractionTrackerOwner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IInteractionTrackerOwner_Impl::ValuesChanged(this, windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&args)).into()
+            IInteractionTrackerOwner_Impl::ValuesChanged(this, core::mem::transmute_copy(&sender), core::mem::transmute_copy(&args)).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IInteractionTrackerOwner, OFFSET>(),

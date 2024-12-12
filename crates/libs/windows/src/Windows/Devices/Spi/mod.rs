@@ -123,7 +123,7 @@ pub trait ISpiDeviceStatics_Impl: windows_core::IUnknownImpl {
     fn GetDeviceSelector(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn GetDeviceSelectorFromFriendlyName(&self, friendlyName: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING>;
     fn GetBusInfo(&self, busId: &windows_core::HSTRING) -> windows_core::Result<SpiBusInfo>;
-    fn FromIdAsync(&self, busId: &windows_core::HSTRING, settings: Option<&SpiConnectionSettings>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SpiDevice>>;
+    fn FromIdAsync(&self, busId: &windows_core::HSTRING, settings: windows_core::Ref<'_, SpiConnectionSettings>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SpiDevice>>;
 }
 impl ISpiDeviceStatics_Vtbl {
     pub const fn new<Identity: ISpiDeviceStatics_Impl, const OFFSET: isize>() -> Self {
@@ -162,7 +162,7 @@ impl ISpiDeviceStatics_Vtbl {
         }
         unsafe extern "system" fn FromIdAsync<Identity: ISpiDeviceStatics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, busid: *mut core::ffi::c_void, settings: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ISpiDeviceStatics_Impl::FromIdAsync(this, core::mem::transmute(&busid), windows_core::from_raw_borrowed(&settings)) {
+            match ISpiDeviceStatics_Impl::FromIdAsync(this, core::mem::transmute(&busid), core::mem::transmute_copy(&settings)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);

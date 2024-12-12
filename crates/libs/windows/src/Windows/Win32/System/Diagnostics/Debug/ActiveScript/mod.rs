@@ -63,20 +63,20 @@ pub struct AsyncIDebugApplicationNodeEvents_Vtbl {
     pub Finish_onAttach: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait AsyncIDebugApplicationNodeEvents_Impl: windows_core::IUnknownImpl {
-    fn Begin_onAddChild(&self, prddpchild: Option<&IDebugApplicationNode>) -> windows_core::Result<()>;
+    fn Begin_onAddChild(&self, prddpchild: windows_core::Ref<'_, IDebugApplicationNode>) -> windows_core::Result<()>;
     fn Finish_onAddChild(&self) -> windows_core::Result<()>;
-    fn Begin_onRemoveChild(&self, prddpchild: Option<&IDebugApplicationNode>) -> windows_core::Result<()>;
+    fn Begin_onRemoveChild(&self, prddpchild: windows_core::Ref<'_, IDebugApplicationNode>) -> windows_core::Result<()>;
     fn Finish_onRemoveChild(&self) -> windows_core::Result<()>;
     fn Begin_onDetach(&self) -> windows_core::Result<()>;
     fn Finish_onDetach(&self) -> windows_core::Result<()>;
-    fn Begin_onAttach(&self, prddpparent: Option<&IDebugApplicationNode>) -> windows_core::Result<()>;
+    fn Begin_onAttach(&self, prddpparent: windows_core::Ref<'_, IDebugApplicationNode>) -> windows_core::Result<()>;
     fn Finish_onAttach(&self) -> windows_core::Result<()>;
 }
 impl AsyncIDebugApplicationNodeEvents_Vtbl {
     pub const fn new<Identity: AsyncIDebugApplicationNodeEvents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Begin_onAddChild<Identity: AsyncIDebugApplicationNodeEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prddpchild: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            AsyncIDebugApplicationNodeEvents_Impl::Begin_onAddChild(this, windows_core::from_raw_borrowed(&prddpchild)).into()
+            AsyncIDebugApplicationNodeEvents_Impl::Begin_onAddChild(this, core::mem::transmute_copy(&prddpchild)).into()
         }
         unsafe extern "system" fn Finish_onAddChild<Identity: AsyncIDebugApplicationNodeEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -84,7 +84,7 @@ impl AsyncIDebugApplicationNodeEvents_Vtbl {
         }
         unsafe extern "system" fn Begin_onRemoveChild<Identity: AsyncIDebugApplicationNodeEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prddpchild: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            AsyncIDebugApplicationNodeEvents_Impl::Begin_onRemoveChild(this, windows_core::from_raw_borrowed(&prddpchild)).into()
+            AsyncIDebugApplicationNodeEvents_Impl::Begin_onRemoveChild(this, core::mem::transmute_copy(&prddpchild)).into()
         }
         unsafe extern "system" fn Finish_onRemoveChild<Identity: AsyncIDebugApplicationNodeEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -100,7 +100,7 @@ impl AsyncIDebugApplicationNodeEvents_Vtbl {
         }
         unsafe extern "system" fn Begin_onAttach<Identity: AsyncIDebugApplicationNodeEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prddpparent: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            AsyncIDebugApplicationNodeEvents_Impl::Begin_onAttach(this, windows_core::from_raw_borrowed(&prddpparent)).into()
+            AsyncIDebugApplicationNodeEvents_Impl::Begin_onAttach(this, core::mem::transmute_copy(&prddpparent)).into()
         }
         unsafe extern "system" fn Finish_onAttach<Identity: AsyncIDebugApplicationNodeEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -327,7 +327,7 @@ pub struct IActiveScript_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IActiveScript_Impl: windows_core::IUnknownImpl {
-    fn SetScriptSite(&self, pass: Option<&IActiveScriptSite>) -> windows_core::Result<()>;
+    fn SetScriptSite(&self, pass: windows_core::Ref<'_, IActiveScriptSite>) -> windows_core::Result<()>;
     fn GetScriptSite(&self, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn SetScriptState(&self, ss: SCRIPTSTATE) -> windows_core::Result<()>;
     fn GetScriptState(&self) -> windows_core::Result<SCRIPTSTATE>;
@@ -346,7 +346,7 @@ impl IActiveScript_Vtbl {
     pub const fn new<Identity: IActiveScript_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetScriptSite<Identity: IActiveScript_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pass: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IActiveScript_Impl::SetScriptSite(this, windows_core::from_raw_borrowed(&pass)).into()
+            IActiveScript_Impl::SetScriptSite(this, core::mem::transmute_copy(&pass)).into()
         }
         unsafe extern "system" fn GetScriptSite<Identity: IActiveScript_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -571,19 +571,19 @@ pub struct IActiveScriptAuthor_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IActiveScriptAuthor_Impl: windows_core::IUnknownImpl {
-    fn AddNamedItem(&self, pszname: &windows_core::PCWSTR, dwflags: u32, pdisp: Option<&super::super::super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn AddNamedItem(&self, pszname: &windows_core::PCWSTR, dwflags: u32, pdisp: windows_core::Ref<'_, super::super::super::Com::IDispatch>) -> windows_core::Result<()>;
     fn AddScriptlet(&self, pszdefaultname: &windows_core::PCWSTR, pszcode: &windows_core::PCWSTR, pszitemname: &windows_core::PCWSTR, pszsubitemname: &windows_core::PCWSTR, pszeventname: &windows_core::PCWSTR, pszdelimiter: &windows_core::PCWSTR, dwcookie: u32, dwflags: u32) -> windows_core::Result<()>;
     fn ParseScriptText(&self, pszcode: &windows_core::PCWSTR, pszitemname: &windows_core::PCWSTR, pszdelimiter: &windows_core::PCWSTR, dwcookie: u32, dwflags: u32) -> windows_core::Result<()>;
     fn GetScriptTextAttributes(&self, pszcode: &windows_core::PCWSTR, cch: u32, pszdelimiter: &windows_core::PCWSTR, dwflags: u32, pattr: *mut u16) -> windows_core::Result<()>;
     fn GetScriptletTextAttributes(&self, pszcode: &windows_core::PCWSTR, cch: u32, pszdelimiter: &windows_core::PCWSTR, dwflags: u32, pattr: *mut u16) -> windows_core::Result<()>;
     fn GetRoot(&self) -> windows_core::Result<IScriptNode>;
     fn GetLanguageFlags(&self) -> windows_core::Result<u32>;
-    fn GetEventHandler(&self, pdisp: Option<&super::super::super::Com::IDispatch>, pszitem: &windows_core::PCWSTR, pszsubitem: &windows_core::PCWSTR, pszevent: &windows_core::PCWSTR) -> windows_core::Result<IScriptEntry>;
+    fn GetEventHandler(&self, pdisp: windows_core::Ref<'_, super::super::super::Com::IDispatch>, pszitem: &windows_core::PCWSTR, pszsubitem: &windows_core::PCWSTR, pszevent: &windows_core::PCWSTR) -> windows_core::Result<IScriptEntry>;
     fn RemoveNamedItem(&self, pszname: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn AddTypeLib(&self, rguidtypelib: *const windows_core::GUID, dwmajor: u32, dwminor: u32, dwflags: u32) -> windows_core::Result<()>;
     fn RemoveTypeLib(&self, rguidtypelib: *const windows_core::GUID, dwmajor: u32, dwminor: u32) -> windows_core::Result<()>;
     fn GetChars(&self, frequestedlist: u32) -> windows_core::Result<windows_core::BSTR>;
-    fn GetInfoFromContext(&self, pszcode: &windows_core::PCWSTR, cchcode: u32, ichcurrentposition: u32, dwlisttypesrequested: u32, pdwlisttypesprovided: *mut u32, pichlistanchorposition: *mut u32, pichfuncanchorposition: *mut u32, pmemid: *mut i32, picurrentparameter: *mut i32, ppunk: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetInfoFromContext(&self, pszcode: &windows_core::PCWSTR, cchcode: u32, ichcurrentposition: u32, dwlisttypesrequested: u32, pdwlisttypesprovided: *mut u32, pichlistanchorposition: *mut u32, pichfuncanchorposition: *mut u32, pmemid: *mut i32, picurrentparameter: *mut i32, ppunk: windows_core::OutRef<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn IsCommitChar(&self, ch: u16) -> windows_core::Result<super::super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -591,7 +591,7 @@ impl IActiveScriptAuthor_Vtbl {
     pub const fn new<Identity: IActiveScriptAuthor_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddNamedItem<Identity: IActiveScriptAuthor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: windows_core::PCWSTR, dwflags: u32, pdisp: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IActiveScriptAuthor_Impl::AddNamedItem(this, core::mem::transmute(&pszname), core::mem::transmute_copy(&dwflags), windows_core::from_raw_borrowed(&pdisp)).into()
+            IActiveScriptAuthor_Impl::AddNamedItem(this, core::mem::transmute(&pszname), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pdisp)).into()
         }
         unsafe extern "system" fn AddScriptlet<Identity: IActiveScriptAuthor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszdefaultname: windows_core::PCWSTR, pszcode: windows_core::PCWSTR, pszitemname: windows_core::PCWSTR, pszsubitemname: windows_core::PCWSTR, pszeventname: windows_core::PCWSTR, pszdelimiter: windows_core::PCWSTR, dwcookie: u32, dwflags: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -631,7 +631,7 @@ impl IActiveScriptAuthor_Vtbl {
         }
         unsafe extern "system" fn GetEventHandler<Identity: IActiveScriptAuthor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdisp: *mut core::ffi::c_void, pszitem: windows_core::PCWSTR, pszsubitem: windows_core::PCWSTR, pszevent: windows_core::PCWSTR, ppse: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IActiveScriptAuthor_Impl::GetEventHandler(this, windows_core::from_raw_borrowed(&pdisp), core::mem::transmute(&pszitem), core::mem::transmute(&pszsubitem), core::mem::transmute(&pszevent)) {
+            match IActiveScriptAuthor_Impl::GetEventHandler(this, core::mem::transmute_copy(&pdisp), core::mem::transmute(&pszitem), core::mem::transmute(&pszsubitem), core::mem::transmute(&pszevent)) {
                 Ok(ok__) => {
                     ppse.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -725,14 +725,14 @@ pub struct IActiveScriptAuthorProcedure_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IActiveScriptAuthorProcedure_Impl: windows_core::IUnknownImpl {
-    fn ParseProcedureText(&self, pszcode: &windows_core::PCWSTR, pszformalparams: &windows_core::PCWSTR, pszprocedurename: &windows_core::PCWSTR, pszitemname: &windows_core::PCWSTR, pszdelimiter: &windows_core::PCWSTR, dwcookie: u32, dwflags: u32, pdispfor: Option<&super::super::super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn ParseProcedureText(&self, pszcode: &windows_core::PCWSTR, pszformalparams: &windows_core::PCWSTR, pszprocedurename: &windows_core::PCWSTR, pszitemname: &windows_core::PCWSTR, pszdelimiter: &windows_core::PCWSTR, dwcookie: u32, dwflags: u32, pdispfor: windows_core::Ref<'_, super::super::super::Com::IDispatch>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IActiveScriptAuthorProcedure_Vtbl {
     pub const fn new<Identity: IActiveScriptAuthorProcedure_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ParseProcedureText<Identity: IActiveScriptAuthorProcedure_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszcode: windows_core::PCWSTR, pszformalparams: windows_core::PCWSTR, pszprocedurename: windows_core::PCWSTR, pszitemname: windows_core::PCWSTR, pszdelimiter: windows_core::PCWSTR, dwcookie: u32, dwflags: u32, pdispfor: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IActiveScriptAuthorProcedure_Impl::ParseProcedureText(this, core::mem::transmute(&pszcode), core::mem::transmute(&pszformalparams), core::mem::transmute(&pszprocedurename), core::mem::transmute(&pszitemname), core::mem::transmute(&pszdelimiter), core::mem::transmute_copy(&dwcookie), core::mem::transmute_copy(&dwflags), windows_core::from_raw_borrowed(&pdispfor)).into()
+            IActiveScriptAuthorProcedure_Impl::ParseProcedureText(this, core::mem::transmute(&pszcode), core::mem::transmute(&pszformalparams), core::mem::transmute(&pszprocedurename), core::mem::transmute(&pszitemname), core::mem::transmute(&pszdelimiter), core::mem::transmute_copy(&dwcookie), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pdispfor)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ParseProcedureText: ParseProcedureText::<Identity, OFFSET> }
     }
@@ -1234,7 +1234,7 @@ pub struct IActiveScriptParse32_Vtbl {
 pub trait IActiveScriptParse32_Impl: windows_core::IUnknownImpl {
     fn InitNew(&self) -> windows_core::Result<()>;
     fn AddScriptlet(&self, pstrdefaultname: &windows_core::PCWSTR, pstrcode: &windows_core::PCWSTR, pstritemname: &windows_core::PCWSTR, pstrsubitemname: &windows_core::PCWSTR, pstreventname: &windows_core::PCWSTR, pstrdelimiter: &windows_core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pbstrname: *mut windows_core::BSTR, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> windows_core::Result<()>;
-    fn ParseScriptText(&self, pstrcode: &windows_core::PCWSTR, pstritemname: &windows_core::PCWSTR, punkcontext: Option<&windows_core::IUnknown>, pstrdelimiter: &windows_core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut super::super::super::Variant::VARIANT, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> windows_core::Result<()>;
+    fn ParseScriptText(&self, pstrcode: &windows_core::PCWSTR, pstritemname: &windows_core::PCWSTR, punkcontext: windows_core::Ref<'_, windows_core::IUnknown>, pstrdelimiter: &windows_core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut super::super::super::Variant::VARIANT, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IActiveScriptParse32_Vtbl {
@@ -1249,7 +1249,7 @@ impl IActiveScriptParse32_Vtbl {
         }
         unsafe extern "system" fn ParseScriptText<Identity: IActiveScriptParse32_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstrcode: windows_core::PCWSTR, pstritemname: windows_core::PCWSTR, punkcontext: *mut core::ffi::c_void, pstrdelimiter: windows_core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut super::super::super::Variant::VARIANT, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IActiveScriptParse32_Impl::ParseScriptText(this, core::mem::transmute(&pstrcode), core::mem::transmute(&pstritemname), windows_core::from_raw_borrowed(&punkcontext), core::mem::transmute(&pstrdelimiter), core::mem::transmute_copy(&dwsourcecontextcookie), core::mem::transmute_copy(&ulstartinglinenumber), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pvarresult), core::mem::transmute_copy(&pexcepinfo)).into()
+            IActiveScriptParse32_Impl::ParseScriptText(this, core::mem::transmute(&pstrcode), core::mem::transmute(&pstritemname), core::mem::transmute_copy(&punkcontext), core::mem::transmute(&pstrdelimiter), core::mem::transmute_copy(&dwsourcecontextcookie), core::mem::transmute_copy(&ulstartinglinenumber), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pvarresult), core::mem::transmute_copy(&pexcepinfo)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -1310,7 +1310,7 @@ pub struct IActiveScriptParse64_Vtbl {
 pub trait IActiveScriptParse64_Impl: windows_core::IUnknownImpl {
     fn InitNew(&self) -> windows_core::Result<()>;
     fn AddScriptlet(&self, pstrdefaultname: &windows_core::PCWSTR, pstrcode: &windows_core::PCWSTR, pstritemname: &windows_core::PCWSTR, pstrsubitemname: &windows_core::PCWSTR, pstreventname: &windows_core::PCWSTR, pstrdelimiter: &windows_core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pbstrname: *mut windows_core::BSTR, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> windows_core::Result<()>;
-    fn ParseScriptText(&self, pstrcode: &windows_core::PCWSTR, pstritemname: &windows_core::PCWSTR, punkcontext: Option<&windows_core::IUnknown>, pstrdelimiter: &windows_core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut super::super::super::Variant::VARIANT, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> windows_core::Result<()>;
+    fn ParseScriptText(&self, pstrcode: &windows_core::PCWSTR, pstritemname: &windows_core::PCWSTR, punkcontext: windows_core::Ref<'_, windows_core::IUnknown>, pstrdelimiter: &windows_core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut super::super::super::Variant::VARIANT, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IActiveScriptParse64_Vtbl {
@@ -1325,7 +1325,7 @@ impl IActiveScriptParse64_Vtbl {
         }
         unsafe extern "system" fn ParseScriptText<Identity: IActiveScriptParse64_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstrcode: windows_core::PCWSTR, pstritemname: windows_core::PCWSTR, punkcontext: *mut core::ffi::c_void, pstrdelimiter: windows_core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut super::super::super::Variant::VARIANT, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IActiveScriptParse64_Impl::ParseScriptText(this, core::mem::transmute(&pstrcode), core::mem::transmute(&pstritemname), windows_core::from_raw_borrowed(&punkcontext), core::mem::transmute(&pstrdelimiter), core::mem::transmute_copy(&dwsourcecontextcookie), core::mem::transmute_copy(&ulstartinglinenumber), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pvarresult), core::mem::transmute_copy(&pexcepinfo)).into()
+            IActiveScriptParse64_Impl::ParseScriptText(this, core::mem::transmute(&pstrcode), core::mem::transmute(&pstritemname), core::mem::transmute_copy(&punkcontext), core::mem::transmute(&pstrdelimiter), core::mem::transmute_copy(&dwsourcecontextcookie), core::mem::transmute_copy(&ulstartinglinenumber), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pvarresult), core::mem::transmute_copy(&pexcepinfo)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -1417,14 +1417,14 @@ pub struct IActiveScriptParseProcedure32_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IActiveScriptParseProcedure32_Impl: windows_core::IUnknownImpl {
-    fn ParseProcedureText(&self, pstrcode: &windows_core::PCWSTR, pstrformalparams: &windows_core::PCWSTR, pstrprocedurename: &windows_core::PCWSTR, pstritemname: &windows_core::PCWSTR, punkcontext: Option<&windows_core::IUnknown>, pstrdelimiter: &windows_core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32) -> windows_core::Result<super::super::super::Com::IDispatch>;
+    fn ParseProcedureText(&self, pstrcode: &windows_core::PCWSTR, pstrformalparams: &windows_core::PCWSTR, pstrprocedurename: &windows_core::PCWSTR, pstritemname: &windows_core::PCWSTR, punkcontext: windows_core::Ref<'_, windows_core::IUnknown>, pstrdelimiter: &windows_core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32) -> windows_core::Result<super::super::super::Com::IDispatch>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IActiveScriptParseProcedure32_Vtbl {
     pub const fn new<Identity: IActiveScriptParseProcedure32_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ParseProcedureText<Identity: IActiveScriptParseProcedure32_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstrcode: windows_core::PCWSTR, pstrformalparams: windows_core::PCWSTR, pstrprocedurename: windows_core::PCWSTR, pstritemname: windows_core::PCWSTR, punkcontext: *mut core::ffi::c_void, pstrdelimiter: windows_core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, ppdisp: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IActiveScriptParseProcedure32_Impl::ParseProcedureText(this, core::mem::transmute(&pstrcode), core::mem::transmute(&pstrformalparams), core::mem::transmute(&pstrprocedurename), core::mem::transmute(&pstritemname), windows_core::from_raw_borrowed(&punkcontext), core::mem::transmute(&pstrdelimiter), core::mem::transmute_copy(&dwsourcecontextcookie), core::mem::transmute_copy(&ulstartinglinenumber), core::mem::transmute_copy(&dwflags)) {
+            match IActiveScriptParseProcedure32_Impl::ParseProcedureText(this, core::mem::transmute(&pstrcode), core::mem::transmute(&pstrformalparams), core::mem::transmute(&pstrprocedurename), core::mem::transmute(&pstritemname), core::mem::transmute_copy(&punkcontext), core::mem::transmute(&pstrdelimiter), core::mem::transmute_copy(&dwsourcecontextcookie), core::mem::transmute_copy(&ulstartinglinenumber), core::mem::transmute_copy(&dwflags)) {
                 Ok(ok__) => {
                     ppdisp.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1467,14 +1467,14 @@ pub struct IActiveScriptParseProcedure64_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IActiveScriptParseProcedure64_Impl: windows_core::IUnknownImpl {
-    fn ParseProcedureText(&self, pstrcode: &windows_core::PCWSTR, pstrformalparams: &windows_core::PCWSTR, pstrprocedurename: &windows_core::PCWSTR, pstritemname: &windows_core::PCWSTR, punkcontext: Option<&windows_core::IUnknown>, pstrdelimiter: &windows_core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32) -> windows_core::Result<super::super::super::Com::IDispatch>;
+    fn ParseProcedureText(&self, pstrcode: &windows_core::PCWSTR, pstrformalparams: &windows_core::PCWSTR, pstrprocedurename: &windows_core::PCWSTR, pstritemname: &windows_core::PCWSTR, punkcontext: windows_core::Ref<'_, windows_core::IUnknown>, pstrdelimiter: &windows_core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32) -> windows_core::Result<super::super::super::Com::IDispatch>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IActiveScriptParseProcedure64_Vtbl {
     pub const fn new<Identity: IActiveScriptParseProcedure64_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ParseProcedureText<Identity: IActiveScriptParseProcedure64_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstrcode: windows_core::PCWSTR, pstrformalparams: windows_core::PCWSTR, pstrprocedurename: windows_core::PCWSTR, pstritemname: windows_core::PCWSTR, punkcontext: *mut core::ffi::c_void, pstrdelimiter: windows_core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, ppdisp: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IActiveScriptParseProcedure64_Impl::ParseProcedureText(this, core::mem::transmute(&pstrcode), core::mem::transmute(&pstrformalparams), core::mem::transmute(&pstrprocedurename), core::mem::transmute(&pstritemname), windows_core::from_raw_borrowed(&punkcontext), core::mem::transmute(&pstrdelimiter), core::mem::transmute_copy(&dwsourcecontextcookie), core::mem::transmute_copy(&ulstartinglinenumber), core::mem::transmute_copy(&dwflags)) {
+            match IActiveScriptParseProcedure64_Impl::ParseProcedureText(this, core::mem::transmute(&pstrcode), core::mem::transmute(&pstrformalparams), core::mem::transmute(&pstrprocedurename), core::mem::transmute(&pstritemname), core::mem::transmute_copy(&punkcontext), core::mem::transmute(&pstrdelimiter), core::mem::transmute_copy(&dwsourcecontextcookie), core::mem::transmute_copy(&ulstartinglinenumber), core::mem::transmute_copy(&dwflags)) {
                 Ok(ok__) => {
                     ppdisp.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1516,14 +1516,14 @@ pub struct IActiveScriptParseProcedureOld32_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IActiveScriptParseProcedureOld32_Impl: windows_core::IUnknownImpl {
-    fn ParseProcedureText(&self, pstrcode: &windows_core::PCWSTR, pstrformalparams: &windows_core::PCWSTR, pstritemname: &windows_core::PCWSTR, punkcontext: Option<&windows_core::IUnknown>, pstrdelimiter: &windows_core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32) -> windows_core::Result<super::super::super::Com::IDispatch>;
+    fn ParseProcedureText(&self, pstrcode: &windows_core::PCWSTR, pstrformalparams: &windows_core::PCWSTR, pstritemname: &windows_core::PCWSTR, punkcontext: windows_core::Ref<'_, windows_core::IUnknown>, pstrdelimiter: &windows_core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32) -> windows_core::Result<super::super::super::Com::IDispatch>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IActiveScriptParseProcedureOld32_Vtbl {
     pub const fn new<Identity: IActiveScriptParseProcedureOld32_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ParseProcedureText<Identity: IActiveScriptParseProcedureOld32_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstrcode: windows_core::PCWSTR, pstrformalparams: windows_core::PCWSTR, pstritemname: windows_core::PCWSTR, punkcontext: *mut core::ffi::c_void, pstrdelimiter: windows_core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, ppdisp: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IActiveScriptParseProcedureOld32_Impl::ParseProcedureText(this, core::mem::transmute(&pstrcode), core::mem::transmute(&pstrformalparams), core::mem::transmute(&pstritemname), windows_core::from_raw_borrowed(&punkcontext), core::mem::transmute(&pstrdelimiter), core::mem::transmute_copy(&dwsourcecontextcookie), core::mem::transmute_copy(&ulstartinglinenumber), core::mem::transmute_copy(&dwflags)) {
+            match IActiveScriptParseProcedureOld32_Impl::ParseProcedureText(this, core::mem::transmute(&pstrcode), core::mem::transmute(&pstrformalparams), core::mem::transmute(&pstritemname), core::mem::transmute_copy(&punkcontext), core::mem::transmute(&pstrdelimiter), core::mem::transmute_copy(&dwsourcecontextcookie), core::mem::transmute_copy(&ulstartinglinenumber), core::mem::transmute_copy(&dwflags)) {
                 Ok(ok__) => {
                     ppdisp.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1565,14 +1565,14 @@ pub struct IActiveScriptParseProcedureOld64_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IActiveScriptParseProcedureOld64_Impl: windows_core::IUnknownImpl {
-    fn ParseProcedureText(&self, pstrcode: &windows_core::PCWSTR, pstrformalparams: &windows_core::PCWSTR, pstritemname: &windows_core::PCWSTR, punkcontext: Option<&windows_core::IUnknown>, pstrdelimiter: &windows_core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32) -> windows_core::Result<super::super::super::Com::IDispatch>;
+    fn ParseProcedureText(&self, pstrcode: &windows_core::PCWSTR, pstrformalparams: &windows_core::PCWSTR, pstritemname: &windows_core::PCWSTR, punkcontext: windows_core::Ref<'_, windows_core::IUnknown>, pstrdelimiter: &windows_core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32) -> windows_core::Result<super::super::super::Com::IDispatch>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IActiveScriptParseProcedureOld64_Vtbl {
     pub const fn new<Identity: IActiveScriptParseProcedureOld64_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ParseProcedureText<Identity: IActiveScriptParseProcedureOld64_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstrcode: windows_core::PCWSTR, pstrformalparams: windows_core::PCWSTR, pstritemname: windows_core::PCWSTR, punkcontext: *mut core::ffi::c_void, pstrdelimiter: windows_core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, ppdisp: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IActiveScriptParseProcedureOld64_Impl::ParseProcedureText(this, core::mem::transmute(&pstrcode), core::mem::transmute(&pstrformalparams), core::mem::transmute(&pstritemname), windows_core::from_raw_borrowed(&punkcontext), core::mem::transmute(&pstrdelimiter), core::mem::transmute_copy(&dwsourcecontextcookie), core::mem::transmute_copy(&ulstartinglinenumber), core::mem::transmute_copy(&dwflags)) {
+            match IActiveScriptParseProcedureOld64_Impl::ParseProcedureText(this, core::mem::transmute(&pstrcode), core::mem::transmute(&pstrformalparams), core::mem::transmute(&pstritemname), core::mem::transmute_copy(&punkcontext), core::mem::transmute(&pstrdelimiter), core::mem::transmute_copy(&dwsourcecontextcookie), core::mem::transmute_copy(&ulstartinglinenumber), core::mem::transmute_copy(&dwflags)) {
                 Ok(ok__) => {
                     ppdisp.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1631,8 +1631,8 @@ pub struct IActiveScriptProfilerCallback_Vtbl {
 pub trait IActiveScriptProfilerCallback_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self, dwcontext: u32) -> windows_core::Result<()>;
     fn Shutdown(&self, hrreason: windows_core::HRESULT) -> windows_core::Result<()>;
-    fn ScriptCompiled(&self, scriptid: i32, r#type: PROFILER_SCRIPT_TYPE, pidebugdocumentcontext: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn FunctionCompiled(&self, functionid: i32, scriptid: i32, pwszfunctionname: &windows_core::PCWSTR, pwszfunctionnamehint: &windows_core::PCWSTR, pidebugdocumentcontext: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn ScriptCompiled(&self, scriptid: i32, r#type: PROFILER_SCRIPT_TYPE, pidebugdocumentcontext: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn FunctionCompiled(&self, functionid: i32, scriptid: i32, pwszfunctionname: &windows_core::PCWSTR, pwszfunctionnamehint: &windows_core::PCWSTR, pidebugdocumentcontext: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn OnFunctionEnter(&self, scriptid: i32, functionid: i32) -> windows_core::Result<()>;
     fn OnFunctionExit(&self, scriptid: i32, functionid: i32) -> windows_core::Result<()>;
 }
@@ -1648,11 +1648,11 @@ impl IActiveScriptProfilerCallback_Vtbl {
         }
         unsafe extern "system" fn ScriptCompiled<Identity: IActiveScriptProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scriptid: i32, r#type: PROFILER_SCRIPT_TYPE, pidebugdocumentcontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IActiveScriptProfilerCallback_Impl::ScriptCompiled(this, core::mem::transmute_copy(&scriptid), core::mem::transmute_copy(&r#type), windows_core::from_raw_borrowed(&pidebugdocumentcontext)).into()
+            IActiveScriptProfilerCallback_Impl::ScriptCompiled(this, core::mem::transmute_copy(&scriptid), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pidebugdocumentcontext)).into()
         }
         unsafe extern "system" fn FunctionCompiled<Identity: IActiveScriptProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: i32, scriptid: i32, pwszfunctionname: windows_core::PCWSTR, pwszfunctionnamehint: windows_core::PCWSTR, pidebugdocumentcontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IActiveScriptProfilerCallback_Impl::FunctionCompiled(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&scriptid), core::mem::transmute(&pwszfunctionname), core::mem::transmute(&pwszfunctionnamehint), windows_core::from_raw_borrowed(&pidebugdocumentcontext)).into()
+            IActiveScriptProfilerCallback_Impl::FunctionCompiled(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&scriptid), core::mem::transmute(&pwszfunctionname), core::mem::transmute(&pwszfunctionnamehint), core::mem::transmute_copy(&pidebugdocumentcontext)).into()
         }
         unsafe extern "system" fn OnFunctionEnter<Identity: IActiveScriptProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scriptid: i32, functionid: i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -2192,11 +2192,11 @@ pub struct IActiveScriptSite_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IActiveScriptSite_Impl: windows_core::IUnknownImpl {
     fn GetLCID(&self) -> windows_core::Result<u32>;
-    fn GetItemInfo(&self, pstrname: &windows_core::PCWSTR, dwreturnmask: u32, ppiunkitem: *mut Option<windows_core::IUnknown>, ppti: *mut Option<super::super::super::Com::ITypeInfo>) -> windows_core::Result<()>;
+    fn GetItemInfo(&self, pstrname: &windows_core::PCWSTR, dwreturnmask: u32, ppiunkitem: windows_core::OutRef<'_, windows_core::IUnknown>, ppti: windows_core::OutRef<'_, super::super::super::Com::ITypeInfo>) -> windows_core::Result<()>;
     fn GetDocVersionString(&self) -> windows_core::Result<windows_core::BSTR>;
     fn OnScriptTerminate(&self, pvarresult: *const super::super::super::Variant::VARIANT, pexcepinfo: *const super::super::super::Com::EXCEPINFO) -> windows_core::Result<()>;
     fn OnStateChange(&self, ssscriptstate: SCRIPTSTATE) -> windows_core::Result<()>;
-    fn OnScriptError(&self, pscripterror: Option<&IActiveScriptError>) -> windows_core::Result<()>;
+    fn OnScriptError(&self, pscripterror: windows_core::Ref<'_, IActiveScriptError>) -> windows_core::Result<()>;
     fn OnEnterScript(&self) -> windows_core::Result<()>;
     fn OnLeaveScript(&self) -> windows_core::Result<()>;
 }
@@ -2237,7 +2237,7 @@ impl IActiveScriptSite_Vtbl {
         }
         unsafe extern "system" fn OnScriptError<Identity: IActiveScriptSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pscripterror: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IActiveScriptSite_Impl::OnScriptError(this, windows_core::from_raw_borrowed(&pscripterror)).into()
+            IActiveScriptSite_Impl::OnScriptError(this, core::mem::transmute_copy(&pscripterror)).into()
         }
         unsafe extern "system" fn OnEnterScript<Identity: IActiveScriptSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -2299,7 +2299,7 @@ pub trait IActiveScriptSiteDebug32_Impl: windows_core::IUnknownImpl {
     fn GetDocumentContextFromPosition(&self, dwsourcecontext: u32, ucharacteroffset: u32, unumchars: u32) -> windows_core::Result<IDebugDocumentContext>;
     fn GetApplication(&self) -> windows_core::Result<IDebugApplication32>;
     fn GetRootApplicationNode(&self) -> windows_core::Result<IDebugApplicationNode>;
-    fn OnScriptErrorDebug(&self, perrordebug: Option<&IActiveScriptErrorDebug>, pfenterdebugger: *mut super::super::super::super::Foundation::BOOL, pfcallonscripterrorwhencontinuing: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn OnScriptErrorDebug(&self, perrordebug: windows_core::Ref<'_, IActiveScriptErrorDebug>, pfenterdebugger: *mut super::super::super::super::Foundation::BOOL, pfcallonscripterrorwhencontinuing: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
 }
 impl IActiveScriptSiteDebug32_Vtbl {
     pub const fn new<Identity: IActiveScriptSiteDebug32_Impl, const OFFSET: isize>() -> Self {
@@ -2335,7 +2335,7 @@ impl IActiveScriptSiteDebug32_Vtbl {
         }
         unsafe extern "system" fn OnScriptErrorDebug<Identity: IActiveScriptSiteDebug32_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, perrordebug: *mut core::ffi::c_void, pfenterdebugger: *mut super::super::super::super::Foundation::BOOL, pfcallonscripterrorwhencontinuing: *mut super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IActiveScriptSiteDebug32_Impl::OnScriptErrorDebug(this, windows_core::from_raw_borrowed(&perrordebug), core::mem::transmute_copy(&pfenterdebugger), core::mem::transmute_copy(&pfcallonscripterrorwhencontinuing)).into()
+            IActiveScriptSiteDebug32_Impl::OnScriptErrorDebug(this, core::mem::transmute_copy(&perrordebug), core::mem::transmute_copy(&pfenterdebugger), core::mem::transmute_copy(&pfcallonscripterrorwhencontinuing)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -2384,7 +2384,7 @@ pub trait IActiveScriptSiteDebug64_Impl: windows_core::IUnknownImpl {
     fn GetDocumentContextFromPosition(&self, dwsourcecontext: u64, ucharacteroffset: u32, unumchars: u32) -> windows_core::Result<IDebugDocumentContext>;
     fn GetApplication(&self) -> windows_core::Result<IDebugApplication64>;
     fn GetRootApplicationNode(&self) -> windows_core::Result<IDebugApplicationNode>;
-    fn OnScriptErrorDebug(&self, perrordebug: Option<&IActiveScriptErrorDebug>, pfenterdebugger: *mut super::super::super::super::Foundation::BOOL, pfcallonscripterrorwhencontinuing: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn OnScriptErrorDebug(&self, perrordebug: windows_core::Ref<'_, IActiveScriptErrorDebug>, pfenterdebugger: *mut super::super::super::super::Foundation::BOOL, pfcallonscripterrorwhencontinuing: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
 }
 impl IActiveScriptSiteDebug64_Vtbl {
     pub const fn new<Identity: IActiveScriptSiteDebug64_Impl, const OFFSET: isize>() -> Self {
@@ -2420,7 +2420,7 @@ impl IActiveScriptSiteDebug64_Vtbl {
         }
         unsafe extern "system" fn OnScriptErrorDebug<Identity: IActiveScriptSiteDebug64_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, perrordebug: *mut core::ffi::c_void, pfenterdebugger: *mut super::super::super::super::Foundation::BOOL, pfcallonscripterrorwhencontinuing: *mut super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IActiveScriptSiteDebug64_Impl::OnScriptErrorDebug(this, windows_core::from_raw_borrowed(&perrordebug), core::mem::transmute_copy(&pfenterdebugger), core::mem::transmute_copy(&pfcallonscripterrorwhencontinuing)).into()
+            IActiveScriptSiteDebug64_Impl::OnScriptErrorDebug(this, core::mem::transmute_copy(&perrordebug), core::mem::transmute_copy(&pfenterdebugger), core::mem::transmute_copy(&pfcallonscripterrorwhencontinuing)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -2452,13 +2452,13 @@ pub struct IActiveScriptSiteDebugEx_Vtbl {
     pub OnCanNotJITScriptErrorDebug: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 pub trait IActiveScriptSiteDebugEx_Impl: windows_core::IUnknownImpl {
-    fn OnCanNotJITScriptErrorDebug(&self, perrordebug: Option<&IActiveScriptErrorDebug>) -> windows_core::Result<super::super::super::super::Foundation::BOOL>;
+    fn OnCanNotJITScriptErrorDebug(&self, perrordebug: windows_core::Ref<'_, IActiveScriptErrorDebug>) -> windows_core::Result<super::super::super::super::Foundation::BOOL>;
 }
 impl IActiveScriptSiteDebugEx_Vtbl {
     pub const fn new<Identity: IActiveScriptSiteDebugEx_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnCanNotJITScriptErrorDebug<Identity: IActiveScriptSiteDebugEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, perrordebug: *mut core::ffi::c_void, pfcallonscripterrorwhencontinuing: *mut super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IActiveScriptSiteDebugEx_Impl::OnCanNotJITScriptErrorDebug(this, windows_core::from_raw_borrowed(&perrordebug)) {
+            match IActiveScriptSiteDebugEx_Impl::OnCanNotJITScriptErrorDebug(this, core::mem::transmute_copy(&perrordebug)) {
                 Ok(ok__) => {
                     pfcallonscripterrorwhencontinuing.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2718,14 +2718,14 @@ pub struct IActiveScriptTraceInfo_Vtbl {
     pub StopScriptTracing: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IActiveScriptTraceInfo_Impl: windows_core::IUnknownImpl {
-    fn StartScriptTracing(&self, psitetraceinfo: Option<&IActiveScriptSiteTraceInfo>, guidcontextid: &windows_core::GUID) -> windows_core::Result<()>;
+    fn StartScriptTracing(&self, psitetraceinfo: windows_core::Ref<'_, IActiveScriptSiteTraceInfo>, guidcontextid: &windows_core::GUID) -> windows_core::Result<()>;
     fn StopScriptTracing(&self) -> windows_core::Result<()>;
 }
 impl IActiveScriptTraceInfo_Vtbl {
     pub const fn new<Identity: IActiveScriptTraceInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn StartScriptTracing<Identity: IActiveScriptTraceInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psitetraceinfo: *mut core::ffi::c_void, guidcontextid: windows_core::GUID) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IActiveScriptTraceInfo_Impl::StartScriptTracing(this, windows_core::from_raw_borrowed(&psitetraceinfo), core::mem::transmute(&guidcontextid)).into()
+            IActiveScriptTraceInfo_Impl::StartScriptTracing(this, core::mem::transmute_copy(&psitetraceinfo), core::mem::transmute(&guidcontextid)).into()
         }
         unsafe extern "system" fn StopScriptTracing<Identity: IActiveScriptTraceInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -2871,11 +2871,11 @@ pub struct IApplicationDebugger_Vtbl {
 }
 pub trait IApplicationDebugger_Impl: windows_core::IUnknownImpl {
     fn QueryAlive(&self) -> windows_core::Result<()>;
-    fn CreateInstanceAtDebugger(&self, rclsid: *const windows_core::GUID, punkouter: Option<&windows_core::IUnknown>, dwclscontext: u32, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>;
+    fn CreateInstanceAtDebugger(&self, rclsid: *const windows_core::GUID, punkouter: windows_core::Ref<'_, windows_core::IUnknown>, dwclscontext: u32, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>;
     fn onDebugOutput(&self, pstr: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn onHandleBreakPoint(&self, prpt: Option<&IRemoteDebugApplicationThread>, br: BREAKREASON, perror: Option<&IActiveScriptErrorDebug>) -> windows_core::Result<()>;
+    fn onHandleBreakPoint(&self, prpt: windows_core::Ref<'_, IRemoteDebugApplicationThread>, br: BREAKREASON, perror: windows_core::Ref<'_, IActiveScriptErrorDebug>) -> windows_core::Result<()>;
     fn onClose(&self) -> windows_core::Result<()>;
-    fn onDebuggerEvent(&self, riid: *const windows_core::GUID, punk: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn onDebuggerEvent(&self, riid: *const windows_core::GUID, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl IApplicationDebugger_Vtbl {
     pub const fn new<Identity: IApplicationDebugger_Impl, const OFFSET: isize>() -> Self {
@@ -2885,7 +2885,7 @@ impl IApplicationDebugger_Vtbl {
         }
         unsafe extern "system" fn CreateInstanceAtDebugger<Identity: IApplicationDebugger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rclsid: *const windows_core::GUID, punkouter: *mut core::ffi::c_void, dwclscontext: u32, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IApplicationDebugger_Impl::CreateInstanceAtDebugger(this, core::mem::transmute_copy(&rclsid), windows_core::from_raw_borrowed(&punkouter), core::mem::transmute_copy(&dwclscontext), core::mem::transmute_copy(&riid)) {
+            match IApplicationDebugger_Impl::CreateInstanceAtDebugger(this, core::mem::transmute_copy(&rclsid), core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&dwclscontext), core::mem::transmute_copy(&riid)) {
                 Ok(ok__) => {
                     ppvobject.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2899,7 +2899,7 @@ impl IApplicationDebugger_Vtbl {
         }
         unsafe extern "system" fn onHandleBreakPoint<Identity: IApplicationDebugger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prpt: *mut core::ffi::c_void, br: BREAKREASON, perror: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IApplicationDebugger_Impl::onHandleBreakPoint(this, windows_core::from_raw_borrowed(&prpt), core::mem::transmute_copy(&br), windows_core::from_raw_borrowed(&perror)).into()
+            IApplicationDebugger_Impl::onHandleBreakPoint(this, core::mem::transmute_copy(&prpt), core::mem::transmute_copy(&br), core::mem::transmute_copy(&perror)).into()
         }
         unsafe extern "system" fn onClose<Identity: IApplicationDebugger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -2907,7 +2907,7 @@ impl IApplicationDebugger_Vtbl {
         }
         unsafe extern "system" fn onDebuggerEvent<Identity: IApplicationDebugger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, punk: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IApplicationDebugger_Impl::onDebuggerEvent(this, core::mem::transmute_copy(&riid), windows_core::from_raw_borrowed(&punk)).into()
+            IApplicationDebugger_Impl::onDebuggerEvent(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&punk)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -2947,18 +2947,18 @@ pub struct IApplicationDebuggerUI_Vtbl {
     pub BringDocumentContextToTop: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IApplicationDebuggerUI_Impl: windows_core::IUnknownImpl {
-    fn BringDocumentToTop(&self, pddt: Option<&IDebugDocumentText>) -> windows_core::Result<()>;
-    fn BringDocumentContextToTop(&self, pddc: Option<&IDebugDocumentContext>) -> windows_core::Result<()>;
+    fn BringDocumentToTop(&self, pddt: windows_core::Ref<'_, IDebugDocumentText>) -> windows_core::Result<()>;
+    fn BringDocumentContextToTop(&self, pddc: windows_core::Ref<'_, IDebugDocumentContext>) -> windows_core::Result<()>;
 }
 impl IApplicationDebuggerUI_Vtbl {
     pub const fn new<Identity: IApplicationDebuggerUI_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn BringDocumentToTop<Identity: IApplicationDebuggerUI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pddt: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IApplicationDebuggerUI_Impl::BringDocumentToTop(this, windows_core::from_raw_borrowed(&pddt)).into()
+            IApplicationDebuggerUI_Impl::BringDocumentToTop(this, core::mem::transmute_copy(&pddt)).into()
         }
         unsafe extern "system" fn BringDocumentContextToTop<Identity: IApplicationDebuggerUI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pddc: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IApplicationDebuggerUI_Impl::BringDocumentContextToTop(this, windows_core::from_raw_borrowed(&pddc)).into()
+            IApplicationDebuggerUI_Impl::BringDocumentContextToTop(this, core::mem::transmute_copy(&pddc)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -2993,14 +2993,14 @@ pub struct IBindEventHandler_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IBindEventHandler_Impl: windows_core::IUnknownImpl {
-    fn BindHandler(&self, pstrevent: &windows_core::PCWSTR, pdisp: Option<&super::super::super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn BindHandler(&self, pstrevent: &windows_core::PCWSTR, pdisp: windows_core::Ref<'_, super::super::super::Com::IDispatch>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IBindEventHandler_Vtbl {
     pub const fn new<Identity: IBindEventHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn BindHandler<Identity: IBindEventHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstrevent: windows_core::PCWSTR, pdisp: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IBindEventHandler_Impl::BindHandler(this, core::mem::transmute(&pstrevent), windows_core::from_raw_borrowed(&pdisp)).into()
+            IBindEventHandler_Impl::BindHandler(this, core::mem::transmute(&pstrevent), core::mem::transmute_copy(&pdisp)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), BindHandler: BindHandler::<Identity, OFFSET> }
     }
@@ -3044,19 +3044,19 @@ pub struct IDebugApplication11032_Vtbl {
     pub CallableWaitForHandles: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::super::super::super::Foundation::HANDLE, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IDebugApplication11032_Impl: IRemoteDebugApplication110_Impl {
-    fn SynchronousCallInMainThread(&self, pptc: Option<&IDebugThreadCall32>, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> windows_core::Result<()>;
-    fn AsynchronousCallInMainThread(&self, pptc: Option<&IDebugThreadCall32>, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> windows_core::Result<()>;
+    fn SynchronousCallInMainThread(&self, pptc: windows_core::Ref<'_, IDebugThreadCall32>, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> windows_core::Result<()>;
+    fn AsynchronousCallInMainThread(&self, pptc: windows_core::Ref<'_, IDebugThreadCall32>, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> windows_core::Result<()>;
     fn CallableWaitForHandles(&self, handlecount: u32, phandles: *const super::super::super::super::Foundation::HANDLE) -> windows_core::Result<u32>;
 }
 impl IDebugApplication11032_Vtbl {
     pub const fn new<Identity: IDebugApplication11032_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SynchronousCallInMainThread<Identity: IDebugApplication11032_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pptc: *mut core::ffi::c_void, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugApplication11032_Impl::SynchronousCallInMainThread(this, windows_core::from_raw_borrowed(&pptc), core::mem::transmute_copy(&dwparam1), core::mem::transmute_copy(&dwparam2), core::mem::transmute_copy(&dwparam3)).into()
+            IDebugApplication11032_Impl::SynchronousCallInMainThread(this, core::mem::transmute_copy(&pptc), core::mem::transmute_copy(&dwparam1), core::mem::transmute_copy(&dwparam2), core::mem::transmute_copy(&dwparam3)).into()
         }
         unsafe extern "system" fn AsynchronousCallInMainThread<Identity: IDebugApplication11032_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pptc: *mut core::ffi::c_void, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugApplication11032_Impl::AsynchronousCallInMainThread(this, windows_core::from_raw_borrowed(&pptc), core::mem::transmute_copy(&dwparam1), core::mem::transmute_copy(&dwparam2), core::mem::transmute_copy(&dwparam3)).into()
+            IDebugApplication11032_Impl::AsynchronousCallInMainThread(this, core::mem::transmute_copy(&pptc), core::mem::transmute_copy(&dwparam1), core::mem::transmute_copy(&dwparam2), core::mem::transmute_copy(&dwparam3)).into()
         }
         unsafe extern "system" fn CallableWaitForHandles<Identity: IDebugApplication11032_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handlecount: u32, phandles: *const super::super::super::super::Foundation::HANDLE, pindex: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3114,19 +3114,19 @@ pub struct IDebugApplication11064_Vtbl {
     pub CallableWaitForHandles: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::super::super::super::Foundation::HANDLE, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IDebugApplication11064_Impl: IRemoteDebugApplication110_Impl {
-    fn SynchronousCallInMainThread(&self, pptc: Option<&IDebugThreadCall64>, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> windows_core::Result<()>;
-    fn AsynchronousCallInMainThread(&self, pptc: Option<&IDebugThreadCall64>, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> windows_core::Result<()>;
+    fn SynchronousCallInMainThread(&self, pptc: windows_core::Ref<'_, IDebugThreadCall64>, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> windows_core::Result<()>;
+    fn AsynchronousCallInMainThread(&self, pptc: windows_core::Ref<'_, IDebugThreadCall64>, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> windows_core::Result<()>;
     fn CallableWaitForHandles(&self, handlecount: u32, phandles: *const super::super::super::super::Foundation::HANDLE) -> windows_core::Result<u32>;
 }
 impl IDebugApplication11064_Vtbl {
     pub const fn new<Identity: IDebugApplication11064_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SynchronousCallInMainThread<Identity: IDebugApplication11064_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pptc: *mut core::ffi::c_void, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugApplication11064_Impl::SynchronousCallInMainThread(this, windows_core::from_raw_borrowed(&pptc), core::mem::transmute_copy(&dwparam1), core::mem::transmute_copy(&dwparam2), core::mem::transmute_copy(&dwparam3)).into()
+            IDebugApplication11064_Impl::SynchronousCallInMainThread(this, core::mem::transmute_copy(&pptc), core::mem::transmute_copy(&dwparam1), core::mem::transmute_copy(&dwparam2), core::mem::transmute_copy(&dwparam3)).into()
         }
         unsafe extern "system" fn AsynchronousCallInMainThread<Identity: IDebugApplication11064_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pptc: *mut core::ffi::c_void, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugApplication11064_Impl::AsynchronousCallInMainThread(this, windows_core::from_raw_borrowed(&pptc), core::mem::transmute_copy(&dwparam1), core::mem::transmute_copy(&dwparam2), core::mem::transmute_copy(&dwparam3)).into()
+            IDebugApplication11064_Impl::AsynchronousCallInMainThread(this, core::mem::transmute_copy(&pptc), core::mem::transmute_copy(&dwparam1), core::mem::transmute_copy(&dwparam2), core::mem::transmute_copy(&dwparam3)).into()
         }
         unsafe extern "system" fn CallableWaitForHandles<Identity: IDebugApplication11064_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handlecount: u32, phandles: *const super::super::super::super::Foundation::HANDLE, pindex: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3282,19 +3282,19 @@ pub trait IDebugApplication32_Impl: IRemoteDebugApplication_Impl {
     fn StartDebugSession(&self) -> windows_core::Result<()>;
     fn HandleBreakPoint(&self, br: BREAKREASON) -> windows_core::Result<BREAKRESUMEACTION>;
     fn Close(&self) -> windows_core::Result<()>;
-    fn GetBreakFlags(&self, pabf: *mut u32, pprdatsteppingthread: *mut Option<IRemoteDebugApplicationThread>) -> windows_core::Result<()>;
+    fn GetBreakFlags(&self, pabf: *mut u32, pprdatsteppingthread: windows_core::OutRef<'_, IRemoteDebugApplicationThread>) -> windows_core::Result<()>;
     fn GetCurrentThread(&self) -> windows_core::Result<IDebugApplicationThread>;
-    fn CreateAsyncDebugOperation(&self, psdo: Option<&IDebugSyncOperation>) -> windows_core::Result<IDebugAsyncOperation>;
-    fn AddStackFrameSniffer(&self, pdsfs: Option<&IDebugStackFrameSniffer>) -> windows_core::Result<u32>;
+    fn CreateAsyncDebugOperation(&self, psdo: windows_core::Ref<'_, IDebugSyncOperation>) -> windows_core::Result<IDebugAsyncOperation>;
+    fn AddStackFrameSniffer(&self, pdsfs: windows_core::Ref<'_, IDebugStackFrameSniffer>) -> windows_core::Result<u32>;
     fn RemoveStackFrameSniffer(&self, dwcookie: u32) -> windows_core::Result<()>;
     fn QueryCurrentThreadIsDebuggerThread(&self) -> windows_core::Result<()>;
-    fn SynchronousCallInDebuggerThread(&self, pptc: Option<&IDebugThreadCall32>, dwparam1: u32, dwparam2: u32, dwparam3: u32) -> windows_core::Result<()>;
+    fn SynchronousCallInDebuggerThread(&self, pptc: windows_core::Ref<'_, IDebugThreadCall32>, dwparam1: u32, dwparam2: u32, dwparam3: u32) -> windows_core::Result<()>;
     fn CreateApplicationNode(&self) -> windows_core::Result<IDebugApplicationNode>;
-    fn FireDebuggerEvent(&self, riid: *const windows_core::GUID, punk: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn HandleRuntimeError(&self, perrordebug: Option<&IActiveScriptErrorDebug>, pscriptsite: Option<&IActiveScriptSite>, pbra: *mut BREAKRESUMEACTION, perra: *mut ERRORRESUMEACTION, pfcallonscripterror: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn FireDebuggerEvent(&self, riid: *const windows_core::GUID, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn HandleRuntimeError(&self, perrordebug: windows_core::Ref<'_, IActiveScriptErrorDebug>, pscriptsite: windows_core::Ref<'_, IActiveScriptSite>, pbra: *mut BREAKRESUMEACTION, perra: *mut ERRORRESUMEACTION, pfcallonscripterror: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn FCanJitDebug(&self) -> super::super::super::super::Foundation::BOOL;
     fn FIsAutoJitDebugEnabled(&self) -> super::super::super::super::Foundation::BOOL;
-    fn AddGlobalExpressionContextProvider(&self, pdsfs: Option<&IProvideExpressionContexts>) -> windows_core::Result<u32>;
+    fn AddGlobalExpressionContextProvider(&self, pdsfs: windows_core::Ref<'_, IProvideExpressionContexts>) -> windows_core::Result<u32>;
     fn RemoveGlobalExpressionContextProvider(&self, dwcookie: u32) -> windows_core::Result<()>;
 }
 impl IDebugApplication32_Vtbl {
@@ -3345,7 +3345,7 @@ impl IDebugApplication32_Vtbl {
         }
         unsafe extern "system" fn CreateAsyncDebugOperation<Identity: IDebugApplication32_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psdo: *mut core::ffi::c_void, ppado: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDebugApplication32_Impl::CreateAsyncDebugOperation(this, windows_core::from_raw_borrowed(&psdo)) {
+            match IDebugApplication32_Impl::CreateAsyncDebugOperation(this, core::mem::transmute_copy(&psdo)) {
                 Ok(ok__) => {
                     ppado.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3355,7 +3355,7 @@ impl IDebugApplication32_Vtbl {
         }
         unsafe extern "system" fn AddStackFrameSniffer<Identity: IDebugApplication32_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdsfs: *mut core::ffi::c_void, pdwcookie: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDebugApplication32_Impl::AddStackFrameSniffer(this, windows_core::from_raw_borrowed(&pdsfs)) {
+            match IDebugApplication32_Impl::AddStackFrameSniffer(this, core::mem::transmute_copy(&pdsfs)) {
                 Ok(ok__) => {
                     pdwcookie.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3373,7 +3373,7 @@ impl IDebugApplication32_Vtbl {
         }
         unsafe extern "system" fn SynchronousCallInDebuggerThread<Identity: IDebugApplication32_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pptc: *mut core::ffi::c_void, dwparam1: u32, dwparam2: u32, dwparam3: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugApplication32_Impl::SynchronousCallInDebuggerThread(this, windows_core::from_raw_borrowed(&pptc), core::mem::transmute_copy(&dwparam1), core::mem::transmute_copy(&dwparam2), core::mem::transmute_copy(&dwparam3)).into()
+            IDebugApplication32_Impl::SynchronousCallInDebuggerThread(this, core::mem::transmute_copy(&pptc), core::mem::transmute_copy(&dwparam1), core::mem::transmute_copy(&dwparam2), core::mem::transmute_copy(&dwparam3)).into()
         }
         unsafe extern "system" fn CreateApplicationNode<Identity: IDebugApplication32_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdannew: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3387,11 +3387,11 @@ impl IDebugApplication32_Vtbl {
         }
         unsafe extern "system" fn FireDebuggerEvent<Identity: IDebugApplication32_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, punk: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugApplication32_Impl::FireDebuggerEvent(this, core::mem::transmute_copy(&riid), windows_core::from_raw_borrowed(&punk)).into()
+            IDebugApplication32_Impl::FireDebuggerEvent(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&punk)).into()
         }
         unsafe extern "system" fn HandleRuntimeError<Identity: IDebugApplication32_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, perrordebug: *mut core::ffi::c_void, pscriptsite: *mut core::ffi::c_void, pbra: *mut BREAKRESUMEACTION, perra: *mut ERRORRESUMEACTION, pfcallonscripterror: *mut super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugApplication32_Impl::HandleRuntimeError(this, windows_core::from_raw_borrowed(&perrordebug), windows_core::from_raw_borrowed(&pscriptsite), core::mem::transmute_copy(&pbra), core::mem::transmute_copy(&perra), core::mem::transmute_copy(&pfcallonscripterror)).into()
+            IDebugApplication32_Impl::HandleRuntimeError(this, core::mem::transmute_copy(&perrordebug), core::mem::transmute_copy(&pscriptsite), core::mem::transmute_copy(&pbra), core::mem::transmute_copy(&perra), core::mem::transmute_copy(&pfcallonscripterror)).into()
         }
         unsafe extern "system" fn FCanJitDebug<Identity: IDebugApplication32_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::super::super::super::Foundation::BOOL {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3403,7 +3403,7 @@ impl IDebugApplication32_Vtbl {
         }
         unsafe extern "system" fn AddGlobalExpressionContextProvider<Identity: IDebugApplication32_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdsfs: *mut core::ffi::c_void, pdwcookie: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDebugApplication32_Impl::AddGlobalExpressionContextProvider(this, windows_core::from_raw_borrowed(&pdsfs)) {
+            match IDebugApplication32_Impl::AddGlobalExpressionContextProvider(this, core::mem::transmute_copy(&pdsfs)) {
                 Ok(ok__) => {
                     pdwcookie.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3576,19 +3576,19 @@ pub trait IDebugApplication64_Impl: IRemoteDebugApplication_Impl {
     fn StartDebugSession(&self) -> windows_core::Result<()>;
     fn HandleBreakPoint(&self, br: BREAKREASON) -> windows_core::Result<BREAKRESUMEACTION>;
     fn Close(&self) -> windows_core::Result<()>;
-    fn GetBreakFlags(&self, pabf: *mut u32, pprdatsteppingthread: *mut Option<IRemoteDebugApplicationThread>) -> windows_core::Result<()>;
+    fn GetBreakFlags(&self, pabf: *mut u32, pprdatsteppingthread: windows_core::OutRef<'_, IRemoteDebugApplicationThread>) -> windows_core::Result<()>;
     fn GetCurrentThread(&self) -> windows_core::Result<IDebugApplicationThread>;
-    fn CreateAsyncDebugOperation(&self, psdo: Option<&IDebugSyncOperation>) -> windows_core::Result<IDebugAsyncOperation>;
-    fn AddStackFrameSniffer(&self, pdsfs: Option<&IDebugStackFrameSniffer>) -> windows_core::Result<u32>;
+    fn CreateAsyncDebugOperation(&self, psdo: windows_core::Ref<'_, IDebugSyncOperation>) -> windows_core::Result<IDebugAsyncOperation>;
+    fn AddStackFrameSniffer(&self, pdsfs: windows_core::Ref<'_, IDebugStackFrameSniffer>) -> windows_core::Result<u32>;
     fn RemoveStackFrameSniffer(&self, dwcookie: u32) -> windows_core::Result<()>;
     fn QueryCurrentThreadIsDebuggerThread(&self) -> windows_core::Result<()>;
-    fn SynchronousCallInDebuggerThread(&self, pptc: Option<&IDebugThreadCall64>, dwparam1: u64, dwparam2: u64, dwparam3: u64) -> windows_core::Result<()>;
+    fn SynchronousCallInDebuggerThread(&self, pptc: windows_core::Ref<'_, IDebugThreadCall64>, dwparam1: u64, dwparam2: u64, dwparam3: u64) -> windows_core::Result<()>;
     fn CreateApplicationNode(&self) -> windows_core::Result<IDebugApplicationNode>;
-    fn FireDebuggerEvent(&self, riid: *const windows_core::GUID, punk: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn HandleRuntimeError(&self, perrordebug: Option<&IActiveScriptErrorDebug>, pscriptsite: Option<&IActiveScriptSite>, pbra: *mut BREAKRESUMEACTION, perra: *mut ERRORRESUMEACTION, pfcallonscripterror: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn FireDebuggerEvent(&self, riid: *const windows_core::GUID, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn HandleRuntimeError(&self, perrordebug: windows_core::Ref<'_, IActiveScriptErrorDebug>, pscriptsite: windows_core::Ref<'_, IActiveScriptSite>, pbra: *mut BREAKRESUMEACTION, perra: *mut ERRORRESUMEACTION, pfcallonscripterror: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn FCanJitDebug(&self) -> super::super::super::super::Foundation::BOOL;
     fn FIsAutoJitDebugEnabled(&self) -> super::super::super::super::Foundation::BOOL;
-    fn AddGlobalExpressionContextProvider(&self, pdsfs: Option<&IProvideExpressionContexts>) -> windows_core::Result<u64>;
+    fn AddGlobalExpressionContextProvider(&self, pdsfs: windows_core::Ref<'_, IProvideExpressionContexts>) -> windows_core::Result<u64>;
     fn RemoveGlobalExpressionContextProvider(&self, dwcookie: u64) -> windows_core::Result<()>;
 }
 impl IDebugApplication64_Vtbl {
@@ -3639,7 +3639,7 @@ impl IDebugApplication64_Vtbl {
         }
         unsafe extern "system" fn CreateAsyncDebugOperation<Identity: IDebugApplication64_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psdo: *mut core::ffi::c_void, ppado: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDebugApplication64_Impl::CreateAsyncDebugOperation(this, windows_core::from_raw_borrowed(&psdo)) {
+            match IDebugApplication64_Impl::CreateAsyncDebugOperation(this, core::mem::transmute_copy(&psdo)) {
                 Ok(ok__) => {
                     ppado.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3649,7 +3649,7 @@ impl IDebugApplication64_Vtbl {
         }
         unsafe extern "system" fn AddStackFrameSniffer<Identity: IDebugApplication64_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdsfs: *mut core::ffi::c_void, pdwcookie: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDebugApplication64_Impl::AddStackFrameSniffer(this, windows_core::from_raw_borrowed(&pdsfs)) {
+            match IDebugApplication64_Impl::AddStackFrameSniffer(this, core::mem::transmute_copy(&pdsfs)) {
                 Ok(ok__) => {
                     pdwcookie.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3667,7 +3667,7 @@ impl IDebugApplication64_Vtbl {
         }
         unsafe extern "system" fn SynchronousCallInDebuggerThread<Identity: IDebugApplication64_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pptc: *mut core::ffi::c_void, dwparam1: u64, dwparam2: u64, dwparam3: u64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugApplication64_Impl::SynchronousCallInDebuggerThread(this, windows_core::from_raw_borrowed(&pptc), core::mem::transmute_copy(&dwparam1), core::mem::transmute_copy(&dwparam2), core::mem::transmute_copy(&dwparam3)).into()
+            IDebugApplication64_Impl::SynchronousCallInDebuggerThread(this, core::mem::transmute_copy(&pptc), core::mem::transmute_copy(&dwparam1), core::mem::transmute_copy(&dwparam2), core::mem::transmute_copy(&dwparam3)).into()
         }
         unsafe extern "system" fn CreateApplicationNode<Identity: IDebugApplication64_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdannew: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3681,11 +3681,11 @@ impl IDebugApplication64_Vtbl {
         }
         unsafe extern "system" fn FireDebuggerEvent<Identity: IDebugApplication64_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, punk: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugApplication64_Impl::FireDebuggerEvent(this, core::mem::transmute_copy(&riid), windows_core::from_raw_borrowed(&punk)).into()
+            IDebugApplication64_Impl::FireDebuggerEvent(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&punk)).into()
         }
         unsafe extern "system" fn HandleRuntimeError<Identity: IDebugApplication64_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, perrordebug: *mut core::ffi::c_void, pscriptsite: *mut core::ffi::c_void, pbra: *mut BREAKRESUMEACTION, perra: *mut ERRORRESUMEACTION, pfcallonscripterror: *mut super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugApplication64_Impl::HandleRuntimeError(this, windows_core::from_raw_borrowed(&perrordebug), windows_core::from_raw_borrowed(&pscriptsite), core::mem::transmute_copy(&pbra), core::mem::transmute_copy(&perra), core::mem::transmute_copy(&pfcallonscripterror)).into()
+            IDebugApplication64_Impl::HandleRuntimeError(this, core::mem::transmute_copy(&perrordebug), core::mem::transmute_copy(&pscriptsite), core::mem::transmute_copy(&pbra), core::mem::transmute_copy(&perra), core::mem::transmute_copy(&pfcallonscripterror)).into()
         }
         unsafe extern "system" fn FCanJitDebug<Identity: IDebugApplication64_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::super::super::super::Foundation::BOOL {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3697,7 +3697,7 @@ impl IDebugApplication64_Vtbl {
         }
         unsafe extern "system" fn AddGlobalExpressionContextProvider<Identity: IDebugApplication64_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdsfs: *mut core::ffi::c_void, pdwcookie: *mut u64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDebugApplication64_Impl::AddGlobalExpressionContextProvider(this, windows_core::from_raw_borrowed(&pdsfs)) {
+            match IDebugApplication64_Impl::AddGlobalExpressionContextProvider(this, core::mem::transmute_copy(&pdsfs)) {
                 Ok(ok__) => {
                     pdwcookie.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3787,9 +3787,9 @@ pub struct IDebugApplicationNode_Vtbl {
 pub trait IDebugApplicationNode_Impl: IDebugDocumentProvider_Impl {
     fn EnumChildren(&self) -> windows_core::Result<IEnumDebugApplicationNodes>;
     fn GetParent(&self) -> windows_core::Result<IDebugApplicationNode>;
-    fn SetDocumentProvider(&self, pddp: Option<&IDebugDocumentProvider>) -> windows_core::Result<()>;
+    fn SetDocumentProvider(&self, pddp: windows_core::Ref<'_, IDebugDocumentProvider>) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
-    fn Attach(&self, pdanparent: Option<&IDebugApplicationNode>) -> windows_core::Result<()>;
+    fn Attach(&self, pdanparent: windows_core::Ref<'_, IDebugApplicationNode>) -> windows_core::Result<()>;
     fn Detach(&self) -> windows_core::Result<()>;
 }
 impl IDebugApplicationNode_Vtbl {
@@ -3816,7 +3816,7 @@ impl IDebugApplicationNode_Vtbl {
         }
         unsafe extern "system" fn SetDocumentProvider<Identity: IDebugApplicationNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pddp: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugApplicationNode_Impl::SetDocumentProvider(this, windows_core::from_raw_borrowed(&pddp)).into()
+            IDebugApplicationNode_Impl::SetDocumentProvider(this, core::mem::transmute_copy(&pddp)).into()
         }
         unsafe extern "system" fn Close<Identity: IDebugApplicationNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3824,7 +3824,7 @@ impl IDebugApplicationNode_Vtbl {
         }
         unsafe extern "system" fn Attach<Identity: IDebugApplicationNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdanparent: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugApplicationNode_Impl::Attach(this, windows_core::from_raw_borrowed(&pdanparent)).into()
+            IDebugApplicationNode_Impl::Attach(this, core::mem::transmute_copy(&pdanparent)).into()
         }
         unsafe extern "system" fn Detach<Identity: IDebugApplicationNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3872,7 +3872,7 @@ pub struct IDebugApplicationNode100_Vtbl {
 pub trait IDebugApplicationNode100_Impl: windows_core::IUnknownImpl {
     fn SetFilterForEventSink(&self, dwcookie: u32, filter: APPLICATION_NODE_EVENT_FILTER) -> windows_core::Result<()>;
     fn GetExcludedDocuments(&self, filter: APPLICATION_NODE_EVENT_FILTER) -> windows_core::Result<TEXT_DOCUMENT_ARRAY>;
-    fn QueryIsChildNode(&self, psearchkey: Option<&IDebugDocument>) -> windows_core::Result<()>;
+    fn QueryIsChildNode(&self, psearchkey: windows_core::Ref<'_, IDebugDocument>) -> windows_core::Result<()>;
 }
 impl IDebugApplicationNode100_Vtbl {
     pub const fn new<Identity: IDebugApplicationNode100_Impl, const OFFSET: isize>() -> Self {
@@ -3892,7 +3892,7 @@ impl IDebugApplicationNode100_Vtbl {
         }
         unsafe extern "system" fn QueryIsChildNode<Identity: IDebugApplicationNode100_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psearchkey: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugApplicationNode100_Impl::QueryIsChildNode(this, windows_core::from_raw_borrowed(&psearchkey)).into()
+            IDebugApplicationNode100_Impl::QueryIsChildNode(this, core::mem::transmute_copy(&psearchkey)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -3940,20 +3940,20 @@ pub struct IDebugApplicationNodeEvents_Vtbl {
     pub onAttach: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDebugApplicationNodeEvents_Impl: windows_core::IUnknownImpl {
-    fn onAddChild(&self, prddpchild: Option<&IDebugApplicationNode>) -> windows_core::Result<()>;
-    fn onRemoveChild(&self, prddpchild: Option<&IDebugApplicationNode>) -> windows_core::Result<()>;
+    fn onAddChild(&self, prddpchild: windows_core::Ref<'_, IDebugApplicationNode>) -> windows_core::Result<()>;
+    fn onRemoveChild(&self, prddpchild: windows_core::Ref<'_, IDebugApplicationNode>) -> windows_core::Result<()>;
     fn onDetach(&self) -> windows_core::Result<()>;
-    fn onAttach(&self, prddpparent: Option<&IDebugApplicationNode>) -> windows_core::Result<()>;
+    fn onAttach(&self, prddpparent: windows_core::Ref<'_, IDebugApplicationNode>) -> windows_core::Result<()>;
 }
 impl IDebugApplicationNodeEvents_Vtbl {
     pub const fn new<Identity: IDebugApplicationNodeEvents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn onAddChild<Identity: IDebugApplicationNodeEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prddpchild: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugApplicationNodeEvents_Impl::onAddChild(this, windows_core::from_raw_borrowed(&prddpchild)).into()
+            IDebugApplicationNodeEvents_Impl::onAddChild(this, core::mem::transmute_copy(&prddpchild)).into()
         }
         unsafe extern "system" fn onRemoveChild<Identity: IDebugApplicationNodeEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prddpchild: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugApplicationNodeEvents_Impl::onRemoveChild(this, windows_core::from_raw_borrowed(&prddpchild)).into()
+            IDebugApplicationNodeEvents_Impl::onRemoveChild(this, core::mem::transmute_copy(&prddpchild)).into()
         }
         unsafe extern "system" fn onDetach<Identity: IDebugApplicationNodeEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3961,7 +3961,7 @@ impl IDebugApplicationNodeEvents_Vtbl {
         }
         unsafe extern "system" fn onAttach<Identity: IDebugApplicationNodeEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prddpparent: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugApplicationNodeEvents_Impl::onAttach(this, windows_core::from_raw_borrowed(&prddpparent)).into()
+            IDebugApplicationNodeEvents_Impl::onAttach(this, core::mem::transmute_copy(&prddpparent)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -4020,7 +4020,7 @@ pub struct IDebugApplicationThread_Vtbl {
     pub SetStateString: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 pub trait IDebugApplicationThread_Impl: IRemoteDebugApplicationThread_Impl {
-    fn SynchronousCallIntoThread32(&self, pstcb: Option<&IDebugThreadCall32>, dwparam1: u32, dwparam2: u32, dwparam3: u32) -> windows_core::Result<()>;
+    fn SynchronousCallIntoThread32(&self, pstcb: windows_core::Ref<'_, IDebugThreadCall32>, dwparam1: u32, dwparam2: u32, dwparam3: u32) -> windows_core::Result<()>;
     fn QueryIsCurrentThread(&self) -> windows_core::Result<()>;
     fn QueryIsDebuggerThread(&self) -> windows_core::Result<()>;
     fn SetDescription(&self, pstrdescription: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -4030,7 +4030,7 @@ impl IDebugApplicationThread_Vtbl {
     pub const fn new<Identity: IDebugApplicationThread_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SynchronousCallIntoThread32<Identity: IDebugApplicationThread_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstcb: *mut core::ffi::c_void, dwparam1: u32, dwparam2: u32, dwparam3: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugApplicationThread_Impl::SynchronousCallIntoThread32(this, windows_core::from_raw_borrowed(&pstcb), core::mem::transmute_copy(&dwparam1), core::mem::transmute_copy(&dwparam2), core::mem::transmute_copy(&dwparam3)).into()
+            IDebugApplicationThread_Impl::SynchronousCallIntoThread32(this, core::mem::transmute_copy(&pstcb), core::mem::transmute_copy(&dwparam1), core::mem::transmute_copy(&dwparam2), core::mem::transmute_copy(&dwparam3)).into()
         }
         unsafe extern "system" fn QueryIsCurrentThread<Identity: IDebugApplicationThread_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -4096,7 +4096,7 @@ pub trait IDebugApplicationThread11032_Impl: windows_core::IUnknownImpl {
     fn GetActiveThreadRequestCount(&self) -> windows_core::Result<u32>;
     fn IsSuspendedForBreakPoint(&self) -> windows_core::Result<super::super::super::super::Foundation::BOOL>;
     fn IsThreadCallable(&self) -> windows_core::Result<super::super::super::super::Foundation::BOOL>;
-    fn AsynchronousCallIntoThread(&self, pptc: Option<&IDebugThreadCall32>, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> windows_core::Result<()>;
+    fn AsynchronousCallIntoThread(&self, pptc: windows_core::Ref<'_, IDebugThreadCall32>, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> windows_core::Result<()>;
 }
 impl IDebugApplicationThread11032_Vtbl {
     pub const fn new<Identity: IDebugApplicationThread11032_Impl, const OFFSET: isize>() -> Self {
@@ -4132,7 +4132,7 @@ impl IDebugApplicationThread11032_Vtbl {
         }
         unsafe extern "system" fn AsynchronousCallIntoThread<Identity: IDebugApplicationThread11032_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pptc: *mut core::ffi::c_void, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugApplicationThread11032_Impl::AsynchronousCallIntoThread(this, windows_core::from_raw_borrowed(&pptc), core::mem::transmute_copy(&dwparam1), core::mem::transmute_copy(&dwparam2), core::mem::transmute_copy(&dwparam3)).into()
+            IDebugApplicationThread11032_Impl::AsynchronousCallIntoThread(this, core::mem::transmute_copy(&pptc), core::mem::transmute_copy(&dwparam1), core::mem::transmute_copy(&dwparam2), core::mem::transmute_copy(&dwparam3)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -4181,7 +4181,7 @@ pub trait IDebugApplicationThread11064_Impl: windows_core::IUnknownImpl {
     fn GetActiveThreadRequestCount(&self) -> windows_core::Result<u32>;
     fn IsSuspendedForBreakPoint(&self) -> windows_core::Result<super::super::super::super::Foundation::BOOL>;
     fn IsThreadCallable(&self) -> windows_core::Result<super::super::super::super::Foundation::BOOL>;
-    fn AsynchronousCallIntoThread(&self, pptc: Option<&IDebugThreadCall64>, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> windows_core::Result<()>;
+    fn AsynchronousCallIntoThread(&self, pptc: windows_core::Ref<'_, IDebugThreadCall64>, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> windows_core::Result<()>;
 }
 impl IDebugApplicationThread11064_Vtbl {
     pub const fn new<Identity: IDebugApplicationThread11064_Impl, const OFFSET: isize>() -> Self {
@@ -4217,7 +4217,7 @@ impl IDebugApplicationThread11064_Vtbl {
         }
         unsafe extern "system" fn AsynchronousCallIntoThread<Identity: IDebugApplicationThread11064_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pptc: *mut core::ffi::c_void, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugApplicationThread11064_Impl::AsynchronousCallIntoThread(this, windows_core::from_raw_borrowed(&pptc), core::mem::transmute_copy(&dwparam1), core::mem::transmute_copy(&dwparam2), core::mem::transmute_copy(&dwparam3)).into()
+            IDebugApplicationThread11064_Impl::AsynchronousCallIntoThread(this, core::mem::transmute_copy(&pptc), core::mem::transmute_copy(&dwparam1), core::mem::transmute_copy(&dwparam2), core::mem::transmute_copy(&dwparam3)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -4254,13 +4254,13 @@ pub struct IDebugApplicationThread64_Vtbl {
     pub SynchronousCallIntoThread64: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u64, u64, u64) -> windows_core::HRESULT,
 }
 pub trait IDebugApplicationThread64_Impl: IDebugApplicationThread_Impl {
-    fn SynchronousCallIntoThread64(&self, pstcb: Option<&IDebugThreadCall64>, dwparam1: u64, dwparam2: u64, dwparam3: u64) -> windows_core::Result<()>;
+    fn SynchronousCallIntoThread64(&self, pstcb: windows_core::Ref<'_, IDebugThreadCall64>, dwparam1: u64, dwparam2: u64, dwparam3: u64) -> windows_core::Result<()>;
 }
 impl IDebugApplicationThread64_Vtbl {
     pub const fn new<Identity: IDebugApplicationThread64_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SynchronousCallIntoThread64<Identity: IDebugApplicationThread64_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstcb: *mut core::ffi::c_void, dwparam1: u64, dwparam2: u64, dwparam3: u64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugApplicationThread64_Impl::SynchronousCallIntoThread64(this, windows_core::from_raw_borrowed(&pstcb), core::mem::transmute_copy(&dwparam1), core::mem::transmute_copy(&dwparam2), core::mem::transmute_copy(&dwparam3)).into()
+            IDebugApplicationThread64_Impl::SynchronousCallIntoThread64(this, core::mem::transmute_copy(&pstcb), core::mem::transmute_copy(&dwparam1), core::mem::transmute_copy(&dwparam2), core::mem::transmute_copy(&dwparam3)).into()
         }
         Self { base__: IDebugApplicationThread_Vtbl::new::<Identity, OFFSET>(), SynchronousCallIntoThread64: SynchronousCallIntoThread64::<Identity, OFFSET> }
     }
@@ -4364,10 +4364,10 @@ pub struct IDebugAsyncOperation_Vtbl {
 }
 pub trait IDebugAsyncOperation_Impl: windows_core::IUnknownImpl {
     fn GetSyncDebugOperation(&self) -> windows_core::Result<IDebugSyncOperation>;
-    fn Start(&self, padocb: Option<&IDebugAsyncOperationCallBack>) -> windows_core::Result<()>;
+    fn Start(&self, padocb: windows_core::Ref<'_, IDebugAsyncOperationCallBack>) -> windows_core::Result<()>;
     fn Abort(&self) -> windows_core::Result<()>;
     fn QueryIsComplete(&self) -> windows_core::Result<()>;
-    fn GetResult(&self, phrresult: *mut windows_core::HRESULT, ppunkresult: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetResult(&self, phrresult: *mut windows_core::HRESULT, ppunkresult: windows_core::OutRef<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl IDebugAsyncOperation_Vtbl {
     pub const fn new<Identity: IDebugAsyncOperation_Impl, const OFFSET: isize>() -> Self {
@@ -4383,7 +4383,7 @@ impl IDebugAsyncOperation_Vtbl {
         }
         unsafe extern "system" fn Start<Identity: IDebugAsyncOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, padocb: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugAsyncOperation_Impl::Start(this, windows_core::from_raw_borrowed(&padocb)).into()
+            IDebugAsyncOperation_Impl::Start(this, core::mem::transmute_copy(&padocb)).into()
         }
         unsafe extern "system" fn Abort<Identity: IDebugAsyncOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -4705,34 +4705,34 @@ pub struct IDebugDocumentHelper32_Vtbl {
     pub BringDocumentContextToTop: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDebugDocumentHelper32_Impl: windows_core::IUnknownImpl {
-    fn Init(&self, pda: Option<&IDebugApplication32>, pszshortname: &windows_core::PCWSTR, pszlongname: &windows_core::PCWSTR, docattr: u32) -> windows_core::Result<()>;
-    fn Attach(&self, pddhparent: Option<&IDebugDocumentHelper32>) -> windows_core::Result<()>;
+    fn Init(&self, pda: windows_core::Ref<'_, IDebugApplication32>, pszshortname: &windows_core::PCWSTR, pszlongname: &windows_core::PCWSTR, docattr: u32) -> windows_core::Result<()>;
+    fn Attach(&self, pddhparent: windows_core::Ref<'_, IDebugDocumentHelper32>) -> windows_core::Result<()>;
     fn Detach(&self) -> windows_core::Result<()>;
     fn AddUnicodeText(&self, psztext: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn AddDBCSText(&self, psztext: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn SetDebugDocumentHost(&self, pddh: Option<&IDebugDocumentHost>) -> windows_core::Result<()>;
+    fn SetDebugDocumentHost(&self, pddh: windows_core::Ref<'_, IDebugDocumentHost>) -> windows_core::Result<()>;
     fn AddDeferredText(&self, cchars: u32, dwtextstartcookie: u32) -> windows_core::Result<()>;
-    fn DefineScriptBlock(&self, ulcharoffset: u32, cchars: u32, pas: Option<&IActiveScript>, fscriptlet: super::super::super::super::Foundation::BOOL) -> windows_core::Result<u32>;
+    fn DefineScriptBlock(&self, ulcharoffset: u32, cchars: u32, pas: windows_core::Ref<'_, IActiveScript>, fscriptlet: super::super::super::super::Foundation::BOOL) -> windows_core::Result<u32>;
     fn SetDefaultTextAttr(&self, statextattr: u16) -> windows_core::Result<()>;
     fn SetTextAttributes(&self, ulcharoffset: u32, cchars: u32, pstatextattr: *const u16) -> windows_core::Result<()>;
     fn SetLongName(&self, pszlongname: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SetShortName(&self, pszshortname: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SetDocumentAttr(&self, pszattributes: u32) -> windows_core::Result<()>;
     fn GetDebugApplicationNode(&self) -> windows_core::Result<IDebugApplicationNode>;
-    fn GetScriptBlockInfo(&self, dwsourcecontext: u32, ppasd: *mut Option<IActiveScript>, picharpos: *mut u32, pcchars: *mut u32) -> windows_core::Result<()>;
+    fn GetScriptBlockInfo(&self, dwsourcecontext: u32, ppasd: windows_core::OutRef<'_, IActiveScript>, picharpos: *mut u32, pcchars: *mut u32) -> windows_core::Result<()>;
     fn CreateDebugDocumentContext(&self, icharpos: u32, cchars: u32) -> windows_core::Result<IDebugDocumentContext>;
     fn BringDocumentToTop(&self) -> windows_core::Result<()>;
-    fn BringDocumentContextToTop(&self, pddc: Option<&IDebugDocumentContext>) -> windows_core::Result<()>;
+    fn BringDocumentContextToTop(&self, pddc: windows_core::Ref<'_, IDebugDocumentContext>) -> windows_core::Result<()>;
 }
 impl IDebugDocumentHelper32_Vtbl {
     pub const fn new<Identity: IDebugDocumentHelper32_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Init<Identity: IDebugDocumentHelper32_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pda: *mut core::ffi::c_void, pszshortname: windows_core::PCWSTR, pszlongname: windows_core::PCWSTR, docattr: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugDocumentHelper32_Impl::Init(this, windows_core::from_raw_borrowed(&pda), core::mem::transmute(&pszshortname), core::mem::transmute(&pszlongname), core::mem::transmute_copy(&docattr)).into()
+            IDebugDocumentHelper32_Impl::Init(this, core::mem::transmute_copy(&pda), core::mem::transmute(&pszshortname), core::mem::transmute(&pszlongname), core::mem::transmute_copy(&docattr)).into()
         }
         unsafe extern "system" fn Attach<Identity: IDebugDocumentHelper32_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pddhparent: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugDocumentHelper32_Impl::Attach(this, windows_core::from_raw_borrowed(&pddhparent)).into()
+            IDebugDocumentHelper32_Impl::Attach(this, core::mem::transmute_copy(&pddhparent)).into()
         }
         unsafe extern "system" fn Detach<Identity: IDebugDocumentHelper32_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -4748,7 +4748,7 @@ impl IDebugDocumentHelper32_Vtbl {
         }
         unsafe extern "system" fn SetDebugDocumentHost<Identity: IDebugDocumentHelper32_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pddh: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugDocumentHelper32_Impl::SetDebugDocumentHost(this, windows_core::from_raw_borrowed(&pddh)).into()
+            IDebugDocumentHelper32_Impl::SetDebugDocumentHost(this, core::mem::transmute_copy(&pddh)).into()
         }
         unsafe extern "system" fn AddDeferredText<Identity: IDebugDocumentHelper32_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cchars: u32, dwtextstartcookie: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -4756,7 +4756,7 @@ impl IDebugDocumentHelper32_Vtbl {
         }
         unsafe extern "system" fn DefineScriptBlock<Identity: IDebugDocumentHelper32_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulcharoffset: u32, cchars: u32, pas: *mut core::ffi::c_void, fscriptlet: super::super::super::super::Foundation::BOOL, pdwsourcecontext: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDebugDocumentHelper32_Impl::DefineScriptBlock(this, core::mem::transmute_copy(&ulcharoffset), core::mem::transmute_copy(&cchars), windows_core::from_raw_borrowed(&pas), core::mem::transmute_copy(&fscriptlet)) {
+            match IDebugDocumentHelper32_Impl::DefineScriptBlock(this, core::mem::transmute_copy(&ulcharoffset), core::mem::transmute_copy(&cchars), core::mem::transmute_copy(&pas), core::mem::transmute_copy(&fscriptlet)) {
                 Ok(ok__) => {
                     pdwsourcecontext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4814,7 +4814,7 @@ impl IDebugDocumentHelper32_Vtbl {
         }
         unsafe extern "system" fn BringDocumentContextToTop<Identity: IDebugDocumentHelper32_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pddc: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugDocumentHelper32_Impl::BringDocumentContextToTop(this, windows_core::from_raw_borrowed(&pddc)).into()
+            IDebugDocumentHelper32_Impl::BringDocumentContextToTop(this, core::mem::transmute_copy(&pddc)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -4956,34 +4956,34 @@ pub struct IDebugDocumentHelper64_Vtbl {
     pub BringDocumentContextToTop: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDebugDocumentHelper64_Impl: windows_core::IUnknownImpl {
-    fn Init(&self, pda: Option<&IDebugApplication64>, pszshortname: &windows_core::PCWSTR, pszlongname: &windows_core::PCWSTR, docattr: u32) -> windows_core::Result<()>;
-    fn Attach(&self, pddhparent: Option<&IDebugDocumentHelper64>) -> windows_core::Result<()>;
+    fn Init(&self, pda: windows_core::Ref<'_, IDebugApplication64>, pszshortname: &windows_core::PCWSTR, pszlongname: &windows_core::PCWSTR, docattr: u32) -> windows_core::Result<()>;
+    fn Attach(&self, pddhparent: windows_core::Ref<'_, IDebugDocumentHelper64>) -> windows_core::Result<()>;
     fn Detach(&self) -> windows_core::Result<()>;
     fn AddUnicodeText(&self, psztext: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn AddDBCSText(&self, psztext: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn SetDebugDocumentHost(&self, pddh: Option<&IDebugDocumentHost>) -> windows_core::Result<()>;
+    fn SetDebugDocumentHost(&self, pddh: windows_core::Ref<'_, IDebugDocumentHost>) -> windows_core::Result<()>;
     fn AddDeferredText(&self, cchars: u32, dwtextstartcookie: u32) -> windows_core::Result<()>;
-    fn DefineScriptBlock(&self, ulcharoffset: u32, cchars: u32, pas: Option<&IActiveScript>, fscriptlet: super::super::super::super::Foundation::BOOL) -> windows_core::Result<u64>;
+    fn DefineScriptBlock(&self, ulcharoffset: u32, cchars: u32, pas: windows_core::Ref<'_, IActiveScript>, fscriptlet: super::super::super::super::Foundation::BOOL) -> windows_core::Result<u64>;
     fn SetDefaultTextAttr(&self, statextattr: u16) -> windows_core::Result<()>;
     fn SetTextAttributes(&self, ulcharoffset: u32, cchars: u32, pstatextattr: *const u16) -> windows_core::Result<()>;
     fn SetLongName(&self, pszlongname: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SetShortName(&self, pszshortname: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SetDocumentAttr(&self, pszattributes: u32) -> windows_core::Result<()>;
     fn GetDebugApplicationNode(&self) -> windows_core::Result<IDebugApplicationNode>;
-    fn GetScriptBlockInfo(&self, dwsourcecontext: u64, ppasd: *mut Option<IActiveScript>, picharpos: *mut u32, pcchars: *mut u32) -> windows_core::Result<()>;
+    fn GetScriptBlockInfo(&self, dwsourcecontext: u64, ppasd: windows_core::OutRef<'_, IActiveScript>, picharpos: *mut u32, pcchars: *mut u32) -> windows_core::Result<()>;
     fn CreateDebugDocumentContext(&self, icharpos: u32, cchars: u32) -> windows_core::Result<IDebugDocumentContext>;
     fn BringDocumentToTop(&self) -> windows_core::Result<()>;
-    fn BringDocumentContextToTop(&self, pddc: Option<&IDebugDocumentContext>) -> windows_core::Result<()>;
+    fn BringDocumentContextToTop(&self, pddc: windows_core::Ref<'_, IDebugDocumentContext>) -> windows_core::Result<()>;
 }
 impl IDebugDocumentHelper64_Vtbl {
     pub const fn new<Identity: IDebugDocumentHelper64_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Init<Identity: IDebugDocumentHelper64_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pda: *mut core::ffi::c_void, pszshortname: windows_core::PCWSTR, pszlongname: windows_core::PCWSTR, docattr: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugDocumentHelper64_Impl::Init(this, windows_core::from_raw_borrowed(&pda), core::mem::transmute(&pszshortname), core::mem::transmute(&pszlongname), core::mem::transmute_copy(&docattr)).into()
+            IDebugDocumentHelper64_Impl::Init(this, core::mem::transmute_copy(&pda), core::mem::transmute(&pszshortname), core::mem::transmute(&pszlongname), core::mem::transmute_copy(&docattr)).into()
         }
         unsafe extern "system" fn Attach<Identity: IDebugDocumentHelper64_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pddhparent: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugDocumentHelper64_Impl::Attach(this, windows_core::from_raw_borrowed(&pddhparent)).into()
+            IDebugDocumentHelper64_Impl::Attach(this, core::mem::transmute_copy(&pddhparent)).into()
         }
         unsafe extern "system" fn Detach<Identity: IDebugDocumentHelper64_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -4999,7 +4999,7 @@ impl IDebugDocumentHelper64_Vtbl {
         }
         unsafe extern "system" fn SetDebugDocumentHost<Identity: IDebugDocumentHelper64_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pddh: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugDocumentHelper64_Impl::SetDebugDocumentHost(this, windows_core::from_raw_borrowed(&pddh)).into()
+            IDebugDocumentHelper64_Impl::SetDebugDocumentHost(this, core::mem::transmute_copy(&pddh)).into()
         }
         unsafe extern "system" fn AddDeferredText<Identity: IDebugDocumentHelper64_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cchars: u32, dwtextstartcookie: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -5007,7 +5007,7 @@ impl IDebugDocumentHelper64_Vtbl {
         }
         unsafe extern "system" fn DefineScriptBlock<Identity: IDebugDocumentHelper64_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulcharoffset: u32, cchars: u32, pas: *mut core::ffi::c_void, fscriptlet: super::super::super::super::Foundation::BOOL, pdwsourcecontext: *mut u64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDebugDocumentHelper64_Impl::DefineScriptBlock(this, core::mem::transmute_copy(&ulcharoffset), core::mem::transmute_copy(&cchars), windows_core::from_raw_borrowed(&pas), core::mem::transmute_copy(&fscriptlet)) {
+            match IDebugDocumentHelper64_Impl::DefineScriptBlock(this, core::mem::transmute_copy(&ulcharoffset), core::mem::transmute_copy(&cchars), core::mem::transmute_copy(&pas), core::mem::transmute_copy(&fscriptlet)) {
                 Ok(ok__) => {
                     pdwsourcecontext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5065,7 +5065,7 @@ impl IDebugDocumentHelper64_Vtbl {
         }
         unsafe extern "system" fn BringDocumentContextToTop<Identity: IDebugDocumentHelper64_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pddc: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugDocumentHelper64_Impl::BringDocumentContextToTop(this, windows_core::from_raw_borrowed(&pddc)).into()
+            IDebugDocumentHelper64_Impl::BringDocumentContextToTop(this, core::mem::transmute_copy(&pddc)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -5343,7 +5343,7 @@ pub trait IDebugDocumentText_Impl: IDebugDocument_Impl {
     fn GetPositionOfLine(&self, clinenumber: u32) -> windows_core::Result<u32>;
     fn GetLineOfPosition(&self, ccharacterposition: u32, pclinenumber: *mut u32, pccharacteroffsetinline: *mut u32) -> windows_core::Result<()>;
     fn GetText(&self, ccharacterposition: u32, pchartext: &windows_core::PWSTR, pstatextattr: *mut u16, pcnumchars: *mut u32, cmaxchars: u32) -> windows_core::Result<()>;
-    fn GetPositionOfContext(&self, psc: Option<&IDebugDocumentContext>, pccharacterposition: *mut u32, cnumchars: *mut u32) -> windows_core::Result<()>;
+    fn GetPositionOfContext(&self, psc: windows_core::Ref<'_, IDebugDocumentContext>, pccharacterposition: *mut u32, cnumchars: *mut u32) -> windows_core::Result<()>;
     fn GetContextOfPosition(&self, ccharacterposition: u32, cnumchars: u32) -> windows_core::Result<IDebugDocumentContext>;
 }
 impl IDebugDocumentText_Vtbl {
@@ -5382,7 +5382,7 @@ impl IDebugDocumentText_Vtbl {
         }
         unsafe extern "system" fn GetPositionOfContext<Identity: IDebugDocumentText_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psc: *mut core::ffi::c_void, pccharacterposition: *mut u32, cnumchars: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugDocumentText_Impl::GetPositionOfContext(this, windows_core::from_raw_borrowed(&psc), core::mem::transmute_copy(&pccharacterposition), core::mem::transmute_copy(&cnumchars)).into()
+            IDebugDocumentText_Impl::GetPositionOfContext(this, core::mem::transmute_copy(&psc), core::mem::transmute_copy(&pccharacterposition), core::mem::transmute_copy(&cnumchars)).into()
         }
         unsafe extern "system" fn GetContextOfPosition<Identity: IDebugDocumentText_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ccharacterposition: u32, cnumchars: u32, ppsc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -5638,17 +5638,17 @@ pub struct IDebugExpression_Vtbl {
     pub GetResultAsDebugProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDebugExpression_Impl: windows_core::IUnknownImpl {
-    fn Start(&self, pdecb: Option<&IDebugExpressionCallBack>) -> windows_core::Result<()>;
+    fn Start(&self, pdecb: windows_core::Ref<'_, IDebugExpressionCallBack>) -> windows_core::Result<()>;
     fn Abort(&self) -> windows_core::Result<()>;
     fn QueryIsComplete(&self) -> windows_core::Result<()>;
     fn GetResultAsString(&self, phrresult: *mut windows_core::HRESULT, pbstrresult: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetResultAsDebugProperty(&self, phrresult: *mut windows_core::HRESULT, ppdp: *mut Option<super::IDebugProperty>) -> windows_core::Result<()>;
+    fn GetResultAsDebugProperty(&self, phrresult: *mut windows_core::HRESULT, ppdp: windows_core::OutRef<'_, super::IDebugProperty>) -> windows_core::Result<()>;
 }
 impl IDebugExpression_Vtbl {
     pub const fn new<Identity: IDebugExpression_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Start<Identity: IDebugExpression_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdecb: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugExpression_Impl::Start(this, windows_core::from_raw_borrowed(&pdecb)).into()
+            IDebugExpression_Impl::Start(this, core::mem::transmute_copy(&pdecb)).into()
         }
         unsafe extern "system" fn Abort<Identity: IDebugExpression_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -5899,16 +5899,16 @@ pub struct IDebugHelper_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDebugHelper_Impl: windows_core::IUnknownImpl {
-    fn CreatePropertyBrowser(&self, pvar: *const super::super::super::Variant::VARIANT, bstrname: &windows_core::PCWSTR, pdat: Option<&IDebugApplicationThread>) -> windows_core::Result<super::IDebugProperty>;
-    fn CreatePropertyBrowserEx(&self, pvar: *const super::super::super::Variant::VARIANT, bstrname: &windows_core::PCWSTR, pdat: Option<&IDebugApplicationThread>, pdf: Option<&IDebugFormatter>) -> windows_core::Result<super::IDebugProperty>;
-    fn CreateSimpleConnectionPoint(&self, pdisp: Option<&super::super::super::Com::IDispatch>) -> windows_core::Result<ISimpleConnectionPoint>;
+    fn CreatePropertyBrowser(&self, pvar: *const super::super::super::Variant::VARIANT, bstrname: &windows_core::PCWSTR, pdat: windows_core::Ref<'_, IDebugApplicationThread>) -> windows_core::Result<super::IDebugProperty>;
+    fn CreatePropertyBrowserEx(&self, pvar: *const super::super::super::Variant::VARIANT, bstrname: &windows_core::PCWSTR, pdat: windows_core::Ref<'_, IDebugApplicationThread>, pdf: windows_core::Ref<'_, IDebugFormatter>) -> windows_core::Result<super::IDebugProperty>;
+    fn CreateSimpleConnectionPoint(&self, pdisp: windows_core::Ref<'_, super::super::super::Com::IDispatch>) -> windows_core::Result<ISimpleConnectionPoint>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDebugHelper_Vtbl {
     pub const fn new<Identity: IDebugHelper_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreatePropertyBrowser<Identity: IDebugHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvar: *const super::super::super::Variant::VARIANT, bstrname: windows_core::PCWSTR, pdat: *mut core::ffi::c_void, ppdob: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDebugHelper_Impl::CreatePropertyBrowser(this, core::mem::transmute_copy(&pvar), core::mem::transmute(&bstrname), windows_core::from_raw_borrowed(&pdat)) {
+            match IDebugHelper_Impl::CreatePropertyBrowser(this, core::mem::transmute_copy(&pvar), core::mem::transmute(&bstrname), core::mem::transmute_copy(&pdat)) {
                 Ok(ok__) => {
                     ppdob.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5918,7 +5918,7 @@ impl IDebugHelper_Vtbl {
         }
         unsafe extern "system" fn CreatePropertyBrowserEx<Identity: IDebugHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvar: *const super::super::super::Variant::VARIANT, bstrname: windows_core::PCWSTR, pdat: *mut core::ffi::c_void, pdf: *mut core::ffi::c_void, ppdob: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDebugHelper_Impl::CreatePropertyBrowserEx(this, core::mem::transmute_copy(&pvar), core::mem::transmute(&bstrname), windows_core::from_raw_borrowed(&pdat), windows_core::from_raw_borrowed(&pdf)) {
+            match IDebugHelper_Impl::CreatePropertyBrowserEx(this, core::mem::transmute_copy(&pvar), core::mem::transmute(&bstrname), core::mem::transmute_copy(&pdat), core::mem::transmute_copy(&pdf)) {
                 Ok(ok__) => {
                     ppdob.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5928,7 +5928,7 @@ impl IDebugHelper_Vtbl {
         }
         unsafe extern "system" fn CreateSimpleConnectionPoint<Identity: IDebugHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdisp: *mut core::ffi::c_void, ppscp: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDebugHelper_Impl::CreateSimpleConnectionPoint(this, windows_core::from_raw_borrowed(&pdisp)) {
+            match IDebugHelper_Impl::CreateSimpleConnectionPoint(this, core::mem::transmute_copy(&pdisp)) {
                 Ok(ok__) => {
                     ppscp.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5965,13 +5965,13 @@ pub struct IDebugSessionProvider_Vtbl {
     pub StartDebugSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDebugSessionProvider_Impl: windows_core::IUnknownImpl {
-    fn StartDebugSession(&self, pda: Option<&IRemoteDebugApplication>) -> windows_core::Result<()>;
+    fn StartDebugSession(&self, pda: windows_core::Ref<'_, IRemoteDebugApplication>) -> windows_core::Result<()>;
 }
 impl IDebugSessionProvider_Vtbl {
     pub const fn new<Identity: IDebugSessionProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn StartDebugSession<Identity: IDebugSessionProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pda: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugSessionProvider_Impl::StartDebugSession(this, windows_core::from_raw_borrowed(&pda)).into()
+            IDebugSessionProvider_Impl::StartDebugSession(this, core::mem::transmute_copy(&pda)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), StartDebugSession: StartDebugSession::<Identity, OFFSET> }
     }
@@ -6411,7 +6411,7 @@ pub struct IEnumDebugApplicationNodes_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumDebugApplicationNodes_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, pprddp: *mut Option<IDebugApplicationNode>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, pprddp: windows_core::OutRef<'_, IDebugApplicationNode>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumDebugApplicationNodes>;
@@ -6479,7 +6479,7 @@ pub struct IEnumDebugCodeContexts_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumDebugCodeContexts_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, pscc: *mut Option<IDebugCodeContext>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, pscc: windows_core::OutRef<'_, IDebugCodeContext>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumDebugCodeContexts>;
@@ -6547,7 +6547,7 @@ pub struct IEnumDebugExpressionContexts_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumDebugExpressionContexts_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppdec: *mut Option<IDebugExpressionContext>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppdec: windows_core::OutRef<'_, IDebugExpressionContext>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumDebugExpressionContexts>;
@@ -6754,7 +6754,7 @@ pub struct IEnumRemoteDebugApplicationThreads_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumRemoteDebugApplicationThreads_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, pprdat: *mut Option<IRemoteDebugApplicationThread>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, pprdat: windows_core::OutRef<'_, IRemoteDebugApplicationThread>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumRemoteDebugApplicationThreads>;
@@ -6822,7 +6822,7 @@ pub struct IEnumRemoteDebugApplications_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumRemoteDebugApplications_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppda: *mut Option<IRemoteDebugApplication>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppda: windows_core::OutRef<'_, IRemoteDebugApplication>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumRemoteDebugApplications>;
@@ -6881,13 +6881,13 @@ pub struct IJsDebug_Vtbl {
     pub OpenVirtualProcess: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IJsDebug_Impl: windows_core::IUnknownImpl {
-    fn OpenVirtualProcess(&self, processid: u32, runtimejsbaseaddress: u64, pdatatarget: Option<&IJsDebugDataTarget>) -> windows_core::Result<IJsDebugProcess>;
+    fn OpenVirtualProcess(&self, processid: u32, runtimejsbaseaddress: u64, pdatatarget: windows_core::Ref<'_, IJsDebugDataTarget>) -> windows_core::Result<IJsDebugProcess>;
 }
 impl IJsDebug_Vtbl {
     pub const fn new<Identity: IJsDebug_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OpenVirtualProcess<Identity: IJsDebug_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, processid: u32, runtimejsbaseaddress: u64, pdatatarget: *mut core::ffi::c_void, ppprocess: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IJsDebug_Impl::OpenVirtualProcess(this, core::mem::transmute_copy(&processid), core::mem::transmute_copy(&runtimejsbaseaddress), windows_core::from_raw_borrowed(&pdatatarget)) {
+            match IJsDebug_Impl::OpenVirtualProcess(this, core::mem::transmute_copy(&processid), core::mem::transmute_copy(&runtimejsbaseaddress), core::mem::transmute_copy(&pdatatarget)) {
                 Ok(ok__) => {
                     ppprocess.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7175,7 +7175,7 @@ pub trait IJsDebugFrame_Impl: windows_core::IUnknownImpl {
     fn GetDocumentPositionWithName(&self, pdocumentname: *mut windows_core::BSTR, pline: *mut u32, pcolumn: *mut u32) -> windows_core::Result<()>;
     fn GetDebugProperty(&self) -> windows_core::Result<IJsDebugProperty>;
     fn GetReturnAddress(&self) -> windows_core::Result<u64>;
-    fn Evaluate(&self, pexpressiontext: &windows_core::PCWSTR, ppdebugproperty: *mut Option<IJsDebugProperty>, perror: *mut windows_core::BSTR) -> windows_core::Result<()>;
+    fn Evaluate(&self, pexpressiontext: &windows_core::PCWSTR, ppdebugproperty: windows_core::OutRef<'_, IJsDebugProperty>, perror: *mut windows_core::BSTR) -> windows_core::Result<()>;
 }
 impl IJsDebugFrame_Vtbl {
     pub const fn new<Identity: IJsDebugFrame_Impl, const OFFSET: isize>() -> Self {
@@ -7424,7 +7424,7 @@ pub struct IJsEnumDebugProperty_Vtbl {
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IJsEnumDebugProperty_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, count: u32, ppdebugproperty: *mut Option<IJsDebugProperty>, pactualcount: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, count: u32, ppdebugproperty: windows_core::OutRef<'_, IJsDebugProperty>, pactualcount: *mut u32) -> windows_core::Result<()>;
     fn GetCount(&self) -> windows_core::Result<u32>;
 }
 impl IJsEnumDebugProperty_Vtbl {
@@ -7476,7 +7476,7 @@ pub struct IMachineDebugManager_Vtbl {
     pub EnumApplications: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMachineDebugManager_Impl: windows_core::IUnknownImpl {
-    fn AddApplication(&self, pda: Option<&IRemoteDebugApplication>) -> windows_core::Result<u32>;
+    fn AddApplication(&self, pda: windows_core::Ref<'_, IRemoteDebugApplication>) -> windows_core::Result<u32>;
     fn RemoveApplication(&self, dwappcookie: u32) -> windows_core::Result<()>;
     fn EnumApplications(&self) -> windows_core::Result<IEnumRemoteDebugApplications>;
 }
@@ -7484,7 +7484,7 @@ impl IMachineDebugManager_Vtbl {
     pub const fn new<Identity: IMachineDebugManager_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddApplication<Identity: IMachineDebugManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pda: *mut core::ffi::c_void, pdwappcookie: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IMachineDebugManager_Impl::AddApplication(this, windows_core::from_raw_borrowed(&pda)) {
+            match IMachineDebugManager_Impl::AddApplication(this, core::mem::transmute_copy(&pda)) {
                 Ok(ok__) => {
                     pdwappcookie.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7544,7 +7544,7 @@ pub struct IMachineDebugManagerCookie_Vtbl {
     pub EnumApplications: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMachineDebugManagerCookie_Impl: windows_core::IUnknownImpl {
-    fn AddApplication(&self, pda: Option<&IRemoteDebugApplication>, dwdebugappcookie: u32) -> windows_core::Result<u32>;
+    fn AddApplication(&self, pda: windows_core::Ref<'_, IRemoteDebugApplication>, dwdebugappcookie: u32) -> windows_core::Result<u32>;
     fn RemoveApplication(&self, dwdebugappcookie: u32, dwappcookie: u32) -> windows_core::Result<()>;
     fn EnumApplications(&self) -> windows_core::Result<IEnumRemoteDebugApplications>;
 }
@@ -7552,7 +7552,7 @@ impl IMachineDebugManagerCookie_Vtbl {
     pub const fn new<Identity: IMachineDebugManagerCookie_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddApplication<Identity: IMachineDebugManagerCookie_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pda: *mut core::ffi::c_void, dwdebugappcookie: u32, pdwappcookie: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IMachineDebugManagerCookie_Impl::AddApplication(this, windows_core::from_raw_borrowed(&pda), core::mem::transmute_copy(&dwdebugappcookie)) {
+            match IMachineDebugManagerCookie_Impl::AddApplication(this, core::mem::transmute_copy(&pda), core::mem::transmute_copy(&dwdebugappcookie)) {
                 Ok(ok__) => {
                     pdwappcookie.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7609,18 +7609,18 @@ pub struct IMachineDebugManagerEvents_Vtbl {
     pub onRemoveApplication: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait IMachineDebugManagerEvents_Impl: windows_core::IUnknownImpl {
-    fn onAddApplication(&self, pda: Option<&IRemoteDebugApplication>, dwappcookie: u32) -> windows_core::Result<()>;
-    fn onRemoveApplication(&self, pda: Option<&IRemoteDebugApplication>, dwappcookie: u32) -> windows_core::Result<()>;
+    fn onAddApplication(&self, pda: windows_core::Ref<'_, IRemoteDebugApplication>, dwappcookie: u32) -> windows_core::Result<()>;
+    fn onRemoveApplication(&self, pda: windows_core::Ref<'_, IRemoteDebugApplication>, dwappcookie: u32) -> windows_core::Result<()>;
 }
 impl IMachineDebugManagerEvents_Vtbl {
     pub const fn new<Identity: IMachineDebugManagerEvents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn onAddApplication<Identity: IMachineDebugManagerEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pda: *mut core::ffi::c_void, dwappcookie: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IMachineDebugManagerEvents_Impl::onAddApplication(this, windows_core::from_raw_borrowed(&pda), core::mem::transmute_copy(&dwappcookie)).into()
+            IMachineDebugManagerEvents_Impl::onAddApplication(this, core::mem::transmute_copy(&pda), core::mem::transmute_copy(&dwappcookie)).into()
         }
         unsafe extern "system" fn onRemoveApplication<Identity: IMachineDebugManagerEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pda: *mut core::ffi::c_void, dwappcookie: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IMachineDebugManagerEvents_Impl::onRemoveApplication(this, windows_core::from_raw_borrowed(&pda), core::mem::transmute_copy(&dwappcookie)).into()
+            IMachineDebugManagerEvents_Impl::onRemoveApplication(this, core::mem::transmute_copy(&pda), core::mem::transmute_copy(&dwappcookie)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -7674,9 +7674,9 @@ pub struct IProcessDebugManager32_Vtbl {
 pub trait IProcessDebugManager32_Impl: windows_core::IUnknownImpl {
     fn CreateApplication(&self) -> windows_core::Result<IDebugApplication32>;
     fn GetDefaultApplication(&self) -> windows_core::Result<IDebugApplication32>;
-    fn AddApplication(&self, pda: Option<&IDebugApplication32>) -> windows_core::Result<u32>;
+    fn AddApplication(&self, pda: windows_core::Ref<'_, IDebugApplication32>) -> windows_core::Result<u32>;
     fn RemoveApplication(&self, dwappcookie: u32) -> windows_core::Result<()>;
-    fn CreateDebugDocumentHelper(&self, punkouter: Option<&windows_core::IUnknown>) -> windows_core::Result<IDebugDocumentHelper32>;
+    fn CreateDebugDocumentHelper(&self, punkouter: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<IDebugDocumentHelper32>;
 }
 impl IProcessDebugManager32_Vtbl {
     pub const fn new<Identity: IProcessDebugManager32_Impl, const OFFSET: isize>() -> Self {
@@ -7702,7 +7702,7 @@ impl IProcessDebugManager32_Vtbl {
         }
         unsafe extern "system" fn AddApplication<Identity: IProcessDebugManager32_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pda: *mut core::ffi::c_void, pdwappcookie: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IProcessDebugManager32_Impl::AddApplication(this, windows_core::from_raw_borrowed(&pda)) {
+            match IProcessDebugManager32_Impl::AddApplication(this, core::mem::transmute_copy(&pda)) {
                 Ok(ok__) => {
                     pdwappcookie.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7716,7 +7716,7 @@ impl IProcessDebugManager32_Vtbl {
         }
         unsafe extern "system" fn CreateDebugDocumentHelper<Identity: IProcessDebugManager32_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, pddh: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IProcessDebugManager32_Impl::CreateDebugDocumentHelper(this, windows_core::from_raw_borrowed(&punkouter)) {
+            match IProcessDebugManager32_Impl::CreateDebugDocumentHelper(this, core::mem::transmute_copy(&punkouter)) {
                 Ok(ok__) => {
                     pddh.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7779,9 +7779,9 @@ pub struct IProcessDebugManager64_Vtbl {
 pub trait IProcessDebugManager64_Impl: windows_core::IUnknownImpl {
     fn CreateApplication(&self) -> windows_core::Result<IDebugApplication64>;
     fn GetDefaultApplication(&self) -> windows_core::Result<IDebugApplication64>;
-    fn AddApplication(&self, pda: Option<&IDebugApplication64>) -> windows_core::Result<u32>;
+    fn AddApplication(&self, pda: windows_core::Ref<'_, IDebugApplication64>) -> windows_core::Result<u32>;
     fn RemoveApplication(&self, dwappcookie: u32) -> windows_core::Result<()>;
-    fn CreateDebugDocumentHelper(&self, punkouter: Option<&windows_core::IUnknown>) -> windows_core::Result<IDebugDocumentHelper64>;
+    fn CreateDebugDocumentHelper(&self, punkouter: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<IDebugDocumentHelper64>;
 }
 impl IProcessDebugManager64_Vtbl {
     pub const fn new<Identity: IProcessDebugManager64_Impl, const OFFSET: isize>() -> Self {
@@ -7807,7 +7807,7 @@ impl IProcessDebugManager64_Vtbl {
         }
         unsafe extern "system" fn AddApplication<Identity: IProcessDebugManager64_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pda: *mut core::ffi::c_void, pdwappcookie: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IProcessDebugManager64_Impl::AddApplication(this, windows_core::from_raw_borrowed(&pda)) {
+            match IProcessDebugManager64_Impl::AddApplication(this, core::mem::transmute_copy(&pda)) {
                 Ok(ok__) => {
                     pdwappcookie.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7821,7 +7821,7 @@ impl IProcessDebugManager64_Vtbl {
         }
         unsafe extern "system" fn CreateDebugDocumentHelper<Identity: IProcessDebugManager64_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, pddh: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IProcessDebugManager64_Impl::CreateDebugDocumentHelper(this, windows_core::from_raw_borrowed(&punkouter)) {
+            match IProcessDebugManager64_Impl::CreateDebugDocumentHelper(this, core::mem::transmute_copy(&punkouter)) {
                 Ok(ok__) => {
                     pddh.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7946,12 +7946,12 @@ pub struct IRemoteDebugApplication_Vtbl {
     pub EnumGlobalExpressionContexts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRemoteDebugApplication_Impl: windows_core::IUnknownImpl {
-    fn ResumeFromBreakPoint(&self, prptfocus: Option<&IRemoteDebugApplicationThread>, bra: BREAKRESUMEACTION, era: ERRORRESUMEACTION) -> windows_core::Result<()>;
+    fn ResumeFromBreakPoint(&self, prptfocus: windows_core::Ref<'_, IRemoteDebugApplicationThread>, bra: BREAKRESUMEACTION, era: ERRORRESUMEACTION) -> windows_core::Result<()>;
     fn CauseBreak(&self) -> windows_core::Result<()>;
-    fn ConnectDebugger(&self, pad: Option<&IApplicationDebugger>) -> windows_core::Result<()>;
+    fn ConnectDebugger(&self, pad: windows_core::Ref<'_, IApplicationDebugger>) -> windows_core::Result<()>;
     fn DisconnectDebugger(&self) -> windows_core::Result<()>;
     fn GetDebugger(&self) -> windows_core::Result<IApplicationDebugger>;
-    fn CreateInstanceAtApplication(&self, rclsid: *const windows_core::GUID, punkouter: Option<&windows_core::IUnknown>, dwclscontext: u32, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>;
+    fn CreateInstanceAtApplication(&self, rclsid: *const windows_core::GUID, punkouter: windows_core::Ref<'_, windows_core::IUnknown>, dwclscontext: u32, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>;
     fn QueryAlive(&self) -> windows_core::Result<()>;
     fn EnumThreads(&self) -> windows_core::Result<IEnumRemoteDebugApplicationThreads>;
     fn GetName(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -7962,7 +7962,7 @@ impl IRemoteDebugApplication_Vtbl {
     pub const fn new<Identity: IRemoteDebugApplication_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ResumeFromBreakPoint<Identity: IRemoteDebugApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prptfocus: *mut core::ffi::c_void, bra: BREAKRESUMEACTION, era: ERRORRESUMEACTION) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IRemoteDebugApplication_Impl::ResumeFromBreakPoint(this, windows_core::from_raw_borrowed(&prptfocus), core::mem::transmute_copy(&bra), core::mem::transmute_copy(&era)).into()
+            IRemoteDebugApplication_Impl::ResumeFromBreakPoint(this, core::mem::transmute_copy(&prptfocus), core::mem::transmute_copy(&bra), core::mem::transmute_copy(&era)).into()
         }
         unsafe extern "system" fn CauseBreak<Identity: IRemoteDebugApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -7970,7 +7970,7 @@ impl IRemoteDebugApplication_Vtbl {
         }
         unsafe extern "system" fn ConnectDebugger<Identity: IRemoteDebugApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pad: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IRemoteDebugApplication_Impl::ConnectDebugger(this, windows_core::from_raw_borrowed(&pad)).into()
+            IRemoteDebugApplication_Impl::ConnectDebugger(this, core::mem::transmute_copy(&pad)).into()
         }
         unsafe extern "system" fn DisconnectDebugger<Identity: IRemoteDebugApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -7988,7 +7988,7 @@ impl IRemoteDebugApplication_Vtbl {
         }
         unsafe extern "system" fn CreateInstanceAtApplication<Identity: IRemoteDebugApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rclsid: *const windows_core::GUID, punkouter: *mut core::ffi::c_void, dwclscontext: u32, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IRemoteDebugApplication_Impl::CreateInstanceAtApplication(this, core::mem::transmute_copy(&rclsid), windows_core::from_raw_borrowed(&punkouter), core::mem::transmute_copy(&dwclscontext), core::mem::transmute_copy(&riid)) {
+            match IRemoteDebugApplication_Impl::CreateInstanceAtApplication(this, core::mem::transmute_copy(&rclsid), core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&dwclscontext), core::mem::transmute_copy(&riid)) {
                 Ok(ok__) => {
                     ppvobject.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8198,22 +8198,22 @@ pub struct IRemoteDebugApplicationEvents_Vtbl {
     pub OnBreakFlagChange: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRemoteDebugApplicationEvents_Impl: windows_core::IUnknownImpl {
-    fn OnConnectDebugger(&self, pad: Option<&IApplicationDebugger>) -> windows_core::Result<()>;
+    fn OnConnectDebugger(&self, pad: windows_core::Ref<'_, IApplicationDebugger>) -> windows_core::Result<()>;
     fn OnDisconnectDebugger(&self) -> windows_core::Result<()>;
     fn OnSetName(&self, pstrname: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn OnDebugOutput(&self, pstr: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn OnClose(&self) -> windows_core::Result<()>;
-    fn OnEnterBreakPoint(&self, prdat: Option<&IRemoteDebugApplicationThread>) -> windows_core::Result<()>;
-    fn OnLeaveBreakPoint(&self, prdat: Option<&IRemoteDebugApplicationThread>) -> windows_core::Result<()>;
-    fn OnCreateThread(&self, prdat: Option<&IRemoteDebugApplicationThread>) -> windows_core::Result<()>;
-    fn OnDestroyThread(&self, prdat: Option<&IRemoteDebugApplicationThread>) -> windows_core::Result<()>;
-    fn OnBreakFlagChange(&self, abf: u32, prdatsteppingthread: Option<&IRemoteDebugApplicationThread>) -> windows_core::Result<()>;
+    fn OnEnterBreakPoint(&self, prdat: windows_core::Ref<'_, IRemoteDebugApplicationThread>) -> windows_core::Result<()>;
+    fn OnLeaveBreakPoint(&self, prdat: windows_core::Ref<'_, IRemoteDebugApplicationThread>) -> windows_core::Result<()>;
+    fn OnCreateThread(&self, prdat: windows_core::Ref<'_, IRemoteDebugApplicationThread>) -> windows_core::Result<()>;
+    fn OnDestroyThread(&self, prdat: windows_core::Ref<'_, IRemoteDebugApplicationThread>) -> windows_core::Result<()>;
+    fn OnBreakFlagChange(&self, abf: u32, prdatsteppingthread: windows_core::Ref<'_, IRemoteDebugApplicationThread>) -> windows_core::Result<()>;
 }
 impl IRemoteDebugApplicationEvents_Vtbl {
     pub const fn new<Identity: IRemoteDebugApplicationEvents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnConnectDebugger<Identity: IRemoteDebugApplicationEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pad: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IRemoteDebugApplicationEvents_Impl::OnConnectDebugger(this, windows_core::from_raw_borrowed(&pad)).into()
+            IRemoteDebugApplicationEvents_Impl::OnConnectDebugger(this, core::mem::transmute_copy(&pad)).into()
         }
         unsafe extern "system" fn OnDisconnectDebugger<Identity: IRemoteDebugApplicationEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -8233,23 +8233,23 @@ impl IRemoteDebugApplicationEvents_Vtbl {
         }
         unsafe extern "system" fn OnEnterBreakPoint<Identity: IRemoteDebugApplicationEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prdat: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IRemoteDebugApplicationEvents_Impl::OnEnterBreakPoint(this, windows_core::from_raw_borrowed(&prdat)).into()
+            IRemoteDebugApplicationEvents_Impl::OnEnterBreakPoint(this, core::mem::transmute_copy(&prdat)).into()
         }
         unsafe extern "system" fn OnLeaveBreakPoint<Identity: IRemoteDebugApplicationEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prdat: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IRemoteDebugApplicationEvents_Impl::OnLeaveBreakPoint(this, windows_core::from_raw_borrowed(&prdat)).into()
+            IRemoteDebugApplicationEvents_Impl::OnLeaveBreakPoint(this, core::mem::transmute_copy(&prdat)).into()
         }
         unsafe extern "system" fn OnCreateThread<Identity: IRemoteDebugApplicationEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prdat: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IRemoteDebugApplicationEvents_Impl::OnCreateThread(this, windows_core::from_raw_borrowed(&prdat)).into()
+            IRemoteDebugApplicationEvents_Impl::OnCreateThread(this, core::mem::transmute_copy(&prdat)).into()
         }
         unsafe extern "system" fn OnDestroyThread<Identity: IRemoteDebugApplicationEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prdat: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IRemoteDebugApplicationEvents_Impl::OnDestroyThread(this, windows_core::from_raw_borrowed(&prdat)).into()
+            IRemoteDebugApplicationEvents_Impl::OnDestroyThread(this, core::mem::transmute_copy(&prdat)).into()
         }
         unsafe extern "system" fn OnBreakFlagChange<Identity: IRemoteDebugApplicationEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, abf: u32, prdatsteppingthread: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IRemoteDebugApplicationEvents_Impl::OnBreakFlagChange(this, core::mem::transmute_copy(&abf), windows_core::from_raw_borrowed(&prdatsteppingthread)).into()
+            IRemoteDebugApplicationEvents_Impl::OnBreakFlagChange(this, core::mem::transmute_copy(&abf), core::mem::transmute_copy(&prdatsteppingthread)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -8330,7 +8330,7 @@ pub trait IRemoteDebugApplicationThread_Impl: windows_core::IUnknownImpl {
     fn GetApplication(&self) -> windows_core::Result<IRemoteDebugApplication>;
     fn EnumStackFrames(&self) -> windows_core::Result<IEnumDebugStackFrames>;
     fn GetDescription(&self, pbstrdescription: *mut windows_core::BSTR, pbstrstate: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn SetNextStatement(&self, pstackframe: Option<&IDebugStackFrame>, pcodecontext: Option<&IDebugCodeContext>) -> windows_core::Result<()>;
+    fn SetNextStatement(&self, pstackframe: windows_core::Ref<'_, IDebugStackFrame>, pcodecontext: windows_core::Ref<'_, IDebugCodeContext>) -> windows_core::Result<()>;
     fn GetState(&self) -> windows_core::Result<u32>;
     fn Suspend(&self) -> windows_core::Result<u32>;
     fn Resume(&self) -> windows_core::Result<u32>;
@@ -8374,7 +8374,7 @@ impl IRemoteDebugApplicationThread_Vtbl {
         }
         unsafe extern "system" fn SetNextStatement<Identity: IRemoteDebugApplicationThread_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstackframe: *mut core::ffi::c_void, pcodecontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IRemoteDebugApplicationThread_Impl::SetNextStatement(this, windows_core::from_raw_borrowed(&pstackframe), windows_core::from_raw_borrowed(&pcodecontext)).into()
+            IRemoteDebugApplicationThread_Impl::SetNextStatement(this, core::mem::transmute_copy(&pstackframe), core::mem::transmute_copy(&pcodecontext)).into()
         }
         unsafe extern "system" fn GetState<Identity: IRemoteDebugApplicationThread_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstate: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -8447,7 +8447,7 @@ pub struct IRemoteDebugCriticalErrorEvent110_Vtbl {
     pub GetErrorInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut i32, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRemoteDebugCriticalErrorEvent110_Impl: windows_core::IUnknownImpl {
-    fn GetErrorInfo(&self, pbstrsource: *mut windows_core::BSTR, pmessageid: *mut i32, pbstrmessage: *mut windows_core::BSTR, pplocation: *mut Option<IDebugDocumentContext>) -> windows_core::Result<()>;
+    fn GetErrorInfo(&self, pbstrsource: *mut windows_core::BSTR, pmessageid: *mut i32, pbstrmessage: *mut windows_core::BSTR, pplocation: windows_core::OutRef<'_, IDebugDocumentContext>) -> windows_core::Result<()>;
 }
 impl IRemoteDebugCriticalErrorEvent110_Vtbl {
     pub const fn new<Identity: IRemoteDebugCriticalErrorEvent110_Impl, const OFFSET: isize>() -> Self {
@@ -8475,7 +8475,7 @@ pub struct IRemoteDebugInfoEvent110_Vtbl {
     pub GetEventInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DEBUG_EVENT_INFO_TYPE, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRemoteDebugInfoEvent110_Impl: windows_core::IUnknownImpl {
-    fn GetEventInfo(&self, pmessagetype: *mut DEBUG_EVENT_INFO_TYPE, pbstrmessage: *mut windows_core::BSTR, pbstrurl: *mut windows_core::BSTR, pplocation: *mut Option<IDebugDocumentContext>) -> windows_core::Result<()>;
+    fn GetEventInfo(&self, pmessagetype: *mut DEBUG_EVENT_INFO_TYPE, pbstrmessage: *mut windows_core::BSTR, pbstrurl: *mut windows_core::BSTR, pplocation: windows_core::OutRef<'_, IDebugDocumentContext>) -> windows_core::Result<()>;
 }
 impl IRemoteDebugInfoEvent110_Vtbl {
     pub const fn new<Identity: IRemoteDebugInfoEvent110_Impl, const OFFSET: isize>() -> Self {
@@ -8585,8 +8585,8 @@ pub trait IScriptEntry_Impl: IScriptNode_Impl {
     fn SetName(&self, psz: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetItemName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetItemName(&self, psz: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GetSignature(&self, ppti: *mut Option<super::super::super::Com::ITypeInfo>, pimethod: *mut u32) -> windows_core::Result<()>;
-    fn SetSignature(&self, pti: Option<&super::super::super::Com::ITypeInfo>, imethod: u32) -> windows_core::Result<()>;
+    fn GetSignature(&self, ppti: windows_core::OutRef<'_, super::super::super::Com::ITypeInfo>, pimethod: *mut u32) -> windows_core::Result<()>;
+    fn SetSignature(&self, pti: windows_core::Ref<'_, super::super::super::Com::ITypeInfo>, imethod: u32) -> windows_core::Result<()>;
     fn GetRange(&self, pichmin: *mut u32, pcch: *mut u32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8654,7 +8654,7 @@ impl IScriptEntry_Vtbl {
         }
         unsafe extern "system" fn SetSignature<Identity: IScriptEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pti: *mut core::ffi::c_void, imethod: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IScriptEntry_Impl::SetSignature(this, windows_core::from_raw_borrowed(&pti), core::mem::transmute_copy(&imethod)).into()
+            IScriptEntry_Impl::SetSignature(this, core::mem::transmute_copy(&pti), core::mem::transmute_copy(&imethod)).into()
         }
         unsafe extern "system" fn GetRange<Identity: IScriptEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pichmin: *mut u32, pcch: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -8833,7 +8833,7 @@ pub trait IScriptNode_Impl: windows_core::IUnknownImpl {
     fn GetChild(&self, isn: u32) -> windows_core::Result<IScriptNode>;
     fn GetLanguage(&self) -> windows_core::Result<windows_core::BSTR>;
     fn CreateChildEntry(&self, isn: u32, dwcookie: u32, pszdelimiter: &windows_core::PCWSTR) -> windows_core::Result<IScriptEntry>;
-    fn CreateChildHandler(&self, pszdefaultname: &windows_core::PCWSTR, prgpsznames: *const windows_core::PCWSTR, cpsznames: u32, pszevent: &windows_core::PCWSTR, pszdelimiter: &windows_core::PCWSTR, ptisignature: Option<&super::super::super::Com::ITypeInfo>, imethodsignature: u32, isn: u32, dwcookie: u32) -> windows_core::Result<IScriptEntry>;
+    fn CreateChildHandler(&self, pszdefaultname: &windows_core::PCWSTR, prgpsznames: *const windows_core::PCWSTR, cpsznames: u32, pszevent: &windows_core::PCWSTR, pszdelimiter: &windows_core::PCWSTR, ptisignature: windows_core::Ref<'_, super::super::super::Com::ITypeInfo>, imethodsignature: u32, isn: u32, dwcookie: u32) -> windows_core::Result<IScriptEntry>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IScriptNode_Vtbl {
@@ -8918,7 +8918,7 @@ impl IScriptNode_Vtbl {
         }
         unsafe extern "system" fn CreateChildHandler<Identity: IScriptNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszdefaultname: windows_core::PCWSTR, prgpsznames: *const windows_core::PCWSTR, cpsznames: u32, pszevent: windows_core::PCWSTR, pszdelimiter: windows_core::PCWSTR, ptisignature: *mut core::ffi::c_void, imethodsignature: u32, isn: u32, dwcookie: u32, ppse: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IScriptNode_Impl::CreateChildHandler(this, core::mem::transmute(&pszdefaultname), core::mem::transmute_copy(&prgpsznames), core::mem::transmute_copy(&cpsznames), core::mem::transmute(&pszevent), core::mem::transmute(&pszdelimiter), windows_core::from_raw_borrowed(&ptisignature), core::mem::transmute_copy(&imethodsignature), core::mem::transmute_copy(&isn), core::mem::transmute_copy(&dwcookie)) {
+            match IScriptNode_Impl::CreateChildHandler(this, core::mem::transmute(&pszdefaultname), core::mem::transmute_copy(&prgpsznames), core::mem::transmute_copy(&cpsznames), core::mem::transmute(&pszevent), core::mem::transmute(&pszdelimiter), core::mem::transmute_copy(&ptisignature), core::mem::transmute_copy(&imethodsignature), core::mem::transmute_copy(&isn), core::mem::transmute_copy(&dwcookie)) {
                 Ok(ok__) => {
                     ppse.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9103,7 +9103,7 @@ pub struct ISimpleConnectionPoint_Vtbl {
 pub trait ISimpleConnectionPoint_Impl: windows_core::IUnknownImpl {
     fn GetEventCount(&self) -> windows_core::Result<u32>;
     fn DescribeEvents(&self, ievent: u32, cevents: u32, prgid: *mut i32, prgbstr: *mut windows_core::BSTR, pceventsfetched: *mut u32) -> windows_core::Result<()>;
-    fn Advise(&self, pdisp: Option<&super::super::super::Com::IDispatch>) -> windows_core::Result<u32>;
+    fn Advise(&self, pdisp: windows_core::Ref<'_, super::super::super::Com::IDispatch>) -> windows_core::Result<u32>;
     fn Unadvise(&self, dwcookie: u32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9125,7 +9125,7 @@ impl ISimpleConnectionPoint_Vtbl {
         }
         unsafe extern "system" fn Advise<Identity: ISimpleConnectionPoint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdisp: *mut core::ffi::c_void, pdwcookie: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ISimpleConnectionPoint_Impl::Advise(this, windows_core::from_raw_borrowed(&pdisp)) {
+            match ISimpleConnectionPoint_Impl::Advise(this, core::mem::transmute_copy(&pdisp)) {
                 Ok(ok__) => {
                     pdwcookie.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9205,13 +9205,13 @@ pub struct IWebAppDiagnosticsObjectInitialization_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::super::Foundation::HANDLE_PTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWebAppDiagnosticsObjectInitialization_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, hpassedhandle: super::super::super::super::Foundation::HANDLE_PTR, pdebugapplication: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Initialize(&self, hpassedhandle: super::super::super::super::Foundation::HANDLE_PTR, pdebugapplication: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl IWebAppDiagnosticsObjectInitialization_Vtbl {
     pub const fn new<Identity: IWebAppDiagnosticsObjectInitialization_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IWebAppDiagnosticsObjectInitialization_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hpassedhandle: super::super::super::super::Foundation::HANDLE_PTR, pdebugapplication: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWebAppDiagnosticsObjectInitialization_Impl::Initialize(this, core::mem::transmute_copy(&hpassedhandle), windows_core::from_raw_borrowed(&pdebugapplication)).into()
+            IWebAppDiagnosticsObjectInitialization_Impl::Initialize(this, core::mem::transmute_copy(&hpassedhandle), core::mem::transmute_copy(&pdebugapplication)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, OFFSET> }
     }

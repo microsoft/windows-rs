@@ -908,14 +908,14 @@ pub struct IDownloadCompletedCallback_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDownloadCompletedCallback_Impl: windows_core::IUnknownImpl {
-    fn Invoke(&self, downloadjob: Option<&IDownloadJob>, callbackargs: Option<&IDownloadCompletedCallbackArgs>) -> windows_core::Result<()>;
+    fn Invoke(&self, downloadjob: windows_core::Ref<'_, IDownloadJob>, callbackargs: windows_core::Ref<'_, IDownloadCompletedCallbackArgs>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IDownloadCompletedCallback_Vtbl {
     pub const fn new<Identity: IDownloadCompletedCallback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Invoke<Identity: IDownloadCompletedCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, downloadjob: *mut core::ffi::c_void, callbackargs: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDownloadCompletedCallback_Impl::Invoke(this, windows_core::from_raw_borrowed(&downloadjob), windows_core::from_raw_borrowed(&callbackargs)).into()
+            IDownloadCompletedCallback_Impl::Invoke(this, core::mem::transmute_copy(&downloadjob), core::mem::transmute_copy(&callbackargs)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, OFFSET> }
     }
@@ -1291,14 +1291,14 @@ pub struct IDownloadProgressChangedCallback_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDownloadProgressChangedCallback_Impl: windows_core::IUnknownImpl {
-    fn Invoke(&self, downloadjob: Option<&IDownloadJob>, callbackargs: Option<&IDownloadProgressChangedCallbackArgs>) -> windows_core::Result<()>;
+    fn Invoke(&self, downloadjob: windows_core::Ref<'_, IDownloadJob>, callbackargs: windows_core::Ref<'_, IDownloadProgressChangedCallbackArgs>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IDownloadProgressChangedCallback_Vtbl {
     pub const fn new<Identity: IDownloadProgressChangedCallback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Invoke<Identity: IDownloadProgressChangedCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, downloadjob: *mut core::ffi::c_void, callbackargs: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDownloadProgressChangedCallback_Impl::Invoke(this, windows_core::from_raw_borrowed(&downloadjob), windows_core::from_raw_borrowed(&callbackargs)).into()
+            IDownloadProgressChangedCallback_Impl::Invoke(this, core::mem::transmute_copy(&downloadjob), core::mem::transmute_copy(&callbackargs)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, OFFSET> }
     }
@@ -1574,14 +1574,14 @@ pub struct IInstallationAgent_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInstallationAgent_Impl: super::Com::IDispatch_Impl {
-    fn RecordInstallationResult(&self, installationresultcookie: &windows_core::BSTR, hresult: i32, extendedreportingdata: Option<&IStringCollection>) -> windows_core::Result<()>;
+    fn RecordInstallationResult(&self, installationresultcookie: &windows_core::BSTR, hresult: i32, extendedreportingdata: windows_core::Ref<'_, IStringCollection>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInstallationAgent_Vtbl {
     pub const fn new<Identity: IInstallationAgent_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RecordInstallationResult<Identity: IInstallationAgent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, installationresultcookie: *mut core::ffi::c_void, hresult: i32, extendedreportingdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IInstallationAgent_Impl::RecordInstallationResult(this, core::mem::transmute(&installationresultcookie), core::mem::transmute_copy(&hresult), windows_core::from_raw_borrowed(&extendedreportingdata)).into()
+            IInstallationAgent_Impl::RecordInstallationResult(this, core::mem::transmute(&installationresultcookie), core::mem::transmute_copy(&hresult), core::mem::transmute_copy(&extendedreportingdata)).into()
         }
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(), RecordInstallationResult: RecordInstallationResult::<Identity, OFFSET> }
     }
@@ -1716,14 +1716,14 @@ pub struct IInstallationCompletedCallback_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IInstallationCompletedCallback_Impl: windows_core::IUnknownImpl {
-    fn Invoke(&self, installationjob: Option<&IInstallationJob>, callbackargs: Option<&IInstallationCompletedCallbackArgs>) -> windows_core::Result<()>;
+    fn Invoke(&self, installationjob: windows_core::Ref<'_, IInstallationJob>, callbackargs: windows_core::Ref<'_, IInstallationCompletedCallbackArgs>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IInstallationCompletedCallback_Vtbl {
     pub const fn new<Identity: IInstallationCompletedCallback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Invoke<Identity: IInstallationCompletedCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, installationjob: *mut core::ffi::c_void, callbackargs: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IInstallationCompletedCallback_Impl::Invoke(this, windows_core::from_raw_borrowed(&installationjob), windows_core::from_raw_borrowed(&callbackargs)).into()
+            IInstallationCompletedCallback_Impl::Invoke(this, core::mem::transmute_copy(&installationjob), core::mem::transmute_copy(&callbackargs)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, OFFSET> }
     }
@@ -2014,14 +2014,14 @@ pub struct IInstallationProgressChangedCallback_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IInstallationProgressChangedCallback_Impl: windows_core::IUnknownImpl {
-    fn Invoke(&self, installationjob: Option<&IInstallationJob>, callbackargs: Option<&IInstallationProgressChangedCallbackArgs>) -> windows_core::Result<()>;
+    fn Invoke(&self, installationjob: windows_core::Ref<'_, IInstallationJob>, callbackargs: windows_core::Ref<'_, IInstallationProgressChangedCallbackArgs>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IInstallationProgressChangedCallback_Vtbl {
     pub const fn new<Identity: IInstallationProgressChangedCallback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Invoke<Identity: IInstallationProgressChangedCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, installationjob: *mut core::ffi::c_void, callbackargs: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IInstallationProgressChangedCallback_Impl::Invoke(this, windows_core::from_raw_borrowed(&installationjob), windows_core::from_raw_borrowed(&callbackargs)).into()
+            IInstallationProgressChangedCallback_Impl::Invoke(this, core::mem::transmute_copy(&installationjob), core::mem::transmute_copy(&callbackargs)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, OFFSET> }
     }
@@ -2254,14 +2254,14 @@ pub struct ISearchCompletedCallback_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISearchCompletedCallback_Impl: windows_core::IUnknownImpl {
-    fn Invoke(&self, searchjob: Option<&ISearchJob>, callbackargs: Option<&ISearchCompletedCallbackArgs>) -> windows_core::Result<()>;
+    fn Invoke(&self, searchjob: windows_core::Ref<'_, ISearchJob>, callbackargs: windows_core::Ref<'_, ISearchCompletedCallbackArgs>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ISearchCompletedCallback_Vtbl {
     pub const fn new<Identity: ISearchCompletedCallback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Invoke<Identity: ISearchCompletedCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, searchjob: *mut core::ffi::c_void, callbackargs: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISearchCompletedCallback_Impl::Invoke(this, windows_core::from_raw_borrowed(&searchjob), windows_core::from_raw_borrowed(&callbackargs)).into()
+            ISearchCompletedCallback_Impl::Invoke(this, core::mem::transmute_copy(&searchjob), core::mem::transmute_copy(&callbackargs)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, OFFSET> }
     }
@@ -3571,7 +3571,7 @@ pub trait IUpdate2_Impl: IUpdate_Impl {
     fn RebootRequired(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn IsPresent(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn CveIDs(&self) -> windows_core::Result<IStringCollection>;
-    fn CopyToCache(&self, pfiles: Option<&IStringCollection>) -> windows_core::Result<()>;
+    fn CopyToCache(&self, pfiles: windows_core::Ref<'_, IStringCollection>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdate2_Vtbl {
@@ -3608,7 +3608,7 @@ impl IUpdate2_Vtbl {
         }
         unsafe extern "system" fn CopyToCache<Identity: IUpdate2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfiles: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IUpdate2_Impl::CopyToCache(this, windows_core::from_raw_borrowed(&pfiles)).into()
+            IUpdate2_Impl::CopyToCache(this, core::mem::transmute_copy(&pfiles)).into()
         }
         Self {
             base__: IUpdate_Vtbl::new::<Identity, OFFSET>(),
@@ -3868,14 +3868,14 @@ pub struct IUpdateCollection_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateCollection_Impl: super::Com::IDispatch_Impl {
     fn get_Item(&self, index: i32) -> windows_core::Result<IUpdate>;
-    fn put_Item(&self, index: i32, value: Option<&IUpdate>) -> windows_core::Result<()>;
+    fn put_Item(&self, index: i32, value: windows_core::Ref<'_, IUpdate>) -> windows_core::Result<()>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Count(&self) -> windows_core::Result<i32>;
     fn ReadOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn Add(&self, value: Option<&IUpdate>) -> windows_core::Result<i32>;
+    fn Add(&self, value: windows_core::Ref<'_, IUpdate>) -> windows_core::Result<i32>;
     fn Clear(&self) -> windows_core::Result<()>;
     fn Copy(&self) -> windows_core::Result<IUpdateCollection>;
-    fn Insert(&self, index: i32, value: Option<&IUpdate>) -> windows_core::Result<()>;
+    fn Insert(&self, index: i32, value: windows_core::Ref<'_, IUpdate>) -> windows_core::Result<()>;
     fn RemoveAt(&self, index: i32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3893,7 +3893,7 @@ impl IUpdateCollection_Vtbl {
         }
         unsafe extern "system" fn put_Item<Identity: IUpdateCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IUpdateCollection_Impl::put_Item(this, core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&value)).into()
+            IUpdateCollection_Impl::put_Item(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn _NewEnum<Identity: IUpdateCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3927,7 +3927,7 @@ impl IUpdateCollection_Vtbl {
         }
         unsafe extern "system" fn Add<Identity: IUpdateCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IUpdateCollection_Impl::Add(this, windows_core::from_raw_borrowed(&value)) {
+            match IUpdateCollection_Impl::Add(this, core::mem::transmute_copy(&value)) {
                 Ok(ok__) => {
                     retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3951,7 +3951,7 @@ impl IUpdateCollection_Vtbl {
         }
         unsafe extern "system" fn Insert<Identity: IUpdateCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IUpdateCollection_Impl::Insert(this, core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&value)).into()
+            IUpdateCollection_Impl::Insert(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn RemoveAt<Identity: IUpdateCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -4319,10 +4319,10 @@ pub trait IUpdateDownloader_Impl: super::Com::IDispatch_Impl {
     fn Priority(&self) -> windows_core::Result<DownloadPriority>;
     fn SetPriority(&self, value: DownloadPriority) -> windows_core::Result<()>;
     fn Updates(&self) -> windows_core::Result<IUpdateCollection>;
-    fn SetUpdates(&self, value: Option<&IUpdateCollection>) -> windows_core::Result<()>;
-    fn BeginDownload(&self, onprogresschanged: Option<&windows_core::IUnknown>, oncompleted: Option<&windows_core::IUnknown>, state: &super::Variant::VARIANT) -> windows_core::Result<IDownloadJob>;
+    fn SetUpdates(&self, value: windows_core::Ref<'_, IUpdateCollection>) -> windows_core::Result<()>;
+    fn BeginDownload(&self, onprogresschanged: windows_core::Ref<'_, windows_core::IUnknown>, oncompleted: windows_core::Ref<'_, windows_core::IUnknown>, state: &super::Variant::VARIANT) -> windows_core::Result<IDownloadJob>;
     fn Download(&self) -> windows_core::Result<IDownloadResult>;
-    fn EndDownload(&self, value: Option<&IDownloadJob>) -> windows_core::Result<IDownloadResult>;
+    fn EndDownload(&self, value: windows_core::Ref<'_, IDownloadJob>) -> windows_core::Result<IDownloadResult>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateDownloader_Vtbl {
@@ -4381,11 +4381,11 @@ impl IUpdateDownloader_Vtbl {
         }
         unsafe extern "system" fn SetUpdates<Identity: IUpdateDownloader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IUpdateDownloader_Impl::SetUpdates(this, windows_core::from_raw_borrowed(&value)).into()
+            IUpdateDownloader_Impl::SetUpdates(this, core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn BeginDownload<Identity: IUpdateDownloader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, onprogresschanged: *mut core::ffi::c_void, oncompleted: *mut core::ffi::c_void, state: super::Variant::VARIANT, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IUpdateDownloader_Impl::BeginDownload(this, windows_core::from_raw_borrowed(&onprogresschanged), windows_core::from_raw_borrowed(&oncompleted), core::mem::transmute(&state)) {
+            match IUpdateDownloader_Impl::BeginDownload(this, core::mem::transmute_copy(&onprogresschanged), core::mem::transmute_copy(&oncompleted), core::mem::transmute(&state)) {
                 Ok(ok__) => {
                     retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4405,7 +4405,7 @@ impl IUpdateDownloader_Vtbl {
         }
         unsafe extern "system" fn EndDownload<Identity: IUpdateDownloader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IUpdateDownloader_Impl::EndDownload(this, windows_core::from_raw_borrowed(&value)) {
+            match IUpdateDownloader_Impl::EndDownload(this, core::mem::transmute_copy(&value)) {
                 Ok(ok__) => {
                     retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5323,14 +5323,14 @@ pub trait IUpdateInstaller_Impl: super::Com::IDispatch_Impl {
     fn SetIsForced(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn ParentHwnd(&self) -> windows_core::Result<super::super::Foundation::HWND>;
     fn SetParentHwnd(&self, value: super::super::Foundation::HWND) -> windows_core::Result<()>;
-    fn SetParentWindow(&self, value: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetParentWindow(&self, value: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn ParentWindow(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Updates(&self) -> windows_core::Result<IUpdateCollection>;
-    fn SetUpdates(&self, value: Option<&IUpdateCollection>) -> windows_core::Result<()>;
-    fn BeginInstall(&self, onprogresschanged: Option<&windows_core::IUnknown>, oncompleted: Option<&windows_core::IUnknown>, state: &super::Variant::VARIANT) -> windows_core::Result<IInstallationJob>;
-    fn BeginUninstall(&self, onprogresschanged: Option<&windows_core::IUnknown>, oncompleted: Option<&windows_core::IUnknown>, state: &super::Variant::VARIANT) -> windows_core::Result<IInstallationJob>;
-    fn EndInstall(&self, value: Option<&IInstallationJob>) -> windows_core::Result<IInstallationResult>;
-    fn EndUninstall(&self, value: Option<&IInstallationJob>) -> windows_core::Result<IInstallationResult>;
+    fn SetUpdates(&self, value: windows_core::Ref<'_, IUpdateCollection>) -> windows_core::Result<()>;
+    fn BeginInstall(&self, onprogresschanged: windows_core::Ref<'_, windows_core::IUnknown>, oncompleted: windows_core::Ref<'_, windows_core::IUnknown>, state: &super::Variant::VARIANT) -> windows_core::Result<IInstallationJob>;
+    fn BeginUninstall(&self, onprogresschanged: windows_core::Ref<'_, windows_core::IUnknown>, oncompleted: windows_core::Ref<'_, windows_core::IUnknown>, state: &super::Variant::VARIANT) -> windows_core::Result<IInstallationJob>;
+    fn EndInstall(&self, value: windows_core::Ref<'_, IInstallationJob>) -> windows_core::Result<IInstallationResult>;
+    fn EndUninstall(&self, value: windows_core::Ref<'_, IInstallationJob>) -> windows_core::Result<IInstallationResult>;
     fn Install(&self) -> windows_core::Result<IInstallationResult>;
     fn RunWizard(&self, dialogtitle: &windows_core::BSTR) -> windows_core::Result<IInstallationResult>;
     fn IsBusy(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -5386,7 +5386,7 @@ impl IUpdateInstaller_Vtbl {
         }
         unsafe extern "system" fn SetParentWindow<Identity: IUpdateInstaller_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IUpdateInstaller_Impl::SetParentWindow(this, windows_core::from_raw_borrowed(&value)).into()
+            IUpdateInstaller_Impl::SetParentWindow(this, core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn ParentWindow<Identity: IUpdateInstaller_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -5410,11 +5410,11 @@ impl IUpdateInstaller_Vtbl {
         }
         unsafe extern "system" fn SetUpdates<Identity: IUpdateInstaller_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IUpdateInstaller_Impl::SetUpdates(this, windows_core::from_raw_borrowed(&value)).into()
+            IUpdateInstaller_Impl::SetUpdates(this, core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn BeginInstall<Identity: IUpdateInstaller_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, onprogresschanged: *mut core::ffi::c_void, oncompleted: *mut core::ffi::c_void, state: super::Variant::VARIANT, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IUpdateInstaller_Impl::BeginInstall(this, windows_core::from_raw_borrowed(&onprogresschanged), windows_core::from_raw_borrowed(&oncompleted), core::mem::transmute(&state)) {
+            match IUpdateInstaller_Impl::BeginInstall(this, core::mem::transmute_copy(&onprogresschanged), core::mem::transmute_copy(&oncompleted), core::mem::transmute(&state)) {
                 Ok(ok__) => {
                     retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5424,7 +5424,7 @@ impl IUpdateInstaller_Vtbl {
         }
         unsafe extern "system" fn BeginUninstall<Identity: IUpdateInstaller_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, onprogresschanged: *mut core::ffi::c_void, oncompleted: *mut core::ffi::c_void, state: super::Variant::VARIANT, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IUpdateInstaller_Impl::BeginUninstall(this, windows_core::from_raw_borrowed(&onprogresschanged), windows_core::from_raw_borrowed(&oncompleted), core::mem::transmute(&state)) {
+            match IUpdateInstaller_Impl::BeginUninstall(this, core::mem::transmute_copy(&onprogresschanged), core::mem::transmute_copy(&oncompleted), core::mem::transmute(&state)) {
                 Ok(ok__) => {
                     retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5434,7 +5434,7 @@ impl IUpdateInstaller_Vtbl {
         }
         unsafe extern "system" fn EndInstall<Identity: IUpdateInstaller_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IUpdateInstaller_Impl::EndInstall(this, windows_core::from_raw_borrowed(&value)) {
+            match IUpdateInstaller_Impl::EndInstall(this, core::mem::transmute_copy(&value)) {
                 Ok(ok__) => {
                     retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5444,7 +5444,7 @@ impl IUpdateInstaller_Vtbl {
         }
         unsafe extern "system" fn EndUninstall<Identity: IUpdateInstaller_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IUpdateInstaller_Impl::EndUninstall(this, windows_core::from_raw_borrowed(&value)) {
+            match IUpdateInstaller_Impl::EndUninstall(this, core::mem::transmute_copy(&value)) {
                 Ok(ok__) => {
                     retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5864,8 +5864,8 @@ pub trait IUpdateSearcher_Impl: super::Com::IDispatch_Impl {
     fn SetIncludePotentiallySupersededUpdates(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn ServerSelection(&self) -> windows_core::Result<ServerSelection>;
     fn SetServerSelection(&self, value: ServerSelection) -> windows_core::Result<()>;
-    fn BeginSearch(&self, criteria: &windows_core::BSTR, oncompleted: Option<&windows_core::IUnknown>, state: &super::Variant::VARIANT) -> windows_core::Result<ISearchJob>;
-    fn EndSearch(&self, searchjob: Option<&ISearchJob>) -> windows_core::Result<ISearchResult>;
+    fn BeginSearch(&self, criteria: &windows_core::BSTR, oncompleted: windows_core::Ref<'_, windows_core::IUnknown>, state: &super::Variant::VARIANT) -> windows_core::Result<ISearchJob>;
+    fn EndSearch(&self, searchjob: windows_core::Ref<'_, ISearchJob>) -> windows_core::Result<ISearchResult>;
     fn EscapeString(&self, unescaped: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
     fn QueryHistory(&self, startindex: i32, count: i32) -> windows_core::Result<IUpdateHistoryEntryCollection>;
     fn Search(&self, criteria: &windows_core::BSTR) -> windows_core::Result<ISearchResult>;
@@ -5936,7 +5936,7 @@ impl IUpdateSearcher_Vtbl {
         }
         unsafe extern "system" fn BeginSearch<Identity: IUpdateSearcher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, criteria: *mut core::ffi::c_void, oncompleted: *mut core::ffi::c_void, state: super::Variant::VARIANT, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IUpdateSearcher_Impl::BeginSearch(this, core::mem::transmute(&criteria), windows_core::from_raw_borrowed(&oncompleted), core::mem::transmute(&state)) {
+            match IUpdateSearcher_Impl::BeginSearch(this, core::mem::transmute(&criteria), core::mem::transmute_copy(&oncompleted), core::mem::transmute(&state)) {
                 Ok(ok__) => {
                     retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5946,7 +5946,7 @@ impl IUpdateSearcher_Vtbl {
         }
         unsafe extern "system" fn EndSearch<Identity: IUpdateSearcher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, searchjob: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IUpdateSearcher_Impl::EndSearch(this, windows_core::from_raw_borrowed(&searchjob)) {
+            match IUpdateSearcher_Impl::EndSearch(this, core::mem::transmute_copy(&searchjob)) {
                 Ok(ok__) => {
                     retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6964,7 +6964,7 @@ pub trait IUpdateSession_Impl: super::Com::IDispatch_Impl {
     fn SetClientApplicationID(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
     fn ReadOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn WebProxy(&self) -> windows_core::Result<IWebProxy>;
-    fn SetWebProxy(&self, value: Option<&IWebProxy>) -> windows_core::Result<()>;
+    fn SetWebProxy(&self, value: windows_core::Ref<'_, IWebProxy>) -> windows_core::Result<()>;
     fn CreateUpdateSearcher(&self) -> windows_core::Result<IUpdateSearcher>;
     fn CreateUpdateDownloader(&self) -> windows_core::Result<IUpdateDownloader>;
     fn CreateUpdateInstaller(&self) -> windows_core::Result<IUpdateInstaller>;
@@ -7008,7 +7008,7 @@ impl IUpdateSession_Vtbl {
         }
         unsafe extern "system" fn SetWebProxy<Identity: IUpdateSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IUpdateSession_Impl::SetWebProxy(this, windows_core::from_raw_borrowed(&value)).into()
+            IUpdateSession_Impl::SetWebProxy(this, core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn CreateUpdateSearcher<Identity: IUpdateSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -7281,14 +7281,14 @@ pub trait IWebProxy_Impl: super::Com::IDispatch_Impl {
     fn Address(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetAddress(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
     fn BypassList(&self) -> windows_core::Result<IStringCollection>;
-    fn SetBypassList(&self, value: Option<&IStringCollection>) -> windows_core::Result<()>;
+    fn SetBypassList(&self, value: windows_core::Ref<'_, IStringCollection>) -> windows_core::Result<()>;
     fn BypassProxyOnLocal(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetBypassProxyOnLocal(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn ReadOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn UserName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetUserName(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
     fn SetPassword(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn PromptForCredentials(&self, parentwindow: Option<&windows_core::IUnknown>, title: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn PromptForCredentials(&self, parentwindow: windows_core::Ref<'_, windows_core::IUnknown>, title: &windows_core::BSTR) -> windows_core::Result<()>;
     fn PromptForCredentialsFromHwnd(&self, parentwindow: super::super::Foundation::HWND, title: &windows_core::BSTR) -> windows_core::Result<()>;
     fn AutoDetect(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetAutoDetect(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
@@ -7322,7 +7322,7 @@ impl IWebProxy_Vtbl {
         }
         unsafe extern "system" fn SetBypassList<Identity: IWebProxy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWebProxy_Impl::SetBypassList(this, windows_core::from_raw_borrowed(&value)).into()
+            IWebProxy_Impl::SetBypassList(this, core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn BypassProxyOnLocal<Identity: IWebProxy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -7368,7 +7368,7 @@ impl IWebProxy_Vtbl {
         }
         unsafe extern "system" fn PromptForCredentials<Identity: IWebProxy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parentwindow: *mut core::ffi::c_void, title: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWebProxy_Impl::PromptForCredentials(this, windows_core::from_raw_borrowed(&parentwindow), core::mem::transmute(&title)).into()
+            IWebProxy_Impl::PromptForCredentials(this, core::mem::transmute_copy(&parentwindow), core::mem::transmute(&title)).into()
         }
         unsafe extern "system" fn PromptForCredentialsFromHwnd<Identity: IWebProxy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parentwindow: super::super::Foundation::HWND, title: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -7629,7 +7629,7 @@ pub trait IWindowsDriverUpdate2_Impl: IWindowsDriverUpdate_Impl {
     fn RebootRequired(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn IsPresent(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn CveIDs(&self) -> windows_core::Result<IStringCollection>;
-    fn CopyToCache(&self, pfiles: Option<&IStringCollection>) -> windows_core::Result<()>;
+    fn CopyToCache(&self, pfiles: windows_core::Ref<'_, IStringCollection>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWindowsDriverUpdate2_Vtbl {
@@ -7666,7 +7666,7 @@ impl IWindowsDriverUpdate2_Vtbl {
         }
         unsafe extern "system" fn CopyToCache<Identity: IWindowsDriverUpdate2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfiles: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWindowsDriverUpdate2_Impl::CopyToCache(this, windows_core::from_raw_borrowed(&pfiles)).into()
+            IWindowsDriverUpdate2_Impl::CopyToCache(this, core::mem::transmute_copy(&pfiles)).into()
         }
         Self {
             base__: IWindowsDriverUpdate_Vtbl::new::<Identity, OFFSET>(),

@@ -159,7 +159,7 @@ pub struct IEnumVdsObject_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumVdsObject_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppobjectarray: *mut Option<windows_core::IUnknown>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppobjectarray: windows_core::OutRef<'_, windows_core::IUnknown>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumVdsObject>;
@@ -3202,7 +3202,7 @@ pub struct IVdsProviderPrivate_Vtbl {
 }
 pub trait IVdsProviderPrivate_Impl: windows_core::IUnknownImpl {
     fn GetObject(&self, objectid: &windows_core::GUID, r#type: VDS_OBJECT_TYPE) -> windows_core::Result<windows_core::IUnknown>;
-    fn OnLoad(&self, pwszmachinename: &windows_core::PCWSTR, pcallbackobject: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn OnLoad(&self, pwszmachinename: &windows_core::PCWSTR, pcallbackobject: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn OnUnload(&self, bforceunload: super::super::Foundation::BOOL) -> windows_core::Result<()>;
 }
 impl IVdsProviderPrivate_Vtbl {
@@ -3219,7 +3219,7 @@ impl IVdsProviderPrivate_Vtbl {
         }
         unsafe extern "system" fn OnLoad<Identity: IVdsProviderPrivate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszmachinename: windows_core::PCWSTR, pcallbackobject: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IVdsProviderPrivate_Impl::OnLoad(this, core::mem::transmute(&pwszmachinename), windows_core::from_raw_borrowed(&pcallbackobject)).into()
+            IVdsProviderPrivate_Impl::OnLoad(this, core::mem::transmute(&pwszmachinename), core::mem::transmute_copy(&pcallbackobject)).into()
         }
         unsafe extern "system" fn OnUnload<Identity: IVdsProviderPrivate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bforceunload: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3407,7 +3407,7 @@ pub trait IVdsService_Impl: windows_core::IUnknownImpl {
     fn Reenumerate(&self) -> windows_core::Result<()>;
     fn Refresh(&self) -> windows_core::Result<()>;
     fn CleanupObsoleteMountPoints(&self) -> windows_core::Result<()>;
-    fn Advise(&self, psink: Option<&IVdsAdviseSink>) -> windows_core::Result<u32>;
+    fn Advise(&self, psink: windows_core::Ref<'_, IVdsAdviseSink>) -> windows_core::Result<u32>;
     fn Unadvise(&self, dwcookie: u32) -> windows_core::Result<()>;
     fn Reboot(&self) -> windows_core::Result<()>;
     fn SetFlags(&self, ulflags: u32) -> windows_core::Result<()>;
@@ -3495,7 +3495,7 @@ impl IVdsService_Vtbl {
         }
         unsafe extern "system" fn Advise<Identity: IVdsService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psink: *mut core::ffi::c_void, pdwcookie: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IVdsService_Impl::Advise(this, windows_core::from_raw_borrowed(&psink)) {
+            match IVdsService_Impl::Advise(this, core::mem::transmute_copy(&psink)) {
                 Ok(ok__) => {
                     pdwcookie.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4674,10 +4674,10 @@ pub struct IVdsVdProvider_Vtbl {
 #[cfg(feature = "Win32_Storage_Vhd")]
 pub trait IVdsVdProvider_Impl: windows_core::IUnknownImpl {
     fn QueryVDisks(&self) -> windows_core::Result<IEnumVdsObject>;
-    fn CreateVDisk(&self, virtualdevicetype: *const super::Vhd::VIRTUAL_STORAGE_TYPE, ppath: &windows_core::PCWSTR, pstringsecuritydescriptor: &windows_core::PCWSTR, flags: super::Vhd::CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: u32, reserved: u32, pcreatediskparameters: *const VDS_CREATE_VDISK_PARAMETERS, ppasync: *mut Option<IVdsAsync>) -> windows_core::Result<()>;
-    fn AddVDisk(&self, virtualdevicetype: *const super::Vhd::VIRTUAL_STORAGE_TYPE, ppath: &windows_core::PCWSTR, ppvdisk: *mut Option<IVdsVDisk>) -> windows_core::Result<()>;
-    fn GetDiskFromVDisk(&self, pvdisk: Option<&IVdsVDisk>) -> windows_core::Result<IVdsDisk>;
-    fn GetVDiskFromDisk(&self, pdisk: Option<&IVdsDisk>) -> windows_core::Result<IVdsVDisk>;
+    fn CreateVDisk(&self, virtualdevicetype: *const super::Vhd::VIRTUAL_STORAGE_TYPE, ppath: &windows_core::PCWSTR, pstringsecuritydescriptor: &windows_core::PCWSTR, flags: super::Vhd::CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: u32, reserved: u32, pcreatediskparameters: *const VDS_CREATE_VDISK_PARAMETERS, ppasync: windows_core::OutRef<'_, IVdsAsync>) -> windows_core::Result<()>;
+    fn AddVDisk(&self, virtualdevicetype: *const super::Vhd::VIRTUAL_STORAGE_TYPE, ppath: &windows_core::PCWSTR, ppvdisk: windows_core::OutRef<'_, IVdsVDisk>) -> windows_core::Result<()>;
+    fn GetDiskFromVDisk(&self, pvdisk: windows_core::Ref<'_, IVdsVDisk>) -> windows_core::Result<IVdsDisk>;
+    fn GetVDiskFromDisk(&self, pdisk: windows_core::Ref<'_, IVdsDisk>) -> windows_core::Result<IVdsVDisk>;
 }
 #[cfg(feature = "Win32_Storage_Vhd")]
 impl IVdsVdProvider_Vtbl {
@@ -4702,7 +4702,7 @@ impl IVdsVdProvider_Vtbl {
         }
         unsafe extern "system" fn GetDiskFromVDisk<Identity: IVdsVdProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvdisk: *mut core::ffi::c_void, ppdisk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IVdsVdProvider_Impl::GetDiskFromVDisk(this, windows_core::from_raw_borrowed(&pvdisk)) {
+            match IVdsVdProvider_Impl::GetDiskFromVDisk(this, core::mem::transmute_copy(&pvdisk)) {
                 Ok(ok__) => {
                     ppdisk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4712,7 +4712,7 @@ impl IVdsVdProvider_Vtbl {
         }
         unsafe extern "system" fn GetVDiskFromDisk<Identity: IVdsVdProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdisk: *mut core::ffi::c_void, ppvdisk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IVdsVdProvider_Impl::GetVDiskFromDisk(this, windows_core::from_raw_borrowed(&pdisk)) {
+            match IVdsVdProvider_Impl::GetVDiskFromDisk(this, core::mem::transmute_copy(&pdisk)) {
                 Ok(ok__) => {
                     ppvdisk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)

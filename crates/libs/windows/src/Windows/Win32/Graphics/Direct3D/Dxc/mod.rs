@@ -145,13 +145,13 @@ pub struct IDxcAssembler_Vtbl {
     pub AssembleToContainer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDxcAssembler_Impl: windows_core::IUnknownImpl {
-    fn AssembleToContainer(&self, pshader: Option<&IDxcBlob>) -> windows_core::Result<IDxcOperationResult>;
+    fn AssembleToContainer(&self, pshader: windows_core::Ref<'_, IDxcBlob>) -> windows_core::Result<IDxcOperationResult>;
 }
 impl IDxcAssembler_Vtbl {
     pub const fn new<Identity: IDxcAssembler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AssembleToContainer<Identity: IDxcAssembler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pshader: *mut core::ffi::c_void, ppresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDxcAssembler_Impl::AssembleToContainer(this, windows_core::from_raw_borrowed(&pshader)) {
+            match IDxcAssembler_Impl::AssembleToContainer(this, core::mem::transmute_copy(&pshader)) {
                 Ok(ok__) => {
                     ppresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -374,15 +374,15 @@ pub struct IDxcCompiler_Vtbl {
     pub Disassemble: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDxcCompiler_Impl: windows_core::IUnknownImpl {
-    fn Compile(&self, psource: Option<&IDxcBlob>, psourcename: &windows_core::PCWSTR, pentrypoint: &windows_core::PCWSTR, ptargetprofile: &windows_core::PCWSTR, parguments: *const windows_core::PCWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32, pincludehandler: Option<&IDxcIncludeHandler>) -> windows_core::Result<IDxcOperationResult>;
-    fn Preprocess(&self, psource: Option<&IDxcBlob>, psourcename: &windows_core::PCWSTR, parguments: *const windows_core::PCWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32, pincludehandler: Option<&IDxcIncludeHandler>) -> windows_core::Result<IDxcOperationResult>;
-    fn Disassemble(&self, psource: Option<&IDxcBlob>) -> windows_core::Result<IDxcBlobEncoding>;
+    fn Compile(&self, psource: windows_core::Ref<'_, IDxcBlob>, psourcename: &windows_core::PCWSTR, pentrypoint: &windows_core::PCWSTR, ptargetprofile: &windows_core::PCWSTR, parguments: *const windows_core::PCWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32, pincludehandler: windows_core::Ref<'_, IDxcIncludeHandler>) -> windows_core::Result<IDxcOperationResult>;
+    fn Preprocess(&self, psource: windows_core::Ref<'_, IDxcBlob>, psourcename: &windows_core::PCWSTR, parguments: *const windows_core::PCWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32, pincludehandler: windows_core::Ref<'_, IDxcIncludeHandler>) -> windows_core::Result<IDxcOperationResult>;
+    fn Disassemble(&self, psource: windows_core::Ref<'_, IDxcBlob>) -> windows_core::Result<IDxcBlobEncoding>;
 }
 impl IDxcCompiler_Vtbl {
     pub const fn new<Identity: IDxcCompiler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Compile<Identity: IDxcCompiler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psource: *mut core::ffi::c_void, psourcename: windows_core::PCWSTR, pentrypoint: windows_core::PCWSTR, ptargetprofile: windows_core::PCWSTR, parguments: *const windows_core::PCWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32, pincludehandler: *mut core::ffi::c_void, ppresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDxcCompiler_Impl::Compile(this, windows_core::from_raw_borrowed(&psource), core::mem::transmute(&psourcename), core::mem::transmute(&pentrypoint), core::mem::transmute(&ptargetprofile), core::mem::transmute_copy(&parguments), core::mem::transmute_copy(&argcount), core::mem::transmute_copy(&pdefines), core::mem::transmute_copy(&definecount), windows_core::from_raw_borrowed(&pincludehandler)) {
+            match IDxcCompiler_Impl::Compile(this, core::mem::transmute_copy(&psource), core::mem::transmute(&psourcename), core::mem::transmute(&pentrypoint), core::mem::transmute(&ptargetprofile), core::mem::transmute_copy(&parguments), core::mem::transmute_copy(&argcount), core::mem::transmute_copy(&pdefines), core::mem::transmute_copy(&definecount), core::mem::transmute_copy(&pincludehandler)) {
                 Ok(ok__) => {
                     ppresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -392,7 +392,7 @@ impl IDxcCompiler_Vtbl {
         }
         unsafe extern "system" fn Preprocess<Identity: IDxcCompiler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psource: *mut core::ffi::c_void, psourcename: windows_core::PCWSTR, parguments: *const windows_core::PCWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32, pincludehandler: *mut core::ffi::c_void, ppresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDxcCompiler_Impl::Preprocess(this, windows_core::from_raw_borrowed(&psource), core::mem::transmute(&psourcename), core::mem::transmute_copy(&parguments), core::mem::transmute_copy(&argcount), core::mem::transmute_copy(&pdefines), core::mem::transmute_copy(&definecount), windows_core::from_raw_borrowed(&pincludehandler)) {
+            match IDxcCompiler_Impl::Preprocess(this, core::mem::transmute_copy(&psource), core::mem::transmute(&psourcename), core::mem::transmute_copy(&parguments), core::mem::transmute_copy(&argcount), core::mem::transmute_copy(&pdefines), core::mem::transmute_copy(&definecount), core::mem::transmute_copy(&pincludehandler)) {
                 Ok(ok__) => {
                     ppresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -402,7 +402,7 @@ impl IDxcCompiler_Vtbl {
         }
         unsafe extern "system" fn Disassemble<Identity: IDxcCompiler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psource: *mut core::ffi::c_void, ppdisassembly: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDxcCompiler_Impl::Disassemble(this, windows_core::from_raw_borrowed(&psource)) {
+            match IDxcCompiler_Impl::Disassemble(this, core::mem::transmute_copy(&psource)) {
                 Ok(ok__) => {
                     ppdisassembly.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -463,28 +463,13 @@ pub struct IDxcCompiler2_Vtbl {
     pub CompileWithDebug: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *const windows_core::PCWSTR, u32, *const DxcDefine, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut windows_core::PWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDxcCompiler2_Impl: IDxcCompiler_Impl {
-    fn CompileWithDebug(&self, psource: Option<&IDxcBlob>, psourcename: &windows_core::PCWSTR, pentrypoint: &windows_core::PCWSTR, ptargetprofile: &windows_core::PCWSTR, parguments: *const windows_core::PCWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32, pincludehandler: Option<&IDxcIncludeHandler>, ppresult: *mut Option<IDxcOperationResult>, ppdebugblobname: *mut windows_core::PWSTR, ppdebugblob: *mut Option<IDxcBlob>) -> windows_core::Result<()>;
+    fn CompileWithDebug(&self, psource: windows_core::Ref<'_, IDxcBlob>, psourcename: &windows_core::PCWSTR, pentrypoint: &windows_core::PCWSTR, ptargetprofile: &windows_core::PCWSTR, parguments: *const windows_core::PCWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32, pincludehandler: windows_core::Ref<'_, IDxcIncludeHandler>, ppresult: windows_core::OutRef<'_, IDxcOperationResult>, ppdebugblobname: *mut windows_core::PWSTR, ppdebugblob: windows_core::OutRef<'_, IDxcBlob>) -> windows_core::Result<()>;
 }
 impl IDxcCompiler2_Vtbl {
     pub const fn new<Identity: IDxcCompiler2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CompileWithDebug<Identity: IDxcCompiler2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psource: *mut core::ffi::c_void, psourcename: windows_core::PCWSTR, pentrypoint: windows_core::PCWSTR, ptargetprofile: windows_core::PCWSTR, parguments: *const windows_core::PCWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32, pincludehandler: *mut core::ffi::c_void, ppresult: *mut *mut core::ffi::c_void, ppdebugblobname: *mut windows_core::PWSTR, ppdebugblob: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDxcCompiler2_Impl::CompileWithDebug(
-                this,
-                windows_core::from_raw_borrowed(&psource),
-                core::mem::transmute(&psourcename),
-                core::mem::transmute(&pentrypoint),
-                core::mem::transmute(&ptargetprofile),
-                core::mem::transmute_copy(&parguments),
-                core::mem::transmute_copy(&argcount),
-                core::mem::transmute_copy(&pdefines),
-                core::mem::transmute_copy(&definecount),
-                windows_core::from_raw_borrowed(&pincludehandler),
-                core::mem::transmute_copy(&ppresult),
-                core::mem::transmute_copy(&ppdebugblobname),
-                core::mem::transmute_copy(&ppdebugblob),
-            )
-            .into()
+            IDxcCompiler2_Impl::CompileWithDebug(this, core::mem::transmute_copy(&psource), core::mem::transmute(&psourcename), core::mem::transmute(&pentrypoint), core::mem::transmute(&ptargetprofile), core::mem::transmute_copy(&parguments), core::mem::transmute_copy(&argcount), core::mem::transmute_copy(&pdefines), core::mem::transmute_copy(&definecount), core::mem::transmute_copy(&pincludehandler), core::mem::transmute_copy(&ppresult), core::mem::transmute_copy(&ppdebugblobname), core::mem::transmute_copy(&ppdebugblob)).into()
         }
         Self { base__: IDxcCompiler_Vtbl::new::<Identity, OFFSET>(), CompileWithDebug: CompileWithDebug::<Identity, OFFSET> }
     }
@@ -519,14 +504,14 @@ pub struct IDxcCompiler3_Vtbl {
     pub Disassemble: unsafe extern "system" fn(*mut core::ffi::c_void, *const DxcBuffer, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDxcCompiler3_Impl: windows_core::IUnknownImpl {
-    fn Compile(&self, psource: *const DxcBuffer, parguments: *const windows_core::PCWSTR, argcount: u32, pincludehandler: Option<&IDxcIncludeHandler>, riid: *const windows_core::GUID, ppresult: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn Compile(&self, psource: *const DxcBuffer, parguments: *const windows_core::PCWSTR, argcount: u32, pincludehandler: windows_core::Ref<'_, IDxcIncludeHandler>, riid: *const windows_core::GUID, ppresult: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn Disassemble(&self, pobject: *const DxcBuffer, riid: *const windows_core::GUID, ppresult: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 impl IDxcCompiler3_Vtbl {
     pub const fn new<Identity: IDxcCompiler3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Compile<Identity: IDxcCompiler3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psource: *const DxcBuffer, parguments: *const windows_core::PCWSTR, argcount: u32, pincludehandler: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDxcCompiler3_Impl::Compile(this, core::mem::transmute_copy(&psource), core::mem::transmute_copy(&parguments), core::mem::transmute_copy(&argcount), windows_core::from_raw_borrowed(&pincludehandler), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppresult)).into()
+            IDxcCompiler3_Impl::Compile(this, core::mem::transmute_copy(&psource), core::mem::transmute_copy(&parguments), core::mem::transmute_copy(&argcount), core::mem::transmute_copy(&pincludehandler), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppresult)).into()
         }
         unsafe extern "system" fn Disassemble<Identity: IDxcCompiler3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobject: *const DxcBuffer, riid: *const windows_core::GUID, ppresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -646,8 +631,8 @@ pub struct IDxcContainerBuilder_Vtbl {
     pub SerializeContainer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDxcContainerBuilder_Impl: windows_core::IUnknownImpl {
-    fn Load(&self, pdxilcontainerheader: Option<&IDxcBlob>) -> windows_core::Result<()>;
-    fn AddPart(&self, fourcc: u32, psource: Option<&IDxcBlob>) -> windows_core::Result<()>;
+    fn Load(&self, pdxilcontainerheader: windows_core::Ref<'_, IDxcBlob>) -> windows_core::Result<()>;
+    fn AddPart(&self, fourcc: u32, psource: windows_core::Ref<'_, IDxcBlob>) -> windows_core::Result<()>;
     fn RemovePart(&self, fourcc: u32) -> windows_core::Result<()>;
     fn SerializeContainer(&self) -> windows_core::Result<IDxcOperationResult>;
 }
@@ -655,11 +640,11 @@ impl IDxcContainerBuilder_Vtbl {
     pub const fn new<Identity: IDxcContainerBuilder_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Load<Identity: IDxcContainerBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdxilcontainerheader: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDxcContainerBuilder_Impl::Load(this, windows_core::from_raw_borrowed(&pdxilcontainerheader)).into()
+            IDxcContainerBuilder_Impl::Load(this, core::mem::transmute_copy(&pdxilcontainerheader)).into()
         }
         unsafe extern "system" fn AddPart<Identity: IDxcContainerBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fourcc: u32, psource: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDxcContainerBuilder_Impl::AddPart(this, core::mem::transmute_copy(&fourcc), windows_core::from_raw_borrowed(&psource)).into()
+            IDxcContainerBuilder_Impl::AddPart(this, core::mem::transmute_copy(&fourcc), core::mem::transmute_copy(&psource)).into()
         }
         unsafe extern "system" fn RemovePart<Identity: IDxcContainerBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fourcc: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -728,7 +713,7 @@ pub struct IDxcContainerReflection_Vtbl {
     pub GetPartReflection: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDxcContainerReflection_Impl: windows_core::IUnknownImpl {
-    fn Load(&self, pcontainer: Option<&IDxcBlob>) -> windows_core::Result<()>;
+    fn Load(&self, pcontainer: windows_core::Ref<'_, IDxcBlob>) -> windows_core::Result<()>;
     fn GetPartCount(&self) -> windows_core::Result<u32>;
     fn GetPartKind(&self, idx: u32) -> windows_core::Result<u32>;
     fn GetPartContent(&self, idx: u32) -> windows_core::Result<IDxcBlob>;
@@ -739,7 +724,7 @@ impl IDxcContainerReflection_Vtbl {
     pub const fn new<Identity: IDxcContainerReflection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Load<Identity: IDxcContainerReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcontainer: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDxcContainerReflection_Impl::Load(this, windows_core::from_raw_borrowed(&pcontainer)).into()
+            IDxcContainerReflection_Impl::Load(this, core::mem::transmute_copy(&pcontainer)).into()
         }
         unsafe extern "system" fn GetPartCount<Identity: IDxcContainerReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presult: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -821,7 +806,7 @@ pub struct IDxcExtraOutputs_Vtbl {
 }
 pub trait IDxcExtraOutputs_Impl: windows_core::IUnknownImpl {
     fn GetOutputCount(&self) -> u32;
-    fn GetOutput(&self, uindex: u32, iid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void, ppoutputtype: *mut Option<IDxcBlobUtf16>, ppoutputname: *mut Option<IDxcBlobUtf16>) -> windows_core::Result<()>;
+    fn GetOutput(&self, uindex: u32, iid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void, ppoutputtype: windows_core::OutRef<'_, IDxcBlobUtf16>, ppoutputname: windows_core::OutRef<'_, IDxcBlobUtf16>) -> windows_core::Result<()>;
 }
 impl IDxcExtraOutputs_Vtbl {
     pub const fn new<Identity: IDxcExtraOutputs_Impl, const OFFSET: isize>() -> Self {
@@ -974,27 +959,27 @@ pub struct IDxcLibrary_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDxcLibrary_Impl: windows_core::IUnknownImpl {
-    fn SetMalloc(&self, pmalloc: Option<&super::super::super::System::Com::IMalloc>) -> windows_core::Result<()>;
-    fn CreateBlobFromBlob(&self, pblob: Option<&IDxcBlob>, offset: u32, length: u32) -> windows_core::Result<IDxcBlob>;
+    fn SetMalloc(&self, pmalloc: windows_core::Ref<'_, super::super::super::System::Com::IMalloc>) -> windows_core::Result<()>;
+    fn CreateBlobFromBlob(&self, pblob: windows_core::Ref<'_, IDxcBlob>, offset: u32, length: u32) -> windows_core::Result<IDxcBlob>;
     fn CreateBlobFromFile(&self, pfilename: &windows_core::PCWSTR, codepage: *const DXC_CP) -> windows_core::Result<IDxcBlobEncoding>;
     fn CreateBlobWithEncodingFromPinned(&self, ptext: *const core::ffi::c_void, size: u32, codepage: DXC_CP) -> windows_core::Result<IDxcBlobEncoding>;
     fn CreateBlobWithEncodingOnHeapCopy(&self, ptext: *const core::ffi::c_void, size: u32, codepage: DXC_CP) -> windows_core::Result<IDxcBlobEncoding>;
-    fn CreateBlobWithEncodingOnMalloc(&self, ptext: *const core::ffi::c_void, pimalloc: Option<&super::super::super::System::Com::IMalloc>, size: u32, codepage: DXC_CP) -> windows_core::Result<IDxcBlobEncoding>;
+    fn CreateBlobWithEncodingOnMalloc(&self, ptext: *const core::ffi::c_void, pimalloc: windows_core::Ref<'_, super::super::super::System::Com::IMalloc>, size: u32, codepage: DXC_CP) -> windows_core::Result<IDxcBlobEncoding>;
     fn CreateIncludeHandler(&self) -> windows_core::Result<IDxcIncludeHandler>;
-    fn CreateStreamFromBlobReadOnly(&self, pblob: Option<&IDxcBlob>) -> windows_core::Result<super::super::super::System::Com::IStream>;
-    fn GetBlobAsUtf8(&self, pblob: Option<&IDxcBlob>) -> windows_core::Result<IDxcBlobEncoding>;
-    fn GetBlobAsUtf16(&self, pblob: Option<&IDxcBlob>) -> windows_core::Result<IDxcBlobEncoding>;
+    fn CreateStreamFromBlobReadOnly(&self, pblob: windows_core::Ref<'_, IDxcBlob>) -> windows_core::Result<super::super::super::System::Com::IStream>;
+    fn GetBlobAsUtf8(&self, pblob: windows_core::Ref<'_, IDxcBlob>) -> windows_core::Result<IDxcBlobEncoding>;
+    fn GetBlobAsUtf16(&self, pblob: windows_core::Ref<'_, IDxcBlob>) -> windows_core::Result<IDxcBlobEncoding>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IDxcLibrary_Vtbl {
     pub const fn new<Identity: IDxcLibrary_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetMalloc<Identity: IDxcLibrary_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmalloc: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDxcLibrary_Impl::SetMalloc(this, windows_core::from_raw_borrowed(&pmalloc)).into()
+            IDxcLibrary_Impl::SetMalloc(this, core::mem::transmute_copy(&pmalloc)).into()
         }
         unsafe extern "system" fn CreateBlobFromBlob<Identity: IDxcLibrary_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pblob: *mut core::ffi::c_void, offset: u32, length: u32, ppresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDxcLibrary_Impl::CreateBlobFromBlob(this, windows_core::from_raw_borrowed(&pblob), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&length)) {
+            match IDxcLibrary_Impl::CreateBlobFromBlob(this, core::mem::transmute_copy(&pblob), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&length)) {
                 Ok(ok__) => {
                     ppresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1034,7 +1019,7 @@ impl IDxcLibrary_Vtbl {
         }
         unsafe extern "system" fn CreateBlobWithEncodingOnMalloc<Identity: IDxcLibrary_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptext: *const core::ffi::c_void, pimalloc: *mut core::ffi::c_void, size: u32, codepage: DXC_CP, pblobencoding: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDxcLibrary_Impl::CreateBlobWithEncodingOnMalloc(this, core::mem::transmute_copy(&ptext), windows_core::from_raw_borrowed(&pimalloc), core::mem::transmute_copy(&size), core::mem::transmute_copy(&codepage)) {
+            match IDxcLibrary_Impl::CreateBlobWithEncodingOnMalloc(this, core::mem::transmute_copy(&ptext), core::mem::transmute_copy(&pimalloc), core::mem::transmute_copy(&size), core::mem::transmute_copy(&codepage)) {
                 Ok(ok__) => {
                     pblobencoding.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1054,7 +1039,7 @@ impl IDxcLibrary_Vtbl {
         }
         unsafe extern "system" fn CreateStreamFromBlobReadOnly<Identity: IDxcLibrary_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pblob: *mut core::ffi::c_void, ppstream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDxcLibrary_Impl::CreateStreamFromBlobReadOnly(this, windows_core::from_raw_borrowed(&pblob)) {
+            match IDxcLibrary_Impl::CreateStreamFromBlobReadOnly(this, core::mem::transmute_copy(&pblob)) {
                 Ok(ok__) => {
                     ppstream.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1064,7 +1049,7 @@ impl IDxcLibrary_Vtbl {
         }
         unsafe extern "system" fn GetBlobAsUtf8<Identity: IDxcLibrary_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pblob: *mut core::ffi::c_void, pblobencoding: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDxcLibrary_Impl::GetBlobAsUtf8(this, windows_core::from_raw_borrowed(&pblob)) {
+            match IDxcLibrary_Impl::GetBlobAsUtf8(this, core::mem::transmute_copy(&pblob)) {
                 Ok(ok__) => {
                     pblobencoding.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1074,7 +1059,7 @@ impl IDxcLibrary_Vtbl {
         }
         unsafe extern "system" fn GetBlobAsUtf16<Identity: IDxcLibrary_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pblob: *mut core::ffi::c_void, pblobencoding: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDxcLibrary_Impl::GetBlobAsUtf16(this, windows_core::from_raw_borrowed(&pblob)) {
+            match IDxcLibrary_Impl::GetBlobAsUtf16(this, core::mem::transmute_copy(&pblob)) {
                 Ok(ok__) => {
                     pblobencoding.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1128,14 +1113,14 @@ pub struct IDxcLinker_Vtbl {
     pub Link: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *const windows_core::PCWSTR, u32, *const windows_core::PCWSTR, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDxcLinker_Impl: windows_core::IUnknownImpl {
-    fn RegisterLibrary(&self, plibname: &windows_core::PCWSTR, plib: Option<&IDxcBlob>) -> windows_core::Result<()>;
+    fn RegisterLibrary(&self, plibname: &windows_core::PCWSTR, plib: windows_core::Ref<'_, IDxcBlob>) -> windows_core::Result<()>;
     fn Link(&self, pentryname: &windows_core::PCWSTR, ptargetprofile: &windows_core::PCWSTR, plibnames: *const windows_core::PCWSTR, libcount: u32, parguments: *const windows_core::PCWSTR, argcount: u32) -> windows_core::Result<IDxcOperationResult>;
 }
 impl IDxcLinker_Vtbl {
     pub const fn new<Identity: IDxcLinker_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RegisterLibrary<Identity: IDxcLinker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plibname: windows_core::PCWSTR, plib: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDxcLinker_Impl::RegisterLibrary(this, core::mem::transmute(&plibname), windows_core::from_raw_borrowed(&plib)).into()
+            IDxcLinker_Impl::RegisterLibrary(this, core::mem::transmute(&plibname), core::mem::transmute_copy(&plib)).into()
         }
         unsafe extern "system" fn Link<Identity: IDxcLinker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pentryname: windows_core::PCWSTR, ptargetprofile: windows_core::PCWSTR, plibnames: *const windows_core::PCWSTR, libcount: u32, parguments: *const windows_core::PCWSTR, argcount: u32, ppresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -1258,7 +1243,7 @@ pub struct IDxcOptimizer_Vtbl {
 pub trait IDxcOptimizer_Impl: windows_core::IUnknownImpl {
     fn GetAvailablePassCount(&self) -> windows_core::Result<u32>;
     fn GetAvailablePass(&self, index: u32) -> windows_core::Result<IDxcOptimizerPass>;
-    fn RunOptimizer(&self, pblob: Option<&IDxcBlob>, ppoptions: *const windows_core::PCWSTR, optioncount: u32, poutputmodule: *mut Option<IDxcBlob>, ppoutputtext: *mut Option<IDxcBlobEncoding>) -> windows_core::Result<()>;
+    fn RunOptimizer(&self, pblob: windows_core::Ref<'_, IDxcBlob>, ppoptions: *const windows_core::PCWSTR, optioncount: u32, poutputmodule: windows_core::OutRef<'_, IDxcBlob>, ppoutputtext: windows_core::OutRef<'_, IDxcBlobEncoding>) -> windows_core::Result<()>;
 }
 impl IDxcOptimizer_Vtbl {
     pub const fn new<Identity: IDxcOptimizer_Impl, const OFFSET: isize>() -> Self {
@@ -1284,7 +1269,7 @@ impl IDxcOptimizer_Vtbl {
         }
         unsafe extern "system" fn RunOptimizer<Identity: IDxcOptimizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pblob: *mut core::ffi::c_void, ppoptions: *const windows_core::PCWSTR, optioncount: u32, poutputmodule: *mut *mut core::ffi::c_void, ppoutputtext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDxcOptimizer_Impl::RunOptimizer(this, windows_core::from_raw_borrowed(&pblob), core::mem::transmute_copy(&ppoptions), core::mem::transmute_copy(&optioncount), core::mem::transmute_copy(&poutputmodule), core::mem::transmute_copy(&ppoutputtext)).into()
+            IDxcOptimizer_Impl::RunOptimizer(this, core::mem::transmute_copy(&pblob), core::mem::transmute_copy(&ppoptions), core::mem::transmute_copy(&optioncount), core::mem::transmute_copy(&poutputmodule), core::mem::transmute_copy(&ppoutputtext)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -1536,7 +1521,7 @@ pub struct IDxcPdbUtils_Vtbl {
     pub OverrideRootSignature: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 pub trait IDxcPdbUtils_Impl: windows_core::IUnknownImpl {
-    fn Load(&self, ppdbordxil: Option<&IDxcBlob>) -> windows_core::Result<()>;
+    fn Load(&self, ppdbordxil: windows_core::Ref<'_, IDxcBlob>) -> windows_core::Result<()>;
     fn GetSourceCount(&self) -> windows_core::Result<u32>;
     fn GetSource(&self, uindex: u32) -> windows_core::Result<IDxcBlobEncoding>;
     fn GetSourceName(&self, uindex: u32) -> windows_core::Result<windows_core::BSTR>;
@@ -1556,7 +1541,7 @@ pub trait IDxcPdbUtils_Impl: windows_core::IUnknownImpl {
     fn IsFullPDB(&self) -> super::super::super::Foundation::BOOL;
     fn GetFullPDB(&self) -> windows_core::Result<IDxcBlob>;
     fn GetVersionInfo(&self) -> windows_core::Result<IDxcVersionInfo>;
-    fn SetCompiler(&self, pcompiler: Option<&IDxcCompiler3>) -> windows_core::Result<()>;
+    fn SetCompiler(&self, pcompiler: windows_core::Ref<'_, IDxcCompiler3>) -> windows_core::Result<()>;
     fn CompileForFullPDB(&self) -> windows_core::Result<IDxcResult>;
     fn OverrideArgs(&self, pargpairs: *const DxcArgPair, unumargpairs: u32) -> windows_core::Result<()>;
     fn OverrideRootSignature(&self, prootsignature: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -1565,7 +1550,7 @@ impl IDxcPdbUtils_Vtbl {
     pub const fn new<Identity: IDxcPdbUtils_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Load<Identity: IDxcPdbUtils_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdbordxil: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDxcPdbUtils_Impl::Load(this, windows_core::from_raw_borrowed(&ppdbordxil)).into()
+            IDxcPdbUtils_Impl::Load(this, core::mem::transmute_copy(&ppdbordxil)).into()
         }
         unsafe extern "system" fn GetSourceCount<Identity: IDxcPdbUtils_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcount: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -1747,7 +1732,7 @@ impl IDxcPdbUtils_Vtbl {
         }
         unsafe extern "system" fn SetCompiler<Identity: IDxcPdbUtils_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcompiler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDxcPdbUtils_Impl::SetCompiler(this, windows_core::from_raw_borrowed(&pcompiler)).into()
+            IDxcPdbUtils_Impl::SetCompiler(this, core::mem::transmute_copy(&pcompiler)).into()
         }
         unsafe extern "system" fn CompileForFullPDB<Identity: IDxcPdbUtils_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -1839,7 +1824,7 @@ pub struct IDxcResult_Vtbl {
 }
 pub trait IDxcResult_Impl: IDxcOperationResult_Impl {
     fn HasOutput(&self, dxcoutkind: DXC_OUT_KIND) -> super::super::super::Foundation::BOOL;
-    fn GetOutput(&self, dxcoutkind: DXC_OUT_KIND, iid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void, ppoutputname: *mut Option<IDxcBlobUtf16>) -> windows_core::Result<()>;
+    fn GetOutput(&self, dxcoutkind: DXC_OUT_KIND, iid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void, ppoutputname: windows_core::OutRef<'_, IDxcBlobUtf16>) -> windows_core::Result<()>;
     fn GetNumOutputs(&self) -> u32;
     fn GetOutputByIndex(&self, index: u32) -> DXC_OUT_KIND;
     fn PrimaryOutput(&self) -> DXC_OUT_KIND;
@@ -1986,26 +1971,26 @@ pub struct IDxcUtils_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDxcUtils_Impl: windows_core::IUnknownImpl {
-    fn CreateBlobFromBlob(&self, pblob: Option<&IDxcBlob>, offset: u32, length: u32) -> windows_core::Result<IDxcBlob>;
+    fn CreateBlobFromBlob(&self, pblob: windows_core::Ref<'_, IDxcBlob>, offset: u32, length: u32) -> windows_core::Result<IDxcBlob>;
     fn CreateBlobFromPinned(&self, pdata: *const core::ffi::c_void, size: u32, codepage: DXC_CP) -> windows_core::Result<IDxcBlobEncoding>;
-    fn MoveToBlob(&self, pdata: *const core::ffi::c_void, pimalloc: Option<&super::super::super::System::Com::IMalloc>, size: u32, codepage: DXC_CP) -> windows_core::Result<IDxcBlobEncoding>;
+    fn MoveToBlob(&self, pdata: *const core::ffi::c_void, pimalloc: windows_core::Ref<'_, super::super::super::System::Com::IMalloc>, size: u32, codepage: DXC_CP) -> windows_core::Result<IDxcBlobEncoding>;
     fn CreateBlob(&self, pdata: *const core::ffi::c_void, size: u32, codepage: DXC_CP) -> windows_core::Result<IDxcBlobEncoding>;
     fn LoadFile(&self, pfilename: &windows_core::PCWSTR, pcodepage: *const DXC_CP) -> windows_core::Result<IDxcBlobEncoding>;
-    fn CreateReadOnlyStreamFromBlob(&self, pblob: Option<&IDxcBlob>) -> windows_core::Result<super::super::super::System::Com::IStream>;
+    fn CreateReadOnlyStreamFromBlob(&self, pblob: windows_core::Ref<'_, IDxcBlob>) -> windows_core::Result<super::super::super::System::Com::IStream>;
     fn CreateDefaultIncludeHandler(&self) -> windows_core::Result<IDxcIncludeHandler>;
-    fn GetBlobAsUtf8(&self, pblob: Option<&IDxcBlob>) -> windows_core::Result<IDxcBlobUtf8>;
-    fn GetBlobAsUtf16(&self, pblob: Option<&IDxcBlob>) -> windows_core::Result<IDxcBlobUtf16>;
+    fn GetBlobAsUtf8(&self, pblob: windows_core::Ref<'_, IDxcBlob>) -> windows_core::Result<IDxcBlobUtf8>;
+    fn GetBlobAsUtf16(&self, pblob: windows_core::Ref<'_, IDxcBlob>) -> windows_core::Result<IDxcBlobUtf16>;
     fn GetDxilContainerPart(&self, pshader: *const DxcBuffer, dxcpart: u32, pppartdata: *mut *mut core::ffi::c_void, ppartsizeinbytes: *mut u32) -> windows_core::Result<()>;
     fn CreateReflection(&self, pdata: *const DxcBuffer, iid: *const windows_core::GUID, ppvreflection: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn BuildArguments(&self, psourcename: &windows_core::PCWSTR, pentrypoint: &windows_core::PCWSTR, ptargetprofile: &windows_core::PCWSTR, parguments: *const windows_core::PCWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32) -> windows_core::Result<IDxcCompilerArgs>;
-    fn GetPDBContents(&self, ppdbblob: Option<&IDxcBlob>, pphash: *mut Option<IDxcBlob>, ppcontainer: *mut Option<IDxcBlob>) -> windows_core::Result<()>;
+    fn GetPDBContents(&self, ppdbblob: windows_core::Ref<'_, IDxcBlob>, pphash: windows_core::OutRef<'_, IDxcBlob>, ppcontainer: windows_core::OutRef<'_, IDxcBlob>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IDxcUtils_Vtbl {
     pub const fn new<Identity: IDxcUtils_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateBlobFromBlob<Identity: IDxcUtils_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pblob: *mut core::ffi::c_void, offset: u32, length: u32, ppresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDxcUtils_Impl::CreateBlobFromBlob(this, windows_core::from_raw_borrowed(&pblob), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&length)) {
+            match IDxcUtils_Impl::CreateBlobFromBlob(this, core::mem::transmute_copy(&pblob), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&length)) {
                 Ok(ok__) => {
                     ppresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2025,7 +2010,7 @@ impl IDxcUtils_Vtbl {
         }
         unsafe extern "system" fn MoveToBlob<Identity: IDxcUtils_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdata: *const core::ffi::c_void, pimalloc: *mut core::ffi::c_void, size: u32, codepage: DXC_CP, pblobencoding: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDxcUtils_Impl::MoveToBlob(this, core::mem::transmute_copy(&pdata), windows_core::from_raw_borrowed(&pimalloc), core::mem::transmute_copy(&size), core::mem::transmute_copy(&codepage)) {
+            match IDxcUtils_Impl::MoveToBlob(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&pimalloc), core::mem::transmute_copy(&size), core::mem::transmute_copy(&codepage)) {
                 Ok(ok__) => {
                     pblobencoding.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2055,7 +2040,7 @@ impl IDxcUtils_Vtbl {
         }
         unsafe extern "system" fn CreateReadOnlyStreamFromBlob<Identity: IDxcUtils_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pblob: *mut core::ffi::c_void, ppstream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDxcUtils_Impl::CreateReadOnlyStreamFromBlob(this, windows_core::from_raw_borrowed(&pblob)) {
+            match IDxcUtils_Impl::CreateReadOnlyStreamFromBlob(this, core::mem::transmute_copy(&pblob)) {
                 Ok(ok__) => {
                     ppstream.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2075,7 +2060,7 @@ impl IDxcUtils_Vtbl {
         }
         unsafe extern "system" fn GetBlobAsUtf8<Identity: IDxcUtils_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pblob: *mut core::ffi::c_void, pblobencoding: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDxcUtils_Impl::GetBlobAsUtf8(this, windows_core::from_raw_borrowed(&pblob)) {
+            match IDxcUtils_Impl::GetBlobAsUtf8(this, core::mem::transmute_copy(&pblob)) {
                 Ok(ok__) => {
                     pblobencoding.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2085,7 +2070,7 @@ impl IDxcUtils_Vtbl {
         }
         unsafe extern "system" fn GetBlobAsUtf16<Identity: IDxcUtils_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pblob: *mut core::ffi::c_void, pblobencoding: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDxcUtils_Impl::GetBlobAsUtf16(this, windows_core::from_raw_borrowed(&pblob)) {
+            match IDxcUtils_Impl::GetBlobAsUtf16(this, core::mem::transmute_copy(&pblob)) {
                 Ok(ok__) => {
                     pblobencoding.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2113,7 +2098,7 @@ impl IDxcUtils_Vtbl {
         }
         unsafe extern "system" fn GetPDBContents<Identity: IDxcUtils_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdbblob: *mut core::ffi::c_void, pphash: *mut *mut core::ffi::c_void, ppcontainer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDxcUtils_Impl::GetPDBContents(this, windows_core::from_raw_borrowed(&ppdbblob), core::mem::transmute_copy(&pphash), core::mem::transmute_copy(&ppcontainer)).into()
+            IDxcUtils_Impl::GetPDBContents(this, core::mem::transmute_copy(&ppdbblob), core::mem::transmute_copy(&pphash), core::mem::transmute_copy(&ppcontainer)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -2155,13 +2140,13 @@ pub struct IDxcValidator_Vtbl {
     pub Validate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDxcValidator_Impl: windows_core::IUnknownImpl {
-    fn Validate(&self, pshader: Option<&IDxcBlob>, flags: u32) -> windows_core::Result<IDxcOperationResult>;
+    fn Validate(&self, pshader: windows_core::Ref<'_, IDxcBlob>, flags: u32) -> windows_core::Result<IDxcOperationResult>;
 }
 impl IDxcValidator_Vtbl {
     pub const fn new<Identity: IDxcValidator_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Validate<Identity: IDxcValidator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pshader: *mut core::ffi::c_void, flags: u32, ppresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDxcValidator_Impl::Validate(this, windows_core::from_raw_borrowed(&pshader), core::mem::transmute_copy(&flags)) {
+            match IDxcValidator_Impl::Validate(this, core::mem::transmute_copy(&pshader), core::mem::transmute_copy(&flags)) {
                 Ok(ok__) => {
                     ppresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2199,13 +2184,13 @@ pub struct IDxcValidator2_Vtbl {
     pub ValidateWithDebug: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const DxcBuffer, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDxcValidator2_Impl: IDxcValidator_Impl {
-    fn ValidateWithDebug(&self, pshader: Option<&IDxcBlob>, flags: u32, poptdebugbitcode: *const DxcBuffer) -> windows_core::Result<IDxcOperationResult>;
+    fn ValidateWithDebug(&self, pshader: windows_core::Ref<'_, IDxcBlob>, flags: u32, poptdebugbitcode: *const DxcBuffer) -> windows_core::Result<IDxcOperationResult>;
 }
 impl IDxcValidator2_Vtbl {
     pub const fn new<Identity: IDxcValidator2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ValidateWithDebug<Identity: IDxcValidator2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pshader: *mut core::ffi::c_void, flags: u32, poptdebugbitcode: *const DxcBuffer, ppresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDxcValidator2_Impl::ValidateWithDebug(this, windows_core::from_raw_borrowed(&pshader), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&poptdebugbitcode)) {
+            match IDxcValidator2_Impl::ValidateWithDebug(this, core::mem::transmute_copy(&pshader), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&poptdebugbitcode)) {
                 Ok(ok__) => {
                     ppresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)

@@ -618,7 +618,7 @@ impl windows_core::RuntimeType for ApplicationDataSetVersionHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl ApplicationDataSetVersionHandler {
-    pub fn new<F: FnMut(Option<&SetVersionRequest>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(windows_core::Ref<'_, SetVersionRequest>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = ApplicationDataSetVersionHandlerBox { vtable: &ApplicationDataSetVersionHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -636,12 +636,12 @@ pub struct ApplicationDataSetVersionHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, setversionrequest: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct ApplicationDataSetVersionHandlerBox<F: FnMut(Option<&SetVersionRequest>) -> windows_core::Result<()> + Send + 'static> {
+struct ApplicationDataSetVersionHandlerBox<F: FnMut(windows_core::Ref<'_, SetVersionRequest>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const ApplicationDataSetVersionHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: FnMut(Option<&SetVersionRequest>) -> windows_core::Result<()> + Send + 'static> ApplicationDataSetVersionHandlerBox<F> {
+impl<F: FnMut(windows_core::Ref<'_, SetVersionRequest>) -> windows_core::Result<()> + Send + 'static> ApplicationDataSetVersionHandlerBox<F> {
     const VTABLE: ApplicationDataSetVersionHandler_Vtbl = ApplicationDataSetVersionHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         let this = this as *mut *mut core::ffi::c_void as *mut Self;
@@ -670,7 +670,7 @@ impl<F: FnMut(Option<&SetVersionRequest>) -> windows_core::Result<()> + Send + '
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, setversionrequest: *mut core::ffi::c_void) -> windows_core::HRESULT {
         let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(windows_core::from_raw_borrowed(&setversionrequest)).into()
+        (this.invoke)(core::mem::transmute_copy(&setversionrequest)).into()
     }
 }
 pub struct CachedFileManager;
@@ -1703,14 +1703,14 @@ pub trait IStorageFile_Impl: Streams::IInputStreamReference_Impl + Streams::IRan
     fn ContentType(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn OpenAsync(&self, accessMode: FileAccessMode) -> windows_core::Result<super::Foundation::IAsyncOperation<Streams::IRandomAccessStream>>;
     fn OpenTransactedWriteAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageStreamTransaction>>;
-    fn CopyOverloadDefaultNameAndOptions(&self, destinationFolder: Option<&IStorageFolder>) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
-    fn CopyOverloadDefaultOptions(&self, destinationFolder: Option<&IStorageFolder>, desiredNewName: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
-    fn CopyOverload(&self, destinationFolder: Option<&IStorageFolder>, desiredNewName: &windows_core::HSTRING, option: NameCollisionOption) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
-    fn CopyAndReplaceAsync(&self, fileToReplace: Option<&IStorageFile>) -> windows_core::Result<super::Foundation::IAsyncAction>;
-    fn MoveOverloadDefaultNameAndOptions(&self, destinationFolder: Option<&IStorageFolder>) -> windows_core::Result<super::Foundation::IAsyncAction>;
-    fn MoveOverloadDefaultOptions(&self, destinationFolder: Option<&IStorageFolder>, desiredNewName: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncAction>;
-    fn MoveOverload(&self, destinationFolder: Option<&IStorageFolder>, desiredNewName: &windows_core::HSTRING, option: NameCollisionOption) -> windows_core::Result<super::Foundation::IAsyncAction>;
-    fn MoveAndReplaceAsync(&self, fileToReplace: Option<&IStorageFile>) -> windows_core::Result<super::Foundation::IAsyncAction>;
+    fn CopyOverloadDefaultNameAndOptions(&self, destinationFolder: windows_core::Ref<'_, IStorageFolder>) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
+    fn CopyOverloadDefaultOptions(&self, destinationFolder: windows_core::Ref<'_, IStorageFolder>, desiredNewName: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
+    fn CopyOverload(&self, destinationFolder: windows_core::Ref<'_, IStorageFolder>, desiredNewName: &windows_core::HSTRING, option: NameCollisionOption) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
+    fn CopyAndReplaceAsync(&self, fileToReplace: windows_core::Ref<'_, IStorageFile>) -> windows_core::Result<super::Foundation::IAsyncAction>;
+    fn MoveOverloadDefaultNameAndOptions(&self, destinationFolder: windows_core::Ref<'_, IStorageFolder>) -> windows_core::Result<super::Foundation::IAsyncAction>;
+    fn MoveOverloadDefaultOptions(&self, destinationFolder: windows_core::Ref<'_, IStorageFolder>, desiredNewName: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncAction>;
+    fn MoveOverload(&self, destinationFolder: windows_core::Ref<'_, IStorageFolder>, desiredNewName: &windows_core::HSTRING, option: NameCollisionOption) -> windows_core::Result<super::Foundation::IAsyncAction>;
+    fn MoveAndReplaceAsync(&self, fileToReplace: windows_core::Ref<'_, IStorageFile>) -> windows_core::Result<super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
 impl IStorageFile_Vtbl {
@@ -1761,7 +1761,7 @@ impl IStorageFile_Vtbl {
         }
         unsafe extern "system" fn CopyOverloadDefaultNameAndOptions<Identity: IStorageFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationfolder: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IStorageFile_Impl::CopyOverloadDefaultNameAndOptions(this, windows_core::from_raw_borrowed(&destinationfolder)) {
+            match IStorageFile_Impl::CopyOverloadDefaultNameAndOptions(this, core::mem::transmute_copy(&destinationfolder)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1772,7 +1772,7 @@ impl IStorageFile_Vtbl {
         }
         unsafe extern "system" fn CopyOverloadDefaultOptions<Identity: IStorageFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationfolder: *mut core::ffi::c_void, desirednewname: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IStorageFile_Impl::CopyOverloadDefaultOptions(this, windows_core::from_raw_borrowed(&destinationfolder), core::mem::transmute(&desirednewname)) {
+            match IStorageFile_Impl::CopyOverloadDefaultOptions(this, core::mem::transmute_copy(&destinationfolder), core::mem::transmute(&desirednewname)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1783,7 +1783,7 @@ impl IStorageFile_Vtbl {
         }
         unsafe extern "system" fn CopyOverload<Identity: IStorageFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationfolder: *mut core::ffi::c_void, desirednewname: *mut core::ffi::c_void, option: NameCollisionOption, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IStorageFile_Impl::CopyOverload(this, windows_core::from_raw_borrowed(&destinationfolder), core::mem::transmute(&desirednewname), option) {
+            match IStorageFile_Impl::CopyOverload(this, core::mem::transmute_copy(&destinationfolder), core::mem::transmute(&desirednewname), option) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1794,7 +1794,7 @@ impl IStorageFile_Vtbl {
         }
         unsafe extern "system" fn CopyAndReplaceAsync<Identity: IStorageFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filetoreplace: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IStorageFile_Impl::CopyAndReplaceAsync(this, windows_core::from_raw_borrowed(&filetoreplace)) {
+            match IStorageFile_Impl::CopyAndReplaceAsync(this, core::mem::transmute_copy(&filetoreplace)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1805,7 +1805,7 @@ impl IStorageFile_Vtbl {
         }
         unsafe extern "system" fn MoveOverloadDefaultNameAndOptions<Identity: IStorageFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationfolder: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IStorageFile_Impl::MoveOverloadDefaultNameAndOptions(this, windows_core::from_raw_borrowed(&destinationfolder)) {
+            match IStorageFile_Impl::MoveOverloadDefaultNameAndOptions(this, core::mem::transmute_copy(&destinationfolder)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1816,7 +1816,7 @@ impl IStorageFile_Vtbl {
         }
         unsafe extern "system" fn MoveOverloadDefaultOptions<Identity: IStorageFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationfolder: *mut core::ffi::c_void, desirednewname: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IStorageFile_Impl::MoveOverloadDefaultOptions(this, windows_core::from_raw_borrowed(&destinationfolder), core::mem::transmute(&desirednewname)) {
+            match IStorageFile_Impl::MoveOverloadDefaultOptions(this, core::mem::transmute_copy(&destinationfolder), core::mem::transmute(&desirednewname)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1827,7 +1827,7 @@ impl IStorageFile_Vtbl {
         }
         unsafe extern "system" fn MoveOverload<Identity: IStorageFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationfolder: *mut core::ffi::c_void, desirednewname: *mut core::ffi::c_void, option: NameCollisionOption, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IStorageFile_Impl::MoveOverload(this, windows_core::from_raw_borrowed(&destinationfolder), core::mem::transmute(&desirednewname), option) {
+            match IStorageFile_Impl::MoveOverload(this, core::mem::transmute_copy(&destinationfolder), core::mem::transmute(&desirednewname), option) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1838,7 +1838,7 @@ impl IStorageFile_Vtbl {
         }
         unsafe extern "system" fn MoveAndReplaceAsync<Identity: IStorageFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filetoreplace: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IStorageFile_Impl::MoveAndReplaceAsync(this, windows_core::from_raw_borrowed(&filetoreplace)) {
+            match IStorageFile_Impl::MoveAndReplaceAsync(this, core::mem::transmute_copy(&filetoreplace)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -2820,7 +2820,7 @@ impl windows_core::RuntimeName for IStorageItem2 {
 #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search"))]
 pub trait IStorageItem2_Impl: IStorageItem_Impl {
     fn GetParentAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFolder>>;
-    fn IsEqual(&self, item: Option<&IStorageItem>) -> windows_core::Result<bool>;
+    fn IsEqual(&self, item: windows_core::Ref<'_, IStorageItem>) -> windows_core::Result<bool>;
 }
 #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search"))]
 impl IStorageItem2_Vtbl {
@@ -2838,7 +2838,7 @@ impl IStorageItem2_Vtbl {
         }
         unsafe extern "system" fn IsEqual<Identity: IStorageItem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, item: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IStorageItem2_Impl::IsEqual(this, windows_core::from_raw_borrowed(&item)) {
+            match IStorageItem2_Impl::IsEqual(this, core::mem::transmute_copy(&item)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -5570,7 +5570,7 @@ impl windows_core::RuntimeType for StreamedFileDataRequestedHandler {
 }
 #[cfg(feature = "Storage_Streams")]
 impl StreamedFileDataRequestedHandler {
-    pub fn new<F: FnMut(Option<&StreamedFileDataRequest>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(windows_core::Ref<'_, StreamedFileDataRequest>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = StreamedFileDataRequestedHandlerBox { vtable: &StreamedFileDataRequestedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -5590,13 +5590,13 @@ pub struct StreamedFileDataRequestedHandler_Vtbl {
 }
 #[cfg(feature = "Storage_Streams")]
 #[repr(C)]
-struct StreamedFileDataRequestedHandlerBox<F: FnMut(Option<&StreamedFileDataRequest>) -> windows_core::Result<()> + Send + 'static> {
+struct StreamedFileDataRequestedHandlerBox<F: FnMut(windows_core::Ref<'_, StreamedFileDataRequest>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const StreamedFileDataRequestedHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
 #[cfg(feature = "Storage_Streams")]
-impl<F: FnMut(Option<&StreamedFileDataRequest>) -> windows_core::Result<()> + Send + 'static> StreamedFileDataRequestedHandlerBox<F> {
+impl<F: FnMut(windows_core::Ref<'_, StreamedFileDataRequest>) -> windows_core::Result<()> + Send + 'static> StreamedFileDataRequestedHandlerBox<F> {
     const VTABLE: StreamedFileDataRequestedHandler_Vtbl = StreamedFileDataRequestedHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         let this = this as *mut *mut core::ffi::c_void as *mut Self;
@@ -5625,7 +5625,7 @@ impl<F: FnMut(Option<&StreamedFileDataRequest>) -> windows_core::Result<()> + Se
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, stream: *mut core::ffi::c_void) -> windows_core::HRESULT {
         let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(windows_core::from_raw_borrowed(&stream)).into()
+        (this.invoke)(core::mem::transmute_copy(&stream)).into()
     }
 }
 #[repr(transparent)]

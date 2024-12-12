@@ -404,8 +404,8 @@ pub struct ISdoCollection_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISdoCollection_Impl: super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
-    fn Add(&self, bstrname: &windows_core::BSTR, ppitem: *mut Option<super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
-    fn Remove(&self, pitem: Option<&super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
+    fn Add(&self, bstrname: &windows_core::BSTR, ppitem: windows_core::OutRef<'_, super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
+    fn Remove(&self, pitem: windows_core::Ref<'_, super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
     fn RemoveAll(&self) -> windows_core::Result<()>;
     fn Reload(&self) -> windows_core::Result<()>;
     fn IsNameUnique(&self, bstrname: &windows_core::BSTR) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -431,7 +431,7 @@ impl ISdoCollection_Vtbl {
         }
         unsafe extern "system" fn Remove<Identity: ISdoCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pitem: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISdoCollection_Impl::Remove(this, windows_core::from_raw_borrowed(&pitem)).into()
+            ISdoCollection_Impl::Remove(this, core::mem::transmute_copy(&pitem)).into()
         }
         unsafe extern "system" fn RemoveAll<Identity: ISdoCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -849,8 +849,8 @@ pub struct ISdoMachine2_Vtbl {
 pub trait ISdoMachine2_Impl: ISdoMachine_Impl {
     fn GetTemplatesSDO(&self, bstrservicename: &windows_core::BSTR) -> windows_core::Result<windows_core::IUnknown>;
     fn EnableTemplates(&self) -> windows_core::Result<()>;
-    fn SyncConfigAgainstTemplates(&self, bstrservicename: &windows_core::BSTR, ppconfigroot: *mut Option<windows_core::IUnknown>, pptemplatesroot: *mut Option<windows_core::IUnknown>, bforcedsync: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn ImportRemoteTemplates(&self, plocaltemplatesroot: Option<&windows_core::IUnknown>, bstrremotemachinename: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SyncConfigAgainstTemplates(&self, bstrservicename: &windows_core::BSTR, ppconfigroot: windows_core::OutRef<'_, windows_core::IUnknown>, pptemplatesroot: windows_core::OutRef<'_, windows_core::IUnknown>, bforcedsync: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn ImportRemoteTemplates(&self, plocaltemplatesroot: windows_core::Ref<'_, windows_core::IUnknown>, bstrremotemachinename: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Reload(&self) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -876,7 +876,7 @@ impl ISdoMachine2_Vtbl {
         }
         unsafe extern "system" fn ImportRemoteTemplates<Identity: ISdoMachine2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plocaltemplatesroot: *mut core::ffi::c_void, bstrremotemachinename: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISdoMachine2_Impl::ImportRemoteTemplates(this, windows_core::from_raw_borrowed(&plocaltemplatesroot), core::mem::transmute(&bstrremotemachinename)).into()
+            ISdoMachine2_Impl::ImportRemoteTemplates(this, core::mem::transmute_copy(&plocaltemplatesroot), core::mem::transmute(&bstrremotemachinename)).into()
         }
         unsafe extern "system" fn Reload<Identity: ISdoMachine2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -1021,24 +1021,24 @@ pub struct ITemplateSdo_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITemplateSdo_Impl: ISdo_Impl {
-    fn AddToCollection(&self, bstrname: &windows_core::BSTR, pcollection: Option<&super::super::System::Com::IDispatch>, ppitem: *mut Option<super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
-    fn AddToSdo(&self, bstrname: &windows_core::BSTR, psdotarget: Option<&super::super::System::Com::IDispatch>, ppitem: *mut Option<super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
-    fn AddToSdoAsProperty(&self, psdotarget: Option<&super::super::System::Com::IDispatch>, id: i32) -> windows_core::Result<()>;
+    fn AddToCollection(&self, bstrname: &windows_core::BSTR, pcollection: windows_core::Ref<'_, super::super::System::Com::IDispatch>, ppitem: windows_core::OutRef<'_, super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
+    fn AddToSdo(&self, bstrname: &windows_core::BSTR, psdotarget: windows_core::Ref<'_, super::super::System::Com::IDispatch>, ppitem: windows_core::OutRef<'_, super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
+    fn AddToSdoAsProperty(&self, psdotarget: windows_core::Ref<'_, super::super::System::Com::IDispatch>, id: i32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITemplateSdo_Vtbl {
     pub const fn new<Identity: ITemplateSdo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddToCollection<Identity: ITemplateSdo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: *mut core::ffi::c_void, pcollection: *mut core::ffi::c_void, ppitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITemplateSdo_Impl::AddToCollection(this, core::mem::transmute(&bstrname), windows_core::from_raw_borrowed(&pcollection), core::mem::transmute_copy(&ppitem)).into()
+            ITemplateSdo_Impl::AddToCollection(this, core::mem::transmute(&bstrname), core::mem::transmute_copy(&pcollection), core::mem::transmute_copy(&ppitem)).into()
         }
         unsafe extern "system" fn AddToSdo<Identity: ITemplateSdo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: *mut core::ffi::c_void, psdotarget: *mut core::ffi::c_void, ppitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITemplateSdo_Impl::AddToSdo(this, core::mem::transmute(&bstrname), windows_core::from_raw_borrowed(&psdotarget), core::mem::transmute_copy(&ppitem)).into()
+            ITemplateSdo_Impl::AddToSdo(this, core::mem::transmute(&bstrname), core::mem::transmute_copy(&psdotarget), core::mem::transmute_copy(&ppitem)).into()
         }
         unsafe extern "system" fn AddToSdoAsProperty<Identity: ITemplateSdo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psdotarget: *mut core::ffi::c_void, id: i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITemplateSdo_Impl::AddToSdoAsProperty(this, windows_core::from_raw_borrowed(&psdotarget), core::mem::transmute_copy(&id)).into()
+            ITemplateSdo_Impl::AddToSdoAsProperty(this, core::mem::transmute_copy(&psdotarget), core::mem::transmute_copy(&id)).into()
         }
         Self {
             base__: ISdo_Vtbl::new::<Identity, OFFSET>(),

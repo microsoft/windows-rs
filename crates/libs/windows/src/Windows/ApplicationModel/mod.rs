@@ -1325,13 +1325,13 @@ impl windows_core::RuntimeName for IPackageCatalogStatics2 {
     const NAME: &'static str = "Windows.ApplicationModel.IPackageCatalogStatics2";
 }
 pub trait IPackageCatalogStatics2_Impl: windows_core::IUnknownImpl {
-    fn OpenForPackage(&self, package: Option<&Package>) -> windows_core::Result<PackageCatalog>;
+    fn OpenForPackage(&self, package: windows_core::Ref<'_, Package>) -> windows_core::Result<PackageCatalog>;
 }
 impl IPackageCatalogStatics2_Vtbl {
     pub const fn new<Identity: IPackageCatalogStatics2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OpenForPackage<Identity: IPackageCatalogStatics2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, package: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IPackageCatalogStatics2_Impl::OpenForPackage(this, windows_core::from_raw_borrowed(&package)) {
+            match IPackageCatalogStatics2_Impl::OpenForPackage(this, core::mem::transmute_copy(&package)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);

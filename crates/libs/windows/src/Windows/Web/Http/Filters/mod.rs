@@ -515,13 +515,13 @@ impl windows_core::RuntimeName for IHttpFilter {
     const NAME: &'static str = "Windows.Web.Http.Filters.IHttpFilter";
 }
 pub trait IHttpFilter_Impl: super::super::super::Foundation::IClosable_Impl {
-    fn SendRequestAsync(&self, request: Option<&super::HttpRequestMessage>) -> windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>;
+    fn SendRequestAsync(&self, request: windows_core::Ref<'_, super::HttpRequestMessage>) -> windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>;
 }
 impl IHttpFilter_Vtbl {
     pub const fn new<Identity: IHttpFilter_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SendRequestAsync<Identity: IHttpFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, request: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IHttpFilter_Impl::SendRequestAsync(this, windows_core::from_raw_borrowed(&request)) {
+            match IHttpFilter_Impl::SendRequestAsync(this, core::mem::transmute_copy(&request)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);

@@ -5275,13 +5275,13 @@ pub trait IDiskQuotaControl_Impl: super::super::System::Com::IConnectionPointCon
     fn GetDefaultQuotaLimitText(&self, psztext: &windows_core::PCWSTR, cchtext: u32) -> windows_core::Result<()>;
     fn AddUserSid(&self, pusersid: super::super::Security::PSID, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> windows_core::Result<IDiskQuotaUser>;
     fn AddUserName(&self, pszlogonname: &windows_core::PCWSTR, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> windows_core::Result<IDiskQuotaUser>;
-    fn DeleteUser(&self, puser: Option<&IDiskQuotaUser>) -> windows_core::Result<()>;
+    fn DeleteUser(&self, puser: windows_core::Ref<'_, IDiskQuotaUser>) -> windows_core::Result<()>;
     fn FindUserSid(&self, pusersid: super::super::Security::PSID, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> windows_core::Result<IDiskQuotaUser>;
     fn FindUserName(&self, pszlogonname: &windows_core::PCWSTR) -> windows_core::Result<IDiskQuotaUser>;
-    fn CreateEnumUsers(&self, rgpusersids: *mut super::super::Security::PSID, cpsids: u32, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppenum: *mut Option<IEnumDiskQuotaUsers>) -> windows_core::Result<()>;
+    fn CreateEnumUsers(&self, rgpusersids: *mut super::super::Security::PSID, cpsids: u32, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppenum: windows_core::OutRef<'_, IEnumDiskQuotaUsers>) -> windows_core::Result<()>;
     fn CreateUserBatch(&self) -> windows_core::Result<IDiskQuotaUserBatch>;
     fn InvalidateSidNameCache(&self) -> windows_core::Result<()>;
-    fn GiveUserNameResolutionPriority(&self, puser: Option<&IDiskQuotaUser>) -> windows_core::Result<()>;
+    fn GiveUserNameResolutionPriority(&self, puser: windows_core::Ref<'_, IDiskQuotaUser>) -> windows_core::Result<()>;
     fn ShutdownNameResolution(&self) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Com"))]
@@ -5353,7 +5353,7 @@ impl IDiskQuotaControl_Vtbl {
         }
         unsafe extern "system" fn DeleteUser<Identity: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puser: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDiskQuotaControl_Impl::DeleteUser(this, windows_core::from_raw_borrowed(&puser)).into()
+            IDiskQuotaControl_Impl::DeleteUser(this, core::mem::transmute_copy(&puser)).into()
         }
         unsafe extern "system" fn FindUserSid<Identity: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pusersid: super::super::Security::PSID, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppuser: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -5395,7 +5395,7 @@ impl IDiskQuotaControl_Vtbl {
         }
         unsafe extern "system" fn GiveUserNameResolutionPriority<Identity: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puser: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDiskQuotaControl_Impl::GiveUserNameResolutionPriority(this, windows_core::from_raw_borrowed(&puser)).into()
+            IDiskQuotaControl_Impl::GiveUserNameResolutionPriority(this, core::mem::transmute_copy(&puser)).into()
         }
         unsafe extern "system" fn ShutdownNameResolution<Identity: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -5448,13 +5448,13 @@ pub struct IDiskQuotaEvents_Vtbl {
     pub OnUserNameChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDiskQuotaEvents_Impl: windows_core::IUnknownImpl {
-    fn OnUserNameChanged(&self, puser: Option<&IDiskQuotaUser>) -> windows_core::Result<()>;
+    fn OnUserNameChanged(&self, puser: windows_core::Ref<'_, IDiskQuotaUser>) -> windows_core::Result<()>;
 }
 impl IDiskQuotaEvents_Vtbl {
     pub const fn new<Identity: IDiskQuotaEvents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnUserNameChanged<Identity: IDiskQuotaEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puser: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDiskQuotaEvents_Impl::OnUserNameChanged(this, windows_core::from_raw_borrowed(&puser)).into()
+            IDiskQuotaEvents_Impl::OnUserNameChanged(this, core::mem::transmute_copy(&puser)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnUserNameChanged: OnUserNameChanged::<Identity, OFFSET> }
     }
@@ -5679,8 +5679,8 @@ pub struct IDiskQuotaUserBatch_Vtbl {
     pub FlushToDisk: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDiskQuotaUserBatch_Impl: windows_core::IUnknownImpl {
-    fn Add(&self, puser: Option<&IDiskQuotaUser>) -> windows_core::Result<()>;
-    fn Remove(&self, puser: Option<&IDiskQuotaUser>) -> windows_core::Result<()>;
+    fn Add(&self, puser: windows_core::Ref<'_, IDiskQuotaUser>) -> windows_core::Result<()>;
+    fn Remove(&self, puser: windows_core::Ref<'_, IDiskQuotaUser>) -> windows_core::Result<()>;
     fn RemoveAll(&self) -> windows_core::Result<()>;
     fn FlushToDisk(&self) -> windows_core::Result<()>;
 }
@@ -5688,11 +5688,11 @@ impl IDiskQuotaUserBatch_Vtbl {
     pub const fn new<Identity: IDiskQuotaUserBatch_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Add<Identity: IDiskQuotaUserBatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puser: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDiskQuotaUserBatch_Impl::Add(this, windows_core::from_raw_borrowed(&puser)).into()
+            IDiskQuotaUserBatch_Impl::Add(this, core::mem::transmute_copy(&puser)).into()
         }
         unsafe extern "system" fn Remove<Identity: IDiskQuotaUserBatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puser: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDiskQuotaUserBatch_Impl::Remove(this, windows_core::from_raw_borrowed(&puser)).into()
+            IDiskQuotaUserBatch_Impl::Remove(this, core::mem::transmute_copy(&puser)).into()
         }
         unsafe extern "system" fn RemoveAll<Identity: IDiskQuotaUserBatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -5741,7 +5741,7 @@ pub struct IEnumDiskQuotaUsers_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumDiskQuotaUsers_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, cusers: u32, rgusers: *mut Option<IDiskQuotaUser>, pcusersfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, cusers: u32, rgusers: windows_core::OutRef<'_, IDiskQuotaUser>, pcusersfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, cusers: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumDiskQuotaUsers>;

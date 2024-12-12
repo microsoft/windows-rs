@@ -44,7 +44,7 @@ pub struct IEnumOfflineFilesItems_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumOfflineFilesItems_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgelt: *mut Option<IOfflineFilesItem>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgelt: windows_core::OutRef<'_, IOfflineFilesItem>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumOfflineFilesItems>;
@@ -112,7 +112,7 @@ pub struct IEnumOfflineFilesSettings_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumOfflineFilesSettings_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgelt: *mut Option<IOfflineFilesSetting>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgelt: windows_core::OutRef<'_, IOfflineFilesSetting>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumOfflineFilesSettings>;
@@ -280,20 +280,20 @@ pub struct IOfflineFilesCache_Vtbl {
     pub IsPathCacheable: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut super::super::Foundation::BOOL, *mut OFFLINEFILES_CACHING_MODE) -> windows_core::HRESULT,
 }
 pub trait IOfflineFilesCache_Impl: windows_core::IUnknownImpl {
-    fn Synchronize(&self, hwndparent: super::super::Foundation::HWND, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, basync: super::super::Foundation::BOOL, dwsynccontrol: u32, pisyncconflicthandler: Option<&IOfflineFilesSyncConflictHandler>, piprogress: Option<&IOfflineFilesSyncProgress>, psyncid: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn DeleteItems(&self, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, dwflags: u32, basync: super::super::Foundation::BOOL, piprogress: Option<&IOfflineFilesSimpleProgress>) -> windows_core::Result<()>;
-    fn DeleteItemsForUser(&self, pszuser: &windows_core::PCWSTR, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, dwflags: u32, basync: super::super::Foundation::BOOL, piprogress: Option<&IOfflineFilesSimpleProgress>) -> windows_core::Result<()>;
-    fn Pin(&self, hwndparent: super::super::Foundation::HWND, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, bdeep: super::super::Foundation::BOOL, basync: super::super::Foundation::BOOL, dwpincontrolflags: u32, piprogress: Option<&IOfflineFilesSyncProgress>) -> windows_core::Result<()>;
-    fn Unpin(&self, hwndparent: super::super::Foundation::HWND, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, bdeep: super::super::Foundation::BOOL, basync: super::super::Foundation::BOOL, dwpincontrolflags: u32, piprogress: Option<&IOfflineFilesSyncProgress>) -> windows_core::Result<()>;
+    fn Synchronize(&self, hwndparent: super::super::Foundation::HWND, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, basync: super::super::Foundation::BOOL, dwsynccontrol: u32, pisyncconflicthandler: windows_core::Ref<'_, IOfflineFilesSyncConflictHandler>, piprogress: windows_core::Ref<'_, IOfflineFilesSyncProgress>, psyncid: *const windows_core::GUID) -> windows_core::Result<()>;
+    fn DeleteItems(&self, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, dwflags: u32, basync: super::super::Foundation::BOOL, piprogress: windows_core::Ref<'_, IOfflineFilesSimpleProgress>) -> windows_core::Result<()>;
+    fn DeleteItemsForUser(&self, pszuser: &windows_core::PCWSTR, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, dwflags: u32, basync: super::super::Foundation::BOOL, piprogress: windows_core::Ref<'_, IOfflineFilesSimpleProgress>) -> windows_core::Result<()>;
+    fn Pin(&self, hwndparent: super::super::Foundation::HWND, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, bdeep: super::super::Foundation::BOOL, basync: super::super::Foundation::BOOL, dwpincontrolflags: u32, piprogress: windows_core::Ref<'_, IOfflineFilesSyncProgress>) -> windows_core::Result<()>;
+    fn Unpin(&self, hwndparent: super::super::Foundation::HWND, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, bdeep: super::super::Foundation::BOOL, basync: super::super::Foundation::BOOL, dwpincontrolflags: u32, piprogress: windows_core::Ref<'_, IOfflineFilesSyncProgress>) -> windows_core::Result<()>;
     fn GetEncryptionStatus(&self, pbencrypted: *mut super::super::Foundation::BOOL, pbpartial: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn Encrypt(&self, hwndparent: super::super::Foundation::HWND, bencrypt: super::super::Foundation::BOOL, dwencryptioncontrolflags: u32, basync: super::super::Foundation::BOOL, piprogress: Option<&IOfflineFilesSyncProgress>) -> windows_core::Result<()>;
+    fn Encrypt(&self, hwndparent: super::super::Foundation::HWND, bencrypt: super::super::Foundation::BOOL, dwencryptioncontrolflags: u32, basync: super::super::Foundation::BOOL, piprogress: windows_core::Ref<'_, IOfflineFilesSyncProgress>) -> windows_core::Result<()>;
     fn FindItem(&self, pszpath: &windows_core::PCWSTR, dwqueryflags: u32) -> windows_core::Result<IOfflineFilesItem>;
-    fn FindItemEx(&self, pszpath: &windows_core::PCWSTR, pincludefilefilter: Option<&IOfflineFilesItemFilter>, pincludedirfilter: Option<&IOfflineFilesItemFilter>, pexcludefilefilter: Option<&IOfflineFilesItemFilter>, pexcludedirfilter: Option<&IOfflineFilesItemFilter>, dwqueryflags: u32) -> windows_core::Result<IOfflineFilesItem>;
+    fn FindItemEx(&self, pszpath: &windows_core::PCWSTR, pincludefilefilter: windows_core::Ref<'_, IOfflineFilesItemFilter>, pincludedirfilter: windows_core::Ref<'_, IOfflineFilesItemFilter>, pexcludefilefilter: windows_core::Ref<'_, IOfflineFilesItemFilter>, pexcludedirfilter: windows_core::Ref<'_, IOfflineFilesItemFilter>, dwqueryflags: u32) -> windows_core::Result<IOfflineFilesItem>;
     fn RenameItem(&self, pszpathoriginal: &windows_core::PCWSTR, pszpathnew: &windows_core::PCWSTR, breplaceifexists: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn GetLocation(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetDiskSpaceInformation(&self, pcbvolumetotal: *mut u64, pcblimit: *mut u64, pcbused: *mut u64, pcbunpinnedlimit: *mut u64, pcbunpinnedused: *mut u64) -> windows_core::Result<()>;
     fn SetDiskSpaceLimits(&self, cblimit: u64, cbunpinnedlimit: u64) -> windows_core::Result<()>;
-    fn ProcessAdminPinPolicy(&self, ppinprogress: Option<&IOfflineFilesSyncProgress>, punpinprogress: Option<&IOfflineFilesSyncProgress>) -> windows_core::Result<()>;
+    fn ProcessAdminPinPolicy(&self, ppinprogress: windows_core::Ref<'_, IOfflineFilesSyncProgress>, punpinprogress: windows_core::Ref<'_, IOfflineFilesSyncProgress>) -> windows_core::Result<()>;
     fn GetSettingObject(&self, pszsettingname: &windows_core::PCWSTR) -> windows_core::Result<IOfflineFilesSetting>;
     fn EnumSettingObjects(&self) -> windows_core::Result<IEnumOfflineFilesSettings>;
     fn IsPathCacheable(&self, pszpath: &windows_core::PCWSTR, pbcacheable: *mut super::super::Foundation::BOOL, psharecachingmode: *mut OFFLINEFILES_CACHING_MODE) -> windows_core::Result<()>;
@@ -302,23 +302,23 @@ impl IOfflineFilesCache_Vtbl {
     pub const fn new<Identity: IOfflineFilesCache_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Synchronize<Identity: IOfflineFilesCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::Foundation::HWND, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, basync: super::super::Foundation::BOOL, dwsynccontrol: u32, pisyncconflicthandler: *mut core::ffi::c_void, piprogress: *mut core::ffi::c_void, psyncid: *const windows_core::GUID) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOfflineFilesCache_Impl::Synchronize(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&rgpszpaths), core::mem::transmute_copy(&cpaths), core::mem::transmute_copy(&basync), core::mem::transmute_copy(&dwsynccontrol), windows_core::from_raw_borrowed(&pisyncconflicthandler), windows_core::from_raw_borrowed(&piprogress), core::mem::transmute_copy(&psyncid)).into()
+            IOfflineFilesCache_Impl::Synchronize(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&rgpszpaths), core::mem::transmute_copy(&cpaths), core::mem::transmute_copy(&basync), core::mem::transmute_copy(&dwsynccontrol), core::mem::transmute_copy(&pisyncconflicthandler), core::mem::transmute_copy(&piprogress), core::mem::transmute_copy(&psyncid)).into()
         }
         unsafe extern "system" fn DeleteItems<Identity: IOfflineFilesCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, dwflags: u32, basync: super::super::Foundation::BOOL, piprogress: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOfflineFilesCache_Impl::DeleteItems(this, core::mem::transmute_copy(&rgpszpaths), core::mem::transmute_copy(&cpaths), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&basync), windows_core::from_raw_borrowed(&piprogress)).into()
+            IOfflineFilesCache_Impl::DeleteItems(this, core::mem::transmute_copy(&rgpszpaths), core::mem::transmute_copy(&cpaths), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&basync), core::mem::transmute_copy(&piprogress)).into()
         }
         unsafe extern "system" fn DeleteItemsForUser<Identity: IOfflineFilesCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszuser: windows_core::PCWSTR, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, dwflags: u32, basync: super::super::Foundation::BOOL, piprogress: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOfflineFilesCache_Impl::DeleteItemsForUser(this, core::mem::transmute(&pszuser), core::mem::transmute_copy(&rgpszpaths), core::mem::transmute_copy(&cpaths), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&basync), windows_core::from_raw_borrowed(&piprogress)).into()
+            IOfflineFilesCache_Impl::DeleteItemsForUser(this, core::mem::transmute(&pszuser), core::mem::transmute_copy(&rgpszpaths), core::mem::transmute_copy(&cpaths), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&basync), core::mem::transmute_copy(&piprogress)).into()
         }
         unsafe extern "system" fn Pin<Identity: IOfflineFilesCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::Foundation::HWND, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, bdeep: super::super::Foundation::BOOL, basync: super::super::Foundation::BOOL, dwpincontrolflags: u32, piprogress: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOfflineFilesCache_Impl::Pin(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&rgpszpaths), core::mem::transmute_copy(&cpaths), core::mem::transmute_copy(&bdeep), core::mem::transmute_copy(&basync), core::mem::transmute_copy(&dwpincontrolflags), windows_core::from_raw_borrowed(&piprogress)).into()
+            IOfflineFilesCache_Impl::Pin(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&rgpszpaths), core::mem::transmute_copy(&cpaths), core::mem::transmute_copy(&bdeep), core::mem::transmute_copy(&basync), core::mem::transmute_copy(&dwpincontrolflags), core::mem::transmute_copy(&piprogress)).into()
         }
         unsafe extern "system" fn Unpin<Identity: IOfflineFilesCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::Foundation::HWND, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, bdeep: super::super::Foundation::BOOL, basync: super::super::Foundation::BOOL, dwpincontrolflags: u32, piprogress: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOfflineFilesCache_Impl::Unpin(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&rgpszpaths), core::mem::transmute_copy(&cpaths), core::mem::transmute_copy(&bdeep), core::mem::transmute_copy(&basync), core::mem::transmute_copy(&dwpincontrolflags), windows_core::from_raw_borrowed(&piprogress)).into()
+            IOfflineFilesCache_Impl::Unpin(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&rgpszpaths), core::mem::transmute_copy(&cpaths), core::mem::transmute_copy(&bdeep), core::mem::transmute_copy(&basync), core::mem::transmute_copy(&dwpincontrolflags), core::mem::transmute_copy(&piprogress)).into()
         }
         unsafe extern "system" fn GetEncryptionStatus<Identity: IOfflineFilesCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbencrypted: *mut super::super::Foundation::BOOL, pbpartial: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -326,7 +326,7 @@ impl IOfflineFilesCache_Vtbl {
         }
         unsafe extern "system" fn Encrypt<Identity: IOfflineFilesCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::Foundation::HWND, bencrypt: super::super::Foundation::BOOL, dwencryptioncontrolflags: u32, basync: super::super::Foundation::BOOL, piprogress: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOfflineFilesCache_Impl::Encrypt(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&bencrypt), core::mem::transmute_copy(&dwencryptioncontrolflags), core::mem::transmute_copy(&basync), windows_core::from_raw_borrowed(&piprogress)).into()
+            IOfflineFilesCache_Impl::Encrypt(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&bencrypt), core::mem::transmute_copy(&dwencryptioncontrolflags), core::mem::transmute_copy(&basync), core::mem::transmute_copy(&piprogress)).into()
         }
         unsafe extern "system" fn FindItem<Identity: IOfflineFilesCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpath: windows_core::PCWSTR, dwqueryflags: u32, ppitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -340,7 +340,7 @@ impl IOfflineFilesCache_Vtbl {
         }
         unsafe extern "system" fn FindItemEx<Identity: IOfflineFilesCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpath: windows_core::PCWSTR, pincludefilefilter: *mut core::ffi::c_void, pincludedirfilter: *mut core::ffi::c_void, pexcludefilefilter: *mut core::ffi::c_void, pexcludedirfilter: *mut core::ffi::c_void, dwqueryflags: u32, ppitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IOfflineFilesCache_Impl::FindItemEx(this, core::mem::transmute(&pszpath), windows_core::from_raw_borrowed(&pincludefilefilter), windows_core::from_raw_borrowed(&pincludedirfilter), windows_core::from_raw_borrowed(&pexcludefilefilter), windows_core::from_raw_borrowed(&pexcludedirfilter), core::mem::transmute_copy(&dwqueryflags)) {
+            match IOfflineFilesCache_Impl::FindItemEx(this, core::mem::transmute(&pszpath), core::mem::transmute_copy(&pincludefilefilter), core::mem::transmute_copy(&pincludedirfilter), core::mem::transmute_copy(&pexcludefilefilter), core::mem::transmute_copy(&pexcludedirfilter), core::mem::transmute_copy(&dwqueryflags)) {
                 Ok(ok__) => {
                     ppitem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -372,7 +372,7 @@ impl IOfflineFilesCache_Vtbl {
         }
         unsafe extern "system" fn ProcessAdminPinPolicy<Identity: IOfflineFilesCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppinprogress: *mut core::ffi::c_void, punpinprogress: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOfflineFilesCache_Impl::ProcessAdminPinPolicy(this, windows_core::from_raw_borrowed(&ppinprogress), windows_core::from_raw_borrowed(&punpinprogress)).into()
+            IOfflineFilesCache_Impl::ProcessAdminPinPolicy(this, core::mem::transmute_copy(&ppinprogress), core::mem::transmute_copy(&punpinprogress)).into()
         }
         unsafe extern "system" fn GetSettingObject<Identity: IOfflineFilesCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszsettingname: windows_core::PCWSTR, ppsetting: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -1667,7 +1667,7 @@ pub struct IOfflineFilesItemContainer_Vtbl {
 }
 pub trait IOfflineFilesItemContainer_Impl: windows_core::IUnknownImpl {
     fn EnumItems(&self, dwqueryflags: u32) -> windows_core::Result<IEnumOfflineFilesItems>;
-    fn EnumItemsEx(&self, pincludefilefilter: Option<&IOfflineFilesItemFilter>, pincludedirfilter: Option<&IOfflineFilesItemFilter>, pexcludefilefilter: Option<&IOfflineFilesItemFilter>, pexcludedirfilter: Option<&IOfflineFilesItemFilter>, dwenumflags: u32, dwqueryflags: u32) -> windows_core::Result<IEnumOfflineFilesItems>;
+    fn EnumItemsEx(&self, pincludefilefilter: windows_core::Ref<'_, IOfflineFilesItemFilter>, pincludedirfilter: windows_core::Ref<'_, IOfflineFilesItemFilter>, pexcludefilefilter: windows_core::Ref<'_, IOfflineFilesItemFilter>, pexcludedirfilter: windows_core::Ref<'_, IOfflineFilesItemFilter>, dwenumflags: u32, dwqueryflags: u32) -> windows_core::Result<IEnumOfflineFilesItems>;
 }
 impl IOfflineFilesItemContainer_Vtbl {
     pub const fn new<Identity: IOfflineFilesItemContainer_Impl, const OFFSET: isize>() -> Self {
@@ -1683,7 +1683,7 @@ impl IOfflineFilesItemContainer_Vtbl {
         }
         unsafe extern "system" fn EnumItemsEx<Identity: IOfflineFilesItemContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pincludefilefilter: *mut core::ffi::c_void, pincludedirfilter: *mut core::ffi::c_void, pexcludefilefilter: *mut core::ffi::c_void, pexcludedirfilter: *mut core::ffi::c_void, dwenumflags: u32, dwqueryflags: u32, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IOfflineFilesItemContainer_Impl::EnumItemsEx(this, windows_core::from_raw_borrowed(&pincludefilefilter), windows_core::from_raw_borrowed(&pincludedirfilter), windows_core::from_raw_borrowed(&pexcludefilefilter), windows_core::from_raw_borrowed(&pexcludedirfilter), core::mem::transmute_copy(&dwenumflags), core::mem::transmute_copy(&dwqueryflags)) {
+            match IOfflineFilesItemContainer_Impl::EnumItemsEx(this, core::mem::transmute_copy(&pincludefilefilter), core::mem::transmute_copy(&pincludedirfilter), core::mem::transmute_copy(&pexcludefilefilter), core::mem::transmute_copy(&pexcludedirfilter), core::mem::transmute_copy(&dwenumflags), core::mem::transmute_copy(&dwqueryflags)) {
                 Ok(ok__) => {
                     ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2598,7 +2598,7 @@ pub struct IOfflineFilesSyncProgress_Vtbl {
 }
 pub trait IOfflineFilesSyncProgress_Impl: IOfflineFilesProgress_Impl {
     fn SyncItemBegin(&self, pszfile: &windows_core::PCWSTR) -> windows_core::Result<OFFLINEFILES_OP_RESPONSE>;
-    fn SyncItemResult(&self, pszfile: &windows_core::PCWSTR, hrresult: windows_core::HRESULT, perrorinfo: Option<&IOfflineFilesSyncErrorInfo>) -> windows_core::Result<OFFLINEFILES_OP_RESPONSE>;
+    fn SyncItemResult(&self, pszfile: &windows_core::PCWSTR, hrresult: windows_core::HRESULT, perrorinfo: windows_core::Ref<'_, IOfflineFilesSyncErrorInfo>) -> windows_core::Result<OFFLINEFILES_OP_RESPONSE>;
 }
 impl IOfflineFilesSyncProgress_Vtbl {
     pub const fn new<Identity: IOfflineFilesSyncProgress_Impl, const OFFSET: isize>() -> Self {
@@ -2614,7 +2614,7 @@ impl IOfflineFilesSyncProgress_Vtbl {
         }
         unsafe extern "system" fn SyncItemResult<Identity: IOfflineFilesSyncProgress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszfile: windows_core::PCWSTR, hrresult: windows_core::HRESULT, perrorinfo: *mut core::ffi::c_void, presponse: *mut OFFLINEFILES_OP_RESPONSE) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IOfflineFilesSyncProgress_Impl::SyncItemResult(this, core::mem::transmute(&pszfile), core::mem::transmute_copy(&hrresult), windows_core::from_raw_borrowed(&perrorinfo)) {
+            match IOfflineFilesSyncProgress_Impl::SyncItemResult(this, core::mem::transmute(&pszfile), core::mem::transmute_copy(&hrresult), core::mem::transmute_copy(&perrorinfo)) {
                 Ok(ok__) => {
                     presponse.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)

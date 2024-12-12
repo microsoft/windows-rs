@@ -375,8 +375,8 @@ impl windows_core::RuntimeName for IStorageItemExtraProperties {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IStorageItemExtraProperties_Impl: windows_core::IUnknownImpl {
-    fn RetrievePropertiesAsync(&self, propertiesToRetrieve: Option<&super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>>;
-    fn SavePropertiesAsync(&self, propertiesToSave: Option<&super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>>) -> windows_core::Result<super::super::Foundation::IAsyncAction>;
+    fn RetrievePropertiesAsync(&self, propertiesToRetrieve: windows_core::Ref<'_, super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>>;
+    fn SavePropertiesAsync(&self, propertiesToSave: windows_core::Ref<'_, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>>) -> windows_core::Result<super::super::Foundation::IAsyncAction>;
     fn SavePropertiesAsyncOverloadDefault(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -384,7 +384,7 @@ impl IStorageItemExtraProperties_Vtbl {
     pub const fn new<Identity: IStorageItemExtraProperties_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RetrievePropertiesAsync<Identity: IStorageItemExtraProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertiestoretrieve: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IStorageItemExtraProperties_Impl::RetrievePropertiesAsync(this, windows_core::from_raw_borrowed(&propertiestoretrieve)) {
+            match IStorageItemExtraProperties_Impl::RetrievePropertiesAsync(this, core::mem::transmute_copy(&propertiestoretrieve)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -395,7 +395,7 @@ impl IStorageItemExtraProperties_Vtbl {
         }
         unsafe extern "system" fn SavePropertiesAsync<Identity: IStorageItemExtraProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertiestosave: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IStorageItemExtraProperties_Impl::SavePropertiesAsync(this, windows_core::from_raw_borrowed(&propertiestosave)) {
+            match IStorageItemExtraProperties_Impl::SavePropertiesAsync(this, core::mem::transmute_copy(&propertiestosave)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);

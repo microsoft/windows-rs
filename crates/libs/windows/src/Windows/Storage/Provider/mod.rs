@@ -571,7 +571,7 @@ impl windows_core::RuntimeName for IStorageProviderKnownFolderSyncInfoSource {
 }
 pub trait IStorageProviderKnownFolderSyncInfoSource_Impl: windows_core::IUnknownImpl {
     fn GetKnownFolderSyncInfo(&self) -> windows_core::Result<StorageProviderKnownFolderSyncInfo>;
-    fn KnownFolderSyncInfoChanged(&self, handler: Option<&super::super::Foundation::TypedEventHandler<IStorageProviderKnownFolderSyncInfoSource, windows_core::IInspectable>>) -> windows_core::Result<i64>;
+    fn KnownFolderSyncInfoChanged(&self, handler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<IStorageProviderKnownFolderSyncInfoSource, windows_core::IInspectable>>) -> windows_core::Result<i64>;
     fn RemoveKnownFolderSyncInfoChanged(&self, token: i64) -> windows_core::Result<()>;
 }
 impl IStorageProviderKnownFolderSyncInfoSource_Vtbl {
@@ -589,7 +589,7 @@ impl IStorageProviderKnownFolderSyncInfoSource_Vtbl {
         }
         unsafe extern "system" fn KnownFolderSyncInfoChanged<Identity: IStorageProviderKnownFolderSyncInfoSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IStorageProviderKnownFolderSyncInfoSource_Impl::KnownFolderSyncInfoChanged(this, windows_core::from_raw_borrowed(&handler)) {
+            match IStorageProviderKnownFolderSyncInfoSource_Impl::KnownFolderSyncInfoChanged(this, core::mem::transmute_copy(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -808,16 +808,16 @@ impl windows_core::RuntimeName for IStorageProviderShareLinkSource {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IStorageProviderShareLinkSource_Impl: windows_core::IUnknownImpl {
-    fn CreateLinkAsync(&self, storageItemList: Option<&super::super::Foundation::Collections::IVectorView<super::IStorageItem>>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Uri>>;
-    fn GetDefaultAccessControlStringAsync(&self, storageItemList: Option<&super::super::Foundation::Collections::IVectorView<super::IStorageItem>>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>>;
-    fn GetState(&self, storageItemList: Option<&super::super::Foundation::Collections::IVectorView<super::IStorageItem>>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<StorageProviderShareLinkState>>;
+    fn CreateLinkAsync(&self, storageItemList: windows_core::Ref<'_, super::super::Foundation::Collections::IVectorView<super::IStorageItem>>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Uri>>;
+    fn GetDefaultAccessControlStringAsync(&self, storageItemList: windows_core::Ref<'_, super::super::Foundation::Collections::IVectorView<super::IStorageItem>>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>>;
+    fn GetState(&self, storageItemList: windows_core::Ref<'_, super::super::Foundation::Collections::IVectorView<super::IStorageItem>>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<StorageProviderShareLinkState>>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl IStorageProviderShareLinkSource_Vtbl {
     pub const fn new<Identity: IStorageProviderShareLinkSource_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateLinkAsync<Identity: IStorageProviderShareLinkSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, storageitemlist: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IStorageProviderShareLinkSource_Impl::CreateLinkAsync(this, windows_core::from_raw_borrowed(&storageitemlist)) {
+            match IStorageProviderShareLinkSource_Impl::CreateLinkAsync(this, core::mem::transmute_copy(&storageitemlist)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -828,7 +828,7 @@ impl IStorageProviderShareLinkSource_Vtbl {
         }
         unsafe extern "system" fn GetDefaultAccessControlStringAsync<Identity: IStorageProviderShareLinkSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, storageitemlist: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IStorageProviderShareLinkSource_Impl::GetDefaultAccessControlStringAsync(this, windows_core::from_raw_borrowed(&storageitemlist)) {
+            match IStorageProviderShareLinkSource_Impl::GetDefaultAccessControlStringAsync(this, core::mem::transmute_copy(&storageitemlist)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -839,7 +839,7 @@ impl IStorageProviderShareLinkSource_Vtbl {
         }
         unsafe extern "system" fn GetState<Identity: IStorageProviderShareLinkSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, storageitemlist: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IStorageProviderShareLinkSource_Impl::GetState(this, windows_core::from_raw_borrowed(&storageitemlist)) {
+            match IStorageProviderShareLinkSource_Impl::GetState(this, core::mem::transmute_copy(&storageitemlist)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -938,7 +938,7 @@ impl windows_core::RuntimeName for IStorageProviderStatusUISource {
 }
 pub trait IStorageProviderStatusUISource_Impl: windows_core::IUnknownImpl {
     fn GetStatusUI(&self) -> windows_core::Result<StorageProviderStatusUI>;
-    fn StatusUIChanged(&self, handler: Option<&super::super::Foundation::TypedEventHandler<IStorageProviderStatusUISource, windows_core::IInspectable>>) -> windows_core::Result<i64>;
+    fn StatusUIChanged(&self, handler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<IStorageProviderStatusUISource, windows_core::IInspectable>>) -> windows_core::Result<i64>;
     fn RemoveStatusUIChanged(&self, token: i64) -> windows_core::Result<()>;
 }
 impl IStorageProviderStatusUISource_Vtbl {
@@ -956,7 +956,7 @@ impl IStorageProviderStatusUISource_Vtbl {
         }
         unsafe extern "system" fn StatusUIChanged<Identity: IStorageProviderStatusUISource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IStorageProviderStatusUISource_Impl::StatusUIChanged(this, windows_core::from_raw_borrowed(&handler)) {
+            match IStorageProviderStatusUISource_Impl::StatusUIChanged(this, core::mem::transmute_copy(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -1273,18 +1273,18 @@ impl windows_core::RuntimeName for IStorageProviderUriSource {
     const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderUriSource";
 }
 pub trait IStorageProviderUriSource_Impl: windows_core::IUnknownImpl {
-    fn GetPathForContentUri(&self, contentUri: &windows_core::HSTRING, result: Option<&StorageProviderGetPathForContentUriResult>) -> windows_core::Result<()>;
-    fn GetContentInfoForPath(&self, path: &windows_core::HSTRING, result: Option<&StorageProviderGetContentInfoForPathResult>) -> windows_core::Result<()>;
+    fn GetPathForContentUri(&self, contentUri: &windows_core::HSTRING, result: windows_core::Ref<'_, StorageProviderGetPathForContentUriResult>) -> windows_core::Result<()>;
+    fn GetContentInfoForPath(&self, path: &windows_core::HSTRING, result: windows_core::Ref<'_, StorageProviderGetContentInfoForPathResult>) -> windows_core::Result<()>;
 }
 impl IStorageProviderUriSource_Vtbl {
     pub const fn new<Identity: IStorageProviderUriSource_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetPathForContentUri<Identity: IStorageProviderUriSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contenturi: *mut core::ffi::c_void, result: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IStorageProviderUriSource_Impl::GetPathForContentUri(this, core::mem::transmute(&contenturi), windows_core::from_raw_borrowed(&result)).into()
+            IStorageProviderUriSource_Impl::GetPathForContentUri(this, core::mem::transmute(&contenturi), core::mem::transmute_copy(&result)).into()
         }
         unsafe extern "system" fn GetContentInfoForPath<Identity: IStorageProviderUriSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: *mut core::ffi::c_void, result: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IStorageProviderUriSource_Impl::GetContentInfoForPath(this, core::mem::transmute(&path), windows_core::from_raw_borrowed(&result)).into()
+            IStorageProviderUriSource_Impl::GetContentInfoForPath(this, core::mem::transmute(&path), core::mem::transmute_copy(&result)).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IStorageProviderUriSource, OFFSET>(),
@@ -1898,7 +1898,7 @@ impl windows_core::RuntimeType for StorageProviderKnownFolderSyncRequestedHandle
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl StorageProviderKnownFolderSyncRequestedHandler {
-    pub fn new<F: FnMut(Option<&StorageProviderKnownFolderSyncRequestArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(windows_core::Ref<'_, StorageProviderKnownFolderSyncRequestArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = StorageProviderKnownFolderSyncRequestedHandlerBox { vtable: &StorageProviderKnownFolderSyncRequestedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -1916,12 +1916,12 @@ pub struct StorageProviderKnownFolderSyncRequestedHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct StorageProviderKnownFolderSyncRequestedHandlerBox<F: FnMut(Option<&StorageProviderKnownFolderSyncRequestArgs>) -> windows_core::Result<()> + Send + 'static> {
+struct StorageProviderKnownFolderSyncRequestedHandlerBox<F: FnMut(windows_core::Ref<'_, StorageProviderKnownFolderSyncRequestArgs>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const StorageProviderKnownFolderSyncRequestedHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: FnMut(Option<&StorageProviderKnownFolderSyncRequestArgs>) -> windows_core::Result<()> + Send + 'static> StorageProviderKnownFolderSyncRequestedHandlerBox<F> {
+impl<F: FnMut(windows_core::Ref<'_, StorageProviderKnownFolderSyncRequestArgs>) -> windows_core::Result<()> + Send + 'static> StorageProviderKnownFolderSyncRequestedHandlerBox<F> {
     const VTABLE: StorageProviderKnownFolderSyncRequestedHandler_Vtbl = StorageProviderKnownFolderSyncRequestedHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         let this = this as *mut *mut core::ffi::c_void as *mut Self;
@@ -1950,7 +1950,7 @@ impl<F: FnMut(Option<&StorageProviderKnownFolderSyncRequestArgs>) -> windows_cor
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT {
         let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(windows_core::from_raw_borrowed(&args)).into()
+        (this.invoke)(core::mem::transmute_copy(&args)).into()
     }
 }
 #[repr(transparent)]

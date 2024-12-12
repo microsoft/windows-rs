@@ -801,9 +801,9 @@ pub struct IDirectSound_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 pub trait IDirectSound_Impl: windows_core::IUnknownImpl {
-    fn CreateSoundBuffer(&self, pcdsbufferdesc: *const DSBUFFERDESC, ppdsbuffer: *mut Option<IDirectSoundBuffer>, punkouter: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreateSoundBuffer(&self, pcdsbufferdesc: *const DSBUFFERDESC, ppdsbuffer: windows_core::OutRef<'_, IDirectSoundBuffer>, punkouter: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetCaps(&self, pdscaps: *mut DSCAPS) -> windows_core::Result<()>;
-    fn DuplicateSoundBuffer(&self, pdsbufferoriginal: Option<&IDirectSoundBuffer>) -> windows_core::Result<IDirectSoundBuffer>;
+    fn DuplicateSoundBuffer(&self, pdsbufferoriginal: windows_core::Ref<'_, IDirectSoundBuffer>) -> windows_core::Result<IDirectSoundBuffer>;
     fn SetCooperativeLevel(&self, hwnd: super::super::super::Foundation::HWND, dwlevel: u32) -> windows_core::Result<()>;
     fn Compact(&self) -> windows_core::Result<()>;
     fn GetSpeakerConfig(&self) -> windows_core::Result<u32>;
@@ -814,7 +814,7 @@ impl IDirectSound_Vtbl {
     pub const fn new<Identity: IDirectSound_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateSoundBuffer<Identity: IDirectSound_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcdsbufferdesc: *const DSBUFFERDESC, ppdsbuffer: *mut *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDirectSound_Impl::CreateSoundBuffer(this, core::mem::transmute_copy(&pcdsbufferdesc), core::mem::transmute_copy(&ppdsbuffer), windows_core::from_raw_borrowed(&punkouter)).into()
+            IDirectSound_Impl::CreateSoundBuffer(this, core::mem::transmute_copy(&pcdsbufferdesc), core::mem::transmute_copy(&ppdsbuffer), core::mem::transmute_copy(&punkouter)).into()
         }
         unsafe extern "system" fn GetCaps<Identity: IDirectSound_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdscaps: *mut DSCAPS) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -822,7 +822,7 @@ impl IDirectSound_Vtbl {
         }
         unsafe extern "system" fn DuplicateSoundBuffer<Identity: IDirectSound_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdsbufferoriginal: *mut core::ffi::c_void, ppdsbufferduplicate: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDirectSound_Impl::DuplicateSoundBuffer(this, windows_core::from_raw_borrowed(&pdsbufferoriginal)) {
+            match IDirectSound_Impl::DuplicateSoundBuffer(this, core::mem::transmute_copy(&pdsbufferoriginal)) {
                 Ok(ok__) => {
                     ppdsbufferduplicate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1511,7 +1511,7 @@ pub trait IDirectSoundBuffer_Impl: windows_core::IUnknownImpl {
     fn GetPan(&self) -> windows_core::Result<i32>;
     fn GetFrequency(&self) -> windows_core::Result<u32>;
     fn GetStatus(&self) -> windows_core::Result<u32>;
-    fn Initialize(&self, pdirectsound: Option<&IDirectSound>, pcdsbufferdesc: *const DSBUFFERDESC) -> windows_core::Result<()>;
+    fn Initialize(&self, pdirectsound: windows_core::Ref<'_, IDirectSound>, pcdsbufferdesc: *const DSBUFFERDESC) -> windows_core::Result<()>;
     fn Lock(&self, dwoffset: u32, dwbytes: u32, ppvaudioptr1: *mut *mut core::ffi::c_void, pdwaudiobytes1: *mut u32, ppvaudioptr2: *mut *mut core::ffi::c_void, pdwaudiobytes2: *mut u32, dwflags: u32) -> windows_core::Result<()>;
     fn Play(&self, dwreserved1: u32, dwpriority: u32, dwflags: u32) -> windows_core::Result<()>;
     fn SetCurrentPosition(&self, dwnewposition: u32) -> windows_core::Result<()>;
@@ -1579,7 +1579,7 @@ impl IDirectSoundBuffer_Vtbl {
         }
         unsafe extern "system" fn Initialize<Identity: IDirectSoundBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdirectsound: *mut core::ffi::c_void, pcdsbufferdesc: *const DSBUFFERDESC) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDirectSoundBuffer_Impl::Initialize(this, windows_core::from_raw_borrowed(&pdirectsound), core::mem::transmute_copy(&pcdsbufferdesc)).into()
+            IDirectSoundBuffer_Impl::Initialize(this, core::mem::transmute_copy(&pdirectsound), core::mem::transmute_copy(&pcdsbufferdesc)).into()
         }
         unsafe extern "system" fn Lock<Identity: IDirectSoundBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwoffset: u32, dwbytes: u32, ppvaudioptr1: *mut *mut core::ffi::c_void, pdwaudiobytes1: *mut u32, ppvaudioptr2: *mut *mut core::ffi::c_void, pdwaudiobytes2: *mut u32, dwflags: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -1730,7 +1730,7 @@ pub struct IDirectSoundCapture_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 pub trait IDirectSoundCapture_Impl: windows_core::IUnknownImpl {
-    fn CreateCaptureBuffer(&self, pcdscbufferdesc: *const DSCBUFFERDESC, ppdscbuffer: *mut Option<IDirectSoundCaptureBuffer>, punkouter: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreateCaptureBuffer(&self, pcdscbufferdesc: *const DSCBUFFERDESC, ppdscbuffer: windows_core::OutRef<'_, IDirectSoundCaptureBuffer>, punkouter: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetCaps(&self) -> windows_core::Result<DSCCAPS>;
     fn Initialize(&self, pcguiddevice: *const windows_core::GUID) -> windows_core::Result<()>;
 }
@@ -1738,7 +1738,7 @@ impl IDirectSoundCapture_Vtbl {
     pub const fn new<Identity: IDirectSoundCapture_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateCaptureBuffer<Identity: IDirectSoundCapture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcdscbufferdesc: *const DSCBUFFERDESC, ppdscbuffer: *mut *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDirectSoundCapture_Impl::CreateCaptureBuffer(this, core::mem::transmute_copy(&pcdscbufferdesc), core::mem::transmute_copy(&ppdscbuffer), windows_core::from_raw_borrowed(&punkouter)).into()
+            IDirectSoundCapture_Impl::CreateCaptureBuffer(this, core::mem::transmute_copy(&pcdscbufferdesc), core::mem::transmute_copy(&ppdscbuffer), core::mem::transmute_copy(&punkouter)).into()
         }
         unsafe extern "system" fn GetCaps<Identity: IDirectSoundCapture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdsccaps: *mut DSCCAPS) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -1820,7 +1820,7 @@ pub trait IDirectSoundCaptureBuffer_Impl: windows_core::IUnknownImpl {
     fn GetCurrentPosition(&self, pdwcaptureposition: *mut u32, pdwreadposition: *mut u32) -> windows_core::Result<()>;
     fn GetFormat(&self, pwfxformat: *mut super::WAVEFORMATEX, dwsizeallocated: u32, pdwsizewritten: *mut u32) -> windows_core::Result<()>;
     fn GetStatus(&self) -> windows_core::Result<u32>;
-    fn Initialize(&self, pdirectsoundcapture: Option<&IDirectSoundCapture>, pcdscbufferdesc: *const DSCBUFFERDESC) -> windows_core::Result<()>;
+    fn Initialize(&self, pdirectsoundcapture: windows_core::Ref<'_, IDirectSoundCapture>, pcdscbufferdesc: *const DSCBUFFERDESC) -> windows_core::Result<()>;
     fn Lock(&self, dwoffset: u32, dwbytes: u32, ppvaudioptr1: *mut *mut core::ffi::c_void, pdwaudiobytes1: *mut u32, ppvaudioptr2: *mut *mut core::ffi::c_void, pdwaudiobytes2: *mut u32, dwflags: u32) -> windows_core::Result<()>;
     fn Start(&self, dwflags: u32) -> windows_core::Result<()>;
     fn Stop(&self) -> windows_core::Result<()>;
@@ -1858,7 +1858,7 @@ impl IDirectSoundCaptureBuffer_Vtbl {
         }
         unsafe extern "system" fn Initialize<Identity: IDirectSoundCaptureBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdirectsoundcapture: *mut core::ffi::c_void, pcdscbufferdesc: *const DSCBUFFERDESC) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDirectSoundCaptureBuffer_Impl::Initialize(this, windows_core::from_raw_borrowed(&pdirectsoundcapture), core::mem::transmute_copy(&pcdscbufferdesc)).into()
+            IDirectSoundCaptureBuffer_Impl::Initialize(this, core::mem::transmute_copy(&pdirectsoundcapture), core::mem::transmute_copy(&pcdscbufferdesc)).into()
         }
         unsafe extern "system" fn Lock<Identity: IDirectSoundCaptureBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwoffset: u32, dwbytes: u32, ppvaudioptr1: *mut *mut core::ffi::c_void, pdwaudiobytes1: *mut u32, ppvaudioptr2: *mut *mut core::ffi::c_void, pdwaudiobytes2: *mut u32, dwflags: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -2531,7 +2531,7 @@ pub struct IDirectSoundFullDuplex_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *const DSCBUFFERDESC, *const DSBUFFERDESC, super::super::super::Foundation::HWND, u32, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDirectSoundFullDuplex_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, pcaptureguid: *const windows_core::GUID, prenderguid: *const windows_core::GUID, lpdscbufferdesc: *const DSCBUFFERDESC, lpdsbufferdesc: *const DSBUFFERDESC, hwnd: super::super::super::Foundation::HWND, dwlevel: u32, lplpdirectsoundcapturebuffer8: *mut Option<IDirectSoundCaptureBuffer8>, lplpdirectsoundbuffer8: *mut Option<IDirectSoundBuffer8>) -> windows_core::Result<()>;
+    fn Initialize(&self, pcaptureguid: *const windows_core::GUID, prenderguid: *const windows_core::GUID, lpdscbufferdesc: *const DSCBUFFERDESC, lpdsbufferdesc: *const DSBUFFERDESC, hwnd: super::super::super::Foundation::HWND, dwlevel: u32, lplpdirectsoundcapturebuffer8: windows_core::OutRef<'_, IDirectSoundCaptureBuffer8>, lplpdirectsoundbuffer8: windows_core::OutRef<'_, IDirectSoundBuffer8>) -> windows_core::Result<()>;
 }
 impl IDirectSoundFullDuplex_Vtbl {
     pub const fn new<Identity: IDirectSoundFullDuplex_Impl, const OFFSET: isize>() -> Self {

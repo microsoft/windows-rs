@@ -48,7 +48,7 @@ pub trait IADesktopP2_Impl: windows_core::IUnknownImpl {
     fn ReReadWallpaper(&self) -> windows_core::Result<()>;
     fn GetADObjectFlags(&self, pdwflags: *mut u32, dwmask: u32) -> windows_core::Result<()>;
     fn UpdateAllDesktopSubscriptions(&self) -> windows_core::Result<()>;
-    fn MakeDynamicChanges(&self, poleobj: Option<&super::super::System::Ole::IOleObject>) -> windows_core::Result<()>;
+    fn MakeDynamicChanges(&self, poleobj: windows_core::Ref<'_, super::super::System::Ole::IOleObject>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Ole")]
 impl IADesktopP2_Vtbl {
@@ -67,7 +67,7 @@ impl IADesktopP2_Vtbl {
         }
         unsafe extern "system" fn MakeDynamicChanges<Identity: IADesktopP2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, poleobj: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IADesktopP2_Impl::MakeDynamicChanges(this, windows_core::from_raw_borrowed(&poleobj)).into()
+            IADesktopP2_Impl::MakeDynamicChanges(this, core::mem::transmute_copy(&poleobj)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -168,14 +168,14 @@ pub struct IBriefcaseInitiator_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IBriefcaseInitiator_Impl: windows_core::IUnknownImpl {
-    fn IsMonikerInBriefcase(&self, pmk: Option<&super::super::System::Com::IMoniker>) -> windows_core::Result<()>;
+    fn IsMonikerInBriefcase(&self, pmk: windows_core::Ref<'_, super::super::System::Com::IMoniker>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IBriefcaseInitiator_Vtbl {
     pub const fn new<Identity: IBriefcaseInitiator_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn IsMonikerInBriefcase<Identity: IBriefcaseInitiator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmk: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IBriefcaseInitiator_Impl::IsMonikerInBriefcase(this, windows_core::from_raw_borrowed(&pmk)).into()
+            IBriefcaseInitiator_Impl::IsMonikerInBriefcase(this, core::mem::transmute_copy(&pmk)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), IsMonikerInBriefcase: IsMonikerInBriefcase::<Identity, OFFSET> }
     }
@@ -230,8 +230,8 @@ pub struct IEmptyVolumeCache_Vtbl {
 #[cfg(feature = "Win32_System_Registry")]
 pub trait IEmptyVolumeCache_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self, hkregkey: super::super::System::Registry::HKEY, pcwszvolume: &windows_core::PCWSTR, ppwszdisplayname: *mut windows_core::PWSTR, ppwszdescription: *mut windows_core::PWSTR, pdwflags: *mut EMPTY_VOLUME_CACHE_FLAGS) -> windows_core::Result<()>;
-    fn GetSpaceUsed(&self, pdwlspaceused: *mut u64, picb: Option<&IEmptyVolumeCacheCallBack>) -> windows_core::Result<()>;
-    fn Purge(&self, dwlspacetofree: u64, picb: Option<&IEmptyVolumeCacheCallBack>) -> windows_core::Result<()>;
+    fn GetSpaceUsed(&self, pdwlspaceused: *mut u64, picb: windows_core::Ref<'_, IEmptyVolumeCacheCallBack>) -> windows_core::Result<()>;
+    fn Purge(&self, dwlspacetofree: u64, picb: windows_core::Ref<'_, IEmptyVolumeCacheCallBack>) -> windows_core::Result<()>;
     fn ShowProperties(&self, hwnd: super::super::Foundation::HWND) -> windows_core::Result<()>;
     fn Deactivate(&self) -> windows_core::Result<EMPTY_VOLUME_CACHE_FLAGS>;
 }
@@ -244,11 +244,11 @@ impl IEmptyVolumeCache_Vtbl {
         }
         unsafe extern "system" fn GetSpaceUsed<Identity: IEmptyVolumeCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwlspaceused: *mut u64, picb: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IEmptyVolumeCache_Impl::GetSpaceUsed(this, core::mem::transmute_copy(&pdwlspaceused), windows_core::from_raw_borrowed(&picb)).into()
+            IEmptyVolumeCache_Impl::GetSpaceUsed(this, core::mem::transmute_copy(&pdwlspaceused), core::mem::transmute_copy(&picb)).into()
         }
         unsafe extern "system" fn Purge<Identity: IEmptyVolumeCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwlspacetofree: u64, picb: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IEmptyVolumeCache_Impl::Purge(this, core::mem::transmute_copy(&dwlspacetofree), windows_core::from_raw_borrowed(&picb)).into()
+            IEmptyVolumeCache_Impl::Purge(this, core::mem::transmute_copy(&dwlspacetofree), core::mem::transmute_copy(&picb)).into()
         }
         unsafe extern "system" fn ShowProperties<Identity: IEmptyVolumeCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -398,7 +398,7 @@ pub struct IReconcilableObject_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait IReconcilableObject_Impl: windows_core::IUnknownImpl {
-    fn Reconcile(&self, pinitiator: Option<&IReconcileInitiator>, dwflags: u32, hwndowner: super::super::Foundation::HWND, hwndprogressfeedback: super::super::Foundation::HWND, ulcinput: u32, rgpmkotherinput: *mut Option<super::super::System::Com::IMoniker>, ploutindex: *mut i32, pstgnewresidues: Option<&super::super::System::Com::StructuredStorage::IStorage>, pvreserved: *const core::ffi::c_void) -> windows_core::Result<()>;
+    fn Reconcile(&self, pinitiator: windows_core::Ref<'_, IReconcileInitiator>, dwflags: u32, hwndowner: super::super::Foundation::HWND, hwndprogressfeedback: super::super::Foundation::HWND, ulcinput: u32, rgpmkotherinput: windows_core::OutRef<'_, super::super::System::Com::IMoniker>, ploutindex: *mut i32, pstgnewresidues: windows_core::Ref<'_, super::super::System::Com::StructuredStorage::IStorage>, pvreserved: *const core::ffi::c_void) -> windows_core::Result<()>;
     fn GetProgressFeedbackMaxEstimate(&self) -> windows_core::Result<u32>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -406,7 +406,7 @@ impl IReconcilableObject_Vtbl {
     pub const fn new<Identity: IReconcilableObject_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Reconcile<Identity: IReconcilableObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinitiator: *mut core::ffi::c_void, dwflags: u32, hwndowner: super::super::Foundation::HWND, hwndprogressfeedback: super::super::Foundation::HWND, ulcinput: u32, rgpmkotherinput: *mut *mut core::ffi::c_void, ploutindex: *mut i32, pstgnewresidues: *mut core::ffi::c_void, pvreserved: *const core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IReconcilableObject_Impl::Reconcile(this, windows_core::from_raw_borrowed(&pinitiator), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&hwndowner), core::mem::transmute_copy(&hwndprogressfeedback), core::mem::transmute_copy(&ulcinput), core::mem::transmute_copy(&rgpmkotherinput), core::mem::transmute_copy(&ploutindex), windows_core::from_raw_borrowed(&pstgnewresidues), core::mem::transmute_copy(&pvreserved)).into()
+            IReconcilableObject_Impl::Reconcile(this, core::mem::transmute_copy(&pinitiator), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&hwndowner), core::mem::transmute_copy(&hwndprogressfeedback), core::mem::transmute_copy(&ulcinput), core::mem::transmute_copy(&rgpmkotherinput), core::mem::transmute_copy(&ploutindex), core::mem::transmute_copy(&pstgnewresidues), core::mem::transmute_copy(&pvreserved)).into()
         }
         unsafe extern "system" fn GetProgressFeedbackMaxEstimate<Identity: IReconcilableObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulprogressmax: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -450,14 +450,14 @@ pub struct IReconcileInitiator_Vtbl {
     pub SetProgressFeedback: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
 pub trait IReconcileInitiator_Impl: windows_core::IUnknownImpl {
-    fn SetAbortCallback(&self, punkforabort: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetAbortCallback(&self, punkforabort: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn SetProgressFeedback(&self, ulprogress: u32, ulprogressmax: u32) -> windows_core::Result<()>;
 }
 impl IReconcileInitiator_Vtbl {
     pub const fn new<Identity: IReconcileInitiator_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetAbortCallback<Identity: IReconcileInitiator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkforabort: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IReconcileInitiator_Impl::SetAbortCallback(this, windows_core::from_raw_borrowed(&punkforabort)).into()
+            IReconcileInitiator_Impl::SetAbortCallback(this, core::mem::transmute_copy(&punkforabort)).into()
         }
         unsafe extern "system" fn SetProgressFeedback<Identity: IReconcileInitiator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulprogress: u32, ulprogressmax: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);

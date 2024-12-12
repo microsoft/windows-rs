@@ -3951,7 +3951,7 @@ pub trait IDirect3D9_Impl: windows_core::IUnknownImpl {
     fn CheckDeviceFormatConversion(&self, adapter: u32, devicetype: D3DDEVTYPE, sourceformat: D3DFORMAT, targetformat: D3DFORMAT) -> windows_core::Result<()>;
     fn GetDeviceCaps(&self, adapter: u32, devicetype: D3DDEVTYPE, pcaps: *mut D3DCAPS9) -> windows_core::Result<()>;
     fn GetAdapterMonitor(&self, adapter: u32) -> super::Gdi::HMONITOR;
-    fn CreateDevice(&self, adapter: u32, devicetype: D3DDEVTYPE, hfocuswindow: super::super::Foundation::HWND, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, ppreturneddeviceinterface: *mut Option<IDirect3DDevice9>) -> windows_core::Result<()>;
+    fn CreateDevice(&self, adapter: u32, devicetype: D3DDEVTYPE, hfocuswindow: super::super::Foundation::HWND, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, ppreturneddeviceinterface: windows_core::OutRef<'_, IDirect3DDevice9>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl IDirect3D9_Vtbl {
@@ -4075,7 +4075,7 @@ pub trait IDirect3D9Ex_Impl: IDirect3D9_Impl {
     fn GetAdapterModeCountEx(&self, adapter: u32, pfilter: *const D3DDISPLAYMODEFILTER) -> u32;
     fn EnumAdapterModesEx(&self, adapter: u32, pfilter: *const D3DDISPLAYMODEFILTER, mode: u32, pmode: *mut D3DDISPLAYMODEEX) -> windows_core::Result<()>;
     fn GetAdapterDisplayModeEx(&self, adapter: u32, pmode: *mut D3DDISPLAYMODEEX, protation: *mut D3DDISPLAYROTATION) -> windows_core::Result<()>;
-    fn CreateDeviceEx(&self, adapter: u32, devicetype: D3DDEVTYPE, hfocuswindow: super::super::Foundation::HWND, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pfullscreendisplaymode: *mut D3DDISPLAYMODEEX, ppreturneddeviceinterface: *mut Option<IDirect3DDevice9Ex>) -> windows_core::Result<()>;
+    fn CreateDeviceEx(&self, adapter: u32, devicetype: D3DDEVTYPE, hfocuswindow: super::super::Foundation::HWND, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pfullscreendisplaymode: *mut D3DDISPLAYMODEEX, ppreturneddeviceinterface: windows_core::OutRef<'_, IDirect3DDevice9Ex>) -> windows_core::Result<()>;
     fn GetAdapterLUID(&self, adapter: u32, pluid: *mut super::super::Foundation::LUID) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -4869,10 +4869,10 @@ pub trait IDirect3DDevice9_Impl: windows_core::IUnknownImpl {
     fn GetDeviceCaps(&self, pcaps: *mut D3DCAPS9) -> windows_core::Result<()>;
     fn GetDisplayMode(&self, iswapchain: u32, pmode: *mut D3DDISPLAYMODE) -> windows_core::Result<()>;
     fn GetCreationParameters(&self, pparameters: *mut D3DDEVICE_CREATION_PARAMETERS) -> windows_core::Result<()>;
-    fn SetCursorProperties(&self, xhotspot: u32, yhotspot: u32, pcursorbitmap: Option<&IDirect3DSurface9>) -> windows_core::Result<()>;
+    fn SetCursorProperties(&self, xhotspot: u32, yhotspot: u32, pcursorbitmap: windows_core::Ref<'_, IDirect3DSurface9>) -> windows_core::Result<()>;
     fn SetCursorPosition(&self, x: i32, y: i32, flags: u32);
     fn ShowCursor(&self, bshow: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    fn CreateAdditionalSwapChain(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pswapchain: *mut Option<IDirect3DSwapChain9>) -> windows_core::Result<()>;
+    fn CreateAdditionalSwapChain(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pswapchain: windows_core::OutRef<'_, IDirect3DSwapChain9>) -> windows_core::Result<()>;
     fn GetSwapChain(&self, iswapchain: u32) -> windows_core::Result<IDirect3DSwapChain9>;
     fn GetNumberOfSwapChains(&self) -> u32;
     fn Reset(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS) -> windows_core::Result<()>;
@@ -4882,23 +4882,23 @@ pub trait IDirect3DDevice9_Impl: windows_core::IUnknownImpl {
     fn SetDialogBoxMode(&self, benabledialogs: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn SetGammaRamp(&self, iswapchain: u32, flags: u32, pramp: *const D3DGAMMARAMP);
     fn GetGammaRamp(&self, iswapchain: u32, pramp: *mut D3DGAMMARAMP);
-    fn CreateTexture(&self, width: u32, height: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, pptexture: *mut Option<IDirect3DTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()>;
-    fn CreateVolumeTexture(&self, width: u32, height: u32, depth: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppvolumetexture: *mut Option<IDirect3DVolumeTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()>;
-    fn CreateCubeTexture(&self, edgelength: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppcubetexture: *mut Option<IDirect3DCubeTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()>;
-    fn CreateVertexBuffer(&self, length: u32, usage: u32, fvf: u32, pool: D3DPOOL, ppvertexbuffer: *mut Option<IDirect3DVertexBuffer9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()>;
-    fn CreateIndexBuffer(&self, length: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppindexbuffer: *mut Option<IDirect3DIndexBuffer9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()>;
-    fn CreateRenderTarget(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, lockable: super::super::Foundation::BOOL, ppsurface: *mut Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()>;
-    fn CreateDepthStencilSurface(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, discard: super::super::Foundation::BOOL, ppsurface: *mut Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()>;
-    fn UpdateSurface(&self, psourcesurface: Option<&IDirect3DSurface9>, psourcerect: *const super::super::Foundation::RECT, pdestinationsurface: Option<&IDirect3DSurface9>, pdestpoint: *const super::super::Foundation::POINT) -> windows_core::Result<()>;
-    fn UpdateTexture(&self, psourcetexture: Option<&IDirect3DBaseTexture9>, pdestinationtexture: Option<&IDirect3DBaseTexture9>) -> windows_core::Result<()>;
-    fn GetRenderTargetData(&self, prendertarget: Option<&IDirect3DSurface9>, pdestsurface: Option<&IDirect3DSurface9>) -> windows_core::Result<()>;
-    fn GetFrontBufferData(&self, iswapchain: u32, pdestsurface: Option<&IDirect3DSurface9>) -> windows_core::Result<()>;
-    fn StretchRect(&self, psourcesurface: Option<&IDirect3DSurface9>, psourcerect: *const super::super::Foundation::RECT, pdestsurface: Option<&IDirect3DSurface9>, pdestrect: *const super::super::Foundation::RECT, filter: D3DTEXTUREFILTERTYPE) -> windows_core::Result<()>;
-    fn ColorFill(&self, psurface: Option<&IDirect3DSurface9>, prect: *const super::super::Foundation::RECT, color: u32) -> windows_core::Result<()>;
-    fn CreateOffscreenPlainSurface(&self, width: u32, height: u32, format: D3DFORMAT, pool: D3DPOOL, ppsurface: *mut Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()>;
-    fn SetRenderTarget(&self, rendertargetindex: u32, prendertarget: Option<&IDirect3DSurface9>) -> windows_core::Result<()>;
+    fn CreateTexture(&self, width: u32, height: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, pptexture: windows_core::OutRef<'_, IDirect3DTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()>;
+    fn CreateVolumeTexture(&self, width: u32, height: u32, depth: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppvolumetexture: windows_core::OutRef<'_, IDirect3DVolumeTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()>;
+    fn CreateCubeTexture(&self, edgelength: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppcubetexture: windows_core::OutRef<'_, IDirect3DCubeTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()>;
+    fn CreateVertexBuffer(&self, length: u32, usage: u32, fvf: u32, pool: D3DPOOL, ppvertexbuffer: windows_core::OutRef<'_, IDirect3DVertexBuffer9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()>;
+    fn CreateIndexBuffer(&self, length: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppindexbuffer: windows_core::OutRef<'_, IDirect3DIndexBuffer9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()>;
+    fn CreateRenderTarget(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, lockable: super::super::Foundation::BOOL, ppsurface: windows_core::OutRef<'_, IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()>;
+    fn CreateDepthStencilSurface(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, discard: super::super::Foundation::BOOL, ppsurface: windows_core::OutRef<'_, IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()>;
+    fn UpdateSurface(&self, psourcesurface: windows_core::Ref<'_, IDirect3DSurface9>, psourcerect: *const super::super::Foundation::RECT, pdestinationsurface: windows_core::Ref<'_, IDirect3DSurface9>, pdestpoint: *const super::super::Foundation::POINT) -> windows_core::Result<()>;
+    fn UpdateTexture(&self, psourcetexture: windows_core::Ref<'_, IDirect3DBaseTexture9>, pdestinationtexture: windows_core::Ref<'_, IDirect3DBaseTexture9>) -> windows_core::Result<()>;
+    fn GetRenderTargetData(&self, prendertarget: windows_core::Ref<'_, IDirect3DSurface9>, pdestsurface: windows_core::Ref<'_, IDirect3DSurface9>) -> windows_core::Result<()>;
+    fn GetFrontBufferData(&self, iswapchain: u32, pdestsurface: windows_core::Ref<'_, IDirect3DSurface9>) -> windows_core::Result<()>;
+    fn StretchRect(&self, psourcesurface: windows_core::Ref<'_, IDirect3DSurface9>, psourcerect: *const super::super::Foundation::RECT, pdestsurface: windows_core::Ref<'_, IDirect3DSurface9>, pdestrect: *const super::super::Foundation::RECT, filter: D3DTEXTUREFILTERTYPE) -> windows_core::Result<()>;
+    fn ColorFill(&self, psurface: windows_core::Ref<'_, IDirect3DSurface9>, prect: *const super::super::Foundation::RECT, color: u32) -> windows_core::Result<()>;
+    fn CreateOffscreenPlainSurface(&self, width: u32, height: u32, format: D3DFORMAT, pool: D3DPOOL, ppsurface: windows_core::OutRef<'_, IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()>;
+    fn SetRenderTarget(&self, rendertargetindex: u32, prendertarget: windows_core::Ref<'_, IDirect3DSurface9>) -> windows_core::Result<()>;
     fn GetRenderTarget(&self, rendertargetindex: u32) -> windows_core::Result<IDirect3DSurface9>;
-    fn SetDepthStencilSurface(&self, pnewzstencil: Option<&IDirect3DSurface9>) -> windows_core::Result<()>;
+    fn SetDepthStencilSurface(&self, pnewzstencil: windows_core::Ref<'_, IDirect3DSurface9>) -> windows_core::Result<()>;
     fn GetDepthStencilSurface(&self) -> windows_core::Result<IDirect3DSurface9>;
     fn BeginScene(&self) -> windows_core::Result<()>;
     fn EndScene(&self) -> windows_core::Result<()>;
@@ -4924,7 +4924,7 @@ pub trait IDirect3DDevice9_Impl: windows_core::IUnknownImpl {
     fn SetClipStatus(&self, pclipstatus: *const D3DCLIPSTATUS9) -> windows_core::Result<()>;
     fn GetClipStatus(&self, pclipstatus: *mut D3DCLIPSTATUS9) -> windows_core::Result<()>;
     fn GetTexture(&self, stage: u32) -> windows_core::Result<IDirect3DBaseTexture9>;
-    fn SetTexture(&self, stage: u32, ptexture: Option<&IDirect3DBaseTexture9>) -> windows_core::Result<()>;
+    fn SetTexture(&self, stage: u32, ptexture: windows_core::Ref<'_, IDirect3DBaseTexture9>) -> windows_core::Result<()>;
     fn GetTextureStageState(&self, stage: u32, r#type: D3DTEXTURESTAGESTATETYPE, pvalue: *mut u32) -> windows_core::Result<()>;
     fn SetTextureStageState(&self, stage: u32, r#type: D3DTEXTURESTAGESTATETYPE, value: u32) -> windows_core::Result<()>;
     fn GetSamplerState(&self, sampler: u32, r#type: D3DSAMPLERSTATETYPE, pvalue: *mut u32) -> windows_core::Result<()>;
@@ -4944,14 +4944,14 @@ pub trait IDirect3DDevice9_Impl: windows_core::IUnknownImpl {
     fn DrawIndexedPrimitive(&self, param0: D3DPRIMITIVETYPE, basevertexindex: i32, minvertexindex: u32, numvertices: u32, startindex: u32, primcount: u32) -> windows_core::Result<()>;
     fn DrawPrimitiveUP(&self, primitivetype: D3DPRIMITIVETYPE, primitivecount: u32, pvertexstreamzerodata: *const core::ffi::c_void, vertexstreamzerostride: u32) -> windows_core::Result<()>;
     fn DrawIndexedPrimitiveUP(&self, primitivetype: D3DPRIMITIVETYPE, minvertexindex: u32, numvertices: u32, primitivecount: u32, pindexdata: *const core::ffi::c_void, indexdataformat: D3DFORMAT, pvertexstreamzerodata: *const core::ffi::c_void, vertexstreamzerostride: u32) -> windows_core::Result<()>;
-    fn ProcessVertices(&self, srcstartindex: u32, destindex: u32, vertexcount: u32, pdestbuffer: Option<&IDirect3DVertexBuffer9>, pvertexdecl: Option<&IDirect3DVertexDeclaration9>, flags: u32) -> windows_core::Result<()>;
+    fn ProcessVertices(&self, srcstartindex: u32, destindex: u32, vertexcount: u32, pdestbuffer: windows_core::Ref<'_, IDirect3DVertexBuffer9>, pvertexdecl: windows_core::Ref<'_, IDirect3DVertexDeclaration9>, flags: u32) -> windows_core::Result<()>;
     fn CreateVertexDeclaration(&self, pvertexelements: *const D3DVERTEXELEMENT9) -> windows_core::Result<IDirect3DVertexDeclaration9>;
-    fn SetVertexDeclaration(&self, pdecl: Option<&IDirect3DVertexDeclaration9>) -> windows_core::Result<()>;
+    fn SetVertexDeclaration(&self, pdecl: windows_core::Ref<'_, IDirect3DVertexDeclaration9>) -> windows_core::Result<()>;
     fn GetVertexDeclaration(&self) -> windows_core::Result<IDirect3DVertexDeclaration9>;
     fn SetFVF(&self, fvf: u32) -> windows_core::Result<()>;
     fn GetFVF(&self, pfvf: *mut u32) -> windows_core::Result<()>;
     fn CreateVertexShader(&self, pfunction: *const u32) -> windows_core::Result<IDirect3DVertexShader9>;
-    fn SetVertexShader(&self, pshader: Option<&IDirect3DVertexShader9>) -> windows_core::Result<()>;
+    fn SetVertexShader(&self, pshader: windows_core::Ref<'_, IDirect3DVertexShader9>) -> windows_core::Result<()>;
     fn GetVertexShader(&self) -> windows_core::Result<IDirect3DVertexShader9>;
     fn SetVertexShaderConstantF(&self, startregister: u32, pconstantdata: *const f32, vector4fcount: u32) -> windows_core::Result<()>;
     fn GetVertexShaderConstantF(&self, startregister: u32, pconstantdata: *mut f32, vector4fcount: u32) -> windows_core::Result<()>;
@@ -4959,14 +4959,14 @@ pub trait IDirect3DDevice9_Impl: windows_core::IUnknownImpl {
     fn GetVertexShaderConstantI(&self, startregister: u32, pconstantdata: *mut i32, vector4icount: u32) -> windows_core::Result<()>;
     fn SetVertexShaderConstantB(&self, startregister: u32, pconstantdata: *const super::super::Foundation::BOOL, boolcount: u32) -> windows_core::Result<()>;
     fn GetVertexShaderConstantB(&self, startregister: u32, pconstantdata: *mut super::super::Foundation::BOOL, boolcount: u32) -> windows_core::Result<()>;
-    fn SetStreamSource(&self, streamnumber: u32, pstreamdata: Option<&IDirect3DVertexBuffer9>, offsetinbytes: u32, stride: u32) -> windows_core::Result<()>;
-    fn GetStreamSource(&self, streamnumber: u32, ppstreamdata: *mut Option<IDirect3DVertexBuffer9>, poffsetinbytes: *mut u32, pstride: *mut u32) -> windows_core::Result<()>;
+    fn SetStreamSource(&self, streamnumber: u32, pstreamdata: windows_core::Ref<'_, IDirect3DVertexBuffer9>, offsetinbytes: u32, stride: u32) -> windows_core::Result<()>;
+    fn GetStreamSource(&self, streamnumber: u32, ppstreamdata: windows_core::OutRef<'_, IDirect3DVertexBuffer9>, poffsetinbytes: *mut u32, pstride: *mut u32) -> windows_core::Result<()>;
     fn SetStreamSourceFreq(&self, streamnumber: u32, setting: u32) -> windows_core::Result<()>;
     fn GetStreamSourceFreq(&self, streamnumber: u32, psetting: *mut u32) -> windows_core::Result<()>;
-    fn SetIndices(&self, pindexdata: Option<&IDirect3DIndexBuffer9>) -> windows_core::Result<()>;
+    fn SetIndices(&self, pindexdata: windows_core::Ref<'_, IDirect3DIndexBuffer9>) -> windows_core::Result<()>;
     fn GetIndices(&self) -> windows_core::Result<IDirect3DIndexBuffer9>;
     fn CreatePixelShader(&self, pfunction: *const u32) -> windows_core::Result<IDirect3DPixelShader9>;
-    fn SetPixelShader(&self, pshader: Option<&IDirect3DPixelShader9>) -> windows_core::Result<()>;
+    fn SetPixelShader(&self, pshader: windows_core::Ref<'_, IDirect3DPixelShader9>) -> windows_core::Result<()>;
     fn GetPixelShader(&self) -> windows_core::Result<IDirect3DPixelShader9>;
     fn SetPixelShaderConstantF(&self, startregister: u32, pconstantdata: *const f32, vector4fcount: u32) -> windows_core::Result<()>;
     fn GetPixelShaderConstantF(&self, startregister: u32, pconstantdata: *mut f32, vector4fcount: u32) -> windows_core::Result<()>;
@@ -5018,7 +5018,7 @@ impl IDirect3DDevice9_Vtbl {
         }
         unsafe extern "system" fn SetCursorProperties<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xhotspot: u32, yhotspot: u32, pcursorbitmap: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDirect3DDevice9_Impl::SetCursorProperties(this, core::mem::transmute_copy(&xhotspot), core::mem::transmute_copy(&yhotspot), windows_core::from_raw_borrowed(&pcursorbitmap)).into()
+            IDirect3DDevice9_Impl::SetCursorProperties(this, core::mem::transmute_copy(&xhotspot), core::mem::transmute_copy(&yhotspot), core::mem::transmute_copy(&pcursorbitmap)).into()
         }
         unsafe extern "system" fn SetCursorPosition<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, x: i32, y: i32, flags: u32) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -5110,27 +5110,27 @@ impl IDirect3DDevice9_Vtbl {
         }
         unsafe extern "system" fn UpdateSurface<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psourcesurface: *mut core::ffi::c_void, psourcerect: *const super::super::Foundation::RECT, pdestinationsurface: *mut core::ffi::c_void, pdestpoint: *const super::super::Foundation::POINT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDirect3DDevice9_Impl::UpdateSurface(this, windows_core::from_raw_borrowed(&psourcesurface), core::mem::transmute_copy(&psourcerect), windows_core::from_raw_borrowed(&pdestinationsurface), core::mem::transmute_copy(&pdestpoint)).into()
+            IDirect3DDevice9_Impl::UpdateSurface(this, core::mem::transmute_copy(&psourcesurface), core::mem::transmute_copy(&psourcerect), core::mem::transmute_copy(&pdestinationsurface), core::mem::transmute_copy(&pdestpoint)).into()
         }
         unsafe extern "system" fn UpdateTexture<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psourcetexture: *mut core::ffi::c_void, pdestinationtexture: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDirect3DDevice9_Impl::UpdateTexture(this, windows_core::from_raw_borrowed(&psourcetexture), windows_core::from_raw_borrowed(&pdestinationtexture)).into()
+            IDirect3DDevice9_Impl::UpdateTexture(this, core::mem::transmute_copy(&psourcetexture), core::mem::transmute_copy(&pdestinationtexture)).into()
         }
         unsafe extern "system" fn GetRenderTargetData<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prendertarget: *mut core::ffi::c_void, pdestsurface: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDirect3DDevice9_Impl::GetRenderTargetData(this, windows_core::from_raw_borrowed(&prendertarget), windows_core::from_raw_borrowed(&pdestsurface)).into()
+            IDirect3DDevice9_Impl::GetRenderTargetData(this, core::mem::transmute_copy(&prendertarget), core::mem::transmute_copy(&pdestsurface)).into()
         }
         unsafe extern "system" fn GetFrontBufferData<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iswapchain: u32, pdestsurface: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDirect3DDevice9_Impl::GetFrontBufferData(this, core::mem::transmute_copy(&iswapchain), windows_core::from_raw_borrowed(&pdestsurface)).into()
+            IDirect3DDevice9_Impl::GetFrontBufferData(this, core::mem::transmute_copy(&iswapchain), core::mem::transmute_copy(&pdestsurface)).into()
         }
         unsafe extern "system" fn StretchRect<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psourcesurface: *mut core::ffi::c_void, psourcerect: *const super::super::Foundation::RECT, pdestsurface: *mut core::ffi::c_void, pdestrect: *const super::super::Foundation::RECT, filter: D3DTEXTUREFILTERTYPE) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDirect3DDevice9_Impl::StretchRect(this, windows_core::from_raw_borrowed(&psourcesurface), core::mem::transmute_copy(&psourcerect), windows_core::from_raw_borrowed(&pdestsurface), core::mem::transmute_copy(&pdestrect), core::mem::transmute_copy(&filter)).into()
+            IDirect3DDevice9_Impl::StretchRect(this, core::mem::transmute_copy(&psourcesurface), core::mem::transmute_copy(&psourcerect), core::mem::transmute_copy(&pdestsurface), core::mem::transmute_copy(&pdestrect), core::mem::transmute_copy(&filter)).into()
         }
         unsafe extern "system" fn ColorFill<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psurface: *mut core::ffi::c_void, prect: *const super::super::Foundation::RECT, color: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDirect3DDevice9_Impl::ColorFill(this, windows_core::from_raw_borrowed(&psurface), core::mem::transmute_copy(&prect), core::mem::transmute_copy(&color)).into()
+            IDirect3DDevice9_Impl::ColorFill(this, core::mem::transmute_copy(&psurface), core::mem::transmute_copy(&prect), core::mem::transmute_copy(&color)).into()
         }
         unsafe extern "system" fn CreateOffscreenPlainSurface<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: u32, height: u32, format: D3DFORMAT, pool: D3DPOOL, ppsurface: *mut *mut core::ffi::c_void, psharedhandle: *mut super::super::Foundation::HANDLE) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -5138,7 +5138,7 @@ impl IDirect3DDevice9_Vtbl {
         }
         unsafe extern "system" fn SetRenderTarget<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rendertargetindex: u32, prendertarget: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDirect3DDevice9_Impl::SetRenderTarget(this, core::mem::transmute_copy(&rendertargetindex), windows_core::from_raw_borrowed(&prendertarget)).into()
+            IDirect3DDevice9_Impl::SetRenderTarget(this, core::mem::transmute_copy(&rendertargetindex), core::mem::transmute_copy(&prendertarget)).into()
         }
         unsafe extern "system" fn GetRenderTarget<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rendertargetindex: u32, pprendertarget: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -5152,7 +5152,7 @@ impl IDirect3DDevice9_Vtbl {
         }
         unsafe extern "system" fn SetDepthStencilSurface<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnewzstencil: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDirect3DDevice9_Impl::SetDepthStencilSurface(this, windows_core::from_raw_borrowed(&pnewzstencil)).into()
+            IDirect3DDevice9_Impl::SetDepthStencilSurface(this, core::mem::transmute_copy(&pnewzstencil)).into()
         }
         unsafe extern "system" fn GetDepthStencilSurface<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppzstencilsurface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -5280,7 +5280,7 @@ impl IDirect3DDevice9_Vtbl {
         }
         unsafe extern "system" fn SetTexture<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stage: u32, ptexture: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDirect3DDevice9_Impl::SetTexture(this, core::mem::transmute_copy(&stage), windows_core::from_raw_borrowed(&ptexture)).into()
+            IDirect3DDevice9_Impl::SetTexture(this, core::mem::transmute_copy(&stage), core::mem::transmute_copy(&ptexture)).into()
         }
         unsafe extern "system" fn GetTextureStageState<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stage: u32, r#type: D3DTEXTURESTAGESTATETYPE, pvalue: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -5360,7 +5360,7 @@ impl IDirect3DDevice9_Vtbl {
         }
         unsafe extern "system" fn ProcessVertices<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, srcstartindex: u32, destindex: u32, vertexcount: u32, pdestbuffer: *mut core::ffi::c_void, pvertexdecl: *mut core::ffi::c_void, flags: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDirect3DDevice9_Impl::ProcessVertices(this, core::mem::transmute_copy(&srcstartindex), core::mem::transmute_copy(&destindex), core::mem::transmute_copy(&vertexcount), windows_core::from_raw_borrowed(&pdestbuffer), windows_core::from_raw_borrowed(&pvertexdecl), core::mem::transmute_copy(&flags)).into()
+            IDirect3DDevice9_Impl::ProcessVertices(this, core::mem::transmute_copy(&srcstartindex), core::mem::transmute_copy(&destindex), core::mem::transmute_copy(&vertexcount), core::mem::transmute_copy(&pdestbuffer), core::mem::transmute_copy(&pvertexdecl), core::mem::transmute_copy(&flags)).into()
         }
         unsafe extern "system" fn CreateVertexDeclaration<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvertexelements: *const D3DVERTEXELEMENT9, ppdecl: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -5374,7 +5374,7 @@ impl IDirect3DDevice9_Vtbl {
         }
         unsafe extern "system" fn SetVertexDeclaration<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdecl: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDirect3DDevice9_Impl::SetVertexDeclaration(this, windows_core::from_raw_borrowed(&pdecl)).into()
+            IDirect3DDevice9_Impl::SetVertexDeclaration(this, core::mem::transmute_copy(&pdecl)).into()
         }
         unsafe extern "system" fn GetVertexDeclaration<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdecl: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -5406,7 +5406,7 @@ impl IDirect3DDevice9_Vtbl {
         }
         unsafe extern "system" fn SetVertexShader<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pshader: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDirect3DDevice9_Impl::SetVertexShader(this, windows_core::from_raw_borrowed(&pshader)).into()
+            IDirect3DDevice9_Impl::SetVertexShader(this, core::mem::transmute_copy(&pshader)).into()
         }
         unsafe extern "system" fn GetVertexShader<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppshader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -5444,7 +5444,7 @@ impl IDirect3DDevice9_Vtbl {
         }
         unsafe extern "system" fn SetStreamSource<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, streamnumber: u32, pstreamdata: *mut core::ffi::c_void, offsetinbytes: u32, stride: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDirect3DDevice9_Impl::SetStreamSource(this, core::mem::transmute_copy(&streamnumber), windows_core::from_raw_borrowed(&pstreamdata), core::mem::transmute_copy(&offsetinbytes), core::mem::transmute_copy(&stride)).into()
+            IDirect3DDevice9_Impl::SetStreamSource(this, core::mem::transmute_copy(&streamnumber), core::mem::transmute_copy(&pstreamdata), core::mem::transmute_copy(&offsetinbytes), core::mem::transmute_copy(&stride)).into()
         }
         unsafe extern "system" fn GetStreamSource<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, streamnumber: u32, ppstreamdata: *mut *mut core::ffi::c_void, poffsetinbytes: *mut u32, pstride: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -5460,7 +5460,7 @@ impl IDirect3DDevice9_Vtbl {
         }
         unsafe extern "system" fn SetIndices<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pindexdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDirect3DDevice9_Impl::SetIndices(this, windows_core::from_raw_borrowed(&pindexdata)).into()
+            IDirect3DDevice9_Impl::SetIndices(this, core::mem::transmute_copy(&pindexdata)).into()
         }
         unsafe extern "system" fn GetIndices<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppindexdata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -5484,7 +5484,7 @@ impl IDirect3DDevice9_Vtbl {
         }
         unsafe extern "system" fn SetPixelShader<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pshader: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDirect3DDevice9_Impl::SetPixelShader(this, windows_core::from_raw_borrowed(&pshader)).into()
+            IDirect3DDevice9_Impl::SetPixelShader(this, core::mem::transmute_copy(&pshader)).into()
         }
         unsafe extern "system" fn GetPixelShader<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppshader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -5755,18 +5755,18 @@ pub struct IDirect3DDevice9Ex_Vtbl {
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirect3DDevice9Ex_Impl: IDirect3DDevice9_Impl {
     fn SetConvolutionMonoKernel(&self, width: u32, height: u32, rows: *mut f32, columns: *mut f32) -> windows_core::Result<()>;
-    fn ComposeRects(&self, psrc: Option<&IDirect3DSurface9>, pdst: Option<&IDirect3DSurface9>, psrcrectdescs: Option<&IDirect3DVertexBuffer9>, numrects: u32, pdstrectdescs: Option<&IDirect3DVertexBuffer9>, operation: D3DCOMPOSERECTSOP, xoffset: i32, yoffset: i32) -> windows_core::Result<()>;
+    fn ComposeRects(&self, psrc: windows_core::Ref<'_, IDirect3DSurface9>, pdst: windows_core::Ref<'_, IDirect3DSurface9>, psrcrectdescs: windows_core::Ref<'_, IDirect3DVertexBuffer9>, numrects: u32, pdstrectdescs: windows_core::Ref<'_, IDirect3DVertexBuffer9>, operation: D3DCOMPOSERECTSOP, xoffset: i32, yoffset: i32) -> windows_core::Result<()>;
     fn PresentEx(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: super::super::Foundation::HWND, pdirtyregion: *const super::Gdi::RGNDATA, dwflags: u32) -> windows_core::Result<()>;
     fn GetGPUThreadPriority(&self, ppriority: *mut i32) -> windows_core::Result<()>;
     fn SetGPUThreadPriority(&self, priority: i32) -> windows_core::Result<()>;
     fn WaitForVBlank(&self, iswapchain: u32) -> windows_core::Result<()>;
-    fn CheckResourceResidency(&self, presourcearray: *mut Option<IDirect3DResource9>, numresources: u32) -> windows_core::Result<()>;
+    fn CheckResourceResidency(&self, presourcearray: windows_core::OutRef<'_, IDirect3DResource9>, numresources: u32) -> windows_core::Result<()>;
     fn SetMaximumFrameLatency(&self, maxlatency: u32) -> windows_core::Result<()>;
     fn GetMaximumFrameLatency(&self, pmaxlatency: *mut u32) -> windows_core::Result<()>;
     fn CheckDeviceState(&self, hdestinationwindow: super::super::Foundation::HWND) -> windows_core::Result<()>;
-    fn CreateRenderTargetEx(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, lockable: super::super::Foundation::BOOL, ppsurface: *mut Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE, usage: u32) -> windows_core::Result<()>;
-    fn CreateOffscreenPlainSurfaceEx(&self, width: u32, height: u32, format: D3DFORMAT, pool: D3DPOOL, ppsurface: *mut Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE, usage: u32) -> windows_core::Result<()>;
-    fn CreateDepthStencilSurfaceEx(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, discard: super::super::Foundation::BOOL, ppsurface: *mut Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE, usage: u32) -> windows_core::Result<()>;
+    fn CreateRenderTargetEx(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, lockable: super::super::Foundation::BOOL, ppsurface: windows_core::OutRef<'_, IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE, usage: u32) -> windows_core::Result<()>;
+    fn CreateOffscreenPlainSurfaceEx(&self, width: u32, height: u32, format: D3DFORMAT, pool: D3DPOOL, ppsurface: windows_core::OutRef<'_, IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE, usage: u32) -> windows_core::Result<()>;
+    fn CreateDepthStencilSurfaceEx(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, discard: super::super::Foundation::BOOL, ppsurface: windows_core::OutRef<'_, IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE, usage: u32) -> windows_core::Result<()>;
     fn ResetEx(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pfullscreendisplaymode: *mut D3DDISPLAYMODEEX) -> windows_core::Result<()>;
     fn GetDisplayModeEx(&self, iswapchain: u32, pmode: *mut D3DDISPLAYMODEEX, protation: *mut D3DDISPLAYROTATION) -> windows_core::Result<()>;
 }
@@ -5779,7 +5779,7 @@ impl IDirect3DDevice9Ex_Vtbl {
         }
         unsafe extern "system" fn ComposeRects<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psrc: *mut core::ffi::c_void, pdst: *mut core::ffi::c_void, psrcrectdescs: *mut core::ffi::c_void, numrects: u32, pdstrectdescs: *mut core::ffi::c_void, operation: D3DCOMPOSERECTSOP, xoffset: i32, yoffset: i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDirect3DDevice9Ex_Impl::ComposeRects(this, windows_core::from_raw_borrowed(&psrc), windows_core::from_raw_borrowed(&pdst), windows_core::from_raw_borrowed(&psrcrectdescs), core::mem::transmute_copy(&numrects), windows_core::from_raw_borrowed(&pdstrectdescs), core::mem::transmute_copy(&operation), core::mem::transmute_copy(&xoffset), core::mem::transmute_copy(&yoffset)).into()
+            IDirect3DDevice9Ex_Impl::ComposeRects(this, core::mem::transmute_copy(&psrc), core::mem::transmute_copy(&pdst), core::mem::transmute_copy(&psrcrectdescs), core::mem::transmute_copy(&numrects), core::mem::transmute_copy(&pdstrectdescs), core::mem::transmute_copy(&operation), core::mem::transmute_copy(&xoffset), core::mem::transmute_copy(&yoffset)).into()
         }
         unsafe extern "system" fn PresentEx<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: super::super::Foundation::HWND, pdirtyregion: *const super::Gdi::RGNDATA, dwflags: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -6353,7 +6353,7 @@ pub struct IDirect3DSwapChain9_Vtbl {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IDirect3DSwapChain9_Impl: windows_core::IUnknownImpl {
     fn Present(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: super::super::Foundation::HWND, pdirtyregion: *const super::Gdi::RGNDATA, dwflags: u32) -> windows_core::Result<()>;
-    fn GetFrontBufferData(&self, pdestsurface: Option<&IDirect3DSurface9>) -> windows_core::Result<()>;
+    fn GetFrontBufferData(&self, pdestsurface: windows_core::Ref<'_, IDirect3DSurface9>) -> windows_core::Result<()>;
     fn GetBackBuffer(&self, ibackbuffer: u32, r#type: D3DBACKBUFFER_TYPE) -> windows_core::Result<IDirect3DSurface9>;
     fn GetRasterStatus(&self, prasterstatus: *mut D3DRASTER_STATUS) -> windows_core::Result<()>;
     fn GetDisplayMode(&self, pmode: *mut D3DDISPLAYMODE) -> windows_core::Result<()>;
@@ -6369,7 +6369,7 @@ impl IDirect3DSwapChain9_Vtbl {
         }
         unsafe extern "system" fn GetFrontBufferData<Identity: IDirect3DSwapChain9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdestsurface: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDirect3DSwapChain9_Impl::GetFrontBufferData(this, windows_core::from_raw_borrowed(&pdestsurface)).into()
+            IDirect3DSwapChain9_Impl::GetFrontBufferData(this, core::mem::transmute_copy(&pdestsurface)).into()
         }
         unsafe extern "system" fn GetBackBuffer<Identity: IDirect3DSwapChain9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ibackbuffer: u32, r#type: D3DBACKBUFFER_TYPE, ppbackbuffer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);

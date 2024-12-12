@@ -1158,9 +1158,9 @@ pub trait IStorageItemInformation_Impl: windows_core::IUnknownImpl {
     fn DocumentProperties(&self) -> windows_core::Result<super::FileProperties::DocumentProperties>;
     fn BasicProperties(&self) -> windows_core::Result<super::FileProperties::BasicProperties>;
     fn Thumbnail(&self) -> windows_core::Result<super::FileProperties::StorageItemThumbnail>;
-    fn ThumbnailUpdated(&self, changedHandler: Option<&super::super::Foundation::TypedEventHandler<IStorageItemInformation, windows_core::IInspectable>>) -> windows_core::Result<i64>;
+    fn ThumbnailUpdated(&self, changedHandler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<IStorageItemInformation, windows_core::IInspectable>>) -> windows_core::Result<i64>;
     fn RemoveThumbnailUpdated(&self, eventCookie: i64) -> windows_core::Result<()>;
-    fn PropertiesUpdated(&self, changedHandler: Option<&super::super::Foundation::TypedEventHandler<IStorageItemInformation, windows_core::IInspectable>>) -> windows_core::Result<i64>;
+    fn PropertiesUpdated(&self, changedHandler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<IStorageItemInformation, windows_core::IInspectable>>) -> windows_core::Result<i64>;
     fn RemovePropertiesUpdated(&self, eventCookie: i64) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
@@ -1234,7 +1234,7 @@ impl IStorageItemInformation_Vtbl {
         }
         unsafe extern "system" fn ThumbnailUpdated<Identity: IStorageItemInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, changedhandler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IStorageItemInformation_Impl::ThumbnailUpdated(this, windows_core::from_raw_borrowed(&changedhandler)) {
+            match IStorageItemInformation_Impl::ThumbnailUpdated(this, core::mem::transmute_copy(&changedhandler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -1248,7 +1248,7 @@ impl IStorageItemInformation_Vtbl {
         }
         unsafe extern "system" fn PropertiesUpdated<Identity: IStorageItemInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, changedhandler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IStorageItemInformation_Impl::PropertiesUpdated(this, windows_core::from_raw_borrowed(&changedhandler)) {
+            match IStorageItemInformation_Impl::PropertiesUpdated(this, core::mem::transmute_copy(&changedhandler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)

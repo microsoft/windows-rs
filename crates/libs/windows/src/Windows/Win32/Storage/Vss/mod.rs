@@ -1456,7 +1456,7 @@ pub trait IVssEnumMgmtObject_Impl: windows_core::IUnknownImpl {
     fn Next(&self, celt: u32, rgelt: *mut VSS_MGMT_OBJECT_PROP, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self, ppenum: *mut Option<IVssEnumMgmtObject>) -> windows_core::Result<()>;
+    fn Clone(&self, ppenum: windows_core::OutRef<'_, IVssEnumMgmtObject>) -> windows_core::Result<()>;
 }
 impl IVssEnumMgmtObject_Vtbl {
     pub const fn new<Identity: IVssEnumMgmtObject_Impl, const OFFSET: isize>() -> Self {
@@ -1517,7 +1517,7 @@ pub trait IVssEnumObject_Impl: windows_core::IUnknownImpl {
     fn Next(&self, celt: u32, rgelt: *mut VSS_OBJECT_PROP, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self, ppenum: *mut Option<IVssEnumObject>) -> windows_core::Result<()>;
+    fn Clone(&self, ppenum: windows_core::OutRef<'_, IVssEnumObject>) -> windows_core::Result<()>;
 }
 impl IVssEnumObject_Vtbl {
     pub const fn new<Identity: IVssEnumObject_Impl, const OFFSET: isize>() -> Self {
@@ -2061,14 +2061,14 @@ pub struct IVssProviderNotifications_Vtbl {
     pub OnUnload: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 pub trait IVssProviderNotifications_Impl: windows_core::IUnknownImpl {
-    fn OnLoad(&self, pcallback: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn OnLoad(&self, pcallback: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn OnUnload(&self, bforceunload: super::super::Foundation::BOOL) -> windows_core::Result<()>;
 }
 impl IVssProviderNotifications_Vtbl {
     pub const fn new<Identity: IVssProviderNotifications_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnLoad<Identity: IVssProviderNotifications_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IVssProviderNotifications_Impl::OnLoad(this, windows_core::from_raw_borrowed(&pcallback)).into()
+            IVssProviderNotifications_Impl::OnLoad(this, core::mem::transmute_copy(&pcallback)).into()
         }
         unsafe extern "system" fn OnUnload<Identity: IVssProviderNotifications_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bforceunload: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);

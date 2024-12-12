@@ -3645,8 +3645,8 @@ pub trait IImageList_Impl: windows_core::IUnknownImpl {
     fn Remove(&self, i: i32) -> windows_core::Result<()>;
     fn GetIcon(&self, i: i32, flags: u32) -> windows_core::Result<super::WindowsAndMessaging::HICON>;
     fn GetImageInfo(&self, i: i32, pimageinfo: *mut IMAGEINFO) -> windows_core::Result<()>;
-    fn Copy(&self, idst: i32, punksrc: Option<&windows_core::IUnknown>, isrc: i32, uflags: u32) -> windows_core::Result<()>;
-    fn Merge(&self, i1: i32, punk2: Option<&windows_core::IUnknown>, i2: i32, dx: i32, dy: i32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn Copy(&self, idst: i32, punksrc: windows_core::Ref<'_, windows_core::IUnknown>, isrc: i32, uflags: u32) -> windows_core::Result<()>;
+    fn Merge(&self, i1: i32, punk2: windows_core::Ref<'_, windows_core::IUnknown>, i2: i32, dx: i32, dy: i32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn Clone(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetImageRect(&self, i: i32) -> windows_core::Result<super::super::Foundation::RECT>;
     fn GetIconSize(&self, cx: *mut i32, cy: *mut i32) -> windows_core::Result<()>;
@@ -3660,7 +3660,7 @@ pub trait IImageList_Impl: windows_core::IUnknownImpl {
     fn DragEnter(&self, hwndlock: super::super::Foundation::HWND, x: i32, y: i32) -> windows_core::Result<()>;
     fn DragLeave(&self, hwndlock: super::super::Foundation::HWND) -> windows_core::Result<()>;
     fn DragMove(&self, x: i32, y: i32) -> windows_core::Result<()>;
-    fn SetDragCursorImage(&self, punk: Option<&windows_core::IUnknown>, idrag: i32, dxhotspot: i32, dyhotspot: i32) -> windows_core::Result<()>;
+    fn SetDragCursorImage(&self, punk: windows_core::Ref<'_, windows_core::IUnknown>, idrag: i32, dxhotspot: i32, dyhotspot: i32) -> windows_core::Result<()>;
     fn DragShowNolock(&self, fshow: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn GetDragImage(&self, ppt: *mut super::super::Foundation::POINT, ppthotspot: *mut super::super::Foundation::POINT, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetItemFlags(&self, i: i32) -> windows_core::Result<IMAGE_LIST_ITEM_FLAGS>;
@@ -3731,11 +3731,11 @@ impl IImageList_Vtbl {
         }
         unsafe extern "system" fn Copy<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, idst: i32, punksrc: *mut core::ffi::c_void, isrc: i32, uflags: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IImageList_Impl::Copy(this, core::mem::transmute_copy(&idst), windows_core::from_raw_borrowed(&punksrc), core::mem::transmute_copy(&isrc), core::mem::transmute_copy(&uflags)).into()
+            IImageList_Impl::Copy(this, core::mem::transmute_copy(&idst), core::mem::transmute_copy(&punksrc), core::mem::transmute_copy(&isrc), core::mem::transmute_copy(&uflags)).into()
         }
         unsafe extern "system" fn Merge<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, i1: i32, punk2: *mut core::ffi::c_void, i2: i32, dx: i32, dy: i32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IImageList_Impl::Merge(this, core::mem::transmute_copy(&i1), windows_core::from_raw_borrowed(&punk2), core::mem::transmute_copy(&i2), core::mem::transmute_copy(&dx), core::mem::transmute_copy(&dy), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            IImageList_Impl::Merge(this, core::mem::transmute_copy(&i1), core::mem::transmute_copy(&punk2), core::mem::transmute_copy(&i2), core::mem::transmute_copy(&dx), core::mem::transmute_copy(&dy), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
         }
         unsafe extern "system" fn Clone<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3815,7 +3815,7 @@ impl IImageList_Vtbl {
         }
         unsafe extern "system" fn SetDragCursorImage<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punk: *mut core::ffi::c_void, idrag: i32, dxhotspot: i32, dyhotspot: i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IImageList_Impl::SetDragCursorImage(this, windows_core::from_raw_borrowed(&punk), core::mem::transmute_copy(&idrag), core::mem::transmute_copy(&dxhotspot), core::mem::transmute_copy(&dyhotspot)).into()
+            IImageList_Impl::SetDragCursorImage(this, core::mem::transmute_copy(&punk), core::mem::transmute_copy(&idrag), core::mem::transmute_copy(&dxhotspot), core::mem::transmute_copy(&dyhotspot)).into()
         }
         unsafe extern "system" fn DragShowNolock<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fshow: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3969,15 +3969,15 @@ pub trait IImageList2_Impl: IImageList_Impl {
     fn Resize(&self, cxnewiconsize: i32, cynewiconsize: i32) -> windows_core::Result<()>;
     fn GetOriginalSize(&self, iimage: i32, dwflags: u32, pcx: *mut i32, pcy: *mut i32) -> windows_core::Result<()>;
     fn SetOriginalSize(&self, iimage: i32, cx: i32, cy: i32) -> windows_core::Result<()>;
-    fn SetCallback(&self, punk: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetCallback(&self, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetCallback(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn ForceImagePresent(&self, iimage: i32, dwflags: u32) -> windows_core::Result<()>;
     fn DiscardImages(&self, ifirstimage: i32, ilastimage: i32, dwflags: u32) -> windows_core::Result<()>;
     fn PreloadImages(&self, pimldp: *const IMAGELISTDRAWPARAMS) -> windows_core::Result<()>;
     fn GetStatistics(&self, pils: *mut IMAGELISTSTATS) -> windows_core::Result<()>;
     fn Initialize(&self, cx: i32, cy: i32, flags: IMAGELIST_CREATION_FLAGS, cinitial: i32, cgrow: i32) -> windows_core::Result<()>;
-    fn Replace2(&self, i: i32, hbmimage: super::super::Graphics::Gdi::HBITMAP, hbmmask: super::super::Graphics::Gdi::HBITMAP, punk: Option<&windows_core::IUnknown>, dwflags: u32) -> windows_core::Result<()>;
-    fn ReplaceFromImageList(&self, i: i32, pil: Option<&IImageList>, isrc: i32, punk: Option<&windows_core::IUnknown>, dwflags: u32) -> windows_core::Result<()>;
+    fn Replace2(&self, i: i32, hbmimage: super::super::Graphics::Gdi::HBITMAP, hbmmask: super::super::Graphics::Gdi::HBITMAP, punk: windows_core::Ref<'_, windows_core::IUnknown>, dwflags: u32) -> windows_core::Result<()>;
+    fn ReplaceFromImageList(&self, i: i32, pil: windows_core::Ref<'_, IImageList>, isrc: i32, punk: windows_core::Ref<'_, windows_core::IUnknown>, dwflags: u32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IImageList2_Vtbl {
@@ -3996,7 +3996,7 @@ impl IImageList2_Vtbl {
         }
         unsafe extern "system" fn SetCallback<Identity: IImageList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punk: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IImageList2_Impl::SetCallback(this, windows_core::from_raw_borrowed(&punk)).into()
+            IImageList2_Impl::SetCallback(this, core::mem::transmute_copy(&punk)).into()
         }
         unsafe extern "system" fn GetCallback<Identity: IImageList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -4024,11 +4024,11 @@ impl IImageList2_Vtbl {
         }
         unsafe extern "system" fn Replace2<Identity: IImageList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, i: i32, hbmimage: super::super::Graphics::Gdi::HBITMAP, hbmmask: super::super::Graphics::Gdi::HBITMAP, punk: *mut core::ffi::c_void, dwflags: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IImageList2_Impl::Replace2(this, core::mem::transmute_copy(&i), core::mem::transmute_copy(&hbmimage), core::mem::transmute_copy(&hbmmask), windows_core::from_raw_borrowed(&punk), core::mem::transmute_copy(&dwflags)).into()
+            IImageList2_Impl::Replace2(this, core::mem::transmute_copy(&i), core::mem::transmute_copy(&hbmimage), core::mem::transmute_copy(&hbmmask), core::mem::transmute_copy(&punk), core::mem::transmute_copy(&dwflags)).into()
         }
         unsafe extern "system" fn ReplaceFromImageList<Identity: IImageList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, i: i32, pil: *mut core::ffi::c_void, isrc: i32, punk: *mut core::ffi::c_void, dwflags: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IImageList2_Impl::ReplaceFromImageList(this, core::mem::transmute_copy(&i), windows_core::from_raw_borrowed(&pil), core::mem::transmute_copy(&isrc), windows_core::from_raw_borrowed(&punk), core::mem::transmute_copy(&dwflags)).into()
+            IImageList2_Impl::ReplaceFromImageList(this, core::mem::transmute_copy(&i), core::mem::transmute_copy(&pil), core::mem::transmute_copy(&isrc), core::mem::transmute_copy(&punk), core::mem::transmute_copy(&dwflags)).into()
         }
         Self {
             base__: IImageList_Vtbl::new::<Identity, OFFSET>(),

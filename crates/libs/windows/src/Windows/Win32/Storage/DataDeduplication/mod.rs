@@ -160,13 +160,13 @@ pub struct IDedupBackupSupport_Vtbl {
     pub RestoreFiles: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const *mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
 pub trait IDedupBackupSupport_Impl: windows_core::IUnknownImpl {
-    fn RestoreFiles(&self, numberoffiles: u32, filefullpaths: *const windows_core::BSTR, store: Option<&IDedupReadFileCallback>, flags: u32) -> windows_core::Result<windows_core::HRESULT>;
+    fn RestoreFiles(&self, numberoffiles: u32, filefullpaths: *const windows_core::BSTR, store: windows_core::Ref<'_, IDedupReadFileCallback>, flags: u32) -> windows_core::Result<windows_core::HRESULT>;
 }
 impl IDedupBackupSupport_Vtbl {
     pub const fn new<Identity: IDedupBackupSupport_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RestoreFiles<Identity: IDedupBackupSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numberoffiles: u32, filefullpaths: *const *mut core::ffi::c_void, store: *mut core::ffi::c_void, flags: u32, fileresults: *mut windows_core::HRESULT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDedupBackupSupport_Impl::RestoreFiles(this, core::mem::transmute_copy(&numberoffiles), core::mem::transmute_copy(&filefullpaths), windows_core::from_raw_borrowed(&store), core::mem::transmute_copy(&flags)) {
+            match IDedupBackupSupport_Impl::RestoreFiles(this, core::mem::transmute_copy(&numberoffiles), core::mem::transmute_copy(&filefullpaths), core::mem::transmute_copy(&store), core::mem::transmute_copy(&flags)) {
                 Ok(ok__) => {
                     fileresults.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -339,9 +339,9 @@ pub trait IDedupDataPort_Impl: windows_core::IUnknownImpl {
     fn GetStatus(&self, pstatus: *mut DedupDataPortVolumeStatus, pdataheadroommb: *mut u32) -> windows_core::Result<()>;
     fn LookupChunks(&self, count: u32, phashes: *const DedupHash) -> windows_core::Result<windows_core::GUID>;
     fn InsertChunks(&self, chunkcount: u32, pchunkmetadata: *const DedupChunk, databytecount: u32, pchunkdata: *const u8) -> windows_core::Result<windows_core::GUID>;
-    fn InsertChunksWithStream(&self, chunkcount: u32, pchunkmetadata: *const DedupChunk, databytecount: u32, pchunkdatastream: Option<&super::super::System::Com::IStream>) -> windows_core::Result<windows_core::GUID>;
+    fn InsertChunksWithStream(&self, chunkcount: u32, pchunkmetadata: *const DedupChunk, databytecount: u32, pchunkdatastream: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<windows_core::GUID>;
     fn CommitStreams(&self, streamcount: u32, pstreams: *const DedupStream, entrycount: u32, pentries: *const DedupStreamEntry) -> windows_core::Result<windows_core::GUID>;
-    fn CommitStreamsWithStream(&self, streamcount: u32, pstreams: *const DedupStream, entrycount: u32, pentriesstream: Option<&super::super::System::Com::IStream>) -> windows_core::Result<windows_core::GUID>;
+    fn CommitStreamsWithStream(&self, streamcount: u32, pstreams: *const DedupStream, entrycount: u32, pentriesstream: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<windows_core::GUID>;
     fn GetStreams(&self, streamcount: u32, pstreampaths: *const windows_core::BSTR) -> windows_core::Result<windows_core::GUID>;
     fn GetStreamsResults(&self, requestid: &windows_core::GUID, maxwaitms: u32, streamentryindex: u32, pstreamcount: *mut u32, ppstreams: *mut *mut DedupStream, pentrycount: *mut u32, ppentries: *mut *mut DedupStreamEntry, pstatus: *mut DedupDataPortRequestStatus, ppitemresults: *mut *mut windows_core::HRESULT) -> windows_core::Result<()>;
     fn GetChunks(&self, count: u32, phashes: *const DedupHash) -> windows_core::Result<windows_core::GUID>;
@@ -378,7 +378,7 @@ impl IDedupDataPort_Vtbl {
         }
         unsafe extern "system" fn InsertChunksWithStream<Identity: IDedupDataPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, chunkcount: u32, pchunkmetadata: *const DedupChunk, databytecount: u32, pchunkdatastream: *mut core::ffi::c_void, prequestid: *mut windows_core::GUID) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDedupDataPort_Impl::InsertChunksWithStream(this, core::mem::transmute_copy(&chunkcount), core::mem::transmute_copy(&pchunkmetadata), core::mem::transmute_copy(&databytecount), windows_core::from_raw_borrowed(&pchunkdatastream)) {
+            match IDedupDataPort_Impl::InsertChunksWithStream(this, core::mem::transmute_copy(&chunkcount), core::mem::transmute_copy(&pchunkmetadata), core::mem::transmute_copy(&databytecount), core::mem::transmute_copy(&pchunkdatastream)) {
                 Ok(ok__) => {
                     prequestid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -398,7 +398,7 @@ impl IDedupDataPort_Vtbl {
         }
         unsafe extern "system" fn CommitStreamsWithStream<Identity: IDedupDataPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, streamcount: u32, pstreams: *const DedupStream, entrycount: u32, pentriesstream: *mut core::ffi::c_void, prequestid: *mut windows_core::GUID) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDedupDataPort_Impl::CommitStreamsWithStream(this, core::mem::transmute_copy(&streamcount), core::mem::transmute_copy(&pstreams), core::mem::transmute_copy(&entrycount), windows_core::from_raw_borrowed(&pentriesstream)) {
+            match IDedupDataPort_Impl::CommitStreamsWithStream(this, core::mem::transmute_copy(&streamcount), core::mem::transmute_copy(&pstreams), core::mem::transmute_copy(&entrycount), core::mem::transmute_copy(&pentriesstream)) {
                 Ok(ok__) => {
                     prequestid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)

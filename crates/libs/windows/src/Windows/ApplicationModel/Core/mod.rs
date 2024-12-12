@@ -630,14 +630,14 @@ impl windows_core::RuntimeName for ICoreApplicationUnhandledError {
     const NAME: &'static str = "Windows.ApplicationModel.Core.ICoreApplicationUnhandledError";
 }
 pub trait ICoreApplicationUnhandledError_Impl: windows_core::IUnknownImpl {
-    fn UnhandledErrorDetected(&self, handler: Option<&super::super::Foundation::EventHandler<UnhandledErrorDetectedEventArgs>>) -> windows_core::Result<i64>;
+    fn UnhandledErrorDetected(&self, handler: windows_core::Ref<'_, super::super::Foundation::EventHandler<UnhandledErrorDetectedEventArgs>>) -> windows_core::Result<i64>;
     fn RemoveUnhandledErrorDetected(&self, token: i64) -> windows_core::Result<()>;
 }
 impl ICoreApplicationUnhandledError_Vtbl {
     pub const fn new<Identity: ICoreApplicationUnhandledError_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn UnhandledErrorDetected<Identity: ICoreApplicationUnhandledError_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICoreApplicationUnhandledError_Impl::UnhandledErrorDetected(this, windows_core::from_raw_borrowed(&handler)) {
+            match ICoreApplicationUnhandledError_Impl::UnhandledErrorDetected(this, core::mem::transmute_copy(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -832,8 +832,8 @@ impl windows_core::RuntimeName for IFrameworkView {
 }
 #[cfg(feature = "UI_Core")]
 pub trait IFrameworkView_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, applicationView: Option<&CoreApplicationView>) -> windows_core::Result<()>;
-    fn SetWindow(&self, window: Option<&super::super::UI::Core::CoreWindow>) -> windows_core::Result<()>;
+    fn Initialize(&self, applicationView: windows_core::Ref<'_, CoreApplicationView>) -> windows_core::Result<()>;
+    fn SetWindow(&self, window: windows_core::Ref<'_, super::super::UI::Core::CoreWindow>) -> windows_core::Result<()>;
     fn Load(&self, entryPoint: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn Run(&self) -> windows_core::Result<()>;
     fn Uninitialize(&self) -> windows_core::Result<()>;
@@ -843,11 +843,11 @@ impl IFrameworkView_Vtbl {
     pub const fn new<Identity: IFrameworkView_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IFrameworkView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, applicationview: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IFrameworkView_Impl::Initialize(this, windows_core::from_raw_borrowed(&applicationview)).into()
+            IFrameworkView_Impl::Initialize(this, core::mem::transmute_copy(&applicationview)).into()
         }
         unsafe extern "system" fn SetWindow<Identity: IFrameworkView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, window: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IFrameworkView_Impl::SetWindow(this, windows_core::from_raw_borrowed(&window)).into()
+            IFrameworkView_Impl::SetWindow(this, core::mem::transmute_copy(&window)).into()
         }
         unsafe extern "system" fn Load<Identity: IFrameworkView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, entrypoint: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);

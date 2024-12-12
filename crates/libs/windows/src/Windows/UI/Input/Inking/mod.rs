@@ -376,13 +376,13 @@ impl windows_core::RuntimeName for IInkPresenterRulerFactory {
     const NAME: &'static str = "Windows.UI.Input.Inking.IInkPresenterRulerFactory";
 }
 pub trait IInkPresenterRulerFactory_Impl: windows_core::IUnknownImpl {
-    fn Create(&self, inkPresenter: Option<&InkPresenter>) -> windows_core::Result<InkPresenterRuler>;
+    fn Create(&self, inkPresenter: windows_core::Ref<'_, InkPresenter>) -> windows_core::Result<InkPresenterRuler>;
 }
 impl IInkPresenterRulerFactory_Vtbl {
     pub const fn new<Identity: IInkPresenterRulerFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Create<Identity: IInkPresenterRulerFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inkpresenter: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IInkPresenterRulerFactory_Impl::Create(this, windows_core::from_raw_borrowed(&inkpresenter)) {
+            match IInkPresenterRulerFactory_Impl::Create(this, core::mem::transmute_copy(&inkpresenter)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -648,8 +648,8 @@ impl windows_core::RuntimeName for IInkRecognizerContainer {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IInkRecognizerContainer_Impl: windows_core::IUnknownImpl {
-    fn SetDefaultRecognizer(&self, recognizer: Option<&InkRecognizer>) -> windows_core::Result<()>;
-    fn RecognizeAsync(&self, strokeCollection: Option<&InkStrokeContainer>, recognitionTarget: InkRecognitionTarget) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>>;
+    fn SetDefaultRecognizer(&self, recognizer: windows_core::Ref<'_, InkRecognizer>) -> windows_core::Result<()>;
+    fn RecognizeAsync(&self, strokeCollection: windows_core::Ref<'_, InkStrokeContainer>, recognitionTarget: InkRecognitionTarget) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>>;
     fn GetRecognizers(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<InkRecognizer>>;
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -657,11 +657,11 @@ impl IInkRecognizerContainer_Vtbl {
     pub const fn new<Identity: IInkRecognizerContainer_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetDefaultRecognizer<Identity: IInkRecognizerContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, recognizer: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IInkRecognizerContainer_Impl::SetDefaultRecognizer(this, windows_core::from_raw_borrowed(&recognizer)).into()
+            IInkRecognizerContainer_Impl::SetDefaultRecognizer(this, core::mem::transmute_copy(&recognizer)).into()
         }
         unsafe extern "system" fn RecognizeAsync<Identity: IInkRecognizerContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokecollection: *mut core::ffi::c_void, recognitiontarget: InkRecognitionTarget, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IInkRecognizerContainer_Impl::RecognizeAsync(this, windows_core::from_raw_borrowed(&strokecollection), recognitiontarget) {
+            match IInkRecognizerContainer_Impl::RecognizeAsync(this, core::mem::transmute_copy(&strokecollection), recognitiontarget) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -930,17 +930,17 @@ impl windows_core::RuntimeName for IInkStrokeContainer {
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
 pub trait IInkStrokeContainer_Impl: windows_core::IUnknownImpl {
     fn BoundingRect(&self) -> windows_core::Result<super::super::super::Foundation::Rect>;
-    fn AddStroke(&self, stroke: Option<&InkStroke>) -> windows_core::Result<()>;
+    fn AddStroke(&self, stroke: windows_core::Ref<'_, InkStroke>) -> windows_core::Result<()>;
     fn DeleteSelected(&self) -> windows_core::Result<super::super::super::Foundation::Rect>;
     fn MoveSelected(&self, translation: &super::super::super::Foundation::Point) -> windows_core::Result<super::super::super::Foundation::Rect>;
-    fn SelectWithPolyLine(&self, polyline: Option<&super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Point>>) -> windows_core::Result<super::super::super::Foundation::Rect>;
+    fn SelectWithPolyLine(&self, polyline: windows_core::Ref<'_, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Point>>) -> windows_core::Result<super::super::super::Foundation::Rect>;
     fn SelectWithLine(&self, from: &super::super::super::Foundation::Point, to: &super::super::super::Foundation::Point) -> windows_core::Result<super::super::super::Foundation::Rect>;
     fn CopySelectedToClipboard(&self) -> windows_core::Result<()>;
     fn PasteFromClipboard(&self, position: &super::super::super::Foundation::Point) -> windows_core::Result<super::super::super::Foundation::Rect>;
     fn CanPasteFromClipboard(&self) -> windows_core::Result<bool>;
-    fn LoadAsync(&self, inputStream: Option<&super::super::super::Storage::Streams::IInputStream>) -> windows_core::Result<super::super::super::Foundation::IAsyncActionWithProgress<u64>>;
-    fn SaveAsync(&self, outputStream: Option<&super::super::super::Storage::Streams::IOutputStream>) -> windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>;
-    fn UpdateRecognitionResults(&self, recognitionResults: Option<&super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>) -> windows_core::Result<()>;
+    fn LoadAsync(&self, inputStream: windows_core::Ref<'_, super::super::super::Storage::Streams::IInputStream>) -> windows_core::Result<super::super::super::Foundation::IAsyncActionWithProgress<u64>>;
+    fn SaveAsync(&self, outputStream: windows_core::Ref<'_, super::super::super::Storage::Streams::IOutputStream>) -> windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>;
+    fn UpdateRecognitionResults(&self, recognitionResults: windows_core::Ref<'_, super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>) -> windows_core::Result<()>;
     fn GetStrokes(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<InkStroke>>;
     fn GetRecognitionResults(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>;
 }
@@ -959,7 +959,7 @@ impl IInkStrokeContainer_Vtbl {
         }
         unsafe extern "system" fn AddStroke<Identity: IInkStrokeContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stroke: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IInkStrokeContainer_Impl::AddStroke(this, windows_core::from_raw_borrowed(&stroke)).into()
+            IInkStrokeContainer_Impl::AddStroke(this, core::mem::transmute_copy(&stroke)).into()
         }
         unsafe extern "system" fn DeleteSelected<Identity: IInkStrokeContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::super::Foundation::Rect) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -983,7 +983,7 @@ impl IInkStrokeContainer_Vtbl {
         }
         unsafe extern "system" fn SelectWithPolyLine<Identity: IInkStrokeContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, polyline: *mut core::ffi::c_void, result__: *mut super::super::super::Foundation::Rect) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IInkStrokeContainer_Impl::SelectWithPolyLine(this, windows_core::from_raw_borrowed(&polyline)) {
+            match IInkStrokeContainer_Impl::SelectWithPolyLine(this, core::mem::transmute_copy(&polyline)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -1027,7 +1027,7 @@ impl IInkStrokeContainer_Vtbl {
         }
         unsafe extern "system" fn LoadAsync<Identity: IInkStrokeContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IInkStrokeContainer_Impl::LoadAsync(this, windows_core::from_raw_borrowed(&inputstream)) {
+            match IInkStrokeContainer_Impl::LoadAsync(this, core::mem::transmute_copy(&inputstream)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1038,7 +1038,7 @@ impl IInkStrokeContainer_Vtbl {
         }
         unsafe extern "system" fn SaveAsync<Identity: IInkStrokeContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IInkStrokeContainer_Impl::SaveAsync(this, windows_core::from_raw_borrowed(&outputstream)) {
+            match IInkStrokeContainer_Impl::SaveAsync(this, core::mem::transmute_copy(&outputstream)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1049,7 +1049,7 @@ impl IInkStrokeContainer_Vtbl {
         }
         unsafe extern "system" fn UpdateRecognitionResults<Identity: IInkStrokeContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, recognitionresults: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IInkStrokeContainer_Impl::UpdateRecognitionResults(this, windows_core::from_raw_borrowed(&recognitionresults)).into()
+            IInkStrokeContainer_Impl::UpdateRecognitionResults(this, core::mem::transmute_copy(&recognitionresults)).into()
         }
         unsafe extern "system" fn GetStrokes<Identity: IInkStrokeContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);

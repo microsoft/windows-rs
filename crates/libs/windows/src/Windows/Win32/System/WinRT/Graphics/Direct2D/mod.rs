@@ -44,7 +44,7 @@ pub struct IGeometrySource2DInterop_Vtbl {
 #[cfg(feature = "Win32_Graphics_Direct2D")]
 pub trait IGeometrySource2DInterop_Impl: windows_core::IUnknownImpl {
     fn GetGeometry(&self) -> windows_core::Result<super::super::super::super::Graphics::Direct2D::ID2D1Geometry>;
-    fn TryGetGeometryUsingFactory(&self, factory: Option<&super::super::super::super::Graphics::Direct2D::ID2D1Factory>) -> windows_core::Result<super::super::super::super::Graphics::Direct2D::ID2D1Geometry>;
+    fn TryGetGeometryUsingFactory(&self, factory: windows_core::Ref<'_, super::super::super::super::Graphics::Direct2D::ID2D1Factory>) -> windows_core::Result<super::super::super::super::Graphics::Direct2D::ID2D1Geometry>;
 }
 #[cfg(feature = "Win32_Graphics_Direct2D")]
 impl IGeometrySource2DInterop_Vtbl {
@@ -61,7 +61,7 @@ impl IGeometrySource2DInterop_Vtbl {
         }
         unsafe extern "system" fn TryGetGeometryUsingFactory<Identity: IGeometrySource2DInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, factory: *mut core::ffi::c_void, value: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IGeometrySource2DInterop_Impl::TryGetGeometryUsingFactory(this, windows_core::from_raw_borrowed(&factory)) {
+            match IGeometrySource2DInterop_Impl::TryGetGeometryUsingFactory(this, core::mem::transmute_copy(&factory)) {
                 Ok(ok__) => {
                     value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)

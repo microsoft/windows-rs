@@ -55,14 +55,14 @@ pub struct IAudioFrameNativeFactory_Vtbl {
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 pub trait IAudioFrameNativeFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateFromMFSample(&self, data: Option<&super::super::super::Media::MediaFoundation::IMFSample>, forcereadonly: super::super::super::Foundation::BOOL, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateFromMFSample(&self, data: windows_core::Ref<'_, super::super::super::Media::MediaFoundation::IMFSample>, forcereadonly: super::super::super::Foundation::BOOL, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 impl IAudioFrameNativeFactory_Vtbl {
     pub const fn new<Identity: IAudioFrameNativeFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateFromMFSample<Identity: IAudioFrameNativeFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *mut core::ffi::c_void, forcereadonly: super::super::super::Foundation::BOOL, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IAudioFrameNativeFactory_Impl::CreateFromMFSample(this, windows_core::from_raw_borrowed(&data), core::mem::transmute_copy(&forcereadonly), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            IAudioFrameNativeFactory_Impl::CreateFromMFSample(this, core::mem::transmute_copy(&data), core::mem::transmute_copy(&forcereadonly), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IAudioFrameNativeFactory, OFFSET>(),
@@ -148,14 +148,14 @@ pub struct IVideoFrameNativeFactory_Vtbl {
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 pub trait IVideoFrameNativeFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateFromMFSample(&self, data: Option<&super::super::super::Media::MediaFoundation::IMFSample>, subtype: *const windows_core::GUID, width: u32, height: u32, forcereadonly: super::super::super::Foundation::BOOL, mindisplayaperture: *const super::super::super::Media::MediaFoundation::MFVideoArea, device: Option<&super::super::super::Media::MediaFoundation::IMFDXGIDeviceManager>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateFromMFSample(&self, data: windows_core::Ref<'_, super::super::super::Media::MediaFoundation::IMFSample>, subtype: *const windows_core::GUID, width: u32, height: u32, forcereadonly: super::super::super::Foundation::BOOL, mindisplayaperture: *const super::super::super::Media::MediaFoundation::MFVideoArea, device: windows_core::Ref<'_, super::super::super::Media::MediaFoundation::IMFDXGIDeviceManager>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 impl IVideoFrameNativeFactory_Vtbl {
     pub const fn new<Identity: IVideoFrameNativeFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateFromMFSample<Identity: IVideoFrameNativeFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *mut core::ffi::c_void, subtype: *const windows_core::GUID, width: u32, height: u32, forcereadonly: super::super::super::Foundation::BOOL, mindisplayaperture: *const super::super::super::Media::MediaFoundation::MFVideoArea, device: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IVideoFrameNativeFactory_Impl::CreateFromMFSample(this, windows_core::from_raw_borrowed(&data), core::mem::transmute_copy(&subtype), core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&forcereadonly), core::mem::transmute_copy(&mindisplayaperture), windows_core::from_raw_borrowed(&device), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            IVideoFrameNativeFactory_Impl::CreateFromMFSample(this, core::mem::transmute_copy(&data), core::mem::transmute_copy(&subtype), core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&forcereadonly), core::mem::transmute_copy(&mindisplayaperture), core::mem::transmute_copy(&device), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IVideoFrameNativeFactory, OFFSET>(),

@@ -1429,7 +1429,7 @@ impl windows_core::RuntimeType for PaymentRequestChangedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl PaymentRequestChangedHandler {
-    pub fn new<F: FnMut(Option<&PaymentRequest>, Option<&PaymentRequestChangedArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(windows_core::Ref<'_, PaymentRequest>, windows_core::Ref<'_, PaymentRequestChangedArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = PaymentRequestChangedHandlerBox { vtable: &PaymentRequestChangedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -1448,12 +1448,12 @@ pub struct PaymentRequestChangedHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, paymentrequest: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct PaymentRequestChangedHandlerBox<F: FnMut(Option<&PaymentRequest>, Option<&PaymentRequestChangedArgs>) -> windows_core::Result<()> + Send + 'static> {
+struct PaymentRequestChangedHandlerBox<F: FnMut(windows_core::Ref<'_, PaymentRequest>, windows_core::Ref<'_, PaymentRequestChangedArgs>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const PaymentRequestChangedHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: FnMut(Option<&PaymentRequest>, Option<&PaymentRequestChangedArgs>) -> windows_core::Result<()> + Send + 'static> PaymentRequestChangedHandlerBox<F> {
+impl<F: FnMut(windows_core::Ref<'_, PaymentRequest>, windows_core::Ref<'_, PaymentRequestChangedArgs>) -> windows_core::Result<()> + Send + 'static> PaymentRequestChangedHandlerBox<F> {
     const VTABLE: PaymentRequestChangedHandler_Vtbl = PaymentRequestChangedHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         let this = this as *mut *mut core::ffi::c_void as *mut Self;
@@ -1482,7 +1482,7 @@ impl<F: FnMut(Option<&PaymentRequest>, Option<&PaymentRequestChangedArgs>) -> wi
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, paymentrequest: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT {
         let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(windows_core::from_raw_borrowed(&paymentrequest), windows_core::from_raw_borrowed(&args)).into()
+        (this.invoke)(core::mem::transmute_copy(&paymentrequest), core::mem::transmute_copy(&args)).into()
     }
 }
 #[repr(transparent)]

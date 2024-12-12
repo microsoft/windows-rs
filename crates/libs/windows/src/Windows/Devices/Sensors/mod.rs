@@ -3260,8 +3260,8 @@ impl windows_core::RuntimeName for IHumanPresenceSensorExtension {
 pub trait IHumanPresenceSensorExtension_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self, deviceInterface: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn Start(&self) -> windows_core::Result<()>;
-    fn ProcessReading(&self, reading: Option<&HumanPresenceSensorReading>) -> windows_core::Result<HumanPresenceSensorReadingUpdate>;
-    fn ProcessReadingTimeoutExpired(&self, reading: Option<&HumanPresenceSensorReading>) -> windows_core::Result<()>;
+    fn ProcessReading(&self, reading: windows_core::Ref<'_, HumanPresenceSensorReading>) -> windows_core::Result<HumanPresenceSensorReadingUpdate>;
+    fn ProcessReadingTimeoutExpired(&self, reading: windows_core::Ref<'_, HumanPresenceSensorReading>) -> windows_core::Result<()>;
     fn Stop(&self) -> windows_core::Result<()>;
     fn Uninitialize(&self) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
@@ -3278,7 +3278,7 @@ impl IHumanPresenceSensorExtension_Vtbl {
         }
         unsafe extern "system" fn ProcessReading<Identity: IHumanPresenceSensorExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reading: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IHumanPresenceSensorExtension_Impl::ProcessReading(this, windows_core::from_raw_borrowed(&reading)) {
+            match IHumanPresenceSensorExtension_Impl::ProcessReading(this, core::mem::transmute_copy(&reading)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -3289,7 +3289,7 @@ impl IHumanPresenceSensorExtension_Vtbl {
         }
         unsafe extern "system" fn ProcessReadingTimeoutExpired<Identity: IHumanPresenceSensorExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reading: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IHumanPresenceSensorExtension_Impl::ProcessReadingTimeoutExpired(this, windows_core::from_raw_borrowed(&reading)).into()
+            IHumanPresenceSensorExtension_Impl::ProcessReadingTimeoutExpired(this, core::mem::transmute_copy(&reading)).into()
         }
         unsafe extern "system" fn Stop<Identity: IHumanPresenceSensorExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);

@@ -41,14 +41,14 @@ impl windows_core::RuntimeName for ISysStorageProviderEventSource {
     const NAME: &'static str = "Windows.System.Implementation.FileExplorer.ISysStorageProviderEventSource";
 }
 pub trait ISysStorageProviderEventSource_Impl: windows_core::IUnknownImpl {
-    fn EventReceived(&self, handler: Option<&super::super::super::Foundation::TypedEventHandler<ISysStorageProviderEventSource, SysStorageProviderEventReceivedEventArgs>>) -> windows_core::Result<i64>;
+    fn EventReceived(&self, handler: windows_core::Ref<'_, super::super::super::Foundation::TypedEventHandler<ISysStorageProviderEventSource, SysStorageProviderEventReceivedEventArgs>>) -> windows_core::Result<i64>;
     fn RemoveEventReceived(&self, token: i64) -> windows_core::Result<()>;
 }
 impl ISysStorageProviderEventSource_Vtbl {
     pub const fn new<Identity: ISysStorageProviderEventSource_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn EventReceived<Identity: ISysStorageProviderEventSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ISysStorageProviderEventSource_Impl::EventReceived(this, windows_core::from_raw_borrowed(&handler)) {
+            match ISysStorageProviderEventSource_Impl::EventReceived(this, core::mem::transmute_copy(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -168,14 +168,14 @@ impl windows_core::RuntimeName for ISysStorageProviderHttpRequestProvider {
 }
 #[cfg(feature = "Web_Http")]
 pub trait ISysStorageProviderHttpRequestProvider_Impl: windows_core::IUnknownImpl {
-    fn SendRequestAsync(&self, request: Option<&super::super::super::Web::Http::HttpRequestMessage>) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Web::Http::HttpResponseMessage>>;
+    fn SendRequestAsync(&self, request: windows_core::Ref<'_, super::super::super::Web::Http::HttpRequestMessage>) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Web::Http::HttpResponseMessage>>;
 }
 #[cfg(feature = "Web_Http")]
 impl ISysStorageProviderHttpRequestProvider_Vtbl {
     pub const fn new<Identity: ISysStorageProviderHttpRequestProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SendRequestAsync<Identity: ISysStorageProviderHttpRequestProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, request: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ISysStorageProviderHttpRequestProvider_Impl::SendRequestAsync(this, windows_core::from_raw_borrowed(&request)) {
+            match ISysStorageProviderHttpRequestProvider_Impl::SendRequestAsync(this, core::mem::transmute_copy(&request)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);

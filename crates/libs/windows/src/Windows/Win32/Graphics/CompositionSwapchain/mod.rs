@@ -482,7 +482,7 @@ pub struct IPresentationManager_Vtbl {
     pub GetNextPresentStatistics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IPresentationManager_Impl: windows_core::IUnknownImpl {
-    fn AddBufferFromResource(&self, resource: Option<&windows_core::IUnknown>) -> windows_core::Result<IPresentationBuffer>;
+    fn AddBufferFromResource(&self, resource: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<IPresentationBuffer>;
     fn CreatePresentationSurface(&self, compositionsurfacehandle: super::super::Foundation::HANDLE) -> windows_core::Result<IPresentationSurface>;
     fn GetNextPresentId(&self) -> u64;
     fn SetTargetTime(&self, targettime: &SystemInterruptTime) -> windows_core::Result<()>;
@@ -500,7 +500,7 @@ impl IPresentationManager_Vtbl {
     pub const fn new<Identity: IPresentationManager_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddBufferFromResource<Identity: IPresentationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resource: *mut core::ffi::c_void, presentationbuffer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IPresentationManager_Impl::AddBufferFromResource(this, windows_core::from_raw_borrowed(&resource)) {
+            match IPresentationManager_Impl::AddBufferFromResource(this, core::mem::transmute_copy(&resource)) {
                 Ok(ok__) => {
                     presentationbuffer.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -664,12 +664,12 @@ pub struct IPresentationSurface_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IPresentationSurface_Impl: IPresentationContent_Impl {
-    fn SetBuffer(&self, presentationbuffer: Option<&IPresentationBuffer>) -> windows_core::Result<()>;
+    fn SetBuffer(&self, presentationbuffer: windows_core::Ref<'_, IPresentationBuffer>) -> windows_core::Result<()>;
     fn SetColorSpace(&self, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) -> windows_core::Result<()>;
     fn SetAlphaMode(&self, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> windows_core::Result<()>;
     fn SetSourceRect(&self, sourcerect: *const super::super::Foundation::RECT) -> windows_core::Result<()>;
     fn SetTransform(&self, transform: *const PresentationTransform) -> windows_core::Result<()>;
-    fn RestrictToOutput(&self, output: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn RestrictToOutput(&self, output: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn SetDisableReadback(&self, value: u8) -> windows_core::Result<()>;
     fn SetLetterboxingMargins(&self, leftletterboxsize: f32, topletterboxsize: f32, rightletterboxsize: f32, bottomletterboxsize: f32) -> windows_core::Result<()>;
 }
@@ -678,7 +678,7 @@ impl IPresentationSurface_Vtbl {
     pub const fn new<Identity: IPresentationSurface_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetBuffer<Identity: IPresentationSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presentationbuffer: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPresentationSurface_Impl::SetBuffer(this, windows_core::from_raw_borrowed(&presentationbuffer)).into()
+            IPresentationSurface_Impl::SetBuffer(this, core::mem::transmute_copy(&presentationbuffer)).into()
         }
         unsafe extern "system" fn SetColorSpace<Identity: IPresentationSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -698,7 +698,7 @@ impl IPresentationSurface_Vtbl {
         }
         unsafe extern "system" fn RestrictToOutput<Identity: IPresentationSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, output: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPresentationSurface_Impl::RestrictToOutput(this, windows_core::from_raw_borrowed(&output)).into()
+            IPresentationSurface_Impl::RestrictToOutput(this, core::mem::transmute_copy(&output)).into()
         }
         unsafe extern "system" fn SetDisableReadback<Identity: IPresentationSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: u8) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);

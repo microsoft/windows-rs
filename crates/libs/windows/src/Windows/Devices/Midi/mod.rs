@@ -241,8 +241,8 @@ impl windows_core::RuntimeName for IMidiOutPort {
 }
 #[cfg(feature = "Storage_Streams")]
 pub trait IMidiOutPort_Impl: super::super::Foundation::IClosable_Impl {
-    fn SendMessage(&self, midiMessage: Option<&IMidiMessage>) -> windows_core::Result<()>;
-    fn SendBuffer(&self, midiData: Option<&super::super::Storage::Streams::IBuffer>) -> windows_core::Result<()>;
+    fn SendMessage(&self, midiMessage: windows_core::Ref<'_, IMidiMessage>) -> windows_core::Result<()>;
+    fn SendBuffer(&self, midiData: windows_core::Ref<'_, super::super::Storage::Streams::IBuffer>) -> windows_core::Result<()>;
     fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING>;
 }
 #[cfg(feature = "Storage_Streams")]
@@ -250,11 +250,11 @@ impl IMidiOutPort_Vtbl {
     pub const fn new<Identity: IMidiOutPort_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SendMessage<Identity: IMidiOutPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, midimessage: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IMidiOutPort_Impl::SendMessage(this, windows_core::from_raw_borrowed(&midimessage)).into()
+            IMidiOutPort_Impl::SendMessage(this, core::mem::transmute_copy(&midimessage)).into()
         }
         unsafe extern "system" fn SendBuffer<Identity: IMidiOutPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mididata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IMidiOutPort_Impl::SendBuffer(this, windows_core::from_raw_borrowed(&mididata)).into()
+            IMidiOutPort_Impl::SendBuffer(this, core::mem::transmute_copy(&mididata)).into()
         }
         unsafe extern "system" fn DeviceId<Identity: IMidiOutPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);

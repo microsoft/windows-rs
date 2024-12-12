@@ -1426,7 +1426,7 @@ pub trait IBitmapFrame_Impl: windows_core::IUnknownImpl {
     fn OrientedPixelWidth(&self) -> windows_core::Result<u32>;
     fn OrientedPixelHeight(&self) -> windows_core::Result<u32>;
     fn GetPixelDataAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>>;
-    fn GetPixelDataTransformedAsync(&self, pixelFormat: BitmapPixelFormat, alphaMode: BitmapAlphaMode, transform: Option<&BitmapTransform>, exifOrientationMode: ExifOrientationMode, colorManagementMode: ColorManagementMode) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>>;
+    fn GetPixelDataTransformedAsync(&self, pixelFormat: BitmapPixelFormat, alphaMode: BitmapAlphaMode, transform: windows_core::Ref<'_, BitmapTransform>, exifOrientationMode: ExifOrientationMode, colorManagementMode: ColorManagementMode) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>>;
 }
 #[cfg(feature = "Storage_Streams")]
 impl IBitmapFrame_Vtbl {
@@ -1546,7 +1546,7 @@ impl IBitmapFrame_Vtbl {
         }
         unsafe extern "system" fn GetPixelDataTransformedAsync<Identity: IBitmapFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: *mut core::ffi::c_void, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IBitmapFrame_Impl::GetPixelDataTransformedAsync(this, pixelformat, alphamode, windows_core::from_raw_borrowed(&transform), exiforientationmode, colormanagementmode) {
+            match IBitmapFrame_Impl::GetPixelDataTransformedAsync(this, pixelformat, alphamode, core::mem::transmute_copy(&transform), exiforientationmode, colormanagementmode) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1722,7 +1722,7 @@ impl windows_core::RuntimeName for IBitmapFrameWithSoftwareBitmap {
 pub trait IBitmapFrameWithSoftwareBitmap_Impl: IBitmapFrame_Impl {
     fn GetSoftwareBitmapAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>;
     fn GetSoftwareBitmapConvertedAsync(&self, pixelFormat: BitmapPixelFormat, alphaMode: BitmapAlphaMode) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>;
-    fn GetSoftwareBitmapTransformedAsync(&self, pixelFormat: BitmapPixelFormat, alphaMode: BitmapAlphaMode, transform: Option<&BitmapTransform>, exifOrientationMode: ExifOrientationMode, colorManagementMode: ColorManagementMode) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>;
+    fn GetSoftwareBitmapTransformedAsync(&self, pixelFormat: BitmapPixelFormat, alphaMode: BitmapAlphaMode, transform: windows_core::Ref<'_, BitmapTransform>, exifOrientationMode: ExifOrientationMode, colorManagementMode: ColorManagementMode) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>;
 }
 #[cfg(feature = "Storage_Streams")]
 impl IBitmapFrameWithSoftwareBitmap_Vtbl {
@@ -1751,7 +1751,7 @@ impl IBitmapFrameWithSoftwareBitmap_Vtbl {
         }
         unsafe extern "system" fn GetSoftwareBitmapTransformedAsync<Identity: IBitmapFrameWithSoftwareBitmap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: *mut core::ffi::c_void, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IBitmapFrameWithSoftwareBitmap_Impl::GetSoftwareBitmapTransformedAsync(this, pixelformat, alphamode, windows_core::from_raw_borrowed(&transform), exiforientationmode, colormanagementmode) {
+            match IBitmapFrameWithSoftwareBitmap_Impl::GetSoftwareBitmapTransformedAsync(this, pixelformat, alphamode, core::mem::transmute_copy(&transform), exiforientationmode, colormanagementmode) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1814,14 +1814,14 @@ impl windows_core::RuntimeName for IBitmapPropertiesView {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IBitmapPropertiesView_Impl: windows_core::IUnknownImpl {
-    fn GetPropertiesAsync(&self, propertiesToRetrieve: Option<&super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<BitmapPropertySet>>;
+    fn GetPropertiesAsync(&self, propertiesToRetrieve: windows_core::Ref<'_, super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<BitmapPropertySet>>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl IBitmapPropertiesView_Vtbl {
     pub const fn new<Identity: IBitmapPropertiesView_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetPropertiesAsync<Identity: IBitmapPropertiesView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertiestoretrieve: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IBitmapPropertiesView_Impl::GetPropertiesAsync(this, windows_core::from_raw_borrowed(&propertiestoretrieve)) {
+            match IBitmapPropertiesView_Impl::GetPropertiesAsync(this, core::mem::transmute_copy(&propertiestoretrieve)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);

@@ -42,19 +42,19 @@ pub struct IPdfRendererNative_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi"))]
 pub trait IPdfRendererNative_Impl: windows_core::IUnknownImpl {
-    fn RenderPageToSurface(&self, pdfpage: Option<&windows_core::IUnknown>, psurface: Option<&super::super::super::Graphics::Dxgi::IDXGISurface>, offset: &super::super::super::Foundation::POINT, prenderparams: *const PDF_RENDER_PARAMS) -> windows_core::Result<()>;
-    fn RenderPageToDeviceContext(&self, pdfpage: Option<&windows_core::IUnknown>, pd2ddevicecontext: Option<&super::super::super::Graphics::Direct2D::ID2D1DeviceContext>, prenderparams: *const PDF_RENDER_PARAMS) -> windows_core::Result<()>;
+    fn RenderPageToSurface(&self, pdfpage: windows_core::Ref<'_, windows_core::IUnknown>, psurface: windows_core::Ref<'_, super::super::super::Graphics::Dxgi::IDXGISurface>, offset: &super::super::super::Foundation::POINT, prenderparams: *const PDF_RENDER_PARAMS) -> windows_core::Result<()>;
+    fn RenderPageToDeviceContext(&self, pdfpage: windows_core::Ref<'_, windows_core::IUnknown>, pd2ddevicecontext: windows_core::Ref<'_, super::super::super::Graphics::Direct2D::ID2D1DeviceContext>, prenderparams: *const PDF_RENDER_PARAMS) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi"))]
 impl IPdfRendererNative_Vtbl {
     pub const fn new<Identity: IPdfRendererNative_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RenderPageToSurface<Identity: IPdfRendererNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdfpage: *mut core::ffi::c_void, psurface: *mut core::ffi::c_void, offset: super::super::super::Foundation::POINT, prenderparams: *const PDF_RENDER_PARAMS) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPdfRendererNative_Impl::RenderPageToSurface(this, windows_core::from_raw_borrowed(&pdfpage), windows_core::from_raw_borrowed(&psurface), core::mem::transmute(&offset), core::mem::transmute_copy(&prenderparams)).into()
+            IPdfRendererNative_Impl::RenderPageToSurface(this, core::mem::transmute_copy(&pdfpage), core::mem::transmute_copy(&psurface), core::mem::transmute(&offset), core::mem::transmute_copy(&prenderparams)).into()
         }
         unsafe extern "system" fn RenderPageToDeviceContext<Identity: IPdfRendererNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdfpage: *mut core::ffi::c_void, pd2ddevicecontext: *mut core::ffi::c_void, prenderparams: *const PDF_RENDER_PARAMS) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPdfRendererNative_Impl::RenderPageToDeviceContext(this, windows_core::from_raw_borrowed(&pdfpage), windows_core::from_raw_borrowed(&pd2ddevicecontext), core::mem::transmute_copy(&prenderparams)).into()
+            IPdfRendererNative_Impl::RenderPageToDeviceContext(this, core::mem::transmute_copy(&pdfpage), core::mem::transmute_copy(&pd2ddevicecontext), core::mem::transmute_copy(&prenderparams)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

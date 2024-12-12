@@ -435,11 +435,11 @@ impl windows_core::RuntimeName for IFileLoggingSession {
 #[cfg(feature = "Storage_Streams")]
 pub trait IFileLoggingSession_Impl: super::IClosable_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn AddLoggingChannel(&self, loggingChannel: Option<&ILoggingChannel>) -> windows_core::Result<()>;
-    fn AddLoggingChannelWithLevel(&self, loggingChannel: Option<&ILoggingChannel>, maxLevel: LoggingLevel) -> windows_core::Result<()>;
-    fn RemoveLoggingChannel(&self, loggingChannel: Option<&ILoggingChannel>) -> windows_core::Result<()>;
+    fn AddLoggingChannel(&self, loggingChannel: windows_core::Ref<'_, ILoggingChannel>) -> windows_core::Result<()>;
+    fn AddLoggingChannelWithLevel(&self, loggingChannel: windows_core::Ref<'_, ILoggingChannel>, maxLevel: LoggingLevel) -> windows_core::Result<()>;
+    fn RemoveLoggingChannel(&self, loggingChannel: windows_core::Ref<'_, ILoggingChannel>) -> windows_core::Result<()>;
     fn CloseAndSaveToFileAsync(&self) -> windows_core::Result<super::IAsyncOperation<super::super::Storage::StorageFile>>;
-    fn LogFileGenerated(&self, handler: Option<&super::TypedEventHandler<IFileLoggingSession, LogFileGeneratedEventArgs>>) -> windows_core::Result<i64>;
+    fn LogFileGenerated(&self, handler: windows_core::Ref<'_, super::TypedEventHandler<IFileLoggingSession, LogFileGeneratedEventArgs>>) -> windows_core::Result<i64>;
     fn RemoveLogFileGenerated(&self, token: i64) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Storage_Streams")]
@@ -458,15 +458,15 @@ impl IFileLoggingSession_Vtbl {
         }
         unsafe extern "system" fn AddLoggingChannel<Identity: IFileLoggingSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, loggingchannel: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IFileLoggingSession_Impl::AddLoggingChannel(this, windows_core::from_raw_borrowed(&loggingchannel)).into()
+            IFileLoggingSession_Impl::AddLoggingChannel(this, core::mem::transmute_copy(&loggingchannel)).into()
         }
         unsafe extern "system" fn AddLoggingChannelWithLevel<Identity: IFileLoggingSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, loggingchannel: *mut core::ffi::c_void, maxlevel: LoggingLevel) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IFileLoggingSession_Impl::AddLoggingChannelWithLevel(this, windows_core::from_raw_borrowed(&loggingchannel), maxlevel).into()
+            IFileLoggingSession_Impl::AddLoggingChannelWithLevel(this, core::mem::transmute_copy(&loggingchannel), maxlevel).into()
         }
         unsafe extern "system" fn RemoveLoggingChannel<Identity: IFileLoggingSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, loggingchannel: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IFileLoggingSession_Impl::RemoveLoggingChannel(this, windows_core::from_raw_borrowed(&loggingchannel)).into()
+            IFileLoggingSession_Impl::RemoveLoggingChannel(this, core::mem::transmute_copy(&loggingchannel)).into()
         }
         unsafe extern "system" fn CloseAndSaveToFileAsync<Identity: IFileLoggingSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -481,7 +481,7 @@ impl IFileLoggingSession_Vtbl {
         }
         unsafe extern "system" fn LogFileGenerated<Identity: IFileLoggingSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IFileLoggingSession_Impl::LogFileGenerated(this, windows_core::from_raw_borrowed(&handler)) {
+            match IFileLoggingSession_Impl::LogFileGenerated(this, core::mem::transmute_copy(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -649,7 +649,7 @@ pub trait ILoggingChannel_Impl: super::IClosable_Impl {
     fn LogMessageWithLevel(&self, eventString: &windows_core::HSTRING, level: LoggingLevel) -> windows_core::Result<()>;
     fn LogValuePair(&self, value1: &windows_core::HSTRING, value2: i32) -> windows_core::Result<()>;
     fn LogValuePairWithLevel(&self, value1: &windows_core::HSTRING, value2: i32, level: LoggingLevel) -> windows_core::Result<()>;
-    fn LoggingEnabled(&self, handler: Option<&super::TypedEventHandler<ILoggingChannel, windows_core::IInspectable>>) -> windows_core::Result<i64>;
+    fn LoggingEnabled(&self, handler: windows_core::Ref<'_, super::TypedEventHandler<ILoggingChannel, windows_core::IInspectable>>) -> windows_core::Result<i64>;
     fn RemoveLoggingEnabled(&self, token: i64) -> windows_core::Result<()>;
 }
 impl ILoggingChannel_Vtbl {
@@ -703,7 +703,7 @@ impl ILoggingChannel_Vtbl {
         }
         unsafe extern "system" fn LoggingEnabled<Identity: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ILoggingChannel_Impl::LoggingEnabled(this, windows_core::from_raw_borrowed(&handler)) {
+            match ILoggingChannel_Impl::LoggingEnabled(this, core::mem::transmute_copy(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -1002,10 +1002,10 @@ impl windows_core::RuntimeName for ILoggingSession {
 #[cfg(feature = "Storage_Streams")]
 pub trait ILoggingSession_Impl: super::IClosable_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn SaveToFileAsync(&self, folder: Option<&super::super::Storage::IStorageFolder>, fileName: &windows_core::HSTRING) -> windows_core::Result<super::IAsyncOperation<super::super::Storage::StorageFile>>;
-    fn AddLoggingChannel(&self, loggingChannel: Option<&ILoggingChannel>) -> windows_core::Result<()>;
-    fn AddLoggingChannelWithLevel(&self, loggingChannel: Option<&ILoggingChannel>, maxLevel: LoggingLevel) -> windows_core::Result<()>;
-    fn RemoveLoggingChannel(&self, loggingChannel: Option<&ILoggingChannel>) -> windows_core::Result<()>;
+    fn SaveToFileAsync(&self, folder: windows_core::Ref<'_, super::super::Storage::IStorageFolder>, fileName: &windows_core::HSTRING) -> windows_core::Result<super::IAsyncOperation<super::super::Storage::StorageFile>>;
+    fn AddLoggingChannel(&self, loggingChannel: windows_core::Ref<'_, ILoggingChannel>) -> windows_core::Result<()>;
+    fn AddLoggingChannelWithLevel(&self, loggingChannel: windows_core::Ref<'_, ILoggingChannel>, maxLevel: LoggingLevel) -> windows_core::Result<()>;
+    fn RemoveLoggingChannel(&self, loggingChannel: windows_core::Ref<'_, ILoggingChannel>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Storage_Streams")]
 impl ILoggingSession_Vtbl {
@@ -1023,7 +1023,7 @@ impl ILoggingSession_Vtbl {
         }
         unsafe extern "system" fn SaveToFileAsync<Identity: ILoggingSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, folder: *mut core::ffi::c_void, filename: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ILoggingSession_Impl::SaveToFileAsync(this, windows_core::from_raw_borrowed(&folder), core::mem::transmute(&filename)) {
+            match ILoggingSession_Impl::SaveToFileAsync(this, core::mem::transmute_copy(&folder), core::mem::transmute(&filename)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1034,15 +1034,15 @@ impl ILoggingSession_Vtbl {
         }
         unsafe extern "system" fn AddLoggingChannel<Identity: ILoggingSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, loggingchannel: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ILoggingSession_Impl::AddLoggingChannel(this, windows_core::from_raw_borrowed(&loggingchannel)).into()
+            ILoggingSession_Impl::AddLoggingChannel(this, core::mem::transmute_copy(&loggingchannel)).into()
         }
         unsafe extern "system" fn AddLoggingChannelWithLevel<Identity: ILoggingSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, loggingchannel: *mut core::ffi::c_void, maxlevel: LoggingLevel) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ILoggingSession_Impl::AddLoggingChannelWithLevel(this, windows_core::from_raw_borrowed(&loggingchannel), maxlevel).into()
+            ILoggingSession_Impl::AddLoggingChannelWithLevel(this, core::mem::transmute_copy(&loggingchannel), maxlevel).into()
         }
         unsafe extern "system" fn RemoveLoggingChannel<Identity: ILoggingSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, loggingchannel: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ILoggingSession_Impl::RemoveLoggingChannel(this, windows_core::from_raw_borrowed(&loggingchannel)).into()
+            ILoggingSession_Impl::RemoveLoggingChannel(this, core::mem::transmute_copy(&loggingchannel)).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, ILoggingSession, OFFSET>(),
@@ -1178,13 +1178,13 @@ pub trait ILoggingTarget_Impl: windows_core::IUnknownImpl {
     fn IsEnabledWithLevel(&self, level: LoggingLevel) -> windows_core::Result<bool>;
     fn IsEnabledWithLevelAndKeywords(&self, level: LoggingLevel, keywords: i64) -> windows_core::Result<bool>;
     fn LogEvent(&self, eventName: &windows_core::HSTRING) -> windows_core::Result<()>;
-    fn LogEventWithFields(&self, eventName: &windows_core::HSTRING, fields: Option<&LoggingFields>) -> windows_core::Result<()>;
-    fn LogEventWithFieldsAndLevel(&self, eventName: &windows_core::HSTRING, fields: Option<&LoggingFields>, level: LoggingLevel) -> windows_core::Result<()>;
-    fn LogEventWithFieldsAndOptions(&self, eventName: &windows_core::HSTRING, fields: Option<&LoggingFields>, level: LoggingLevel, options: Option<&LoggingOptions>) -> windows_core::Result<()>;
+    fn LogEventWithFields(&self, eventName: &windows_core::HSTRING, fields: windows_core::Ref<'_, LoggingFields>) -> windows_core::Result<()>;
+    fn LogEventWithFieldsAndLevel(&self, eventName: &windows_core::HSTRING, fields: windows_core::Ref<'_, LoggingFields>, level: LoggingLevel) -> windows_core::Result<()>;
+    fn LogEventWithFieldsAndOptions(&self, eventName: &windows_core::HSTRING, fields: windows_core::Ref<'_, LoggingFields>, level: LoggingLevel, options: windows_core::Ref<'_, LoggingOptions>) -> windows_core::Result<()>;
     fn StartActivity(&self, startEventName: &windows_core::HSTRING) -> windows_core::Result<LoggingActivity>;
-    fn StartActivityWithFields(&self, startEventName: &windows_core::HSTRING, fields: Option<&LoggingFields>) -> windows_core::Result<LoggingActivity>;
-    fn StartActivityWithFieldsAndLevel(&self, startEventName: &windows_core::HSTRING, fields: Option<&LoggingFields>, level: LoggingLevel) -> windows_core::Result<LoggingActivity>;
-    fn StartActivityWithFieldsAndOptions(&self, startEventName: &windows_core::HSTRING, fields: Option<&LoggingFields>, level: LoggingLevel, options: Option<&LoggingOptions>) -> windows_core::Result<LoggingActivity>;
+    fn StartActivityWithFields(&self, startEventName: &windows_core::HSTRING, fields: windows_core::Ref<'_, LoggingFields>) -> windows_core::Result<LoggingActivity>;
+    fn StartActivityWithFieldsAndLevel(&self, startEventName: &windows_core::HSTRING, fields: windows_core::Ref<'_, LoggingFields>, level: LoggingLevel) -> windows_core::Result<LoggingActivity>;
+    fn StartActivityWithFieldsAndOptions(&self, startEventName: &windows_core::HSTRING, fields: windows_core::Ref<'_, LoggingFields>, level: LoggingLevel, options: windows_core::Ref<'_, LoggingOptions>) -> windows_core::Result<LoggingActivity>;
 }
 impl ILoggingTarget_Vtbl {
     pub const fn new<Identity: ILoggingTarget_Impl, const OFFSET: isize>() -> Self {
@@ -1224,15 +1224,15 @@ impl ILoggingTarget_Vtbl {
         }
         unsafe extern "system" fn LogEventWithFields<Identity: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventname: *mut core::ffi::c_void, fields: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ILoggingTarget_Impl::LogEventWithFields(this, core::mem::transmute(&eventname), windows_core::from_raw_borrowed(&fields)).into()
+            ILoggingTarget_Impl::LogEventWithFields(this, core::mem::transmute(&eventname), core::mem::transmute_copy(&fields)).into()
         }
         unsafe extern "system" fn LogEventWithFieldsAndLevel<Identity: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventname: *mut core::ffi::c_void, fields: *mut core::ffi::c_void, level: LoggingLevel) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ILoggingTarget_Impl::LogEventWithFieldsAndLevel(this, core::mem::transmute(&eventname), windows_core::from_raw_borrowed(&fields), level).into()
+            ILoggingTarget_Impl::LogEventWithFieldsAndLevel(this, core::mem::transmute(&eventname), core::mem::transmute_copy(&fields), level).into()
         }
         unsafe extern "system" fn LogEventWithFieldsAndOptions<Identity: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventname: *mut core::ffi::c_void, fields: *mut core::ffi::c_void, level: LoggingLevel, options: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ILoggingTarget_Impl::LogEventWithFieldsAndOptions(this, core::mem::transmute(&eventname), windows_core::from_raw_borrowed(&fields), level, windows_core::from_raw_borrowed(&options)).into()
+            ILoggingTarget_Impl::LogEventWithFieldsAndOptions(this, core::mem::transmute(&eventname), core::mem::transmute_copy(&fields), level, core::mem::transmute_copy(&options)).into()
         }
         unsafe extern "system" fn StartActivity<Identity: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, starteventname: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -1247,7 +1247,7 @@ impl ILoggingTarget_Vtbl {
         }
         unsafe extern "system" fn StartActivityWithFields<Identity: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, starteventname: *mut core::ffi::c_void, fields: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ILoggingTarget_Impl::StartActivityWithFields(this, core::mem::transmute(&starteventname), windows_core::from_raw_borrowed(&fields)) {
+            match ILoggingTarget_Impl::StartActivityWithFields(this, core::mem::transmute(&starteventname), core::mem::transmute_copy(&fields)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1258,7 +1258,7 @@ impl ILoggingTarget_Vtbl {
         }
         unsafe extern "system" fn StartActivityWithFieldsAndLevel<Identity: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, starteventname: *mut core::ffi::c_void, fields: *mut core::ffi::c_void, level: LoggingLevel, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ILoggingTarget_Impl::StartActivityWithFieldsAndLevel(this, core::mem::transmute(&starteventname), windows_core::from_raw_borrowed(&fields), level) {
+            match ILoggingTarget_Impl::StartActivityWithFieldsAndLevel(this, core::mem::transmute(&starteventname), core::mem::transmute_copy(&fields), level) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1269,7 +1269,7 @@ impl ILoggingTarget_Vtbl {
         }
         unsafe extern "system" fn StartActivityWithFieldsAndOptions<Identity: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, starteventname: *mut core::ffi::c_void, fields: *mut core::ffi::c_void, level: LoggingLevel, options: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ILoggingTarget_Impl::StartActivityWithFieldsAndOptions(this, core::mem::transmute(&starteventname), windows_core::from_raw_borrowed(&fields), level, windows_core::from_raw_borrowed(&options)) {
+            match ILoggingTarget_Impl::StartActivityWithFieldsAndOptions(this, core::mem::transmute(&starteventname), core::mem::transmute_copy(&fields), level, core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
