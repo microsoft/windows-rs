@@ -110,7 +110,7 @@ impl CppFn {
                     pub unsafe fn #name<#generics T>(#params) -> windows_core::Result<T> #where_clause {
                         #link
                         let mut result__ = core::ptr::null_mut();
-                        #name(#args).and_then(||windows_core::Type::from_abi(result__))
+                        unsafe { #name(#args).and_then(||windows_core::Type::from_abi(result__)) }
                     }
                 }
             }
@@ -122,7 +122,7 @@ impl CppFn {
                     #[inline]
                     pub unsafe fn #name<#generics T>(#params result__: *mut Option<T>) -> windows_core::Result<()> #where_clause {
                         #link
-                        #name(#args).ok()
+                        unsafe { #name(#args).ok() }
                     }
                 }
             }
@@ -143,8 +143,10 @@ impl CppFn {
                     #[inline]
                     pub unsafe fn #name<#generics>(#params) -> windows_core::Result<#return_type> #where_clause {
                         #link
-                        let mut result__ = core::mem::zeroed();
-                        #name(#args).#map
+                        unsafe {
+                            let mut result__ = core::mem::zeroed();
+                            #name(#args).#map
+                        }
                     }
                 }
             }
@@ -156,7 +158,7 @@ impl CppFn {
                     #[inline]
                     pub unsafe fn #name<#generics>(#params) -> windows_core::Result<()> #where_clause {
                         #link
-                        #name(#args).ok()
+                        unsafe { #name(#args).ok() }
                     }
                 }
             }
@@ -175,9 +177,11 @@ impl CppFn {
                         #[inline]
                         pub unsafe fn #name<#generics>(#params) -> windows_core::Result<#return_type> #where_clause {
                             #link
-                            let mut result__ = core::mem::zeroed();
-                            #name(#args);
-                            windows_core::Type::from_abi(result__)
+                            unsafe {
+                                let mut result__ = core::mem::zeroed();
+                                #name(#args);
+                                windows_core::Type::from_abi(result__)
+                            }
                         }
                     }
                 } else {
@@ -195,9 +199,11 @@ impl CppFn {
                         #[inline]
                         pub unsafe fn #name<#generics>(#params) -> #return_type #where_clause {
                             #link
-                            let mut result__ = core::mem::zeroed();
-                            #name(#args);
-                            #map
+                            unsafe {
+                                let mut result__ = core::mem::zeroed();
+                                #name(#args);
+                                #map
+                            }
                         }
                     }
                 }
@@ -213,7 +219,7 @@ impl CppFn {
                         #[inline]
                         pub unsafe fn #name<#generics>(#params) -> windows_core::Result<#return_type> #where_clause {
                             #link
-                            let result__ = #name(#args);
+                            let result__ = unsafe { #name(#args) };
                             (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
                         }
                     }
@@ -223,7 +229,7 @@ impl CppFn {
                         #[inline]
                         pub unsafe fn #name<#generics>(#params) #abi_return_type #where_clause {
                             #link
-                            #name(#args)
+                            unsafe { #name(#args) }
                         }
                     }
                 }
