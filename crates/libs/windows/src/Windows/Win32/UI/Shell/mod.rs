@@ -47664,7 +47664,7 @@ pub trait ITransferAdviseSink_Impl: windows_core::IUnknownImpl {
     fn UpdateTransferState(&self, ts: u32) -> windows_core::Result<()>;
     fn ConfirmOverwrite(&self, psisource: windows_core::Ref<'_, IShellItem>, psidestparent: windows_core::Ref<'_, IShellItem>, pszname: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn ConfirmEncryptionLoss(&self, psisource: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<()>;
-    fn FileFailure(&self, psi: windows_core::Ref<'_, IShellItem>, pszitem: &windows_core::PCWSTR, hrerror: windows_core::HRESULT, pszrename: &windows_core::PWSTR, cchrename: u32) -> windows_core::Result<()>;
+    fn FileFailure(&self, psi: windows_core::Ref<'_, IShellItem>, pszitem: &windows_core::PCWSTR, hrerror: windows_core::HRESULT, pszrename: windows_core::PWSTR, cchrename: u32) -> windows_core::Result<()>;
     fn SubStreamFailure(&self, psi: windows_core::Ref<'_, IShellItem>, pszstreamname: &windows_core::PCWSTR, hrerror: windows_core::HRESULT) -> windows_core::Result<()>;
     fn PropertyFailure(&self, psi: windows_core::Ref<'_, IShellItem>, pkey: *const super::super::Foundation::PROPERTYKEY, hrerror: windows_core::HRESULT) -> windows_core::Result<()>;
 }
@@ -47697,7 +47697,7 @@ impl ITransferAdviseSink_Vtbl {
         unsafe extern "system" fn FileFailure<Identity: ITransferAdviseSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psi: *mut core::ffi::c_void, pszitem: windows_core::PCWSTR, hrerror: windows_core::HRESULT, pszrename: windows_core::PWSTR, cchrename: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransferAdviseSink_Impl::FileFailure(this, core::mem::transmute_copy(&psi), core::mem::transmute(&pszitem), core::mem::transmute_copy(&hrerror), core::mem::transmute(&pszrename), core::mem::transmute_copy(&cchrename)).into()
+                ITransferAdviseSink_Impl::FileFailure(this, core::mem::transmute_copy(&psi), core::mem::transmute(&pszitem), core::mem::transmute_copy(&hrerror), core::mem::transmute_copy(&pszrename), core::mem::transmute_copy(&cchrename)).into()
             }
         }
         unsafe extern "system" fn SubStreamFailure<Identity: ITransferAdviseSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psi: *mut core::ffi::c_void, pszstreamname: windows_core::PCWSTR, hrerror: windows_core::HRESULT) -> windows_core::HRESULT {

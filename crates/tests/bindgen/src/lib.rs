@@ -68,6 +68,7 @@ pub mod reference_async_action_reference_type;
 pub mod reference_async_info_no_status;
 pub mod reference_async_info_status_filter;
 pub mod reference_async_info_status_reference;
+pub mod reference_class_ref_static;
 pub mod reference_dependency_flat;
 pub mod reference_dependency_full;
 pub mod reference_dependency_skip_root;

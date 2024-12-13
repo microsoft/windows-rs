@@ -1502,9 +1502,9 @@ pub struct IPortableDeviceManager_Vtbl {
 pub trait IPortableDeviceManager_Impl: windows_core::IUnknownImpl {
     fn GetDevices(&self, ppnpdeviceids: *mut windows_core::PWSTR, pcpnpdeviceids: *mut u32) -> windows_core::Result<()>;
     fn RefreshDeviceList(&self) -> windows_core::Result<()>;
-    fn GetDeviceFriendlyName(&self, pszpnpdeviceid: &windows_core::PCWSTR, pdevicefriendlyname: &windows_core::PWSTR, pcchdevicefriendlyname: *mut u32) -> windows_core::Result<()>;
-    fn GetDeviceDescription(&self, pszpnpdeviceid: &windows_core::PCWSTR, pdevicedescription: &windows_core::PWSTR, pcchdevicedescription: *mut u32) -> windows_core::Result<()>;
-    fn GetDeviceManufacturer(&self, pszpnpdeviceid: &windows_core::PCWSTR, pdevicemanufacturer: &windows_core::PWSTR, pcchdevicemanufacturer: *mut u32) -> windows_core::Result<()>;
+    fn GetDeviceFriendlyName(&self, pszpnpdeviceid: &windows_core::PCWSTR, pdevicefriendlyname: windows_core::PWSTR, pcchdevicefriendlyname: *mut u32) -> windows_core::Result<()>;
+    fn GetDeviceDescription(&self, pszpnpdeviceid: &windows_core::PCWSTR, pdevicedescription: windows_core::PWSTR, pcchdevicedescription: *mut u32) -> windows_core::Result<()>;
+    fn GetDeviceManufacturer(&self, pszpnpdeviceid: &windows_core::PCWSTR, pdevicemanufacturer: windows_core::PWSTR, pcchdevicemanufacturer: *mut u32) -> windows_core::Result<()>;
     fn GetDeviceProperty(&self, pszpnpdeviceid: &windows_core::PCWSTR, pszdevicepropertyname: &windows_core::PCWSTR, pdata: *mut u8, pcbdata: *mut u32, pdwtype: *mut u32) -> windows_core::Result<()>;
     fn GetPrivateDevices(&self, ppnpdeviceids: *mut windows_core::PWSTR, pcpnpdeviceids: *mut u32) -> windows_core::Result<()>;
 }
@@ -1525,19 +1525,19 @@ impl IPortableDeviceManager_Vtbl {
         unsafe extern "system" fn GetDeviceFriendlyName<Identity: IPortableDeviceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpnpdeviceid: windows_core::PCWSTR, pdevicefriendlyname: windows_core::PWSTR, pcchdevicefriendlyname: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPortableDeviceManager_Impl::GetDeviceFriendlyName(this, core::mem::transmute(&pszpnpdeviceid), core::mem::transmute(&pdevicefriendlyname), core::mem::transmute_copy(&pcchdevicefriendlyname)).into()
+                IPortableDeviceManager_Impl::GetDeviceFriendlyName(this, core::mem::transmute(&pszpnpdeviceid), core::mem::transmute_copy(&pdevicefriendlyname), core::mem::transmute_copy(&pcchdevicefriendlyname)).into()
             }
         }
         unsafe extern "system" fn GetDeviceDescription<Identity: IPortableDeviceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpnpdeviceid: windows_core::PCWSTR, pdevicedescription: windows_core::PWSTR, pcchdevicedescription: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPortableDeviceManager_Impl::GetDeviceDescription(this, core::mem::transmute(&pszpnpdeviceid), core::mem::transmute(&pdevicedescription), core::mem::transmute_copy(&pcchdevicedescription)).into()
+                IPortableDeviceManager_Impl::GetDeviceDescription(this, core::mem::transmute(&pszpnpdeviceid), core::mem::transmute_copy(&pdevicedescription), core::mem::transmute_copy(&pcchdevicedescription)).into()
             }
         }
         unsafe extern "system" fn GetDeviceManufacturer<Identity: IPortableDeviceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpnpdeviceid: windows_core::PCWSTR, pdevicemanufacturer: windows_core::PWSTR, pcchdevicemanufacturer: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPortableDeviceManager_Impl::GetDeviceManufacturer(this, core::mem::transmute(&pszpnpdeviceid), core::mem::transmute(&pdevicemanufacturer), core::mem::transmute_copy(&pcchdevicemanufacturer)).into()
+                IPortableDeviceManager_Impl::GetDeviceManufacturer(this, core::mem::transmute(&pszpnpdeviceid), core::mem::transmute_copy(&pdevicemanufacturer), core::mem::transmute_copy(&pcchdevicemanufacturer)).into()
             }
         }
         unsafe extern "system" fn GetDeviceProperty<Identity: IPortableDeviceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpnpdeviceid: windows_core::PCWSTR, pszdevicepropertyname: windows_core::PCWSTR, pdata: *mut u8, pcbdata: *mut u32, pdwtype: *mut u32) -> windows_core::HRESULT {

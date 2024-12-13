@@ -61,6 +61,47 @@ impl Class {
             .ok()
         }
     }
+    pub fn StaticSignal(value: i32) -> windows_core::Result<i32> {
+        Self::IClassStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).StaticSignal)(
+                windows_core::Interface::as_raw(this),
+                value,
+                &mut result__,
+            )
+            .map(|| result__)
+        })
+    }
+    pub fn StaticEvent<P0>(handler: P0) -> windows_core::Result<i64>
+    where
+        P0: windows_core::Param<windows::Foundation::EventHandler<i32>>,
+    {
+        Self::IClassStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).StaticEvent)(
+                windows_core::Interface::as_raw(this),
+                handler.param().abi(),
+                &mut result__,
+            )
+            .map(|| result__)
+        })
+    }
+    pub fn RemoveStaticEvent(token: i64) -> windows_core::Result<()> {
+        Self::IClassStatics(|this| unsafe {
+            (windows_core::Interface::vtable(this).RemoveStaticEvent)(
+                windows_core::Interface::as_raw(this),
+                token,
+            )
+            .ok()
+        })
+    }
+    fn IClassStatics<R, F: FnOnce(&IClassStatics) -> windows_core::Result<R>>(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<Class, IClassStatics> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
 }
 impl windows_core::RuntimeType for Class {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -91,5 +132,27 @@ pub struct IClass_Vtbl {
         *mut i64,
     ) -> windows_core::HRESULT,
     pub RemoveEvent:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IClassStatics,
+    IClassStatics_Vtbl,
+    0x47439b4f_f0b4_5a72_8777_4d60e34ec843
+);
+impl windows_core::RuntimeType for IClassStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IClassStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub StaticSignal:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
+    pub StaticEvent: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i64,
+    ) -> windows_core::HRESULT,
+    pub RemoveStaticEvent:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }

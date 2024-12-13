@@ -1011,8 +1011,8 @@ pub struct IActiveScriptEncode_Vtbl {
     pub GetEncodeProgId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IActiveScriptEncode_Impl: windows_core::IUnknownImpl {
-    fn EncodeSection(&self, pchin: &windows_core::PCWSTR, cchin: u32, pchout: &windows_core::PWSTR, cchout: u32, pcchret: *mut u32) -> windows_core::Result<()>;
-    fn DecodeScript(&self, pchin: &windows_core::PCWSTR, cchin: u32, pchout: &windows_core::PWSTR, cchout: u32, pcchret: *mut u32) -> windows_core::Result<()>;
+    fn EncodeSection(&self, pchin: &windows_core::PCWSTR, cchin: u32, pchout: windows_core::PWSTR, cchout: u32, pcchret: *mut u32) -> windows_core::Result<()>;
+    fn DecodeScript(&self, pchin: &windows_core::PCWSTR, cchin: u32, pchout: windows_core::PWSTR, cchout: u32, pcchret: *mut u32) -> windows_core::Result<()>;
     fn GetEncodeProgId(&self, pbstrout: *mut windows_core::BSTR) -> windows_core::Result<()>;
 }
 impl IActiveScriptEncode_Vtbl {
@@ -1020,13 +1020,13 @@ impl IActiveScriptEncode_Vtbl {
         unsafe extern "system" fn EncodeSection<Identity: IActiveScriptEncode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pchin: windows_core::PCWSTR, cchin: u32, pchout: windows_core::PWSTR, cchout: u32, pcchret: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IActiveScriptEncode_Impl::EncodeSection(this, core::mem::transmute(&pchin), core::mem::transmute_copy(&cchin), core::mem::transmute(&pchout), core::mem::transmute_copy(&cchout), core::mem::transmute_copy(&pcchret)).into()
+                IActiveScriptEncode_Impl::EncodeSection(this, core::mem::transmute(&pchin), core::mem::transmute_copy(&cchin), core::mem::transmute_copy(&pchout), core::mem::transmute_copy(&cchout), core::mem::transmute_copy(&pcchret)).into()
             }
         }
         unsafe extern "system" fn DecodeScript<Identity: IActiveScriptEncode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pchin: windows_core::PCWSTR, cchin: u32, pchout: windows_core::PWSTR, cchout: u32, pcchret: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IActiveScriptEncode_Impl::DecodeScript(this, core::mem::transmute(&pchin), core::mem::transmute_copy(&cchin), core::mem::transmute(&pchout), core::mem::transmute_copy(&cchout), core::mem::transmute_copy(&pcchret)).into()
+                IActiveScriptEncode_Impl::DecodeScript(this, core::mem::transmute(&pchin), core::mem::transmute_copy(&cchin), core::mem::transmute_copy(&pchout), core::mem::transmute_copy(&cchout), core::mem::transmute_copy(&pcchret)).into()
             }
         }
         unsafe extern "system" fn GetEncodeProgId<Identity: IActiveScriptEncode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrout: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5789,7 +5789,7 @@ pub struct IDebugDocumentHost_Vtbl {
     pub NotifyChanged: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDebugDocumentHost_Impl: windows_core::IUnknownImpl {
-    fn GetDeferredText(&self, dwtextstartcookie: u32, pchartext: &windows_core::PWSTR, pstatextattr: *mut u16, pcnumchars: *mut u32, cmaxchars: u32) -> windows_core::Result<()>;
+    fn GetDeferredText(&self, dwtextstartcookie: u32, pchartext: windows_core::PWSTR, pstatextattr: *mut u16, pcnumchars: *mut u32, cmaxchars: u32) -> windows_core::Result<()>;
     fn GetScriptTextAttributes(&self, pstrcode: &windows_core::PCWSTR, unumcodechars: u32, pstrdelimiter: &windows_core::PCWSTR, dwflags: u32, pattr: *mut u16) -> windows_core::Result<()>;
     fn OnCreateDocumentContext(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn GetPathName(&self, pbstrlongname: *mut windows_core::BSTR, pfisoriginalfile: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
@@ -5801,7 +5801,7 @@ impl IDebugDocumentHost_Vtbl {
         unsafe extern "system" fn GetDeferredText<Identity: IDebugDocumentHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwtextstartcookie: u32, pchartext: windows_core::PWSTR, pstatextattr: *mut u16, pcnumchars: *mut u32, cmaxchars: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugDocumentHost_Impl::GetDeferredText(this, core::mem::transmute_copy(&dwtextstartcookie), core::mem::transmute(&pchartext), core::mem::transmute_copy(&pstatextattr), core::mem::transmute_copy(&pcnumchars), core::mem::transmute_copy(&cmaxchars)).into()
+                IDebugDocumentHost_Impl::GetDeferredText(this, core::mem::transmute_copy(&dwtextstartcookie), core::mem::transmute_copy(&pchartext), core::mem::transmute_copy(&pstatextattr), core::mem::transmute_copy(&pcnumchars), core::mem::transmute_copy(&cmaxchars)).into()
             }
         }
         unsafe extern "system" fn GetScriptTextAttributes<Identity: IDebugDocumentHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstrcode: windows_core::PCWSTR, unumcodechars: u32, pstrdelimiter: windows_core::PCWSTR, dwflags: u32, pattr: *mut u16) -> windows_core::HRESULT {
@@ -6028,7 +6028,7 @@ pub trait IDebugDocumentText_Impl: IDebugDocument_Impl {
     fn GetSize(&self, pcnumlines: *mut u32, pcnumchars: *mut u32) -> windows_core::Result<()>;
     fn GetPositionOfLine(&self, clinenumber: u32) -> windows_core::Result<u32>;
     fn GetLineOfPosition(&self, ccharacterposition: u32, pclinenumber: *mut u32, pccharacteroffsetinline: *mut u32) -> windows_core::Result<()>;
-    fn GetText(&self, ccharacterposition: u32, pchartext: &windows_core::PWSTR, pstatextattr: *mut u16, pcnumchars: *mut u32, cmaxchars: u32) -> windows_core::Result<()>;
+    fn GetText(&self, ccharacterposition: u32, pchartext: windows_core::PWSTR, pstatextattr: *mut u16, pcnumchars: *mut u32, cmaxchars: u32) -> windows_core::Result<()>;
     fn GetPositionOfContext(&self, psc: windows_core::Ref<'_, IDebugDocumentContext>, pccharacterposition: *mut u32, cnumchars: *mut u32) -> windows_core::Result<()>;
     fn GetContextOfPosition(&self, ccharacterposition: u32, cnumchars: u32) -> windows_core::Result<IDebugDocumentContext>;
 }
@@ -6073,7 +6073,7 @@ impl IDebugDocumentText_Vtbl {
         unsafe extern "system" fn GetText<Identity: IDebugDocumentText_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ccharacterposition: u32, pchartext: windows_core::PWSTR, pstatextattr: *mut u16, pcnumchars: *mut u32, cmaxchars: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugDocumentText_Impl::GetText(this, core::mem::transmute_copy(&ccharacterposition), core::mem::transmute(&pchartext), core::mem::transmute_copy(&pstatextattr), core::mem::transmute_copy(&pcnumchars), core::mem::transmute_copy(&cmaxchars)).into()
+                IDebugDocumentText_Impl::GetText(this, core::mem::transmute_copy(&ccharacterposition), core::mem::transmute_copy(&pchartext), core::mem::transmute_copy(&pstatextattr), core::mem::transmute_copy(&pcnumchars), core::mem::transmute_copy(&cmaxchars)).into()
             }
         }
         unsafe extern "system" fn GetPositionOfContext<Identity: IDebugDocumentText_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psc: *mut core::ffi::c_void, pccharacterposition: *mut u32, cnumchars: *mut u32) -> windows_core::HRESULT {

@@ -55,7 +55,7 @@ impl Class {
 
                 let method = method.write(
                     writer,
-                    interface.write_name(writer),
+                    Some(interface),
                     interface.kind,
                     &mut method_names,
                     &mut virtual_names,
@@ -88,12 +88,13 @@ impl Class {
                 if interface.def.methods().next().is_none() {
                     None
                 } else {
+                        let method_name = to_ident(interface.def.name());
                         let interface_type = interface.write_name(writer);
                         let cfg = quote! {};
 
                         Some(quote! {
                             #cfg
-                            fn #interface_type<R, F: FnOnce(&#interface_type) -> windows_core::Result<R>>(
+                            fn #method_name<R, F: FnOnce(&#interface_type) -> windows_core::Result<R>>(
                                 callback: F,
                             ) -> windows_core::Result<R> {
                                 static SHARED: windows_core::imp::FactoryCache<#name, #interface_type> =

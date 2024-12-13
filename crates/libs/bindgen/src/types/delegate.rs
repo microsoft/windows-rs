@@ -33,7 +33,7 @@ impl Delegate {
 
         let invoke = method.write(
             writer,
-            self.write_name(writer),
+            None,
             InterfaceKind::Default,
             &mut MethodNames::new(),
             &mut MethodNames::new(),

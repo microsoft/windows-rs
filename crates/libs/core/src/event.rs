@@ -21,7 +21,7 @@ impl<T: Interface> Default for Event<T> {
 
 impl<T: Interface> Event<T> {
     /// Creates a new, empty `Event<T>`.
-    pub fn new() -> Self {
+    pub const fn new() -> Self {
         Self {
             delegates: RwLock::new(None),
         }

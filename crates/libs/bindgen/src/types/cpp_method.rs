@@ -757,7 +757,7 @@ fn write_produce_type(writer: &Writer, ty: &Type, param: Param) -> TokenStream {
     } else if param.flags().contains(ParamAttributes::Out) && ty.deref().is_interface() {
         let type_name = ty.deref().write_name(writer);
         quote! { #name: windows_core::OutRef<'_, #type_name>, }
-    } else if param.flags().contains(ParamAttributes::In) {
+    } else if !param.flags().contains(ParamAttributes::Out) {
         if ty.is_primitive() {
             quote! { #name: #kind, }
         } else {
@@ -774,7 +774,7 @@ fn write_invoke_arg(ty: &Type, param: Param, _hint: ParamHint) -> TokenStream {
     if !param.flags().contains(ParamAttributes::Out) && ty.is_interface() {
         quote! { core::mem::transmute_copy(&#name) }
     } else if (!ty.is_pointer() && ty.is_interface())
-        || (param.flags().contains(ParamAttributes::In) && !ty.is_primitive())
+        || (!param.flags().contains(ParamAttributes::Out) && !ty.is_primitive())
     {
         quote! { core::mem::transmute(&#name) }
     } else {

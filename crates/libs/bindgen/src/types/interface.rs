@@ -240,7 +240,7 @@ impl Interface {
 
                     let method = method.write(
                         writer,
-                        self.write_name(writer),
+                        Some(self),
                         InterfaceKind::Default,
                         method_names,
                         virtual_names,
@@ -275,7 +275,7 @@ impl Interface {
 
                         let method = method.write(
                             writer,
-                            interface.write_name(writer),
+                            Some(interface),
                             interface.kind,
                             method_names,
                             virtual_names,
