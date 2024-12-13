@@ -18,9 +18,11 @@ where
     T: TypeKind<TypeKind = CloneType> + Clone + Default,
 {
     unsafe fn borrow_mut(&self) -> OutRef<'_, T> {
-        let this: &mut T = transmute_copy(self);
-        take(this);
-        transmute_copy(self)
+        unsafe {
+            let this: &mut T = transmute_copy(self);
+            take(this);
+            transmute_copy(self)
+        }
     }
 }
 
@@ -29,7 +31,7 @@ where
     T: TypeKind<TypeKind = CopyType> + Clone + Default,
 {
     unsafe fn borrow_mut(&self) -> OutRef<'_, T> {
-        transmute_copy(self)
+        unsafe { transmute_copy(self) }
     }
 }
 
@@ -38,9 +40,11 @@ where
     T: TypeKind<TypeKind = InterfaceType> + Clone,
 {
     unsafe fn borrow_mut(&self) -> OutRef<'_, T> {
-        let this: &mut Option<T> = transmute_copy(self);
-        take(this);
-        transmute_copy(self)
+        unsafe {
+            let this: &mut Option<T> = transmute_copy(self);
+            take(this);
+            transmute_copy(self)
+        }
     }
 }
 
@@ -49,9 +53,11 @@ where
     T: Type<T>,
 {
     unsafe fn borrow_mut(&self) -> OutRef<'_, T> {
-        match self {
-            Some(this) => transmute_copy(this),
-            None => zeroed(),
+        unsafe {
+            match self {
+                Some(this) => transmute_copy(this),
+                None => zeroed(),
+            }
         }
     }
 }

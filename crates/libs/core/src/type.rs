@@ -32,10 +32,12 @@ where
     type Default = Option<Self>;
 
     unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
-        if !abi.is_null() {
-            Ok(core::mem::transmute_copy(&abi))
-        } else {
-            Err(Error::empty())
+        unsafe {
+            if !abi.is_null() {
+                Ok(core::mem::transmute_copy(&abi))
+            } else {
+                Err(Error::empty())
+            }
         }
     }
 
@@ -52,7 +54,7 @@ where
     type Default = Self;
 
     unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
-        Ok(abi.assume_init())
+        unsafe { Ok(abi.assume_init()) }
     }
 
     fn from_default(default: &Self::Default) -> Result<Self> {

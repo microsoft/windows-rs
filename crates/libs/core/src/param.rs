@@ -18,10 +18,12 @@ where
     T: Type<T>,
 {
     unsafe fn param(self) -> ParamValue<T> {
-        ParamValue::Borrowed(match self {
-            Some(item) => transmute_copy(item),
-            None => zeroed(),
-        })
+        unsafe {
+            ParamValue::Borrowed(match self {
+                Some(item) => transmute_copy(item),
+                None => zeroed(),
+            })
+        }
     }
 }
 
@@ -30,7 +32,7 @@ where
     T: Type<T>,
 {
     unsafe fn param(self) -> ParamValue<T> {
-        ParamValue::Borrowed(transmute_copy(&self))
+        unsafe { ParamValue::Borrowed(transmute_copy(&self)) }
     }
 }
 
@@ -42,11 +44,13 @@ where
     U: imp::CanInto<T>,
 {
     unsafe fn param(self) -> ParamValue<T> {
-        if U::QUERY {
-            self.cast()
-                .map_or(ParamValue::Borrowed(zeroed()), |ok| ParamValue::Owned(ok))
-        } else {
-            ParamValue::Borrowed(transmute_copy(self))
+        unsafe {
+            if U::QUERY {
+                self.cast()
+                    .map_or(ParamValue::Borrowed(zeroed()), |ok| ParamValue::Owned(ok))
+            } else {
+                ParamValue::Borrowed(transmute_copy(self))
+            }
         }
     }
 }
@@ -56,7 +60,7 @@ where
     T: TypeKind<TypeKind = CloneType> + Clone,
 {
     unsafe fn param(self) -> ParamValue<T> {
-        ParamValue::Borrowed(transmute_copy(self))
+        unsafe { ParamValue::Borrowed(transmute_copy(self)) }
     }
 }
 
@@ -67,6 +71,6 @@ where
     U: imp::CanInto<T>,
 {
     unsafe fn param(self) -> ParamValue<T> {
-        ParamValue::Owned(transmute_copy(&self))
+        unsafe { ParamValue::Owned(transmute_copy(&self)) }
     }
 }

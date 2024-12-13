@@ -171,20 +171,26 @@ impl IUnknown_Vtbl {
             iid: *const GUID,
             interface: *mut *mut c_void,
         ) -> HRESULT {
-            let this = (this as *mut *mut c_void).offset(OFFSET) as *mut T;
-            (*this).QueryInterface(iid, interface)
+            unsafe {
+                let this = (this as *mut *mut c_void).offset(OFFSET) as *mut T;
+                (*this).QueryInterface(iid, interface)
+            }
         }
         unsafe extern "system" fn AddRef<T: IUnknownImpl, const OFFSET: isize>(
             this: *mut c_void,
         ) -> u32 {
-            let this = (this as *mut *mut c_void).offset(OFFSET) as *mut T;
-            (*this).AddRef()
+            unsafe {
+                let this = (this as *mut *mut c_void).offset(OFFSET) as *mut T;
+                (*this).AddRef()
+            }
         }
         unsafe extern "system" fn Release<T: IUnknownImpl, const OFFSET: isize>(
             this: *mut c_void,
         ) -> u32 {
-            let this = (this as *mut *mut c_void).offset(OFFSET) as *mut T;
-            T::Release(this)
+            unsafe {
+                let this = (this as *mut *mut c_void).offset(OFFSET) as *mut T;
+                T::Release(this)
+            }
         }
         Self {
             QueryInterface: QueryInterface::<T, OFFSET>,

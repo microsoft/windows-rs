@@ -9,8 +9,10 @@
 #[inline]
 pub unsafe fn CoCreateGuid() -> windows_core::Result<windows_core::GUID> {
     windows_targets::link!("ole32.dll" "system" fn CoCreateGuid(pguid : *mut windows_core::GUID) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    CoCreateGuid(&mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        CoCreateGuid(&mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[inline]
 pub unsafe fn RoGetAgileReference<P2>(
@@ -22,9 +24,11 @@ where
     P2: windows_core::Param<windows_core::IUnknown>,
 {
     windows_targets::link!("ole32.dll" "system" fn RoGetAgileReference(options : AgileReferenceOptions, riid : *const windows_core::GUID, punk : * mut core::ffi::c_void, ppagilereference : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    RoGetAgileReference(options, riid, punk.param().abi(), &mut result__)
-        .and_then(|| windows_core::Type::from_abi(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        RoGetAgileReference(options, riid, punk.param().abi(), &mut result__)
+            .and_then(|| windows_core::Type::from_abi(result__))
+    }
 }
 pub const AGILEREFERENCE_DEFAULT: AgileReferenceOptions = AgileReferenceOptions(0i32);
 #[repr(transparent)]
@@ -69,12 +73,14 @@ impl IAgileReference {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        (windows_core::Interface::vtable(self).Resolve)(
-            windows_core::Interface::as_raw(self),
-            &T::IID,
-            &mut result__,
-        )
-        .and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            (windows_core::Interface::vtable(self).Resolve)(
+                windows_core::Interface::as_raw(self),
+                &T::IID,
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -100,13 +106,16 @@ impl IAgileReference_Vtbl {
             riid: *const windows_core::GUID,
             ppvobjectreference: *mut *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IAgileReference_Impl::Resolve(
-                this,
-                core::mem::transmute_copy(&riid),
-                core::mem::transmute_copy(&ppvobjectreference),
-            )
-            .into()
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IAgileReference_Impl::Resolve(
+                    this,
+                    core::mem::transmute_copy(&riid),
+                    core::mem::transmute_copy(&ppvobjectreference),
+                )
+                .into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -130,12 +139,14 @@ impl IWeakReference {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        (windows_core::Interface::vtable(self).Resolve)(
-            windows_core::Interface::as_raw(self),
-            &T::IID,
-            &mut result__,
-        )
-        .and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            (windows_core::Interface::vtable(self).Resolve)(
+                windows_core::Interface::as_raw(self),
+                &T::IID,
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -161,13 +172,16 @@ impl IWeakReference_Vtbl {
             riid: *const windows_core::GUID,
             objectreference: *mut *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWeakReference_Impl::Resolve(
-                this,
-                core::mem::transmute_copy(&riid),
-                core::mem::transmute_copy(&objectreference),
-            )
-            .into()
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IWeakReference_Impl::Resolve(
+                    this,
+                    core::mem::transmute_copy(&riid),
+                    core::mem::transmute_copy(&objectreference),
+                )
+                .into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -187,12 +201,14 @@ windows_core::imp::define_interface!(
 windows_core::imp::interface_hierarchy!(IWeakReferenceSource, windows_core::IUnknown);
 impl IWeakReferenceSource {
     pub unsafe fn GetWeakReference(&self) -> windows_core::Result<IWeakReference> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetWeakReference)(
-            windows_core::Interface::as_raw(self),
-            &mut result__,
-        )
-        .and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetWeakReference)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -215,13 +231,16 @@ impl IWeakReferenceSource_Vtbl {
             this: *mut core::ffi::c_void,
             weakreference: *mut *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWeakReferenceSource_Impl::GetWeakReference(this) {
-                Ok(ok__) => {
-                    weakreference.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IWeakReferenceSource_Impl::GetWeakReference(this) {
+                    Ok(ok__) => {
+                        weakreference.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
