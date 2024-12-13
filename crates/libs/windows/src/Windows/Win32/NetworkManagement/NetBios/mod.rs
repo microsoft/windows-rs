@@ -1,7 +1,7 @@
 #[inline]
 pub unsafe fn Netbios(pncb: *mut NCB) -> u8 {
     windows_targets::link!("netapi32.dll" "system" fn Netbios(pncb : *mut NCB) -> u8);
-    Netbios(core::mem::transmute(pncb))
+    unsafe { Netbios(core::mem::transmute(pncb)) }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]

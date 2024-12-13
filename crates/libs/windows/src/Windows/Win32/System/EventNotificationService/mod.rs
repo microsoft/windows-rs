@@ -4,7 +4,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("sensapi.dll" "system" fn IsDestinationReachableA(lpszdestination : windows_core::PCSTR, lpqocinfo : *mut QOCINFO) -> super::super::Foundation:: BOOL);
-    IsDestinationReachableA(lpszdestination.param().abi(), core::mem::transmute(lpqocinfo)).ok()
+    unsafe { IsDestinationReachableA(lpszdestination.param().abi(), core::mem::transmute(lpqocinfo)).ok() }
 }
 #[inline]
 pub unsafe fn IsDestinationReachableW<P0>(lpszdestination: P0, lpqocinfo: *mut QOCINFO) -> windows_core::Result<()>
@@ -12,12 +12,12 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("sensapi.dll" "system" fn IsDestinationReachableW(lpszdestination : windows_core::PCWSTR, lpqocinfo : *mut QOCINFO) -> super::super::Foundation:: BOOL);
-    IsDestinationReachableW(lpszdestination.param().abi(), core::mem::transmute(lpqocinfo)).ok()
+    unsafe { IsDestinationReachableW(lpszdestination.param().abi(), core::mem::transmute(lpqocinfo)).ok() }
 }
 #[inline]
 pub unsafe fn IsNetworkAlive(lpdwflags: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("sensapi.dll" "system" fn IsNetworkAlive(lpdwflags : *mut u32) -> super::super::Foundation:: BOOL);
-    IsNetworkAlive(core::mem::transmute(lpdwflags)).ok()
+    unsafe { IsNetworkAlive(core::mem::transmute(lpdwflags)).ok() }
 }
 pub const CONNECTION_AOL: u32 = 4u32;
 pub const CONNECTION_LAN: SENS_CONNECTION_TYPE = SENS_CONNECTION_TYPE(0u32);
@@ -36,25 +36,25 @@ windows_core::imp::interface_hierarchy!(ISensLogon, windows_core::IUnknown, supe
 #[cfg(feature = "Win32_System_Com")]
 impl ISensLogon {
     pub unsafe fn Logon(&self, bstrusername: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Logon)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrusername)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Logon)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrusername)).ok() }
     }
     pub unsafe fn Logoff(&self, bstrusername: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Logoff)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrusername)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Logoff)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrusername)).ok() }
     }
     pub unsafe fn StartShell(&self, bstrusername: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).StartShell)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrusername)).ok()
+        unsafe { (windows_core::Interface::vtable(self).StartShell)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrusername)).ok() }
     }
     pub unsafe fn DisplayLock(&self, bstrusername: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).DisplayLock)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrusername)).ok()
+        unsafe { (windows_core::Interface::vtable(self).DisplayLock)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrusername)).ok() }
     }
     pub unsafe fn DisplayUnlock(&self, bstrusername: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).DisplayUnlock)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrusername)).ok()
+        unsafe { (windows_core::Interface::vtable(self).DisplayUnlock)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrusername)).ok() }
     }
     pub unsafe fn StartScreenSaver(&self, bstrusername: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).StartScreenSaver)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrusername)).ok()
+        unsafe { (windows_core::Interface::vtable(self).StartScreenSaver)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrusername)).ok() }
     }
     pub unsafe fn StopScreenSaver(&self, bstrusername: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).StopScreenSaver)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrusername)).ok()
+        unsafe { (windows_core::Interface::vtable(self).StopScreenSaver)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrusername)).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -83,32 +83,46 @@ pub trait ISensLogon_Impl: super::Com::IDispatch_Impl {
 impl ISensLogon_Vtbl {
     pub const fn new<Identity: ISensLogon_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Logon<Identity: ISensLogon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrusername: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISensLogon_Impl::Logon(this, core::mem::transmute(&bstrusername)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ISensLogon_Impl::Logon(this, core::mem::transmute(&bstrusername)).into()
+            }
         }
         unsafe extern "system" fn Logoff<Identity: ISensLogon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrusername: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISensLogon_Impl::Logoff(this, core::mem::transmute(&bstrusername)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ISensLogon_Impl::Logoff(this, core::mem::transmute(&bstrusername)).into()
+            }
         }
         unsafe extern "system" fn StartShell<Identity: ISensLogon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrusername: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISensLogon_Impl::StartShell(this, core::mem::transmute(&bstrusername)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ISensLogon_Impl::StartShell(this, core::mem::transmute(&bstrusername)).into()
+            }
         }
         unsafe extern "system" fn DisplayLock<Identity: ISensLogon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrusername: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISensLogon_Impl::DisplayLock(this, core::mem::transmute(&bstrusername)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ISensLogon_Impl::DisplayLock(this, core::mem::transmute(&bstrusername)).into()
+            }
         }
         unsafe extern "system" fn DisplayUnlock<Identity: ISensLogon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrusername: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISensLogon_Impl::DisplayUnlock(this, core::mem::transmute(&bstrusername)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ISensLogon_Impl::DisplayUnlock(this, core::mem::transmute(&bstrusername)).into()
+            }
         }
         unsafe extern "system" fn StartScreenSaver<Identity: ISensLogon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrusername: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISensLogon_Impl::StartScreenSaver(this, core::mem::transmute(&bstrusername)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ISensLogon_Impl::StartScreenSaver(this, core::mem::transmute(&bstrusername)).into()
+            }
         }
         unsafe extern "system" fn StopScreenSaver<Identity: ISensLogon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrusername: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISensLogon_Impl::StopScreenSaver(this, core::mem::transmute(&bstrusername)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ISensLogon_Impl::StopScreenSaver(this, core::mem::transmute(&bstrusername)).into()
+            }
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(),
@@ -141,19 +155,19 @@ windows_core::imp::interface_hierarchy!(ISensLogon2, windows_core::IUnknown, sup
 #[cfg(feature = "Win32_System_Com")]
 impl ISensLogon2 {
     pub unsafe fn Logon(&self, bstrusername: &windows_core::BSTR, dwsessionid: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Logon)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrusername), dwsessionid).ok()
+        unsafe { (windows_core::Interface::vtable(self).Logon)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrusername), dwsessionid).ok() }
     }
     pub unsafe fn Logoff(&self, bstrusername: &windows_core::BSTR, dwsessionid: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Logoff)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrusername), dwsessionid).ok()
+        unsafe { (windows_core::Interface::vtable(self).Logoff)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrusername), dwsessionid).ok() }
     }
     pub unsafe fn SessionDisconnect(&self, bstrusername: &windows_core::BSTR, dwsessionid: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SessionDisconnect)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrusername), dwsessionid).ok()
+        unsafe { (windows_core::Interface::vtable(self).SessionDisconnect)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrusername), dwsessionid).ok() }
     }
     pub unsafe fn SessionReconnect(&self, bstrusername: &windows_core::BSTR, dwsessionid: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SessionReconnect)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrusername), dwsessionid).ok()
+        unsafe { (windows_core::Interface::vtable(self).SessionReconnect)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrusername), dwsessionid).ok() }
     }
     pub unsafe fn PostShell(&self, bstrusername: &windows_core::BSTR, dwsessionid: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).PostShell)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrusername), dwsessionid).ok()
+        unsafe { (windows_core::Interface::vtable(self).PostShell)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrusername), dwsessionid).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -178,24 +192,34 @@ pub trait ISensLogon2_Impl: super::Com::IDispatch_Impl {
 impl ISensLogon2_Vtbl {
     pub const fn new<Identity: ISensLogon2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Logon<Identity: ISensLogon2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrusername: *mut core::ffi::c_void, dwsessionid: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISensLogon2_Impl::Logon(this, core::mem::transmute(&bstrusername), core::mem::transmute_copy(&dwsessionid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ISensLogon2_Impl::Logon(this, core::mem::transmute(&bstrusername), core::mem::transmute_copy(&dwsessionid)).into()
+            }
         }
         unsafe extern "system" fn Logoff<Identity: ISensLogon2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrusername: *mut core::ffi::c_void, dwsessionid: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISensLogon2_Impl::Logoff(this, core::mem::transmute(&bstrusername), core::mem::transmute_copy(&dwsessionid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ISensLogon2_Impl::Logoff(this, core::mem::transmute(&bstrusername), core::mem::transmute_copy(&dwsessionid)).into()
+            }
         }
         unsafe extern "system" fn SessionDisconnect<Identity: ISensLogon2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrusername: *mut core::ffi::c_void, dwsessionid: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISensLogon2_Impl::SessionDisconnect(this, core::mem::transmute(&bstrusername), core::mem::transmute_copy(&dwsessionid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ISensLogon2_Impl::SessionDisconnect(this, core::mem::transmute(&bstrusername), core::mem::transmute_copy(&dwsessionid)).into()
+            }
         }
         unsafe extern "system" fn SessionReconnect<Identity: ISensLogon2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrusername: *mut core::ffi::c_void, dwsessionid: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISensLogon2_Impl::SessionReconnect(this, core::mem::transmute(&bstrusername), core::mem::transmute_copy(&dwsessionid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ISensLogon2_Impl::SessionReconnect(this, core::mem::transmute(&bstrusername), core::mem::transmute_copy(&dwsessionid)).into()
+            }
         }
         unsafe extern "system" fn PostShell<Identity: ISensLogon2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrusername: *mut core::ffi::c_void, dwsessionid: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISensLogon2_Impl::PostShell(this, core::mem::transmute(&bstrusername), core::mem::transmute_copy(&dwsessionid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ISensLogon2_Impl::PostShell(this, core::mem::transmute(&bstrusername), core::mem::transmute_copy(&dwsessionid)).into()
+            }
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(),
@@ -226,19 +250,19 @@ windows_core::imp::interface_hierarchy!(ISensNetwork, windows_core::IUnknown, su
 #[cfg(feature = "Win32_System_Com")]
 impl ISensNetwork {
     pub unsafe fn ConnectionMade(&self, bstrconnection: &windows_core::BSTR, ultype: u32, lpqocinfo: *const SENS_QOCINFO) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ConnectionMade)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrconnection), ultype, lpqocinfo).ok()
+        unsafe { (windows_core::Interface::vtable(self).ConnectionMade)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrconnection), ultype, lpqocinfo).ok() }
     }
     pub unsafe fn ConnectionMadeNoQOCInfo(&self, bstrconnection: &windows_core::BSTR, ultype: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ConnectionMadeNoQOCInfo)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrconnection), ultype).ok()
+        unsafe { (windows_core::Interface::vtable(self).ConnectionMadeNoQOCInfo)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrconnection), ultype).ok() }
     }
     pub unsafe fn ConnectionLost(&self, bstrconnection: &windows_core::BSTR, ultype: SENS_CONNECTION_TYPE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ConnectionLost)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrconnection), ultype).ok()
+        unsafe { (windows_core::Interface::vtable(self).ConnectionLost)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrconnection), ultype).ok() }
     }
     pub unsafe fn DestinationReachable(&self, bstrdestination: &windows_core::BSTR, bstrconnection: &windows_core::BSTR, ultype: u32, lpqocinfo: *const SENS_QOCINFO) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).DestinationReachable)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdestination), core::mem::transmute_copy(bstrconnection), ultype, lpqocinfo).ok()
+        unsafe { (windows_core::Interface::vtable(self).DestinationReachable)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdestination), core::mem::transmute_copy(bstrconnection), ultype, lpqocinfo).ok() }
     }
     pub unsafe fn DestinationReachableNoQOCInfo(&self, bstrdestination: &windows_core::BSTR, bstrconnection: &windows_core::BSTR, ultype: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).DestinationReachableNoQOCInfo)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdestination), core::mem::transmute_copy(bstrconnection), ultype).ok()
+        unsafe { (windows_core::Interface::vtable(self).DestinationReachableNoQOCInfo)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdestination), core::mem::transmute_copy(bstrconnection), ultype).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -263,24 +287,34 @@ pub trait ISensNetwork_Impl: super::Com::IDispatch_Impl {
 impl ISensNetwork_Vtbl {
     pub const fn new<Identity: ISensNetwork_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ConnectionMade<Identity: ISensNetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrconnection: *mut core::ffi::c_void, ultype: u32, lpqocinfo: *const SENS_QOCINFO) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISensNetwork_Impl::ConnectionMade(this, core::mem::transmute(&bstrconnection), core::mem::transmute_copy(&ultype), core::mem::transmute_copy(&lpqocinfo)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ISensNetwork_Impl::ConnectionMade(this, core::mem::transmute(&bstrconnection), core::mem::transmute_copy(&ultype), core::mem::transmute_copy(&lpqocinfo)).into()
+            }
         }
         unsafe extern "system" fn ConnectionMadeNoQOCInfo<Identity: ISensNetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrconnection: *mut core::ffi::c_void, ultype: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISensNetwork_Impl::ConnectionMadeNoQOCInfo(this, core::mem::transmute(&bstrconnection), core::mem::transmute_copy(&ultype)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ISensNetwork_Impl::ConnectionMadeNoQOCInfo(this, core::mem::transmute(&bstrconnection), core::mem::transmute_copy(&ultype)).into()
+            }
         }
         unsafe extern "system" fn ConnectionLost<Identity: ISensNetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrconnection: *mut core::ffi::c_void, ultype: SENS_CONNECTION_TYPE) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISensNetwork_Impl::ConnectionLost(this, core::mem::transmute(&bstrconnection), core::mem::transmute_copy(&ultype)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ISensNetwork_Impl::ConnectionLost(this, core::mem::transmute(&bstrconnection), core::mem::transmute_copy(&ultype)).into()
+            }
         }
         unsafe extern "system" fn DestinationReachable<Identity: ISensNetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdestination: *mut core::ffi::c_void, bstrconnection: *mut core::ffi::c_void, ultype: u32, lpqocinfo: *const SENS_QOCINFO) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISensNetwork_Impl::DestinationReachable(this, core::mem::transmute(&bstrdestination), core::mem::transmute(&bstrconnection), core::mem::transmute_copy(&ultype), core::mem::transmute_copy(&lpqocinfo)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ISensNetwork_Impl::DestinationReachable(this, core::mem::transmute(&bstrdestination), core::mem::transmute(&bstrconnection), core::mem::transmute_copy(&ultype), core::mem::transmute_copy(&lpqocinfo)).into()
+            }
         }
         unsafe extern "system" fn DestinationReachableNoQOCInfo<Identity: ISensNetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdestination: *mut core::ffi::c_void, bstrconnection: *mut core::ffi::c_void, ultype: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISensNetwork_Impl::DestinationReachableNoQOCInfo(this, core::mem::transmute(&bstrdestination), core::mem::transmute(&bstrconnection), core::mem::transmute_copy(&ultype)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ISensNetwork_Impl::DestinationReachableNoQOCInfo(this, core::mem::transmute(&bstrdestination), core::mem::transmute(&bstrconnection), core::mem::transmute_copy(&ultype)).into()
+            }
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(),
@@ -311,13 +345,13 @@ windows_core::imp::interface_hierarchy!(ISensOnNow, windows_core::IUnknown, supe
 #[cfg(feature = "Win32_System_Com")]
 impl ISensOnNow {
     pub unsafe fn OnACPower(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).OnACPower)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).OnACPower)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn OnBatteryPower(&self, dwbatterylifepercent: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).OnBatteryPower)(windows_core::Interface::as_raw(self), dwbatterylifepercent).ok()
+        unsafe { (windows_core::Interface::vtable(self).OnBatteryPower)(windows_core::Interface::as_raw(self), dwbatterylifepercent).ok() }
     }
     pub unsafe fn BatteryLow(&self, dwbatterylifepercent: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).BatteryLow)(windows_core::Interface::as_raw(self), dwbatterylifepercent).ok()
+        unsafe { (windows_core::Interface::vtable(self).BatteryLow)(windows_core::Interface::as_raw(self), dwbatterylifepercent).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -338,16 +372,22 @@ pub trait ISensOnNow_Impl: super::Com::IDispatch_Impl {
 impl ISensOnNow_Vtbl {
     pub const fn new<Identity: ISensOnNow_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnACPower<Identity: ISensOnNow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISensOnNow_Impl::OnACPower(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ISensOnNow_Impl::OnACPower(this).into()
+            }
         }
         unsafe extern "system" fn OnBatteryPower<Identity: ISensOnNow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwbatterylifepercent: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISensOnNow_Impl::OnBatteryPower(this, core::mem::transmute_copy(&dwbatterylifepercent)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ISensOnNow_Impl::OnBatteryPower(this, core::mem::transmute_copy(&dwbatterylifepercent)).into()
+            }
         }
         unsafe extern "system" fn BatteryLow<Identity: ISensOnNow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwbatterylifepercent: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISensOnNow_Impl::BatteryLow(this, core::mem::transmute_copy(&dwbatterylifepercent)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ISensOnNow_Impl::BatteryLow(this, core::mem::transmute_copy(&dwbatterylifepercent)).into()
+            }
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(),

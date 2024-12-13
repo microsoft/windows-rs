@@ -211,14 +211,16 @@ impl Key {
             }
         }
 
-        let result = RegSetValueExW(
-            self.0,
-            name.as_ref().as_ptr(),
-            0,
-            ty.into(),
-            value.as_ptr(),
-            value.len().try_into()?,
-        );
+        let result = unsafe {
+            RegSetValueExW(
+                self.0,
+                name.as_ref().as_ptr(),
+                0,
+                ty.into(),
+                value.as_ptr(),
+                value.len().try_into()?,
+            )
+        };
 
         win32_error(result)
     }
@@ -234,14 +236,16 @@ impl Key {
         let mut ty = 0;
         let mut len = 0;
 
-        let result = RegQueryValueExW(
-            self.0,
-            name.as_ref().as_ptr(),
-            null(),
-            &mut ty,
-            core::ptr::null_mut(),
-            &mut len,
-        );
+        let result = unsafe {
+            RegQueryValueExW(
+                self.0,
+                name.as_ref().as_ptr(),
+                null(),
+                &mut ty,
+                core::ptr::null_mut(),
+                &mut len,
+            )
+        };
 
         win32_error(result)?;
         Ok((ty.into(), len as usize))
@@ -262,14 +266,16 @@ impl Key {
         let mut ty = 0;
         let mut len = value.len().try_into()?;
 
-        let result = RegQueryValueExW(
-            self.0,
-            name.as_ref().as_ptr(),
-            null(),
-            &mut ty,
-            value.as_mut_ptr(),
-            &mut len,
-        );
+        let result = unsafe {
+            RegQueryValueExW(
+                self.0,
+                name.as_ref().as_ptr(),
+                null(),
+                &mut ty,
+                value.as_mut_ptr(),
+                &mut len,
+            )
+        };
 
         win32_error(result)?;
         Ok((ty.into(), value.get(0..len as usize).unwrap()))

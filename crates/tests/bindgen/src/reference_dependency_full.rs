@@ -44,9 +44,11 @@ pub mod Windows {
                 unsafe extern "system" fn Close<Identity: IClosable_Impl, const OFFSET: isize>(
                     this: *mut core::ffi::c_void,
                 ) -> windows_core::HRESULT {
-                    let this: &Identity =
-                        &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                    IClosable_Impl::Close(this).into()
+                    unsafe {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        IClosable_Impl::Close(this).into()
+                    }
                 }
                 Self {
                     base__: windows_core::IInspectable_Vtbl::new::<Identity, IClosable, OFFSET>(),
@@ -125,14 +127,16 @@ pub mod Windows {
                     this: *mut core::ffi::c_void,
                     result__: *mut u32,
                 ) -> windows_core::HRESULT {
-                    let this: &Identity =
-                        &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                    match IMemoryBufferReference_Impl::Capacity(this) {
-                        Ok(ok__) => {
-                            result__.write(core::mem::transmute_copy(&ok__));
-                            windows_core::HRESULT(0)
+                    unsafe {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        match IMemoryBufferReference_Impl::Capacity(this) {
+                            Ok(ok__) => {
+                                result__.write(core::mem::transmute_copy(&ok__));
+                                windows_core::HRESULT(0)
+                            }
+                            Err(err) => err.into(),
                         }
-                        Err(err) => err.into(),
                     }
                 }
                 unsafe extern "system" fn RemoveClosed<
@@ -142,9 +146,11 @@ pub mod Windows {
                     this: *mut core::ffi::c_void,
                     cookie: i64,
                 ) -> windows_core::HRESULT {
-                    let this: &Identity =
-                        &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                    IMemoryBufferReference_Impl::RemoveClosed(this, cookie).into()
+                    unsafe {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        IMemoryBufferReference_Impl::RemoveClosed(this, cookie).into()
+                    }
                 }
                 Self {
                     base__: windows_core::IInspectable_Vtbl::new::<

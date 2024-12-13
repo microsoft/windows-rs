@@ -16,7 +16,7 @@ jobs:
   check:
     strategy:
       matrix:
-        rust: [1.60.0, stable, nightly]
+        rust: [1.74.0, stable, nightly]
     runs-on: windows-latest
     steps:
       - name: Checkout

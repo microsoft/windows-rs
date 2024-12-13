@@ -14955,8 +14955,10 @@ pub trait IAnimationObject_Impl: windows_core::IUnknownImpl {
 impl IAnimationObject_Vtbl {
     pub const fn new<Identity: IAnimationObject_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn PopulatePropertyInfo<Identity: IAnimationObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyname: *mut core::ffi::c_void, propertyinfo: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IAnimationObject_Impl::PopulatePropertyInfo(this, core::mem::transmute(&propertyname), core::mem::transmute_copy(&propertyinfo)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IAnimationObject_Impl::PopulatePropertyInfo(this, core::mem::transmute(&propertyname), core::mem::transmute_copy(&propertyinfo)).into()
+            }
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IAnimationObject, OFFSET>(),
@@ -16356,19 +16358,23 @@ pub trait ICompositionSupportsSystemBackdrop_Impl: windows_core::IUnknownImpl {
 impl ICompositionSupportsSystemBackdrop_Vtbl {
     pub const fn new<Identity: ICompositionSupportsSystemBackdrop_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SystemBackdrop<Identity: ICompositionSupportsSystemBackdrop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICompositionSupportsSystemBackdrop_Impl::SystemBackdrop(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICompositionSupportsSystemBackdrop_Impl::SystemBackdrop(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetSystemBackdrop<Identity: ICompositionSupportsSystemBackdrop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICompositionSupportsSystemBackdrop_Impl::SetSystemBackdrop(this, core::mem::transmute_copy(&value)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICompositionSupportsSystemBackdrop_Impl::SetSystemBackdrop(this, core::mem::transmute_copy(&value)).into()
+            }
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, ICompositionSupportsSystemBackdrop, OFFSET>(),
@@ -16510,14 +16516,16 @@ pub trait ICompositionSurfaceFacade_Impl: windows_core::IUnknownImpl {
 impl ICompositionSurfaceFacade_Vtbl {
     pub const fn new<Identity: ICompositionSurfaceFacade_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetRealSurface<Identity: ICompositionSurfaceFacade_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICompositionSurfaceFacade_Impl::GetRealSurface(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICompositionSurfaceFacade_Impl::GetRealSurface(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -17847,14 +17855,16 @@ pub trait IVisualElement2_Impl: windows_core::IUnknownImpl {
 impl IVisualElement2_Vtbl {
     pub const fn new<Identity: IVisualElement2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetVisualInternal<Identity: IVisualElement2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IVisualElement2_Impl::GetVisualInternal(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IVisualElement2_Impl::GetVisualInternal(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IVisualElement2, OFFSET>(), GetVisualInternal: GetVisualInternal::<Identity, OFFSET> }

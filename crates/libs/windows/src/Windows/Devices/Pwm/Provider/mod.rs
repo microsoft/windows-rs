@@ -78,74 +78,94 @@ pub trait IPwmControllerProvider_Impl: windows_core::IUnknownImpl {
 impl IPwmControllerProvider_Vtbl {
     pub const fn new<Identity: IPwmControllerProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn PinCount<Identity: IPwmControllerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut i32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IPwmControllerProvider_Impl::PinCount(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IPwmControllerProvider_Impl::PinCount(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn ActualFrequency<Identity: IPwmControllerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut f64) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IPwmControllerProvider_Impl::ActualFrequency(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IPwmControllerProvider_Impl::ActualFrequency(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetDesiredFrequency<Identity: IPwmControllerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, frequency: f64, result__: *mut f64) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IPwmControllerProvider_Impl::SetDesiredFrequency(this, frequency) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IPwmControllerProvider_Impl::SetDesiredFrequency(this, frequency) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn MaxFrequency<Identity: IPwmControllerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut f64) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IPwmControllerProvider_Impl::MaxFrequency(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IPwmControllerProvider_Impl::MaxFrequency(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn MinFrequency<Identity: IPwmControllerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut f64) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IPwmControllerProvider_Impl::MinFrequency(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IPwmControllerProvider_Impl::MinFrequency(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn AcquirePin<Identity: IPwmControllerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pin: i32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPwmControllerProvider_Impl::AcquirePin(this, pin).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPwmControllerProvider_Impl::AcquirePin(this, pin).into()
+            }
         }
         unsafe extern "system" fn ReleasePin<Identity: IPwmControllerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pin: i32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPwmControllerProvider_Impl::ReleasePin(this, pin).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPwmControllerProvider_Impl::ReleasePin(this, pin).into()
+            }
         }
         unsafe extern "system" fn EnablePin<Identity: IPwmControllerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pin: i32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPwmControllerProvider_Impl::EnablePin(this, pin).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPwmControllerProvider_Impl::EnablePin(this, pin).into()
+            }
         }
         unsafe extern "system" fn DisablePin<Identity: IPwmControllerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pin: i32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPwmControllerProvider_Impl::DisablePin(this, pin).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPwmControllerProvider_Impl::DisablePin(this, pin).into()
+            }
         }
         unsafe extern "system" fn SetPulseParameters<Identity: IPwmControllerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pin: i32, dutycycle: f64, invertpolarity: bool) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPwmControllerProvider_Impl::SetPulseParameters(this, pin, dutycycle, invertpolarity).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPwmControllerProvider_Impl::SetPulseParameters(this, pin, dutycycle, invertpolarity).into()
+            }
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IPwmControllerProvider, OFFSET>(),
@@ -206,14 +226,16 @@ pub trait IPwmProvider_Impl: windows_core::IUnknownImpl {
 impl IPwmProvider_Vtbl {
     pub const fn new<Identity: IPwmProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetControllers<Identity: IPwmProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IPwmProvider_Impl::GetControllers(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IPwmProvider_Impl::GetControllers(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IPwmProvider, OFFSET>(), GetControllers: GetControllers::<Identity, OFFSET> }

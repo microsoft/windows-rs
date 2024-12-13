@@ -38,7 +38,7 @@ pub unsafe trait Interface: Sized + Clone {
     #[doc(hidden)]
     #[inline(always)]
     unsafe fn assume_vtable<T: Interface>(&self) -> &T::Vtable {
-        &**(self.as_raw() as *mut *mut T::Vtable)
+        unsafe { &**(self.as_raw() as *mut *mut T::Vtable) }
     }
 
     /// Returns the raw COM interface pointer. The resulting pointer continues to be owned by the `Interface` implementation.
@@ -64,7 +64,7 @@ pub unsafe trait Interface: Sized + Clone {
     /// The `raw` pointer must be owned by the caller and represent a valid COM interface pointer. In other words,
     /// it must point to a vtable beginning with the `IUnknown` function pointers and match the vtable of `Interface`.
     unsafe fn from_raw(raw: *mut c_void) -> Self {
-        transmute_copy(&raw)
+        unsafe { transmute_copy(&raw) }
     }
 
     /// Creates an `Interface` that is valid so long as the `raw` COM interface pointer is valid.
@@ -75,10 +75,12 @@ pub unsafe trait Interface: Sized + Clone {
     /// beginning with the `IUnknown` function pointers and match the vtable of `Interface`.
     #[inline(always)]
     unsafe fn from_raw_borrowed(raw: &*mut c_void) -> Option<&Self> {
-        if raw.is_null() {
-            None
-        } else {
-            Some(transmute_copy(&raw))
+        unsafe {
+            if raw.is_null() {
+                None
+            } else {
+                Some(transmute_copy(&raw))
+            }
         }
     }
 
@@ -245,10 +247,12 @@ pub unsafe trait Interface: Sized + Clone {
     /// `interface` must be a non-null, valid pointer for writing an interface pointer.
     #[inline(always)]
     unsafe fn query(&self, iid: *const GUID, interface: *mut *mut c_void) -> HRESULT {
-        if Self::UNKNOWN {
-            (self.assume_vtable::<IUnknown>().QueryInterface)(self.as_raw(), iid, interface)
-        } else {
-            panic!("Non-COM interfaces cannot be queried.")
+        unsafe {
+            if Self::UNKNOWN {
+                (self.assume_vtable::<IUnknown>().QueryInterface)(self.as_raw(), iid, interface)
+            } else {
+                panic!("Non-COM interfaces cannot be queried.")
+            }
         }
     }
 
