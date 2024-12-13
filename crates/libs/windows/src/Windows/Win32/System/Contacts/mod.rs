@@ -148,19 +148,19 @@ pub struct IContact_Vtbl {
     pub CommitChanges: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait IContact_Impl: windows_core::IUnknownImpl {
-    fn GetContactID(&self, pszcontactid: &windows_core::PWSTR, cchcontactid: u32, pdwcchcontactidrequired: *mut u32) -> windows_core::Result<()>;
-    fn GetPath(&self, pszpath: &windows_core::PWSTR, cchpath: u32, pdwcchpathrequired: *mut u32) -> windows_core::Result<()>;
+    fn GetContactID(&self, pszcontactid: windows_core::PWSTR, cchcontactid: u32, pdwcchcontactidrequired: *mut u32) -> windows_core::Result<()>;
+    fn GetPath(&self, pszpath: windows_core::PWSTR, cchpath: u32, pdwcchpathrequired: *mut u32) -> windows_core::Result<()>;
     fn CommitChanges(&self, dwcommitflags: u32) -> windows_core::Result<()>;
 }
 impl IContact_Vtbl {
     pub const fn new<Identity: IContact_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetContactID<Identity: IContact_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszcontactid: windows_core::PWSTR, cchcontactid: u32, pdwcchcontactidrequired: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IContact_Impl::GetContactID(this, core::mem::transmute(&pszcontactid), core::mem::transmute_copy(&cchcontactid), core::mem::transmute_copy(&pdwcchcontactidrequired)).into()
+            IContact_Impl::GetContactID(this, core::mem::transmute_copy(&pszcontactid), core::mem::transmute_copy(&cchcontactid), core::mem::transmute_copy(&pdwcchcontactidrequired)).into()
         }
         unsafe extern "system" fn GetPath<Identity: IContact_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpath: windows_core::PWSTR, cchpath: u32, pdwcchpathrequired: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IContact_Impl::GetPath(this, core::mem::transmute(&pszpath), core::mem::transmute_copy(&cchpath), core::mem::transmute_copy(&pdwcchpathrequired)).into()
+            IContact_Impl::GetPath(this, core::mem::transmute_copy(&pszpath), core::mem::transmute_copy(&cchpath), core::mem::transmute_copy(&pdwcchpathrequired)).into()
         }
         unsafe extern "system" fn CommitChanges<Identity: IContact_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcommitflags: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -2449,15 +2449,15 @@ pub struct IContactProperties_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IContactProperties_Impl: windows_core::IUnknownImpl {
-    fn GetString(&self, pszpropertyname: &windows_core::PCWSTR, dwflags: u32, pszvalue: &windows_core::PWSTR, cchvalue: u32, pdwcchpropertyvaluerequired: *mut u32) -> windows_core::Result<()>;
+    fn GetString(&self, pszpropertyname: &windows_core::PCWSTR, dwflags: u32, pszvalue: windows_core::PWSTR, cchvalue: u32, pdwcchpropertyvaluerequired: *mut u32) -> windows_core::Result<()>;
     fn GetDate(&self, pszpropertyname: &windows_core::PCWSTR, dwflags: u32, pftdatetime: *mut super::super::Foundation::FILETIME) -> windows_core::Result<()>;
-    fn GetBinary(&self, pszpropertyname: &windows_core::PCWSTR, dwflags: u32, pszcontenttype: &windows_core::PWSTR, cchcontenttype: u32, pdwcchcontenttyperequired: *mut u32, ppstream: windows_core::OutRef<'_, super::Com::IStream>) -> windows_core::Result<()>;
-    fn GetLabels(&self, pszarrayelementname: &windows_core::PCWSTR, dwflags: u32, pszlabels: &windows_core::PWSTR, cchlabels: u32, pdwcchlabelsrequired: *mut u32) -> windows_core::Result<()>;
+    fn GetBinary(&self, pszpropertyname: &windows_core::PCWSTR, dwflags: u32, pszcontenttype: windows_core::PWSTR, cchcontenttype: u32, pdwcchcontenttyperequired: *mut u32, ppstream: windows_core::OutRef<'_, super::Com::IStream>) -> windows_core::Result<()>;
+    fn GetLabels(&self, pszarrayelementname: &windows_core::PCWSTR, dwflags: u32, pszlabels: windows_core::PWSTR, cchlabels: u32, pdwcchlabelsrequired: *mut u32) -> windows_core::Result<()>;
     fn SetString(&self, pszpropertyname: &windows_core::PCWSTR, dwflags: u32, pszvalue: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SetDate(&self, pszpropertyname: &windows_core::PCWSTR, dwflags: u32, ftdatetime: &super::super::Foundation::FILETIME) -> windows_core::Result<()>;
     fn SetBinary(&self, pszpropertyname: &windows_core::PCWSTR, dwflags: u32, pszcontenttype: &windows_core::PCWSTR, pstream: windows_core::Ref<'_, super::Com::IStream>) -> windows_core::Result<()>;
     fn SetLabels(&self, pszarrayelementname: &windows_core::PCWSTR, dwflags: u32, dwlabelcount: u32, ppszlabels: *const windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn CreateArrayNode(&self, pszarrayname: &windows_core::PCWSTR, dwflags: u32, fappend: super::super::Foundation::BOOL, psznewarrayelementname: &windows_core::PWSTR, cchnewarrayelementname: u32, pdwcchnewarrayelementnamerequired: *mut u32) -> windows_core::Result<()>;
+    fn CreateArrayNode(&self, pszarrayname: &windows_core::PCWSTR, dwflags: u32, fappend: super::super::Foundation::BOOL, psznewarrayelementname: windows_core::PWSTR, cchnewarrayelementname: u32, pdwcchnewarrayelementnamerequired: *mut u32) -> windows_core::Result<()>;
     fn DeleteProperty(&self, pszpropertyname: &windows_core::PCWSTR, dwflags: u32) -> windows_core::Result<()>;
     fn DeleteArrayNode(&self, pszarrayelementname: &windows_core::PCWSTR, dwflags: u32) -> windows_core::Result<()>;
     fn DeleteLabels(&self, pszarrayelementname: &windows_core::PCWSTR, dwflags: u32) -> windows_core::Result<()>;
@@ -2468,7 +2468,7 @@ impl IContactProperties_Vtbl {
     pub const fn new<Identity: IContactProperties_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetString<Identity: IContactProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpropertyname: windows_core::PCWSTR, dwflags: u32, pszvalue: windows_core::PWSTR, cchvalue: u32, pdwcchpropertyvaluerequired: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IContactProperties_Impl::GetString(this, core::mem::transmute(&pszpropertyname), core::mem::transmute_copy(&dwflags), core::mem::transmute(&pszvalue), core::mem::transmute_copy(&cchvalue), core::mem::transmute_copy(&pdwcchpropertyvaluerequired)).into()
+            IContactProperties_Impl::GetString(this, core::mem::transmute(&pszpropertyname), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pszvalue), core::mem::transmute_copy(&cchvalue), core::mem::transmute_copy(&pdwcchpropertyvaluerequired)).into()
         }
         unsafe extern "system" fn GetDate<Identity: IContactProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpropertyname: windows_core::PCWSTR, dwflags: u32, pftdatetime: *mut super::super::Foundation::FILETIME) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -2476,11 +2476,11 @@ impl IContactProperties_Vtbl {
         }
         unsafe extern "system" fn GetBinary<Identity: IContactProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpropertyname: windows_core::PCWSTR, dwflags: u32, pszcontenttype: windows_core::PWSTR, cchcontenttype: u32, pdwcchcontenttyperequired: *mut u32, ppstream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IContactProperties_Impl::GetBinary(this, core::mem::transmute(&pszpropertyname), core::mem::transmute_copy(&dwflags), core::mem::transmute(&pszcontenttype), core::mem::transmute_copy(&cchcontenttype), core::mem::transmute_copy(&pdwcchcontenttyperequired), core::mem::transmute_copy(&ppstream)).into()
+            IContactProperties_Impl::GetBinary(this, core::mem::transmute(&pszpropertyname), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pszcontenttype), core::mem::transmute_copy(&cchcontenttype), core::mem::transmute_copy(&pdwcchcontenttyperequired), core::mem::transmute_copy(&ppstream)).into()
         }
         unsafe extern "system" fn GetLabels<Identity: IContactProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszarrayelementname: windows_core::PCWSTR, dwflags: u32, pszlabels: windows_core::PWSTR, cchlabels: u32, pdwcchlabelsrequired: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IContactProperties_Impl::GetLabels(this, core::mem::transmute(&pszarrayelementname), core::mem::transmute_copy(&dwflags), core::mem::transmute(&pszlabels), core::mem::transmute_copy(&cchlabels), core::mem::transmute_copy(&pdwcchlabelsrequired)).into()
+            IContactProperties_Impl::GetLabels(this, core::mem::transmute(&pszarrayelementname), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pszlabels), core::mem::transmute_copy(&cchlabels), core::mem::transmute_copy(&pdwcchlabelsrequired)).into()
         }
         unsafe extern "system" fn SetString<Identity: IContactProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpropertyname: windows_core::PCWSTR, dwflags: u32, pszvalue: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -2500,7 +2500,7 @@ impl IContactProperties_Vtbl {
         }
         unsafe extern "system" fn CreateArrayNode<Identity: IContactProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszarrayname: windows_core::PCWSTR, dwflags: u32, fappend: super::super::Foundation::BOOL, psznewarrayelementname: windows_core::PWSTR, cchnewarrayelementname: u32, pdwcchnewarrayelementnamerequired: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IContactProperties_Impl::CreateArrayNode(this, core::mem::transmute(&pszarrayname), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&fappend), core::mem::transmute(&psznewarrayelementname), core::mem::transmute_copy(&cchnewarrayelementname), core::mem::transmute_copy(&pdwcchnewarrayelementnamerequired)).into()
+            IContactProperties_Impl::CreateArrayNode(this, core::mem::transmute(&pszarrayname), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&fappend), core::mem::transmute_copy(&psznewarrayelementname), core::mem::transmute_copy(&cchnewarrayelementname), core::mem::transmute_copy(&pdwcchnewarrayelementnamerequired)).into()
         }
         unsafe extern "system" fn DeleteProperty<Identity: IContactProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpropertyname: windows_core::PCWSTR, dwflags: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -2580,11 +2580,11 @@ pub struct IContactPropertyCollection_Vtbl {
 pub trait IContactPropertyCollection_Impl: windows_core::IUnknownImpl {
     fn Reset(&self) -> windows_core::Result<()>;
     fn Next(&self) -> windows_core::Result<()>;
-    fn GetPropertyName(&self, pszpropertyname: &windows_core::PWSTR, cchpropertyname: u32, pdwcchpropertynamerequired: *mut u32) -> windows_core::Result<()>;
+    fn GetPropertyName(&self, pszpropertyname: windows_core::PWSTR, cchpropertyname: u32, pdwcchpropertynamerequired: *mut u32) -> windows_core::Result<()>;
     fn GetPropertyType(&self, pdwtype: *mut u32) -> windows_core::Result<()>;
     fn GetPropertyVersion(&self, pdwversion: *mut u32) -> windows_core::Result<()>;
     fn GetPropertyModificationDate(&self, pftmodificationdate: *mut super::super::Foundation::FILETIME) -> windows_core::Result<()>;
-    fn GetPropertyArrayElementID(&self, pszarrayelementid: &windows_core::PWSTR, ccharrayelementid: u32, pdwccharrayelementidrequired: *mut u32) -> windows_core::Result<()>;
+    fn GetPropertyArrayElementID(&self, pszarrayelementid: windows_core::PWSTR, ccharrayelementid: u32, pdwccharrayelementidrequired: *mut u32) -> windows_core::Result<()>;
 }
 impl IContactPropertyCollection_Vtbl {
     pub const fn new<Identity: IContactPropertyCollection_Impl, const OFFSET: isize>() -> Self {
@@ -2598,7 +2598,7 @@ impl IContactPropertyCollection_Vtbl {
         }
         unsafe extern "system" fn GetPropertyName<Identity: IContactPropertyCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpropertyname: windows_core::PWSTR, cchpropertyname: u32, pdwcchpropertynamerequired: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IContactPropertyCollection_Impl::GetPropertyName(this, core::mem::transmute(&pszpropertyname), core::mem::transmute_copy(&cchpropertyname), core::mem::transmute_copy(&pdwcchpropertynamerequired)).into()
+            IContactPropertyCollection_Impl::GetPropertyName(this, core::mem::transmute_copy(&pszpropertyname), core::mem::transmute_copy(&cchpropertyname), core::mem::transmute_copy(&pdwcchpropertynamerequired)).into()
         }
         unsafe extern "system" fn GetPropertyType<Identity: IContactPropertyCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwtype: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -2614,7 +2614,7 @@ impl IContactPropertyCollection_Vtbl {
         }
         unsafe extern "system" fn GetPropertyArrayElementID<Identity: IContactPropertyCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszarrayelementid: windows_core::PWSTR, ccharrayelementid: u32, pdwccharrayelementidrequired: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IContactPropertyCollection_Impl::GetPropertyArrayElementID(this, core::mem::transmute(&pszarrayelementid), core::mem::transmute_copy(&ccharrayelementid), core::mem::transmute_copy(&pdwccharrayelementidrequired)).into()
+            IContactPropertyCollection_Impl::GetPropertyArrayElementID(this, core::mem::transmute_copy(&pszarrayelementid), core::mem::transmute_copy(&ccharrayelementid), core::mem::transmute_copy(&pdwccharrayelementidrequired)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

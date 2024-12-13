@@ -9207,8 +9207,8 @@ pub trait ITypeLib_Impl: windows_core::IUnknownImpl {
     fn GetLibAttr(&self) -> windows_core::Result<*mut TLIBATTR>;
     fn GetTypeComp(&self) -> windows_core::Result<ITypeComp>;
     fn GetDocumentation(&self, index: i32, pbstrname: *mut windows_core::BSTR, pbstrdocstring: *mut windows_core::BSTR, pdwhelpcontext: *mut u32, pbstrhelpfile: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn IsName(&self, sznamebuf: &windows_core::PWSTR, lhashval: u32, pfname: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn FindName(&self, sznamebuf: &windows_core::PWSTR, lhashval: u32, pptinfo: windows_core::OutRef<'_, ITypeInfo>, rgmemid: *mut i32, pcfound: *mut u16) -> windows_core::Result<()>;
+    fn IsName(&self, sznamebuf: windows_core::PWSTR, lhashval: u32, pfname: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn FindName(&self, sznamebuf: windows_core::PWSTR, lhashval: u32, pptinfo: windows_core::OutRef<'_, ITypeInfo>, rgmemid: *mut i32, pcfound: *mut u16) -> windows_core::Result<()>;
     fn ReleaseTLibAttr(&self, ptlibattr: *const TLIBATTR);
 }
 impl ITypeLib_Vtbl {
@@ -9273,11 +9273,11 @@ impl ITypeLib_Vtbl {
         }
         unsafe extern "system" fn IsName<Identity: ITypeLib_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sznamebuf: windows_core::PWSTR, lhashval: u32, pfname: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITypeLib_Impl::IsName(this, core::mem::transmute(&sznamebuf), core::mem::transmute_copy(&lhashval), core::mem::transmute_copy(&pfname)).into()
+            ITypeLib_Impl::IsName(this, core::mem::transmute_copy(&sznamebuf), core::mem::transmute_copy(&lhashval), core::mem::transmute_copy(&pfname)).into()
         }
         unsafe extern "system" fn FindName<Identity: ITypeLib_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sznamebuf: windows_core::PWSTR, lhashval: u32, pptinfo: *mut *mut core::ffi::c_void, rgmemid: *mut i32, pcfound: *mut u16) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITypeLib_Impl::FindName(this, core::mem::transmute(&sznamebuf), core::mem::transmute_copy(&lhashval), core::mem::transmute_copy(&pptinfo), core::mem::transmute_copy(&rgmemid), core::mem::transmute_copy(&pcfound)).into()
+            ITypeLib_Impl::FindName(this, core::mem::transmute_copy(&sznamebuf), core::mem::transmute_copy(&lhashval), core::mem::transmute_copy(&pptinfo), core::mem::transmute_copy(&rgmemid), core::mem::transmute_copy(&pcfound)).into()
         }
         unsafe extern "system" fn ReleaseTLibAttr<Identity: ITypeLib_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptlibattr: *const TLIBATTR) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
