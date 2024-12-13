@@ -3913,9 +3913,9 @@ pub struct IFEDictionary_Vtbl {
     pub ConvertFromUserToSys: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IFEDictionary_Impl: windows_core::IUnknownImpl {
-    fn Open(&self, pchdictpath: &windows_core::PSTR, pshf: *mut IMESHF) -> windows_core::Result<()>;
+    fn Open(&self, pchdictpath: windows_core::PSTR, pshf: *mut IMESHF) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
-    fn GetHeader(&self, pchdictpath: &windows_core::PSTR, pshf: *mut IMESHF, pjfmt: *mut IMEFMT, pultype: *mut u32) -> windows_core::Result<()>;
+    fn GetHeader(&self, pchdictpath: windows_core::PSTR, pshf: *mut IMESHF, pjfmt: *mut IMEFMT, pultype: *mut u32) -> windows_core::Result<()>;
     fn DisplayProperty(&self, hwnd: super::super::super::Foundation::HWND) -> windows_core::Result<()>;
     fn GetPosTable(&self, prgpostbl: *mut *mut POSTBL, pcpostbl: *mut i32) -> windows_core::Result<()>;
     fn GetWords(&self, pwchfirst: &windows_core::PCWSTR, pwchlast: &windows_core::PCWSTR, pwchdisplay: &windows_core::PCWSTR, ulpos: u32, ulselect: u32, ulwordsrc: u32, pchbuffer: *mut u8, cbbuffer: u32, pcwrd: *mut u32) -> windows_core::Result<()>;
@@ -3935,7 +3935,7 @@ impl IFEDictionary_Vtbl {
     pub const fn new<Identity: IFEDictionary_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Open<Identity: IFEDictionary_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pchdictpath: windows_core::PSTR, pshf: *mut IMESHF) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IFEDictionary_Impl::Open(this, core::mem::transmute(&pchdictpath), core::mem::transmute_copy(&pshf)).into()
+            IFEDictionary_Impl::Open(this, core::mem::transmute_copy(&pchdictpath), core::mem::transmute_copy(&pshf)).into()
         }
         unsafe extern "system" fn Close<Identity: IFEDictionary_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3943,7 +3943,7 @@ impl IFEDictionary_Vtbl {
         }
         unsafe extern "system" fn GetHeader<Identity: IFEDictionary_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pchdictpath: windows_core::PSTR, pshf: *mut IMESHF, pjfmt: *mut IMEFMT, pultype: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IFEDictionary_Impl::GetHeader(this, core::mem::transmute(&pchdictpath), core::mem::transmute_copy(&pshf), core::mem::transmute_copy(&pjfmt), core::mem::transmute_copy(&pultype)).into()
+            IFEDictionary_Impl::GetHeader(this, core::mem::transmute_copy(&pchdictpath), core::mem::transmute_copy(&pshf), core::mem::transmute_copy(&pjfmt), core::mem::transmute_copy(&pultype)).into()
         }
         unsafe extern "system" fn DisplayProperty<Identity: IFEDictionary_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::super::Foundation::HWND) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
