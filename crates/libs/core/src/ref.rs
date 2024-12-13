@@ -1,5 +1,4 @@
 use super::*;
-use core::ffi::c_void;
 use core::marker::PhantomData;
 use core::mem::transmute;
 
@@ -7,18 +6,24 @@ use core::mem::transmute;
 #[repr(transparent)]
 pub struct Ref<'a, T: Type<T>>(T::Abi, PhantomData<&'a T>);
 
-impl<T: Type<T, Default = Option<T>, Abi = *mut c_void>> Ref<'_, T> {
+impl<T: Type<T>> Ref<'_, T> {
     /// Returns `true` if the argument is null.
     pub fn is_null(&self) -> bool {
-        self.0.is_null()
+        T::is_null(&self.0)
     }
 
-    /// Converts the argument to a [Result<&T>] reference.
+    /// Converts the argument to a [`Result<&T>`] reference.
     pub fn ok(&self) -> Result<&T> {
-        if self.0.is_null() {
-            Err(Error::from_hresult(imp::E_POINTER))
+        self.as_ref()
+            .ok_or_else(|| Error::from_hresult(imp::E_POINTER))
+    }
+
+    /// Converts the argument to a [`Option<&T>`] reference.
+    pub fn as_ref(&self) -> Option<&T> {
+        if self.is_null() {
+            None
         } else {
-            unsafe { Ok(self.assume_init()) }
+            unsafe { Some(self.assume_init_ref()) }
         }
     }
 
@@ -27,25 +32,18 @@ impl<T: Type<T, Default = Option<T>, Abi = *mut c_void>> Ref<'_, T> {
     /// # Panics
     ///
     /// Panics if the argument is null.
+    #[track_caller]
     pub fn unwrap(&self) -> &T {
-        if self.0.is_null() {
-            panic!("called `Ref::unwrap` on a null value")
-        } else {
-            unsafe { self.assume_init() }
-        }
+        self.as_ref().expect("called `Ref::unwrap` on a null value")
     }
 
-    /// Converts the argument to an [Option<T>] by cloning the reference.
+    /// Converts the argument to an [`Option<T>`] by cloning the reference.
     pub fn cloned(&self) -> Option<T> {
-        if self.0.is_null() {
-            None
-        } else {
-            unsafe { Some(self.assume_init().clone()) }
-        }
+        self.as_ref().cloned()
     }
 
-    unsafe fn assume_init(&self) -> &T {
-        transmute::<&*mut c_void, &T>(&self.0)
+    unsafe fn assume_init_ref(&self) -> &T {
+        T::assume_init_ref(&self.0)
     }
 }
 
