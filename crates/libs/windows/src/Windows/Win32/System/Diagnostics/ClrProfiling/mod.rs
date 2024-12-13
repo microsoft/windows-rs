@@ -415,7 +415,7 @@ windows_core::imp::interface_hierarchy!(ICorProfilerAssemblyReferenceProvider, w
 impl ICorProfilerAssemblyReferenceProvider {
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn AddAssemblyReference(&self, passemblyrefinfo: *const COR_PRF_ASSEMBLY_REFERENCE_INFO) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).AddAssemblyReference)(windows_core::Interface::as_raw(self), passemblyrefinfo).ok()
+        unsafe { (windows_core::Interface::vtable(self).AddAssemblyReference)(windows_core::Interface::as_raw(self), passemblyrefinfo).ok() }
     }
 }
 #[repr(C)]
@@ -434,8 +434,10 @@ pub trait ICorProfilerAssemblyReferenceProvider_Impl: windows_core::IUnknownImpl
 impl ICorProfilerAssemblyReferenceProvider_Vtbl {
     pub const fn new<Identity: ICorProfilerAssemblyReferenceProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddAssemblyReference<Identity: ICorProfilerAssemblyReferenceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, passemblyrefinfo: *const COR_PRF_ASSEMBLY_REFERENCE_INFO) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerAssemblyReferenceProvider_Impl::AddAssemblyReference(this, core::mem::transmute_copy(&passemblyrefinfo)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerAssemblyReferenceProvider_Impl::AddAssemblyReference(this, core::mem::transmute_copy(&passemblyrefinfo)).into()
+            }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AddAssemblyReference: AddAssemblyReference::<Identity, OFFSET> }
     }
@@ -452,213 +454,217 @@ impl ICorProfilerCallback {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), picorprofilerinfounk.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), picorprofilerinfounk.param().abi()).ok() }
     }
     pub unsafe fn Shutdown(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Shutdown)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Shutdown)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn AppDomainCreationStarted(&self, appdomainid: usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).AppDomainCreationStarted)(windows_core::Interface::as_raw(self), appdomainid).ok()
+        unsafe { (windows_core::Interface::vtable(self).AppDomainCreationStarted)(windows_core::Interface::as_raw(self), appdomainid).ok() }
     }
     pub unsafe fn AppDomainCreationFinished(&self, appdomainid: usize, hrstatus: windows_core::HRESULT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).AppDomainCreationFinished)(windows_core::Interface::as_raw(self), appdomainid, hrstatus).ok()
+        unsafe { (windows_core::Interface::vtable(self).AppDomainCreationFinished)(windows_core::Interface::as_raw(self), appdomainid, hrstatus).ok() }
     }
     pub unsafe fn AppDomainShutdownStarted(&self, appdomainid: usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).AppDomainShutdownStarted)(windows_core::Interface::as_raw(self), appdomainid).ok()
+        unsafe { (windows_core::Interface::vtable(self).AppDomainShutdownStarted)(windows_core::Interface::as_raw(self), appdomainid).ok() }
     }
     pub unsafe fn AppDomainShutdownFinished(&self, appdomainid: usize, hrstatus: windows_core::HRESULT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).AppDomainShutdownFinished)(windows_core::Interface::as_raw(self), appdomainid, hrstatus).ok()
+        unsafe { (windows_core::Interface::vtable(self).AppDomainShutdownFinished)(windows_core::Interface::as_raw(self), appdomainid, hrstatus).ok() }
     }
     pub unsafe fn AssemblyLoadStarted(&self, assemblyid: usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).AssemblyLoadStarted)(windows_core::Interface::as_raw(self), assemblyid).ok()
+        unsafe { (windows_core::Interface::vtable(self).AssemblyLoadStarted)(windows_core::Interface::as_raw(self), assemblyid).ok() }
     }
     pub unsafe fn AssemblyLoadFinished(&self, assemblyid: usize, hrstatus: windows_core::HRESULT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).AssemblyLoadFinished)(windows_core::Interface::as_raw(self), assemblyid, hrstatus).ok()
+        unsafe { (windows_core::Interface::vtable(self).AssemblyLoadFinished)(windows_core::Interface::as_raw(self), assemblyid, hrstatus).ok() }
     }
     pub unsafe fn AssemblyUnloadStarted(&self, assemblyid: usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).AssemblyUnloadStarted)(windows_core::Interface::as_raw(self), assemblyid).ok()
+        unsafe { (windows_core::Interface::vtable(self).AssemblyUnloadStarted)(windows_core::Interface::as_raw(self), assemblyid).ok() }
     }
     pub unsafe fn AssemblyUnloadFinished(&self, assemblyid: usize, hrstatus: windows_core::HRESULT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).AssemblyUnloadFinished)(windows_core::Interface::as_raw(self), assemblyid, hrstatus).ok()
+        unsafe { (windows_core::Interface::vtable(self).AssemblyUnloadFinished)(windows_core::Interface::as_raw(self), assemblyid, hrstatus).ok() }
     }
     pub unsafe fn ModuleLoadStarted(&self, moduleid: usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ModuleLoadStarted)(windows_core::Interface::as_raw(self), moduleid).ok()
+        unsafe { (windows_core::Interface::vtable(self).ModuleLoadStarted)(windows_core::Interface::as_raw(self), moduleid).ok() }
     }
     pub unsafe fn ModuleLoadFinished(&self, moduleid: usize, hrstatus: windows_core::HRESULT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ModuleLoadFinished)(windows_core::Interface::as_raw(self), moduleid, hrstatus).ok()
+        unsafe { (windows_core::Interface::vtable(self).ModuleLoadFinished)(windows_core::Interface::as_raw(self), moduleid, hrstatus).ok() }
     }
     pub unsafe fn ModuleUnloadStarted(&self, moduleid: usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ModuleUnloadStarted)(windows_core::Interface::as_raw(self), moduleid).ok()
+        unsafe { (windows_core::Interface::vtable(self).ModuleUnloadStarted)(windows_core::Interface::as_raw(self), moduleid).ok() }
     }
     pub unsafe fn ModuleUnloadFinished(&self, moduleid: usize, hrstatus: windows_core::HRESULT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ModuleUnloadFinished)(windows_core::Interface::as_raw(self), moduleid, hrstatus).ok()
+        unsafe { (windows_core::Interface::vtable(self).ModuleUnloadFinished)(windows_core::Interface::as_raw(self), moduleid, hrstatus).ok() }
     }
     pub unsafe fn ModuleAttachedToAssembly(&self, moduleid: usize, assemblyid: usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ModuleAttachedToAssembly)(windows_core::Interface::as_raw(self), moduleid, assemblyid).ok()
+        unsafe { (windows_core::Interface::vtable(self).ModuleAttachedToAssembly)(windows_core::Interface::as_raw(self), moduleid, assemblyid).ok() }
     }
     pub unsafe fn ClassLoadStarted(&self, classid: usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ClassLoadStarted)(windows_core::Interface::as_raw(self), classid).ok()
+        unsafe { (windows_core::Interface::vtable(self).ClassLoadStarted)(windows_core::Interface::as_raw(self), classid).ok() }
     }
     pub unsafe fn ClassLoadFinished(&self, classid: usize, hrstatus: windows_core::HRESULT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ClassLoadFinished)(windows_core::Interface::as_raw(self), classid, hrstatus).ok()
+        unsafe { (windows_core::Interface::vtable(self).ClassLoadFinished)(windows_core::Interface::as_raw(self), classid, hrstatus).ok() }
     }
     pub unsafe fn ClassUnloadStarted(&self, classid: usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ClassUnloadStarted)(windows_core::Interface::as_raw(self), classid).ok()
+        unsafe { (windows_core::Interface::vtable(self).ClassUnloadStarted)(windows_core::Interface::as_raw(self), classid).ok() }
     }
     pub unsafe fn ClassUnloadFinished(&self, classid: usize, hrstatus: windows_core::HRESULT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ClassUnloadFinished)(windows_core::Interface::as_raw(self), classid, hrstatus).ok()
+        unsafe { (windows_core::Interface::vtable(self).ClassUnloadFinished)(windows_core::Interface::as_raw(self), classid, hrstatus).ok() }
     }
     pub unsafe fn FunctionUnloadStarted(&self, functionid: usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).FunctionUnloadStarted)(windows_core::Interface::as_raw(self), functionid).ok()
+        unsafe { (windows_core::Interface::vtable(self).FunctionUnloadStarted)(windows_core::Interface::as_raw(self), functionid).ok() }
     }
     pub unsafe fn JITCompilationStarted(&self, functionid: usize, fissafetoblock: bool) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).JITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, fissafetoblock.into()).ok()
+        unsafe { (windows_core::Interface::vtable(self).JITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, fissafetoblock.into()).ok() }
     }
     pub unsafe fn JITCompilationFinished(&self, functionid: usize, hrstatus: windows_core::HRESULT, fissafetoblock: bool) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).JITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.into()).ok()
+        unsafe { (windows_core::Interface::vtable(self).JITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.into()).ok() }
     }
     pub unsafe fn JITCachedFunctionSearchStarted(&self, functionid: usize) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).JITCachedFunctionSearchStarted)(windows_core::Interface::as_raw(self), functionid, &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).JITCachedFunctionSearchStarted)(windows_core::Interface::as_raw(self), functionid, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn JITCachedFunctionSearchFinished(&self, functionid: usize, result: COR_PRF_JIT_CACHE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).JITCachedFunctionSearchFinished)(windows_core::Interface::as_raw(self), functionid, result).ok()
+        unsafe { (windows_core::Interface::vtable(self).JITCachedFunctionSearchFinished)(windows_core::Interface::as_raw(self), functionid, result).ok() }
     }
     pub unsafe fn JITFunctionPitched(&self, functionid: usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).JITFunctionPitched)(windows_core::Interface::as_raw(self), functionid).ok()
+        unsafe { (windows_core::Interface::vtable(self).JITFunctionPitched)(windows_core::Interface::as_raw(self), functionid).ok() }
     }
     pub unsafe fn JITInlining(&self, callerid: usize, calleeid: usize) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).JITInlining)(windows_core::Interface::as_raw(self), callerid, calleeid, &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).JITInlining)(windows_core::Interface::as_raw(self), callerid, calleeid, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn ThreadCreated(&self, threadid: usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ThreadCreated)(windows_core::Interface::as_raw(self), threadid).ok()
+        unsafe { (windows_core::Interface::vtable(self).ThreadCreated)(windows_core::Interface::as_raw(self), threadid).ok() }
     }
     pub unsafe fn ThreadDestroyed(&self, threadid: usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ThreadDestroyed)(windows_core::Interface::as_raw(self), threadid).ok()
+        unsafe { (windows_core::Interface::vtable(self).ThreadDestroyed)(windows_core::Interface::as_raw(self), threadid).ok() }
     }
     pub unsafe fn ThreadAssignedToOSThread(&self, managedthreadid: usize, osthreadid: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ThreadAssignedToOSThread)(windows_core::Interface::as_raw(self), managedthreadid, osthreadid).ok()
+        unsafe { (windows_core::Interface::vtable(self).ThreadAssignedToOSThread)(windows_core::Interface::as_raw(self), managedthreadid, osthreadid).ok() }
     }
     pub unsafe fn RemotingClientInvocationStarted(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemotingClientInvocationStarted)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).RemotingClientInvocationStarted)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn RemotingClientSendingMessage(&self, pcookie: *const windows_core::GUID, fisasync: bool) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemotingClientSendingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.into()).ok()
+        unsafe { (windows_core::Interface::vtable(self).RemotingClientSendingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.into()).ok() }
     }
     pub unsafe fn RemotingClientReceivingReply(&self, pcookie: *const windows_core::GUID, fisasync: bool) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemotingClientReceivingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.into()).ok()
+        unsafe { (windows_core::Interface::vtable(self).RemotingClientReceivingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.into()).ok() }
     }
     pub unsafe fn RemotingClientInvocationFinished(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemotingClientInvocationFinished)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).RemotingClientInvocationFinished)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn RemotingServerReceivingMessage(&self, pcookie: *const windows_core::GUID, fisasync: bool) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemotingServerReceivingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.into()).ok()
+        unsafe { (windows_core::Interface::vtable(self).RemotingServerReceivingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.into()).ok() }
     }
     pub unsafe fn RemotingServerInvocationStarted(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemotingServerInvocationStarted)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).RemotingServerInvocationStarted)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn RemotingServerInvocationReturned(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemotingServerInvocationReturned)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).RemotingServerInvocationReturned)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn RemotingServerSendingReply(&self, pcookie: *const windows_core::GUID, fisasync: bool) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemotingServerSendingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.into()).ok()
+        unsafe { (windows_core::Interface::vtable(self).RemotingServerSendingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.into()).ok() }
     }
     pub unsafe fn UnmanagedToManagedTransition(&self, functionid: usize, reason: COR_PRF_TRANSITION_REASON) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).UnmanagedToManagedTransition)(windows_core::Interface::as_raw(self), functionid, reason).ok()
+        unsafe { (windows_core::Interface::vtable(self).UnmanagedToManagedTransition)(windows_core::Interface::as_raw(self), functionid, reason).ok() }
     }
     pub unsafe fn ManagedToUnmanagedTransition(&self, functionid: usize, reason: COR_PRF_TRANSITION_REASON) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ManagedToUnmanagedTransition)(windows_core::Interface::as_raw(self), functionid, reason).ok()
+        unsafe { (windows_core::Interface::vtable(self).ManagedToUnmanagedTransition)(windows_core::Interface::as_raw(self), functionid, reason).ok() }
     }
     pub unsafe fn RuntimeSuspendStarted(&self, suspendreason: COR_PRF_SUSPEND_REASON) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RuntimeSuspendStarted)(windows_core::Interface::as_raw(self), suspendreason).ok()
+        unsafe { (windows_core::Interface::vtable(self).RuntimeSuspendStarted)(windows_core::Interface::as_raw(self), suspendreason).ok() }
     }
     pub unsafe fn RuntimeSuspendFinished(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RuntimeSuspendFinished)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).RuntimeSuspendFinished)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn RuntimeSuspendAborted(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RuntimeSuspendAborted)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).RuntimeSuspendAborted)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn RuntimeResumeStarted(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RuntimeResumeStarted)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).RuntimeResumeStarted)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn RuntimeResumeFinished(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RuntimeResumeFinished)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).RuntimeResumeFinished)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn RuntimeThreadSuspended(&self, threadid: usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RuntimeThreadSuspended)(windows_core::Interface::as_raw(self), threadid).ok()
+        unsafe { (windows_core::Interface::vtable(self).RuntimeThreadSuspended)(windows_core::Interface::as_raw(self), threadid).ok() }
     }
     pub unsafe fn RuntimeThreadResumed(&self, threadid: usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RuntimeThreadResumed)(windows_core::Interface::as_raw(self), threadid).ok()
+        unsafe { (windows_core::Interface::vtable(self).RuntimeThreadResumed)(windows_core::Interface::as_raw(self), threadid).ok() }
     }
     pub unsafe fn MovedReferences(&self, cmovedobjectidranges: u32, oldobjectidrangestart: *const usize, newobjectidrangestart: *const usize, cobjectidrangelength: *const u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).MovedReferences)(windows_core::Interface::as_raw(self), cmovedobjectidranges, oldobjectidrangestart, newobjectidrangestart, cobjectidrangelength).ok()
+        unsafe { (windows_core::Interface::vtable(self).MovedReferences)(windows_core::Interface::as_raw(self), cmovedobjectidranges, oldobjectidrangestart, newobjectidrangestart, cobjectidrangelength).ok() }
     }
     pub unsafe fn ObjectAllocated(&self, objectid: usize, classid: usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ObjectAllocated)(windows_core::Interface::as_raw(self), objectid, classid).ok()
+        unsafe { (windows_core::Interface::vtable(self).ObjectAllocated)(windows_core::Interface::as_raw(self), objectid, classid).ok() }
     }
     pub unsafe fn ObjectsAllocatedByClass(&self, cclasscount: u32, classids: *const usize, cobjects: *const u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ObjectsAllocatedByClass)(windows_core::Interface::as_raw(self), cclasscount, classids, cobjects).ok()
+        unsafe { (windows_core::Interface::vtable(self).ObjectsAllocatedByClass)(windows_core::Interface::as_raw(self), cclasscount, classids, cobjects).ok() }
     }
     pub unsafe fn ObjectReferences(&self, objectid: usize, classid: usize, objectrefids: &[usize]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ObjectReferences)(windows_core::Interface::as_raw(self), objectid, classid, objectrefids.len().try_into().unwrap(), core::mem::transmute(objectrefids.as_ptr())).ok()
+        unsafe { (windows_core::Interface::vtable(self).ObjectReferences)(windows_core::Interface::as_raw(self), objectid, classid, objectrefids.len().try_into().unwrap(), core::mem::transmute(objectrefids.as_ptr())).ok() }
     }
     pub unsafe fn RootReferences(&self, rootrefids: &[usize]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RootReferences)(windows_core::Interface::as_raw(self), rootrefids.len().try_into().unwrap(), core::mem::transmute(rootrefids.as_ptr())).ok()
+        unsafe { (windows_core::Interface::vtable(self).RootReferences)(windows_core::Interface::as_raw(self), rootrefids.len().try_into().unwrap(), core::mem::transmute(rootrefids.as_ptr())).ok() }
     }
     pub unsafe fn ExceptionThrown(&self, thrownobjectid: usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ExceptionThrown)(windows_core::Interface::as_raw(self), thrownobjectid).ok()
+        unsafe { (windows_core::Interface::vtable(self).ExceptionThrown)(windows_core::Interface::as_raw(self), thrownobjectid).ok() }
     }
     pub unsafe fn ExceptionSearchFunctionEnter(&self, functionid: usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ExceptionSearchFunctionEnter)(windows_core::Interface::as_raw(self), functionid).ok()
+        unsafe { (windows_core::Interface::vtable(self).ExceptionSearchFunctionEnter)(windows_core::Interface::as_raw(self), functionid).ok() }
     }
     pub unsafe fn ExceptionSearchFunctionLeave(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ExceptionSearchFunctionLeave)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).ExceptionSearchFunctionLeave)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn ExceptionSearchFilterEnter(&self, functionid: usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ExceptionSearchFilterEnter)(windows_core::Interface::as_raw(self), functionid).ok()
+        unsafe { (windows_core::Interface::vtable(self).ExceptionSearchFilterEnter)(windows_core::Interface::as_raw(self), functionid).ok() }
     }
     pub unsafe fn ExceptionSearchFilterLeave(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ExceptionSearchFilterLeave)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).ExceptionSearchFilterLeave)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn ExceptionSearchCatcherFound(&self, functionid: usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ExceptionSearchCatcherFound)(windows_core::Interface::as_raw(self), functionid).ok()
+        unsafe { (windows_core::Interface::vtable(self).ExceptionSearchCatcherFound)(windows_core::Interface::as_raw(self), functionid).ok() }
     }
     pub unsafe fn ExceptionOSHandlerEnter(&self, __unused: usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ExceptionOSHandlerEnter)(windows_core::Interface::as_raw(self), __unused).ok()
+        unsafe { (windows_core::Interface::vtable(self).ExceptionOSHandlerEnter)(windows_core::Interface::as_raw(self), __unused).ok() }
     }
     pub unsafe fn ExceptionOSHandlerLeave(&self, __unused: usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ExceptionOSHandlerLeave)(windows_core::Interface::as_raw(self), __unused).ok()
+        unsafe { (windows_core::Interface::vtable(self).ExceptionOSHandlerLeave)(windows_core::Interface::as_raw(self), __unused).ok() }
     }
     pub unsafe fn ExceptionUnwindFunctionEnter(&self, functionid: usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ExceptionUnwindFunctionEnter)(windows_core::Interface::as_raw(self), functionid).ok()
+        unsafe { (windows_core::Interface::vtable(self).ExceptionUnwindFunctionEnter)(windows_core::Interface::as_raw(self), functionid).ok() }
     }
     pub unsafe fn ExceptionUnwindFunctionLeave(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ExceptionUnwindFunctionLeave)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).ExceptionUnwindFunctionLeave)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn ExceptionUnwindFinallyEnter(&self, functionid: usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ExceptionUnwindFinallyEnter)(windows_core::Interface::as_raw(self), functionid).ok()
+        unsafe { (windows_core::Interface::vtable(self).ExceptionUnwindFinallyEnter)(windows_core::Interface::as_raw(self), functionid).ok() }
     }
     pub unsafe fn ExceptionUnwindFinallyLeave(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ExceptionUnwindFinallyLeave)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).ExceptionUnwindFinallyLeave)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn ExceptionCatcherEnter(&self, functionid: usize, objectid: usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ExceptionCatcherEnter)(windows_core::Interface::as_raw(self), functionid, objectid).ok()
+        unsafe { (windows_core::Interface::vtable(self).ExceptionCatcherEnter)(windows_core::Interface::as_raw(self), functionid, objectid).ok() }
     }
     pub unsafe fn ExceptionCatcherLeave(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ExceptionCatcherLeave)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).ExceptionCatcherLeave)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn COMClassicVTableCreated(&self, wrappedclassid: usize, implementediid: *const windows_core::GUID, pvtable: *const core::ffi::c_void, cslots: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).COMClassicVTableCreated)(windows_core::Interface::as_raw(self), wrappedclassid, implementediid, pvtable, cslots).ok()
+        unsafe { (windows_core::Interface::vtable(self).COMClassicVTableCreated)(windows_core::Interface::as_raw(self), wrappedclassid, implementediid, pvtable, cslots).ok() }
     }
     pub unsafe fn COMClassicVTableDestroyed(&self, wrappedclassid: usize, implementediid: *const windows_core::GUID, pvtable: *const core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).COMClassicVTableDestroyed)(windows_core::Interface::as_raw(self), wrappedclassid, implementediid, pvtable).ok()
+        unsafe { (windows_core::Interface::vtable(self).COMClassicVTableDestroyed)(windows_core::Interface::as_raw(self), wrappedclassid, implementediid, pvtable).ok() }
     }
     pub unsafe fn ExceptionCLRCatcherFound(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ExceptionCLRCatcherFound)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).ExceptionCLRCatcherFound)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn ExceptionCLRCatcherExecute(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ExceptionCLRCatcherExecute)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).ExceptionCLRCatcherExecute)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
 #[repr(C)]
@@ -808,292 +814,430 @@ pub trait ICorProfilerCallback_Impl: windows_core::IUnknownImpl {
 impl ICorProfilerCallback_Vtbl {
     pub const fn new<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, picorprofilerinfounk: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::Initialize(this, core::mem::transmute_copy(&picorprofilerinfounk)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::Initialize(this, core::mem::transmute_copy(&picorprofilerinfounk)).into()
+            }
         }
         unsafe extern "system" fn Shutdown<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::Shutdown(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::Shutdown(this).into()
+            }
         }
         unsafe extern "system" fn AppDomainCreationStarted<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, appdomainid: usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::AppDomainCreationStarted(this, core::mem::transmute_copy(&appdomainid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::AppDomainCreationStarted(this, core::mem::transmute_copy(&appdomainid)).into()
+            }
         }
         unsafe extern "system" fn AppDomainCreationFinished<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, appdomainid: usize, hrstatus: windows_core::HRESULT) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::AppDomainCreationFinished(this, core::mem::transmute_copy(&appdomainid), core::mem::transmute_copy(&hrstatus)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::AppDomainCreationFinished(this, core::mem::transmute_copy(&appdomainid), core::mem::transmute_copy(&hrstatus)).into()
+            }
         }
         unsafe extern "system" fn AppDomainShutdownStarted<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, appdomainid: usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::AppDomainShutdownStarted(this, core::mem::transmute_copy(&appdomainid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::AppDomainShutdownStarted(this, core::mem::transmute_copy(&appdomainid)).into()
+            }
         }
         unsafe extern "system" fn AppDomainShutdownFinished<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, appdomainid: usize, hrstatus: windows_core::HRESULT) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::AppDomainShutdownFinished(this, core::mem::transmute_copy(&appdomainid), core::mem::transmute_copy(&hrstatus)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::AppDomainShutdownFinished(this, core::mem::transmute_copy(&appdomainid), core::mem::transmute_copy(&hrstatus)).into()
+            }
         }
         unsafe extern "system" fn AssemblyLoadStarted<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, assemblyid: usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::AssemblyLoadStarted(this, core::mem::transmute_copy(&assemblyid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::AssemblyLoadStarted(this, core::mem::transmute_copy(&assemblyid)).into()
+            }
         }
         unsafe extern "system" fn AssemblyLoadFinished<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, assemblyid: usize, hrstatus: windows_core::HRESULT) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::AssemblyLoadFinished(this, core::mem::transmute_copy(&assemblyid), core::mem::transmute_copy(&hrstatus)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::AssemblyLoadFinished(this, core::mem::transmute_copy(&assemblyid), core::mem::transmute_copy(&hrstatus)).into()
+            }
         }
         unsafe extern "system" fn AssemblyUnloadStarted<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, assemblyid: usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::AssemblyUnloadStarted(this, core::mem::transmute_copy(&assemblyid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::AssemblyUnloadStarted(this, core::mem::transmute_copy(&assemblyid)).into()
+            }
         }
         unsafe extern "system" fn AssemblyUnloadFinished<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, assemblyid: usize, hrstatus: windows_core::HRESULT) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::AssemblyUnloadFinished(this, core::mem::transmute_copy(&assemblyid), core::mem::transmute_copy(&hrstatus)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::AssemblyUnloadFinished(this, core::mem::transmute_copy(&assemblyid), core::mem::transmute_copy(&hrstatus)).into()
+            }
         }
         unsafe extern "system" fn ModuleLoadStarted<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleid: usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::ModuleLoadStarted(this, core::mem::transmute_copy(&moduleid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::ModuleLoadStarted(this, core::mem::transmute_copy(&moduleid)).into()
+            }
         }
         unsafe extern "system" fn ModuleLoadFinished<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleid: usize, hrstatus: windows_core::HRESULT) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::ModuleLoadFinished(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&hrstatus)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::ModuleLoadFinished(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&hrstatus)).into()
+            }
         }
         unsafe extern "system" fn ModuleUnloadStarted<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleid: usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::ModuleUnloadStarted(this, core::mem::transmute_copy(&moduleid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::ModuleUnloadStarted(this, core::mem::transmute_copy(&moduleid)).into()
+            }
         }
         unsafe extern "system" fn ModuleUnloadFinished<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleid: usize, hrstatus: windows_core::HRESULT) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::ModuleUnloadFinished(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&hrstatus)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::ModuleUnloadFinished(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&hrstatus)).into()
+            }
         }
         unsafe extern "system" fn ModuleAttachedToAssembly<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleid: usize, assemblyid: usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::ModuleAttachedToAssembly(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&assemblyid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::ModuleAttachedToAssembly(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&assemblyid)).into()
+            }
         }
         unsafe extern "system" fn ClassLoadStarted<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, classid: usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::ClassLoadStarted(this, core::mem::transmute_copy(&classid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::ClassLoadStarted(this, core::mem::transmute_copy(&classid)).into()
+            }
         }
         unsafe extern "system" fn ClassLoadFinished<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, classid: usize, hrstatus: windows_core::HRESULT) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::ClassLoadFinished(this, core::mem::transmute_copy(&classid), core::mem::transmute_copy(&hrstatus)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::ClassLoadFinished(this, core::mem::transmute_copy(&classid), core::mem::transmute_copy(&hrstatus)).into()
+            }
         }
         unsafe extern "system" fn ClassUnloadStarted<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, classid: usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::ClassUnloadStarted(this, core::mem::transmute_copy(&classid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::ClassUnloadStarted(this, core::mem::transmute_copy(&classid)).into()
+            }
         }
         unsafe extern "system" fn ClassUnloadFinished<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, classid: usize, hrstatus: windows_core::HRESULT) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::ClassUnloadFinished(this, core::mem::transmute_copy(&classid), core::mem::transmute_copy(&hrstatus)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::ClassUnloadFinished(this, core::mem::transmute_copy(&classid), core::mem::transmute_copy(&hrstatus)).into()
+            }
         }
         unsafe extern "system" fn FunctionUnloadStarted<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::FunctionUnloadStarted(this, core::mem::transmute_copy(&functionid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::FunctionUnloadStarted(this, core::mem::transmute_copy(&functionid)).into()
+            }
         }
         unsafe extern "system" fn JITCompilationStarted<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize, fissafetoblock: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::JITCompilationStarted(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&fissafetoblock)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::JITCompilationStarted(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&fissafetoblock)).into()
+            }
         }
         unsafe extern "system" fn JITCompilationFinished<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize, hrstatus: windows_core::HRESULT, fissafetoblock: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::JITCompilationFinished(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&hrstatus), core::mem::transmute_copy(&fissafetoblock)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::JITCompilationFinished(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&hrstatus), core::mem::transmute_copy(&fissafetoblock)).into()
+            }
         }
         unsafe extern "system" fn JITCachedFunctionSearchStarted<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize, pbusecachedfunction: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerCallback_Impl::JITCachedFunctionSearchStarted(this, core::mem::transmute_copy(&functionid)) {
-                Ok(ok__) => {
-                    pbusecachedfunction.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerCallback_Impl::JITCachedFunctionSearchStarted(this, core::mem::transmute_copy(&functionid)) {
+                    Ok(ok__) => {
+                        pbusecachedfunction.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn JITCachedFunctionSearchFinished<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize, result: COR_PRF_JIT_CACHE) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::JITCachedFunctionSearchFinished(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&result)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::JITCachedFunctionSearchFinished(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&result)).into()
+            }
         }
         unsafe extern "system" fn JITFunctionPitched<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::JITFunctionPitched(this, core::mem::transmute_copy(&functionid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::JITFunctionPitched(this, core::mem::transmute_copy(&functionid)).into()
+            }
         }
         unsafe extern "system" fn JITInlining<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, callerid: usize, calleeid: usize, pfshouldinline: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerCallback_Impl::JITInlining(this, core::mem::transmute_copy(&callerid), core::mem::transmute_copy(&calleeid)) {
-                Ok(ok__) => {
-                    pfshouldinline.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerCallback_Impl::JITInlining(this, core::mem::transmute_copy(&callerid), core::mem::transmute_copy(&calleeid)) {
+                    Ok(ok__) => {
+                        pfshouldinline.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn ThreadCreated<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, threadid: usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::ThreadCreated(this, core::mem::transmute_copy(&threadid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::ThreadCreated(this, core::mem::transmute_copy(&threadid)).into()
+            }
         }
         unsafe extern "system" fn ThreadDestroyed<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, threadid: usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::ThreadDestroyed(this, core::mem::transmute_copy(&threadid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::ThreadDestroyed(this, core::mem::transmute_copy(&threadid)).into()
+            }
         }
         unsafe extern "system" fn ThreadAssignedToOSThread<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, managedthreadid: usize, osthreadid: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::ThreadAssignedToOSThread(this, core::mem::transmute_copy(&managedthreadid), core::mem::transmute_copy(&osthreadid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::ThreadAssignedToOSThread(this, core::mem::transmute_copy(&managedthreadid), core::mem::transmute_copy(&osthreadid)).into()
+            }
         }
         unsafe extern "system" fn RemotingClientInvocationStarted<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::RemotingClientInvocationStarted(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::RemotingClientInvocationStarted(this).into()
+            }
         }
         unsafe extern "system" fn RemotingClientSendingMessage<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcookie: *const windows_core::GUID, fisasync: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::RemotingClientSendingMessage(this, core::mem::transmute_copy(&pcookie), core::mem::transmute_copy(&fisasync)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::RemotingClientSendingMessage(this, core::mem::transmute_copy(&pcookie), core::mem::transmute_copy(&fisasync)).into()
+            }
         }
         unsafe extern "system" fn RemotingClientReceivingReply<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcookie: *const windows_core::GUID, fisasync: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::RemotingClientReceivingReply(this, core::mem::transmute_copy(&pcookie), core::mem::transmute_copy(&fisasync)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::RemotingClientReceivingReply(this, core::mem::transmute_copy(&pcookie), core::mem::transmute_copy(&fisasync)).into()
+            }
         }
         unsafe extern "system" fn RemotingClientInvocationFinished<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::RemotingClientInvocationFinished(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::RemotingClientInvocationFinished(this).into()
+            }
         }
         unsafe extern "system" fn RemotingServerReceivingMessage<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcookie: *const windows_core::GUID, fisasync: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::RemotingServerReceivingMessage(this, core::mem::transmute_copy(&pcookie), core::mem::transmute_copy(&fisasync)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::RemotingServerReceivingMessage(this, core::mem::transmute_copy(&pcookie), core::mem::transmute_copy(&fisasync)).into()
+            }
         }
         unsafe extern "system" fn RemotingServerInvocationStarted<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::RemotingServerInvocationStarted(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::RemotingServerInvocationStarted(this).into()
+            }
         }
         unsafe extern "system" fn RemotingServerInvocationReturned<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::RemotingServerInvocationReturned(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::RemotingServerInvocationReturned(this).into()
+            }
         }
         unsafe extern "system" fn RemotingServerSendingReply<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcookie: *const windows_core::GUID, fisasync: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::RemotingServerSendingReply(this, core::mem::transmute_copy(&pcookie), core::mem::transmute_copy(&fisasync)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::RemotingServerSendingReply(this, core::mem::transmute_copy(&pcookie), core::mem::transmute_copy(&fisasync)).into()
+            }
         }
         unsafe extern "system" fn UnmanagedToManagedTransition<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize, reason: COR_PRF_TRANSITION_REASON) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::UnmanagedToManagedTransition(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&reason)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::UnmanagedToManagedTransition(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&reason)).into()
+            }
         }
         unsafe extern "system" fn ManagedToUnmanagedTransition<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize, reason: COR_PRF_TRANSITION_REASON) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::ManagedToUnmanagedTransition(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&reason)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::ManagedToUnmanagedTransition(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&reason)).into()
+            }
         }
         unsafe extern "system" fn RuntimeSuspendStarted<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, suspendreason: COR_PRF_SUSPEND_REASON) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::RuntimeSuspendStarted(this, core::mem::transmute_copy(&suspendreason)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::RuntimeSuspendStarted(this, core::mem::transmute_copy(&suspendreason)).into()
+            }
         }
         unsafe extern "system" fn RuntimeSuspendFinished<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::RuntimeSuspendFinished(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::RuntimeSuspendFinished(this).into()
+            }
         }
         unsafe extern "system" fn RuntimeSuspendAborted<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::RuntimeSuspendAborted(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::RuntimeSuspendAborted(this).into()
+            }
         }
         unsafe extern "system" fn RuntimeResumeStarted<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::RuntimeResumeStarted(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::RuntimeResumeStarted(this).into()
+            }
         }
         unsafe extern "system" fn RuntimeResumeFinished<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::RuntimeResumeFinished(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::RuntimeResumeFinished(this).into()
+            }
         }
         unsafe extern "system" fn RuntimeThreadSuspended<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, threadid: usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::RuntimeThreadSuspended(this, core::mem::transmute_copy(&threadid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::RuntimeThreadSuspended(this, core::mem::transmute_copy(&threadid)).into()
+            }
         }
         unsafe extern "system" fn RuntimeThreadResumed<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, threadid: usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::RuntimeThreadResumed(this, core::mem::transmute_copy(&threadid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::RuntimeThreadResumed(this, core::mem::transmute_copy(&threadid)).into()
+            }
         }
         unsafe extern "system" fn MovedReferences<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cmovedobjectidranges: u32, oldobjectidrangestart: *const usize, newobjectidrangestart: *const usize, cobjectidrangelength: *const u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::MovedReferences(this, core::mem::transmute_copy(&cmovedobjectidranges), core::mem::transmute_copy(&oldobjectidrangestart), core::mem::transmute_copy(&newobjectidrangestart), core::mem::transmute_copy(&cobjectidrangelength)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::MovedReferences(this, core::mem::transmute_copy(&cmovedobjectidranges), core::mem::transmute_copy(&oldobjectidrangestart), core::mem::transmute_copy(&newobjectidrangestart), core::mem::transmute_copy(&cobjectidrangelength)).into()
+            }
         }
         unsafe extern "system" fn ObjectAllocated<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objectid: usize, classid: usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::ObjectAllocated(this, core::mem::transmute_copy(&objectid), core::mem::transmute_copy(&classid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::ObjectAllocated(this, core::mem::transmute_copy(&objectid), core::mem::transmute_copy(&classid)).into()
+            }
         }
         unsafe extern "system" fn ObjectsAllocatedByClass<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cclasscount: u32, classids: *const usize, cobjects: *const u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::ObjectsAllocatedByClass(this, core::mem::transmute_copy(&cclasscount), core::mem::transmute_copy(&classids), core::mem::transmute_copy(&cobjects)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::ObjectsAllocatedByClass(this, core::mem::transmute_copy(&cclasscount), core::mem::transmute_copy(&classids), core::mem::transmute_copy(&cobjects)).into()
+            }
         }
         unsafe extern "system" fn ObjectReferences<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objectid: usize, classid: usize, cobjectrefs: u32, objectrefids: *const usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::ObjectReferences(this, core::mem::transmute_copy(&objectid), core::mem::transmute_copy(&classid), core::mem::transmute_copy(&cobjectrefs), core::mem::transmute_copy(&objectrefids)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::ObjectReferences(this, core::mem::transmute_copy(&objectid), core::mem::transmute_copy(&classid), core::mem::transmute_copy(&cobjectrefs), core::mem::transmute_copy(&objectrefids)).into()
+            }
         }
         unsafe extern "system" fn RootReferences<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, crootrefs: u32, rootrefids: *const usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::RootReferences(this, core::mem::transmute_copy(&crootrefs), core::mem::transmute_copy(&rootrefids)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::RootReferences(this, core::mem::transmute_copy(&crootrefs), core::mem::transmute_copy(&rootrefids)).into()
+            }
         }
         unsafe extern "system" fn ExceptionThrown<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, thrownobjectid: usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::ExceptionThrown(this, core::mem::transmute_copy(&thrownobjectid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::ExceptionThrown(this, core::mem::transmute_copy(&thrownobjectid)).into()
+            }
         }
         unsafe extern "system" fn ExceptionSearchFunctionEnter<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::ExceptionSearchFunctionEnter(this, core::mem::transmute_copy(&functionid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::ExceptionSearchFunctionEnter(this, core::mem::transmute_copy(&functionid)).into()
+            }
         }
         unsafe extern "system" fn ExceptionSearchFunctionLeave<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::ExceptionSearchFunctionLeave(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::ExceptionSearchFunctionLeave(this).into()
+            }
         }
         unsafe extern "system" fn ExceptionSearchFilterEnter<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::ExceptionSearchFilterEnter(this, core::mem::transmute_copy(&functionid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::ExceptionSearchFilterEnter(this, core::mem::transmute_copy(&functionid)).into()
+            }
         }
         unsafe extern "system" fn ExceptionSearchFilterLeave<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::ExceptionSearchFilterLeave(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::ExceptionSearchFilterLeave(this).into()
+            }
         }
         unsafe extern "system" fn ExceptionSearchCatcherFound<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::ExceptionSearchCatcherFound(this, core::mem::transmute_copy(&functionid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::ExceptionSearchCatcherFound(this, core::mem::transmute_copy(&functionid)).into()
+            }
         }
         unsafe extern "system" fn ExceptionOSHandlerEnter<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, __unused: usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::ExceptionOSHandlerEnter(this, core::mem::transmute_copy(&__unused)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::ExceptionOSHandlerEnter(this, core::mem::transmute_copy(&__unused)).into()
+            }
         }
         unsafe extern "system" fn ExceptionOSHandlerLeave<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, __unused: usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::ExceptionOSHandlerLeave(this, core::mem::transmute_copy(&__unused)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::ExceptionOSHandlerLeave(this, core::mem::transmute_copy(&__unused)).into()
+            }
         }
         unsafe extern "system" fn ExceptionUnwindFunctionEnter<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::ExceptionUnwindFunctionEnter(this, core::mem::transmute_copy(&functionid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::ExceptionUnwindFunctionEnter(this, core::mem::transmute_copy(&functionid)).into()
+            }
         }
         unsafe extern "system" fn ExceptionUnwindFunctionLeave<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::ExceptionUnwindFunctionLeave(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::ExceptionUnwindFunctionLeave(this).into()
+            }
         }
         unsafe extern "system" fn ExceptionUnwindFinallyEnter<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::ExceptionUnwindFinallyEnter(this, core::mem::transmute_copy(&functionid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::ExceptionUnwindFinallyEnter(this, core::mem::transmute_copy(&functionid)).into()
+            }
         }
         unsafe extern "system" fn ExceptionUnwindFinallyLeave<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::ExceptionUnwindFinallyLeave(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::ExceptionUnwindFinallyLeave(this).into()
+            }
         }
         unsafe extern "system" fn ExceptionCatcherEnter<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize, objectid: usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::ExceptionCatcherEnter(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&objectid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::ExceptionCatcherEnter(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&objectid)).into()
+            }
         }
         unsafe extern "system" fn ExceptionCatcherLeave<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::ExceptionCatcherLeave(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::ExceptionCatcherLeave(this).into()
+            }
         }
         unsafe extern "system" fn COMClassicVTableCreated<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wrappedclassid: usize, implementediid: *const windows_core::GUID, pvtable: *const core::ffi::c_void, cslots: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::COMClassicVTableCreated(this, core::mem::transmute_copy(&wrappedclassid), core::mem::transmute_copy(&implementediid), core::mem::transmute_copy(&pvtable), core::mem::transmute_copy(&cslots)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::COMClassicVTableCreated(this, core::mem::transmute_copy(&wrappedclassid), core::mem::transmute_copy(&implementediid), core::mem::transmute_copy(&pvtable), core::mem::transmute_copy(&cslots)).into()
+            }
         }
         unsafe extern "system" fn COMClassicVTableDestroyed<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wrappedclassid: usize, implementediid: *const windows_core::GUID, pvtable: *const core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::COMClassicVTableDestroyed(this, core::mem::transmute_copy(&wrappedclassid), core::mem::transmute_copy(&implementediid), core::mem::transmute_copy(&pvtable)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::COMClassicVTableDestroyed(this, core::mem::transmute_copy(&wrappedclassid), core::mem::transmute_copy(&implementediid), core::mem::transmute_copy(&pvtable)).into()
+            }
         }
         unsafe extern "system" fn ExceptionCLRCatcherFound<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::ExceptionCLRCatcherFound(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::ExceptionCLRCatcherFound(this).into()
+            }
         }
         unsafe extern "system" fn ExceptionCLRCatcherExecute<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback_Impl::ExceptionCLRCatcherExecute(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback_Impl::ExceptionCLRCatcherExecute(this).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -1183,10 +1327,10 @@ impl core::ops::Deref for ICorProfilerCallback10 {
 windows_core::imp::interface_hierarchy!(ICorProfilerCallback10, windows_core::IUnknown, ICorProfilerCallback, ICorProfilerCallback2, ICorProfilerCallback3, ICorProfilerCallback4, ICorProfilerCallback5, ICorProfilerCallback6, ICorProfilerCallback7, ICorProfilerCallback8, ICorProfilerCallback9);
 impl ICorProfilerCallback10 {
     pub unsafe fn EventPipeEventDelivered(&self, provider: usize, eventid: u32, eventversion: u32, metadatablob: &[u8], eventdata: &[u8], pactivityid: *const windows_core::GUID, prelatedactivityid: *const windows_core::GUID, eventthread: usize, numstackframes: u32, stackframes: *const usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).EventPipeEventDelivered)(windows_core::Interface::as_raw(self), provider, eventid, eventversion, metadatablob.len().try_into().unwrap(), core::mem::transmute(metadatablob.as_ptr()), eventdata.len().try_into().unwrap(), core::mem::transmute(eventdata.as_ptr()), pactivityid, prelatedactivityid, eventthread, numstackframes, stackframes).ok()
+        unsafe { (windows_core::Interface::vtable(self).EventPipeEventDelivered)(windows_core::Interface::as_raw(self), provider, eventid, eventversion, metadatablob.len().try_into().unwrap(), core::mem::transmute(metadatablob.as_ptr()), eventdata.len().try_into().unwrap(), core::mem::transmute(eventdata.as_ptr()), pactivityid, prelatedactivityid, eventthread, numstackframes, stackframes).ok() }
     }
     pub unsafe fn EventPipeProviderCreated(&self, provider: usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).EventPipeProviderCreated)(windows_core::Interface::as_raw(self), provider).ok()
+        unsafe { (windows_core::Interface::vtable(self).EventPipeProviderCreated)(windows_core::Interface::as_raw(self), provider).ok() }
     }
 }
 #[repr(C)]
@@ -1202,27 +1346,31 @@ pub trait ICorProfilerCallback10_Impl: ICorProfilerCallback9_Impl {
 impl ICorProfilerCallback10_Vtbl {
     pub const fn new<Identity: ICorProfilerCallback10_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn EventPipeEventDelivered<Identity: ICorProfilerCallback10_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, provider: usize, eventid: u32, eventversion: u32, cbmetadatablob: u32, metadatablob: *const u8, cbeventdata: u32, eventdata: *const u8, pactivityid: *const windows_core::GUID, prelatedactivityid: *const windows_core::GUID, eventthread: usize, numstackframes: u32, stackframes: *const usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback10_Impl::EventPipeEventDelivered(
-                this,
-                core::mem::transmute_copy(&provider),
-                core::mem::transmute_copy(&eventid),
-                core::mem::transmute_copy(&eventversion),
-                core::mem::transmute_copy(&cbmetadatablob),
-                core::mem::transmute_copy(&metadatablob),
-                core::mem::transmute_copy(&cbeventdata),
-                core::mem::transmute_copy(&eventdata),
-                core::mem::transmute_copy(&pactivityid),
-                core::mem::transmute_copy(&prelatedactivityid),
-                core::mem::transmute_copy(&eventthread),
-                core::mem::transmute_copy(&numstackframes),
-                core::mem::transmute_copy(&stackframes),
-            )
-            .into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback10_Impl::EventPipeEventDelivered(
+                    this,
+                    core::mem::transmute_copy(&provider),
+                    core::mem::transmute_copy(&eventid),
+                    core::mem::transmute_copy(&eventversion),
+                    core::mem::transmute_copy(&cbmetadatablob),
+                    core::mem::transmute_copy(&metadatablob),
+                    core::mem::transmute_copy(&cbeventdata),
+                    core::mem::transmute_copy(&eventdata),
+                    core::mem::transmute_copy(&pactivityid),
+                    core::mem::transmute_copy(&prelatedactivityid),
+                    core::mem::transmute_copy(&eventthread),
+                    core::mem::transmute_copy(&numstackframes),
+                    core::mem::transmute_copy(&stackframes),
+                )
+                .into()
+            }
         }
         unsafe extern "system" fn EventPipeProviderCreated<Identity: ICorProfilerCallback10_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, provider: usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback10_Impl::EventPipeProviderCreated(this, core::mem::transmute_copy(&provider)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback10_Impl::EventPipeProviderCreated(this, core::mem::transmute_copy(&provider)).into()
+            }
         }
         Self {
             base__: ICorProfilerCallback9_Vtbl::new::<Identity, OFFSET>(),
@@ -1245,7 +1393,7 @@ impl core::ops::Deref for ICorProfilerCallback11 {
 windows_core::imp::interface_hierarchy!(ICorProfilerCallback11, windows_core::IUnknown, ICorProfilerCallback, ICorProfilerCallback2, ICorProfilerCallback3, ICorProfilerCallback4, ICorProfilerCallback5, ICorProfilerCallback6, ICorProfilerCallback7, ICorProfilerCallback8, ICorProfilerCallback9, ICorProfilerCallback10);
 impl ICorProfilerCallback11 {
     pub unsafe fn LoadAsNotificationOnly(&self, pbnotificationonly: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).LoadAsNotificationOnly)(windows_core::Interface::as_raw(self), core::mem::transmute(pbnotificationonly)).ok()
+        unsafe { (windows_core::Interface::vtable(self).LoadAsNotificationOnly)(windows_core::Interface::as_raw(self), core::mem::transmute(pbnotificationonly)).ok() }
     }
 }
 #[repr(C)]
@@ -1259,8 +1407,10 @@ pub trait ICorProfilerCallback11_Impl: ICorProfilerCallback10_Impl {
 impl ICorProfilerCallback11_Vtbl {
     pub const fn new<Identity: ICorProfilerCallback11_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn LoadAsNotificationOnly<Identity: ICorProfilerCallback11_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbnotificationonly: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback11_Impl::LoadAsNotificationOnly(this, core::mem::transmute_copy(&pbnotificationonly)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback11_Impl::LoadAsNotificationOnly(this, core::mem::transmute_copy(&pbnotificationonly)).into()
+            }
         }
         Self { base__: ICorProfilerCallback10_Vtbl::new::<Identity, OFFSET>(), LoadAsNotificationOnly: LoadAsNotificationOnly::<Identity, OFFSET> }
     }
@@ -1279,28 +1429,28 @@ impl core::ops::Deref for ICorProfilerCallback2 {
 windows_core::imp::interface_hierarchy!(ICorProfilerCallback2, windows_core::IUnknown, ICorProfilerCallback);
 impl ICorProfilerCallback2 {
     pub unsafe fn ThreadNameChanged(&self, threadid: usize, name: Option<&[u16]>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ThreadNameChanged)(windows_core::Interface::as_raw(self), threadid, name.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(name.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok()
+        unsafe { (windows_core::Interface::vtable(self).ThreadNameChanged)(windows_core::Interface::as_raw(self), threadid, name.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(name.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
     }
     pub unsafe fn GarbageCollectionStarted(&self, generationcollected: &[super::super::super::Foundation::BOOL], reason: COR_PRF_GC_REASON) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GarbageCollectionStarted)(windows_core::Interface::as_raw(self), generationcollected.len().try_into().unwrap(), core::mem::transmute(generationcollected.as_ptr()), reason).ok()
+        unsafe { (windows_core::Interface::vtable(self).GarbageCollectionStarted)(windows_core::Interface::as_raw(self), generationcollected.len().try_into().unwrap(), core::mem::transmute(generationcollected.as_ptr()), reason).ok() }
     }
     pub unsafe fn SurvivingReferences(&self, csurvivingobjectidranges: u32, objectidrangestart: *const usize, cobjectidrangelength: *const u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SurvivingReferences)(windows_core::Interface::as_raw(self), csurvivingobjectidranges, objectidrangestart, cobjectidrangelength).ok()
+        unsafe { (windows_core::Interface::vtable(self).SurvivingReferences)(windows_core::Interface::as_raw(self), csurvivingobjectidranges, objectidrangestart, cobjectidrangelength).ok() }
     }
     pub unsafe fn GarbageCollectionFinished(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GarbageCollectionFinished)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GarbageCollectionFinished)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn FinalizeableObjectQueued(&self, finalizerflags: u32, objectid: usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).FinalizeableObjectQueued)(windows_core::Interface::as_raw(self), finalizerflags, objectid).ok()
+        unsafe { (windows_core::Interface::vtable(self).FinalizeableObjectQueued)(windows_core::Interface::as_raw(self), finalizerflags, objectid).ok() }
     }
     pub unsafe fn RootReferences2(&self, crootrefs: u32, rootrefids: *const usize, rootkinds: *const COR_PRF_GC_ROOT_KIND, rootflags: *const COR_PRF_GC_ROOT_FLAGS, rootids: *const usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RootReferences2)(windows_core::Interface::as_raw(self), crootrefs, rootrefids, rootkinds, rootflags, rootids).ok()
+        unsafe { (windows_core::Interface::vtable(self).RootReferences2)(windows_core::Interface::as_raw(self), crootrefs, rootrefids, rootkinds, rootflags, rootids).ok() }
     }
     pub unsafe fn HandleCreated(&self, handleid: usize, initialobjectid: usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).HandleCreated)(windows_core::Interface::as_raw(self), handleid, initialobjectid).ok()
+        unsafe { (windows_core::Interface::vtable(self).HandleCreated)(windows_core::Interface::as_raw(self), handleid, initialobjectid).ok() }
     }
     pub unsafe fn HandleDestroyed(&self, handleid: usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).HandleDestroyed)(windows_core::Interface::as_raw(self), handleid).ok()
+        unsafe { (windows_core::Interface::vtable(self).HandleDestroyed)(windows_core::Interface::as_raw(self), handleid).ok() }
     }
 }
 #[repr(C)]
@@ -1328,36 +1478,52 @@ pub trait ICorProfilerCallback2_Impl: ICorProfilerCallback_Impl {
 impl ICorProfilerCallback2_Vtbl {
     pub const fn new<Identity: ICorProfilerCallback2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ThreadNameChanged<Identity: ICorProfilerCallback2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, threadid: usize, cchname: u32, name: windows_core::PCWSTR) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback2_Impl::ThreadNameChanged(this, core::mem::transmute_copy(&threadid), core::mem::transmute_copy(&cchname), core::mem::transmute(&name)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback2_Impl::ThreadNameChanged(this, core::mem::transmute_copy(&threadid), core::mem::transmute_copy(&cchname), core::mem::transmute(&name)).into()
+            }
         }
         unsafe extern "system" fn GarbageCollectionStarted<Identity: ICorProfilerCallback2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cgenerations: i32, generationcollected: *const super::super::super::Foundation::BOOL, reason: COR_PRF_GC_REASON) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback2_Impl::GarbageCollectionStarted(this, core::mem::transmute_copy(&cgenerations), core::mem::transmute_copy(&generationcollected), core::mem::transmute_copy(&reason)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback2_Impl::GarbageCollectionStarted(this, core::mem::transmute_copy(&cgenerations), core::mem::transmute_copy(&generationcollected), core::mem::transmute_copy(&reason)).into()
+            }
         }
         unsafe extern "system" fn SurvivingReferences<Identity: ICorProfilerCallback2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, csurvivingobjectidranges: u32, objectidrangestart: *const usize, cobjectidrangelength: *const u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback2_Impl::SurvivingReferences(this, core::mem::transmute_copy(&csurvivingobjectidranges), core::mem::transmute_copy(&objectidrangestart), core::mem::transmute_copy(&cobjectidrangelength)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback2_Impl::SurvivingReferences(this, core::mem::transmute_copy(&csurvivingobjectidranges), core::mem::transmute_copy(&objectidrangestart), core::mem::transmute_copy(&cobjectidrangelength)).into()
+            }
         }
         unsafe extern "system" fn GarbageCollectionFinished<Identity: ICorProfilerCallback2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback2_Impl::GarbageCollectionFinished(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback2_Impl::GarbageCollectionFinished(this).into()
+            }
         }
         unsafe extern "system" fn FinalizeableObjectQueued<Identity: ICorProfilerCallback2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, finalizerflags: u32, objectid: usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback2_Impl::FinalizeableObjectQueued(this, core::mem::transmute_copy(&finalizerflags), core::mem::transmute_copy(&objectid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback2_Impl::FinalizeableObjectQueued(this, core::mem::transmute_copy(&finalizerflags), core::mem::transmute_copy(&objectid)).into()
+            }
         }
         unsafe extern "system" fn RootReferences2<Identity: ICorProfilerCallback2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, crootrefs: u32, rootrefids: *const usize, rootkinds: *const COR_PRF_GC_ROOT_KIND, rootflags: *const COR_PRF_GC_ROOT_FLAGS, rootids: *const usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback2_Impl::RootReferences2(this, core::mem::transmute_copy(&crootrefs), core::mem::transmute_copy(&rootrefids), core::mem::transmute_copy(&rootkinds), core::mem::transmute_copy(&rootflags), core::mem::transmute_copy(&rootids)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback2_Impl::RootReferences2(this, core::mem::transmute_copy(&crootrefs), core::mem::transmute_copy(&rootrefids), core::mem::transmute_copy(&rootkinds), core::mem::transmute_copy(&rootflags), core::mem::transmute_copy(&rootids)).into()
+            }
         }
         unsafe extern "system" fn HandleCreated<Identity: ICorProfilerCallback2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handleid: usize, initialobjectid: usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback2_Impl::HandleCreated(this, core::mem::transmute_copy(&handleid), core::mem::transmute_copy(&initialobjectid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback2_Impl::HandleCreated(this, core::mem::transmute_copy(&handleid), core::mem::transmute_copy(&initialobjectid)).into()
+            }
         }
         unsafe extern "system" fn HandleDestroyed<Identity: ICorProfilerCallback2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handleid: usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback2_Impl::HandleDestroyed(this, core::mem::transmute_copy(&handleid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback2_Impl::HandleDestroyed(this, core::mem::transmute_copy(&handleid)).into()
+            }
         }
         Self {
             base__: ICorProfilerCallback_Vtbl::new::<Identity, OFFSET>(),
@@ -1389,13 +1555,13 @@ impl ICorProfilerCallback3 {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).InitializeForAttach)(windows_core::Interface::as_raw(self), pcorprofilerinfounk.param().abi(), pvclientdata, cbclientdata).ok()
+        unsafe { (windows_core::Interface::vtable(self).InitializeForAttach)(windows_core::Interface::as_raw(self), pcorprofilerinfounk.param().abi(), pvclientdata, cbclientdata).ok() }
     }
     pub unsafe fn ProfilerAttachComplete(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ProfilerAttachComplete)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).ProfilerAttachComplete)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn ProfilerDetachSucceeded(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ProfilerDetachSucceeded)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).ProfilerDetachSucceeded)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
 #[repr(C)]
@@ -1413,16 +1579,22 @@ pub trait ICorProfilerCallback3_Impl: ICorProfilerCallback2_Impl {
 impl ICorProfilerCallback3_Vtbl {
     pub const fn new<Identity: ICorProfilerCallback3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitializeForAttach<Identity: ICorProfilerCallback3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcorprofilerinfounk: *mut core::ffi::c_void, pvclientdata: *const core::ffi::c_void, cbclientdata: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback3_Impl::InitializeForAttach(this, core::mem::transmute_copy(&pcorprofilerinfounk), core::mem::transmute_copy(&pvclientdata), core::mem::transmute_copy(&cbclientdata)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback3_Impl::InitializeForAttach(this, core::mem::transmute_copy(&pcorprofilerinfounk), core::mem::transmute_copy(&pvclientdata), core::mem::transmute_copy(&cbclientdata)).into()
+            }
         }
         unsafe extern "system" fn ProfilerAttachComplete<Identity: ICorProfilerCallback3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback3_Impl::ProfilerAttachComplete(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback3_Impl::ProfilerAttachComplete(this).into()
+            }
         }
         unsafe extern "system" fn ProfilerDetachSucceeded<Identity: ICorProfilerCallback3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback3_Impl::ProfilerDetachSucceeded(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback3_Impl::ProfilerDetachSucceeded(this).into()
+            }
         }
         Self {
             base__: ICorProfilerCallback2_Vtbl::new::<Identity, OFFSET>(),
@@ -1446,25 +1618,25 @@ impl core::ops::Deref for ICorProfilerCallback4 {
 windows_core::imp::interface_hierarchy!(ICorProfilerCallback4, windows_core::IUnknown, ICorProfilerCallback, ICorProfilerCallback2, ICorProfilerCallback3);
 impl ICorProfilerCallback4 {
     pub unsafe fn ReJITCompilationStarted(&self, functionid: usize, rejitid: usize, fissafetoblock: bool) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ReJITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, rejitid, fissafetoblock.into()).ok()
+        unsafe { (windows_core::Interface::vtable(self).ReJITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, rejitid, fissafetoblock.into()).ok() }
     }
     pub unsafe fn GetReJITParameters<P2>(&self, moduleid: usize, methodid: u32, pfunctioncontrol: P2) -> windows_core::Result<()>
     where
         P2: windows_core::Param<ICorProfilerFunctionControl>,
     {
-        (windows_core::Interface::vtable(self).GetReJITParameters)(windows_core::Interface::as_raw(self), moduleid, methodid, pfunctioncontrol.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetReJITParameters)(windows_core::Interface::as_raw(self), moduleid, methodid, pfunctioncontrol.param().abi()).ok() }
     }
     pub unsafe fn ReJITCompilationFinished(&self, functionid: usize, rejitid: usize, hrstatus: windows_core::HRESULT, fissafetoblock: bool) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ReJITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, rejitid, hrstatus, fissafetoblock.into()).ok()
+        unsafe { (windows_core::Interface::vtable(self).ReJITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, rejitid, hrstatus, fissafetoblock.into()).ok() }
     }
     pub unsafe fn ReJITError(&self, moduleid: usize, methodid: u32, functionid: usize, hrstatus: windows_core::HRESULT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ReJITError)(windows_core::Interface::as_raw(self), moduleid, methodid, functionid, hrstatus).ok()
+        unsafe { (windows_core::Interface::vtable(self).ReJITError)(windows_core::Interface::as_raw(self), moduleid, methodid, functionid, hrstatus).ok() }
     }
     pub unsafe fn MovedReferences2(&self, cmovedobjectidranges: u32, oldobjectidrangestart: *const usize, newobjectidrangestart: *const usize, cobjectidrangelength: *const usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).MovedReferences2)(windows_core::Interface::as_raw(self), cmovedobjectidranges, oldobjectidrangestart, newobjectidrangestart, cobjectidrangelength).ok()
+        unsafe { (windows_core::Interface::vtable(self).MovedReferences2)(windows_core::Interface::as_raw(self), cmovedobjectidranges, oldobjectidrangestart, newobjectidrangestart, cobjectidrangelength).ok() }
     }
     pub unsafe fn SurvivingReferences2(&self, csurvivingobjectidranges: u32, objectidrangestart: *const usize, cobjectidrangelength: *const usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SurvivingReferences2)(windows_core::Interface::as_raw(self), csurvivingobjectidranges, objectidrangestart, cobjectidrangelength).ok()
+        unsafe { (windows_core::Interface::vtable(self).SurvivingReferences2)(windows_core::Interface::as_raw(self), csurvivingobjectidranges, objectidrangestart, cobjectidrangelength).ok() }
     }
 }
 #[repr(C)]
@@ -1488,28 +1660,40 @@ pub trait ICorProfilerCallback4_Impl: ICorProfilerCallback3_Impl {
 impl ICorProfilerCallback4_Vtbl {
     pub const fn new<Identity: ICorProfilerCallback4_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ReJITCompilationStarted<Identity: ICorProfilerCallback4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize, rejitid: usize, fissafetoblock: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback4_Impl::ReJITCompilationStarted(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&rejitid), core::mem::transmute_copy(&fissafetoblock)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback4_Impl::ReJITCompilationStarted(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&rejitid), core::mem::transmute_copy(&fissafetoblock)).into()
+            }
         }
         unsafe extern "system" fn GetReJITParameters<Identity: ICorProfilerCallback4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleid: usize, methodid: u32, pfunctioncontrol: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback4_Impl::GetReJITParameters(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&methodid), core::mem::transmute_copy(&pfunctioncontrol)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback4_Impl::GetReJITParameters(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&methodid), core::mem::transmute_copy(&pfunctioncontrol)).into()
+            }
         }
         unsafe extern "system" fn ReJITCompilationFinished<Identity: ICorProfilerCallback4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize, rejitid: usize, hrstatus: windows_core::HRESULT, fissafetoblock: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback4_Impl::ReJITCompilationFinished(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&rejitid), core::mem::transmute_copy(&hrstatus), core::mem::transmute_copy(&fissafetoblock)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback4_Impl::ReJITCompilationFinished(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&rejitid), core::mem::transmute_copy(&hrstatus), core::mem::transmute_copy(&fissafetoblock)).into()
+            }
         }
         unsafe extern "system" fn ReJITError<Identity: ICorProfilerCallback4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleid: usize, methodid: u32, functionid: usize, hrstatus: windows_core::HRESULT) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback4_Impl::ReJITError(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&methodid), core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&hrstatus)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback4_Impl::ReJITError(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&methodid), core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&hrstatus)).into()
+            }
         }
         unsafe extern "system" fn MovedReferences2<Identity: ICorProfilerCallback4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cmovedobjectidranges: u32, oldobjectidrangestart: *const usize, newobjectidrangestart: *const usize, cobjectidrangelength: *const usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback4_Impl::MovedReferences2(this, core::mem::transmute_copy(&cmovedobjectidranges), core::mem::transmute_copy(&oldobjectidrangestart), core::mem::transmute_copy(&newobjectidrangestart), core::mem::transmute_copy(&cobjectidrangelength)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback4_Impl::MovedReferences2(this, core::mem::transmute_copy(&cmovedobjectidranges), core::mem::transmute_copy(&oldobjectidrangestart), core::mem::transmute_copy(&newobjectidrangestart), core::mem::transmute_copy(&cobjectidrangelength)).into()
+            }
         }
         unsafe extern "system" fn SurvivingReferences2<Identity: ICorProfilerCallback4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, csurvivingobjectidranges: u32, objectidrangestart: *const usize, cobjectidrangelength: *const usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback4_Impl::SurvivingReferences2(this, core::mem::transmute_copy(&csurvivingobjectidranges), core::mem::transmute_copy(&objectidrangestart), core::mem::transmute_copy(&cobjectidrangelength)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback4_Impl::SurvivingReferences2(this, core::mem::transmute_copy(&csurvivingobjectidranges), core::mem::transmute_copy(&objectidrangestart), core::mem::transmute_copy(&cobjectidrangelength)).into()
+            }
         }
         Self {
             base__: ICorProfilerCallback3_Vtbl::new::<Identity, OFFSET>(),
@@ -1536,7 +1720,7 @@ impl core::ops::Deref for ICorProfilerCallback5 {
 windows_core::imp::interface_hierarchy!(ICorProfilerCallback5, windows_core::IUnknown, ICorProfilerCallback, ICorProfilerCallback2, ICorProfilerCallback3, ICorProfilerCallback4);
 impl ICorProfilerCallback5 {
     pub unsafe fn ConditionalWeakTableElementReferences(&self, crootrefs: u32, keyrefids: *const usize, valuerefids: *const usize, rootids: *const usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ConditionalWeakTableElementReferences)(windows_core::Interface::as_raw(self), crootrefs, keyrefids, valuerefids, rootids).ok()
+        unsafe { (windows_core::Interface::vtable(self).ConditionalWeakTableElementReferences)(windows_core::Interface::as_raw(self), crootrefs, keyrefids, valuerefids, rootids).ok() }
     }
 }
 #[repr(C)]
@@ -1550,8 +1734,10 @@ pub trait ICorProfilerCallback5_Impl: ICorProfilerCallback4_Impl {
 impl ICorProfilerCallback5_Vtbl {
     pub const fn new<Identity: ICorProfilerCallback5_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ConditionalWeakTableElementReferences<Identity: ICorProfilerCallback5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, crootrefs: u32, keyrefids: *const usize, valuerefids: *const usize, rootids: *const usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback5_Impl::ConditionalWeakTableElementReferences(this, core::mem::transmute_copy(&crootrefs), core::mem::transmute_copy(&keyrefids), core::mem::transmute_copy(&valuerefids), core::mem::transmute_copy(&rootids)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback5_Impl::ConditionalWeakTableElementReferences(this, core::mem::transmute_copy(&crootrefs), core::mem::transmute_copy(&keyrefids), core::mem::transmute_copy(&valuerefids), core::mem::transmute_copy(&rootids)).into()
+            }
         }
         Self {
             base__: ICorProfilerCallback4_Vtbl::new::<Identity, OFFSET>(),
@@ -1577,7 +1763,7 @@ impl ICorProfilerCallback6 {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<ICorProfilerAssemblyReferenceProvider>,
     {
-        (windows_core::Interface::vtable(self).GetAssemblyReferences)(windows_core::Interface::as_raw(self), wszassemblypath.param().abi(), pasmrefprovider.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetAssemblyReferences)(windows_core::Interface::as_raw(self), wszassemblypath.param().abi(), pasmrefprovider.param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -1591,8 +1777,10 @@ pub trait ICorProfilerCallback6_Impl: ICorProfilerCallback5_Impl {
 impl ICorProfilerCallback6_Vtbl {
     pub const fn new<Identity: ICorProfilerCallback6_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetAssemblyReferences<Identity: ICorProfilerCallback6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszassemblypath: windows_core::PCWSTR, pasmrefprovider: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback6_Impl::GetAssemblyReferences(this, core::mem::transmute(&wszassemblypath), core::mem::transmute_copy(&pasmrefprovider)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback6_Impl::GetAssemblyReferences(this, core::mem::transmute(&wszassemblypath), core::mem::transmute_copy(&pasmrefprovider)).into()
+            }
         }
         Self { base__: ICorProfilerCallback5_Vtbl::new::<Identity, OFFSET>(), GetAssemblyReferences: GetAssemblyReferences::<Identity, OFFSET> }
     }
@@ -1611,7 +1799,7 @@ impl core::ops::Deref for ICorProfilerCallback7 {
 windows_core::imp::interface_hierarchy!(ICorProfilerCallback7, windows_core::IUnknown, ICorProfilerCallback, ICorProfilerCallback2, ICorProfilerCallback3, ICorProfilerCallback4, ICorProfilerCallback5, ICorProfilerCallback6);
 impl ICorProfilerCallback7 {
     pub unsafe fn ModuleInMemorySymbolsUpdated(&self, moduleid: usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ModuleInMemorySymbolsUpdated)(windows_core::Interface::as_raw(self), moduleid).ok()
+        unsafe { (windows_core::Interface::vtable(self).ModuleInMemorySymbolsUpdated)(windows_core::Interface::as_raw(self), moduleid).ok() }
     }
 }
 #[repr(C)]
@@ -1625,8 +1813,10 @@ pub trait ICorProfilerCallback7_Impl: ICorProfilerCallback6_Impl {
 impl ICorProfilerCallback7_Vtbl {
     pub const fn new<Identity: ICorProfilerCallback7_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ModuleInMemorySymbolsUpdated<Identity: ICorProfilerCallback7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleid: usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback7_Impl::ModuleInMemorySymbolsUpdated(this, core::mem::transmute_copy(&moduleid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback7_Impl::ModuleInMemorySymbolsUpdated(this, core::mem::transmute_copy(&moduleid)).into()
+            }
         }
         Self { base__: ICorProfilerCallback6_Vtbl::new::<Identity, OFFSET>(), ModuleInMemorySymbolsUpdated: ModuleInMemorySymbolsUpdated::<Identity, OFFSET> }
     }
@@ -1645,10 +1835,10 @@ impl core::ops::Deref for ICorProfilerCallback8 {
 windows_core::imp::interface_hierarchy!(ICorProfilerCallback8, windows_core::IUnknown, ICorProfilerCallback, ICorProfilerCallback2, ICorProfilerCallback3, ICorProfilerCallback4, ICorProfilerCallback5, ICorProfilerCallback6, ICorProfilerCallback7);
 impl ICorProfilerCallback8 {
     pub unsafe fn DynamicMethodJITCompilationStarted(&self, functionid: usize, fissafetoblock: bool, pilheader: *const u8, cbilheader: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).DynamicMethodJITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, fissafetoblock.into(), pilheader, cbilheader).ok()
+        unsafe { (windows_core::Interface::vtable(self).DynamicMethodJITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, fissafetoblock.into(), pilheader, cbilheader).ok() }
     }
     pub unsafe fn DynamicMethodJITCompilationFinished(&self, functionid: usize, hrstatus: windows_core::HRESULT, fissafetoblock: bool) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).DynamicMethodJITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.into()).ok()
+        unsafe { (windows_core::Interface::vtable(self).DynamicMethodJITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.into()).ok() }
     }
 }
 #[repr(C)]
@@ -1664,12 +1854,16 @@ pub trait ICorProfilerCallback8_Impl: ICorProfilerCallback7_Impl {
 impl ICorProfilerCallback8_Vtbl {
     pub const fn new<Identity: ICorProfilerCallback8_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DynamicMethodJITCompilationStarted<Identity: ICorProfilerCallback8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize, fissafetoblock: super::super::super::Foundation::BOOL, pilheader: *const u8, cbilheader: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback8_Impl::DynamicMethodJITCompilationStarted(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&fissafetoblock), core::mem::transmute_copy(&pilheader), core::mem::transmute_copy(&cbilheader)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback8_Impl::DynamicMethodJITCompilationStarted(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&fissafetoblock), core::mem::transmute_copy(&pilheader), core::mem::transmute_copy(&cbilheader)).into()
+            }
         }
         unsafe extern "system" fn DynamicMethodJITCompilationFinished<Identity: ICorProfilerCallback8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize, hrstatus: windows_core::HRESULT, fissafetoblock: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback8_Impl::DynamicMethodJITCompilationFinished(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&hrstatus), core::mem::transmute_copy(&fissafetoblock)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback8_Impl::DynamicMethodJITCompilationFinished(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&hrstatus), core::mem::transmute_copy(&fissafetoblock)).into()
+            }
         }
         Self {
             base__: ICorProfilerCallback7_Vtbl::new::<Identity, OFFSET>(),
@@ -1692,7 +1886,7 @@ impl core::ops::Deref for ICorProfilerCallback9 {
 windows_core::imp::interface_hierarchy!(ICorProfilerCallback9, windows_core::IUnknown, ICorProfilerCallback, ICorProfilerCallback2, ICorProfilerCallback3, ICorProfilerCallback4, ICorProfilerCallback5, ICorProfilerCallback6, ICorProfilerCallback7, ICorProfilerCallback8);
 impl ICorProfilerCallback9 {
     pub unsafe fn DynamicMethodUnloaded(&self, functionid: usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).DynamicMethodUnloaded)(windows_core::Interface::as_raw(self), functionid).ok()
+        unsafe { (windows_core::Interface::vtable(self).DynamicMethodUnloaded)(windows_core::Interface::as_raw(self), functionid).ok() }
     }
 }
 #[repr(C)]
@@ -1706,8 +1900,10 @@ pub trait ICorProfilerCallback9_Impl: ICorProfilerCallback8_Impl {
 impl ICorProfilerCallback9_Vtbl {
     pub const fn new<Identity: ICorProfilerCallback9_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DynamicMethodUnloaded<Identity: ICorProfilerCallback9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerCallback9_Impl::DynamicMethodUnloaded(this, core::mem::transmute_copy(&functionid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerCallback9_Impl::DynamicMethodUnloaded(this, core::mem::transmute_copy(&functionid)).into()
+            }
         }
         Self { base__: ICorProfilerCallback8_Vtbl::new::<Identity, OFFSET>(), DynamicMethodUnloaded: DynamicMethodUnloaded::<Identity, OFFSET> }
     }
@@ -1720,13 +1916,13 @@ windows_core::imp::define_interface!(ICorProfilerFunctionControl, ICorProfilerFu
 windows_core::imp::interface_hierarchy!(ICorProfilerFunctionControl, windows_core::IUnknown);
 impl ICorProfilerFunctionControl {
     pub unsafe fn SetCodegenFlags(&self, flags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetCodegenFlags)(windows_core::Interface::as_raw(self), flags).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetCodegenFlags)(windows_core::Interface::as_raw(self), flags).ok() }
     }
     pub unsafe fn SetILFunctionBody(&self, pbnewilmethodheader: &[u8]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetILFunctionBody)(windows_core::Interface::as_raw(self), pbnewilmethodheader.len().try_into().unwrap(), core::mem::transmute(pbnewilmethodheader.as_ptr())).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetILFunctionBody)(windows_core::Interface::as_raw(self), pbnewilmethodheader.len().try_into().unwrap(), core::mem::transmute(pbnewilmethodheader.as_ptr())).ok() }
     }
     pub unsafe fn SetILInstrumentedCodeMap(&self, rgilmapentries: &[COR_IL_MAP]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetILInstrumentedCodeMap)(windows_core::Interface::as_raw(self), rgilmapentries.len().try_into().unwrap(), core::mem::transmute(rgilmapentries.as_ptr())).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetILInstrumentedCodeMap)(windows_core::Interface::as_raw(self), rgilmapentries.len().try_into().unwrap(), core::mem::transmute(rgilmapentries.as_ptr())).ok() }
     }
 }
 #[repr(C)]
@@ -1744,16 +1940,22 @@ pub trait ICorProfilerFunctionControl_Impl: windows_core::IUnknownImpl {
 impl ICorProfilerFunctionControl_Vtbl {
     pub const fn new<Identity: ICorProfilerFunctionControl_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetCodegenFlags<Identity: ICorProfilerFunctionControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerFunctionControl_Impl::SetCodegenFlags(this, core::mem::transmute_copy(&flags)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerFunctionControl_Impl::SetCodegenFlags(this, core::mem::transmute_copy(&flags)).into()
+            }
         }
         unsafe extern "system" fn SetILFunctionBody<Identity: ICorProfilerFunctionControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbnewilmethodheader: u32, pbnewilmethodheader: *const u8) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerFunctionControl_Impl::SetILFunctionBody(this, core::mem::transmute_copy(&cbnewilmethodheader), core::mem::transmute_copy(&pbnewilmethodheader)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerFunctionControl_Impl::SetILFunctionBody(this, core::mem::transmute_copy(&cbnewilmethodheader), core::mem::transmute_copy(&pbnewilmethodheader)).into()
+            }
         }
         unsafe extern "system" fn SetILInstrumentedCodeMap<Identity: ICorProfilerFunctionControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cilmapentries: u32, rgilmapentries: *const COR_IL_MAP) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerFunctionControl_Impl::SetILInstrumentedCodeMap(this, core::mem::transmute_copy(&cilmapentries), core::mem::transmute_copy(&rgilmapentries)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerFunctionControl_Impl::SetILInstrumentedCodeMap(this, core::mem::transmute_copy(&cilmapentries), core::mem::transmute_copy(&rgilmapentries)).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -1771,21 +1973,25 @@ windows_core::imp::define_interface!(ICorProfilerFunctionEnum, ICorProfilerFunct
 windows_core::imp::interface_hierarchy!(ICorProfilerFunctionEnum, windows_core::IUnknown);
 impl ICorProfilerFunctionEnum {
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok()
+        unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<ICorProfilerFunctionEnum> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn Next(&self, ids: &mut [COR_PRF_FUNCTION], pceltfetched: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ids.len().try_into().unwrap(), core::mem::transmute(ids.as_ptr()), core::mem::transmute(pceltfetched)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ids.len().try_into().unwrap(), core::mem::transmute(ids.as_ptr()), core::mem::transmute(pceltfetched)).ok() }
     }
 }
 #[repr(C)]
@@ -1807,36 +2013,46 @@ pub trait ICorProfilerFunctionEnum_Impl: windows_core::IUnknownImpl {
 impl ICorProfilerFunctionEnum_Vtbl {
     pub const fn new<Identity: ICorProfilerFunctionEnum_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Skip<Identity: ICorProfilerFunctionEnum_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerFunctionEnum_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerFunctionEnum_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+            }
         }
         unsafe extern "system" fn Reset<Identity: ICorProfilerFunctionEnum_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerFunctionEnum_Impl::Reset(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerFunctionEnum_Impl::Reset(this).into()
+            }
         }
         unsafe extern "system" fn Clone<Identity: ICorProfilerFunctionEnum_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerFunctionEnum_Impl::Clone(this) {
-                Ok(ok__) => {
-                    ppenum.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerFunctionEnum_Impl::Clone(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetCount<Identity: ICorProfilerFunctionEnum_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelt: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerFunctionEnum_Impl::GetCount(this) {
-                Ok(ok__) => {
-                    pcelt.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerFunctionEnum_Impl::GetCount(this) {
+                    Ok(ok__) => {
+                        pcelt.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn Next<Identity: ICorProfilerFunctionEnum_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, ids: *mut COR_PRF_FUNCTION, pceltfetched: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerFunctionEnum_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&ids), core::mem::transmute_copy(&pceltfetched)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerFunctionEnum_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&ids), core::mem::transmute_copy(&pceltfetched)).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -1856,119 +2072,149 @@ windows_core::imp::define_interface!(ICorProfilerInfo, ICorProfilerInfo_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(ICorProfilerInfo, windows_core::IUnknown);
 impl ICorProfilerInfo {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> windows_core::Result<usize> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetClassFromObject)(windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetClassFromObject)(windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn GetClassFromToken(&self, moduleid: usize, typedef: u32) -> windows_core::Result<usize> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetClassFromToken)(windows_core::Interface::as_raw(self), moduleid, typedef, &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetClassFromToken)(windows_core::Interface::as_raw(self), moduleid, typedef, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn GetCodeInfo(&self, functionid: usize, pstart: *mut *mut u8, pcsize: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetCodeInfo)(windows_core::Interface::as_raw(self), functionid, core::mem::transmute(pstart), core::mem::transmute(pcsize)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetCodeInfo)(windows_core::Interface::as_raw(self), functionid, core::mem::transmute(pstart), core::mem::transmute(pcsize)).ok() }
     }
     pub unsafe fn GetEventMask(&self) -> windows_core::Result<u32> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetEventMask)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetEventMask)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn GetFunctionFromIP(&self, ip: *const u8) -> windows_core::Result<usize> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetFunctionFromIP)(windows_core::Interface::as_raw(self), ip, &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetFunctionFromIP)(windows_core::Interface::as_raw(self), ip, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn GetFunctionFromToken(&self, moduleid: usize, token: u32) -> windows_core::Result<usize> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetFunctionFromToken)(windows_core::Interface::as_raw(self), moduleid, token, &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetFunctionFromToken)(windows_core::Interface::as_raw(self), moduleid, token, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn GetHandleFromThread(&self, threadid: usize) -> windows_core::Result<super::super::super::Foundation::HANDLE> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetHandleFromThread)(windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetHandleFromThread)(windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn GetObjectSize(&self, objectid: usize) -> windows_core::Result<u32> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetObjectSize)(windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetObjectSize)(windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
+        }
     }
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).IsArrayClass)(windows_core::Interface::as_raw(self), classid, core::mem::transmute(pbaseelemtype), core::mem::transmute(pbaseclassid), core::mem::transmute(pcrank)).ok()
+        unsafe { (windows_core::Interface::vtable(self).IsArrayClass)(windows_core::Interface::as_raw(self), classid, core::mem::transmute(pbaseelemtype), core::mem::transmute(pbaseclassid), core::mem::transmute(pcrank)).ok() }
     }
     pub unsafe fn GetThreadInfo(&self, threadid: usize) -> windows_core::Result<u32> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetThreadInfo)(windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetThreadInfo)(windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn GetCurrentThreadID(&self) -> windows_core::Result<usize> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetCurrentThreadID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetCurrentThreadID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn GetClassIDInfo(&self, classid: usize, pmoduleid: *mut usize, ptypedeftoken: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetClassIDInfo)(windows_core::Interface::as_raw(self), classid, core::mem::transmute(pmoduleid), core::mem::transmute(ptypedeftoken)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetClassIDInfo)(windows_core::Interface::as_raw(self), classid, core::mem::transmute(pmoduleid), core::mem::transmute(ptypedeftoken)).ok() }
     }
     pub unsafe fn GetFunctionInfo(&self, functionid: usize, pclassid: *mut usize, pmoduleid: *mut usize, ptoken: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetFunctionInfo)(windows_core::Interface::as_raw(self), functionid, core::mem::transmute(pclassid), core::mem::transmute(pmoduleid), core::mem::transmute(ptoken)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetFunctionInfo)(windows_core::Interface::as_raw(self), functionid, core::mem::transmute(pclassid), core::mem::transmute(pmoduleid), core::mem::transmute(ptoken)).ok() }
     }
     pub unsafe fn SetEventMask(&self, dwevents: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetEventMask)(windows_core::Interface::as_raw(self), dwevents).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetEventMask)(windows_core::Interface::as_raw(self), dwevents).ok() }
     }
     pub unsafe fn SetEnterLeaveFunctionHooks(&self, pfuncenter: *const FunctionEnter, pfuncleave: *const FunctionLeave, pfunctailcall: *const FunctionTailcall) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetEnterLeaveFunctionHooks)(windows_core::Interface::as_raw(self), pfuncenter, pfuncleave, pfunctailcall).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetEnterLeaveFunctionHooks)(windows_core::Interface::as_raw(self), pfuncenter, pfuncleave, pfunctailcall).ok() }
     }
     pub unsafe fn SetFunctionIDMapper(&self, pfunc: *const FunctionIDMapper) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetFunctionIDMapper)(windows_core::Interface::as_raw(self), pfunc).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetFunctionIDMapper)(windows_core::Interface::as_raw(self), pfunc).ok() }
     }
     pub unsafe fn GetTokenAndMetaDataFromFunction(&self, functionid: usize, riid: *const windows_core::GUID, ppimport: *mut Option<windows_core::IUnknown>, ptoken: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetTokenAndMetaDataFromFunction)(windows_core::Interface::as_raw(self), functionid, riid, core::mem::transmute(ppimport), core::mem::transmute(ptoken)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetTokenAndMetaDataFromFunction)(windows_core::Interface::as_raw(self), functionid, riid, core::mem::transmute(ppimport), core::mem::transmute(ptoken)).ok() }
     }
     pub unsafe fn GetModuleInfo(&self, moduleid: usize, ppbaseloadaddress: *mut *mut u8, pcchname: *mut u32, szname: &mut [u16], passemblyid: *mut usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetModuleInfo)(windows_core::Interface::as_raw(self), moduleid, core::mem::transmute(ppbaseloadaddress), szname.len().try_into().unwrap(), core::mem::transmute(pcchname), core::mem::transmute(szname.as_ptr()), core::mem::transmute(passemblyid)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetModuleInfo)(windows_core::Interface::as_raw(self), moduleid, core::mem::transmute(ppbaseloadaddress), szname.len().try_into().unwrap(), core::mem::transmute(pcchname), core::mem::transmute(szname.as_ptr()), core::mem::transmute(passemblyid)).ok() }
     }
     pub unsafe fn GetModuleMetaData(&self, moduleid: usize, dwopenflags: u32, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetModuleMetaData)(windows_core::Interface::as_raw(self), moduleid, dwopenflags, riid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetModuleMetaData)(windows_core::Interface::as_raw(self), moduleid, dwopenflags, riid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetILFunctionBody(&self, moduleid: usize, methodid: u32, ppmethodheader: *mut *mut u8, pcbmethodsize: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetILFunctionBody)(windows_core::Interface::as_raw(self), moduleid, methodid, core::mem::transmute(ppmethodheader), core::mem::transmute(pcbmethodsize)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetILFunctionBody)(windows_core::Interface::as_raw(self), moduleid, methodid, core::mem::transmute(ppmethodheader), core::mem::transmute(pcbmethodsize)).ok() }
     }
     pub unsafe fn GetILFunctionBodyAllocator(&self, moduleid: usize) -> windows_core::Result<IMethodMalloc> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetILFunctionBodyAllocator)(windows_core::Interface::as_raw(self), moduleid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetILFunctionBodyAllocator)(windows_core::Interface::as_raw(self), moduleid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn SetILFunctionBody(&self, moduleid: usize, methodid: u32, pbnewilmethodheader: *const u8) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetILFunctionBody)(windows_core::Interface::as_raw(self), moduleid, methodid, pbnewilmethodheader).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetILFunctionBody)(windows_core::Interface::as_raw(self), moduleid, methodid, pbnewilmethodheader).ok() }
     }
     pub unsafe fn GetAppDomainInfo(&self, appdomainid: usize, pcchname: *mut u32, szname: &mut [u16], pprocessid: *mut usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetAppDomainInfo)(windows_core::Interface::as_raw(self), appdomainid, szname.len().try_into().unwrap(), core::mem::transmute(pcchname), core::mem::transmute(szname.as_ptr()), core::mem::transmute(pprocessid)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetAppDomainInfo)(windows_core::Interface::as_raw(self), appdomainid, szname.len().try_into().unwrap(), core::mem::transmute(pcchname), core::mem::transmute(szname.as_ptr()), core::mem::transmute(pprocessid)).ok() }
     }
     pub unsafe fn GetAssemblyInfo(&self, assemblyid: usize, pcchname: *mut u32, szname: &mut [u16], pappdomainid: *mut usize, pmoduleid: *mut usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetAssemblyInfo)(windows_core::Interface::as_raw(self), assemblyid, szname.len().try_into().unwrap(), core::mem::transmute(pcchname), core::mem::transmute(szname.as_ptr()), core::mem::transmute(pappdomainid), core::mem::transmute(pmoduleid)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetAssemblyInfo)(windows_core::Interface::as_raw(self), assemblyid, szname.len().try_into().unwrap(), core::mem::transmute(pcchname), core::mem::transmute(szname.as_ptr()), core::mem::transmute(pappdomainid), core::mem::transmute(pmoduleid)).ok() }
     }
     pub unsafe fn SetFunctionReJIT(&self, functionid: usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetFunctionReJIT)(windows_core::Interface::as_raw(self), functionid).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetFunctionReJIT)(windows_core::Interface::as_raw(self), functionid).ok() }
     }
     pub unsafe fn ForceGC(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ForceGC)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).ForceGC)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn SetILInstrumentedCodeMap(&self, functionid: usize, fstartjit: bool, rgilmapentries: &[COR_IL_MAP]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetILInstrumentedCodeMap)(windows_core::Interface::as_raw(self), functionid, fstartjit.into(), rgilmapentries.len().try_into().unwrap(), core::mem::transmute(rgilmapentries.as_ptr())).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetILInstrumentedCodeMap)(windows_core::Interface::as_raw(self), functionid, fstartjit.into(), rgilmapentries.len().try_into().unwrap(), core::mem::transmute(rgilmapentries.as_ptr())).ok() }
     }
     pub unsafe fn GetInprocInspectionInterface(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetInprocInspectionInterface)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetInprocInspectionInterface)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetInprocInspectionIThisThread(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetInprocInspectionIThisThread)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetInprocInspectionIThisThread)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetThreadContext(&self, threadid: usize) -> windows_core::Result<usize> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetThreadContext)(windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetThreadContext)(windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn BeginInprocDebugging(&self, fthisthreadonly: bool) -> windows_core::Result<u32> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).BeginInprocDebugging)(windows_core::Interface::as_raw(self), fthisthreadonly.into(), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).BeginInprocDebugging)(windows_core::Interface::as_raw(self), fthisthreadonly.into(), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn EndInprocDebugging(&self, dwprofilercontext: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).EndInprocDebugging)(windows_core::Interface::as_raw(self), dwprofilercontext).ok()
+        unsafe { (windows_core::Interface::vtable(self).EndInprocDebugging)(windows_core::Interface::as_raw(self), dwprofilercontext).ok() }
     }
     pub unsafe fn GetILToNativeMapping(&self, functionid: usize, pcmap: *mut u32, map: &mut [COR_DEBUG_IL_TO_NATIVE_MAP]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetILToNativeMapping)(windows_core::Interface::as_raw(self), functionid, map.len().try_into().unwrap(), core::mem::transmute(pcmap), core::mem::transmute(map.as_ptr())).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetILToNativeMapping)(windows_core::Interface::as_raw(self), functionid, map.len().try_into().unwrap(), core::mem::transmute(pcmap), core::mem::transmute(map.as_ptr())).ok() }
     }
 }
 #[repr(C)]
@@ -2051,226 +2297,292 @@ pub trait ICorProfilerInfo_Impl: windows_core::IUnknownImpl {
 impl ICorProfilerInfo_Vtbl {
     pub const fn new<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetClassFromObject<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objectid: usize, pclassid: *mut usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerInfo_Impl::GetClassFromObject(this, core::mem::transmute_copy(&objectid)) {
-                Ok(ok__) => {
-                    pclassid.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerInfo_Impl::GetClassFromObject(this, core::mem::transmute_copy(&objectid)) {
+                    Ok(ok__) => {
+                        pclassid.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetClassFromToken<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleid: usize, typedef: u32, pclassid: *mut usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerInfo_Impl::GetClassFromToken(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&typedef)) {
-                Ok(ok__) => {
-                    pclassid.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerInfo_Impl::GetClassFromToken(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&typedef)) {
+                    Ok(ok__) => {
+                        pclassid.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetCodeInfo<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize, pstart: *mut *mut u8, pcsize: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo_Impl::GetCodeInfo(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&pstart), core::mem::transmute_copy(&pcsize)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo_Impl::GetCodeInfo(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&pstart), core::mem::transmute_copy(&pcsize)).into()
+            }
         }
         unsafe extern "system" fn GetEventMask<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwevents: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerInfo_Impl::GetEventMask(this) {
-                Ok(ok__) => {
-                    pdwevents.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerInfo_Impl::GetEventMask(this) {
+                    Ok(ok__) => {
+                        pdwevents.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetFunctionFromIP<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ip: *const u8, pfunctionid: *mut usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerInfo_Impl::GetFunctionFromIP(this, core::mem::transmute_copy(&ip)) {
-                Ok(ok__) => {
-                    pfunctionid.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerInfo_Impl::GetFunctionFromIP(this, core::mem::transmute_copy(&ip)) {
+                    Ok(ok__) => {
+                        pfunctionid.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetFunctionFromToken<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleid: usize, token: u32, pfunctionid: *mut usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerInfo_Impl::GetFunctionFromToken(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&token)) {
-                Ok(ok__) => {
-                    pfunctionid.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerInfo_Impl::GetFunctionFromToken(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&token)) {
+                    Ok(ok__) => {
+                        pfunctionid.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetHandleFromThread<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, threadid: usize, phthread: *mut super::super::super::Foundation::HANDLE) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerInfo_Impl::GetHandleFromThread(this, core::mem::transmute_copy(&threadid)) {
-                Ok(ok__) => {
-                    phthread.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerInfo_Impl::GetHandleFromThread(this, core::mem::transmute_copy(&threadid)) {
+                    Ok(ok__) => {
+                        phthread.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetObjectSize<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objectid: usize, pcsize: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerInfo_Impl::GetObjectSize(this, core::mem::transmute_copy(&objectid)) {
-                Ok(ok__) => {
-                    pcsize.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerInfo_Impl::GetObjectSize(this, core::mem::transmute_copy(&objectid)) {
+                    Ok(ok__) => {
+                        pcsize.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn IsArrayClass<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo_Impl::IsArrayClass(this, core::mem::transmute_copy(&classid), core::mem::transmute_copy(&pbaseelemtype), core::mem::transmute_copy(&pbaseclassid), core::mem::transmute_copy(&pcrank)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo_Impl::IsArrayClass(this, core::mem::transmute_copy(&classid), core::mem::transmute_copy(&pbaseelemtype), core::mem::transmute_copy(&pbaseclassid), core::mem::transmute_copy(&pcrank)).into()
+            }
         }
         unsafe extern "system" fn GetThreadInfo<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, threadid: usize, pdwwin32threadid: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerInfo_Impl::GetThreadInfo(this, core::mem::transmute_copy(&threadid)) {
-                Ok(ok__) => {
-                    pdwwin32threadid.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerInfo_Impl::GetThreadInfo(this, core::mem::transmute_copy(&threadid)) {
+                    Ok(ok__) => {
+                        pdwwin32threadid.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetCurrentThreadID<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pthreadid: *mut usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerInfo_Impl::GetCurrentThreadID(this) {
-                Ok(ok__) => {
-                    pthreadid.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerInfo_Impl::GetCurrentThreadID(this) {
+                    Ok(ok__) => {
+                        pthreadid.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetClassIDInfo<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, classid: usize, pmoduleid: *mut usize, ptypedeftoken: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo_Impl::GetClassIDInfo(this, core::mem::transmute_copy(&classid), core::mem::transmute_copy(&pmoduleid), core::mem::transmute_copy(&ptypedeftoken)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo_Impl::GetClassIDInfo(this, core::mem::transmute_copy(&classid), core::mem::transmute_copy(&pmoduleid), core::mem::transmute_copy(&ptypedeftoken)).into()
+            }
         }
         unsafe extern "system" fn GetFunctionInfo<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize, pclassid: *mut usize, pmoduleid: *mut usize, ptoken: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo_Impl::GetFunctionInfo(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&pclassid), core::mem::transmute_copy(&pmoduleid), core::mem::transmute_copy(&ptoken)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo_Impl::GetFunctionInfo(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&pclassid), core::mem::transmute_copy(&pmoduleid), core::mem::transmute_copy(&ptoken)).into()
+            }
         }
         unsafe extern "system" fn SetEventMask<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwevents: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo_Impl::SetEventMask(this, core::mem::transmute_copy(&dwevents)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo_Impl::SetEventMask(this, core::mem::transmute_copy(&dwevents)).into()
+            }
         }
         unsafe extern "system" fn SetEnterLeaveFunctionHooks<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfuncenter: *const FunctionEnter, pfuncleave: *const FunctionLeave, pfunctailcall: *const FunctionTailcall) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo_Impl::SetEnterLeaveFunctionHooks(this, core::mem::transmute_copy(&pfuncenter), core::mem::transmute_copy(&pfuncleave), core::mem::transmute_copy(&pfunctailcall)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo_Impl::SetEnterLeaveFunctionHooks(this, core::mem::transmute_copy(&pfuncenter), core::mem::transmute_copy(&pfuncleave), core::mem::transmute_copy(&pfunctailcall)).into()
+            }
         }
         unsafe extern "system" fn SetFunctionIDMapper<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfunc: *const FunctionIDMapper) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo_Impl::SetFunctionIDMapper(this, core::mem::transmute_copy(&pfunc)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo_Impl::SetFunctionIDMapper(this, core::mem::transmute_copy(&pfunc)).into()
+            }
         }
         unsafe extern "system" fn GetTokenAndMetaDataFromFunction<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize, riid: *const windows_core::GUID, ppimport: *mut *mut core::ffi::c_void, ptoken: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo_Impl::GetTokenAndMetaDataFromFunction(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppimport), core::mem::transmute_copy(&ptoken)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo_Impl::GetTokenAndMetaDataFromFunction(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppimport), core::mem::transmute_copy(&ptoken)).into()
+            }
         }
         unsafe extern "system" fn GetModuleInfo<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleid: usize, ppbaseloadaddress: *mut *mut u8, cchname: u32, pcchname: *mut u32, szname: windows_core::PWSTR, passemblyid: *mut usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo_Impl::GetModuleInfo(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&ppbaseloadaddress), core::mem::transmute_copy(&cchname), core::mem::transmute_copy(&pcchname), core::mem::transmute_copy(&szname), core::mem::transmute_copy(&passemblyid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo_Impl::GetModuleInfo(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&ppbaseloadaddress), core::mem::transmute_copy(&cchname), core::mem::transmute_copy(&pcchname), core::mem::transmute_copy(&szname), core::mem::transmute_copy(&passemblyid)).into()
+            }
         }
         unsafe extern "system" fn GetModuleMetaData<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleid: usize, dwopenflags: u32, riid: *const windows_core::GUID, ppout: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerInfo_Impl::GetModuleMetaData(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&dwopenflags), core::mem::transmute_copy(&riid)) {
-                Ok(ok__) => {
-                    ppout.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerInfo_Impl::GetModuleMetaData(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&dwopenflags), core::mem::transmute_copy(&riid)) {
+                    Ok(ok__) => {
+                        ppout.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetILFunctionBody<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleid: usize, methodid: u32, ppmethodheader: *mut *mut u8, pcbmethodsize: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo_Impl::GetILFunctionBody(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&methodid), core::mem::transmute_copy(&ppmethodheader), core::mem::transmute_copy(&pcbmethodsize)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo_Impl::GetILFunctionBody(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&methodid), core::mem::transmute_copy(&ppmethodheader), core::mem::transmute_copy(&pcbmethodsize)).into()
+            }
         }
         unsafe extern "system" fn GetILFunctionBodyAllocator<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleid: usize, ppmalloc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerInfo_Impl::GetILFunctionBodyAllocator(this, core::mem::transmute_copy(&moduleid)) {
-                Ok(ok__) => {
-                    ppmalloc.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerInfo_Impl::GetILFunctionBodyAllocator(this, core::mem::transmute_copy(&moduleid)) {
+                    Ok(ok__) => {
+                        ppmalloc.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetILFunctionBody<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleid: usize, methodid: u32, pbnewilmethodheader: *const u8) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo_Impl::SetILFunctionBody(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&methodid), core::mem::transmute_copy(&pbnewilmethodheader)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo_Impl::SetILFunctionBody(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&methodid), core::mem::transmute_copy(&pbnewilmethodheader)).into()
+            }
         }
         unsafe extern "system" fn GetAppDomainInfo<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, appdomainid: usize, cchname: u32, pcchname: *mut u32, szname: windows_core::PWSTR, pprocessid: *mut usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo_Impl::GetAppDomainInfo(this, core::mem::transmute_copy(&appdomainid), core::mem::transmute_copy(&cchname), core::mem::transmute_copy(&pcchname), core::mem::transmute_copy(&szname), core::mem::transmute_copy(&pprocessid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo_Impl::GetAppDomainInfo(this, core::mem::transmute_copy(&appdomainid), core::mem::transmute_copy(&cchname), core::mem::transmute_copy(&pcchname), core::mem::transmute_copy(&szname), core::mem::transmute_copy(&pprocessid)).into()
+            }
         }
         unsafe extern "system" fn GetAssemblyInfo<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, assemblyid: usize, cchname: u32, pcchname: *mut u32, szname: windows_core::PWSTR, pappdomainid: *mut usize, pmoduleid: *mut usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo_Impl::GetAssemblyInfo(this, core::mem::transmute_copy(&assemblyid), core::mem::transmute_copy(&cchname), core::mem::transmute_copy(&pcchname), core::mem::transmute_copy(&szname), core::mem::transmute_copy(&pappdomainid), core::mem::transmute_copy(&pmoduleid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo_Impl::GetAssemblyInfo(this, core::mem::transmute_copy(&assemblyid), core::mem::transmute_copy(&cchname), core::mem::transmute_copy(&pcchname), core::mem::transmute_copy(&szname), core::mem::transmute_copy(&pappdomainid), core::mem::transmute_copy(&pmoduleid)).into()
+            }
         }
         unsafe extern "system" fn SetFunctionReJIT<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo_Impl::SetFunctionReJIT(this, core::mem::transmute_copy(&functionid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo_Impl::SetFunctionReJIT(this, core::mem::transmute_copy(&functionid)).into()
+            }
         }
         unsafe extern "system" fn ForceGC<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo_Impl::ForceGC(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo_Impl::ForceGC(this).into()
+            }
         }
         unsafe extern "system" fn SetILInstrumentedCodeMap<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize, fstartjit: super::super::super::Foundation::BOOL, cilmapentries: u32, rgilmapentries: *const COR_IL_MAP) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo_Impl::SetILInstrumentedCodeMap(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&fstartjit), core::mem::transmute_copy(&cilmapentries), core::mem::transmute_copy(&rgilmapentries)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo_Impl::SetILInstrumentedCodeMap(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&fstartjit), core::mem::transmute_copy(&cilmapentries), core::mem::transmute_copy(&rgilmapentries)).into()
+            }
         }
         unsafe extern "system" fn GetInprocInspectionInterface<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppicd: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerInfo_Impl::GetInprocInspectionInterface(this) {
-                Ok(ok__) => {
-                    ppicd.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerInfo_Impl::GetInprocInspectionInterface(this) {
+                    Ok(ok__) => {
+                        ppicd.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetInprocInspectionIThisThread<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppicd: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerInfo_Impl::GetInprocInspectionIThisThread(this) {
-                Ok(ok__) => {
-                    ppicd.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerInfo_Impl::GetInprocInspectionIThisThread(this) {
+                    Ok(ok__) => {
+                        ppicd.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetThreadContext<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, threadid: usize, pcontextid: *mut usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerInfo_Impl::GetThreadContext(this, core::mem::transmute_copy(&threadid)) {
-                Ok(ok__) => {
-                    pcontextid.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerInfo_Impl::GetThreadContext(this, core::mem::transmute_copy(&threadid)) {
+                    Ok(ok__) => {
+                        pcontextid.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn BeginInprocDebugging<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fthisthreadonly: super::super::super::Foundation::BOOL, pdwprofilercontext: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerInfo_Impl::BeginInprocDebugging(this, core::mem::transmute_copy(&fthisthreadonly)) {
-                Ok(ok__) => {
-                    pdwprofilercontext.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerInfo_Impl::BeginInprocDebugging(this, core::mem::transmute_copy(&fthisthreadonly)) {
+                    Ok(ok__) => {
+                        pdwprofilercontext.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn EndInprocDebugging<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwprofilercontext: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo_Impl::EndInprocDebugging(this, core::mem::transmute_copy(&dwprofilercontext)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo_Impl::EndInprocDebugging(this, core::mem::transmute_copy(&dwprofilercontext)).into()
+            }
         }
         unsafe extern "system" fn GetILToNativeMapping<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize, cmap: u32, pcmap: *mut u32, map: *mut COR_DEBUG_IL_TO_NATIVE_MAP) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo_Impl::GetILToNativeMapping(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&cmap), core::mem::transmute_copy(&pcmap), core::mem::transmute_copy(&map)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo_Impl::GetILToNativeMapping(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&cmap), core::mem::transmute_copy(&pcmap), core::mem::transmute_copy(&map)).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -2325,22 +2637,22 @@ impl core::ops::Deref for ICorProfilerInfo10 {
 windows_core::imp::interface_hierarchy!(ICorProfilerInfo10, windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3, ICorProfilerInfo4, ICorProfilerInfo5, ICorProfilerInfo6, ICorProfilerInfo7, ICorProfilerInfo8, ICorProfilerInfo9);
 impl ICorProfilerInfo10 {
     pub unsafe fn EnumerateObjectReferences(&self, objectid: usize, callback: ObjectReferenceCallback, clientdata: *mut core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).EnumerateObjectReferences)(windows_core::Interface::as_raw(self), objectid, callback, core::mem::transmute(clientdata)).ok()
+        unsafe { (windows_core::Interface::vtable(self).EnumerateObjectReferences)(windows_core::Interface::as_raw(self), objectid, callback, core::mem::transmute(clientdata)).ok() }
     }
     pub unsafe fn IsFrozenObject(&self, objectid: usize, pbfrozen: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).IsFrozenObject)(windows_core::Interface::as_raw(self), objectid, core::mem::transmute(pbfrozen)).ok()
+        unsafe { (windows_core::Interface::vtable(self).IsFrozenObject)(windows_core::Interface::as_raw(self), objectid, core::mem::transmute(pbfrozen)).ok() }
     }
     pub unsafe fn GetLOHObjectSizeThreshold(&self, pthreshold: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetLOHObjectSizeThreshold)(windows_core::Interface::as_raw(self), core::mem::transmute(pthreshold)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetLOHObjectSizeThreshold)(windows_core::Interface::as_raw(self), core::mem::transmute(pthreshold)).ok() }
     }
     pub unsafe fn RequestReJITWithInliners(&self, dwrejitflags: u32, cfunctions: u32, moduleids: *const usize, methodids: *const u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RequestReJITWithInliners)(windows_core::Interface::as_raw(self), dwrejitflags, cfunctions, moduleids, methodids).ok()
+        unsafe { (windows_core::Interface::vtable(self).RequestReJITWithInliners)(windows_core::Interface::as_raw(self), dwrejitflags, cfunctions, moduleids, methodids).ok() }
     }
     pub unsafe fn SuspendRuntime(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SuspendRuntime)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).SuspendRuntime)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn ResumeRuntime(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ResumeRuntime)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).ResumeRuntime)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
 #[repr(C)]
@@ -2366,28 +2678,40 @@ pub trait ICorProfilerInfo10_Impl: ICorProfilerInfo9_Impl {
 impl ICorProfilerInfo10_Vtbl {
     pub const fn new<Identity: ICorProfilerInfo10_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn EnumerateObjectReferences<Identity: ICorProfilerInfo10_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objectid: usize, callback: ObjectReferenceCallback, clientdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo10_Impl::EnumerateObjectReferences(this, core::mem::transmute_copy(&objectid), core::mem::transmute_copy(&callback), core::mem::transmute_copy(&clientdata)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo10_Impl::EnumerateObjectReferences(this, core::mem::transmute_copy(&objectid), core::mem::transmute_copy(&callback), core::mem::transmute_copy(&clientdata)).into()
+            }
         }
         unsafe extern "system" fn IsFrozenObject<Identity: ICorProfilerInfo10_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objectid: usize, pbfrozen: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo10_Impl::IsFrozenObject(this, core::mem::transmute_copy(&objectid), core::mem::transmute_copy(&pbfrozen)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo10_Impl::IsFrozenObject(this, core::mem::transmute_copy(&objectid), core::mem::transmute_copy(&pbfrozen)).into()
+            }
         }
         unsafe extern "system" fn GetLOHObjectSizeThreshold<Identity: ICorProfilerInfo10_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pthreshold: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo10_Impl::GetLOHObjectSizeThreshold(this, core::mem::transmute_copy(&pthreshold)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo10_Impl::GetLOHObjectSizeThreshold(this, core::mem::transmute_copy(&pthreshold)).into()
+            }
         }
         unsafe extern "system" fn RequestReJITWithInliners<Identity: ICorProfilerInfo10_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwrejitflags: u32, cfunctions: u32, moduleids: *const usize, methodids: *const u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo10_Impl::RequestReJITWithInliners(this, core::mem::transmute_copy(&dwrejitflags), core::mem::transmute_copy(&cfunctions), core::mem::transmute_copy(&moduleids), core::mem::transmute_copy(&methodids)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo10_Impl::RequestReJITWithInliners(this, core::mem::transmute_copy(&dwrejitflags), core::mem::transmute_copy(&cfunctions), core::mem::transmute_copy(&moduleids), core::mem::transmute_copy(&methodids)).into()
+            }
         }
         unsafe extern "system" fn SuspendRuntime<Identity: ICorProfilerInfo10_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo10_Impl::SuspendRuntime(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo10_Impl::SuspendRuntime(this).into()
+            }
         }
         unsafe extern "system" fn ResumeRuntime<Identity: ICorProfilerInfo10_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo10_Impl::ResumeRuntime(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo10_Impl::ResumeRuntime(this).into()
+            }
         }
         Self {
             base__: ICorProfilerInfo9_Vtbl::new::<Identity, OFFSET>(),
@@ -2418,14 +2742,14 @@ impl ICorProfilerInfo11 {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetEnvironmentVariableA)(windows_core::Interface::as_raw(self), szname.param().abi(), szvalue.len().try_into().unwrap(), core::mem::transmute(pcchvalue), core::mem::transmute(szvalue.as_ptr())).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetEnvironmentVariableA)(windows_core::Interface::as_raw(self), szname.param().abi(), szvalue.len().try_into().unwrap(), core::mem::transmute(pcchvalue), core::mem::transmute(szvalue.as_ptr())).ok() }
     }
     pub unsafe fn SetEnvironmentVariable<P0, P1>(&self, szname: P0, szvalue: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetEnvironmentVariable)(windows_core::Interface::as_raw(self), szname.param().abi(), szvalue.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetEnvironmentVariable)(windows_core::Interface::as_raw(self), szname.param().abi(), szvalue.param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -2443,12 +2767,16 @@ pub trait ICorProfilerInfo11_Impl: ICorProfilerInfo10_Impl {
 impl ICorProfilerInfo11_Vtbl {
     pub const fn new<Identity: ICorProfilerInfo11_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetEnvironmentVariableA<Identity: ICorProfilerInfo11_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szname: windows_core::PCWSTR, cchvalue: u32, pcchvalue: *mut u32, szvalue: windows_core::PWSTR) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo11_Impl::GetEnvironmentVariableA(this, core::mem::transmute(&szname), core::mem::transmute_copy(&cchvalue), core::mem::transmute_copy(&pcchvalue), core::mem::transmute_copy(&szvalue)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo11_Impl::GetEnvironmentVariableA(this, core::mem::transmute(&szname), core::mem::transmute_copy(&cchvalue), core::mem::transmute_copy(&pcchvalue), core::mem::transmute_copy(&szvalue)).into()
+            }
         }
         unsafe extern "system" fn SetEnvironmentVariable<Identity: ICorProfilerInfo11_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szname: windows_core::PCWSTR, szvalue: windows_core::PCWSTR) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo11_Impl::SetEnvironmentVariable(this, core::mem::transmute(&szname), core::mem::transmute(&szvalue)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo11_Impl::SetEnvironmentVariable(this, core::mem::transmute(&szname), core::mem::transmute(&szvalue)).into()
+            }
         }
         Self {
             base__: ICorProfilerInfo10_Vtbl::new::<Identity, OFFSET>(),
@@ -2472,34 +2800,40 @@ impl core::ops::Deref for ICorProfilerInfo12 {
 windows_core::imp::interface_hierarchy!(ICorProfilerInfo12, windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3, ICorProfilerInfo4, ICorProfilerInfo5, ICorProfilerInfo6, ICorProfilerInfo7, ICorProfilerInfo8, ICorProfilerInfo9, ICorProfilerInfo10, ICorProfilerInfo11);
 impl ICorProfilerInfo12 {
     pub unsafe fn EventPipeStartSession(&self, pproviderconfigs: &[COR_PRF_EVENTPIPE_PROVIDER_CONFIG], requestrundown: bool) -> windows_core::Result<u64> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EventPipeStartSession)(windows_core::Interface::as_raw(self), pproviderconfigs.len().try_into().unwrap(), core::mem::transmute(pproviderconfigs.as_ptr()), requestrundown.into(), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EventPipeStartSession)(windows_core::Interface::as_raw(self), pproviderconfigs.len().try_into().unwrap(), core::mem::transmute(pproviderconfigs.as_ptr()), requestrundown.into(), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn EventPipeAddProviderToSession(&self, session: u64, providerconfig: COR_PRF_EVENTPIPE_PROVIDER_CONFIG) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).EventPipeAddProviderToSession)(windows_core::Interface::as_raw(self), session, core::mem::transmute(providerconfig)).ok()
+        unsafe { (windows_core::Interface::vtable(self).EventPipeAddProviderToSession)(windows_core::Interface::as_raw(self), session, core::mem::transmute(providerconfig)).ok() }
     }
     pub unsafe fn EventPipeStopSession(&self, session: u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).EventPipeStopSession)(windows_core::Interface::as_raw(self), session).ok()
+        unsafe { (windows_core::Interface::vtable(self).EventPipeStopSession)(windows_core::Interface::as_raw(self), session).ok() }
     }
     pub unsafe fn EventPipeCreateProvider<P0>(&self, providername: P0) -> windows_core::Result<usize>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EventPipeCreateProvider)(windows_core::Interface::as_raw(self), providername.param().abi(), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EventPipeCreateProvider)(windows_core::Interface::as_raw(self), providername.param().abi(), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn EventPipeGetProviderInfo(&self, provider: usize, pcchname: *mut u32, providername: &mut [u16]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).EventPipeGetProviderInfo)(windows_core::Interface::as_raw(self), provider, providername.len().try_into().unwrap(), core::mem::transmute(pcchname), core::mem::transmute(providername.as_ptr())).ok()
+        unsafe { (windows_core::Interface::vtable(self).EventPipeGetProviderInfo)(windows_core::Interface::as_raw(self), provider, providername.len().try_into().unwrap(), core::mem::transmute(pcchname), core::mem::transmute(providername.as_ptr())).ok() }
     }
     pub unsafe fn EventPipeDefineEvent<P1>(&self, provider: usize, eventname: P1, eventid: u32, keywords: u64, eventversion: u32, level: u32, opcode: u8, needstack: bool, pparamdescs: &[COR_PRF_EVENTPIPE_PARAM_DESC]) -> windows_core::Result<usize>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EventPipeDefineEvent)(windows_core::Interface::as_raw(self), provider, eventname.param().abi(), eventid, keywords, eventversion, level, opcode, needstack.into(), pparamdescs.len().try_into().unwrap(), core::mem::transmute(pparamdescs.as_ptr()), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EventPipeDefineEvent)(windows_core::Interface::as_raw(self), provider, eventname.param().abi(), eventid, keywords, eventversion, level, opcode, needstack.into(), pparamdescs.len().try_into().unwrap(), core::mem::transmute(pparamdescs.as_ptr()), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn EventPipeWriteEvent(&self, event: usize, data: &[COR_PRF_EVENT_DATA], pactivityid: *const windows_core::GUID, prelatedactivityid: *const windows_core::GUID) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).EventPipeWriteEvent)(windows_core::Interface::as_raw(self), event, data.len().try_into().unwrap(), core::mem::transmute(data.as_ptr()), pactivityid, prelatedactivityid).ok()
+        unsafe { (windows_core::Interface::vtable(self).EventPipeWriteEvent)(windows_core::Interface::as_raw(self), event, data.len().try_into().unwrap(), core::mem::transmute(data.as_ptr()), pactivityid, prelatedactivityid).ok() }
     }
 }
 #[repr(C)]
@@ -2527,50 +2861,64 @@ pub trait ICorProfilerInfo12_Impl: ICorProfilerInfo11_Impl {
 impl ICorProfilerInfo12_Vtbl {
     pub const fn new<Identity: ICorProfilerInfo12_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn EventPipeStartSession<Identity: ICorProfilerInfo12_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cproviderconfigs: u32, pproviderconfigs: *const COR_PRF_EVENTPIPE_PROVIDER_CONFIG, requestrundown: super::super::super::Foundation::BOOL, psession: *mut u64) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerInfo12_Impl::EventPipeStartSession(this, core::mem::transmute_copy(&cproviderconfigs), core::mem::transmute_copy(&pproviderconfigs), core::mem::transmute_copy(&requestrundown)) {
-                Ok(ok__) => {
-                    psession.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerInfo12_Impl::EventPipeStartSession(this, core::mem::transmute_copy(&cproviderconfigs), core::mem::transmute_copy(&pproviderconfigs), core::mem::transmute_copy(&requestrundown)) {
+                    Ok(ok__) => {
+                        psession.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn EventPipeAddProviderToSession<Identity: ICorProfilerInfo12_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, session: u64, providerconfig: COR_PRF_EVENTPIPE_PROVIDER_CONFIG) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo12_Impl::EventPipeAddProviderToSession(this, core::mem::transmute_copy(&session), core::mem::transmute(&providerconfig)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo12_Impl::EventPipeAddProviderToSession(this, core::mem::transmute_copy(&session), core::mem::transmute(&providerconfig)).into()
+            }
         }
         unsafe extern "system" fn EventPipeStopSession<Identity: ICorProfilerInfo12_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, session: u64) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo12_Impl::EventPipeStopSession(this, core::mem::transmute_copy(&session)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo12_Impl::EventPipeStopSession(this, core::mem::transmute_copy(&session)).into()
+            }
         }
         unsafe extern "system" fn EventPipeCreateProvider<Identity: ICorProfilerInfo12_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, providername: windows_core::PCWSTR, pprovider: *mut usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerInfo12_Impl::EventPipeCreateProvider(this, core::mem::transmute(&providername)) {
-                Ok(ok__) => {
-                    pprovider.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerInfo12_Impl::EventPipeCreateProvider(this, core::mem::transmute(&providername)) {
+                    Ok(ok__) => {
+                        pprovider.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn EventPipeGetProviderInfo<Identity: ICorProfilerInfo12_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, provider: usize, cchname: u32, pcchname: *mut u32, providername: windows_core::PWSTR) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo12_Impl::EventPipeGetProviderInfo(this, core::mem::transmute_copy(&provider), core::mem::transmute_copy(&cchname), core::mem::transmute_copy(&pcchname), core::mem::transmute_copy(&providername)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo12_Impl::EventPipeGetProviderInfo(this, core::mem::transmute_copy(&provider), core::mem::transmute_copy(&cchname), core::mem::transmute_copy(&pcchname), core::mem::transmute_copy(&providername)).into()
+            }
         }
         unsafe extern "system" fn EventPipeDefineEvent<Identity: ICorProfilerInfo12_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, provider: usize, eventname: windows_core::PCWSTR, eventid: u32, keywords: u64, eventversion: u32, level: u32, opcode: u8, needstack: super::super::super::Foundation::BOOL, cparamdescs: u32, pparamdescs: *const COR_PRF_EVENTPIPE_PARAM_DESC, pevent: *mut usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerInfo12_Impl::EventPipeDefineEvent(this, core::mem::transmute_copy(&provider), core::mem::transmute(&eventname), core::mem::transmute_copy(&eventid), core::mem::transmute_copy(&keywords), core::mem::transmute_copy(&eventversion), core::mem::transmute_copy(&level), core::mem::transmute_copy(&opcode), core::mem::transmute_copy(&needstack), core::mem::transmute_copy(&cparamdescs), core::mem::transmute_copy(&pparamdescs)) {
-                Ok(ok__) => {
-                    pevent.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerInfo12_Impl::EventPipeDefineEvent(this, core::mem::transmute_copy(&provider), core::mem::transmute(&eventname), core::mem::transmute_copy(&eventid), core::mem::transmute_copy(&keywords), core::mem::transmute_copy(&eventversion), core::mem::transmute_copy(&level), core::mem::transmute_copy(&opcode), core::mem::transmute_copy(&needstack), core::mem::transmute_copy(&cparamdescs), core::mem::transmute_copy(&pparamdescs)) {
+                    Ok(ok__) => {
+                        pevent.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn EventPipeWriteEvent<Identity: ICorProfilerInfo12_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: usize, cdata: u32, data: *const COR_PRF_EVENT_DATA, pactivityid: *const windows_core::GUID, prelatedactivityid: *const windows_core::GUID) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo12_Impl::EventPipeWriteEvent(this, core::mem::transmute_copy(&event), core::mem::transmute_copy(&cdata), core::mem::transmute_copy(&data), core::mem::transmute_copy(&pactivityid), core::mem::transmute_copy(&prelatedactivityid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo12_Impl::EventPipeWriteEvent(this, core::mem::transmute_copy(&event), core::mem::transmute_copy(&cdata), core::mem::transmute_copy(&data), core::mem::transmute_copy(&pactivityid), core::mem::transmute_copy(&prelatedactivityid)).into()
+            }
         }
         Self {
             base__: ICorProfilerInfo11_Vtbl::new::<Identity, OFFSET>(),
@@ -2599,14 +2947,16 @@ impl core::ops::Deref for ICorProfilerInfo13 {
 windows_core::imp::interface_hierarchy!(ICorProfilerInfo13, windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3, ICorProfilerInfo4, ICorProfilerInfo5, ICorProfilerInfo6, ICorProfilerInfo7, ICorProfilerInfo8, ICorProfilerInfo9, ICorProfilerInfo10, ICorProfilerInfo11, ICorProfilerInfo12);
 impl ICorProfilerInfo13 {
     pub unsafe fn CreateHandle(&self, object: usize, r#type: COR_PRF_HANDLE_TYPE, phandle: *mut *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).CreateHandle)(windows_core::Interface::as_raw(self), object, r#type, core::mem::transmute(phandle)).ok()
+        unsafe { (windows_core::Interface::vtable(self).CreateHandle)(windows_core::Interface::as_raw(self), object, r#type, core::mem::transmute(phandle)).ok() }
     }
     pub unsafe fn DestroyHandle(&self, handle: *const *const core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).DestroyHandle)(windows_core::Interface::as_raw(self), handle).ok()
+        unsafe { (windows_core::Interface::vtable(self).DestroyHandle)(windows_core::Interface::as_raw(self), handle).ok() }
     }
     pub unsafe fn GetObjectIDFromHandle(&self, handle: *const *const core::ffi::c_void) -> windows_core::Result<usize> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetObjectIDFromHandle)(windows_core::Interface::as_raw(self), handle, &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetObjectIDFromHandle)(windows_core::Interface::as_raw(self), handle, &mut result__).map(|| result__)
+        }
     }
 }
 #[repr(C)]
@@ -2626,21 +2976,27 @@ pub trait ICorProfilerInfo13_Impl: ICorProfilerInfo12_Impl {
 impl ICorProfilerInfo13_Vtbl {
     pub const fn new<Identity: ICorProfilerInfo13_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateHandle<Identity: ICorProfilerInfo13_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, object: usize, r#type: COR_PRF_HANDLE_TYPE, phandle: *mut *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo13_Impl::CreateHandle(this, core::mem::transmute_copy(&object), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&phandle)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo13_Impl::CreateHandle(this, core::mem::transmute_copy(&object), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&phandle)).into()
+            }
         }
         unsafe extern "system" fn DestroyHandle<Identity: ICorProfilerInfo13_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handle: *const *const core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo13_Impl::DestroyHandle(this, core::mem::transmute_copy(&handle)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo13_Impl::DestroyHandle(this, core::mem::transmute_copy(&handle)).into()
+            }
         }
         unsafe extern "system" fn GetObjectIDFromHandle<Identity: ICorProfilerInfo13_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handle: *const *const core::ffi::c_void, pobject: *mut usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerInfo13_Impl::GetObjectIDFromHandle(this, core::mem::transmute_copy(&handle)) {
-                Ok(ok__) => {
-                    pobject.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerInfo13_Impl::GetObjectIDFromHandle(this, core::mem::transmute_copy(&handle)) {
+                    Ok(ok__) => {
+                        pobject.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -2678,18 +3034,22 @@ impl core::ops::Deref for ICorProfilerInfo14 {
 windows_core::imp::interface_hierarchy!(ICorProfilerInfo14, windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3, ICorProfilerInfo4, ICorProfilerInfo5, ICorProfilerInfo6, ICorProfilerInfo7, ICorProfilerInfo8, ICorProfilerInfo9, ICorProfilerInfo10, ICorProfilerInfo11, ICorProfilerInfo12, ICorProfilerInfo13);
 impl ICorProfilerInfo14 {
     pub unsafe fn EnumerateNonGCObjects(&self) -> windows_core::Result<ICorProfilerObjectEnum> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumerateNonGCObjects)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EnumerateNonGCObjects)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetNonGCHeapBounds(&self, pcobjectranges: *mut u32, ranges: &mut [COR_PRF_NONGC_HEAP_RANGE]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetNonGCHeapBounds)(windows_core::Interface::as_raw(self), ranges.len().try_into().unwrap(), core::mem::transmute(pcobjectranges), core::mem::transmute(ranges.as_ptr())).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetNonGCHeapBounds)(windows_core::Interface::as_raw(self), ranges.len().try_into().unwrap(), core::mem::transmute(pcobjectranges), core::mem::transmute(ranges.as_ptr())).ok() }
     }
     pub unsafe fn EventPipeCreateProvider2<P0>(&self, providername: P0, pcallback: *const EventPipeProviderCallback) -> windows_core::Result<usize>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EventPipeCreateProvider2)(windows_core::Interface::as_raw(self), providername.param().abi(), pcallback, &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EventPipeCreateProvider2)(windows_core::Interface::as_raw(self), providername.param().abi(), pcallback, &mut result__).map(|| result__)
+        }
     }
 }
 #[repr(C)]
@@ -2709,27 +3069,33 @@ pub trait ICorProfilerInfo14_Impl: ICorProfilerInfo13_Impl {
 impl ICorProfilerInfo14_Vtbl {
     pub const fn new<Identity: ICorProfilerInfo14_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn EnumerateNonGCObjects<Identity: ICorProfilerInfo14_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerInfo14_Impl::EnumerateNonGCObjects(this) {
-                Ok(ok__) => {
-                    ppenum.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerInfo14_Impl::EnumerateNonGCObjects(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetNonGCHeapBounds<Identity: ICorProfilerInfo14_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cobjectranges: u32, pcobjectranges: *mut u32, ranges: *mut COR_PRF_NONGC_HEAP_RANGE) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo14_Impl::GetNonGCHeapBounds(this, core::mem::transmute_copy(&cobjectranges), core::mem::transmute_copy(&pcobjectranges), core::mem::transmute_copy(&ranges)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo14_Impl::GetNonGCHeapBounds(this, core::mem::transmute_copy(&cobjectranges), core::mem::transmute_copy(&pcobjectranges), core::mem::transmute_copy(&ranges)).into()
+            }
         }
         unsafe extern "system" fn EventPipeCreateProvider2<Identity: ICorProfilerInfo14_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, providername: windows_core::PCWSTR, pcallback: *const EventPipeProviderCallback, pprovider: *mut usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerInfo14_Impl::EventPipeCreateProvider2(this, core::mem::transmute(&providername), core::mem::transmute_copy(&pcallback)) {
-                Ok(ok__) => {
-                    pprovider.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerInfo14_Impl::EventPipeCreateProvider2(this, core::mem::transmute(&providername), core::mem::transmute_copy(&pcallback)) {
+                    Ok(ok__) => {
+                        pprovider.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -2768,76 +3134,92 @@ impl core::ops::Deref for ICorProfilerInfo2 {
 windows_core::imp::interface_hierarchy!(ICorProfilerInfo2, windows_core::IUnknown, ICorProfilerInfo);
 impl ICorProfilerInfo2 {
     pub unsafe fn DoStackSnapshot(&self, thread: usize, callback: *const StackSnapshotCallback, infoflags: u32, clientdata: *const core::ffi::c_void, context: &[u8]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).DoStackSnapshot)(windows_core::Interface::as_raw(self), thread, callback, infoflags, clientdata, core::mem::transmute(context.as_ptr()), context.len().try_into().unwrap()).ok()
+        unsafe { (windows_core::Interface::vtable(self).DoStackSnapshot)(windows_core::Interface::as_raw(self), thread, callback, infoflags, clientdata, core::mem::transmute(context.as_ptr()), context.len().try_into().unwrap()).ok() }
     }
     pub unsafe fn SetEnterLeaveFunctionHooks2(&self, pfuncenter: *const FunctionEnter2, pfuncleave: *const FunctionLeave2, pfunctailcall: *const FunctionTailcall2) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetEnterLeaveFunctionHooks2)(windows_core::Interface::as_raw(self), pfuncenter, pfuncleave, pfunctailcall).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetEnterLeaveFunctionHooks2)(windows_core::Interface::as_raw(self), pfuncenter, pfuncleave, pfunctailcall).ok() }
     }
     pub unsafe fn GetFunctionInfo2(&self, funcid: usize, frameinfo: usize, pclassid: *mut usize, pmoduleid: *mut usize, ptoken: *mut u32, ctypeargs: u32, pctypeargs: *mut u32, typeargs: *mut usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetFunctionInfo2)(windows_core::Interface::as_raw(self), funcid, frameinfo, core::mem::transmute(pclassid), core::mem::transmute(pmoduleid), core::mem::transmute(ptoken), ctypeargs, core::mem::transmute(pctypeargs), core::mem::transmute(typeargs)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetFunctionInfo2)(windows_core::Interface::as_raw(self), funcid, frameinfo, core::mem::transmute(pclassid), core::mem::transmute(pmoduleid), core::mem::transmute(ptoken), ctypeargs, core::mem::transmute(pctypeargs), core::mem::transmute(typeargs)).ok() }
     }
     pub unsafe fn GetStringLayout(&self, pbufferlengthoffset: *mut u32, pstringlengthoffset: *mut u32, pbufferoffset: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetStringLayout)(windows_core::Interface::as_raw(self), core::mem::transmute(pbufferlengthoffset), core::mem::transmute(pstringlengthoffset), core::mem::transmute(pbufferoffset)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetStringLayout)(windows_core::Interface::as_raw(self), core::mem::transmute(pbufferlengthoffset), core::mem::transmute(pstringlengthoffset), core::mem::transmute(pbufferoffset)).ok() }
     }
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn GetClassLayout(&self, classid: usize, rfieldoffset: *mut super::super::WinRT::Metadata::COR_FIELD_OFFSET, cfieldoffset: u32, pcfieldoffset: *mut u32, pulclasssize: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetClassLayout)(windows_core::Interface::as_raw(self), classid, core::mem::transmute(rfieldoffset), cfieldoffset, core::mem::transmute(pcfieldoffset), core::mem::transmute(pulclasssize)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetClassLayout)(windows_core::Interface::as_raw(self), classid, core::mem::transmute(rfieldoffset), cfieldoffset, core::mem::transmute(pcfieldoffset), core::mem::transmute(pulclasssize)).ok() }
     }
     pub unsafe fn GetClassIDInfo2(&self, classid: usize, pmoduleid: *mut usize, ptypedeftoken: *mut u32, pparentclassid: *mut usize, cnumtypeargs: u32, pcnumtypeargs: *mut u32, typeargs: *mut usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetClassIDInfo2)(windows_core::Interface::as_raw(self), classid, core::mem::transmute(pmoduleid), core::mem::transmute(ptypedeftoken), core::mem::transmute(pparentclassid), cnumtypeargs, core::mem::transmute(pcnumtypeargs), core::mem::transmute(typeargs)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetClassIDInfo2)(windows_core::Interface::as_raw(self), classid, core::mem::transmute(pmoduleid), core::mem::transmute(ptypedeftoken), core::mem::transmute(pparentclassid), cnumtypeargs, core::mem::transmute(pcnumtypeargs), core::mem::transmute(typeargs)).ok() }
     }
     pub unsafe fn GetCodeInfo2(&self, functionid: usize, pccodeinfos: *mut u32, codeinfos: &mut [COR_PRF_CODE_INFO]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetCodeInfo2)(windows_core::Interface::as_raw(self), functionid, codeinfos.len().try_into().unwrap(), core::mem::transmute(pccodeinfos), core::mem::transmute(codeinfos.as_ptr())).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetCodeInfo2)(windows_core::Interface::as_raw(self), functionid, codeinfos.len().try_into().unwrap(), core::mem::transmute(pccodeinfos), core::mem::transmute(codeinfos.as_ptr())).ok() }
     }
     pub unsafe fn GetClassFromTokenAndTypeArgs(&self, moduleid: usize, typedef: u32, typeargs: &[usize]) -> windows_core::Result<usize> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetClassFromTokenAndTypeArgs)(windows_core::Interface::as_raw(self), moduleid, typedef, typeargs.len().try_into().unwrap(), core::mem::transmute(typeargs.as_ptr()), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetClassFromTokenAndTypeArgs)(windows_core::Interface::as_raw(self), moduleid, typedef, typeargs.len().try_into().unwrap(), core::mem::transmute(typeargs.as_ptr()), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn GetFunctionFromTokenAndTypeArgs(&self, moduleid: usize, funcdef: u32, classid: usize, typeargs: &[usize]) -> windows_core::Result<usize> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetFunctionFromTokenAndTypeArgs)(windows_core::Interface::as_raw(self), moduleid, funcdef, classid, typeargs.len().try_into().unwrap(), core::mem::transmute(typeargs.as_ptr()), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetFunctionFromTokenAndTypeArgs)(windows_core::Interface::as_raw(self), moduleid, funcdef, classid, typeargs.len().try_into().unwrap(), core::mem::transmute(typeargs.as_ptr()), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn EnumModuleFrozenObjects(&self, moduleid: usize) -> windows_core::Result<ICorProfilerObjectEnum> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumModuleFrozenObjects)(windows_core::Interface::as_raw(self), moduleid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EnumModuleFrozenObjects)(windows_core::Interface::as_raw(self), moduleid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetArrayObjectInfo(&self, objectid: usize, cdimensions: u32, pdimensionsizes: *mut u32, pdimensionlowerbounds: *mut i32, ppdata: *mut *mut u8) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetArrayObjectInfo)(windows_core::Interface::as_raw(self), objectid, cdimensions, core::mem::transmute(pdimensionsizes), core::mem::transmute(pdimensionlowerbounds), core::mem::transmute(ppdata)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetArrayObjectInfo)(windows_core::Interface::as_raw(self), objectid, cdimensions, core::mem::transmute(pdimensionsizes), core::mem::transmute(pdimensionlowerbounds), core::mem::transmute(ppdata)).ok() }
     }
     pub unsafe fn GetBoxClassLayout(&self, classid: usize) -> windows_core::Result<u32> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetBoxClassLayout)(windows_core::Interface::as_raw(self), classid, &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetBoxClassLayout)(windows_core::Interface::as_raw(self), classid, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn GetThreadAppDomain(&self, threadid: usize) -> windows_core::Result<usize> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetThreadAppDomain)(windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetThreadAppDomain)(windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn GetRVAStaticAddress(&self, classid: usize, fieldtoken: u32, ppaddress: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetRVAStaticAddress)(windows_core::Interface::as_raw(self), classid, fieldtoken, core::mem::transmute(ppaddress)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetRVAStaticAddress)(windows_core::Interface::as_raw(self), classid, fieldtoken, core::mem::transmute(ppaddress)).ok() }
     }
     pub unsafe fn GetAppDomainStaticAddress(&self, classid: usize, fieldtoken: u32, appdomainid: usize, ppaddress: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetAppDomainStaticAddress)(windows_core::Interface::as_raw(self), classid, fieldtoken, appdomainid, core::mem::transmute(ppaddress)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetAppDomainStaticAddress)(windows_core::Interface::as_raw(self), classid, fieldtoken, appdomainid, core::mem::transmute(ppaddress)).ok() }
     }
     pub unsafe fn GetThreadStaticAddress(&self, classid: usize, fieldtoken: u32, threadid: usize, ppaddress: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetThreadStaticAddress)(windows_core::Interface::as_raw(self), classid, fieldtoken, threadid, core::mem::transmute(ppaddress)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetThreadStaticAddress)(windows_core::Interface::as_raw(self), classid, fieldtoken, threadid, core::mem::transmute(ppaddress)).ok() }
     }
     pub unsafe fn GetContextStaticAddress(&self, classid: usize, fieldtoken: u32, contextid: usize, ppaddress: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetContextStaticAddress)(windows_core::Interface::as_raw(self), classid, fieldtoken, contextid, core::mem::transmute(ppaddress)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetContextStaticAddress)(windows_core::Interface::as_raw(self), classid, fieldtoken, contextid, core::mem::transmute(ppaddress)).ok() }
     }
     pub unsafe fn GetStaticFieldInfo(&self, classid: usize, fieldtoken: u32) -> windows_core::Result<COR_PRF_STATIC_TYPE> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetStaticFieldInfo)(windows_core::Interface::as_raw(self), classid, fieldtoken, &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetStaticFieldInfo)(windows_core::Interface::as_raw(self), classid, fieldtoken, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn GetGenerationBounds(&self, pcobjectranges: *mut u32, ranges: &mut [COR_PRF_GC_GENERATION_RANGE]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetGenerationBounds)(windows_core::Interface::as_raw(self), ranges.len().try_into().unwrap(), core::mem::transmute(pcobjectranges), core::mem::transmute(ranges.as_ptr())).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetGenerationBounds)(windows_core::Interface::as_raw(self), ranges.len().try_into().unwrap(), core::mem::transmute(pcobjectranges), core::mem::transmute(ranges.as_ptr())).ok() }
     }
     pub unsafe fn GetObjectGeneration(&self, objectid: usize) -> windows_core::Result<COR_PRF_GC_GENERATION_RANGE> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetObjectGeneration)(windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetObjectGeneration)(windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn GetNotifiedExceptionClauseInfo(&self) -> windows_core::Result<COR_PRF_EX_CLAUSE_INFO> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetNotifiedExceptionClauseInfo)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetNotifiedExceptionClauseInfo)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
 }
 #[repr(C)]
@@ -2896,135 +3278,177 @@ pub trait ICorProfilerInfo2_Impl: ICorProfilerInfo_Impl {
 impl ICorProfilerInfo2_Vtbl {
     pub const fn new<Identity: ICorProfilerInfo2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DoStackSnapshot<Identity: ICorProfilerInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, thread: usize, callback: *const StackSnapshotCallback, infoflags: u32, clientdata: *const core::ffi::c_void, context: *const u8, contextsize: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo2_Impl::DoStackSnapshot(this, core::mem::transmute_copy(&thread), core::mem::transmute_copy(&callback), core::mem::transmute_copy(&infoflags), core::mem::transmute_copy(&clientdata), core::mem::transmute_copy(&context), core::mem::transmute_copy(&contextsize)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo2_Impl::DoStackSnapshot(this, core::mem::transmute_copy(&thread), core::mem::transmute_copy(&callback), core::mem::transmute_copy(&infoflags), core::mem::transmute_copy(&clientdata), core::mem::transmute_copy(&context), core::mem::transmute_copy(&contextsize)).into()
+            }
         }
         unsafe extern "system" fn SetEnterLeaveFunctionHooks2<Identity: ICorProfilerInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfuncenter: *const FunctionEnter2, pfuncleave: *const FunctionLeave2, pfunctailcall: *const FunctionTailcall2) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo2_Impl::SetEnterLeaveFunctionHooks2(this, core::mem::transmute_copy(&pfuncenter), core::mem::transmute_copy(&pfuncleave), core::mem::transmute_copy(&pfunctailcall)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo2_Impl::SetEnterLeaveFunctionHooks2(this, core::mem::transmute_copy(&pfuncenter), core::mem::transmute_copy(&pfuncleave), core::mem::transmute_copy(&pfunctailcall)).into()
+            }
         }
         unsafe extern "system" fn GetFunctionInfo2<Identity: ICorProfilerInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, funcid: usize, frameinfo: usize, pclassid: *mut usize, pmoduleid: *mut usize, ptoken: *mut u32, ctypeargs: u32, pctypeargs: *mut u32, typeargs: *mut usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo2_Impl::GetFunctionInfo2(this, core::mem::transmute_copy(&funcid), core::mem::transmute_copy(&frameinfo), core::mem::transmute_copy(&pclassid), core::mem::transmute_copy(&pmoduleid), core::mem::transmute_copy(&ptoken), core::mem::transmute_copy(&ctypeargs), core::mem::transmute_copy(&pctypeargs), core::mem::transmute_copy(&typeargs)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo2_Impl::GetFunctionInfo2(this, core::mem::transmute_copy(&funcid), core::mem::transmute_copy(&frameinfo), core::mem::transmute_copy(&pclassid), core::mem::transmute_copy(&pmoduleid), core::mem::transmute_copy(&ptoken), core::mem::transmute_copy(&ctypeargs), core::mem::transmute_copy(&pctypeargs), core::mem::transmute_copy(&typeargs)).into()
+            }
         }
         unsafe extern "system" fn GetStringLayout<Identity: ICorProfilerInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbufferlengthoffset: *mut u32, pstringlengthoffset: *mut u32, pbufferoffset: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo2_Impl::GetStringLayout(this, core::mem::transmute_copy(&pbufferlengthoffset), core::mem::transmute_copy(&pstringlengthoffset), core::mem::transmute_copy(&pbufferoffset)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo2_Impl::GetStringLayout(this, core::mem::transmute_copy(&pbufferlengthoffset), core::mem::transmute_copy(&pstringlengthoffset), core::mem::transmute_copy(&pbufferoffset)).into()
+            }
         }
         unsafe extern "system" fn GetClassLayout<Identity: ICorProfilerInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, classid: usize, rfieldoffset: *mut super::super::WinRT::Metadata::COR_FIELD_OFFSET, cfieldoffset: u32, pcfieldoffset: *mut u32, pulclasssize: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo2_Impl::GetClassLayout(this, core::mem::transmute_copy(&classid), core::mem::transmute_copy(&rfieldoffset), core::mem::transmute_copy(&cfieldoffset), core::mem::transmute_copy(&pcfieldoffset), core::mem::transmute_copy(&pulclasssize)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo2_Impl::GetClassLayout(this, core::mem::transmute_copy(&classid), core::mem::transmute_copy(&rfieldoffset), core::mem::transmute_copy(&cfieldoffset), core::mem::transmute_copy(&pcfieldoffset), core::mem::transmute_copy(&pulclasssize)).into()
+            }
         }
         unsafe extern "system" fn GetClassIDInfo2<Identity: ICorProfilerInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, classid: usize, pmoduleid: *mut usize, ptypedeftoken: *mut u32, pparentclassid: *mut usize, cnumtypeargs: u32, pcnumtypeargs: *mut u32, typeargs: *mut usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo2_Impl::GetClassIDInfo2(this, core::mem::transmute_copy(&classid), core::mem::transmute_copy(&pmoduleid), core::mem::transmute_copy(&ptypedeftoken), core::mem::transmute_copy(&pparentclassid), core::mem::transmute_copy(&cnumtypeargs), core::mem::transmute_copy(&pcnumtypeargs), core::mem::transmute_copy(&typeargs)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo2_Impl::GetClassIDInfo2(this, core::mem::transmute_copy(&classid), core::mem::transmute_copy(&pmoduleid), core::mem::transmute_copy(&ptypedeftoken), core::mem::transmute_copy(&pparentclassid), core::mem::transmute_copy(&cnumtypeargs), core::mem::transmute_copy(&pcnumtypeargs), core::mem::transmute_copy(&typeargs)).into()
+            }
         }
         unsafe extern "system" fn GetCodeInfo2<Identity: ICorProfilerInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize, ccodeinfos: u32, pccodeinfos: *mut u32, codeinfos: *mut COR_PRF_CODE_INFO) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo2_Impl::GetCodeInfo2(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&ccodeinfos), core::mem::transmute_copy(&pccodeinfos), core::mem::transmute_copy(&codeinfos)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo2_Impl::GetCodeInfo2(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&ccodeinfos), core::mem::transmute_copy(&pccodeinfos), core::mem::transmute_copy(&codeinfos)).into()
+            }
         }
         unsafe extern "system" fn GetClassFromTokenAndTypeArgs<Identity: ICorProfilerInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleid: usize, typedef: u32, ctypeargs: u32, typeargs: *const usize, pclassid: *mut usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerInfo2_Impl::GetClassFromTokenAndTypeArgs(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&typedef), core::mem::transmute_copy(&ctypeargs), core::mem::transmute_copy(&typeargs)) {
-                Ok(ok__) => {
-                    pclassid.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerInfo2_Impl::GetClassFromTokenAndTypeArgs(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&typedef), core::mem::transmute_copy(&ctypeargs), core::mem::transmute_copy(&typeargs)) {
+                    Ok(ok__) => {
+                        pclassid.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetFunctionFromTokenAndTypeArgs<Identity: ICorProfilerInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleid: usize, funcdef: u32, classid: usize, ctypeargs: u32, typeargs: *const usize, pfunctionid: *mut usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerInfo2_Impl::GetFunctionFromTokenAndTypeArgs(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&funcdef), core::mem::transmute_copy(&classid), core::mem::transmute_copy(&ctypeargs), core::mem::transmute_copy(&typeargs)) {
-                Ok(ok__) => {
-                    pfunctionid.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerInfo2_Impl::GetFunctionFromTokenAndTypeArgs(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&funcdef), core::mem::transmute_copy(&classid), core::mem::transmute_copy(&ctypeargs), core::mem::transmute_copy(&typeargs)) {
+                    Ok(ok__) => {
+                        pfunctionid.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn EnumModuleFrozenObjects<Identity: ICorProfilerInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleid: usize, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerInfo2_Impl::EnumModuleFrozenObjects(this, core::mem::transmute_copy(&moduleid)) {
-                Ok(ok__) => {
-                    ppenum.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerInfo2_Impl::EnumModuleFrozenObjects(this, core::mem::transmute_copy(&moduleid)) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetArrayObjectInfo<Identity: ICorProfilerInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objectid: usize, cdimensions: u32, pdimensionsizes: *mut u32, pdimensionlowerbounds: *mut i32, ppdata: *mut *mut u8) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo2_Impl::GetArrayObjectInfo(this, core::mem::transmute_copy(&objectid), core::mem::transmute_copy(&cdimensions), core::mem::transmute_copy(&pdimensionsizes), core::mem::transmute_copy(&pdimensionlowerbounds), core::mem::transmute_copy(&ppdata)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo2_Impl::GetArrayObjectInfo(this, core::mem::transmute_copy(&objectid), core::mem::transmute_copy(&cdimensions), core::mem::transmute_copy(&pdimensionsizes), core::mem::transmute_copy(&pdimensionlowerbounds), core::mem::transmute_copy(&ppdata)).into()
+            }
         }
         unsafe extern "system" fn GetBoxClassLayout<Identity: ICorProfilerInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, classid: usize, pbufferoffset: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerInfo2_Impl::GetBoxClassLayout(this, core::mem::transmute_copy(&classid)) {
-                Ok(ok__) => {
-                    pbufferoffset.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerInfo2_Impl::GetBoxClassLayout(this, core::mem::transmute_copy(&classid)) {
+                    Ok(ok__) => {
+                        pbufferoffset.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetThreadAppDomain<Identity: ICorProfilerInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, threadid: usize, pappdomainid: *mut usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerInfo2_Impl::GetThreadAppDomain(this, core::mem::transmute_copy(&threadid)) {
-                Ok(ok__) => {
-                    pappdomainid.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerInfo2_Impl::GetThreadAppDomain(this, core::mem::transmute_copy(&threadid)) {
+                    Ok(ok__) => {
+                        pappdomainid.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetRVAStaticAddress<Identity: ICorProfilerInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, classid: usize, fieldtoken: u32, ppaddress: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo2_Impl::GetRVAStaticAddress(this, core::mem::transmute_copy(&classid), core::mem::transmute_copy(&fieldtoken), core::mem::transmute_copy(&ppaddress)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo2_Impl::GetRVAStaticAddress(this, core::mem::transmute_copy(&classid), core::mem::transmute_copy(&fieldtoken), core::mem::transmute_copy(&ppaddress)).into()
+            }
         }
         unsafe extern "system" fn GetAppDomainStaticAddress<Identity: ICorProfilerInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, classid: usize, fieldtoken: u32, appdomainid: usize, ppaddress: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo2_Impl::GetAppDomainStaticAddress(this, core::mem::transmute_copy(&classid), core::mem::transmute_copy(&fieldtoken), core::mem::transmute_copy(&appdomainid), core::mem::transmute_copy(&ppaddress)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo2_Impl::GetAppDomainStaticAddress(this, core::mem::transmute_copy(&classid), core::mem::transmute_copy(&fieldtoken), core::mem::transmute_copy(&appdomainid), core::mem::transmute_copy(&ppaddress)).into()
+            }
         }
         unsafe extern "system" fn GetThreadStaticAddress<Identity: ICorProfilerInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, classid: usize, fieldtoken: u32, threadid: usize, ppaddress: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo2_Impl::GetThreadStaticAddress(this, core::mem::transmute_copy(&classid), core::mem::transmute_copy(&fieldtoken), core::mem::transmute_copy(&threadid), core::mem::transmute_copy(&ppaddress)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo2_Impl::GetThreadStaticAddress(this, core::mem::transmute_copy(&classid), core::mem::transmute_copy(&fieldtoken), core::mem::transmute_copy(&threadid), core::mem::transmute_copy(&ppaddress)).into()
+            }
         }
         unsafe extern "system" fn GetContextStaticAddress<Identity: ICorProfilerInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, classid: usize, fieldtoken: u32, contextid: usize, ppaddress: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo2_Impl::GetContextStaticAddress(this, core::mem::transmute_copy(&classid), core::mem::transmute_copy(&fieldtoken), core::mem::transmute_copy(&contextid), core::mem::transmute_copy(&ppaddress)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo2_Impl::GetContextStaticAddress(this, core::mem::transmute_copy(&classid), core::mem::transmute_copy(&fieldtoken), core::mem::transmute_copy(&contextid), core::mem::transmute_copy(&ppaddress)).into()
+            }
         }
         unsafe extern "system" fn GetStaticFieldInfo<Identity: ICorProfilerInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, classid: usize, fieldtoken: u32, pfieldinfo: *mut COR_PRF_STATIC_TYPE) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerInfo2_Impl::GetStaticFieldInfo(this, core::mem::transmute_copy(&classid), core::mem::transmute_copy(&fieldtoken)) {
-                Ok(ok__) => {
-                    pfieldinfo.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerInfo2_Impl::GetStaticFieldInfo(this, core::mem::transmute_copy(&classid), core::mem::transmute_copy(&fieldtoken)) {
+                    Ok(ok__) => {
+                        pfieldinfo.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetGenerationBounds<Identity: ICorProfilerInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cobjectranges: u32, pcobjectranges: *mut u32, ranges: *mut COR_PRF_GC_GENERATION_RANGE) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo2_Impl::GetGenerationBounds(this, core::mem::transmute_copy(&cobjectranges), core::mem::transmute_copy(&pcobjectranges), core::mem::transmute_copy(&ranges)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo2_Impl::GetGenerationBounds(this, core::mem::transmute_copy(&cobjectranges), core::mem::transmute_copy(&pcobjectranges), core::mem::transmute_copy(&ranges)).into()
+            }
         }
         unsafe extern "system" fn GetObjectGeneration<Identity: ICorProfilerInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objectid: usize, range: *mut COR_PRF_GC_GENERATION_RANGE) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerInfo2_Impl::GetObjectGeneration(this, core::mem::transmute_copy(&objectid)) {
-                Ok(ok__) => {
-                    range.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerInfo2_Impl::GetObjectGeneration(this, core::mem::transmute_copy(&objectid)) {
+                    Ok(ok__) => {
+                        range.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetNotifiedExceptionClauseInfo<Identity: ICorProfilerInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *mut COR_PRF_EX_CLAUSE_INFO) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerInfo2_Impl::GetNotifiedExceptionClauseInfo(this) {
-                Ok(ok__) => {
-                    pinfo.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerInfo2_Impl::GetNotifiedExceptionClauseInfo(this) {
+                    Ok(ok__) => {
+                        pinfo.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -3068,49 +3492,55 @@ impl core::ops::Deref for ICorProfilerInfo3 {
 windows_core::imp::interface_hierarchy!(ICorProfilerInfo3, windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2);
 impl ICorProfilerInfo3 {
     pub unsafe fn EnumJITedFunctions(&self) -> windows_core::Result<ICorProfilerFunctionEnum> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumJITedFunctions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EnumJITedFunctions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn RequestProfilerDetach(&self, dwexpectedcompletionmilliseconds: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RequestProfilerDetach)(windows_core::Interface::as_raw(self), dwexpectedcompletionmilliseconds).ok()
+        unsafe { (windows_core::Interface::vtable(self).RequestProfilerDetach)(windows_core::Interface::as_raw(self), dwexpectedcompletionmilliseconds).ok() }
     }
     pub unsafe fn SetFunctionIDMapper2(&self, pfunc: *const FunctionIDMapper2, clientdata: *const core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetFunctionIDMapper2)(windows_core::Interface::as_raw(self), pfunc, clientdata).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetFunctionIDMapper2)(windows_core::Interface::as_raw(self), pfunc, clientdata).ok() }
     }
     pub unsafe fn GetStringLayout2(&self, pstringlengthoffset: *mut u32, pbufferoffset: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetStringLayout2)(windows_core::Interface::as_raw(self), core::mem::transmute(pstringlengthoffset), core::mem::transmute(pbufferoffset)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetStringLayout2)(windows_core::Interface::as_raw(self), core::mem::transmute(pstringlengthoffset), core::mem::transmute(pbufferoffset)).ok() }
     }
     pub unsafe fn SetEnterLeaveFunctionHooks3(&self, pfuncenter3: *const FunctionEnter3, pfuncleave3: *const FunctionLeave3, pfunctailcall3: *const FunctionTailcall3) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetEnterLeaveFunctionHooks3)(windows_core::Interface::as_raw(self), pfuncenter3, pfuncleave3, pfunctailcall3).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetEnterLeaveFunctionHooks3)(windows_core::Interface::as_raw(self), pfuncenter3, pfuncleave3, pfunctailcall3).ok() }
     }
     pub unsafe fn SetEnterLeaveFunctionHooks3WithInfo(&self, pfuncenter3withinfo: *const FunctionEnter3WithInfo, pfuncleave3withinfo: *const FunctionLeave3WithInfo, pfunctailcall3withinfo: *const FunctionTailcall3WithInfo) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetEnterLeaveFunctionHooks3WithInfo)(windows_core::Interface::as_raw(self), pfuncenter3withinfo, pfuncleave3withinfo, pfunctailcall3withinfo).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetEnterLeaveFunctionHooks3WithInfo)(windows_core::Interface::as_raw(self), pfuncenter3withinfo, pfuncleave3withinfo, pfunctailcall3withinfo).ok() }
     }
     pub unsafe fn GetFunctionEnter3Info(&self, functionid: usize, eltinfo: usize, pframeinfo: *mut usize, pcbargumentinfo: *mut u32, pargumentinfo: *mut COR_PRF_FUNCTION_ARGUMENT_INFO) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetFunctionEnter3Info)(windows_core::Interface::as_raw(self), functionid, eltinfo, core::mem::transmute(pframeinfo), core::mem::transmute(pcbargumentinfo), core::mem::transmute(pargumentinfo)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetFunctionEnter3Info)(windows_core::Interface::as_raw(self), functionid, eltinfo, core::mem::transmute(pframeinfo), core::mem::transmute(pcbargumentinfo), core::mem::transmute(pargumentinfo)).ok() }
     }
     pub unsafe fn GetFunctionLeave3Info(&self, functionid: usize, eltinfo: usize, pframeinfo: *mut usize, pretvalrange: *mut COR_PRF_FUNCTION_ARGUMENT_RANGE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetFunctionLeave3Info)(windows_core::Interface::as_raw(self), functionid, eltinfo, core::mem::transmute(pframeinfo), core::mem::transmute(pretvalrange)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetFunctionLeave3Info)(windows_core::Interface::as_raw(self), functionid, eltinfo, core::mem::transmute(pframeinfo), core::mem::transmute(pretvalrange)).ok() }
     }
     pub unsafe fn GetFunctionTailcall3Info(&self, functionid: usize, eltinfo: usize) -> windows_core::Result<usize> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetFunctionTailcall3Info)(windows_core::Interface::as_raw(self), functionid, eltinfo, &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetFunctionTailcall3Info)(windows_core::Interface::as_raw(self), functionid, eltinfo, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn EnumModules(&self) -> windows_core::Result<ICorProfilerModuleEnum> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumModules)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EnumModules)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetRuntimeInformation(&self, pclrinstanceid: *mut u16, pruntimetype: *mut COR_PRF_RUNTIME_TYPE, pmajorversion: *mut u16, pminorversion: *mut u16, pbuildnumber: *mut u16, pqfeversion: *mut u16, pcchversionstring: *mut u32, szversionstring: &mut [u16]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetRuntimeInformation)(windows_core::Interface::as_raw(self), core::mem::transmute(pclrinstanceid), core::mem::transmute(pruntimetype), core::mem::transmute(pmajorversion), core::mem::transmute(pminorversion), core::mem::transmute(pbuildnumber), core::mem::transmute(pqfeversion), szversionstring.len().try_into().unwrap(), core::mem::transmute(pcchversionstring), core::mem::transmute(szversionstring.as_ptr())).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetRuntimeInformation)(windows_core::Interface::as_raw(self), core::mem::transmute(pclrinstanceid), core::mem::transmute(pruntimetype), core::mem::transmute(pmajorversion), core::mem::transmute(pminorversion), core::mem::transmute(pbuildnumber), core::mem::transmute(pqfeversion), szversionstring.len().try_into().unwrap(), core::mem::transmute(pcchversionstring), core::mem::transmute(szversionstring.as_ptr())).ok() }
     }
     pub unsafe fn GetThreadStaticAddress2(&self, classid: usize, fieldtoken: u32, appdomainid: usize, threadid: usize, ppaddress: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetThreadStaticAddress2)(windows_core::Interface::as_raw(self), classid, fieldtoken, appdomainid, threadid, core::mem::transmute(ppaddress)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetThreadStaticAddress2)(windows_core::Interface::as_raw(self), classid, fieldtoken, appdomainid, threadid, core::mem::transmute(ppaddress)).ok() }
     }
     pub unsafe fn GetAppDomainsContainingModule(&self, moduleid: usize, pcappdomainids: *mut u32, appdomainids: &mut [usize]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetAppDomainsContainingModule)(windows_core::Interface::as_raw(self), moduleid, appdomainids.len().try_into().unwrap(), core::mem::transmute(pcappdomainids), core::mem::transmute(appdomainids.as_ptr())).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetAppDomainsContainingModule)(windows_core::Interface::as_raw(self), moduleid, appdomainids.len().try_into().unwrap(), core::mem::transmute(pcappdomainids), core::mem::transmute(appdomainids.as_ptr())).ok() }
     }
     pub unsafe fn GetModuleInfo2(&self, moduleid: usize, ppbaseloadaddress: *mut *mut u8, pcchname: *mut u32, szname: &mut [u16], passemblyid: *mut usize, pdwmoduleflags: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetModuleInfo2)(windows_core::Interface::as_raw(self), moduleid, core::mem::transmute(ppbaseloadaddress), szname.len().try_into().unwrap(), core::mem::transmute(pcchname), core::mem::transmute(szname.as_ptr()), core::mem::transmute(passemblyid), core::mem::transmute(pdwmoduleflags)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetModuleInfo2)(windows_core::Interface::as_raw(self), moduleid, core::mem::transmute(ppbaseloadaddress), szname.len().try_into().unwrap(), core::mem::transmute(pcchname), core::mem::transmute(szname.as_ptr()), core::mem::transmute(passemblyid), core::mem::transmute(pdwmoduleflags)).ok() }
     }
 }
 #[repr(C)]
@@ -3152,78 +3582,106 @@ pub trait ICorProfilerInfo3_Impl: ICorProfilerInfo2_Impl {
 impl ICorProfilerInfo3_Vtbl {
     pub const fn new<Identity: ICorProfilerInfo3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn EnumJITedFunctions<Identity: ICorProfilerInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerInfo3_Impl::EnumJITedFunctions(this) {
-                Ok(ok__) => {
-                    ppenum.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerInfo3_Impl::EnumJITedFunctions(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn RequestProfilerDetach<Identity: ICorProfilerInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwexpectedcompletionmilliseconds: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo3_Impl::RequestProfilerDetach(this, core::mem::transmute_copy(&dwexpectedcompletionmilliseconds)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo3_Impl::RequestProfilerDetach(this, core::mem::transmute_copy(&dwexpectedcompletionmilliseconds)).into()
+            }
         }
         unsafe extern "system" fn SetFunctionIDMapper2<Identity: ICorProfilerInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfunc: *const FunctionIDMapper2, clientdata: *const core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo3_Impl::SetFunctionIDMapper2(this, core::mem::transmute_copy(&pfunc), core::mem::transmute_copy(&clientdata)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo3_Impl::SetFunctionIDMapper2(this, core::mem::transmute_copy(&pfunc), core::mem::transmute_copy(&clientdata)).into()
+            }
         }
         unsafe extern "system" fn GetStringLayout2<Identity: ICorProfilerInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstringlengthoffset: *mut u32, pbufferoffset: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo3_Impl::GetStringLayout2(this, core::mem::transmute_copy(&pstringlengthoffset), core::mem::transmute_copy(&pbufferoffset)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo3_Impl::GetStringLayout2(this, core::mem::transmute_copy(&pstringlengthoffset), core::mem::transmute_copy(&pbufferoffset)).into()
+            }
         }
         unsafe extern "system" fn SetEnterLeaveFunctionHooks3<Identity: ICorProfilerInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfuncenter3: *const FunctionEnter3, pfuncleave3: *const FunctionLeave3, pfunctailcall3: *const FunctionTailcall3) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo3_Impl::SetEnterLeaveFunctionHooks3(this, core::mem::transmute_copy(&pfuncenter3), core::mem::transmute_copy(&pfuncleave3), core::mem::transmute_copy(&pfunctailcall3)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo3_Impl::SetEnterLeaveFunctionHooks3(this, core::mem::transmute_copy(&pfuncenter3), core::mem::transmute_copy(&pfuncleave3), core::mem::transmute_copy(&pfunctailcall3)).into()
+            }
         }
         unsafe extern "system" fn SetEnterLeaveFunctionHooks3WithInfo<Identity: ICorProfilerInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfuncenter3withinfo: *const FunctionEnter3WithInfo, pfuncleave3withinfo: *const FunctionLeave3WithInfo, pfunctailcall3withinfo: *const FunctionTailcall3WithInfo) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo3_Impl::SetEnterLeaveFunctionHooks3WithInfo(this, core::mem::transmute_copy(&pfuncenter3withinfo), core::mem::transmute_copy(&pfuncleave3withinfo), core::mem::transmute_copy(&pfunctailcall3withinfo)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo3_Impl::SetEnterLeaveFunctionHooks3WithInfo(this, core::mem::transmute_copy(&pfuncenter3withinfo), core::mem::transmute_copy(&pfuncleave3withinfo), core::mem::transmute_copy(&pfunctailcall3withinfo)).into()
+            }
         }
         unsafe extern "system" fn GetFunctionEnter3Info<Identity: ICorProfilerInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize, eltinfo: usize, pframeinfo: *mut usize, pcbargumentinfo: *mut u32, pargumentinfo: *mut COR_PRF_FUNCTION_ARGUMENT_INFO) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo3_Impl::GetFunctionEnter3Info(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&eltinfo), core::mem::transmute_copy(&pframeinfo), core::mem::transmute_copy(&pcbargumentinfo), core::mem::transmute_copy(&pargumentinfo)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo3_Impl::GetFunctionEnter3Info(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&eltinfo), core::mem::transmute_copy(&pframeinfo), core::mem::transmute_copy(&pcbargumentinfo), core::mem::transmute_copy(&pargumentinfo)).into()
+            }
         }
         unsafe extern "system" fn GetFunctionLeave3Info<Identity: ICorProfilerInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize, eltinfo: usize, pframeinfo: *mut usize, pretvalrange: *mut COR_PRF_FUNCTION_ARGUMENT_RANGE) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo3_Impl::GetFunctionLeave3Info(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&eltinfo), core::mem::transmute_copy(&pframeinfo), core::mem::transmute_copy(&pretvalrange)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo3_Impl::GetFunctionLeave3Info(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&eltinfo), core::mem::transmute_copy(&pframeinfo), core::mem::transmute_copy(&pretvalrange)).into()
+            }
         }
         unsafe extern "system" fn GetFunctionTailcall3Info<Identity: ICorProfilerInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize, eltinfo: usize, pframeinfo: *mut usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerInfo3_Impl::GetFunctionTailcall3Info(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&eltinfo)) {
-                Ok(ok__) => {
-                    pframeinfo.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerInfo3_Impl::GetFunctionTailcall3Info(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&eltinfo)) {
+                    Ok(ok__) => {
+                        pframeinfo.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn EnumModules<Identity: ICorProfilerInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerInfo3_Impl::EnumModules(this) {
-                Ok(ok__) => {
-                    ppenum.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerInfo3_Impl::EnumModules(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetRuntimeInformation<Identity: ICorProfilerInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pclrinstanceid: *mut u16, pruntimetype: *mut COR_PRF_RUNTIME_TYPE, pmajorversion: *mut u16, pminorversion: *mut u16, pbuildnumber: *mut u16, pqfeversion: *mut u16, cchversionstring: u32, pcchversionstring: *mut u32, szversionstring: windows_core::PWSTR) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo3_Impl::GetRuntimeInformation(this, core::mem::transmute_copy(&pclrinstanceid), core::mem::transmute_copy(&pruntimetype), core::mem::transmute_copy(&pmajorversion), core::mem::transmute_copy(&pminorversion), core::mem::transmute_copy(&pbuildnumber), core::mem::transmute_copy(&pqfeversion), core::mem::transmute_copy(&cchversionstring), core::mem::transmute_copy(&pcchversionstring), core::mem::transmute_copy(&szversionstring)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo3_Impl::GetRuntimeInformation(this, core::mem::transmute_copy(&pclrinstanceid), core::mem::transmute_copy(&pruntimetype), core::mem::transmute_copy(&pmajorversion), core::mem::transmute_copy(&pminorversion), core::mem::transmute_copy(&pbuildnumber), core::mem::transmute_copy(&pqfeversion), core::mem::transmute_copy(&cchversionstring), core::mem::transmute_copy(&pcchversionstring), core::mem::transmute_copy(&szversionstring)).into()
+            }
         }
         unsafe extern "system" fn GetThreadStaticAddress2<Identity: ICorProfilerInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, classid: usize, fieldtoken: u32, appdomainid: usize, threadid: usize, ppaddress: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo3_Impl::GetThreadStaticAddress2(this, core::mem::transmute_copy(&classid), core::mem::transmute_copy(&fieldtoken), core::mem::transmute_copy(&appdomainid), core::mem::transmute_copy(&threadid), core::mem::transmute_copy(&ppaddress)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo3_Impl::GetThreadStaticAddress2(this, core::mem::transmute_copy(&classid), core::mem::transmute_copy(&fieldtoken), core::mem::transmute_copy(&appdomainid), core::mem::transmute_copy(&threadid), core::mem::transmute_copy(&ppaddress)).into()
+            }
         }
         unsafe extern "system" fn GetAppDomainsContainingModule<Identity: ICorProfilerInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleid: usize, cappdomainids: u32, pcappdomainids: *mut u32, appdomainids: *mut usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo3_Impl::GetAppDomainsContainingModule(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&cappdomainids), core::mem::transmute_copy(&pcappdomainids), core::mem::transmute_copy(&appdomainids)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo3_Impl::GetAppDomainsContainingModule(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&cappdomainids), core::mem::transmute_copy(&pcappdomainids), core::mem::transmute_copy(&appdomainids)).into()
+            }
         }
         unsafe extern "system" fn GetModuleInfo2<Identity: ICorProfilerInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleid: usize, ppbaseloadaddress: *mut *mut u8, cchname: u32, pcchname: *mut u32, szname: windows_core::PWSTR, passemblyid: *mut usize, pdwmoduleflags: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo3_Impl::GetModuleInfo2(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&ppbaseloadaddress), core::mem::transmute_copy(&cchname), core::mem::transmute_copy(&pcchname), core::mem::transmute_copy(&szname), core::mem::transmute_copy(&passemblyid), core::mem::transmute_copy(&pdwmoduleflags)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo3_Impl::GetModuleInfo2(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&ppbaseloadaddress), core::mem::transmute_copy(&cchname), core::mem::transmute_copy(&pcchname), core::mem::transmute_copy(&szname), core::mem::transmute_copy(&passemblyid), core::mem::transmute_copy(&pdwmoduleflags)).into()
+            }
         }
         Self {
             base__: ICorProfilerInfo2_Vtbl::new::<Identity, OFFSET>(),
@@ -3259,38 +3717,46 @@ impl core::ops::Deref for ICorProfilerInfo4 {
 windows_core::imp::interface_hierarchy!(ICorProfilerInfo4, windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3);
 impl ICorProfilerInfo4 {
     pub unsafe fn EnumThreads(&self) -> windows_core::Result<ICorProfilerThreadEnum> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumThreads)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EnumThreads)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn InitializeCurrentThread(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).InitializeCurrentThread)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).InitializeCurrentThread)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn RequestReJIT(&self, cfunctions: u32, moduleids: *const usize, methodids: *const u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RequestReJIT)(windows_core::Interface::as_raw(self), cfunctions, moduleids, methodids).ok()
+        unsafe { (windows_core::Interface::vtable(self).RequestReJIT)(windows_core::Interface::as_raw(self), cfunctions, moduleids, methodids).ok() }
     }
     pub unsafe fn RequestRevert(&self, cfunctions: u32, moduleids: *const usize, methodids: *const u32) -> windows_core::Result<windows_core::HRESULT> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).RequestRevert)(windows_core::Interface::as_raw(self), cfunctions, moduleids, methodids, &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).RequestRevert)(windows_core::Interface::as_raw(self), cfunctions, moduleids, methodids, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn GetCodeInfo3(&self, functionid: usize, rejitid: usize, pccodeinfos: *mut u32, codeinfos: &mut [COR_PRF_CODE_INFO]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetCodeInfo3)(windows_core::Interface::as_raw(self), functionid, rejitid, codeinfos.len().try_into().unwrap(), core::mem::transmute(pccodeinfos), core::mem::transmute(codeinfos.as_ptr())).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetCodeInfo3)(windows_core::Interface::as_raw(self), functionid, rejitid, codeinfos.len().try_into().unwrap(), core::mem::transmute(pccodeinfos), core::mem::transmute(codeinfos.as_ptr())).ok() }
     }
     pub unsafe fn GetFunctionFromIP2(&self, ip: *const u8, pfunctionid: *mut usize, prejitid: *mut usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetFunctionFromIP2)(windows_core::Interface::as_raw(self), ip, core::mem::transmute(pfunctionid), core::mem::transmute(prejitid)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetFunctionFromIP2)(windows_core::Interface::as_raw(self), ip, core::mem::transmute(pfunctionid), core::mem::transmute(prejitid)).ok() }
     }
     pub unsafe fn GetReJITIDs(&self, functionid: usize, pcrejitids: *mut u32, rejitids: &mut [usize]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetReJITIDs)(windows_core::Interface::as_raw(self), functionid, rejitids.len().try_into().unwrap(), core::mem::transmute(pcrejitids), core::mem::transmute(rejitids.as_ptr())).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetReJITIDs)(windows_core::Interface::as_raw(self), functionid, rejitids.len().try_into().unwrap(), core::mem::transmute(pcrejitids), core::mem::transmute(rejitids.as_ptr())).ok() }
     }
     pub unsafe fn GetILToNativeMapping2(&self, functionid: usize, rejitid: usize, pcmap: *mut u32, map: &mut [COR_DEBUG_IL_TO_NATIVE_MAP]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetILToNativeMapping2)(windows_core::Interface::as_raw(self), functionid, rejitid, map.len().try_into().unwrap(), core::mem::transmute(pcmap), core::mem::transmute(map.as_ptr())).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetILToNativeMapping2)(windows_core::Interface::as_raw(self), functionid, rejitid, map.len().try_into().unwrap(), core::mem::transmute(pcmap), core::mem::transmute(map.as_ptr())).ok() }
     }
     pub unsafe fn EnumJITedFunctions2(&self) -> windows_core::Result<ICorProfilerFunctionEnum> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumJITedFunctions2)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EnumJITedFunctions2)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetObjectSize2(&self, objectid: usize) -> windows_core::Result<usize> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetObjectSize2)(windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetObjectSize2)(windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
+        }
     }
 }
 #[repr(C)]
@@ -3324,67 +3790,87 @@ pub trait ICorProfilerInfo4_Impl: ICorProfilerInfo3_Impl {
 impl ICorProfilerInfo4_Vtbl {
     pub const fn new<Identity: ICorProfilerInfo4_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn EnumThreads<Identity: ICorProfilerInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerInfo4_Impl::EnumThreads(this) {
-                Ok(ok__) => {
-                    ppenum.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerInfo4_Impl::EnumThreads(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn InitializeCurrentThread<Identity: ICorProfilerInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo4_Impl::InitializeCurrentThread(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo4_Impl::InitializeCurrentThread(this).into()
+            }
         }
         unsafe extern "system" fn RequestReJIT<Identity: ICorProfilerInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cfunctions: u32, moduleids: *const usize, methodids: *const u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo4_Impl::RequestReJIT(this, core::mem::transmute_copy(&cfunctions), core::mem::transmute_copy(&moduleids), core::mem::transmute_copy(&methodids)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo4_Impl::RequestReJIT(this, core::mem::transmute_copy(&cfunctions), core::mem::transmute_copy(&moduleids), core::mem::transmute_copy(&methodids)).into()
+            }
         }
         unsafe extern "system" fn RequestRevert<Identity: ICorProfilerInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cfunctions: u32, moduleids: *const usize, methodids: *const u32, status: *mut windows_core::HRESULT) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerInfo4_Impl::RequestRevert(this, core::mem::transmute_copy(&cfunctions), core::mem::transmute_copy(&moduleids), core::mem::transmute_copy(&methodids)) {
-                Ok(ok__) => {
-                    status.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerInfo4_Impl::RequestRevert(this, core::mem::transmute_copy(&cfunctions), core::mem::transmute_copy(&moduleids), core::mem::transmute_copy(&methodids)) {
+                    Ok(ok__) => {
+                        status.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetCodeInfo3<Identity: ICorProfilerInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize, rejitid: usize, ccodeinfos: u32, pccodeinfos: *mut u32, codeinfos: *mut COR_PRF_CODE_INFO) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo4_Impl::GetCodeInfo3(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&rejitid), core::mem::transmute_copy(&ccodeinfos), core::mem::transmute_copy(&pccodeinfos), core::mem::transmute_copy(&codeinfos)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo4_Impl::GetCodeInfo3(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&rejitid), core::mem::transmute_copy(&ccodeinfos), core::mem::transmute_copy(&pccodeinfos), core::mem::transmute_copy(&codeinfos)).into()
+            }
         }
         unsafe extern "system" fn GetFunctionFromIP2<Identity: ICorProfilerInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ip: *const u8, pfunctionid: *mut usize, prejitid: *mut usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo4_Impl::GetFunctionFromIP2(this, core::mem::transmute_copy(&ip), core::mem::transmute_copy(&pfunctionid), core::mem::transmute_copy(&prejitid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo4_Impl::GetFunctionFromIP2(this, core::mem::transmute_copy(&ip), core::mem::transmute_copy(&pfunctionid), core::mem::transmute_copy(&prejitid)).into()
+            }
         }
         unsafe extern "system" fn GetReJITIDs<Identity: ICorProfilerInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize, crejitids: u32, pcrejitids: *mut u32, rejitids: *mut usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo4_Impl::GetReJITIDs(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&crejitids), core::mem::transmute_copy(&pcrejitids), core::mem::transmute_copy(&rejitids)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo4_Impl::GetReJITIDs(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&crejitids), core::mem::transmute_copy(&pcrejitids), core::mem::transmute_copy(&rejitids)).into()
+            }
         }
         unsafe extern "system" fn GetILToNativeMapping2<Identity: ICorProfilerInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize, rejitid: usize, cmap: u32, pcmap: *mut u32, map: *mut COR_DEBUG_IL_TO_NATIVE_MAP) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo4_Impl::GetILToNativeMapping2(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&rejitid), core::mem::transmute_copy(&cmap), core::mem::transmute_copy(&pcmap), core::mem::transmute_copy(&map)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo4_Impl::GetILToNativeMapping2(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&rejitid), core::mem::transmute_copy(&cmap), core::mem::transmute_copy(&pcmap), core::mem::transmute_copy(&map)).into()
+            }
         }
         unsafe extern "system" fn EnumJITedFunctions2<Identity: ICorProfilerInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerInfo4_Impl::EnumJITedFunctions2(this) {
-                Ok(ok__) => {
-                    ppenum.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerInfo4_Impl::EnumJITedFunctions2(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetObjectSize2<Identity: ICorProfilerInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objectid: usize, pcsize: *mut usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerInfo4_Impl::GetObjectSize2(this, core::mem::transmute_copy(&objectid)) {
-                Ok(ok__) => {
-                    pcsize.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerInfo4_Impl::GetObjectSize2(this, core::mem::transmute_copy(&objectid)) {
+                    Ok(ok__) => {
+                        pcsize.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -3417,10 +3903,10 @@ impl core::ops::Deref for ICorProfilerInfo5 {
 windows_core::imp::interface_hierarchy!(ICorProfilerInfo5, windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3, ICorProfilerInfo4);
 impl ICorProfilerInfo5 {
     pub unsafe fn GetEventMask2(&self, pdweventslow: *mut u32, pdweventshigh: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetEventMask2)(windows_core::Interface::as_raw(self), core::mem::transmute(pdweventslow), core::mem::transmute(pdweventshigh)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetEventMask2)(windows_core::Interface::as_raw(self), core::mem::transmute(pdweventslow), core::mem::transmute(pdweventshigh)).ok() }
     }
     pub unsafe fn SetEventMask2(&self, dweventslow: u32, dweventshigh: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetEventMask2)(windows_core::Interface::as_raw(self), dweventslow, dweventshigh).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetEventMask2)(windows_core::Interface::as_raw(self), dweventslow, dweventshigh).ok() }
     }
 }
 #[repr(C)]
@@ -3438,12 +3924,16 @@ pub trait ICorProfilerInfo5_Impl: ICorProfilerInfo4_Impl {
 impl ICorProfilerInfo5_Vtbl {
     pub const fn new<Identity: ICorProfilerInfo5_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetEventMask2<Identity: ICorProfilerInfo5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdweventslow: *mut u32, pdweventshigh: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo5_Impl::GetEventMask2(this, core::mem::transmute_copy(&pdweventslow), core::mem::transmute_copy(&pdweventshigh)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo5_Impl::GetEventMask2(this, core::mem::transmute_copy(&pdweventslow), core::mem::transmute_copy(&pdweventshigh)).into()
+            }
         }
         unsafe extern "system" fn SetEventMask2<Identity: ICorProfilerInfo5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dweventslow: u32, dweventshigh: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo5_Impl::SetEventMask2(this, core::mem::transmute_copy(&dweventslow), core::mem::transmute_copy(&dweventshigh)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo5_Impl::SetEventMask2(this, core::mem::transmute_copy(&dweventslow), core::mem::transmute_copy(&dweventshigh)).into()
+            }
         }
         Self {
             base__: ICorProfilerInfo4_Vtbl::new::<Identity, OFFSET>(),
@@ -3467,7 +3957,7 @@ impl core::ops::Deref for ICorProfilerInfo6 {
 windows_core::imp::interface_hierarchy!(ICorProfilerInfo6, windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3, ICorProfilerInfo4, ICorProfilerInfo5);
 impl ICorProfilerInfo6 {
     pub unsafe fn EnumNgenModuleMethodsInliningThisMethod(&self, inlinersmoduleid: usize, inlineemoduleid: usize, inlineemethodid: u32, incompletedata: *mut super::super::super::Foundation::BOOL, ppenum: *mut Option<ICorProfilerMethodEnum>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).EnumNgenModuleMethodsInliningThisMethod)(windows_core::Interface::as_raw(self), inlinersmoduleid, inlineemoduleid, inlineemethodid, core::mem::transmute(incompletedata), core::mem::transmute(ppenum)).ok()
+        unsafe { (windows_core::Interface::vtable(self).EnumNgenModuleMethodsInliningThisMethod)(windows_core::Interface::as_raw(self), inlinersmoduleid, inlineemoduleid, inlineemethodid, core::mem::transmute(incompletedata), core::mem::transmute(ppenum)).ok() }
     }
 }
 #[repr(C)]
@@ -3483,8 +3973,10 @@ pub trait ICorProfilerInfo6_Impl: ICorProfilerInfo5_Impl {
 impl ICorProfilerInfo6_Vtbl {
     pub const fn new<Identity: ICorProfilerInfo6_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn EnumNgenModuleMethodsInliningThisMethod<Identity: ICorProfilerInfo6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inlinersmoduleid: usize, inlineemoduleid: usize, inlineemethodid: u32, incompletedata: *mut super::super::super::Foundation::BOOL, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo6_Impl::EnumNgenModuleMethodsInliningThisMethod(this, core::mem::transmute_copy(&inlinersmoduleid), core::mem::transmute_copy(&inlineemoduleid), core::mem::transmute_copy(&inlineemethodid), core::mem::transmute_copy(&incompletedata), core::mem::transmute_copy(&ppenum)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo6_Impl::EnumNgenModuleMethodsInliningThisMethod(this, core::mem::transmute_copy(&inlinersmoduleid), core::mem::transmute_copy(&inlineemoduleid), core::mem::transmute_copy(&inlineemethodid), core::mem::transmute_copy(&incompletedata), core::mem::transmute_copy(&ppenum)).into()
+            }
         }
         Self {
             base__: ICorProfilerInfo5_Vtbl::new::<Identity, OFFSET>(),
@@ -3507,14 +3999,16 @@ impl core::ops::Deref for ICorProfilerInfo7 {
 windows_core::imp::interface_hierarchy!(ICorProfilerInfo7, windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3, ICorProfilerInfo4, ICorProfilerInfo5, ICorProfilerInfo6);
 impl ICorProfilerInfo7 {
     pub unsafe fn ApplyMetaData(&self, moduleid: usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ApplyMetaData)(windows_core::Interface::as_raw(self), moduleid).ok()
+        unsafe { (windows_core::Interface::vtable(self).ApplyMetaData)(windows_core::Interface::as_raw(self), moduleid).ok() }
     }
     pub unsafe fn GetInMemorySymbolsLength(&self, moduleid: usize) -> windows_core::Result<u32> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetInMemorySymbolsLength)(windows_core::Interface::as_raw(self), moduleid, &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetInMemorySymbolsLength)(windows_core::Interface::as_raw(self), moduleid, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn ReadInMemorySymbols(&self, moduleid: usize, symbolsreadoffset: u32, psymbolbytes: *mut u8, countsymbolbytes: u32, pcountsymbolbytesread: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ReadInMemorySymbols)(windows_core::Interface::as_raw(self), moduleid, symbolsreadoffset, core::mem::transmute(psymbolbytes), countsymbolbytes, core::mem::transmute(pcountsymbolbytesread)).ok()
+        unsafe { (windows_core::Interface::vtable(self).ReadInMemorySymbols)(windows_core::Interface::as_raw(self), moduleid, symbolsreadoffset, core::mem::transmute(psymbolbytes), countsymbolbytes, core::mem::transmute(pcountsymbolbytesread)).ok() }
     }
 }
 #[repr(C)]
@@ -3534,22 +4028,28 @@ pub trait ICorProfilerInfo7_Impl: ICorProfilerInfo6_Impl {
 impl ICorProfilerInfo7_Vtbl {
     pub const fn new<Identity: ICorProfilerInfo7_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ApplyMetaData<Identity: ICorProfilerInfo7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleid: usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo7_Impl::ApplyMetaData(this, core::mem::transmute_copy(&moduleid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo7_Impl::ApplyMetaData(this, core::mem::transmute_copy(&moduleid)).into()
+            }
         }
         unsafe extern "system" fn GetInMemorySymbolsLength<Identity: ICorProfilerInfo7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleid: usize, pcountsymbolbytes: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerInfo7_Impl::GetInMemorySymbolsLength(this, core::mem::transmute_copy(&moduleid)) {
-                Ok(ok__) => {
-                    pcountsymbolbytes.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerInfo7_Impl::GetInMemorySymbolsLength(this, core::mem::transmute_copy(&moduleid)) {
+                    Ok(ok__) => {
+                        pcountsymbolbytes.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn ReadInMemorySymbols<Identity: ICorProfilerInfo7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleid: usize, symbolsreadoffset: u32, psymbolbytes: *mut u8, countsymbolbytes: u32, pcountsymbolbytesread: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo7_Impl::ReadInMemorySymbols(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&symbolsreadoffset), core::mem::transmute_copy(&psymbolbytes), core::mem::transmute_copy(&countsymbolbytes), core::mem::transmute_copy(&pcountsymbolbytesread)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo7_Impl::ReadInMemorySymbols(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&symbolsreadoffset), core::mem::transmute_copy(&psymbolbytes), core::mem::transmute_copy(&countsymbolbytes), core::mem::transmute_copy(&pcountsymbolbytesread)).into()
+            }
         }
         Self {
             base__: ICorProfilerInfo6_Vtbl::new::<Identity, OFFSET>(),
@@ -3574,14 +4074,16 @@ impl core::ops::Deref for ICorProfilerInfo8 {
 windows_core::imp::interface_hierarchy!(ICorProfilerInfo8, windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3, ICorProfilerInfo4, ICorProfilerInfo5, ICorProfilerInfo6, ICorProfilerInfo7);
 impl ICorProfilerInfo8 {
     pub unsafe fn IsFunctionDynamic(&self, functionid: usize) -> windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).IsFunctionDynamic)(windows_core::Interface::as_raw(self), functionid, &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).IsFunctionDynamic)(windows_core::Interface::as_raw(self), functionid, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn GetFunctionFromIP3(&self, ip: *const u8, functionid: *mut usize, prejitid: *mut usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetFunctionFromIP3)(windows_core::Interface::as_raw(self), ip, core::mem::transmute(functionid), core::mem::transmute(prejitid)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetFunctionFromIP3)(windows_core::Interface::as_raw(self), ip, core::mem::transmute(functionid), core::mem::transmute(prejitid)).ok() }
     }
     pub unsafe fn GetDynamicFunctionInfo(&self, functionid: usize, moduleid: *mut usize, ppvsig: *mut *mut u8, pbsig: *mut u32, cchname: u32, pcchname: *mut u32, wszname: windows_core::PWSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetDynamicFunctionInfo)(windows_core::Interface::as_raw(self), functionid, core::mem::transmute(moduleid), core::mem::transmute(ppvsig), core::mem::transmute(pbsig), cchname, core::mem::transmute(pcchname), core::mem::transmute(wszname)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetDynamicFunctionInfo)(windows_core::Interface::as_raw(self), functionid, core::mem::transmute(moduleid), core::mem::transmute(ppvsig), core::mem::transmute(pbsig), cchname, core::mem::transmute(pcchname), core::mem::transmute(wszname)).ok() }
     }
 }
 #[repr(C)]
@@ -3601,22 +4103,28 @@ pub trait ICorProfilerInfo8_Impl: ICorProfilerInfo7_Impl {
 impl ICorProfilerInfo8_Vtbl {
     pub const fn new<Identity: ICorProfilerInfo8_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn IsFunctionDynamic<Identity: ICorProfilerInfo8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize, isdynamic: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerInfo8_Impl::IsFunctionDynamic(this, core::mem::transmute_copy(&functionid)) {
-                Ok(ok__) => {
-                    isdynamic.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerInfo8_Impl::IsFunctionDynamic(this, core::mem::transmute_copy(&functionid)) {
+                    Ok(ok__) => {
+                        isdynamic.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetFunctionFromIP3<Identity: ICorProfilerInfo8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ip: *const u8, functionid: *mut usize, prejitid: *mut usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo8_Impl::GetFunctionFromIP3(this, core::mem::transmute_copy(&ip), core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&prejitid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo8_Impl::GetFunctionFromIP3(this, core::mem::transmute_copy(&ip), core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&prejitid)).into()
+            }
         }
         unsafe extern "system" fn GetDynamicFunctionInfo<Identity: ICorProfilerInfo8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize, moduleid: *mut usize, ppvsig: *mut *mut u8, pbsig: *mut u32, cchname: u32, pcchname: *mut u32, wszname: windows_core::PWSTR) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo8_Impl::GetDynamicFunctionInfo(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&ppvsig), core::mem::transmute_copy(&pbsig), core::mem::transmute_copy(&cchname), core::mem::transmute_copy(&pcchname), core::mem::transmute_copy(&wszname)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo8_Impl::GetDynamicFunctionInfo(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&ppvsig), core::mem::transmute_copy(&pbsig), core::mem::transmute_copy(&cchname), core::mem::transmute_copy(&pcchname), core::mem::transmute_copy(&wszname)).into()
+            }
         }
         Self {
             base__: ICorProfilerInfo7_Vtbl::new::<Identity, OFFSET>(),
@@ -3641,13 +4149,13 @@ impl core::ops::Deref for ICorProfilerInfo9 {
 windows_core::imp::interface_hierarchy!(ICorProfilerInfo9, windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3, ICorProfilerInfo4, ICorProfilerInfo5, ICorProfilerInfo6, ICorProfilerInfo7, ICorProfilerInfo8);
 impl ICorProfilerInfo9 {
     pub unsafe fn GetNativeCodeStartAddresses(&self, functionid: usize, rejitid: usize, ccodestartaddresses: u32, pccodestartaddresses: *mut u32, codestartaddresses: *mut usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetNativeCodeStartAddresses)(windows_core::Interface::as_raw(self), functionid, rejitid, ccodestartaddresses, core::mem::transmute(pccodestartaddresses), core::mem::transmute(codestartaddresses)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetNativeCodeStartAddresses)(windows_core::Interface::as_raw(self), functionid, rejitid, ccodestartaddresses, core::mem::transmute(pccodestartaddresses), core::mem::transmute(codestartaddresses)).ok() }
     }
     pub unsafe fn GetILToNativeMapping3(&self, pnativecodestartaddress: usize, cmap: u32, pcmap: *mut u32, map: *mut COR_DEBUG_IL_TO_NATIVE_MAP) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetILToNativeMapping3)(windows_core::Interface::as_raw(self), pnativecodestartaddress, cmap, core::mem::transmute(pcmap), core::mem::transmute(map)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetILToNativeMapping3)(windows_core::Interface::as_raw(self), pnativecodestartaddress, cmap, core::mem::transmute(pcmap), core::mem::transmute(map)).ok() }
     }
     pub unsafe fn GetCodeInfo4(&self, pnativecodestartaddress: usize, ccodeinfos: u32, pccodeinfos: *mut u32, codeinfos: *mut COR_PRF_CODE_INFO) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetCodeInfo4)(windows_core::Interface::as_raw(self), pnativecodestartaddress, ccodeinfos, core::mem::transmute(pccodeinfos), core::mem::transmute(codeinfos)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetCodeInfo4)(windows_core::Interface::as_raw(self), pnativecodestartaddress, ccodeinfos, core::mem::transmute(pccodeinfos), core::mem::transmute(codeinfos)).ok() }
     }
 }
 #[repr(C)]
@@ -3667,16 +4175,22 @@ pub trait ICorProfilerInfo9_Impl: ICorProfilerInfo8_Impl {
 impl ICorProfilerInfo9_Vtbl {
     pub const fn new<Identity: ICorProfilerInfo9_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetNativeCodeStartAddresses<Identity: ICorProfilerInfo9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize, rejitid: usize, ccodestartaddresses: u32, pccodestartaddresses: *mut u32, codestartaddresses: *mut usize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo9_Impl::GetNativeCodeStartAddresses(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&rejitid), core::mem::transmute_copy(&ccodestartaddresses), core::mem::transmute_copy(&pccodestartaddresses), core::mem::transmute_copy(&codestartaddresses)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo9_Impl::GetNativeCodeStartAddresses(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&rejitid), core::mem::transmute_copy(&ccodestartaddresses), core::mem::transmute_copy(&pccodestartaddresses), core::mem::transmute_copy(&codestartaddresses)).into()
+            }
         }
         unsafe extern "system" fn GetILToNativeMapping3<Identity: ICorProfilerInfo9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnativecodestartaddress: usize, cmap: u32, pcmap: *mut u32, map: *mut COR_DEBUG_IL_TO_NATIVE_MAP) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo9_Impl::GetILToNativeMapping3(this, core::mem::transmute_copy(&pnativecodestartaddress), core::mem::transmute_copy(&cmap), core::mem::transmute_copy(&pcmap), core::mem::transmute_copy(&map)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo9_Impl::GetILToNativeMapping3(this, core::mem::transmute_copy(&pnativecodestartaddress), core::mem::transmute_copy(&cmap), core::mem::transmute_copy(&pcmap), core::mem::transmute_copy(&map)).into()
+            }
         }
         unsafe extern "system" fn GetCodeInfo4<Identity: ICorProfilerInfo9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnativecodestartaddress: usize, ccodeinfos: u32, pccodeinfos: *mut u32, codeinfos: *mut COR_PRF_CODE_INFO) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerInfo9_Impl::GetCodeInfo4(this, core::mem::transmute_copy(&pnativecodestartaddress), core::mem::transmute_copy(&ccodeinfos), core::mem::transmute_copy(&pccodeinfos), core::mem::transmute_copy(&codeinfos)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerInfo9_Impl::GetCodeInfo4(this, core::mem::transmute_copy(&pnativecodestartaddress), core::mem::transmute_copy(&ccodeinfos), core::mem::transmute_copy(&pccodeinfos), core::mem::transmute_copy(&codeinfos)).into()
+            }
         }
         Self {
             base__: ICorProfilerInfo8_Vtbl::new::<Identity, OFFSET>(),
@@ -3695,21 +4209,25 @@ windows_core::imp::define_interface!(ICorProfilerMethodEnum, ICorProfilerMethodE
 windows_core::imp::interface_hierarchy!(ICorProfilerMethodEnum, windows_core::IUnknown);
 impl ICorProfilerMethodEnum {
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok()
+        unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<ICorProfilerMethodEnum> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn Next(&self, elements: &mut [COR_PRF_METHOD], pceltfetched: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), elements.len().try_into().unwrap(), core::mem::transmute(elements.as_ptr()), core::mem::transmute(pceltfetched)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), elements.len().try_into().unwrap(), core::mem::transmute(elements.as_ptr()), core::mem::transmute(pceltfetched)).ok() }
     }
 }
 #[repr(C)]
@@ -3731,36 +4249,46 @@ pub trait ICorProfilerMethodEnum_Impl: windows_core::IUnknownImpl {
 impl ICorProfilerMethodEnum_Vtbl {
     pub const fn new<Identity: ICorProfilerMethodEnum_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Skip<Identity: ICorProfilerMethodEnum_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerMethodEnum_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerMethodEnum_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+            }
         }
         unsafe extern "system" fn Reset<Identity: ICorProfilerMethodEnum_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerMethodEnum_Impl::Reset(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerMethodEnum_Impl::Reset(this).into()
+            }
         }
         unsafe extern "system" fn Clone<Identity: ICorProfilerMethodEnum_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerMethodEnum_Impl::Clone(this) {
-                Ok(ok__) => {
-                    ppenum.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerMethodEnum_Impl::Clone(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetCount<Identity: ICorProfilerMethodEnum_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelt: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerMethodEnum_Impl::GetCount(this) {
-                Ok(ok__) => {
-                    pcelt.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerMethodEnum_Impl::GetCount(this) {
+                    Ok(ok__) => {
+                        pcelt.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn Next<Identity: ICorProfilerMethodEnum_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, elements: *mut COR_PRF_METHOD, pceltfetched: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerMethodEnum_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&elements), core::mem::transmute_copy(&pceltfetched)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerMethodEnum_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&elements), core::mem::transmute_copy(&pceltfetched)).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -3780,21 +4308,25 @@ windows_core::imp::define_interface!(ICorProfilerModuleEnum, ICorProfilerModuleE
 windows_core::imp::interface_hierarchy!(ICorProfilerModuleEnum, windows_core::IUnknown);
 impl ICorProfilerModuleEnum {
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok()
+        unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<ICorProfilerModuleEnum> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn Next(&self, ids: &mut [usize], pceltfetched: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ids.len().try_into().unwrap(), core::mem::transmute(ids.as_ptr()), core::mem::transmute(pceltfetched)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ids.len().try_into().unwrap(), core::mem::transmute(ids.as_ptr()), core::mem::transmute(pceltfetched)).ok() }
     }
 }
 #[repr(C)]
@@ -3816,36 +4348,46 @@ pub trait ICorProfilerModuleEnum_Impl: windows_core::IUnknownImpl {
 impl ICorProfilerModuleEnum_Vtbl {
     pub const fn new<Identity: ICorProfilerModuleEnum_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Skip<Identity: ICorProfilerModuleEnum_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerModuleEnum_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerModuleEnum_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+            }
         }
         unsafe extern "system" fn Reset<Identity: ICorProfilerModuleEnum_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerModuleEnum_Impl::Reset(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerModuleEnum_Impl::Reset(this).into()
+            }
         }
         unsafe extern "system" fn Clone<Identity: ICorProfilerModuleEnum_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerModuleEnum_Impl::Clone(this) {
-                Ok(ok__) => {
-                    ppenum.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerModuleEnum_Impl::Clone(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetCount<Identity: ICorProfilerModuleEnum_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelt: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerModuleEnum_Impl::GetCount(this) {
-                Ok(ok__) => {
-                    pcelt.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerModuleEnum_Impl::GetCount(this) {
+                    Ok(ok__) => {
+                        pcelt.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn Next<Identity: ICorProfilerModuleEnum_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, ids: *mut usize, pceltfetched: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerModuleEnum_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&ids), core::mem::transmute_copy(&pceltfetched)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerModuleEnum_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&ids), core::mem::transmute_copy(&pceltfetched)).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -3865,21 +4407,25 @@ windows_core::imp::define_interface!(ICorProfilerObjectEnum, ICorProfilerObjectE
 windows_core::imp::interface_hierarchy!(ICorProfilerObjectEnum, windows_core::IUnknown);
 impl ICorProfilerObjectEnum {
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok()
+        unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<ICorProfilerObjectEnum> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn Next(&self, objects: &mut [usize], pceltfetched: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), objects.len().try_into().unwrap(), core::mem::transmute(objects.as_ptr()), core::mem::transmute(pceltfetched)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), objects.len().try_into().unwrap(), core::mem::transmute(objects.as_ptr()), core::mem::transmute(pceltfetched)).ok() }
     }
 }
 #[repr(C)]
@@ -3901,36 +4447,46 @@ pub trait ICorProfilerObjectEnum_Impl: windows_core::IUnknownImpl {
 impl ICorProfilerObjectEnum_Vtbl {
     pub const fn new<Identity: ICorProfilerObjectEnum_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Skip<Identity: ICorProfilerObjectEnum_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerObjectEnum_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerObjectEnum_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+            }
         }
         unsafe extern "system" fn Reset<Identity: ICorProfilerObjectEnum_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerObjectEnum_Impl::Reset(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerObjectEnum_Impl::Reset(this).into()
+            }
         }
         unsafe extern "system" fn Clone<Identity: ICorProfilerObjectEnum_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerObjectEnum_Impl::Clone(this) {
-                Ok(ok__) => {
-                    ppenum.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerObjectEnum_Impl::Clone(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetCount<Identity: ICorProfilerObjectEnum_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelt: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerObjectEnum_Impl::GetCount(this) {
-                Ok(ok__) => {
-                    pcelt.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerObjectEnum_Impl::GetCount(this) {
+                    Ok(ok__) => {
+                        pcelt.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn Next<Identity: ICorProfilerObjectEnum_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, objects: *mut usize, pceltfetched: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerObjectEnum_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&objects), core::mem::transmute_copy(&pceltfetched)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerObjectEnum_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&objects), core::mem::transmute_copy(&pceltfetched)).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -3950,21 +4506,25 @@ windows_core::imp::define_interface!(ICorProfilerThreadEnum, ICorProfilerThreadE
 windows_core::imp::interface_hierarchy!(ICorProfilerThreadEnum, windows_core::IUnknown);
 impl ICorProfilerThreadEnum {
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok()
+        unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<ICorProfilerThreadEnum> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn Next(&self, ids: &mut [usize], pceltfetched: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ids.len().try_into().unwrap(), core::mem::transmute(ids.as_ptr()), core::mem::transmute(pceltfetched)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ids.len().try_into().unwrap(), core::mem::transmute(ids.as_ptr()), core::mem::transmute(pceltfetched)).ok() }
     }
 }
 #[repr(C)]
@@ -3986,36 +4546,46 @@ pub trait ICorProfilerThreadEnum_Impl: windows_core::IUnknownImpl {
 impl ICorProfilerThreadEnum_Vtbl {
     pub const fn new<Identity: ICorProfilerThreadEnum_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Skip<Identity: ICorProfilerThreadEnum_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerThreadEnum_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerThreadEnum_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+            }
         }
         unsafe extern "system" fn Reset<Identity: ICorProfilerThreadEnum_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerThreadEnum_Impl::Reset(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerThreadEnum_Impl::Reset(this).into()
+            }
         }
         unsafe extern "system" fn Clone<Identity: ICorProfilerThreadEnum_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerThreadEnum_Impl::Clone(this) {
-                Ok(ok__) => {
-                    ppenum.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerThreadEnum_Impl::Clone(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetCount<Identity: ICorProfilerThreadEnum_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelt: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorProfilerThreadEnum_Impl::GetCount(this) {
-                Ok(ok__) => {
-                    pcelt.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICorProfilerThreadEnum_Impl::GetCount(this) {
+                    Ok(ok__) => {
+                        pcelt.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn Next<Identity: ICorProfilerThreadEnum_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, ids: *mut usize, pceltfetched: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorProfilerThreadEnum_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&ids), core::mem::transmute_copy(&pceltfetched)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICorProfilerThreadEnum_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&ids), core::mem::transmute_copy(&pceltfetched)).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -4035,7 +4605,7 @@ windows_core::imp::define_interface!(IMethodMalloc, IMethodMalloc_Vtbl, 0xa0efb2
 windows_core::imp::interface_hierarchy!(IMethodMalloc, windows_core::IUnknown);
 impl IMethodMalloc {
     pub unsafe fn Alloc(&self, cb: u32) -> *mut core::ffi::c_void {
-        (windows_core::Interface::vtable(self).Alloc)(windows_core::Interface::as_raw(self), cb)
+        unsafe { (windows_core::Interface::vtable(self).Alloc)(windows_core::Interface::as_raw(self), cb) }
     }
 }
 #[repr(C)]
@@ -4049,8 +4619,10 @@ pub trait IMethodMalloc_Impl: windows_core::IUnknownImpl {
 impl IMethodMalloc_Vtbl {
     pub const fn new<Identity: IMethodMalloc_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Alloc<Identity: IMethodMalloc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cb: u32) -> *mut core::ffi::c_void {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IMethodMalloc_Impl::Alloc(this, core::mem::transmute_copy(&cb))
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IMethodMalloc_Impl::Alloc(this, core::mem::transmute_copy(&cb))
+            }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Alloc: Alloc::<Identity, OFFSET> }
     }

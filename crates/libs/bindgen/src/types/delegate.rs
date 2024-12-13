@@ -128,44 +128,52 @@ impl Delegate {
                     #named_phantoms
                 };
                 unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-                    let this = this as *mut *mut core::ffi::c_void as *mut Self;
+                    unsafe {
+                        let this = this as *mut *mut core::ffi::c_void as *mut Self;
 
-                    if iid.is_null() || interface.is_null() {
-                        return windows_core::HRESULT(-2147467261); // E_POINTER
-                    }
+                        if iid.is_null() || interface.is_null() {
+                            return windows_core::HRESULT(-2147467261); // E_POINTER
+                        }
 
-                    *interface = if *iid == <#name as windows_core::Interface>::IID ||
-                        *iid == <windows_core::IUnknown as windows_core::Interface>::IID ||
-                        *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID {
-                            &mut (*this).vtable as *mut _ as _
+                        *interface = if *iid == <#name as windows_core::Interface>::IID ||
+                            *iid == <windows_core::IUnknown as windows_core::Interface>::IID ||
+                            *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID {
+                                &mut (*this).vtable as *mut _ as _
+                            } else {
+                                core::ptr::null_mut()
+                            };
+
+                        if (*interface).is_null() {
+                            windows_core::HRESULT(-2147467262) // E_NOINTERFACE
                         } else {
-                            core::ptr::null_mut()
-                        };
-
-                    if (*interface).is_null() {
-                        windows_core::HRESULT(-2147467262) // E_NOINTERFACE
-                    } else {
-                        (*this).count.add_ref();
-                        windows_core::HRESULT(0)
+                            (*this).count.add_ref();
+                            windows_core::HRESULT(0)
+                        }
                     }
                 }
                 unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-                    let this = this as *mut *mut core::ffi::c_void as *mut Self;
-                    (*this).count.add_ref()
+                    unsafe {
+                        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+                        (*this).count.add_ref()
+                    }
                 }
                 unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-                    let this = this as *mut *mut core::ffi::c_void as *mut Self;
-                    let remaining = (*this).count.release();
+                    unsafe {
+                        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+                        let remaining = (*this).count.release();
 
-                    if remaining == 0 {
-                        let _ = windows_core::imp::Box::from_raw(this);
+                        if remaining == 0 {
+                            let _ = windows_core::imp::Box::from_raw(this);
+                        }
+
+                        remaining
                     }
-
-                    remaining
                 }
                 unsafe extern "system" fn Invoke(#invoke_vtbl) -> windows_core::HRESULT {
-                    let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-                    #invoke_upcall
+                    unsafe {
+                        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+                        #invoke_upcall
+                    }
                 }
             }
         }

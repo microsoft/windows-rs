@@ -46,7 +46,9 @@ impl HStringHeader {
             return;
         }
 
-        bindings::HeapFree(bindings::GetProcessHeap(), 0, header as *mut _);
+        unsafe {
+            bindings::HeapFree(bindings::GetProcessHeap(), 0, header as *mut _);
+        }
     }
 
     pub fn duplicate(&self) -> *mut Self {

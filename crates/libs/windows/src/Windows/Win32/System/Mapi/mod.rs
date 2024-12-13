@@ -1,7 +1,7 @@
 #[inline]
 pub unsafe fn MAPIFreeBuffer(pv: *mut core::ffi::c_void) -> u32 {
     windows_targets::link!("mapi32.dll" "system" fn MAPIFreeBuffer(pv : *mut core::ffi::c_void) -> u32);
-    MAPIFreeBuffer(core::mem::transmute(pv))
+    unsafe { MAPIFreeBuffer(core::mem::transmute(pv)) }
 }
 pub type LPMAPIADDRESS = Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpszcaption: windows_core::PCSTR, neditfields: u32, lpszlabels: windows_core::PCSTR, nrecips: u32, lprecips: *mut MapiRecipDesc, flflags: u32, ulreserved: u32, lpnnewrecips: *mut u32, lppnewrecips: *mut *mut MapiRecipDesc) -> u32>;
 pub type LPMAPIDELETEMAIL = Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpszmessageid: windows_core::PCSTR, flflags: u32, ulreserved: u32) -> u32>;

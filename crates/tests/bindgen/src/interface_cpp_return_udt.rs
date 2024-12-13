@@ -36,19 +36,23 @@ windows_core::imp::interface_hierarchy!(
 );
 impl ID2D1Bitmap {
     pub unsafe fn GetSize(&self) -> D2D_SIZE_F {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetSize)(
-            windows_core::Interface::as_raw(self),
-            &mut result__,
-        );
-        result__
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetSize)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            );
+            result__
+        }
     }
     pub unsafe fn GetDpi(&self, dpix: *mut f32, dpiy: *mut f32) {
-        (windows_core::Interface::vtable(self).GetDpi)(
-            windows_core::Interface::as_raw(self),
-            core::mem::transmute(dpix),
-            core::mem::transmute(dpiy),
-        )
+        unsafe {
+            (windows_core::Interface::vtable(self).GetDpi)(
+                windows_core::Interface::as_raw(self),
+                core::mem::transmute(dpix),
+                core::mem::transmute(dpiy),
+            )
+        }
     }
 }
 #[repr(C)]
@@ -72,20 +76,26 @@ impl ID2D1Bitmap_Vtbl {
             this: *mut core::ffi::c_void,
             result__: *mut D2D_SIZE_F,
         ) {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            *result__ = ID2D1Bitmap_Impl::GetSize(this)
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                *result__ = ID2D1Bitmap_Impl::GetSize(this)
+            }
         }
         unsafe extern "system" fn GetDpi<Identity: ID2D1Bitmap_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             dpix: *mut f32,
             dpiy: *mut f32,
         ) {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ID2D1Bitmap_Impl::GetDpi(
-                this,
-                core::mem::transmute_copy(&dpix),
-                core::mem::transmute_copy(&dpiy),
-            )
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID2D1Bitmap_Impl::GetDpi(
+                    this,
+                    core::mem::transmute_copy(&dpix),
+                    core::mem::transmute_copy(&dpiy),
+                )
+            }
         }
         Self {
             base__: ID2D1Image_Vtbl::new::<Identity, OFFSET>(),

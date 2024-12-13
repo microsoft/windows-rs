@@ -67,45 +67,51 @@ impl IInspectable_Vtbl {
             count: *mut u32,
             values: *mut *mut GUID,
         ) -> HRESULT {
-            if count.is_null() || values.is_null() {
-                return imp::E_POINTER;
+            unsafe {
+                if count.is_null() || values.is_null() {
+                    return imp::E_POINTER;
+                }
+                // Note: even if we end up implementing this in future, it still doesn't need a this pointer
+                // since the data to be returned is type- not instance-specific so can be shared for all
+                // interfaces.
+                *count = 0;
+                *values = null_mut();
+                HRESULT(0)
             }
-            // Note: even if we end up implementing this in future, it still doesn't need a this pointer
-            // since the data to be returned is type- not instance-specific so can be shared for all
-            // interfaces.
-            *count = 0;
-            *values = null_mut();
-            HRESULT(0)
         }
         unsafe extern "system" fn GetRuntimeClassName<T: RuntimeName>(
             _: *mut c_void,
             value: *mut *mut c_void,
         ) -> HRESULT {
-            if value.is_null() {
-                return imp::E_POINTER;
-            }
+            unsafe {
+                if value.is_null() {
+                    return imp::E_POINTER;
+                }
 
-            #[cfg(windows)]
-            {
-                *value = core::mem::transmute::<HSTRING, *mut c_void>(T::NAME.into());
-            }
+                #[cfg(windows)]
+                {
+                    *value = core::mem::transmute::<HSTRING, *mut c_void>(T::NAME.into());
+                }
 
-            #[cfg(not(windows))]
-            {
-                *value = core::ptr::null_mut();
-            }
+                #[cfg(not(windows))]
+                {
+                    *value = core::ptr::null_mut();
+                }
 
-            HRESULT(0)
+                HRESULT(0)
+            }
         }
         unsafe extern "system" fn GetTrustLevel<T: IUnknownImpl, const OFFSET: isize>(
             this: *mut c_void,
             value: *mut i32,
         ) -> HRESULT {
-            if value.is_null() {
-                return imp::E_POINTER;
+            unsafe {
+                if value.is_null() {
+                    return imp::E_POINTER;
+                }
+                let this = (this as *mut *mut c_void).offset(OFFSET) as *mut T;
+                (*this).GetTrustLevel(value)
             }
-            let this = (this as *mut *mut c_void).offset(OFFSET) as *mut T;
-            (*this).GetTrustLevel(value)
         }
         Self {
             base: IUnknown_Vtbl::new::<Identity, OFFSET>(),

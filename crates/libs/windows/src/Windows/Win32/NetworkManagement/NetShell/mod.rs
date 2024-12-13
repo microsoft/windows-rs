@@ -4,7 +4,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("netsh.dll" "system" fn MatchEnumTag(hmodule : super::super::Foundation:: HANDLE, pwcarg : windows_core::PCWSTR, dwnumarg : u32, penumtable : *const TOKEN_VALUE, pdwvalue : *mut u32) -> u32);
-    MatchEnumTag(hmodule, pwcarg.param().abi(), dwnumarg, penumtable, core::mem::transmute(pdwvalue))
+    unsafe { MatchEnumTag(hmodule, pwcarg.param().abi(), dwnumarg, penumtable, core::mem::transmute(pdwvalue)) }
 }
 #[inline]
 pub unsafe fn MatchToken<P0, P1>(pwszusertoken: P0, pwszcmdtoken: P1) -> super::super::Foundation::BOOL
@@ -13,17 +13,17 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("netsh.dll" "system" fn MatchToken(pwszusertoken : windows_core::PCWSTR, pwszcmdtoken : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
-    MatchToken(pwszusertoken.param().abi(), pwszcmdtoken.param().abi())
+    unsafe { MatchToken(pwszusertoken.param().abi(), pwszcmdtoken.param().abi()) }
 }
 #[inline]
 pub unsafe fn PreprocessCommand(hmodule: Option<super::super::Foundation::HANDLE>, ppwcarguments: &mut [windows_core::PWSTR], dwcurrentindex: u32, ptttags: Option<&mut [TAG_TYPE]>, dwminargs: u32, dwmaxargs: u32, pdwtagtype: Option<*mut u32>) -> u32 {
     windows_targets::link!("netsh.dll" "system" fn PreprocessCommand(hmodule : super::super::Foundation:: HANDLE, ppwcarguments : *mut windows_core::PWSTR, dwcurrentindex : u32, dwargcount : u32, ptttags : *mut TAG_TYPE, dwtagcount : u32, dwminargs : u32, dwmaxargs : u32, pdwtagtype : *mut u32) -> u32);
-    PreprocessCommand(core::mem::transmute(hmodule.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppwcarguments.as_ptr()), dwcurrentindex, ppwcarguments.len().try_into().unwrap(), core::mem::transmute(ptttags.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ptttags.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dwminargs, dwmaxargs, core::mem::transmute(pdwtagtype.unwrap_or(core::mem::zeroed())))
+    unsafe { PreprocessCommand(core::mem::transmute(hmodule.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppwcarguments.as_ptr()), dwcurrentindex, ppwcarguments.len().try_into().unwrap(), core::mem::transmute(ptttags.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ptttags.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dwminargs, dwmaxargs, core::mem::transmute(pdwtagtype.unwrap_or(core::mem::zeroed()))) }
 }
 #[inline]
 pub unsafe fn PrintError(hmodule: super::super::Foundation::HANDLE, dwerrid: u32) -> u32 {
     windows_targets::link!("netsh.dll" "cdecl" fn PrintError(hmodule : super::super::Foundation:: HANDLE, dwerrid : u32) -> u32);
-    PrintError(hmodule, dwerrid)
+    unsafe { PrintError(hmodule, dwerrid) }
 }
 #[inline]
 pub unsafe fn PrintMessage<P0>(pwszformat: P0) -> u32
@@ -31,22 +31,22 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("netsh.dll" "cdecl" fn PrintMessage(pwszformat : windows_core::PCWSTR) -> u32);
-    PrintMessage(pwszformat.param().abi())
+    unsafe { PrintMessage(pwszformat.param().abi()) }
 }
 #[inline]
 pub unsafe fn PrintMessageFromModule(hmodule: super::super::Foundation::HANDLE, dwmsgid: u32) -> u32 {
     windows_targets::link!("netsh.dll" "cdecl" fn PrintMessageFromModule(hmodule : super::super::Foundation:: HANDLE, dwmsgid : u32) -> u32);
-    PrintMessageFromModule(hmodule, dwmsgid)
+    unsafe { PrintMessageFromModule(hmodule, dwmsgid) }
 }
 #[inline]
 pub unsafe fn RegisterContext(pchildcontext: *const NS_CONTEXT_ATTRIBUTES) -> u32 {
     windows_targets::link!("netsh.dll" "system" fn RegisterContext(pchildcontext : *const NS_CONTEXT_ATTRIBUTES) -> u32);
-    RegisterContext(pchildcontext)
+    unsafe { RegisterContext(pchildcontext) }
 }
 #[inline]
 pub unsafe fn RegisterHelper(pguidparentcontext: *const windows_core::GUID, pfnregistersubcontext: *const NS_HELPER_ATTRIBUTES) -> u32 {
     windows_targets::link!("netsh.dll" "system" fn RegisterHelper(pguidparentcontext : *const windows_core::GUID, pfnregistersubcontext : *const NS_HELPER_ATTRIBUTES) -> u32);
-    RegisterHelper(pguidparentcontext, pfnregistersubcontext)
+    unsafe { RegisterHelper(pguidparentcontext, pfnregistersubcontext) }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]

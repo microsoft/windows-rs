@@ -80,7 +80,7 @@ impl Writer {
                             unsafe fn free(&mut self) {
                                 if !self.is_invalid() {
                                     #link
-                                    #free(self.0 #tail);
+                                    unsafe { #free(self.0 #tail); }
                                 }
                             }
                         }

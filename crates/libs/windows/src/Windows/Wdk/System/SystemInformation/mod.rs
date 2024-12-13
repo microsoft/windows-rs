@@ -1,32 +1,32 @@
 #[inline]
 pub unsafe fn NtQuerySystemInformation(systeminformationclass: SYSTEM_INFORMATION_CLASS, systeminformation: *mut core::ffi::c_void, systeminformationlength: u32, returnlength: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("ntdll.dll" "system" fn NtQuerySystemInformation(systeminformationclass : SYSTEM_INFORMATION_CLASS, systeminformation : *mut core::ffi::c_void, systeminformationlength : u32, returnlength : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    NtQuerySystemInformation(systeminformationclass, core::mem::transmute(systeminformation), systeminformationlength, core::mem::transmute(returnlength))
+    unsafe { NtQuerySystemInformation(systeminformationclass, core::mem::transmute(systeminformation), systeminformationlength, core::mem::transmute(returnlength)) }
 }
 #[inline]
 pub unsafe fn NtQuerySystemTime(systemtime: *mut i64) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("ntdll.dll" "system" fn NtQuerySystemTime(systemtime : *mut i64) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    NtQuerySystemTime(core::mem::transmute(systemtime))
+    unsafe { NtQuerySystemTime(core::mem::transmute(systemtime)) }
 }
 #[inline]
 pub unsafe fn NtQueryTimerResolution(maximumtime: *mut u32, minimumtime: *mut u32, currenttime: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("ntdll.dll" "system" fn NtQueryTimerResolution(maximumtime : *mut u32, minimumtime : *mut u32, currenttime : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    NtQueryTimerResolution(core::mem::transmute(maximumtime), core::mem::transmute(minimumtime), core::mem::transmute(currenttime))
+    unsafe { NtQueryTimerResolution(core::mem::transmute(maximumtime), core::mem::transmute(minimumtime), core::mem::transmute(currenttime)) }
 }
 #[inline]
 pub unsafe fn ZwQuerySystemInformation(systeminformationclass: SYSTEM_INFORMATION_CLASS, systeminformation: *mut core::ffi::c_void, systeminformationlength: u32, returnlength: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("ntdll.dll" "system" fn ZwQuerySystemInformation(systeminformationclass : SYSTEM_INFORMATION_CLASS, systeminformation : *mut core::ffi::c_void, systeminformationlength : u32, returnlength : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwQuerySystemInformation(systeminformationclass, core::mem::transmute(systeminformation), systeminformationlength, core::mem::transmute(returnlength))
+    unsafe { ZwQuerySystemInformation(systeminformationclass, core::mem::transmute(systeminformation), systeminformationlength, core::mem::transmute(returnlength)) }
 }
 #[inline]
 pub unsafe fn ZwQuerySystemTime(systemtime: *mut i64) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("ntdll.dll" "system" fn ZwQuerySystemTime(systemtime : *mut i64) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwQuerySystemTime(core::mem::transmute(systemtime))
+    unsafe { ZwQuerySystemTime(core::mem::transmute(systemtime)) }
 }
 #[inline]
 pub unsafe fn ZwQueryTimerResolution(maximumtime: *mut u32, minimumtime: *mut u32, currenttime: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("ntdll.dll" "system" fn ZwQueryTimerResolution(maximumtime : *mut u32, minimumtime : *mut u32, currenttime : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwQueryTimerResolution(core::mem::transmute(maximumtime), core::mem::transmute(minimumtime), core::mem::transmute(currenttime))
+    unsafe { ZwQueryTimerResolution(core::mem::transmute(maximumtime), core::mem::transmute(minimumtime), core::mem::transmute(currenttime)) }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

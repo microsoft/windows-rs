@@ -2,8 +2,10 @@ windows_core::imp::define_interface!(IWaaSAssessor, IWaaSAssessor_Vtbl, 0x2347bb
 windows_core::imp::interface_hierarchy!(IWaaSAssessor, windows_core::IUnknown);
 impl IWaaSAssessor {
     pub unsafe fn GetOSUpdateAssessment(&self) -> windows_core::Result<OSUpdateAssessment> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetOSUpdateAssessment)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetOSUpdateAssessment)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
 }
 #[repr(C)]
@@ -17,13 +19,15 @@ pub trait IWaaSAssessor_Impl: windows_core::IUnknownImpl {
 impl IWaaSAssessor_Vtbl {
     pub const fn new<Identity: IWaaSAssessor_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetOSUpdateAssessment<Identity: IWaaSAssessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result: *mut OSUpdateAssessment) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWaaSAssessor_Impl::GetOSUpdateAssessment(this) {
-                Ok(ok__) => {
-                    result.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IWaaSAssessor_Impl::GetOSUpdateAssessment(this) {
+                    Ok(ok__) => {
+                        result.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetOSUpdateAssessment: GetOSUpdateAssessment::<Identity, OFFSET> }

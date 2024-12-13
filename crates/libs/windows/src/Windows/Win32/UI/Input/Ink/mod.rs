@@ -2,7 +2,7 @@ windows_core::imp::define_interface!(IInkCommitRequestHandler, IInkCommitRequest
 windows_core::imp::interface_hierarchy!(IInkCommitRequestHandler, windows_core::IUnknown);
 impl IInkCommitRequestHandler {
     pub unsafe fn OnCommitRequested(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).OnCommitRequested)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).OnCommitRequested)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
 #[repr(C)]
@@ -16,8 +16,10 @@ pub trait IInkCommitRequestHandler_Impl: windows_core::IUnknownImpl {
 impl IInkCommitRequestHandler_Vtbl {
     pub const fn new<Identity: IInkCommitRequestHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnCommitRequested<Identity: IInkCommitRequestHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IInkCommitRequestHandler_Impl::OnCommitRequested(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IInkCommitRequestHandler_Impl::OnCommitRequested(this).into()
+            }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnCommitRequested: OnCommitRequested::<Identity, OFFSET> }
     }
@@ -34,7 +36,7 @@ impl IInkD2DRenderer {
         P0: windows_core::Param<windows_core::IUnknown>,
         P1: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).Draw)(windows_core::Interface::as_raw(self), pd2d1devicecontext.param().abi(), pinkstrokeiterable.param().abi(), fhighcontrast.into()).ok()
+        unsafe { (windows_core::Interface::vtable(self).Draw)(windows_core::Interface::as_raw(self), pd2d1devicecontext.param().abi(), pinkstrokeiterable.param().abi(), fhighcontrast.into()).ok() }
     }
 }
 #[repr(C)]
@@ -48,8 +50,10 @@ pub trait IInkD2DRenderer_Impl: windows_core::IUnknownImpl {
 impl IInkD2DRenderer_Vtbl {
     pub const fn new<Identity: IInkD2DRenderer_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Draw<Identity: IInkD2DRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pd2d1devicecontext: *mut core::ffi::c_void, pinkstrokeiterable: *mut core::ffi::c_void, fhighcontrast: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IInkD2DRenderer_Impl::Draw(this, core::mem::transmute_copy(&pd2d1devicecontext), core::mem::transmute_copy(&pinkstrokeiterable), core::mem::transmute_copy(&fhighcontrast)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IInkD2DRenderer_Impl::Draw(this, core::mem::transmute_copy(&pd2d1devicecontext), core::mem::transmute_copy(&pinkstrokeiterable), core::mem::transmute_copy(&fhighcontrast)).into()
+            }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Draw: Draw::<Identity, OFFSET> }
     }
@@ -66,7 +70,7 @@ impl IInkD2DRenderer2 {
         P0: windows_core::Param<windows_core::IUnknown>,
         P1: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).Draw)(windows_core::Interface::as_raw(self), pd2d1devicecontext.param().abi(), pinkstrokeiterable.param().abi(), highcontrastadjustment).ok()
+        unsafe { (windows_core::Interface::vtable(self).Draw)(windows_core::Interface::as_raw(self), pd2d1devicecontext.param().abi(), pinkstrokeiterable.param().abi(), highcontrastadjustment).ok() }
     }
 }
 #[repr(C)]
@@ -80,8 +84,10 @@ pub trait IInkD2DRenderer2_Impl: windows_core::IUnknownImpl {
 impl IInkD2DRenderer2_Vtbl {
     pub const fn new<Identity: IInkD2DRenderer2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Draw<Identity: IInkD2DRenderer2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pd2d1devicecontext: *mut core::ffi::c_void, pinkstrokeiterable: *mut core::ffi::c_void, highcontrastadjustment: INK_HIGH_CONTRAST_ADJUSTMENT) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IInkD2DRenderer2_Impl::Draw(this, core::mem::transmute_copy(&pd2d1devicecontext), core::mem::transmute_copy(&pinkstrokeiterable), core::mem::transmute_copy(&highcontrastadjustment)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IInkD2DRenderer2_Impl::Draw(this, core::mem::transmute_copy(&pd2d1devicecontext), core::mem::transmute_copy(&pinkstrokeiterable), core::mem::transmute_copy(&highcontrastadjustment)).into()
+            }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Draw: Draw::<Identity, OFFSET> }
     }
@@ -97,14 +103,14 @@ impl IInkDesktopHost {
     where
         P0: windows_core::Param<IInkHostWorkItem>,
     {
-        (windows_core::Interface::vtable(self).QueueWorkItem)(windows_core::Interface::as_raw(self), workitem.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).QueueWorkItem)(windows_core::Interface::as_raw(self), workitem.param().abi()).ok() }
     }
     pub unsafe fn CreateInkPresenter<T>(&self) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        (windows_core::Interface::vtable(self).CreateInkPresenter)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe { (windows_core::Interface::vtable(self).CreateInkPresenter)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn CreateAndInitializeInkPresenter<P0, T>(&self, rootvisual: P0, width: f32, height: f32) -> windows_core::Result<T>
     where
@@ -112,7 +118,7 @@ impl IInkDesktopHost {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        (windows_core::Interface::vtable(self).CreateAndInitializeInkPresenter)(windows_core::Interface::as_raw(self), rootvisual.param().abi(), width, height, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe { (windows_core::Interface::vtable(self).CreateAndInitializeInkPresenter)(windows_core::Interface::as_raw(self), rootvisual.param().abi(), width, height, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -130,16 +136,22 @@ pub trait IInkDesktopHost_Impl: windows_core::IUnknownImpl {
 impl IInkDesktopHost_Vtbl {
     pub const fn new<Identity: IInkDesktopHost_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueueWorkItem<Identity: IInkDesktopHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, workitem: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IInkDesktopHost_Impl::QueueWorkItem(this, core::mem::transmute_copy(&workitem)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IInkDesktopHost_Impl::QueueWorkItem(this, core::mem::transmute_copy(&workitem)).into()
+            }
         }
         unsafe extern "system" fn CreateInkPresenter<Identity: IInkDesktopHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IInkDesktopHost_Impl::CreateInkPresenter(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IInkDesktopHost_Impl::CreateInkPresenter(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            }
         }
         unsafe extern "system" fn CreateAndInitializeInkPresenter<Identity: IInkDesktopHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rootvisual: *mut core::ffi::c_void, width: f32, height: f32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IInkDesktopHost_Impl::CreateAndInitializeInkPresenter(this, core::mem::transmute_copy(&rootvisual), core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IInkDesktopHost_Impl::CreateAndInitializeInkPresenter(this, core::mem::transmute_copy(&rootvisual), core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -157,7 +169,7 @@ windows_core::imp::define_interface!(IInkHostWorkItem, IInkHostWorkItem_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(IInkHostWorkItem, windows_core::IUnknown);
 impl IInkHostWorkItem {
     pub unsafe fn Invoke(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Invoke)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Invoke)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
 #[repr(C)]
@@ -171,8 +183,10 @@ pub trait IInkHostWorkItem_Impl: windows_core::IUnknownImpl {
 impl IInkHostWorkItem_Vtbl {
     pub const fn new<Identity: IInkHostWorkItem_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Invoke<Identity: IInkHostWorkItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IInkHostWorkItem_Impl::Invoke(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IInkHostWorkItem_Impl::Invoke(this).into()
+            }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, OFFSET> }
     }
@@ -189,22 +203,22 @@ impl IInkPresenterDesktop {
         P0: windows_core::Param<windows_core::IUnknown>,
         P1: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).SetRootVisual)(windows_core::Interface::as_raw(self), rootvisual.param().abi(), device.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetRootVisual)(windows_core::Interface::as_raw(self), rootvisual.param().abi(), device.param().abi()).ok() }
     }
     pub unsafe fn SetCommitRequestHandler<P0>(&self, handler: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IInkCommitRequestHandler>,
     {
-        (windows_core::Interface::vtable(self).SetCommitRequestHandler)(windows_core::Interface::as_raw(self), handler.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetCommitRequestHandler)(windows_core::Interface::as_raw(self), handler.param().abi()).ok() }
     }
     pub unsafe fn GetSize(&self, width: *mut f32, height: *mut f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetSize)(windows_core::Interface::as_raw(self), core::mem::transmute(width), core::mem::transmute(height)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetSize)(windows_core::Interface::as_raw(self), core::mem::transmute(width), core::mem::transmute(height)).ok() }
     }
     pub unsafe fn SetSize(&self, width: f32, height: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetSize)(windows_core::Interface::as_raw(self), width, height).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetSize)(windows_core::Interface::as_raw(self), width, height).ok() }
     }
     pub unsafe fn OnHighContrastChanged(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).OnHighContrastChanged)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).OnHighContrastChanged)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
 #[repr(C)]
@@ -226,24 +240,34 @@ pub trait IInkPresenterDesktop_Impl: windows_core::IUnknownImpl {
 impl IInkPresenterDesktop_Vtbl {
     pub const fn new<Identity: IInkPresenterDesktop_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetRootVisual<Identity: IInkPresenterDesktop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rootvisual: *mut core::ffi::c_void, device: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IInkPresenterDesktop_Impl::SetRootVisual(this, core::mem::transmute_copy(&rootvisual), core::mem::transmute_copy(&device)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IInkPresenterDesktop_Impl::SetRootVisual(this, core::mem::transmute_copy(&rootvisual), core::mem::transmute_copy(&device)).into()
+            }
         }
         unsafe extern "system" fn SetCommitRequestHandler<Identity: IInkPresenterDesktop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IInkPresenterDesktop_Impl::SetCommitRequestHandler(this, core::mem::transmute_copy(&handler)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IInkPresenterDesktop_Impl::SetCommitRequestHandler(this, core::mem::transmute_copy(&handler)).into()
+            }
         }
         unsafe extern "system" fn GetSize<Identity: IInkPresenterDesktop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: *mut f32, height: *mut f32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IInkPresenterDesktop_Impl::GetSize(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IInkPresenterDesktop_Impl::GetSize(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height)).into()
+            }
         }
         unsafe extern "system" fn SetSize<Identity: IInkPresenterDesktop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: f32, height: f32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IInkPresenterDesktop_Impl::SetSize(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IInkPresenterDesktop_Impl::SetSize(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height)).into()
+            }
         }
         unsafe extern "system" fn OnHighContrastChanged<Identity: IInkPresenterDesktop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IInkPresenterDesktop_Impl::OnHighContrastChanged(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IInkPresenterDesktop_Impl::OnHighContrastChanged(this).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

@@ -1,22 +1,22 @@
 #[inline]
 pub unsafe fn RtlExtendCorrelationVector(correlationvector: *mut CORRELATION_VECTOR) -> u32 {
     windows_targets::link!("ntdll.dll" "system" fn RtlExtendCorrelationVector(correlationvector : *mut CORRELATION_VECTOR) -> u32);
-    RtlExtendCorrelationVector(core::mem::transmute(correlationvector))
+    unsafe { RtlExtendCorrelationVector(core::mem::transmute(correlationvector)) }
 }
 #[inline]
 pub unsafe fn RtlIncrementCorrelationVector(correlationvector: *mut CORRELATION_VECTOR) -> u32 {
     windows_targets::link!("ntdll.dll" "system" fn RtlIncrementCorrelationVector(correlationvector : *mut CORRELATION_VECTOR) -> u32);
-    RtlIncrementCorrelationVector(core::mem::transmute(correlationvector))
+    unsafe { RtlIncrementCorrelationVector(core::mem::transmute(correlationvector)) }
 }
 #[inline]
 pub unsafe fn RtlInitializeCorrelationVector(correlationvector: *mut CORRELATION_VECTOR, version: i32, guid: Option<*const windows_core::GUID>) -> u32 {
     windows_targets::link!("ntdll.dll" "system" fn RtlInitializeCorrelationVector(correlationvector : *mut CORRELATION_VECTOR, version : i32, guid : *const windows_core::GUID) -> u32);
-    RtlInitializeCorrelationVector(core::mem::transmute(correlationvector), version, core::mem::transmute(guid.unwrap_or(core::mem::zeroed())))
+    unsafe { RtlInitializeCorrelationVector(core::mem::transmute(correlationvector), version, core::mem::transmute(guid.unwrap_or(core::mem::zeroed()))) }
 }
 #[inline]
 pub unsafe fn RtlValidateCorrelationVector(vector: *const CORRELATION_VECTOR) -> u32 {
     windows_targets::link!("ntdll.dll" "system" fn RtlValidateCorrelationVector(vector : *const CORRELATION_VECTOR) -> u32);
-    RtlValidateCorrelationVector(vector)
+    unsafe { RtlValidateCorrelationVector(vector) }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]

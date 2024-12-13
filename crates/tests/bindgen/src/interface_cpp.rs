@@ -14,12 +14,14 @@ windows_core::imp::define_interface!(
 windows_core::imp::interface_hierarchy!(IPersist, windows_core::IUnknown);
 impl IPersist {
     pub unsafe fn GetClassID(&self) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetClassID)(
-            windows_core::Interface::as_raw(self),
-            &mut result__,
-        )
-        .map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetClassID)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
     }
 }
 #[repr(C)]
@@ -39,13 +41,16 @@ impl IPersist_Vtbl {
             this: *mut core::ffi::c_void,
             pclassid: *mut windows_core::GUID,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IPersist_Impl::GetClassID(this) {
-                Ok(ok__) => {
-                    pclassid.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IPersist_Impl::GetClassID(this) {
+                    Ok(ok__) => {
+                        pclassid.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {

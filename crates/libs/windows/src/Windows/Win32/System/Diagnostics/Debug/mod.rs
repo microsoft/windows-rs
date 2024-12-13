@@ -6,18 +6,18 @@ pub mod Extensions;
 #[inline]
 pub unsafe fn AddVectoredContinueHandler(first: u32, handler: PVECTORED_EXCEPTION_HANDLER) -> *mut core::ffi::c_void {
     windows_targets::link!("kernel32.dll" "system" fn AddVectoredContinueHandler(first : u32, handler : PVECTORED_EXCEPTION_HANDLER) -> *mut core::ffi::c_void);
-    AddVectoredContinueHandler(first, handler)
+    unsafe { AddVectoredContinueHandler(first, handler) }
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn AddVectoredExceptionHandler(first: u32, handler: PVECTORED_EXCEPTION_HANDLER) -> *mut core::ffi::c_void {
     windows_targets::link!("kernel32.dll" "system" fn AddVectoredExceptionHandler(first : u32, handler : PVECTORED_EXCEPTION_HANDLER) -> *mut core::ffi::c_void);
-    AddVectoredExceptionHandler(first, handler)
+    unsafe { AddVectoredExceptionHandler(first, handler) }
 }
 #[inline]
 pub unsafe fn Beep(dwfreq: u32, dwduration: u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn Beep(dwfreq : u32, dwduration : u32) -> super::super::super::Foundation:: BOOL);
-    Beep(dwfreq, dwduration).ok()
+    unsafe { Beep(dwfreq, dwduration).ok() }
 }
 #[inline]
 pub unsafe fn BindImage<P0, P1, P2>(imagename: P0, dllpath: P1, symbolpath: P2) -> windows_core::Result<()>
@@ -27,7 +27,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("imagehlp.dll" "system" fn BindImage(imagename : windows_core::PCSTR, dllpath : windows_core::PCSTR, symbolpath : windows_core::PCSTR) -> super::super::super::Foundation:: BOOL);
-    BindImage(imagename.param().abi(), dllpath.param().abi(), symbolpath.param().abi()).ok()
+    unsafe { BindImage(imagename.param().abi(), dllpath.param().abi(), symbolpath.param().abi()).ok() }
 }
 #[inline]
 pub unsafe fn BindImageEx<P1, P2, P3>(flags: u32, imagename: P1, dllpath: P2, symbolpath: P3, statusroutine: Option<PIMAGEHLP_STATUS_ROUTINE>) -> windows_core::Result<()>
@@ -37,42 +37,42 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("imagehlp.dll" "system" fn BindImageEx(flags : u32, imagename : windows_core::PCSTR, dllpath : windows_core::PCSTR, symbolpath : windows_core::PCSTR, statusroutine : PIMAGEHLP_STATUS_ROUTINE) -> super::super::super::Foundation:: BOOL);
-    BindImageEx(flags, imagename.param().abi(), dllpath.param().abi(), symbolpath.param().abi(), core::mem::transmute(statusroutine.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { BindImageEx(flags, imagename.param().abi(), dllpath.param().abi(), symbolpath.param().abi(), core::mem::transmute(statusroutine.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn CheckRemoteDebuggerPresent(hprocess: super::super::super::Foundation::HANDLE, pbdebuggerpresent: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn CheckRemoteDebuggerPresent(hprocess : super::super::super::Foundation:: HANDLE, pbdebuggerpresent : *mut super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
-    CheckRemoteDebuggerPresent(hprocess, core::mem::transmute(pbdebuggerpresent)).ok()
+    unsafe { CheckRemoteDebuggerPresent(hprocess, core::mem::transmute(pbdebuggerpresent)).ok() }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
 pub unsafe fn CheckSumMappedFile(baseaddress: *const core::ffi::c_void, filelength: u32, headersum: *mut u32, checksum: *mut u32) -> *mut IMAGE_NT_HEADERS32 {
     windows_targets::link!("imagehlp.dll" "system" fn CheckSumMappedFile(baseaddress : *const core::ffi::c_void, filelength : u32, headersum : *mut u32, checksum : *mut u32) -> *mut IMAGE_NT_HEADERS32);
-    CheckSumMappedFile(baseaddress, filelength, core::mem::transmute(headersum), core::mem::transmute(checksum))
+    unsafe { CheckSumMappedFile(baseaddress, filelength, core::mem::transmute(headersum), core::mem::transmute(checksum)) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
 pub unsafe fn CheckSumMappedFile(baseaddress: *const core::ffi::c_void, filelength: u32, headersum: *mut u32, checksum: *mut u32) -> *mut IMAGE_NT_HEADERS64 {
     windows_targets::link!("imagehlp.dll" "system" fn CheckSumMappedFile(baseaddress : *const core::ffi::c_void, filelength : u32, headersum : *mut u32, checksum : *mut u32) -> *mut IMAGE_NT_HEADERS64);
-    CheckSumMappedFile(baseaddress, filelength, core::mem::transmute(headersum), core::mem::transmute(checksum))
+    unsafe { CheckSumMappedFile(baseaddress, filelength, core::mem::transmute(headersum), core::mem::transmute(checksum)) }
 }
 #[inline]
 pub unsafe fn CloseThreadWaitChainSession(wcthandle: *const core::ffi::c_void) {
     windows_targets::link!("advapi32.dll" "system" fn CloseThreadWaitChainSession(wcthandle : *const core::ffi::c_void));
-    CloseThreadWaitChainSession(wcthandle)
+    unsafe { CloseThreadWaitChainSession(wcthandle) }
 }
 #[inline]
 pub unsafe fn ContinueDebugEvent(dwprocessid: u32, dwthreadid: u32, dwcontinuestatus: super::super::super::Foundation::NTSTATUS) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn ContinueDebugEvent(dwprocessid : u32, dwthreadid : u32, dwcontinuestatus : super::super::super::Foundation:: NTSTATUS) -> super::super::super::Foundation:: BOOL);
-    ContinueDebugEvent(dwprocessid, dwthreadid, dwcontinuestatus).ok()
+    unsafe { ContinueDebugEvent(dwprocessid, dwthreadid, dwcontinuestatus).ok() }
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn CopyContext(destination: *mut CONTEXT, contextflags: CONTEXT_FLAGS, source: *const CONTEXT) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn CopyContext(destination : *mut CONTEXT, contextflags : CONTEXT_FLAGS, source : *const CONTEXT) -> super::super::super::Foundation:: BOOL);
-    CopyContext(core::mem::transmute(destination), contextflags, source).ok()
+    unsafe { CopyContext(core::mem::transmute(destination), contextflags, source).ok() }
 }
 #[inline]
 pub unsafe fn DbgHelpCreateUserDump<P0>(filename: P0, callback: PDBGHELP_CREATE_USER_DUMP_CALLBACK, userdata: Option<*const core::ffi::c_void>) -> super::super::super::Foundation::BOOL
@@ -80,7 +80,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn DbgHelpCreateUserDump(filename : windows_core::PCSTR, callback : PDBGHELP_CREATE_USER_DUMP_CALLBACK, userdata : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    DbgHelpCreateUserDump(filename.param().abi(), callback, core::mem::transmute(userdata.unwrap_or(core::mem::zeroed())))
+    unsafe { DbgHelpCreateUserDump(filename.param().abi(), callback, core::mem::transmute(userdata.unwrap_or(core::mem::zeroed()))) }
 }
 #[inline]
 pub unsafe fn DbgHelpCreateUserDumpW<P0>(filename: P0, callback: PDBGHELP_CREATE_USER_DUMP_CALLBACK, userdata: Option<*const core::ffi::c_void>) -> super::super::super::Foundation::BOOL
@@ -88,62 +88,62 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn DbgHelpCreateUserDumpW(filename : windows_core::PCWSTR, callback : PDBGHELP_CREATE_USER_DUMP_CALLBACK, userdata : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    DbgHelpCreateUserDumpW(filename.param().abi(), callback, core::mem::transmute(userdata.unwrap_or(core::mem::zeroed())))
+    unsafe { DbgHelpCreateUserDumpW(filename.param().abi(), callback, core::mem::transmute(userdata.unwrap_or(core::mem::zeroed()))) }
 }
 #[inline]
 pub unsafe fn DebugActiveProcess(dwprocessid: u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn DebugActiveProcess(dwprocessid : u32) -> super::super::super::Foundation:: BOOL);
-    DebugActiveProcess(dwprocessid).ok()
+    unsafe { DebugActiveProcess(dwprocessid).ok() }
 }
 #[inline]
 pub unsafe fn DebugActiveProcessStop(dwprocessid: u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn DebugActiveProcessStop(dwprocessid : u32) -> super::super::super::Foundation:: BOOL);
-    DebugActiveProcessStop(dwprocessid).ok()
+    unsafe { DebugActiveProcessStop(dwprocessid).ok() }
 }
 #[inline]
 pub unsafe fn DebugBreak() {
     windows_targets::link!("kernel32.dll" "system" fn DebugBreak());
-    DebugBreak()
+    unsafe { DebugBreak() }
 }
 #[inline]
 pub unsafe fn DebugBreakProcess(process: super::super::super::Foundation::HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn DebugBreakProcess(process : super::super::super::Foundation:: HANDLE) -> super::super::super::Foundation:: BOOL);
-    DebugBreakProcess(process).ok()
+    unsafe { DebugBreakProcess(process).ok() }
 }
 #[inline]
 pub unsafe fn DebugSetProcessKillOnExit(killonexit: bool) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn DebugSetProcessKillOnExit(killonexit : super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
-    DebugSetProcessKillOnExit(killonexit.into()).ok()
+    unsafe { DebugSetProcessKillOnExit(killonexit.into()).ok() }
 }
 #[inline]
 pub unsafe fn DecodePointer(ptr: Option<*const core::ffi::c_void>) -> *mut core::ffi::c_void {
     windows_targets::link!("kernel32.dll" "system" fn DecodePointer(ptr : *const core::ffi::c_void) -> *mut core::ffi::c_void);
-    DecodePointer(core::mem::transmute(ptr.unwrap_or(core::mem::zeroed())))
+    unsafe { DecodePointer(core::mem::transmute(ptr.unwrap_or(core::mem::zeroed()))) }
 }
 #[inline]
 pub unsafe fn DecodeRemotePointer(processhandle: super::super::super::Foundation::HANDLE, ptr: Option<*const core::ffi::c_void>, decodedptr: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("api-ms-win-core-util-l1-1-1.dll" "system" fn DecodeRemotePointer(processhandle : super::super::super::Foundation:: HANDLE, ptr : *const core::ffi::c_void, decodedptr : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    DecodeRemotePointer(processhandle, core::mem::transmute(ptr.unwrap_or(core::mem::zeroed())), core::mem::transmute(decodedptr)).ok()
+    unsafe { DecodeRemotePointer(processhandle, core::mem::transmute(ptr.unwrap_or(core::mem::zeroed())), core::mem::transmute(decodedptr)).ok() }
 }
 #[inline]
 pub unsafe fn DecodeSystemPointer(ptr: Option<*const core::ffi::c_void>) -> *mut core::ffi::c_void {
     windows_targets::link!("kernel32.dll" "system" fn DecodeSystemPointer(ptr : *const core::ffi::c_void) -> *mut core::ffi::c_void);
-    DecodeSystemPointer(core::mem::transmute(ptr.unwrap_or(core::mem::zeroed())))
+    unsafe { DecodeSystemPointer(core::mem::transmute(ptr.unwrap_or(core::mem::zeroed()))) }
 }
 #[inline]
 pub unsafe fn EncodePointer(ptr: Option<*const core::ffi::c_void>) -> *mut core::ffi::c_void {
     windows_targets::link!("kernel32.dll" "system" fn EncodePointer(ptr : *const core::ffi::c_void) -> *mut core::ffi::c_void);
-    EncodePointer(core::mem::transmute(ptr.unwrap_or(core::mem::zeroed())))
+    unsafe { EncodePointer(core::mem::transmute(ptr.unwrap_or(core::mem::zeroed()))) }
 }
 #[inline]
 pub unsafe fn EncodeRemotePointer(processhandle: super::super::super::Foundation::HANDLE, ptr: Option<*const core::ffi::c_void>, encodedptr: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("api-ms-win-core-util-l1-1-1.dll" "system" fn EncodeRemotePointer(processhandle : super::super::super::Foundation:: HANDLE, ptr : *const core::ffi::c_void, encodedptr : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    EncodeRemotePointer(processhandle, core::mem::transmute(ptr.unwrap_or(core::mem::zeroed())), core::mem::transmute(encodedptr)).ok()
+    unsafe { EncodeRemotePointer(processhandle, core::mem::transmute(ptr.unwrap_or(core::mem::zeroed())), core::mem::transmute(encodedptr)).ok() }
 }
 #[inline]
 pub unsafe fn EncodeSystemPointer(ptr: Option<*const core::ffi::c_void>) -> *mut core::ffi::c_void {
     windows_targets::link!("kernel32.dll" "system" fn EncodeSystemPointer(ptr : *const core::ffi::c_void) -> *mut core::ffi::c_void);
-    EncodeSystemPointer(core::mem::transmute(ptr.unwrap_or(core::mem::zeroed())))
+    unsafe { EncodeSystemPointer(core::mem::transmute(ptr.unwrap_or(core::mem::zeroed()))) }
 }
 #[inline]
 pub unsafe fn EnumDirTree<P1, P2>(hprocess: Option<super::super::super::Foundation::HANDLE>, rootpath: P1, inputpathname: P2, outputpathbuffer: Option<windows_core::PSTR>, cb: Option<PENUMDIRTREE_CALLBACK>, data: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -152,7 +152,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn EnumDirTree(hprocess : super::super::super::Foundation:: HANDLE, rootpath : windows_core::PCSTR, inputpathname : windows_core::PCSTR, outputpathbuffer : windows_core::PSTR, cb : PENUMDIRTREE_CALLBACK, data : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    EnumDirTree(core::mem::transmute(hprocess.unwrap_or(core::mem::zeroed())), rootpath.param().abi(), inputpathname.param().abi(), core::mem::transmute(outputpathbuffer.unwrap_or(core::mem::zeroed())), core::mem::transmute(cb.unwrap_or(core::mem::zeroed())), core::mem::transmute(data.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { EnumDirTree(core::mem::transmute(hprocess.unwrap_or(core::mem::zeroed())), rootpath.param().abi(), inputpathname.param().abi(), core::mem::transmute(outputpathbuffer.unwrap_or(core::mem::zeroed())), core::mem::transmute(cb.unwrap_or(core::mem::zeroed())), core::mem::transmute(data.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn EnumDirTreeW<P1, P2>(hprocess: Option<super::super::super::Foundation::HANDLE>, rootpath: P1, inputpathname: P2, outputpathbuffer: Option<windows_core::PWSTR>, cb: Option<PENUMDIRTREE_CALLBACKW>, data: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -161,33 +161,33 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn EnumDirTreeW(hprocess : super::super::super::Foundation:: HANDLE, rootpath : windows_core::PCWSTR, inputpathname : windows_core::PCWSTR, outputpathbuffer : windows_core::PWSTR, cb : PENUMDIRTREE_CALLBACKW, data : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    EnumDirTreeW(core::mem::transmute(hprocess.unwrap_or(core::mem::zeroed())), rootpath.param().abi(), inputpathname.param().abi(), core::mem::transmute(outputpathbuffer.unwrap_or(core::mem::zeroed())), core::mem::transmute(cb.unwrap_or(core::mem::zeroed())), core::mem::transmute(data.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { EnumDirTreeW(core::mem::transmute(hprocess.unwrap_or(core::mem::zeroed())), rootpath.param().abi(), inputpathname.param().abi(), core::mem::transmute(outputpathbuffer.unwrap_or(core::mem::zeroed())), core::mem::transmute(cb.unwrap_or(core::mem::zeroed())), core::mem::transmute(data.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn EnumerateLoadedModules(hprocess: super::super::super::Foundation::HANDLE, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACK, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn EnumerateLoadedModules(hprocess : super::super::super::Foundation:: HANDLE, enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    EnumerateLoadedModules(hprocess, enumloadedmodulescallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { EnumerateLoadedModules(hprocess, enumloadedmodulescallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn EnumerateLoadedModules64(hprocess: super::super::super::Foundation::HANDLE, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACK64, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn EnumerateLoadedModules64(hprocess : super::super::super::Foundation:: HANDLE, enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACK64, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    EnumerateLoadedModules64(hprocess, enumloadedmodulescallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { EnumerateLoadedModules64(hprocess, enumloadedmodulescallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn EnumerateLoadedModulesEx(hprocess: super::super::super::Foundation::HANDLE, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACK64, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn EnumerateLoadedModulesEx(hprocess : super::super::super::Foundation:: HANDLE, enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACK64, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    EnumerateLoadedModulesEx(hprocess, enumloadedmodulescallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { EnumerateLoadedModulesEx(hprocess, enumloadedmodulescallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn EnumerateLoadedModulesExW(hprocess: super::super::super::Foundation::HANDLE, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACKW64, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn EnumerateLoadedModulesExW(hprocess : super::super::super::Foundation:: HANDLE, enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACKW64, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    EnumerateLoadedModulesExW(hprocess, enumloadedmodulescallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { EnumerateLoadedModulesExW(hprocess, enumloadedmodulescallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn EnumerateLoadedModulesW64(hprocess: super::super::super::Foundation::HANDLE, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACKW64, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn EnumerateLoadedModulesW64(hprocess : super::super::super::Foundation:: HANDLE, enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACKW64, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    EnumerateLoadedModulesW64(hprocess, enumloadedmodulescallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { EnumerateLoadedModulesW64(hprocess, enumloadedmodulescallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn FatalAppExitA<P1>(uaction: u32, lpmessagetext: P1)
@@ -195,7 +195,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn FatalAppExitA(uaction : u32, lpmessagetext : windows_core::PCSTR));
-    FatalAppExitA(uaction, lpmessagetext.param().abi())
+    unsafe { FatalAppExitA(uaction, lpmessagetext.param().abi()) }
 }
 #[inline]
 pub unsafe fn FatalAppExitW<P1>(uaction: u32, lpmessagetext: P1)
@@ -203,12 +203,12 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn FatalAppExitW(uaction : u32, lpmessagetext : windows_core::PCWSTR));
-    FatalAppExitW(uaction, lpmessagetext.param().abi())
+    unsafe { FatalAppExitW(uaction, lpmessagetext.param().abi()) }
 }
 #[inline]
 pub unsafe fn FatalExit(exitcode: i32) -> ! {
     windows_targets::link!("kernel32.dll" "system" fn FatalExit(exitcode : i32) -> !);
-    FatalExit(exitcode)
+    unsafe { FatalExit(exitcode) }
 }
 #[inline]
 pub unsafe fn FindDebugInfoFile<P0, P1>(filename: P0, symbolpath: P1, debugfilepath: windows_core::PSTR) -> windows_core::Result<super::super::super::Foundation::HANDLE>
@@ -217,7 +217,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn FindDebugInfoFile(filename : windows_core::PCSTR, symbolpath : windows_core::PCSTR, debugfilepath : windows_core::PSTR) -> super::super::super::Foundation:: HANDLE);
-    let result__ = FindDebugInfoFile(filename.param().abi(), symbolpath.param().abi(), core::mem::transmute(debugfilepath));
+    let result__ = unsafe { FindDebugInfoFile(filename.param().abi(), symbolpath.param().abi(), core::mem::transmute(debugfilepath)) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -227,7 +227,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn FindDebugInfoFileEx(filename : windows_core::PCSTR, symbolpath : windows_core::PCSTR, debugfilepath : windows_core::PSTR, callback : PFIND_DEBUG_FILE_CALLBACK, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
-    let result__ = FindDebugInfoFileEx(filename.param().abi(), symbolpath.param().abi(), core::mem::transmute(debugfilepath), core::mem::transmute(callback.unwrap_or(core::mem::zeroed())), core::mem::transmute(callerdata.unwrap_or(core::mem::zeroed())));
+    let result__ = unsafe { FindDebugInfoFileEx(filename.param().abi(), symbolpath.param().abi(), core::mem::transmute(debugfilepath), core::mem::transmute(callback.unwrap_or(core::mem::zeroed())), core::mem::transmute(callerdata.unwrap_or(core::mem::zeroed()))) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -237,7 +237,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn FindDebugInfoFileExW(filename : windows_core::PCWSTR, symbolpath : windows_core::PCWSTR, debugfilepath : windows_core::PWSTR, callback : PFIND_DEBUG_FILE_CALLBACKW, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
-    let result__ = FindDebugInfoFileExW(filename.param().abi(), symbolpath.param().abi(), core::mem::transmute(debugfilepath), core::mem::transmute(callback.unwrap_or(core::mem::zeroed())), core::mem::transmute(callerdata.unwrap_or(core::mem::zeroed())));
+    let result__ = unsafe { FindDebugInfoFileExW(filename.param().abi(), symbolpath.param().abi(), core::mem::transmute(debugfilepath), core::mem::transmute(callback.unwrap_or(core::mem::zeroed())), core::mem::transmute(callerdata.unwrap_or(core::mem::zeroed()))) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -247,7 +247,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn FindExecutableImage(filename : windows_core::PCSTR, symbolpath : windows_core::PCSTR, imagefilepath : windows_core::PSTR) -> super::super::super::Foundation:: HANDLE);
-    let result__ = FindExecutableImage(filename.param().abi(), symbolpath.param().abi(), core::mem::transmute(imagefilepath));
+    let result__ = unsafe { FindExecutableImage(filename.param().abi(), symbolpath.param().abi(), core::mem::transmute(imagefilepath)) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -257,7 +257,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn FindExecutableImageEx(filename : windows_core::PCSTR, symbolpath : windows_core::PCSTR, imagefilepath : windows_core::PSTR, callback : PFIND_EXE_FILE_CALLBACK, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
-    let result__ = FindExecutableImageEx(filename.param().abi(), symbolpath.param().abi(), core::mem::transmute(imagefilepath), core::mem::transmute(callback.unwrap_or(core::mem::zeroed())), core::mem::transmute(callerdata.unwrap_or(core::mem::zeroed())));
+    let result__ = unsafe { FindExecutableImageEx(filename.param().abi(), symbolpath.param().abi(), core::mem::transmute(imagefilepath), core::mem::transmute(callback.unwrap_or(core::mem::zeroed())), core::mem::transmute(callerdata.unwrap_or(core::mem::zeroed()))) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -267,7 +267,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn FindExecutableImageExW(filename : windows_core::PCWSTR, symbolpath : windows_core::PCWSTR, imagefilepath : windows_core::PWSTR, callback : PFIND_EXE_FILE_CALLBACKW, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
-    let result__ = FindExecutableImageExW(filename.param().abi(), symbolpath.param().abi(), core::mem::transmute(imagefilepath), core::mem::transmute(callback.unwrap_or(core::mem::zeroed())), callerdata);
+    let result__ = unsafe { FindExecutableImageExW(filename.param().abi(), symbolpath.param().abi(), core::mem::transmute(imagefilepath), core::mem::transmute(callback.unwrap_or(core::mem::zeroed())), callerdata) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -277,7 +277,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn FindFileInPath(hprocess : super::super::super::Foundation:: HANDLE, searchpatha : windows_core::PCSTR, filename : windows_core::PCSTR, id : *const core::ffi::c_void, two : u32, three : u32, flags : u32, filepath : windows_core::PSTR) -> super::super::super::Foundation:: BOOL);
-    FindFileInPath(hprocess, searchpatha.param().abi(), filename.param().abi(), id, two, three, flags, core::mem::transmute(filepath))
+    unsafe { FindFileInPath(hprocess, searchpatha.param().abi(), filename.param().abi(), id, two, three, flags, core::mem::transmute(filepath)) }
 }
 #[inline]
 pub unsafe fn FindFileInSearchPath<P1, P2>(hprocess: super::super::super::Foundation::HANDLE, searchpatha: P1, filename: P2, one: u32, two: u32, three: u32, filepath: windows_core::PSTR) -> super::super::super::Foundation::BOOL
@@ -286,129 +286,129 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn FindFileInSearchPath(hprocess : super::super::super::Foundation:: HANDLE, searchpatha : windows_core::PCSTR, filename : windows_core::PCSTR, one : u32, two : u32, three : u32, filepath : windows_core::PSTR) -> super::super::super::Foundation:: BOOL);
-    FindFileInSearchPath(hprocess, searchpatha.param().abi(), filename.param().abi(), one, two, three, core::mem::transmute(filepath))
+    unsafe { FindFileInSearchPath(hprocess, searchpatha.param().abi(), filename.param().abi(), one, two, three, core::mem::transmute(filepath)) }
 }
 #[inline]
 pub unsafe fn FlushInstructionCache(hprocess: super::super::super::Foundation::HANDLE, lpbaseaddress: Option<*const core::ffi::c_void>, dwsize: usize) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn FlushInstructionCache(hprocess : super::super::super::Foundation:: HANDLE, lpbaseaddress : *const core::ffi::c_void, dwsize : usize) -> super::super::super::Foundation:: BOOL);
-    FlushInstructionCache(hprocess, core::mem::transmute(lpbaseaddress.unwrap_or(core::mem::zeroed())), dwsize).ok()
+    unsafe { FlushInstructionCache(hprocess, core::mem::transmute(lpbaseaddress.unwrap_or(core::mem::zeroed())), dwsize).ok() }
 }
 #[inline]
 pub unsafe fn FormatMessageA(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: Option<*const core::ffi::c_void>, dwmessageid: u32, dwlanguageid: u32, lpbuffer: windows_core::PSTR, nsize: u32, arguments: Option<*const *const i8>) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn FormatMessageA(dwflags : FORMAT_MESSAGE_OPTIONS, lpsource : *const core::ffi::c_void, dwmessageid : u32, dwlanguageid : u32, lpbuffer : windows_core::PSTR, nsize : u32, arguments : *const *const i8) -> u32);
-    FormatMessageA(dwflags, core::mem::transmute(lpsource.unwrap_or(core::mem::zeroed())), dwmessageid, dwlanguageid, core::mem::transmute(lpbuffer), nsize, core::mem::transmute(arguments.unwrap_or(core::mem::zeroed())))
+    unsafe { FormatMessageA(dwflags, core::mem::transmute(lpsource.unwrap_or(core::mem::zeroed())), dwmessageid, dwlanguageid, core::mem::transmute(lpbuffer), nsize, core::mem::transmute(arguments.unwrap_or(core::mem::zeroed()))) }
 }
 #[inline]
 pub unsafe fn FormatMessageW(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: Option<*const core::ffi::c_void>, dwmessageid: u32, dwlanguageid: u32, lpbuffer: windows_core::PWSTR, nsize: u32, arguments: Option<*const *const i8>) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn FormatMessageW(dwflags : FORMAT_MESSAGE_OPTIONS, lpsource : *const core::ffi::c_void, dwmessageid : u32, dwlanguageid : u32, lpbuffer : windows_core::PWSTR, nsize : u32, arguments : *const *const i8) -> u32);
-    FormatMessageW(dwflags, core::mem::transmute(lpsource.unwrap_or(core::mem::zeroed())), dwmessageid, dwlanguageid, core::mem::transmute(lpbuffer), nsize, core::mem::transmute(arguments.unwrap_or(core::mem::zeroed())))
+    unsafe { FormatMessageW(dwflags, core::mem::transmute(lpsource.unwrap_or(core::mem::zeroed())), dwmessageid, dwlanguageid, core::mem::transmute(lpbuffer), nsize, core::mem::transmute(arguments.unwrap_or(core::mem::zeroed()))) }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn GetEnabledXStateFeatures() -> u64 {
     windows_targets::link!("kernel32.dll" "system" fn GetEnabledXStateFeatures() -> u64);
-    GetEnabledXStateFeatures()
+    unsafe { GetEnabledXStateFeatures() }
 }
 #[inline]
 pub unsafe fn GetErrorMode() -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn GetErrorMode() -> u32);
-    GetErrorMode()
+    unsafe { GetErrorMode() }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn GetImageConfigInformation(loadedimage: *const LOADED_IMAGE, imageconfiginformation: *mut IMAGE_LOAD_CONFIG_DIRECTORY32) -> windows_core::Result<()> {
     windows_targets::link!("imagehlp.dll" "system" fn GetImageConfigInformation(loadedimage : *const LOADED_IMAGE, imageconfiginformation : *mut IMAGE_LOAD_CONFIG_DIRECTORY32) -> super::super::super::Foundation:: BOOL);
-    GetImageConfigInformation(loadedimage, core::mem::transmute(imageconfiginformation)).ok()
+    unsafe { GetImageConfigInformation(loadedimage, core::mem::transmute(imageconfiginformation)).ok() }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn GetImageConfigInformation(loadedimage: *const LOADED_IMAGE, imageconfiginformation: *mut IMAGE_LOAD_CONFIG_DIRECTORY64) -> windows_core::Result<()> {
     windows_targets::link!("imagehlp.dll" "system" fn GetImageConfigInformation(loadedimage : *const LOADED_IMAGE, imageconfiginformation : *mut IMAGE_LOAD_CONFIG_DIRECTORY64) -> super::super::super::Foundation:: BOOL);
-    GetImageConfigInformation(loadedimage, core::mem::transmute(imageconfiginformation)).ok()
+    unsafe { GetImageConfigInformation(loadedimage, core::mem::transmute(imageconfiginformation)).ok() }
 }
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn GetImageUnusedHeaderBytes(loadedimage: *const LOADED_IMAGE, sizeunusedheaderbytes: *mut u32) -> u32 {
     windows_targets::link!("imagehlp.dll" "system" fn GetImageUnusedHeaderBytes(loadedimage : *const LOADED_IMAGE, sizeunusedheaderbytes : *mut u32) -> u32);
-    GetImageUnusedHeaderBytes(loadedimage, core::mem::transmute(sizeunusedheaderbytes))
+    unsafe { GetImageUnusedHeaderBytes(loadedimage, core::mem::transmute(sizeunusedheaderbytes)) }
 }
 #[inline]
 pub unsafe fn GetSymLoadError() -> u32 {
     windows_targets::link!("dbghelp.dll" "system" fn GetSymLoadError() -> u32);
-    GetSymLoadError()
+    unsafe { GetSymLoadError() }
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn GetThreadContext(hthread: super::super::super::Foundation::HANDLE, lpcontext: *mut CONTEXT) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn GetThreadContext(hthread : super::super::super::Foundation:: HANDLE, lpcontext : *mut CONTEXT) -> super::super::super::Foundation:: BOOL);
-    GetThreadContext(hthread, core::mem::transmute(lpcontext)).ok()
+    unsafe { GetThreadContext(hthread, core::mem::transmute(lpcontext)).ok() }
 }
 #[inline]
 pub unsafe fn GetThreadErrorMode() -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn GetThreadErrorMode() -> u32);
-    GetThreadErrorMode()
+    unsafe { GetThreadErrorMode() }
 }
 #[inline]
 pub unsafe fn GetThreadSelectorEntry(hthread: super::super::super::Foundation::HANDLE, dwselector: u32, lpselectorentry: *mut LDT_ENTRY) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn GetThreadSelectorEntry(hthread : super::super::super::Foundation:: HANDLE, dwselector : u32, lpselectorentry : *mut LDT_ENTRY) -> super::super::super::Foundation:: BOOL);
-    GetThreadSelectorEntry(hthread, dwselector, core::mem::transmute(lpselectorentry)).ok()
+    unsafe { GetThreadSelectorEntry(hthread, dwselector, core::mem::transmute(lpselectorentry)).ok() }
 }
 #[inline]
 pub unsafe fn GetThreadWaitChain(wcthandle: *const core::ffi::c_void, context: Option<usize>, flags: WAIT_CHAIN_THREAD_OPTIONS, threadid: u32, nodecount: *mut u32, nodeinfoarray: *mut WAITCHAIN_NODE_INFO, iscycle: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
     windows_targets::link!("advapi32.dll" "system" fn GetThreadWaitChain(wcthandle : *const core::ffi::c_void, context : usize, flags : WAIT_CHAIN_THREAD_OPTIONS, threadid : u32, nodecount : *mut u32, nodeinfoarray : *mut WAITCHAIN_NODE_INFO, iscycle : *mut super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
-    GetThreadWaitChain(wcthandle, core::mem::transmute(context.unwrap_or(core::mem::zeroed())), flags, threadid, core::mem::transmute(nodecount), core::mem::transmute(nodeinfoarray), core::mem::transmute(iscycle)).ok()
+    unsafe { GetThreadWaitChain(wcthandle, core::mem::transmute(context.unwrap_or(core::mem::zeroed())), flags, threadid, core::mem::transmute(nodecount), core::mem::transmute(nodeinfoarray), core::mem::transmute(iscycle)).ok() }
 }
 #[inline]
 pub unsafe fn GetTimestampForLoadedLibrary(module: super::super::super::Foundation::HMODULE) -> u32 {
     windows_targets::link!("dbghelp.dll" "system" fn GetTimestampForLoadedLibrary(module : super::super::super::Foundation:: HMODULE) -> u32);
-    GetTimestampForLoadedLibrary(module)
+    unsafe { GetTimestampForLoadedLibrary(module) }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn GetXStateFeaturesMask(context: *const CONTEXT, featuremask: *mut u64) -> super::super::super::Foundation::BOOL {
     windows_targets::link!("kernel32.dll" "system" fn GetXStateFeaturesMask(context : *const CONTEXT, featuremask : *mut u64) -> super::super::super::Foundation:: BOOL);
-    GetXStateFeaturesMask(context, core::mem::transmute(featuremask))
+    unsafe { GetXStateFeaturesMask(context, core::mem::transmute(featuremask)) }
 }
 #[cfg(feature = "Win32_Security_WinTrust")]
 #[inline]
 pub unsafe fn ImageAddCertificate(filehandle: super::super::super::Foundation::HANDLE, certificate: *const super::super::super::Security::WinTrust::WIN_CERTIFICATE, index: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("imagehlp.dll" "system" fn ImageAddCertificate(filehandle : super::super::super::Foundation:: HANDLE, certificate : *const super::super::super::Security::WinTrust:: WIN_CERTIFICATE, index : *mut u32) -> super::super::super::Foundation:: BOOL);
-    ImageAddCertificate(filehandle, certificate, core::mem::transmute(index)).ok()
+    unsafe { ImageAddCertificate(filehandle, certificate, core::mem::transmute(index)).ok() }
 }
 #[inline]
 pub unsafe fn ImageDirectoryEntryToData(base: *const core::ffi::c_void, mappedasimage: bool, directoryentry: IMAGE_DIRECTORY_ENTRY, size: *mut u32) -> *mut core::ffi::c_void {
     windows_targets::link!("dbghelp.dll" "system" fn ImageDirectoryEntryToData(base : *const core::ffi::c_void, mappedasimage : bool, directoryentry : IMAGE_DIRECTORY_ENTRY, size : *mut u32) -> *mut core::ffi::c_void);
-    ImageDirectoryEntryToData(base, mappedasimage, directoryentry, core::mem::transmute(size))
+    unsafe { ImageDirectoryEntryToData(base, mappedasimage, directoryentry, core::mem::transmute(size)) }
 }
 #[inline]
 pub unsafe fn ImageDirectoryEntryToDataEx(base: *const core::ffi::c_void, mappedasimage: bool, directoryentry: IMAGE_DIRECTORY_ENTRY, size: *mut u32, foundheader: Option<*mut *mut IMAGE_SECTION_HEADER>) -> *mut core::ffi::c_void {
     windows_targets::link!("dbghelp.dll" "system" fn ImageDirectoryEntryToDataEx(base : *const core::ffi::c_void, mappedasimage : bool, directoryentry : IMAGE_DIRECTORY_ENTRY, size : *mut u32, foundheader : *mut *mut IMAGE_SECTION_HEADER) -> *mut core::ffi::c_void);
-    ImageDirectoryEntryToDataEx(base, mappedasimage, directoryentry, core::mem::transmute(size), core::mem::transmute(foundheader.unwrap_or(core::mem::zeroed())))
+    unsafe { ImageDirectoryEntryToDataEx(base, mappedasimage, directoryentry, core::mem::transmute(size), core::mem::transmute(foundheader.unwrap_or(core::mem::zeroed()))) }
 }
 #[inline]
 pub unsafe fn ImageEnumerateCertificates(filehandle: super::super::super::Foundation::HANDLE, typefilter: u16, certificatecount: *mut u32, indices: Option<&mut [u32]>) -> windows_core::Result<()> {
     windows_targets::link!("imagehlp.dll" "system" fn ImageEnumerateCertificates(filehandle : super::super::super::Foundation:: HANDLE, typefilter : u16, certificatecount : *mut u32, indices : *mut u32, indexcount : u32) -> super::super::super::Foundation:: BOOL);
-    ImageEnumerateCertificates(filehandle, typefilter, core::mem::transmute(certificatecount), core::mem::transmute(indices.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), indices.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
+    unsafe { ImageEnumerateCertificates(filehandle, typefilter, core::mem::transmute(certificatecount), core::mem::transmute(indices.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), indices.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
 }
 #[cfg(feature = "Win32_Security_WinTrust")]
 #[inline]
 pub unsafe fn ImageGetCertificateData(filehandle: super::super::super::Foundation::HANDLE, certificateindex: u32, certificate: *mut super::super::super::Security::WinTrust::WIN_CERTIFICATE, requiredlength: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("imagehlp.dll" "system" fn ImageGetCertificateData(filehandle : super::super::super::Foundation:: HANDLE, certificateindex : u32, certificate : *mut super::super::super::Security::WinTrust:: WIN_CERTIFICATE, requiredlength : *mut u32) -> super::super::super::Foundation:: BOOL);
-    ImageGetCertificateData(filehandle, certificateindex, core::mem::transmute(certificate), core::mem::transmute(requiredlength)).ok()
+    unsafe { ImageGetCertificateData(filehandle, certificateindex, core::mem::transmute(certificate), core::mem::transmute(requiredlength)).ok() }
 }
 #[cfg(feature = "Win32_Security_WinTrust")]
 #[inline]
 pub unsafe fn ImageGetCertificateHeader(filehandle: super::super::super::Foundation::HANDLE, certificateindex: u32, certificateheader: *mut super::super::super::Security::WinTrust::WIN_CERTIFICATE) -> windows_core::Result<()> {
     windows_targets::link!("imagehlp.dll" "system" fn ImageGetCertificateHeader(filehandle : super::super::super::Foundation:: HANDLE, certificateindex : u32, certificateheader : *mut super::super::super::Security::WinTrust:: WIN_CERTIFICATE) -> super::super::super::Foundation:: BOOL);
-    ImageGetCertificateHeader(filehandle, certificateindex, core::mem::transmute(certificateheader)).ok()
+    unsafe { ImageGetCertificateHeader(filehandle, certificateindex, core::mem::transmute(certificateheader)).ok() }
 }
 #[inline]
 pub unsafe fn ImageGetDigestStream(filehandle: super::super::super::Foundation::HANDLE, digestlevel: u32, digestfunction: DIGEST_FUNCTION, digesthandle: *const core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("imagehlp.dll" "system" fn ImageGetDigestStream(filehandle : super::super::super::Foundation:: HANDLE, digestlevel : u32, digestfunction : DIGEST_FUNCTION, digesthandle : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    ImageGetDigestStream(filehandle, digestlevel, digestfunction, digesthandle).ok()
+    unsafe { ImageGetDigestStream(filehandle, digestlevel, digestfunction, digesthandle).ok() }
 }
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 #[inline]
@@ -418,94 +418,94 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("imagehlp.dll" "system" fn ImageLoad(dllname : windows_core::PCSTR, dllpath : windows_core::PCSTR) -> *mut LOADED_IMAGE);
-    ImageLoad(dllname.param().abi(), dllpath.param().abi())
+    unsafe { ImageLoad(dllname.param().abi(), dllpath.param().abi()) }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
 pub unsafe fn ImageNtHeader(base: *const core::ffi::c_void) -> *mut IMAGE_NT_HEADERS32 {
     windows_targets::link!("dbghelp.dll" "system" fn ImageNtHeader(base : *const core::ffi::c_void) -> *mut IMAGE_NT_HEADERS32);
-    ImageNtHeader(base)
+    unsafe { ImageNtHeader(base) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
 pub unsafe fn ImageNtHeader(base: *const core::ffi::c_void) -> *mut IMAGE_NT_HEADERS64 {
     windows_targets::link!("dbghelp.dll" "system" fn ImageNtHeader(base : *const core::ffi::c_void) -> *mut IMAGE_NT_HEADERS64);
-    ImageNtHeader(base)
+    unsafe { ImageNtHeader(base) }
 }
 #[inline]
 pub unsafe fn ImageRemoveCertificate(filehandle: super::super::super::Foundation::HANDLE, index: u32) -> windows_core::Result<()> {
     windows_targets::link!("imagehlp.dll" "system" fn ImageRemoveCertificate(filehandle : super::super::super::Foundation:: HANDLE, index : u32) -> super::super::super::Foundation:: BOOL);
-    ImageRemoveCertificate(filehandle, index).ok()
+    unsafe { ImageRemoveCertificate(filehandle, index).ok() }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
 pub unsafe fn ImageRvaToSection(ntheaders: *const IMAGE_NT_HEADERS32, base: *const core::ffi::c_void, rva: u32) -> *mut IMAGE_SECTION_HEADER {
     windows_targets::link!("dbghelp.dll" "system" fn ImageRvaToSection(ntheaders : *const IMAGE_NT_HEADERS32, base : *const core::ffi::c_void, rva : u32) -> *mut IMAGE_SECTION_HEADER);
-    ImageRvaToSection(ntheaders, base, rva)
+    unsafe { ImageRvaToSection(ntheaders, base, rva) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
 pub unsafe fn ImageRvaToSection(ntheaders: *const IMAGE_NT_HEADERS64, base: *const core::ffi::c_void, rva: u32) -> *mut IMAGE_SECTION_HEADER {
     windows_targets::link!("dbghelp.dll" "system" fn ImageRvaToSection(ntheaders : *const IMAGE_NT_HEADERS64, base : *const core::ffi::c_void, rva : u32) -> *mut IMAGE_SECTION_HEADER);
-    ImageRvaToSection(ntheaders, base, rva)
+    unsafe { ImageRvaToSection(ntheaders, base, rva) }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
 pub unsafe fn ImageRvaToVa(ntheaders: *const IMAGE_NT_HEADERS32, base: *const core::ffi::c_void, rva: u32, lastrvasection: Option<*const *const IMAGE_SECTION_HEADER>) -> *mut core::ffi::c_void {
     windows_targets::link!("dbghelp.dll" "system" fn ImageRvaToVa(ntheaders : *const IMAGE_NT_HEADERS32, base : *const core::ffi::c_void, rva : u32, lastrvasection : *const *const IMAGE_SECTION_HEADER) -> *mut core::ffi::c_void);
-    ImageRvaToVa(ntheaders, base, rva, core::mem::transmute(lastrvasection.unwrap_or(core::mem::zeroed())))
+    unsafe { ImageRvaToVa(ntheaders, base, rva, core::mem::transmute(lastrvasection.unwrap_or(core::mem::zeroed()))) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
 pub unsafe fn ImageRvaToVa(ntheaders: *const IMAGE_NT_HEADERS64, base: *const core::ffi::c_void, rva: u32, lastrvasection: Option<*const *const IMAGE_SECTION_HEADER>) -> *mut core::ffi::c_void {
     windows_targets::link!("dbghelp.dll" "system" fn ImageRvaToVa(ntheaders : *const IMAGE_NT_HEADERS64, base : *const core::ffi::c_void, rva : u32, lastrvasection : *const *const IMAGE_SECTION_HEADER) -> *mut core::ffi::c_void);
-    ImageRvaToVa(ntheaders, base, rva, core::mem::transmute(lastrvasection.unwrap_or(core::mem::zeroed())))
+    unsafe { ImageRvaToVa(ntheaders, base, rva, core::mem::transmute(lastrvasection.unwrap_or(core::mem::zeroed()))) }
 }
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn ImageUnload(loadedimage: *mut LOADED_IMAGE) -> windows_core::Result<()> {
     windows_targets::link!("imagehlp.dll" "system" fn ImageUnload(loadedimage : *mut LOADED_IMAGE) -> super::super::super::Foundation:: BOOL);
-    ImageUnload(core::mem::transmute(loadedimage)).ok()
+    unsafe { ImageUnload(core::mem::transmute(loadedimage)).ok() }
 }
 #[inline]
 pub unsafe fn ImagehlpApiVersion() -> *mut API_VERSION {
     windows_targets::link!("dbghelp.dll" "system" fn ImagehlpApiVersion() -> *mut API_VERSION);
-    ImagehlpApiVersion()
+    unsafe { ImagehlpApiVersion() }
 }
 #[inline]
 pub unsafe fn ImagehlpApiVersionEx(appversion: *const API_VERSION) -> *mut API_VERSION {
     windows_targets::link!("dbghelp.dll" "system" fn ImagehlpApiVersionEx(appversion : *const API_VERSION) -> *mut API_VERSION);
-    ImagehlpApiVersionEx(appversion)
+    unsafe { ImagehlpApiVersionEx(appversion) }
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn InitializeContext(buffer: Option<*mut core::ffi::c_void>, contextflags: CONTEXT_FLAGS, context: *mut *mut CONTEXT, contextlength: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn InitializeContext(buffer : *mut core::ffi::c_void, contextflags : CONTEXT_FLAGS, context : *mut *mut CONTEXT, contextlength : *mut u32) -> super::super::super::Foundation:: BOOL);
-    InitializeContext(core::mem::transmute(buffer.unwrap_or(core::mem::zeroed())), contextflags, core::mem::transmute(context), core::mem::transmute(contextlength)).ok()
+    unsafe { InitializeContext(core::mem::transmute(buffer.unwrap_or(core::mem::zeroed())), contextflags, core::mem::transmute(context), core::mem::transmute(contextlength)).ok() }
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn InitializeContext2(buffer: Option<*mut core::ffi::c_void>, contextflags: CONTEXT_FLAGS, context: *mut *mut CONTEXT, contextlength: *mut u32, xstatecompactionmask: u64) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn InitializeContext2(buffer : *mut core::ffi::c_void, contextflags : CONTEXT_FLAGS, context : *mut *mut CONTEXT, contextlength : *mut u32, xstatecompactionmask : u64) -> super::super::super::Foundation:: BOOL);
-    InitializeContext2(core::mem::transmute(buffer.unwrap_or(core::mem::zeroed())), contextflags, core::mem::transmute(context), core::mem::transmute(contextlength), xstatecompactionmask).ok()
+    unsafe { InitializeContext2(core::mem::transmute(buffer.unwrap_or(core::mem::zeroed())), contextflags, core::mem::transmute(context), core::mem::transmute(contextlength), xstatecompactionmask).ok() }
 }
 #[inline]
 pub unsafe fn IsDebuggerPresent() -> super::super::super::Foundation::BOOL {
     windows_targets::link!("kernel32.dll" "system" fn IsDebuggerPresent() -> super::super::super::Foundation:: BOOL);
-    IsDebuggerPresent()
+    unsafe { IsDebuggerPresent() }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn LocateXStateFeature(context: *const CONTEXT, featureid: u32, length: Option<*mut u32>) -> *mut core::ffi::c_void {
     windows_targets::link!("kernel32.dll" "system" fn LocateXStateFeature(context : *const CONTEXT, featureid : u32, length : *mut u32) -> *mut core::ffi::c_void);
-    LocateXStateFeature(context, featureid, core::mem::transmute(length.unwrap_or(core::mem::zeroed())))
+    unsafe { LocateXStateFeature(context, featureid, core::mem::transmute(length.unwrap_or(core::mem::zeroed()))) }
 }
 #[inline]
 pub unsafe fn MakeSureDirectoryPathExists<P0>(dirpath: P0) -> windows_core::Result<()>
@@ -513,7 +513,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn MakeSureDirectoryPathExists(dirpath : windows_core::PCSTR) -> super::super::super::Foundation:: BOOL);
-    MakeSureDirectoryPathExists(dirpath.param().abi()).ok()
+    unsafe { MakeSureDirectoryPathExists(dirpath.param().abi()).ok() }
 }
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 #[inline]
@@ -523,7 +523,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("imagehlp.dll" "system" fn MapAndLoad(imagename : windows_core::PCSTR, dllpath : windows_core::PCSTR, loadedimage : *mut LOADED_IMAGE, dotdll : super::super::super::Foundation:: BOOL, readonly : super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
-    MapAndLoad(imagename.param().abi(), dllpath.param().abi(), core::mem::transmute(loadedimage), dotdll.into(), readonly.into()).ok()
+    unsafe { MapAndLoad(imagename.param().abi(), dllpath.param().abi(), core::mem::transmute(loadedimage), dotdll.into(), readonly.into()).ok() }
 }
 #[inline]
 pub unsafe fn MapFileAndCheckSumA<P0>(filename: P0, headersum: *mut u32, checksum: *mut u32) -> u32
@@ -531,7 +531,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("imagehlp.dll" "system" fn MapFileAndCheckSumA(filename : windows_core::PCSTR, headersum : *mut u32, checksum : *mut u32) -> u32);
-    MapFileAndCheckSumA(filename.param().abi(), core::mem::transmute(headersum), core::mem::transmute(checksum))
+    unsafe { MapFileAndCheckSumA(filename.param().abi(), core::mem::transmute(headersum), core::mem::transmute(checksum)) }
 }
 #[inline]
 pub unsafe fn MapFileAndCheckSumW<P0>(filename: P0, headersum: *mut u32, checksum: *mut u32) -> u32
@@ -539,29 +539,29 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("imagehlp.dll" "system" fn MapFileAndCheckSumW(filename : windows_core::PCWSTR, headersum : *mut u32, checksum : *mut u32) -> u32);
-    MapFileAndCheckSumW(filename.param().abi(), core::mem::transmute(headersum), core::mem::transmute(checksum))
+    unsafe { MapFileAndCheckSumW(filename.param().abi(), core::mem::transmute(headersum), core::mem::transmute(checksum)) }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn MessageBeep(utype: super::super::super::UI::WindowsAndMessaging::MESSAGEBOX_STYLE) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn MessageBeep(utype : super::super::super::UI::WindowsAndMessaging:: MESSAGEBOX_STYLE) -> super::super::super::Foundation:: BOOL);
-    MessageBeep(utype).ok()
+    unsafe { MessageBeep(utype).ok() }
 }
 #[inline]
 pub unsafe fn MiniDumpReadDumpStream(baseofdump: *const core::ffi::c_void, streamnumber: u32, dir: *mut *mut MINIDUMP_DIRECTORY, streampointer: *mut *mut core::ffi::c_void, streamsize: Option<*mut u32>) -> super::super::super::Foundation::BOOL {
     windows_targets::link!("dbghelp.dll" "system" fn MiniDumpReadDumpStream(baseofdump : *const core::ffi::c_void, streamnumber : u32, dir : *mut *mut MINIDUMP_DIRECTORY, streampointer : *mut *mut core::ffi::c_void, streamsize : *mut u32) -> super::super::super::Foundation:: BOOL);
-    MiniDumpReadDumpStream(baseofdump, streamnumber, core::mem::transmute(dir), core::mem::transmute(streampointer), core::mem::transmute(streamsize.unwrap_or(core::mem::zeroed())))
+    unsafe { MiniDumpReadDumpStream(baseofdump, streamnumber, core::mem::transmute(dir), core::mem::transmute(streampointer), core::mem::transmute(streamsize.unwrap_or(core::mem::zeroed()))) }
 }
 #[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
 #[inline]
 pub unsafe fn MiniDumpWriteDump(hprocess: super::super::super::Foundation::HANDLE, processid: u32, hfile: super::super::super::Foundation::HANDLE, dumptype: MINIDUMP_TYPE, exceptionparam: Option<*const MINIDUMP_EXCEPTION_INFORMATION>, userstreamparam: Option<*const MINIDUMP_USER_STREAM_INFORMATION>, callbackparam: Option<*const MINIDUMP_CALLBACK_INFORMATION>) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn MiniDumpWriteDump(hprocess : super::super::super::Foundation:: HANDLE, processid : u32, hfile : super::super::super::Foundation:: HANDLE, dumptype : MINIDUMP_TYPE, exceptionparam : *const MINIDUMP_EXCEPTION_INFORMATION, userstreamparam : *const MINIDUMP_USER_STREAM_INFORMATION, callbackparam : *const MINIDUMP_CALLBACK_INFORMATION) -> super::super::super::Foundation:: BOOL);
-    MiniDumpWriteDump(hprocess, processid, hfile, dumptype, core::mem::transmute(exceptionparam.unwrap_or(core::mem::zeroed())), core::mem::transmute(userstreamparam.unwrap_or(core::mem::zeroed())), core::mem::transmute(callbackparam.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { MiniDumpWriteDump(hprocess, processid, hfile, dumptype, core::mem::transmute(exceptionparam.unwrap_or(core::mem::zeroed())), core::mem::transmute(userstreamparam.unwrap_or(core::mem::zeroed())), core::mem::transmute(callbackparam.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn OpenThreadWaitChainSession(flags: OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS, callback: Option<PWAITCHAINCALLBACK>) -> *mut core::ffi::c_void {
     windows_targets::link!("advapi32.dll" "system" fn OpenThreadWaitChainSession(flags : OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS, callback : PWAITCHAINCALLBACK) -> *mut core::ffi::c_void);
-    OpenThreadWaitChainSession(flags, core::mem::transmute(callback.unwrap_or(core::mem::zeroed())))
+    unsafe { OpenThreadWaitChainSession(flags, core::mem::transmute(callback.unwrap_or(core::mem::zeroed()))) }
 }
 #[inline]
 pub unsafe fn OutputDebugStringA<P0>(lpoutputstring: P0)
@@ -569,7 +569,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn OutputDebugStringA(lpoutputstring : windows_core::PCSTR));
-    OutputDebugStringA(lpoutputstring.param().abi())
+    unsafe { OutputDebugStringA(lpoutputstring.param().abi()) }
 }
 #[inline]
 pub unsafe fn OutputDebugStringW<P0>(lpoutputstring: P0)
@@ -577,18 +577,18 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn OutputDebugStringW(lpoutputstring : windows_core::PCWSTR));
-    OutputDebugStringW(lpoutputstring.param().abi())
+    unsafe { OutputDebugStringW(lpoutputstring.param().abi()) }
 }
 #[inline]
 pub unsafe fn RaiseException(dwexceptioncode: u32, dwexceptionflags: u32, lparguments: Option<&[usize]>) {
     windows_targets::link!("kernel32.dll" "system" fn RaiseException(dwexceptioncode : u32, dwexceptionflags : u32, nnumberofarguments : u32, lparguments : *const usize));
-    RaiseException(dwexceptioncode, dwexceptionflags, lparguments.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lparguments.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
+    unsafe { RaiseException(dwexceptioncode, dwexceptionflags, lparguments.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lparguments.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RaiseFailFastException(pexceptionrecord: Option<*const EXCEPTION_RECORD>, pcontextrecord: Option<*const CONTEXT>, dwflags: u32) {
     windows_targets::link!("kernel32.dll" "system" fn RaiseFailFastException(pexceptionrecord : *const EXCEPTION_RECORD, pcontextrecord : *const CONTEXT, dwflags : u32));
-    RaiseFailFastException(core::mem::transmute(pexceptionrecord.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcontextrecord.unwrap_or(core::mem::zeroed())), dwflags)
+    unsafe { RaiseFailFastException(core::mem::transmute(pexceptionrecord.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcontextrecord.unwrap_or(core::mem::zeroed())), dwflags) }
 }
 #[inline]
 pub unsafe fn RangeMapAddPeImageSections<P1>(rmaphandle: *const core::ffi::c_void, imagename: P1, mappedimage: *const core::ffi::c_void, mappingbytes: u32, imagebase: u64, usertag: u64, mappingflags: u32) -> super::super::super::Foundation::BOOL
@@ -596,32 +596,32 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn RangeMapAddPeImageSections(rmaphandle : *const core::ffi::c_void, imagename : windows_core::PCWSTR, mappedimage : *const core::ffi::c_void, mappingbytes : u32, imagebase : u64, usertag : u64, mappingflags : u32) -> super::super::super::Foundation:: BOOL);
-    RangeMapAddPeImageSections(rmaphandle, imagename.param().abi(), mappedimage, mappingbytes, imagebase, usertag, mappingflags)
+    unsafe { RangeMapAddPeImageSections(rmaphandle, imagename.param().abi(), mappedimage, mappingbytes, imagebase, usertag, mappingflags) }
 }
 #[inline]
 pub unsafe fn RangeMapCreate() -> *mut core::ffi::c_void {
     windows_targets::link!("dbghelp.dll" "system" fn RangeMapCreate() -> *mut core::ffi::c_void);
-    RangeMapCreate()
+    unsafe { RangeMapCreate() }
 }
 #[inline]
 pub unsafe fn RangeMapFree(rmaphandle: Option<*const core::ffi::c_void>) {
     windows_targets::link!("dbghelp.dll" "system" fn RangeMapFree(rmaphandle : *const core::ffi::c_void));
-    RangeMapFree(core::mem::transmute(rmaphandle.unwrap_or(core::mem::zeroed())))
+    unsafe { RangeMapFree(core::mem::transmute(rmaphandle.unwrap_or(core::mem::zeroed()))) }
 }
 #[inline]
 pub unsafe fn RangeMapRead(rmaphandle: *const core::ffi::c_void, offset: u64, buffer: *mut core::ffi::c_void, requestbytes: u32, flags: u32, donebytes: Option<*mut u32>) -> super::super::super::Foundation::BOOL {
     windows_targets::link!("dbghelp.dll" "system" fn RangeMapRead(rmaphandle : *const core::ffi::c_void, offset : u64, buffer : *mut core::ffi::c_void, requestbytes : u32, flags : u32, donebytes : *mut u32) -> super::super::super::Foundation:: BOOL);
-    RangeMapRead(rmaphandle, offset, core::mem::transmute(buffer), requestbytes, flags, core::mem::transmute(donebytes.unwrap_or(core::mem::zeroed())))
+    unsafe { RangeMapRead(rmaphandle, offset, core::mem::transmute(buffer), requestbytes, flags, core::mem::transmute(donebytes.unwrap_or(core::mem::zeroed()))) }
 }
 #[inline]
 pub unsafe fn RangeMapRemove(rmaphandle: *const core::ffi::c_void, usertag: u64) -> super::super::super::Foundation::BOOL {
     windows_targets::link!("dbghelp.dll" "system" fn RangeMapRemove(rmaphandle : *const core::ffi::c_void, usertag : u64) -> super::super::super::Foundation:: BOOL);
-    RangeMapRemove(rmaphandle, usertag)
+    unsafe { RangeMapRemove(rmaphandle, usertag) }
 }
 #[inline]
 pub unsafe fn RangeMapWrite(rmaphandle: *const core::ffi::c_void, offset: u64, buffer: *const core::ffi::c_void, requestbytes: u32, flags: u32, donebytes: Option<*mut u32>) -> super::super::super::Foundation::BOOL {
     windows_targets::link!("dbghelp.dll" "system" fn RangeMapWrite(rmaphandle : *const core::ffi::c_void, offset : u64, buffer : *const core::ffi::c_void, requestbytes : u32, flags : u32, donebytes : *mut u32) -> super::super::super::Foundation:: BOOL);
-    RangeMapWrite(rmaphandle, offset, buffer, requestbytes, flags, core::mem::transmute(donebytes.unwrap_or(core::mem::zeroed())))
+    unsafe { RangeMapWrite(rmaphandle, offset, buffer, requestbytes, flags, core::mem::transmute(donebytes.unwrap_or(core::mem::zeroed()))) }
 }
 #[inline]
 pub unsafe fn ReBaseImage<P0, P1>(currentimagename: P0, symbolpath: P1, frebase: bool, frebasesysfileok: bool, fgoingdown: bool, checkimagesize: u32, oldimagesize: *mut u32, oldimagebase: *mut usize, newimagesize: *mut u32, newimagebase: *mut usize, timestamp: u32) -> windows_core::Result<()>
@@ -630,7 +630,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("imagehlp.dll" "system" fn ReBaseImage(currentimagename : windows_core::PCSTR, symbolpath : windows_core::PCSTR, frebase : super::super::super::Foundation:: BOOL, frebasesysfileok : super::super::super::Foundation:: BOOL, fgoingdown : super::super::super::Foundation:: BOOL, checkimagesize : u32, oldimagesize : *mut u32, oldimagebase : *mut usize, newimagesize : *mut u32, newimagebase : *mut usize, timestamp : u32) -> super::super::super::Foundation:: BOOL);
-    ReBaseImage(currentimagename.param().abi(), symbolpath.param().abi(), frebase.into(), frebasesysfileok.into(), fgoingdown.into(), checkimagesize, core::mem::transmute(oldimagesize), core::mem::transmute(oldimagebase), core::mem::transmute(newimagesize), core::mem::transmute(newimagebase), timestamp).ok()
+    unsafe { ReBaseImage(currentimagename.param().abi(), symbolpath.param().abi(), frebase.into(), frebasesysfileok.into(), fgoingdown.into(), checkimagesize, core::mem::transmute(oldimagesize), core::mem::transmute(oldimagebase), core::mem::transmute(newimagesize), core::mem::transmute(newimagebase), timestamp).ok() }
 }
 #[inline]
 pub unsafe fn ReBaseImage64<P0, P1>(currentimagename: P0, symbolpath: P1, frebase: bool, frebasesysfileok: bool, fgoingdown: bool, checkimagesize: u32, oldimagesize: *mut u32, oldimagebase: *mut u64, newimagesize: *mut u32, newimagebase: *mut u64, timestamp: u32) -> windows_core::Result<()>
@@ -639,32 +639,32 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("imagehlp.dll" "system" fn ReBaseImage64(currentimagename : windows_core::PCSTR, symbolpath : windows_core::PCSTR, frebase : super::super::super::Foundation:: BOOL, frebasesysfileok : super::super::super::Foundation:: BOOL, fgoingdown : super::super::super::Foundation:: BOOL, checkimagesize : u32, oldimagesize : *mut u32, oldimagebase : *mut u64, newimagesize : *mut u32, newimagebase : *mut u64, timestamp : u32) -> super::super::super::Foundation:: BOOL);
-    ReBaseImage64(currentimagename.param().abi(), symbolpath.param().abi(), frebase.into(), frebasesysfileok.into(), fgoingdown.into(), checkimagesize, core::mem::transmute(oldimagesize), core::mem::transmute(oldimagebase), core::mem::transmute(newimagesize), core::mem::transmute(newimagebase), timestamp).ok()
+    unsafe { ReBaseImage64(currentimagename.param().abi(), symbolpath.param().abi(), frebase.into(), frebasesysfileok.into(), fgoingdown.into(), checkimagesize, core::mem::transmute(oldimagesize), core::mem::transmute(oldimagebase), core::mem::transmute(newimagesize), core::mem::transmute(newimagebase), timestamp).ok() }
 }
 #[inline]
 pub unsafe fn ReadProcessMemory(hprocess: super::super::super::Foundation::HANDLE, lpbaseaddress: *const core::ffi::c_void, lpbuffer: *mut core::ffi::c_void, nsize: usize, lpnumberofbytesread: Option<*mut usize>) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn ReadProcessMemory(hprocess : super::super::super::Foundation:: HANDLE, lpbaseaddress : *const core::ffi::c_void, lpbuffer : *mut core::ffi::c_void, nsize : usize, lpnumberofbytesread : *mut usize) -> super::super::super::Foundation:: BOOL);
-    ReadProcessMemory(hprocess, lpbaseaddress, core::mem::transmute(lpbuffer), nsize, core::mem::transmute(lpnumberofbytesread.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { ReadProcessMemory(hprocess, lpbaseaddress, core::mem::transmute(lpbuffer), nsize, core::mem::transmute(lpnumberofbytesread.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn RegisterWaitChainCOMCallback(callstatecallback: PCOGETCALLSTATE, activationstatecallback: PCOGETACTIVATIONSTATE) {
     windows_targets::link!("advapi32.dll" "system" fn RegisterWaitChainCOMCallback(callstatecallback : PCOGETCALLSTATE, activationstatecallback : PCOGETACTIVATIONSTATE));
-    RegisterWaitChainCOMCallback(callstatecallback, activationstatecallback)
+    unsafe { RegisterWaitChainCOMCallback(callstatecallback, activationstatecallback) }
 }
 #[inline]
 pub unsafe fn RemoveInvalidModuleList(hprocess: super::super::super::Foundation::HANDLE) {
     windows_targets::link!("dbghelp.dll" "system" fn RemoveInvalidModuleList(hprocess : super::super::super::Foundation:: HANDLE));
-    RemoveInvalidModuleList(hprocess)
+    unsafe { RemoveInvalidModuleList(hprocess) }
 }
 #[inline]
 pub unsafe fn RemoveVectoredContinueHandler(handle: *const core::ffi::c_void) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn RemoveVectoredContinueHandler(handle : *const core::ffi::c_void) -> u32);
-    RemoveVectoredContinueHandler(handle)
+    unsafe { RemoveVectoredContinueHandler(handle) }
 }
 #[inline]
 pub unsafe fn RemoveVectoredExceptionHandler(handle: *const core::ffi::c_void) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn RemoveVectoredExceptionHandler(handle : *const core::ffi::c_void) -> u32);
-    RemoveVectoredExceptionHandler(handle)
+    unsafe { RemoveVectoredExceptionHandler(handle) }
 }
 #[inline]
 pub unsafe fn ReportSymbolLoadSummary<P1>(hprocess: super::super::super::Foundation::HANDLE, ploadmodule: P1, psymboldata: *const DBGHELP_DATA_REPORT_STRUCT) -> super::super::super::Foundation::BOOL
@@ -672,73 +672,73 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn ReportSymbolLoadSummary(hprocess : super::super::super::Foundation:: HANDLE, ploadmodule : windows_core::PCWSTR, psymboldata : *const DBGHELP_DATA_REPORT_STRUCT) -> super::super::super::Foundation:: BOOL);
-    ReportSymbolLoadSummary(hprocess, ploadmodule.param().abi(), psymboldata)
+    unsafe { ReportSymbolLoadSummary(hprocess, ploadmodule.param().abi(), psymboldata) }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn RtlAddFunctionTable(functiontable: &[IMAGE_RUNTIME_FUNCTION_ENTRY], baseaddress: u64) -> bool {
     windows_targets::link!("kernel32.dll" "system" fn RtlAddFunctionTable(functiontable : *const IMAGE_RUNTIME_FUNCTION_ENTRY, entrycount : u32, baseaddress : u64) -> bool);
-    RtlAddFunctionTable(core::mem::transmute(functiontable.as_ptr()), functiontable.len().try_into().unwrap(), baseaddress)
+    unsafe { RtlAddFunctionTable(core::mem::transmute(functiontable.as_ptr()), functiontable.len().try_into().unwrap(), baseaddress) }
 }
 #[cfg(target_arch = "aarch64")]
 #[inline]
 pub unsafe fn RtlAddFunctionTable(functiontable: &[IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY], baseaddress: usize) -> bool {
     windows_targets::link!("kernel32.dll" "system" fn RtlAddFunctionTable(functiontable : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, entrycount : u32, baseaddress : usize) -> bool);
-    RtlAddFunctionTable(core::mem::transmute(functiontable.as_ptr()), functiontable.len().try_into().unwrap(), baseaddress)
+    unsafe { RtlAddFunctionTable(core::mem::transmute(functiontable.as_ptr()), functiontable.len().try_into().unwrap(), baseaddress) }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn RtlAddGrowableFunctionTable(dynamictable: *mut *mut core::ffi::c_void, functiontable: &[IMAGE_RUNTIME_FUNCTION_ENTRY], entrycount: u32, rangebase: usize, rangeend: usize) -> u32 {
     windows_targets::link!("ntdll.dll" "system" fn RtlAddGrowableFunctionTable(dynamictable : *mut *mut core::ffi::c_void, functiontable : *const IMAGE_RUNTIME_FUNCTION_ENTRY, entrycount : u32, maximumentrycount : u32, rangebase : usize, rangeend : usize) -> u32);
-    RtlAddGrowableFunctionTable(core::mem::transmute(dynamictable), core::mem::transmute(functiontable.as_ptr()), entrycount, functiontable.len().try_into().unwrap(), rangebase, rangeend)
+    unsafe { RtlAddGrowableFunctionTable(core::mem::transmute(dynamictable), core::mem::transmute(functiontable.as_ptr()), entrycount, functiontable.len().try_into().unwrap(), rangebase, rangeend) }
 }
 #[cfg(target_arch = "aarch64")]
 #[inline]
 pub unsafe fn RtlAddGrowableFunctionTable(dynamictable: *mut *mut core::ffi::c_void, functiontable: &[IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY], entrycount: u32, rangebase: usize, rangeend: usize) -> u32 {
     windows_targets::link!("ntdll.dll" "system" fn RtlAddGrowableFunctionTable(dynamictable : *mut *mut core::ffi::c_void, functiontable : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, entrycount : u32, maximumentrycount : u32, rangebase : usize, rangeend : usize) -> u32);
-    RtlAddGrowableFunctionTable(core::mem::transmute(dynamictable), core::mem::transmute(functiontable.as_ptr()), entrycount, functiontable.len().try_into().unwrap(), rangebase, rangeend)
+    unsafe { RtlAddGrowableFunctionTable(core::mem::transmute(dynamictable), core::mem::transmute(functiontable.as_ptr()), entrycount, functiontable.len().try_into().unwrap(), rangebase, rangeend) }
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlCaptureContext(contextrecord: *mut CONTEXT) {
     windows_targets::link!("kernel32.dll" "system" fn RtlCaptureContext(contextrecord : *mut CONTEXT));
-    RtlCaptureContext(core::mem::transmute(contextrecord))
+    unsafe { RtlCaptureContext(core::mem::transmute(contextrecord)) }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlCaptureContext2(contextrecord: *mut CONTEXT) {
     windows_targets::link!("kernel32.dll" "system" fn RtlCaptureContext2(contextrecord : *mut CONTEXT));
-    RtlCaptureContext2(core::mem::transmute(contextrecord))
+    unsafe { RtlCaptureContext2(core::mem::transmute(contextrecord)) }
 }
 #[inline]
 pub unsafe fn RtlCaptureStackBackTrace(framestoskip: u32, backtrace: &mut [*mut core::ffi::c_void], backtracehash: Option<*mut u32>) -> u16 {
     windows_targets::link!("kernel32.dll" "system" fn RtlCaptureStackBackTrace(framestoskip : u32, framestocapture : u32, backtrace : *mut *mut core::ffi::c_void, backtracehash : *mut u32) -> u16);
-    RtlCaptureStackBackTrace(framestoskip, backtrace.len().try_into().unwrap(), core::mem::transmute(backtrace.as_ptr()), core::mem::transmute(backtracehash.unwrap_or(core::mem::zeroed())))
+    unsafe { RtlCaptureStackBackTrace(framestoskip, backtrace.len().try_into().unwrap(), core::mem::transmute(backtrace.as_ptr()), core::mem::transmute(backtracehash.unwrap_or(core::mem::zeroed()))) }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn RtlDeleteFunctionTable(functiontable: *const IMAGE_RUNTIME_FUNCTION_ENTRY) -> bool {
     windows_targets::link!("kernel32.dll" "system" fn RtlDeleteFunctionTable(functiontable : *const IMAGE_RUNTIME_FUNCTION_ENTRY) -> bool);
-    RtlDeleteFunctionTable(functiontable)
+    unsafe { RtlDeleteFunctionTable(functiontable) }
 }
 #[cfg(target_arch = "aarch64")]
 #[inline]
 pub unsafe fn RtlDeleteFunctionTable(functiontable: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY) -> bool {
     windows_targets::link!("kernel32.dll" "system" fn RtlDeleteFunctionTable(functiontable : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY) -> bool);
-    RtlDeleteFunctionTable(functiontable)
+    unsafe { RtlDeleteFunctionTable(functiontable) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn RtlDeleteGrowableFunctionTable(dynamictable: *const core::ffi::c_void) {
     windows_targets::link!("ntdll.dll" "system" fn RtlDeleteGrowableFunctionTable(dynamictable : *const core::ffi::c_void));
-    RtlDeleteGrowableFunctionTable(dynamictable)
+    unsafe { RtlDeleteGrowableFunctionTable(dynamictable) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn RtlGrowFunctionTable(dynamictable: *mut core::ffi::c_void, newentrycount: u32) {
     windows_targets::link!("ntdll.dll" "system" fn RtlGrowFunctionTable(dynamictable : *mut core::ffi::c_void, newentrycount : u32));
-    RtlGrowFunctionTable(core::mem::transmute(dynamictable), newentrycount)
+    unsafe { RtlGrowFunctionTable(core::mem::transmute(dynamictable), newentrycount) }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
@@ -747,7 +747,7 @@ where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn RtlInstallFunctionTableCallback(tableidentifier : u64, baseaddress : u64, length : u32, callback : PGET_RUNTIME_FUNCTION_CALLBACK, context : *const core::ffi::c_void, outofprocesscallbackdll : windows_core::PCWSTR) -> bool);
-    RtlInstallFunctionTableCallback(tableidentifier, baseaddress, length, callback, core::mem::transmute(context.unwrap_or(core::mem::zeroed())), outofprocesscallbackdll.param().abi())
+    unsafe { RtlInstallFunctionTableCallback(tableidentifier, baseaddress, length, callback, core::mem::transmute(context.unwrap_or(core::mem::zeroed())), outofprocesscallbackdll.param().abi()) }
 }
 #[cfg(target_arch = "aarch64")]
 #[inline]
@@ -756,61 +756,61 @@ where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn RtlInstallFunctionTableCallback(tableidentifier : u64, baseaddress : u64, length : u32, callback : PGET_RUNTIME_FUNCTION_CALLBACK, context : *const core::ffi::c_void, outofprocesscallbackdll : windows_core::PCWSTR) -> bool);
-    RtlInstallFunctionTableCallback(tableidentifier, baseaddress, length, callback, core::mem::transmute(context.unwrap_or(core::mem::zeroed())), outofprocesscallbackdll.param().abi())
+    unsafe { RtlInstallFunctionTableCallback(tableidentifier, baseaddress, length, callback, core::mem::transmute(context.unwrap_or(core::mem::zeroed())), outofprocesscallbackdll.param().abi()) }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn RtlLookupFunctionEntry(controlpc: u64, imagebase: *mut u64, historytable: Option<*mut UNWIND_HISTORY_TABLE>) -> *mut IMAGE_RUNTIME_FUNCTION_ENTRY {
     windows_targets::link!("kernel32.dll" "system" fn RtlLookupFunctionEntry(controlpc : u64, imagebase : *mut u64, historytable : *mut UNWIND_HISTORY_TABLE) -> *mut IMAGE_RUNTIME_FUNCTION_ENTRY);
-    RtlLookupFunctionEntry(controlpc, core::mem::transmute(imagebase), core::mem::transmute(historytable.unwrap_or(core::mem::zeroed())))
+    unsafe { RtlLookupFunctionEntry(controlpc, core::mem::transmute(imagebase), core::mem::transmute(historytable.unwrap_or(core::mem::zeroed()))) }
 }
 #[cfg(target_arch = "aarch64")]
 #[inline]
 pub unsafe fn RtlLookupFunctionEntry(controlpc: usize, imagebase: *mut usize, historytable: Option<*mut UNWIND_HISTORY_TABLE>) -> *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY {
     windows_targets::link!("kernel32.dll" "system" fn RtlLookupFunctionEntry(controlpc : usize, imagebase : *mut usize, historytable : *mut UNWIND_HISTORY_TABLE) -> *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY);
-    RtlLookupFunctionEntry(controlpc, core::mem::transmute(imagebase), core::mem::transmute(historytable.unwrap_or(core::mem::zeroed())))
+    unsafe { RtlLookupFunctionEntry(controlpc, core::mem::transmute(imagebase), core::mem::transmute(historytable.unwrap_or(core::mem::zeroed()))) }
 }
 #[inline]
 pub unsafe fn RtlPcToFileHeader(pcvalue: *const core::ffi::c_void, baseofimage: *mut *mut core::ffi::c_void) -> *mut core::ffi::c_void {
     windows_targets::link!("kernel32.dll" "system" fn RtlPcToFileHeader(pcvalue : *const core::ffi::c_void, baseofimage : *mut *mut core::ffi::c_void) -> *mut core::ffi::c_void);
-    RtlPcToFileHeader(pcvalue, core::mem::transmute(baseofimage))
+    unsafe { RtlPcToFileHeader(pcvalue, core::mem::transmute(baseofimage)) }
 }
 #[inline]
 pub unsafe fn RtlRaiseException(exceptionrecord: *const EXCEPTION_RECORD) {
     windows_targets::link!("kernel32.dll" "system" fn RtlRaiseException(exceptionrecord : *const EXCEPTION_RECORD));
-    RtlRaiseException(exceptionrecord)
+    unsafe { RtlRaiseException(exceptionrecord) }
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlRestoreContext(contextrecord: *const CONTEXT, exceptionrecord: Option<*const EXCEPTION_RECORD>) {
     windows_targets::link!("kernel32.dll" "cdecl" fn RtlRestoreContext(contextrecord : *const CONTEXT, exceptionrecord : *const EXCEPTION_RECORD));
-    RtlRestoreContext(contextrecord, core::mem::transmute(exceptionrecord.unwrap_or(core::mem::zeroed())))
+    unsafe { RtlRestoreContext(contextrecord, core::mem::transmute(exceptionrecord.unwrap_or(core::mem::zeroed()))) }
 }
 #[inline]
 pub unsafe fn RtlUnwind(targetframe: Option<*const core::ffi::c_void>, targetip: Option<*const core::ffi::c_void>, exceptionrecord: Option<*const EXCEPTION_RECORD>, returnvalue: *const core::ffi::c_void) {
     windows_targets::link!("kernel32.dll" "system" fn RtlUnwind(targetframe : *const core::ffi::c_void, targetip : *const core::ffi::c_void, exceptionrecord : *const EXCEPTION_RECORD, returnvalue : *const core::ffi::c_void));
-    RtlUnwind(core::mem::transmute(targetframe.unwrap_or(core::mem::zeroed())), core::mem::transmute(targetip.unwrap_or(core::mem::zeroed())), core::mem::transmute(exceptionrecord.unwrap_or(core::mem::zeroed())), returnvalue)
+    unsafe { RtlUnwind(core::mem::transmute(targetframe.unwrap_or(core::mem::zeroed())), core::mem::transmute(targetip.unwrap_or(core::mem::zeroed())), core::mem::transmute(exceptionrecord.unwrap_or(core::mem::zeroed())), returnvalue) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlUnwindEx(targetframe: Option<*const core::ffi::c_void>, targetip: Option<*const core::ffi::c_void>, exceptionrecord: Option<*const EXCEPTION_RECORD>, returnvalue: *const core::ffi::c_void, contextrecord: *const CONTEXT, historytable: Option<*const UNWIND_HISTORY_TABLE>) {
     windows_targets::link!("kernel32.dll" "system" fn RtlUnwindEx(targetframe : *const core::ffi::c_void, targetip : *const core::ffi::c_void, exceptionrecord : *const EXCEPTION_RECORD, returnvalue : *const core::ffi::c_void, contextrecord : *const CONTEXT, historytable : *const UNWIND_HISTORY_TABLE));
-    RtlUnwindEx(core::mem::transmute(targetframe.unwrap_or(core::mem::zeroed())), core::mem::transmute(targetip.unwrap_or(core::mem::zeroed())), core::mem::transmute(exceptionrecord.unwrap_or(core::mem::zeroed())), returnvalue, contextrecord, core::mem::transmute(historytable.unwrap_or(core::mem::zeroed())))
+    unsafe { RtlUnwindEx(core::mem::transmute(targetframe.unwrap_or(core::mem::zeroed())), core::mem::transmute(targetip.unwrap_or(core::mem::zeroed())), core::mem::transmute(exceptionrecord.unwrap_or(core::mem::zeroed())), returnvalue, contextrecord, core::mem::transmute(historytable.unwrap_or(core::mem::zeroed()))) }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase: u64, controlpc: u64, functionentry: *const IMAGE_RUNTIME_FUNCTION_ENTRY, contextrecord: *mut CONTEXT, handlerdata: *mut *mut core::ffi::c_void, establisherframe: *mut u64, contextpointers: Option<*mut KNONVOLATILE_CONTEXT_POINTERS>) -> super::super::Kernel::EXCEPTION_ROUTINE {
     windows_targets::link!("kernel32.dll" "system" fn RtlVirtualUnwind(handlertype : RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase : u64, controlpc : u64, functionentry : *const IMAGE_RUNTIME_FUNCTION_ENTRY, contextrecord : *mut CONTEXT, handlerdata : *mut *mut core::ffi::c_void, establisherframe : *mut u64, contextpointers : *mut KNONVOLATILE_CONTEXT_POINTERS) -> super::super::Kernel:: EXCEPTION_ROUTINE);
-    RtlVirtualUnwind(handlertype, imagebase, controlpc, functionentry, core::mem::transmute(contextrecord), core::mem::transmute(handlerdata), core::mem::transmute(establisherframe), core::mem::transmute(contextpointers.unwrap_or(core::mem::zeroed())))
+    unsafe { RtlVirtualUnwind(handlertype, imagebase, controlpc, functionentry, core::mem::transmute(contextrecord), core::mem::transmute(handlerdata), core::mem::transmute(establisherframe), core::mem::transmute(contextpointers.unwrap_or(core::mem::zeroed()))) }
 }
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase: usize, controlpc: usize, functionentry: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, contextrecord: *mut CONTEXT, handlerdata: *mut *mut core::ffi::c_void, establisherframe: *mut usize, contextpointers: Option<*mut KNONVOLATILE_CONTEXT_POINTERS>) -> super::super::Kernel::EXCEPTION_ROUTINE {
     windows_targets::link!("kernel32.dll" "system" fn RtlVirtualUnwind(handlertype : RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase : usize, controlpc : usize, functionentry : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, contextrecord : *mut CONTEXT, handlerdata : *mut *mut core::ffi::c_void, establisherframe : *mut usize, contextpointers : *mut KNONVOLATILE_CONTEXT_POINTERS) -> super::super::Kernel:: EXCEPTION_ROUTINE);
-    RtlVirtualUnwind(handlertype, imagebase, controlpc, functionentry, core::mem::transmute(contextrecord), core::mem::transmute(handlerdata), core::mem::transmute(establisherframe), core::mem::transmute(contextpointers.unwrap_or(core::mem::zeroed())))
+    unsafe { RtlVirtualUnwind(handlertype, imagebase, controlpc, functionentry, core::mem::transmute(contextrecord), core::mem::transmute(handlerdata), core::mem::transmute(establisherframe), core::mem::transmute(contextpointers.unwrap_or(core::mem::zeroed()))) }
 }
 #[inline]
 pub unsafe fn SearchTreeForFile<P0, P1>(rootpath: P0, inputpathname: P1, outputpathbuffer: windows_core::PSTR) -> windows_core::Result<()>
@@ -819,7 +819,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SearchTreeForFile(rootpath : windows_core::PCSTR, inputpathname : windows_core::PCSTR, outputpathbuffer : windows_core::PSTR) -> super::super::super::Foundation:: BOOL);
-    SearchTreeForFile(rootpath.param().abi(), inputpathname.param().abi(), core::mem::transmute(outputpathbuffer)).ok()
+    unsafe { SearchTreeForFile(rootpath.param().abi(), inputpathname.param().abi(), core::mem::transmute(outputpathbuffer)).ok() }
 }
 #[inline]
 pub unsafe fn SearchTreeForFileW<P0, P1>(rootpath: P0, inputpathname: P1, outputpathbuffer: windows_core::PWSTR) -> windows_core::Result<()>
@@ -828,93 +828,95 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SearchTreeForFileW(rootpath : windows_core::PCWSTR, inputpathname : windows_core::PCWSTR, outputpathbuffer : windows_core::PWSTR) -> super::super::super::Foundation:: BOOL);
-    SearchTreeForFileW(rootpath.param().abi(), inputpathname.param().abi(), core::mem::transmute(outputpathbuffer)).ok()
+    unsafe { SearchTreeForFileW(rootpath.param().abi(), inputpathname.param().abi(), core::mem::transmute(outputpathbuffer)).ok() }
 }
 #[inline]
 pub unsafe fn SetCheckUserInterruptShared(lpstartaddress: LPCALL_BACK_USER_INTERRUPT_ROUTINE) {
     windows_targets::link!("dbghelp.dll" "system" fn SetCheckUserInterruptShared(lpstartaddress : LPCALL_BACK_USER_INTERRUPT_ROUTINE));
-    SetCheckUserInterruptShared(lpstartaddress)
+    unsafe { SetCheckUserInterruptShared(lpstartaddress) }
 }
 #[inline]
 pub unsafe fn SetErrorMode(umode: THREAD_ERROR_MODE) -> THREAD_ERROR_MODE {
     windows_targets::link!("kernel32.dll" "system" fn SetErrorMode(umode : THREAD_ERROR_MODE) -> THREAD_ERROR_MODE);
-    SetErrorMode(umode)
+    unsafe { SetErrorMode(umode) }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn SetImageConfigInformation(loadedimage: *mut LOADED_IMAGE, imageconfiginformation: *const IMAGE_LOAD_CONFIG_DIRECTORY32) -> windows_core::Result<()> {
     windows_targets::link!("imagehlp.dll" "system" fn SetImageConfigInformation(loadedimage : *mut LOADED_IMAGE, imageconfiginformation : *const IMAGE_LOAD_CONFIG_DIRECTORY32) -> super::super::super::Foundation:: BOOL);
-    SetImageConfigInformation(core::mem::transmute(loadedimage), imageconfiginformation).ok()
+    unsafe { SetImageConfigInformation(core::mem::transmute(loadedimage), imageconfiginformation).ok() }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn SetImageConfigInformation(loadedimage: *mut LOADED_IMAGE, imageconfiginformation: *const IMAGE_LOAD_CONFIG_DIRECTORY64) -> windows_core::Result<()> {
     windows_targets::link!("imagehlp.dll" "system" fn SetImageConfigInformation(loadedimage : *mut LOADED_IMAGE, imageconfiginformation : *const IMAGE_LOAD_CONFIG_DIRECTORY64) -> super::super::super::Foundation:: BOOL);
-    SetImageConfigInformation(core::mem::transmute(loadedimage), imageconfiginformation).ok()
+    unsafe { SetImageConfigInformation(core::mem::transmute(loadedimage), imageconfiginformation).ok() }
 }
 #[inline]
 pub unsafe fn SetSymLoadError(error: u32) {
     windows_targets::link!("dbghelp.dll" "system" fn SetSymLoadError(error : u32));
-    SetSymLoadError(error)
+    unsafe { SetSymLoadError(error) }
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn SetThreadContext(hthread: super::super::super::Foundation::HANDLE, lpcontext: *const CONTEXT) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn SetThreadContext(hthread : super::super::super::Foundation:: HANDLE, lpcontext : *const CONTEXT) -> super::super::super::Foundation:: BOOL);
-    SetThreadContext(hthread, lpcontext).ok()
+    unsafe { SetThreadContext(hthread, lpcontext).ok() }
 }
 #[inline]
 pub unsafe fn SetThreadErrorMode(dwnewmode: THREAD_ERROR_MODE, lpoldmode: Option<*mut THREAD_ERROR_MODE>) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn SetThreadErrorMode(dwnewmode : THREAD_ERROR_MODE, lpoldmode : *mut THREAD_ERROR_MODE) -> super::super::super::Foundation:: BOOL);
-    SetThreadErrorMode(dwnewmode, core::mem::transmute(lpoldmode.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { SetThreadErrorMode(dwnewmode, core::mem::transmute(lpoldmode.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn SetUnhandledExceptionFilter(lptoplevelexceptionfilter: Option<LPTOP_LEVEL_EXCEPTION_FILTER>) -> LPTOP_LEVEL_EXCEPTION_FILTER {
     windows_targets::link!("kernel32.dll" "system" fn SetUnhandledExceptionFilter(lptoplevelexceptionfilter : LPTOP_LEVEL_EXCEPTION_FILTER) -> LPTOP_LEVEL_EXCEPTION_FILTER);
-    SetUnhandledExceptionFilter(core::mem::transmute(lptoplevelexceptionfilter.unwrap_or(core::mem::zeroed())))
+    unsafe { SetUnhandledExceptionFilter(core::mem::transmute(lptoplevelexceptionfilter.unwrap_or(core::mem::zeroed()))) }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn SetXStateFeaturesMask(context: *mut CONTEXT, featuremask: u64) -> super::super::super::Foundation::BOOL {
     windows_targets::link!("kernel32.dll" "system" fn SetXStateFeaturesMask(context : *mut CONTEXT, featuremask : u64) -> super::super::super::Foundation:: BOOL);
-    SetXStateFeaturesMask(core::mem::transmute(context), featuremask)
+    unsafe { SetXStateFeaturesMask(core::mem::transmute(context), featuremask) }
 }
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn StackWalk(machinetype: u32, hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, stackframe: *mut STACKFRAME, contextrecord: *mut core::ffi::c_void, readmemoryroutine: Option<PREAD_PROCESS_MEMORY_ROUTINE>, functiontableaccessroutine: Option<PFUNCTION_TABLE_ACCESS_ROUTINE>, getmodulebaseroutine: Option<PGET_MODULE_BASE_ROUTINE>, translateaddress: Option<PTRANSLATE_ADDRESS_ROUTINE>) -> super::super::super::Foundation::BOOL {
     windows_targets::link!("dbghelp.dll" "system" fn StackWalk(machinetype : u32, hprocess : super::super::super::Foundation:: HANDLE, hthread : super::super::super::Foundation:: HANDLE, stackframe : *mut STACKFRAME, contextrecord : *mut core::ffi::c_void, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE, functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE, translateaddress : PTRANSLATE_ADDRESS_ROUTINE) -> super::super::super::Foundation:: BOOL);
-    StackWalk(machinetype, hprocess, hthread, core::mem::transmute(stackframe), core::mem::transmute(contextrecord), core::mem::transmute(readmemoryroutine.unwrap_or(core::mem::zeroed())), core::mem::transmute(functiontableaccessroutine.unwrap_or(core::mem::zeroed())), core::mem::transmute(getmodulebaseroutine.unwrap_or(core::mem::zeroed())), core::mem::transmute(translateaddress.unwrap_or(core::mem::zeroed())))
+    unsafe { StackWalk(machinetype, hprocess, hthread, core::mem::transmute(stackframe), core::mem::transmute(contextrecord), core::mem::transmute(readmemoryroutine.unwrap_or(core::mem::zeroed())), core::mem::transmute(functiontableaccessroutine.unwrap_or(core::mem::zeroed())), core::mem::transmute(getmodulebaseroutine.unwrap_or(core::mem::zeroed())), core::mem::transmute(translateaddress.unwrap_or(core::mem::zeroed()))) }
 }
 #[inline]
 pub unsafe fn StackWalk2(machinetype: u32, hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, stackframe: *mut STACKFRAME_EX, contextrecord: *mut core::ffi::c_void, readmemoryroutine: Option<PREAD_PROCESS_MEMORY_ROUTINE64>, functiontableaccessroutine: Option<PFUNCTION_TABLE_ACCESS_ROUTINE64>, getmodulebaseroutine: Option<PGET_MODULE_BASE_ROUTINE64>, translateaddress: Option<PTRANSLATE_ADDRESS_ROUTINE64>, gettargetattributevalue: Option<PGET_TARGET_ATTRIBUTE_VALUE64>, flags: u32) -> super::super::super::Foundation::BOOL {
     windows_targets::link!("dbghelp.dll" "system" fn StackWalk2(machinetype : u32, hprocess : super::super::super::Foundation:: HANDLE, hthread : super::super::super::Foundation:: HANDLE, stackframe : *mut STACKFRAME_EX, contextrecord : *mut core::ffi::c_void, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE64, translateaddress : PTRANSLATE_ADDRESS_ROUTINE64, gettargetattributevalue : PGET_TARGET_ATTRIBUTE_VALUE64, flags : u32) -> super::super::super::Foundation:: BOOL);
-    StackWalk2(
-        machinetype,
-        hprocess,
-        hthread,
-        core::mem::transmute(stackframe),
-        core::mem::transmute(contextrecord),
-        core::mem::transmute(readmemoryroutine.unwrap_or(core::mem::zeroed())),
-        core::mem::transmute(functiontableaccessroutine.unwrap_or(core::mem::zeroed())),
-        core::mem::transmute(getmodulebaseroutine.unwrap_or(core::mem::zeroed())),
-        core::mem::transmute(translateaddress.unwrap_or(core::mem::zeroed())),
-        core::mem::transmute(gettargetattributevalue.unwrap_or(core::mem::zeroed())),
-        flags,
-    )
+    unsafe {
+        StackWalk2(
+            machinetype,
+            hprocess,
+            hthread,
+            core::mem::transmute(stackframe),
+            core::mem::transmute(contextrecord),
+            core::mem::transmute(readmemoryroutine.unwrap_or(core::mem::zeroed())),
+            core::mem::transmute(functiontableaccessroutine.unwrap_or(core::mem::zeroed())),
+            core::mem::transmute(getmodulebaseroutine.unwrap_or(core::mem::zeroed())),
+            core::mem::transmute(translateaddress.unwrap_or(core::mem::zeroed())),
+            core::mem::transmute(gettargetattributevalue.unwrap_or(core::mem::zeroed())),
+            flags,
+        )
+    }
 }
 #[inline]
 pub unsafe fn StackWalk64(machinetype: u32, hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, stackframe: *mut STACKFRAME64, contextrecord: *mut core::ffi::c_void, readmemoryroutine: Option<PREAD_PROCESS_MEMORY_ROUTINE64>, functiontableaccessroutine: Option<PFUNCTION_TABLE_ACCESS_ROUTINE64>, getmodulebaseroutine: Option<PGET_MODULE_BASE_ROUTINE64>, translateaddress: Option<PTRANSLATE_ADDRESS_ROUTINE64>) -> super::super::super::Foundation::BOOL {
     windows_targets::link!("dbghelp.dll" "system" fn StackWalk64(machinetype : u32, hprocess : super::super::super::Foundation:: HANDLE, hthread : super::super::super::Foundation:: HANDLE, stackframe : *mut STACKFRAME64, contextrecord : *mut core::ffi::c_void, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE64, translateaddress : PTRANSLATE_ADDRESS_ROUTINE64) -> super::super::super::Foundation:: BOOL);
-    StackWalk64(machinetype, hprocess, hthread, core::mem::transmute(stackframe), core::mem::transmute(contextrecord), core::mem::transmute(readmemoryroutine.unwrap_or(core::mem::zeroed())), core::mem::transmute(functiontableaccessroutine.unwrap_or(core::mem::zeroed())), core::mem::transmute(getmodulebaseroutine.unwrap_or(core::mem::zeroed())), core::mem::transmute(translateaddress.unwrap_or(core::mem::zeroed())))
+    unsafe { StackWalk64(machinetype, hprocess, hthread, core::mem::transmute(stackframe), core::mem::transmute(contextrecord), core::mem::transmute(readmemoryroutine.unwrap_or(core::mem::zeroed())), core::mem::transmute(functiontableaccessroutine.unwrap_or(core::mem::zeroed())), core::mem::transmute(getmodulebaseroutine.unwrap_or(core::mem::zeroed())), core::mem::transmute(translateaddress.unwrap_or(core::mem::zeroed()))) }
 }
 #[inline]
 pub unsafe fn StackWalkEx(machinetype: u32, hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, stackframe: *mut STACKFRAME_EX, contextrecord: *mut core::ffi::c_void, readmemoryroutine: Option<PREAD_PROCESS_MEMORY_ROUTINE64>, functiontableaccessroutine: Option<PFUNCTION_TABLE_ACCESS_ROUTINE64>, getmodulebaseroutine: Option<PGET_MODULE_BASE_ROUTINE64>, translateaddress: Option<PTRANSLATE_ADDRESS_ROUTINE64>, flags: u32) -> super::super::super::Foundation::BOOL {
     windows_targets::link!("dbghelp.dll" "system" fn StackWalkEx(machinetype : u32, hprocess : super::super::super::Foundation:: HANDLE, hthread : super::super::super::Foundation:: HANDLE, stackframe : *mut STACKFRAME_EX, contextrecord : *mut core::ffi::c_void, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE64, translateaddress : PTRANSLATE_ADDRESS_ROUTINE64, flags : u32) -> super::super::super::Foundation:: BOOL);
-    StackWalkEx(machinetype, hprocess, hthread, core::mem::transmute(stackframe), core::mem::transmute(contextrecord), core::mem::transmute(readmemoryroutine.unwrap_or(core::mem::zeroed())), core::mem::transmute(functiontableaccessroutine.unwrap_or(core::mem::zeroed())), core::mem::transmute(getmodulebaseroutine.unwrap_or(core::mem::zeroed())), core::mem::transmute(translateaddress.unwrap_or(core::mem::zeroed())), flags)
+    unsafe { StackWalkEx(machinetype, hprocess, hthread, core::mem::transmute(stackframe), core::mem::transmute(contextrecord), core::mem::transmute(readmemoryroutine.unwrap_or(core::mem::zeroed())), core::mem::transmute(functiontableaccessroutine.unwrap_or(core::mem::zeroed())), core::mem::transmute(getmodulebaseroutine.unwrap_or(core::mem::zeroed())), core::mem::transmute(translateaddress.unwrap_or(core::mem::zeroed())), flags) }
 }
 #[inline]
 pub unsafe fn SymAddSourceStream<P2>(hprocess: super::super::super::Foundation::HANDLE, base: u64, streamfile: P2, buffer: Option<&[u8]>) -> windows_core::Result<()>
@@ -922,7 +924,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymAddSourceStream(hprocess : super::super::super::Foundation:: HANDLE, base : u64, streamfile : windows_core::PCSTR, buffer : *const u8, size : usize) -> super::super::super::Foundation:: BOOL);
-    SymAddSourceStream(hprocess, base, streamfile.param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
+    unsafe { SymAddSourceStream(hprocess, base, streamfile.param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
 }
 #[inline]
 pub unsafe fn SymAddSourceStreamA<P2>(hprocess: super::super::super::Foundation::HANDLE, base: u64, streamfile: P2, buffer: Option<&[u8]>) -> super::super::super::Foundation::BOOL
@@ -930,7 +932,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymAddSourceStreamA(hprocess : super::super::super::Foundation:: HANDLE, base : u64, streamfile : windows_core::PCSTR, buffer : *const u8, size : usize) -> super::super::super::Foundation:: BOOL);
-    SymAddSourceStreamA(hprocess, base, streamfile.param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    unsafe { SymAddSourceStreamA(hprocess, base, streamfile.param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn SymAddSourceStreamW<P2>(hprocess: super::super::super::Foundation::HANDLE, base: u64, filespec: P2, buffer: Option<&[u8]>) -> windows_core::Result<()>
@@ -938,7 +940,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymAddSourceStreamW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, filespec : windows_core::PCWSTR, buffer : *const u8, size : usize) -> super::super::super::Foundation:: BOOL);
-    SymAddSourceStreamW(hprocess, base, filespec.param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
+    unsafe { SymAddSourceStreamW(hprocess, base, filespec.param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
 }
 #[inline]
 pub unsafe fn SymAddSymbol<P2>(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, name: P2, address: u64, size: u32, flags: u32) -> windows_core::Result<()>
@@ -946,7 +948,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymAddSymbol(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, name : windows_core::PCSTR, address : u64, size : u32, flags : u32) -> super::super::super::Foundation:: BOOL);
-    SymAddSymbol(hprocess, baseofdll, name.param().abi(), address, size, flags).ok()
+    unsafe { SymAddSymbol(hprocess, baseofdll, name.param().abi(), address, size, flags).ok() }
 }
 #[inline]
 pub unsafe fn SymAddSymbolW<P2>(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, name: P2, address: u64, size: u32, flags: u32) -> windows_core::Result<()>
@@ -954,22 +956,22 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymAddSymbolW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, name : windows_core::PCWSTR, address : u64, size : u32, flags : u32) -> super::super::super::Foundation:: BOOL);
-    SymAddSymbolW(hprocess, baseofdll, name.param().abi(), address, size, flags).ok()
+    unsafe { SymAddSymbolW(hprocess, baseofdll, name.param().abi(), address, size, flags).ok() }
 }
 #[inline]
 pub unsafe fn SymAddrIncludeInlineTrace(hprocess: super::super::super::Foundation::HANDLE, address: u64) -> u32 {
     windows_targets::link!("dbghelp.dll" "system" fn SymAddrIncludeInlineTrace(hprocess : super::super::super::Foundation:: HANDLE, address : u64) -> u32);
-    SymAddrIncludeInlineTrace(hprocess, address)
+    unsafe { SymAddrIncludeInlineTrace(hprocess, address) }
 }
 #[inline]
 pub unsafe fn SymCleanup(hprocess: super::super::super::Foundation::HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymCleanup(hprocess : super::super::super::Foundation:: HANDLE) -> super::super::super::Foundation:: BOOL);
-    SymCleanup(hprocess).ok()
+    unsafe { SymCleanup(hprocess).ok() }
 }
 #[inline]
 pub unsafe fn SymCompareInlineTrace(hprocess: super::super::super::Foundation::HANDLE, address1: u64, inlinecontext1: u32, retaddress1: u64, address2: u64, retaddress2: u64) -> u32 {
     windows_targets::link!("dbghelp.dll" "system" fn SymCompareInlineTrace(hprocess : super::super::super::Foundation:: HANDLE, address1 : u64, inlinecontext1 : u32, retaddress1 : u64, address2 : u64, retaddress2 : u64) -> u32);
-    SymCompareInlineTrace(hprocess, address1, inlinecontext1, retaddress1, address2, retaddress2)
+    unsafe { SymCompareInlineTrace(hprocess, address1, inlinecontext1, retaddress1, address2, retaddress2) }
 }
 #[inline]
 pub unsafe fn SymDeleteSymbol<P2>(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, name: P2, address: u64, flags: u32) -> windows_core::Result<()>
@@ -977,7 +979,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymDeleteSymbol(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, name : windows_core::PCSTR, address : u64, flags : u32) -> super::super::super::Foundation:: BOOL);
-    SymDeleteSymbol(hprocess, baseofdll, name.param().abi(), address, flags).ok()
+    unsafe { SymDeleteSymbol(hprocess, baseofdll, name.param().abi(), address, flags).ok() }
 }
 #[inline]
 pub unsafe fn SymDeleteSymbolW<P2>(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, name: P2, address: u64, flags: u32) -> windows_core::Result<()>
@@ -985,7 +987,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymDeleteSymbolW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, name : windows_core::PCWSTR, address : u64, flags : u32) -> super::super::super::Foundation:: BOOL);
-    SymDeleteSymbolW(hprocess, baseofdll, name.param().abi(), address, flags).ok()
+    unsafe { SymDeleteSymbolW(hprocess, baseofdll, name.param().abi(), address, flags).ok() }
 }
 #[inline]
 pub unsafe fn SymEnumLines<P2, P3>(hprocess: super::super::super::Foundation::HANDLE, base: u64, obj: P2, file: P3, enumlinescallback: PSYM_ENUMLINES_CALLBACK, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -994,7 +996,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumLines(hprocess : super::super::super::Foundation:: HANDLE, base : u64, obj : windows_core::PCSTR, file : windows_core::PCSTR, enumlinescallback : PSYM_ENUMLINES_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumLines(hprocess, base, obj.param().abi(), file.param().abi(), enumlinescallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { SymEnumLines(hprocess, base, obj.param().abi(), file.param().abi(), enumlinescallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn SymEnumLinesW<P2, P3>(hprocess: super::super::super::Foundation::HANDLE, base: u64, obj: P2, file: P3, enumlinescallback: PSYM_ENUMLINES_CALLBACKW, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -1003,17 +1005,17 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumLinesW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, obj : windows_core::PCWSTR, file : windows_core::PCWSTR, enumlinescallback : PSYM_ENUMLINES_CALLBACKW, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumLinesW(hprocess, base, obj.param().abi(), file.param().abi(), enumlinescallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { SymEnumLinesW(hprocess, base, obj.param().abi(), file.param().abi(), enumlinescallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn SymEnumProcesses(enumprocessescallback: PSYM_ENUMPROCESSES_CALLBACK, usercontext: *const core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumProcesses(enumprocessescallback : PSYM_ENUMPROCESSES_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumProcesses(enumprocessescallback, usercontext).ok()
+    unsafe { SymEnumProcesses(enumprocessescallback, usercontext).ok() }
 }
 #[inline]
 pub unsafe fn SymEnumSourceFileTokens(hprocess: super::super::super::Foundation::HANDLE, base: u64, callback: PENUMSOURCEFILETOKENSCALLBACK) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumSourceFileTokens(hprocess : super::super::super::Foundation:: HANDLE, base : u64, callback : PENUMSOURCEFILETOKENSCALLBACK) -> super::super::super::Foundation:: BOOL);
-    SymEnumSourceFileTokens(hprocess, base, callback).ok()
+    unsafe { SymEnumSourceFileTokens(hprocess, base, callback).ok() }
 }
 #[inline]
 pub unsafe fn SymEnumSourceFiles<P2>(hprocess: super::super::super::Foundation::HANDLE, modbase: u64, mask: P2, cbsrcfiles: PSYM_ENUMSOURCEFILES_CALLBACK, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -1021,7 +1023,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumSourceFiles(hprocess : super::super::super::Foundation:: HANDLE, modbase : u64, mask : windows_core::PCSTR, cbsrcfiles : PSYM_ENUMSOURCEFILES_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumSourceFiles(hprocess, modbase, mask.param().abi(), cbsrcfiles, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { SymEnumSourceFiles(hprocess, modbase, mask.param().abi(), cbsrcfiles, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn SymEnumSourceFilesW<P2>(hprocess: super::super::super::Foundation::HANDLE, modbase: u64, mask: P2, cbsrcfiles: PSYM_ENUMSOURCEFILES_CALLBACKW, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -1029,7 +1031,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumSourceFilesW(hprocess : super::super::super::Foundation:: HANDLE, modbase : u64, mask : windows_core::PCWSTR, cbsrcfiles : PSYM_ENUMSOURCEFILES_CALLBACKW, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumSourceFilesW(hprocess, modbase, mask.param().abi(), cbsrcfiles, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { SymEnumSourceFilesW(hprocess, modbase, mask.param().abi(), cbsrcfiles, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn SymEnumSourceLines<P2, P3>(hprocess: super::super::super::Foundation::HANDLE, base: u64, obj: P2, file: P3, line: Option<u32>, flags: u32, enumlinescallback: PSYM_ENUMLINES_CALLBACK, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -1038,7 +1040,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumSourceLines(hprocess : super::super::super::Foundation:: HANDLE, base : u64, obj : windows_core::PCSTR, file : windows_core::PCSTR, line : u32, flags : u32, enumlinescallback : PSYM_ENUMLINES_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumSourceLines(hprocess, base, obj.param().abi(), file.param().abi(), core::mem::transmute(line.unwrap_or(core::mem::zeroed())), flags, enumlinescallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { SymEnumSourceLines(hprocess, base, obj.param().abi(), file.param().abi(), core::mem::transmute(line.unwrap_or(core::mem::zeroed())), flags, enumlinescallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn SymEnumSourceLinesW<P2, P3>(hprocess: super::super::super::Foundation::HANDLE, base: u64, obj: P2, file: P3, line: Option<u32>, flags: u32, enumlinescallback: PSYM_ENUMLINES_CALLBACKW, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -1047,12 +1049,12 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumSourceLinesW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, obj : windows_core::PCWSTR, file : windows_core::PCWSTR, line : u32, flags : u32, enumlinescallback : PSYM_ENUMLINES_CALLBACKW, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumSourceLinesW(hprocess, base, obj.param().abi(), file.param().abi(), core::mem::transmute(line.unwrap_or(core::mem::zeroed())), flags, enumlinescallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { SymEnumSourceLinesW(hprocess, base, obj.param().abi(), file.param().abi(), core::mem::transmute(line.unwrap_or(core::mem::zeroed())), flags, enumlinescallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn SymEnumSym(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Option<*const core::ffi::c_void>) -> super::super::super::Foundation::BOOL {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumSym(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumSym(hprocess, baseofdll, enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed())))
+    unsafe { SymEnumSym(hprocess, baseofdll, enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))) }
 }
 #[inline]
 pub unsafe fn SymEnumSymbols<P2>(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, mask: P2, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -1060,7 +1062,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumSymbols(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, mask : windows_core::PCSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumSymbols(hprocess, baseofdll, mask.param().abi(), enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { SymEnumSymbols(hprocess, baseofdll, mask.param().abi(), enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn SymEnumSymbolsEx<P2>(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, mask: P2, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Option<*const core::ffi::c_void>, options: u32) -> windows_core::Result<()>
@@ -1068,7 +1070,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumSymbolsEx(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, mask : windows_core::PCSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void, options : u32) -> super::super::super::Foundation:: BOOL);
-    SymEnumSymbolsEx(hprocess, baseofdll, mask.param().abi(), enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed())), options).ok()
+    unsafe { SymEnumSymbolsEx(hprocess, baseofdll, mask.param().abi(), enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed())), options).ok() }
 }
 #[inline]
 pub unsafe fn SymEnumSymbolsExW<P2>(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, mask: P2, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: Option<*const core::ffi::c_void>, options: u32) -> windows_core::Result<()>
@@ -1076,17 +1078,17 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumSymbolsExW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, mask : windows_core::PCWSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void, options : u32) -> super::super::super::Foundation:: BOOL);
-    SymEnumSymbolsExW(hprocess, baseofdll, mask.param().abi(), enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed())), options).ok()
+    unsafe { SymEnumSymbolsExW(hprocess, baseofdll, mask.param().abi(), enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed())), options).ok() }
 }
 #[inline]
 pub unsafe fn SymEnumSymbolsForAddr(hprocess: super::super::super::Foundation::HANDLE, address: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumSymbolsForAddr(hprocess : super::super::super::Foundation:: HANDLE, address : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumSymbolsForAddr(hprocess, address, enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { SymEnumSymbolsForAddr(hprocess, address, enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn SymEnumSymbolsForAddrW(hprocess: super::super::super::Foundation::HANDLE, address: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumSymbolsForAddrW(hprocess : super::super::super::Foundation:: HANDLE, address : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumSymbolsForAddrW(hprocess, address, enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { SymEnumSymbolsForAddrW(hprocess, address, enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn SymEnumSymbolsW<P2>(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, mask: P2, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -1094,12 +1096,12 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumSymbolsW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, mask : windows_core::PCWSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumSymbolsW(hprocess, baseofdll, mask.param().abi(), enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { SymEnumSymbolsW(hprocess, baseofdll, mask.param().abi(), enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn SymEnumTypes(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumTypes(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumTypes(hprocess, baseofdll, enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { SymEnumTypes(hprocess, baseofdll, enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn SymEnumTypesByName<P2>(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, mask: P2, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -1107,7 +1109,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumTypesByName(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, mask : windows_core::PCSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumTypesByName(hprocess, baseofdll, mask.param().abi(), enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { SymEnumTypesByName(hprocess, baseofdll, mask.param().abi(), enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn SymEnumTypesByNameW<P2>(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, mask: P2, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -1115,50 +1117,50 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumTypesByNameW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, mask : windows_core::PCWSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumTypesByNameW(hprocess, baseofdll, mask.param().abi(), enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { SymEnumTypesByNameW(hprocess, baseofdll, mask.param().abi(), enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn SymEnumTypesW(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumTypesW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumTypesW(hprocess, baseofdll, enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { SymEnumTypesW(hprocess, baseofdll, enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SymEnumerateModules(hprocess: super::super::super::Foundation::HANDLE, enummodulescallback: PSYM_ENUMMODULES_CALLBACK, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumerateModules(hprocess : super::super::super::Foundation:: HANDLE, enummodulescallback : PSYM_ENUMMODULES_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumerateModules(hprocess, enummodulescallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { SymEnumerateModules(hprocess, enummodulescallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn SymEnumerateModules64(hprocess: super::super::super::Foundation::HANDLE, enummodulescallback: PSYM_ENUMMODULES_CALLBACK64, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumerateModules64(hprocess : super::super::super::Foundation:: HANDLE, enummodulescallback : PSYM_ENUMMODULES_CALLBACK64, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumerateModules64(hprocess, enummodulescallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { SymEnumerateModules64(hprocess, enummodulescallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn SymEnumerateModulesW64(hprocess: super::super::super::Foundation::HANDLE, enummodulescallback: PSYM_ENUMMODULES_CALLBACKW64, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumerateModulesW64(hprocess : super::super::super::Foundation:: HANDLE, enummodulescallback : PSYM_ENUMMODULES_CALLBACKW64, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumerateModulesW64(hprocess, enummodulescallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { SymEnumerateModulesW64(hprocess, enummodulescallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SymEnumerateSymbols(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u32, enumsymbolscallback: PSYM_ENUMSYMBOLS_CALLBACK, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumerateSymbols(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u32, enumsymbolscallback : PSYM_ENUMSYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumerateSymbols(hprocess, baseofdll, enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { SymEnumerateSymbols(hprocess, baseofdll, enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn SymEnumerateSymbols64(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, enumsymbolscallback: PSYM_ENUMSYMBOLS_CALLBACK64, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumerateSymbols64(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, enumsymbolscallback : PSYM_ENUMSYMBOLS_CALLBACK64, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumerateSymbols64(hprocess, baseofdll, enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { SymEnumerateSymbols64(hprocess, baseofdll, enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SymEnumerateSymbolsW(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u32, enumsymbolscallback: PSYM_ENUMSYMBOLS_CALLBACKW, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumerateSymbolsW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u32, enumsymbolscallback : PSYM_ENUMSYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumerateSymbolsW(hprocess, baseofdll, enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { SymEnumerateSymbolsW(hprocess, baseofdll, enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn SymEnumerateSymbolsW64(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, enumsymbolscallback: PSYM_ENUMSYMBOLS_CALLBACK64W, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumerateSymbolsW64(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, enumsymbolscallback : PSYM_ENUMSYMBOLS_CALLBACK64W, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumerateSymbolsW64(hprocess, baseofdll, enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { SymEnumerateSymbolsW64(hprocess, baseofdll, enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn SymFindDebugInfoFile<P1>(hprocess: super::super::super::Foundation::HANDLE, filename: P1, debugfilepath: windows_core::PSTR, callback: Option<PFIND_DEBUG_FILE_CALLBACK>, callerdata: Option<*const core::ffi::c_void>) -> windows_core::Result<super::super::super::Foundation::HANDLE>
@@ -1166,7 +1168,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymFindDebugInfoFile(hprocess : super::super::super::Foundation:: HANDLE, filename : windows_core::PCSTR, debugfilepath : windows_core::PSTR, callback : PFIND_DEBUG_FILE_CALLBACK, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
-    let result__ = SymFindDebugInfoFile(hprocess, filename.param().abi(), core::mem::transmute(debugfilepath), core::mem::transmute(callback.unwrap_or(core::mem::zeroed())), core::mem::transmute(callerdata.unwrap_or(core::mem::zeroed())));
+    let result__ = unsafe { SymFindDebugInfoFile(hprocess, filename.param().abi(), core::mem::transmute(debugfilepath), core::mem::transmute(callback.unwrap_or(core::mem::zeroed())), core::mem::transmute(callerdata.unwrap_or(core::mem::zeroed()))) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -1175,7 +1177,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymFindDebugInfoFileW(hprocess : super::super::super::Foundation:: HANDLE, filename : windows_core::PCWSTR, debugfilepath : windows_core::PWSTR, callback : PFIND_DEBUG_FILE_CALLBACKW, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
-    let result__ = SymFindDebugInfoFileW(hprocess, filename.param().abi(), core::mem::transmute(debugfilepath), core::mem::transmute(callback.unwrap_or(core::mem::zeroed())), core::mem::transmute(callerdata.unwrap_or(core::mem::zeroed())));
+    let result__ = unsafe { SymFindDebugInfoFileW(hprocess, filename.param().abi(), core::mem::transmute(debugfilepath), core::mem::transmute(callback.unwrap_or(core::mem::zeroed())), core::mem::transmute(callerdata.unwrap_or(core::mem::zeroed()))) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -1184,7 +1186,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymFindExecutableImage(hprocess : super::super::super::Foundation:: HANDLE, filename : windows_core::PCSTR, imagefilepath : windows_core::PSTR, callback : PFIND_EXE_FILE_CALLBACK, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
-    let result__ = SymFindExecutableImage(hprocess, filename.param().abi(), core::mem::transmute(imagefilepath), callback, callerdata);
+    let result__ = unsafe { SymFindExecutableImage(hprocess, filename.param().abi(), core::mem::transmute(imagefilepath), callback, callerdata) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -1193,7 +1195,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymFindExecutableImageW(hprocess : super::super::super::Foundation:: HANDLE, filename : windows_core::PCWSTR, imagefilepath : windows_core::PWSTR, callback : PFIND_EXE_FILE_CALLBACKW, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
-    let result__ = SymFindExecutableImageW(hprocess, filename.param().abi(), core::mem::transmute(imagefilepath), callback, callerdata);
+    let result__ = unsafe { SymFindExecutableImageW(hprocess, filename.param().abi(), core::mem::transmute(imagefilepath), callback, callerdata) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -1203,7 +1205,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymFindFileInPath(hprocess : super::super::super::Foundation:: HANDLE, searchpatha : windows_core::PCSTR, filename : windows_core::PCSTR, id : *const core::ffi::c_void, two : u32, three : u32, flags : SYM_FIND_ID_OPTION, foundfile : windows_core::PSTR, callback : PFINDFILEINPATHCALLBACK, context : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymFindFileInPath(hprocess, searchpatha.param().abi(), filename.param().abi(), core::mem::transmute(id.unwrap_or(core::mem::zeroed())), two, three, flags, core::mem::transmute(foundfile), core::mem::transmute(callback.unwrap_or(core::mem::zeroed())), core::mem::transmute(context.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { SymFindFileInPath(hprocess, searchpatha.param().abi(), filename.param().abi(), core::mem::transmute(id.unwrap_or(core::mem::zeroed())), two, three, flags, core::mem::transmute(foundfile), core::mem::transmute(callback.unwrap_or(core::mem::zeroed())), core::mem::transmute(context.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn SymFindFileInPathW<P1, P2>(hprocess: super::super::super::Foundation::HANDLE, searchpatha: P1, filename: P2, id: Option<*const core::ffi::c_void>, two: u32, three: u32, flags: SYM_FIND_ID_OPTION, foundfile: windows_core::PWSTR, callback: Option<PFINDFILEINPATHCALLBACKW>, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -1212,37 +1214,37 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymFindFileInPathW(hprocess : super::super::super::Foundation:: HANDLE, searchpatha : windows_core::PCWSTR, filename : windows_core::PCWSTR, id : *const core::ffi::c_void, two : u32, three : u32, flags : SYM_FIND_ID_OPTION, foundfile : windows_core::PWSTR, callback : PFINDFILEINPATHCALLBACKW, context : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymFindFileInPathW(hprocess, searchpatha.param().abi(), filename.param().abi(), core::mem::transmute(id.unwrap_or(core::mem::zeroed())), two, three, flags, core::mem::transmute(foundfile), core::mem::transmute(callback.unwrap_or(core::mem::zeroed())), core::mem::transmute(context.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { SymFindFileInPathW(hprocess, searchpatha.param().abi(), filename.param().abi(), core::mem::transmute(id.unwrap_or(core::mem::zeroed())), two, three, flags, core::mem::transmute(foundfile), core::mem::transmute(callback.unwrap_or(core::mem::zeroed())), core::mem::transmute(context.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn SymFromAddr(hprocess: super::super::super::Foundation::HANDLE, address: u64, displacement: Option<*mut u64>, symbol: *mut SYMBOL_INFO) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymFromAddr(hprocess : super::super::super::Foundation:: HANDLE, address : u64, displacement : *mut u64, symbol : *mut SYMBOL_INFO) -> super::super::super::Foundation:: BOOL);
-    SymFromAddr(hprocess, address, core::mem::transmute(displacement.unwrap_or(core::mem::zeroed())), core::mem::transmute(symbol)).ok()
+    unsafe { SymFromAddr(hprocess, address, core::mem::transmute(displacement.unwrap_or(core::mem::zeroed())), core::mem::transmute(symbol)).ok() }
 }
 #[inline]
 pub unsafe fn SymFromAddrW(hprocess: super::super::super::Foundation::HANDLE, address: u64, displacement: Option<*mut u64>, symbol: *mut SYMBOL_INFOW) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymFromAddrW(hprocess : super::super::super::Foundation:: HANDLE, address : u64, displacement : *mut u64, symbol : *mut SYMBOL_INFOW) -> super::super::super::Foundation:: BOOL);
-    SymFromAddrW(hprocess, address, core::mem::transmute(displacement.unwrap_or(core::mem::zeroed())), core::mem::transmute(symbol)).ok()
+    unsafe { SymFromAddrW(hprocess, address, core::mem::transmute(displacement.unwrap_or(core::mem::zeroed())), core::mem::transmute(symbol)).ok() }
 }
 #[inline]
 pub unsafe fn SymFromIndex(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, index: u32, symbol: *mut SYMBOL_INFO) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymFromIndex(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, index : u32, symbol : *mut SYMBOL_INFO) -> super::super::super::Foundation:: BOOL);
-    SymFromIndex(hprocess, baseofdll, index, core::mem::transmute(symbol)).ok()
+    unsafe { SymFromIndex(hprocess, baseofdll, index, core::mem::transmute(symbol)).ok() }
 }
 #[inline]
 pub unsafe fn SymFromIndexW(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, index: u32, symbol: *mut SYMBOL_INFOW) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymFromIndexW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, index : u32, symbol : *mut SYMBOL_INFOW) -> super::super::super::Foundation:: BOOL);
-    SymFromIndexW(hprocess, baseofdll, index, core::mem::transmute(symbol)).ok()
+    unsafe { SymFromIndexW(hprocess, baseofdll, index, core::mem::transmute(symbol)).ok() }
 }
 #[inline]
 pub unsafe fn SymFromInlineContext(hprocess: super::super::super::Foundation::HANDLE, address: u64, inlinecontext: u32, displacement: Option<*mut u64>, symbol: *mut SYMBOL_INFO) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymFromInlineContext(hprocess : super::super::super::Foundation:: HANDLE, address : u64, inlinecontext : u32, displacement : *mut u64, symbol : *mut SYMBOL_INFO) -> super::super::super::Foundation:: BOOL);
-    SymFromInlineContext(hprocess, address, inlinecontext, core::mem::transmute(displacement.unwrap_or(core::mem::zeroed())), core::mem::transmute(symbol)).ok()
+    unsafe { SymFromInlineContext(hprocess, address, inlinecontext, core::mem::transmute(displacement.unwrap_or(core::mem::zeroed())), core::mem::transmute(symbol)).ok() }
 }
 #[inline]
 pub unsafe fn SymFromInlineContextW(hprocess: super::super::super::Foundation::HANDLE, address: u64, inlinecontext: u32, displacement: Option<*mut u64>, symbol: *mut SYMBOL_INFOW) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymFromInlineContextW(hprocess : super::super::super::Foundation:: HANDLE, address : u64, inlinecontext : u32, displacement : *mut u64, symbol : *mut SYMBOL_INFOW) -> super::super::super::Foundation:: BOOL);
-    SymFromInlineContextW(hprocess, address, inlinecontext, core::mem::transmute(displacement.unwrap_or(core::mem::zeroed())), core::mem::transmute(symbol)).ok()
+    unsafe { SymFromInlineContextW(hprocess, address, inlinecontext, core::mem::transmute(displacement.unwrap_or(core::mem::zeroed())), core::mem::transmute(symbol)).ok() }
 }
 #[inline]
 pub unsafe fn SymFromName<P1>(hprocess: super::super::super::Foundation::HANDLE, name: P1, symbol: *mut SYMBOL_INFO) -> windows_core::Result<()>
@@ -1250,7 +1252,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymFromName(hprocess : super::super::super::Foundation:: HANDLE, name : windows_core::PCSTR, symbol : *mut SYMBOL_INFO) -> super::super::super::Foundation:: BOOL);
-    SymFromName(hprocess, name.param().abi(), core::mem::transmute(symbol)).ok()
+    unsafe { SymFromName(hprocess, name.param().abi(), core::mem::transmute(symbol)).ok() }
 }
 #[inline]
 pub unsafe fn SymFromNameW<P1>(hprocess: super::super::super::Foundation::HANDLE, name: P1, symbol: *mut SYMBOL_INFOW) -> windows_core::Result<()>
@@ -1258,38 +1260,38 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymFromNameW(hprocess : super::super::super::Foundation:: HANDLE, name : windows_core::PCWSTR, symbol : *mut SYMBOL_INFOW) -> super::super::super::Foundation:: BOOL);
-    SymFromNameW(hprocess, name.param().abi(), core::mem::transmute(symbol)).ok()
+    unsafe { SymFromNameW(hprocess, name.param().abi(), core::mem::transmute(symbol)).ok() }
 }
 #[inline]
 pub unsafe fn SymFromToken(hprocess: super::super::super::Foundation::HANDLE, base: u64, token: u32, symbol: *mut SYMBOL_INFO) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymFromToken(hprocess : super::super::super::Foundation:: HANDLE, base : u64, token : u32, symbol : *mut SYMBOL_INFO) -> super::super::super::Foundation:: BOOL);
-    SymFromToken(hprocess, base, token, core::mem::transmute(symbol)).ok()
+    unsafe { SymFromToken(hprocess, base, token, core::mem::transmute(symbol)).ok() }
 }
 #[inline]
 pub unsafe fn SymFromTokenW(hprocess: super::super::super::Foundation::HANDLE, base: u64, token: u32, symbol: *mut SYMBOL_INFOW) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymFromTokenW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, token : u32, symbol : *mut SYMBOL_INFOW) -> super::super::super::Foundation:: BOOL);
-    SymFromTokenW(hprocess, base, token, core::mem::transmute(symbol)).ok()
+    unsafe { SymFromTokenW(hprocess, base, token, core::mem::transmute(symbol)).ok() }
 }
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SymFunctionTableAccess(hprocess: super::super::super::Foundation::HANDLE, addrbase: u32) -> *mut core::ffi::c_void {
     windows_targets::link!("dbghelp.dll" "system" fn SymFunctionTableAccess(hprocess : super::super::super::Foundation:: HANDLE, addrbase : u32) -> *mut core::ffi::c_void);
-    SymFunctionTableAccess(hprocess, addrbase)
+    unsafe { SymFunctionTableAccess(hprocess, addrbase) }
 }
 #[inline]
 pub unsafe fn SymFunctionTableAccess64(hprocess: super::super::super::Foundation::HANDLE, addrbase: u64) -> *mut core::ffi::c_void {
     windows_targets::link!("dbghelp.dll" "system" fn SymFunctionTableAccess64(hprocess : super::super::super::Foundation:: HANDLE, addrbase : u64) -> *mut core::ffi::c_void);
-    SymFunctionTableAccess64(hprocess, addrbase)
+    unsafe { SymFunctionTableAccess64(hprocess, addrbase) }
 }
 #[inline]
 pub unsafe fn SymFunctionTableAccess64AccessRoutines(hprocess: super::super::super::Foundation::HANDLE, addrbase: u64, readmemoryroutine: Option<PREAD_PROCESS_MEMORY_ROUTINE64>, getmodulebaseroutine: Option<PGET_MODULE_BASE_ROUTINE64>) -> *mut core::ffi::c_void {
     windows_targets::link!("dbghelp.dll" "system" fn SymFunctionTableAccess64AccessRoutines(hprocess : super::super::super::Foundation:: HANDLE, addrbase : u64, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE64, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE64) -> *mut core::ffi::c_void);
-    SymFunctionTableAccess64AccessRoutines(hprocess, addrbase, core::mem::transmute(readmemoryroutine.unwrap_or(core::mem::zeroed())), core::mem::transmute(getmodulebaseroutine.unwrap_or(core::mem::zeroed())))
+    unsafe { SymFunctionTableAccess64AccessRoutines(hprocess, addrbase, core::mem::transmute(readmemoryroutine.unwrap_or(core::mem::zeroed())), core::mem::transmute(getmodulebaseroutine.unwrap_or(core::mem::zeroed()))) }
 }
 #[inline]
 pub unsafe fn SymGetExtendedOption(option: IMAGEHLP_EXTENDED_OPTIONS) -> super::super::super::Foundation::BOOL {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetExtendedOption(option : IMAGEHLP_EXTENDED_OPTIONS) -> super::super::super::Foundation:: BOOL);
-    SymGetExtendedOption(option)
+    unsafe { SymGetExtendedOption(option) }
 }
 #[inline]
 pub unsafe fn SymGetFileLineOffsets64<P1, P2>(hprocess: super::super::super::Foundation::HANDLE, modulename: P1, filename: P2, buffer: &mut [u64]) -> u32
@@ -1298,43 +1300,43 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetFileLineOffsets64(hprocess : super::super::super::Foundation:: HANDLE, modulename : windows_core::PCSTR, filename : windows_core::PCSTR, buffer : *mut u64, bufferlines : u32) -> u32);
-    SymGetFileLineOffsets64(hprocess, modulename.param().abi(), filename.param().abi(), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap())
+    unsafe { SymGetFileLineOffsets64(hprocess, modulename.param().abi(), filename.param().abi(), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn SymGetHomeDirectory(r#type: IMAGEHLP_HD_TYPE, dir: &mut [u8]) -> windows_core::PSTR {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetHomeDirectory(r#type : u32, dir : windows_core::PSTR, size : usize) -> windows_core::PSTR);
-    SymGetHomeDirectory(r#type.0 as _, core::mem::transmute(dir.as_ptr()), dir.len().try_into().unwrap())
+    unsafe { SymGetHomeDirectory(r#type.0 as _, core::mem::transmute(dir.as_ptr()), dir.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn SymGetHomeDirectoryW(r#type: IMAGEHLP_HD_TYPE, dir: &mut [u16]) -> windows_core::PWSTR {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetHomeDirectoryW(r#type : u32, dir : windows_core::PWSTR, size : usize) -> windows_core::PWSTR);
-    SymGetHomeDirectoryW(r#type.0 as _, core::mem::transmute(dir.as_ptr()), dir.len().try_into().unwrap())
+    unsafe { SymGetHomeDirectoryW(r#type.0 as _, core::mem::transmute(dir.as_ptr()), dir.len().try_into().unwrap()) }
 }
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SymGetLineFromAddr(hprocess: super::super::super::Foundation::HANDLE, dwaddr: u32, pdwdisplacement: *mut u32, line: *mut IMAGEHLP_LINE) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetLineFromAddr(hprocess : super::super::super::Foundation:: HANDLE, dwaddr : u32, pdwdisplacement : *mut u32, line : *mut IMAGEHLP_LINE) -> super::super::super::Foundation:: BOOL);
-    SymGetLineFromAddr(hprocess, dwaddr, core::mem::transmute(pdwdisplacement), core::mem::transmute(line)).ok()
+    unsafe { SymGetLineFromAddr(hprocess, dwaddr, core::mem::transmute(pdwdisplacement), core::mem::transmute(line)).ok() }
 }
 #[inline]
 pub unsafe fn SymGetLineFromAddr64(hprocess: super::super::super::Foundation::HANDLE, qwaddr: u64, pdwdisplacement: *mut u32, line64: *mut IMAGEHLP_LINE64) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetLineFromAddr64(hprocess : super::super::super::Foundation:: HANDLE, qwaddr : u64, pdwdisplacement : *mut u32, line64 : *mut IMAGEHLP_LINE64) -> super::super::super::Foundation:: BOOL);
-    SymGetLineFromAddr64(hprocess, qwaddr, core::mem::transmute(pdwdisplacement), core::mem::transmute(line64)).ok()
+    unsafe { SymGetLineFromAddr64(hprocess, qwaddr, core::mem::transmute(pdwdisplacement), core::mem::transmute(line64)).ok() }
 }
 #[inline]
 pub unsafe fn SymGetLineFromAddrW64(hprocess: super::super::super::Foundation::HANDLE, dwaddr: u64, pdwdisplacement: *mut u32, line: *mut IMAGEHLP_LINEW64) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetLineFromAddrW64(hprocess : super::super::super::Foundation:: HANDLE, dwaddr : u64, pdwdisplacement : *mut u32, line : *mut IMAGEHLP_LINEW64) -> super::super::super::Foundation:: BOOL);
-    SymGetLineFromAddrW64(hprocess, dwaddr, core::mem::transmute(pdwdisplacement), core::mem::transmute(line)).ok()
+    unsafe { SymGetLineFromAddrW64(hprocess, dwaddr, core::mem::transmute(pdwdisplacement), core::mem::transmute(line)).ok() }
 }
 #[inline]
 pub unsafe fn SymGetLineFromInlineContext(hprocess: super::super::super::Foundation::HANDLE, qwaddr: u64, inlinecontext: u32, qwmodulebaseaddress: Option<u64>, pdwdisplacement: *mut u32, line64: *mut IMAGEHLP_LINE64) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetLineFromInlineContext(hprocess : super::super::super::Foundation:: HANDLE, qwaddr : u64, inlinecontext : u32, qwmodulebaseaddress : u64, pdwdisplacement : *mut u32, line64 : *mut IMAGEHLP_LINE64) -> super::super::super::Foundation:: BOOL);
-    SymGetLineFromInlineContext(hprocess, qwaddr, inlinecontext, core::mem::transmute(qwmodulebaseaddress.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdwdisplacement), core::mem::transmute(line64)).ok()
+    unsafe { SymGetLineFromInlineContext(hprocess, qwaddr, inlinecontext, core::mem::transmute(qwmodulebaseaddress.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdwdisplacement), core::mem::transmute(line64)).ok() }
 }
 #[inline]
 pub unsafe fn SymGetLineFromInlineContextW(hprocess: super::super::super::Foundation::HANDLE, dwaddr: u64, inlinecontext: u32, qwmodulebaseaddress: Option<u64>, pdwdisplacement: *mut u32, line: *mut IMAGEHLP_LINEW64) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetLineFromInlineContextW(hprocess : super::super::super::Foundation:: HANDLE, dwaddr : u64, inlinecontext : u32, qwmodulebaseaddress : u64, pdwdisplacement : *mut u32, line : *mut IMAGEHLP_LINEW64) -> super::super::super::Foundation:: BOOL);
-    SymGetLineFromInlineContextW(hprocess, dwaddr, inlinecontext, core::mem::transmute(qwmodulebaseaddress.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdwdisplacement), core::mem::transmute(line)).ok()
+    unsafe { SymGetLineFromInlineContextW(hprocess, dwaddr, inlinecontext, core::mem::transmute(qwmodulebaseaddress.unwrap_or(core::mem::zeroed())), core::mem::transmute(pdwdisplacement), core::mem::transmute(line)).ok() }
 }
 #[cfg(target_arch = "x86")]
 #[inline]
@@ -1344,7 +1346,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetLineFromName(hprocess : super::super::super::Foundation:: HANDLE, modulename : windows_core::PCSTR, filename : windows_core::PCSTR, dwlinenumber : u32, pldisplacement : *mut i32, line : *mut IMAGEHLP_LINE) -> super::super::super::Foundation:: BOOL);
-    SymGetLineFromName(hprocess, modulename.param().abi(), filename.param().abi(), dwlinenumber, core::mem::transmute(pldisplacement), core::mem::transmute(line)).ok()
+    unsafe { SymGetLineFromName(hprocess, modulename.param().abi(), filename.param().abi(), dwlinenumber, core::mem::transmute(pldisplacement), core::mem::transmute(line)).ok() }
 }
 #[inline]
 pub unsafe fn SymGetLineFromName64<P1, P2>(hprocess: super::super::super::Foundation::HANDLE, modulename: P1, filename: P2, dwlinenumber: u32, pldisplacement: *mut i32, line: *mut IMAGEHLP_LINE64) -> windows_core::Result<()>
@@ -1353,7 +1355,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetLineFromName64(hprocess : super::super::super::Foundation:: HANDLE, modulename : windows_core::PCSTR, filename : windows_core::PCSTR, dwlinenumber : u32, pldisplacement : *mut i32, line : *mut IMAGEHLP_LINE64) -> super::super::super::Foundation:: BOOL);
-    SymGetLineFromName64(hprocess, modulename.param().abi(), filename.param().abi(), dwlinenumber, core::mem::transmute(pldisplacement), core::mem::transmute(line)).ok()
+    unsafe { SymGetLineFromName64(hprocess, modulename.param().abi(), filename.param().abi(), dwlinenumber, core::mem::transmute(pldisplacement), core::mem::transmute(line)).ok() }
 }
 #[inline]
 pub unsafe fn SymGetLineFromNameW64<P1, P2>(hprocess: super::super::super::Foundation::HANDLE, modulename: P1, filename: P2, dwlinenumber: u32, pldisplacement: *mut i32, line: *mut IMAGEHLP_LINEW64) -> windows_core::Result<()>
@@ -1362,102 +1364,102 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetLineFromNameW64(hprocess : super::super::super::Foundation:: HANDLE, modulename : windows_core::PCWSTR, filename : windows_core::PCWSTR, dwlinenumber : u32, pldisplacement : *mut i32, line : *mut IMAGEHLP_LINEW64) -> super::super::super::Foundation:: BOOL);
-    SymGetLineFromNameW64(hprocess, modulename.param().abi(), filename.param().abi(), dwlinenumber, core::mem::transmute(pldisplacement), core::mem::transmute(line)).ok()
+    unsafe { SymGetLineFromNameW64(hprocess, modulename.param().abi(), filename.param().abi(), dwlinenumber, core::mem::transmute(pldisplacement), core::mem::transmute(line)).ok() }
 }
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SymGetLineNext(hprocess: super::super::super::Foundation::HANDLE, line: *mut IMAGEHLP_LINE) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetLineNext(hprocess : super::super::super::Foundation:: HANDLE, line : *mut IMAGEHLP_LINE) -> super::super::super::Foundation:: BOOL);
-    SymGetLineNext(hprocess, core::mem::transmute(line)).ok()
+    unsafe { SymGetLineNext(hprocess, core::mem::transmute(line)).ok() }
 }
 #[inline]
 pub unsafe fn SymGetLineNext64(hprocess: super::super::super::Foundation::HANDLE, line: *mut IMAGEHLP_LINE64) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetLineNext64(hprocess : super::super::super::Foundation:: HANDLE, line : *mut IMAGEHLP_LINE64) -> super::super::super::Foundation:: BOOL);
-    SymGetLineNext64(hprocess, core::mem::transmute(line)).ok()
+    unsafe { SymGetLineNext64(hprocess, core::mem::transmute(line)).ok() }
 }
 #[inline]
 pub unsafe fn SymGetLineNextW64(hprocess: super::super::super::Foundation::HANDLE, line: *mut IMAGEHLP_LINEW64) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetLineNextW64(hprocess : super::super::super::Foundation:: HANDLE, line : *mut IMAGEHLP_LINEW64) -> super::super::super::Foundation:: BOOL);
-    SymGetLineNextW64(hprocess, core::mem::transmute(line)).ok()
+    unsafe { SymGetLineNextW64(hprocess, core::mem::transmute(line)).ok() }
 }
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SymGetLinePrev(hprocess: super::super::super::Foundation::HANDLE, line: *mut IMAGEHLP_LINE) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetLinePrev(hprocess : super::super::super::Foundation:: HANDLE, line : *mut IMAGEHLP_LINE) -> super::super::super::Foundation:: BOOL);
-    SymGetLinePrev(hprocess, core::mem::transmute(line)).ok()
+    unsafe { SymGetLinePrev(hprocess, core::mem::transmute(line)).ok() }
 }
 #[inline]
 pub unsafe fn SymGetLinePrev64(hprocess: super::super::super::Foundation::HANDLE, line: *mut IMAGEHLP_LINE64) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetLinePrev64(hprocess : super::super::super::Foundation:: HANDLE, line : *mut IMAGEHLP_LINE64) -> super::super::super::Foundation:: BOOL);
-    SymGetLinePrev64(hprocess, core::mem::transmute(line)).ok()
+    unsafe { SymGetLinePrev64(hprocess, core::mem::transmute(line)).ok() }
 }
 #[inline]
 pub unsafe fn SymGetLinePrevW64(hprocess: super::super::super::Foundation::HANDLE, line: *mut IMAGEHLP_LINEW64) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetLinePrevW64(hprocess : super::super::super::Foundation:: HANDLE, line : *mut IMAGEHLP_LINEW64) -> super::super::super::Foundation:: BOOL);
-    SymGetLinePrevW64(hprocess, core::mem::transmute(line)).ok()
+    unsafe { SymGetLinePrevW64(hprocess, core::mem::transmute(line)).ok() }
 }
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SymGetModuleBase(hprocess: super::super::super::Foundation::HANDLE, dwaddr: u32) -> u32 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetModuleBase(hprocess : super::super::super::Foundation:: HANDLE, dwaddr : u32) -> u32);
-    SymGetModuleBase(hprocess, dwaddr)
+    unsafe { SymGetModuleBase(hprocess, dwaddr) }
 }
 #[inline]
 pub unsafe fn SymGetModuleBase64(hprocess: super::super::super::Foundation::HANDLE, qwaddr: u64) -> u64 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetModuleBase64(hprocess : super::super::super::Foundation:: HANDLE, qwaddr : u64) -> u64);
-    SymGetModuleBase64(hprocess, qwaddr)
+    unsafe { SymGetModuleBase64(hprocess, qwaddr) }
 }
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SymGetModuleInfo(hprocess: super::super::super::Foundation::HANDLE, dwaddr: u32, moduleinfo: *mut IMAGEHLP_MODULE) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetModuleInfo(hprocess : super::super::super::Foundation:: HANDLE, dwaddr : u32, moduleinfo : *mut IMAGEHLP_MODULE) -> super::super::super::Foundation:: BOOL);
-    SymGetModuleInfo(hprocess, dwaddr, core::mem::transmute(moduleinfo)).ok()
+    unsafe { SymGetModuleInfo(hprocess, dwaddr, core::mem::transmute(moduleinfo)).ok() }
 }
 #[inline]
 pub unsafe fn SymGetModuleInfo64(hprocess: super::super::super::Foundation::HANDLE, qwaddr: u64, moduleinfo: *mut IMAGEHLP_MODULE64) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetModuleInfo64(hprocess : super::super::super::Foundation:: HANDLE, qwaddr : u64, moduleinfo : *mut IMAGEHLP_MODULE64) -> super::super::super::Foundation:: BOOL);
-    SymGetModuleInfo64(hprocess, qwaddr, core::mem::transmute(moduleinfo)).ok()
+    unsafe { SymGetModuleInfo64(hprocess, qwaddr, core::mem::transmute(moduleinfo)).ok() }
 }
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SymGetModuleInfoW(hprocess: super::super::super::Foundation::HANDLE, dwaddr: u32, moduleinfo: *mut IMAGEHLP_MODULEW) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetModuleInfoW(hprocess : super::super::super::Foundation:: HANDLE, dwaddr : u32, moduleinfo : *mut IMAGEHLP_MODULEW) -> super::super::super::Foundation:: BOOL);
-    SymGetModuleInfoW(hprocess, dwaddr, core::mem::transmute(moduleinfo)).ok()
+    unsafe { SymGetModuleInfoW(hprocess, dwaddr, core::mem::transmute(moduleinfo)).ok() }
 }
 #[inline]
 pub unsafe fn SymGetModuleInfoW64(hprocess: super::super::super::Foundation::HANDLE, qwaddr: u64, moduleinfo: *mut IMAGEHLP_MODULEW64) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetModuleInfoW64(hprocess : super::super::super::Foundation:: HANDLE, qwaddr : u64, moduleinfo : *mut IMAGEHLP_MODULEW64) -> super::super::super::Foundation:: BOOL);
-    SymGetModuleInfoW64(hprocess, qwaddr, core::mem::transmute(moduleinfo)).ok()
+    unsafe { SymGetModuleInfoW64(hprocess, qwaddr, core::mem::transmute(moduleinfo)).ok() }
 }
 #[inline]
 pub unsafe fn SymGetOmaps(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, omapto: *mut *mut OMAP, comapto: *mut u64, omapfrom: *mut *mut OMAP, comapfrom: *mut u64) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetOmaps(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, omapto : *mut *mut OMAP, comapto : *mut u64, omapfrom : *mut *mut OMAP, comapfrom : *mut u64) -> super::super::super::Foundation:: BOOL);
-    SymGetOmaps(hprocess, baseofdll, core::mem::transmute(omapto), core::mem::transmute(comapto), core::mem::transmute(omapfrom), core::mem::transmute(comapfrom)).ok()
+    unsafe { SymGetOmaps(hprocess, baseofdll, core::mem::transmute(omapto), core::mem::transmute(comapto), core::mem::transmute(omapfrom), core::mem::transmute(comapfrom)).ok() }
 }
 #[inline]
 pub unsafe fn SymGetOptions() -> u32 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetOptions() -> u32);
-    SymGetOptions()
+    unsafe { SymGetOptions() }
 }
 #[inline]
 pub unsafe fn SymGetScope(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, index: u32, symbol: *mut SYMBOL_INFO) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetScope(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, index : u32, symbol : *mut SYMBOL_INFO) -> super::super::super::Foundation:: BOOL);
-    SymGetScope(hprocess, baseofdll, index, core::mem::transmute(symbol)).ok()
+    unsafe { SymGetScope(hprocess, baseofdll, index, core::mem::transmute(symbol)).ok() }
 }
 #[inline]
 pub unsafe fn SymGetScopeW(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, index: u32, symbol: *mut SYMBOL_INFOW) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetScopeW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, index : u32, symbol : *mut SYMBOL_INFOW) -> super::super::super::Foundation:: BOOL);
-    SymGetScopeW(hprocess, baseofdll, index, core::mem::transmute(symbol)).ok()
+    unsafe { SymGetScopeW(hprocess, baseofdll, index, core::mem::transmute(symbol)).ok() }
 }
 #[inline]
 pub unsafe fn SymGetSearchPath(hprocess: super::super::super::Foundation::HANDLE, searchpatha: &mut [u8]) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetSearchPath(hprocess : super::super::super::Foundation:: HANDLE, searchpatha : windows_core::PSTR, searchpathlength : u32) -> super::super::super::Foundation:: BOOL);
-    SymGetSearchPath(hprocess, core::mem::transmute(searchpatha.as_ptr()), searchpatha.len().try_into().unwrap()).ok()
+    unsafe { SymGetSearchPath(hprocess, core::mem::transmute(searchpatha.as_ptr()), searchpatha.len().try_into().unwrap()).ok() }
 }
 #[inline]
 pub unsafe fn SymGetSearchPathW(hprocess: super::super::super::Foundation::HANDLE, searchpatha: &mut [u16]) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetSearchPathW(hprocess : super::super::super::Foundation:: HANDLE, searchpatha : windows_core::PWSTR, searchpathlength : u32) -> super::super::super::Foundation:: BOOL);
-    SymGetSearchPathW(hprocess, core::mem::transmute(searchpatha.as_ptr()), searchpatha.len().try_into().unwrap()).ok()
+    unsafe { SymGetSearchPathW(hprocess, core::mem::transmute(searchpatha.as_ptr()), searchpatha.len().try_into().unwrap()).ok() }
 }
 #[inline]
 pub unsafe fn SymGetSourceFile<P2, P3>(hprocess: super::super::super::Foundation::HANDLE, base: u64, params: P2, filespec: P3, filepath: &mut [u8]) -> windows_core::Result<()>
@@ -1466,7 +1468,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFile(hprocess : super::super::super::Foundation:: HANDLE, base : u64, params : windows_core::PCSTR, filespec : windows_core::PCSTR, filepath : windows_core::PSTR, size : u32) -> super::super::super::Foundation:: BOOL);
-    SymGetSourceFile(hprocess, base, params.param().abi(), filespec.param().abi(), core::mem::transmute(filepath.as_ptr()), filepath.len().try_into().unwrap()).ok()
+    unsafe { SymGetSourceFile(hprocess, base, params.param().abi(), filespec.param().abi(), core::mem::transmute(filepath.as_ptr()), filepath.len().try_into().unwrap()).ok() }
 }
 #[inline]
 pub unsafe fn SymGetSourceFileChecksum<P2>(hprocess: super::super::super::Foundation::HANDLE, base: u64, filespec: P2, pchecksumtype: *mut u32, pchecksum: &mut [u8], pactualbyteswritten: *mut u32) -> windows_core::Result<()>
@@ -1474,7 +1476,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileChecksum(hprocess : super::super::super::Foundation:: HANDLE, base : u64, filespec : windows_core::PCSTR, pchecksumtype : *mut u32, pchecksum : *mut u8, checksumsize : u32, pactualbyteswritten : *mut u32) -> super::super::super::Foundation:: BOOL);
-    SymGetSourceFileChecksum(hprocess, base, filespec.param().abi(), core::mem::transmute(pchecksumtype), core::mem::transmute(pchecksum.as_ptr()), pchecksum.len().try_into().unwrap(), core::mem::transmute(pactualbyteswritten)).ok()
+    unsafe { SymGetSourceFileChecksum(hprocess, base, filespec.param().abi(), core::mem::transmute(pchecksumtype), core::mem::transmute(pchecksum.as_ptr()), pchecksum.len().try_into().unwrap(), core::mem::transmute(pactualbyteswritten)).ok() }
 }
 #[inline]
 pub unsafe fn SymGetSourceFileChecksumW<P2>(hprocess: super::super::super::Foundation::HANDLE, base: u64, filespec: P2, pchecksumtype: *mut u32, pchecksum: &mut [u8], pactualbyteswritten: *mut u32) -> windows_core::Result<()>
@@ -1482,7 +1484,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileChecksumW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, filespec : windows_core::PCWSTR, pchecksumtype : *mut u32, pchecksum : *mut u8, checksumsize : u32, pactualbyteswritten : *mut u32) -> super::super::super::Foundation:: BOOL);
-    SymGetSourceFileChecksumW(hprocess, base, filespec.param().abi(), core::mem::transmute(pchecksumtype), core::mem::transmute(pchecksum.as_ptr()), pchecksum.len().try_into().unwrap(), core::mem::transmute(pactualbyteswritten)).ok()
+    unsafe { SymGetSourceFileChecksumW(hprocess, base, filespec.param().abi(), core::mem::transmute(pchecksumtype), core::mem::transmute(pchecksum.as_ptr()), pchecksum.len().try_into().unwrap(), core::mem::transmute(pactualbyteswritten)).ok() }
 }
 #[inline]
 pub unsafe fn SymGetSourceFileFromToken<P2>(hprocess: super::super::super::Foundation::HANDLE, token: *const core::ffi::c_void, params: P2, filepath: &mut [u8]) -> windows_core::Result<()>
@@ -1490,7 +1492,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileFromToken(hprocess : super::super::super::Foundation:: HANDLE, token : *const core::ffi::c_void, params : windows_core::PCSTR, filepath : windows_core::PSTR, size : u32) -> super::super::super::Foundation:: BOOL);
-    SymGetSourceFileFromToken(hprocess, token, params.param().abi(), core::mem::transmute(filepath.as_ptr()), filepath.len().try_into().unwrap()).ok()
+    unsafe { SymGetSourceFileFromToken(hprocess, token, params.param().abi(), core::mem::transmute(filepath.as_ptr()), filepath.len().try_into().unwrap()).ok() }
 }
 #[inline]
 pub unsafe fn SymGetSourceFileFromTokenByTokenName<P2, P3>(hprocess: super::super::super::Foundation::HANDLE, token: *const core::ffi::c_void, tokenname: P2, params: P3, filepath: &mut [u8]) -> super::super::super::Foundation::BOOL
@@ -1499,7 +1501,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileFromTokenByTokenName(hprocess : super::super::super::Foundation:: HANDLE, token : *const core::ffi::c_void, tokenname : windows_core::PCSTR, params : windows_core::PCSTR, filepath : windows_core::PSTR, size : u32) -> super::super::super::Foundation:: BOOL);
-    SymGetSourceFileFromTokenByTokenName(hprocess, token, tokenname.param().abi(), params.param().abi(), core::mem::transmute(filepath.as_ptr()), filepath.len().try_into().unwrap())
+    unsafe { SymGetSourceFileFromTokenByTokenName(hprocess, token, tokenname.param().abi(), params.param().abi(), core::mem::transmute(filepath.as_ptr()), filepath.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn SymGetSourceFileFromTokenByTokenNameW<P2, P3>(hprocess: super::super::super::Foundation::HANDLE, token: *const core::ffi::c_void, tokenname: P2, params: P3, filepath: &mut [u16]) -> super::super::super::Foundation::BOOL
@@ -1508,7 +1510,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileFromTokenByTokenNameW(hprocess : super::super::super::Foundation:: HANDLE, token : *const core::ffi::c_void, tokenname : windows_core::PCWSTR, params : windows_core::PCWSTR, filepath : windows_core::PWSTR, size : u32) -> super::super::super::Foundation:: BOOL);
-    SymGetSourceFileFromTokenByTokenNameW(hprocess, token, tokenname.param().abi(), params.param().abi(), core::mem::transmute(filepath.as_ptr()), filepath.len().try_into().unwrap())
+    unsafe { SymGetSourceFileFromTokenByTokenNameW(hprocess, token, tokenname.param().abi(), params.param().abi(), core::mem::transmute(filepath.as_ptr()), filepath.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn SymGetSourceFileFromTokenW<P2>(hprocess: super::super::super::Foundation::HANDLE, token: *const core::ffi::c_void, params: P2, filepath: &mut [u16]) -> windows_core::Result<()>
@@ -1516,7 +1518,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileFromTokenW(hprocess : super::super::super::Foundation:: HANDLE, token : *const core::ffi::c_void, params : windows_core::PCWSTR, filepath : windows_core::PWSTR, size : u32) -> super::super::super::Foundation:: BOOL);
-    SymGetSourceFileFromTokenW(hprocess, token, params.param().abi(), core::mem::transmute(filepath.as_ptr()), filepath.len().try_into().unwrap()).ok()
+    unsafe { SymGetSourceFileFromTokenW(hprocess, token, params.param().abi(), core::mem::transmute(filepath.as_ptr()), filepath.len().try_into().unwrap()).ok() }
 }
 #[inline]
 pub unsafe fn SymGetSourceFileToken<P2>(hprocess: super::super::super::Foundation::HANDLE, base: u64, filespec: P2, token: *mut *mut core::ffi::c_void, size: *mut u32) -> windows_core::Result<()>
@@ -1524,7 +1526,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileToken(hprocess : super::super::super::Foundation:: HANDLE, base : u64, filespec : windows_core::PCSTR, token : *mut *mut core::ffi::c_void, size : *mut u32) -> super::super::super::Foundation:: BOOL);
-    SymGetSourceFileToken(hprocess, base, filespec.param().abi(), core::mem::transmute(token), core::mem::transmute(size)).ok()
+    unsafe { SymGetSourceFileToken(hprocess, base, filespec.param().abi(), core::mem::transmute(token), core::mem::transmute(size)).ok() }
 }
 #[inline]
 pub unsafe fn SymGetSourceFileTokenByTokenName<P2, P3, P4>(hprocess: super::super::super::Foundation::HANDLE, base: u64, filespec: P2, tokenname: P3, tokenparameters: P4, token: *mut *mut core::ffi::c_void, size: *mut u32) -> super::super::super::Foundation::BOOL
@@ -1534,7 +1536,7 @@ where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileTokenByTokenName(hprocess : super::super::super::Foundation:: HANDLE, base : u64, filespec : windows_core::PCSTR, tokenname : windows_core::PCSTR, tokenparameters : windows_core::PCSTR, token : *mut *mut core::ffi::c_void, size : *mut u32) -> super::super::super::Foundation:: BOOL);
-    SymGetSourceFileTokenByTokenName(hprocess, base, filespec.param().abi(), tokenname.param().abi(), tokenparameters.param().abi(), core::mem::transmute(token), core::mem::transmute(size))
+    unsafe { SymGetSourceFileTokenByTokenName(hprocess, base, filespec.param().abi(), tokenname.param().abi(), tokenparameters.param().abi(), core::mem::transmute(token), core::mem::transmute(size)) }
 }
 #[inline]
 pub unsafe fn SymGetSourceFileTokenByTokenNameW<P2, P3, P4>(hprocess: super::super::super::Foundation::HANDLE, base: u64, filespec: P2, tokenname: P3, tokenparameters: P4, token: *mut *mut core::ffi::c_void, size: *mut u32) -> super::super::super::Foundation::BOOL
@@ -1544,7 +1546,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileTokenByTokenNameW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, filespec : windows_core::PCWSTR, tokenname : windows_core::PCWSTR, tokenparameters : windows_core::PCWSTR, token : *mut *mut core::ffi::c_void, size : *mut u32) -> super::super::super::Foundation:: BOOL);
-    SymGetSourceFileTokenByTokenNameW(hprocess, base, filespec.param().abi(), tokenname.param().abi(), tokenparameters.param().abi(), core::mem::transmute(token), core::mem::transmute(size))
+    unsafe { SymGetSourceFileTokenByTokenNameW(hprocess, base, filespec.param().abi(), tokenname.param().abi(), tokenparameters.param().abi(), core::mem::transmute(token), core::mem::transmute(size)) }
 }
 #[inline]
 pub unsafe fn SymGetSourceFileTokenW<P2>(hprocess: super::super::super::Foundation::HANDLE, base: u64, filespec: P2, token: *mut *mut core::ffi::c_void, size: *mut u32) -> windows_core::Result<()>
@@ -1552,7 +1554,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileTokenW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, filespec : windows_core::PCWSTR, token : *mut *mut core::ffi::c_void, size : *mut u32) -> super::super::super::Foundation:: BOOL);
-    SymGetSourceFileTokenW(hprocess, base, filespec.param().abi(), core::mem::transmute(token), core::mem::transmute(size)).ok()
+    unsafe { SymGetSourceFileTokenW(hprocess, base, filespec.param().abi(), core::mem::transmute(token), core::mem::transmute(size)).ok() }
 }
 #[inline]
 pub unsafe fn SymGetSourceFileW<P2, P3>(hprocess: super::super::super::Foundation::HANDLE, base: u64, params: P2, filespec: P3, filepath: &mut [u16]) -> windows_core::Result<()>
@@ -1561,7 +1563,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, params : windows_core::PCWSTR, filespec : windows_core::PCWSTR, filepath : windows_core::PWSTR, size : u32) -> super::super::super::Foundation:: BOOL);
-    SymGetSourceFileW(hprocess, base, params.param().abi(), filespec.param().abi(), core::mem::transmute(filepath.as_ptr()), filepath.len().try_into().unwrap()).ok()
+    unsafe { SymGetSourceFileW(hprocess, base, params.param().abi(), filespec.param().abi(), core::mem::transmute(filepath.as_ptr()), filepath.len().try_into().unwrap()).ok() }
 }
 #[inline]
 pub unsafe fn SymGetSourceVarFromToken<P2, P3>(hprocess: super::super::super::Foundation::HANDLE, token: *const core::ffi::c_void, params: P2, varname: P3, value: &mut [u8]) -> windows_core::Result<()>
@@ -1570,7 +1572,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceVarFromToken(hprocess : super::super::super::Foundation:: HANDLE, token : *const core::ffi::c_void, params : windows_core::PCSTR, varname : windows_core::PCSTR, value : windows_core::PSTR, size : u32) -> super::super::super::Foundation:: BOOL);
-    SymGetSourceVarFromToken(hprocess, token, params.param().abi(), varname.param().abi(), core::mem::transmute(value.as_ptr()), value.len().try_into().unwrap()).ok()
+    unsafe { SymGetSourceVarFromToken(hprocess, token, params.param().abi(), varname.param().abi(), core::mem::transmute(value.as_ptr()), value.len().try_into().unwrap()).ok() }
 }
 #[inline]
 pub unsafe fn SymGetSourceVarFromTokenW<P2, P3>(hprocess: super::super::super::Foundation::HANDLE, token: *const core::ffi::c_void, params: P2, varname: P3, value: &mut [u16]) -> windows_core::Result<()>
@@ -1579,18 +1581,18 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceVarFromTokenW(hprocess : super::super::super::Foundation:: HANDLE, token : *const core::ffi::c_void, params : windows_core::PCWSTR, varname : windows_core::PCWSTR, value : windows_core::PWSTR, size : u32) -> super::super::super::Foundation:: BOOL);
-    SymGetSourceVarFromTokenW(hprocess, token, params.param().abi(), varname.param().abi(), core::mem::transmute(value.as_ptr()), value.len().try_into().unwrap()).ok()
+    unsafe { SymGetSourceVarFromTokenW(hprocess, token, params.param().abi(), varname.param().abi(), core::mem::transmute(value.as_ptr()), value.len().try_into().unwrap()).ok() }
 }
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SymGetSymFromAddr(hprocess: super::super::super::Foundation::HANDLE, dwaddr: u32, pdwdisplacement: Option<*mut u32>, symbol: *mut IMAGEHLP_SYMBOL) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetSymFromAddr(hprocess : super::super::super::Foundation:: HANDLE, dwaddr : u32, pdwdisplacement : *mut u32, symbol : *mut IMAGEHLP_SYMBOL) -> super::super::super::Foundation:: BOOL);
-    SymGetSymFromAddr(hprocess, dwaddr, core::mem::transmute(pdwdisplacement.unwrap_or(core::mem::zeroed())), core::mem::transmute(symbol)).ok()
+    unsafe { SymGetSymFromAddr(hprocess, dwaddr, core::mem::transmute(pdwdisplacement.unwrap_or(core::mem::zeroed())), core::mem::transmute(symbol)).ok() }
 }
 #[inline]
 pub unsafe fn SymGetSymFromAddr64(hprocess: super::super::super::Foundation::HANDLE, qwaddr: u64, pdwdisplacement: Option<*mut u64>, symbol: *mut IMAGEHLP_SYMBOL64) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetSymFromAddr64(hprocess : super::super::super::Foundation:: HANDLE, qwaddr : u64, pdwdisplacement : *mut u64, symbol : *mut IMAGEHLP_SYMBOL64) -> super::super::super::Foundation:: BOOL);
-    SymGetSymFromAddr64(hprocess, qwaddr, core::mem::transmute(pdwdisplacement.unwrap_or(core::mem::zeroed())), core::mem::transmute(symbol)).ok()
+    unsafe { SymGetSymFromAddr64(hprocess, qwaddr, core::mem::transmute(pdwdisplacement.unwrap_or(core::mem::zeroed())), core::mem::transmute(symbol)).ok() }
 }
 #[cfg(target_arch = "x86")]
 #[inline]
@@ -1599,7 +1601,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetSymFromName(hprocess : super::super::super::Foundation:: HANDLE, name : windows_core::PCSTR, symbol : *mut IMAGEHLP_SYMBOL) -> super::super::super::Foundation:: BOOL);
-    SymGetSymFromName(hprocess, name.param().abi(), core::mem::transmute(symbol)).ok()
+    unsafe { SymGetSymFromName(hprocess, name.param().abi(), core::mem::transmute(symbol)).ok() }
 }
 #[inline]
 pub unsafe fn SymGetSymFromName64<P1>(hprocess: super::super::super::Foundation::HANDLE, name: P1, symbol: *mut IMAGEHLP_SYMBOL64) -> windows_core::Result<()>
@@ -1607,29 +1609,29 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetSymFromName64(hprocess : super::super::super::Foundation:: HANDLE, name : windows_core::PCSTR, symbol : *mut IMAGEHLP_SYMBOL64) -> super::super::super::Foundation:: BOOL);
-    SymGetSymFromName64(hprocess, name.param().abi(), core::mem::transmute(symbol)).ok()
+    unsafe { SymGetSymFromName64(hprocess, name.param().abi(), core::mem::transmute(symbol)).ok() }
 }
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SymGetSymNext(hprocess: super::super::super::Foundation::HANDLE, symbol: *mut IMAGEHLP_SYMBOL) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetSymNext(hprocess : super::super::super::Foundation:: HANDLE, symbol : *mut IMAGEHLP_SYMBOL) -> super::super::super::Foundation:: BOOL);
-    SymGetSymNext(hprocess, core::mem::transmute(symbol)).ok()
+    unsafe { SymGetSymNext(hprocess, core::mem::transmute(symbol)).ok() }
 }
 #[inline]
 pub unsafe fn SymGetSymNext64(hprocess: super::super::super::Foundation::HANDLE, symbol: *mut IMAGEHLP_SYMBOL64) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetSymNext64(hprocess : super::super::super::Foundation:: HANDLE, symbol : *mut IMAGEHLP_SYMBOL64) -> super::super::super::Foundation:: BOOL);
-    SymGetSymNext64(hprocess, core::mem::transmute(symbol)).ok()
+    unsafe { SymGetSymNext64(hprocess, core::mem::transmute(symbol)).ok() }
 }
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SymGetSymPrev(hprocess: super::super::super::Foundation::HANDLE, symbol: *mut IMAGEHLP_SYMBOL) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetSymPrev(hprocess : super::super::super::Foundation:: HANDLE, symbol : *mut IMAGEHLP_SYMBOL) -> super::super::super::Foundation:: BOOL);
-    SymGetSymPrev(hprocess, core::mem::transmute(symbol)).ok()
+    unsafe { SymGetSymPrev(hprocess, core::mem::transmute(symbol)).ok() }
 }
 #[inline]
 pub unsafe fn SymGetSymPrev64(hprocess: super::super::super::Foundation::HANDLE, symbol: *mut IMAGEHLP_SYMBOL64) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetSymPrev64(hprocess : super::super::super::Foundation:: HANDLE, symbol : *mut IMAGEHLP_SYMBOL64) -> super::super::super::Foundation:: BOOL);
-    SymGetSymPrev64(hprocess, core::mem::transmute(symbol)).ok()
+    unsafe { SymGetSymPrev64(hprocess, core::mem::transmute(symbol)).ok() }
 }
 #[inline]
 pub unsafe fn SymGetSymbolFile<P1, P2>(hprocess: Option<super::super::super::Foundation::HANDLE>, sympath: P1, imagefile: P2, r#type: IMAGEHLP_SF_TYPE, symbolfile: &mut [u8], dbgfile: &mut [u8]) -> windows_core::Result<()>
@@ -1638,7 +1640,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetSymbolFile(hprocess : super::super::super::Foundation:: HANDLE, sympath : windows_core::PCSTR, imagefile : windows_core::PCSTR, r#type : u32, symbolfile : windows_core::PSTR, csymbolfile : usize, dbgfile : windows_core::PSTR, cdbgfile : usize) -> super::super::super::Foundation:: BOOL);
-    SymGetSymbolFile(core::mem::transmute(hprocess.unwrap_or(core::mem::zeroed())), sympath.param().abi(), imagefile.param().abi(), r#type.0 as _, core::mem::transmute(symbolfile.as_ptr()), symbolfile.len().try_into().unwrap(), core::mem::transmute(dbgfile.as_ptr()), dbgfile.len().try_into().unwrap()).ok()
+    unsafe { SymGetSymbolFile(core::mem::transmute(hprocess.unwrap_or(core::mem::zeroed())), sympath.param().abi(), imagefile.param().abi(), r#type.0 as _, core::mem::transmute(symbolfile.as_ptr()), symbolfile.len().try_into().unwrap(), core::mem::transmute(dbgfile.as_ptr()), dbgfile.len().try_into().unwrap()).ok() }
 }
 #[inline]
 pub unsafe fn SymGetSymbolFileW<P1, P2>(hprocess: Option<super::super::super::Foundation::HANDLE>, sympath: P1, imagefile: P2, r#type: IMAGEHLP_SF_TYPE, symbolfile: &mut [u16], dbgfile: &mut [u16]) -> windows_core::Result<()>
@@ -1647,7 +1649,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetSymbolFileW(hprocess : super::super::super::Foundation:: HANDLE, sympath : windows_core::PCWSTR, imagefile : windows_core::PCWSTR, r#type : u32, symbolfile : windows_core::PWSTR, csymbolfile : usize, dbgfile : windows_core::PWSTR, cdbgfile : usize) -> super::super::super::Foundation:: BOOL);
-    SymGetSymbolFileW(core::mem::transmute(hprocess.unwrap_or(core::mem::zeroed())), sympath.param().abi(), imagefile.param().abi(), r#type.0 as _, core::mem::transmute(symbolfile.as_ptr()), symbolfile.len().try_into().unwrap(), core::mem::transmute(dbgfile.as_ptr()), dbgfile.len().try_into().unwrap()).ok()
+    unsafe { SymGetSymbolFileW(core::mem::transmute(hprocess.unwrap_or(core::mem::zeroed())), sympath.param().abi(), imagefile.param().abi(), r#type.0 as _, core::mem::transmute(symbolfile.as_ptr()), symbolfile.len().try_into().unwrap(), core::mem::transmute(dbgfile.as_ptr()), dbgfile.len().try_into().unwrap()).ok() }
 }
 #[inline]
 pub unsafe fn SymGetTypeFromName<P2>(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, name: P2, symbol: *mut SYMBOL_INFO) -> windows_core::Result<()>
@@ -1655,7 +1657,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetTypeFromName(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, name : windows_core::PCSTR, symbol : *mut SYMBOL_INFO) -> super::super::super::Foundation:: BOOL);
-    SymGetTypeFromName(hprocess, baseofdll, name.param().abi(), core::mem::transmute(symbol)).ok()
+    unsafe { SymGetTypeFromName(hprocess, baseofdll, name.param().abi(), core::mem::transmute(symbol)).ok() }
 }
 #[inline]
 pub unsafe fn SymGetTypeFromNameW<P2>(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, name: P2, symbol: *mut SYMBOL_INFOW) -> windows_core::Result<()>
@@ -1663,22 +1665,22 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetTypeFromNameW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, name : windows_core::PCWSTR, symbol : *mut SYMBOL_INFOW) -> super::super::super::Foundation:: BOOL);
-    SymGetTypeFromNameW(hprocess, baseofdll, name.param().abi(), core::mem::transmute(symbol)).ok()
+    unsafe { SymGetTypeFromNameW(hprocess, baseofdll, name.param().abi(), core::mem::transmute(symbol)).ok() }
 }
 #[inline]
 pub unsafe fn SymGetTypeInfo(hprocess: super::super::super::Foundation::HANDLE, modbase: u64, typeid: u32, gettype: IMAGEHLP_SYMBOL_TYPE_INFO, pinfo: *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetTypeInfo(hprocess : super::super::super::Foundation:: HANDLE, modbase : u64, typeid : u32, gettype : IMAGEHLP_SYMBOL_TYPE_INFO, pinfo : *mut core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymGetTypeInfo(hprocess, modbase, typeid, gettype, core::mem::transmute(pinfo)).ok()
+    unsafe { SymGetTypeInfo(hprocess, modbase, typeid, gettype, core::mem::transmute(pinfo)).ok() }
 }
 #[inline]
 pub unsafe fn SymGetTypeInfoEx(hprocess: super::super::super::Foundation::HANDLE, modbase: u64, params: *mut IMAGEHLP_GET_TYPE_INFO_PARAMS) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetTypeInfoEx(hprocess : super::super::super::Foundation:: HANDLE, modbase : u64, params : *mut IMAGEHLP_GET_TYPE_INFO_PARAMS) -> super::super::super::Foundation:: BOOL);
-    SymGetTypeInfoEx(hprocess, modbase, core::mem::transmute(params)).ok()
+    unsafe { SymGetTypeInfoEx(hprocess, modbase, core::mem::transmute(params)).ok() }
 }
 #[inline]
 pub unsafe fn SymGetUnwindInfo(hprocess: super::super::super::Foundation::HANDLE, address: u64, buffer: Option<*mut core::ffi::c_void>, size: *mut u32) -> super::super::super::Foundation::BOOL {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetUnwindInfo(hprocess : super::super::super::Foundation:: HANDLE, address : u64, buffer : *mut core::ffi::c_void, size : *mut u32) -> super::super::super::Foundation:: BOOL);
-    SymGetUnwindInfo(hprocess, address, core::mem::transmute(buffer.unwrap_or(core::mem::zeroed())), core::mem::transmute(size))
+    unsafe { SymGetUnwindInfo(hprocess, address, core::mem::transmute(buffer.unwrap_or(core::mem::zeroed())), core::mem::transmute(size)) }
 }
 #[inline]
 pub unsafe fn SymInitialize<P1>(hprocess: super::super::super::Foundation::HANDLE, usersearchpath: P1, finvadeprocess: bool) -> windows_core::Result<()>
@@ -1686,7 +1688,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymInitialize(hprocess : super::super::super::Foundation:: HANDLE, usersearchpath : windows_core::PCSTR, finvadeprocess : super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
-    SymInitialize(hprocess, usersearchpath.param().abi(), finvadeprocess.into()).ok()
+    unsafe { SymInitialize(hprocess, usersearchpath.param().abi(), finvadeprocess.into()).ok() }
 }
 #[inline]
 pub unsafe fn SymInitializeW<P1>(hprocess: super::super::super::Foundation::HANDLE, usersearchpath: P1, finvadeprocess: bool) -> windows_core::Result<()>
@@ -1694,7 +1696,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymInitializeW(hprocess : super::super::super::Foundation:: HANDLE, usersearchpath : windows_core::PCWSTR, finvadeprocess : super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
-    SymInitializeW(hprocess, usersearchpath.param().abi(), finvadeprocess.into()).ok()
+    unsafe { SymInitializeW(hprocess, usersearchpath.param().abi(), finvadeprocess.into()).ok() }
 }
 #[cfg(target_arch = "x86")]
 #[inline]
@@ -1704,7 +1706,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymLoadModule(hprocess : super::super::super::Foundation:: HANDLE, hfile : super::super::super::Foundation:: HANDLE, imagename : windows_core::PCSTR, modulename : windows_core::PCSTR, baseofdll : u32, sizeofdll : u32) -> u32);
-    SymLoadModule(hprocess, core::mem::transmute(hfile.unwrap_or(core::mem::zeroed())), imagename.param().abi(), modulename.param().abi(), baseofdll, sizeofdll)
+    unsafe { SymLoadModule(hprocess, core::mem::transmute(hfile.unwrap_or(core::mem::zeroed())), imagename.param().abi(), modulename.param().abi(), baseofdll, sizeofdll) }
 }
 #[inline]
 pub unsafe fn SymLoadModule64<P2, P3>(hprocess: super::super::super::Foundation::HANDLE, hfile: Option<super::super::super::Foundation::HANDLE>, imagename: P2, modulename: P3, baseofdll: u64, sizeofdll: u32) -> u64
@@ -1713,7 +1715,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymLoadModule64(hprocess : super::super::super::Foundation:: HANDLE, hfile : super::super::super::Foundation:: HANDLE, imagename : windows_core::PCSTR, modulename : windows_core::PCSTR, baseofdll : u64, sizeofdll : u32) -> u64);
-    SymLoadModule64(hprocess, core::mem::transmute(hfile.unwrap_or(core::mem::zeroed())), imagename.param().abi(), modulename.param().abi(), baseofdll, sizeofdll)
+    unsafe { SymLoadModule64(hprocess, core::mem::transmute(hfile.unwrap_or(core::mem::zeroed())), imagename.param().abi(), modulename.param().abi(), baseofdll, sizeofdll) }
 }
 #[inline]
 pub unsafe fn SymLoadModuleEx<P2, P3>(hprocess: super::super::super::Foundation::HANDLE, hfile: Option<super::super::super::Foundation::HANDLE>, imagename: P2, modulename: P3, baseofdll: u64, dllsize: u32, data: Option<*const MODLOAD_DATA>, flags: Option<SYM_LOAD_FLAGS>) -> u64
@@ -1722,7 +1724,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymLoadModuleEx(hprocess : super::super::super::Foundation:: HANDLE, hfile : super::super::super::Foundation:: HANDLE, imagename : windows_core::PCSTR, modulename : windows_core::PCSTR, baseofdll : u64, dllsize : u32, data : *const MODLOAD_DATA, flags : SYM_LOAD_FLAGS) -> u64);
-    SymLoadModuleEx(hprocess, core::mem::transmute(hfile.unwrap_or(core::mem::zeroed())), imagename.param().abi(), modulename.param().abi(), baseofdll, dllsize, core::mem::transmute(data.unwrap_or(core::mem::zeroed())), core::mem::transmute(flags.unwrap_or(core::mem::zeroed())))
+    unsafe { SymLoadModuleEx(hprocess, core::mem::transmute(hfile.unwrap_or(core::mem::zeroed())), imagename.param().abi(), modulename.param().abi(), baseofdll, dllsize, core::mem::transmute(data.unwrap_or(core::mem::zeroed())), core::mem::transmute(flags.unwrap_or(core::mem::zeroed()))) }
 }
 #[inline]
 pub unsafe fn SymLoadModuleExW<P2, P3>(hprocess: super::super::super::Foundation::HANDLE, hfile: Option<super::super::super::Foundation::HANDLE>, imagename: P2, modulename: P3, baseofdll: u64, dllsize: u32, data: Option<*const MODLOAD_DATA>, flags: Option<SYM_LOAD_FLAGS>) -> u64
@@ -1731,7 +1733,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymLoadModuleExW(hprocess : super::super::super::Foundation:: HANDLE, hfile : super::super::super::Foundation:: HANDLE, imagename : windows_core::PCWSTR, modulename : windows_core::PCWSTR, baseofdll : u64, dllsize : u32, data : *const MODLOAD_DATA, flags : SYM_LOAD_FLAGS) -> u64);
-    SymLoadModuleExW(hprocess, core::mem::transmute(hfile.unwrap_or(core::mem::zeroed())), imagename.param().abi(), modulename.param().abi(), baseofdll, dllsize, core::mem::transmute(data.unwrap_or(core::mem::zeroed())), core::mem::transmute(flags.unwrap_or(core::mem::zeroed())))
+    unsafe { SymLoadModuleExW(hprocess, core::mem::transmute(hfile.unwrap_or(core::mem::zeroed())), imagename.param().abi(), modulename.param().abi(), baseofdll, dllsize, core::mem::transmute(data.unwrap_or(core::mem::zeroed())), core::mem::transmute(flags.unwrap_or(core::mem::zeroed()))) }
 }
 #[inline]
 pub unsafe fn SymMatchFileName<P0, P1>(filename: P0, r#match: P1, filenamestop: Option<*mut windows_core::PSTR>, matchstop: Option<*mut windows_core::PSTR>) -> windows_core::Result<()>
@@ -1740,7 +1742,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymMatchFileName(filename : windows_core::PCSTR, r#match : windows_core::PCSTR, filenamestop : *mut windows_core::PSTR, matchstop : *mut windows_core::PSTR) -> super::super::super::Foundation:: BOOL);
-    SymMatchFileName(filename.param().abi(), r#match.param().abi(), core::mem::transmute(filenamestop.unwrap_or(core::mem::zeroed())), core::mem::transmute(matchstop.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { SymMatchFileName(filename.param().abi(), r#match.param().abi(), core::mem::transmute(filenamestop.unwrap_or(core::mem::zeroed())), core::mem::transmute(matchstop.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn SymMatchFileNameW<P0, P1>(filename: P0, r#match: P1, filenamestop: Option<*mut windows_core::PWSTR>, matchstop: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()>
@@ -1749,7 +1751,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymMatchFileNameW(filename : windows_core::PCWSTR, r#match : windows_core::PCWSTR, filenamestop : *mut windows_core::PWSTR, matchstop : *mut windows_core::PWSTR) -> super::super::super::Foundation:: BOOL);
-    SymMatchFileNameW(filename.param().abi(), r#match.param().abi(), core::mem::transmute(filenamestop.unwrap_or(core::mem::zeroed())), core::mem::transmute(matchstop.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { SymMatchFileNameW(filename.param().abi(), r#match.param().abi(), core::mem::transmute(filenamestop.unwrap_or(core::mem::zeroed())), core::mem::transmute(matchstop.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn SymMatchString<P0, P1>(string: P0, expression: P1, fcase: bool) -> windows_core::Result<()>
@@ -1758,7 +1760,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymMatchString(string : windows_core::PCSTR, expression : windows_core::PCSTR, fcase : super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
-    SymMatchString(string.param().abi(), expression.param().abi(), fcase.into()).ok()
+    unsafe { SymMatchString(string.param().abi(), expression.param().abi(), fcase.into()).ok() }
 }
 #[inline]
 pub unsafe fn SymMatchStringA<P0, P1>(string: P0, expression: P1, fcase: bool) -> super::super::super::Foundation::BOOL
@@ -1767,7 +1769,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymMatchStringA(string : windows_core::PCSTR, expression : windows_core::PCSTR, fcase : super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
-    SymMatchStringA(string.param().abi(), expression.param().abi(), fcase.into())
+    unsafe { SymMatchStringA(string.param().abi(), expression.param().abi(), fcase.into()) }
 }
 #[inline]
 pub unsafe fn SymMatchStringW<P0, P1>(string: P0, expression: P1, fcase: bool) -> windows_core::Result<()>
@@ -1776,64 +1778,64 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymMatchStringW(string : windows_core::PCWSTR, expression : windows_core::PCWSTR, fcase : super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
-    SymMatchStringW(string.param().abi(), expression.param().abi(), fcase.into()).ok()
+    unsafe { SymMatchStringW(string.param().abi(), expression.param().abi(), fcase.into()).ok() }
 }
 #[inline]
 pub unsafe fn SymNext(hprocess: super::super::super::Foundation::HANDLE, si: *mut SYMBOL_INFO) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymNext(hprocess : super::super::super::Foundation:: HANDLE, si : *mut SYMBOL_INFO) -> super::super::super::Foundation:: BOOL);
-    SymNext(hprocess, core::mem::transmute(si)).ok()
+    unsafe { SymNext(hprocess, core::mem::transmute(si)).ok() }
 }
 #[inline]
 pub unsafe fn SymNextW(hprocess: super::super::super::Foundation::HANDLE, siw: *mut SYMBOL_INFOW) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymNextW(hprocess : super::super::super::Foundation:: HANDLE, siw : *mut SYMBOL_INFOW) -> super::super::super::Foundation:: BOOL);
-    SymNextW(hprocess, core::mem::transmute(siw)).ok()
+    unsafe { SymNextW(hprocess, core::mem::transmute(siw)).ok() }
 }
 #[inline]
 pub unsafe fn SymPrev(hprocess: super::super::super::Foundation::HANDLE, si: *mut SYMBOL_INFO) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymPrev(hprocess : super::super::super::Foundation:: HANDLE, si : *mut SYMBOL_INFO) -> super::super::super::Foundation:: BOOL);
-    SymPrev(hprocess, core::mem::transmute(si)).ok()
+    unsafe { SymPrev(hprocess, core::mem::transmute(si)).ok() }
 }
 #[inline]
 pub unsafe fn SymPrevW(hprocess: super::super::super::Foundation::HANDLE, siw: *mut SYMBOL_INFOW) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymPrevW(hprocess : super::super::super::Foundation:: HANDLE, siw : *mut SYMBOL_INFOW) -> super::super::super::Foundation:: BOOL);
-    SymPrevW(hprocess, core::mem::transmute(siw)).ok()
+    unsafe { SymPrevW(hprocess, core::mem::transmute(siw)).ok() }
 }
 #[inline]
 pub unsafe fn SymQueryInlineTrace(hprocess: super::super::super::Foundation::HANDLE, startaddress: u64, startcontext: u32, startretaddress: u64, curaddress: u64, curcontext: *mut u32, curframeindex: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymQueryInlineTrace(hprocess : super::super::super::Foundation:: HANDLE, startaddress : u64, startcontext : u32, startretaddress : u64, curaddress : u64, curcontext : *mut u32, curframeindex : *mut u32) -> super::super::super::Foundation:: BOOL);
-    SymQueryInlineTrace(hprocess, startaddress, startcontext, startretaddress, curaddress, core::mem::transmute(curcontext), core::mem::transmute(curframeindex)).ok()
+    unsafe { SymQueryInlineTrace(hprocess, startaddress, startcontext, startretaddress, curaddress, core::mem::transmute(curcontext), core::mem::transmute(curframeindex)).ok() }
 }
 #[inline]
 pub unsafe fn SymRefreshModuleList(hprocess: super::super::super::Foundation::HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymRefreshModuleList(hprocess : super::super::super::Foundation:: HANDLE) -> super::super::super::Foundation:: BOOL);
-    SymRefreshModuleList(hprocess).ok()
+    unsafe { SymRefreshModuleList(hprocess).ok() }
 }
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SymRegisterCallback(hprocess: super::super::super::Foundation::HANDLE, callbackfunction: PSYMBOL_REGISTERED_CALLBACK, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymRegisterCallback(hprocess : super::super::super::Foundation:: HANDLE, callbackfunction : PSYMBOL_REGISTERED_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymRegisterCallback(hprocess, callbackfunction, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { SymRegisterCallback(hprocess, callbackfunction, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn SymRegisterCallback64(hprocess: super::super::super::Foundation::HANDLE, callbackfunction: PSYMBOL_REGISTERED_CALLBACK64, usercontext: u64) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymRegisterCallback64(hprocess : super::super::super::Foundation:: HANDLE, callbackfunction : PSYMBOL_REGISTERED_CALLBACK64, usercontext : u64) -> super::super::super::Foundation:: BOOL);
-    SymRegisterCallback64(hprocess, callbackfunction, usercontext).ok()
+    unsafe { SymRegisterCallback64(hprocess, callbackfunction, usercontext).ok() }
 }
 #[inline]
 pub unsafe fn SymRegisterCallbackW64(hprocess: super::super::super::Foundation::HANDLE, callbackfunction: PSYMBOL_REGISTERED_CALLBACK64, usercontext: u64) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymRegisterCallbackW64(hprocess : super::super::super::Foundation:: HANDLE, callbackfunction : PSYMBOL_REGISTERED_CALLBACK64, usercontext : u64) -> super::super::super::Foundation:: BOOL);
-    SymRegisterCallbackW64(hprocess, callbackfunction, usercontext).ok()
+    unsafe { SymRegisterCallbackW64(hprocess, callbackfunction, usercontext).ok() }
 }
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SymRegisterFunctionEntryCallback(hprocess: super::super::super::Foundation::HANDLE, callbackfunction: PSYMBOL_FUNCENTRY_CALLBACK, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymRegisterFunctionEntryCallback(hprocess : super::super::super::Foundation:: HANDLE, callbackfunction : PSYMBOL_FUNCENTRY_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymRegisterFunctionEntryCallback(hprocess, callbackfunction, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { SymRegisterFunctionEntryCallback(hprocess, callbackfunction, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn SymRegisterFunctionEntryCallback64(hprocess: super::super::super::Foundation::HANDLE, callbackfunction: PSYMBOL_FUNCENTRY_CALLBACK64, usercontext: u64) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymRegisterFunctionEntryCallback64(hprocess : super::super::super::Foundation:: HANDLE, callbackfunction : PSYMBOL_FUNCENTRY_CALLBACK64, usercontext : u64) -> super::super::super::Foundation:: BOOL);
-    SymRegisterFunctionEntryCallback64(hprocess, callbackfunction, usercontext).ok()
+    unsafe { SymRegisterFunctionEntryCallback64(hprocess, callbackfunction, usercontext).ok() }
 }
 #[inline]
 pub unsafe fn SymSearch<P4>(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, index: Option<u32>, symtag: Option<u32>, mask: P4, address: Option<u64>, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Option<*const core::ffi::c_void>, options: u32) -> windows_core::Result<()>
@@ -1841,7 +1843,7 @@ where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymSearch(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, index : u32, symtag : u32, mask : windows_core::PCSTR, address : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void, options : u32) -> super::super::super::Foundation:: BOOL);
-    SymSearch(hprocess, baseofdll, core::mem::transmute(index.unwrap_or(core::mem::zeroed())), core::mem::transmute(symtag.unwrap_or(core::mem::zeroed())), mask.param().abi(), core::mem::transmute(address.unwrap_or(core::mem::zeroed())), enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed())), options).ok()
+    unsafe { SymSearch(hprocess, baseofdll, core::mem::transmute(index.unwrap_or(core::mem::zeroed())), core::mem::transmute(symtag.unwrap_or(core::mem::zeroed())), mask.param().abi(), core::mem::transmute(address.unwrap_or(core::mem::zeroed())), enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed())), options).ok() }
 }
 #[inline]
 pub unsafe fn SymSearchW<P4>(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, index: Option<u32>, symtag: Option<u32>, mask: P4, address: Option<u64>, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: Option<*const core::ffi::c_void>, options: u32) -> windows_core::Result<()>
@@ -1849,17 +1851,17 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymSearchW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, index : u32, symtag : u32, mask : windows_core::PCWSTR, address : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void, options : u32) -> super::super::super::Foundation:: BOOL);
-    SymSearchW(hprocess, baseofdll, core::mem::transmute(index.unwrap_or(core::mem::zeroed())), core::mem::transmute(symtag.unwrap_or(core::mem::zeroed())), mask.param().abi(), core::mem::transmute(address.unwrap_or(core::mem::zeroed())), enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed())), options).ok()
+    unsafe { SymSearchW(hprocess, baseofdll, core::mem::transmute(index.unwrap_or(core::mem::zeroed())), core::mem::transmute(symtag.unwrap_or(core::mem::zeroed())), mask.param().abi(), core::mem::transmute(address.unwrap_or(core::mem::zeroed())), enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::mem::zeroed())), options).ok() }
 }
 #[inline]
 pub unsafe fn SymSetContext(hprocess: super::super::super::Foundation::HANDLE, stackframe: *const IMAGEHLP_STACK_FRAME, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymSetContext(hprocess : super::super::super::Foundation:: HANDLE, stackframe : *const IMAGEHLP_STACK_FRAME, context : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymSetContext(hprocess, stackframe, core::mem::transmute(context.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { SymSetContext(hprocess, stackframe, core::mem::transmute(context.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn SymSetExtendedOption(option: IMAGEHLP_EXTENDED_OPTIONS, value: bool) -> super::super::super::Foundation::BOOL {
     windows_targets::link!("dbghelp.dll" "system" fn SymSetExtendedOption(option : IMAGEHLP_EXTENDED_OPTIONS, value : super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
-    SymSetExtendedOption(option, value.into())
+    unsafe { SymSetExtendedOption(option, value.into()) }
 }
 #[inline]
 pub unsafe fn SymSetHomeDirectory<P1>(hprocess: Option<super::super::super::Foundation::HANDLE>, dir: P1) -> windows_core::PSTR
@@ -1867,7 +1869,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymSetHomeDirectory(hprocess : super::super::super::Foundation:: HANDLE, dir : windows_core::PCSTR) -> windows_core::PSTR);
-    SymSetHomeDirectory(core::mem::transmute(hprocess.unwrap_or(core::mem::zeroed())), dir.param().abi())
+    unsafe { SymSetHomeDirectory(core::mem::transmute(hprocess.unwrap_or(core::mem::zeroed())), dir.param().abi()) }
 }
 #[inline]
 pub unsafe fn SymSetHomeDirectoryW<P1>(hprocess: Option<super::super::super::Foundation::HANDLE>, dir: P1) -> windows_core::PWSTR
@@ -1875,32 +1877,32 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymSetHomeDirectoryW(hprocess : super::super::super::Foundation:: HANDLE, dir : windows_core::PCWSTR) -> windows_core::PWSTR);
-    SymSetHomeDirectoryW(core::mem::transmute(hprocess.unwrap_or(core::mem::zeroed())), dir.param().abi())
+    unsafe { SymSetHomeDirectoryW(core::mem::transmute(hprocess.unwrap_or(core::mem::zeroed())), dir.param().abi()) }
 }
 #[inline]
 pub unsafe fn SymSetOptions(symoptions: u32) -> u32 {
     windows_targets::link!("dbghelp.dll" "system" fn SymSetOptions(symoptions : u32) -> u32);
-    SymSetOptions(symoptions)
+    unsafe { SymSetOptions(symoptions) }
 }
 #[inline]
 pub unsafe fn SymSetParentWindow(hwnd: super::super::super::Foundation::HWND) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymSetParentWindow(hwnd : super::super::super::Foundation:: HWND) -> super::super::super::Foundation:: BOOL);
-    SymSetParentWindow(hwnd).ok()
+    unsafe { SymSetParentWindow(hwnd).ok() }
 }
 #[inline]
 pub unsafe fn SymSetScopeFromAddr(hprocess: super::super::super::Foundation::HANDLE, address: u64) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymSetScopeFromAddr(hprocess : super::super::super::Foundation:: HANDLE, address : u64) -> super::super::super::Foundation:: BOOL);
-    SymSetScopeFromAddr(hprocess, address).ok()
+    unsafe { SymSetScopeFromAddr(hprocess, address).ok() }
 }
 #[inline]
 pub unsafe fn SymSetScopeFromIndex(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, index: u32) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymSetScopeFromIndex(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, index : u32) -> super::super::super::Foundation:: BOOL);
-    SymSetScopeFromIndex(hprocess, baseofdll, index).ok()
+    unsafe { SymSetScopeFromIndex(hprocess, baseofdll, index).ok() }
 }
 #[inline]
 pub unsafe fn SymSetScopeFromInlineContext(hprocess: super::super::super::Foundation::HANDLE, address: u64, inlinecontext: u32) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymSetScopeFromInlineContext(hprocess : super::super::super::Foundation:: HANDLE, address : u64, inlinecontext : u32) -> super::super::super::Foundation:: BOOL);
-    SymSetScopeFromInlineContext(hprocess, address, inlinecontext).ok()
+    unsafe { SymSetScopeFromInlineContext(hprocess, address, inlinecontext).ok() }
 }
 #[inline]
 pub unsafe fn SymSetSearchPath<P1>(hprocess: super::super::super::Foundation::HANDLE, searchpatha: P1) -> windows_core::Result<()>
@@ -1908,7 +1910,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymSetSearchPath(hprocess : super::super::super::Foundation:: HANDLE, searchpatha : windows_core::PCSTR) -> super::super::super::Foundation:: BOOL);
-    SymSetSearchPath(hprocess, searchpatha.param().abi()).ok()
+    unsafe { SymSetSearchPath(hprocess, searchpatha.param().abi()).ok() }
 }
 #[inline]
 pub unsafe fn SymSetSearchPathW<P1>(hprocess: super::super::super::Foundation::HANDLE, searchpatha: P1) -> windows_core::Result<()>
@@ -1916,7 +1918,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymSetSearchPathW(hprocess : super::super::super::Foundation:: HANDLE, searchpatha : windows_core::PCWSTR) -> super::super::super::Foundation:: BOOL);
-    SymSetSearchPathW(hprocess, searchpatha.param().abi()).ok()
+    unsafe { SymSetSearchPathW(hprocess, searchpatha.param().abi()).ok() }
 }
 #[inline]
 pub unsafe fn SymSrvDeltaName<P1, P2, P3, P4>(hprocess: super::super::super::Foundation::HANDLE, sympath: P1, r#type: P2, file1: P3, file2: P4) -> windows_core::PCSTR
@@ -1927,7 +1929,7 @@ where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymSrvDeltaName(hprocess : super::super::super::Foundation:: HANDLE, sympath : windows_core::PCSTR, r#type : windows_core::PCSTR, file1 : windows_core::PCSTR, file2 : windows_core::PCSTR) -> windows_core::PCSTR);
-    SymSrvDeltaName(hprocess, sympath.param().abi(), r#type.param().abi(), file1.param().abi(), file2.param().abi())
+    unsafe { SymSrvDeltaName(hprocess, sympath.param().abi(), r#type.param().abi(), file1.param().abi(), file2.param().abi()) }
 }
 #[inline]
 pub unsafe fn SymSrvDeltaNameW<P1, P2, P3, P4>(hprocess: super::super::super::Foundation::HANDLE, sympath: P1, r#type: P2, file1: P3, file2: P4) -> windows_core::PCWSTR
@@ -1938,7 +1940,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymSrvDeltaNameW(hprocess : super::super::super::Foundation:: HANDLE, sympath : windows_core::PCWSTR, r#type : windows_core::PCWSTR, file1 : windows_core::PCWSTR, file2 : windows_core::PCWSTR) -> windows_core::PCWSTR);
-    SymSrvDeltaNameW(hprocess, sympath.param().abi(), r#type.param().abi(), file1.param().abi(), file2.param().abi())
+    unsafe { SymSrvDeltaNameW(hprocess, sympath.param().abi(), r#type.param().abi(), file1.param().abi(), file2.param().abi()) }
 }
 #[inline]
 pub unsafe fn SymSrvGetFileIndexInfo<P0>(file: P0, info: *mut SYMSRV_INDEX_INFO, flags: u32) -> windows_core::Result<()>
@@ -1946,7 +1948,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexInfo(file : windows_core::PCSTR, info : *mut SYMSRV_INDEX_INFO, flags : u32) -> super::super::super::Foundation:: BOOL);
-    SymSrvGetFileIndexInfo(file.param().abi(), core::mem::transmute(info), flags).ok()
+    unsafe { SymSrvGetFileIndexInfo(file.param().abi(), core::mem::transmute(info), flags).ok() }
 }
 #[inline]
 pub unsafe fn SymSrvGetFileIndexInfoW<P0>(file: P0, info: *mut SYMSRV_INDEX_INFOW, flags: u32) -> windows_core::Result<()>
@@ -1954,7 +1956,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexInfoW(file : windows_core::PCWSTR, info : *mut SYMSRV_INDEX_INFOW, flags : u32) -> super::super::super::Foundation:: BOOL);
-    SymSrvGetFileIndexInfoW(file.param().abi(), core::mem::transmute(info), flags).ok()
+    unsafe { SymSrvGetFileIndexInfoW(file.param().abi(), core::mem::transmute(info), flags).ok() }
 }
 #[inline]
 pub unsafe fn SymSrvGetFileIndexString<P1, P2>(hprocess: super::super::super::Foundation::HANDLE, srvpath: P1, file: P2, index: &mut [u8], flags: u32) -> windows_core::Result<()>
@@ -1963,7 +1965,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexString(hprocess : super::super::super::Foundation:: HANDLE, srvpath : windows_core::PCSTR, file : windows_core::PCSTR, index : windows_core::PSTR, size : usize, flags : u32) -> super::super::super::Foundation:: BOOL);
-    SymSrvGetFileIndexString(hprocess, srvpath.param().abi(), file.param().abi(), core::mem::transmute(index.as_ptr()), index.len().try_into().unwrap(), flags).ok()
+    unsafe { SymSrvGetFileIndexString(hprocess, srvpath.param().abi(), file.param().abi(), core::mem::transmute(index.as_ptr()), index.len().try_into().unwrap(), flags).ok() }
 }
 #[inline]
 pub unsafe fn SymSrvGetFileIndexStringW<P1, P2>(hprocess: super::super::super::Foundation::HANDLE, srvpath: P1, file: P2, index: &mut [u16], flags: u32) -> windows_core::Result<()>
@@ -1972,7 +1974,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexStringW(hprocess : super::super::super::Foundation:: HANDLE, srvpath : windows_core::PCWSTR, file : windows_core::PCWSTR, index : windows_core::PWSTR, size : usize, flags : u32) -> super::super::super::Foundation:: BOOL);
-    SymSrvGetFileIndexStringW(hprocess, srvpath.param().abi(), file.param().abi(), core::mem::transmute(index.as_ptr()), index.len().try_into().unwrap(), flags).ok()
+    unsafe { SymSrvGetFileIndexStringW(hprocess, srvpath.param().abi(), file.param().abi(), core::mem::transmute(index.as_ptr()), index.len().try_into().unwrap(), flags).ok() }
 }
 #[inline]
 pub unsafe fn SymSrvGetFileIndexes<P0>(file: P0, id: *mut windows_core::GUID, val1: *mut u32, val2: Option<*mut u32>, flags: u32) -> windows_core::Result<()>
@@ -1980,7 +1982,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexes(file : windows_core::PCSTR, id : *mut windows_core::GUID, val1 : *mut u32, val2 : *mut u32, flags : u32) -> super::super::super::Foundation:: BOOL);
-    SymSrvGetFileIndexes(file.param().abi(), core::mem::transmute(id), core::mem::transmute(val1), core::mem::transmute(val2.unwrap_or(core::mem::zeroed())), flags).ok()
+    unsafe { SymSrvGetFileIndexes(file.param().abi(), core::mem::transmute(id), core::mem::transmute(val1), core::mem::transmute(val2.unwrap_or(core::mem::zeroed())), flags).ok() }
 }
 #[inline]
 pub unsafe fn SymSrvGetFileIndexesW<P0>(file: P0, id: *mut windows_core::GUID, val1: *mut u32, val2: Option<*mut u32>, flags: u32) -> windows_core::Result<()>
@@ -1988,7 +1990,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexesW(file : windows_core::PCWSTR, id : *mut windows_core::GUID, val1 : *mut u32, val2 : *mut u32, flags : u32) -> super::super::super::Foundation:: BOOL);
-    SymSrvGetFileIndexesW(file.param().abi(), core::mem::transmute(id), core::mem::transmute(val1), core::mem::transmute(val2.unwrap_or(core::mem::zeroed())), flags).ok()
+    unsafe { SymSrvGetFileIndexesW(file.param().abi(), core::mem::transmute(id), core::mem::transmute(val1), core::mem::transmute(val2.unwrap_or(core::mem::zeroed())), flags).ok() }
 }
 #[inline]
 pub unsafe fn SymSrvGetSupplement<P1, P2, P3>(hprocess: super::super::super::Foundation::HANDLE, sympath: P1, node: P2, file: P3) -> windows_core::PCSTR
@@ -1998,7 +2000,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymSrvGetSupplement(hprocess : super::super::super::Foundation:: HANDLE, sympath : windows_core::PCSTR, node : windows_core::PCSTR, file : windows_core::PCSTR) -> windows_core::PCSTR);
-    SymSrvGetSupplement(hprocess, sympath.param().abi(), node.param().abi(), file.param().abi())
+    unsafe { SymSrvGetSupplement(hprocess, sympath.param().abi(), node.param().abi(), file.param().abi()) }
 }
 #[inline]
 pub unsafe fn SymSrvGetSupplementW<P1, P2, P3>(hprocess: super::super::super::Foundation::HANDLE, sympath: P1, node: P2, file: P3) -> windows_core::PCWSTR
@@ -2008,7 +2010,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymSrvGetSupplementW(hprocess : super::super::super::Foundation:: HANDLE, sympath : windows_core::PCWSTR, node : windows_core::PCWSTR, file : windows_core::PCWSTR) -> windows_core::PCWSTR);
-    SymSrvGetSupplementW(hprocess, sympath.param().abi(), node.param().abi(), file.param().abi())
+    unsafe { SymSrvGetSupplementW(hprocess, sympath.param().abi(), node.param().abi(), file.param().abi()) }
 }
 #[inline]
 pub unsafe fn SymSrvIsStore<P1>(hprocess: Option<super::super::super::Foundation::HANDLE>, path: P1) -> windows_core::Result<()>
@@ -2016,7 +2018,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymSrvIsStore(hprocess : super::super::super::Foundation:: HANDLE, path : windows_core::PCSTR) -> super::super::super::Foundation:: BOOL);
-    SymSrvIsStore(core::mem::transmute(hprocess.unwrap_or(core::mem::zeroed())), path.param().abi()).ok()
+    unsafe { SymSrvIsStore(core::mem::transmute(hprocess.unwrap_or(core::mem::zeroed())), path.param().abi()).ok() }
 }
 #[inline]
 pub unsafe fn SymSrvIsStoreW<P1>(hprocess: Option<super::super::super::Foundation::HANDLE>, path: P1) -> windows_core::Result<()>
@@ -2024,7 +2026,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymSrvIsStoreW(hprocess : super::super::super::Foundation:: HANDLE, path : windows_core::PCWSTR) -> super::super::super::Foundation:: BOOL);
-    SymSrvIsStoreW(core::mem::transmute(hprocess.unwrap_or(core::mem::zeroed())), path.param().abi()).ok()
+    unsafe { SymSrvIsStoreW(core::mem::transmute(hprocess.unwrap_or(core::mem::zeroed())), path.param().abi()).ok() }
 }
 #[inline]
 pub unsafe fn SymSrvStoreFile<P1, P2>(hprocess: super::super::super::Foundation::HANDLE, srvpath: P1, file: P2, flags: SYM_SRV_STORE_FILE_FLAGS) -> windows_core::PCSTR
@@ -2033,7 +2035,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymSrvStoreFile(hprocess : super::super::super::Foundation:: HANDLE, srvpath : windows_core::PCSTR, file : windows_core::PCSTR, flags : SYM_SRV_STORE_FILE_FLAGS) -> windows_core::PCSTR);
-    SymSrvStoreFile(hprocess, srvpath.param().abi(), file.param().abi(), flags)
+    unsafe { SymSrvStoreFile(hprocess, srvpath.param().abi(), file.param().abi(), flags) }
 }
 #[inline]
 pub unsafe fn SymSrvStoreFileW<P1, P2>(hprocess: super::super::super::Foundation::HANDLE, srvpath: P1, file: P2, flags: SYM_SRV_STORE_FILE_FLAGS) -> windows_core::PCWSTR
@@ -2042,7 +2044,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymSrvStoreFileW(hprocess : super::super::super::Foundation:: HANDLE, srvpath : windows_core::PCWSTR, file : windows_core::PCWSTR, flags : SYM_SRV_STORE_FILE_FLAGS) -> windows_core::PCWSTR);
-    SymSrvStoreFileW(hprocess, srvpath.param().abi(), file.param().abi(), flags)
+    unsafe { SymSrvStoreFileW(hprocess, srvpath.param().abi(), file.param().abi(), flags) }
 }
 #[inline]
 pub unsafe fn SymSrvStoreSupplement<P1, P2, P3>(hprocess: super::super::super::Foundation::HANDLE, srvpath: P1, node: P2, file: P3, flags: u32) -> windows_core::PCSTR
@@ -2052,7 +2054,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymSrvStoreSupplement(hprocess : super::super::super::Foundation:: HANDLE, srvpath : windows_core::PCSTR, node : windows_core::PCSTR, file : windows_core::PCSTR, flags : u32) -> windows_core::PCSTR);
-    SymSrvStoreSupplement(hprocess, srvpath.param().abi(), node.param().abi(), file.param().abi(), flags)
+    unsafe { SymSrvStoreSupplement(hprocess, srvpath.param().abi(), node.param().abi(), file.param().abi(), flags) }
 }
 #[inline]
 pub unsafe fn SymSrvStoreSupplementW<P1, P2, P3>(hprocess: super::super::super::Foundation::HANDLE, sympath: P1, node: P2, file: P3, flags: u32) -> windows_core::PCWSTR
@@ -2062,39 +2064,39 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymSrvStoreSupplementW(hprocess : super::super::super::Foundation:: HANDLE, sympath : windows_core::PCWSTR, node : windows_core::PCWSTR, file : windows_core::PCWSTR, flags : u32) -> windows_core::PCWSTR);
-    SymSrvStoreSupplementW(hprocess, sympath.param().abi(), node.param().abi(), file.param().abi(), flags)
+    unsafe { SymSrvStoreSupplementW(hprocess, sympath.param().abi(), node.param().abi(), file.param().abi(), flags) }
 }
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SymUnDName(sym: *const IMAGEHLP_SYMBOL, undecname: &mut [u8]) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymUnDName(sym : *const IMAGEHLP_SYMBOL, undecname : windows_core::PSTR, undecnamelength : u32) -> super::super::super::Foundation:: BOOL);
-    SymUnDName(sym, core::mem::transmute(undecname.as_ptr()), undecname.len().try_into().unwrap()).ok()
+    unsafe { SymUnDName(sym, core::mem::transmute(undecname.as_ptr()), undecname.len().try_into().unwrap()).ok() }
 }
 #[inline]
 pub unsafe fn SymUnDName64(sym: *const IMAGEHLP_SYMBOL64, undecname: &mut [u8]) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymUnDName64(sym : *const IMAGEHLP_SYMBOL64, undecname : windows_core::PSTR, undecnamelength : u32) -> super::super::super::Foundation:: BOOL);
-    SymUnDName64(sym, core::mem::transmute(undecname.as_ptr()), undecname.len().try_into().unwrap()).ok()
+    unsafe { SymUnDName64(sym, core::mem::transmute(undecname.as_ptr()), undecname.len().try_into().unwrap()).ok() }
 }
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SymUnloadModule(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u32) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymUnloadModule(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u32) -> super::super::super::Foundation:: BOOL);
-    SymUnloadModule(hprocess, baseofdll).ok()
+    unsafe { SymUnloadModule(hprocess, baseofdll).ok() }
 }
 #[inline]
 pub unsafe fn SymUnloadModule64(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymUnloadModule64(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64) -> super::super::super::Foundation:: BOOL);
-    SymUnloadModule64(hprocess, baseofdll).ok()
+    unsafe { SymUnloadModule64(hprocess, baseofdll).ok() }
 }
 #[inline]
 pub unsafe fn TerminateProcessOnMemoryExhaustion(failedallocationsize: usize) {
     windows_targets::link!("api-ms-win-core-errorhandling-l1-1-3.dll" "system" fn TerminateProcessOnMemoryExhaustion(failedallocationsize : usize));
-    TerminateProcessOnMemoryExhaustion(failedallocationsize)
+    unsafe { TerminateProcessOnMemoryExhaustion(failedallocationsize) }
 }
 #[inline]
 pub unsafe fn TouchFileTimes(filehandle: super::super::super::Foundation::HANDLE, psystemtime: Option<*const super::super::super::Foundation::SYSTEMTIME>) -> windows_core::Result<()> {
     windows_targets::link!("imagehlp.dll" "system" fn TouchFileTimes(filehandle : super::super::super::Foundation:: HANDLE, psystemtime : *const super::super::super::Foundation:: SYSTEMTIME) -> super::super::super::Foundation:: BOOL);
-    TouchFileTimes(filehandle, core::mem::transmute(psystemtime.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { TouchFileTimes(filehandle, core::mem::transmute(psystemtime.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn UnDecorateSymbolName<P0>(name: P0, outputstring: &mut [u8], flags: u32) -> u32
@@ -2102,7 +2104,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn UnDecorateSymbolName(name : windows_core::PCSTR, outputstring : windows_core::PSTR, maxstringlength : u32, flags : u32) -> u32);
-    UnDecorateSymbolName(name.param().abi(), core::mem::transmute(outputstring.as_ptr()), outputstring.len().try_into().unwrap(), flags)
+    unsafe { UnDecorateSymbolName(name.param().abi(), core::mem::transmute(outputstring.as_ptr()), outputstring.len().try_into().unwrap(), flags) }
 }
 #[inline]
 pub unsafe fn UnDecorateSymbolNameW<P0>(name: P0, outputstring: &mut [u16], flags: u32) -> u32
@@ -2110,19 +2112,19 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn UnDecorateSymbolNameW(name : windows_core::PCWSTR, outputstring : windows_core::PWSTR, maxstringlength : u32, flags : u32) -> u32);
-    UnDecorateSymbolNameW(name.param().abi(), core::mem::transmute(outputstring.as_ptr()), outputstring.len().try_into().unwrap(), flags)
+    unsafe { UnDecorateSymbolNameW(name.param().abi(), core::mem::transmute(outputstring.as_ptr()), outputstring.len().try_into().unwrap(), flags) }
 }
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn UnMapAndLoad(loadedimage: *mut LOADED_IMAGE) -> windows_core::Result<()> {
     windows_targets::link!("imagehlp.dll" "system" fn UnMapAndLoad(loadedimage : *mut LOADED_IMAGE) -> super::super::super::Foundation:: BOOL);
-    UnMapAndLoad(core::mem::transmute(loadedimage)).ok()
+    unsafe { UnMapAndLoad(core::mem::transmute(loadedimage)).ok() }
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn UnhandledExceptionFilter(exceptioninfo: *const EXCEPTION_POINTERS) -> i32 {
     windows_targets::link!("kernel32.dll" "system" fn UnhandledExceptionFilter(exceptioninfo : *const EXCEPTION_POINTERS) -> i32);
-    UnhandledExceptionFilter(exceptioninfo)
+    unsafe { UnhandledExceptionFilter(exceptioninfo) }
 }
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
@@ -2132,7 +2134,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("imagehlp.dll" "system" fn UpdateDebugInfoFile(imagefilename : windows_core::PCSTR, symbolpath : windows_core::PCSTR, debugfilepath : windows_core::PSTR, ntheaders : *const IMAGE_NT_HEADERS32) -> super::super::super::Foundation:: BOOL);
-    UpdateDebugInfoFile(imagefilename.param().abi(), symbolpath.param().abi(), core::mem::transmute(debugfilepath), ntheaders).ok()
+    unsafe { UpdateDebugInfoFile(imagefilename.param().abi(), symbolpath.param().abi(), core::mem::transmute(debugfilepath), ntheaders).ok() }
 }
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
@@ -2142,39 +2144,39 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("imagehlp.dll" "system" fn UpdateDebugInfoFileEx(imagefilename : windows_core::PCSTR, symbolpath : windows_core::PCSTR, debugfilepath : windows_core::PSTR, ntheaders : *const IMAGE_NT_HEADERS32, oldchecksum : u32) -> super::super::super::Foundation:: BOOL);
-    UpdateDebugInfoFileEx(imagefilename.param().abi(), symbolpath.param().abi(), core::mem::transmute(debugfilepath), ntheaders, oldchecksum)
+    unsafe { UpdateDebugInfoFileEx(imagefilename.param().abi(), symbolpath.param().abi(), core::mem::transmute(debugfilepath), ntheaders, oldchecksum) }
 }
 #[cfg(feature = "Win32_System_Threading")]
 #[inline]
 pub unsafe fn WaitForDebugEvent(lpdebugevent: *mut DEBUG_EVENT, dwmilliseconds: u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn WaitForDebugEvent(lpdebugevent : *mut DEBUG_EVENT, dwmilliseconds : u32) -> super::super::super::Foundation:: BOOL);
-    WaitForDebugEvent(core::mem::transmute(lpdebugevent), dwmilliseconds).ok()
+    unsafe { WaitForDebugEvent(core::mem::transmute(lpdebugevent), dwmilliseconds).ok() }
 }
 #[cfg(feature = "Win32_System_Threading")]
 #[inline]
 pub unsafe fn WaitForDebugEventEx(lpdebugevent: *mut DEBUG_EVENT, dwmilliseconds: u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn WaitForDebugEventEx(lpdebugevent : *mut DEBUG_EVENT, dwmilliseconds : u32) -> super::super::super::Foundation:: BOOL);
-    WaitForDebugEventEx(core::mem::transmute(lpdebugevent), dwmilliseconds).ok()
+    unsafe { WaitForDebugEventEx(core::mem::transmute(lpdebugevent), dwmilliseconds).ok() }
 }
 #[inline]
 pub unsafe fn Wow64GetThreadContext(hthread: super::super::super::Foundation::HANDLE, lpcontext: *mut WOW64_CONTEXT) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn Wow64GetThreadContext(hthread : super::super::super::Foundation:: HANDLE, lpcontext : *mut WOW64_CONTEXT) -> super::super::super::Foundation:: BOOL);
-    Wow64GetThreadContext(hthread, core::mem::transmute(lpcontext)).ok()
+    unsafe { Wow64GetThreadContext(hthread, core::mem::transmute(lpcontext)).ok() }
 }
 #[inline]
 pub unsafe fn Wow64GetThreadSelectorEntry(hthread: super::super::super::Foundation::HANDLE, dwselector: u32, lpselectorentry: *mut WOW64_LDT_ENTRY) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn Wow64GetThreadSelectorEntry(hthread : super::super::super::Foundation:: HANDLE, dwselector : u32, lpselectorentry : *mut WOW64_LDT_ENTRY) -> super::super::super::Foundation:: BOOL);
-    Wow64GetThreadSelectorEntry(hthread, dwselector, core::mem::transmute(lpselectorentry)).ok()
+    unsafe { Wow64GetThreadSelectorEntry(hthread, dwselector, core::mem::transmute(lpselectorentry)).ok() }
 }
 #[inline]
 pub unsafe fn Wow64SetThreadContext(hthread: super::super::super::Foundation::HANDLE, lpcontext: *const WOW64_CONTEXT) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn Wow64SetThreadContext(hthread : super::super::super::Foundation:: HANDLE, lpcontext : *const WOW64_CONTEXT) -> super::super::super::Foundation:: BOOL);
-    Wow64SetThreadContext(hthread, lpcontext).ok()
+    unsafe { Wow64SetThreadContext(hthread, lpcontext).ok() }
 }
 #[inline]
 pub unsafe fn WriteProcessMemory(hprocess: super::super::super::Foundation::HANDLE, lpbaseaddress: *const core::ffi::c_void, lpbuffer: *const core::ffi::c_void, nsize: usize, lpnumberofbyteswritten: Option<*mut usize>) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn WriteProcessMemory(hprocess : super::super::super::Foundation:: HANDLE, lpbaseaddress : *const core::ffi::c_void, lpbuffer : *const core::ffi::c_void, nsize : usize, lpnumberofbyteswritten : *mut usize) -> super::super::super::Foundation:: BOOL);
-    WriteProcessMemory(hprocess, lpbaseaddress, lpbuffer, nsize, core::mem::transmute(lpnumberofbyteswritten.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { WriteProcessMemory(hprocess, lpbaseaddress, lpbuffer, nsize, core::mem::transmute(lpnumberofbyteswritten.unwrap_or(core::mem::zeroed()))).ok() }
 }
 pub const ABNORMAL_RESET_DETECTED: BUGCHECK_ERROR = BUGCHECK_ERROR(327u32);
 pub const ACPI_BIOS_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(165u32);
@@ -3772,11 +3774,13 @@ windows_core::imp::interface_hierarchy!(IDebugExtendedProperty, windows_core::IU
 impl IDebugExtendedProperty {
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetExtendedPropertyInfo(&self, dwfieldspec: u32, nradix: u32, pextendedpropertyinfo: *mut ExtendedDebugPropertyInfo) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetExtendedPropertyInfo)(windows_core::Interface::as_raw(self), dwfieldspec, nradix, core::mem::transmute(pextendedpropertyinfo)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetExtendedPropertyInfo)(windows_core::Interface::as_raw(self), dwfieldspec, nradix, core::mem::transmute(pextendedpropertyinfo)).ok() }
     }
     pub unsafe fn EnumExtendedMembers(&self, dwfieldspec: u32, nradix: u32) -> windows_core::Result<IEnumDebugExtendedPropertyInfo> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumExtendedMembers)(windows_core::Interface::as_raw(self), dwfieldspec, nradix, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EnumExtendedMembers)(windows_core::Interface::as_raw(self), dwfieldspec, nradix, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -3797,17 +3801,21 @@ pub trait IDebugExtendedProperty_Impl: IDebugProperty_Impl {
 impl IDebugExtendedProperty_Vtbl {
     pub const fn new<Identity: IDebugExtendedProperty_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetExtendedPropertyInfo<Identity: IDebugExtendedProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwfieldspec: u32, nradix: u32, pextendedpropertyinfo: *mut ExtendedDebugPropertyInfo) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugExtendedProperty_Impl::GetExtendedPropertyInfo(this, core::mem::transmute_copy(&dwfieldspec), core::mem::transmute_copy(&nradix), core::mem::transmute_copy(&pextendedpropertyinfo)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDebugExtendedProperty_Impl::GetExtendedPropertyInfo(this, core::mem::transmute_copy(&dwfieldspec), core::mem::transmute_copy(&nradix), core::mem::transmute_copy(&pextendedpropertyinfo)).into()
+            }
         }
         unsafe extern "system" fn EnumExtendedMembers<Identity: IDebugExtendedProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwfieldspec: u32, nradix: u32, ppeepi: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDebugExtendedProperty_Impl::EnumExtendedMembers(this, core::mem::transmute_copy(&dwfieldspec), core::mem::transmute_copy(&nradix)) {
-                Ok(ok__) => {
-                    ppeepi.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IDebugExtendedProperty_Impl::EnumExtendedMembers(this, core::mem::transmute_copy(&dwfieldspec), core::mem::transmute_copy(&nradix)) {
+                    Ok(ok__) => {
+                        ppeepi.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -3826,26 +3834,32 @@ windows_core::imp::define_interface!(IDebugProperty, IDebugProperty_Vtbl, 0x5197
 windows_core::imp::interface_hierarchy!(IDebugProperty, windows_core::IUnknown);
 impl IDebugProperty {
     pub unsafe fn GetPropertyInfo(&self, dwfieldspec: u32, nradix: u32, ppropertyinfo: *mut DebugPropertyInfo) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetPropertyInfo)(windows_core::Interface::as_raw(self), dwfieldspec, nradix, core::mem::transmute(ppropertyinfo)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetPropertyInfo)(windows_core::Interface::as_raw(self), dwfieldspec, nradix, core::mem::transmute(ppropertyinfo)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetExtendedInfo(&self, cinfos: u32, rgguidextendedinfo: *const windows_core::GUID) -> windows_core::Result<super::super::Variant::VARIANT> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetExtendedInfo)(windows_core::Interface::as_raw(self), cinfos, rgguidextendedinfo, &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetExtendedInfo)(windows_core::Interface::as_raw(self), cinfos, rgguidextendedinfo, &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn SetValueAsString<P0>(&self, pszvalue: P0, nradix: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetValueAsString)(windows_core::Interface::as_raw(self), pszvalue.param().abi(), nradix).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetValueAsString)(windows_core::Interface::as_raw(self), pszvalue.param().abi(), nradix).ok() }
     }
     pub unsafe fn EnumMembers(&self, dwfieldspec: u32, nradix: u32, refiid: *const windows_core::GUID) -> windows_core::Result<IEnumDebugPropertyInfo> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumMembers)(windows_core::Interface::as_raw(self), dwfieldspec, nradix, refiid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EnumMembers)(windows_core::Interface::as_raw(self), dwfieldspec, nradix, refiid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetParent(&self) -> windows_core::Result<IDebugProperty> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetParent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetParent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -3872,41 +3886,51 @@ pub trait IDebugProperty_Impl: windows_core::IUnknownImpl {
 impl IDebugProperty_Vtbl {
     pub const fn new<Identity: IDebugProperty_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetPropertyInfo<Identity: IDebugProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwfieldspec: u32, nradix: u32, ppropertyinfo: *mut DebugPropertyInfo) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugProperty_Impl::GetPropertyInfo(this, core::mem::transmute_copy(&dwfieldspec), core::mem::transmute_copy(&nradix), core::mem::transmute_copy(&ppropertyinfo)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDebugProperty_Impl::GetPropertyInfo(this, core::mem::transmute_copy(&dwfieldspec), core::mem::transmute_copy(&nradix), core::mem::transmute_copy(&ppropertyinfo)).into()
+            }
         }
         unsafe extern "system" fn GetExtendedInfo<Identity: IDebugProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cinfos: u32, rgguidextendedinfo: *const windows_core::GUID, rgvar: *mut super::super::Variant::VARIANT) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDebugProperty_Impl::GetExtendedInfo(this, core::mem::transmute_copy(&cinfos), core::mem::transmute_copy(&rgguidextendedinfo)) {
-                Ok(ok__) => {
-                    rgvar.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IDebugProperty_Impl::GetExtendedInfo(this, core::mem::transmute_copy(&cinfos), core::mem::transmute_copy(&rgguidextendedinfo)) {
+                    Ok(ok__) => {
+                        rgvar.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetValueAsString<Identity: IDebugProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszvalue: windows_core::PCWSTR, nradix: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugProperty_Impl::SetValueAsString(this, core::mem::transmute(&pszvalue), core::mem::transmute_copy(&nradix)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDebugProperty_Impl::SetValueAsString(this, core::mem::transmute(&pszvalue), core::mem::transmute_copy(&nradix)).into()
+            }
         }
         unsafe extern "system" fn EnumMembers<Identity: IDebugProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwfieldspec: u32, nradix: u32, refiid: *const windows_core::GUID, ppepi: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDebugProperty_Impl::EnumMembers(this, core::mem::transmute_copy(&dwfieldspec), core::mem::transmute_copy(&nradix), core::mem::transmute_copy(&refiid)) {
-                Ok(ok__) => {
-                    ppepi.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IDebugProperty_Impl::EnumMembers(this, core::mem::transmute_copy(&dwfieldspec), core::mem::transmute_copy(&nradix), core::mem::transmute_copy(&refiid)) {
+                    Ok(ok__) => {
+                        ppepi.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetParent<Identity: IDebugProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdebugprop: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDebugProperty_Impl::GetParent(this) {
-                Ok(ok__) => {
-                    ppdebugprop.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IDebugProperty_Impl::GetParent(this) {
+                    Ok(ok__) => {
+                        ppdebugprop.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -3928,8 +3952,10 @@ windows_core::imp::define_interface!(IDebugPropertyEnumType_All, IDebugPropertyE
 windows_core::imp::interface_hierarchy!(IDebugPropertyEnumType_All, windows_core::IUnknown);
 impl IDebugPropertyEnumType_All {
     pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
 }
 #[repr(C)]
@@ -3943,13 +3969,15 @@ pub trait IDebugPropertyEnumType_All_Impl: windows_core::IUnknownImpl {
 impl IDebugPropertyEnumType_All_Vtbl {
     pub const fn new<Identity: IDebugPropertyEnumType_All_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetName<Identity: IDebugPropertyEnumType_All_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, __midl__idebugpropertyenumtype_all0000: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDebugPropertyEnumType_All_Impl::GetName(this) {
-                Ok(ok__) => {
-                    __midl__idebugpropertyenumtype_all0000.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IDebugPropertyEnumType_All_Impl::GetName(this) {
+                    Ok(ok__) => {
+                        __midl__idebugpropertyenumtype_all0000.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetName: GetName::<Identity, OFFSET> }
@@ -4052,21 +4080,25 @@ windows_core::imp::interface_hierarchy!(IEnumDebugExtendedPropertyInfo, windows_
 impl IEnumDebugExtendedPropertyInfo {
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Next(&self, rgextendedpropertyinfo: &mut [ExtendedDebugPropertyInfo], pceltfetched: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgextendedpropertyinfo.len().try_into().unwrap(), core::mem::transmute(rgextendedpropertyinfo.as_ptr()), core::mem::transmute(pceltfetched)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgextendedpropertyinfo.len().try_into().unwrap(), core::mem::transmute(rgextendedpropertyinfo.as_ptr()), core::mem::transmute(pceltfetched)).ok() }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok()
+        unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumDebugExtendedPropertyInfo> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
 }
 #[repr(C)]
@@ -4093,35 +4125,45 @@ pub trait IEnumDebugExtendedPropertyInfo_Impl: windows_core::IUnknownImpl {
 impl IEnumDebugExtendedPropertyInfo_Vtbl {
     pub const fn new<Identity: IEnumDebugExtendedPropertyInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Next<Identity: IEnumDebugExtendedPropertyInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgextendedpropertyinfo: *mut ExtendedDebugPropertyInfo, pceltfetched: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IEnumDebugExtendedPropertyInfo_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgextendedpropertyinfo), core::mem::transmute_copy(&pceltfetched)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IEnumDebugExtendedPropertyInfo_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgextendedpropertyinfo), core::mem::transmute_copy(&pceltfetched)).into()
+            }
         }
         unsafe extern "system" fn Skip<Identity: IEnumDebugExtendedPropertyInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IEnumDebugExtendedPropertyInfo_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IEnumDebugExtendedPropertyInfo_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+            }
         }
         unsafe extern "system" fn Reset<Identity: IEnumDebugExtendedPropertyInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IEnumDebugExtendedPropertyInfo_Impl::Reset(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IEnumDebugExtendedPropertyInfo_Impl::Reset(this).into()
+            }
         }
         unsafe extern "system" fn Clone<Identity: IEnumDebugExtendedPropertyInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pedpe: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IEnumDebugExtendedPropertyInfo_Impl::Clone(this) {
-                Ok(ok__) => {
-                    pedpe.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IEnumDebugExtendedPropertyInfo_Impl::Clone(this) {
+                    Ok(ok__) => {
+                        pedpe.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetCount<Identity: IEnumDebugExtendedPropertyInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelt: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IEnumDebugExtendedPropertyInfo_Impl::GetCount(this) {
-                Ok(ok__) => {
-                    pcelt.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IEnumDebugExtendedPropertyInfo_Impl::GetCount(this) {
+                    Ok(ok__) => {
+                        pcelt.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -4143,21 +4185,25 @@ windows_core::imp::define_interface!(IEnumDebugPropertyInfo, IEnumDebugPropertyI
 windows_core::imp::interface_hierarchy!(IEnumDebugPropertyInfo, windows_core::IUnknown);
 impl IEnumDebugPropertyInfo {
     pub unsafe fn Next(&self, pi: &mut [DebugPropertyInfo], pceltsfetched: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), pi.len().try_into().unwrap(), core::mem::transmute(pi.as_ptr()), core::mem::transmute(pceltsfetched)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), pi.len().try_into().unwrap(), core::mem::transmute(pi.as_ptr()), core::mem::transmute(pceltsfetched)).ok() }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok()
+        unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumDebugPropertyInfo> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
 }
 #[repr(C)]
@@ -4179,35 +4225,45 @@ pub trait IEnumDebugPropertyInfo_Impl: windows_core::IUnknownImpl {
 impl IEnumDebugPropertyInfo_Vtbl {
     pub const fn new<Identity: IEnumDebugPropertyInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Next<Identity: IEnumDebugPropertyInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, pi: *mut DebugPropertyInfo, pceltsfetched: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IEnumDebugPropertyInfo_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&pi), core::mem::transmute_copy(&pceltsfetched)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IEnumDebugPropertyInfo_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&pi), core::mem::transmute_copy(&pceltsfetched)).into()
+            }
         }
         unsafe extern "system" fn Skip<Identity: IEnumDebugPropertyInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IEnumDebugPropertyInfo_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IEnumDebugPropertyInfo_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+            }
         }
         unsafe extern "system" fn Reset<Identity: IEnumDebugPropertyInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IEnumDebugPropertyInfo_Impl::Reset(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IEnumDebugPropertyInfo_Impl::Reset(this).into()
+            }
         }
         unsafe extern "system" fn Clone<Identity: IEnumDebugPropertyInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppepi: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IEnumDebugPropertyInfo_Impl::Clone(this) {
-                Ok(ok__) => {
-                    ppepi.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IEnumDebugPropertyInfo_Impl::Clone(this) {
+                    Ok(ok__) => {
+                        ppepi.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetCount<Identity: IEnumDebugPropertyInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelt: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IEnumDebugPropertyInfo_Impl::GetCount(this) {
-                Ok(ok__) => {
-                    pcelt.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IEnumDebugPropertyInfo_Impl::GetCount(this) {
+                    Ok(ok__) => {
+                        pcelt.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -5628,10 +5684,10 @@ windows_core::imp::define_interface!(IObjectSafety, IObjectSafety_Vtbl, 0xcb5bdc
 windows_core::imp::interface_hierarchy!(IObjectSafety, windows_core::IUnknown);
 impl IObjectSafety {
     pub unsafe fn GetInterfaceSafetyOptions(&self, riid: *const windows_core::GUID, pdwsupportedoptions: *mut u32, pdwenabledoptions: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetInterfaceSafetyOptions)(windows_core::Interface::as_raw(self), riid, core::mem::transmute(pdwsupportedoptions), core::mem::transmute(pdwenabledoptions)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetInterfaceSafetyOptions)(windows_core::Interface::as_raw(self), riid, core::mem::transmute(pdwsupportedoptions), core::mem::transmute(pdwenabledoptions)).ok() }
     }
     pub unsafe fn SetInterfaceSafetyOptions(&self, riid: *const windows_core::GUID, dwoptionsetmask: u32, dwenabledoptions: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetInterfaceSafetyOptions)(windows_core::Interface::as_raw(self), riid, dwoptionsetmask, dwenabledoptions).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetInterfaceSafetyOptions)(windows_core::Interface::as_raw(self), riid, dwoptionsetmask, dwenabledoptions).ok() }
     }
 }
 #[repr(C)]
@@ -5647,12 +5703,16 @@ pub trait IObjectSafety_Impl: windows_core::IUnknownImpl {
 impl IObjectSafety_Vtbl {
     pub const fn new<Identity: IObjectSafety_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetInterfaceSafetyOptions<Identity: IObjectSafety_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, pdwsupportedoptions: *mut u32, pdwenabledoptions: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IObjectSafety_Impl::GetInterfaceSafetyOptions(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pdwsupportedoptions), core::mem::transmute_copy(&pdwenabledoptions)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IObjectSafety_Impl::GetInterfaceSafetyOptions(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pdwsupportedoptions), core::mem::transmute_copy(&pdwenabledoptions)).into()
+            }
         }
         unsafe extern "system" fn SetInterfaceSafetyOptions<Identity: IObjectSafety_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, dwoptionsetmask: u32, dwenabledoptions: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IObjectSafety_Impl::SetInterfaceSafetyOptions(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&dwoptionsetmask), core::mem::transmute_copy(&dwenabledoptions)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IObjectSafety_Impl::SetInterfaceSafetyOptions(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&dwoptionsetmask), core::mem::transmute_copy(&dwenabledoptions)).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -5692,19 +5752,23 @@ windows_core::imp::define_interface!(IPerPropertyBrowsing2, IPerPropertyBrowsing
 windows_core::imp::interface_hierarchy!(IPerPropertyBrowsing2, windows_core::IUnknown);
 impl IPerPropertyBrowsing2 {
     pub unsafe fn GetDisplayString(&self, dispid: i32) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetDisplayString)(windows_core::Interface::as_raw(self), dispid, &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetDisplayString)(windows_core::Interface::as_raw(self), dispid, &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn MapPropertyToPage(&self, dispid: i32) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).MapPropertyToPage)(windows_core::Interface::as_raw(self), dispid, &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).MapPropertyToPage)(windows_core::Interface::as_raw(self), dispid, &mut result__).map(|| result__)
+        }
     }
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn GetPredefinedStrings(&self, dispid: i32, pcastrings: *mut super::super::Ole::CALPOLESTR, pcacookies: *mut super::super::Ole::CADWORD) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetPredefinedStrings)(windows_core::Interface::as_raw(self), dispid, core::mem::transmute(pcastrings), core::mem::transmute(pcacookies)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetPredefinedStrings)(windows_core::Interface::as_raw(self), dispid, core::mem::transmute(pcastrings), core::mem::transmute(pcacookies)).ok() }
     }
     pub unsafe fn SetPredefinedValue(&self, dispid: i32, dwcookie: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetPredefinedValue)(windows_core::Interface::as_raw(self), dispid, dwcookie).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetPredefinedValue)(windows_core::Interface::as_raw(self), dispid, dwcookie).ok() }
     }
 }
 #[repr(C)]
@@ -5729,32 +5793,40 @@ pub trait IPerPropertyBrowsing2_Impl: windows_core::IUnknownImpl {
 impl IPerPropertyBrowsing2_Vtbl {
     pub const fn new<Identity: IPerPropertyBrowsing2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDisplayString<Identity: IPerPropertyBrowsing2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dispid: i32, pbstr: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IPerPropertyBrowsing2_Impl::GetDisplayString(this, core::mem::transmute_copy(&dispid)) {
-                Ok(ok__) => {
-                    pbstr.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IPerPropertyBrowsing2_Impl::GetDisplayString(this, core::mem::transmute_copy(&dispid)) {
+                    Ok(ok__) => {
+                        pbstr.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn MapPropertyToPage<Identity: IPerPropertyBrowsing2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dispid: i32, pclsidproppage: *mut windows_core::GUID) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IPerPropertyBrowsing2_Impl::MapPropertyToPage(this, core::mem::transmute_copy(&dispid)) {
-                Ok(ok__) => {
-                    pclsidproppage.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IPerPropertyBrowsing2_Impl::MapPropertyToPage(this, core::mem::transmute_copy(&dispid)) {
+                    Ok(ok__) => {
+                        pclsidproppage.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetPredefinedStrings<Identity: IPerPropertyBrowsing2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dispid: i32, pcastrings: *mut super::super::Ole::CALPOLESTR, pcacookies: *mut super::super::Ole::CADWORD) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPerPropertyBrowsing2_Impl::GetPredefinedStrings(this, core::mem::transmute_copy(&dispid), core::mem::transmute_copy(&pcastrings), core::mem::transmute_copy(&pcacookies)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPerPropertyBrowsing2_Impl::GetPredefinedStrings(this, core::mem::transmute_copy(&dispid), core::mem::transmute_copy(&pcastrings), core::mem::transmute_copy(&pcacookies)).into()
+            }
         }
         unsafe extern "system" fn SetPredefinedValue<Identity: IPerPropertyBrowsing2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dispid: i32, dwcookie: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPerPropertyBrowsing2_Impl::SetPredefinedValue(this, core::mem::transmute_copy(&dispid), core::mem::transmute_copy(&dwcookie)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPerPropertyBrowsing2_Impl::SetPredefinedValue(this, core::mem::transmute_copy(&dispid), core::mem::transmute_copy(&dwcookie)).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

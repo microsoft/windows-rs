@@ -44,12 +44,16 @@ impl HSTRING {
         for (index, wide) in iter.enumerate() {
             debug_assert!(index < len);
 
-            (*ptr).data.add(index).write(wide);
-            (*ptr).len = index as u32 + 1;
+            unsafe {
+                (*ptr).data.add(index).write(wide);
+                (*ptr).len = index as u32 + 1;
+            }
         }
 
-        // Write a 0 byte to the end of the buffer.
-        (*ptr).data.offset((*ptr).len as isize).write(0);
+        unsafe {
+            // Write a 0 byte to the end of the buffer.
+            (*ptr).data.offset((*ptr).len as isize).write(0);
+        }
         Self(ptr)
     }
 
