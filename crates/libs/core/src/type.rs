@@ -37,7 +37,7 @@ where
     }
 
     unsafe fn assume_init_ref(abi: &Self::Abi) -> &Self {
-        core::mem::transmute::<&*mut core::ffi::c_void, &T>(abi)
+        unsafe { core::mem::transmute::<&*mut core::ffi::c_void, &T>(abi) }
     }
 
     unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
@@ -67,7 +67,7 @@ where
     }
 
     unsafe fn assume_init_ref(abi: &Self::Abi) -> &Self {
-        abi.assume_init_ref()
+        unsafe { abi.assume_init_ref() }
     }
 
     unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {

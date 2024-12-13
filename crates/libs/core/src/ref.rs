@@ -43,7 +43,7 @@ impl<T: Type<T>> Ref<'_, T> {
     }
 
     unsafe fn assume_init_ref(&self) -> &T {
-        T::assume_init_ref(&self.0)
+        unsafe { T::assume_init_ref(&self.0) }
     }
 }
 
