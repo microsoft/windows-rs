@@ -1,6 +1,7 @@
 mod bindings;
+use windows::{core::*, Foundation::*, Win32::Foundation::*, Win32::System::WinRT::*};
 
-use windows::{core::*, Win32::Foundation::*, Win32::System::WinRT::*};
+static CLASS_FACTORY: StaticComObject<ClassFactory> = ClassFactory::new().into_static();
 
 #[no_mangle]
 unsafe extern "system" fn DllGetActivationFactory(
@@ -8,15 +9,41 @@ unsafe extern "system" fn DllGetActivationFactory(
     factory: OutRef<IActivationFactory>,
 ) -> HRESULT {
     if *name == "test_events.Class" {
-        factory.write(Some(ClassFactory.into())).into()
+        factory.write(Some(CLASS_FACTORY.to_interface())).into()
     } else {
         _ = factory.write(None);
         CLASS_E_CLASSNOTAVAILABLE
     }
 }
 
-#[implement(IActivationFactory)]
-struct ClassFactory;
+#[implement(IActivationFactory, bindings::IClassStatics)]
+struct ClassFactory(Event<EventHandler<i32>>);
+
+impl ClassFactory {
+    const fn new() -> Self {
+        Self(Event::new())
+    }
+}
+
+impl bindings::IClassStatics_Impl for ClassFactory_Impl {
+    fn StaticSignal(&self, value: i32) -> Result<i32> {
+        let mut counter = 0;
+        self.0.call(|delegate| {
+            counter += 1;
+            delegate.Invoke(self.as_interface(), value)
+        });
+        Ok(counter)
+    }
+
+    fn StaticEvent(&self, handler: Ref<EventHandler<i32>>) -> Result<i64> {
+        self.0.add(handler.unwrap())
+    }
+
+    fn RemoveStaticEvent(&self, token: i64) -> Result<()> {
+        self.0.remove(token);
+        Ok(())
+    }
+}
 
 impl IActivationFactory_Impl for ClassFactory_Impl {
     fn ActivateInstance(&self) -> Result<IInspectable> {
@@ -25,7 +52,7 @@ impl IActivationFactory_Impl for ClassFactory_Impl {
 }
 
 #[implement(bindings::Class)]
-struct Class(Event<windows::Foundation::TypedEventHandler<bindings::Class, i32>>);
+struct Class(Event<TypedEventHandler<bindings::Class, i32>>);
 
 impl bindings::IClass_Impl for Class_Impl {
     fn Signal(&self, value: i32) -> Result<i32> {
@@ -39,7 +66,7 @@ impl bindings::IClass_Impl for Class_Impl {
 
     fn Event(
         &self,
-        handler: Ref<windows::Foundation::TypedEventHandler<bindings::Class, i32>>,
+        handler: Ref<TypedEventHandler<bindings::Class, i32>>,
     ) -> windows_core::Result<i64> {
         self.0.add(handler.unwrap())
     }

@@ -6,5 +6,8 @@ namespace test_events
 
         Int32 Signal(Int32 value);
         event Windows.Foundation.TypedEventHandler<Class, Int32> Event;
+
+        static Int32 StaticSignal(Int32 value);
+        static event Windows.Foundation.EventHandler<Int32> StaticEvent;
     }
 }

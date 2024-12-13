@@ -2290,7 +2290,7 @@ pub struct ITmNodeName_Vtbl {
 }
 pub trait ITmNodeName_Impl: windows_core::IUnknownImpl {
     fn GetNodeNameSize(&self) -> windows_core::Result<u32>;
-    fn GetNodeName(&self, cbnodenamebuffersize: u32, pnodenamebuffer: &windows_core::PWSTR) -> windows_core::Result<()>;
+    fn GetNodeName(&self, cbnodenamebuffersize: u32, pnodenamebuffer: windows_core::PWSTR) -> windows_core::Result<()>;
 }
 impl ITmNodeName_Vtbl {
     pub const fn new<Identity: ITmNodeName_Impl, const OFFSET: isize>() -> Self {
@@ -2306,7 +2306,7 @@ impl ITmNodeName_Vtbl {
         }
         unsafe extern "system" fn GetNodeName<Identity: ITmNodeName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbnodenamebuffersize: u32, pnodenamebuffer: windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITmNodeName_Impl::GetNodeName(this, core::mem::transmute_copy(&cbnodenamebuffersize), core::mem::transmute(&pnodenamebuffer)).into()
+            ITmNodeName_Impl::GetNodeName(this, core::mem::transmute_copy(&cbnodenamebuffersize), core::mem::transmute_copy(&pnodenamebuffer)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
