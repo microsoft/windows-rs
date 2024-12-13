@@ -26,11 +26,11 @@ struct Factory();
 impl IClassFactory_Impl for Factory_Impl {
     fn CreateInstance(
         &self,
-        outer: Option<&IUnknown>,
+        outer: Ref<IUnknown>,
         iid: *const GUID,
         object: *mut *mut core::ffi::c_void,
     ) -> Result<()> {
-        assert!(outer.is_none());
+        assert!(outer.is_null());
         let unknown: IInspectable = Object().into();
         unsafe { unknown.query(iid, object).ok() }
     }

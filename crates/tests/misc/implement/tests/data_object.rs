@@ -62,7 +62,7 @@ impl IDataObject_Impl for Test_Impl {
         }
     }
 
-    fn DAdvise(&self, _: *const FORMATETC, _: u32, _: Option<&IAdviseSink>) -> Result<u32> {
+    fn DAdvise(&self, _: *const FORMATETC, _: u32, _: Ref<IAdviseSink>) -> Result<u32> {
         unsafe {
             (*self.0.get()).DAdvise = true;
             Ok(0)

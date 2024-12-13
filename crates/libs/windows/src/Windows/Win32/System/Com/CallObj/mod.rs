@@ -215,10 +215,10 @@ pub trait ICallFrame_Impl: windows_core::IUnknownImpl {
     fn GetParamInfo(&self, iparam: u32) -> windows_core::Result<CALLFRAMEPARAMINFO>;
     fn SetParam(&self, iparam: u32, pvar: *const super::super::Variant::VARIANT) -> windows_core::Result<()>;
     fn GetParam(&self, iparam: u32) -> windows_core::Result<super::super::Variant::VARIANT>;
-    fn Copy(&self, copycontrol: CALLFRAME_COPY, pwalker: Option<&ICallFrameWalker>) -> windows_core::Result<ICallFrame>;
-    fn Free(&self, pframeargsdest: Option<&ICallFrame>, pwalkerdestfree: Option<&ICallFrameWalker>, pwalkercopy: Option<&ICallFrameWalker>, freeflags: u32, pwalkerfree: Option<&ICallFrameWalker>, nullflags: u32) -> windows_core::Result<()>;
-    fn FreeParam(&self, iparam: u32, freeflags: u32, pwalkerfree: Option<&ICallFrameWalker>, nullflags: u32) -> windows_core::Result<()>;
-    fn WalkFrame(&self, walkwhat: u32, pwalker: Option<&ICallFrameWalker>) -> windows_core::Result<()>;
+    fn Copy(&self, copycontrol: CALLFRAME_COPY, pwalker: windows_core::Ref<'_, ICallFrameWalker>) -> windows_core::Result<ICallFrame>;
+    fn Free(&self, pframeargsdest: windows_core::Ref<'_, ICallFrame>, pwalkerdestfree: windows_core::Ref<'_, ICallFrameWalker>, pwalkercopy: windows_core::Ref<'_, ICallFrameWalker>, freeflags: u32, pwalkerfree: windows_core::Ref<'_, ICallFrameWalker>, nullflags: u32) -> windows_core::Result<()>;
+    fn FreeParam(&self, iparam: u32, freeflags: u32, pwalkerfree: windows_core::Ref<'_, ICallFrameWalker>, nullflags: u32) -> windows_core::Result<()>;
+    fn WalkFrame(&self, walkwhat: u32, pwalker: windows_core::Ref<'_, ICallFrameWalker>) -> windows_core::Result<()>;
     fn GetMarshalSizeMax(&self, pmshlcontext: *const CALLFRAME_MARSHALCONTEXT, mshlflags: super::MSHLFLAGS) -> windows_core::Result<u32>;
     fn Marshal(&self, pmshlcontext: *const CALLFRAME_MARSHALCONTEXT, mshlflags: super::MSHLFLAGS, pbuffer: *const core::ffi::c_void, cbbuffer: u32, pcbbufferused: *mut u32, pdatarep: *mut u32, prpcflags: *mut u32) -> windows_core::Result<()>;
     fn Unmarshal(&self, pbuffer: *const core::ffi::c_void, cbbuffer: u32, datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT) -> windows_core::Result<u32>;
@@ -282,7 +282,7 @@ impl ICallFrame_Vtbl {
         }
         unsafe extern "system" fn Copy<Identity: ICallFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, copycontrol: CALLFRAME_COPY, pwalker: *mut core::ffi::c_void, ppframe: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICallFrame_Impl::Copy(this, core::mem::transmute_copy(&copycontrol), windows_core::from_raw_borrowed(&pwalker)) {
+            match ICallFrame_Impl::Copy(this, core::mem::transmute_copy(&copycontrol), core::mem::transmute_copy(&pwalker)) {
                 Ok(ok__) => {
                     ppframe.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -292,15 +292,15 @@ impl ICallFrame_Vtbl {
         }
         unsafe extern "system" fn Free<Identity: ICallFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pframeargsdest: *mut core::ffi::c_void, pwalkerdestfree: *mut core::ffi::c_void, pwalkercopy: *mut core::ffi::c_void, freeflags: u32, pwalkerfree: *mut core::ffi::c_void, nullflags: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICallFrame_Impl::Free(this, windows_core::from_raw_borrowed(&pframeargsdest), windows_core::from_raw_borrowed(&pwalkerdestfree), windows_core::from_raw_borrowed(&pwalkercopy), core::mem::transmute_copy(&freeflags), windows_core::from_raw_borrowed(&pwalkerfree), core::mem::transmute_copy(&nullflags)).into()
+            ICallFrame_Impl::Free(this, core::mem::transmute_copy(&pframeargsdest), core::mem::transmute_copy(&pwalkerdestfree), core::mem::transmute_copy(&pwalkercopy), core::mem::transmute_copy(&freeflags), core::mem::transmute_copy(&pwalkerfree), core::mem::transmute_copy(&nullflags)).into()
         }
         unsafe extern "system" fn FreeParam<Identity: ICallFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iparam: u32, freeflags: u32, pwalkerfree: *mut core::ffi::c_void, nullflags: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICallFrame_Impl::FreeParam(this, core::mem::transmute_copy(&iparam), core::mem::transmute_copy(&freeflags), windows_core::from_raw_borrowed(&pwalkerfree), core::mem::transmute_copy(&nullflags)).into()
+            ICallFrame_Impl::FreeParam(this, core::mem::transmute_copy(&iparam), core::mem::transmute_copy(&freeflags), core::mem::transmute_copy(&pwalkerfree), core::mem::transmute_copy(&nullflags)).into()
         }
         unsafe extern "system" fn WalkFrame<Identity: ICallFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, walkwhat: u32, pwalker: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICallFrame_Impl::WalkFrame(this, core::mem::transmute_copy(&walkwhat), windows_core::from_raw_borrowed(&pwalker)).into()
+            ICallFrame_Impl::WalkFrame(this, core::mem::transmute_copy(&walkwhat), core::mem::transmute_copy(&pwalker)).into()
         }
         unsafe extern "system" fn GetMarshalSizeMax<Identity: ICallFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmshlcontext: *const CALLFRAME_MARSHALCONTEXT, mshlflags: super::MSHLFLAGS, pcbbufferneeded: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -379,13 +379,13 @@ pub struct ICallFrameEvents_Vtbl {
     pub OnCall: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ICallFrameEvents_Impl: windows_core::IUnknownImpl {
-    fn OnCall(&self, pframe: Option<&ICallFrame>) -> windows_core::Result<()>;
+    fn OnCall(&self, pframe: windows_core::Ref<'_, ICallFrame>) -> windows_core::Result<()>;
 }
 impl ICallFrameEvents_Vtbl {
     pub const fn new<Identity: ICallFrameEvents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnCall<Identity: ICallFrameEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pframe: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICallFrameEvents_Impl::OnCall(this, windows_core::from_raw_borrowed(&pframe)).into()
+            ICallFrameEvents_Impl::OnCall(this, core::mem::transmute_copy(&pframe)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnCall: OnCall::<Identity, OFFSET> }
     }
@@ -517,14 +517,14 @@ pub struct ICallInterceptor_Vtbl {
     pub GetRegisteredSink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ICallInterceptor_Impl: ICallIndirect_Impl {
-    fn RegisterSink(&self, psink: Option<&ICallFrameEvents>) -> windows_core::Result<()>;
+    fn RegisterSink(&self, psink: windows_core::Ref<'_, ICallFrameEvents>) -> windows_core::Result<()>;
     fn GetRegisteredSink(&self) -> windows_core::Result<ICallFrameEvents>;
 }
 impl ICallInterceptor_Vtbl {
     pub const fn new<Identity: ICallInterceptor_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RegisterSink<Identity: ICallInterceptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICallInterceptor_Impl::RegisterSink(this, windows_core::from_raw_borrowed(&psink)).into()
+            ICallInterceptor_Impl::RegisterSink(this, core::mem::transmute_copy(&psink)).into()
         }
         unsafe extern "system" fn GetRegisteredSink<Identity: ICallInterceptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsink: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -564,7 +564,7 @@ pub struct ICallUnmarshal_Vtbl {
     pub ReleaseMarshalData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void, u32, u32, u32, *const CALLFRAME_MARSHALCONTEXT) -> windows_core::HRESULT,
 }
 pub trait ICallUnmarshal_Impl: windows_core::IUnknownImpl {
-    fn Unmarshal(&self, imethod: u32, pbuffer: *const core::ffi::c_void, cbbuffer: u32, fforcebuffercopy: super::super::super::Foundation::BOOL, datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT, pcbunmarshalled: *mut u32, ppframe: *mut Option<ICallFrame>) -> windows_core::Result<()>;
+    fn Unmarshal(&self, imethod: u32, pbuffer: *const core::ffi::c_void, cbbuffer: u32, fforcebuffercopy: super::super::super::Foundation::BOOL, datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT, pcbunmarshalled: *mut u32, ppframe: windows_core::OutRef<'_, ICallFrame>) -> windows_core::Result<()>;
     fn ReleaseMarshalData(&self, imethod: u32, pbuffer: *const core::ffi::c_void, cbbuffer: u32, ibfirstrelease: u32, datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT) -> windows_core::Result<()>;
 }
 impl ICallUnmarshal_Vtbl {

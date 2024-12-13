@@ -703,9 +703,9 @@ pub trait ITextCharacterFormat_Impl: windows_core::IUnknownImpl {
     fn SetUnderline(&self, value: UnderlineType) -> windows_core::Result<()>;
     fn Weight(&self) -> windows_core::Result<i32>;
     fn SetWeight(&self, value: i32) -> windows_core::Result<()>;
-    fn SetClone(&self, value: Option<&ITextCharacterFormat>) -> windows_core::Result<()>;
+    fn SetClone(&self, value: windows_core::Ref<'_, ITextCharacterFormat>) -> windows_core::Result<()>;
     fn GetClone(&self) -> windows_core::Result<ITextCharacterFormat>;
-    fn IsEqual(&self, format: Option<&ITextCharacterFormat>) -> windows_core::Result<bool>;
+    fn IsEqual(&self, format: windows_core::Ref<'_, ITextCharacterFormat>) -> windows_core::Result<bool>;
 }
 impl ITextCharacterFormat_Vtbl {
     pub const fn new<Identity: ITextCharacterFormat_Impl, const OFFSET: isize>() -> Self {
@@ -1045,7 +1045,7 @@ impl ITextCharacterFormat_Vtbl {
         }
         unsafe extern "system" fn SetClone<Identity: ITextCharacterFormat_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITextCharacterFormat_Impl::SetClone(this, windows_core::from_raw_borrowed(&value)).into()
+            ITextCharacterFormat_Impl::SetClone(this, core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn GetClone<Identity: ITextCharacterFormat_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -1060,7 +1060,7 @@ impl ITextCharacterFormat_Vtbl {
         }
         unsafe extern "system" fn IsEqual<Identity: ITextCharacterFormat_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, format: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITextCharacterFormat_Impl::IsEqual(this, windows_core::from_raw_borrowed(&format)) {
+            match ITextCharacterFormat_Impl::IsEqual(this, core::mem::transmute_copy(&format)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -1393,11 +1393,11 @@ pub trait ITextDocument_Impl: windows_core::IUnknownImpl {
     fn GetRange(&self, startPosition: i32, endPosition: i32) -> windows_core::Result<ITextRange>;
     fn GetRangeFromPoint(&self, point: &super::super::Foundation::Point, options: PointOptions) -> windows_core::Result<ITextRange>;
     fn GetText(&self, options: TextGetOptions, value: &mut windows_core::HSTRING) -> windows_core::Result<()>;
-    fn LoadFromStream(&self, options: TextSetOptions, value: Option<&super::super::Storage::Streams::IRandomAccessStream>) -> windows_core::Result<()>;
+    fn LoadFromStream(&self, options: TextSetOptions, value: windows_core::Ref<'_, super::super::Storage::Streams::IRandomAccessStream>) -> windows_core::Result<()>;
     fn Redo(&self) -> windows_core::Result<()>;
-    fn SaveToStream(&self, options: TextGetOptions, value: Option<&super::super::Storage::Streams::IRandomAccessStream>) -> windows_core::Result<()>;
-    fn SetDefaultCharacterFormat(&self, value: Option<&ITextCharacterFormat>) -> windows_core::Result<()>;
-    fn SetDefaultParagraphFormat(&self, value: Option<&ITextParagraphFormat>) -> windows_core::Result<()>;
+    fn SaveToStream(&self, options: TextGetOptions, value: windows_core::Ref<'_, super::super::Storage::Streams::IRandomAccessStream>) -> windows_core::Result<()>;
+    fn SetDefaultCharacterFormat(&self, value: windows_core::Ref<'_, ITextCharacterFormat>) -> windows_core::Result<()>;
+    fn SetDefaultParagraphFormat(&self, value: windows_core::Ref<'_, ITextParagraphFormat>) -> windows_core::Result<()>;
     fn SetText(&self, options: TextSetOptions, value: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn Undo(&self) -> windows_core::Result<()>;
 }
@@ -1575,7 +1575,7 @@ impl ITextDocument_Vtbl {
         }
         unsafe extern "system" fn LoadFromStream<Identity: ITextDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: TextSetOptions, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITextDocument_Impl::LoadFromStream(this, options, windows_core::from_raw_borrowed(&value)).into()
+            ITextDocument_Impl::LoadFromStream(this, options, core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn Redo<Identity: ITextDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -1583,15 +1583,15 @@ impl ITextDocument_Vtbl {
         }
         unsafe extern "system" fn SaveToStream<Identity: ITextDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: TextGetOptions, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITextDocument_Impl::SaveToStream(this, options, windows_core::from_raw_borrowed(&value)).into()
+            ITextDocument_Impl::SaveToStream(this, options, core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn SetDefaultCharacterFormat<Identity: ITextDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITextDocument_Impl::SetDefaultCharacterFormat(this, windows_core::from_raw_borrowed(&value)).into()
+            ITextDocument_Impl::SetDefaultCharacterFormat(this, core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn SetDefaultParagraphFormat<Identity: ITextDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITextDocument_Impl::SetDefaultParagraphFormat(this, windows_core::from_raw_borrowed(&value)).into()
+            ITextDocument_Impl::SetDefaultParagraphFormat(this, core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn SetText<Identity: ITextDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: TextSetOptions, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -2030,8 +2030,8 @@ pub trait ITextParagraphFormat_Impl: windows_core::IUnknownImpl {
     fn DeleteTab(&self, position: f32) -> windows_core::Result<()>;
     fn GetClone(&self) -> windows_core::Result<ITextParagraphFormat>;
     fn GetTab(&self, index: i32, position: &mut f32, align: &mut TabAlignment, leader: &mut TabLeader) -> windows_core::Result<()>;
-    fn IsEqual(&self, format: Option<&ITextParagraphFormat>) -> windows_core::Result<bool>;
-    fn SetClone(&self, format: Option<&ITextParagraphFormat>) -> windows_core::Result<()>;
+    fn IsEqual(&self, format: windows_core::Ref<'_, ITextParagraphFormat>) -> windows_core::Result<bool>;
+    fn SetClone(&self, format: windows_core::Ref<'_, ITextParagraphFormat>) -> windows_core::Result<()>;
     fn SetIndents(&self, start: f32, left: f32, right: f32) -> windows_core::Result<()>;
     fn SetLineSpacing(&self, rule: LineSpacingRule, spacing: f32) -> windows_core::Result<()>;
 }
@@ -2354,7 +2354,7 @@ impl ITextParagraphFormat_Vtbl {
         }
         unsafe extern "system" fn IsEqual<Identity: ITextParagraphFormat_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, format: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITextParagraphFormat_Impl::IsEqual(this, windows_core::from_raw_borrowed(&format)) {
+            match ITextParagraphFormat_Impl::IsEqual(this, core::mem::transmute_copy(&format)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -2364,7 +2364,7 @@ impl ITextParagraphFormat_Vtbl {
         }
         unsafe extern "system" fn SetClone<Identity: ITextParagraphFormat_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, format: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITextParagraphFormat_Impl::SetClone(this, windows_core::from_raw_borrowed(&format)).into()
+            ITextParagraphFormat_Impl::SetClone(this, core::mem::transmute_copy(&format)).into()
         }
         unsafe extern "system" fn SetIndents<Identity: ITextParagraphFormat_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, start: f32, left: f32, right: f32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -2811,9 +2811,9 @@ pub trait ITextRange_Impl: windows_core::IUnknownImpl {
     fn Character(&self) -> windows_core::Result<u16>;
     fn SetCharacter(&self, value: u16) -> windows_core::Result<()>;
     fn CharacterFormat(&self) -> windows_core::Result<ITextCharacterFormat>;
-    fn SetCharacterFormat(&self, value: Option<&ITextCharacterFormat>) -> windows_core::Result<()>;
+    fn SetCharacterFormat(&self, value: windows_core::Ref<'_, ITextCharacterFormat>) -> windows_core::Result<()>;
     fn FormattedText(&self) -> windows_core::Result<ITextRange>;
-    fn SetFormattedText(&self, value: Option<&ITextRange>) -> windows_core::Result<()>;
+    fn SetFormattedText(&self, value: windows_core::Ref<'_, ITextRange>) -> windows_core::Result<()>;
     fn EndPosition(&self) -> windows_core::Result<i32>;
     fn SetEndPosition(&self, value: i32) -> windows_core::Result<()>;
     fn Gravity(&self) -> windows_core::Result<RangeGravity>;
@@ -2822,7 +2822,7 @@ pub trait ITextRange_Impl: windows_core::IUnknownImpl {
     fn Link(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn SetLink(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn ParagraphFormat(&self) -> windows_core::Result<ITextParagraphFormat>;
-    fn SetParagraphFormat(&self, value: Option<&ITextParagraphFormat>) -> windows_core::Result<()>;
+    fn SetParagraphFormat(&self, value: windows_core::Ref<'_, ITextParagraphFormat>) -> windows_core::Result<()>;
     fn StartPosition(&self) -> windows_core::Result<i32>;
     fn SetStartPosition(&self, value: i32) -> windows_core::Result<()>;
     fn StoryLength(&self) -> windows_core::Result<i32>;
@@ -2843,11 +2843,11 @@ pub trait ITextRange_Impl: windows_core::IUnknownImpl {
     fn GetPoint(&self, horizontalAlign: HorizontalCharacterAlignment, verticalAlign: VerticalCharacterAlignment, options: PointOptions, point: &mut super::super::Foundation::Point) -> windows_core::Result<()>;
     fn GetRect(&self, options: PointOptions, rect: &mut super::super::Foundation::Rect, hit: &mut i32) -> windows_core::Result<()>;
     fn GetText(&self, options: TextGetOptions, value: &mut windows_core::HSTRING) -> windows_core::Result<()>;
-    fn GetTextViaStream(&self, options: TextGetOptions, value: Option<&super::super::Storage::Streams::IRandomAccessStream>) -> windows_core::Result<()>;
-    fn InRange(&self, range: Option<&ITextRange>) -> windows_core::Result<bool>;
-    fn InsertImage(&self, width: i32, height: i32, ascent: i32, verticalAlign: VerticalCharacterAlignment, alternateText: &windows_core::HSTRING, value: Option<&super::super::Storage::Streams::IRandomAccessStream>) -> windows_core::Result<()>;
-    fn InStory(&self, range: Option<&ITextRange>) -> windows_core::Result<bool>;
-    fn IsEqual(&self, range: Option<&ITextRange>) -> windows_core::Result<bool>;
+    fn GetTextViaStream(&self, options: TextGetOptions, value: windows_core::Ref<'_, super::super::Storage::Streams::IRandomAccessStream>) -> windows_core::Result<()>;
+    fn InRange(&self, range: windows_core::Ref<'_, ITextRange>) -> windows_core::Result<bool>;
+    fn InsertImage(&self, width: i32, height: i32, ascent: i32, verticalAlign: VerticalCharacterAlignment, alternateText: &windows_core::HSTRING, value: windows_core::Ref<'_, super::super::Storage::Streams::IRandomAccessStream>) -> windows_core::Result<()>;
+    fn InStory(&self, range: windows_core::Ref<'_, ITextRange>) -> windows_core::Result<bool>;
+    fn IsEqual(&self, range: windows_core::Ref<'_, ITextRange>) -> windows_core::Result<bool>;
     fn Move(&self, unit: TextRangeUnit, count: i32) -> windows_core::Result<i32>;
     fn MoveEnd(&self, unit: TextRangeUnit, count: i32) -> windows_core::Result<i32>;
     fn MoveStart(&self, unit: TextRangeUnit, count: i32) -> windows_core::Result<i32>;
@@ -2858,7 +2858,7 @@ pub trait ITextRange_Impl: windows_core::IUnknownImpl {
     fn SetPoint(&self, point: &super::super::Foundation::Point, options: PointOptions, extend: bool) -> windows_core::Result<()>;
     fn SetRange(&self, startPosition: i32, endPosition: i32) -> windows_core::Result<()>;
     fn SetText2(&self, options: TextSetOptions, value: &windows_core::HSTRING) -> windows_core::Result<()>;
-    fn SetTextViaStream(&self, options: TextSetOptions, value: Option<&super::super::Storage::Streams::IRandomAccessStream>) -> windows_core::Result<()>;
+    fn SetTextViaStream(&self, options: TextSetOptions, value: windows_core::Ref<'_, super::super::Storage::Streams::IRandomAccessStream>) -> windows_core::Result<()>;
     fn StartOf(&self, unit: TextRangeUnit, extend: bool) -> windows_core::Result<i32>;
 }
 #[cfg(feature = "Storage_Streams")]
@@ -2891,7 +2891,7 @@ impl ITextRange_Vtbl {
         }
         unsafe extern "system" fn SetCharacterFormat<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITextRange_Impl::SetCharacterFormat(this, windows_core::from_raw_borrowed(&value)).into()
+            ITextRange_Impl::SetCharacterFormat(this, core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn FormattedText<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -2906,7 +2906,7 @@ impl ITextRange_Vtbl {
         }
         unsafe extern "system" fn SetFormattedText<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITextRange_Impl::SetFormattedText(this, windows_core::from_raw_borrowed(&value)).into()
+            ITextRange_Impl::SetFormattedText(this, core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn EndPosition<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -2974,7 +2974,7 @@ impl ITextRange_Vtbl {
         }
         unsafe extern "system" fn SetParagraphFormat<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITextRange_Impl::SetParagraphFormat(this, windows_core::from_raw_borrowed(&value)).into()
+            ITextRange_Impl::SetParagraphFormat(this, core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn StartPosition<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3120,11 +3120,11 @@ impl ITextRange_Vtbl {
         }
         unsafe extern "system" fn GetTextViaStream<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: TextGetOptions, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITextRange_Impl::GetTextViaStream(this, options, windows_core::from_raw_borrowed(&value)).into()
+            ITextRange_Impl::GetTextViaStream(this, options, core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn InRange<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, range: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITextRange_Impl::InRange(this, windows_core::from_raw_borrowed(&range)) {
+            match ITextRange_Impl::InRange(this, core::mem::transmute_copy(&range)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -3134,11 +3134,11 @@ impl ITextRange_Vtbl {
         }
         unsafe extern "system" fn InsertImage<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: i32, height: i32, ascent: i32, verticalalign: VerticalCharacterAlignment, alternatetext: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITextRange_Impl::InsertImage(this, width, height, ascent, verticalalign, core::mem::transmute(&alternatetext), windows_core::from_raw_borrowed(&value)).into()
+            ITextRange_Impl::InsertImage(this, width, height, ascent, verticalalign, core::mem::transmute(&alternatetext), core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn InStory<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, range: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITextRange_Impl::InStory(this, windows_core::from_raw_borrowed(&range)) {
+            match ITextRange_Impl::InStory(this, core::mem::transmute_copy(&range)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -3148,7 +3148,7 @@ impl ITextRange_Vtbl {
         }
         unsafe extern "system" fn IsEqual<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, range: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITextRange_Impl::IsEqual(this, windows_core::from_raw_borrowed(&range)) {
+            match ITextRange_Impl::IsEqual(this, core::mem::transmute_copy(&range)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -3216,7 +3216,7 @@ impl ITextRange_Vtbl {
         }
         unsafe extern "system" fn SetTextViaStream<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: TextSetOptions, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITextRange_Impl::SetTextViaStream(this, options, windows_core::from_raw_borrowed(&value)).into()
+            ITextRange_Impl::SetTextViaStream(this, options, core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn StartOf<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, unit: TextRangeUnit, extend: bool, result__: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);

@@ -99,9 +99,9 @@ pub trait IUICommand_Impl: windows_core::IUnknownImpl {
     fn Label(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn SetLabel(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn Invoked(&self) -> windows_core::Result<UICommandInvokedHandler>;
-    fn SetInvoked(&self, value: Option<&UICommandInvokedHandler>) -> windows_core::Result<()>;
+    fn SetInvoked(&self, value: windows_core::Ref<'_, UICommandInvokedHandler>) -> windows_core::Result<()>;
     fn Id(&self) -> windows_core::Result<windows_core::IInspectable>;
-    fn SetId(&self, value: Option<&windows_core::IInspectable>) -> windows_core::Result<()>;
+    fn SetId(&self, value: windows_core::Ref<'_, windows_core::IInspectable>) -> windows_core::Result<()>;
 }
 impl IUICommand_Vtbl {
     pub const fn new<Identity: IUICommand_Impl, const OFFSET: isize>() -> Self {
@@ -133,7 +133,7 @@ impl IUICommand_Vtbl {
         }
         unsafe extern "system" fn SetInvoked<Identity: IUICommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IUICommand_Impl::SetInvoked(this, windows_core::from_raw_borrowed(&value)).into()
+            IUICommand_Impl::SetInvoked(this, core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn Id<Identity: IUICommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -148,7 +148,7 @@ impl IUICommand_Vtbl {
         }
         unsafe extern "system" fn SetId<Identity: IUICommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IUICommand_Impl::SetId(this, windows_core::from_raw_borrowed(&value)).into()
+            IUICommand_Impl::SetId(this, core::mem::transmute_copy(&value)).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IUICommand, OFFSET>(),
@@ -499,7 +499,7 @@ impl windows_core::RuntimeType for UICommandInvokedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl UICommandInvokedHandler {
-    pub fn new<F: FnMut(Option<&IUICommand>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(windows_core::Ref<'_, IUICommand>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = UICommandInvokedHandlerBox { vtable: &UICommandInvokedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -517,12 +517,12 @@ pub struct UICommandInvokedHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, command: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct UICommandInvokedHandlerBox<F: FnMut(Option<&IUICommand>) -> windows_core::Result<()> + Send + 'static> {
+struct UICommandInvokedHandlerBox<F: FnMut(windows_core::Ref<'_, IUICommand>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const UICommandInvokedHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: FnMut(Option<&IUICommand>) -> windows_core::Result<()> + Send + 'static> UICommandInvokedHandlerBox<F> {
+impl<F: FnMut(windows_core::Ref<'_, IUICommand>) -> windows_core::Result<()> + Send + 'static> UICommandInvokedHandlerBox<F> {
     const VTABLE: UICommandInvokedHandler_Vtbl = UICommandInvokedHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         let this = this as *mut *mut core::ffi::c_void as *mut Self;
@@ -551,7 +551,7 @@ impl<F: FnMut(Option<&IUICommand>) -> windows_core::Result<()> + Send + 'static>
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, command: *mut core::ffi::c_void) -> windows_core::HRESULT {
         let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(windows_core::from_raw_borrowed(&command)).into()
+        (this.invoke)(core::mem::transmute_copy(&command)).into()
     }
 }
 #[repr(transparent)]

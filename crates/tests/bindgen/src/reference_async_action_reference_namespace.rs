@@ -113,7 +113,7 @@ impl windows_core::RuntimeName for IAsyncAction {
 pub trait IAsyncAction_Impl: windows::Foundation::IAsyncInfo_Impl {
     fn SetCompleted(
         &self,
-        handler: Option<&windows::Foundation::AsyncActionCompletedHandler>,
+        handler: windows_core::Ref<'_, windows::Foundation::AsyncActionCompletedHandler>,
     ) -> windows_core::Result<()>;
     fn Completed(&self) -> windows_core::Result<windows::Foundation::AsyncActionCompletedHandler>;
     fn GetResults(&self) -> windows_core::Result<()>;
@@ -125,7 +125,7 @@ impl IAsyncAction_Vtbl {
             handler: *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IAsyncAction_Impl::SetCompleted(this, windows_core::from_raw_borrowed(&handler)).into()
+            IAsyncAction_Impl::SetCompleted(this, core::mem::transmute_copy(&handler)).into()
         }
         unsafe extern "system" fn Completed<Identity: IAsyncAction_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,

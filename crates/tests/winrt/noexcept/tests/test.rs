@@ -17,7 +17,7 @@ impl ITest_Impl for Test_Impl {
         this.1 = test;
         Ok(())
     }
-    fn MethodTest(&self, test: Option<&ITest>) -> Result<()> {
+    fn MethodTest(&self, test: Ref<ITest>) -> Result<()> {
         let mut this = self.0.write().unwrap();
         this.2 = test.cloned();
         Ok(())
@@ -44,7 +44,7 @@ impl ITest_Impl for Test_Impl {
         let this = self.0.read().unwrap();
         this.2.clone().ok_or_else(Error::empty)
     }
-    fn SetTest(&self, value: Option<&ITest>) -> Result<()> {
+    fn SetTest(&self, value: Ref<ITest>) -> Result<()> {
         let mut this = self.0.write().unwrap();
         this.2 = value.cloned();
         Ok(())
@@ -58,7 +58,7 @@ impl ITest_Impl for Test_Impl {
         let mut this = self.0.write().unwrap();
         this.1 = test;
     }
-    fn MethodTestN(&self, test: Option<&ITest>) {
+    fn MethodTestN(&self, test: Ref<ITest>) {
         let mut this = self.0.write().unwrap();
         this.2 = test.cloned();
     }
@@ -82,7 +82,7 @@ impl ITest_Impl for Test_Impl {
         let this = self.0.read().unwrap();
         this.2.clone()
     }
-    fn SetTestN(&self, value: Option<&ITest>) {
+    fn SetTestN(&self, value: Ref<ITest>) {
         let mut this = self.0.write().unwrap();
         this.2 = value.cloned();
     }

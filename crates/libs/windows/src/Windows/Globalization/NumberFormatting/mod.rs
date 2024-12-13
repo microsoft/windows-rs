@@ -1252,7 +1252,7 @@ impl windows_core::RuntimeName for INumberRounderOption {
 }
 pub trait INumberRounderOption_Impl: windows_core::IUnknownImpl {
     fn NumberRounder(&self) -> windows_core::Result<INumberRounder>;
-    fn SetNumberRounder(&self, value: Option<&INumberRounder>) -> windows_core::Result<()>;
+    fn SetNumberRounder(&self, value: windows_core::Ref<'_, INumberRounder>) -> windows_core::Result<()>;
 }
 impl INumberRounderOption_Vtbl {
     pub const fn new<Identity: INumberRounderOption_Impl, const OFFSET: isize>() -> Self {
@@ -1269,7 +1269,7 @@ impl INumberRounderOption_Vtbl {
         }
         unsafe extern "system" fn SetNumberRounder<Identity: INumberRounderOption_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            INumberRounderOption_Impl::SetNumberRounder(this, windows_core::from_raw_borrowed(&value)).into()
+            INumberRounderOption_Impl::SetNumberRounder(this, core::mem::transmute_copy(&value)).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, INumberRounderOption, OFFSET>(),

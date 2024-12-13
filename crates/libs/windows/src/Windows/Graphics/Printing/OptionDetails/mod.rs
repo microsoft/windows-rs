@@ -592,7 +592,7 @@ pub trait IPrintOptionDetails_Impl: windows_core::IUnknownImpl {
     fn SetState(&self, value: PrintOptionStates) -> windows_core::Result<()>;
     fn State(&self) -> windows_core::Result<PrintOptionStates>;
     fn Value(&self) -> windows_core::Result<windows_core::IInspectable>;
-    fn TrySetValue(&self, value: Option<&windows_core::IInspectable>) -> windows_core::Result<bool>;
+    fn TrySetValue(&self, value: windows_core::Ref<'_, windows_core::IInspectable>) -> windows_core::Result<bool>;
 }
 impl IPrintOptionDetails_Vtbl {
     pub const fn new<Identity: IPrintOptionDetails_Impl, const OFFSET: isize>() -> Self {
@@ -659,7 +659,7 @@ impl IPrintOptionDetails_Vtbl {
         }
         unsafe extern "system" fn TrySetValue<Identity: IPrintOptionDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IPrintOptionDetails_Impl::TrySetValue(this, windows_core::from_raw_borrowed(&value)) {
+            match IPrintOptionDetails_Impl::TrySetValue(this, core::mem::transmute_copy(&value)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)

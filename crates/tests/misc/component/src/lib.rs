@@ -39,15 +39,15 @@ impl bindings::IClass_Impl for Class_Impl {
     }
     fn Input(
         &self,
-        a: Option<&IInspectable>,
-        b: Option<&bindings::Class>,
-        c: Option<&IStringable>,
-        d: Option<&bindings::Callback>,
+        a: Ref<IInspectable>,
+        b: Ref<bindings::Class>,
+        c: Ref<IStringable>,
+        d: Ref<bindings::Callback>,
     ) -> Result<()> {
-        let a = a.ok_or_else(|| Error::from(E_INVALIDARG))?;
-        let b = b.ok_or_else(|| Error::from(E_INVALIDARG))?;
-        let c = c.ok_or_else(|| Error::from(E_INVALIDARG))?;
-        let d = d.ok_or_else(|| Error::from(E_INVALIDARG))?;
+        let a = a.ok()?;
+        let b = b.ok()?;
+        let c = c.ok()?;
+        let d = d.ok()?;
 
         let a: IUnknown = a.cast()?;
         let b: IUnknown = b.cast()?;

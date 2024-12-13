@@ -2263,7 +2263,7 @@ pub struct ICameraUIControl_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ICameraUIControl_Impl: windows_core::IUnknownImpl {
-    fn Show(&self, pwindow: Option<&windows_core::IUnknown>, mode: CameraUIControlMode, selectionmode: CameraUIControlLinearSelectionMode, capturemode: CameraUIControlCaptureMode, photoformat: CameraUIControlPhotoFormat, videoformat: CameraUIControlVideoFormat, bhasclosebutton: super::super::Foundation::BOOL, peventcallback: Option<&ICameraUIControlEventCallback>) -> windows_core::Result<()>;
+    fn Show(&self, pwindow: windows_core::Ref<'_, windows_core::IUnknown>, mode: CameraUIControlMode, selectionmode: CameraUIControlLinearSelectionMode, capturemode: CameraUIControlCaptureMode, photoformat: CameraUIControlPhotoFormat, videoformat: CameraUIControlVideoFormat, bhasclosebutton: super::super::Foundation::BOOL, peventcallback: windows_core::Ref<'_, ICameraUIControlEventCallback>) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
     fn Suspend(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn Resume(&self) -> windows_core::Result<()>;
@@ -2277,7 +2277,7 @@ impl ICameraUIControl_Vtbl {
     pub const fn new<Identity: ICameraUIControl_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Show<Identity: ICameraUIControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwindow: *mut core::ffi::c_void, mode: CameraUIControlMode, selectionmode: CameraUIControlLinearSelectionMode, capturemode: CameraUIControlCaptureMode, photoformat: CameraUIControlPhotoFormat, videoformat: CameraUIControlVideoFormat, bhasclosebutton: super::super::Foundation::BOOL, peventcallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICameraUIControl_Impl::Show(this, windows_core::from_raw_borrowed(&pwindow), core::mem::transmute_copy(&mode), core::mem::transmute_copy(&selectionmode), core::mem::transmute_copy(&capturemode), core::mem::transmute_copy(&photoformat), core::mem::transmute_copy(&videoformat), core::mem::transmute_copy(&bhasclosebutton), windows_core::from_raw_borrowed(&peventcallback)).into()
+            ICameraUIControl_Impl::Show(this, core::mem::transmute_copy(&pwindow), core::mem::transmute_copy(&mode), core::mem::transmute_copy(&selectionmode), core::mem::transmute_copy(&capturemode), core::mem::transmute_copy(&photoformat), core::mem::transmute_copy(&videoformat), core::mem::transmute_copy(&bhasclosebutton), core::mem::transmute_copy(&peventcallback)).into()
         }
         unsafe extern "system" fn Close<Identity: ICameraUIControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);

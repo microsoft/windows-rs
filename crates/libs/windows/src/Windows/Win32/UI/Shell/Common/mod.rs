@@ -98,8 +98,8 @@ pub struct IObjectCollection_Vtbl {
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IObjectCollection_Impl: IObjectArray_Impl {
-    fn AddObject(&self, punk: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn AddFromArray(&self, poasource: Option<&IObjectArray>) -> windows_core::Result<()>;
+    fn AddObject(&self, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn AddFromArray(&self, poasource: windows_core::Ref<'_, IObjectArray>) -> windows_core::Result<()>;
     fn RemoveObjectAt(&self, uiindex: u32) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
 }
@@ -107,11 +107,11 @@ impl IObjectCollection_Vtbl {
     pub const fn new<Identity: IObjectCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddObject<Identity: IObjectCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punk: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IObjectCollection_Impl::AddObject(this, windows_core::from_raw_borrowed(&punk)).into()
+            IObjectCollection_Impl::AddObject(this, core::mem::transmute_copy(&punk)).into()
         }
         unsafe extern "system" fn AddFromArray<Identity: IObjectCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, poasource: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IObjectCollection_Impl::AddFromArray(this, windows_core::from_raw_borrowed(&poasource)).into()
+            IObjectCollection_Impl::AddFromArray(this, core::mem::transmute_copy(&poasource)).into()
         }
         unsafe extern "system" fn RemoveObjectAt<Identity: IObjectCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uiindex: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);

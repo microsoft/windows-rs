@@ -992,14 +992,14 @@ pub struct IGPMAsyncProgress_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IGPMAsyncProgress_Impl: super::Com::IDispatch_Impl {
-    fn Status(&self, lprogressnumerator: i32, lprogressdenominator: i32, hrstatus: windows_core::HRESULT, presult: *const super::Variant::VARIANT, ppigpmstatusmsgcollection: Option<&IGPMStatusMsgCollection>) -> windows_core::Result<()>;
+    fn Status(&self, lprogressnumerator: i32, lprogressdenominator: i32, hrstatus: windows_core::HRESULT, presult: *const super::Variant::VARIANT, ppigpmstatusmsgcollection: windows_core::Ref<'_, IGPMStatusMsgCollection>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IGPMAsyncProgress_Vtbl {
     pub const fn new<Identity: IGPMAsyncProgress_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Status<Identity: IGPMAsyncProgress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lprogressnumerator: i32, lprogressdenominator: i32, hrstatus: windows_core::HRESULT, presult: *const super::Variant::VARIANT, ppigpmstatusmsgcollection: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IGPMAsyncProgress_Impl::Status(this, core::mem::transmute_copy(&lprogressnumerator), core::mem::transmute_copy(&lprogressdenominator), core::mem::transmute_copy(&hrstatus), core::mem::transmute_copy(&presult), windows_core::from_raw_borrowed(&ppigpmstatusmsgcollection)).into()
+            IGPMAsyncProgress_Impl::Status(this, core::mem::transmute_copy(&lprogressnumerator), core::mem::transmute_copy(&lprogressdenominator), core::mem::transmute_copy(&hrstatus), core::mem::transmute_copy(&presult), core::mem::transmute_copy(&ppigpmstatusmsgcollection)).into()
         }
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(), Status: Status::<Identity, OFFSET> }
     }
@@ -1346,7 +1346,7 @@ pub struct IGPMBackupDir_Vtbl {
 pub trait IGPMBackupDir_Impl: super::Com::IDispatch_Impl {
     fn BackupDirectory(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetBackup(&self, bstrid: &windows_core::BSTR) -> windows_core::Result<IGPMBackup>;
-    fn SearchBackups(&self, pigpmsearchcriteria: Option<&IGPMSearchCriteria>) -> windows_core::Result<IGPMBackupCollection>;
+    fn SearchBackups(&self, pigpmsearchcriteria: windows_core::Ref<'_, IGPMSearchCriteria>) -> windows_core::Result<IGPMBackupCollection>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IGPMBackupDir_Vtbl {
@@ -1373,7 +1373,7 @@ impl IGPMBackupDir_Vtbl {
         }
         unsafe extern "system" fn SearchBackups<Identity: IGPMBackupDir_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pigpmsearchcriteria: *mut core::ffi::c_void, ppigpmbackupcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IGPMBackupDir_Impl::SearchBackups(this, windows_core::from_raw_borrowed(&pigpmsearchcriteria)) {
+            match IGPMBackupDir_Impl::SearchBackups(this, core::mem::transmute_copy(&pigpmsearchcriteria)) {
                 Ok(ok__) => {
                     ppigpmbackupcollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1449,7 +1449,7 @@ pub trait IGPMBackupDirEx_Impl: super::Com::IDispatch_Impl {
     fn BackupDir(&self) -> windows_core::Result<windows_core::BSTR>;
     fn BackupType(&self) -> windows_core::Result<GPMBackupType>;
     fn GetBackup(&self, bstrid: &windows_core::BSTR) -> windows_core::Result<super::Variant::VARIANT>;
-    fn SearchBackups(&self, pigpmsearchcriteria: Option<&IGPMSearchCriteria>) -> windows_core::Result<super::Variant::VARIANT>;
+    fn SearchBackups(&self, pigpmsearchcriteria: windows_core::Ref<'_, IGPMSearchCriteria>) -> windows_core::Result<super::Variant::VARIANT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IGPMBackupDirEx_Vtbl {
@@ -1486,7 +1486,7 @@ impl IGPMBackupDirEx_Vtbl {
         }
         unsafe extern "system" fn SearchBackups<Identity: IGPMBackupDirEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pigpmsearchcriteria: *mut core::ffi::c_void, pvarbackupcollection: *mut super::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IGPMBackupDirEx_Impl::SearchBackups(this, windows_core::from_raw_borrowed(&pigpmsearchcriteria)) {
+            match IGPMBackupDirEx_Impl::SearchBackups(this, core::mem::transmute_copy(&pigpmsearchcriteria)) {
                 Ok(ok__) => {
                     pvarbackupcollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3141,12 +3141,12 @@ pub trait IGPMDomain_Impl: super::Com::IDispatch_Impl {
     fn Domain(&self) -> windows_core::Result<windows_core::BSTR>;
     fn CreateGPO(&self) -> windows_core::Result<IGPMGPO>;
     fn GetGPO(&self, bstrguid: &windows_core::BSTR) -> windows_core::Result<IGPMGPO>;
-    fn SearchGPOs(&self, pigpmsearchcriteria: Option<&IGPMSearchCriteria>) -> windows_core::Result<IGPMGPOCollection>;
-    fn RestoreGPO(&self, pigpmbackup: Option<&IGPMBackup>, ldcflags: i32, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT) -> windows_core::Result<IGPMResult>;
+    fn SearchGPOs(&self, pigpmsearchcriteria: windows_core::Ref<'_, IGPMSearchCriteria>) -> windows_core::Result<IGPMGPOCollection>;
+    fn RestoreGPO(&self, pigpmbackup: windows_core::Ref<'_, IGPMBackup>, ldcflags: i32, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT) -> windows_core::Result<IGPMResult>;
     fn GetSOM(&self, bstrpath: &windows_core::BSTR) -> windows_core::Result<IGPMSOM>;
-    fn SearchSOMs(&self, pigpmsearchcriteria: Option<&IGPMSearchCriteria>) -> windows_core::Result<IGPMSOMCollection>;
+    fn SearchSOMs(&self, pigpmsearchcriteria: windows_core::Ref<'_, IGPMSearchCriteria>) -> windows_core::Result<IGPMSOMCollection>;
     fn GetWMIFilter(&self, bstrpath: &windows_core::BSTR) -> windows_core::Result<IGPMWMIFilter>;
-    fn SearchWMIFilters(&self, pigpmsearchcriteria: Option<&IGPMSearchCriteria>) -> windows_core::Result<IGPMWMIFilterCollection>;
+    fn SearchWMIFilters(&self, pigpmsearchcriteria: windows_core::Ref<'_, IGPMSearchCriteria>) -> windows_core::Result<IGPMWMIFilterCollection>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IGPMDomain_Vtbl {
@@ -3193,7 +3193,7 @@ impl IGPMDomain_Vtbl {
         }
         unsafe extern "system" fn SearchGPOs<Identity: IGPMDomain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pigpmsearchcriteria: *mut core::ffi::c_void, ppigpmgpocollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IGPMDomain_Impl::SearchGPOs(this, windows_core::from_raw_borrowed(&pigpmsearchcriteria)) {
+            match IGPMDomain_Impl::SearchGPOs(this, core::mem::transmute_copy(&pigpmsearchcriteria)) {
                 Ok(ok__) => {
                     ppigpmgpocollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3203,7 +3203,7 @@ impl IGPMDomain_Vtbl {
         }
         unsafe extern "system" fn RestoreGPO<Identity: IGPMDomain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pigpmbackup: *mut core::ffi::c_void, ldcflags: i32, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IGPMDomain_Impl::RestoreGPO(this, windows_core::from_raw_borrowed(&pigpmbackup), core::mem::transmute_copy(&ldcflags), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
+            match IGPMDomain_Impl::RestoreGPO(this, core::mem::transmute_copy(&pigpmbackup), core::mem::transmute_copy(&ldcflags), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
                 Ok(ok__) => {
                     ppigpmresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3223,7 +3223,7 @@ impl IGPMDomain_Vtbl {
         }
         unsafe extern "system" fn SearchSOMs<Identity: IGPMDomain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pigpmsearchcriteria: *mut core::ffi::c_void, ppigpmsomcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IGPMDomain_Impl::SearchSOMs(this, windows_core::from_raw_borrowed(&pigpmsearchcriteria)) {
+            match IGPMDomain_Impl::SearchSOMs(this, core::mem::transmute_copy(&pigpmsearchcriteria)) {
                 Ok(ok__) => {
                     ppigpmsomcollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3243,7 +3243,7 @@ impl IGPMDomain_Vtbl {
         }
         unsafe extern "system" fn SearchWMIFilters<Identity: IGPMDomain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pigpmsearchcriteria: *mut core::ffi::c_void, ppigpmwmifiltercollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IGPMDomain_Impl::SearchWMIFilters(this, windows_core::from_raw_borrowed(&pigpmsearchcriteria)) {
+            match IGPMDomain_Impl::SearchWMIFilters(this, core::mem::transmute_copy(&pigpmsearchcriteria)) {
                 Ok(ok__) => {
                     ppigpmwmifiltercollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3340,11 +3340,11 @@ pub struct IGPMDomain2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IGPMDomain2_Impl: IGPMDomain_Impl {
     fn CreateStarterGPO(&self) -> windows_core::Result<IGPMStarterGPO>;
-    fn CreateGPOFromStarterGPO(&self, pgpotemplate: Option<&IGPMStarterGPO>) -> windows_core::Result<IGPMGPO>;
+    fn CreateGPOFromStarterGPO(&self, pgpotemplate: windows_core::Ref<'_, IGPMStarterGPO>) -> windows_core::Result<IGPMGPO>;
     fn GetStarterGPO(&self, bstrguid: &windows_core::BSTR) -> windows_core::Result<IGPMStarterGPO>;
-    fn SearchStarterGPOs(&self, pigpmsearchcriteria: Option<&IGPMSearchCriteria>) -> windows_core::Result<IGPMStarterGPOCollection>;
+    fn SearchStarterGPOs(&self, pigpmsearchcriteria: windows_core::Ref<'_, IGPMSearchCriteria>) -> windows_core::Result<IGPMStarterGPOCollection>;
     fn LoadStarterGPO(&self, bstrloadfile: &windows_core::BSTR, boverwrite: super::super::Foundation::VARIANT_BOOL, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT) -> windows_core::Result<IGPMResult>;
-    fn RestoreStarterGPO(&self, pigpmtmplbackup: Option<&IGPMStarterGPOBackup>, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT) -> windows_core::Result<IGPMResult>;
+    fn RestoreStarterGPO(&self, pigpmtmplbackup: windows_core::Ref<'_, IGPMStarterGPOBackup>, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT) -> windows_core::Result<IGPMResult>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IGPMDomain2_Vtbl {
@@ -3361,7 +3361,7 @@ impl IGPMDomain2_Vtbl {
         }
         unsafe extern "system" fn CreateGPOFromStarterGPO<Identity: IGPMDomain2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pgpotemplate: *mut core::ffi::c_void, ppnewgpo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IGPMDomain2_Impl::CreateGPOFromStarterGPO(this, windows_core::from_raw_borrowed(&pgpotemplate)) {
+            match IGPMDomain2_Impl::CreateGPOFromStarterGPO(this, core::mem::transmute_copy(&pgpotemplate)) {
                 Ok(ok__) => {
                     ppnewgpo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3381,7 +3381,7 @@ impl IGPMDomain2_Vtbl {
         }
         unsafe extern "system" fn SearchStarterGPOs<Identity: IGPMDomain2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pigpmsearchcriteria: *mut core::ffi::c_void, ppigpmtemplatecollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IGPMDomain2_Impl::SearchStarterGPOs(this, windows_core::from_raw_borrowed(&pigpmsearchcriteria)) {
+            match IGPMDomain2_Impl::SearchStarterGPOs(this, core::mem::transmute_copy(&pigpmsearchcriteria)) {
                 Ok(ok__) => {
                     ppigpmtemplatecollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3401,7 +3401,7 @@ impl IGPMDomain2_Vtbl {
         }
         unsafe extern "system" fn RestoreStarterGPO<Identity: IGPMDomain2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pigpmtmplbackup: *mut core::ffi::c_void, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IGPMDomain2_Impl::RestoreStarterGPO(this, windows_core::from_raw_borrowed(&pigpmtmplbackup), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
+            match IGPMDomain2_Impl::RestoreStarterGPO(this, core::mem::transmute_copy(&pigpmtmplbackup), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
                 Ok(ok__) => {
                     ppigpmresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3719,20 +3719,20 @@ pub trait IGPMGPO_Impl: super::Com::IDispatch_Impl {
     fn UserSysvolVersionNumber(&self) -> windows_core::Result<i32>;
     fn ComputerSysvolVersionNumber(&self) -> windows_core::Result<i32>;
     fn GetWMIFilter(&self) -> windows_core::Result<IGPMWMIFilter>;
-    fn SetWMIFilter(&self, pigpmwmifilter: Option<&IGPMWMIFilter>) -> windows_core::Result<()>;
+    fn SetWMIFilter(&self, pigpmwmifilter: windows_core::Ref<'_, IGPMWMIFilter>) -> windows_core::Result<()>;
     fn SetUserEnabled(&self, vbenabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn SetComputerEnabled(&self, vbenabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn IsUserEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn IsComputerEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn GetSecurityInfo(&self) -> windows_core::Result<IGPMSecurityInfo>;
-    fn SetSecurityInfo(&self, psecurityinfo: Option<&IGPMSecurityInfo>) -> windows_core::Result<()>;
+    fn SetSecurityInfo(&self, psecurityinfo: windows_core::Ref<'_, IGPMSecurityInfo>) -> windows_core::Result<()>;
     fn Delete(&self) -> windows_core::Result<()>;
     fn Backup(&self, bstrbackupdir: &windows_core::BSTR, bstrcomment: &windows_core::BSTR, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT) -> windows_core::Result<IGPMResult>;
-    fn Import(&self, lflags: i32, pigpmbackup: Option<&IGPMBackup>, pvarmigrationtable: *const super::Variant::VARIANT, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT) -> windows_core::Result<IGPMResult>;
+    fn Import(&self, lflags: i32, pigpmbackup: windows_core::Ref<'_, IGPMBackup>, pvarmigrationtable: *const super::Variant::VARIANT, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT) -> windows_core::Result<IGPMResult>;
     fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT) -> windows_core::Result<IGPMResult>;
     fn GenerateReportToFile(&self, gpmreporttype: GPMReportType, bstrtargetfilepath: &windows_core::BSTR) -> windows_core::Result<IGPMResult>;
-    fn CopyTo(&self, lflags: i32, pigpmdomain: Option<&IGPMDomain>, pvarnewdisplayname: *const super::Variant::VARIANT, pvarmigrationtable: *const super::Variant::VARIANT, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT) -> windows_core::Result<IGPMResult>;
-    fn SetSecurityDescriptor(&self, lflags: i32, psd: Option<&super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn CopyTo(&self, lflags: i32, pigpmdomain: windows_core::Ref<'_, IGPMDomain>, pvarnewdisplayname: *const super::Variant::VARIANT, pvarmigrationtable: *const super::Variant::VARIANT, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT) -> windows_core::Result<IGPMResult>;
+    fn SetSecurityDescriptor(&self, lflags: i32, psd: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<()>;
     fn GetSecurityDescriptor(&self, lflags: i32) -> windows_core::Result<super::Com::IDispatch>;
     fn IsACLConsistent(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn MakeACLConsistent(&self) -> windows_core::Result<()>;
@@ -3856,7 +3856,7 @@ impl IGPMGPO_Vtbl {
         }
         unsafe extern "system" fn SetWMIFilter<Identity: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pigpmwmifilter: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IGPMGPO_Impl::SetWMIFilter(this, windows_core::from_raw_borrowed(&pigpmwmifilter)).into()
+            IGPMGPO_Impl::SetWMIFilter(this, core::mem::transmute_copy(&pigpmwmifilter)).into()
         }
         unsafe extern "system" fn SetUserEnabled<Identity: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vbenabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3898,7 +3898,7 @@ impl IGPMGPO_Vtbl {
         }
         unsafe extern "system" fn SetSecurityInfo<Identity: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psecurityinfo: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IGPMGPO_Impl::SetSecurityInfo(this, windows_core::from_raw_borrowed(&psecurityinfo)).into()
+            IGPMGPO_Impl::SetSecurityInfo(this, core::mem::transmute_copy(&psecurityinfo)).into()
         }
         unsafe extern "system" fn Delete<Identity: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3916,7 +3916,7 @@ impl IGPMGPO_Vtbl {
         }
         unsafe extern "system" fn Import<Identity: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, pigpmbackup: *mut core::ffi::c_void, pvarmigrationtable: *const super::Variant::VARIANT, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IGPMGPO_Impl::Import(this, core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&pigpmbackup), core::mem::transmute_copy(&pvarmigrationtable), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
+            match IGPMGPO_Impl::Import(this, core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pigpmbackup), core::mem::transmute_copy(&pvarmigrationtable), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
                 Ok(ok__) => {
                     ppigpmresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3946,7 +3946,7 @@ impl IGPMGPO_Vtbl {
         }
         unsafe extern "system" fn CopyTo<Identity: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, pigpmdomain: *mut core::ffi::c_void, pvarnewdisplayname: *const super::Variant::VARIANT, pvarmigrationtable: *const super::Variant::VARIANT, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IGPMGPO_Impl::CopyTo(this, core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&pigpmdomain), core::mem::transmute_copy(&pvarnewdisplayname), core::mem::transmute_copy(&pvarmigrationtable), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
+            match IGPMGPO_Impl::CopyTo(this, core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pigpmdomain), core::mem::transmute_copy(&pvarnewdisplayname), core::mem::transmute_copy(&pvarmigrationtable), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
                 Ok(ok__) => {
                     ppigpmresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3956,7 +3956,7 @@ impl IGPMGPO_Vtbl {
         }
         unsafe extern "system" fn SetSecurityDescriptor<Identity: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, psd: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IGPMGPO_Impl::SetSecurityDescriptor(this, core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&psd)).into()
+            IGPMGPO_Impl::SetSecurityDescriptor(this, core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&psd)).into()
         }
         unsafe extern "system" fn GetSecurityDescriptor<Identity: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, ppsd: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -5709,12 +5709,12 @@ pub trait IGPMSOM_Impl: super::Com::IDispatch_Impl {
     fn SetGPOInheritanceBlocked(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Path(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CreateGPOLink(&self, llinkpos: i32, pgpo: Option<&IGPMGPO>) -> windows_core::Result<IGPMGPOLink>;
+    fn CreateGPOLink(&self, llinkpos: i32, pgpo: windows_core::Ref<'_, IGPMGPO>) -> windows_core::Result<IGPMGPOLink>;
     fn Type(&self) -> windows_core::Result<GPMSOMType>;
     fn GetGPOLinks(&self) -> windows_core::Result<IGPMGPOLinksCollection>;
     fn GetInheritedGPOLinks(&self) -> windows_core::Result<IGPMGPOLinksCollection>;
     fn GetSecurityInfo(&self) -> windows_core::Result<IGPMSecurityInfo>;
-    fn SetSecurityInfo(&self, psecurityinfo: Option<&IGPMSecurityInfo>) -> windows_core::Result<()>;
+    fn SetSecurityInfo(&self, psecurityinfo: windows_core::Ref<'_, IGPMSecurityInfo>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IGPMSOM_Vtbl {
@@ -5755,7 +5755,7 @@ impl IGPMSOM_Vtbl {
         }
         unsafe extern "system" fn CreateGPOLink<Identity: IGPMSOM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, llinkpos: i32, pgpo: *mut core::ffi::c_void, ppnewgpolink: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IGPMSOM_Impl::CreateGPOLink(this, core::mem::transmute_copy(&llinkpos), windows_core::from_raw_borrowed(&pgpo)) {
+            match IGPMSOM_Impl::CreateGPOLink(this, core::mem::transmute_copy(&llinkpos), core::mem::transmute_copy(&pgpo)) {
                 Ok(ok__) => {
                     ppnewgpolink.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5805,7 +5805,7 @@ impl IGPMSOM_Vtbl {
         }
         unsafe extern "system" fn SetSecurityInfo<Identity: IGPMSOM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psecurityinfo: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IGPMSOM_Impl::SetSecurityInfo(this, windows_core::from_raw_borrowed(&psecurityinfo)).into()
+            IGPMSOM_Impl::SetSecurityInfo(this, core::mem::transmute_copy(&psecurityinfo)).into()
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(),
@@ -6032,8 +6032,8 @@ pub trait IGPMSecurityInfo_Impl: super::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn get_Item(&self, lindex: i32) -> windows_core::Result<super::Variant::VARIANT>;
     fn _NewEnum(&self) -> windows_core::Result<super::Ole::IEnumVARIANT>;
-    fn Add(&self, pperm: Option<&IGPMPermission>) -> windows_core::Result<()>;
-    fn Remove(&self, pperm: Option<&IGPMPermission>) -> windows_core::Result<()>;
+    fn Add(&self, pperm: windows_core::Ref<'_, IGPMPermission>) -> windows_core::Result<()>;
+    fn Remove(&self, pperm: windows_core::Ref<'_, IGPMPermission>) -> windows_core::Result<()>;
     fn RemoveTrustee(&self, bstrtrustee: &windows_core::BSTR) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -6071,11 +6071,11 @@ impl IGPMSecurityInfo_Vtbl {
         }
         unsafe extern "system" fn Add<Identity: IGPMSecurityInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pperm: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IGPMSecurityInfo_Impl::Add(this, windows_core::from_raw_borrowed(&pperm)).into()
+            IGPMSecurityInfo_Impl::Add(this, core::mem::transmute_copy(&pperm)).into()
         }
         unsafe extern "system" fn Remove<Identity: IGPMSecurityInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pperm: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IGPMSecurityInfo_Impl::Remove(this, windows_core::from_raw_borrowed(&pperm)).into()
+            IGPMSecurityInfo_Impl::Remove(this, core::mem::transmute_copy(&pperm)).into()
         }
         unsafe extern "system" fn RemoveTrustee<Identity: IGPMSecurityInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrtrustee: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -6150,7 +6150,7 @@ pub trait IGPMSitesContainer_Impl: super::Com::IDispatch_Impl {
     fn Domain(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Forest(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetSite(&self, bstrsitename: &windows_core::BSTR) -> windows_core::Result<IGPMSOM>;
-    fn SearchSites(&self, pigpmsearchcriteria: Option<&IGPMSearchCriteria>) -> windows_core::Result<IGPMSOMCollection>;
+    fn SearchSites(&self, pigpmsearchcriteria: windows_core::Ref<'_, IGPMSearchCriteria>) -> windows_core::Result<IGPMSOMCollection>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IGPMSitesContainer_Vtbl {
@@ -6197,7 +6197,7 @@ impl IGPMSitesContainer_Vtbl {
         }
         unsafe extern "system" fn SearchSites<Identity: IGPMSitesContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pigpmsearchcriteria: *mut core::ffi::c_void, ppigpmsomcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IGPMSitesContainer_Impl::SearchSites(this, windows_core::from_raw_borrowed(&pigpmsearchcriteria)) {
+            match IGPMSitesContainer_Impl::SearchSites(this, core::mem::transmute_copy(&pigpmsearchcriteria)) {
                 Ok(ok__) => {
                     ppigpmsomcollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6381,7 +6381,7 @@ pub trait IGPMStarterGPO_Impl: super::Com::IDispatch_Impl {
     fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *const super::Variant::VARIANT) -> windows_core::Result<IGPMResult>;
     fn GenerateReportToFile(&self, gpmreporttype: GPMReportType, bstrtargetfilepath: &windows_core::BSTR) -> windows_core::Result<IGPMResult>;
     fn GetSecurityInfo(&self) -> windows_core::Result<IGPMSecurityInfo>;
-    fn SetSecurityInfo(&self, psecurityinfo: Option<&IGPMSecurityInfo>) -> windows_core::Result<()>;
+    fn SetSecurityInfo(&self, psecurityinfo: windows_core::Ref<'_, IGPMSecurityInfo>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IGPMStarterGPO_Vtbl {
@@ -6570,7 +6570,7 @@ impl IGPMStarterGPO_Vtbl {
         }
         unsafe extern "system" fn SetSecurityInfo<Identity: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psecurityinfo: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IGPMStarterGPO_Impl::SetSecurityInfo(this, windows_core::from_raw_borrowed(&psecurityinfo)).into()
+            IGPMStarterGPO_Impl::SetSecurityInfo(this, core::mem::transmute_copy(&psecurityinfo)).into()
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(),
@@ -7419,7 +7419,7 @@ pub trait IGPMWMIFilter_Impl: super::Com::IDispatch_Impl {
     fn Description(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetQueryList(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn GetSecurityInfo(&self) -> windows_core::Result<IGPMSecurityInfo>;
-    fn SetSecurityInfo(&self, psecurityinfo: Option<&IGPMSecurityInfo>) -> windows_core::Result<()>;
+    fn SetSecurityInfo(&self, psecurityinfo: windows_core::Ref<'_, IGPMSecurityInfo>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IGPMWMIFilter_Vtbl {
@@ -7484,7 +7484,7 @@ impl IGPMWMIFilter_Vtbl {
         }
         unsafe extern "system" fn SetSecurityInfo<Identity: IGPMWMIFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psecurityinfo: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IGPMWMIFilter_Impl::SetSecurityInfo(this, windows_core::from_raw_borrowed(&psecurityinfo)).into()
+            IGPMWMIFilter_Impl::SetSecurityInfo(this, core::mem::transmute_copy(&psecurityinfo)).into()
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(),

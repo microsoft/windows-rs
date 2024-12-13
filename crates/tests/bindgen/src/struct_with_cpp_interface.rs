@@ -190,7 +190,7 @@ pub trait ID3D12Object_Impl: windows_core::IUnknownImpl {
     fn SetPrivateDataInterface(
         &self,
         guid: *const windows_core::GUID,
-        pdata: Option<&windows_core::IUnknown>,
+        pdata: windows_core::Ref<'_, windows_core::IUnknown>,
     ) -> windows_core::Result<()>;
     fn SetName(&self, name: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
@@ -244,7 +244,7 @@ impl ID3D12Object_Vtbl {
             ID3D12Object_Impl::SetPrivateDataInterface(
                 this,
                 core::mem::transmute_copy(&guid),
-                windows_core::from_raw_borrowed(&pdata),
+                core::mem::transmute_copy(&pdata),
             )
             .into()
         }

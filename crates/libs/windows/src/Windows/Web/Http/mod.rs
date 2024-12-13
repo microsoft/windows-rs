@@ -2228,7 +2228,7 @@ pub trait IHttpContent_Impl: super::super::Foundation::IClosable_Impl {
     fn ReadAsInputStreamAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>>;
     fn ReadAsStringAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<windows_core::HSTRING, u64>>;
     fn TryComputeLength(&self, length: &mut u64) -> windows_core::Result<bool>;
-    fn WriteToStreamAsync(&self, outputStream: Option<&super::super::Storage::Streams::IOutputStream>) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>;
+    fn WriteToStreamAsync(&self, outputStream: windows_core::Ref<'_, super::super::Storage::Streams::IOutputStream>) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "Web_Http_Headers"))]
 impl IHttpContent_Vtbl {
@@ -2300,7 +2300,7 @@ impl IHttpContent_Vtbl {
         }
         unsafe extern "system" fn WriteToStreamAsync<Identity: IHttpContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IHttpContent_Impl::WriteToStreamAsync(this, windows_core::from_raw_borrowed(&outputstream)) {
+            match IHttpContent_Impl::WriteToStreamAsync(this, core::mem::transmute_copy(&outputstream)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);

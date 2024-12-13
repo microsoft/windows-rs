@@ -4571,8 +4571,8 @@ pub trait IADsAccessControlList_Impl: super::super::System::Com::IDispatch_Impl 
     fn SetAclRevision(&self, lnaclrevision: i32) -> windows_core::Result<()>;
     fn AceCount(&self) -> windows_core::Result<i32>;
     fn SetAceCount(&self, lnacecount: i32) -> windows_core::Result<()>;
-    fn AddAce(&self, paccesscontrolentry: Option<&super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
-    fn RemoveAce(&self, paccesscontrolentry: Option<&super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
+    fn AddAce(&self, paccesscontrolentry: windows_core::Ref<'_, super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
+    fn RemoveAce(&self, paccesscontrolentry: windows_core::Ref<'_, super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
     fn CopyAccessList(&self) -> windows_core::Result<super::super::System::Com::IDispatch>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
@@ -4609,11 +4609,11 @@ impl IADsAccessControlList_Vtbl {
         }
         unsafe extern "system" fn AddAce<Identity: IADsAccessControlList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paccesscontrolentry: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IADsAccessControlList_Impl::AddAce(this, windows_core::from_raw_borrowed(&paccesscontrolentry)).into()
+            IADsAccessControlList_Impl::AddAce(this, core::mem::transmute_copy(&paccesscontrolentry)).into()
         }
         unsafe extern "system" fn RemoveAce<Identity: IADsAccessControlList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paccesscontrolentry: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IADsAccessControlList_Impl::RemoveAce(this, windows_core::from_raw_borrowed(&paccesscontrolentry)).into()
+            IADsAccessControlList_Impl::RemoveAce(this, core::mem::transmute_copy(&paccesscontrolentry)).into()
         }
         unsafe extern "system" fn CopyAccessList<Identity: IADsAccessControlList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppaccesscontrollist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -4814,7 +4814,7 @@ pub struct IADsAggregatee_Vtbl {
     pub RestoreInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 pub trait IADsAggregatee_Impl: windows_core::IUnknownImpl {
-    fn ConnectAsAggregatee(&self, pouterunknown: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn ConnectAsAggregatee(&self, pouterunknown: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn DisconnectAsAggregatee(&self) -> windows_core::Result<()>;
     fn RelinquishInterface(&self, riid: *const windows_core::GUID) -> windows_core::Result<()>;
     fn RestoreInterface(&self, riid: *const windows_core::GUID) -> windows_core::Result<()>;
@@ -4823,7 +4823,7 @@ impl IADsAggregatee_Vtbl {
     pub const fn new<Identity: IADsAggregatee_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ConnectAsAggregatee<Identity: IADsAggregatee_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pouterunknown: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IADsAggregatee_Impl::ConnectAsAggregatee(this, windows_core::from_raw_borrowed(&pouterunknown)).into()
+            IADsAggregatee_Impl::ConnectAsAggregatee(this, core::mem::transmute_copy(&pouterunknown)).into()
         }
         unsafe extern "system" fn DisconnectAsAggregatee<Identity: IADsAggregatee_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -4870,14 +4870,14 @@ pub struct IADsAggregator_Vtbl {
     pub DisconnectAsAggregator: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IADsAggregator_Impl: windows_core::IUnknownImpl {
-    fn ConnectAsAggregator(&self, paggregatee: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn ConnectAsAggregator(&self, paggregatee: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn DisconnectAsAggregator(&self) -> windows_core::Result<()>;
 }
 impl IADsAggregator_Vtbl {
     pub const fn new<Identity: IADsAggregator_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ConnectAsAggregator<Identity: IADsAggregator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paggregatee: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IADsAggregator_Impl::ConnectAsAggregator(this, windows_core::from_raw_borrowed(&paggregatee)).into()
+            IADsAggregator_Impl::ConnectAsAggregator(this, core::mem::transmute_copy(&paggregatee)).into()
         }
         unsafe extern "system" fn DisconnectAsAggregator<Identity: IADsAggregator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -10923,9 +10923,9 @@ pub trait IADsPropertyValue_Impl: super::super::System::Com::IDispatch_Impl {
     fn OctetString(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn SetOctetString(&self, voctetstring: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn SecurityDescriptor(&self) -> windows_core::Result<super::super::System::Com::IDispatch>;
-    fn SetSecurityDescriptor(&self, psecuritydescriptor: Option<&super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
+    fn SetSecurityDescriptor(&self, psecuritydescriptor: windows_core::Ref<'_, super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
     fn LargeInteger(&self) -> windows_core::Result<super::super::System::Com::IDispatch>;
-    fn SetLargeInteger(&self, plargeinteger: Option<&super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
+    fn SetLargeInteger(&self, plargeinteger: windows_core::Ref<'_, super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
     fn UTCTime(&self) -> windows_core::Result<f64>;
     fn SetUTCTime(&self, dautctime: f64) -> windows_core::Result<()>;
 }
@@ -11074,7 +11074,7 @@ impl IADsPropertyValue_Vtbl {
         }
         unsafe extern "system" fn SetSecurityDescriptor<Identity: IADsPropertyValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psecuritydescriptor: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IADsPropertyValue_Impl::SetSecurityDescriptor(this, windows_core::from_raw_borrowed(&psecuritydescriptor)).into()
+            IADsPropertyValue_Impl::SetSecurityDescriptor(this, core::mem::transmute_copy(&psecuritydescriptor)).into()
         }
         unsafe extern "system" fn LargeInteger<Identity: IADsPropertyValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -11088,7 +11088,7 @@ impl IADsPropertyValue_Vtbl {
         }
         unsafe extern "system" fn SetLargeInteger<Identity: IADsPropertyValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plargeinteger: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IADsPropertyValue_Impl::SetLargeInteger(this, windows_core::from_raw_borrowed(&plargeinteger)).into()
+            IADsPropertyValue_Impl::SetLargeInteger(this, core::mem::transmute_copy(&plargeinteger)).into()
         }
         unsafe extern "system" fn UTCTime<Identity: IADsPropertyValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -11618,11 +11618,11 @@ pub trait IADsSecurityDescriptor_Impl: super::super::System::Com::IDispatch_Impl
     fn GroupDefaulted(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetGroupDefaulted(&self, fgroupdefaulted: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn DiscretionaryAcl(&self) -> windows_core::Result<super::super::System::Com::IDispatch>;
-    fn SetDiscretionaryAcl(&self, pdiscretionaryacl: Option<&super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
+    fn SetDiscretionaryAcl(&self, pdiscretionaryacl: windows_core::Ref<'_, super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
     fn DaclDefaulted(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetDaclDefaulted(&self, fdacldefaulted: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn SystemAcl(&self) -> windows_core::Result<super::super::System::Com::IDispatch>;
-    fn SetSystemAcl(&self, psystemacl: Option<&super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
+    fn SetSystemAcl(&self, psystemacl: windows_core::Ref<'_, super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
     fn SaclDefaulted(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetSaclDefaulted(&self, fsacldefaulted: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn CopySecurityDescriptor(&self) -> windows_core::Result<super::super::System::Com::IDispatch>;
@@ -11726,7 +11726,7 @@ impl IADsSecurityDescriptor_Vtbl {
         }
         unsafe extern "system" fn SetDiscretionaryAcl<Identity: IADsSecurityDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdiscretionaryacl: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IADsSecurityDescriptor_Impl::SetDiscretionaryAcl(this, windows_core::from_raw_borrowed(&pdiscretionaryacl)).into()
+            IADsSecurityDescriptor_Impl::SetDiscretionaryAcl(this, core::mem::transmute_copy(&pdiscretionaryacl)).into()
         }
         unsafe extern "system" fn DaclDefaulted<Identity: IADsSecurityDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -11754,7 +11754,7 @@ impl IADsSecurityDescriptor_Vtbl {
         }
         unsafe extern "system" fn SetSystemAcl<Identity: IADsSecurityDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psystemacl: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IADsSecurityDescriptor_Impl::SetSystemAcl(this, windows_core::from_raw_borrowed(&psystemacl)).into()
+            IADsSecurityDescriptor_Impl::SetSystemAcl(this, core::mem::transmute_copy(&psystemacl)).into()
         }
         unsafe extern "system" fn SaclDefaulted<Identity: IADsSecurityDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -14308,7 +14308,7 @@ pub struct ICommonQuery_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ICommonQuery_Impl: windows_core::IUnknownImpl {
-    fn OpenQueryWindow(&self, hwndparent: super::super::Foundation::HWND, pquerywnd: *mut OPENQUERYWINDOW, ppdataobject: *mut Option<super::super::System::Com::IDataObject>) -> windows_core::Result<()>;
+    fn OpenQueryWindow(&self, hwndparent: super::super::Foundation::HWND, pquerywnd: *mut OPENQUERYWINDOW, ppdataobject: windows_core::OutRef<'_, super::super::System::Com::IDataObject>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ICommonQuery_Vtbl {
@@ -14715,7 +14715,7 @@ pub struct IDsAdminCreateObj_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDsAdminCreateObj_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, padscontainerobj: Option<&IADsContainer>, padscopysource: Option<&IADs>, lpszclassname: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn Initialize(&self, padscontainerobj: windows_core::Ref<'_, IADsContainer>, padscopysource: windows_core::Ref<'_, IADs>, lpszclassname: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn CreateModal(&self, hwndparent: super::super::Foundation::HWND) -> windows_core::Result<IADs>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -14723,7 +14723,7 @@ impl IDsAdminCreateObj_Vtbl {
     pub const fn new<Identity: IDsAdminCreateObj_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IDsAdminCreateObj_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, padscontainerobj: *mut core::ffi::c_void, padscopysource: *mut core::ffi::c_void, lpszclassname: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDsAdminCreateObj_Impl::Initialize(this, windows_core::from_raw_borrowed(&padscontainerobj), windows_core::from_raw_borrowed(&padscopysource), core::mem::transmute(&lpszclassname)).into()
+            IDsAdminCreateObj_Impl::Initialize(this, core::mem::transmute_copy(&padscontainerobj), core::mem::transmute_copy(&padscopysource), core::mem::transmute(&lpszclassname)).into()
         }
         unsafe extern "system" fn CreateModal<Identity: IDsAdminCreateObj_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::Foundation::HWND, ppadsobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -14843,9 +14843,9 @@ pub struct IDsAdminNewObjExt_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IDsAdminNewObjExt_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, padscontainerobj: Option<&IADsContainer>, padscopysource: Option<&IADs>, lpszclassname: &windows_core::PCWSTR, pdsadminnewobj: Option<&IDsAdminNewObj>, pdispinfo: *mut DSA_NEWOBJ_DISPINFO) -> windows_core::Result<()>;
+    fn Initialize(&self, padscontainerobj: windows_core::Ref<'_, IADsContainer>, padscopysource: windows_core::Ref<'_, IADs>, lpszclassname: &windows_core::PCWSTR, pdsadminnewobj: windows_core::Ref<'_, IDsAdminNewObj>, pdispinfo: *mut DSA_NEWOBJ_DISPINFO) -> windows_core::Result<()>;
     fn AddPages(&self, lpfnaddpage: super::super::UI::Controls::LPFNSVADDPROPSHEETPAGE, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<()>;
-    fn SetObject(&self, padsobj: Option<&IADs>) -> windows_core::Result<()>;
+    fn SetObject(&self, padsobj: windows_core::Ref<'_, IADs>) -> windows_core::Result<()>;
     fn WriteData(&self, hwnd: super::super::Foundation::HWND, ucontext: u32) -> windows_core::Result<()>;
     fn OnError(&self, hwnd: super::super::Foundation::HWND, hr: windows_core::HRESULT, ucontext: u32) -> windows_core::Result<()>;
     fn GetSummaryInfo(&self, pbstrtext: *mut windows_core::BSTR) -> windows_core::Result<()>;
@@ -14855,7 +14855,7 @@ impl IDsAdminNewObjExt_Vtbl {
     pub const fn new<Identity: IDsAdminNewObjExt_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IDsAdminNewObjExt_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, padscontainerobj: *mut core::ffi::c_void, padscopysource: *mut core::ffi::c_void, lpszclassname: windows_core::PCWSTR, pdsadminnewobj: *mut core::ffi::c_void, pdispinfo: *mut DSA_NEWOBJ_DISPINFO) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDsAdminNewObjExt_Impl::Initialize(this, windows_core::from_raw_borrowed(&padscontainerobj), windows_core::from_raw_borrowed(&padscopysource), core::mem::transmute(&lpszclassname), windows_core::from_raw_borrowed(&pdsadminnewobj), core::mem::transmute_copy(&pdispinfo)).into()
+            IDsAdminNewObjExt_Impl::Initialize(this, core::mem::transmute_copy(&padscontainerobj), core::mem::transmute_copy(&padscopysource), core::mem::transmute(&lpszclassname), core::mem::transmute_copy(&pdsadminnewobj), core::mem::transmute_copy(&pdispinfo)).into()
         }
         unsafe extern "system" fn AddPages<Identity: IDsAdminNewObjExt_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpfnaddpage: super::super::UI::Controls::LPFNSVADDPROPSHEETPAGE, lparam: super::super::Foundation::LPARAM) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -14863,7 +14863,7 @@ impl IDsAdminNewObjExt_Vtbl {
         }
         unsafe extern "system" fn SetObject<Identity: IDsAdminNewObjExt_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, padsobj: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDsAdminNewObjExt_Impl::SetObject(this, windows_core::from_raw_borrowed(&padsobj)).into()
+            IDsAdminNewObjExt_Impl::SetObject(this, core::mem::transmute_copy(&padsobj)).into()
         }
         unsafe extern "system" fn WriteData<Identity: IDsAdminNewObjExt_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, ucontext: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -14974,8 +14974,8 @@ pub struct IDsAdminNotifyHandler_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDsAdminNotifyHandler_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, pextrainfo: Option<&super::super::System::Com::IDataObject>, pueventflags: *mut u32) -> windows_core::Result<()>;
-    fn Begin(&self, uevent: u32, parg1: Option<&super::super::System::Com::IDataObject>, parg2: Option<&super::super::System::Com::IDataObject>, puflags: *mut u32, pbstr: *mut windows_core::BSTR) -> windows_core::Result<()>;
+    fn Initialize(&self, pextrainfo: windows_core::Ref<'_, super::super::System::Com::IDataObject>, pueventflags: *mut u32) -> windows_core::Result<()>;
+    fn Begin(&self, uevent: u32, parg1: windows_core::Ref<'_, super::super::System::Com::IDataObject>, parg2: windows_core::Ref<'_, super::super::System::Com::IDataObject>, puflags: *mut u32, pbstr: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn Notify(&self, nitem: u32, uflags: u32) -> windows_core::Result<()>;
     fn End(&self) -> windows_core::Result<()>;
 }
@@ -14984,11 +14984,11 @@ impl IDsAdminNotifyHandler_Vtbl {
     pub const fn new<Identity: IDsAdminNotifyHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IDsAdminNotifyHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pextrainfo: *mut core::ffi::c_void, pueventflags: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDsAdminNotifyHandler_Impl::Initialize(this, windows_core::from_raw_borrowed(&pextrainfo), core::mem::transmute_copy(&pueventflags)).into()
+            IDsAdminNotifyHandler_Impl::Initialize(this, core::mem::transmute_copy(&pextrainfo), core::mem::transmute_copy(&pueventflags)).into()
         }
         unsafe extern "system" fn Begin<Identity: IDsAdminNotifyHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uevent: u32, parg1: *mut core::ffi::c_void, parg2: *mut core::ffi::c_void, puflags: *mut u32, pbstr: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDsAdminNotifyHandler_Impl::Begin(this, core::mem::transmute_copy(&uevent), windows_core::from_raw_borrowed(&parg1), windows_core::from_raw_borrowed(&parg2), core::mem::transmute_copy(&puflags), core::mem::transmute_copy(&pbstr)).into()
+            IDsAdminNotifyHandler_Impl::Begin(this, core::mem::transmute_copy(&uevent), core::mem::transmute_copy(&parg1), core::mem::transmute_copy(&parg2), core::mem::transmute_copy(&puflags), core::mem::transmute_copy(&pbstr)).into()
         }
         unsafe extern "system" fn Notify<Identity: IDsAdminNotifyHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nitem: u32, uflags: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);

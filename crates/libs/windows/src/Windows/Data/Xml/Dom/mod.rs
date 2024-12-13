@@ -1373,7 +1373,7 @@ impl windows_core::RuntimeName for IXmlNode {
 #[cfg(feature = "Foundation_Collections")]
 pub trait IXmlNode_Impl: IXmlNodeSelector_Impl + IXmlNodeSerializer_Impl {
     fn NodeValue(&self) -> windows_core::Result<windows_core::IInspectable>;
-    fn SetNodeValue(&self, value: Option<&windows_core::IInspectable>) -> windows_core::Result<()>;
+    fn SetNodeValue(&self, value: windows_core::Ref<'_, windows_core::IInspectable>) -> windows_core::Result<()>;
     fn NodeType(&self) -> windows_core::Result<NodeType>;
     fn NodeName(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn ParentNode(&self) -> windows_core::Result<IXmlNode>;
@@ -1385,16 +1385,16 @@ pub trait IXmlNode_Impl: IXmlNodeSelector_Impl + IXmlNodeSerializer_Impl {
     fn Attributes(&self) -> windows_core::Result<XmlNamedNodeMap>;
     fn HasChildNodes(&self) -> windows_core::Result<bool>;
     fn OwnerDocument(&self) -> windows_core::Result<XmlDocument>;
-    fn InsertBefore(&self, newChild: Option<&IXmlNode>, referenceChild: Option<&IXmlNode>) -> windows_core::Result<IXmlNode>;
-    fn ReplaceChild(&self, newChild: Option<&IXmlNode>, referenceChild: Option<&IXmlNode>) -> windows_core::Result<IXmlNode>;
-    fn RemoveChild(&self, childNode: Option<&IXmlNode>) -> windows_core::Result<IXmlNode>;
-    fn AppendChild(&self, newChild: Option<&IXmlNode>) -> windows_core::Result<IXmlNode>;
+    fn InsertBefore(&self, newChild: windows_core::Ref<'_, IXmlNode>, referenceChild: windows_core::Ref<'_, IXmlNode>) -> windows_core::Result<IXmlNode>;
+    fn ReplaceChild(&self, newChild: windows_core::Ref<'_, IXmlNode>, referenceChild: windows_core::Ref<'_, IXmlNode>) -> windows_core::Result<IXmlNode>;
+    fn RemoveChild(&self, childNode: windows_core::Ref<'_, IXmlNode>) -> windows_core::Result<IXmlNode>;
+    fn AppendChild(&self, newChild: windows_core::Ref<'_, IXmlNode>) -> windows_core::Result<IXmlNode>;
     fn CloneNode(&self, deep: bool) -> windows_core::Result<IXmlNode>;
     fn NamespaceUri(&self) -> windows_core::Result<windows_core::IInspectable>;
     fn LocalName(&self) -> windows_core::Result<windows_core::IInspectable>;
     fn Prefix(&self) -> windows_core::Result<windows_core::IInspectable>;
     fn Normalize(&self) -> windows_core::Result<()>;
-    fn SetPrefix(&self, value: Option<&windows_core::IInspectable>) -> windows_core::Result<()>;
+    fn SetPrefix(&self, value: windows_core::Ref<'_, windows_core::IInspectable>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl IXmlNode_Vtbl {
@@ -1412,7 +1412,7 @@ impl IXmlNode_Vtbl {
         }
         unsafe extern "system" fn SetNodeValue<Identity: IXmlNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IXmlNode_Impl::SetNodeValue(this, windows_core::from_raw_borrowed(&value)).into()
+            IXmlNode_Impl::SetNodeValue(this, core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn NodeType<Identity: IXmlNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut NodeType) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -1535,7 +1535,7 @@ impl IXmlNode_Vtbl {
         }
         unsafe extern "system" fn InsertBefore<Identity: IXmlNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newchild: *mut core::ffi::c_void, referencechild: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IXmlNode_Impl::InsertBefore(this, windows_core::from_raw_borrowed(&newchild), windows_core::from_raw_borrowed(&referencechild)) {
+            match IXmlNode_Impl::InsertBefore(this, core::mem::transmute_copy(&newchild), core::mem::transmute_copy(&referencechild)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1546,7 +1546,7 @@ impl IXmlNode_Vtbl {
         }
         unsafe extern "system" fn ReplaceChild<Identity: IXmlNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newchild: *mut core::ffi::c_void, referencechild: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IXmlNode_Impl::ReplaceChild(this, windows_core::from_raw_borrowed(&newchild), windows_core::from_raw_borrowed(&referencechild)) {
+            match IXmlNode_Impl::ReplaceChild(this, core::mem::transmute_copy(&newchild), core::mem::transmute_copy(&referencechild)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1557,7 +1557,7 @@ impl IXmlNode_Vtbl {
         }
         unsafe extern "system" fn RemoveChild<Identity: IXmlNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, childnode: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IXmlNode_Impl::RemoveChild(this, windows_core::from_raw_borrowed(&childnode)) {
+            match IXmlNode_Impl::RemoveChild(this, core::mem::transmute_copy(&childnode)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1568,7 +1568,7 @@ impl IXmlNode_Vtbl {
         }
         unsafe extern "system" fn AppendChild<Identity: IXmlNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newchild: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IXmlNode_Impl::AppendChild(this, windows_core::from_raw_borrowed(&newchild)) {
+            match IXmlNode_Impl::AppendChild(this, core::mem::transmute_copy(&newchild)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1627,7 +1627,7 @@ impl IXmlNode_Vtbl {
         }
         unsafe extern "system" fn SetPrefix<Identity: IXmlNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IXmlNode_Impl::SetPrefix(this, windows_core::from_raw_borrowed(&value)).into()
+            IXmlNode_Impl::SetPrefix(this, core::mem::transmute_copy(&value)).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IXmlNode, OFFSET>(),
@@ -1757,8 +1757,8 @@ impl windows_core::RuntimeName for IXmlNodeSelector {
 pub trait IXmlNodeSelector_Impl: windows_core::IUnknownImpl {
     fn SelectSingleNode(&self, xpath: &windows_core::HSTRING) -> windows_core::Result<IXmlNode>;
     fn SelectNodes(&self, xpath: &windows_core::HSTRING) -> windows_core::Result<XmlNodeList>;
-    fn SelectSingleNodeNS(&self, xpath: &windows_core::HSTRING, namespaces: Option<&windows_core::IInspectable>) -> windows_core::Result<IXmlNode>;
-    fn SelectNodesNS(&self, xpath: &windows_core::HSTRING, namespaces: Option<&windows_core::IInspectable>) -> windows_core::Result<XmlNodeList>;
+    fn SelectSingleNodeNS(&self, xpath: &windows_core::HSTRING, namespaces: windows_core::Ref<'_, windows_core::IInspectable>) -> windows_core::Result<IXmlNode>;
+    fn SelectNodesNS(&self, xpath: &windows_core::HSTRING, namespaces: windows_core::Ref<'_, windows_core::IInspectable>) -> windows_core::Result<XmlNodeList>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl IXmlNodeSelector_Vtbl {
@@ -1787,7 +1787,7 @@ impl IXmlNodeSelector_Vtbl {
         }
         unsafe extern "system" fn SelectSingleNodeNS<Identity: IXmlNodeSelector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xpath: *mut core::ffi::c_void, namespaces: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IXmlNodeSelector_Impl::SelectSingleNodeNS(this, core::mem::transmute(&xpath), windows_core::from_raw_borrowed(&namespaces)) {
+            match IXmlNodeSelector_Impl::SelectSingleNodeNS(this, core::mem::transmute(&xpath), core::mem::transmute_copy(&namespaces)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1798,7 +1798,7 @@ impl IXmlNodeSelector_Vtbl {
         }
         unsafe extern "system" fn SelectNodesNS<Identity: IXmlNodeSelector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xpath: *mut core::ffi::c_void, namespaces: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IXmlNodeSelector_Impl::SelectNodesNS(this, core::mem::transmute(&xpath), windows_core::from_raw_borrowed(&namespaces)) {
+            match IXmlNodeSelector_Impl::SelectNodesNS(this, core::mem::transmute(&xpath), core::mem::transmute_copy(&namespaces)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);

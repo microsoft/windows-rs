@@ -39,7 +39,7 @@ impl bindings::IClass_Impl for Class_Impl {
 
     fn Event(
         &self,
-        handler: Option<&windows::Foundation::TypedEventHandler<bindings::Class, i32>>,
+        handler: Ref<windows::Foundation::TypedEventHandler<bindings::Class, i32>>,
     ) -> windows_core::Result<i64> {
         self.0.add(handler.unwrap())
     }

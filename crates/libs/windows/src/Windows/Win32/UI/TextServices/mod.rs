@@ -409,23 +409,23 @@ pub struct IAccServerDocMgr_Vtbl {
     pub OnDocumentFocus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IAccServerDocMgr_Impl: windows_core::IUnknownImpl {
-    fn NewDocument(&self, riid: *const windows_core::GUID, punk: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn RevokeDocument(&self, punk: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn OnDocumentFocus(&self, punk: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn NewDocument(&self, riid: *const windows_core::GUID, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn RevokeDocument(&self, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn OnDocumentFocus(&self, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl IAccServerDocMgr_Vtbl {
     pub const fn new<Identity: IAccServerDocMgr_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn NewDocument<Identity: IAccServerDocMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, punk: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IAccServerDocMgr_Impl::NewDocument(this, core::mem::transmute_copy(&riid), windows_core::from_raw_borrowed(&punk)).into()
+            IAccServerDocMgr_Impl::NewDocument(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&punk)).into()
         }
         unsafe extern "system" fn RevokeDocument<Identity: IAccServerDocMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punk: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IAccServerDocMgr_Impl::RevokeDocument(this, windows_core::from_raw_borrowed(&punk)).into()
+            IAccServerDocMgr_Impl::RevokeDocument(this, core::mem::transmute_copy(&punk)).into()
         }
         unsafe extern "system" fn OnDocumentFocus<Identity: IAccServerDocMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punk: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IAccServerDocMgr_Impl::OnDocumentFocus(this, windows_core::from_raw_borrowed(&punk)).into()
+            IAccServerDocMgr_Impl::OnDocumentFocus(this, core::mem::transmute_copy(&punk)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -494,12 +494,12 @@ pub struct IAccStore_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAccStore_Impl: windows_core::IUnknownImpl {
-    fn Register(&self, riid: *const windows_core::GUID, punk: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn Unregister(&self, punk: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Register(&self, riid: *const windows_core::GUID, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Unregister(&self, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetDocuments(&self) -> windows_core::Result<super::super::System::Com::IEnumUnknown>;
     fn LookupByHWND(&self, hwnd: super::super::Foundation::HWND, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>;
     fn LookupByPoint(&self, pt: &super::super::Foundation::POINT, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>;
-    fn OnDocumentFocus(&self, punk: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn OnDocumentFocus(&self, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetFocused(&self, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -507,11 +507,11 @@ impl IAccStore_Vtbl {
     pub const fn new<Identity: IAccStore_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Register<Identity: IAccStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, punk: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IAccStore_Impl::Register(this, core::mem::transmute_copy(&riid), windows_core::from_raw_borrowed(&punk)).into()
+            IAccStore_Impl::Register(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&punk)).into()
         }
         unsafe extern "system" fn Unregister<Identity: IAccStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punk: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IAccStore_Impl::Unregister(this, windows_core::from_raw_borrowed(&punk)).into()
+            IAccStore_Impl::Unregister(this, core::mem::transmute_copy(&punk)).into()
         }
         unsafe extern "system" fn GetDocuments<Identity: IAccStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enumunknown: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -545,7 +545,7 @@ impl IAccStore_Vtbl {
         }
         unsafe extern "system" fn OnDocumentFocus<Identity: IAccStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punk: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IAccStore_Impl::OnDocumentFocus(this, windows_core::from_raw_borrowed(&punk)).into()
+            IAccStore_Impl::OnDocumentFocus(this, core::mem::transmute_copy(&punk)).into()
         }
         unsafe extern "system" fn GetFocused<Identity: IAccStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -647,10 +647,10 @@ pub struct IAnchor_Vtbl {
 pub trait IAnchor_Impl: windows_core::IUnknownImpl {
     fn SetGravity(&self, gravity: TsGravity) -> windows_core::Result<()>;
     fn GetGravity(&self) -> windows_core::Result<TsGravity>;
-    fn IsEqual(&self, pawith: Option<&IAnchor>) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn Compare(&self, pawith: Option<&IAnchor>) -> windows_core::Result<i32>;
-    fn Shift(&self, dwflags: u32, cchreq: i32, pcch: *mut i32, pahaltanchor: Option<&IAnchor>) -> windows_core::Result<()>;
-    fn ShiftTo(&self, pasite: Option<&IAnchor>) -> windows_core::Result<()>;
+    fn IsEqual(&self, pawith: windows_core::Ref<'_, IAnchor>) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn Compare(&self, pawith: windows_core::Ref<'_, IAnchor>) -> windows_core::Result<i32>;
+    fn Shift(&self, dwflags: u32, cchreq: i32, pcch: *mut i32, pahaltanchor: windows_core::Ref<'_, IAnchor>) -> windows_core::Result<()>;
+    fn ShiftTo(&self, pasite: windows_core::Ref<'_, IAnchor>) -> windows_core::Result<()>;
     fn ShiftRegion(&self, dwflags: u32, dir: TsShiftDir) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn SetChangeHistoryMask(&self, dwmask: u32) -> windows_core::Result<()>;
     fn GetChangeHistory(&self) -> windows_core::Result<ANCHOR_CHANGE_HISTORY_FLAGS>;
@@ -675,7 +675,7 @@ impl IAnchor_Vtbl {
         }
         unsafe extern "system" fn IsEqual<Identity: IAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pawith: *mut core::ffi::c_void, pfequal: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IAnchor_Impl::IsEqual(this, windows_core::from_raw_borrowed(&pawith)) {
+            match IAnchor_Impl::IsEqual(this, core::mem::transmute_copy(&pawith)) {
                 Ok(ok__) => {
                     pfequal.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -685,7 +685,7 @@ impl IAnchor_Vtbl {
         }
         unsafe extern "system" fn Compare<Identity: IAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pawith: *mut core::ffi::c_void, plresult: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IAnchor_Impl::Compare(this, windows_core::from_raw_borrowed(&pawith)) {
+            match IAnchor_Impl::Compare(this, core::mem::transmute_copy(&pawith)) {
                 Ok(ok__) => {
                     plresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -695,11 +695,11 @@ impl IAnchor_Vtbl {
         }
         unsafe extern "system" fn Shift<Identity: IAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32, cchreq: i32, pcch: *mut i32, pahaltanchor: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IAnchor_Impl::Shift(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&cchreq), core::mem::transmute_copy(&pcch), windows_core::from_raw_borrowed(&pahaltanchor)).into()
+            IAnchor_Impl::Shift(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&cchreq), core::mem::transmute_copy(&pcch), core::mem::transmute_copy(&pahaltanchor)).into()
         }
         unsafe extern "system" fn ShiftTo<Identity: IAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pasite: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IAnchor_Impl::ShiftTo(this, windows_core::from_raw_borrowed(&pasite)).into()
+            IAnchor_Impl::ShiftTo(this, core::mem::transmute_copy(&pasite)).into()
         }
         unsafe extern "system" fn ShiftRegion<Identity: IAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32, dir: TsShiftDir, pfnoregion: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -812,14 +812,14 @@ pub struct ICoCreateLocally_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICoCreateLocally_Impl: windows_core::IUnknownImpl {
-    fn CoCreateLocally(&self, rclsid: *const windows_core::GUID, dwclscontext: u32, riid: *const windows_core::GUID, punk: *mut Option<windows_core::IUnknown>, riidparam: *const windows_core::GUID, punkparam: Option<&windows_core::IUnknown>, varparam: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
+    fn CoCreateLocally(&self, rclsid: *const windows_core::GUID, dwclscontext: u32, riid: *const windows_core::GUID, punk: windows_core::OutRef<'_, windows_core::IUnknown>, riidparam: *const windows_core::GUID, punkparam: windows_core::Ref<'_, windows_core::IUnknown>, varparam: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICoCreateLocally_Vtbl {
     pub const fn new<Identity: ICoCreateLocally_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CoCreateLocally<Identity: ICoCreateLocally_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rclsid: *const windows_core::GUID, dwclscontext: u32, riid: *const windows_core::GUID, punk: *mut *mut core::ffi::c_void, riidparam: *const windows_core::GUID, punkparam: *mut core::ffi::c_void, varparam: super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICoCreateLocally_Impl::CoCreateLocally(this, core::mem::transmute_copy(&rclsid), core::mem::transmute_copy(&dwclscontext), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&punk), core::mem::transmute_copy(&riidparam), windows_core::from_raw_borrowed(&punkparam), core::mem::transmute(&varparam)).into()
+            ICoCreateLocally_Impl::CoCreateLocally(this, core::mem::transmute_copy(&rclsid), core::mem::transmute_copy(&dwclscontext), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&punk), core::mem::transmute_copy(&riidparam), core::mem::transmute_copy(&punkparam), core::mem::transmute(&varparam)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CoCreateLocally: CoCreateLocally::<Identity, OFFSET> }
     }
@@ -851,14 +851,14 @@ pub struct ICoCreatedLocally_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICoCreatedLocally_Impl: windows_core::IUnknownImpl {
-    fn LocalInit(&self, punklocalobject: Option<&windows_core::IUnknown>, riidparam: *const windows_core::GUID, punkparam: Option<&windows_core::IUnknown>, varparam: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
+    fn LocalInit(&self, punklocalobject: windows_core::Ref<'_, windows_core::IUnknown>, riidparam: *const windows_core::GUID, punkparam: windows_core::Ref<'_, windows_core::IUnknown>, varparam: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICoCreatedLocally_Vtbl {
     pub const fn new<Identity: ICoCreatedLocally_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn LocalInit<Identity: ICoCreatedLocally_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punklocalobject: *mut core::ffi::c_void, riidparam: *const windows_core::GUID, punkparam: *mut core::ffi::c_void, varparam: super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICoCreatedLocally_Impl::LocalInit(this, windows_core::from_raw_borrowed(&punklocalobject), core::mem::transmute_copy(&riidparam), windows_core::from_raw_borrowed(&punkparam), core::mem::transmute(&varparam)).into()
+            ICoCreatedLocally_Impl::LocalInit(this, core::mem::transmute_copy(&punklocalobject), core::mem::transmute_copy(&riidparam), core::mem::transmute_copy(&punkparam), core::mem::transmute(&varparam)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), LocalInit: LocalInit::<Identity, OFFSET> }
     }
@@ -889,14 +889,14 @@ pub struct IDocWrap_Vtbl {
     pub GetWrappedDoc: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDocWrap_Impl: windows_core::IUnknownImpl {
-    fn SetDoc(&self, riid: *const windows_core::GUID, punk: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetDoc(&self, riid: *const windows_core::GUID, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetWrappedDoc(&self, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>;
 }
 impl IDocWrap_Vtbl {
     pub const fn new<Identity: IDocWrap_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetDoc<Identity: IDocWrap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, punk: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDocWrap_Impl::SetDoc(this, core::mem::transmute_copy(&riid), windows_core::from_raw_borrowed(&punk)).into()
+            IDocWrap_Impl::SetDoc(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&punk)).into()
         }
         unsafe extern "system" fn GetWrappedDoc<Identity: IDocWrap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -946,7 +946,7 @@ pub struct IEnumITfCompositionView_Vtbl {
 }
 pub trait IEnumITfCompositionView_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumITfCompositionView>;
-    fn Next(&self, ulcount: u32, rgcompositionview: *mut Option<ITfCompositionView>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, ulcount: u32, rgcompositionview: windows_core::OutRef<'_, ITfCompositionView>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
@@ -1082,7 +1082,7 @@ pub struct IEnumTfCandidates_Vtbl {
 }
 pub trait IEnumTfCandidates_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumTfCandidates>;
-    fn Next(&self, ulcount: u32, ppcand: *mut Option<ITfCandidateString>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, ulcount: u32, ppcand: windows_core::OutRef<'_, ITfCandidateString>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
@@ -1150,7 +1150,7 @@ pub struct IEnumTfContextViews_Vtbl {
 }
 pub trait IEnumTfContextViews_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumTfContextViews>;
-    fn Next(&self, ulcount: u32, rgviews: *mut Option<ITfContextView>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, ulcount: u32, rgviews: windows_core::OutRef<'_, ITfContextView>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
@@ -1218,7 +1218,7 @@ pub struct IEnumTfContexts_Vtbl {
 }
 pub trait IEnumTfContexts_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumTfContexts>;
-    fn Next(&self, ulcount: u32, rgcontext: *mut Option<ITfContext>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, ulcount: u32, rgcontext: windows_core::OutRef<'_, ITfContext>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
@@ -1286,7 +1286,7 @@ pub struct IEnumTfDisplayAttributeInfo_Vtbl {
 }
 pub trait IEnumTfDisplayAttributeInfo_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumTfDisplayAttributeInfo>;
-    fn Next(&self, ulcount: u32, rginfo: *mut Option<ITfDisplayAttributeInfo>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, ulcount: u32, rginfo: windows_core::OutRef<'_, ITfDisplayAttributeInfo>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
@@ -1354,7 +1354,7 @@ pub struct IEnumTfDocumentMgrs_Vtbl {
 }
 pub trait IEnumTfDocumentMgrs_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumTfDocumentMgrs>;
-    fn Next(&self, ulcount: u32, rgdocumentmgr: *mut Option<ITfDocumentMgr>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, ulcount: u32, rgdocumentmgr: windows_core::OutRef<'_, ITfDocumentMgr>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
@@ -1422,7 +1422,7 @@ pub struct IEnumTfFunctionProviders_Vtbl {
 }
 pub trait IEnumTfFunctionProviders_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumTfFunctionProviders>;
-    fn Next(&self, ulcount: u32, ppcmdobj: *mut Option<ITfFunctionProvider>, pcfetch: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, ulcount: u32, ppcmdobj: windows_core::OutRef<'_, ITfFunctionProvider>, pcfetch: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
@@ -1565,7 +1565,7 @@ pub struct IEnumTfLangBarItems_Vtbl {
 }
 pub trait IEnumTfLangBarItems_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumTfLangBarItems>;
-    fn Next(&self, ulcount: u32, ppitem: *mut Option<ITfLangBarItem>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, ulcount: u32, ppitem: windows_core::OutRef<'_, ITfLangBarItem>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
@@ -1769,7 +1769,7 @@ pub struct IEnumTfProperties_Vtbl {
 }
 pub trait IEnumTfProperties_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumTfProperties>;
-    fn Next(&self, ulcount: u32, ppprop: *mut Option<ITfProperty>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, ulcount: u32, ppprop: windows_core::OutRef<'_, ITfProperty>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
@@ -1912,7 +1912,7 @@ pub struct IEnumTfRanges_Vtbl {
 }
 pub trait IEnumTfRanges_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumTfRanges>;
-    fn Next(&self, ulcount: u32, pprange: *mut Option<ITfRange>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, ulcount: u32, pprange: windows_core::OutRef<'_, ITfRange>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
@@ -1980,7 +1980,7 @@ pub struct IEnumTfUIElements_Vtbl {
 }
 pub trait IEnumTfUIElements_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumTfUIElements>;
-    fn Next(&self, ulcount: u32, ppelement: *mut Option<ITfUIElement>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, ulcount: u32, ppelement: windows_core::OutRef<'_, ITfUIElement>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
@@ -2334,8 +2334,8 @@ pub struct ITextStoreACP_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITextStoreACP_Impl: windows_core::IUnknownImpl {
-    fn AdviseSink(&self, riid: *const windows_core::GUID, punk: Option<&windows_core::IUnknown>, dwmask: u32) -> windows_core::Result<()>;
-    fn UnadviseSink(&self, punk: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn AdviseSink(&self, riid: *const windows_core::GUID, punk: windows_core::Ref<'_, windows_core::IUnknown>, dwmask: u32) -> windows_core::Result<()>;
+    fn UnadviseSink(&self, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn RequestLock(&self, dwlockflags: u32) -> windows_core::Result<windows_core::HRESULT>;
     fn GetStatus(&self) -> windows_core::Result<TS_STATUS>;
     fn QueryInsert(&self, acpteststart: i32, acptestend: i32, cch: u32, pacpresultstart: *mut i32, pacpresultend: *mut i32) -> windows_core::Result<()>;
@@ -2346,9 +2346,9 @@ pub trait ITextStoreACP_Impl: windows_core::IUnknownImpl {
     fn GetFormattedText(&self, acpstart: i32, acpend: i32) -> windows_core::Result<super::super::System::Com::IDataObject>;
     fn GetEmbedded(&self, acppos: i32, rguidservice: *const windows_core::GUID, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>;
     fn QueryInsertEmbedded(&self, pguidservice: *const windows_core::GUID, pformatetc: *const super::super::System::Com::FORMATETC) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn InsertEmbedded(&self, dwflags: u32, acpstart: i32, acpend: i32, pdataobject: Option<&super::super::System::Com::IDataObject>) -> windows_core::Result<TS_TEXTCHANGE>;
+    fn InsertEmbedded(&self, dwflags: u32, acpstart: i32, acpend: i32, pdataobject: windows_core::Ref<'_, super::super::System::Com::IDataObject>) -> windows_core::Result<TS_TEXTCHANGE>;
     fn InsertTextAtSelection(&self, dwflags: u32, pchtext: &windows_core::PCWSTR, cch: u32, pacpstart: *mut i32, pacpend: *mut i32, pchange: *mut TS_TEXTCHANGE) -> windows_core::Result<()>;
-    fn InsertEmbeddedAtSelection(&self, dwflags: u32, pdataobject: Option<&super::super::System::Com::IDataObject>, pacpstart: *mut i32, pacpend: *mut i32, pchange: *mut TS_TEXTCHANGE) -> windows_core::Result<()>;
+    fn InsertEmbeddedAtSelection(&self, dwflags: u32, pdataobject: windows_core::Ref<'_, super::super::System::Com::IDataObject>, pacpstart: *mut i32, pacpend: *mut i32, pchange: *mut TS_TEXTCHANGE) -> windows_core::Result<()>;
     fn RequestSupportedAttrs(&self, dwflags: u32, cfilterattrs: u32, pafilterattrs: *const windows_core::GUID) -> windows_core::Result<()>;
     fn RequestAttrsAtPosition(&self, acppos: i32, cfilterattrs: u32, pafilterattrs: *const windows_core::GUID, dwflags: u32) -> windows_core::Result<()>;
     fn RequestAttrsTransitioningAtPosition(&self, acppos: i32, cfilterattrs: u32, pafilterattrs: *const windows_core::GUID, dwflags: u32) -> windows_core::Result<()>;
@@ -2366,11 +2366,11 @@ impl ITextStoreACP_Vtbl {
     pub const fn new<Identity: ITextStoreACP_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AdviseSink<Identity: ITextStoreACP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, punk: *mut core::ffi::c_void, dwmask: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITextStoreACP_Impl::AdviseSink(this, core::mem::transmute_copy(&riid), windows_core::from_raw_borrowed(&punk), core::mem::transmute_copy(&dwmask)).into()
+            ITextStoreACP_Impl::AdviseSink(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&punk), core::mem::transmute_copy(&dwmask)).into()
         }
         unsafe extern "system" fn UnadviseSink<Identity: ITextStoreACP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punk: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITextStoreACP_Impl::UnadviseSink(this, windows_core::from_raw_borrowed(&punk)).into()
+            ITextStoreACP_Impl::UnadviseSink(this, core::mem::transmute_copy(&punk)).into()
         }
         unsafe extern "system" fn RequestLock<Identity: ITextStoreACP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwlockflags: u32, phrsession: *mut windows_core::HRESULT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -2450,7 +2450,7 @@ impl ITextStoreACP_Vtbl {
         }
         unsafe extern "system" fn InsertEmbedded<Identity: ITextStoreACP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32, acpstart: i32, acpend: i32, pdataobject: *mut core::ffi::c_void, pchange: *mut TS_TEXTCHANGE) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITextStoreACP_Impl::InsertEmbedded(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&acpstart), core::mem::transmute_copy(&acpend), windows_core::from_raw_borrowed(&pdataobject)) {
+            match ITextStoreACP_Impl::InsertEmbedded(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&acpstart), core::mem::transmute_copy(&acpend), core::mem::transmute_copy(&pdataobject)) {
                 Ok(ok__) => {
                     pchange.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2464,7 +2464,7 @@ impl ITextStoreACP_Vtbl {
         }
         unsafe extern "system" fn InsertEmbeddedAtSelection<Identity: ITextStoreACP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32, pdataobject: *mut core::ffi::c_void, pacpstart: *mut i32, pacpend: *mut i32, pchange: *mut TS_TEXTCHANGE) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITextStoreACP_Impl::InsertEmbeddedAtSelection(this, core::mem::transmute_copy(&dwflags), windows_core::from_raw_borrowed(&pdataobject), core::mem::transmute_copy(&pacpstart), core::mem::transmute_copy(&pacpend), core::mem::transmute_copy(&pchange)).into()
+            ITextStoreACP_Impl::InsertEmbeddedAtSelection(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pdataobject), core::mem::transmute_copy(&pacpstart), core::mem::transmute_copy(&pacpend), core::mem::transmute_copy(&pchange)).into()
         }
         unsafe extern "system" fn RequestSupportedAttrs<Identity: ITextStoreACP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32, cfilterattrs: u32, pafilterattrs: *const windows_core::GUID) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -2729,8 +2729,8 @@ pub struct ITextStoreACP2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITextStoreACP2_Impl: windows_core::IUnknownImpl {
-    fn AdviseSink(&self, riid: *const windows_core::GUID, punk: Option<&windows_core::IUnknown>, dwmask: u32) -> windows_core::Result<()>;
-    fn UnadviseSink(&self, punk: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn AdviseSink(&self, riid: *const windows_core::GUID, punk: windows_core::Ref<'_, windows_core::IUnknown>, dwmask: u32) -> windows_core::Result<()>;
+    fn UnadviseSink(&self, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn RequestLock(&self, dwlockflags: u32) -> windows_core::Result<windows_core::HRESULT>;
     fn GetStatus(&self) -> windows_core::Result<TS_STATUS>;
     fn QueryInsert(&self, acpteststart: i32, acptestend: i32, cch: u32, pacpresultstart: *mut i32, pacpresultend: *mut i32) -> windows_core::Result<()>;
@@ -2741,9 +2741,9 @@ pub trait ITextStoreACP2_Impl: windows_core::IUnknownImpl {
     fn GetFormattedText(&self, acpstart: i32, acpend: i32) -> windows_core::Result<super::super::System::Com::IDataObject>;
     fn GetEmbedded(&self, acppos: i32, rguidservice: *const windows_core::GUID, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>;
     fn QueryInsertEmbedded(&self, pguidservice: *const windows_core::GUID, pformatetc: *const super::super::System::Com::FORMATETC) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn InsertEmbedded(&self, dwflags: u32, acpstart: i32, acpend: i32, pdataobject: Option<&super::super::System::Com::IDataObject>) -> windows_core::Result<TS_TEXTCHANGE>;
+    fn InsertEmbedded(&self, dwflags: u32, acpstart: i32, acpend: i32, pdataobject: windows_core::Ref<'_, super::super::System::Com::IDataObject>) -> windows_core::Result<TS_TEXTCHANGE>;
     fn InsertTextAtSelection(&self, dwflags: u32, pchtext: &windows_core::PCWSTR, cch: u32, pacpstart: *mut i32, pacpend: *mut i32, pchange: *mut TS_TEXTCHANGE) -> windows_core::Result<()>;
-    fn InsertEmbeddedAtSelection(&self, dwflags: u32, pdataobject: Option<&super::super::System::Com::IDataObject>, pacpstart: *mut i32, pacpend: *mut i32, pchange: *mut TS_TEXTCHANGE) -> windows_core::Result<()>;
+    fn InsertEmbeddedAtSelection(&self, dwflags: u32, pdataobject: windows_core::Ref<'_, super::super::System::Com::IDataObject>, pacpstart: *mut i32, pacpend: *mut i32, pchange: *mut TS_TEXTCHANGE) -> windows_core::Result<()>;
     fn RequestSupportedAttrs(&self, dwflags: u32, cfilterattrs: u32, pafilterattrs: *const windows_core::GUID) -> windows_core::Result<()>;
     fn RequestAttrsAtPosition(&self, acppos: i32, cfilterattrs: u32, pafilterattrs: *const windows_core::GUID, dwflags: u32) -> windows_core::Result<()>;
     fn RequestAttrsTransitioningAtPosition(&self, acppos: i32, cfilterattrs: u32, pafilterattrs: *const windows_core::GUID, dwflags: u32) -> windows_core::Result<()>;
@@ -2760,11 +2760,11 @@ impl ITextStoreACP2_Vtbl {
     pub const fn new<Identity: ITextStoreACP2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AdviseSink<Identity: ITextStoreACP2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, punk: *mut core::ffi::c_void, dwmask: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITextStoreACP2_Impl::AdviseSink(this, core::mem::transmute_copy(&riid), windows_core::from_raw_borrowed(&punk), core::mem::transmute_copy(&dwmask)).into()
+            ITextStoreACP2_Impl::AdviseSink(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&punk), core::mem::transmute_copy(&dwmask)).into()
         }
         unsafe extern "system" fn UnadviseSink<Identity: ITextStoreACP2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punk: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITextStoreACP2_Impl::UnadviseSink(this, windows_core::from_raw_borrowed(&punk)).into()
+            ITextStoreACP2_Impl::UnadviseSink(this, core::mem::transmute_copy(&punk)).into()
         }
         unsafe extern "system" fn RequestLock<Identity: ITextStoreACP2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwlockflags: u32, phrsession: *mut windows_core::HRESULT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -2844,7 +2844,7 @@ impl ITextStoreACP2_Vtbl {
         }
         unsafe extern "system" fn InsertEmbedded<Identity: ITextStoreACP2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32, acpstart: i32, acpend: i32, pdataobject: *mut core::ffi::c_void, pchange: *mut TS_TEXTCHANGE) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITextStoreACP2_Impl::InsertEmbedded(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&acpstart), core::mem::transmute_copy(&acpend), windows_core::from_raw_borrowed(&pdataobject)) {
+            match ITextStoreACP2_Impl::InsertEmbedded(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&acpstart), core::mem::transmute_copy(&acpend), core::mem::transmute_copy(&pdataobject)) {
                 Ok(ok__) => {
                     pchange.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2858,7 +2858,7 @@ impl ITextStoreACP2_Vtbl {
         }
         unsafe extern "system" fn InsertEmbeddedAtSelection<Identity: ITextStoreACP2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32, pdataobject: *mut core::ffi::c_void, pacpstart: *mut i32, pacpend: *mut i32, pchange: *mut TS_TEXTCHANGE) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITextStoreACP2_Impl::InsertEmbeddedAtSelection(this, core::mem::transmute_copy(&dwflags), windows_core::from_raw_borrowed(&pdataobject), core::mem::transmute_copy(&pacpstart), core::mem::transmute_copy(&pacpend), core::mem::transmute_copy(&pchange)).into()
+            ITextStoreACP2_Impl::InsertEmbeddedAtSelection(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pdataobject), core::mem::transmute_copy(&pacpstart), core::mem::transmute_copy(&pacpend), core::mem::transmute_copy(&pchange)).into()
         }
         unsafe extern "system" fn RequestSupportedAttrs<Identity: ITextStoreACP2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32, cfilterattrs: u32, pafilterattrs: *const windows_core::GUID) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3035,9 +3035,9 @@ pub struct ITextStoreACPServices_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITextStoreACPServices_Impl: windows_core::IUnknownImpl {
-    fn Serialize(&self, pprop: Option<&ITfProperty>, prange: Option<&ITfRange>, phdr: *mut TF_PERSISTENT_PROPERTY_HEADER_ACP, pstream: Option<&super::super::System::Com::IStream>) -> windows_core::Result<()>;
-    fn Unserialize(&self, pprop: Option<&ITfProperty>, phdr: *const TF_PERSISTENT_PROPERTY_HEADER_ACP, pstream: Option<&super::super::System::Com::IStream>, ploader: Option<&ITfPersistentPropertyLoaderACP>) -> windows_core::Result<()>;
-    fn ForceLoadProperty(&self, pprop: Option<&ITfProperty>) -> windows_core::Result<()>;
+    fn Serialize(&self, pprop: windows_core::Ref<'_, ITfProperty>, prange: windows_core::Ref<'_, ITfRange>, phdr: *mut TF_PERSISTENT_PROPERTY_HEADER_ACP, pstream: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn Unserialize(&self, pprop: windows_core::Ref<'_, ITfProperty>, phdr: *const TF_PERSISTENT_PROPERTY_HEADER_ACP, pstream: windows_core::Ref<'_, super::super::System::Com::IStream>, ploader: windows_core::Ref<'_, ITfPersistentPropertyLoaderACP>) -> windows_core::Result<()>;
+    fn ForceLoadProperty(&self, pprop: windows_core::Ref<'_, ITfProperty>) -> windows_core::Result<()>;
     fn CreateRange(&self, acpstart: i32, acpend: i32) -> windows_core::Result<ITfRangeACP>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3045,15 +3045,15 @@ impl ITextStoreACPServices_Vtbl {
     pub const fn new<Identity: ITextStoreACPServices_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Serialize<Identity: ITextStoreACPServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprop: *mut core::ffi::c_void, prange: *mut core::ffi::c_void, phdr: *mut TF_PERSISTENT_PROPERTY_HEADER_ACP, pstream: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITextStoreACPServices_Impl::Serialize(this, windows_core::from_raw_borrowed(&pprop), windows_core::from_raw_borrowed(&prange), core::mem::transmute_copy(&phdr), windows_core::from_raw_borrowed(&pstream)).into()
+            ITextStoreACPServices_Impl::Serialize(this, core::mem::transmute_copy(&pprop), core::mem::transmute_copy(&prange), core::mem::transmute_copy(&phdr), core::mem::transmute_copy(&pstream)).into()
         }
         unsafe extern "system" fn Unserialize<Identity: ITextStoreACPServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprop: *mut core::ffi::c_void, phdr: *const TF_PERSISTENT_PROPERTY_HEADER_ACP, pstream: *mut core::ffi::c_void, ploader: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITextStoreACPServices_Impl::Unserialize(this, windows_core::from_raw_borrowed(&pprop), core::mem::transmute_copy(&phdr), windows_core::from_raw_borrowed(&pstream), windows_core::from_raw_borrowed(&ploader)).into()
+            ITextStoreACPServices_Impl::Unserialize(this, core::mem::transmute_copy(&pprop), core::mem::transmute_copy(&phdr), core::mem::transmute_copy(&pstream), core::mem::transmute_copy(&ploader)).into()
         }
         unsafe extern "system" fn ForceLoadProperty<Identity: ITextStoreACPServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprop: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITextStoreACPServices_Impl::ForceLoadProperty(this, windows_core::from_raw_borrowed(&pprop)).into()
+            ITextStoreACPServices_Impl::ForceLoadProperty(this, core::mem::transmute_copy(&pprop)).into()
         }
         unsafe extern "system" fn CreateRange<Identity: ITextStoreACPServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, acpstart: i32, acpend: i32, pprange: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3410,44 +3410,44 @@ pub struct ITextStoreAnchor_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITextStoreAnchor_Impl: windows_core::IUnknownImpl {
-    fn AdviseSink(&self, riid: *const windows_core::GUID, punk: Option<&windows_core::IUnknown>, dwmask: u32) -> windows_core::Result<()>;
-    fn UnadviseSink(&self, punk: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn AdviseSink(&self, riid: *const windows_core::GUID, punk: windows_core::Ref<'_, windows_core::IUnknown>, dwmask: u32) -> windows_core::Result<()>;
+    fn UnadviseSink(&self, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn RequestLock(&self, dwlockflags: u32) -> windows_core::Result<windows_core::HRESULT>;
     fn GetStatus(&self) -> windows_core::Result<TS_STATUS>;
-    fn QueryInsert(&self, pateststart: Option<&IAnchor>, patestend: Option<&IAnchor>, cch: u32, pparesultstart: *mut Option<IAnchor>, pparesultend: *mut Option<IAnchor>) -> windows_core::Result<()>;
+    fn QueryInsert(&self, pateststart: windows_core::Ref<'_, IAnchor>, patestend: windows_core::Ref<'_, IAnchor>, cch: u32, pparesultstart: windows_core::OutRef<'_, IAnchor>, pparesultend: windows_core::OutRef<'_, IAnchor>) -> windows_core::Result<()>;
     fn GetSelection(&self, ulindex: u32, ulcount: u32, pselection: *mut TS_SELECTION_ANCHOR, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn SetSelection(&self, ulcount: u32, pselection: *const TS_SELECTION_ANCHOR) -> windows_core::Result<()>;
-    fn GetText(&self, dwflags: u32, pastart: Option<&IAnchor>, paend: Option<&IAnchor>, pchtext: windows_core::PWSTR, cchreq: u32, pcch: *mut u32, fupdateanchor: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn SetText(&self, dwflags: u32, pastart: Option<&IAnchor>, paend: Option<&IAnchor>, pchtext: &windows_core::PCWSTR, cch: u32) -> windows_core::Result<()>;
-    fn GetFormattedText(&self, pastart: Option<&IAnchor>, paend: Option<&IAnchor>) -> windows_core::Result<super::super::System::Com::IDataObject>;
-    fn GetEmbedded(&self, dwflags: u32, papos: Option<&IAnchor>, rguidservice: *const windows_core::GUID, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>;
-    fn InsertEmbedded(&self, dwflags: u32, pastart: Option<&IAnchor>, paend: Option<&IAnchor>, pdataobject: Option<&super::super::System::Com::IDataObject>) -> windows_core::Result<()>;
+    fn GetText(&self, dwflags: u32, pastart: windows_core::Ref<'_, IAnchor>, paend: windows_core::Ref<'_, IAnchor>, pchtext: windows_core::PWSTR, cchreq: u32, pcch: *mut u32, fupdateanchor: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn SetText(&self, dwflags: u32, pastart: windows_core::Ref<'_, IAnchor>, paend: windows_core::Ref<'_, IAnchor>, pchtext: &windows_core::PCWSTR, cch: u32) -> windows_core::Result<()>;
+    fn GetFormattedText(&self, pastart: windows_core::Ref<'_, IAnchor>, paend: windows_core::Ref<'_, IAnchor>) -> windows_core::Result<super::super::System::Com::IDataObject>;
+    fn GetEmbedded(&self, dwflags: u32, papos: windows_core::Ref<'_, IAnchor>, rguidservice: *const windows_core::GUID, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>;
+    fn InsertEmbedded(&self, dwflags: u32, pastart: windows_core::Ref<'_, IAnchor>, paend: windows_core::Ref<'_, IAnchor>, pdataobject: windows_core::Ref<'_, super::super::System::Com::IDataObject>) -> windows_core::Result<()>;
     fn RequestSupportedAttrs(&self, dwflags: u32, cfilterattrs: u32, pafilterattrs: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn RequestAttrsAtPosition(&self, papos: Option<&IAnchor>, cfilterattrs: u32, pafilterattrs: *const windows_core::GUID, dwflags: u32) -> windows_core::Result<()>;
-    fn RequestAttrsTransitioningAtPosition(&self, papos: Option<&IAnchor>, cfilterattrs: u32, pafilterattrs: *const windows_core::GUID, dwflags: u32) -> windows_core::Result<()>;
-    fn FindNextAttrTransition(&self, pastart: Option<&IAnchor>, pahalt: Option<&IAnchor>, cfilterattrs: u32, pafilterattrs: *const windows_core::GUID, dwflags: u32, pffound: *mut super::super::Foundation::BOOL, plfoundoffset: *mut i32) -> windows_core::Result<()>;
+    fn RequestAttrsAtPosition(&self, papos: windows_core::Ref<'_, IAnchor>, cfilterattrs: u32, pafilterattrs: *const windows_core::GUID, dwflags: u32) -> windows_core::Result<()>;
+    fn RequestAttrsTransitioningAtPosition(&self, papos: windows_core::Ref<'_, IAnchor>, cfilterattrs: u32, pafilterattrs: *const windows_core::GUID, dwflags: u32) -> windows_core::Result<()>;
+    fn FindNextAttrTransition(&self, pastart: windows_core::Ref<'_, IAnchor>, pahalt: windows_core::Ref<'_, IAnchor>, cfilterattrs: u32, pafilterattrs: *const windows_core::GUID, dwflags: u32, pffound: *mut super::super::Foundation::BOOL, plfoundoffset: *mut i32) -> windows_core::Result<()>;
     fn RetrieveRequestedAttrs(&self, ulcount: u32, paattrvals: *mut TS_ATTRVAL, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn GetStart(&self) -> windows_core::Result<IAnchor>;
     fn GetEnd(&self) -> windows_core::Result<IAnchor>;
     fn GetActiveView(&self) -> windows_core::Result<u32>;
     fn GetAnchorFromPoint(&self, vcview: u32, ptscreen: *const super::super::Foundation::POINT, dwflags: u32) -> windows_core::Result<IAnchor>;
-    fn GetTextExt(&self, vcview: u32, pastart: Option<&IAnchor>, paend: Option<&IAnchor>, prc: *mut super::super::Foundation::RECT, pfclipped: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn GetTextExt(&self, vcview: u32, pastart: windows_core::Ref<'_, IAnchor>, paend: windows_core::Ref<'_, IAnchor>, prc: *mut super::super::Foundation::RECT, pfclipped: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn GetScreenExt(&self, vcview: u32) -> windows_core::Result<super::super::Foundation::RECT>;
     fn GetWnd(&self, vcview: u32) -> windows_core::Result<super::super::Foundation::HWND>;
     fn QueryInsertEmbedded(&self, pguidservice: *const windows_core::GUID, pformatetc: *const super::super::System::Com::FORMATETC) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn InsertTextAtSelection(&self, dwflags: u32, pchtext: &windows_core::PCWSTR, cch: u32, ppastart: *mut Option<IAnchor>, ppaend: *mut Option<IAnchor>) -> windows_core::Result<()>;
-    fn InsertEmbeddedAtSelection(&self, dwflags: u32, pdataobject: Option<&super::super::System::Com::IDataObject>, ppastart: *mut Option<IAnchor>, ppaend: *mut Option<IAnchor>) -> windows_core::Result<()>;
+    fn InsertTextAtSelection(&self, dwflags: u32, pchtext: &windows_core::PCWSTR, cch: u32, ppastart: windows_core::OutRef<'_, IAnchor>, ppaend: windows_core::OutRef<'_, IAnchor>) -> windows_core::Result<()>;
+    fn InsertEmbeddedAtSelection(&self, dwflags: u32, pdataobject: windows_core::Ref<'_, super::super::System::Com::IDataObject>, ppastart: windows_core::OutRef<'_, IAnchor>, ppaend: windows_core::OutRef<'_, IAnchor>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextStoreAnchor_Vtbl {
     pub const fn new<Identity: ITextStoreAnchor_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AdviseSink<Identity: ITextStoreAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, punk: *mut core::ffi::c_void, dwmask: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITextStoreAnchor_Impl::AdviseSink(this, core::mem::transmute_copy(&riid), windows_core::from_raw_borrowed(&punk), core::mem::transmute_copy(&dwmask)).into()
+            ITextStoreAnchor_Impl::AdviseSink(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&punk), core::mem::transmute_copy(&dwmask)).into()
         }
         unsafe extern "system" fn UnadviseSink<Identity: ITextStoreAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punk: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITextStoreAnchor_Impl::UnadviseSink(this, windows_core::from_raw_borrowed(&punk)).into()
+            ITextStoreAnchor_Impl::UnadviseSink(this, core::mem::transmute_copy(&punk)).into()
         }
         unsafe extern "system" fn RequestLock<Identity: ITextStoreAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwlockflags: u32, phrsession: *mut windows_core::HRESULT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3471,7 +3471,7 @@ impl ITextStoreAnchor_Vtbl {
         }
         unsafe extern "system" fn QueryInsert<Identity: ITextStoreAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pateststart: *mut core::ffi::c_void, patestend: *mut core::ffi::c_void, cch: u32, pparesultstart: *mut *mut core::ffi::c_void, pparesultend: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITextStoreAnchor_Impl::QueryInsert(this, windows_core::from_raw_borrowed(&pateststart), windows_core::from_raw_borrowed(&patestend), core::mem::transmute_copy(&cch), core::mem::transmute_copy(&pparesultstart), core::mem::transmute_copy(&pparesultend)).into()
+            ITextStoreAnchor_Impl::QueryInsert(this, core::mem::transmute_copy(&pateststart), core::mem::transmute_copy(&patestend), core::mem::transmute_copy(&cch), core::mem::transmute_copy(&pparesultstart), core::mem::transmute_copy(&pparesultend)).into()
         }
         unsafe extern "system" fn GetSelection<Identity: ITextStoreAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulindex: u32, ulcount: u32, pselection: *mut TS_SELECTION_ANCHOR, pcfetched: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3483,15 +3483,15 @@ impl ITextStoreAnchor_Vtbl {
         }
         unsafe extern "system" fn GetText<Identity: ITextStoreAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32, pastart: *mut core::ffi::c_void, paend: *mut core::ffi::c_void, pchtext: windows_core::PWSTR, cchreq: u32, pcch: *mut u32, fupdateanchor: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITextStoreAnchor_Impl::GetText(this, core::mem::transmute_copy(&dwflags), windows_core::from_raw_borrowed(&pastart), windows_core::from_raw_borrowed(&paend), core::mem::transmute_copy(&pchtext), core::mem::transmute_copy(&cchreq), core::mem::transmute_copy(&pcch), core::mem::transmute_copy(&fupdateanchor)).into()
+            ITextStoreAnchor_Impl::GetText(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pastart), core::mem::transmute_copy(&paend), core::mem::transmute_copy(&pchtext), core::mem::transmute_copy(&cchreq), core::mem::transmute_copy(&pcch), core::mem::transmute_copy(&fupdateanchor)).into()
         }
         unsafe extern "system" fn SetText<Identity: ITextStoreAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32, pastart: *mut core::ffi::c_void, paend: *mut core::ffi::c_void, pchtext: windows_core::PCWSTR, cch: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITextStoreAnchor_Impl::SetText(this, core::mem::transmute_copy(&dwflags), windows_core::from_raw_borrowed(&pastart), windows_core::from_raw_borrowed(&paend), core::mem::transmute(&pchtext), core::mem::transmute_copy(&cch)).into()
+            ITextStoreAnchor_Impl::SetText(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pastart), core::mem::transmute_copy(&paend), core::mem::transmute(&pchtext), core::mem::transmute_copy(&cch)).into()
         }
         unsafe extern "system" fn GetFormattedText<Identity: ITextStoreAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pastart: *mut core::ffi::c_void, paend: *mut core::ffi::c_void, ppdataobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITextStoreAnchor_Impl::GetFormattedText(this, windows_core::from_raw_borrowed(&pastart), windows_core::from_raw_borrowed(&paend)) {
+            match ITextStoreAnchor_Impl::GetFormattedText(this, core::mem::transmute_copy(&pastart), core::mem::transmute_copy(&paend)) {
                 Ok(ok__) => {
                     ppdataobject.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3501,7 +3501,7 @@ impl ITextStoreAnchor_Vtbl {
         }
         unsafe extern "system" fn GetEmbedded<Identity: ITextStoreAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32, papos: *mut core::ffi::c_void, rguidservice: *const windows_core::GUID, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITextStoreAnchor_Impl::GetEmbedded(this, core::mem::transmute_copy(&dwflags), windows_core::from_raw_borrowed(&papos), core::mem::transmute_copy(&rguidservice), core::mem::transmute_copy(&riid)) {
+            match ITextStoreAnchor_Impl::GetEmbedded(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&papos), core::mem::transmute_copy(&rguidservice), core::mem::transmute_copy(&riid)) {
                 Ok(ok__) => {
                     ppunk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3511,7 +3511,7 @@ impl ITextStoreAnchor_Vtbl {
         }
         unsafe extern "system" fn InsertEmbedded<Identity: ITextStoreAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32, pastart: *mut core::ffi::c_void, paend: *mut core::ffi::c_void, pdataobject: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITextStoreAnchor_Impl::InsertEmbedded(this, core::mem::transmute_copy(&dwflags), windows_core::from_raw_borrowed(&pastart), windows_core::from_raw_borrowed(&paend), windows_core::from_raw_borrowed(&pdataobject)).into()
+            ITextStoreAnchor_Impl::InsertEmbedded(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pastart), core::mem::transmute_copy(&paend), core::mem::transmute_copy(&pdataobject)).into()
         }
         unsafe extern "system" fn RequestSupportedAttrs<Identity: ITextStoreAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32, cfilterattrs: u32, pafilterattrs: *const windows_core::GUID) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3519,15 +3519,15 @@ impl ITextStoreAnchor_Vtbl {
         }
         unsafe extern "system" fn RequestAttrsAtPosition<Identity: ITextStoreAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, papos: *mut core::ffi::c_void, cfilterattrs: u32, pafilterattrs: *const windows_core::GUID, dwflags: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITextStoreAnchor_Impl::RequestAttrsAtPosition(this, windows_core::from_raw_borrowed(&papos), core::mem::transmute_copy(&cfilterattrs), core::mem::transmute_copy(&pafilterattrs), core::mem::transmute_copy(&dwflags)).into()
+            ITextStoreAnchor_Impl::RequestAttrsAtPosition(this, core::mem::transmute_copy(&papos), core::mem::transmute_copy(&cfilterattrs), core::mem::transmute_copy(&pafilterattrs), core::mem::transmute_copy(&dwflags)).into()
         }
         unsafe extern "system" fn RequestAttrsTransitioningAtPosition<Identity: ITextStoreAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, papos: *mut core::ffi::c_void, cfilterattrs: u32, pafilterattrs: *const windows_core::GUID, dwflags: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITextStoreAnchor_Impl::RequestAttrsTransitioningAtPosition(this, windows_core::from_raw_borrowed(&papos), core::mem::transmute_copy(&cfilterattrs), core::mem::transmute_copy(&pafilterattrs), core::mem::transmute_copy(&dwflags)).into()
+            ITextStoreAnchor_Impl::RequestAttrsTransitioningAtPosition(this, core::mem::transmute_copy(&papos), core::mem::transmute_copy(&cfilterattrs), core::mem::transmute_copy(&pafilterattrs), core::mem::transmute_copy(&dwflags)).into()
         }
         unsafe extern "system" fn FindNextAttrTransition<Identity: ITextStoreAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pastart: *mut core::ffi::c_void, pahalt: *mut core::ffi::c_void, cfilterattrs: u32, pafilterattrs: *const windows_core::GUID, dwflags: u32, pffound: *mut super::super::Foundation::BOOL, plfoundoffset: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITextStoreAnchor_Impl::FindNextAttrTransition(this, windows_core::from_raw_borrowed(&pastart), windows_core::from_raw_borrowed(&pahalt), core::mem::transmute_copy(&cfilterattrs), core::mem::transmute_copy(&pafilterattrs), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pffound), core::mem::transmute_copy(&plfoundoffset)).into()
+            ITextStoreAnchor_Impl::FindNextAttrTransition(this, core::mem::transmute_copy(&pastart), core::mem::transmute_copy(&pahalt), core::mem::transmute_copy(&cfilterattrs), core::mem::transmute_copy(&pafilterattrs), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pffound), core::mem::transmute_copy(&plfoundoffset)).into()
         }
         unsafe extern "system" fn RetrieveRequestedAttrs<Identity: ITextStoreAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulcount: u32, paattrvals: *mut TS_ATTRVAL, pcfetched: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3575,7 +3575,7 @@ impl ITextStoreAnchor_Vtbl {
         }
         unsafe extern "system" fn GetTextExt<Identity: ITextStoreAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vcview: u32, pastart: *mut core::ffi::c_void, paend: *mut core::ffi::c_void, prc: *mut super::super::Foundation::RECT, pfclipped: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITextStoreAnchor_Impl::GetTextExt(this, core::mem::transmute_copy(&vcview), windows_core::from_raw_borrowed(&pastart), windows_core::from_raw_borrowed(&paend), core::mem::transmute_copy(&prc), core::mem::transmute_copy(&pfclipped)).into()
+            ITextStoreAnchor_Impl::GetTextExt(this, core::mem::transmute_copy(&vcview), core::mem::transmute_copy(&pastart), core::mem::transmute_copy(&paend), core::mem::transmute_copy(&prc), core::mem::transmute_copy(&pfclipped)).into()
         }
         unsafe extern "system" fn GetScreenExt<Identity: ITextStoreAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vcview: u32, prc: *mut super::super::Foundation::RECT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3613,7 +3613,7 @@ impl ITextStoreAnchor_Vtbl {
         }
         unsafe extern "system" fn InsertEmbeddedAtSelection<Identity: ITextStoreAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32, pdataobject: *mut core::ffi::c_void, ppastart: *mut *mut core::ffi::c_void, ppaend: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITextStoreAnchor_Impl::InsertEmbeddedAtSelection(this, core::mem::transmute_copy(&dwflags), windows_core::from_raw_borrowed(&pdataobject), core::mem::transmute_copy(&ppastart), core::mem::transmute_copy(&ppaend)).into()
+            ITextStoreAnchor_Impl::InsertEmbeddedAtSelection(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pdataobject), core::mem::transmute_copy(&ppastart), core::mem::transmute_copy(&ppaend)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -3669,13 +3669,13 @@ pub struct ITextStoreAnchorEx_Vtbl {
     pub ScrollToRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::RECT, u32) -> windows_core::HRESULT,
 }
 pub trait ITextStoreAnchorEx_Impl: windows_core::IUnknownImpl {
-    fn ScrollToRect(&self, pstart: Option<&IAnchor>, pend: Option<&IAnchor>, rc: &super::super::Foundation::RECT, dwposition: u32) -> windows_core::Result<()>;
+    fn ScrollToRect(&self, pstart: windows_core::Ref<'_, IAnchor>, pend: windows_core::Ref<'_, IAnchor>, rc: &super::super::Foundation::RECT, dwposition: u32) -> windows_core::Result<()>;
 }
 impl ITextStoreAnchorEx_Vtbl {
     pub const fn new<Identity: ITextStoreAnchorEx_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ScrollToRect<Identity: ITextStoreAnchorEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstart: *mut core::ffi::c_void, pend: *mut core::ffi::c_void, rc: super::super::Foundation::RECT, dwposition: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITextStoreAnchorEx_Impl::ScrollToRect(this, windows_core::from_raw_borrowed(&pstart), windows_core::from_raw_borrowed(&pend), core::mem::transmute(&rc), core::mem::transmute_copy(&dwposition)).into()
+            ITextStoreAnchorEx_Impl::ScrollToRect(this, core::mem::transmute_copy(&pstart), core::mem::transmute_copy(&pend), core::mem::transmute(&rc), core::mem::transmute_copy(&dwposition)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ScrollToRect: ScrollToRect::<Identity, OFFSET> }
     }
@@ -3733,11 +3733,11 @@ pub struct ITextStoreAnchorSink_Vtbl {
     pub OnEndEditTransaction: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITextStoreAnchorSink_Impl: windows_core::IUnknownImpl {
-    fn OnTextChange(&self, dwflags: TEXT_STORE_CHANGE_FLAGS, pastart: Option<&IAnchor>, paend: Option<&IAnchor>) -> windows_core::Result<()>;
+    fn OnTextChange(&self, dwflags: TEXT_STORE_CHANGE_FLAGS, pastart: windows_core::Ref<'_, IAnchor>, paend: windows_core::Ref<'_, IAnchor>) -> windows_core::Result<()>;
     fn OnSelectionChange(&self) -> windows_core::Result<()>;
     fn OnLayoutChange(&self, lcode: TsLayoutCode, vcview: u32) -> windows_core::Result<()>;
     fn OnStatusChange(&self, dwflags: u32) -> windows_core::Result<()>;
-    fn OnAttrsChange(&self, pastart: Option<&IAnchor>, paend: Option<&IAnchor>, cattrs: u32, paattrs: *const windows_core::GUID) -> windows_core::Result<()>;
+    fn OnAttrsChange(&self, pastart: windows_core::Ref<'_, IAnchor>, paend: windows_core::Ref<'_, IAnchor>, cattrs: u32, paattrs: *const windows_core::GUID) -> windows_core::Result<()>;
     fn OnLockGranted(&self, dwlockflags: TEXT_STORE_LOCK_FLAGS) -> windows_core::Result<()>;
     fn OnStartEditTransaction(&self) -> windows_core::Result<()>;
     fn OnEndEditTransaction(&self) -> windows_core::Result<()>;
@@ -3746,7 +3746,7 @@ impl ITextStoreAnchorSink_Vtbl {
     pub const fn new<Identity: ITextStoreAnchorSink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnTextChange<Identity: ITextStoreAnchorSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: TEXT_STORE_CHANGE_FLAGS, pastart: *mut core::ffi::c_void, paend: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITextStoreAnchorSink_Impl::OnTextChange(this, core::mem::transmute_copy(&dwflags), windows_core::from_raw_borrowed(&pastart), windows_core::from_raw_borrowed(&paend)).into()
+            ITextStoreAnchorSink_Impl::OnTextChange(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pastart), core::mem::transmute_copy(&paend)).into()
         }
         unsafe extern "system" fn OnSelectionChange<Identity: ITextStoreAnchorSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3762,7 +3762,7 @@ impl ITextStoreAnchorSink_Vtbl {
         }
         unsafe extern "system" fn OnAttrsChange<Identity: ITextStoreAnchorSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pastart: *mut core::ffi::c_void, paend: *mut core::ffi::c_void, cattrs: u32, paattrs: *const windows_core::GUID) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITextStoreAnchorSink_Impl::OnAttrsChange(this, windows_core::from_raw_borrowed(&pastart), windows_core::from_raw_borrowed(&paend), core::mem::transmute_copy(&cattrs), core::mem::transmute_copy(&paattrs)).into()
+            ITextStoreAnchorSink_Impl::OnAttrsChange(this, core::mem::transmute_copy(&pastart), core::mem::transmute_copy(&paend), core::mem::transmute_copy(&cattrs), core::mem::transmute_copy(&paattrs)).into()
         }
         unsafe extern "system" fn OnLockGranted<Identity: ITextStoreAnchorSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwlockflags: TEXT_STORE_LOCK_FLAGS) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -4472,13 +4472,13 @@ pub struct ITfCleanupContextSink_Vtbl {
     pub OnCleanupContext: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITfCleanupContextSink_Impl: windows_core::IUnknownImpl {
-    fn OnCleanupContext(&self, ecwrite: u32, pic: Option<&ITfContext>) -> windows_core::Result<()>;
+    fn OnCleanupContext(&self, ecwrite: u32, pic: windows_core::Ref<'_, ITfContext>) -> windows_core::Result<()>;
 }
 impl ITfCleanupContextSink_Vtbl {
     pub const fn new<Identity: ITfCleanupContextSink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnCleanupContext<Identity: ITfCleanupContextSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ecwrite: u32, pic: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfCleanupContextSink_Impl::OnCleanupContext(this, core::mem::transmute_copy(&ecwrite), windows_core::from_raw_borrowed(&pic)).into()
+            ITfCleanupContextSink_Impl::OnCleanupContext(this, core::mem::transmute_copy(&ecwrite), core::mem::transmute_copy(&pic)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnCleanupContext: OnCleanupContext::<Identity, OFFSET> }
     }
@@ -4710,8 +4710,8 @@ pub struct ITfComposition_Vtbl {
 }
 pub trait ITfComposition_Impl: windows_core::IUnknownImpl {
     fn GetRange(&self) -> windows_core::Result<ITfRange>;
-    fn ShiftStart(&self, ecwrite: u32, pnewstart: Option<&ITfRange>) -> windows_core::Result<()>;
-    fn ShiftEnd(&self, ecwrite: u32, pnewend: Option<&ITfRange>) -> windows_core::Result<()>;
+    fn ShiftStart(&self, ecwrite: u32, pnewstart: windows_core::Ref<'_, ITfRange>) -> windows_core::Result<()>;
+    fn ShiftEnd(&self, ecwrite: u32, pnewend: windows_core::Ref<'_, ITfRange>) -> windows_core::Result<()>;
     fn EndComposition(&self, ecwrite: u32) -> windows_core::Result<()>;
 }
 impl ITfComposition_Vtbl {
@@ -4728,11 +4728,11 @@ impl ITfComposition_Vtbl {
         }
         unsafe extern "system" fn ShiftStart<Identity: ITfComposition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ecwrite: u32, pnewstart: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfComposition_Impl::ShiftStart(this, core::mem::transmute_copy(&ecwrite), windows_core::from_raw_borrowed(&pnewstart)).into()
+            ITfComposition_Impl::ShiftStart(this, core::mem::transmute_copy(&ecwrite), core::mem::transmute_copy(&pnewstart)).into()
         }
         unsafe extern "system" fn ShiftEnd<Identity: ITfComposition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ecwrite: u32, pnewend: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfComposition_Impl::ShiftEnd(this, core::mem::transmute_copy(&ecwrite), windows_core::from_raw_borrowed(&pnewend)).into()
+            ITfComposition_Impl::ShiftEnd(this, core::mem::transmute_copy(&ecwrite), core::mem::transmute_copy(&pnewend)).into()
         }
         unsafe extern "system" fn EndComposition<Identity: ITfComposition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ecwrite: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -4767,13 +4767,13 @@ pub struct ITfCompositionSink_Vtbl {
     pub OnCompositionTerminated: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITfCompositionSink_Impl: windows_core::IUnknownImpl {
-    fn OnCompositionTerminated(&self, ecwrite: u32, pcomposition: Option<&ITfComposition>) -> windows_core::Result<()>;
+    fn OnCompositionTerminated(&self, ecwrite: u32, pcomposition: windows_core::Ref<'_, ITfComposition>) -> windows_core::Result<()>;
 }
 impl ITfCompositionSink_Vtbl {
     pub const fn new<Identity: ITfCompositionSink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnCompositionTerminated<Identity: ITfCompositionSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ecwrite: u32, pcomposition: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfCompositionSink_Impl::OnCompositionTerminated(this, core::mem::transmute_copy(&ecwrite), windows_core::from_raw_borrowed(&pcomposition)).into()
+            ITfCompositionSink_Impl::OnCompositionTerminated(this, core::mem::transmute_copy(&ecwrite), core::mem::transmute_copy(&pcomposition)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnCompositionTerminated: OnCompositionTerminated::<Identity, OFFSET> }
     }
@@ -4966,7 +4966,7 @@ pub struct ITfContext_Vtbl {
     pub CreateRangeBackup: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITfContext_Impl: windows_core::IUnknownImpl {
-    fn RequestEditSession(&self, tid: u32, pes: Option<&ITfEditSession>, dwflags: TF_CONTEXT_EDIT_CONTEXT_FLAGS) -> windows_core::Result<windows_core::HRESULT>;
+    fn RequestEditSession(&self, tid: u32, pes: windows_core::Ref<'_, ITfEditSession>, dwflags: TF_CONTEXT_EDIT_CONTEXT_FLAGS) -> windows_core::Result<windows_core::HRESULT>;
     fn InWriteSession(&self, tid: u32) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn GetSelection(&self, ec: u32, ulindex: u32, ulcount: u32, pselection: *mut TF_SELECTION, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn SetSelection(&self, ec: u32, ulcount: u32, pselection: *const TF_SELECTION) -> windows_core::Result<()>;
@@ -4980,13 +4980,13 @@ pub trait ITfContext_Impl: windows_core::IUnknownImpl {
     fn TrackProperties(&self, prgprop: *const *const windows_core::GUID, cprop: u32, prgappprop: *const *const windows_core::GUID, cappprop: u32) -> windows_core::Result<ITfReadOnlyProperty>;
     fn EnumProperties(&self) -> windows_core::Result<IEnumTfProperties>;
     fn GetDocumentMgr(&self) -> windows_core::Result<ITfDocumentMgr>;
-    fn CreateRangeBackup(&self, ec: u32, prange: Option<&ITfRange>) -> windows_core::Result<ITfRangeBackup>;
+    fn CreateRangeBackup(&self, ec: u32, prange: windows_core::Ref<'_, ITfRange>) -> windows_core::Result<ITfRangeBackup>;
 }
 impl ITfContext_Vtbl {
     pub const fn new<Identity: ITfContext_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RequestEditSession<Identity: ITfContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tid: u32, pes: *mut core::ffi::c_void, dwflags: TF_CONTEXT_EDIT_CONTEXT_FLAGS, phrsession: *mut windows_core::HRESULT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITfContext_Impl::RequestEditSession(this, core::mem::transmute_copy(&tid), windows_core::from_raw_borrowed(&pes), core::mem::transmute_copy(&dwflags)) {
+            match ITfContext_Impl::RequestEditSession(this, core::mem::transmute_copy(&tid), core::mem::transmute_copy(&pes), core::mem::transmute_copy(&dwflags)) {
                 Ok(ok__) => {
                     phrsession.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5114,7 +5114,7 @@ impl ITfContext_Vtbl {
         }
         unsafe extern "system" fn CreateRangeBackup<Identity: ITfContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ec: u32, prange: *mut core::ffi::c_void, ppbackup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITfContext_Impl::CreateRangeBackup(this, core::mem::transmute_copy(&ec), windows_core::from_raw_borrowed(&prange)) {
+            match ITfContext_Impl::CreateRangeBackup(this, core::mem::transmute_copy(&ec), core::mem::transmute_copy(&prange)) {
                 Ok(ok__) => {
                     ppbackup.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5186,16 +5186,16 @@ pub struct ITfContextComposition_Vtbl {
     pub TakeOwnership: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITfContextComposition_Impl: windows_core::IUnknownImpl {
-    fn StartComposition(&self, ecwrite: u32, pcompositionrange: Option<&ITfRange>, psink: Option<&ITfCompositionSink>) -> windows_core::Result<ITfComposition>;
+    fn StartComposition(&self, ecwrite: u32, pcompositionrange: windows_core::Ref<'_, ITfRange>, psink: windows_core::Ref<'_, ITfCompositionSink>) -> windows_core::Result<ITfComposition>;
     fn EnumCompositions(&self) -> windows_core::Result<IEnumITfCompositionView>;
-    fn FindComposition(&self, ecread: u32, ptestrange: Option<&ITfRange>) -> windows_core::Result<IEnumITfCompositionView>;
-    fn TakeOwnership(&self, ecwrite: u32, pcomposition: Option<&ITfCompositionView>, psink: Option<&ITfCompositionSink>) -> windows_core::Result<ITfComposition>;
+    fn FindComposition(&self, ecread: u32, ptestrange: windows_core::Ref<'_, ITfRange>) -> windows_core::Result<IEnumITfCompositionView>;
+    fn TakeOwnership(&self, ecwrite: u32, pcomposition: windows_core::Ref<'_, ITfCompositionView>, psink: windows_core::Ref<'_, ITfCompositionSink>) -> windows_core::Result<ITfComposition>;
 }
 impl ITfContextComposition_Vtbl {
     pub const fn new<Identity: ITfContextComposition_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn StartComposition<Identity: ITfContextComposition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ecwrite: u32, pcompositionrange: *mut core::ffi::c_void, psink: *mut core::ffi::c_void, ppcomposition: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITfContextComposition_Impl::StartComposition(this, core::mem::transmute_copy(&ecwrite), windows_core::from_raw_borrowed(&pcompositionrange), windows_core::from_raw_borrowed(&psink)) {
+            match ITfContextComposition_Impl::StartComposition(this, core::mem::transmute_copy(&ecwrite), core::mem::transmute_copy(&pcompositionrange), core::mem::transmute_copy(&psink)) {
                 Ok(ok__) => {
                     ppcomposition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5215,7 +5215,7 @@ impl ITfContextComposition_Vtbl {
         }
         unsafe extern "system" fn FindComposition<Identity: ITfContextComposition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ecread: u32, ptestrange: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITfContextComposition_Impl::FindComposition(this, core::mem::transmute_copy(&ecread), windows_core::from_raw_borrowed(&ptestrange)) {
+            match ITfContextComposition_Impl::FindComposition(this, core::mem::transmute_copy(&ecread), core::mem::transmute_copy(&ptestrange)) {
                 Ok(ok__) => {
                     ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5225,7 +5225,7 @@ impl ITfContextComposition_Vtbl {
         }
         unsafe extern "system" fn TakeOwnership<Identity: ITfContextComposition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ecwrite: u32, pcomposition: *mut core::ffi::c_void, psink: *mut core::ffi::c_void, ppcomposition: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITfContextComposition_Impl::TakeOwnership(this, core::mem::transmute_copy(&ecwrite), windows_core::from_raw_borrowed(&pcomposition), windows_core::from_raw_borrowed(&psink)) {
+            match ITfContextComposition_Impl::TakeOwnership(this, core::mem::transmute_copy(&ecwrite), core::mem::transmute_copy(&pcomposition), core::mem::transmute_copy(&psink)) {
                 Ok(ok__) => {
                     ppcomposition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5480,13 +5480,13 @@ pub struct ITfContextOwnerCompositionServices_Vtbl {
     pub TerminateComposition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITfContextOwnerCompositionServices_Impl: ITfContextComposition_Impl {
-    fn TerminateComposition(&self, pcomposition: Option<&ITfCompositionView>) -> windows_core::Result<()>;
+    fn TerminateComposition(&self, pcomposition: windows_core::Ref<'_, ITfCompositionView>) -> windows_core::Result<()>;
 }
 impl ITfContextOwnerCompositionServices_Vtbl {
     pub const fn new<Identity: ITfContextOwnerCompositionServices_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn TerminateComposition<Identity: ITfContextOwnerCompositionServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcomposition: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfContextOwnerCompositionServices_Impl::TerminateComposition(this, windows_core::from_raw_borrowed(&pcomposition)).into()
+            ITfContextOwnerCompositionServices_Impl::TerminateComposition(this, core::mem::transmute_copy(&pcomposition)).into()
         }
         Self { base__: ITfContextComposition_Vtbl::new::<Identity, OFFSET>(), TerminateComposition: TerminateComposition::<Identity, OFFSET> }
     }
@@ -5527,15 +5527,15 @@ pub struct ITfContextOwnerCompositionSink_Vtbl {
     pub OnEndComposition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITfContextOwnerCompositionSink_Impl: windows_core::IUnknownImpl {
-    fn OnStartComposition(&self, pcomposition: Option<&ITfCompositionView>) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn OnUpdateComposition(&self, pcomposition: Option<&ITfCompositionView>, prangenew: Option<&ITfRange>) -> windows_core::Result<()>;
-    fn OnEndComposition(&self, pcomposition: Option<&ITfCompositionView>) -> windows_core::Result<()>;
+    fn OnStartComposition(&self, pcomposition: windows_core::Ref<'_, ITfCompositionView>) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn OnUpdateComposition(&self, pcomposition: windows_core::Ref<'_, ITfCompositionView>, prangenew: windows_core::Ref<'_, ITfRange>) -> windows_core::Result<()>;
+    fn OnEndComposition(&self, pcomposition: windows_core::Ref<'_, ITfCompositionView>) -> windows_core::Result<()>;
 }
 impl ITfContextOwnerCompositionSink_Vtbl {
     pub const fn new<Identity: ITfContextOwnerCompositionSink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnStartComposition<Identity: ITfContextOwnerCompositionSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcomposition: *mut core::ffi::c_void, pfok: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITfContextOwnerCompositionSink_Impl::OnStartComposition(this, windows_core::from_raw_borrowed(&pcomposition)) {
+            match ITfContextOwnerCompositionSink_Impl::OnStartComposition(this, core::mem::transmute_copy(&pcomposition)) {
                 Ok(ok__) => {
                     pfok.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5545,11 +5545,11 @@ impl ITfContextOwnerCompositionSink_Vtbl {
         }
         unsafe extern "system" fn OnUpdateComposition<Identity: ITfContextOwnerCompositionSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcomposition: *mut core::ffi::c_void, prangenew: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfContextOwnerCompositionSink_Impl::OnUpdateComposition(this, windows_core::from_raw_borrowed(&pcomposition), windows_core::from_raw_borrowed(&prangenew)).into()
+            ITfContextOwnerCompositionSink_Impl::OnUpdateComposition(this, core::mem::transmute_copy(&pcomposition), core::mem::transmute_copy(&prangenew)).into()
         }
         unsafe extern "system" fn OnEndComposition<Identity: ITfContextOwnerCompositionSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcomposition: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfContextOwnerCompositionSink_Impl::OnEndComposition(this, windows_core::from_raw_borrowed(&pcomposition)).into()
+            ITfContextOwnerCompositionSink_Impl::OnEndComposition(this, core::mem::transmute_copy(&pcomposition)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -5626,9 +5626,9 @@ pub trait ITfContextOwnerServices_Impl: windows_core::IUnknownImpl {
     fn OnLayoutChange(&self) -> windows_core::Result<()>;
     fn OnStatusChange(&self, dwflags: u32) -> windows_core::Result<()>;
     fn OnAttributeChange(&self, rguidattribute: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn Serialize(&self, pprop: Option<&ITfProperty>, prange: Option<&ITfRange>, phdr: *mut TF_PERSISTENT_PROPERTY_HEADER_ACP, pstream: Option<&super::super::System::Com::IStream>) -> windows_core::Result<()>;
-    fn Unserialize(&self, pprop: Option<&ITfProperty>, phdr: *const TF_PERSISTENT_PROPERTY_HEADER_ACP, pstream: Option<&super::super::System::Com::IStream>, ploader: Option<&ITfPersistentPropertyLoaderACP>) -> windows_core::Result<()>;
-    fn ForceLoadProperty(&self, pprop: Option<&ITfProperty>) -> windows_core::Result<()>;
+    fn Serialize(&self, pprop: windows_core::Ref<'_, ITfProperty>, prange: windows_core::Ref<'_, ITfRange>, phdr: *mut TF_PERSISTENT_PROPERTY_HEADER_ACP, pstream: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn Unserialize(&self, pprop: windows_core::Ref<'_, ITfProperty>, phdr: *const TF_PERSISTENT_PROPERTY_HEADER_ACP, pstream: windows_core::Ref<'_, super::super::System::Com::IStream>, ploader: windows_core::Ref<'_, ITfPersistentPropertyLoaderACP>) -> windows_core::Result<()>;
+    fn ForceLoadProperty(&self, pprop: windows_core::Ref<'_, ITfProperty>) -> windows_core::Result<()>;
     fn CreateRange(&self, acpstart: i32, acpend: i32) -> windows_core::Result<ITfRangeACP>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5648,15 +5648,15 @@ impl ITfContextOwnerServices_Vtbl {
         }
         unsafe extern "system" fn Serialize<Identity: ITfContextOwnerServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprop: *mut core::ffi::c_void, prange: *mut core::ffi::c_void, phdr: *mut TF_PERSISTENT_PROPERTY_HEADER_ACP, pstream: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfContextOwnerServices_Impl::Serialize(this, windows_core::from_raw_borrowed(&pprop), windows_core::from_raw_borrowed(&prange), core::mem::transmute_copy(&phdr), windows_core::from_raw_borrowed(&pstream)).into()
+            ITfContextOwnerServices_Impl::Serialize(this, core::mem::transmute_copy(&pprop), core::mem::transmute_copy(&prange), core::mem::transmute_copy(&phdr), core::mem::transmute_copy(&pstream)).into()
         }
         unsafe extern "system" fn Unserialize<Identity: ITfContextOwnerServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprop: *mut core::ffi::c_void, phdr: *const TF_PERSISTENT_PROPERTY_HEADER_ACP, pstream: *mut core::ffi::c_void, ploader: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfContextOwnerServices_Impl::Unserialize(this, windows_core::from_raw_borrowed(&pprop), core::mem::transmute_copy(&phdr), windows_core::from_raw_borrowed(&pstream), windows_core::from_raw_borrowed(&ploader)).into()
+            ITfContextOwnerServices_Impl::Unserialize(this, core::mem::transmute_copy(&pprop), core::mem::transmute_copy(&phdr), core::mem::transmute_copy(&pstream), core::mem::transmute_copy(&ploader)).into()
         }
         unsafe extern "system" fn ForceLoadProperty<Identity: ITfContextOwnerServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprop: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfContextOwnerServices_Impl::ForceLoadProperty(this, windows_core::from_raw_borrowed(&pprop)).into()
+            ITfContextOwnerServices_Impl::ForceLoadProperty(this, core::mem::transmute_copy(&pprop)).into()
         }
         unsafe extern "system" fn CreateRange<Identity: ITfContextOwnerServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, acpstart: i32, acpend: i32, pprange: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -5717,7 +5717,7 @@ pub struct ITfContextView_Vtbl {
 }
 pub trait ITfContextView_Impl: windows_core::IUnknownImpl {
     fn GetRangeFromPoint(&self, ec: u32, ppt: *const super::super::Foundation::POINT, dwflags: u32) -> windows_core::Result<ITfRange>;
-    fn GetTextExt(&self, ec: u32, prange: Option<&ITfRange>, prc: *mut super::super::Foundation::RECT, pfclipped: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn GetTextExt(&self, ec: u32, prange: windows_core::Ref<'_, ITfRange>, prc: *mut super::super::Foundation::RECT, pfclipped: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn GetScreenExt(&self) -> windows_core::Result<super::super::Foundation::RECT>;
     fn GetWnd(&self) -> windows_core::Result<super::super::Foundation::HWND>;
 }
@@ -5735,7 +5735,7 @@ impl ITfContextView_Vtbl {
         }
         unsafe extern "system" fn GetTextExt<Identity: ITfContextView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ec: u32, prange: *mut core::ffi::c_void, prc: *mut super::super::Foundation::RECT, pfclipped: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfContextView_Impl::GetTextExt(this, core::mem::transmute_copy(&ec), windows_core::from_raw_borrowed(&prange), core::mem::transmute_copy(&prc), core::mem::transmute_copy(&pfclipped)).into()
+            ITfContextView_Impl::GetTextExt(this, core::mem::transmute_copy(&ec), core::mem::transmute_copy(&prange), core::mem::transmute_copy(&prc), core::mem::transmute_copy(&pfclipped)).into()
         }
         unsafe extern "system" fn GetScreenExt<Identity: ITfContextView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prc: *mut super::super::Foundation::RECT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -5802,15 +5802,15 @@ pub struct ITfCreatePropertyStore_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITfCreatePropertyStore_Impl: windows_core::IUnknownImpl {
-    fn IsStoreSerializable(&self, guidprop: *const windows_core::GUID, prange: Option<&ITfRange>, ppropstore: Option<&ITfPropertyStore>) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn CreatePropertyStore(&self, guidprop: *const windows_core::GUID, prange: Option<&ITfRange>, cb: u32, pstream: Option<&super::super::System::Com::IStream>) -> windows_core::Result<ITfPropertyStore>;
+    fn IsStoreSerializable(&self, guidprop: *const windows_core::GUID, prange: windows_core::Ref<'_, ITfRange>, ppropstore: windows_core::Ref<'_, ITfPropertyStore>) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn CreatePropertyStore(&self, guidprop: *const windows_core::GUID, prange: windows_core::Ref<'_, ITfRange>, cb: u32, pstream: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<ITfPropertyStore>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ITfCreatePropertyStore_Vtbl {
     pub const fn new<Identity: ITfCreatePropertyStore_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn IsStoreSerializable<Identity: ITfCreatePropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidprop: *const windows_core::GUID, prange: *mut core::ffi::c_void, ppropstore: *mut core::ffi::c_void, pfserializable: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITfCreatePropertyStore_Impl::IsStoreSerializable(this, core::mem::transmute_copy(&guidprop), windows_core::from_raw_borrowed(&prange), windows_core::from_raw_borrowed(&ppropstore)) {
+            match ITfCreatePropertyStore_Impl::IsStoreSerializable(this, core::mem::transmute_copy(&guidprop), core::mem::transmute_copy(&prange), core::mem::transmute_copy(&ppropstore)) {
                 Ok(ok__) => {
                     pfserializable.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5820,7 +5820,7 @@ impl ITfCreatePropertyStore_Vtbl {
         }
         unsafe extern "system" fn CreatePropertyStore<Identity: ITfCreatePropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidprop: *const windows_core::GUID, prange: *mut core::ffi::c_void, cb: u32, pstream: *mut core::ffi::c_void, ppstore: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITfCreatePropertyStore_Impl::CreatePropertyStore(this, core::mem::transmute_copy(&guidprop), windows_core::from_raw_borrowed(&prange), core::mem::transmute_copy(&cb), windows_core::from_raw_borrowed(&pstream)) {
+            match ITfCreatePropertyStore_Impl::CreatePropertyStore(this, core::mem::transmute_copy(&guidprop), core::mem::transmute_copy(&prange), core::mem::transmute_copy(&cb), core::mem::transmute_copy(&pstream)) {
                 Ok(ok__) => {
                     ppstore.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5949,7 +5949,7 @@ pub struct ITfDisplayAttributeMgr_Vtbl {
 pub trait ITfDisplayAttributeMgr_Impl: windows_core::IUnknownImpl {
     fn OnUpdateInfo(&self) -> windows_core::Result<()>;
     fn EnumDisplayAttributeInfo(&self) -> windows_core::Result<IEnumTfDisplayAttributeInfo>;
-    fn GetDisplayAttributeInfo(&self, guid: *const windows_core::GUID, ppinfo: *mut Option<ITfDisplayAttributeInfo>, pclsidowner: *mut windows_core::GUID) -> windows_core::Result<()>;
+    fn GetDisplayAttributeInfo(&self, guid: *const windows_core::GUID, ppinfo: windows_core::OutRef<'_, ITfDisplayAttributeInfo>, pclsidowner: *mut windows_core::GUID) -> windows_core::Result<()>;
 }
 impl ITfDisplayAttributeMgr_Vtbl {
     pub const fn new<Identity: ITfDisplayAttributeMgr_Impl, const OFFSET: isize>() -> Self {
@@ -6108,8 +6108,8 @@ pub struct ITfDocumentMgr_Vtbl {
     pub EnumContexts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITfDocumentMgr_Impl: windows_core::IUnknownImpl {
-    fn CreateContext(&self, tidowner: u32, dwflags: u32, punk: Option<&windows_core::IUnknown>, ppic: *mut Option<ITfContext>, pectextstore: *mut u32) -> windows_core::Result<()>;
-    fn Push(&self, pic: Option<&ITfContext>) -> windows_core::Result<()>;
+    fn CreateContext(&self, tidowner: u32, dwflags: u32, punk: windows_core::Ref<'_, windows_core::IUnknown>, ppic: windows_core::OutRef<'_, ITfContext>, pectextstore: *mut u32) -> windows_core::Result<()>;
+    fn Push(&self, pic: windows_core::Ref<'_, ITfContext>) -> windows_core::Result<()>;
     fn Pop(&self, dwflags: u32) -> windows_core::Result<()>;
     fn GetTop(&self) -> windows_core::Result<ITfContext>;
     fn GetBase(&self) -> windows_core::Result<ITfContext>;
@@ -6119,11 +6119,11 @@ impl ITfDocumentMgr_Vtbl {
     pub const fn new<Identity: ITfDocumentMgr_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateContext<Identity: ITfDocumentMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tidowner: u32, dwflags: u32, punk: *mut core::ffi::c_void, ppic: *mut *mut core::ffi::c_void, pectextstore: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfDocumentMgr_Impl::CreateContext(this, core::mem::transmute_copy(&tidowner), core::mem::transmute_copy(&dwflags), windows_core::from_raw_borrowed(&punk), core::mem::transmute_copy(&ppic), core::mem::transmute_copy(&pectextstore)).into()
+            ITfDocumentMgr_Impl::CreateContext(this, core::mem::transmute_copy(&tidowner), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&punk), core::mem::transmute_copy(&ppic), core::mem::transmute_copy(&pectextstore)).into()
         }
         unsafe extern "system" fn Push<Identity: ITfDocumentMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pic: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfDocumentMgr_Impl::Push(this, windows_core::from_raw_borrowed(&pic)).into()
+            ITfDocumentMgr_Impl::Push(this, core::mem::transmute_copy(&pic)).into()
         }
         unsafe extern "system" fn Pop<Identity: ITfDocumentMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -6280,18 +6280,18 @@ pub struct ITfEditTransactionSink_Vtbl {
     pub OnEndEditTransaction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITfEditTransactionSink_Impl: windows_core::IUnknownImpl {
-    fn OnStartEditTransaction(&self, pic: Option<&ITfContext>) -> windows_core::Result<()>;
-    fn OnEndEditTransaction(&self, pic: Option<&ITfContext>) -> windows_core::Result<()>;
+    fn OnStartEditTransaction(&self, pic: windows_core::Ref<'_, ITfContext>) -> windows_core::Result<()>;
+    fn OnEndEditTransaction(&self, pic: windows_core::Ref<'_, ITfContext>) -> windows_core::Result<()>;
 }
 impl ITfEditTransactionSink_Vtbl {
     pub const fn new<Identity: ITfEditTransactionSink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnStartEditTransaction<Identity: ITfEditTransactionSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pic: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfEditTransactionSink_Impl::OnStartEditTransaction(this, windows_core::from_raw_borrowed(&pic)).into()
+            ITfEditTransactionSink_Impl::OnStartEditTransaction(this, core::mem::transmute_copy(&pic)).into()
         }
         unsafe extern "system" fn OnEndEditTransaction<Identity: ITfEditTransactionSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pic: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfEditTransactionSink_Impl::OnEndEditTransaction(this, windows_core::from_raw_borrowed(&pic)).into()
+            ITfEditTransactionSink_Impl::OnEndEditTransaction(this, core::mem::transmute_copy(&pic)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -6334,18 +6334,18 @@ pub struct ITfFnAdviseText_Vtbl {
     pub OnLatticeUpdate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITfFnAdviseText_Impl: ITfFunction_Impl {
-    fn OnTextUpdate(&self, prange: Option<&ITfRange>, pchtext: &windows_core::PCWSTR, cch: i32) -> windows_core::Result<()>;
-    fn OnLatticeUpdate(&self, prange: Option<&ITfRange>, plattice: Option<&ITfLMLattice>) -> windows_core::Result<()>;
+    fn OnTextUpdate(&self, prange: windows_core::Ref<'_, ITfRange>, pchtext: &windows_core::PCWSTR, cch: i32) -> windows_core::Result<()>;
+    fn OnLatticeUpdate(&self, prange: windows_core::Ref<'_, ITfRange>, plattice: windows_core::Ref<'_, ITfLMLattice>) -> windows_core::Result<()>;
 }
 impl ITfFnAdviseText_Vtbl {
     pub const fn new<Identity: ITfFnAdviseText_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnTextUpdate<Identity: ITfFnAdviseText_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prange: *mut core::ffi::c_void, pchtext: windows_core::PCWSTR, cch: i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfFnAdviseText_Impl::OnTextUpdate(this, windows_core::from_raw_borrowed(&prange), core::mem::transmute(&pchtext), core::mem::transmute_copy(&cch)).into()
+            ITfFnAdviseText_Impl::OnTextUpdate(this, core::mem::transmute_copy(&prange), core::mem::transmute(&pchtext), core::mem::transmute_copy(&cch)).into()
         }
         unsafe extern "system" fn OnLatticeUpdate<Identity: ITfFnAdviseText_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prange: *mut core::ffi::c_void, plattice: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfFnAdviseText_Impl::OnLatticeUpdate(this, windows_core::from_raw_borrowed(&prange), windows_core::from_raw_borrowed(&plattice)).into()
+            ITfFnAdviseText_Impl::OnLatticeUpdate(this, core::mem::transmute_copy(&prange), core::mem::transmute_copy(&plattice)).into()
         }
         Self {
             base__: ITfFunction_Vtbl::new::<Identity, OFFSET>(),
@@ -6510,13 +6510,13 @@ pub struct ITfFnCustomSpeechCommand_Vtbl {
     pub SetSpeechCommandProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITfFnCustomSpeechCommand_Impl: ITfFunction_Impl {
-    fn SetSpeechCommandProvider(&self, pspcmdprovider: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetSpeechCommandProvider(&self, pspcmdprovider: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl ITfFnCustomSpeechCommand_Vtbl {
     pub const fn new<Identity: ITfFnCustomSpeechCommand_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetSpeechCommandProvider<Identity: ITfFnCustomSpeechCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pspcmdprovider: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfFnCustomSpeechCommand_Impl::SetSpeechCommandProvider(this, windows_core::from_raw_borrowed(&pspcmdprovider)).into()
+            ITfFnCustomSpeechCommand_Impl::SetSpeechCommandProvider(this, core::mem::transmute_copy(&pspcmdprovider)).into()
         }
         Self { base__: ITfFunction_Vtbl::new::<Identity, OFFSET>(), SetSpeechCommandProvider: SetSpeechCommandProvider::<Identity, OFFSET> }
     }
@@ -6548,13 +6548,13 @@ pub struct ITfFnGetLinguisticAlternates_Vtbl {
     pub GetAlternates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITfFnGetLinguisticAlternates_Impl: ITfFunction_Impl {
-    fn GetAlternates(&self, prange: Option<&ITfRange>) -> windows_core::Result<ITfCandidateList>;
+    fn GetAlternates(&self, prange: windows_core::Ref<'_, ITfRange>) -> windows_core::Result<ITfCandidateList>;
 }
 impl ITfFnGetLinguisticAlternates_Vtbl {
     pub const fn new<Identity: ITfFnGetLinguisticAlternates_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetAlternates<Identity: ITfFnGetLinguisticAlternates_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prange: *mut core::ffi::c_void, ppcandidatelist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITfFnGetLinguisticAlternates_Impl::GetAlternates(this, windows_core::from_raw_borrowed(&prange)) {
+            match ITfFnGetLinguisticAlternates_Impl::GetAlternates(this, core::mem::transmute_copy(&prange)) {
                 Ok(ok__) => {
                     ppcandidatelist.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6666,13 +6666,13 @@ pub struct ITfFnLMInternal_Vtbl {
     pub ProcessLattice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITfFnLMInternal_Impl: ITfFnLMProcessor_Impl {
-    fn ProcessLattice(&self, prange: Option<&ITfRange>) -> windows_core::Result<()>;
+    fn ProcessLattice(&self, prange: windows_core::Ref<'_, ITfRange>) -> windows_core::Result<()>;
 }
 impl ITfFnLMInternal_Vtbl {
     pub const fn new<Identity: ITfFnLMInternal_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ProcessLattice<Identity: ITfFnLMInternal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prange: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfFnLMInternal_Impl::ProcessLattice(this, windows_core::from_raw_borrowed(&prange)).into()
+            ITfFnLMInternal_Impl::ProcessLattice(this, core::mem::transmute_copy(&prange)).into()
         }
         Self { base__: ITfFnLMProcessor_Vtbl::new::<Identity, OFFSET>(), ProcessLattice: ProcessLattice::<Identity, OFFSET> }
     }
@@ -6739,19 +6739,19 @@ pub struct ITfFnLMProcessor_Vtbl {
     pub InvokeFunc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 pub trait ITfFnLMProcessor_Impl: ITfFunction_Impl {
-    fn QueryRange(&self, prange: Option<&ITfRange>, ppnewrange: *mut Option<ITfRange>, pfaccepted: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn QueryRange(&self, prange: windows_core::Ref<'_, ITfRange>, ppnewrange: windows_core::OutRef<'_, ITfRange>, pfaccepted: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn QueryLangID(&self, langid: u16) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn GetReconversion(&self, prange: Option<&ITfRange>) -> windows_core::Result<ITfCandidateList>;
-    fn Reconvert(&self, prange: Option<&ITfRange>) -> windows_core::Result<()>;
+    fn GetReconversion(&self, prange: windows_core::Ref<'_, ITfRange>) -> windows_core::Result<ITfCandidateList>;
+    fn Reconvert(&self, prange: windows_core::Ref<'_, ITfRange>) -> windows_core::Result<()>;
     fn QueryKey(&self, fup: super::super::Foundation::BOOL, vkey: super::super::Foundation::WPARAM, lparamkeydata: super::super::Foundation::LPARAM) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn InvokeKey(&self, fup: super::super::Foundation::BOOL, vkey: super::super::Foundation::WPARAM, lparamkeydata: super::super::Foundation::LPARAM) -> windows_core::Result<()>;
-    fn InvokeFunc(&self, pic: Option<&ITfContext>, refguidfunc: *const windows_core::GUID) -> windows_core::Result<()>;
+    fn InvokeFunc(&self, pic: windows_core::Ref<'_, ITfContext>, refguidfunc: *const windows_core::GUID) -> windows_core::Result<()>;
 }
 impl ITfFnLMProcessor_Vtbl {
     pub const fn new<Identity: ITfFnLMProcessor_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryRange<Identity: ITfFnLMProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prange: *mut core::ffi::c_void, ppnewrange: *mut *mut core::ffi::c_void, pfaccepted: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfFnLMProcessor_Impl::QueryRange(this, windows_core::from_raw_borrowed(&prange), core::mem::transmute_copy(&ppnewrange), core::mem::transmute_copy(&pfaccepted)).into()
+            ITfFnLMProcessor_Impl::QueryRange(this, core::mem::transmute_copy(&prange), core::mem::transmute_copy(&ppnewrange), core::mem::transmute_copy(&pfaccepted)).into()
         }
         unsafe extern "system" fn QueryLangID<Identity: ITfFnLMProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, langid: u16, pfaccepted: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -6765,7 +6765,7 @@ impl ITfFnLMProcessor_Vtbl {
         }
         unsafe extern "system" fn GetReconversion<Identity: ITfFnLMProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prange: *mut core::ffi::c_void, ppcandlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITfFnLMProcessor_Impl::GetReconversion(this, windows_core::from_raw_borrowed(&prange)) {
+            match ITfFnLMProcessor_Impl::GetReconversion(this, core::mem::transmute_copy(&prange)) {
                 Ok(ok__) => {
                     ppcandlist.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6775,7 +6775,7 @@ impl ITfFnLMProcessor_Vtbl {
         }
         unsafe extern "system" fn Reconvert<Identity: ITfFnLMProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prange: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfFnLMProcessor_Impl::Reconvert(this, windows_core::from_raw_borrowed(&prange)).into()
+            ITfFnLMProcessor_Impl::Reconvert(this, core::mem::transmute_copy(&prange)).into()
         }
         unsafe extern "system" fn QueryKey<Identity: ITfFnLMProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fup: super::super::Foundation::BOOL, vkey: super::super::Foundation::WPARAM, lparamkeydata: super::super::Foundation::LPARAM, pfinterested: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -6793,7 +6793,7 @@ impl ITfFnLMProcessor_Vtbl {
         }
         unsafe extern "system" fn InvokeFunc<Identity: ITfFnLMProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pic: *mut core::ffi::c_void, refguidfunc: *const windows_core::GUID) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfFnLMProcessor_Impl::InvokeFunc(this, windows_core::from_raw_borrowed(&pic), core::mem::transmute_copy(&refguidfunc)).into()
+            ITfFnLMProcessor_Impl::InvokeFunc(this, core::mem::transmute_copy(&pic), core::mem::transmute_copy(&refguidfunc)).into()
         }
         Self {
             base__: ITfFunction_Vtbl::new::<Identity, OFFSET>(),
@@ -6894,18 +6894,18 @@ pub struct ITfFnPlayBack_Vtbl {
     pub Play: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITfFnPlayBack_Impl: ITfFunction_Impl {
-    fn QueryRange(&self, prange: Option<&ITfRange>, ppnewrange: *mut Option<ITfRange>, pfplayable: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn Play(&self, prange: Option<&ITfRange>) -> windows_core::Result<()>;
+    fn QueryRange(&self, prange: windows_core::Ref<'_, ITfRange>, ppnewrange: windows_core::OutRef<'_, ITfRange>, pfplayable: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn Play(&self, prange: windows_core::Ref<'_, ITfRange>) -> windows_core::Result<()>;
 }
 impl ITfFnPlayBack_Vtbl {
     pub const fn new<Identity: ITfFnPlayBack_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryRange<Identity: ITfFnPlayBack_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prange: *mut core::ffi::c_void, ppnewrange: *mut *mut core::ffi::c_void, pfplayable: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfFnPlayBack_Impl::QueryRange(this, windows_core::from_raw_borrowed(&prange), core::mem::transmute_copy(&ppnewrange), core::mem::transmute_copy(&pfplayable)).into()
+            ITfFnPlayBack_Impl::QueryRange(this, core::mem::transmute_copy(&prange), core::mem::transmute_copy(&ppnewrange), core::mem::transmute_copy(&pfplayable)).into()
         }
         unsafe extern "system" fn Play<Identity: ITfFnPlayBack_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prange: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfFnPlayBack_Impl::Play(this, windows_core::from_raw_borrowed(&prange)).into()
+            ITfFnPlayBack_Impl::Play(this, core::mem::transmute_copy(&prange)).into()
         }
         Self { base__: ITfFunction_Vtbl::new::<Identity, OFFSET>(), QueryRange: QueryRange::<Identity, OFFSET>, Play: Play::<Identity, OFFSET> }
     }
@@ -7001,19 +7001,19 @@ pub struct ITfFnReconversion_Vtbl {
     pub Reconvert: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITfFnReconversion_Impl: ITfFunction_Impl {
-    fn QueryRange(&self, prange: Option<&ITfRange>, ppnewrange: *mut Option<ITfRange>, pfconvertable: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn GetReconversion(&self, prange: Option<&ITfRange>) -> windows_core::Result<ITfCandidateList>;
-    fn Reconvert(&self, prange: Option<&ITfRange>) -> windows_core::Result<()>;
+    fn QueryRange(&self, prange: windows_core::Ref<'_, ITfRange>, ppnewrange: windows_core::OutRef<'_, ITfRange>, pfconvertable: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn GetReconversion(&self, prange: windows_core::Ref<'_, ITfRange>) -> windows_core::Result<ITfCandidateList>;
+    fn Reconvert(&self, prange: windows_core::Ref<'_, ITfRange>) -> windows_core::Result<()>;
 }
 impl ITfFnReconversion_Vtbl {
     pub const fn new<Identity: ITfFnReconversion_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryRange<Identity: ITfFnReconversion_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prange: *mut core::ffi::c_void, ppnewrange: *mut *mut core::ffi::c_void, pfconvertable: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfFnReconversion_Impl::QueryRange(this, windows_core::from_raw_borrowed(&prange), core::mem::transmute_copy(&ppnewrange), core::mem::transmute_copy(&pfconvertable)).into()
+            ITfFnReconversion_Impl::QueryRange(this, core::mem::transmute_copy(&prange), core::mem::transmute_copy(&ppnewrange), core::mem::transmute_copy(&pfconvertable)).into()
         }
         unsafe extern "system" fn GetReconversion<Identity: ITfFnReconversion_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prange: *mut core::ffi::c_void, ppcandlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITfFnReconversion_Impl::GetReconversion(this, windows_core::from_raw_borrowed(&prange)) {
+            match ITfFnReconversion_Impl::GetReconversion(this, core::mem::transmute_copy(&prange)) {
                 Ok(ok__) => {
                     ppcandlist.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7023,7 +7023,7 @@ impl ITfFnReconversion_Vtbl {
         }
         unsafe extern "system" fn Reconvert<Identity: ITfFnReconversion_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prange: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfFnReconversion_Impl::Reconvert(this, windows_core::from_raw_borrowed(&prange)).into()
+            ITfFnReconversion_Impl::Reconvert(this, core::mem::transmute_copy(&prange)).into()
         }
         Self {
             base__: ITfFunction_Vtbl::new::<Identity, OFFSET>(),
@@ -7895,7 +7895,7 @@ pub struct ITfInsertAtSelection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITfInsertAtSelection_Impl: windows_core::IUnknownImpl {
     fn InsertTextAtSelection(&self, ec: u32, dwflags: INSERT_TEXT_AT_SELECTION_FLAGS, pchtext: &windows_core::PCWSTR, cch: i32) -> windows_core::Result<ITfRange>;
-    fn InsertEmbeddedAtSelection(&self, ec: u32, dwflags: u32, pdataobject: Option<&super::super::System::Com::IDataObject>) -> windows_core::Result<ITfRange>;
+    fn InsertEmbeddedAtSelection(&self, ec: u32, dwflags: u32, pdataobject: windows_core::Ref<'_, super::super::System::Com::IDataObject>) -> windows_core::Result<ITfRange>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ITfInsertAtSelection_Vtbl {
@@ -7912,7 +7912,7 @@ impl ITfInsertAtSelection_Vtbl {
         }
         unsafe extern "system" fn InsertEmbeddedAtSelection<Identity: ITfInsertAtSelection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ec: u32, dwflags: u32, pdataobject: *mut core::ffi::c_void, pprange: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITfInsertAtSelection_Impl::InsertEmbeddedAtSelection(this, core::mem::transmute_copy(&ec), core::mem::transmute_copy(&dwflags), windows_core::from_raw_borrowed(&pdataobject)) {
+            match ITfInsertAtSelection_Impl::InsertEmbeddedAtSelection(this, core::mem::transmute_copy(&ec), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pdataobject)) {
                 Ok(ok__) => {
                     pprange.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8078,11 +8078,11 @@ pub struct ITfKeyEventSink_Vtbl {
 }
 pub trait ITfKeyEventSink_Impl: windows_core::IUnknownImpl {
     fn OnSetFocus(&self, fforeground: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn OnTestKeyDown(&self, pic: Option<&ITfContext>, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn OnTestKeyUp(&self, pic: Option<&ITfContext>, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn OnKeyDown(&self, pic: Option<&ITfContext>, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn OnKeyUp(&self, pic: Option<&ITfContext>, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn OnPreservedKey(&self, pic: Option<&ITfContext>, rguid: *const windows_core::GUID) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn OnTestKeyDown(&self, pic: windows_core::Ref<'_, ITfContext>, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn OnTestKeyUp(&self, pic: windows_core::Ref<'_, ITfContext>, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn OnKeyDown(&self, pic: windows_core::Ref<'_, ITfContext>, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn OnKeyUp(&self, pic: windows_core::Ref<'_, ITfContext>, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn OnPreservedKey(&self, pic: windows_core::Ref<'_, ITfContext>, rguid: *const windows_core::GUID) -> windows_core::Result<super::super::Foundation::BOOL>;
 }
 impl ITfKeyEventSink_Vtbl {
     pub const fn new<Identity: ITfKeyEventSink_Impl, const OFFSET: isize>() -> Self {
@@ -8092,7 +8092,7 @@ impl ITfKeyEventSink_Vtbl {
         }
         unsafe extern "system" fn OnTestKeyDown<Identity: ITfKeyEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pic: *mut core::ffi::c_void, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, pfeaten: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITfKeyEventSink_Impl::OnTestKeyDown(this, windows_core::from_raw_borrowed(&pic), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam)) {
+            match ITfKeyEventSink_Impl::OnTestKeyDown(this, core::mem::transmute_copy(&pic), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam)) {
                 Ok(ok__) => {
                     pfeaten.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8102,7 +8102,7 @@ impl ITfKeyEventSink_Vtbl {
         }
         unsafe extern "system" fn OnTestKeyUp<Identity: ITfKeyEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pic: *mut core::ffi::c_void, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, pfeaten: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITfKeyEventSink_Impl::OnTestKeyUp(this, windows_core::from_raw_borrowed(&pic), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam)) {
+            match ITfKeyEventSink_Impl::OnTestKeyUp(this, core::mem::transmute_copy(&pic), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam)) {
                 Ok(ok__) => {
                     pfeaten.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8112,7 +8112,7 @@ impl ITfKeyEventSink_Vtbl {
         }
         unsafe extern "system" fn OnKeyDown<Identity: ITfKeyEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pic: *mut core::ffi::c_void, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, pfeaten: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITfKeyEventSink_Impl::OnKeyDown(this, windows_core::from_raw_borrowed(&pic), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam)) {
+            match ITfKeyEventSink_Impl::OnKeyDown(this, core::mem::transmute_copy(&pic), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam)) {
                 Ok(ok__) => {
                     pfeaten.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8122,7 +8122,7 @@ impl ITfKeyEventSink_Vtbl {
         }
         unsafe extern "system" fn OnKeyUp<Identity: ITfKeyEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pic: *mut core::ffi::c_void, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, pfeaten: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITfKeyEventSink_Impl::OnKeyUp(this, windows_core::from_raw_borrowed(&pic), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam)) {
+            match ITfKeyEventSink_Impl::OnKeyUp(this, core::mem::transmute_copy(&pic), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam)) {
                 Ok(ok__) => {
                     pfeaten.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8132,7 +8132,7 @@ impl ITfKeyEventSink_Vtbl {
         }
         unsafe extern "system" fn OnPreservedKey<Identity: ITfKeyEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pic: *mut core::ffi::c_void, rguid: *const windows_core::GUID, pfeaten: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITfKeyEventSink_Impl::OnPreservedKey(this, windows_core::from_raw_borrowed(&pic), core::mem::transmute_copy(&rguid)) {
+            match ITfKeyEventSink_Impl::OnPreservedKey(this, core::mem::transmute_copy(&pic), core::mem::transmute_copy(&rguid)) {
                 Ok(ok__) => {
                     pfeaten.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8279,26 +8279,26 @@ pub struct ITfKeystrokeMgr_Vtbl {
     pub SimulatePreservedKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 pub trait ITfKeystrokeMgr_Impl: windows_core::IUnknownImpl {
-    fn AdviseKeyEventSink(&self, tid: u32, psink: Option<&ITfKeyEventSink>, fforeground: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn AdviseKeyEventSink(&self, tid: u32, psink: windows_core::Ref<'_, ITfKeyEventSink>, fforeground: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn UnadviseKeyEventSink(&self, tid: u32) -> windows_core::Result<()>;
     fn GetForeground(&self) -> windows_core::Result<windows_core::GUID>;
     fn TestKeyDown(&self, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn TestKeyUp(&self, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn KeyDown(&self, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn KeyUp(&self, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn GetPreservedKey(&self, pic: Option<&ITfContext>, pprekey: *const TF_PRESERVEDKEY) -> windows_core::Result<windows_core::GUID>;
+    fn GetPreservedKey(&self, pic: windows_core::Ref<'_, ITfContext>, pprekey: *const TF_PRESERVEDKEY) -> windows_core::Result<windows_core::GUID>;
     fn IsPreservedKey(&self, rguid: *const windows_core::GUID, pprekey: *const TF_PRESERVEDKEY) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn PreserveKey(&self, tid: u32, rguid: *const windows_core::GUID, prekey: *const TF_PRESERVEDKEY, pchdesc: &windows_core::PCWSTR, cchdesc: u32) -> windows_core::Result<()>;
     fn UnpreserveKey(&self, rguid: *const windows_core::GUID, pprekey: *const TF_PRESERVEDKEY) -> windows_core::Result<()>;
     fn SetPreservedKeyDescription(&self, rguid: *const windows_core::GUID, pchdesc: &windows_core::PCWSTR, cchdesc: u32) -> windows_core::Result<()>;
     fn GetPreservedKeyDescription(&self, rguid: *const windows_core::GUID) -> windows_core::Result<windows_core::BSTR>;
-    fn SimulatePreservedKey(&self, pic: Option<&ITfContext>, rguid: *const windows_core::GUID) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn SimulatePreservedKey(&self, pic: windows_core::Ref<'_, ITfContext>, rguid: *const windows_core::GUID) -> windows_core::Result<super::super::Foundation::BOOL>;
 }
 impl ITfKeystrokeMgr_Vtbl {
     pub const fn new<Identity: ITfKeystrokeMgr_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AdviseKeyEventSink<Identity: ITfKeystrokeMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tid: u32, psink: *mut core::ffi::c_void, fforeground: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfKeystrokeMgr_Impl::AdviseKeyEventSink(this, core::mem::transmute_copy(&tid), windows_core::from_raw_borrowed(&psink), core::mem::transmute_copy(&fforeground)).into()
+            ITfKeystrokeMgr_Impl::AdviseKeyEventSink(this, core::mem::transmute_copy(&tid), core::mem::transmute_copy(&psink), core::mem::transmute_copy(&fforeground)).into()
         }
         unsafe extern "system" fn UnadviseKeyEventSink<Identity: ITfKeystrokeMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tid: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -8356,7 +8356,7 @@ impl ITfKeystrokeMgr_Vtbl {
         }
         unsafe extern "system" fn GetPreservedKey<Identity: ITfKeystrokeMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pic: *mut core::ffi::c_void, pprekey: *const TF_PRESERVEDKEY, pguid: *mut windows_core::GUID) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITfKeystrokeMgr_Impl::GetPreservedKey(this, windows_core::from_raw_borrowed(&pic), core::mem::transmute_copy(&pprekey)) {
+            match ITfKeystrokeMgr_Impl::GetPreservedKey(this, core::mem::transmute_copy(&pic), core::mem::transmute_copy(&pprekey)) {
                 Ok(ok__) => {
                     pguid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8398,7 +8398,7 @@ impl ITfKeystrokeMgr_Vtbl {
         }
         unsafe extern "system" fn SimulatePreservedKey<Identity: ITfKeystrokeMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pic: *mut core::ffi::c_void, rguid: *const windows_core::GUID, pfeaten: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITfKeystrokeMgr_Impl::SimulatePreservedKey(this, windows_core::from_raw_borrowed(&pic), core::mem::transmute_copy(&rguid)) {
+            match ITfKeystrokeMgr_Impl::SimulatePreservedKey(this, core::mem::transmute_copy(&pic), core::mem::transmute_copy(&rguid)) {
                 Ok(ok__) => {
                     pfeaten.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8839,7 +8839,7 @@ pub struct ITfLangBarItemBitmapButton_Vtbl {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait ITfLangBarItemBitmapButton_Impl: ITfLangBarItem_Impl {
     fn OnClick(&self, click: TfLBIClick, pt: &super::super::Foundation::POINT, prcarea: *const super::super::Foundation::RECT) -> windows_core::Result<()>;
-    fn InitMenu(&self, pmenu: Option<&ITfMenu>) -> windows_core::Result<()>;
+    fn InitMenu(&self, pmenu: windows_core::Ref<'_, ITfMenu>) -> windows_core::Result<()>;
     fn OnMenuSelect(&self, wid: u32) -> windows_core::Result<()>;
     fn GetPreferredSize(&self, pszdefault: *const super::super::Foundation::SIZE) -> windows_core::Result<super::super::Foundation::SIZE>;
     fn DrawBitmap(&self, bmwidth: i32, bmheight: i32, dwflags: u32, phbmp: *mut super::super::Graphics::Gdi::HBITMAP, phbmpmask: *mut super::super::Graphics::Gdi::HBITMAP) -> windows_core::Result<()>;
@@ -8854,7 +8854,7 @@ impl ITfLangBarItemBitmapButton_Vtbl {
         }
         unsafe extern "system" fn InitMenu<Identity: ITfLangBarItemBitmapButton_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmenu: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfLangBarItemBitmapButton_Impl::InitMenu(this, windows_core::from_raw_borrowed(&pmenu)).into()
+            ITfLangBarItemBitmapButton_Impl::InitMenu(this, core::mem::transmute_copy(&pmenu)).into()
         }
         unsafe extern "system" fn OnMenuSelect<Identity: ITfLangBarItemBitmapButton_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wid: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -8946,7 +8946,7 @@ pub struct ITfLangBarItemButton_Vtbl {
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub trait ITfLangBarItemButton_Impl: ITfLangBarItem_Impl {
     fn OnClick(&self, click: TfLBIClick, pt: &super::super::Foundation::POINT, prcarea: *const super::super::Foundation::RECT) -> windows_core::Result<()>;
-    fn InitMenu(&self, pmenu: Option<&ITfMenu>) -> windows_core::Result<()>;
+    fn InitMenu(&self, pmenu: windows_core::Ref<'_, ITfMenu>) -> windows_core::Result<()>;
     fn OnMenuSelect(&self, wid: u32) -> windows_core::Result<()>;
     fn GetIcon(&self) -> windows_core::Result<super::WindowsAndMessaging::HICON>;
     fn GetText(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -8960,7 +8960,7 @@ impl ITfLangBarItemButton_Vtbl {
         }
         unsafe extern "system" fn InitMenu<Identity: ITfLangBarItemButton_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmenu: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfLangBarItemButton_Impl::InitMenu(this, windows_core::from_raw_borrowed(&pmenu)).into()
+            ITfLangBarItemButton_Impl::InitMenu(this, core::mem::transmute_copy(&pmenu)).into()
         }
         unsafe extern "system" fn OnMenuSelect<Identity: ITfLangBarItemButton_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wid: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -9075,14 +9075,14 @@ pub struct ITfLangBarItemMgr_Vtbl {
 pub trait ITfLangBarItemMgr_Impl: windows_core::IUnknownImpl {
     fn EnumItems(&self) -> windows_core::Result<IEnumTfLangBarItems>;
     fn GetItem(&self, rguid: *const windows_core::GUID) -> windows_core::Result<ITfLangBarItem>;
-    fn AddItem(&self, punk: Option<&ITfLangBarItem>) -> windows_core::Result<()>;
-    fn RemoveItem(&self, punk: Option<&ITfLangBarItem>) -> windows_core::Result<()>;
-    fn AdviseItemSink(&self, punk: Option<&ITfLangBarItemSink>, pdwcookie: *mut u32, rguiditem: *const windows_core::GUID) -> windows_core::Result<()>;
+    fn AddItem(&self, punk: windows_core::Ref<'_, ITfLangBarItem>) -> windows_core::Result<()>;
+    fn RemoveItem(&self, punk: windows_core::Ref<'_, ITfLangBarItem>) -> windows_core::Result<()>;
+    fn AdviseItemSink(&self, punk: windows_core::Ref<'_, ITfLangBarItemSink>, pdwcookie: *mut u32, rguiditem: *const windows_core::GUID) -> windows_core::Result<()>;
     fn UnadviseItemSink(&self, dwcookie: u32) -> windows_core::Result<()>;
     fn GetItemFloatingRect(&self, dwthreadid: u32, rguid: *const windows_core::GUID) -> windows_core::Result<super::super::Foundation::RECT>;
     fn GetItemsStatus(&self, ulcount: u32, prgguid: *const windows_core::GUID) -> windows_core::Result<u32>;
     fn GetItemNum(&self) -> windows_core::Result<u32>;
-    fn GetItems(&self, ulcount: u32, ppitem: *mut Option<ITfLangBarItem>, pinfo: *mut TF_LANGBARITEMINFO, pdwstatus: *mut u32, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn GetItems(&self, ulcount: u32, ppitem: windows_core::OutRef<'_, ITfLangBarItem>, pinfo: *mut TF_LANGBARITEMINFO, pdwstatus: *mut u32, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn AdviseItemsSink(&self, ulcount: u32, ppunk: *const Option<ITfLangBarItemSink>, pguiditem: *const windows_core::GUID) -> windows_core::Result<u32>;
     fn UnadviseItemsSink(&self, ulcount: u32, pdwcookie: *const u32) -> windows_core::Result<()>;
 }
@@ -9110,15 +9110,15 @@ impl ITfLangBarItemMgr_Vtbl {
         }
         unsafe extern "system" fn AddItem<Identity: ITfLangBarItemMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punk: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfLangBarItemMgr_Impl::AddItem(this, windows_core::from_raw_borrowed(&punk)).into()
+            ITfLangBarItemMgr_Impl::AddItem(this, core::mem::transmute_copy(&punk)).into()
         }
         unsafe extern "system" fn RemoveItem<Identity: ITfLangBarItemMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punk: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfLangBarItemMgr_Impl::RemoveItem(this, windows_core::from_raw_borrowed(&punk)).into()
+            ITfLangBarItemMgr_Impl::RemoveItem(this, core::mem::transmute_copy(&punk)).into()
         }
         unsafe extern "system" fn AdviseItemSink<Identity: ITfLangBarItemMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punk: *mut core::ffi::c_void, pdwcookie: *mut u32, rguiditem: *const windows_core::GUID) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfLangBarItemMgr_Impl::AdviseItemSink(this, windows_core::from_raw_borrowed(&punk), core::mem::transmute_copy(&pdwcookie), core::mem::transmute_copy(&rguiditem)).into()
+            ITfLangBarItemMgr_Impl::AdviseItemSink(this, core::mem::transmute_copy(&punk), core::mem::transmute_copy(&pdwcookie), core::mem::transmute_copy(&rguiditem)).into()
         }
         unsafe extern "system" fn UnadviseItemSink<Identity: ITfLangBarItemMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcookie: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -9274,13 +9274,13 @@ pub struct ITfLangBarMgr_Vtbl {
     pub GetShowFloatingStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait ITfLangBarMgr_Impl: windows_core::IUnknownImpl {
-    fn AdviseEventSink(&self, psink: Option<&ITfLangBarEventSink>, hwnd: super::super::Foundation::HWND, dwflags: u32, pdwcookie: *const u32) -> windows_core::Result<()>;
+    fn AdviseEventSink(&self, psink: windows_core::Ref<'_, ITfLangBarEventSink>, hwnd: super::super::Foundation::HWND, dwflags: u32, pdwcookie: *const u32) -> windows_core::Result<()>;
     fn UnadviseEventSink(&self, dwcookie: u32) -> windows_core::Result<()>;
     fn GetThreadMarshalInterface(&self, dwthreadid: u32, dwtype: u32, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>;
-    fn GetThreadLangBarItemMgr(&self, dwthreadid: u32, pplbi: *mut Option<ITfLangBarItemMgr>, pdwthreadid: *mut u32) -> windows_core::Result<()>;
-    fn GetInputProcessorProfiles(&self, dwthreadid: u32, ppaip: *mut Option<ITfInputProcessorProfiles>, pdwthreadid: *mut u32) -> windows_core::Result<()>;
+    fn GetThreadLangBarItemMgr(&self, dwthreadid: u32, pplbi: windows_core::OutRef<'_, ITfLangBarItemMgr>, pdwthreadid: *mut u32) -> windows_core::Result<()>;
+    fn GetInputProcessorProfiles(&self, dwthreadid: u32, ppaip: windows_core::OutRef<'_, ITfInputProcessorProfiles>, pdwthreadid: *mut u32) -> windows_core::Result<()>;
     fn RestoreLastFocus(&self, pdwthreadid: *mut u32, fprev: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn SetModalInput(&self, psink: Option<&ITfLangBarEventSink>, dwthreadid: u32, dwflags: u32) -> windows_core::Result<()>;
+    fn SetModalInput(&self, psink: windows_core::Ref<'_, ITfLangBarEventSink>, dwthreadid: u32, dwflags: u32) -> windows_core::Result<()>;
     fn ShowFloating(&self, dwflags: u32) -> windows_core::Result<()>;
     fn GetShowFloatingStatus(&self) -> windows_core::Result<u32>;
 }
@@ -9288,7 +9288,7 @@ impl ITfLangBarMgr_Vtbl {
     pub const fn new<Identity: ITfLangBarMgr_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AdviseEventSink<Identity: ITfLangBarMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psink: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, dwflags: u32, pdwcookie: *const u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfLangBarMgr_Impl::AdviseEventSink(this, windows_core::from_raw_borrowed(&psink), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pdwcookie)).into()
+            ITfLangBarMgr_Impl::AdviseEventSink(this, core::mem::transmute_copy(&psink), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pdwcookie)).into()
         }
         unsafe extern "system" fn UnadviseEventSink<Identity: ITfLangBarMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcookie: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -9318,7 +9318,7 @@ impl ITfLangBarMgr_Vtbl {
         }
         unsafe extern "system" fn SetModalInput<Identity: ITfLangBarMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psink: *mut core::ffi::c_void, dwthreadid: u32, dwflags: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfLangBarMgr_Impl::SetModalInput(this, windows_core::from_raw_borrowed(&psink), core::mem::transmute_copy(&dwthreadid), core::mem::transmute_copy(&dwflags)).into()
+            ITfLangBarMgr_Impl::SetModalInput(this, core::mem::transmute_copy(&psink), core::mem::transmute_copy(&dwthreadid), core::mem::transmute_copy(&dwflags)).into()
         }
         unsafe extern "system" fn ShowFloating<Identity: ITfLangBarMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -9459,7 +9459,7 @@ pub struct ITfMenu_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait ITfMenu_Impl: windows_core::IUnknownImpl {
-    fn AddMenuItem(&self, uid: u32, dwflags: u32, hbmp: super::super::Graphics::Gdi::HBITMAP, hbmpmask: super::super::Graphics::Gdi::HBITMAP, pch: &windows_core::PCWSTR, cch: u32, ppmenu: *mut Option<ITfMenu>) -> windows_core::Result<()>;
+    fn AddMenuItem(&self, uid: u32, dwflags: u32, hbmp: super::super::Graphics::Gdi::HBITMAP, hbmpmask: super::super::Graphics::Gdi::HBITMAP, pch: &windows_core::PCWSTR, cch: u32, ppmenu: windows_core::OutRef<'_, ITfMenu>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ITfMenu_Vtbl {
@@ -9613,14 +9613,14 @@ pub struct ITfMouseTracker_Vtbl {
     pub UnadviseMouseSink: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait ITfMouseTracker_Impl: windows_core::IUnknownImpl {
-    fn AdviseMouseSink(&self, range: Option<&ITfRange>, psink: Option<&ITfMouseSink>) -> windows_core::Result<u32>;
+    fn AdviseMouseSink(&self, range: windows_core::Ref<'_, ITfRange>, psink: windows_core::Ref<'_, ITfMouseSink>) -> windows_core::Result<u32>;
     fn UnadviseMouseSink(&self, dwcookie: u32) -> windows_core::Result<()>;
 }
 impl ITfMouseTracker_Vtbl {
     pub const fn new<Identity: ITfMouseTracker_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AdviseMouseSink<Identity: ITfMouseTracker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, range: *mut core::ffi::c_void, psink: *mut core::ffi::c_void, pdwcookie: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITfMouseTracker_Impl::AdviseMouseSink(this, windows_core::from_raw_borrowed(&range), windows_core::from_raw_borrowed(&psink)) {
+            match ITfMouseTracker_Impl::AdviseMouseSink(this, core::mem::transmute_copy(&range), core::mem::transmute_copy(&psink)) {
                 Ok(ok__) => {
                     pdwcookie.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9665,14 +9665,14 @@ pub struct ITfMouseTrackerACP_Vtbl {
     pub UnadviseMouseSink: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait ITfMouseTrackerACP_Impl: windows_core::IUnknownImpl {
-    fn AdviseMouseSink(&self, range: Option<&ITfRangeACP>, psink: Option<&ITfMouseSink>) -> windows_core::Result<u32>;
+    fn AdviseMouseSink(&self, range: windows_core::Ref<'_, ITfRangeACP>, psink: windows_core::Ref<'_, ITfMouseSink>) -> windows_core::Result<u32>;
     fn UnadviseMouseSink(&self, dwcookie: u32) -> windows_core::Result<()>;
 }
 impl ITfMouseTrackerACP_Vtbl {
     pub const fn new<Identity: ITfMouseTrackerACP_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AdviseMouseSink<Identity: ITfMouseTrackerACP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, range: *mut core::ffi::c_void, psink: *mut core::ffi::c_void, pdwcookie: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITfMouseTrackerACP_Impl::AdviseMouseSink(this, windows_core::from_raw_borrowed(&range), windows_core::from_raw_borrowed(&psink)) {
+            match ITfMouseTrackerACP_Impl::AdviseMouseSink(this, core::mem::transmute_copy(&range), core::mem::transmute_copy(&psink)) {
                 Ok(ok__) => {
                     pdwcookie.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9814,29 +9814,29 @@ pub struct ITfProperty_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITfProperty_Impl: ITfReadOnlyProperty_Impl {
-    fn FindRange(&self, ec: u32, prange: Option<&ITfRange>, pprange: *mut Option<ITfRange>, apos: TfAnchor) -> windows_core::Result<()>;
-    fn SetValueStore(&self, ec: u32, prange: Option<&ITfRange>, ppropstore: Option<&ITfPropertyStore>) -> windows_core::Result<()>;
-    fn SetValue(&self, ec: u32, prange: Option<&ITfRange>, pvarvalue: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn Clear(&self, ec: u32, prange: Option<&ITfRange>) -> windows_core::Result<()>;
+    fn FindRange(&self, ec: u32, prange: windows_core::Ref<'_, ITfRange>, pprange: windows_core::OutRef<'_, ITfRange>, apos: TfAnchor) -> windows_core::Result<()>;
+    fn SetValueStore(&self, ec: u32, prange: windows_core::Ref<'_, ITfRange>, ppropstore: windows_core::Ref<'_, ITfPropertyStore>) -> windows_core::Result<()>;
+    fn SetValue(&self, ec: u32, prange: windows_core::Ref<'_, ITfRange>, pvarvalue: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
+    fn Clear(&self, ec: u32, prange: windows_core::Ref<'_, ITfRange>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITfProperty_Vtbl {
     pub const fn new<Identity: ITfProperty_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn FindRange<Identity: ITfProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ec: u32, prange: *mut core::ffi::c_void, pprange: *mut *mut core::ffi::c_void, apos: TfAnchor) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfProperty_Impl::FindRange(this, core::mem::transmute_copy(&ec), windows_core::from_raw_borrowed(&prange), core::mem::transmute_copy(&pprange), core::mem::transmute_copy(&apos)).into()
+            ITfProperty_Impl::FindRange(this, core::mem::transmute_copy(&ec), core::mem::transmute_copy(&prange), core::mem::transmute_copy(&pprange), core::mem::transmute_copy(&apos)).into()
         }
         unsafe extern "system" fn SetValueStore<Identity: ITfProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ec: u32, prange: *mut core::ffi::c_void, ppropstore: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfProperty_Impl::SetValueStore(this, core::mem::transmute_copy(&ec), windows_core::from_raw_borrowed(&prange), windows_core::from_raw_borrowed(&ppropstore)).into()
+            ITfProperty_Impl::SetValueStore(this, core::mem::transmute_copy(&ec), core::mem::transmute_copy(&prange), core::mem::transmute_copy(&ppropstore)).into()
         }
         unsafe extern "system" fn SetValue<Identity: ITfProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ec: u32, prange: *mut core::ffi::c_void, pvarvalue: *const super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfProperty_Impl::SetValue(this, core::mem::transmute_copy(&ec), windows_core::from_raw_borrowed(&prange), core::mem::transmute_copy(&pvarvalue)).into()
+            ITfProperty_Impl::SetValue(this, core::mem::transmute_copy(&ec), core::mem::transmute_copy(&prange), core::mem::transmute_copy(&pvarvalue)).into()
         }
         unsafe extern "system" fn Clear<Identity: ITfProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ec: u32, prange: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfProperty_Impl::Clear(this, core::mem::transmute_copy(&ec), windows_core::from_raw_borrowed(&prange)).into()
+            ITfProperty_Impl::Clear(this, core::mem::transmute_copy(&ec), core::mem::transmute_copy(&prange)).into()
         }
         Self {
             base__: ITfReadOnlyProperty_Vtbl::new::<Identity, OFFSET>(),
@@ -9931,12 +9931,12 @@ pub trait ITfPropertyStore_Impl: windows_core::IUnknownImpl {
     fn GetType(&self) -> windows_core::Result<windows_core::GUID>;
     fn GetDataType(&self) -> windows_core::Result<u32>;
     fn GetData(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn OnTextUpdated(&self, dwflags: u32, prangenew: Option<&ITfRange>) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn Shrink(&self, prangenew: Option<&ITfRange>) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn Divide(&self, prangethis: Option<&ITfRange>, prangenew: Option<&ITfRange>) -> windows_core::Result<ITfPropertyStore>;
+    fn OnTextUpdated(&self, dwflags: u32, prangenew: windows_core::Ref<'_, ITfRange>) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn Shrink(&self, prangenew: windows_core::Ref<'_, ITfRange>) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn Divide(&self, prangethis: windows_core::Ref<'_, ITfRange>, prangenew: windows_core::Ref<'_, ITfRange>) -> windows_core::Result<ITfPropertyStore>;
     fn Clone(&self) -> windows_core::Result<ITfPropertyStore>;
     fn GetPropertyRangeCreator(&self) -> windows_core::Result<windows_core::GUID>;
-    fn Serialize(&self, pstream: Option<&super::super::System::Com::IStream>) -> windows_core::Result<u32>;
+    fn Serialize(&self, pstream: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITfPropertyStore_Vtbl {
@@ -9973,7 +9973,7 @@ impl ITfPropertyStore_Vtbl {
         }
         unsafe extern "system" fn OnTextUpdated<Identity: ITfPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32, prangenew: *mut core::ffi::c_void, pfaccept: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITfPropertyStore_Impl::OnTextUpdated(this, core::mem::transmute_copy(&dwflags), windows_core::from_raw_borrowed(&prangenew)) {
+            match ITfPropertyStore_Impl::OnTextUpdated(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&prangenew)) {
                 Ok(ok__) => {
                     pfaccept.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9983,7 +9983,7 @@ impl ITfPropertyStore_Vtbl {
         }
         unsafe extern "system" fn Shrink<Identity: ITfPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prangenew: *mut core::ffi::c_void, pffree: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITfPropertyStore_Impl::Shrink(this, windows_core::from_raw_borrowed(&prangenew)) {
+            match ITfPropertyStore_Impl::Shrink(this, core::mem::transmute_copy(&prangenew)) {
                 Ok(ok__) => {
                     pffree.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9993,7 +9993,7 @@ impl ITfPropertyStore_Vtbl {
         }
         unsafe extern "system" fn Divide<Identity: ITfPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prangethis: *mut core::ffi::c_void, prangenew: *mut core::ffi::c_void, pppropstore: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITfPropertyStore_Impl::Divide(this, windows_core::from_raw_borrowed(&prangethis), windows_core::from_raw_borrowed(&prangenew)) {
+            match ITfPropertyStore_Impl::Divide(this, core::mem::transmute_copy(&prangethis), core::mem::transmute_copy(&prangenew)) {
                 Ok(ok__) => {
                     pppropstore.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -10023,7 +10023,7 @@ impl ITfPropertyStore_Vtbl {
         }
         unsafe extern "system" fn Serialize<Identity: ITfPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstream: *mut core::ffi::c_void, pcb: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITfPropertyStore_Impl::Serialize(this, windows_core::from_raw_borrowed(&pstream)) {
+            match ITfPropertyStore_Impl::Serialize(this, core::mem::transmute_copy(&pstream)) {
                 Ok(ok__) => {
                     pcb.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -10235,19 +10235,19 @@ pub trait ITfRange_Impl: windows_core::IUnknownImpl {
     fn SetText(&self, ec: u32, dwflags: u32, pchtext: &windows_core::PCWSTR, cch: i32) -> windows_core::Result<()>;
     fn GetFormattedText(&self, ec: u32) -> windows_core::Result<super::super::System::Com::IDataObject>;
     fn GetEmbedded(&self, ec: u32, rguidservice: *const windows_core::GUID, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>;
-    fn InsertEmbedded(&self, ec: u32, dwflags: u32, pdataobject: Option<&super::super::System::Com::IDataObject>) -> windows_core::Result<()>;
+    fn InsertEmbedded(&self, ec: u32, dwflags: u32, pdataobject: windows_core::Ref<'_, super::super::System::Com::IDataObject>) -> windows_core::Result<()>;
     fn ShiftStart(&self, ec: u32, cchreq: i32, pcch: *mut i32, phalt: *const TF_HALTCOND) -> windows_core::Result<()>;
     fn ShiftEnd(&self, ec: u32, cchreq: i32, pcch: *mut i32, phalt: *const TF_HALTCOND) -> windows_core::Result<()>;
-    fn ShiftStartToRange(&self, ec: u32, prange: Option<&ITfRange>, apos: TfAnchor) -> windows_core::Result<()>;
-    fn ShiftEndToRange(&self, ec: u32, prange: Option<&ITfRange>, apos: TfAnchor) -> windows_core::Result<()>;
+    fn ShiftStartToRange(&self, ec: u32, prange: windows_core::Ref<'_, ITfRange>, apos: TfAnchor) -> windows_core::Result<()>;
+    fn ShiftEndToRange(&self, ec: u32, prange: windows_core::Ref<'_, ITfRange>, apos: TfAnchor) -> windows_core::Result<()>;
     fn ShiftStartRegion(&self, ec: u32, dir: TfShiftDir) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn ShiftEndRegion(&self, ec: u32, dir: TfShiftDir) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn IsEmpty(&self, ec: u32) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn Collapse(&self, ec: u32, apos: TfAnchor) -> windows_core::Result<()>;
-    fn IsEqualStart(&self, ec: u32, pwith: Option<&ITfRange>, apos: TfAnchor) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn IsEqualEnd(&self, ec: u32, pwith: Option<&ITfRange>, apos: TfAnchor) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn CompareStart(&self, ec: u32, pwith: Option<&ITfRange>, apos: TfAnchor) -> windows_core::Result<i32>;
-    fn CompareEnd(&self, ec: u32, pwith: Option<&ITfRange>, apos: TfAnchor) -> windows_core::Result<i32>;
+    fn IsEqualStart(&self, ec: u32, pwith: windows_core::Ref<'_, ITfRange>, apos: TfAnchor) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn IsEqualEnd(&self, ec: u32, pwith: windows_core::Ref<'_, ITfRange>, apos: TfAnchor) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn CompareStart(&self, ec: u32, pwith: windows_core::Ref<'_, ITfRange>, apos: TfAnchor) -> windows_core::Result<i32>;
+    fn CompareEnd(&self, ec: u32, pwith: windows_core::Ref<'_, ITfRange>, apos: TfAnchor) -> windows_core::Result<i32>;
     fn AdjustForInsert(&self, ec: u32, cchinsert: u32) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn GetGravity(&self, pgstart: *mut TfGravity, pgend: *mut TfGravity) -> windows_core::Result<()>;
     fn SetGravity(&self, ec: u32, gstart: TfGravity, gend: TfGravity) -> windows_core::Result<()>;
@@ -10287,7 +10287,7 @@ impl ITfRange_Vtbl {
         }
         unsafe extern "system" fn InsertEmbedded<Identity: ITfRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ec: u32, dwflags: u32, pdataobject: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfRange_Impl::InsertEmbedded(this, core::mem::transmute_copy(&ec), core::mem::transmute_copy(&dwflags), windows_core::from_raw_borrowed(&pdataobject)).into()
+            ITfRange_Impl::InsertEmbedded(this, core::mem::transmute_copy(&ec), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pdataobject)).into()
         }
         unsafe extern "system" fn ShiftStart<Identity: ITfRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ec: u32, cchreq: i32, pcch: *mut i32, phalt: *const TF_HALTCOND) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -10299,11 +10299,11 @@ impl ITfRange_Vtbl {
         }
         unsafe extern "system" fn ShiftStartToRange<Identity: ITfRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ec: u32, prange: *mut core::ffi::c_void, apos: TfAnchor) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfRange_Impl::ShiftStartToRange(this, core::mem::transmute_copy(&ec), windows_core::from_raw_borrowed(&prange), core::mem::transmute_copy(&apos)).into()
+            ITfRange_Impl::ShiftStartToRange(this, core::mem::transmute_copy(&ec), core::mem::transmute_copy(&prange), core::mem::transmute_copy(&apos)).into()
         }
         unsafe extern "system" fn ShiftEndToRange<Identity: ITfRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ec: u32, prange: *mut core::ffi::c_void, apos: TfAnchor) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfRange_Impl::ShiftEndToRange(this, core::mem::transmute_copy(&ec), windows_core::from_raw_borrowed(&prange), core::mem::transmute_copy(&apos)).into()
+            ITfRange_Impl::ShiftEndToRange(this, core::mem::transmute_copy(&ec), core::mem::transmute_copy(&prange), core::mem::transmute_copy(&apos)).into()
         }
         unsafe extern "system" fn ShiftStartRegion<Identity: ITfRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ec: u32, dir: TfShiftDir, pfnoregion: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -10341,7 +10341,7 @@ impl ITfRange_Vtbl {
         }
         unsafe extern "system" fn IsEqualStart<Identity: ITfRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ec: u32, pwith: *mut core::ffi::c_void, apos: TfAnchor, pfequal: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITfRange_Impl::IsEqualStart(this, core::mem::transmute_copy(&ec), windows_core::from_raw_borrowed(&pwith), core::mem::transmute_copy(&apos)) {
+            match ITfRange_Impl::IsEqualStart(this, core::mem::transmute_copy(&ec), core::mem::transmute_copy(&pwith), core::mem::transmute_copy(&apos)) {
                 Ok(ok__) => {
                     pfequal.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -10351,7 +10351,7 @@ impl ITfRange_Vtbl {
         }
         unsafe extern "system" fn IsEqualEnd<Identity: ITfRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ec: u32, pwith: *mut core::ffi::c_void, apos: TfAnchor, pfequal: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITfRange_Impl::IsEqualEnd(this, core::mem::transmute_copy(&ec), windows_core::from_raw_borrowed(&pwith), core::mem::transmute_copy(&apos)) {
+            match ITfRange_Impl::IsEqualEnd(this, core::mem::transmute_copy(&ec), core::mem::transmute_copy(&pwith), core::mem::transmute_copy(&apos)) {
                 Ok(ok__) => {
                     pfequal.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -10361,7 +10361,7 @@ impl ITfRange_Vtbl {
         }
         unsafe extern "system" fn CompareStart<Identity: ITfRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ec: u32, pwith: *mut core::ffi::c_void, apos: TfAnchor, plresult: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITfRange_Impl::CompareStart(this, core::mem::transmute_copy(&ec), windows_core::from_raw_borrowed(&pwith), core::mem::transmute_copy(&apos)) {
+            match ITfRange_Impl::CompareStart(this, core::mem::transmute_copy(&ec), core::mem::transmute_copy(&pwith), core::mem::transmute_copy(&apos)) {
                 Ok(ok__) => {
                     plresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -10371,7 +10371,7 @@ impl ITfRange_Vtbl {
         }
         unsafe extern "system" fn CompareEnd<Identity: ITfRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ec: u32, pwith: *mut core::ffi::c_void, apos: TfAnchor, plresult: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITfRange_Impl::CompareEnd(this, core::mem::transmute_copy(&ec), windows_core::from_raw_borrowed(&pwith), core::mem::transmute_copy(&apos)) {
+            match ITfRange_Impl::CompareEnd(this, core::mem::transmute_copy(&ec), core::mem::transmute_copy(&pwith), core::mem::transmute_copy(&apos)) {
                 Ok(ok__) => {
                     plresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -10511,13 +10511,13 @@ pub struct ITfRangeBackup_Vtbl {
     pub Restore: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITfRangeBackup_Impl: windows_core::IUnknownImpl {
-    fn Restore(&self, ec: u32, prange: Option<&ITfRange>) -> windows_core::Result<()>;
+    fn Restore(&self, ec: u32, prange: windows_core::Ref<'_, ITfRange>) -> windows_core::Result<()>;
 }
 impl ITfRangeBackup_Vtbl {
     pub const fn new<Identity: ITfRangeBackup_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Restore<Identity: ITfRangeBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ec: u32, prange: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfRangeBackup_Impl::Restore(this, core::mem::transmute_copy(&ec), windows_core::from_raw_borrowed(&prange)).into()
+            ITfRangeBackup_Impl::Restore(this, core::mem::transmute_copy(&ec), core::mem::transmute_copy(&prange)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Restore: Restore::<Identity, OFFSET> }
     }
@@ -10566,8 +10566,8 @@ pub struct ITfReadOnlyProperty_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITfReadOnlyProperty_Impl: windows_core::IUnknownImpl {
     fn GetType(&self) -> windows_core::Result<windows_core::GUID>;
-    fn EnumRanges(&self, ec: u32, ppenum: *mut Option<IEnumTfRanges>, ptargetrange: Option<&ITfRange>) -> windows_core::Result<()>;
-    fn GetValue(&self, ec: u32, prange: Option<&ITfRange>) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn EnumRanges(&self, ec: u32, ppenum: windows_core::OutRef<'_, IEnumTfRanges>, ptargetrange: windows_core::Ref<'_, ITfRange>) -> windows_core::Result<()>;
+    fn GetValue(&self, ec: u32, prange: windows_core::Ref<'_, ITfRange>) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn GetContext(&self) -> windows_core::Result<ITfContext>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -10585,11 +10585,11 @@ impl ITfReadOnlyProperty_Vtbl {
         }
         unsafe extern "system" fn EnumRanges<Identity: ITfReadOnlyProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ec: u32, ppenum: *mut *mut core::ffi::c_void, ptargetrange: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfReadOnlyProperty_Impl::EnumRanges(this, core::mem::transmute_copy(&ec), core::mem::transmute_copy(&ppenum), windows_core::from_raw_borrowed(&ptargetrange)).into()
+            ITfReadOnlyProperty_Impl::EnumRanges(this, core::mem::transmute_copy(&ec), core::mem::transmute_copy(&ppenum), core::mem::transmute_copy(&ptargetrange)).into()
         }
         unsafe extern "system" fn GetValue<Identity: ITfReadOnlyProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ec: u32, prange: *mut core::ffi::c_void, pvarvalue: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITfReadOnlyProperty_Impl::GetValue(this, core::mem::transmute_copy(&ec), windows_core::from_raw_borrowed(&prange)) {
+            match ITfReadOnlyProperty_Impl::GetValue(this, core::mem::transmute_copy(&ec), core::mem::transmute_copy(&prange)) {
                 Ok(ok__) => {
                     pvarvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -10899,14 +10899,14 @@ pub struct ITfSource_Vtbl {
     pub UnadviseSink: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait ITfSource_Impl: windows_core::IUnknownImpl {
-    fn AdviseSink(&self, riid: *const windows_core::GUID, punk: Option<&windows_core::IUnknown>) -> windows_core::Result<u32>;
+    fn AdviseSink(&self, riid: *const windows_core::GUID, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<u32>;
     fn UnadviseSink(&self, dwcookie: u32) -> windows_core::Result<()>;
 }
 impl ITfSource_Vtbl {
     pub const fn new<Identity: ITfSource_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AdviseSink<Identity: ITfSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, punk: *mut core::ffi::c_void, pdwcookie: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITfSource_Impl::AdviseSink(this, core::mem::transmute_copy(&riid), windows_core::from_raw_borrowed(&punk)) {
+            match ITfSource_Impl::AdviseSink(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&punk)) {
                 Ok(ok__) => {
                     pdwcookie.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -10949,14 +10949,14 @@ pub struct ITfSourceSingle_Vtbl {
     pub UnadviseSingleSink: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 pub trait ITfSourceSingle_Impl: windows_core::IUnknownImpl {
-    fn AdviseSingleSink(&self, tid: u32, riid: *const windows_core::GUID, punk: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn AdviseSingleSink(&self, tid: u32, riid: *const windows_core::GUID, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn UnadviseSingleSink(&self, tid: u32, riid: *const windows_core::GUID) -> windows_core::Result<()>;
 }
 impl ITfSourceSingle_Vtbl {
     pub const fn new<Identity: ITfSourceSingle_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AdviseSingleSink<Identity: ITfSourceSingle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tid: u32, riid: *const windows_core::GUID, punk: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfSourceSingle_Impl::AdviseSingleSink(this, core::mem::transmute_copy(&tid), core::mem::transmute_copy(&riid), windows_core::from_raw_borrowed(&punk)).into()
+            ITfSourceSingle_Impl::AdviseSingleSink(this, core::mem::transmute_copy(&tid), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&punk)).into()
         }
         unsafe extern "system" fn UnadviseSingleSink<Identity: ITfSourceSingle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tid: u32, riid: *const windows_core::GUID) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -11040,13 +11040,13 @@ pub struct ITfStatusSink_Vtbl {
     pub OnStatusChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait ITfStatusSink_Impl: windows_core::IUnknownImpl {
-    fn OnStatusChange(&self, pic: Option<&ITfContext>, dwflags: u32) -> windows_core::Result<()>;
+    fn OnStatusChange(&self, pic: windows_core::Ref<'_, ITfContext>, dwflags: u32) -> windows_core::Result<()>;
 }
 impl ITfStatusSink_Vtbl {
     pub const fn new<Identity: ITfStatusSink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnStatusChange<Identity: ITfStatusSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pic: *mut core::ffi::c_void, dwflags: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfStatusSink_Impl::OnStatusChange(this, windows_core::from_raw_borrowed(&pic), core::mem::transmute_copy(&dwflags)).into()
+            ITfStatusSink_Impl::OnStatusChange(this, core::mem::transmute_copy(&pic), core::mem::transmute_copy(&dwflags)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnStatusChange: OnStatusChange::<Identity, OFFSET> }
     }
@@ -11171,14 +11171,14 @@ pub struct ITfSystemLangBarItemSink_Vtbl {
     pub OnMenuSelect: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait ITfSystemLangBarItemSink_Impl: windows_core::IUnknownImpl {
-    fn InitMenu(&self, pmenu: Option<&ITfMenu>) -> windows_core::Result<()>;
+    fn InitMenu(&self, pmenu: windows_core::Ref<'_, ITfMenu>) -> windows_core::Result<()>;
     fn OnMenuSelect(&self, wid: u32) -> windows_core::Result<()>;
 }
 impl ITfSystemLangBarItemSink_Vtbl {
     pub const fn new<Identity: ITfSystemLangBarItemSink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitMenu<Identity: ITfSystemLangBarItemSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmenu: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfSystemLangBarItemSink_Impl::InitMenu(this, windows_core::from_raw_borrowed(&pmenu)).into()
+            ITfSystemLangBarItemSink_Impl::InitMenu(this, core::mem::transmute_copy(&pmenu)).into()
         }
         unsafe extern "system" fn OnMenuSelect<Identity: ITfSystemLangBarItemSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wid: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -11260,13 +11260,13 @@ pub struct ITfTextEditSink_Vtbl {
     pub OnEndEdit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITfTextEditSink_Impl: windows_core::IUnknownImpl {
-    fn OnEndEdit(&self, pic: Option<&ITfContext>, ecreadonly: u32, peditrecord: Option<&ITfEditRecord>) -> windows_core::Result<()>;
+    fn OnEndEdit(&self, pic: windows_core::Ref<'_, ITfContext>, ecreadonly: u32, peditrecord: windows_core::Ref<'_, ITfEditRecord>) -> windows_core::Result<()>;
 }
 impl ITfTextEditSink_Vtbl {
     pub const fn new<Identity: ITfTextEditSink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnEndEdit<Identity: ITfTextEditSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pic: *mut core::ffi::c_void, ecreadonly: u32, peditrecord: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfTextEditSink_Impl::OnEndEdit(this, windows_core::from_raw_borrowed(&pic), core::mem::transmute_copy(&ecreadonly), windows_core::from_raw_borrowed(&peditrecord)).into()
+            ITfTextEditSink_Impl::OnEndEdit(this, core::mem::transmute_copy(&pic), core::mem::transmute_copy(&ecreadonly), core::mem::transmute_copy(&peditrecord)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnEndEdit: OnEndEdit::<Identity, OFFSET> }
     }
@@ -11295,14 +11295,14 @@ pub struct ITfTextInputProcessor_Vtbl {
     pub Deactivate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITfTextInputProcessor_Impl: windows_core::IUnknownImpl {
-    fn Activate(&self, ptim: Option<&ITfThreadMgr>, tid: u32) -> windows_core::Result<()>;
+    fn Activate(&self, ptim: windows_core::Ref<'_, ITfThreadMgr>, tid: u32) -> windows_core::Result<()>;
     fn Deactivate(&self) -> windows_core::Result<()>;
 }
 impl ITfTextInputProcessor_Vtbl {
     pub const fn new<Identity: ITfTextInputProcessor_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Activate<Identity: ITfTextInputProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptim: *mut core::ffi::c_void, tid: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfTextInputProcessor_Impl::Activate(this, windows_core::from_raw_borrowed(&ptim), core::mem::transmute_copy(&tid)).into()
+            ITfTextInputProcessor_Impl::Activate(this, core::mem::transmute_copy(&ptim), core::mem::transmute_copy(&tid)).into()
         }
         unsafe extern "system" fn Deactivate<Identity: ITfTextInputProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -11341,13 +11341,13 @@ pub struct ITfTextInputProcessorEx_Vtbl {
     pub ActivateEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
 pub trait ITfTextInputProcessorEx_Impl: ITfTextInputProcessor_Impl {
-    fn ActivateEx(&self, ptim: Option<&ITfThreadMgr>, tid: u32, dwflags: u32) -> windows_core::Result<()>;
+    fn ActivateEx(&self, ptim: windows_core::Ref<'_, ITfThreadMgr>, tid: u32, dwflags: u32) -> windows_core::Result<()>;
 }
 impl ITfTextInputProcessorEx_Vtbl {
     pub const fn new<Identity: ITfTextInputProcessorEx_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ActivateEx<Identity: ITfTextInputProcessorEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptim: *mut core::ffi::c_void, tid: u32, dwflags: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfTextInputProcessorEx_Impl::ActivateEx(this, windows_core::from_raw_borrowed(&ptim), core::mem::transmute_copy(&tid), core::mem::transmute_copy(&dwflags)).into()
+            ITfTextInputProcessorEx_Impl::ActivateEx(this, core::mem::transmute_copy(&ptim), core::mem::transmute_copy(&tid), core::mem::transmute_copy(&dwflags)).into()
         }
         Self { base__: ITfTextInputProcessor_Vtbl::new::<Identity, OFFSET>(), ActivateEx: ActivateEx::<Identity, OFFSET> }
     }
@@ -11373,13 +11373,13 @@ pub struct ITfTextLayoutSink_Vtbl {
     pub OnLayoutChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, TfLayoutCode, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITfTextLayoutSink_Impl: windows_core::IUnknownImpl {
-    fn OnLayoutChange(&self, pic: Option<&ITfContext>, lcode: TfLayoutCode, pview: Option<&ITfContextView>) -> windows_core::Result<()>;
+    fn OnLayoutChange(&self, pic: windows_core::Ref<'_, ITfContext>, lcode: TfLayoutCode, pview: windows_core::Ref<'_, ITfContextView>) -> windows_core::Result<()>;
 }
 impl ITfTextLayoutSink_Vtbl {
     pub const fn new<Identity: ITfTextLayoutSink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnLayoutChange<Identity: ITfTextLayoutSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pic: *mut core::ffi::c_void, lcode: TfLayoutCode, pview: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfTextLayoutSink_Impl::OnLayoutChange(this, windows_core::from_raw_borrowed(&pic), core::mem::transmute_copy(&lcode), windows_core::from_raw_borrowed(&pview)).into()
+            ITfTextLayoutSink_Impl::OnLayoutChange(this, core::mem::transmute_copy(&pic), core::mem::transmute_copy(&lcode), core::mem::transmute_copy(&pview)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnLayoutChange: OnLayoutChange::<Identity, OFFSET> }
     }
@@ -11502,8 +11502,8 @@ pub trait ITfThreadMgr_Impl: windows_core::IUnknownImpl {
     fn CreateDocumentMgr(&self) -> windows_core::Result<ITfDocumentMgr>;
     fn EnumDocumentMgrs(&self) -> windows_core::Result<IEnumTfDocumentMgrs>;
     fn GetFocus(&self) -> windows_core::Result<ITfDocumentMgr>;
-    fn SetFocus(&self, pdimfocus: Option<&ITfDocumentMgr>) -> windows_core::Result<()>;
-    fn AssociateFocus(&self, hwnd: super::super::Foundation::HWND, pdimnew: Option<&ITfDocumentMgr>) -> windows_core::Result<ITfDocumentMgr>;
+    fn SetFocus(&self, pdimfocus: windows_core::Ref<'_, ITfDocumentMgr>) -> windows_core::Result<()>;
+    fn AssociateFocus(&self, hwnd: super::super::Foundation::HWND, pdimnew: windows_core::Ref<'_, ITfDocumentMgr>) -> windows_core::Result<ITfDocumentMgr>;
     fn IsThreadFocus(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn GetFunctionProvider(&self, clsid: *const windows_core::GUID) -> windows_core::Result<ITfFunctionProvider>;
     fn EnumFunctionProviders(&self) -> windows_core::Result<IEnumTfFunctionProviders>;
@@ -11557,11 +11557,11 @@ impl ITfThreadMgr_Vtbl {
         }
         unsafe extern "system" fn SetFocus<Identity: ITfThreadMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdimfocus: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfThreadMgr_Impl::SetFocus(this, windows_core::from_raw_borrowed(&pdimfocus)).into()
+            ITfThreadMgr_Impl::SetFocus(this, core::mem::transmute_copy(&pdimfocus)).into()
         }
         unsafe extern "system" fn AssociateFocus<Identity: ITfThreadMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, pdimnew: *mut core::ffi::c_void, ppdimprev: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITfThreadMgr_Impl::AssociateFocus(this, core::mem::transmute_copy(&hwnd), windows_core::from_raw_borrowed(&pdimnew)) {
+            match ITfThreadMgr_Impl::AssociateFocus(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&pdimnew)) {
                 Ok(ok__) => {
                     ppdimprev.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -11711,7 +11711,7 @@ pub trait ITfThreadMgr2_Impl: windows_core::IUnknownImpl {
     fn CreateDocumentMgr(&self) -> windows_core::Result<ITfDocumentMgr>;
     fn EnumDocumentMgrs(&self) -> windows_core::Result<IEnumTfDocumentMgrs>;
     fn GetFocus(&self) -> windows_core::Result<ITfDocumentMgr>;
-    fn SetFocus(&self, pdimfocus: Option<&ITfDocumentMgr>) -> windows_core::Result<()>;
+    fn SetFocus(&self, pdimfocus: windows_core::Ref<'_, ITfDocumentMgr>) -> windows_core::Result<()>;
     fn IsThreadFocus(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn GetFunctionProvider(&self, clsid: *const windows_core::GUID) -> windows_core::Result<ITfFunctionProvider>;
     fn EnumFunctionProviders(&self) -> windows_core::Result<IEnumTfFunctionProviders>;
@@ -11769,7 +11769,7 @@ impl ITfThreadMgr2_Vtbl {
         }
         unsafe extern "system" fn SetFocus<Identity: ITfThreadMgr2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdimfocus: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfThreadMgr2_Impl::SetFocus(this, windows_core::from_raw_borrowed(&pdimfocus)).into()
+            ITfThreadMgr2_Impl::SetFocus(this, core::mem::transmute_copy(&pdimfocus)).into()
         }
         unsafe extern "system" fn IsThreadFocus<Identity: ITfThreadMgr2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfthreadfocus: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -11901,33 +11901,33 @@ pub struct ITfThreadMgrEventSink_Vtbl {
     pub OnPopContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITfThreadMgrEventSink_Impl: windows_core::IUnknownImpl {
-    fn OnInitDocumentMgr(&self, pdim: Option<&ITfDocumentMgr>) -> windows_core::Result<()>;
-    fn OnUninitDocumentMgr(&self, pdim: Option<&ITfDocumentMgr>) -> windows_core::Result<()>;
-    fn OnSetFocus(&self, pdimfocus: Option<&ITfDocumentMgr>, pdimprevfocus: Option<&ITfDocumentMgr>) -> windows_core::Result<()>;
-    fn OnPushContext(&self, pic: Option<&ITfContext>) -> windows_core::Result<()>;
-    fn OnPopContext(&self, pic: Option<&ITfContext>) -> windows_core::Result<()>;
+    fn OnInitDocumentMgr(&self, pdim: windows_core::Ref<'_, ITfDocumentMgr>) -> windows_core::Result<()>;
+    fn OnUninitDocumentMgr(&self, pdim: windows_core::Ref<'_, ITfDocumentMgr>) -> windows_core::Result<()>;
+    fn OnSetFocus(&self, pdimfocus: windows_core::Ref<'_, ITfDocumentMgr>, pdimprevfocus: windows_core::Ref<'_, ITfDocumentMgr>) -> windows_core::Result<()>;
+    fn OnPushContext(&self, pic: windows_core::Ref<'_, ITfContext>) -> windows_core::Result<()>;
+    fn OnPopContext(&self, pic: windows_core::Ref<'_, ITfContext>) -> windows_core::Result<()>;
 }
 impl ITfThreadMgrEventSink_Vtbl {
     pub const fn new<Identity: ITfThreadMgrEventSink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnInitDocumentMgr<Identity: ITfThreadMgrEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdim: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfThreadMgrEventSink_Impl::OnInitDocumentMgr(this, windows_core::from_raw_borrowed(&pdim)).into()
+            ITfThreadMgrEventSink_Impl::OnInitDocumentMgr(this, core::mem::transmute_copy(&pdim)).into()
         }
         unsafe extern "system" fn OnUninitDocumentMgr<Identity: ITfThreadMgrEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdim: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfThreadMgrEventSink_Impl::OnUninitDocumentMgr(this, windows_core::from_raw_borrowed(&pdim)).into()
+            ITfThreadMgrEventSink_Impl::OnUninitDocumentMgr(this, core::mem::transmute_copy(&pdim)).into()
         }
         unsafe extern "system" fn OnSetFocus<Identity: ITfThreadMgrEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdimfocus: *mut core::ffi::c_void, pdimprevfocus: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfThreadMgrEventSink_Impl::OnSetFocus(this, windows_core::from_raw_borrowed(&pdimfocus), windows_core::from_raw_borrowed(&pdimprevfocus)).into()
+            ITfThreadMgrEventSink_Impl::OnSetFocus(this, core::mem::transmute_copy(&pdimfocus), core::mem::transmute_copy(&pdimprevfocus)).into()
         }
         unsafe extern "system" fn OnPushContext<Identity: ITfThreadMgrEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pic: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfThreadMgrEventSink_Impl::OnPushContext(this, windows_core::from_raw_borrowed(&pic)).into()
+            ITfThreadMgrEventSink_Impl::OnPushContext(this, core::mem::transmute_copy(&pic)).into()
         }
         unsafe extern "system" fn OnPopContext<Identity: ITfThreadMgrEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pic: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfThreadMgrEventSink_Impl::OnPopContext(this, windows_core::from_raw_borrowed(&pic)).into()
+            ITfThreadMgrEventSink_Impl::OnPopContext(this, core::mem::transmute_copy(&pic)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -12057,13 +12057,13 @@ pub struct ITfTransitoryExtensionSink_Vtbl {
     pub OnTransitoryExtensionUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 pub trait ITfTransitoryExtensionSink_Impl: windows_core::IUnknownImpl {
-    fn OnTransitoryExtensionUpdated(&self, pic: Option<&ITfContext>, ecreadonly: u32, presultrange: Option<&ITfRange>, pcompositionrange: Option<&ITfRange>) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn OnTransitoryExtensionUpdated(&self, pic: windows_core::Ref<'_, ITfContext>, ecreadonly: u32, presultrange: windows_core::Ref<'_, ITfRange>, pcompositionrange: windows_core::Ref<'_, ITfRange>) -> windows_core::Result<super::super::Foundation::BOOL>;
 }
 impl ITfTransitoryExtensionSink_Vtbl {
     pub const fn new<Identity: ITfTransitoryExtensionSink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnTransitoryExtensionUpdated<Identity: ITfTransitoryExtensionSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pic: *mut core::ffi::c_void, ecreadonly: u32, presultrange: *mut core::ffi::c_void, pcompositionrange: *mut core::ffi::c_void, pfdeleteresultrange: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITfTransitoryExtensionSink_Impl::OnTransitoryExtensionUpdated(this, windows_core::from_raw_borrowed(&pic), core::mem::transmute_copy(&ecreadonly), windows_core::from_raw_borrowed(&presultrange), windows_core::from_raw_borrowed(&pcompositionrange)) {
+            match ITfTransitoryExtensionSink_Impl::OnTransitoryExtensionUpdated(this, core::mem::transmute_copy(&pic), core::mem::transmute_copy(&ecreadonly), core::mem::transmute_copy(&presultrange), core::mem::transmute_copy(&pcompositionrange)) {
                 Ok(ok__) => {
                     pfdeleteresultrange.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -12235,7 +12235,7 @@ pub struct ITfUIElementMgr_Vtbl {
     pub EnumUIElements: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITfUIElementMgr_Impl: windows_core::IUnknownImpl {
-    fn BeginUIElement(&self, pelement: Option<&ITfUIElement>, pbshow: *mut super::super::Foundation::BOOL, pdwuielementid: *mut u32) -> windows_core::Result<()>;
+    fn BeginUIElement(&self, pelement: windows_core::Ref<'_, ITfUIElement>, pbshow: *mut super::super::Foundation::BOOL, pdwuielementid: *mut u32) -> windows_core::Result<()>;
     fn UpdateUIElement(&self, dwuielementid: u32) -> windows_core::Result<()>;
     fn EndUIElement(&self, dwuielementid: u32) -> windows_core::Result<()>;
     fn GetUIElement(&self, dwuielementid: u32) -> windows_core::Result<ITfUIElement>;
@@ -12245,7 +12245,7 @@ impl ITfUIElementMgr_Vtbl {
     pub const fn new<Identity: ITfUIElementMgr_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn BeginUIElement<Identity: ITfUIElementMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pelement: *mut core::ffi::c_void, pbshow: *mut super::super::Foundation::BOOL, pdwuielementid: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITfUIElementMgr_Impl::BeginUIElement(this, windows_core::from_raw_borrowed(&pelement), core::mem::transmute_copy(&pbshow), core::mem::transmute_copy(&pdwuielementid)).into()
+            ITfUIElementMgr_Impl::BeginUIElement(this, core::mem::transmute_copy(&pelement), core::mem::transmute_copy(&pbshow), core::mem::transmute_copy(&pdwuielementid)).into()
         }
         unsafe extern "system" fn UpdateUIElement<Identity: ITfUIElementMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwuielementid: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);

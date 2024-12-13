@@ -3166,7 +3166,7 @@ pub trait IWMPCdromBurn_Impl: windows_core::IUnknownImpl {
     fn burnFormat(&self, pwmpbf: *mut WMPBurnFormat) -> windows_core::Result<()>;
     fn SetburnFormat(&self, wmpbf: WMPBurnFormat) -> windows_core::Result<()>;
     fn burnPlaylist(&self) -> windows_core::Result<IWMPPlaylist>;
-    fn SetburnPlaylist(&self, pplaylist: Option<&IWMPPlaylist>) -> windows_core::Result<()>;
+    fn SetburnPlaylist(&self, pplaylist: windows_core::Ref<'_, IWMPPlaylist>) -> windows_core::Result<()>;
     fn refreshStatus(&self) -> windows_core::Result<()>;
     fn burnState(&self, pwmpbs: *mut WMPBurnState) -> windows_core::Result<()>;
     fn burnProgress(&self, plprogress: *mut i32) -> windows_core::Result<()>;
@@ -3213,7 +3213,7 @@ impl IWMPCdromBurn_Vtbl {
         }
         unsafe extern "system" fn SetburnPlaylist<Identity: IWMPCdromBurn_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pplaylist: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPCdromBurn_Impl::SetburnPlaylist(this, windows_core::from_raw_borrowed(&pplaylist)).into()
+            IWMPCdromBurn_Impl::SetburnPlaylist(this, core::mem::transmute_copy(&pplaylist)).into()
         }
         unsafe extern "system" fn refreshStatus<Identity: IWMPCdromBurn_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3972,16 +3972,16 @@ pub struct IWMPContentPartner_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWMPContentPartner_Impl: windows_core::IUnknownImpl {
-    fn SetCallback(&self, pcallback: Option<&IWMPContentPartnerCallback>) -> windows_core::Result<()>;
+    fn SetCallback(&self, pcallback: windows_core::Ref<'_, IWMPContentPartnerCallback>) -> windows_core::Result<()>;
     fn Notify(&self, r#type: WMPPartnerNotification, pcontext: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn GetItemInfo(&self, bstrinfoname: &windows_core::BSTR, pcontext: *const super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn GetContentPartnerInfo(&self, bstrinfoname: &windows_core::BSTR) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn GetCommands(&self, location: &windows_core::BSTR, plocationcontext: *const super::super::System::Variant::VARIANT, itemlocation: &windows_core::BSTR, citemids: u32, prgitemids: *const u32, pcitemids: *mut u32, pprgitems: *mut *mut WMPContextMenuInfo) -> windows_core::Result<()>;
     fn InvokeCommand(&self, dwcommandid: u32, location: &windows_core::BSTR, plocationcontext: *const super::super::System::Variant::VARIANT, itemlocation: &windows_core::BSTR, citemids: u32, rgitemids: *const u32) -> windows_core::Result<()>;
-    fn CanBuySilent(&self, pinfo: Option<&IWMPContentContainerList>, pbstrtotalprice: *mut windows_core::BSTR, psilentok: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn Buy(&self, pinfo: Option<&IWMPContentContainerList>, cookie: u32) -> windows_core::Result<()>;
+    fn CanBuySilent(&self, pinfo: windows_core::Ref<'_, IWMPContentContainerList>, pbstrtotalprice: *mut windows_core::BSTR, psilentok: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn Buy(&self, pinfo: windows_core::Ref<'_, IWMPContentContainerList>, cookie: u32) -> windows_core::Result<()>;
     fn GetStreamingURL(&self, st: WMPStreamingType, pstreamcontext: *const super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR>;
-    fn Download(&self, pinfo: Option<&IWMPContentContainerList>, cookie: u32) -> windows_core::Result<()>;
+    fn Download(&self, pinfo: windows_core::Ref<'_, IWMPContentContainerList>, cookie: u32) -> windows_core::Result<()>;
     fn DownloadTrackComplete(&self, hrresult: windows_core::HRESULT, contentid: u32, downloadtrackparam: &windows_core::BSTR) -> windows_core::Result<()>;
     fn RefreshLicense(&self, dwcookie: u32, flocal: super::super::Foundation::VARIANT_BOOL, bstrurl: &windows_core::BSTR, r#type: WMPStreamingType, contentid: u32, bstrrefreshreason: &windows_core::BSTR, preasoncontext: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn GetCatalogURL(&self, dwcatalogversion: u32, dwcatalogschemaversion: u32, cataloglcid: u32, pdwnewcatalogversion: *mut u32, pbstrcatalogurl: *mut windows_core::BSTR, pexpirationdate: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
@@ -3993,7 +3993,7 @@ pub trait IWMPContentPartner_Impl: windows_core::IUnknownImpl {
     fn Logout(&self) -> windows_core::Result<()>;
     fn SendMessage(&self, bstrmsg: &windows_core::BSTR, bstrparam: &windows_core::BSTR) -> windows_core::Result<()>;
     fn StationEvent(&self, bstrstationeventtype: &windows_core::BSTR, stationid: u32, playlistindex: u32, trackid: u32, trackdata: &windows_core::BSTR, dwsecondsplayed: u32) -> windows_core::Result<()>;
-    fn CompareContainerListPrices(&self, plistbase: Option<&IWMPContentContainerList>, plistcompare: Option<&IWMPContentContainerList>) -> windows_core::Result<i32>;
+    fn CompareContainerListPrices(&self, plistbase: windows_core::Ref<'_, IWMPContentContainerList>, plistcompare: windows_core::Ref<'_, IWMPContentContainerList>) -> windows_core::Result<i32>;
     fn VerifyPermission(&self, bstrpermission: &windows_core::BSTR, pcontext: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -4001,7 +4001,7 @@ impl IWMPContentPartner_Vtbl {
     pub const fn new<Identity: IWMPContentPartner_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetCallback<Identity: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPContentPartner_Impl::SetCallback(this, windows_core::from_raw_borrowed(&pcallback)).into()
+            IWMPContentPartner_Impl::SetCallback(this, core::mem::transmute_copy(&pcallback)).into()
         }
         unsafe extern "system" fn Notify<Identity: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: WMPPartnerNotification, pcontext: *const super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -4037,11 +4037,11 @@ impl IWMPContentPartner_Vtbl {
         }
         unsafe extern "system" fn CanBuySilent<Identity: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *mut core::ffi::c_void, pbstrtotalprice: *mut *mut core::ffi::c_void, psilentok: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPContentPartner_Impl::CanBuySilent(this, windows_core::from_raw_borrowed(&pinfo), core::mem::transmute_copy(&pbstrtotalprice), core::mem::transmute_copy(&psilentok)).into()
+            IWMPContentPartner_Impl::CanBuySilent(this, core::mem::transmute_copy(&pinfo), core::mem::transmute_copy(&pbstrtotalprice), core::mem::transmute_copy(&psilentok)).into()
         }
         unsafe extern "system" fn Buy<Identity: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *mut core::ffi::c_void, cookie: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPContentPartner_Impl::Buy(this, windows_core::from_raw_borrowed(&pinfo), core::mem::transmute_copy(&cookie)).into()
+            IWMPContentPartner_Impl::Buy(this, core::mem::transmute_copy(&pinfo), core::mem::transmute_copy(&cookie)).into()
         }
         unsafe extern "system" fn GetStreamingURL<Identity: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, st: WMPStreamingType, pstreamcontext: *const super::super::System::Variant::VARIANT, pbstrurl: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -4055,7 +4055,7 @@ impl IWMPContentPartner_Vtbl {
         }
         unsafe extern "system" fn Download<Identity: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *mut core::ffi::c_void, cookie: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPContentPartner_Impl::Download(this, windows_core::from_raw_borrowed(&pinfo), core::mem::transmute_copy(&cookie)).into()
+            IWMPContentPartner_Impl::Download(this, core::mem::transmute_copy(&pinfo), core::mem::transmute_copy(&cookie)).into()
         }
         unsafe extern "system" fn DownloadTrackComplete<Identity: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hrresult: windows_core::HRESULT, contentid: u32, downloadtrackparam: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -4103,7 +4103,7 @@ impl IWMPContentPartner_Vtbl {
         }
         unsafe extern "system" fn CompareContainerListPrices<Identity: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plistbase: *mut core::ffi::c_void, plistcompare: *mut core::ffi::c_void, presult: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWMPContentPartner_Impl::CompareContainerListPrices(this, windows_core::from_raw_borrowed(&plistbase), windows_core::from_raw_borrowed(&plistcompare)) {
+            match IWMPContentPartner_Impl::CompareContainerListPrices(this, core::mem::transmute_copy(&plistbase), core::mem::transmute_copy(&plistcompare)) {
                 Ok(ok__) => {
                     presult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4414,10 +4414,10 @@ pub trait IWMPControls_Impl: super::super::System::Com::IDispatch_Impl {
     fn next(&self) -> windows_core::Result<()>;
     fn previous(&self) -> windows_core::Result<()>;
     fn currentItem(&self) -> windows_core::Result<IWMPMedia>;
-    fn SetcurrentItem(&self, piwmpmedia: Option<&IWMPMedia>) -> windows_core::Result<()>;
+    fn SetcurrentItem(&self, piwmpmedia: windows_core::Ref<'_, IWMPMedia>) -> windows_core::Result<()>;
     fn currentMarker(&self, plmarker: *mut i32) -> windows_core::Result<()>;
     fn SetcurrentMarker(&self, lmarker: i32) -> windows_core::Result<()>;
-    fn playItem(&self, piwmpmedia: Option<&IWMPMedia>) -> windows_core::Result<()>;
+    fn playItem(&self, piwmpmedia: windows_core::Ref<'_, IWMPMedia>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWMPControls_Vtbl {
@@ -4478,7 +4478,7 @@ impl IWMPControls_Vtbl {
         }
         unsafe extern "system" fn SetcurrentItem<Identity: IWMPControls_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piwmpmedia: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPControls_Impl::SetcurrentItem(this, windows_core::from_raw_borrowed(&piwmpmedia)).into()
+            IWMPControls_Impl::SetcurrentItem(this, core::mem::transmute_copy(&piwmpmedia)).into()
         }
         unsafe extern "system" fn currentMarker<Identity: IWMPControls_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmarker: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -4490,7 +4490,7 @@ impl IWMPControls_Vtbl {
         }
         unsafe extern "system" fn playItem<Identity: IWMPControls_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piwmpmedia: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPControls_Impl::playItem(this, windows_core::from_raw_borrowed(&piwmpmedia)).into()
+            IWMPControls_Impl::playItem(this, core::mem::transmute_copy(&piwmpmedia)).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(),
@@ -4865,14 +4865,14 @@ pub trait IWMPCore_Impl: super::super::System::Com::IDispatch_Impl {
     fn controls(&self) -> windows_core::Result<IWMPControls>;
     fn settings(&self) -> windows_core::Result<IWMPSettings>;
     fn currentMedia(&self) -> windows_core::Result<IWMPMedia>;
-    fn SetcurrentMedia(&self, pmedia: Option<&IWMPMedia>) -> windows_core::Result<()>;
+    fn SetcurrentMedia(&self, pmedia: windows_core::Ref<'_, IWMPMedia>) -> windows_core::Result<()>;
     fn mediaCollection(&self) -> windows_core::Result<IWMPMediaCollection>;
     fn playlistCollection(&self) -> windows_core::Result<IWMPPlaylistCollection>;
     fn versionInfo(&self, pbstrversioninfo: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn launchURL(&self, bstrurl: &windows_core::BSTR) -> windows_core::Result<()>;
     fn network(&self) -> windows_core::Result<IWMPNetwork>;
     fn currentPlaylist(&self) -> windows_core::Result<IWMPPlaylist>;
-    fn SetcurrentPlaylist(&self, ppl: Option<&IWMPPlaylist>) -> windows_core::Result<()>;
+    fn SetcurrentPlaylist(&self, ppl: windows_core::Ref<'_, IWMPPlaylist>) -> windows_core::Result<()>;
     fn cdromCollection(&self) -> windows_core::Result<IWMPCdromCollection>;
     fn closedCaption(&self) -> windows_core::Result<IWMPClosedCaption>;
     fn isOnline(&self, pfonline: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
@@ -4934,7 +4934,7 @@ impl IWMPCore_Vtbl {
         }
         unsafe extern "system" fn SetcurrentMedia<Identity: IWMPCore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmedia: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPCore_Impl::SetcurrentMedia(this, windows_core::from_raw_borrowed(&pmedia)).into()
+            IWMPCore_Impl::SetcurrentMedia(this, core::mem::transmute_copy(&pmedia)).into()
         }
         unsafe extern "system" fn mediaCollection<Identity: IWMPCore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppmediacollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -4986,7 +4986,7 @@ impl IWMPCore_Vtbl {
         }
         unsafe extern "system" fn SetcurrentPlaylist<Identity: IWMPCore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppl: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPCore_Impl::SetcurrentPlaylist(this, windows_core::from_raw_borrowed(&ppl)).into()
+            IWMPCore_Impl::SetcurrentPlaylist(this, core::mem::transmute_copy(&ppl)).into()
         }
         unsafe extern "system" fn cdromCollection<Identity: IWMPCore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcdromcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -5793,10 +5793,10 @@ pub struct IWMPEffects2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 pub trait IWMPEffects2_Impl: IWMPEffects_Impl {
-    fn SetCore(&self, pplayer: Option<&IWMPCore>) -> windows_core::Result<()>;
+    fn SetCore(&self, pplayer: windows_core::Ref<'_, IWMPCore>) -> windows_core::Result<()>;
     fn Create(&self, hwndparent: super::super::Foundation::HWND) -> windows_core::Result<()>;
     fn Destroy(&self) -> windows_core::Result<()>;
-    fn NotifyNewMedia(&self, pmedia: Option<&IWMPMedia>) -> windows_core::Result<()>;
+    fn NotifyNewMedia(&self, pmedia: windows_core::Ref<'_, IWMPMedia>) -> windows_core::Result<()>;
     fn OnWindowMessage(&self, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, plresultparam: *mut super::super::Foundation::LRESULT) -> windows_core::Result<()>;
     fn RenderWindowed(&self, pdata: *mut TimedLevel, frequiredrender: super::super::Foundation::BOOL) -> windows_core::Result<()>;
 }
@@ -5805,7 +5805,7 @@ impl IWMPEffects2_Vtbl {
     pub const fn new<Identity: IWMPEffects2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetCore<Identity: IWMPEffects2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pplayer: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPEffects2_Impl::SetCore(this, windows_core::from_raw_borrowed(&pplayer)).into()
+            IWMPEffects2_Impl::SetCore(this, core::mem::transmute_copy(&pplayer)).into()
         }
         unsafe extern "system" fn Create<Identity: IWMPEffects2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::Foundation::HWND) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -5817,7 +5817,7 @@ impl IWMPEffects2_Vtbl {
         }
         unsafe extern "system" fn NotifyNewMedia<Identity: IWMPEffects2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmedia: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPEffects2_Impl::NotifyNewMedia(this, windows_core::from_raw_borrowed(&pmedia)).into()
+            IWMPEffects2_Impl::NotifyNewMedia(this, core::mem::transmute_copy(&pmedia)).into()
         }
         unsafe extern "system" fn OnWindowMessage<Identity: IWMPEffects2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, plresultparam: *mut super::super::Foundation::LRESULT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -6296,12 +6296,12 @@ pub trait IWMPEvents_Impl: windows_core::IUnknownImpl {
     fn MarkerHit(&self, markernum: i32);
     fn DurationUnitChange(&self, newdurationunit: i32);
     fn CdromMediaChange(&self, cdromnum: i32);
-    fn PlaylistChange(&self, playlist: Option<&super::super::System::Com::IDispatch>, change: WMPPlaylistChangeEventType);
+    fn PlaylistChange(&self, playlist: windows_core::Ref<'_, super::super::System::Com::IDispatch>, change: WMPPlaylistChangeEventType);
     fn CurrentPlaylistChange(&self, change: WMPPlaylistChangeEventType);
     fn CurrentPlaylistItemAvailable(&self, bstritemname: &windows_core::BSTR);
-    fn MediaChange(&self, item: Option<&super::super::System::Com::IDispatch>);
+    fn MediaChange(&self, item: windows_core::Ref<'_, super::super::System::Com::IDispatch>);
     fn CurrentMediaItemAvailable(&self, bstritemname: &windows_core::BSTR);
-    fn CurrentItemChange(&self, pdispmedia: Option<&super::super::System::Com::IDispatch>);
+    fn CurrentItemChange(&self, pdispmedia: windows_core::Ref<'_, super::super::System::Com::IDispatch>);
     fn MediaCollectionChange(&self);
     fn MediaCollectionAttributeStringAdded(&self, bstrattribname: &windows_core::BSTR, bstrattribval: &windows_core::BSTR);
     fn MediaCollectionAttributeStringRemoved(&self, bstrattribname: &windows_core::BSTR, bstrattribval: &windows_core::BSTR);
@@ -6311,8 +6311,8 @@ pub trait IWMPEvents_Impl: windows_core::IUnknownImpl {
     fn PlaylistCollectionPlaylistRemoved(&self, bstrplaylistname: &windows_core::BSTR);
     fn PlaylistCollectionPlaylistSetAsDeleted(&self, bstrplaylistname: &windows_core::BSTR, varfisdeleted: super::super::Foundation::VARIANT_BOOL);
     fn ModeChange(&self, modename: &windows_core::BSTR, newvalue: super::super::Foundation::VARIANT_BOOL);
-    fn MediaError(&self, pmediaobject: Option<&super::super::System::Com::IDispatch>);
-    fn OpenPlaylistSwitch(&self, pitem: Option<&super::super::System::Com::IDispatch>);
+    fn MediaError(&self, pmediaobject: windows_core::Ref<'_, super::super::System::Com::IDispatch>);
+    fn OpenPlaylistSwitch(&self, pitem: windows_core::Ref<'_, super::super::System::Com::IDispatch>);
     fn DomainChange(&self, strdomain: &windows_core::BSTR);
     fn SwitchedToPlayerApplication(&self);
     fn SwitchedToControl(&self);
@@ -6392,7 +6392,7 @@ impl IWMPEvents_Vtbl {
         }
         unsafe extern "system" fn PlaylistChange<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, playlist: *mut core::ffi::c_void, change: WMPPlaylistChangeEventType) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPEvents_Impl::PlaylistChange(this, windows_core::from_raw_borrowed(&playlist), core::mem::transmute_copy(&change))
+            IWMPEvents_Impl::PlaylistChange(this, core::mem::transmute_copy(&playlist), core::mem::transmute_copy(&change))
         }
         unsafe extern "system" fn CurrentPlaylistChange<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, change: WMPPlaylistChangeEventType) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -6404,7 +6404,7 @@ impl IWMPEvents_Vtbl {
         }
         unsafe extern "system" fn MediaChange<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, item: *mut core::ffi::c_void) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPEvents_Impl::MediaChange(this, windows_core::from_raw_borrowed(&item))
+            IWMPEvents_Impl::MediaChange(this, core::mem::transmute_copy(&item))
         }
         unsafe extern "system" fn CurrentMediaItemAvailable<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstritemname: *mut core::ffi::c_void) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -6412,7 +6412,7 @@ impl IWMPEvents_Vtbl {
         }
         unsafe extern "system" fn CurrentItemChange<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdispmedia: *mut core::ffi::c_void) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPEvents_Impl::CurrentItemChange(this, windows_core::from_raw_borrowed(&pdispmedia))
+            IWMPEvents_Impl::CurrentItemChange(this, core::mem::transmute_copy(&pdispmedia))
         }
         unsafe extern "system" fn MediaCollectionChange<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -6452,11 +6452,11 @@ impl IWMPEvents_Vtbl {
         }
         unsafe extern "system" fn MediaError<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmediaobject: *mut core::ffi::c_void) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPEvents_Impl::MediaError(this, windows_core::from_raw_borrowed(&pmediaobject))
+            IWMPEvents_Impl::MediaError(this, core::mem::transmute_copy(&pmediaobject))
         }
         unsafe extern "system" fn OpenPlaylistSwitch<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pitem: *mut core::ffi::c_void) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPEvents_Impl::OpenPlaylistSwitch(this, windows_core::from_raw_borrowed(&pitem))
+            IWMPEvents_Impl::OpenPlaylistSwitch(this, core::mem::transmute_copy(&pitem))
         }
         unsafe extern "system" fn DomainChange<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strdomain: *mut core::ffi::c_void) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -6628,39 +6628,39 @@ pub struct IWMPEvents2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPEvents2_Impl: IWMPEvents_Impl {
-    fn DeviceConnect(&self, pdevice: Option<&IWMPSyncDevice>);
-    fn DeviceDisconnect(&self, pdevice: Option<&IWMPSyncDevice>);
-    fn DeviceStatusChange(&self, pdevice: Option<&IWMPSyncDevice>, newstatus: WMPDeviceStatus);
-    fn DeviceSyncStateChange(&self, pdevice: Option<&IWMPSyncDevice>, newstate: WMPSyncState);
-    fn DeviceSyncError(&self, pdevice: Option<&IWMPSyncDevice>, pmedia: Option<&super::super::System::Com::IDispatch>);
-    fn CreatePartnershipComplete(&self, pdevice: Option<&IWMPSyncDevice>, hrresult: windows_core::HRESULT);
+    fn DeviceConnect(&self, pdevice: windows_core::Ref<'_, IWMPSyncDevice>);
+    fn DeviceDisconnect(&self, pdevice: windows_core::Ref<'_, IWMPSyncDevice>);
+    fn DeviceStatusChange(&self, pdevice: windows_core::Ref<'_, IWMPSyncDevice>, newstatus: WMPDeviceStatus);
+    fn DeviceSyncStateChange(&self, pdevice: windows_core::Ref<'_, IWMPSyncDevice>, newstate: WMPSyncState);
+    fn DeviceSyncError(&self, pdevice: windows_core::Ref<'_, IWMPSyncDevice>, pmedia: windows_core::Ref<'_, super::super::System::Com::IDispatch>);
+    fn CreatePartnershipComplete(&self, pdevice: windows_core::Ref<'_, IWMPSyncDevice>, hrresult: windows_core::HRESULT);
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPEvents2_Vtbl {
     pub const fn new<Identity: IWMPEvents2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DeviceConnect<Identity: IWMPEvents2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPEvents2_Impl::DeviceConnect(this, windows_core::from_raw_borrowed(&pdevice))
+            IWMPEvents2_Impl::DeviceConnect(this, core::mem::transmute_copy(&pdevice))
         }
         unsafe extern "system" fn DeviceDisconnect<Identity: IWMPEvents2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPEvents2_Impl::DeviceDisconnect(this, windows_core::from_raw_borrowed(&pdevice))
+            IWMPEvents2_Impl::DeviceDisconnect(this, core::mem::transmute_copy(&pdevice))
         }
         unsafe extern "system" fn DeviceStatusChange<Identity: IWMPEvents2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void, newstatus: WMPDeviceStatus) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPEvents2_Impl::DeviceStatusChange(this, windows_core::from_raw_borrowed(&pdevice), core::mem::transmute_copy(&newstatus))
+            IWMPEvents2_Impl::DeviceStatusChange(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&newstatus))
         }
         unsafe extern "system" fn DeviceSyncStateChange<Identity: IWMPEvents2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void, newstate: WMPSyncState) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPEvents2_Impl::DeviceSyncStateChange(this, windows_core::from_raw_borrowed(&pdevice), core::mem::transmute_copy(&newstate))
+            IWMPEvents2_Impl::DeviceSyncStateChange(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&newstate))
         }
         unsafe extern "system" fn DeviceSyncError<Identity: IWMPEvents2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void, pmedia: *mut core::ffi::c_void) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPEvents2_Impl::DeviceSyncError(this, windows_core::from_raw_borrowed(&pdevice), windows_core::from_raw_borrowed(&pmedia))
+            IWMPEvents2_Impl::DeviceSyncError(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&pmedia))
         }
         unsafe extern "system" fn CreatePartnershipComplete<Identity: IWMPEvents2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void, hrresult: windows_core::HRESULT) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPEvents2_Impl::CreatePartnershipComplete(this, windows_core::from_raw_borrowed(&pdevice), core::mem::transmute_copy(&hrresult))
+            IWMPEvents2_Impl::CreatePartnershipComplete(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&hrresult))
         }
         Self {
             base__: IWMPEvents_Vtbl::new::<Identity, OFFSET>(),
@@ -6790,48 +6790,48 @@ pub struct IWMPEvents3_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPEvents3_Impl: IWMPEvents2_Impl {
-    fn CdromRipStateChange(&self, pcdromrip: Option<&IWMPCdromRip>, wmprs: WMPRipState);
-    fn CdromRipMediaError(&self, pcdromrip: Option<&IWMPCdromRip>, pmedia: Option<&super::super::System::Com::IDispatch>);
-    fn CdromBurnStateChange(&self, pcdromburn: Option<&IWMPCdromBurn>, wmpbs: WMPBurnState);
-    fn CdromBurnMediaError(&self, pcdromburn: Option<&IWMPCdromBurn>, pmedia: Option<&super::super::System::Com::IDispatch>);
-    fn CdromBurnError(&self, pcdromburn: Option<&IWMPCdromBurn>, hrerror: windows_core::HRESULT);
-    fn LibraryConnect(&self, plibrary: Option<&IWMPLibrary>);
-    fn LibraryDisconnect(&self, plibrary: Option<&IWMPLibrary>);
+    fn CdromRipStateChange(&self, pcdromrip: windows_core::Ref<'_, IWMPCdromRip>, wmprs: WMPRipState);
+    fn CdromRipMediaError(&self, pcdromrip: windows_core::Ref<'_, IWMPCdromRip>, pmedia: windows_core::Ref<'_, super::super::System::Com::IDispatch>);
+    fn CdromBurnStateChange(&self, pcdromburn: windows_core::Ref<'_, IWMPCdromBurn>, wmpbs: WMPBurnState);
+    fn CdromBurnMediaError(&self, pcdromburn: windows_core::Ref<'_, IWMPCdromBurn>, pmedia: windows_core::Ref<'_, super::super::System::Com::IDispatch>);
+    fn CdromBurnError(&self, pcdromburn: windows_core::Ref<'_, IWMPCdromBurn>, hrerror: windows_core::HRESULT);
+    fn LibraryConnect(&self, plibrary: windows_core::Ref<'_, IWMPLibrary>);
+    fn LibraryDisconnect(&self, plibrary: windows_core::Ref<'_, IWMPLibrary>);
     fn FolderScanStateChange(&self, wmpfss: WMPFolderScanState);
-    fn StringCollectionChange(&self, pdispstringcollection: Option<&super::super::System::Com::IDispatch>, change: WMPStringCollectionChangeEventType, lcollectionindex: i32);
-    fn MediaCollectionMediaAdded(&self, pdispmedia: Option<&super::super::System::Com::IDispatch>);
-    fn MediaCollectionMediaRemoved(&self, pdispmedia: Option<&super::super::System::Com::IDispatch>);
+    fn StringCollectionChange(&self, pdispstringcollection: windows_core::Ref<'_, super::super::System::Com::IDispatch>, change: WMPStringCollectionChangeEventType, lcollectionindex: i32);
+    fn MediaCollectionMediaAdded(&self, pdispmedia: windows_core::Ref<'_, super::super::System::Com::IDispatch>);
+    fn MediaCollectionMediaRemoved(&self, pdispmedia: windows_core::Ref<'_, super::super::System::Com::IDispatch>);
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPEvents3_Vtbl {
     pub const fn new<Identity: IWMPEvents3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CdromRipStateChange<Identity: IWMPEvents3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcdromrip: *mut core::ffi::c_void, wmprs: WMPRipState) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPEvents3_Impl::CdromRipStateChange(this, windows_core::from_raw_borrowed(&pcdromrip), core::mem::transmute_copy(&wmprs))
+            IWMPEvents3_Impl::CdromRipStateChange(this, core::mem::transmute_copy(&pcdromrip), core::mem::transmute_copy(&wmprs))
         }
         unsafe extern "system" fn CdromRipMediaError<Identity: IWMPEvents3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcdromrip: *mut core::ffi::c_void, pmedia: *mut core::ffi::c_void) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPEvents3_Impl::CdromRipMediaError(this, windows_core::from_raw_borrowed(&pcdromrip), windows_core::from_raw_borrowed(&pmedia))
+            IWMPEvents3_Impl::CdromRipMediaError(this, core::mem::transmute_copy(&pcdromrip), core::mem::transmute_copy(&pmedia))
         }
         unsafe extern "system" fn CdromBurnStateChange<Identity: IWMPEvents3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcdromburn: *mut core::ffi::c_void, wmpbs: WMPBurnState) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPEvents3_Impl::CdromBurnStateChange(this, windows_core::from_raw_borrowed(&pcdromburn), core::mem::transmute_copy(&wmpbs))
+            IWMPEvents3_Impl::CdromBurnStateChange(this, core::mem::transmute_copy(&pcdromburn), core::mem::transmute_copy(&wmpbs))
         }
         unsafe extern "system" fn CdromBurnMediaError<Identity: IWMPEvents3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcdromburn: *mut core::ffi::c_void, pmedia: *mut core::ffi::c_void) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPEvents3_Impl::CdromBurnMediaError(this, windows_core::from_raw_borrowed(&pcdromburn), windows_core::from_raw_borrowed(&pmedia))
+            IWMPEvents3_Impl::CdromBurnMediaError(this, core::mem::transmute_copy(&pcdromburn), core::mem::transmute_copy(&pmedia))
         }
         unsafe extern "system" fn CdromBurnError<Identity: IWMPEvents3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcdromburn: *mut core::ffi::c_void, hrerror: windows_core::HRESULT) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPEvents3_Impl::CdromBurnError(this, windows_core::from_raw_borrowed(&pcdromburn), core::mem::transmute_copy(&hrerror))
+            IWMPEvents3_Impl::CdromBurnError(this, core::mem::transmute_copy(&pcdromburn), core::mem::transmute_copy(&hrerror))
         }
         unsafe extern "system" fn LibraryConnect<Identity: IWMPEvents3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plibrary: *mut core::ffi::c_void) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPEvents3_Impl::LibraryConnect(this, windows_core::from_raw_borrowed(&plibrary))
+            IWMPEvents3_Impl::LibraryConnect(this, core::mem::transmute_copy(&plibrary))
         }
         unsafe extern "system" fn LibraryDisconnect<Identity: IWMPEvents3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plibrary: *mut core::ffi::c_void) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPEvents3_Impl::LibraryDisconnect(this, windows_core::from_raw_borrowed(&plibrary))
+            IWMPEvents3_Impl::LibraryDisconnect(this, core::mem::transmute_copy(&plibrary))
         }
         unsafe extern "system" fn FolderScanStateChange<Identity: IWMPEvents3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wmpfss: WMPFolderScanState) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -6839,15 +6839,15 @@ impl IWMPEvents3_Vtbl {
         }
         unsafe extern "system" fn StringCollectionChange<Identity: IWMPEvents3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdispstringcollection: *mut core::ffi::c_void, change: WMPStringCollectionChangeEventType, lcollectionindex: i32) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPEvents3_Impl::StringCollectionChange(this, windows_core::from_raw_borrowed(&pdispstringcollection), core::mem::transmute_copy(&change), core::mem::transmute_copy(&lcollectionindex))
+            IWMPEvents3_Impl::StringCollectionChange(this, core::mem::transmute_copy(&pdispstringcollection), core::mem::transmute_copy(&change), core::mem::transmute_copy(&lcollectionindex))
         }
         unsafe extern "system" fn MediaCollectionMediaAdded<Identity: IWMPEvents3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdispmedia: *mut core::ffi::c_void) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPEvents3_Impl::MediaCollectionMediaAdded(this, windows_core::from_raw_borrowed(&pdispmedia))
+            IWMPEvents3_Impl::MediaCollectionMediaAdded(this, core::mem::transmute_copy(&pdispmedia))
         }
         unsafe extern "system" fn MediaCollectionMediaRemoved<Identity: IWMPEvents3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdispmedia: *mut core::ffi::c_void) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPEvents3_Impl::MediaCollectionMediaRemoved(this, windows_core::from_raw_borrowed(&pdispmedia))
+            IWMPEvents3_Impl::MediaCollectionMediaRemoved(this, core::mem::transmute_copy(&pdispmedia))
         }
         Self {
             base__: IWMPEvents2_Vtbl::new::<Identity, OFFSET>(),
@@ -6893,14 +6893,14 @@ pub struct IWMPEvents4_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPEvents4_Impl: IWMPEvents3_Impl {
-    fn DeviceEstimation(&self, pdevice: Option<&IWMPSyncDevice>, hrresult: windows_core::HRESULT, qwestimatedusedspace: i64, qwestimatedspace: i64);
+    fn DeviceEstimation(&self, pdevice: windows_core::Ref<'_, IWMPSyncDevice>, hrresult: windows_core::HRESULT, qwestimatedusedspace: i64, qwestimatedspace: i64);
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPEvents4_Vtbl {
     pub const fn new<Identity: IWMPEvents4_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DeviceEstimation<Identity: IWMPEvents4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void, hrresult: windows_core::HRESULT, qwestimatedusedspace: i64, qwestimatedspace: i64) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPEvents4_Impl::DeviceEstimation(this, windows_core::from_raw_borrowed(&pdevice), core::mem::transmute_copy(&hrresult), core::mem::transmute_copy(&qwestimatedusedspace), core::mem::transmute_copy(&qwestimatedspace))
+            IWMPEvents4_Impl::DeviceEstimation(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&hrresult), core::mem::transmute_copy(&qwestimatedusedspace), core::mem::transmute_copy(&qwestimatedspace))
         }
         Self { base__: IWMPEvents3_Vtbl::new::<Identity, OFFSET>(), DeviceEstimation: DeviceEstimation::<Identity, OFFSET> }
     }
@@ -7069,19 +7069,19 @@ pub struct IWMPGraphCreation_Vtbl {
     pub GetGraphCreationFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IWMPGraphCreation_Impl: windows_core::IUnknownImpl {
-    fn GraphCreationPreRender(&self, pfiltergraph: Option<&windows_core::IUnknown>, preserved: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn GraphCreationPostRender(&self, pfiltergraph: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GraphCreationPreRender(&self, pfiltergraph: windows_core::Ref<'_, windows_core::IUnknown>, preserved: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GraphCreationPostRender(&self, pfiltergraph: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetGraphCreationFlags(&self, pdwflags: *mut u32) -> windows_core::Result<()>;
 }
 impl IWMPGraphCreation_Vtbl {
     pub const fn new<Identity: IWMPGraphCreation_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GraphCreationPreRender<Identity: IWMPGraphCreation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfiltergraph: *mut core::ffi::c_void, preserved: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPGraphCreation_Impl::GraphCreationPreRender(this, windows_core::from_raw_borrowed(&pfiltergraph), windows_core::from_raw_borrowed(&preserved)).into()
+            IWMPGraphCreation_Impl::GraphCreationPreRender(this, core::mem::transmute_copy(&pfiltergraph), core::mem::transmute_copy(&preserved)).into()
         }
         unsafe extern "system" fn GraphCreationPostRender<Identity: IWMPGraphCreation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfiltergraph: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPGraphCreation_Impl::GraphCreationPostRender(this, windows_core::from_raw_borrowed(&pfiltergraph)).into()
+            IWMPGraphCreation_Impl::GraphCreationPostRender(this, core::mem::transmute_copy(&pfiltergraph)).into()
         }
         unsafe extern "system" fn GetGraphCreationFlags<Identity: IWMPGraphCreation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwflags: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -7136,7 +7136,7 @@ pub trait IWMPLibrary_Impl: windows_core::IUnknownImpl {
     fn name(&self, pbstrname: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn r#type(&self, pwmplt: *mut WMPLibraryType) -> windows_core::Result<()>;
     fn mediaCollection(&self) -> windows_core::Result<IWMPMediaCollection>;
-    fn isIdentical(&self, piwmplibrary: Option<&IWMPLibrary>, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn isIdentical(&self, piwmplibrary: windows_core::Ref<'_, IWMPLibrary>, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPLibrary_Vtbl {
@@ -7161,7 +7161,7 @@ impl IWMPLibrary_Vtbl {
         }
         unsafe extern "system" fn isIdentical<Identity: IWMPLibrary_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piwmplibrary: *mut core::ffi::c_void, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPLibrary_Impl::isIdentical(this, windows_core::from_raw_borrowed(&piwmplibrary), core::mem::transmute_copy(&pvbool)).into()
+            IWMPLibrary_Impl::isIdentical(this, core::mem::transmute_copy(&piwmplibrary), core::mem::transmute_copy(&pvbool)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -7412,7 +7412,7 @@ pub struct IWMPMedia_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWMPMedia_Impl: super::super::System::Com::IDispatch_Impl {
-    fn get_isIdentical(&self, piwmpmedia: Option<&IWMPMedia>, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn get_isIdentical(&self, piwmpmedia: windows_core::Ref<'_, IWMPMedia>, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn sourceURL(&self, pbstrsourceurl: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn name(&self, pbstrname: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn Setname(&self, bstrname: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -7428,7 +7428,7 @@ pub trait IWMPMedia_Impl: super::super::System::Com::IDispatch_Impl {
     fn getItemInfo(&self, bstritemname: &windows_core::BSTR, pbstrval: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn setItemInfo(&self, bstritemname: &windows_core::BSTR, bstrval: &windows_core::BSTR) -> windows_core::Result<()>;
     fn getItemInfoByAtom(&self, latom: i32, pbstrval: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn isMemberOf(&self, pplaylist: Option<&IWMPPlaylist>, pvarfismemberof: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn isMemberOf(&self, pplaylist: windows_core::Ref<'_, IWMPPlaylist>, pvarfismemberof: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn isReadOnlyItem(&self, bstritemname: &windows_core::BSTR, pvarfisreadonly: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -7436,7 +7436,7 @@ impl IWMPMedia_Vtbl {
     pub const fn new<Identity: IWMPMedia_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn get_isIdentical<Identity: IWMPMedia_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piwmpmedia: *mut core::ffi::c_void, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPMedia_Impl::get_isIdentical(this, windows_core::from_raw_borrowed(&piwmpmedia), core::mem::transmute_copy(&pvbool)).into()
+            IWMPMedia_Impl::get_isIdentical(this, core::mem::transmute_copy(&piwmpmedia), core::mem::transmute_copy(&pvbool)).into()
         }
         unsafe extern "system" fn sourceURL<Identity: IWMPMedia_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsourceurl: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -7500,7 +7500,7 @@ impl IWMPMedia_Vtbl {
         }
         unsafe extern "system" fn isMemberOf<Identity: IWMPMedia_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pplaylist: *mut core::ffi::c_void, pvarfismemberof: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPMedia_Impl::isMemberOf(this, windows_core::from_raw_borrowed(&pplaylist), core::mem::transmute_copy(&pvarfismemberof)).into()
+            IWMPMedia_Impl::isMemberOf(this, core::mem::transmute_copy(&pplaylist), core::mem::transmute_copy(&pvarfismemberof)).into()
         }
         unsafe extern "system" fn isReadOnlyItem<Identity: IWMPMedia_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstritemname: *mut core::ffi::c_void, pvarfisreadonly: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -7735,11 +7735,11 @@ pub trait IWMPMediaCollection_Impl: super::super::System::Com::IDispatch_Impl {
     fn getByAuthor(&self, bstrauthor: &windows_core::BSTR) -> windows_core::Result<IWMPPlaylist>;
     fn getByAlbum(&self, bstralbum: &windows_core::BSTR) -> windows_core::Result<IWMPPlaylist>;
     fn getByAttribute(&self, bstrattribute: &windows_core::BSTR, bstrvalue: &windows_core::BSTR) -> windows_core::Result<IWMPPlaylist>;
-    fn remove(&self, pitem: Option<&IWMPMedia>, varfdeletefile: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn remove(&self, pitem: windows_core::Ref<'_, IWMPMedia>, varfdeletefile: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn getAttributeStringCollection(&self, bstrattribute: &windows_core::BSTR, bstrmediatype: &windows_core::BSTR) -> windows_core::Result<IWMPStringCollection>;
     fn getMediaAtom(&self, bstritemname: &windows_core::BSTR, platom: *mut i32) -> windows_core::Result<()>;
-    fn setDeleted(&self, pitem: Option<&IWMPMedia>, varfisdeleted: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn isDeleted(&self, pitem: Option<&IWMPMedia>, pvarfisdeleted: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn setDeleted(&self, pitem: windows_core::Ref<'_, IWMPMedia>, varfisdeleted: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn isDeleted(&self, pitem: windows_core::Ref<'_, IWMPMedia>, pvarfisdeleted: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWMPMediaCollection_Vtbl {
@@ -7816,7 +7816,7 @@ impl IWMPMediaCollection_Vtbl {
         }
         unsafe extern "system" fn remove<Identity: IWMPMediaCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pitem: *mut core::ffi::c_void, varfdeletefile: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPMediaCollection_Impl::remove(this, windows_core::from_raw_borrowed(&pitem), core::mem::transmute_copy(&varfdeletefile)).into()
+            IWMPMediaCollection_Impl::remove(this, core::mem::transmute_copy(&pitem), core::mem::transmute_copy(&varfdeletefile)).into()
         }
         unsafe extern "system" fn getAttributeStringCollection<Identity: IWMPMediaCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrattribute: *mut core::ffi::c_void, bstrmediatype: *mut core::ffi::c_void, ppstringcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -7834,11 +7834,11 @@ impl IWMPMediaCollection_Vtbl {
         }
         unsafe extern "system" fn setDeleted<Identity: IWMPMediaCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pitem: *mut core::ffi::c_void, varfisdeleted: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPMediaCollection_Impl::setDeleted(this, windows_core::from_raw_borrowed(&pitem), core::mem::transmute_copy(&varfisdeleted)).into()
+            IWMPMediaCollection_Impl::setDeleted(this, core::mem::transmute_copy(&pitem), core::mem::transmute_copy(&varfisdeleted)).into()
         }
         unsafe extern "system" fn isDeleted<Identity: IWMPMediaCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pitem: *mut core::ffi::c_void, pvarfisdeleted: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPMediaCollection_Impl::isDeleted(this, windows_core::from_raw_borrowed(&pitem), core::mem::transmute_copy(&pvarfisdeleted)).into()
+            IWMPMediaCollection_Impl::isDeleted(this, core::mem::transmute_copy(&pitem), core::mem::transmute_copy(&pvarfisdeleted)).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(),
@@ -7910,8 +7910,8 @@ pub struct IWMPMediaCollection2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWMPMediaCollection2_Impl: IWMPMediaCollection_Impl {
     fn createQuery(&self) -> windows_core::Result<IWMPQuery>;
-    fn getPlaylistByQuery(&self, pquery: Option<&IWMPQuery>, bstrmediatype: &windows_core::BSTR, bstrsortattribute: &windows_core::BSTR, fsortascending: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<IWMPPlaylist>;
-    fn getStringCollectionByQuery(&self, bstrattribute: &windows_core::BSTR, pquery: Option<&IWMPQuery>, bstrmediatype: &windows_core::BSTR, bstrsortattribute: &windows_core::BSTR, fsortascending: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<IWMPStringCollection>;
+    fn getPlaylistByQuery(&self, pquery: windows_core::Ref<'_, IWMPQuery>, bstrmediatype: &windows_core::BSTR, bstrsortattribute: &windows_core::BSTR, fsortascending: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<IWMPPlaylist>;
+    fn getStringCollectionByQuery(&self, bstrattribute: &windows_core::BSTR, pquery: windows_core::Ref<'_, IWMPQuery>, bstrmediatype: &windows_core::BSTR, bstrsortattribute: &windows_core::BSTR, fsortascending: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<IWMPStringCollection>;
     fn getByAttributeAndMediaType(&self, bstrattribute: &windows_core::BSTR, bstrvalue: &windows_core::BSTR, bstrmediatype: &windows_core::BSTR) -> windows_core::Result<IWMPPlaylist>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -7929,7 +7929,7 @@ impl IWMPMediaCollection2_Vtbl {
         }
         unsafe extern "system" fn getPlaylistByQuery<Identity: IWMPMediaCollection2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pquery: *mut core::ffi::c_void, bstrmediatype: *mut core::ffi::c_void, bstrsortattribute: *mut core::ffi::c_void, fsortascending: super::super::Foundation::VARIANT_BOOL, ppplaylist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWMPMediaCollection2_Impl::getPlaylistByQuery(this, windows_core::from_raw_borrowed(&pquery), core::mem::transmute(&bstrmediatype), core::mem::transmute(&bstrsortattribute), core::mem::transmute_copy(&fsortascending)) {
+            match IWMPMediaCollection2_Impl::getPlaylistByQuery(this, core::mem::transmute_copy(&pquery), core::mem::transmute(&bstrmediatype), core::mem::transmute(&bstrsortattribute), core::mem::transmute_copy(&fsortascending)) {
                 Ok(ok__) => {
                     ppplaylist.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7939,7 +7939,7 @@ impl IWMPMediaCollection2_Vtbl {
         }
         unsafe extern "system" fn getStringCollectionByQuery<Identity: IWMPMediaCollection2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrattribute: *mut core::ffi::c_void, pquery: *mut core::ffi::c_void, bstrmediatype: *mut core::ffi::c_void, bstrsortattribute: *mut core::ffi::c_void, fsortascending: super::super::Foundation::VARIANT_BOOL, ppstringcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWMPMediaCollection2_Impl::getStringCollectionByQuery(this, core::mem::transmute(&bstrattribute), windows_core::from_raw_borrowed(&pquery), core::mem::transmute(&bstrmediatype), core::mem::transmute(&bstrsortattribute), core::mem::transmute_copy(&fsortascending)) {
+            match IWMPMediaCollection2_Impl::getStringCollectionByQuery(this, core::mem::transmute(&bstrattribute), core::mem::transmute_copy(&pquery), core::mem::transmute(&bstrmediatype), core::mem::transmute(&bstrsortattribute), core::mem::transmute_copy(&fsortascending)) {
                 Ok(ok__) => {
                     ppstringcollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9600,11 +9600,11 @@ pub trait IWMPPlaylist_Impl: super::super::System::Com::IDispatch_Impl {
     fn get_item(&self, lindex: i32) -> windows_core::Result<IWMPMedia>;
     fn getItemInfo(&self, bstrname: &windows_core::BSTR, pbstrval: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn setItemInfo(&self, bstrname: &windows_core::BSTR, bstrvalue: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn get_isIdentical(&self, piwmpplaylist: Option<&IWMPPlaylist>, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn get_isIdentical(&self, piwmpplaylist: windows_core::Ref<'_, IWMPPlaylist>, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn clear(&self) -> windows_core::Result<()>;
-    fn insertItem(&self, lindex: i32, piwmpmedia: Option<&IWMPMedia>) -> windows_core::Result<()>;
-    fn appendItem(&self, piwmpmedia: Option<&IWMPMedia>) -> windows_core::Result<()>;
-    fn removeItem(&self, piwmpmedia: Option<&IWMPMedia>) -> windows_core::Result<()>;
+    fn insertItem(&self, lindex: i32, piwmpmedia: windows_core::Ref<'_, IWMPMedia>) -> windows_core::Result<()>;
+    fn appendItem(&self, piwmpmedia: windows_core::Ref<'_, IWMPMedia>) -> windows_core::Result<()>;
+    fn removeItem(&self, piwmpmedia: windows_core::Ref<'_, IWMPMedia>) -> windows_core::Result<()>;
     fn moveItem(&self, lindexold: i32, lindexnew: i32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -9650,7 +9650,7 @@ impl IWMPPlaylist_Vtbl {
         }
         unsafe extern "system" fn get_isIdentical<Identity: IWMPPlaylist_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piwmpplaylist: *mut core::ffi::c_void, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPPlaylist_Impl::get_isIdentical(this, windows_core::from_raw_borrowed(&piwmpplaylist), core::mem::transmute_copy(&pvbool)).into()
+            IWMPPlaylist_Impl::get_isIdentical(this, core::mem::transmute_copy(&piwmpplaylist), core::mem::transmute_copy(&pvbool)).into()
         }
         unsafe extern "system" fn clear<Identity: IWMPPlaylist_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -9658,15 +9658,15 @@ impl IWMPPlaylist_Vtbl {
         }
         unsafe extern "system" fn insertItem<Identity: IWMPPlaylist_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, piwmpmedia: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPPlaylist_Impl::insertItem(this, core::mem::transmute_copy(&lindex), windows_core::from_raw_borrowed(&piwmpmedia)).into()
+            IWMPPlaylist_Impl::insertItem(this, core::mem::transmute_copy(&lindex), core::mem::transmute_copy(&piwmpmedia)).into()
         }
         unsafe extern "system" fn appendItem<Identity: IWMPPlaylist_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piwmpmedia: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPPlaylist_Impl::appendItem(this, windows_core::from_raw_borrowed(&piwmpmedia)).into()
+            IWMPPlaylist_Impl::appendItem(this, core::mem::transmute_copy(&piwmpmedia)).into()
         }
         unsafe extern "system" fn removeItem<Identity: IWMPPlaylist_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piwmpmedia: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPPlaylist_Impl::removeItem(this, windows_core::from_raw_borrowed(&piwmpmedia)).into()
+            IWMPPlaylist_Impl::removeItem(this, core::mem::transmute_copy(&piwmpmedia)).into()
         }
         unsafe extern "system" fn moveItem<Identity: IWMPPlaylist_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindexold: i32, lindexnew: i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -9822,10 +9822,10 @@ pub trait IWMPPlaylistCollection_Impl: super::super::System::Com::IDispatch_Impl
     fn newPlaylist(&self, bstrname: &windows_core::BSTR) -> windows_core::Result<IWMPPlaylist>;
     fn getAll(&self) -> windows_core::Result<IWMPPlaylistArray>;
     fn getByName(&self, bstrname: &windows_core::BSTR) -> windows_core::Result<IWMPPlaylistArray>;
-    fn remove(&self, pitem: Option<&IWMPPlaylist>) -> windows_core::Result<()>;
-    fn setDeleted(&self, pitem: Option<&IWMPPlaylist>, varfisdeleted: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn isDeleted(&self, pitem: Option<&IWMPPlaylist>, pvarfisdeleted: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn importPlaylist(&self, pitem: Option<&IWMPPlaylist>) -> windows_core::Result<IWMPPlaylist>;
+    fn remove(&self, pitem: windows_core::Ref<'_, IWMPPlaylist>) -> windows_core::Result<()>;
+    fn setDeleted(&self, pitem: windows_core::Ref<'_, IWMPPlaylist>, varfisdeleted: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn isDeleted(&self, pitem: windows_core::Ref<'_, IWMPPlaylist>, pvarfisdeleted: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn importPlaylist(&self, pitem: windows_core::Ref<'_, IWMPPlaylist>) -> windows_core::Result<IWMPPlaylist>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWMPPlaylistCollection_Vtbl {
@@ -9862,19 +9862,19 @@ impl IWMPPlaylistCollection_Vtbl {
         }
         unsafe extern "system" fn remove<Identity: IWMPPlaylistCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pitem: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPPlaylistCollection_Impl::remove(this, windows_core::from_raw_borrowed(&pitem)).into()
+            IWMPPlaylistCollection_Impl::remove(this, core::mem::transmute_copy(&pitem)).into()
         }
         unsafe extern "system" fn setDeleted<Identity: IWMPPlaylistCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pitem: *mut core::ffi::c_void, varfisdeleted: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPPlaylistCollection_Impl::setDeleted(this, windows_core::from_raw_borrowed(&pitem), core::mem::transmute_copy(&varfisdeleted)).into()
+            IWMPPlaylistCollection_Impl::setDeleted(this, core::mem::transmute_copy(&pitem), core::mem::transmute_copy(&varfisdeleted)).into()
         }
         unsafe extern "system" fn isDeleted<Identity: IWMPPlaylistCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pitem: *mut core::ffi::c_void, pvarfisdeleted: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPPlaylistCollection_Impl::isDeleted(this, windows_core::from_raw_borrowed(&pitem), core::mem::transmute_copy(&pvarfisdeleted)).into()
+            IWMPPlaylistCollection_Impl::isDeleted(this, core::mem::transmute_copy(&pitem), core::mem::transmute_copy(&pvarfisdeleted)).into()
         }
         unsafe extern "system" fn importPlaylist<Identity: IWMPPlaylistCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pitem: *mut core::ffi::c_void, ppimporteditem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWMPPlaylistCollection_Impl::importPlaylist(this, windows_core::from_raw_borrowed(&pitem)) {
+            match IWMPPlaylistCollection_Impl::importPlaylist(this, core::mem::transmute_copy(&pitem)) {
                 Ok(ok__) => {
                     ppimporteditem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9939,7 +9939,7 @@ pub trait IWMPPlugin_Impl: windows_core::IUnknownImpl {
     fn Shutdown(&self) -> windows_core::Result<()>;
     fn GetID(&self, pguid: *mut windows_core::GUID) -> windows_core::Result<()>;
     fn GetCaps(&self, pdwflags: *mut u32) -> windows_core::Result<()>;
-    fn AdviseWMPServices(&self, pwmpservices: Option<&IWMPServices>) -> windows_core::Result<()>;
+    fn AdviseWMPServices(&self, pwmpservices: windows_core::Ref<'_, IWMPServices>) -> windows_core::Result<()>;
     fn UnAdviseWMPServices(&self) -> windows_core::Result<()>;
 }
 impl IWMPPlugin_Vtbl {
@@ -9962,7 +9962,7 @@ impl IWMPPlugin_Vtbl {
         }
         unsafe extern "system" fn AdviseWMPServices<Identity: IWMPPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwmpservices: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPPlugin_Impl::AdviseWMPServices(this, windows_core::from_raw_borrowed(&pwmpservices)).into()
+            IWMPPlugin_Impl::AdviseWMPServices(this, core::mem::transmute_copy(&pwmpservices)).into()
         }
         unsafe extern "system" fn UnAdviseWMPServices<Identity: IWMPPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -10087,7 +10087,7 @@ pub struct IWMPPluginUI_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IWMPPluginUI_Impl: windows_core::IUnknownImpl {
-    fn SetCore(&self, pcore: Option<&IWMPCore>) -> windows_core::Result<()>;
+    fn SetCore(&self, pcore: windows_core::Ref<'_, IWMPCore>) -> windows_core::Result<()>;
     fn Create(&self, hwndparent: super::super::Foundation::HWND, phwndwindow: *mut super::super::Foundation::HWND) -> windows_core::Result<()>;
     fn Destroy(&self) -> windows_core::Result<()>;
     fn DisplayPropertyPage(&self, hwndparent: super::super::Foundation::HWND) -> windows_core::Result<()>;
@@ -10100,7 +10100,7 @@ impl IWMPPluginUI_Vtbl {
     pub const fn new<Identity: IWMPPluginUI_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetCore<Identity: IWMPPluginUI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcore: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPPluginUI_Impl::SetCore(this, windows_core::from_raw_borrowed(&pcore)).into()
+            IWMPPluginUI_Impl::SetCore(this, core::mem::transmute_copy(&pcore)).into()
         }
         unsafe extern "system" fn Create<Identity: IWMPPluginUI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::Foundation::HWND, phwndwindow: *mut super::super::Foundation::HWND) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -10230,7 +10230,7 @@ pub struct IWMPRemoteMediaServices_Vtbl {
 pub trait IWMPRemoteMediaServices_Impl: windows_core::IUnknownImpl {
     fn GetServiceType(&self, pbstrtype: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn GetApplicationName(&self, pbstrname: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetScriptableObject(&self, pbstrname: *mut windows_core::BSTR, ppdispatch: *mut Option<super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
+    fn GetScriptableObject(&self, pbstrname: *mut windows_core::BSTR, ppdispatch: windows_core::OutRef<'_, super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
     fn GetCustomUIMode(&self, pbstrfile: *mut windows_core::BSTR) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10801,7 +10801,7 @@ pub struct IWMPStringCollection2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWMPStringCollection2_Impl: IWMPStringCollection_Impl {
-    fn isIdentical(&self, piwmpstringcollection2: Option<&IWMPStringCollection2>, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn isIdentical(&self, piwmpstringcollection2: windows_core::Ref<'_, IWMPStringCollection2>, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn getItemInfo(&self, lcollectionindex: i32, bstritemname: &windows_core::BSTR, pbstrvalue: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn getAttributeCountByType(&self, lcollectionindex: i32, bstrtype: &windows_core::BSTR, bstrlanguage: &windows_core::BSTR, plcount: *mut i32) -> windows_core::Result<()>;
     fn getItemInfoByType(&self, lcollectionindex: i32, bstrtype: &windows_core::BSTR, bstrlanguage: &windows_core::BSTR, lattributeindex: i32, pvarvalue: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
@@ -10811,7 +10811,7 @@ impl IWMPStringCollection2_Vtbl {
     pub const fn new<Identity: IWMPStringCollection2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn isIdentical<Identity: IWMPStringCollection2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piwmpstringcollection2: *mut core::ffi::c_void, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPStringCollection2_Impl::isIdentical(this, windows_core::from_raw_borrowed(&piwmpstringcollection2), core::mem::transmute_copy(&pvbool)).into()
+            IWMPStringCollection2_Impl::isIdentical(this, core::mem::transmute_copy(&piwmpstringcollection2), core::mem::transmute_copy(&pvbool)).into()
         }
         unsafe extern "system" fn getItemInfo<Identity: IWMPStringCollection2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lcollectionindex: i32, bstritemname: *mut core::ffi::c_void, pbstrvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -10886,9 +10886,9 @@ pub struct IWMPSubscriptionService_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPSubscriptionService_Impl: windows_core::IUnknownImpl {
-    fn allowPlay(&self, hwnd: super::super::Foundation::HWND, pmedia: Option<&IWMPMedia>, pfallowplay: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn allowCDBurn(&self, hwnd: super::super::Foundation::HWND, pplaylist: Option<&IWMPPlaylist>, pfallowburn: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn allowPDATransfer(&self, hwnd: super::super::Foundation::HWND, pplaylist: Option<&IWMPPlaylist>, pfallowtransfer: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn allowPlay(&self, hwnd: super::super::Foundation::HWND, pmedia: windows_core::Ref<'_, IWMPMedia>, pfallowplay: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn allowCDBurn(&self, hwnd: super::super::Foundation::HWND, pplaylist: windows_core::Ref<'_, IWMPPlaylist>, pfallowburn: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn allowPDATransfer(&self, hwnd: super::super::Foundation::HWND, pplaylist: windows_core::Ref<'_, IWMPPlaylist>, pfallowtransfer: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn startBackgroundProcessing(&self, hwnd: super::super::Foundation::HWND) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10896,15 +10896,15 @@ impl IWMPSubscriptionService_Vtbl {
     pub const fn new<Identity: IWMPSubscriptionService_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn allowPlay<Identity: IWMPSubscriptionService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, pmedia: *mut core::ffi::c_void, pfallowplay: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPSubscriptionService_Impl::allowPlay(this, core::mem::transmute_copy(&hwnd), windows_core::from_raw_borrowed(&pmedia), core::mem::transmute_copy(&pfallowplay)).into()
+            IWMPSubscriptionService_Impl::allowPlay(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&pmedia), core::mem::transmute_copy(&pfallowplay)).into()
         }
         unsafe extern "system" fn allowCDBurn<Identity: IWMPSubscriptionService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, pplaylist: *mut core::ffi::c_void, pfallowburn: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPSubscriptionService_Impl::allowCDBurn(this, core::mem::transmute_copy(&hwnd), windows_core::from_raw_borrowed(&pplaylist), core::mem::transmute_copy(&pfallowburn)).into()
+            IWMPSubscriptionService_Impl::allowCDBurn(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&pplaylist), core::mem::transmute_copy(&pfallowburn)).into()
         }
         unsafe extern "system" fn allowPDATransfer<Identity: IWMPSubscriptionService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, pplaylist: *mut core::ffi::c_void, pfallowtransfer: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPSubscriptionService_Impl::allowPDATransfer(this, core::mem::transmute_copy(&hwnd), windows_core::from_raw_borrowed(&pplaylist), core::mem::transmute_copy(&pfallowtransfer)).into()
+            IWMPSubscriptionService_Impl::allowPDATransfer(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&pplaylist), core::mem::transmute_copy(&pfallowtransfer)).into()
         }
         unsafe extern "system" fn startBackgroundProcessing<Identity: IWMPSubscriptionService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -10964,8 +10964,8 @@ pub struct IWMPSubscriptionService2_Vtbl {
 pub trait IWMPSubscriptionService2_Impl: IWMPSubscriptionService_Impl {
     fn stopBackgroundProcessing(&self) -> windows_core::Result<()>;
     fn serviceEvent(&self, event: WMPSubscriptionServiceEvent) -> windows_core::Result<()>;
-    fn deviceAvailable(&self, bstrdevicename: &windows_core::BSTR, pcb: Option<&IWMPSubscriptionServiceCallback>) -> windows_core::Result<()>;
-    fn prepareForSync(&self, bstrfilename: &windows_core::BSTR, bstrdevicename: &windows_core::BSTR, pcb: Option<&IWMPSubscriptionServiceCallback>) -> windows_core::Result<()>;
+    fn deviceAvailable(&self, bstrdevicename: &windows_core::BSTR, pcb: windows_core::Ref<'_, IWMPSubscriptionServiceCallback>) -> windows_core::Result<()>;
+    fn prepareForSync(&self, bstrfilename: &windows_core::BSTR, bstrdevicename: &windows_core::BSTR, pcb: windows_core::Ref<'_, IWMPSubscriptionServiceCallback>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPSubscriptionService2_Vtbl {
@@ -10980,11 +10980,11 @@ impl IWMPSubscriptionService2_Vtbl {
         }
         unsafe extern "system" fn deviceAvailable<Identity: IWMPSubscriptionService2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdevicename: *mut core::ffi::c_void, pcb: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPSubscriptionService2_Impl::deviceAvailable(this, core::mem::transmute(&bstrdevicename), windows_core::from_raw_borrowed(&pcb)).into()
+            IWMPSubscriptionService2_Impl::deviceAvailable(this, core::mem::transmute(&bstrdevicename), core::mem::transmute_copy(&pcb)).into()
         }
         unsafe extern "system" fn prepareForSync<Identity: IWMPSubscriptionService2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrfilename: *mut core::ffi::c_void, bstrdevicename: *mut core::ffi::c_void, pcb: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPSubscriptionService2_Impl::prepareForSync(this, core::mem::transmute(&bstrfilename), core::mem::transmute(&bstrdevicename), windows_core::from_raw_borrowed(&pcb)).into()
+            IWMPSubscriptionService2_Impl::prepareForSync(this, core::mem::transmute(&bstrfilename), core::mem::transmute(&bstrdevicename), core::mem::transmute_copy(&pcb)).into()
         }
         Self {
             base__: IWMPSubscriptionService_Vtbl::new::<Identity, OFFSET>(),
@@ -11119,7 +11119,7 @@ pub trait IWMPSyncDevice_Impl: windows_core::IUnknownImpl {
     fn start(&self) -> windows_core::Result<()>;
     fn stop(&self) -> windows_core::Result<()>;
     fn showSettings(&self) -> windows_core::Result<()>;
-    fn isIdentical(&self, pdevice: Option<&IWMPSyncDevice>, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn isIdentical(&self, pdevice: windows_core::Ref<'_, IWMPSyncDevice>, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
 impl IWMPSyncDevice_Vtbl {
     pub const fn new<Identity: IWMPSyncDevice_Impl, const OFFSET: isize>() -> Self {
@@ -11185,7 +11185,7 @@ impl IWMPSyncDevice_Vtbl {
         }
         unsafe extern "system" fn isIdentical<Identity: IWMPSyncDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPSyncDevice_Impl::isIdentical(this, windows_core::from_raw_borrowed(&pdevice), core::mem::transmute_copy(&pvbool)).into()
+            IWMPSyncDevice_Impl::isIdentical(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&pvbool)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -11278,7 +11278,7 @@ pub struct IWMPSyncDevice3_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPSyncDevice3_Impl: IWMPSyncDevice2_Impl {
-    fn estimateSyncSize(&self, pnonruleplaylist: Option<&IWMPPlaylist>, prulesplaylist: Option<&IWMPPlaylist>) -> windows_core::Result<()>;
+    fn estimateSyncSize(&self, pnonruleplaylist: windows_core::Ref<'_, IWMPPlaylist>, prulesplaylist: windows_core::Ref<'_, IWMPPlaylist>) -> windows_core::Result<()>;
     fn cancelEstimation(&self) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11286,7 +11286,7 @@ impl IWMPSyncDevice3_Vtbl {
     pub const fn new<Identity: IWMPSyncDevice3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn estimateSyncSize<Identity: IWMPSyncDevice3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnonruleplaylist: *mut core::ffi::c_void, prulesplaylist: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPSyncDevice3_Impl::estimateSyncSize(this, windows_core::from_raw_borrowed(&pnonruleplaylist), windows_core::from_raw_borrowed(&prulesplaylist)).into()
+            IWMPSyncDevice3_Impl::estimateSyncSize(this, core::mem::transmute_copy(&pnonruleplaylist), core::mem::transmute_copy(&prulesplaylist)).into()
         }
         unsafe extern "system" fn cancelEstimation<Identity: IWMPSyncDevice3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -11429,14 +11429,14 @@ pub struct IWMPVideoRenderConfig_Vtbl {
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 pub trait IWMPVideoRenderConfig_Impl: windows_core::IUnknownImpl {
-    fn SetpresenterActivate(&self, pactivate: Option<&super::MediaFoundation::IMFActivate>) -> windows_core::Result<()>;
+    fn SetpresenterActivate(&self, pactivate: windows_core::Ref<'_, super::MediaFoundation::IMFActivate>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 impl IWMPVideoRenderConfig_Vtbl {
     pub const fn new<Identity: IWMPVideoRenderConfig_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetpresenterActivate<Identity: IWMPVideoRenderConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pactivate: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWMPVideoRenderConfig_Impl::SetpresenterActivate(this, windows_core::from_raw_borrowed(&pactivate)).into()
+            IWMPVideoRenderConfig_Impl::SetpresenterActivate(this, core::mem::transmute_copy(&pactivate)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetpresenterActivate: SetpresenterActivate::<Identity, OFFSET> }
     }
@@ -11750,7 +11750,7 @@ pub trait IXFeed_Impl: windows_core::IUnknownImpl {
     fn SetDownloadEnclosuresAutomatically(&self, bdownloadenclosuresautomatically: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn DownloadStatus(&self) -> windows_core::Result<FEEDS_DOWNLOAD_STATUS>;
     fn LastDownloadError(&self) -> windows_core::Result<FEEDS_DOWNLOAD_ERROR>;
-    fn Merge(&self, pstream: Option<&super::super::System::Com::IStream>, pszurl: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn Merge(&self, pstream: windows_core::Ref<'_, super::super::System::Com::IStream>, pszurl: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn DownloadUrl(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn Title(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn Description(&self) -> windows_core::Result<windows_core::PWSTR>;
@@ -11977,7 +11977,7 @@ impl IXFeed_Vtbl {
         }
         unsafe extern "system" fn Merge<Identity: IXFeed_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstream: *mut core::ffi::c_void, pszurl: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IXFeed_Impl::Merge(this, windows_core::from_raw_borrowed(&pstream), core::mem::transmute(&pszurl)).into()
+            IXFeed_Impl::Merge(this, core::mem::transmute_copy(&pstream), core::mem::transmute(&pszurl)).into()
         }
         unsafe extern "system" fn DownloadUrl<Identity: IXFeed_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszurl: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -13675,7 +13675,7 @@ pub trait IXFeedsManager_Impl: windows_core::IUnknownImpl {
     fn DefaultInterval(&self) -> windows_core::Result<u32>;
     fn SetDefaultInterval(&self, uiinterval: u32) -> windows_core::Result<()>;
     fn AsyncSyncAll(&self) -> windows_core::Result<()>;
-    fn Normalize(&self, pstreamin: Option<&super::super::System::Com::IStream>) -> windows_core::Result<super::super::System::Com::IStream>;
+    fn Normalize(&self, pstreamin: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<super::super::System::Com::IStream>;
     fn ItemCountLimit(&self) -> windows_core::Result<u32>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13769,7 +13769,7 @@ impl IXFeedsManager_Vtbl {
         }
         unsafe extern "system" fn Normalize<Identity: IXFeedsManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstreamin: *mut core::ffi::c_void, ppstreamout: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IXFeedsManager_Impl::Normalize(this, windows_core::from_raw_borrowed(&pstreamin)) {
+            match IXFeedsManager_Impl::Normalize(this, core::mem::transmute_copy(&pstreamin)) {
                 Ok(ok__) => {
                     ppstreamout.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)

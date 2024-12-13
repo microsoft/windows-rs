@@ -54,8 +54,8 @@ impl IMapView_Impl<i32, f32> for MapView_Impl {
     }
     fn Split(
         &self,
-        _first: &mut Option<IMapView<i32, f32>>,
-        _second: &mut Option<IMapView<i32, f32>>,
+        _first: OutRef<IMapView<i32, f32>>,
+        _second: OutRef<IMapView<i32, f32>>,
     ) -> Result<()> {
         Ok(())
     }

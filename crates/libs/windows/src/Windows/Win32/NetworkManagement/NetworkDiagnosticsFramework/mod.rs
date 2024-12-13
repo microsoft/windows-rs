@@ -515,7 +515,7 @@ pub struct INetDiagHelperEx_Vtbl {
 }
 pub trait INetDiagHelperEx_Impl: windows_core::IUnknownImpl {
     fn ReconfirmLowHealth(&self, celt: u32, presults: *const HypothesisResult, ppwszupdateddescription: *mut windows_core::PWSTR, pupdatedstatus: *mut DIAGNOSIS_STATUS) -> windows_core::Result<()>;
-    fn SetUtilities(&self, putilities: Option<&INetDiagHelperUtilFactory>) -> windows_core::Result<()>;
+    fn SetUtilities(&self, putilities: windows_core::Ref<'_, INetDiagHelperUtilFactory>) -> windows_core::Result<()>;
     fn ReproduceFailure(&self) -> windows_core::Result<()>;
 }
 impl INetDiagHelperEx_Vtbl {
@@ -526,7 +526,7 @@ impl INetDiagHelperEx_Vtbl {
         }
         unsafe extern "system" fn SetUtilities<Identity: INetDiagHelperEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, putilities: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            INetDiagHelperEx_Impl::SetUtilities(this, windows_core::from_raw_borrowed(&putilities)).into()
+            INetDiagHelperEx_Impl::SetUtilities(this, core::mem::transmute_copy(&putilities)).into()
         }
         unsafe extern "system" fn ReproduceFailure<Identity: INetDiagHelperEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);

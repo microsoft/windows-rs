@@ -2235,7 +2235,7 @@ pub struct IActivateAudioInterfaceAsyncOperation_Vtbl {
     pub GetActivateResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IActivateAudioInterfaceAsyncOperation_Impl: windows_core::IUnknownImpl {
-    fn GetActivateResult(&self, activateresult: *mut windows_core::HRESULT, activatedinterface: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetActivateResult(&self, activateresult: *mut windows_core::HRESULT, activatedinterface: windows_core::OutRef<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl IActivateAudioInterfaceAsyncOperation_Vtbl {
     pub const fn new<Identity: IActivateAudioInterfaceAsyncOperation_Impl, const OFFSET: isize>() -> Self {
@@ -2266,13 +2266,13 @@ pub struct IActivateAudioInterfaceCompletionHandler_Vtbl {
     pub ActivateCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IActivateAudioInterfaceCompletionHandler_Impl: windows_core::IUnknownImpl {
-    fn ActivateCompleted(&self, activateoperation: Option<&IActivateAudioInterfaceAsyncOperation>) -> windows_core::Result<()>;
+    fn ActivateCompleted(&self, activateoperation: windows_core::Ref<'_, IActivateAudioInterfaceAsyncOperation>) -> windows_core::Result<()>;
 }
 impl IActivateAudioInterfaceCompletionHandler_Vtbl {
     pub const fn new<Identity: IActivateAudioInterfaceCompletionHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ActivateCompleted<Identity: IActivateAudioInterfaceCompletionHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, activateoperation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IActivateAudioInterfaceCompletionHandler_Impl::ActivateCompleted(this, windows_core::from_raw_borrowed(&activateoperation)).into()
+            IActivateAudioInterfaceCompletionHandler_Impl::ActivateCompleted(this, core::mem::transmute_copy(&activateoperation)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ActivateCompleted: ActivateCompleted::<Identity, OFFSET> }
     }
@@ -3030,8 +3030,8 @@ pub struct IAudioEffectsManager_Vtbl {
     pub SetAudioEffectState: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, AUDIO_EFFECT_STATE) -> windows_core::HRESULT,
 }
 pub trait IAudioEffectsManager_Impl: windows_core::IUnknownImpl {
-    fn RegisterAudioEffectsChangedNotificationCallback(&self, client: Option<&IAudioEffectsChangedNotificationClient>) -> windows_core::Result<()>;
-    fn UnregisterAudioEffectsChangedNotificationCallback(&self, client: Option<&IAudioEffectsChangedNotificationClient>) -> windows_core::Result<()>;
+    fn RegisterAudioEffectsChangedNotificationCallback(&self, client: windows_core::Ref<'_, IAudioEffectsChangedNotificationClient>) -> windows_core::Result<()>;
+    fn UnregisterAudioEffectsChangedNotificationCallback(&self, client: windows_core::Ref<'_, IAudioEffectsChangedNotificationClient>) -> windows_core::Result<()>;
     fn GetAudioEffects(&self, effects: *mut *mut AUDIO_EFFECT, numeffects: *mut u32) -> windows_core::Result<()>;
     fn SetAudioEffectState(&self, effectid: &windows_core::GUID, state: AUDIO_EFFECT_STATE) -> windows_core::Result<()>;
 }
@@ -3039,11 +3039,11 @@ impl IAudioEffectsManager_Vtbl {
     pub const fn new<Identity: IAudioEffectsManager_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RegisterAudioEffectsChangedNotificationCallback<Identity: IAudioEffectsManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, client: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IAudioEffectsManager_Impl::RegisterAudioEffectsChangedNotificationCallback(this, windows_core::from_raw_borrowed(&client)).into()
+            IAudioEffectsManager_Impl::RegisterAudioEffectsChangedNotificationCallback(this, core::mem::transmute_copy(&client)).into()
         }
         unsafe extern "system" fn UnregisterAudioEffectsChangedNotificationCallback<Identity: IAudioEffectsManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, client: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IAudioEffectsManager_Impl::UnregisterAudioEffectsChangedNotificationCallback(this, windows_core::from_raw_borrowed(&client)).into()
+            IAudioEffectsManager_Impl::UnregisterAudioEffectsChangedNotificationCallback(this, core::mem::transmute_copy(&client)).into()
         }
         unsafe extern "system" fn GetAudioEffects<Identity: IAudioEffectsManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, effects: *mut *mut AUDIO_EFFECT, numeffects: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3498,8 +3498,8 @@ pub trait IAudioSessionControl_Impl: windows_core::IUnknownImpl {
     fn SetIconPath(&self, value: &windows_core::PCWSTR, eventcontext: *const windows_core::GUID) -> windows_core::Result<()>;
     fn GetGroupingParam(&self) -> windows_core::Result<windows_core::GUID>;
     fn SetGroupingParam(&self, r#override: *const windows_core::GUID, eventcontext: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn RegisterAudioSessionNotification(&self, newnotifications: Option<&IAudioSessionEvents>) -> windows_core::Result<()>;
-    fn UnregisterAudioSessionNotification(&self, newnotifications: Option<&IAudioSessionEvents>) -> windows_core::Result<()>;
+    fn RegisterAudioSessionNotification(&self, newnotifications: windows_core::Ref<'_, IAudioSessionEvents>) -> windows_core::Result<()>;
+    fn UnregisterAudioSessionNotification(&self, newnotifications: windows_core::Ref<'_, IAudioSessionEvents>) -> windows_core::Result<()>;
 }
 impl IAudioSessionControl_Vtbl {
     pub const fn new<Identity: IAudioSessionControl_Impl, const OFFSET: isize>() -> Self {
@@ -3557,11 +3557,11 @@ impl IAudioSessionControl_Vtbl {
         }
         unsafe extern "system" fn RegisterAudioSessionNotification<Identity: IAudioSessionControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newnotifications: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IAudioSessionControl_Impl::RegisterAudioSessionNotification(this, windows_core::from_raw_borrowed(&newnotifications)).into()
+            IAudioSessionControl_Impl::RegisterAudioSessionNotification(this, core::mem::transmute_copy(&newnotifications)).into()
         }
         unsafe extern "system" fn UnregisterAudioSessionNotification<Identity: IAudioSessionControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newnotifications: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IAudioSessionControl_Impl::UnregisterAudioSessionNotification(this, windows_core::from_raw_borrowed(&newnotifications)).into()
+            IAudioSessionControl_Impl::UnregisterAudioSessionNotification(this, core::mem::transmute_copy(&newnotifications)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -3936,10 +3936,10 @@ pub struct IAudioSessionManager2_Vtbl {
 }
 pub trait IAudioSessionManager2_Impl: IAudioSessionManager_Impl {
     fn GetSessionEnumerator(&self) -> windows_core::Result<IAudioSessionEnumerator>;
-    fn RegisterSessionNotification(&self, sessionnotification: Option<&IAudioSessionNotification>) -> windows_core::Result<()>;
-    fn UnregisterSessionNotification(&self, sessionnotification: Option<&IAudioSessionNotification>) -> windows_core::Result<()>;
-    fn RegisterDuckNotification(&self, sessionid: &windows_core::PCWSTR, ducknotification: Option<&IAudioVolumeDuckNotification>) -> windows_core::Result<()>;
-    fn UnregisterDuckNotification(&self, ducknotification: Option<&IAudioVolumeDuckNotification>) -> windows_core::Result<()>;
+    fn RegisterSessionNotification(&self, sessionnotification: windows_core::Ref<'_, IAudioSessionNotification>) -> windows_core::Result<()>;
+    fn UnregisterSessionNotification(&self, sessionnotification: windows_core::Ref<'_, IAudioSessionNotification>) -> windows_core::Result<()>;
+    fn RegisterDuckNotification(&self, sessionid: &windows_core::PCWSTR, ducknotification: windows_core::Ref<'_, IAudioVolumeDuckNotification>) -> windows_core::Result<()>;
+    fn UnregisterDuckNotification(&self, ducknotification: windows_core::Ref<'_, IAudioVolumeDuckNotification>) -> windows_core::Result<()>;
 }
 impl IAudioSessionManager2_Vtbl {
     pub const fn new<Identity: IAudioSessionManager2_Impl, const OFFSET: isize>() -> Self {
@@ -3955,19 +3955,19 @@ impl IAudioSessionManager2_Vtbl {
         }
         unsafe extern "system" fn RegisterSessionNotification<Identity: IAudioSessionManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sessionnotification: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IAudioSessionManager2_Impl::RegisterSessionNotification(this, windows_core::from_raw_borrowed(&sessionnotification)).into()
+            IAudioSessionManager2_Impl::RegisterSessionNotification(this, core::mem::transmute_copy(&sessionnotification)).into()
         }
         unsafe extern "system" fn UnregisterSessionNotification<Identity: IAudioSessionManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sessionnotification: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IAudioSessionManager2_Impl::UnregisterSessionNotification(this, windows_core::from_raw_borrowed(&sessionnotification)).into()
+            IAudioSessionManager2_Impl::UnregisterSessionNotification(this, core::mem::transmute_copy(&sessionnotification)).into()
         }
         unsafe extern "system" fn RegisterDuckNotification<Identity: IAudioSessionManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sessionid: windows_core::PCWSTR, ducknotification: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IAudioSessionManager2_Impl::RegisterDuckNotification(this, core::mem::transmute(&sessionid), windows_core::from_raw_borrowed(&ducknotification)).into()
+            IAudioSessionManager2_Impl::RegisterDuckNotification(this, core::mem::transmute(&sessionid), core::mem::transmute_copy(&ducknotification)).into()
         }
         unsafe extern "system" fn UnregisterDuckNotification<Identity: IAudioSessionManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ducknotification: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IAudioSessionManager2_Impl::UnregisterDuckNotification(this, windows_core::from_raw_borrowed(&ducknotification)).into()
+            IAudioSessionManager2_Impl::UnregisterDuckNotification(this, core::mem::transmute_copy(&ducknotification)).into()
         }
         Self {
             base__: IAudioSessionManager_Vtbl::new::<Identity, OFFSET>(),
@@ -3999,13 +3999,13 @@ pub struct IAudioSessionNotification_Vtbl {
     pub OnSessionCreated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IAudioSessionNotification_Impl: windows_core::IUnknownImpl {
-    fn OnSessionCreated(&self, newsession: Option<&IAudioSessionControl>) -> windows_core::Result<()>;
+    fn OnSessionCreated(&self, newsession: windows_core::Ref<'_, IAudioSessionControl>) -> windows_core::Result<()>;
 }
 impl IAudioSessionNotification_Vtbl {
     pub const fn new<Identity: IAudioSessionNotification_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnSessionCreated<Identity: IAudioSessionNotification_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newsession: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IAudioSessionNotification_Impl::OnSessionCreated(this, windows_core::from_raw_borrowed(&newsession)).into()
+            IAudioSessionNotification_Impl::OnSessionCreated(this, core::mem::transmute_copy(&newsession)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnSessionCreated: OnSessionCreated::<Identity, OFFSET> }
     }
@@ -4249,8 +4249,8 @@ pub trait IAudioSystemEffectsPropertyStore_Impl: windows_core::IUnknownImpl {
     fn OpenVolatilePropertyStore(&self, stgmaccess: u32) -> windows_core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
     fn ResetUserPropertyStore(&self) -> windows_core::Result<()>;
     fn ResetVolatilePropertyStore(&self) -> windows_core::Result<()>;
-    fn RegisterPropertyChangeNotification(&self, callback: Option<&IAudioSystemEffectsPropertyChangeNotificationClient>) -> windows_core::Result<()>;
-    fn UnregisterPropertyChangeNotification(&self, callback: Option<&IAudioSystemEffectsPropertyChangeNotificationClient>) -> windows_core::Result<()>;
+    fn RegisterPropertyChangeNotification(&self, callback: windows_core::Ref<'_, IAudioSystemEffectsPropertyChangeNotificationClient>) -> windows_core::Result<()>;
+    fn UnregisterPropertyChangeNotification(&self, callback: windows_core::Ref<'_, IAudioSystemEffectsPropertyChangeNotificationClient>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl IAudioSystemEffectsPropertyStore_Vtbl {
@@ -4295,11 +4295,11 @@ impl IAudioSystemEffectsPropertyStore_Vtbl {
         }
         unsafe extern "system" fn RegisterPropertyChangeNotification<Identity: IAudioSystemEffectsPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, callback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IAudioSystemEffectsPropertyStore_Impl::RegisterPropertyChangeNotification(this, windows_core::from_raw_borrowed(&callback)).into()
+            IAudioSystemEffectsPropertyStore_Impl::RegisterPropertyChangeNotification(this, core::mem::transmute_copy(&callback)).into()
         }
         unsafe extern "system" fn UnregisterPropertyChangeNotification<Identity: IAudioSystemEffectsPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, callback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IAudioSystemEffectsPropertyStore_Impl::UnregisterPropertyChangeNotification(this, windows_core::from_raw_borrowed(&callback)).into()
+            IAudioSystemEffectsPropertyStore_Impl::UnregisterPropertyChangeNotification(this, core::mem::transmute_copy(&callback)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -4574,7 +4574,7 @@ pub struct IConnector_Vtbl {
 pub trait IConnector_Impl: windows_core::IUnknownImpl {
     fn GetType(&self) -> windows_core::Result<ConnectorType>;
     fn GetDataFlow(&self) -> windows_core::Result<DataFlow>;
-    fn ConnectTo(&self, pconnectto: Option<&IConnector>) -> windows_core::Result<()>;
+    fn ConnectTo(&self, pconnectto: windows_core::Ref<'_, IConnector>) -> windows_core::Result<()>;
     fn Disconnect(&self) -> windows_core::Result<()>;
     fn IsConnected(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn GetConnectedTo(&self) -> windows_core::Result<IConnector>;
@@ -4605,7 +4605,7 @@ impl IConnector_Vtbl {
         }
         unsafe extern "system" fn ConnectTo<Identity: IConnector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pconnectto: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IConnector_Impl::ConnectTo(this, windows_core::from_raw_borrowed(&pconnectto)).into()
+            IConnector_Impl::ConnectTo(this, core::mem::transmute_copy(&pconnectto)).into()
         }
         unsafe extern "system" fn Disconnect<Identity: IConnector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -4869,7 +4869,7 @@ pub trait IDeviceTopology_Impl: windows_core::IUnknownImpl {
     fn GetSubunit(&self, nindex: u32) -> windows_core::Result<ISubunit>;
     fn GetPartById(&self, nid: u32) -> windows_core::Result<IPart>;
     fn GetDeviceId(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn GetSignalPath(&self, pipartfrom: Option<&IPart>, pipartto: Option<&IPart>, brejectmixedpaths: super::super::Foundation::BOOL) -> windows_core::Result<IPartsList>;
+    fn GetSignalPath(&self, pipartfrom: windows_core::Ref<'_, IPart>, pipartto: windows_core::Ref<'_, IPart>, brejectmixedpaths: super::super::Foundation::BOOL) -> windows_core::Result<IPartsList>;
 }
 impl IDeviceTopology_Vtbl {
     pub const fn new<Identity: IDeviceTopology_Impl, const OFFSET: isize>() -> Self {
@@ -4935,7 +4935,7 @@ impl IDeviceTopology_Vtbl {
         }
         unsafe extern "system" fn GetSignalPath<Identity: IDeviceTopology_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pipartfrom: *mut core::ffi::c_void, pipartto: *mut core::ffi::c_void, brejectmixedpaths: super::super::Foundation::BOOL, ppparts: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDeviceTopology_Impl::GetSignalPath(this, windows_core::from_raw_borrowed(&pipartfrom), windows_core::from_raw_borrowed(&pipartto), core::mem::transmute_copy(&brejectmixedpaths)) {
+            match IDeviceTopology_Impl::GetSignalPath(this, core::mem::transmute_copy(&pipartfrom), core::mem::transmute_copy(&pipartto), core::mem::transmute_copy(&brejectmixedpaths)) {
                 Ok(ok__) => {
                     ppparts.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5077,14 +5077,14 @@ pub struct IMMDeviceActivator_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMMDeviceActivator_Impl: windows_core::IUnknownImpl {
-    fn Activate(&self, iid: *const windows_core::GUID, pdevice: Option<&IMMDevice>, pactivationparams: *const super::super::System::Com::StructuredStorage::PROPVARIANT, ppinterface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn Activate(&self, iid: *const windows_core::GUID, pdevice: windows_core::Ref<'_, IMMDevice>, pactivationparams: *const super::super::System::Com::StructuredStorage::PROPVARIANT, ppinterface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMMDeviceActivator_Vtbl {
     pub const fn new<Identity: IMMDeviceActivator_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Activate<Identity: IMMDeviceActivator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, pdevice: *mut core::ffi::c_void, pactivationparams: *const super::super::System::Com::StructuredStorage::PROPVARIANT, ppinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IMMDeviceActivator_Impl::Activate(this, core::mem::transmute_copy(&iid), windows_core::from_raw_borrowed(&pdevice), core::mem::transmute_copy(&pactivationparams), core::mem::transmute_copy(&ppinterface)).into()
+            IMMDeviceActivator_Impl::Activate(this, core::mem::transmute_copy(&iid), core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&pactivationparams), core::mem::transmute_copy(&ppinterface)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Activate: Activate::<Identity, OFFSET> }
     }
@@ -5189,8 +5189,8 @@ pub trait IMMDeviceEnumerator_Impl: windows_core::IUnknownImpl {
     fn EnumAudioEndpoints(&self, dataflow: EDataFlow, dwstatemask: DEVICE_STATE) -> windows_core::Result<IMMDeviceCollection>;
     fn GetDefaultAudioEndpoint(&self, dataflow: EDataFlow, role: ERole) -> windows_core::Result<IMMDevice>;
     fn GetDevice(&self, pwstrid: &windows_core::PCWSTR) -> windows_core::Result<IMMDevice>;
-    fn RegisterEndpointNotificationCallback(&self, pclient: Option<&IMMNotificationClient>) -> windows_core::Result<()>;
-    fn UnregisterEndpointNotificationCallback(&self, pclient: Option<&IMMNotificationClient>) -> windows_core::Result<()>;
+    fn RegisterEndpointNotificationCallback(&self, pclient: windows_core::Ref<'_, IMMNotificationClient>) -> windows_core::Result<()>;
+    fn UnregisterEndpointNotificationCallback(&self, pclient: windows_core::Ref<'_, IMMNotificationClient>) -> windows_core::Result<()>;
 }
 impl IMMDeviceEnumerator_Vtbl {
     pub const fn new<Identity: IMMDeviceEnumerator_Impl, const OFFSET: isize>() -> Self {
@@ -5226,11 +5226,11 @@ impl IMMDeviceEnumerator_Vtbl {
         }
         unsafe extern "system" fn RegisterEndpointNotificationCallback<Identity: IMMDeviceEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pclient: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IMMDeviceEnumerator_Impl::RegisterEndpointNotificationCallback(this, windows_core::from_raw_borrowed(&pclient)).into()
+            IMMDeviceEnumerator_Impl::RegisterEndpointNotificationCallback(this, core::mem::transmute_copy(&pclient)).into()
         }
         unsafe extern "system" fn UnregisterEndpointNotificationCallback<Identity: IMMDeviceEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pclient: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IMMDeviceEnumerator_Impl::UnregisterEndpointNotificationCallback(this, windows_core::from_raw_borrowed(&pclient)).into()
+            IMMDeviceEnumerator_Impl::UnregisterEndpointNotificationCallback(this, core::mem::transmute_copy(&pclient)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -5513,8 +5513,8 @@ pub trait IPart_Impl: windows_core::IUnknownImpl {
     fn EnumPartsOutgoing(&self) -> windows_core::Result<IPartsList>;
     fn GetTopologyObject(&self) -> windows_core::Result<IDeviceTopology>;
     fn Activate(&self, dwclscontext: u32, refiid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn RegisterControlChangeCallback(&self, riid: *const windows_core::GUID, pnotify: Option<&IControlChangeNotify>) -> windows_core::Result<()>;
-    fn UnregisterControlChangeCallback(&self, pnotify: Option<&IControlChangeNotify>) -> windows_core::Result<()>;
+    fn RegisterControlChangeCallback(&self, riid: *const windows_core::GUID, pnotify: windows_core::Ref<'_, IControlChangeNotify>) -> windows_core::Result<()>;
+    fn UnregisterControlChangeCallback(&self, pnotify: windows_core::Ref<'_, IControlChangeNotify>) -> windows_core::Result<()>;
 }
 impl IPart_Vtbl {
     pub const fn new<Identity: IPart_Impl, const OFFSET: isize>() -> Self {
@@ -5624,11 +5624,11 @@ impl IPart_Vtbl {
         }
         unsafe extern "system" fn RegisterControlChangeCallback<Identity: IPart_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, pnotify: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPart_Impl::RegisterControlChangeCallback(this, core::mem::transmute_copy(&riid), windows_core::from_raw_borrowed(&pnotify)).into()
+            IPart_Impl::RegisterControlChangeCallback(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pnotify)).into()
         }
         unsafe extern "system" fn UnregisterControlChangeCallback<Identity: IPart_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnotify: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPart_Impl::UnregisterControlChangeCallback(this, windows_core::from_raw_borrowed(&pnotify)).into()
+            IPart_Impl::UnregisterControlChangeCallback(this, core::mem::transmute_copy(&pnotify)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -6114,7 +6114,7 @@ pub struct ISpatialAudioMetadataClient_Vtbl {
     pub ActivateSpatialAudioMetadataReader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ISpatialAudioMetadataClient_Impl: windows_core::IUnknownImpl {
-    fn ActivateSpatialAudioMetadataItems(&self, maxitemcount: u16, framecount: u16, metadataitemsbuffer: *mut Option<ISpatialAudioMetadataItemsBuffer>, metadataitems: *mut Option<ISpatialAudioMetadataItems>) -> windows_core::Result<()>;
+    fn ActivateSpatialAudioMetadataItems(&self, maxitemcount: u16, framecount: u16, metadataitemsbuffer: windows_core::OutRef<'_, ISpatialAudioMetadataItemsBuffer>, metadataitems: windows_core::OutRef<'_, ISpatialAudioMetadataItems>) -> windows_core::Result<()>;
     fn GetSpatialAudioMetadataItemsBufferLength(&self, maxitemcount: u16) -> windows_core::Result<u32>;
     fn ActivateSpatialAudioMetadataWriter(&self, overflowmode: SpatialAudioMetadataWriterOverflowMode) -> windows_core::Result<ISpatialAudioMetadataWriter>;
     fn ActivateSpatialAudioMetadataCopier(&self) -> windows_core::Result<ISpatialAudioMetadataCopier>;
@@ -6208,19 +6208,19 @@ pub struct ISpatialAudioMetadataCopier_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ISpatialAudioMetadataCopier_Impl: windows_core::IUnknownImpl {
-    fn Open(&self, metadataitems: Option<&ISpatialAudioMetadataItems>) -> windows_core::Result<()>;
-    fn CopyMetadataForFrames(&self, copyframecount: u16, copymode: SpatialAudioMetadataCopyMode, dstmetadataitems: Option<&ISpatialAudioMetadataItems>) -> windows_core::Result<u16>;
+    fn Open(&self, metadataitems: windows_core::Ref<'_, ISpatialAudioMetadataItems>) -> windows_core::Result<()>;
+    fn CopyMetadataForFrames(&self, copyframecount: u16, copymode: SpatialAudioMetadataCopyMode, dstmetadataitems: windows_core::Ref<'_, ISpatialAudioMetadataItems>) -> windows_core::Result<u16>;
     fn Close(&self) -> windows_core::Result<()>;
 }
 impl ISpatialAudioMetadataCopier_Vtbl {
     pub const fn new<Identity: ISpatialAudioMetadataCopier_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Open<Identity: ISpatialAudioMetadataCopier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, metadataitems: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISpatialAudioMetadataCopier_Impl::Open(this, windows_core::from_raw_borrowed(&metadataitems)).into()
+            ISpatialAudioMetadataCopier_Impl::Open(this, core::mem::transmute_copy(&metadataitems)).into()
         }
         unsafe extern "system" fn CopyMetadataForFrames<Identity: ISpatialAudioMetadataCopier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, copyframecount: u16, copymode: SpatialAudioMetadataCopyMode, dstmetadataitems: *mut core::ffi::c_void, itemscopied: *mut u16) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ISpatialAudioMetadataCopier_Impl::CopyMetadataForFrames(this, core::mem::transmute_copy(&copyframecount), core::mem::transmute_copy(&copymode), windows_core::from_raw_borrowed(&dstmetadataitems)) {
+            match ISpatialAudioMetadataCopier_Impl::CopyMetadataForFrames(this, core::mem::transmute_copy(&copyframecount), core::mem::transmute_copy(&copymode), core::mem::transmute_copy(&dstmetadataitems)) {
                 Ok(ok__) => {
                     itemscopied.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6429,7 +6429,7 @@ pub struct ISpatialAudioMetadataReader_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ISpatialAudioMetadataReader_Impl: windows_core::IUnknownImpl {
-    fn Open(&self, metadataitems: Option<&ISpatialAudioMetadataItems>) -> windows_core::Result<()>;
+    fn Open(&self, metadataitems: windows_core::Ref<'_, ISpatialAudioMetadataItems>) -> windows_core::Result<()>;
     fn ReadNextItem(&self, commandcount: *mut u8, frameoffset: *mut u16) -> windows_core::Result<()>;
     fn ReadNextItemCommand(&self, commandid: *mut u8, valuebuffer: *mut core::ffi::c_void, maxvaluebufferlength: u32, valuebufferlength: *mut u32) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
@@ -6438,7 +6438,7 @@ impl ISpatialAudioMetadataReader_Vtbl {
     pub const fn new<Identity: ISpatialAudioMetadataReader_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Open<Identity: ISpatialAudioMetadataReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, metadataitems: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISpatialAudioMetadataReader_Impl::Open(this, windows_core::from_raw_borrowed(&metadataitems)).into()
+            ISpatialAudioMetadataReader_Impl::Open(this, core::mem::transmute_copy(&metadataitems)).into()
         }
         unsafe extern "system" fn ReadNextItem<Identity: ISpatialAudioMetadataReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, commandcount: *mut u8, frameoffset: *mut u16) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -6493,7 +6493,7 @@ pub struct ISpatialAudioMetadataWriter_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ISpatialAudioMetadataWriter_Impl: windows_core::IUnknownImpl {
-    fn Open(&self, metadataitems: Option<&ISpatialAudioMetadataItems>) -> windows_core::Result<()>;
+    fn Open(&self, metadataitems: windows_core::Ref<'_, ISpatialAudioMetadataItems>) -> windows_core::Result<()>;
     fn WriteNextItem(&self, frameoffset: u16) -> windows_core::Result<()>;
     fn WriteNextItemCommand(&self, commandid: u8, valuebuffer: *const core::ffi::c_void, valuebufferlength: u32) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
@@ -6502,7 +6502,7 @@ impl ISpatialAudioMetadataWriter_Vtbl {
     pub const fn new<Identity: ISpatialAudioMetadataWriter_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Open<Identity: ISpatialAudioMetadataWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, metadataitems: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISpatialAudioMetadataWriter_Impl::Open(this, windows_core::from_raw_borrowed(&metadataitems)).into()
+            ISpatialAudioMetadataWriter_Impl::Open(this, core::mem::transmute_copy(&metadataitems)).into()
         }
         unsafe extern "system" fn WriteNextItem<Identity: ISpatialAudioMetadataWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, frameoffset: u16) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -7080,13 +7080,13 @@ pub struct ISpatialAudioObjectRenderStreamNotify_Vtbl {
     pub OnAvailableDynamicObjectCountChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i64, u32) -> windows_core::HRESULT,
 }
 pub trait ISpatialAudioObjectRenderStreamNotify_Impl: windows_core::IUnknownImpl {
-    fn OnAvailableDynamicObjectCountChange(&self, sender: Option<&ISpatialAudioObjectRenderStreamBase>, hnscompliancedeadlinetime: i64, availabledynamicobjectcountchange: u32) -> windows_core::Result<()>;
+    fn OnAvailableDynamicObjectCountChange(&self, sender: windows_core::Ref<'_, ISpatialAudioObjectRenderStreamBase>, hnscompliancedeadlinetime: i64, availabledynamicobjectcountchange: u32) -> windows_core::Result<()>;
 }
 impl ISpatialAudioObjectRenderStreamNotify_Vtbl {
     pub const fn new<Identity: ISpatialAudioObjectRenderStreamNotify_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnAvailableDynamicObjectCountChange<Identity: ISpatialAudioObjectRenderStreamNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, hnscompliancedeadlinetime: i64, availabledynamicobjectcountchange: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISpatialAudioObjectRenderStreamNotify_Impl::OnAvailableDynamicObjectCountChange(this, windows_core::from_raw_borrowed(&sender), core::mem::transmute_copy(&hnscompliancedeadlinetime), core::mem::transmute_copy(&availabledynamicobjectcountchange)).into()
+            ISpatialAudioObjectRenderStreamNotify_Impl::OnAvailableDynamicObjectCountChange(this, core::mem::transmute_copy(&sender), core::mem::transmute_copy(&hnscompliancedeadlinetime), core::mem::transmute_copy(&availabledynamicobjectcountchange)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

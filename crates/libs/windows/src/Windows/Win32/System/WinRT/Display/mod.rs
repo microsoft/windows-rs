@@ -25,7 +25,7 @@ pub struct IDisplayDeviceInterop_Vtbl {
 }
 #[cfg(feature = "Win32_Security")]
 pub trait IDisplayDeviceInterop_Impl: windows_core::IUnknownImpl {
-    fn CreateSharedHandle(&self, pobject: Option<&windows_core::IInspectable>, psecurityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::HANDLE>;
+    fn CreateSharedHandle(&self, pobject: windows_core::Ref<'_, windows_core::IInspectable>, psecurityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::HANDLE>;
     fn OpenSharedHandle(&self, nthandle: super::super::super::Foundation::HANDLE, riid: &windows_core::GUID) -> windows_core::Result<*mut core::ffi::c_void>;
 }
 #[cfg(feature = "Win32_Security")]
@@ -33,7 +33,7 @@ impl IDisplayDeviceInterop_Vtbl {
     pub const fn new<Identity: IDisplayDeviceInterop_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateSharedHandle<Identity: IDisplayDeviceInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobject: *mut core::ffi::c_void, psecurityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: *mut core::ffi::c_void, phandle: *mut super::super::super::Foundation::HANDLE) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDisplayDeviceInterop_Impl::CreateSharedHandle(this, windows_core::from_raw_borrowed(&pobject), core::mem::transmute_copy(&psecurityattributes), core::mem::transmute_copy(&access), core::mem::transmute(&name)) {
+            match IDisplayDeviceInterop_Impl::CreateSharedHandle(this, core::mem::transmute_copy(&pobject), core::mem::transmute_copy(&psecurityattributes), core::mem::transmute_copy(&access), core::mem::transmute(&name)) {
                 Ok(ok__) => {
                     phandle.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)

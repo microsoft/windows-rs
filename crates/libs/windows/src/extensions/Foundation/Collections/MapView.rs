@@ -42,9 +42,9 @@ where
     fn HasKey(&self, key: &K::Default) -> windows_core::Result<bool> {
         Ok(self.map.contains_key(key))
     }
-    fn Split(&self, first: &mut Option<IMapView<K, V>>, second: &mut Option<IMapView<K, V>>) -> windows_core::Result<()> {
-        *first = None;
-        *second = None;
+    fn Split(&self, first: windows_core::OutRef<'_, IMapView<K, V>>, second: windows_core::OutRef<'_, IMapView<K, V>>) -> windows_core::Result<()> {
+        _ = first.write(None);
+        _ = second.write(None);
         Ok(())
     }
 }

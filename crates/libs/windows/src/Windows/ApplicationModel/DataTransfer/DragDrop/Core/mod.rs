@@ -481,16 +481,16 @@ impl windows_core::RuntimeName for ICoreDropOperationTarget {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDropOperationTarget";
 }
 pub trait ICoreDropOperationTarget_Impl: windows_core::IUnknownImpl {
-    fn EnterAsync(&self, dragInfo: Option<&CoreDragInfo>, dragUIOverride: Option<&CoreDragUIOverride>) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>;
-    fn OverAsync(&self, dragInfo: Option<&CoreDragInfo>, dragUIOverride: Option<&CoreDragUIOverride>) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>;
-    fn LeaveAsync(&self, dragInfo: Option<&CoreDragInfo>) -> windows_core::Result<super::super::super::super::Foundation::IAsyncAction>;
-    fn DropAsync(&self, dragInfo: Option<&CoreDragInfo>) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>;
+    fn EnterAsync(&self, dragInfo: windows_core::Ref<'_, CoreDragInfo>, dragUIOverride: windows_core::Ref<'_, CoreDragUIOverride>) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>;
+    fn OverAsync(&self, dragInfo: windows_core::Ref<'_, CoreDragInfo>, dragUIOverride: windows_core::Ref<'_, CoreDragUIOverride>) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>;
+    fn LeaveAsync(&self, dragInfo: windows_core::Ref<'_, CoreDragInfo>) -> windows_core::Result<super::super::super::super::Foundation::IAsyncAction>;
+    fn DropAsync(&self, dragInfo: windows_core::Ref<'_, CoreDragInfo>) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>;
 }
 impl ICoreDropOperationTarget_Vtbl {
     pub const fn new<Identity: ICoreDropOperationTarget_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn EnterAsync<Identity: ICoreDropOperationTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, draginfo: *mut core::ffi::c_void, draguioverride: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICoreDropOperationTarget_Impl::EnterAsync(this, windows_core::from_raw_borrowed(&draginfo), windows_core::from_raw_borrowed(&draguioverride)) {
+            match ICoreDropOperationTarget_Impl::EnterAsync(this, core::mem::transmute_copy(&draginfo), core::mem::transmute_copy(&draguioverride)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -501,7 +501,7 @@ impl ICoreDropOperationTarget_Vtbl {
         }
         unsafe extern "system" fn OverAsync<Identity: ICoreDropOperationTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, draginfo: *mut core::ffi::c_void, draguioverride: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICoreDropOperationTarget_Impl::OverAsync(this, windows_core::from_raw_borrowed(&draginfo), windows_core::from_raw_borrowed(&draguioverride)) {
+            match ICoreDropOperationTarget_Impl::OverAsync(this, core::mem::transmute_copy(&draginfo), core::mem::transmute_copy(&draguioverride)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -512,7 +512,7 @@ impl ICoreDropOperationTarget_Vtbl {
         }
         unsafe extern "system" fn LeaveAsync<Identity: ICoreDropOperationTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, draginfo: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICoreDropOperationTarget_Impl::LeaveAsync(this, windows_core::from_raw_borrowed(&draginfo)) {
+            match ICoreDropOperationTarget_Impl::LeaveAsync(this, core::mem::transmute_copy(&draginfo)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -523,7 +523,7 @@ impl ICoreDropOperationTarget_Vtbl {
         }
         unsafe extern "system" fn DropAsync<Identity: ICoreDropOperationTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, draginfo: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICoreDropOperationTarget_Impl::DropAsync(this, windows_core::from_raw_borrowed(&draginfo)) {
+            match ICoreDropOperationTarget_Impl::DropAsync(this, core::mem::transmute_copy(&draginfo)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);

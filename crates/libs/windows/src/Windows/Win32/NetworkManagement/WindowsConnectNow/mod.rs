@@ -111,7 +111,7 @@ pub struct IWCNDevice_Vtbl {
 }
 pub trait IWCNDevice_Impl: windows_core::IUnknownImpl {
     fn SetPassword(&self, r#type: WCN_PASSWORD_TYPE, dwpasswordlength: u32, pbpassword: *const u8) -> windows_core::Result<()>;
-    fn Connect(&self, pnotify: Option<&IWCNConnectNotify>) -> windows_core::Result<()>;
+    fn Connect(&self, pnotify: windows_core::Ref<'_, IWCNConnectNotify>) -> windows_core::Result<()>;
     fn GetAttribute(&self, attributetype: WCN_ATTRIBUTE_TYPE, dwmaxbuffersize: u32, pbbuffer: *mut u8, pdwbufferused: *mut u32) -> windows_core::Result<()>;
     fn GetIntegerAttribute(&self, attributetype: WCN_ATTRIBUTE_TYPE) -> windows_core::Result<u32>;
     fn GetStringAttribute(&self, attributetype: WCN_ATTRIBUTE_TYPE, cchmaxstring: u32, wszstring: windows_core::PWSTR) -> windows_core::Result<()>;
@@ -130,7 +130,7 @@ impl IWCNDevice_Vtbl {
         }
         unsafe extern "system" fn Connect<Identity: IWCNDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnotify: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWCNDevice_Impl::Connect(this, windows_core::from_raw_borrowed(&pnotify)).into()
+            IWCNDevice_Impl::Connect(this, core::mem::transmute_copy(&pnotify)).into()
         }
         unsafe extern "system" fn GetAttribute<Identity: IWCNDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributetype: WCN_ATTRIBUTE_TYPE, dwmaxbuffersize: u32, pbbuffer: *mut u8, pdwbufferused: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);

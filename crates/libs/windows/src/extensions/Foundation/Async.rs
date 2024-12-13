@@ -19,7 +19,7 @@ pub trait Async: Interface {
     type Output: Clone;
 
     // The type of the delegate use for completion notification.
-    type CompletedHandler: Clone;
+    type CompletedHandler: Interface;
 
     // Sets the handler or callback to invoke when execution completes. This handler can only be set once.
     fn set_completed<F: Fn() + Send + 'static>(&self, handler: F) -> Result<()>;

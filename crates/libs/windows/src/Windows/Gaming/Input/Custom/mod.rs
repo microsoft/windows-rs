@@ -321,15 +321,15 @@ impl windows_core::RuntimeName for ICustomGameControllerFactory {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.ICustomGameControllerFactory";
 }
 pub trait ICustomGameControllerFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateGameController(&self, provider: Option<&IGameControllerProvider>) -> windows_core::Result<windows_core::IInspectable>;
-    fn OnGameControllerAdded(&self, value: Option<&super::IGameController>) -> windows_core::Result<()>;
-    fn OnGameControllerRemoved(&self, value: Option<&super::IGameController>) -> windows_core::Result<()>;
+    fn CreateGameController(&self, provider: windows_core::Ref<'_, IGameControllerProvider>) -> windows_core::Result<windows_core::IInspectable>;
+    fn OnGameControllerAdded(&self, value: windows_core::Ref<'_, super::IGameController>) -> windows_core::Result<()>;
+    fn OnGameControllerRemoved(&self, value: windows_core::Ref<'_, super::IGameController>) -> windows_core::Result<()>;
 }
 impl ICustomGameControllerFactory_Vtbl {
     pub const fn new<Identity: ICustomGameControllerFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateGameController<Identity: ICustomGameControllerFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, provider: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICustomGameControllerFactory_Impl::CreateGameController(this, windows_core::from_raw_borrowed(&provider)) {
+            match ICustomGameControllerFactory_Impl::CreateGameController(this, core::mem::transmute_copy(&provider)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -340,11 +340,11 @@ impl ICustomGameControllerFactory_Vtbl {
         }
         unsafe extern "system" fn OnGameControllerAdded<Identity: ICustomGameControllerFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICustomGameControllerFactory_Impl::OnGameControllerAdded(this, windows_core::from_raw_borrowed(&value)).into()
+            ICustomGameControllerFactory_Impl::OnGameControllerAdded(this, core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn OnGameControllerRemoved<Identity: ICustomGameControllerFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICustomGameControllerFactory_Impl::OnGameControllerRemoved(this, windows_core::from_raw_borrowed(&value)).into()
+            ICustomGameControllerFactory_Impl::OnGameControllerRemoved(this, core::mem::transmute_copy(&value)).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, ICustomGameControllerFactory, OFFSET>(),

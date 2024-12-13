@@ -152,8 +152,8 @@ pub struct IFunctionDiscovery_Vtbl {
 pub trait IFunctionDiscovery_Impl: windows_core::IUnknownImpl {
     fn GetInstanceCollection(&self, pszcategory: &windows_core::PCWSTR, pszsubcategory: &windows_core::PCWSTR, fincludeallsubcategories: super::super::Foundation::BOOL) -> windows_core::Result<IFunctionInstanceCollection>;
     fn GetInstance(&self, pszfunctioninstanceidentity: &windows_core::PCWSTR) -> windows_core::Result<IFunctionInstance>;
-    fn CreateInstanceCollectionQuery(&self, pszcategory: &windows_core::PCWSTR, pszsubcategory: &windows_core::PCWSTR, fincludeallsubcategories: super::super::Foundation::BOOL, pifunctiondiscoverynotification: Option<&IFunctionDiscoveryNotification>, pfdqcquerycontext: *mut u64) -> windows_core::Result<IFunctionInstanceCollectionQuery>;
-    fn CreateInstanceQuery(&self, pszfunctioninstanceidentity: &windows_core::PCWSTR, pifunctiondiscoverynotification: Option<&IFunctionDiscoveryNotification>, pfdqcquerycontext: *mut u64) -> windows_core::Result<IFunctionInstanceQuery>;
+    fn CreateInstanceCollectionQuery(&self, pszcategory: &windows_core::PCWSTR, pszsubcategory: &windows_core::PCWSTR, fincludeallsubcategories: super::super::Foundation::BOOL, pifunctiondiscoverynotification: windows_core::Ref<'_, IFunctionDiscoveryNotification>, pfdqcquerycontext: *mut u64) -> windows_core::Result<IFunctionInstanceCollectionQuery>;
+    fn CreateInstanceQuery(&self, pszfunctioninstanceidentity: &windows_core::PCWSTR, pifunctiondiscoverynotification: windows_core::Ref<'_, IFunctionDiscoveryNotification>, pfdqcquerycontext: *mut u64) -> windows_core::Result<IFunctionInstanceQuery>;
     fn AddInstance(&self, enumsystemvisibility: SystemVisibilityFlags, pszcategory: &windows_core::PCWSTR, pszsubcategory: &windows_core::PCWSTR, pszcategoryidentity: &windows_core::PCWSTR) -> windows_core::Result<IFunctionInstance>;
     fn RemoveInstance(&self, enumsystemvisibility: SystemVisibilityFlags, pszcategory: &windows_core::PCWSTR, pszsubcategory: &windows_core::PCWSTR, pszcategoryidentity: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
@@ -182,7 +182,7 @@ impl IFunctionDiscovery_Vtbl {
         }
         unsafe extern "system" fn CreateInstanceCollectionQuery<Identity: IFunctionDiscovery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszcategory: windows_core::PCWSTR, pszsubcategory: windows_core::PCWSTR, fincludeallsubcategories: super::super::Foundation::BOOL, pifunctiondiscoverynotification: *mut core::ffi::c_void, pfdqcquerycontext: *mut u64, ppifunctioninstancecollectionquery: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IFunctionDiscovery_Impl::CreateInstanceCollectionQuery(this, core::mem::transmute(&pszcategory), core::mem::transmute(&pszsubcategory), core::mem::transmute_copy(&fincludeallsubcategories), windows_core::from_raw_borrowed(&pifunctiondiscoverynotification), core::mem::transmute_copy(&pfdqcquerycontext)) {
+            match IFunctionDiscovery_Impl::CreateInstanceCollectionQuery(this, core::mem::transmute(&pszcategory), core::mem::transmute(&pszsubcategory), core::mem::transmute_copy(&fincludeallsubcategories), core::mem::transmute_copy(&pifunctiondiscoverynotification), core::mem::transmute_copy(&pfdqcquerycontext)) {
                 Ok(ok__) => {
                     ppifunctioninstancecollectionquery.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -192,7 +192,7 @@ impl IFunctionDiscovery_Vtbl {
         }
         unsafe extern "system" fn CreateInstanceQuery<Identity: IFunctionDiscovery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszfunctioninstanceidentity: windows_core::PCWSTR, pifunctiondiscoverynotification: *mut core::ffi::c_void, pfdqcquerycontext: *mut u64, ppifunctioninstancequery: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IFunctionDiscovery_Impl::CreateInstanceQuery(this, core::mem::transmute(&pszfunctioninstanceidentity), windows_core::from_raw_borrowed(&pifunctiondiscoverynotification), core::mem::transmute_copy(&pfdqcquerycontext)) {
+            match IFunctionDiscovery_Impl::CreateInstanceQuery(this, core::mem::transmute(&pszfunctioninstanceidentity), core::mem::transmute_copy(&pifunctiondiscoverynotification), core::mem::transmute_copy(&pfdqcquerycontext)) {
                 Ok(ok__) => {
                     ppifunctioninstancequery.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -265,7 +265,7 @@ pub struct IFunctionDiscoveryNotification_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IFunctionDiscoveryNotification_Impl: windows_core::IUnknownImpl {
-    fn OnUpdate(&self, enumqueryupdateaction: QueryUpdateAction, fdqcquerycontext: u64, pifunctioninstance: Option<&IFunctionInstance>) -> windows_core::Result<()>;
+    fn OnUpdate(&self, enumqueryupdateaction: QueryUpdateAction, fdqcquerycontext: u64, pifunctioninstance: windows_core::Ref<'_, IFunctionInstance>) -> windows_core::Result<()>;
     fn OnError(&self, hr: windows_core::HRESULT, fdqcquerycontext: u64, pszprovider: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn OnEvent(&self, dweventid: u32, fdqcquerycontext: u64, pszprovider: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
@@ -274,7 +274,7 @@ impl IFunctionDiscoveryNotification_Vtbl {
     pub const fn new<Identity: IFunctionDiscoveryNotification_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnUpdate<Identity: IFunctionDiscoveryNotification_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enumqueryupdateaction: QueryUpdateAction, fdqcquerycontext: u64, pifunctioninstance: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IFunctionDiscoveryNotification_Impl::OnUpdate(this, core::mem::transmute_copy(&enumqueryupdateaction), core::mem::transmute_copy(&fdqcquerycontext), windows_core::from_raw_borrowed(&pifunctioninstance)).into()
+            IFunctionDiscoveryNotification_Impl::OnUpdate(this, core::mem::transmute_copy(&enumqueryupdateaction), core::mem::transmute_copy(&fdqcquerycontext), core::mem::transmute_copy(&pifunctioninstance)).into()
         }
         unsafe extern "system" fn OnError<Identity: IFunctionDiscoveryNotification_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hr: windows_core::HRESULT, fdqcquerycontext: u64, pszprovider: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -385,21 +385,21 @@ pub struct IFunctionDiscoveryProvider_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IFunctionDiscoveryProvider_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, pifunctiondiscoveryproviderfactory: Option<&IFunctionDiscoveryProviderFactory>, pifunctiondiscoverynotification: Option<&IFunctionDiscoveryNotification>, lciduserdefault: u32) -> windows_core::Result<u32>;
-    fn Query(&self, pifunctiondiscoveryproviderquery: Option<&IFunctionDiscoveryProviderQuery>) -> windows_core::Result<IFunctionInstanceCollection>;
+    fn Initialize(&self, pifunctiondiscoveryproviderfactory: windows_core::Ref<'_, IFunctionDiscoveryProviderFactory>, pifunctiondiscoverynotification: windows_core::Ref<'_, IFunctionDiscoveryNotification>, lciduserdefault: u32) -> windows_core::Result<u32>;
+    fn Query(&self, pifunctiondiscoveryproviderquery: windows_core::Ref<'_, IFunctionDiscoveryProviderQuery>) -> windows_core::Result<IFunctionInstanceCollection>;
     fn EndQuery(&self) -> windows_core::Result<()>;
-    fn InstancePropertyStoreValidateAccess(&self, pifunctioninstance: Option<&IFunctionInstance>, iproviderinstancecontext: isize, dwstgaccess: u32) -> windows_core::Result<()>;
-    fn InstancePropertyStoreOpen(&self, pifunctioninstance: Option<&IFunctionInstance>, iproviderinstancecontext: isize, dwstgaccess: u32) -> windows_core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
-    fn InstancePropertyStoreFlush(&self, pifunctioninstance: Option<&IFunctionInstance>, iproviderinstancecontext: isize) -> windows_core::Result<()>;
-    fn InstanceQueryService(&self, pifunctioninstance: Option<&IFunctionInstance>, iproviderinstancecontext: isize, guidservice: *const windows_core::GUID, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>;
-    fn InstanceReleased(&self, pifunctioninstance: Option<&IFunctionInstance>, iproviderinstancecontext: isize) -> windows_core::Result<()>;
+    fn InstancePropertyStoreValidateAccess(&self, pifunctioninstance: windows_core::Ref<'_, IFunctionInstance>, iproviderinstancecontext: isize, dwstgaccess: u32) -> windows_core::Result<()>;
+    fn InstancePropertyStoreOpen(&self, pifunctioninstance: windows_core::Ref<'_, IFunctionInstance>, iproviderinstancecontext: isize, dwstgaccess: u32) -> windows_core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
+    fn InstancePropertyStoreFlush(&self, pifunctioninstance: windows_core::Ref<'_, IFunctionInstance>, iproviderinstancecontext: isize) -> windows_core::Result<()>;
+    fn InstanceQueryService(&self, pifunctioninstance: windows_core::Ref<'_, IFunctionInstance>, iproviderinstancecontext: isize, guidservice: *const windows_core::GUID, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>;
+    fn InstanceReleased(&self, pifunctioninstance: windows_core::Ref<'_, IFunctionInstance>, iproviderinstancecontext: isize) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IFunctionDiscoveryProvider_Vtbl {
     pub const fn new<Identity: IFunctionDiscoveryProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IFunctionDiscoveryProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pifunctiondiscoveryproviderfactory: *mut core::ffi::c_void, pifunctiondiscoverynotification: *mut core::ffi::c_void, lciduserdefault: u32, pdwstgaccesscapabilities: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IFunctionDiscoveryProvider_Impl::Initialize(this, windows_core::from_raw_borrowed(&pifunctiondiscoveryproviderfactory), windows_core::from_raw_borrowed(&pifunctiondiscoverynotification), core::mem::transmute_copy(&lciduserdefault)) {
+            match IFunctionDiscoveryProvider_Impl::Initialize(this, core::mem::transmute_copy(&pifunctiondiscoveryproviderfactory), core::mem::transmute_copy(&pifunctiondiscoverynotification), core::mem::transmute_copy(&lciduserdefault)) {
                 Ok(ok__) => {
                     pdwstgaccesscapabilities.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -409,7 +409,7 @@ impl IFunctionDiscoveryProvider_Vtbl {
         }
         unsafe extern "system" fn Query<Identity: IFunctionDiscoveryProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pifunctiondiscoveryproviderquery: *mut core::ffi::c_void, ppifunctioninstancecollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IFunctionDiscoveryProvider_Impl::Query(this, windows_core::from_raw_borrowed(&pifunctiondiscoveryproviderquery)) {
+            match IFunctionDiscoveryProvider_Impl::Query(this, core::mem::transmute_copy(&pifunctiondiscoveryproviderquery)) {
                 Ok(ok__) => {
                     ppifunctioninstancecollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -423,11 +423,11 @@ impl IFunctionDiscoveryProvider_Vtbl {
         }
         unsafe extern "system" fn InstancePropertyStoreValidateAccess<Identity: IFunctionDiscoveryProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pifunctioninstance: *mut core::ffi::c_void, iproviderinstancecontext: isize, dwstgaccess: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IFunctionDiscoveryProvider_Impl::InstancePropertyStoreValidateAccess(this, windows_core::from_raw_borrowed(&pifunctioninstance), core::mem::transmute_copy(&iproviderinstancecontext), core::mem::transmute_copy(&dwstgaccess)).into()
+            IFunctionDiscoveryProvider_Impl::InstancePropertyStoreValidateAccess(this, core::mem::transmute_copy(&pifunctioninstance), core::mem::transmute_copy(&iproviderinstancecontext), core::mem::transmute_copy(&dwstgaccess)).into()
         }
         unsafe extern "system" fn InstancePropertyStoreOpen<Identity: IFunctionDiscoveryProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pifunctioninstance: *mut core::ffi::c_void, iproviderinstancecontext: isize, dwstgaccess: u32, ppipropertystore: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IFunctionDiscoveryProvider_Impl::InstancePropertyStoreOpen(this, windows_core::from_raw_borrowed(&pifunctioninstance), core::mem::transmute_copy(&iproviderinstancecontext), core::mem::transmute_copy(&dwstgaccess)) {
+            match IFunctionDiscoveryProvider_Impl::InstancePropertyStoreOpen(this, core::mem::transmute_copy(&pifunctioninstance), core::mem::transmute_copy(&iproviderinstancecontext), core::mem::transmute_copy(&dwstgaccess)) {
                 Ok(ok__) => {
                     ppipropertystore.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -437,11 +437,11 @@ impl IFunctionDiscoveryProvider_Vtbl {
         }
         unsafe extern "system" fn InstancePropertyStoreFlush<Identity: IFunctionDiscoveryProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pifunctioninstance: *mut core::ffi::c_void, iproviderinstancecontext: isize) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IFunctionDiscoveryProvider_Impl::InstancePropertyStoreFlush(this, windows_core::from_raw_borrowed(&pifunctioninstance), core::mem::transmute_copy(&iproviderinstancecontext)).into()
+            IFunctionDiscoveryProvider_Impl::InstancePropertyStoreFlush(this, core::mem::transmute_copy(&pifunctioninstance), core::mem::transmute_copy(&iproviderinstancecontext)).into()
         }
         unsafe extern "system" fn InstanceQueryService<Identity: IFunctionDiscoveryProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pifunctioninstance: *mut core::ffi::c_void, iproviderinstancecontext: isize, guidservice: *const windows_core::GUID, riid: *const windows_core::GUID, ppiunknown: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IFunctionDiscoveryProvider_Impl::InstanceQueryService(this, windows_core::from_raw_borrowed(&pifunctioninstance), core::mem::transmute_copy(&iproviderinstancecontext), core::mem::transmute_copy(&guidservice), core::mem::transmute_copy(&riid)) {
+            match IFunctionDiscoveryProvider_Impl::InstanceQueryService(this, core::mem::transmute_copy(&pifunctioninstance), core::mem::transmute_copy(&iproviderinstancecontext), core::mem::transmute_copy(&guidservice), core::mem::transmute_copy(&riid)) {
                 Ok(ok__) => {
                     ppiunknown.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -451,7 +451,7 @@ impl IFunctionDiscoveryProvider_Vtbl {
         }
         unsafe extern "system" fn InstanceReleased<Identity: IFunctionDiscoveryProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pifunctioninstance: *mut core::ffi::c_void, iproviderinstancecontext: isize) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IFunctionDiscoveryProvider_Impl::InstanceReleased(this, windows_core::from_raw_borrowed(&pifunctioninstance), core::mem::transmute_copy(&iproviderinstancecontext)).into()
+            IFunctionDiscoveryProvider_Impl::InstanceReleased(this, core::mem::transmute_copy(&pifunctioninstance), core::mem::transmute_copy(&iproviderinstancecontext)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -511,7 +511,7 @@ pub struct IFunctionDiscoveryProviderFactory_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IFunctionDiscoveryProviderFactory_Impl: windows_core::IUnknownImpl {
     fn CreatePropertyStore(&self) -> windows_core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
-    fn CreateInstance(&self, pszsubcategory: &windows_core::PCWSTR, pszproviderinstanceidentity: &windows_core::PCWSTR, iproviderinstancecontext: isize, pipropertystore: Option<&super::super::UI::Shell::PropertiesSystem::IPropertyStore>, pifunctiondiscoveryprovider: Option<&IFunctionDiscoveryProvider>) -> windows_core::Result<IFunctionInstance>;
+    fn CreateInstance(&self, pszsubcategory: &windows_core::PCWSTR, pszproviderinstanceidentity: &windows_core::PCWSTR, iproviderinstancecontext: isize, pipropertystore: windows_core::Ref<'_, super::super::UI::Shell::PropertiesSystem::IPropertyStore>, pifunctiondiscoveryprovider: windows_core::Ref<'_, IFunctionDiscoveryProvider>) -> windows_core::Result<IFunctionInstance>;
     fn CreateFunctionInstanceCollection(&self) -> windows_core::Result<IFunctionInstanceCollection>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -529,7 +529,7 @@ impl IFunctionDiscoveryProviderFactory_Vtbl {
         }
         unsafe extern "system" fn CreateInstance<Identity: IFunctionDiscoveryProviderFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszsubcategory: windows_core::PCWSTR, pszproviderinstanceidentity: windows_core::PCWSTR, iproviderinstancecontext: isize, pipropertystore: *mut core::ffi::c_void, pifunctiondiscoveryprovider: *mut core::ffi::c_void, ppifunctioninstance: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IFunctionDiscoveryProviderFactory_Impl::CreateInstance(this, core::mem::transmute(&pszsubcategory), core::mem::transmute(&pszproviderinstanceidentity), core::mem::transmute_copy(&iproviderinstancecontext), windows_core::from_raw_borrowed(&pipropertystore), windows_core::from_raw_borrowed(&pifunctiondiscoveryprovider)) {
+            match IFunctionDiscoveryProviderFactory_Impl::CreateInstance(this, core::mem::transmute(&pszsubcategory), core::mem::transmute(&pszproviderinstanceidentity), core::mem::transmute_copy(&iproviderinstancecontext), core::mem::transmute_copy(&pipropertystore), core::mem::transmute_copy(&pifunctiondiscoveryprovider)) {
                 Ok(ok__) => {
                     ppifunctioninstance.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -658,14 +658,14 @@ pub struct IFunctionDiscoveryServiceProvider_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IFunctionDiscoveryServiceProvider_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, pifunctioninstance: Option<&IFunctionInstance>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn Initialize(&self, pifunctioninstance: windows_core::Ref<'_, IFunctionInstance>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IFunctionDiscoveryServiceProvider_Vtbl {
     pub const fn new<Identity: IFunctionDiscoveryServiceProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IFunctionDiscoveryServiceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pifunctioninstance: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IFunctionDiscoveryServiceProvider_Impl::Initialize(this, windows_core::from_raw_borrowed(&pifunctioninstance), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            IFunctionDiscoveryServiceProvider_Impl::Initialize(this, core::mem::transmute_copy(&pifunctioninstance), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, OFFSET> }
     }
@@ -842,7 +842,7 @@ pub trait IFunctionInstanceCollection_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<u32>;
     fn Get(&self, pszinstanceidentity: &windows_core::PCWSTR, pdwindex: *mut u32) -> windows_core::Result<IFunctionInstance>;
     fn Item(&self, dwindex: u32) -> windows_core::Result<IFunctionInstance>;
-    fn Add(&self, pifunctioninstance: Option<&IFunctionInstance>) -> windows_core::Result<()>;
+    fn Add(&self, pifunctioninstance: windows_core::Ref<'_, IFunctionInstance>) -> windows_core::Result<()>;
     fn Remove(&self, dwindex: u32) -> windows_core::Result<IFunctionInstance>;
     fn Delete(&self, dwindex: u32) -> windows_core::Result<()>;
     fn DeleteAll(&self) -> windows_core::Result<()>;
@@ -882,7 +882,7 @@ impl IFunctionInstanceCollection_Vtbl {
         }
         unsafe extern "system" fn Add<Identity: IFunctionInstanceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pifunctioninstance: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IFunctionInstanceCollection_Impl::Add(this, windows_core::from_raw_borrowed(&pifunctioninstance)).into()
+            IFunctionInstanceCollection_Impl::Add(this, core::mem::transmute_copy(&pifunctioninstance)).into()
         }
         unsafe extern "system" fn Remove<Identity: IFunctionInstanceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: u32, ppifunctioninstance: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -1123,23 +1123,23 @@ pub struct IPNPXDeviceAssociation_Vtbl {
     pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IPNPXDeviceAssociation_Impl: windows_core::IUnknownImpl {
-    fn Associate(&self, pszsubcategory: &windows_core::PCWSTR, pifunctiondiscoverynotification: Option<&IFunctionDiscoveryNotification>) -> windows_core::Result<()>;
-    fn Unassociate(&self, pszsubcategory: &windows_core::PCWSTR, pifunctiondiscoverynotification: Option<&IFunctionDiscoveryNotification>) -> windows_core::Result<()>;
-    fn Delete(&self, pszsubcategory: &windows_core::PCWSTR, pifunctiondiscoverynotification: Option<&IFunctionDiscoveryNotification>) -> windows_core::Result<()>;
+    fn Associate(&self, pszsubcategory: &windows_core::PCWSTR, pifunctiondiscoverynotification: windows_core::Ref<'_, IFunctionDiscoveryNotification>) -> windows_core::Result<()>;
+    fn Unassociate(&self, pszsubcategory: &windows_core::PCWSTR, pifunctiondiscoverynotification: windows_core::Ref<'_, IFunctionDiscoveryNotification>) -> windows_core::Result<()>;
+    fn Delete(&self, pszsubcategory: &windows_core::PCWSTR, pifunctiondiscoverynotification: windows_core::Ref<'_, IFunctionDiscoveryNotification>) -> windows_core::Result<()>;
 }
 impl IPNPXDeviceAssociation_Vtbl {
     pub const fn new<Identity: IPNPXDeviceAssociation_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Associate<Identity: IPNPXDeviceAssociation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszsubcategory: windows_core::PCWSTR, pifunctiondiscoverynotification: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPNPXDeviceAssociation_Impl::Associate(this, core::mem::transmute(&pszsubcategory), windows_core::from_raw_borrowed(&pifunctiondiscoverynotification)).into()
+            IPNPXDeviceAssociation_Impl::Associate(this, core::mem::transmute(&pszsubcategory), core::mem::transmute_copy(&pifunctiondiscoverynotification)).into()
         }
         unsafe extern "system" fn Unassociate<Identity: IPNPXDeviceAssociation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszsubcategory: windows_core::PCWSTR, pifunctiondiscoverynotification: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPNPXDeviceAssociation_Impl::Unassociate(this, core::mem::transmute(&pszsubcategory), windows_core::from_raw_borrowed(&pifunctiondiscoverynotification)).into()
+            IPNPXDeviceAssociation_Impl::Unassociate(this, core::mem::transmute(&pszsubcategory), core::mem::transmute_copy(&pifunctiondiscoverynotification)).into()
         }
         unsafe extern "system" fn Delete<Identity: IPNPXDeviceAssociation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszsubcategory: windows_core::PCWSTR, pifunctiondiscoverynotification: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPNPXDeviceAssociation_Impl::Delete(this, core::mem::transmute(&pszsubcategory), windows_core::from_raw_borrowed(&pifunctiondiscoverynotification)).into()
+            IPNPXDeviceAssociation_Impl::Delete(this, core::mem::transmute(&pszsubcategory), core::mem::transmute_copy(&pifunctiondiscoverynotification)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -1220,7 +1220,7 @@ pub trait IPropertyStoreCollection_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<u32>;
     fn Get(&self, pszinstanceidentity: &windows_core::PCWSTR, pdwindex: *mut u32) -> windows_core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
     fn Item(&self, dwindex: u32) -> windows_core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
-    fn Add(&self, pipropertystore: Option<&super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> windows_core::Result<()>;
+    fn Add(&self, pipropertystore: windows_core::Ref<'_, super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> windows_core::Result<()>;
     fn Remove(&self, dwindex: u32) -> windows_core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
     fn Delete(&self, dwindex: u32) -> windows_core::Result<()>;
     fn DeleteAll(&self) -> windows_core::Result<()>;
@@ -1260,7 +1260,7 @@ impl IPropertyStoreCollection_Vtbl {
         }
         unsafe extern "system" fn Add<Identity: IPropertyStoreCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pipropertystore: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPropertyStoreCollection_Impl::Add(this, windows_core::from_raw_borrowed(&pipropertystore)).into()
+            IPropertyStoreCollection_Impl::Add(this, core::mem::transmute_copy(&pipropertystore)).into()
         }
         unsafe extern "system" fn Remove<Identity: IPropertyStoreCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: u32, pipropertystore: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -1353,17 +1353,17 @@ pub struct IProviderProperties_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IProviderProperties_Impl: windows_core::IUnknownImpl {
-    fn GetCount(&self, pifunctioninstance: Option<&IFunctionInstance>, iproviderinstancecontext: isize) -> windows_core::Result<u32>;
-    fn GetAt(&self, pifunctioninstance: Option<&IFunctionInstance>, iproviderinstancecontext: isize, dwindex: u32, pkey: *mut super::super::Foundation::PROPERTYKEY) -> windows_core::Result<()>;
-    fn GetValue(&self, pifunctioninstance: Option<&IFunctionInstance>, iproviderinstancecontext: isize, key: *const super::super::Foundation::PROPERTYKEY) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
-    fn SetValue(&self, pifunctioninstance: Option<&IFunctionInstance>, iproviderinstancecontext: isize, key: *const super::super::Foundation::PROPERTYKEY, ppropvar: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
+    fn GetCount(&self, pifunctioninstance: windows_core::Ref<'_, IFunctionInstance>, iproviderinstancecontext: isize) -> windows_core::Result<u32>;
+    fn GetAt(&self, pifunctioninstance: windows_core::Ref<'_, IFunctionInstance>, iproviderinstancecontext: isize, dwindex: u32, pkey: *mut super::super::Foundation::PROPERTYKEY) -> windows_core::Result<()>;
+    fn GetValue(&self, pifunctioninstance: windows_core::Ref<'_, IFunctionInstance>, iproviderinstancecontext: isize, key: *const super::super::Foundation::PROPERTYKEY) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
+    fn SetValue(&self, pifunctioninstance: windows_core::Ref<'_, IFunctionInstance>, iproviderinstancecontext: isize, key: *const super::super::Foundation::PROPERTYKEY, ppropvar: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IProviderProperties_Vtbl {
     pub const fn new<Identity: IProviderProperties_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCount<Identity: IProviderProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pifunctioninstance: *mut core::ffi::c_void, iproviderinstancecontext: isize, pdwcount: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IProviderProperties_Impl::GetCount(this, windows_core::from_raw_borrowed(&pifunctioninstance), core::mem::transmute_copy(&iproviderinstancecontext)) {
+            match IProviderProperties_Impl::GetCount(this, core::mem::transmute_copy(&pifunctioninstance), core::mem::transmute_copy(&iproviderinstancecontext)) {
                 Ok(ok__) => {
                     pdwcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1373,11 +1373,11 @@ impl IProviderProperties_Vtbl {
         }
         unsafe extern "system" fn GetAt<Identity: IProviderProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pifunctioninstance: *mut core::ffi::c_void, iproviderinstancecontext: isize, dwindex: u32, pkey: *mut super::super::Foundation::PROPERTYKEY) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IProviderProperties_Impl::GetAt(this, windows_core::from_raw_borrowed(&pifunctioninstance), core::mem::transmute_copy(&iproviderinstancecontext), core::mem::transmute_copy(&dwindex), core::mem::transmute_copy(&pkey)).into()
+            IProviderProperties_Impl::GetAt(this, core::mem::transmute_copy(&pifunctioninstance), core::mem::transmute_copy(&iproviderinstancecontext), core::mem::transmute_copy(&dwindex), core::mem::transmute_copy(&pkey)).into()
         }
         unsafe extern "system" fn GetValue<Identity: IProviderProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pifunctioninstance: *mut core::ffi::c_void, iproviderinstancecontext: isize, key: *const super::super::Foundation::PROPERTYKEY, ppropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IProviderProperties_Impl::GetValue(this, windows_core::from_raw_borrowed(&pifunctioninstance), core::mem::transmute_copy(&iproviderinstancecontext), core::mem::transmute_copy(&key)) {
+            match IProviderProperties_Impl::GetValue(this, core::mem::transmute_copy(&pifunctioninstance), core::mem::transmute_copy(&iproviderinstancecontext), core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
                     ppropvar.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1387,7 +1387,7 @@ impl IProviderProperties_Vtbl {
         }
         unsafe extern "system" fn SetValue<Identity: IProviderProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pifunctioninstance: *mut core::ffi::c_void, iproviderinstancecontext: isize, key: *const super::super::Foundation::PROPERTYKEY, ppropvar: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IProviderProperties_Impl::SetValue(this, windows_core::from_raw_borrowed(&pifunctioninstance), core::mem::transmute_copy(&iproviderinstancecontext), core::mem::transmute_copy(&key), core::mem::transmute_copy(&ppropvar)).into()
+            IProviderProperties_Impl::SetValue(this, core::mem::transmute_copy(&pifunctioninstance), core::mem::transmute_copy(&iproviderinstancecontext), core::mem::transmute_copy(&key), core::mem::transmute_copy(&ppropvar)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

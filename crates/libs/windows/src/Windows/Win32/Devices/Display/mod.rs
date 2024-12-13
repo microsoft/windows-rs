@@ -3371,7 +3371,7 @@ pub trait IViewHelper_Impl: windows_core::IUnknownImpl {
     fn GetActiveTopology(&self, wszadaptorname: &windows_core::PCWSTR, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> windows_core::Result<()>;
     fn SetActiveTopology(&self, wszadaptorname: &windows_core::PCWSTR, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> windows_core::Result<()>;
     fn Commit(&self) -> windows_core::Result<()>;
-    fn SetConfiguration(&self, pistream: Option<&super::super::System::Com::IStream>) -> windows_core::Result<u32>;
+    fn SetConfiguration(&self, pistream: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<u32>;
     fn GetProceedOnNewConfiguration(&self) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3395,7 +3395,7 @@ impl IViewHelper_Vtbl {
         }
         unsafe extern "system" fn SetConfiguration<Identity: IViewHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pistream: *mut core::ffi::c_void, pulstatus: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IViewHelper_Impl::SetConfiguration(this, windows_core::from_raw_borrowed(&pistream)) {
+            match IViewHelper_Impl::SetConfiguration(this, core::mem::transmute_copy(&pistream)) {
                 Ok(ok__) => {
                     pulstatus.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)

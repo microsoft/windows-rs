@@ -2024,9 +2024,9 @@ pub struct IAVIEditStream_Vtbl {
     pub SetInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *const AVISTREAMINFOW, i32) -> windows_core::HRESULT,
 }
 pub trait IAVIEditStream_Impl: windows_core::IUnknownImpl {
-    fn Cut(&self, plstart: *mut i32, pllength: *mut i32, ppresult: *mut Option<IAVIStream>) -> windows_core::Result<()>;
-    fn Copy(&self, plstart: *mut i32, pllength: *mut i32, ppresult: *mut Option<IAVIStream>) -> windows_core::Result<()>;
-    fn Paste(&self, plpos: *mut i32, pllength: *mut i32, pstream: Option<&IAVIStream>, lstart: i32, lend: i32) -> windows_core::Result<()>;
+    fn Cut(&self, plstart: *mut i32, pllength: *mut i32, ppresult: windows_core::OutRef<'_, IAVIStream>) -> windows_core::Result<()>;
+    fn Copy(&self, plstart: *mut i32, pllength: *mut i32, ppresult: windows_core::OutRef<'_, IAVIStream>) -> windows_core::Result<()>;
+    fn Paste(&self, plpos: *mut i32, pllength: *mut i32, pstream: windows_core::Ref<'_, IAVIStream>, lstart: i32, lend: i32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IAVIStream>;
     fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> windows_core::Result<()>;
 }
@@ -2042,7 +2042,7 @@ impl IAVIEditStream_Vtbl {
         }
         unsafe extern "system" fn Paste<Identity: IAVIEditStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plpos: *mut i32, pllength: *mut i32, pstream: *mut core::ffi::c_void, lstart: i32, lend: i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IAVIEditStream_Impl::Paste(this, core::mem::transmute_copy(&plpos), core::mem::transmute_copy(&pllength), windows_core::from_raw_borrowed(&pstream), core::mem::transmute_copy(&lstart), core::mem::transmute_copy(&lend)).into()
+            IAVIEditStream_Impl::Paste(this, core::mem::transmute_copy(&plpos), core::mem::transmute_copy(&pllength), core::mem::transmute_copy(&pstream), core::mem::transmute_copy(&lstart), core::mem::transmute_copy(&lend)).into()
         }
         unsafe extern "system" fn Clone<Identity: IAVIEditStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -2110,8 +2110,8 @@ pub struct IAVIFile_Vtbl {
 }
 pub trait IAVIFile_Impl: windows_core::IUnknownImpl {
     fn Info(&self, pfi: *mut AVIFILEINFOW, lsize: i32) -> windows_core::Result<()>;
-    fn GetStream(&self, ppstream: *mut Option<IAVIStream>, fcctype: u32, lparam: i32) -> windows_core::Result<()>;
-    fn CreateStream(&self, ppstream: *mut Option<IAVIStream>, psi: *const AVISTREAMINFOW) -> windows_core::Result<()>;
+    fn GetStream(&self, ppstream: windows_core::OutRef<'_, IAVIStream>, fcctype: u32, lparam: i32) -> windows_core::Result<()>;
+    fn CreateStream(&self, ppstream: windows_core::OutRef<'_, IAVIStream>, psi: *const AVISTREAMINFOW) -> windows_core::Result<()>;
     fn WriteData(&self, ckid: u32, lpdata: *const core::ffi::c_void, cbdata: i32) -> windows_core::Result<()>;
     fn ReadData(&self, ckid: u32, lpdata: *mut core::ffi::c_void, lpcbdata: *mut i32) -> windows_core::Result<()>;
     fn EndRecord(&self) -> windows_core::Result<()>;

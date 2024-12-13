@@ -150,13 +150,13 @@ pub struct ICompositionDrawingSurfaceInterop2_Vtbl {
     pub CopySurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, i32, *const super::super::super::Foundation::RECT) -> windows_core::HRESULT,
 }
 pub trait ICompositionDrawingSurfaceInterop2_Impl: ICompositionDrawingSurfaceInterop_Impl {
-    fn CopySurface(&self, destinationresource: Option<&windows_core::IUnknown>, destinationoffsetx: i32, destinationoffsety: i32, sourcerectangle: *const super::super::super::Foundation::RECT) -> windows_core::Result<()>;
+    fn CopySurface(&self, destinationresource: windows_core::Ref<'_, windows_core::IUnknown>, destinationoffsetx: i32, destinationoffsety: i32, sourcerectangle: *const super::super::super::Foundation::RECT) -> windows_core::Result<()>;
 }
 impl ICompositionDrawingSurfaceInterop2_Vtbl {
     pub const fn new<Identity: ICompositionDrawingSurfaceInterop2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CopySurface<Identity: ICompositionDrawingSurfaceInterop2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationresource: *mut core::ffi::c_void, destinationoffsetx: i32, destinationoffsety: i32, sourcerectangle: *const super::super::super::Foundation::RECT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICompositionDrawingSurfaceInterop2_Impl::CopySurface(this, windows_core::from_raw_borrowed(&destinationresource), core::mem::transmute_copy(&destinationoffsetx), core::mem::transmute_copy(&destinationoffsety), core::mem::transmute_copy(&sourcerectangle)).into()
+            ICompositionDrawingSurfaceInterop2_Impl::CopySurface(this, core::mem::transmute_copy(&destinationresource), core::mem::transmute_copy(&destinationoffsetx), core::mem::transmute_copy(&destinationoffsety), core::mem::transmute_copy(&sourcerectangle)).into()
         }
         Self { base__: ICompositionDrawingSurfaceInterop_Vtbl::new::<Identity, OFFSET>(), CopySurface: CopySurface::<Identity, OFFSET> }
     }
@@ -187,7 +187,7 @@ pub struct ICompositionGraphicsDeviceInterop_Vtbl {
 }
 pub trait ICompositionGraphicsDeviceInterop_Impl: windows_core::IUnknownImpl {
     fn GetRenderingDevice(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn SetRenderingDevice(&self, value: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetRenderingDevice(&self, value: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl ICompositionGraphicsDeviceInterop_Vtbl {
     pub const fn new<Identity: ICompositionGraphicsDeviceInterop_Impl, const OFFSET: isize>() -> Self {
@@ -203,7 +203,7 @@ impl ICompositionGraphicsDeviceInterop_Vtbl {
         }
         unsafe extern "system" fn SetRenderingDevice<Identity: ICompositionGraphicsDeviceInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICompositionGraphicsDeviceInterop_Impl::SetRenderingDevice(this, windows_core::from_raw_borrowed(&value)).into()
+            ICompositionGraphicsDeviceInterop_Impl::SetRenderingDevice(this, core::mem::transmute_copy(&value)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -343,8 +343,8 @@ pub struct ICompositorInterop_Vtbl {
 #[cfg(feature = "UI_Composition")]
 pub trait ICompositorInterop_Impl: windows_core::IUnknownImpl {
     fn CreateCompositionSurfaceForHandle(&self, swapchain: super::super::super::Foundation::HANDLE) -> windows_core::Result<super::super::super::super::UI::Composition::ICompositionSurface>;
-    fn CreateCompositionSurfaceForSwapChain(&self, swapchain: Option<&windows_core::IUnknown>) -> windows_core::Result<super::super::super::super::UI::Composition::ICompositionSurface>;
-    fn CreateGraphicsDevice(&self, renderingdevice: Option<&windows_core::IUnknown>) -> windows_core::Result<super::super::super::super::UI::Composition::CompositionGraphicsDevice>;
+    fn CreateCompositionSurfaceForSwapChain(&self, swapchain: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<super::super::super::super::UI::Composition::ICompositionSurface>;
+    fn CreateGraphicsDevice(&self, renderingdevice: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<super::super::super::super::UI::Composition::CompositionGraphicsDevice>;
 }
 #[cfg(feature = "UI_Composition")]
 impl ICompositorInterop_Vtbl {
@@ -361,7 +361,7 @@ impl ICompositorInterop_Vtbl {
         }
         unsafe extern "system" fn CreateCompositionSurfaceForSwapChain<Identity: ICompositorInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, swapchain: *mut core::ffi::c_void, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICompositorInterop_Impl::CreateCompositionSurfaceForSwapChain(this, windows_core::from_raw_borrowed(&swapchain)) {
+            match ICompositorInterop_Impl::CreateCompositionSurfaceForSwapChain(this, core::mem::transmute_copy(&swapchain)) {
                 Ok(ok__) => {
                     result.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -371,7 +371,7 @@ impl ICompositorInterop_Vtbl {
         }
         unsafe extern "system" fn CreateGraphicsDevice<Identity: ICompositorInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, renderingdevice: *mut core::ffi::c_void, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICompositorInterop_Impl::CreateGraphicsDevice(this, windows_core::from_raw_borrowed(&renderingdevice)) {
+            match ICompositorInterop_Impl::CreateGraphicsDevice(this, core::mem::transmute_copy(&renderingdevice)) {
                 Ok(ok__) => {
                     result.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -422,15 +422,15 @@ pub struct ICompositorInterop2_Vtbl {
 }
 #[cfg(feature = "UI_Composition")]
 pub trait ICompositorInterop2_Impl: windows_core::IUnknownImpl {
-    fn CheckCompositionTextureSupport(&self, renderingdevice: Option<&windows_core::IUnknown>) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn CreateCompositionTexture(&self, d3dtexture: Option<&windows_core::IUnknown>) -> windows_core::Result<super::super::super::super::UI::Composition::CompositionTexture>;
+    fn CheckCompositionTextureSupport(&self, renderingdevice: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn CreateCompositionTexture(&self, d3dtexture: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<super::super::super::super::UI::Composition::CompositionTexture>;
 }
 #[cfg(feature = "UI_Composition")]
 impl ICompositorInterop2_Vtbl {
     pub const fn new<Identity: ICompositorInterop2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CheckCompositionTextureSupport<Identity: ICompositorInterop2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, renderingdevice: *mut core::ffi::c_void, supportscompositiontextures: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICompositorInterop2_Impl::CheckCompositionTextureSupport(this, windows_core::from_raw_borrowed(&renderingdevice)) {
+            match ICompositorInterop2_Impl::CheckCompositionTextureSupport(this, core::mem::transmute_copy(&renderingdevice)) {
                 Ok(ok__) => {
                     supportscompositiontextures.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -440,7 +440,7 @@ impl ICompositorInterop2_Vtbl {
         }
         unsafe extern "system" fn CreateCompositionTexture<Identity: ICompositorInterop2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, d3dtexture: *mut core::ffi::c_void, compositiontexture: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICompositorInterop2_Impl::CreateCompositionTexture(this, windows_core::from_raw_borrowed(&d3dtexture)) {
+            match ICompositorInterop2_Impl::CreateCompositionTexture(this, core::mem::transmute_copy(&d3dtexture)) {
                 Ok(ok__) => {
                     compositiontexture.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)

@@ -2784,7 +2784,7 @@ impl windows_core::RuntimeName for ISingleSelectMediaTrackList {
     const NAME: &'static str = "Windows.Media.Core.ISingleSelectMediaTrackList";
 }
 pub trait ISingleSelectMediaTrackList_Impl: windows_core::IUnknownImpl {
-    fn SelectedIndexChanged(&self, handler: Option<&super::super::Foundation::TypedEventHandler<ISingleSelectMediaTrackList, windows_core::IInspectable>>) -> windows_core::Result<i64>;
+    fn SelectedIndexChanged(&self, handler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<ISingleSelectMediaTrackList, windows_core::IInspectable>>) -> windows_core::Result<i64>;
     fn RemoveSelectedIndexChanged(&self, token: i64) -> windows_core::Result<()>;
     fn SetSelectedIndex(&self, value: i32) -> windows_core::Result<()>;
     fn SelectedIndex(&self) -> windows_core::Result<i32>;
@@ -2793,7 +2793,7 @@ impl ISingleSelectMediaTrackList_Vtbl {
     pub const fn new<Identity: ISingleSelectMediaTrackList_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SelectedIndexChanged<Identity: ISingleSelectMediaTrackList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ISingleSelectMediaTrackList_Impl::SelectedIndexChanged(this, windows_core::from_raw_borrowed(&handler)) {
+            match ISingleSelectMediaTrackList_Impl::SelectedIndexChanged(this, core::mem::transmute_copy(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)

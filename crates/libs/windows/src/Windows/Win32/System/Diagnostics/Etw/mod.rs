@@ -2264,23 +2264,23 @@ pub struct ITraceEventCallback_Vtbl {
     pub OnEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITraceEventCallback_Impl: windows_core::IUnknownImpl {
-    fn OnBeginProcessTrace(&self, headerevent: Option<&ITraceEvent>, relogger: Option<&ITraceRelogger>) -> windows_core::Result<()>;
-    fn OnFinalizeProcessTrace(&self, relogger: Option<&ITraceRelogger>) -> windows_core::Result<()>;
-    fn OnEvent(&self, event: Option<&ITraceEvent>, relogger: Option<&ITraceRelogger>) -> windows_core::Result<()>;
+    fn OnBeginProcessTrace(&self, headerevent: windows_core::Ref<'_, ITraceEvent>, relogger: windows_core::Ref<'_, ITraceRelogger>) -> windows_core::Result<()>;
+    fn OnFinalizeProcessTrace(&self, relogger: windows_core::Ref<'_, ITraceRelogger>) -> windows_core::Result<()>;
+    fn OnEvent(&self, event: windows_core::Ref<'_, ITraceEvent>, relogger: windows_core::Ref<'_, ITraceRelogger>) -> windows_core::Result<()>;
 }
 impl ITraceEventCallback_Vtbl {
     pub const fn new<Identity: ITraceEventCallback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnBeginProcessTrace<Identity: ITraceEventCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, headerevent: *mut core::ffi::c_void, relogger: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITraceEventCallback_Impl::OnBeginProcessTrace(this, windows_core::from_raw_borrowed(&headerevent), windows_core::from_raw_borrowed(&relogger)).into()
+            ITraceEventCallback_Impl::OnBeginProcessTrace(this, core::mem::transmute_copy(&headerevent), core::mem::transmute_copy(&relogger)).into()
         }
         unsafe extern "system" fn OnFinalizeProcessTrace<Identity: ITraceEventCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, relogger: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITraceEventCallback_Impl::OnFinalizeProcessTrace(this, windows_core::from_raw_borrowed(&relogger)).into()
+            ITraceEventCallback_Impl::OnFinalizeProcessTrace(this, core::mem::transmute_copy(&relogger)).into()
         }
         unsafe extern "system" fn OnEvent<Identity: ITraceEventCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: *mut core::ffi::c_void, relogger: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITraceEventCallback_Impl::OnEvent(this, windows_core::from_raw_borrowed(&event), windows_core::from_raw_borrowed(&relogger)).into()
+            ITraceEventCallback_Impl::OnEvent(this, core::mem::transmute_copy(&event), core::mem::transmute_copy(&relogger)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -2350,8 +2350,8 @@ pub struct ITraceRelogger_Vtbl {
 pub trait ITraceRelogger_Impl: windows_core::IUnknownImpl {
     fn AddLogfileTraceStream(&self, logfilename: &windows_core::BSTR, usercontext: *const core::ffi::c_void) -> windows_core::Result<RELOGSTREAM_HANDLE>;
     fn AddRealtimeTraceStream(&self, loggername: &windows_core::BSTR, usercontext: *const core::ffi::c_void) -> windows_core::Result<RELOGSTREAM_HANDLE>;
-    fn RegisterCallback(&self, callback: Option<&ITraceEventCallback>) -> windows_core::Result<()>;
-    fn Inject(&self, event: Option<&ITraceEvent>) -> windows_core::Result<()>;
+    fn RegisterCallback(&self, callback: windows_core::Ref<'_, ITraceEventCallback>) -> windows_core::Result<()>;
+    fn Inject(&self, event: windows_core::Ref<'_, ITraceEvent>) -> windows_core::Result<()>;
     fn CreateEventInstance(&self, tracehandle: &RELOGSTREAM_HANDLE, flags: u32) -> windows_core::Result<ITraceEvent>;
     fn ProcessTrace(&self) -> windows_core::Result<()>;
     fn SetOutputFilename(&self, logfilename: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -2382,11 +2382,11 @@ impl ITraceRelogger_Vtbl {
         }
         unsafe extern "system" fn RegisterCallback<Identity: ITraceRelogger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, callback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITraceRelogger_Impl::RegisterCallback(this, windows_core::from_raw_borrowed(&callback)).into()
+            ITraceRelogger_Impl::RegisterCallback(this, core::mem::transmute_copy(&callback)).into()
         }
         unsafe extern "system" fn Inject<Identity: ITraceRelogger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITraceRelogger_Impl::Inject(this, windows_core::from_raw_borrowed(&event)).into()
+            ITraceRelogger_Impl::Inject(this, core::mem::transmute_copy(&event)).into()
         }
         unsafe extern "system" fn CreateEventInstance<Identity: ITraceRelogger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tracehandle: RELOGSTREAM_HANDLE, flags: u32, event: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);

@@ -62,11 +62,12 @@ impl IActivationFactory_Impl for ComposableFactory_Impl {
 impl bindings::IComposableFactory_Impl for ComposableFactory_Impl {
     fn CreateInstance(
         &self,
-        base: Option<&windows_core::IInspectable>,
-        inner: &mut Option<windows_core::IInspectable>,
+        base: Ref<windows_core::IInspectable>,
+        inner: OutRef<windows_core::IInspectable>,
     ) -> Result<bindings::Composable> {
         // windows-rs doesn't support binary composition
-        if base.is_some() || inner.is_some() {
+        _ = inner.write(None);
+        if base.is_some() {
             Err(CLASS_E_NOAGGREGATION.into())
         } else {
             Ok(Composable::new(0).into())
@@ -76,11 +77,12 @@ impl bindings::IComposableFactory_Impl for ComposableFactory_Impl {
     fn WithValue(
         &self,
         arg: i32,
-        base: Option<&windows_core::IInspectable>,
-        inner: &mut Option<windows_core::IInspectable>,
+        base: Ref<windows_core::IInspectable>,
+        inner: OutRef<windows_core::IInspectable>,
     ) -> Result<bindings::Composable> {
         // windows-rs doesn't support binary composition
-        if base.is_some() || inner.is_some() {
+        _ = inner.write(None);
+        if base.is_some() {
             Err(CLASS_E_NOAGGREGATION.into())
         } else {
             Ok(Composable::new(arg).into())

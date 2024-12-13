@@ -610,8 +610,8 @@ impl windows_core::RuntimeName for IBasicAudioEffect {
 pub trait IBasicAudioEffect_Impl: super::IMediaExtension_Impl {
     fn UseInputFrameForOutput(&self) -> windows_core::Result<bool>;
     fn SupportedEncodingProperties(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::AudioEncodingProperties>>;
-    fn SetEncodingProperties(&self, encodingProperties: Option<&super::MediaProperties::AudioEncodingProperties>) -> windows_core::Result<()>;
-    fn ProcessFrame(&self, context: Option<&ProcessAudioFrameContext>) -> windows_core::Result<()>;
+    fn SetEncodingProperties(&self, encodingProperties: windows_core::Ref<'_, super::MediaProperties::AudioEncodingProperties>) -> windows_core::Result<()>;
+    fn ProcessFrame(&self, context: windows_core::Ref<'_, ProcessAudioFrameContext>) -> windows_core::Result<()>;
     fn Close(&self, reason: MediaEffectClosedReason) -> windows_core::Result<()>;
     fn DiscardQueuedFrames(&self) -> windows_core::Result<()>;
 }
@@ -641,11 +641,11 @@ impl IBasicAudioEffect_Vtbl {
         }
         unsafe extern "system" fn SetEncodingProperties<Identity: IBasicAudioEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encodingproperties: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IBasicAudioEffect_Impl::SetEncodingProperties(this, windows_core::from_raw_borrowed(&encodingproperties)).into()
+            IBasicAudioEffect_Impl::SetEncodingProperties(this, core::mem::transmute_copy(&encodingproperties)).into()
         }
         unsafe extern "system" fn ProcessFrame<Identity: IBasicAudioEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IBasicAudioEffect_Impl::ProcessFrame(this, windows_core::from_raw_borrowed(&context)).into()
+            IBasicAudioEffect_Impl::ProcessFrame(this, core::mem::transmute_copy(&context)).into()
         }
         unsafe extern "system" fn Close<Identity: IBasicAudioEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reason: MediaEffectClosedReason) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -764,8 +764,8 @@ pub trait IBasicVideoEffect_Impl: super::IMediaExtension_Impl {
     fn SupportedMemoryTypes(&self) -> windows_core::Result<MediaMemoryTypes>;
     fn TimeIndependent(&self) -> windows_core::Result<bool>;
     fn SupportedEncodingProperties(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::VideoEncodingProperties>>;
-    fn SetEncodingProperties(&self, encodingProperties: Option<&super::MediaProperties::VideoEncodingProperties>, device: Option<&super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>) -> windows_core::Result<()>;
-    fn ProcessFrame(&self, context: Option<&ProcessVideoFrameContext>) -> windows_core::Result<()>;
+    fn SetEncodingProperties(&self, encodingProperties: windows_core::Ref<'_, super::MediaProperties::VideoEncodingProperties>, device: windows_core::Ref<'_, super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>) -> windows_core::Result<()>;
+    fn ProcessFrame(&self, context: windows_core::Ref<'_, ProcessVideoFrameContext>) -> windows_core::Result<()>;
     fn Close(&self, reason: MediaEffectClosedReason) -> windows_core::Result<()>;
     fn DiscardQueuedFrames(&self) -> windows_core::Result<()>;
 }
@@ -815,11 +815,11 @@ impl IBasicVideoEffect_Vtbl {
         }
         unsafe extern "system" fn SetEncodingProperties<Identity: IBasicVideoEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encodingproperties: *mut core::ffi::c_void, device: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IBasicVideoEffect_Impl::SetEncodingProperties(this, windows_core::from_raw_borrowed(&encodingproperties), windows_core::from_raw_borrowed(&device)).into()
+            IBasicVideoEffect_Impl::SetEncodingProperties(this, core::mem::transmute_copy(&encodingproperties), core::mem::transmute_copy(&device)).into()
         }
         unsafe extern "system" fn ProcessFrame<Identity: IBasicVideoEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IBasicVideoEffect_Impl::ProcessFrame(this, windows_core::from_raw_borrowed(&context)).into()
+            IBasicVideoEffect_Impl::ProcessFrame(this, core::mem::transmute_copy(&context)).into()
         }
         unsafe extern "system" fn Close<Identity: IBasicVideoEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reason: MediaEffectClosedReason) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -965,8 +965,8 @@ impl windows_core::RuntimeName for IVideoCompositor {
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
 pub trait IVideoCompositor_Impl: super::IMediaExtension_Impl {
     fn TimeIndependent(&self) -> windows_core::Result<bool>;
-    fn SetEncodingProperties(&self, backgroundProperties: Option<&super::MediaProperties::VideoEncodingProperties>, device: Option<&super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>) -> windows_core::Result<()>;
-    fn CompositeFrame(&self, context: Option<&CompositeVideoFrameContext>) -> windows_core::Result<()>;
+    fn SetEncodingProperties(&self, backgroundProperties: windows_core::Ref<'_, super::MediaProperties::VideoEncodingProperties>, device: windows_core::Ref<'_, super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>) -> windows_core::Result<()>;
+    fn CompositeFrame(&self, context: windows_core::Ref<'_, CompositeVideoFrameContext>) -> windows_core::Result<()>;
     fn Close(&self, reason: MediaEffectClosedReason) -> windows_core::Result<()>;
     fn DiscardQueuedFrames(&self) -> windows_core::Result<()>;
 }
@@ -985,11 +985,11 @@ impl IVideoCompositor_Vtbl {
         }
         unsafe extern "system" fn SetEncodingProperties<Identity: IVideoCompositor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, backgroundproperties: *mut core::ffi::c_void, device: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IVideoCompositor_Impl::SetEncodingProperties(this, windows_core::from_raw_borrowed(&backgroundproperties), windows_core::from_raw_borrowed(&device)).into()
+            IVideoCompositor_Impl::SetEncodingProperties(this, core::mem::transmute_copy(&backgroundproperties), core::mem::transmute_copy(&device)).into()
         }
         unsafe extern "system" fn CompositeFrame<Identity: IVideoCompositor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IVideoCompositor_Impl::CompositeFrame(this, windows_core::from_raw_borrowed(&context)).into()
+            IVideoCompositor_Impl::CompositeFrame(this, core::mem::transmute_copy(&context)).into()
         }
         unsafe extern "system" fn Close<Identity: IVideoCompositor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reason: MediaEffectClosedReason) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);

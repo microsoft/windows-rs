@@ -87,7 +87,7 @@ pub trait IClass_Impl: windows_core::IUnknownImpl {
     fn Signal(&self, value: i32) -> windows_core::Result<i32>;
     fn Event(
         &self,
-        handler: Option<&windows::Foundation::TypedEventHandler<Class, i32>>,
+        handler: windows_core::Ref<'_, windows::Foundation::TypedEventHandler<Class, i32>>,
     ) -> windows_core::Result<i64>;
     fn RemoveEvent(&self, token: i64) -> windows_core::Result<()>;
 }
@@ -113,7 +113,7 @@ impl IClass_Vtbl {
             result__: *mut i64,
         ) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IClass_Impl::Event(this, windows_core::from_raw_borrowed(&handler)) {
+            match IClass_Impl::Event(this, core::mem::transmute_copy(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)

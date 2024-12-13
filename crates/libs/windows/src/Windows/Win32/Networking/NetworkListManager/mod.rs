@@ -46,7 +46,7 @@ pub struct IEnumNetworkConnections_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEnumNetworkConnections_Impl: super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<super::super::System::Ole::IEnumVARIANT>;
-    fn Next(&self, celt: u32, rgelt: *mut Option<INetworkConnection>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgelt: windows_core::OutRef<'_, INetworkConnection>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumNetworkConnections>;
@@ -149,7 +149,7 @@ pub struct IEnumNetworks_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEnumNetworks_Impl: super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<super::super::System::Ole::IEnumVARIANT>;
-    fn Next(&self, celt: u32, rgelt: *mut Option<INetwork>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgelt: windows_core::OutRef<'_, INetwork>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumNetworks>;

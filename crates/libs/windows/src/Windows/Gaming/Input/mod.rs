@@ -1004,11 +1004,11 @@ impl windows_core::RuntimeName for IGameController {
 }
 #[cfg(feature = "System")]
 pub trait IGameController_Impl: windows_core::IUnknownImpl {
-    fn HeadsetConnected(&self, value: Option<&super::super::Foundation::TypedEventHandler<IGameController, Headset>>) -> windows_core::Result<i64>;
+    fn HeadsetConnected(&self, value: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<IGameController, Headset>>) -> windows_core::Result<i64>;
     fn RemoveHeadsetConnected(&self, token: i64) -> windows_core::Result<()>;
-    fn HeadsetDisconnected(&self, value: Option<&super::super::Foundation::TypedEventHandler<IGameController, Headset>>) -> windows_core::Result<i64>;
+    fn HeadsetDisconnected(&self, value: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<IGameController, Headset>>) -> windows_core::Result<i64>;
     fn RemoveHeadsetDisconnected(&self, token: i64) -> windows_core::Result<()>;
-    fn UserChanged(&self, value: Option<&super::super::Foundation::TypedEventHandler<IGameController, super::super::System::UserChangedEventArgs>>) -> windows_core::Result<i64>;
+    fn UserChanged(&self, value: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<IGameController, super::super::System::UserChangedEventArgs>>) -> windows_core::Result<i64>;
     fn RemoveUserChanged(&self, token: i64) -> windows_core::Result<()>;
     fn Headset(&self) -> windows_core::Result<Headset>;
     fn IsWireless(&self) -> windows_core::Result<bool>;
@@ -1019,7 +1019,7 @@ impl IGameController_Vtbl {
     pub const fn new<Identity: IGameController_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn HeadsetConnected<Identity: IGameController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IGameController_Impl::HeadsetConnected(this, windows_core::from_raw_borrowed(&value)) {
+            match IGameController_Impl::HeadsetConnected(this, core::mem::transmute_copy(&value)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -1033,7 +1033,7 @@ impl IGameController_Vtbl {
         }
         unsafe extern "system" fn HeadsetDisconnected<Identity: IGameController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IGameController_Impl::HeadsetDisconnected(this, windows_core::from_raw_borrowed(&value)) {
+            match IGameController_Impl::HeadsetDisconnected(this, core::mem::transmute_copy(&value)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -1047,7 +1047,7 @@ impl IGameController_Vtbl {
         }
         unsafe extern "system" fn UserChanged<Identity: IGameController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IGameController_Impl::UserChanged(this, windows_core::from_raw_borrowed(&value)) {
+            match IGameController_Impl::UserChanged(this, core::mem::transmute_copy(&value)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)

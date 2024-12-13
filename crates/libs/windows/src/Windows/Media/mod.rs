@@ -481,14 +481,14 @@ impl windows_core::RuntimeName for IMediaExtension {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IMediaExtension_Impl: windows_core::IUnknownImpl {
-    fn SetProperties(&self, configuration: Option<&super::Foundation::Collections::IPropertySet>) -> windows_core::Result<()>;
+    fn SetProperties(&self, configuration: windows_core::Ref<'_, super::Foundation::Collections::IPropertySet>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl IMediaExtension_Vtbl {
     pub const fn new<Identity: IMediaExtension_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetProperties<Identity: IMediaExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, configuration: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IMediaExtension_Impl::SetProperties(this, windows_core::from_raw_borrowed(&configuration)).into()
+            IMediaExtension_Impl::SetProperties(this, core::mem::transmute_copy(&configuration)).into()
         }
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IMediaExtension, OFFSET>(), SetProperties: SetProperties::<Identity, OFFSET> }
     }
@@ -649,11 +649,11 @@ impl windows_core::RuntimeName for IMediaFrame {
 pub trait IMediaFrame_Impl: super::Foundation::IClosable_Impl {
     fn Type(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn IsReadOnly(&self) -> windows_core::Result<bool>;
-    fn SetRelativeTime(&self, value: Option<&super::Foundation::IReference<super::Foundation::TimeSpan>>) -> windows_core::Result<()>;
+    fn SetRelativeTime(&self, value: windows_core::Ref<'_, super::Foundation::IReference<super::Foundation::TimeSpan>>) -> windows_core::Result<()>;
     fn RelativeTime(&self) -> windows_core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>>;
-    fn SetSystemRelativeTime(&self, value: Option<&super::Foundation::IReference<super::Foundation::TimeSpan>>) -> windows_core::Result<()>;
+    fn SetSystemRelativeTime(&self, value: windows_core::Ref<'_, super::Foundation::IReference<super::Foundation::TimeSpan>>) -> windows_core::Result<()>;
     fn SystemRelativeTime(&self) -> windows_core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>>;
-    fn SetDuration(&self, value: Option<&super::Foundation::IReference<super::Foundation::TimeSpan>>) -> windows_core::Result<()>;
+    fn SetDuration(&self, value: windows_core::Ref<'_, super::Foundation::IReference<super::Foundation::TimeSpan>>) -> windows_core::Result<()>;
     fn Duration(&self) -> windows_core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>>;
     fn SetIsDiscontinuous(&self, value: bool) -> windows_core::Result<()>;
     fn IsDiscontinuous(&self) -> windows_core::Result<bool>;
@@ -685,7 +685,7 @@ impl IMediaFrame_Vtbl {
         }
         unsafe extern "system" fn SetRelativeTime<Identity: IMediaFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IMediaFrame_Impl::SetRelativeTime(this, windows_core::from_raw_borrowed(&value)).into()
+            IMediaFrame_Impl::SetRelativeTime(this, core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn RelativeTime<Identity: IMediaFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -700,7 +700,7 @@ impl IMediaFrame_Vtbl {
         }
         unsafe extern "system" fn SetSystemRelativeTime<Identity: IMediaFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IMediaFrame_Impl::SetSystemRelativeTime(this, windows_core::from_raw_borrowed(&value)).into()
+            IMediaFrame_Impl::SetSystemRelativeTime(this, core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn SystemRelativeTime<Identity: IMediaFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -715,7 +715,7 @@ impl IMediaFrame_Vtbl {
         }
         unsafe extern "system" fn SetDuration<Identity: IMediaFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IMediaFrame_Impl::SetDuration(this, windows_core::from_raw_borrowed(&value)).into()
+            IMediaFrame_Impl::SetDuration(this, core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn Duration<Identity: IMediaFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);

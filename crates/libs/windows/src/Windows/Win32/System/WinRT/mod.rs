@@ -823,17 +823,17 @@ pub struct ICastingController_Vtbl {
     pub UnAdvise: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait ICastingController_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, castingengine: Option<&windows_core::IUnknown>, castingsource: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Initialize(&self, castingengine: windows_core::Ref<'_, windows_core::IUnknown>, castingsource: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn Connect(&self) -> windows_core::Result<()>;
     fn Disconnect(&self) -> windows_core::Result<()>;
-    fn Advise(&self, eventhandler: Option<&ICastingEventHandler>) -> windows_core::Result<u32>;
+    fn Advise(&self, eventhandler: windows_core::Ref<'_, ICastingEventHandler>) -> windows_core::Result<u32>;
     fn UnAdvise(&self, cookie: u32) -> windows_core::Result<()>;
 }
 impl ICastingController_Vtbl {
     pub const fn new<Identity: ICastingController_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: ICastingController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, castingengine: *mut core::ffi::c_void, castingsource: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICastingController_Impl::Initialize(this, windows_core::from_raw_borrowed(&castingengine), windows_core::from_raw_borrowed(&castingsource)).into()
+            ICastingController_Impl::Initialize(this, core::mem::transmute_copy(&castingengine), core::mem::transmute_copy(&castingsource)).into()
         }
         unsafe extern "system" fn Connect<Identity: ICastingController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -845,7 +845,7 @@ impl ICastingController_Vtbl {
         }
         unsafe extern "system" fn Advise<Identity: ICastingController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventhandler: *mut core::ffi::c_void, cookie: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICastingController_Impl::Advise(this, windows_core::from_raw_borrowed(&eventhandler)) {
+            match ICastingController_Impl::Advise(this, core::mem::transmute_copy(&eventhandler)) {
                 Ok(ok__) => {
                     cookie.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -997,14 +997,14 @@ pub struct ICoreInputInterop_Vtbl {
     pub SetMessageHandled: unsafe extern "system" fn(*mut core::ffi::c_void, u8) -> windows_core::HRESULT,
 }
 pub trait ICoreInputInterop_Impl: windows_core::IUnknownImpl {
-    fn SetInputSource(&self, value: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetInputSource(&self, value: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn SetMessageHandled(&self, value: u8) -> windows_core::Result<()>;
 }
 impl ICoreInputInterop_Vtbl {
     pub const fn new<Identity: ICoreInputInterop_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetInputSource<Identity: ICoreInputInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICoreInputInterop_Impl::SetInputSource(this, windows_core::from_raw_borrowed(&value)).into()
+            ICoreInputInterop_Impl::SetInputSource(this, core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn SetMessageHandled<Identity: ICoreInputInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: u8) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -1127,7 +1127,7 @@ pub trait ICoreWindowAdapterInterop_Impl: windows_core::IUnknownImpl {
     fn PositionerClientAdapter(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn SystemNavigationClientAdapter(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn TitleBarClientAdapter(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn SetWindowClientAdapter(&self, value: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetWindowClientAdapter(&self, value: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl ICoreWindowAdapterInterop_Vtbl {
     pub const fn new<Identity: ICoreWindowAdapterInterop_Impl, const OFFSET: isize>() -> Self {
@@ -1203,7 +1203,7 @@ impl ICoreWindowAdapterInterop_Vtbl {
         }
         unsafe extern "system" fn SetWindowClientAdapter<Identity: ICoreWindowAdapterInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICoreWindowAdapterInterop_Impl::SetWindowClientAdapter(this, windows_core::from_raw_borrowed(&value)).into()
+            ICoreWindowAdapterInterop_Impl::SetWindowClientAdapter(this, core::mem::transmute_copy(&value)).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, ICoreWindowAdapterInterop, OFFSET>(),
@@ -1243,14 +1243,14 @@ pub struct ICoreWindowComponentInterop_Vtbl {
     pub GetViewInstanceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait ICoreWindowComponentInterop_Impl: windows_core::IUnknownImpl {
-    fn ConfigureComponentInput(&self, hostviewinstanceid: u32, hwndhost: super::super::Foundation::HWND, inputsourcevisual: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn ConfigureComponentInput(&self, hostviewinstanceid: u32, hwndhost: super::super::Foundation::HWND, inputsourcevisual: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetViewInstanceId(&self) -> windows_core::Result<u32>;
 }
 impl ICoreWindowComponentInterop_Vtbl {
     pub const fn new<Identity: ICoreWindowComponentInterop_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ConfigureComponentInput<Identity: ICoreWindowComponentInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hostviewinstanceid: u32, hwndhost: super::super::Foundation::HWND, inputsourcevisual: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICoreWindowComponentInterop_Impl::ConfigureComponentInput(this, core::mem::transmute_copy(&hostviewinstanceid), core::mem::transmute_copy(&hwndhost), windows_core::from_raw_borrowed(&inputsourcevisual)).into()
+            ICoreWindowComponentInterop_Impl::ConfigureComponentInput(this, core::mem::transmute_copy(&hostviewinstanceid), core::mem::transmute_copy(&hwndhost), core::mem::transmute_copy(&inputsourcevisual)).into()
         }
         unsafe extern "system" fn GetViewInstanceId<Identity: ICoreWindowComponentInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, componentviewinstanceid: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -1588,7 +1588,7 @@ pub struct ILanguageExceptionErrorInfo2_Vtbl {
 }
 pub trait ILanguageExceptionErrorInfo2_Impl: ILanguageExceptionErrorInfo_Impl {
     fn GetPreviousLanguageExceptionErrorInfo(&self) -> windows_core::Result<ILanguageExceptionErrorInfo2>;
-    fn CapturePropagationContext(&self, languageexception: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CapturePropagationContext(&self, languageexception: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetPropagationContextHead(&self) -> windows_core::Result<ILanguageExceptionErrorInfo2>;
 }
 impl ILanguageExceptionErrorInfo2_Vtbl {
@@ -1605,7 +1605,7 @@ impl ILanguageExceptionErrorInfo2_Vtbl {
         }
         unsafe extern "system" fn CapturePropagationContext<Identity: ILanguageExceptionErrorInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, languageexception: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ILanguageExceptionErrorInfo2_Impl::CapturePropagationContext(this, windows_core::from_raw_borrowed(&languageexception)).into()
+            ILanguageExceptionErrorInfo2_Impl::CapturePropagationContext(this, core::mem::transmute_copy(&languageexception)).into()
         }
         unsafe extern "system" fn GetPropagationContextHead<Identity: ILanguageExceptionErrorInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propagatedlanguageexceptionerrorinfohead: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -2246,18 +2246,18 @@ pub struct IWebAuthenticationCoreManagerInterop_Vtbl {
     pub RequestTokenWithWebAccountForWindowAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, *mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWebAuthenticationCoreManagerInterop_Impl: windows_core::IUnknownImpl {
-    fn RequestTokenForWindowAsync(&self, appwindow: super::super::Foundation::HWND, request: Option<&windows_core::IInspectable>, riid: *const windows_core::GUID, asyncinfo: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn RequestTokenWithWebAccountForWindowAsync(&self, appwindow: super::super::Foundation::HWND, request: Option<&windows_core::IInspectable>, webaccount: Option<&windows_core::IInspectable>, riid: *const windows_core::GUID, asyncinfo: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn RequestTokenForWindowAsync(&self, appwindow: super::super::Foundation::HWND, request: windows_core::Ref<'_, windows_core::IInspectable>, riid: *const windows_core::GUID, asyncinfo: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn RequestTokenWithWebAccountForWindowAsync(&self, appwindow: super::super::Foundation::HWND, request: windows_core::Ref<'_, windows_core::IInspectable>, webaccount: windows_core::Ref<'_, windows_core::IInspectable>, riid: *const windows_core::GUID, asyncinfo: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 impl IWebAuthenticationCoreManagerInterop_Vtbl {
     pub const fn new<Identity: IWebAuthenticationCoreManagerInterop_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RequestTokenForWindowAsync<Identity: IWebAuthenticationCoreManagerInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, appwindow: super::super::Foundation::HWND, request: *mut core::ffi::c_void, riid: *const windows_core::GUID, asyncinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWebAuthenticationCoreManagerInterop_Impl::RequestTokenForWindowAsync(this, core::mem::transmute_copy(&appwindow), windows_core::from_raw_borrowed(&request), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&asyncinfo)).into()
+            IWebAuthenticationCoreManagerInterop_Impl::RequestTokenForWindowAsync(this, core::mem::transmute_copy(&appwindow), core::mem::transmute_copy(&request), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&asyncinfo)).into()
         }
         unsafe extern "system" fn RequestTokenWithWebAccountForWindowAsync<Identity: IWebAuthenticationCoreManagerInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, appwindow: super::super::Foundation::HWND, request: *mut core::ffi::c_void, webaccount: *mut core::ffi::c_void, riid: *const windows_core::GUID, asyncinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWebAuthenticationCoreManagerInterop_Impl::RequestTokenWithWebAccountForWindowAsync(this, core::mem::transmute_copy(&appwindow), windows_core::from_raw_borrowed(&request), windows_core::from_raw_borrowed(&webaccount), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&asyncinfo)).into()
+            IWebAuthenticationCoreManagerInterop_Impl::RequestTokenWithWebAccountForWindowAsync(this, core::mem::transmute_copy(&appwindow), core::mem::transmute_copy(&request), core::mem::transmute_copy(&webaccount), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&asyncinfo)).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IWebAuthenticationCoreManagerInterop, OFFSET>(),

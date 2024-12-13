@@ -4135,13 +4135,13 @@ pub struct IImePad_Vtbl {
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, super::super::super::Foundation::WPARAM, super::super::super::Foundation::LPARAM) -> windows_core::HRESULT,
 }
 pub trait IImePad_Impl: windows_core::IUnknownImpl {
-    fn Request(&self, piimepadapplet: Option<&IImePadApplet>, reqid: &IME_PAD_REQUEST_FLAGS, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> windows_core::Result<()>;
+    fn Request(&self, piimepadapplet: windows_core::Ref<'_, IImePadApplet>, reqid: &IME_PAD_REQUEST_FLAGS, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> windows_core::Result<()>;
 }
 impl IImePad_Vtbl {
     pub const fn new<Identity: IImePad_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Request<Identity: IImePad_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piimepadapplet: *mut core::ffi::c_void, reqid: i32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IImePad_Impl::Request(this, windows_core::from_raw_borrowed(&piimepadapplet), core::mem::transmute(&reqid), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam)).into()
+            IImePad_Impl::Request(this, core::mem::transmute_copy(&piimepadapplet), core::mem::transmute(&reqid), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Request: Request::<Identity, OFFSET> }
     }
@@ -4190,18 +4190,18 @@ pub struct IImePadApplet_Vtbl {
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub trait IImePadApplet_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, lpiimepad: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Initialize(&self, lpiimepad: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn Terminate(&self) -> windows_core::Result<()>;
     fn GetAppletConfig(&self, lpappletcfg: *mut IMEAPPLETCFG) -> windows_core::Result<()>;
     fn CreateUI(&self, hwndparent: super::super::super::Foundation::HWND, lpimeappletui: *mut IMEAPPLETUI) -> windows_core::Result<()>;
-    fn Notify(&self, lpimepad: Option<&windows_core::IUnknown>, notify: i32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> windows_core::Result<()>;
+    fn Notify(&self, lpimepad: windows_core::Ref<'_, windows_core::IUnknown>, notify: i32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl IImePadApplet_Vtbl {
     pub const fn new<Identity: IImePadApplet_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IImePadApplet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpiimepad: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IImePadApplet_Impl::Initialize(this, windows_core::from_raw_borrowed(&lpiimepad)).into()
+            IImePadApplet_Impl::Initialize(this, core::mem::transmute_copy(&lpiimepad)).into()
         }
         unsafe extern "system" fn Terminate<Identity: IImePadApplet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -4217,7 +4217,7 @@ impl IImePadApplet_Vtbl {
         }
         unsafe extern "system" fn Notify<Identity: IImePadApplet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpimepad: *mut core::ffi::c_void, notify: i32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IImePadApplet_Impl::Notify(this, windows_core::from_raw_borrowed(&lpimepad), core::mem::transmute_copy(&notify), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam)).into()
+            IImePadApplet_Impl::Notify(this, core::mem::transmute_copy(&lpimepad), core::mem::transmute_copy(&notify), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

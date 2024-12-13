@@ -1577,8 +1577,8 @@ pub trait IRemoteDesktopClient_Impl: super::Com::IDispatch_Impl {
     fn TouchPointer(&self) -> windows_core::Result<IRemoteDesktopClientTouchPointer>;
     fn DeleteSavedCredentials(&self, servername: &windows_core::BSTR) -> windows_core::Result<()>;
     fn UpdateSessionDisplaySettings(&self, width: u32, height: u32) -> windows_core::Result<()>;
-    fn attachEvent(&self, eventname: &windows_core::BSTR, callback: Option<&super::Com::IDispatch>) -> windows_core::Result<()>;
-    fn detachEvent(&self, eventname: &windows_core::BSTR, callback: Option<&super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn attachEvent(&self, eventname: &windows_core::BSTR, callback: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn detachEvent(&self, eventname: &windows_core::BSTR, callback: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRemoteDesktopClient_Vtbl {
@@ -1635,11 +1635,11 @@ impl IRemoteDesktopClient_Vtbl {
         }
         unsafe extern "system" fn attachEvent<Identity: IRemoteDesktopClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventname: *mut core::ffi::c_void, callback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IRemoteDesktopClient_Impl::attachEvent(this, core::mem::transmute(&eventname), windows_core::from_raw_borrowed(&callback)).into()
+            IRemoteDesktopClient_Impl::attachEvent(this, core::mem::transmute(&eventname), core::mem::transmute_copy(&callback)).into()
         }
         unsafe extern "system" fn detachEvent<Identity: IRemoteDesktopClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventname: *mut core::ffi::c_void, callback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IRemoteDesktopClient_Impl::detachEvent(this, core::mem::transmute(&eventname), windows_core::from_raw_borrowed(&callback)).into()
+            IRemoteDesktopClient_Impl::detachEvent(this, core::mem::transmute(&eventname), core::mem::transmute_copy(&callback)).into()
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(),
@@ -2097,14 +2097,14 @@ pub struct ITSGAuthenticationEngine_Vtbl {
     pub CancelAuthentication: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, usize) -> windows_core::HRESULT,
 }
 pub trait ITSGAuthenticationEngine_Impl: windows_core::IUnknownImpl {
-    fn AuthenticateUser(&self, mainsessionid: &windows_core::GUID, cookiedata: *const u8, numcookiebytes: u32, context: usize, psink: Option<&ITSGAuthenticateUserSink>) -> windows_core::Result<()>;
+    fn AuthenticateUser(&self, mainsessionid: &windows_core::GUID, cookiedata: *const u8, numcookiebytes: u32, context: usize, psink: windows_core::Ref<'_, ITSGAuthenticateUserSink>) -> windows_core::Result<()>;
     fn CancelAuthentication(&self, mainsessionid: &windows_core::GUID, context: usize) -> windows_core::Result<()>;
 }
 impl ITSGAuthenticationEngine_Vtbl {
     pub const fn new<Identity: ITSGAuthenticationEngine_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AuthenticateUser<Identity: ITSGAuthenticationEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mainsessionid: windows_core::GUID, cookiedata: *const u8, numcookiebytes: u32, context: usize, psink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITSGAuthenticationEngine_Impl::AuthenticateUser(this, core::mem::transmute(&mainsessionid), core::mem::transmute_copy(&cookiedata), core::mem::transmute_copy(&numcookiebytes), core::mem::transmute_copy(&context), windows_core::from_raw_borrowed(&psink)).into()
+            ITSGAuthenticationEngine_Impl::AuthenticateUser(this, core::mem::transmute(&mainsessionid), core::mem::transmute_copy(&cookiedata), core::mem::transmute_copy(&numcookiebytes), core::mem::transmute_copy(&context), core::mem::transmute_copy(&psink)).into()
         }
         unsafe extern "system" fn CancelAuthentication<Identity: ITSGAuthenticationEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mainsessionid: windows_core::GUID, context: usize) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -2209,8 +2209,8 @@ pub struct ITSGPolicyEngine_Vtbl {
     pub IsQuarantineEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 pub trait ITSGPolicyEngine_Impl: windows_core::IUnknownImpl {
-    fn AuthorizeConnection(&self, mainsessionid: &windows_core::GUID, username: &windows_core::BSTR, authtype: AAAuthSchemes, clientmachineip: &windows_core::BSTR, clientmachinename: &windows_core::BSTR, sohdata: *const u8, numsohbytes: u32, cookiedata: *const u8, numcookiebytes: u32, usertoken: super::super::Foundation::HANDLE_PTR, psink: Option<&ITSGAuthorizeConnectionSink>) -> windows_core::Result<()>;
-    fn AuthorizeResource(&self, mainsessionid: &windows_core::GUID, subsessionid: i32, username: &windows_core::BSTR, resourcenames: *const windows_core::BSTR, numresources: u32, alternateresourcenames: *const windows_core::BSTR, numalternateresourcename: u32, portnumber: u32, operation: &windows_core::BSTR, cookie: *const u8, numbytesincookie: u32, psink: Option<&ITSGAuthorizeResourceSink>) -> windows_core::Result<()>;
+    fn AuthorizeConnection(&self, mainsessionid: &windows_core::GUID, username: &windows_core::BSTR, authtype: AAAuthSchemes, clientmachineip: &windows_core::BSTR, clientmachinename: &windows_core::BSTR, sohdata: *const u8, numsohbytes: u32, cookiedata: *const u8, numcookiebytes: u32, usertoken: super::super::Foundation::HANDLE_PTR, psink: windows_core::Ref<'_, ITSGAuthorizeConnectionSink>) -> windows_core::Result<()>;
+    fn AuthorizeResource(&self, mainsessionid: &windows_core::GUID, subsessionid: i32, username: &windows_core::BSTR, resourcenames: *const windows_core::BSTR, numresources: u32, alternateresourcenames: *const windows_core::BSTR, numalternateresourcename: u32, portnumber: u32, operation: &windows_core::BSTR, cookie: *const u8, numbytesincookie: u32, psink: windows_core::Ref<'_, ITSGAuthorizeResourceSink>) -> windows_core::Result<()>;
     fn Refresh(&self) -> windows_core::Result<()>;
     fn IsQuarantineEnabled(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
 }
@@ -2218,7 +2218,7 @@ impl ITSGPolicyEngine_Vtbl {
     pub const fn new<Identity: ITSGPolicyEngine_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AuthorizeConnection<Identity: ITSGPolicyEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mainsessionid: windows_core::GUID, username: *mut core::ffi::c_void, authtype: AAAuthSchemes, clientmachineip: *mut core::ffi::c_void, clientmachinename: *mut core::ffi::c_void, sohdata: *const u8, numsohbytes: u32, cookiedata: *const u8, numcookiebytes: u32, usertoken: super::super::Foundation::HANDLE_PTR, psink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITSGPolicyEngine_Impl::AuthorizeConnection(this, core::mem::transmute(&mainsessionid), core::mem::transmute(&username), core::mem::transmute_copy(&authtype), core::mem::transmute(&clientmachineip), core::mem::transmute(&clientmachinename), core::mem::transmute_copy(&sohdata), core::mem::transmute_copy(&numsohbytes), core::mem::transmute_copy(&cookiedata), core::mem::transmute_copy(&numcookiebytes), core::mem::transmute_copy(&usertoken), windows_core::from_raw_borrowed(&psink)).into()
+            ITSGPolicyEngine_Impl::AuthorizeConnection(this, core::mem::transmute(&mainsessionid), core::mem::transmute(&username), core::mem::transmute_copy(&authtype), core::mem::transmute(&clientmachineip), core::mem::transmute(&clientmachinename), core::mem::transmute_copy(&sohdata), core::mem::transmute_copy(&numsohbytes), core::mem::transmute_copy(&cookiedata), core::mem::transmute_copy(&numcookiebytes), core::mem::transmute_copy(&usertoken), core::mem::transmute_copy(&psink)).into()
         }
         unsafe extern "system" fn AuthorizeResource<Identity: ITSGPolicyEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mainsessionid: windows_core::GUID, subsessionid: i32, username: *mut core::ffi::c_void, resourcenames: *const *mut core::ffi::c_void, numresources: u32, alternateresourcenames: *const *mut core::ffi::c_void, numalternateresourcename: u32, portnumber: u32, operation: *mut core::ffi::c_void, cookie: *const u8, numbytesincookie: u32, psink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -2235,7 +2235,7 @@ impl ITSGPolicyEngine_Vtbl {
                 core::mem::transmute(&operation),
                 core::mem::transmute_copy(&cookie),
                 core::mem::transmute_copy(&numbytesincookie),
-                windows_core::from_raw_borrowed(&psink),
+                core::mem::transmute_copy(&psink),
             )
             .into()
         }
@@ -2656,7 +2656,7 @@ pub trait ITsSbEnvironment_Impl: windows_core::IUnknownImpl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn ServerWeight(&self) -> windows_core::Result<u32>;
     fn EnvironmentPropertySet(&self) -> windows_core::Result<ITsSbEnvironmentPropertySet>;
-    fn SetEnvironmentPropertySet(&self, pval: Option<&ITsSbEnvironmentPropertySet>) -> windows_core::Result<()>;
+    fn SetEnvironmentPropertySet(&self, pval: windows_core::Ref<'_, ITsSbEnvironmentPropertySet>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ITsSbEnvironment_Vtbl {
@@ -2693,7 +2693,7 @@ impl ITsSbEnvironment_Vtbl {
         }
         unsafe extern "system" fn SetEnvironmentPropertySet<Identity: ITsSbEnvironment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITsSbEnvironment_Impl::SetEnvironmentPropertySet(this, windows_core::from_raw_borrowed(&pval)).into()
+            ITsSbEnvironment_Impl::SetEnvironmentPropertySet(this, core::mem::transmute_copy(&pval)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -2772,7 +2772,7 @@ pub struct ITsSbFilterPluginStore_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbFilterPluginStore_Impl: windows_core::IUnknownImpl {
-    fn SaveProperties(&self, ppropertyset: Option<&ITsSbPropertySet>) -> windows_core::Result<()>;
+    fn SaveProperties(&self, ppropertyset: windows_core::Ref<'_, ITsSbPropertySet>) -> windows_core::Result<()>;
     fn EnumerateProperties(&self) -> windows_core::Result<ITsSbPropertySet>;
     fn DeleteProperties(&self, propertyname: &windows_core::BSTR) -> windows_core::Result<()>;
 }
@@ -2781,7 +2781,7 @@ impl ITsSbFilterPluginStore_Vtbl {
     pub const fn new<Identity: ITsSbFilterPluginStore_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SaveProperties<Identity: ITsSbFilterPluginStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppropertyset: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITsSbFilterPluginStore_Impl::SaveProperties(this, windows_core::from_raw_borrowed(&ppropertyset)).into()
+            ITsSbFilterPluginStore_Impl::SaveProperties(this, core::mem::transmute_copy(&ppropertyset)).into()
         }
         unsafe extern "system" fn EnumerateProperties<Identity: ITsSbFilterPluginStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppropertyset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3033,14 +3033,14 @@ pub struct ITsSbLoadBalancing_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbLoadBalancing_Impl: ITsSbPlugin_Impl {
-    fn GetMostSuitableTarget(&self, pconnection: Option<&ITsSbClientConnection>, plbsink: Option<&ITsSbLoadBalancingNotifySink>) -> windows_core::Result<()>;
+    fn GetMostSuitableTarget(&self, pconnection: windows_core::Ref<'_, ITsSbClientConnection>, plbsink: windows_core::Ref<'_, ITsSbLoadBalancingNotifySink>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ITsSbLoadBalancing_Vtbl {
     pub const fn new<Identity: ITsSbLoadBalancing_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetMostSuitableTarget<Identity: ITsSbLoadBalancing_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pconnection: *mut core::ffi::c_void, plbsink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITsSbLoadBalancing_Impl::GetMostSuitableTarget(this, windows_core::from_raw_borrowed(&pconnection), windows_core::from_raw_borrowed(&plbsink)).into()
+            ITsSbLoadBalancing_Impl::GetMostSuitableTarget(this, core::mem::transmute_copy(&pconnection), core::mem::transmute_copy(&plbsink)).into()
         }
         Self { base__: ITsSbPlugin_Vtbl::new::<Identity, OFFSET>(), GetMostSuitableTarget: GetMostSuitableTarget::<Identity, OFFSET> }
     }
@@ -3072,13 +3072,13 @@ pub struct ITsSbLoadBalancingNotifySink_Vtbl {
     pub OnGetMostSuitableTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 pub trait ITsSbLoadBalancingNotifySink_Impl: ITsSbBaseNotifySink_Impl {
-    fn OnGetMostSuitableTarget(&self, plbresult: Option<&ITsSbLoadBalanceResult>, fisnewconnection: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn OnGetMostSuitableTarget(&self, plbresult: windows_core::Ref<'_, ITsSbLoadBalanceResult>, fisnewconnection: super::super::Foundation::BOOL) -> windows_core::Result<()>;
 }
 impl ITsSbLoadBalancingNotifySink_Vtbl {
     pub const fn new<Identity: ITsSbLoadBalancingNotifySink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnGetMostSuitableTarget<Identity: ITsSbLoadBalancingNotifySink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plbresult: *mut core::ffi::c_void, fisnewconnection: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITsSbLoadBalancingNotifySink_Impl::OnGetMostSuitableTarget(this, windows_core::from_raw_borrowed(&plbresult), core::mem::transmute_copy(&fisnewconnection)).into()
+            ITsSbLoadBalancingNotifySink_Impl::OnGetMostSuitableTarget(this, core::mem::transmute_copy(&plbresult), core::mem::transmute_copy(&fisnewconnection)).into()
         }
         Self { base__: ITsSbBaseNotifySink_Vtbl::new::<Identity, OFFSET>(), OnGetMostSuitableTarget: OnGetMostSuitableTarget::<Identity, OFFSET> }
     }
@@ -3111,14 +3111,14 @@ pub struct ITsSbOrchestration_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbOrchestration_Impl: ITsSbPlugin_Impl {
-    fn PrepareTargetForConnect(&self, pconnection: Option<&ITsSbClientConnection>, porchestrationnotifysink: Option<&ITsSbOrchestrationNotifySink>) -> windows_core::Result<()>;
+    fn PrepareTargetForConnect(&self, pconnection: windows_core::Ref<'_, ITsSbClientConnection>, porchestrationnotifysink: windows_core::Ref<'_, ITsSbOrchestrationNotifySink>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ITsSbOrchestration_Vtbl {
     pub const fn new<Identity: ITsSbOrchestration_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn PrepareTargetForConnect<Identity: ITsSbOrchestration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pconnection: *mut core::ffi::c_void, porchestrationnotifysink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITsSbOrchestration_Impl::PrepareTargetForConnect(this, windows_core::from_raw_borrowed(&pconnection), windows_core::from_raw_borrowed(&porchestrationnotifysink)).into()
+            ITsSbOrchestration_Impl::PrepareTargetForConnect(this, core::mem::transmute_copy(&pconnection), core::mem::transmute_copy(&porchestrationnotifysink)).into()
         }
         Self { base__: ITsSbPlugin_Vtbl::new::<Identity, OFFSET>(), PrepareTargetForConnect: PrepareTargetForConnect::<Identity, OFFSET> }
     }
@@ -3150,13 +3150,13 @@ pub struct ITsSbOrchestrationNotifySink_Vtbl {
     pub OnReadyToConnect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITsSbOrchestrationNotifySink_Impl: ITsSbBaseNotifySink_Impl {
-    fn OnReadyToConnect(&self, ptarget: Option<&ITsSbTarget>) -> windows_core::Result<()>;
+    fn OnReadyToConnect(&self, ptarget: windows_core::Ref<'_, ITsSbTarget>) -> windows_core::Result<()>;
 }
 impl ITsSbOrchestrationNotifySink_Vtbl {
     pub const fn new<Identity: ITsSbOrchestrationNotifySink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnReadyToConnect<Identity: ITsSbOrchestrationNotifySink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptarget: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITsSbOrchestrationNotifySink_Impl::OnReadyToConnect(this, windows_core::from_raw_borrowed(&ptarget)).into()
+            ITsSbOrchestrationNotifySink_Impl::OnReadyToConnect(this, core::mem::transmute_copy(&ptarget)).into()
         }
         Self { base__: ITsSbBaseNotifySink_Vtbl::new::<Identity, OFFSET>(), OnReadyToConnect: OnReadyToConnect::<Identity, OFFSET> }
     }
@@ -3189,14 +3189,14 @@ pub struct ITsSbPlacement_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbPlacement_Impl: ITsSbPlugin_Impl {
-    fn QueryEnvironmentForTarget(&self, pconnection: Option<&ITsSbClientConnection>, pplacementsink: Option<&ITsSbPlacementNotifySink>) -> windows_core::Result<()>;
+    fn QueryEnvironmentForTarget(&self, pconnection: windows_core::Ref<'_, ITsSbClientConnection>, pplacementsink: windows_core::Ref<'_, ITsSbPlacementNotifySink>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ITsSbPlacement_Vtbl {
     pub const fn new<Identity: ITsSbPlacement_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryEnvironmentForTarget<Identity: ITsSbPlacement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pconnection: *mut core::ffi::c_void, pplacementsink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITsSbPlacement_Impl::QueryEnvironmentForTarget(this, windows_core::from_raw_borrowed(&pconnection), windows_core::from_raw_borrowed(&pplacementsink)).into()
+            ITsSbPlacement_Impl::QueryEnvironmentForTarget(this, core::mem::transmute_copy(&pconnection), core::mem::transmute_copy(&pplacementsink)).into()
         }
         Self { base__: ITsSbPlugin_Vtbl::new::<Identity, OFFSET>(), QueryEnvironmentForTarget: QueryEnvironmentForTarget::<Identity, OFFSET> }
     }
@@ -3228,13 +3228,13 @@ pub struct ITsSbPlacementNotifySink_Vtbl {
     pub OnQueryEnvironmentCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITsSbPlacementNotifySink_Impl: ITsSbBaseNotifySink_Impl {
-    fn OnQueryEnvironmentCompleted(&self, penvironment: Option<&ITsSbEnvironment>) -> windows_core::Result<()>;
+    fn OnQueryEnvironmentCompleted(&self, penvironment: windows_core::Ref<'_, ITsSbEnvironment>) -> windows_core::Result<()>;
 }
 impl ITsSbPlacementNotifySink_Vtbl {
     pub const fn new<Identity: ITsSbPlacementNotifySink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnQueryEnvironmentCompleted<Identity: ITsSbPlacementNotifySink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, penvironment: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITsSbPlacementNotifySink_Impl::OnQueryEnvironmentCompleted(this, windows_core::from_raw_borrowed(&penvironment)).into()
+            ITsSbPlacementNotifySink_Impl::OnQueryEnvironmentCompleted(this, core::mem::transmute_copy(&penvironment)).into()
         }
         Self { base__: ITsSbBaseNotifySink_Vtbl::new::<Identity, OFFSET>(), OnQueryEnvironmentCompleted: OnQueryEnvironmentCompleted::<Identity, OFFSET> }
     }
@@ -3270,7 +3270,7 @@ pub struct ITsSbPlugin_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbPlugin_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, pprovider: Option<&ITsSbProvider>, pnotifysink: Option<&ITsSbPluginNotifySink>, ppropertyset: Option<&ITsSbPluginPropertySet>) -> windows_core::Result<()>;
+    fn Initialize(&self, pprovider: windows_core::Ref<'_, ITsSbProvider>, pnotifysink: windows_core::Ref<'_, ITsSbPluginNotifySink>, ppropertyset: windows_core::Ref<'_, ITsSbPluginPropertySet>) -> windows_core::Result<()>;
     fn Terminate(&self, hr: windows_core::HRESULT) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -3278,7 +3278,7 @@ impl ITsSbPlugin_Vtbl {
     pub const fn new<Identity: ITsSbPlugin_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: ITsSbPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprovider: *mut core::ffi::c_void, pnotifysink: *mut core::ffi::c_void, ppropertyset: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITsSbPlugin_Impl::Initialize(this, windows_core::from_raw_borrowed(&pprovider), windows_core::from_raw_borrowed(&pnotifysink), windows_core::from_raw_borrowed(&ppropertyset)).into()
+            ITsSbPlugin_Impl::Initialize(this, core::mem::transmute_copy(&pprovider), core::mem::transmute_copy(&pnotifysink), core::mem::transmute_copy(&ppropertyset)).into()
         }
         unsafe extern "system" fn Terminate<Identity: ITsSbPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hr: windows_core::HRESULT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3492,7 +3492,7 @@ pub trait ITsSbProvider_Impl: windows_core::IUnknownImpl {
     fn CreateEnvironmentObject(&self, name: &windows_core::BSTR, serverweight: u32) -> windows_core::Result<ITsSbEnvironment>;
     fn GetResourcePluginStore(&self) -> windows_core::Result<ITsSbResourcePluginStore>;
     fn GetFilterPluginStore(&self) -> windows_core::Result<ITsSbFilterPluginStore>;
-    fn RegisterForNotification(&self, notificationtype: u32, resourcetomonitor: &windows_core::BSTR, ppluginnotification: Option<&ITsSbResourceNotification>) -> windows_core::Result<()>;
+    fn RegisterForNotification(&self, notificationtype: u32, resourcetomonitor: &windows_core::BSTR, ppluginnotification: windows_core::Ref<'_, ITsSbResourceNotification>) -> windows_core::Result<()>;
     fn UnRegisterForNotification(&self, notificationtype: u32, resourcetomonitor: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetInstanceOfGlobalStore(&self) -> windows_core::Result<ITsSbGlobalStore>;
     fn CreateEnvironmentPropertySetObject(&self) -> windows_core::Result<ITsSbEnvironmentPropertySet>;
@@ -3582,7 +3582,7 @@ impl ITsSbProvider_Vtbl {
         }
         unsafe extern "system" fn RegisterForNotification<Identity: ITsSbProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, notificationtype: u32, resourcetomonitor: *mut core::ffi::c_void, ppluginnotification: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITsSbProvider_Impl::RegisterForNotification(this, core::mem::transmute_copy(&notificationtype), core::mem::transmute(&resourcetomonitor), windows_core::from_raw_borrowed(&ppluginnotification)).into()
+            ITsSbProvider_Impl::RegisterForNotification(this, core::mem::transmute_copy(&notificationtype), core::mem::transmute(&resourcetomonitor), core::mem::transmute_copy(&ppluginnotification)).into()
         }
         unsafe extern "system" fn UnRegisterForNotification<Identity: ITsSbProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, notificationtype: u32, resourcetomonitor: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3671,9 +3671,9 @@ pub struct ITsSbProvisioning_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbProvisioning_Impl: ITsSbPlugin_Impl {
-    fn CreateVirtualMachines(&self, jobxmlstring: &windows_core::BSTR, jobguid: &windows_core::BSTR, psink: Option<&ITsSbProvisioningPluginNotifySink>) -> windows_core::Result<()>;
-    fn PatchVirtualMachines(&self, jobxmlstring: &windows_core::BSTR, jobguid: &windows_core::BSTR, psink: Option<&ITsSbProvisioningPluginNotifySink>, pvmpatchinfo: *const VM_PATCH_INFO) -> windows_core::Result<()>;
-    fn DeleteVirtualMachines(&self, jobxmlstring: &windows_core::BSTR, jobguid: &windows_core::BSTR, psink: Option<&ITsSbProvisioningPluginNotifySink>) -> windows_core::Result<()>;
+    fn CreateVirtualMachines(&self, jobxmlstring: &windows_core::BSTR, jobguid: &windows_core::BSTR, psink: windows_core::Ref<'_, ITsSbProvisioningPluginNotifySink>) -> windows_core::Result<()>;
+    fn PatchVirtualMachines(&self, jobxmlstring: &windows_core::BSTR, jobguid: &windows_core::BSTR, psink: windows_core::Ref<'_, ITsSbProvisioningPluginNotifySink>, pvmpatchinfo: *const VM_PATCH_INFO) -> windows_core::Result<()>;
+    fn DeleteVirtualMachines(&self, jobxmlstring: &windows_core::BSTR, jobguid: &windows_core::BSTR, psink: windows_core::Ref<'_, ITsSbProvisioningPluginNotifySink>) -> windows_core::Result<()>;
     fn CancelJob(&self, jobguid: &windows_core::BSTR) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -3681,15 +3681,15 @@ impl ITsSbProvisioning_Vtbl {
     pub const fn new<Identity: ITsSbProvisioning_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateVirtualMachines<Identity: ITsSbProvisioning_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, jobxmlstring: *mut core::ffi::c_void, jobguid: *mut core::ffi::c_void, psink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITsSbProvisioning_Impl::CreateVirtualMachines(this, core::mem::transmute(&jobxmlstring), core::mem::transmute(&jobguid), windows_core::from_raw_borrowed(&psink)).into()
+            ITsSbProvisioning_Impl::CreateVirtualMachines(this, core::mem::transmute(&jobxmlstring), core::mem::transmute(&jobguid), core::mem::transmute_copy(&psink)).into()
         }
         unsafe extern "system" fn PatchVirtualMachines<Identity: ITsSbProvisioning_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, jobxmlstring: *mut core::ffi::c_void, jobguid: *mut core::ffi::c_void, psink: *mut core::ffi::c_void, pvmpatchinfo: *const VM_PATCH_INFO) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITsSbProvisioning_Impl::PatchVirtualMachines(this, core::mem::transmute(&jobxmlstring), core::mem::transmute(&jobguid), windows_core::from_raw_borrowed(&psink), core::mem::transmute_copy(&pvmpatchinfo)).into()
+            ITsSbProvisioning_Impl::PatchVirtualMachines(this, core::mem::transmute(&jobxmlstring), core::mem::transmute(&jobguid), core::mem::transmute_copy(&psink), core::mem::transmute_copy(&pvmpatchinfo)).into()
         }
         unsafe extern "system" fn DeleteVirtualMachines<Identity: ITsSbProvisioning_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, jobxmlstring: *mut core::ffi::c_void, jobguid: *mut core::ffi::c_void, psink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITsSbProvisioning_Impl::DeleteVirtualMachines(this, core::mem::transmute(&jobxmlstring), core::mem::transmute(&jobguid), windows_core::from_raw_borrowed(&psink)).into()
+            ITsSbProvisioning_Impl::DeleteVirtualMachines(this, core::mem::transmute(&jobxmlstring), core::mem::transmute(&jobguid), core::mem::transmute_copy(&psink)).into()
         }
         unsafe extern "system" fn CancelJob<Identity: ITsSbProvisioning_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, jobguid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3820,23 +3820,23 @@ pub struct ITsSbResourceNotification_Vtbl {
     pub NotifyClientConnectionStateChange: unsafe extern "system" fn(*mut core::ffi::c_void, CONNECTION_CHANGE_NOTIFICATION, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITsSbResourceNotification_Impl: windows_core::IUnknownImpl {
-    fn NotifySessionChange(&self, changetype: TSSESSION_STATE, psession: Option<&ITsSbSession>) -> windows_core::Result<()>;
-    fn NotifyTargetChange(&self, targetchangetype: u32, ptarget: Option<&ITsSbTarget>) -> windows_core::Result<()>;
-    fn NotifyClientConnectionStateChange(&self, changetype: CONNECTION_CHANGE_NOTIFICATION, pconnection: Option<&ITsSbClientConnection>) -> windows_core::Result<()>;
+    fn NotifySessionChange(&self, changetype: TSSESSION_STATE, psession: windows_core::Ref<'_, ITsSbSession>) -> windows_core::Result<()>;
+    fn NotifyTargetChange(&self, targetchangetype: u32, ptarget: windows_core::Ref<'_, ITsSbTarget>) -> windows_core::Result<()>;
+    fn NotifyClientConnectionStateChange(&self, changetype: CONNECTION_CHANGE_NOTIFICATION, pconnection: windows_core::Ref<'_, ITsSbClientConnection>) -> windows_core::Result<()>;
 }
 impl ITsSbResourceNotification_Vtbl {
     pub const fn new<Identity: ITsSbResourceNotification_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn NotifySessionChange<Identity: ITsSbResourceNotification_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, changetype: TSSESSION_STATE, psession: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITsSbResourceNotification_Impl::NotifySessionChange(this, core::mem::transmute_copy(&changetype), windows_core::from_raw_borrowed(&psession)).into()
+            ITsSbResourceNotification_Impl::NotifySessionChange(this, core::mem::transmute_copy(&changetype), core::mem::transmute_copy(&psession)).into()
         }
         unsafe extern "system" fn NotifyTargetChange<Identity: ITsSbResourceNotification_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, targetchangetype: u32, ptarget: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITsSbResourceNotification_Impl::NotifyTargetChange(this, core::mem::transmute_copy(&targetchangetype), windows_core::from_raw_borrowed(&ptarget)).into()
+            ITsSbResourceNotification_Impl::NotifyTargetChange(this, core::mem::transmute_copy(&targetchangetype), core::mem::transmute_copy(&ptarget)).into()
         }
         unsafe extern "system" fn NotifyClientConnectionStateChange<Identity: ITsSbResourceNotification_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, changetype: CONNECTION_CHANGE_NOTIFICATION, pconnection: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITsSbResourceNotification_Impl::NotifyClientConnectionStateChange(this, core::mem::transmute_copy(&changetype), windows_core::from_raw_borrowed(&pconnection)).into()
+            ITsSbResourceNotification_Impl::NotifyClientConnectionStateChange(this, core::mem::transmute_copy(&changetype), core::mem::transmute_copy(&pconnection)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -4111,28 +4111,28 @@ pub struct ITsSbResourcePluginStore_Vtbl {
 pub trait ITsSbResourcePluginStore_Impl: windows_core::IUnknownImpl {
     fn QueryTarget(&self, targetname: &windows_core::BSTR, farmname: &windows_core::BSTR) -> windows_core::Result<ITsSbTarget>;
     fn QuerySessionBySessionId(&self, dwsessionid: u32, targetname: &windows_core::BSTR) -> windows_core::Result<ITsSbSession>;
-    fn AddTargetToStore(&self, ptarget: Option<&ITsSbTarget>) -> windows_core::Result<()>;
-    fn AddSessionToStore(&self, psession: Option<&ITsSbSession>) -> windows_core::Result<()>;
-    fn AddEnvironmentToStore(&self, penvironment: Option<&ITsSbEnvironment>) -> windows_core::Result<()>;
+    fn AddTargetToStore(&self, ptarget: windows_core::Ref<'_, ITsSbTarget>) -> windows_core::Result<()>;
+    fn AddSessionToStore(&self, psession: windows_core::Ref<'_, ITsSbSession>) -> windows_core::Result<()>;
+    fn AddEnvironmentToStore(&self, penvironment: windows_core::Ref<'_, ITsSbEnvironment>) -> windows_core::Result<()>;
     fn RemoveEnvironmentFromStore(&self, environmentname: &windows_core::BSTR, bignoreowner: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn EnumerateFarms(&self, pdwcount: *mut u32, pval: *mut *mut super::Com::SAFEARRAY) -> windows_core::Result<()>;
     fn QueryEnvironment(&self, environmentname: &windows_core::BSTR) -> windows_core::Result<ITsSbEnvironment>;
     fn EnumerateEnvironments(&self, pdwcount: *mut u32, pval: *mut *mut Option<ITsSbEnvironment>) -> windows_core::Result<()>;
-    fn SaveTarget(&self, ptarget: Option<&ITsSbTarget>, bforcewrite: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn SaveEnvironment(&self, penvironment: Option<&ITsSbEnvironment>, bforcewrite: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn SaveSession(&self, psession: Option<&ITsSbSession>) -> windows_core::Result<()>;
+    fn SaveTarget(&self, ptarget: windows_core::Ref<'_, ITsSbTarget>, bforcewrite: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn SaveEnvironment(&self, penvironment: windows_core::Ref<'_, ITsSbEnvironment>, bforcewrite: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn SaveSession(&self, psession: windows_core::Ref<'_, ITsSbSession>) -> windows_core::Result<()>;
     fn SetTargetProperty(&self, targetname: &windows_core::BSTR, propertyname: &windows_core::BSTR, pproperty: *const super::Variant::VARIANT) -> windows_core::Result<()>;
     fn SetEnvironmentProperty(&self, environmentname: &windows_core::BSTR, propertyname: &windows_core::BSTR, pproperty: *const super::Variant::VARIANT) -> windows_core::Result<()>;
     fn SetTargetState(&self, targetname: &windows_core::BSTR, newstate: TARGET_STATE) -> windows_core::Result<TARGET_STATE>;
-    fn SetSessionState(&self, sbsession: Option<&ITsSbSession>) -> windows_core::Result<()>;
+    fn SetSessionState(&self, sbsession: windows_core::Ref<'_, ITsSbSession>) -> windows_core::Result<()>;
     fn EnumerateTargets(&self, farmname: &windows_core::BSTR, envname: &windows_core::BSTR, sortbyfieldid: TS_SB_SORT_BY, sortybypropname: &windows_core::BSTR, pdwcount: *mut u32, pval: *mut *mut Option<ITsSbTarget>) -> windows_core::Result<()>;
     fn EnumerateSessions(&self, targetname: &windows_core::BSTR, username: &windows_core::BSTR, userdomain: &windows_core::BSTR, poolname: &windows_core::BSTR, initialprogram: &windows_core::BSTR, psessionstate: *const TSSESSION_STATE, pdwcount: *mut u32, ppval: *mut *mut Option<ITsSbSession>) -> windows_core::Result<()>;
     fn GetFarmProperty(&self, farmname: &windows_core::BSTR, propertyname: &windows_core::BSTR, pvarvalue: *const super::Variant::VARIANT) -> windows_core::Result<()>;
     fn DeleteTarget(&self, targetname: &windows_core::BSTR, hostname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SetTargetPropertyWithVersionCheck(&self, ptarget: Option<&ITsSbTarget>, propertyname: &windows_core::BSTR, pproperty: *const super::Variant::VARIANT) -> windows_core::Result<()>;
-    fn SetEnvironmentPropertyWithVersionCheck(&self, penvironment: Option<&ITsSbEnvironment>, propertyname: &windows_core::BSTR, pproperty: *const super::Variant::VARIANT) -> windows_core::Result<()>;
+    fn SetTargetPropertyWithVersionCheck(&self, ptarget: windows_core::Ref<'_, ITsSbTarget>, propertyname: &windows_core::BSTR, pproperty: *const super::Variant::VARIANT) -> windows_core::Result<()>;
+    fn SetEnvironmentPropertyWithVersionCheck(&self, penvironment: windows_core::Ref<'_, ITsSbEnvironment>, propertyname: &windows_core::BSTR, pproperty: *const super::Variant::VARIANT) -> windows_core::Result<()>;
     fn AcquireTargetLock(&self, targetname: &windows_core::BSTR, dwtimeout: u32) -> windows_core::Result<windows_core::IUnknown>;
-    fn ReleaseTargetLock(&self, pcontext: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn ReleaseTargetLock(&self, pcontext: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn TestAndSetServerState(&self, poolname: &windows_core::BSTR, serverfqdn: &windows_core::BSTR, newstate: TARGET_STATE, teststate: TARGET_STATE) -> windows_core::Result<TARGET_STATE>;
     fn SetServerWaitingToStart(&self, poolname: &windows_core::BSTR, servername: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetServerState(&self, poolname: &windows_core::BSTR, serverfqdn: &windows_core::BSTR) -> windows_core::Result<TARGET_STATE>;
@@ -4163,15 +4163,15 @@ impl ITsSbResourcePluginStore_Vtbl {
         }
         unsafe extern "system" fn AddTargetToStore<Identity: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptarget: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITsSbResourcePluginStore_Impl::AddTargetToStore(this, windows_core::from_raw_borrowed(&ptarget)).into()
+            ITsSbResourcePluginStore_Impl::AddTargetToStore(this, core::mem::transmute_copy(&ptarget)).into()
         }
         unsafe extern "system" fn AddSessionToStore<Identity: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psession: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITsSbResourcePluginStore_Impl::AddSessionToStore(this, windows_core::from_raw_borrowed(&psession)).into()
+            ITsSbResourcePluginStore_Impl::AddSessionToStore(this, core::mem::transmute_copy(&psession)).into()
         }
         unsafe extern "system" fn AddEnvironmentToStore<Identity: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, penvironment: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITsSbResourcePluginStore_Impl::AddEnvironmentToStore(this, windows_core::from_raw_borrowed(&penvironment)).into()
+            ITsSbResourcePluginStore_Impl::AddEnvironmentToStore(this, core::mem::transmute_copy(&penvironment)).into()
         }
         unsafe extern "system" fn RemoveEnvironmentFromStore<Identity: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, environmentname: *mut core::ffi::c_void, bignoreowner: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -4197,15 +4197,15 @@ impl ITsSbResourcePluginStore_Vtbl {
         }
         unsafe extern "system" fn SaveTarget<Identity: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptarget: *mut core::ffi::c_void, bforcewrite: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITsSbResourcePluginStore_Impl::SaveTarget(this, windows_core::from_raw_borrowed(&ptarget), core::mem::transmute_copy(&bforcewrite)).into()
+            ITsSbResourcePluginStore_Impl::SaveTarget(this, core::mem::transmute_copy(&ptarget), core::mem::transmute_copy(&bforcewrite)).into()
         }
         unsafe extern "system" fn SaveEnvironment<Identity: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, penvironment: *mut core::ffi::c_void, bforcewrite: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITsSbResourcePluginStore_Impl::SaveEnvironment(this, windows_core::from_raw_borrowed(&penvironment), core::mem::transmute_copy(&bforcewrite)).into()
+            ITsSbResourcePluginStore_Impl::SaveEnvironment(this, core::mem::transmute_copy(&penvironment), core::mem::transmute_copy(&bforcewrite)).into()
         }
         unsafe extern "system" fn SaveSession<Identity: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psession: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITsSbResourcePluginStore_Impl::SaveSession(this, windows_core::from_raw_borrowed(&psession)).into()
+            ITsSbResourcePluginStore_Impl::SaveSession(this, core::mem::transmute_copy(&psession)).into()
         }
         unsafe extern "system" fn SetTargetProperty<Identity: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, targetname: *mut core::ffi::c_void, propertyname: *mut core::ffi::c_void, pproperty: *const super::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -4227,7 +4227,7 @@ impl ITsSbResourcePluginStore_Vtbl {
         }
         unsafe extern "system" fn SetSessionState<Identity: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sbsession: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITsSbResourcePluginStore_Impl::SetSessionState(this, windows_core::from_raw_borrowed(&sbsession)).into()
+            ITsSbResourcePluginStore_Impl::SetSessionState(this, core::mem::transmute_copy(&sbsession)).into()
         }
         unsafe extern "system" fn EnumerateTargets<Identity: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, farmname: *mut core::ffi::c_void, envname: *mut core::ffi::c_void, sortbyfieldid: TS_SB_SORT_BY, sortybypropname: *mut core::ffi::c_void, pdwcount: *mut u32, pval: *mut *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -4247,11 +4247,11 @@ impl ITsSbResourcePluginStore_Vtbl {
         }
         unsafe extern "system" fn SetTargetPropertyWithVersionCheck<Identity: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptarget: *mut core::ffi::c_void, propertyname: *mut core::ffi::c_void, pproperty: *const super::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITsSbResourcePluginStore_Impl::SetTargetPropertyWithVersionCheck(this, windows_core::from_raw_borrowed(&ptarget), core::mem::transmute(&propertyname), core::mem::transmute_copy(&pproperty)).into()
+            ITsSbResourcePluginStore_Impl::SetTargetPropertyWithVersionCheck(this, core::mem::transmute_copy(&ptarget), core::mem::transmute(&propertyname), core::mem::transmute_copy(&pproperty)).into()
         }
         unsafe extern "system" fn SetEnvironmentPropertyWithVersionCheck<Identity: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, penvironment: *mut core::ffi::c_void, propertyname: *mut core::ffi::c_void, pproperty: *const super::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITsSbResourcePluginStore_Impl::SetEnvironmentPropertyWithVersionCheck(this, windows_core::from_raw_borrowed(&penvironment), core::mem::transmute(&propertyname), core::mem::transmute_copy(&pproperty)).into()
+            ITsSbResourcePluginStore_Impl::SetEnvironmentPropertyWithVersionCheck(this, core::mem::transmute_copy(&penvironment), core::mem::transmute(&propertyname), core::mem::transmute_copy(&pproperty)).into()
         }
         unsafe extern "system" fn AcquireTargetLock<Identity: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, targetname: *mut core::ffi::c_void, dwtimeout: u32, ppcontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -4265,7 +4265,7 @@ impl ITsSbResourcePluginStore_Vtbl {
         }
         unsafe extern "system" fn ReleaseTargetLock<Identity: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITsSbResourcePluginStore_Impl::ReleaseTargetLock(this, windows_core::from_raw_borrowed(&pcontext)).into()
+            ITsSbResourcePluginStore_Impl::ReleaseTargetLock(this, core::mem::transmute_copy(&pcontext)).into()
         }
         unsafe extern "system" fn TestAndSetServerState<Identity: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, poolname: *mut core::ffi::c_void, serverfqdn: *mut core::ffi::c_void, newstate: TARGET_STATE, teststate: TARGET_STATE, pinitstate: *mut TARGET_STATE) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -4755,7 +4755,7 @@ pub trait ITsSbTarget_Impl: windows_core::IUnknownImpl {
     fn TargetState(&self) -> windows_core::Result<TARGET_STATE>;
     fn SetTargetState(&self, state: TARGET_STATE) -> windows_core::Result<()>;
     fn TargetPropertySet(&self) -> windows_core::Result<ITsSbTargetPropertySet>;
-    fn SetTargetPropertySet(&self, pval: Option<&ITsSbTargetPropertySet>) -> windows_core::Result<()>;
+    fn SetTargetPropertySet(&self, pval: windows_core::Ref<'_, ITsSbTargetPropertySet>) -> windows_core::Result<()>;
     fn EnvironmentName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetEnvironmentName(&self, val: &windows_core::BSTR) -> windows_core::Result<()>;
     fn NumSessions(&self) -> windows_core::Result<u32>;
@@ -4855,7 +4855,7 @@ impl ITsSbTarget_Vtbl {
         }
         unsafe extern "system" fn SetTargetPropertySet<Identity: ITsSbTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITsSbTarget_Impl::SetTargetPropertySet(this, windows_core::from_raw_borrowed(&pval)).into()
+            ITsSbTarget_Impl::SetTargetPropertySet(this, core::mem::transmute_copy(&pval)).into()
         }
         unsafe extern "system" fn EnvironmentName<Identity: ITsSbTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -5167,7 +5167,7 @@ pub struct ITsSbTaskPlugin_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbTaskPlugin_Impl: ITsSbPlugin_Impl {
-    fn InitializeTaskPlugin(&self, pitssbtaskpluginnotifysink: Option<&ITsSbTaskPluginNotifySink>) -> windows_core::Result<()>;
+    fn InitializeTaskPlugin(&self, pitssbtaskpluginnotifysink: windows_core::Ref<'_, ITsSbTaskPluginNotifySink>) -> windows_core::Result<()>;
     fn SetTaskQueue(&self, pszhostname: &windows_core::BSTR, sbtaskinfosize: u32, pitssbtaskinfo: *const Option<ITsSbTaskInfo>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -5175,7 +5175,7 @@ impl ITsSbTaskPlugin_Vtbl {
     pub const fn new<Identity: ITsSbTaskPlugin_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitializeTaskPlugin<Identity: ITsSbTaskPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pitssbtaskpluginnotifysink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITsSbTaskPlugin_Impl::InitializeTaskPlugin(this, windows_core::from_raw_borrowed(&pitssbtaskpluginnotifysink)).into()
+            ITsSbTaskPlugin_Impl::InitializeTaskPlugin(this, core::mem::transmute_copy(&pitssbtaskpluginnotifysink)).into()
         }
         unsafe extern "system" fn SetTaskQueue<Identity: ITsSbTaskPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszhostname: *mut core::ffi::c_void, sbtaskinfosize: u32, pitssbtaskinfo: *const *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -5333,15 +5333,15 @@ pub struct IWRdsGraphicsChannel_Vtbl {
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWRdsGraphicsChannel_Impl: windows_core::IUnknownImpl {
-    fn Write(&self, cbsize: u32, pbuffer: *const u8, pcontext: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Write(&self, cbsize: u32, pbuffer: *const u8, pcontext: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
-    fn Open(&self, pchannelevents: Option<&IWRdsGraphicsChannelEvents>, popencontext: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Open(&self, pchannelevents: windows_core::Ref<'_, IWRdsGraphicsChannelEvents>, popencontext: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl IWRdsGraphicsChannel_Vtbl {
     pub const fn new<Identity: IWRdsGraphicsChannel_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Write<Identity: IWRdsGraphicsChannel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbsize: u32, pbuffer: *const u8, pcontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWRdsGraphicsChannel_Impl::Write(this, core::mem::transmute_copy(&cbsize), core::mem::transmute_copy(&pbuffer), windows_core::from_raw_borrowed(&pcontext)).into()
+            IWRdsGraphicsChannel_Impl::Write(this, core::mem::transmute_copy(&cbsize), core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&pcontext)).into()
         }
         unsafe extern "system" fn Close<Identity: IWRdsGraphicsChannel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -5349,7 +5349,7 @@ impl IWRdsGraphicsChannel_Vtbl {
         }
         unsafe extern "system" fn Open<Identity: IWRdsGraphicsChannel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pchannelevents: *mut core::ffi::c_void, popencontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWRdsGraphicsChannel_Impl::Open(this, windows_core::from_raw_borrowed(&pchannelevents), windows_core::from_raw_borrowed(&popencontext)).into()
+            IWRdsGraphicsChannel_Impl::Open(this, core::mem::transmute_copy(&pchannelevents), core::mem::transmute_copy(&popencontext)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -5400,8 +5400,8 @@ pub struct IWRdsGraphicsChannelEvents_Vtbl {
 pub trait IWRdsGraphicsChannelEvents_Impl: windows_core::IUnknownImpl {
     fn OnDataReceived(&self, cbsize: u32, pbuffer: *const u8) -> windows_core::Result<()>;
     fn OnClose(&self) -> windows_core::Result<()>;
-    fn OnChannelOpened(&self, openresult: windows_core::HRESULT, popencontext: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn OnDataSent(&self, pwritecontext: Option<&windows_core::IUnknown>, bcancelled: super::super::Foundation::BOOL, pbuffer: *const u8, cbbuffer: u32) -> windows_core::Result<()>;
+    fn OnChannelOpened(&self, openresult: windows_core::HRESULT, popencontext: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn OnDataSent(&self, pwritecontext: windows_core::Ref<'_, windows_core::IUnknown>, bcancelled: super::super::Foundation::BOOL, pbuffer: *const u8, cbbuffer: u32) -> windows_core::Result<()>;
     fn OnMetricsUpdate(&self, bandwidth: u32, rtt: u32, lastsentbyteindex: u64) -> windows_core::Result<()>;
 }
 impl IWRdsGraphicsChannelEvents_Vtbl {
@@ -5416,11 +5416,11 @@ impl IWRdsGraphicsChannelEvents_Vtbl {
         }
         unsafe extern "system" fn OnChannelOpened<Identity: IWRdsGraphicsChannelEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, openresult: windows_core::HRESULT, popencontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWRdsGraphicsChannelEvents_Impl::OnChannelOpened(this, core::mem::transmute_copy(&openresult), windows_core::from_raw_borrowed(&popencontext)).into()
+            IWRdsGraphicsChannelEvents_Impl::OnChannelOpened(this, core::mem::transmute_copy(&openresult), core::mem::transmute_copy(&popencontext)).into()
         }
         unsafe extern "system" fn OnDataSent<Identity: IWRdsGraphicsChannelEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwritecontext: *mut core::ffi::c_void, bcancelled: super::super::Foundation::BOOL, pbuffer: *const u8, cbbuffer: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWRdsGraphicsChannelEvents_Impl::OnDataSent(this, windows_core::from_raw_borrowed(&pwritecontext), core::mem::transmute_copy(&bcancelled), core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&cbbuffer)).into()
+            IWRdsGraphicsChannelEvents_Impl::OnDataSent(this, core::mem::transmute_copy(&pwritecontext), core::mem::transmute_copy(&bcancelled), core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&cbbuffer)).into()
         }
         unsafe extern "system" fn OnMetricsUpdate<Identity: IWRdsGraphicsChannelEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bandwidth: u32, rtt: u32, lastsentbyteindex: u64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -5995,7 +5995,7 @@ pub struct IWRdsProtocolListener_Vtbl {
 }
 pub trait IWRdsProtocolListener_Impl: windows_core::IUnknownImpl {
     fn GetSettings(&self, wrdslistenersettinglevel: WRDS_LISTENER_SETTING_LEVEL) -> windows_core::Result<WRDS_LISTENER_SETTINGS>;
-    fn StartListen(&self, pcallback: Option<&IWRdsProtocolListenerCallback>) -> windows_core::Result<()>;
+    fn StartListen(&self, pcallback: windows_core::Ref<'_, IWRdsProtocolListenerCallback>) -> windows_core::Result<()>;
     fn StopListen(&self) -> windows_core::Result<()>;
 }
 impl IWRdsProtocolListener_Vtbl {
@@ -6012,7 +6012,7 @@ impl IWRdsProtocolListener_Vtbl {
         }
         unsafe extern "system" fn StartListen<Identity: IWRdsProtocolListener_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWRdsProtocolListener_Impl::StartListen(this, windows_core::from_raw_borrowed(&pcallback)).into()
+            IWRdsProtocolListener_Impl::StartListen(this, core::mem::transmute_copy(&pcallback)).into()
         }
         unsafe extern "system" fn StopListen<Identity: IWRdsProtocolListener_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -6047,13 +6047,13 @@ pub struct IWRdsProtocolListenerCallback_Vtbl {
     pub OnConnected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const WRDS_CONNECTION_SETTINGS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWRdsProtocolListenerCallback_Impl: windows_core::IUnknownImpl {
-    fn OnConnected(&self, pconnection: Option<&IWRdsProtocolConnection>, pwrdsconnectionsettings: *const WRDS_CONNECTION_SETTINGS) -> windows_core::Result<IWRdsProtocolConnectionCallback>;
+    fn OnConnected(&self, pconnection: windows_core::Ref<'_, IWRdsProtocolConnection>, pwrdsconnectionsettings: *const WRDS_CONNECTION_SETTINGS) -> windows_core::Result<IWRdsProtocolConnectionCallback>;
 }
 impl IWRdsProtocolListenerCallback_Vtbl {
     pub const fn new<Identity: IWRdsProtocolListenerCallback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnConnected<Identity: IWRdsProtocolListenerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pconnection: *mut core::ffi::c_void, pwrdsconnectionsettings: *const WRDS_CONNECTION_SETTINGS, pcallback: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWRdsProtocolListenerCallback_Impl::OnConnected(this, windows_core::from_raw_borrowed(&pconnection), core::mem::transmute_copy(&pwrdsconnectionsettings)) {
+            match IWRdsProtocolListenerCallback_Impl::OnConnected(this, core::mem::transmute_copy(&pconnection), core::mem::transmute_copy(&pwrdsconnectionsettings)) {
                 Ok(ok__) => {
                     pcallback.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6209,7 +6209,7 @@ pub struct IWRdsProtocolManager_Vtbl {
     pub Uninitialize: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWRdsProtocolManager_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, piwrdssettings: Option<&IWRdsProtocolSettings>, pwrdssettings: *const WRDS_SETTINGS) -> windows_core::Result<()>;
+    fn Initialize(&self, piwrdssettings: windows_core::Ref<'_, IWRdsProtocolSettings>, pwrdssettings: *const WRDS_SETTINGS) -> windows_core::Result<()>;
     fn CreateListener(&self, wszlistenername: &windows_core::PCWSTR) -> windows_core::Result<IWRdsProtocolListener>;
     fn NotifyServiceStateChange(&self, ptsservicestatechange: *const WTS_SERVICE_STATE) -> windows_core::Result<()>;
     fn NotifySessionOfServiceStart(&self, sessionid: *const WTS_SESSION_ID) -> windows_core::Result<()>;
@@ -6222,7 +6222,7 @@ impl IWRdsProtocolManager_Vtbl {
     pub const fn new<Identity: IWRdsProtocolManager_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IWRdsProtocolManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piwrdssettings: *mut core::ffi::c_void, pwrdssettings: *const WRDS_SETTINGS) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWRdsProtocolManager_Impl::Initialize(this, windows_core::from_raw_borrowed(&piwrdssettings), core::mem::transmute_copy(&pwrdssettings)).into()
+            IWRdsProtocolManager_Impl::Initialize(this, core::mem::transmute_copy(&piwrdssettings), core::mem::transmute_copy(&pwrdssettings)).into()
         }
         unsafe extern "system" fn CreateListener<Identity: IWRdsProtocolManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszlistenername: windows_core::PCWSTR, pprotocollistener: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -6389,7 +6389,7 @@ pub struct IWRdsProtocolShadowConnection_Vtbl {
     pub DoTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *const u8, u32, *const u8, u32, *const u8, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 pub trait IWRdsProtocolShadowConnection_Impl: windows_core::IUnknownImpl {
-    fn Start(&self, ptargetservername: &windows_core::PCWSTR, targetsessionid: u32, hotkeyvk: u8, hotkeymodifiers: u16, pshadowcallback: Option<&IWRdsProtocolShadowCallback>) -> windows_core::Result<()>;
+    fn Start(&self, ptargetservername: &windows_core::PCWSTR, targetsessionid: u32, hotkeyvk: u8, hotkeymodifiers: u16, pshadowcallback: windows_core::Ref<'_, IWRdsProtocolShadowCallback>) -> windows_core::Result<()>;
     fn Stop(&self) -> windows_core::Result<()>;
     fn DoTarget(&self, pparam1: *const u8, param1size: u32, pparam2: *const u8, param2size: u32, pparam3: *const u8, param3size: u32, pparam4: *const u8, param4size: u32, pclientname: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
@@ -6397,7 +6397,7 @@ impl IWRdsProtocolShadowConnection_Vtbl {
     pub const fn new<Identity: IWRdsProtocolShadowConnection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Start<Identity: IWRdsProtocolShadowConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptargetservername: windows_core::PCWSTR, targetsessionid: u32, hotkeyvk: u8, hotkeymodifiers: u16, pshadowcallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWRdsProtocolShadowConnection_Impl::Start(this, core::mem::transmute(&ptargetservername), core::mem::transmute_copy(&targetsessionid), core::mem::transmute_copy(&hotkeyvk), core::mem::transmute_copy(&hotkeymodifiers), windows_core::from_raw_borrowed(&pshadowcallback)).into()
+            IWRdsProtocolShadowConnection_Impl::Start(this, core::mem::transmute(&ptargetservername), core::mem::transmute_copy(&targetsessionid), core::mem::transmute_copy(&hotkeyvk), core::mem::transmute_copy(&hotkeymodifiers), core::mem::transmute_copy(&pshadowcallback)).into()
         }
         unsafe extern "system" fn Stop<Identity: IWRdsProtocolShadowConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -6551,13 +6551,13 @@ pub struct IWTSBitmapRenderService_Vtbl {
     pub GetMappedRenderer: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWTSBitmapRenderService_Impl: windows_core::IUnknownImpl {
-    fn GetMappedRenderer(&self, mappingid: u64, pmappedrenderercallback: Option<&IWTSBitmapRendererCallback>) -> windows_core::Result<IWTSBitmapRenderer>;
+    fn GetMappedRenderer(&self, mappingid: u64, pmappedrenderercallback: windows_core::Ref<'_, IWTSBitmapRendererCallback>) -> windows_core::Result<IWTSBitmapRenderer>;
 }
 impl IWTSBitmapRenderService_Vtbl {
     pub const fn new<Identity: IWTSBitmapRenderService_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetMappedRenderer<Identity: IWTSBitmapRenderService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mappingid: u64, pmappedrenderercallback: *mut core::ffi::c_void, ppmappedrenderer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWTSBitmapRenderService_Impl::GetMappedRenderer(this, core::mem::transmute_copy(&mappingid), windows_core::from_raw_borrowed(&pmappedrenderercallback)) {
+            match IWTSBitmapRenderService_Impl::GetMappedRenderer(this, core::mem::transmute_copy(&mappingid), core::mem::transmute_copy(&pmappedrenderercallback)) {
                 Ok(ok__) => {
                     ppmappedrenderer.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6716,13 +6716,13 @@ pub struct IWTSListenerCallback_Vtbl {
     pub OnNewChannelConnection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWTSListenerCallback_Impl: windows_core::IUnknownImpl {
-    fn OnNewChannelConnection(&self, pchannel: Option<&IWTSVirtualChannel>, data: &windows_core::BSTR, pbaccept: *mut super::super::Foundation::BOOL, ppcallback: *mut Option<IWTSVirtualChannelCallback>) -> windows_core::Result<()>;
+    fn OnNewChannelConnection(&self, pchannel: windows_core::Ref<'_, IWTSVirtualChannel>, data: &windows_core::BSTR, pbaccept: *mut super::super::Foundation::BOOL, ppcallback: windows_core::OutRef<'_, IWTSVirtualChannelCallback>) -> windows_core::Result<()>;
 }
 impl IWTSListenerCallback_Vtbl {
     pub const fn new<Identity: IWTSListenerCallback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnNewChannelConnection<Identity: IWTSListenerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pchannel: *mut core::ffi::c_void, data: *mut core::ffi::c_void, pbaccept: *mut super::super::Foundation::BOOL, ppcallback: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWTSListenerCallback_Impl::OnNewChannelConnection(this, windows_core::from_raw_borrowed(&pchannel), core::mem::transmute(&data), core::mem::transmute_copy(&pbaccept), core::mem::transmute_copy(&ppcallback)).into()
+            IWTSListenerCallback_Impl::OnNewChannelConnection(this, core::mem::transmute_copy(&pchannel), core::mem::transmute(&data), core::mem::transmute_copy(&pbaccept), core::mem::transmute_copy(&ppcallback)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnNewChannelConnection: OnNewChannelConnection::<Identity, OFFSET> }
     }
@@ -6759,7 +6759,7 @@ pub struct IWTSPlugin_Vtbl {
     pub Terminated: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWTSPlugin_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, pchannelmgr: Option<&IWTSVirtualChannelManager>) -> windows_core::Result<()>;
+    fn Initialize(&self, pchannelmgr: windows_core::Ref<'_, IWTSVirtualChannelManager>) -> windows_core::Result<()>;
     fn Connected(&self) -> windows_core::Result<()>;
     fn Disconnected(&self, dwdisconnectcode: u32) -> windows_core::Result<()>;
     fn Terminated(&self) -> windows_core::Result<()>;
@@ -6768,7 +6768,7 @@ impl IWTSPlugin_Vtbl {
     pub const fn new<Identity: IWTSPlugin_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IWTSPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pchannelmgr: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWTSPlugin_Impl::Initialize(this, windows_core::from_raw_borrowed(&pchannelmgr)).into()
+            IWTSPlugin_Impl::Initialize(this, core::mem::transmute_copy(&pchannelmgr)).into()
         }
         unsafe extern "system" fn Connected<Identity: IWTSPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -7279,14 +7279,14 @@ pub struct IWTSProtocolListener_Vtbl {
     pub StopListen: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWTSProtocolListener_Impl: windows_core::IUnknownImpl {
-    fn StartListen(&self, pcallback: Option<&IWTSProtocolListenerCallback>) -> windows_core::Result<()>;
+    fn StartListen(&self, pcallback: windows_core::Ref<'_, IWTSProtocolListenerCallback>) -> windows_core::Result<()>;
     fn StopListen(&self) -> windows_core::Result<()>;
 }
 impl IWTSProtocolListener_Vtbl {
     pub const fn new<Identity: IWTSProtocolListener_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn StartListen<Identity: IWTSProtocolListener_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWTSProtocolListener_Impl::StartListen(this, windows_core::from_raw_borrowed(&pcallback)).into()
+            IWTSProtocolListener_Impl::StartListen(this, core::mem::transmute_copy(&pcallback)).into()
         }
         unsafe extern "system" fn StopListen<Identity: IWTSProtocolListener_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -7320,13 +7320,13 @@ pub struct IWTSProtocolListenerCallback_Vtbl {
     pub OnConnected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWTSProtocolListenerCallback_Impl: windows_core::IUnknownImpl {
-    fn OnConnected(&self, pconnection: Option<&IWTSProtocolConnection>) -> windows_core::Result<IWTSProtocolConnectionCallback>;
+    fn OnConnected(&self, pconnection: windows_core::Ref<'_, IWTSProtocolConnection>) -> windows_core::Result<IWTSProtocolConnectionCallback>;
 }
 impl IWTSProtocolListenerCallback_Vtbl {
     pub const fn new<Identity: IWTSProtocolListenerCallback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnConnected<Identity: IWTSProtocolListenerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pconnection: *mut core::ffi::c_void, pcallback: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWTSProtocolListenerCallback_Impl::OnConnected(this, windows_core::from_raw_borrowed(&pconnection)) {
+            match IWTSProtocolListenerCallback_Impl::OnConnected(this, core::mem::transmute_copy(&pconnection)) {
                 Ok(ok__) => {
                     pcallback.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7588,7 +7588,7 @@ pub struct IWTSProtocolShadowConnection_Vtbl {
     pub DoTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *const u8, u32, *const u8, u32, *const u8, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 pub trait IWTSProtocolShadowConnection_Impl: windows_core::IUnknownImpl {
-    fn Start(&self, ptargetservername: &windows_core::PCWSTR, targetsessionid: u32, hotkeyvk: u8, hotkeymodifiers: u16, pshadowcallback: Option<&IWTSProtocolShadowCallback>) -> windows_core::Result<()>;
+    fn Start(&self, ptargetservername: &windows_core::PCWSTR, targetsessionid: u32, hotkeyvk: u8, hotkeymodifiers: u16, pshadowcallback: windows_core::Ref<'_, IWTSProtocolShadowCallback>) -> windows_core::Result<()>;
     fn Stop(&self) -> windows_core::Result<()>;
     fn DoTarget(&self, pparam1: *const u8, param1size: u32, pparam2: *const u8, param2size: u32, pparam3: *const u8, param3size: u32, pparam4: *const u8, param4size: u32, pclientname: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
@@ -7596,7 +7596,7 @@ impl IWTSProtocolShadowConnection_Vtbl {
     pub const fn new<Identity: IWTSProtocolShadowConnection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Start<Identity: IWTSProtocolShadowConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptargetservername: windows_core::PCWSTR, targetsessionid: u32, hotkeyvk: u8, hotkeymodifiers: u16, pshadowcallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWTSProtocolShadowConnection_Impl::Start(this, core::mem::transmute(&ptargetservername), core::mem::transmute_copy(&targetsessionid), core::mem::transmute_copy(&hotkeyvk), core::mem::transmute_copy(&hotkeymodifiers), windows_core::from_raw_borrowed(&pshadowcallback)).into()
+            IWTSProtocolShadowConnection_Impl::Start(this, core::mem::transmute(&ptargetservername), core::mem::transmute_copy(&targetsessionid), core::mem::transmute_copy(&hotkeyvk), core::mem::transmute_copy(&hotkeymodifiers), core::mem::transmute_copy(&pshadowcallback)).into()
         }
         unsafe extern "system" fn Stop<Identity: IWTSProtocolShadowConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -7737,14 +7737,14 @@ pub struct IWTSVirtualChannel_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWTSVirtualChannel_Impl: windows_core::IUnknownImpl {
-    fn Write(&self, cbsize: u32, pbuffer: *const u8, preserved: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Write(&self, cbsize: u32, pbuffer: *const u8, preserved: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
 }
 impl IWTSVirtualChannel_Vtbl {
     pub const fn new<Identity: IWTSVirtualChannel_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Write<Identity: IWTSVirtualChannel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbsize: u32, pbuffer: *const u8, preserved: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWTSVirtualChannel_Impl::Write(this, core::mem::transmute_copy(&cbsize), core::mem::transmute_copy(&pbuffer), windows_core::from_raw_borrowed(&preserved)).into()
+            IWTSVirtualChannel_Impl::Write(this, core::mem::transmute_copy(&cbsize), core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&preserved)).into()
         }
         unsafe extern "system" fn Close<Identity: IWTSVirtualChannel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -7816,13 +7816,13 @@ pub struct IWTSVirtualChannelManager_Vtbl {
     pub CreateListener: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWTSVirtualChannelManager_Impl: windows_core::IUnknownImpl {
-    fn CreateListener(&self, pszchannelname: &windows_core::PCSTR, uflags: u32, plistenercallback: Option<&IWTSListenerCallback>) -> windows_core::Result<IWTSListener>;
+    fn CreateListener(&self, pszchannelname: &windows_core::PCSTR, uflags: u32, plistenercallback: windows_core::Ref<'_, IWTSListenerCallback>) -> windows_core::Result<IWTSListener>;
 }
 impl IWTSVirtualChannelManager_Vtbl {
     pub const fn new<Identity: IWTSVirtualChannelManager_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateListener<Identity: IWTSVirtualChannelManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszchannelname: windows_core::PCSTR, uflags: u32, plistenercallback: *mut core::ffi::c_void, pplistener: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWTSVirtualChannelManager_Impl::CreateListener(this, core::mem::transmute(&pszchannelname), core::mem::transmute_copy(&uflags), windows_core::from_raw_borrowed(&plistenercallback)) {
+            match IWTSVirtualChannelManager_Impl::CreateListener(this, core::mem::transmute(&pszchannelname), core::mem::transmute_copy(&uflags), core::mem::transmute_copy(&plistenercallback)) {
                 Ok(ok__) => {
                     pplistener.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8097,14 +8097,14 @@ pub struct IWorkspaceRegistration_Vtbl {
     pub RemoveResource: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait IWorkspaceRegistration_Impl: windows_core::IUnknownImpl {
-    fn AddResource(&self, punk: Option<&IWorkspaceClientExt>) -> windows_core::Result<u32>;
+    fn AddResource(&self, punk: windows_core::Ref<'_, IWorkspaceClientExt>) -> windows_core::Result<u32>;
     fn RemoveResource(&self, dwcookieconnection: u32) -> windows_core::Result<()>;
 }
 impl IWorkspaceRegistration_Vtbl {
     pub const fn new<Identity: IWorkspaceRegistration_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddResource<Identity: IWorkspaceRegistration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punk: *mut core::ffi::c_void, pdwcookie: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWorkspaceRegistration_Impl::AddResource(this, windows_core::from_raw_borrowed(&punk)) {
+            match IWorkspaceRegistration_Impl::AddResource(this, core::mem::transmute_copy(&punk)) {
                 Ok(ok__) => {
                     pdwcookie.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8153,14 +8153,14 @@ pub struct IWorkspaceRegistration2_Vtbl {
     pub RemoveResourceEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::GUID) -> windows_core::HRESULT,
 }
 pub trait IWorkspaceRegistration2_Impl: IWorkspaceRegistration_Impl {
-    fn AddResourceEx(&self, punk: Option<&IWorkspaceClientExt>, bstreventloguploadaddress: &windows_core::BSTR, pdwcookie: *mut u32, correlationid: &windows_core::GUID) -> windows_core::Result<()>;
+    fn AddResourceEx(&self, punk: windows_core::Ref<'_, IWorkspaceClientExt>, bstreventloguploadaddress: &windows_core::BSTR, pdwcookie: *mut u32, correlationid: &windows_core::GUID) -> windows_core::Result<()>;
     fn RemoveResourceEx(&self, dwcookieconnection: u32, correlationid: &windows_core::GUID) -> windows_core::Result<()>;
 }
 impl IWorkspaceRegistration2_Vtbl {
     pub const fn new<Identity: IWorkspaceRegistration2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddResourceEx<Identity: IWorkspaceRegistration2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punk: *mut core::ffi::c_void, bstreventloguploadaddress: *mut core::ffi::c_void, pdwcookie: *mut u32, correlationid: windows_core::GUID) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWorkspaceRegistration2_Impl::AddResourceEx(this, windows_core::from_raw_borrowed(&punk), core::mem::transmute(&bstreventloguploadaddress), core::mem::transmute_copy(&pdwcookie), core::mem::transmute(&correlationid)).into()
+            IWorkspaceRegistration2_Impl::AddResourceEx(this, core::mem::transmute_copy(&punk), core::mem::transmute(&bstreventloguploadaddress), core::mem::transmute_copy(&pdwcookie), core::mem::transmute(&correlationid)).into()
         }
         unsafe extern "system" fn RemoveResourceEx<Identity: IWorkspaceRegistration2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcookieconnection: u32, correlationid: windows_core::GUID) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);

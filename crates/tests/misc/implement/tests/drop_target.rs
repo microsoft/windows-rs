@@ -25,15 +25,10 @@ impl IDataObject_Impl for DataObject_Impl {
     fn EnumFormatEtc(&self, _: u32) -> Result<IEnumFORMATETC> {
         unimplemented!()
     }
-    fn DAdvise(
-        &self,
-        format: *const FORMATETC,
-        value: u32,
-        sink: Option<&IAdviseSink>,
-    ) -> Result<u32> {
+    fn DAdvise(&self, format: *const FORMATETC, value: u32, sink: Ref<IAdviseSink>) -> Result<u32> {
         assert!(!format.is_null());
         assert_eq!(value, 789);
-        assert!(sink.is_none());
+        assert!(sink.is_null());
         Ok(123)
     }
     fn DUnadvise(&self, _: u32) -> Result<()> {
@@ -50,7 +45,7 @@ struct DropTarget();
 impl IDropTarget_Impl for DropTarget_Impl {
     fn DragEnter(
         &self,
-        object: Option<&IDataObject>,
+        object: Ref<IDataObject>,
         state: MODIFIERKEYS_FLAGS,
         point: &POINTL,
         effect: *mut DROPEFFECT,
@@ -75,7 +70,7 @@ impl IDropTarget_Impl for DropTarget_Impl {
     }
     fn Drop(
         &self,
-        _: Option<&IDataObject>,
+        _: Ref<IDataObject>,
         _: MODIFIERKEYS_FLAGS,
         _: &POINTL,
         _: *mut DROPEFFECT,

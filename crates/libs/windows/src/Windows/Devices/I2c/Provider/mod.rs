@@ -19,13 +19,13 @@ impl windows_core::RuntimeName for II2cControllerProvider {
     const NAME: &'static str = "Windows.Devices.I2c.Provider.II2cControllerProvider";
 }
 pub trait II2cControllerProvider_Impl: windows_core::IUnknownImpl {
-    fn GetDeviceProvider(&self, settings: Option<&ProviderI2cConnectionSettings>) -> windows_core::Result<II2cDeviceProvider>;
+    fn GetDeviceProvider(&self, settings: windows_core::Ref<'_, ProviderI2cConnectionSettings>) -> windows_core::Result<II2cDeviceProvider>;
 }
 impl II2cControllerProvider_Vtbl {
     pub const fn new<Identity: II2cControllerProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDeviceProvider<Identity: II2cControllerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, settings: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match II2cControllerProvider_Impl::GetDeviceProvider(this, windows_core::from_raw_borrowed(&settings)) {
+            match II2cControllerProvider_Impl::GetDeviceProvider(this, core::mem::transmute_copy(&settings)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);

@@ -2345,14 +2345,14 @@ impl windows_core::RuntimeName for ICoreAcceleratorKeys {
     const NAME: &'static str = "Windows.UI.Core.ICoreAcceleratorKeys";
 }
 pub trait ICoreAcceleratorKeys_Impl: windows_core::IUnknownImpl {
-    fn AcceleratorKeyActivated(&self, handler: Option<&super::super::Foundation::TypedEventHandler<CoreDispatcher, AcceleratorKeyEventArgs>>) -> windows_core::Result<i64>;
+    fn AcceleratorKeyActivated(&self, handler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<CoreDispatcher, AcceleratorKeyEventArgs>>) -> windows_core::Result<i64>;
     fn RemoveAcceleratorKeyActivated(&self, cookie: i64) -> windows_core::Result<()>;
 }
 impl ICoreAcceleratorKeys_Vtbl {
     pub const fn new<Identity: ICoreAcceleratorKeys_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AcceleratorKeyActivated<Identity: ICoreAcceleratorKeys_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICoreAcceleratorKeys_Impl::AcceleratorKeyActivated(this, windows_core::from_raw_borrowed(&handler)) {
+            match ICoreAcceleratorKeys_Impl::AcceleratorKeyActivated(this, core::mem::transmute_copy(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -2534,7 +2534,7 @@ pub trait ICoreInputSourceBase_Impl: windows_core::IUnknownImpl {
     fn Dispatcher(&self) -> windows_core::Result<CoreDispatcher>;
     fn IsInputEnabled(&self) -> windows_core::Result<bool>;
     fn SetIsInputEnabled(&self, value: bool) -> windows_core::Result<()>;
-    fn InputEnabled(&self, handler: Option<&super::super::Foundation::TypedEventHandler<windows_core::IInspectable, InputEnabledEventArgs>>) -> windows_core::Result<i64>;
+    fn InputEnabled(&self, handler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<windows_core::IInspectable, InputEnabledEventArgs>>) -> windows_core::Result<i64>;
     fn RemoveInputEnabled(&self, cookie: i64) -> windows_core::Result<()>;
 }
 impl ICoreInputSourceBase_Vtbl {
@@ -2566,7 +2566,7 @@ impl ICoreInputSourceBase_Vtbl {
         }
         unsafe extern "system" fn InputEnabled<Identity: ICoreInputSourceBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICoreInputSourceBase_Impl::InputEnabled(this, windows_core::from_raw_borrowed(&handler)) {
+            match ICoreInputSourceBase_Impl::InputEnabled(this, core::mem::transmute_copy(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -2777,20 +2777,20 @@ pub trait ICorePointerInputSource_Impl: windows_core::IUnknownImpl {
     fn HasCapture(&self) -> windows_core::Result<bool>;
     fn PointerPosition(&self) -> windows_core::Result<super::super::Foundation::Point>;
     fn PointerCursor(&self) -> windows_core::Result<CoreCursor>;
-    fn SetPointerCursor(&self, value: Option<&CoreCursor>) -> windows_core::Result<()>;
-    fn PointerCaptureLost(&self, handler: Option<&super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>) -> windows_core::Result<i64>;
+    fn SetPointerCursor(&self, value: windows_core::Ref<'_, CoreCursor>) -> windows_core::Result<()>;
+    fn PointerCaptureLost(&self, handler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>) -> windows_core::Result<i64>;
     fn RemovePointerCaptureLost(&self, cookie: i64) -> windows_core::Result<()>;
-    fn PointerEntered(&self, handler: Option<&super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>) -> windows_core::Result<i64>;
+    fn PointerEntered(&self, handler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>) -> windows_core::Result<i64>;
     fn RemovePointerEntered(&self, cookie: i64) -> windows_core::Result<()>;
-    fn PointerExited(&self, handler: Option<&super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>) -> windows_core::Result<i64>;
+    fn PointerExited(&self, handler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>) -> windows_core::Result<i64>;
     fn RemovePointerExited(&self, cookie: i64) -> windows_core::Result<()>;
-    fn PointerMoved(&self, handler: Option<&super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>) -> windows_core::Result<i64>;
+    fn PointerMoved(&self, handler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>) -> windows_core::Result<i64>;
     fn RemovePointerMoved(&self, cookie: i64) -> windows_core::Result<()>;
-    fn PointerPressed(&self, handler: Option<&super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>) -> windows_core::Result<i64>;
+    fn PointerPressed(&self, handler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>) -> windows_core::Result<i64>;
     fn RemovePointerPressed(&self, cookie: i64) -> windows_core::Result<()>;
-    fn PointerReleased(&self, handler: Option<&super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>) -> windows_core::Result<i64>;
+    fn PointerReleased(&self, handler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>) -> windows_core::Result<i64>;
     fn RemovePointerReleased(&self, cookie: i64) -> windows_core::Result<()>;
-    fn PointerWheelChanged(&self, handler: Option<&super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>) -> windows_core::Result<i64>;
+    fn PointerWheelChanged(&self, handler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>) -> windows_core::Result<i64>;
     fn RemovePointerWheelChanged(&self, cookie: i64) -> windows_core::Result<()>;
 }
 impl ICorePointerInputSource_Vtbl {
@@ -2836,11 +2836,11 @@ impl ICorePointerInputSource_Vtbl {
         }
         unsafe extern "system" fn SetPointerCursor<Identity: ICorePointerInputSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICorePointerInputSource_Impl::SetPointerCursor(this, windows_core::from_raw_borrowed(&value)).into()
+            ICorePointerInputSource_Impl::SetPointerCursor(this, core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn PointerCaptureLost<Identity: ICorePointerInputSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorePointerInputSource_Impl::PointerCaptureLost(this, windows_core::from_raw_borrowed(&handler)) {
+            match ICorePointerInputSource_Impl::PointerCaptureLost(this, core::mem::transmute_copy(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -2854,7 +2854,7 @@ impl ICorePointerInputSource_Vtbl {
         }
         unsafe extern "system" fn PointerEntered<Identity: ICorePointerInputSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorePointerInputSource_Impl::PointerEntered(this, windows_core::from_raw_borrowed(&handler)) {
+            match ICorePointerInputSource_Impl::PointerEntered(this, core::mem::transmute_copy(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -2868,7 +2868,7 @@ impl ICorePointerInputSource_Vtbl {
         }
         unsafe extern "system" fn PointerExited<Identity: ICorePointerInputSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorePointerInputSource_Impl::PointerExited(this, windows_core::from_raw_borrowed(&handler)) {
+            match ICorePointerInputSource_Impl::PointerExited(this, core::mem::transmute_copy(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -2882,7 +2882,7 @@ impl ICorePointerInputSource_Vtbl {
         }
         unsafe extern "system" fn PointerMoved<Identity: ICorePointerInputSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorePointerInputSource_Impl::PointerMoved(this, windows_core::from_raw_borrowed(&handler)) {
+            match ICorePointerInputSource_Impl::PointerMoved(this, core::mem::transmute_copy(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -2896,7 +2896,7 @@ impl ICorePointerInputSource_Vtbl {
         }
         unsafe extern "system" fn PointerPressed<Identity: ICorePointerInputSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorePointerInputSource_Impl::PointerPressed(this, windows_core::from_raw_borrowed(&handler)) {
+            match ICorePointerInputSource_Impl::PointerPressed(this, core::mem::transmute_copy(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -2910,7 +2910,7 @@ impl ICorePointerInputSource_Vtbl {
         }
         unsafe extern "system" fn PointerReleased<Identity: ICorePointerInputSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorePointerInputSource_Impl::PointerReleased(this, windows_core::from_raw_borrowed(&handler)) {
+            match ICorePointerInputSource_Impl::PointerReleased(this, core::mem::transmute_copy(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -2924,7 +2924,7 @@ impl ICorePointerInputSource_Vtbl {
         }
         unsafe extern "system" fn PointerWheelChanged<Identity: ICorePointerInputSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorePointerInputSource_Impl::PointerWheelChanged(this, windows_core::from_raw_borrowed(&handler)) {
+            match ICorePointerInputSource_Impl::PointerWheelChanged(this, core::mem::transmute_copy(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -3230,18 +3230,18 @@ impl windows_core::RuntimeName for ICorePointerRedirector {
     const NAME: &'static str = "Windows.UI.Core.ICorePointerRedirector";
 }
 pub trait ICorePointerRedirector_Impl: windows_core::IUnknownImpl {
-    fn PointerRoutedAway(&self, handler: Option<&super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>) -> windows_core::Result<i64>;
+    fn PointerRoutedAway(&self, handler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>) -> windows_core::Result<i64>;
     fn RemovePointerRoutedAway(&self, cookie: i64) -> windows_core::Result<()>;
-    fn PointerRoutedTo(&self, handler: Option<&super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>) -> windows_core::Result<i64>;
+    fn PointerRoutedTo(&self, handler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>) -> windows_core::Result<i64>;
     fn RemovePointerRoutedTo(&self, cookie: i64) -> windows_core::Result<()>;
-    fn PointerRoutedReleased(&self, handler: Option<&super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>) -> windows_core::Result<i64>;
+    fn PointerRoutedReleased(&self, handler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>) -> windows_core::Result<i64>;
     fn RemovePointerRoutedReleased(&self, cookie: i64) -> windows_core::Result<()>;
 }
 impl ICorePointerRedirector_Vtbl {
     pub const fn new<Identity: ICorePointerRedirector_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn PointerRoutedAway<Identity: ICorePointerRedirector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorePointerRedirector_Impl::PointerRoutedAway(this, windows_core::from_raw_borrowed(&handler)) {
+            match ICorePointerRedirector_Impl::PointerRoutedAway(this, core::mem::transmute_copy(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -3255,7 +3255,7 @@ impl ICorePointerRedirector_Vtbl {
         }
         unsafe extern "system" fn PointerRoutedTo<Identity: ICorePointerRedirector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorePointerRedirector_Impl::PointerRoutedTo(this, windows_core::from_raw_borrowed(&handler)) {
+            match ICorePointerRedirector_Impl::PointerRoutedTo(this, core::mem::transmute_copy(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -3269,7 +3269,7 @@ impl ICorePointerRedirector_Vtbl {
         }
         unsafe extern "system" fn PointerRoutedReleased<Identity: ICorePointerRedirector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICorePointerRedirector_Impl::PointerRoutedReleased(this, windows_core::from_raw_borrowed(&handler)) {
+            match ICorePointerRedirector_Impl::PointerRoutedReleased(this, core::mem::transmute_copy(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -3686,7 +3686,7 @@ pub trait ICoreWindow_Impl: windows_core::IUnknownImpl {
     fn IsInputEnabled(&self) -> windows_core::Result<bool>;
     fn SetIsInputEnabled(&self, value: bool) -> windows_core::Result<()>;
     fn PointerCursor(&self) -> windows_core::Result<CoreCursor>;
-    fn SetPointerCursor(&self, value: Option<&CoreCursor>) -> windows_core::Result<()>;
+    fn SetPointerCursor(&self, value: windows_core::Ref<'_, CoreCursor>) -> windows_core::Result<()>;
     fn PointerPosition(&self) -> windows_core::Result<super::super::Foundation::Point>;
     fn Visible(&self) -> windows_core::Result<bool>;
     fn Activate(&self) -> windows_core::Result<()>;
@@ -3695,39 +3695,39 @@ pub trait ICoreWindow_Impl: windows_core::IUnknownImpl {
     fn GetKeyState(&self, virtualKey: super::super::System::VirtualKey) -> windows_core::Result<CoreVirtualKeyStates>;
     fn ReleasePointerCapture(&self) -> windows_core::Result<()>;
     fn SetPointerCapture(&self) -> windows_core::Result<()>;
-    fn Activated(&self, handler: Option<&super::super::Foundation::TypedEventHandler<CoreWindow, WindowActivatedEventArgs>>) -> windows_core::Result<i64>;
+    fn Activated(&self, handler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<CoreWindow, WindowActivatedEventArgs>>) -> windows_core::Result<i64>;
     fn RemoveActivated(&self, cookie: i64) -> windows_core::Result<()>;
-    fn AutomationProviderRequested(&self, handler: Option<&super::super::Foundation::TypedEventHandler<CoreWindow, AutomationProviderRequestedEventArgs>>) -> windows_core::Result<i64>;
+    fn AutomationProviderRequested(&self, handler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<CoreWindow, AutomationProviderRequestedEventArgs>>) -> windows_core::Result<i64>;
     fn RemoveAutomationProviderRequested(&self, cookie: i64) -> windows_core::Result<()>;
-    fn CharacterReceived(&self, handler: Option<&super::super::Foundation::TypedEventHandler<CoreWindow, CharacterReceivedEventArgs>>) -> windows_core::Result<i64>;
+    fn CharacterReceived(&self, handler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<CoreWindow, CharacterReceivedEventArgs>>) -> windows_core::Result<i64>;
     fn RemoveCharacterReceived(&self, cookie: i64) -> windows_core::Result<()>;
-    fn Closed(&self, handler: Option<&super::super::Foundation::TypedEventHandler<CoreWindow, CoreWindowEventArgs>>) -> windows_core::Result<i64>;
+    fn Closed(&self, handler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<CoreWindow, CoreWindowEventArgs>>) -> windows_core::Result<i64>;
     fn RemoveClosed(&self, cookie: i64) -> windows_core::Result<()>;
-    fn InputEnabled(&self, handler: Option<&super::super::Foundation::TypedEventHandler<CoreWindow, InputEnabledEventArgs>>) -> windows_core::Result<i64>;
+    fn InputEnabled(&self, handler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<CoreWindow, InputEnabledEventArgs>>) -> windows_core::Result<i64>;
     fn RemoveInputEnabled(&self, cookie: i64) -> windows_core::Result<()>;
-    fn KeyDown(&self, handler: Option<&super::super::Foundation::TypedEventHandler<CoreWindow, KeyEventArgs>>) -> windows_core::Result<i64>;
+    fn KeyDown(&self, handler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<CoreWindow, KeyEventArgs>>) -> windows_core::Result<i64>;
     fn RemoveKeyDown(&self, cookie: i64) -> windows_core::Result<()>;
-    fn KeyUp(&self, handler: Option<&super::super::Foundation::TypedEventHandler<CoreWindow, KeyEventArgs>>) -> windows_core::Result<i64>;
+    fn KeyUp(&self, handler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<CoreWindow, KeyEventArgs>>) -> windows_core::Result<i64>;
     fn RemoveKeyUp(&self, cookie: i64) -> windows_core::Result<()>;
-    fn PointerCaptureLost(&self, handler: Option<&super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>) -> windows_core::Result<i64>;
+    fn PointerCaptureLost(&self, handler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>) -> windows_core::Result<i64>;
     fn RemovePointerCaptureLost(&self, cookie: i64) -> windows_core::Result<()>;
-    fn PointerEntered(&self, handler: Option<&super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>) -> windows_core::Result<i64>;
+    fn PointerEntered(&self, handler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>) -> windows_core::Result<i64>;
     fn RemovePointerEntered(&self, cookie: i64) -> windows_core::Result<()>;
-    fn PointerExited(&self, handler: Option<&super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>) -> windows_core::Result<i64>;
+    fn PointerExited(&self, handler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>) -> windows_core::Result<i64>;
     fn RemovePointerExited(&self, cookie: i64) -> windows_core::Result<()>;
-    fn PointerMoved(&self, handler: Option<&super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>) -> windows_core::Result<i64>;
+    fn PointerMoved(&self, handler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>) -> windows_core::Result<i64>;
     fn RemovePointerMoved(&self, cookie: i64) -> windows_core::Result<()>;
-    fn PointerPressed(&self, handler: Option<&super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>) -> windows_core::Result<i64>;
+    fn PointerPressed(&self, handler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>) -> windows_core::Result<i64>;
     fn RemovePointerPressed(&self, cookie: i64) -> windows_core::Result<()>;
-    fn PointerReleased(&self, handler: Option<&super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>) -> windows_core::Result<i64>;
+    fn PointerReleased(&self, handler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>) -> windows_core::Result<i64>;
     fn RemovePointerReleased(&self, cookie: i64) -> windows_core::Result<()>;
-    fn TouchHitTesting(&self, handler: Option<&super::super::Foundation::TypedEventHandler<CoreWindow, TouchHitTestingEventArgs>>) -> windows_core::Result<i64>;
+    fn TouchHitTesting(&self, handler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<CoreWindow, TouchHitTestingEventArgs>>) -> windows_core::Result<i64>;
     fn RemoveTouchHitTesting(&self, cookie: i64) -> windows_core::Result<()>;
-    fn PointerWheelChanged(&self, handler: Option<&super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>) -> windows_core::Result<i64>;
+    fn PointerWheelChanged(&self, handler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>) -> windows_core::Result<i64>;
     fn RemovePointerWheelChanged(&self, cookie: i64) -> windows_core::Result<()>;
-    fn SizeChanged(&self, handler: Option<&super::super::Foundation::TypedEventHandler<CoreWindow, WindowSizeChangedEventArgs>>) -> windows_core::Result<i64>;
+    fn SizeChanged(&self, handler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<CoreWindow, WindowSizeChangedEventArgs>>) -> windows_core::Result<i64>;
     fn RemoveSizeChanged(&self, cookie: i64) -> windows_core::Result<()>;
-    fn VisibilityChanged(&self, handler: Option<&super::super::Foundation::TypedEventHandler<CoreWindow, VisibilityChangedEventArgs>>) -> windows_core::Result<i64>;
+    fn VisibilityChanged(&self, handler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<CoreWindow, VisibilityChangedEventArgs>>) -> windows_core::Result<i64>;
     fn RemoveVisibilityChanged(&self, cookie: i64) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
@@ -3817,7 +3817,7 @@ impl ICoreWindow_Vtbl {
         }
         unsafe extern "system" fn SetPointerCursor<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICoreWindow_Impl::SetPointerCursor(this, windows_core::from_raw_borrowed(&value)).into()
+            ICoreWindow_Impl::SetPointerCursor(this, core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn PointerPosition<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3877,7 +3877,7 @@ impl ICoreWindow_Vtbl {
         }
         unsafe extern "system" fn Activated<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICoreWindow_Impl::Activated(this, windows_core::from_raw_borrowed(&handler)) {
+            match ICoreWindow_Impl::Activated(this, core::mem::transmute_copy(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -3891,7 +3891,7 @@ impl ICoreWindow_Vtbl {
         }
         unsafe extern "system" fn AutomationProviderRequested<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICoreWindow_Impl::AutomationProviderRequested(this, windows_core::from_raw_borrowed(&handler)) {
+            match ICoreWindow_Impl::AutomationProviderRequested(this, core::mem::transmute_copy(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -3905,7 +3905,7 @@ impl ICoreWindow_Vtbl {
         }
         unsafe extern "system" fn CharacterReceived<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICoreWindow_Impl::CharacterReceived(this, windows_core::from_raw_borrowed(&handler)) {
+            match ICoreWindow_Impl::CharacterReceived(this, core::mem::transmute_copy(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -3919,7 +3919,7 @@ impl ICoreWindow_Vtbl {
         }
         unsafe extern "system" fn Closed<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICoreWindow_Impl::Closed(this, windows_core::from_raw_borrowed(&handler)) {
+            match ICoreWindow_Impl::Closed(this, core::mem::transmute_copy(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -3933,7 +3933,7 @@ impl ICoreWindow_Vtbl {
         }
         unsafe extern "system" fn InputEnabled<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICoreWindow_Impl::InputEnabled(this, windows_core::from_raw_borrowed(&handler)) {
+            match ICoreWindow_Impl::InputEnabled(this, core::mem::transmute_copy(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -3947,7 +3947,7 @@ impl ICoreWindow_Vtbl {
         }
         unsafe extern "system" fn KeyDown<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICoreWindow_Impl::KeyDown(this, windows_core::from_raw_borrowed(&handler)) {
+            match ICoreWindow_Impl::KeyDown(this, core::mem::transmute_copy(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -3961,7 +3961,7 @@ impl ICoreWindow_Vtbl {
         }
         unsafe extern "system" fn KeyUp<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICoreWindow_Impl::KeyUp(this, windows_core::from_raw_borrowed(&handler)) {
+            match ICoreWindow_Impl::KeyUp(this, core::mem::transmute_copy(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -3975,7 +3975,7 @@ impl ICoreWindow_Vtbl {
         }
         unsafe extern "system" fn PointerCaptureLost<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICoreWindow_Impl::PointerCaptureLost(this, windows_core::from_raw_borrowed(&handler)) {
+            match ICoreWindow_Impl::PointerCaptureLost(this, core::mem::transmute_copy(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -3989,7 +3989,7 @@ impl ICoreWindow_Vtbl {
         }
         unsafe extern "system" fn PointerEntered<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICoreWindow_Impl::PointerEntered(this, windows_core::from_raw_borrowed(&handler)) {
+            match ICoreWindow_Impl::PointerEntered(this, core::mem::transmute_copy(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -4003,7 +4003,7 @@ impl ICoreWindow_Vtbl {
         }
         unsafe extern "system" fn PointerExited<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICoreWindow_Impl::PointerExited(this, windows_core::from_raw_borrowed(&handler)) {
+            match ICoreWindow_Impl::PointerExited(this, core::mem::transmute_copy(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -4017,7 +4017,7 @@ impl ICoreWindow_Vtbl {
         }
         unsafe extern "system" fn PointerMoved<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICoreWindow_Impl::PointerMoved(this, windows_core::from_raw_borrowed(&handler)) {
+            match ICoreWindow_Impl::PointerMoved(this, core::mem::transmute_copy(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -4031,7 +4031,7 @@ impl ICoreWindow_Vtbl {
         }
         unsafe extern "system" fn PointerPressed<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICoreWindow_Impl::PointerPressed(this, windows_core::from_raw_borrowed(&handler)) {
+            match ICoreWindow_Impl::PointerPressed(this, core::mem::transmute_copy(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -4045,7 +4045,7 @@ impl ICoreWindow_Vtbl {
         }
         unsafe extern "system" fn PointerReleased<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICoreWindow_Impl::PointerReleased(this, windows_core::from_raw_borrowed(&handler)) {
+            match ICoreWindow_Impl::PointerReleased(this, core::mem::transmute_copy(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -4059,7 +4059,7 @@ impl ICoreWindow_Vtbl {
         }
         unsafe extern "system" fn TouchHitTesting<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICoreWindow_Impl::TouchHitTesting(this, windows_core::from_raw_borrowed(&handler)) {
+            match ICoreWindow_Impl::TouchHitTesting(this, core::mem::transmute_copy(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -4073,7 +4073,7 @@ impl ICoreWindow_Vtbl {
         }
         unsafe extern "system" fn PointerWheelChanged<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICoreWindow_Impl::PointerWheelChanged(this, windows_core::from_raw_borrowed(&handler)) {
+            match ICoreWindow_Impl::PointerWheelChanged(this, core::mem::transmute_copy(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -4087,7 +4087,7 @@ impl ICoreWindow_Vtbl {
         }
         unsafe extern "system" fn SizeChanged<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICoreWindow_Impl::SizeChanged(this, windows_core::from_raw_borrowed(&handler)) {
+            match ICoreWindow_Impl::SizeChanged(this, core::mem::transmute_copy(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -4101,7 +4101,7 @@ impl ICoreWindow_Vtbl {
         }
         unsafe extern "system" fn VisibilityChanged<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICoreWindow_Impl::VisibilityChanged(this, windows_core::from_raw_borrowed(&handler)) {
+            match ICoreWindow_Impl::VisibilityChanged(this, core::mem::transmute_copy(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -4511,13 +4511,13 @@ impl windows_core::RuntimeName for IInitializeWithCoreWindow {
     const NAME: &'static str = "Windows.UI.Core.IInitializeWithCoreWindow";
 }
 pub trait IInitializeWithCoreWindow_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, window: Option<&CoreWindow>) -> windows_core::Result<()>;
+    fn Initialize(&self, window: windows_core::Ref<'_, CoreWindow>) -> windows_core::Result<()>;
 }
 impl IInitializeWithCoreWindow_Vtbl {
     pub const fn new<Identity: IInitializeWithCoreWindow_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IInitializeWithCoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, window: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IInitializeWithCoreWindow_Impl::Initialize(this, windows_core::from_raw_borrowed(&window)).into()
+            IInitializeWithCoreWindow_Impl::Initialize(this, core::mem::transmute_copy(&window)).into()
         }
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IInitializeWithCoreWindow, OFFSET>(), Initialize: Initialize::<Identity, OFFSET> }
     }
@@ -4656,7 +4656,7 @@ impl windows_core::RuntimeType for IdleDispatchedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl IdleDispatchedHandler {
-    pub fn new<F: FnMut(Option<&IdleDispatchedHandlerArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(windows_core::Ref<'_, IdleDispatchedHandlerArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = IdleDispatchedHandlerBox { vtable: &IdleDispatchedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -4674,12 +4674,12 @@ pub struct IdleDispatchedHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct IdleDispatchedHandlerBox<F: FnMut(Option<&IdleDispatchedHandlerArgs>) -> windows_core::Result<()> + Send + 'static> {
+struct IdleDispatchedHandlerBox<F: FnMut(windows_core::Ref<'_, IdleDispatchedHandlerArgs>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const IdleDispatchedHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: FnMut(Option<&IdleDispatchedHandlerArgs>) -> windows_core::Result<()> + Send + 'static> IdleDispatchedHandlerBox<F> {
+impl<F: FnMut(windows_core::Ref<'_, IdleDispatchedHandlerArgs>) -> windows_core::Result<()> + Send + 'static> IdleDispatchedHandlerBox<F> {
     const VTABLE: IdleDispatchedHandler_Vtbl = IdleDispatchedHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         let this = this as *mut *mut core::ffi::c_void as *mut Self;
@@ -4708,7 +4708,7 @@ impl<F: FnMut(Option<&IdleDispatchedHandlerArgs>) -> windows_core::Result<()> + 
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT {
         let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(windows_core::from_raw_borrowed(&e)).into()
+        (this.invoke)(core::mem::transmute_copy(&e)).into()
     }
 }
 #[repr(transparent)]

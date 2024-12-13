@@ -306,7 +306,7 @@ impl CppMethod {
 
                 let map = if return_type.is_copyable() {
                     quote! { map(||result__) }
-                } else if return_type.is_nullable() {
+                } else if return_type.is_interface() {
                     quote! { and_then(||windows_core::Type::from_abi(result__)) }
                 } else {
                     quote! { map(||core::mem::transmute(result__)) }
@@ -337,7 +337,7 @@ impl CppMethod {
                     .0
                     .deref();
 
-                if return_type.is_nullable() {
+                if return_type.is_interface() {
                     let return_type = return_type.write_name(writer);
 
                     quote! {
@@ -743,12 +743,15 @@ fn write_produce_type(writer: &Writer, ty: &Type, param: Param) -> TokenStream {
     let name = to_ident(&param.name().to_lowercase());
     let kind = ty.write_default(writer);
 
-    if param.flags().contains(ParamAttributes::In) {
+    if !param.flags().contains(ParamAttributes::Out) && ty.is_interface() {
+        let type_name = ty.write_name(writer);
+        quote! { #name: windows_core::Ref<'_, #type_name>, }
+    } else if param.flags().contains(ParamAttributes::Out) && ty.deref().is_interface() {
+        let type_name = ty.deref().write_name(writer);
+        quote! { #name: windows_core::OutRef<'_, #type_name>, }
+    } else if param.flags().contains(ParamAttributes::In) {
         if ty.is_primitive() {
             quote! { #name: #kind, }
-        } else if ty.is_nullable() {
-            let kind = ty.write_name(writer);
-            quote! { #name: Option<&#kind>, }
         } else {
             quote! { #name: &#kind, }
         }
@@ -760,9 +763,9 @@ fn write_produce_type(writer: &Writer, ty: &Type, param: Param) -> TokenStream {
 fn write_invoke_arg(ty: &Type, param: Param, _hint: ParamHint) -> TokenStream {
     let name = to_ident(&param.name().to_lowercase());
 
-    if param.flags().contains(ParamAttributes::In) && ty.is_nullable() {
-        quote! { windows_core::from_raw_borrowed(&#name) }
-    } else if (!ty.is_pointer() && ty.is_nullable())
+    if !param.flags().contains(ParamAttributes::Out) && ty.is_interface() {
+        quote! { core::mem::transmute_copy(&#name) }
+    } else if (!ty.is_pointer() && ty.is_interface())
         || (param.flags().contains(ParamAttributes::In) && !ty.is_primitive())
     {
         quote! { core::mem::transmute(&#name) }
