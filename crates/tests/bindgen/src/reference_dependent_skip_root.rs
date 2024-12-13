@@ -75,15 +75,17 @@ pub mod Windows {
                     this: *mut core::ffi::c_void,
                     result__: *mut *mut core::ffi::c_void,
                 ) -> windows_core::HRESULT {
-                    let this: &Identity =
-                        &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                    match IMemoryBuffer_Impl::CreateReference(this) {
-                        Ok(ok__) => {
-                            result__.write(core::mem::transmute_copy(&ok__));
-                            core::mem::forget(ok__);
-                            windows_core::HRESULT(0)
+                    unsafe {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        match IMemoryBuffer_Impl::CreateReference(this) {
+                            Ok(ok__) => {
+                                result__.write(core::mem::transmute_copy(&ok__));
+                                core::mem::forget(ok__);
+                                windows_core::HRESULT(0)
+                            }
+                            Err(err) => err.into(),
                         }
-                        Err(err) => err.into(),
                     }
                 }
                 Self {

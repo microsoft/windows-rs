@@ -98,13 +98,16 @@ impl IClass_Vtbl {
             value: i32,
             result__: *mut i32,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IClass_Impl::Signal(this, value) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IClass_Impl::Signal(this, value) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn Event<Identity: IClass_Impl, const OFFSET: isize>(
@@ -112,21 +115,27 @@ impl IClass_Vtbl {
             handler: *mut core::ffi::c_void,
             result__: *mut i64,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IClass_Impl::Event(this, core::mem::transmute_copy(&handler)) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IClass_Impl::Event(this, core::mem::transmute_copy(&handler)) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn RemoveEvent<Identity: IClass_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             token: i64,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IClass_Impl::RemoveEvent(this, token).into()
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IClass_Impl::RemoveEvent(this, token).into()
+            }
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IClass, OFFSET>(),

@@ -63,14 +63,17 @@ impl<T: windows_core::RuntimeType + 'static> IIterable_Vtbl<T> {
             this: *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IIterable_Impl::First(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IIterable_Impl::First(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -210,14 +213,17 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
             this: *mut core::ffi::c_void,
             result__: *mut windows_core::AbiType<T>,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IIterator_Impl::Current(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IIterator_Impl::Current(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn HasCurrent<
@@ -228,13 +234,16 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
             this: *mut core::ffi::c_void,
             result__: *mut bool,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IIterator_Impl::HasCurrent(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IIterator_Impl::HasCurrent(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn MoveNext<
@@ -245,13 +254,16 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
             this: *mut core::ffi::c_void,
             result__: *mut bool,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IIterator_Impl::MoveNext(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IIterator_Impl::MoveNext(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetMany<
@@ -264,19 +276,22 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
             items: *mut T,
             result__: *mut u32,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IIterator_Impl::GetMany(
-                this,
-                core::slice::from_raw_parts_mut(
-                    core::mem::transmute_copy(&items),
-                    items_array_size as usize,
-                ),
-            ) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IIterator_Impl::GetMany(
+                    this,
+                    core::slice::from_raw_parts_mut(
+                        core::mem::transmute_copy(&items),
+                        items_array_size as usize,
+                    ),
+                ) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -469,14 +484,17 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
             index: u32,
             result__: *mut windows_core::AbiType<T>,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IVectorView_Impl::GetAt(this, index) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IVectorView_Impl::GetAt(this, index) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn Size<
@@ -487,13 +505,16 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
             this: *mut core::ffi::c_void,
             result__: *mut u32,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IVectorView_Impl::Size(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IVectorView_Impl::Size(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn IndexOf<
@@ -506,17 +527,20 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
             index: *mut u32,
             result__: *mut bool,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IVectorView_Impl::IndexOf(
-                this,
-                core::mem::transmute(&value),
-                core::mem::transmute_copy(&index),
-            ) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IVectorView_Impl::IndexOf(
+                    this,
+                    core::mem::transmute(&value),
+                    core::mem::transmute_copy(&index),
+                ) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetMany<
@@ -530,20 +554,23 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
             items: *mut T,
             result__: *mut u32,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IVectorView_Impl::GetMany(
-                this,
-                startindex,
-                core::slice::from_raw_parts_mut(
-                    core::mem::transmute_copy(&items),
-                    items_array_size as usize,
-                ),
-            ) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IVectorView_Impl::GetMany(
+                    this,
+                    startindex,
+                    core::slice::from_raw_parts_mut(
+                        core::mem::transmute_copy(&items),
+                        items_array_size as usize,
+                    ),
+                ) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -640,14 +667,17 @@ impl IWwwFormUrlDecoderEntry_Vtbl {
             this: *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWwwFormUrlDecoderEntry_Impl::Name(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IWwwFormUrlDecoderEntry_Impl::Name(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn Value<
@@ -657,14 +687,17 @@ impl IWwwFormUrlDecoderEntry_Vtbl {
             this: *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWwwFormUrlDecoderEntry_Impl::Value(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IWwwFormUrlDecoderEntry_Impl::Value(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {

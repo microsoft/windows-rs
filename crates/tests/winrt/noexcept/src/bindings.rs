@@ -246,161 +246,215 @@ impl ITest_Vtbl {
             this: *mut core::ffi::c_void,
             test: *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITest_Impl::MethodString(this, core::mem::transmute(&test)).into()
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ITest_Impl::MethodString(this, core::mem::transmute(&test)).into()
+            }
         }
         unsafe extern "system" fn MethodInt32<Identity: ITest_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             test: i32,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITest_Impl::MethodInt32(this, test).into()
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ITest_Impl::MethodInt32(this, test).into()
+            }
         }
         unsafe extern "system" fn MethodTest<Identity: ITest_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             test: *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITest_Impl::MethodTest(this, core::mem::transmute_copy(&test)).into()
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ITest_Impl::MethodTest(this, core::mem::transmute_copy(&test)).into()
+            }
         }
         unsafe extern "system" fn String<Identity: ITest_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITest_Impl::String(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ITest_Impl::String(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetString<Identity: ITest_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             value: *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITest_Impl::SetString(this, core::mem::transmute(&value)).into()
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ITest_Impl::SetString(this, core::mem::transmute(&value)).into()
+            }
         }
         unsafe extern "system" fn Int32<Identity: ITest_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             result__: *mut i32,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITest_Impl::Int32(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ITest_Impl::Int32(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetInt32<Identity: ITest_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             value: i32,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITest_Impl::SetInt32(this, value).into()
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ITest_Impl::SetInt32(this, value).into()
+            }
         }
         unsafe extern "system" fn Test<Identity: ITest_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITest_Impl::Test(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ITest_Impl::Test(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetTest<Identity: ITest_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             value: *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITest_Impl::SetTest(this, core::mem::transmute_copy(&value)).into()
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ITest_Impl::SetTest(this, core::mem::transmute_copy(&value)).into()
+            }
         }
         unsafe extern "system" fn MethodStringN<Identity: ITest_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             test: *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITest_Impl::MethodStringN(this, core::mem::transmute(&test));
-            windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ITest_Impl::MethodStringN(this, core::mem::transmute(&test));
+                windows_core::HRESULT(0)
+            }
         }
         unsafe extern "system" fn MethodInt32N<Identity: ITest_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             test: i32,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITest_Impl::MethodInt32N(this, test);
-            windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ITest_Impl::MethodInt32N(this, test);
+                windows_core::HRESULT(0)
+            }
         }
         unsafe extern "system" fn MethodTestN<Identity: ITest_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             test: *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITest_Impl::MethodTestN(this, core::mem::transmute_copy(&test));
-            windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ITest_Impl::MethodTestN(this, core::mem::transmute_copy(&test));
+                windows_core::HRESULT(0)
+            }
         }
         unsafe extern "system" fn StringN<Identity: ITest_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            let ok__ = ITest_Impl::StringN(this);
-            result__.write(core::mem::transmute_copy(&ok__));
-            core::mem::forget(ok__);
-            windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let ok__ = ITest_Impl::StringN(this);
+                result__.write(core::mem::transmute_copy(&ok__));
+                core::mem::forget(ok__);
+                windows_core::HRESULT(0)
+            }
         }
         unsafe extern "system" fn SetStringN<Identity: ITest_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             value: *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITest_Impl::SetStringN(this, core::mem::transmute(&value));
-            windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ITest_Impl::SetStringN(this, core::mem::transmute(&value));
+                windows_core::HRESULT(0)
+            }
         }
         unsafe extern "system" fn Int32N<Identity: ITest_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             result__: *mut i32,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            let ok__ = ITest_Impl::Int32N(this);
-            result__.write(core::mem::transmute_copy(&ok__));
-            windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let ok__ = ITest_Impl::Int32N(this);
+                result__.write(core::mem::transmute_copy(&ok__));
+                windows_core::HRESULT(0)
+            }
         }
         unsafe extern "system" fn SetInt32N<Identity: ITest_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             value: i32,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITest_Impl::SetInt32N(this, value);
-            windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ITest_Impl::SetInt32N(this, value);
+                windows_core::HRESULT(0)
+            }
         }
         unsafe extern "system" fn TestN<Identity: ITest_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            let ok__ = ITest_Impl::TestN(this);
-            result__.write(core::mem::transmute_copy(&ok__));
-            core::mem::forget(ok__);
-            windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let ok__ = ITest_Impl::TestN(this);
+                result__.write(core::mem::transmute_copy(&ok__));
+                core::mem::forget(ok__);
+                windows_core::HRESULT(0)
+            }
         }
         unsafe extern "system" fn SetTestN<Identity: ITest_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             value: *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITest_Impl::SetTestN(this, core::mem::transmute_copy(&value));
-            windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ITest_Impl::SetTestN(this, core::mem::transmute_copy(&value));
+                windows_core::HRESULT(0)
+            }
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, ITest, OFFSET>(),

@@ -33,12 +33,14 @@ impl ID3D12DeviceChild {
     where
         T: windows_core::Interface,
     {
-        (windows_core::Interface::vtable(self).GetDevice)(
-            windows_core::Interface::as_raw(self),
-            &T::IID,
-            result__ as *mut _ as *mut _,
-        )
-        .ok()
+        unsafe {
+            (windows_core::Interface::vtable(self).GetDevice)(
+                windows_core::Interface::as_raw(self),
+                &T::IID,
+                result__ as *mut _ as *mut _,
+            )
+            .ok()
+        }
     }
 }
 #[repr(C)]
@@ -67,13 +69,16 @@ impl ID3D12DeviceChild_Vtbl {
             riid: *const windows_core::GUID,
             ppvdevice: *mut *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ID3D12DeviceChild_Impl::GetDevice(
-                this,
-                core::mem::transmute_copy(&riid),
-                core::mem::transmute_copy(&ppvdevice),
-            )
-            .into()
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12DeviceChild_Impl::GetDevice(
+                    this,
+                    core::mem::transmute_copy(&riid),
+                    core::mem::transmute_copy(&ppvdevice),
+                )
+                .into()
+            }
         }
         Self {
             base__: ID3D12Object_Vtbl::new::<Identity, OFFSET>(),
@@ -101,13 +106,15 @@ impl ID3D12Object {
         pdatasize: *mut u32,
         pdata: Option<*mut core::ffi::c_void>,
     ) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetPrivateData)(
-            windows_core::Interface::as_raw(self),
-            guid,
-            core::mem::transmute(pdatasize),
-            core::mem::transmute(pdata.unwrap_or(core::mem::zeroed())),
-        )
-        .ok()
+        unsafe {
+            (windows_core::Interface::vtable(self).GetPrivateData)(
+                windows_core::Interface::as_raw(self),
+                guid,
+                core::mem::transmute(pdatasize),
+                core::mem::transmute(pdata.unwrap_or(core::mem::zeroed())),
+            )
+            .ok()
+        }
     }
     pub unsafe fn SetPrivateData(
         &self,
@@ -115,13 +122,15 @@ impl ID3D12Object {
         datasize: u32,
         pdata: Option<*const core::ffi::c_void>,
     ) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetPrivateData)(
-            windows_core::Interface::as_raw(self),
-            guid,
-            datasize,
-            core::mem::transmute(pdata.unwrap_or(core::mem::zeroed())),
-        )
-        .ok()
+        unsafe {
+            (windows_core::Interface::vtable(self).SetPrivateData)(
+                windows_core::Interface::as_raw(self),
+                guid,
+                datasize,
+                core::mem::transmute(pdata.unwrap_or(core::mem::zeroed())),
+            )
+            .ok()
+        }
     }
     pub unsafe fn SetPrivateDataInterface<P1>(
         &self,
@@ -131,22 +140,26 @@ impl ID3D12Object {
     where
         P1: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).SetPrivateDataInterface)(
-            windows_core::Interface::as_raw(self),
-            guid,
-            pdata.param().abi(),
-        )
-        .ok()
+        unsafe {
+            (windows_core::Interface::vtable(self).SetPrivateDataInterface)(
+                windows_core::Interface::as_raw(self),
+                guid,
+                pdata.param().abi(),
+            )
+            .ok()
+        }
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetName)(
-            windows_core::Interface::as_raw(self),
-            name.param().abi(),
-        )
-        .ok()
+        unsafe {
+            (windows_core::Interface::vtable(self).SetName)(
+                windows_core::Interface::as_raw(self),
+                name.param().abi(),
+            )
+            .ok()
+        }
     }
 }
 #[repr(C)]
@@ -205,14 +218,17 @@ impl ID3D12Object_Vtbl {
             pdatasize: *mut u32,
             pdata: *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ID3D12Object_Impl::GetPrivateData(
-                this,
-                core::mem::transmute_copy(&guid),
-                core::mem::transmute_copy(&pdatasize),
-                core::mem::transmute_copy(&pdata),
-            )
-            .into()
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12Object_Impl::GetPrivateData(
+                    this,
+                    core::mem::transmute_copy(&guid),
+                    core::mem::transmute_copy(&pdatasize),
+                    core::mem::transmute_copy(&pdata),
+                )
+                .into()
+            }
         }
         unsafe extern "system" fn SetPrivateData<
             Identity: ID3D12Object_Impl,
@@ -223,14 +239,17 @@ impl ID3D12Object_Vtbl {
             datasize: u32,
             pdata: *const core::ffi::c_void,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ID3D12Object_Impl::SetPrivateData(
-                this,
-                core::mem::transmute_copy(&guid),
-                core::mem::transmute_copy(&datasize),
-                core::mem::transmute_copy(&pdata),
-            )
-            .into()
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12Object_Impl::SetPrivateData(
+                    this,
+                    core::mem::transmute_copy(&guid),
+                    core::mem::transmute_copy(&datasize),
+                    core::mem::transmute_copy(&pdata),
+                )
+                .into()
+            }
         }
         unsafe extern "system" fn SetPrivateDataInterface<
             Identity: ID3D12Object_Impl,
@@ -240,20 +259,26 @@ impl ID3D12Object_Vtbl {
             guid: *const windows_core::GUID,
             pdata: *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ID3D12Object_Impl::SetPrivateDataInterface(
-                this,
-                core::mem::transmute_copy(&guid),
-                core::mem::transmute_copy(&pdata),
-            )
-            .into()
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12Object_Impl::SetPrivateDataInterface(
+                    this,
+                    core::mem::transmute_copy(&guid),
+                    core::mem::transmute_copy(&pdata),
+                )
+                .into()
+            }
         }
         unsafe extern "system" fn SetName<Identity: ID3D12Object_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             name: windows_core::PCWSTR,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ID3D12Object_Impl::SetName(this, core::mem::transmute(&name)).into()
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12Object_Impl::SetName(this, core::mem::transmute(&name)).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -327,9 +352,11 @@ windows_core::imp::interface_hierarchy!(
 );
 impl ID3D12Resource {
     pub unsafe fn GetGPUVirtualAddress(&self) -> u64 {
-        (windows_core::Interface::vtable(self).GetGPUVirtualAddress)(
-            windows_core::Interface::as_raw(self),
-        )
+        unsafe {
+            (windows_core::Interface::vtable(self).GetGPUVirtualAddress)(
+                windows_core::Interface::as_raw(self),
+            )
+        }
     }
 }
 #[repr(C)]
@@ -354,8 +381,11 @@ impl ID3D12Resource_Vtbl {
         >(
             this: *mut core::ffi::c_void,
         ) -> u64 {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ID3D12Resource_Impl::GetGPUVirtualAddress(this)
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12Resource_Impl::GetGPUVirtualAddress(this)
+            }
         }
         Self {
             base__: ID3D12Pageable_Vtbl::new::<Identity, OFFSET>(),

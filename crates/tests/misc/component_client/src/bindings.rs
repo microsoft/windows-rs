@@ -66,49 +66,57 @@ impl<F: FnMut(i32) -> windows_core::Result<i32> + Send + 'static> CallbackBox<F>
         iid: *const windows_core::GUID,
         interface: *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        if iid.is_null() || interface.is_null() {
-            return windows_core::HRESULT(-2147467261);
-        }
-        *interface = if *iid == <Callback as windows_core::Interface>::IID
-            || *iid == <windows_core::IUnknown as windows_core::Interface>::IID
-            || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID
-        {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            core::ptr::null_mut()
-        };
-        if (*interface).is_null() {
-            windows_core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            windows_core::HRESULT(0)
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            if iid.is_null() || interface.is_null() {
+                return windows_core::HRESULT(-2147467261);
+            }
+            *interface = if *iid == <Callback as windows_core::Interface>::IID
+                || *iid == <windows_core::IUnknown as windows_core::Interface>::IID
+                || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID
+            {
+                &mut (*this).vtable as *mut _ as _
+            } else {
+                core::ptr::null_mut()
+            };
+            if (*interface).is_null() {
+                windows_core::HRESULT(-2147467262)
+            } else {
+                (*this).count.add_ref();
+                windows_core::HRESULT(0)
+            }
         }
     }
     unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            (*this).count.add_ref()
+        }
     }
     unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = windows_core::imp::Box::from_raw(this);
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            let remaining = (*this).count.release();
+            if remaining == 0 {
+                let _ = windows_core::imp::Box::from_raw(this);
+            }
+            remaining
         }
-        remaining
     }
     unsafe extern "system" fn Invoke(
         this: *mut core::ffi::c_void,
         a: i32,
         result__: *mut i32,
     ) -> windows_core::HRESULT {
-        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        match (this.invoke)(a) {
-            Ok(ok__) => {
-                result__.write(core::mem::transmute_copy(&ok__));
-                windows_core::HRESULT(0)
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            match (this.invoke)(a) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
             }
-            Err(err) => err.into(),
         }
     }
 }
@@ -359,8 +367,11 @@ impl IThing_Vtbl {
         unsafe extern "system" fn Method<Identity: IThing_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IThing_Impl::Method(this).into()
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IThing_Impl::Method(this).into()
+            }
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IThing, OFFSET>(),
