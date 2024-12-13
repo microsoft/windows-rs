@@ -17,7 +17,7 @@ workspace = true
 [dependencies.windows]
 workspace = true
 features = [
-    "Foundation",
+    "Foundation_Collections",
     "Win32_Foundation",
     "Win32_Security",
 ]

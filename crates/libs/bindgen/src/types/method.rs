@@ -280,7 +280,7 @@ impl Method {
     pub fn write(
         &self,
         writer: &Writer,
-        interface_name: TokenStream,
+        interface: Option<&Interface>,
         kind: InterfaceKind,
         method_names: &mut MethodNames,
         virtual_names: &mut MethodNames,
@@ -525,6 +525,8 @@ impl Method {
                     quote! { ? }
                 };
 
+                let interface_name = interface.unwrap().write_name(writer);
+
                 quote! {
                     pub fn #name<#(#generics,)*>(&self, #(#params)*) #return_type #where_clause {
                         let this = &windows_core::Interface::cast::<#interface_name>(self)#unwrap;
@@ -535,6 +537,8 @@ impl Method {
                 }
             }
             InterfaceKind::Static | InterfaceKind::Composable => {
+                let interface_name = to_ident(interface.unwrap().def.name());
+
                 quote! {
                     pub fn #name<#(#generics,)*>(#(#params)*) #return_type #where_clause {
                         Self::#interface_name(|this| unsafe { #vcall })
