@@ -4,7 +4,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpAddFilterV4(serveripaddress : windows_core::PCWSTR, addfilterinfo : *const DHCP_FILTER_ADD_INFO, forceflag : super::super::Foundation:: BOOL) -> u32);
-    DhcpAddFilterV4(serveripaddress.param().abi(), addfilterinfo, forceflag.into())
+    unsafe { DhcpAddFilterV4(serveripaddress.param().abi(), addfilterinfo, forceflag.into()) }
 }
 #[inline]
 pub unsafe fn DhcpAddSecurityGroup<P0>(pserver: P0) -> u32
@@ -12,12 +12,12 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpAddSecurityGroup(pserver : windows_core::PCWSTR) -> u32);
-    DhcpAddSecurityGroup(pserver.param().abi())
+    unsafe { DhcpAddSecurityGroup(pserver.param().abi()) }
 }
 #[inline]
 pub unsafe fn DhcpAddServer(flags: u32, idinfo: *mut core::ffi::c_void, newserver: *mut DHCPDS_SERVER, callbackfn: *mut core::ffi::c_void, callbackdata: *mut core::ffi::c_void) -> u32 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpAddServer(flags : u32, idinfo : *mut core::ffi::c_void, newserver : *mut DHCPDS_SERVER, callbackfn : *mut core::ffi::c_void, callbackdata : *mut core::ffi::c_void) -> u32);
-    DhcpAddServer(flags, core::mem::transmute(idinfo), core::mem::transmute(newserver), core::mem::transmute(callbackfn), core::mem::transmute(callbackdata))
+    unsafe { DhcpAddServer(flags, core::mem::transmute(idinfo), core::mem::transmute(newserver), core::mem::transmute(callbackfn), core::mem::transmute(callbackdata)) }
 }
 #[inline]
 pub unsafe fn DhcpAddSubnetElement<P0>(serveripaddress: P0, subnetaddress: u32, addelementinfo: *const DHCP_SUBNET_ELEMENT_DATA) -> u32
@@ -25,7 +25,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpAddSubnetElement(serveripaddress : windows_core::PCWSTR, subnetaddress : u32, addelementinfo : *const DHCP_SUBNET_ELEMENT_DATA) -> u32);
-    DhcpAddSubnetElement(serveripaddress.param().abi(), subnetaddress, addelementinfo)
+    unsafe { DhcpAddSubnetElement(serveripaddress.param().abi(), subnetaddress, addelementinfo) }
 }
 #[inline]
 pub unsafe fn DhcpAddSubnetElementV4<P0>(serveripaddress: P0, subnetaddress: u32, addelementinfo: *const DHCP_SUBNET_ELEMENT_DATA_V4) -> u32
@@ -33,7 +33,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpAddSubnetElementV4(serveripaddress : windows_core::PCWSTR, subnetaddress : u32, addelementinfo : *const DHCP_SUBNET_ELEMENT_DATA_V4) -> u32);
-    DhcpAddSubnetElementV4(serveripaddress.param().abi(), subnetaddress, addelementinfo)
+    unsafe { DhcpAddSubnetElementV4(serveripaddress.param().abi(), subnetaddress, addelementinfo) }
 }
 #[inline]
 pub unsafe fn DhcpAddSubnetElementV5<P0>(serveripaddress: P0, subnetaddress: u32, addelementinfo: *const DHCP_SUBNET_ELEMENT_DATA_V5) -> u32
@@ -41,7 +41,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpAddSubnetElementV5(serveripaddress : windows_core::PCWSTR, subnetaddress : u32, addelementinfo : *const DHCP_SUBNET_ELEMENT_DATA_V5) -> u32);
-    DhcpAddSubnetElementV5(serveripaddress.param().abi(), subnetaddress, addelementinfo)
+    unsafe { DhcpAddSubnetElementV5(serveripaddress.param().abi(), subnetaddress, addelementinfo) }
 }
 #[inline]
 pub unsafe fn DhcpAddSubnetElementV6<P0>(serveripaddress: P0, subnetaddress: DHCP_IPV6_ADDRESS, addelementinfo: *mut DHCP_SUBNET_ELEMENT_DATA_V6) -> u32
@@ -49,7 +49,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpAddSubnetElementV6(serveripaddress : windows_core::PCWSTR, subnetaddress : DHCP_IPV6_ADDRESS, addelementinfo : *mut DHCP_SUBNET_ELEMENT_DATA_V6) -> u32);
-    DhcpAddSubnetElementV6(serveripaddress.param().abi(), core::mem::transmute(subnetaddress), core::mem::transmute(addelementinfo))
+    unsafe { DhcpAddSubnetElementV6(serveripaddress.param().abi(), core::mem::transmute(subnetaddress), core::mem::transmute(addelementinfo)) }
 }
 #[inline]
 pub unsafe fn DhcpAuditLogGetParams<P0>(serveripaddress: P0, flags: u32, auditlogdir: *mut windows_core::PWSTR, diskcheckinterval: *mut u32, maxlogfilessize: *mut u32, minspaceondisk: *mut u32) -> u32
@@ -57,7 +57,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpAuditLogGetParams(serveripaddress : windows_core::PCWSTR, flags : u32, auditlogdir : *mut windows_core::PWSTR, diskcheckinterval : *mut u32, maxlogfilessize : *mut u32, minspaceondisk : *mut u32) -> u32);
-    DhcpAuditLogGetParams(serveripaddress.param().abi(), flags, core::mem::transmute(auditlogdir), core::mem::transmute(diskcheckinterval), core::mem::transmute(maxlogfilessize), core::mem::transmute(minspaceondisk))
+    unsafe { DhcpAuditLogGetParams(serveripaddress.param().abi(), flags, core::mem::transmute(auditlogdir), core::mem::transmute(diskcheckinterval), core::mem::transmute(maxlogfilessize), core::mem::transmute(minspaceondisk)) }
 }
 #[inline]
 pub unsafe fn DhcpAuditLogSetParams<P0, P2>(serveripaddress: P0, flags: u32, auditlogdir: P2, diskcheckinterval: u32, maxlogfilessize: u32, minspaceondisk: u32) -> u32
@@ -66,17 +66,17 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpAuditLogSetParams(serveripaddress : windows_core::PCWSTR, flags : u32, auditlogdir : windows_core::PCWSTR, diskcheckinterval : u32, maxlogfilessize : u32, minspaceondisk : u32) -> u32);
-    DhcpAuditLogSetParams(serveripaddress.param().abi(), flags, auditlogdir.param().abi(), diskcheckinterval, maxlogfilessize, minspaceondisk)
+    unsafe { DhcpAuditLogSetParams(serveripaddress.param().abi(), flags, auditlogdir.param().abi(), diskcheckinterval, maxlogfilessize, minspaceondisk) }
 }
 #[inline]
 pub unsafe fn DhcpCApiCleanup() {
     windows_targets::link!("dhcpcsvc.dll" "system" fn DhcpCApiCleanup());
-    DhcpCApiCleanup()
+    unsafe { DhcpCApiCleanup() }
 }
 #[inline]
 pub unsafe fn DhcpCApiInitialize(version: *mut u32) -> u32 {
     windows_targets::link!("dhcpcsvc.dll" "system" fn DhcpCApiInitialize(version : *mut u32) -> u32);
-    DhcpCApiInitialize(core::mem::transmute(version))
+    unsafe { DhcpCApiInitialize(core::mem::transmute(version)) }
 }
 #[inline]
 pub unsafe fn DhcpCreateClass<P0>(serveripaddress: P0, reservedmustbezero: u32, classinfo: *mut DHCP_CLASS_INFO) -> u32
@@ -84,7 +84,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpCreateClass(serveripaddress : windows_core::PCWSTR, reservedmustbezero : u32, classinfo : *mut DHCP_CLASS_INFO) -> u32);
-    DhcpCreateClass(serveripaddress.param().abi(), reservedmustbezero, core::mem::transmute(classinfo))
+    unsafe { DhcpCreateClass(serveripaddress.param().abi(), reservedmustbezero, core::mem::transmute(classinfo)) }
 }
 #[inline]
 pub unsafe fn DhcpCreateClassV6<P0>(serveripaddress: P0, reservedmustbezero: u32, classinfo: *mut DHCP_CLASS_INFO_V6) -> u32
@@ -92,7 +92,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpCreateClassV6(serveripaddress : windows_core::PCWSTR, reservedmustbezero : u32, classinfo : *mut DHCP_CLASS_INFO_V6) -> u32);
-    DhcpCreateClassV6(serveripaddress.param().abi(), reservedmustbezero, core::mem::transmute(classinfo))
+    unsafe { DhcpCreateClassV6(serveripaddress.param().abi(), reservedmustbezero, core::mem::transmute(classinfo)) }
 }
 #[inline]
 pub unsafe fn DhcpCreateClientInfo<P0>(serveripaddress: P0, clientinfo: *const DHCP_CLIENT_INFO) -> u32
@@ -100,7 +100,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpCreateClientInfo(serveripaddress : windows_core::PCWSTR, clientinfo : *const DHCP_CLIENT_INFO) -> u32);
-    DhcpCreateClientInfo(serveripaddress.param().abi(), clientinfo)
+    unsafe { DhcpCreateClientInfo(serveripaddress.param().abi(), clientinfo) }
 }
 #[inline]
 pub unsafe fn DhcpCreateClientInfoV4<P0>(serveripaddress: P0, clientinfo: *const DHCP_CLIENT_INFO_V4) -> u32
@@ -108,7 +108,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpCreateClientInfoV4(serveripaddress : windows_core::PCWSTR, clientinfo : *const DHCP_CLIENT_INFO_V4) -> u32);
-    DhcpCreateClientInfoV4(serveripaddress.param().abi(), clientinfo)
+    unsafe { DhcpCreateClientInfoV4(serveripaddress.param().abi(), clientinfo) }
 }
 #[inline]
 pub unsafe fn DhcpCreateClientInfoVQ<P0>(serveripaddress: P0, clientinfo: *const DHCP_CLIENT_INFO_VQ) -> u32
@@ -116,7 +116,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpCreateClientInfoVQ(serveripaddress : windows_core::PCWSTR, clientinfo : *const DHCP_CLIENT_INFO_VQ) -> u32);
-    DhcpCreateClientInfoVQ(serveripaddress.param().abi(), clientinfo)
+    unsafe { DhcpCreateClientInfoVQ(serveripaddress.param().abi(), clientinfo) }
 }
 #[inline]
 pub unsafe fn DhcpCreateOption<P0>(serveripaddress: P0, optionid: u32, optioninfo: *const DHCP_OPTION) -> u32
@@ -124,7 +124,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpCreateOption(serveripaddress : windows_core::PCWSTR, optionid : u32, optioninfo : *const DHCP_OPTION) -> u32);
-    DhcpCreateOption(serveripaddress.param().abi(), optionid, optioninfo)
+    unsafe { DhcpCreateOption(serveripaddress.param().abi(), optionid, optioninfo) }
 }
 #[inline]
 pub unsafe fn DhcpCreateOptionV5<P0, P3, P4>(serveripaddress: P0, flags: u32, optionid: u32, classname: P3, vendorname: P4, optioninfo: *mut DHCP_OPTION) -> u32
@@ -134,7 +134,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpCreateOptionV5(serveripaddress : windows_core::PCWSTR, flags : u32, optionid : u32, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, optioninfo : *mut DHCP_OPTION) -> u32);
-    DhcpCreateOptionV5(serveripaddress.param().abi(), flags, optionid, classname.param().abi(), vendorname.param().abi(), core::mem::transmute(optioninfo))
+    unsafe { DhcpCreateOptionV5(serveripaddress.param().abi(), flags, optionid, classname.param().abi(), vendorname.param().abi(), core::mem::transmute(optioninfo)) }
 }
 #[inline]
 pub unsafe fn DhcpCreateOptionV6<P0, P3, P4>(serveripaddress: P0, flags: u32, optionid: u32, classname: P3, vendorname: P4, optioninfo: *mut DHCP_OPTION) -> u32
@@ -144,7 +144,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpCreateOptionV6(serveripaddress : windows_core::PCWSTR, flags : u32, optionid : u32, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, optioninfo : *mut DHCP_OPTION) -> u32);
-    DhcpCreateOptionV6(serveripaddress.param().abi(), flags, optionid, classname.param().abi(), vendorname.param().abi(), core::mem::transmute(optioninfo))
+    unsafe { DhcpCreateOptionV6(serveripaddress.param().abi(), flags, optionid, classname.param().abi(), vendorname.param().abi(), core::mem::transmute(optioninfo)) }
 }
 #[inline]
 pub unsafe fn DhcpCreateSubnet<P0>(serveripaddress: P0, subnetaddress: u32, subnetinfo: *const DHCP_SUBNET_INFO) -> u32
@@ -152,7 +152,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpCreateSubnet(serveripaddress : windows_core::PCWSTR, subnetaddress : u32, subnetinfo : *const DHCP_SUBNET_INFO) -> u32);
-    DhcpCreateSubnet(serveripaddress.param().abi(), subnetaddress, subnetinfo)
+    unsafe { DhcpCreateSubnet(serveripaddress.param().abi(), subnetaddress, subnetinfo) }
 }
 #[inline]
 pub unsafe fn DhcpCreateSubnetV6<P0>(serveripaddress: P0, subnetaddress: DHCP_IPV6_ADDRESS, subnetinfo: *mut DHCP_SUBNET_INFO_V6) -> u32
@@ -160,7 +160,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpCreateSubnetV6(serveripaddress : windows_core::PCWSTR, subnetaddress : DHCP_IPV6_ADDRESS, subnetinfo : *mut DHCP_SUBNET_INFO_V6) -> u32);
-    DhcpCreateSubnetV6(serveripaddress.param().abi(), core::mem::transmute(subnetaddress), core::mem::transmute(subnetinfo))
+    unsafe { DhcpCreateSubnetV6(serveripaddress.param().abi(), core::mem::transmute(subnetaddress), core::mem::transmute(subnetinfo)) }
 }
 #[inline]
 pub unsafe fn DhcpCreateSubnetVQ<P0>(serveripaddress: P0, subnetaddress: u32, subnetinfo: *const DHCP_SUBNET_INFO_VQ) -> u32
@@ -168,12 +168,12 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpCreateSubnetVQ(serveripaddress : windows_core::PCWSTR, subnetaddress : u32, subnetinfo : *const DHCP_SUBNET_INFO_VQ) -> u32);
-    DhcpCreateSubnetVQ(serveripaddress.param().abi(), subnetaddress, subnetinfo)
+    unsafe { DhcpCreateSubnetVQ(serveripaddress.param().abi(), subnetaddress, subnetinfo) }
 }
 #[inline]
 pub unsafe fn DhcpDeRegisterParamChange(flags: u32, reserved: *mut core::ffi::c_void, event: *mut core::ffi::c_void) -> u32 {
     windows_targets::link!("dhcpcsvc.dll" "system" fn DhcpDeRegisterParamChange(flags : u32, reserved : *mut core::ffi::c_void, event : *mut core::ffi::c_void) -> u32);
-    DhcpDeRegisterParamChange(flags, core::mem::transmute(reserved), core::mem::transmute(event))
+    unsafe { DhcpDeRegisterParamChange(flags, core::mem::transmute(reserved), core::mem::transmute(event)) }
 }
 #[inline]
 pub unsafe fn DhcpDeleteClass<P0, P2>(serveripaddress: P0, reservedmustbezero: u32, classname: P2) -> u32
@@ -182,7 +182,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpDeleteClass(serveripaddress : windows_core::PCWSTR, reservedmustbezero : u32, classname : windows_core::PCWSTR) -> u32);
-    DhcpDeleteClass(serveripaddress.param().abi(), reservedmustbezero, classname.param().abi())
+    unsafe { DhcpDeleteClass(serveripaddress.param().abi(), reservedmustbezero, classname.param().abi()) }
 }
 #[inline]
 pub unsafe fn DhcpDeleteClassV6<P0, P2>(serveripaddress: P0, reservedmustbezero: u32, classname: P2) -> u32
@@ -191,7 +191,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpDeleteClassV6(serveripaddress : windows_core::PCWSTR, reservedmustbezero : u32, classname : windows_core::PCWSTR) -> u32);
-    DhcpDeleteClassV6(serveripaddress.param().abi(), reservedmustbezero, classname.param().abi())
+    unsafe { DhcpDeleteClassV6(serveripaddress.param().abi(), reservedmustbezero, classname.param().abi()) }
 }
 #[inline]
 pub unsafe fn DhcpDeleteClientInfo<P0>(serveripaddress: P0, clientinfo: *const DHCP_SEARCH_INFO) -> u32
@@ -199,7 +199,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpDeleteClientInfo(serveripaddress : windows_core::PCWSTR, clientinfo : *const DHCP_SEARCH_INFO) -> u32);
-    DhcpDeleteClientInfo(serveripaddress.param().abi(), clientinfo)
+    unsafe { DhcpDeleteClientInfo(serveripaddress.param().abi(), clientinfo) }
 }
 #[inline]
 pub unsafe fn DhcpDeleteClientInfoV6<P0>(serveripaddress: P0, clientinfo: *const DHCP_SEARCH_INFO_V6) -> u32
@@ -207,7 +207,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpDeleteClientInfoV6(serveripaddress : windows_core::PCWSTR, clientinfo : *const DHCP_SEARCH_INFO_V6) -> u32);
-    DhcpDeleteClientInfoV6(serveripaddress.param().abi(), clientinfo)
+    unsafe { DhcpDeleteClientInfoV6(serveripaddress.param().abi(), clientinfo) }
 }
 #[inline]
 pub unsafe fn DhcpDeleteFilterV4<P0>(serveripaddress: P0, deletefilterinfo: *const DHCP_ADDR_PATTERN) -> u32
@@ -215,12 +215,12 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpDeleteFilterV4(serveripaddress : windows_core::PCWSTR, deletefilterinfo : *const DHCP_ADDR_PATTERN) -> u32);
-    DhcpDeleteFilterV4(serveripaddress.param().abi(), deletefilterinfo)
+    unsafe { DhcpDeleteFilterV4(serveripaddress.param().abi(), deletefilterinfo) }
 }
 #[inline]
 pub unsafe fn DhcpDeleteServer(flags: u32, idinfo: *mut core::ffi::c_void, newserver: *mut DHCPDS_SERVER, callbackfn: *mut core::ffi::c_void, callbackdata: *mut core::ffi::c_void) -> u32 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpDeleteServer(flags : u32, idinfo : *mut core::ffi::c_void, newserver : *mut DHCPDS_SERVER, callbackfn : *mut core::ffi::c_void, callbackdata : *mut core::ffi::c_void) -> u32);
-    DhcpDeleteServer(flags, core::mem::transmute(idinfo), core::mem::transmute(newserver), core::mem::transmute(callbackfn), core::mem::transmute(callbackdata))
+    unsafe { DhcpDeleteServer(flags, core::mem::transmute(idinfo), core::mem::transmute(newserver), core::mem::transmute(callbackfn), core::mem::transmute(callbackdata)) }
 }
 #[inline]
 pub unsafe fn DhcpDeleteSubnet<P0>(serveripaddress: P0, subnetaddress: u32, forceflag: DHCP_FORCE_FLAG) -> u32
@@ -228,7 +228,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpDeleteSubnet(serveripaddress : windows_core::PCWSTR, subnetaddress : u32, forceflag : DHCP_FORCE_FLAG) -> u32);
-    DhcpDeleteSubnet(serveripaddress.param().abi(), subnetaddress, forceflag)
+    unsafe { DhcpDeleteSubnet(serveripaddress.param().abi(), subnetaddress, forceflag) }
 }
 #[inline]
 pub unsafe fn DhcpDeleteSubnetV6<P0>(serveripaddress: P0, subnetaddress: DHCP_IPV6_ADDRESS, forceflag: DHCP_FORCE_FLAG) -> u32
@@ -236,7 +236,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpDeleteSubnetV6(serveripaddress : windows_core::PCWSTR, subnetaddress : DHCP_IPV6_ADDRESS, forceflag : DHCP_FORCE_FLAG) -> u32);
-    DhcpDeleteSubnetV6(serveripaddress.param().abi(), core::mem::transmute(subnetaddress), forceflag)
+    unsafe { DhcpDeleteSubnetV6(serveripaddress.param().abi(), core::mem::transmute(subnetaddress), forceflag) }
 }
 #[inline]
 pub unsafe fn DhcpDeleteSuperScopeV4<P0, P1>(serveripaddress: P0, superscopename: P1) -> u32
@@ -245,17 +245,17 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpDeleteSuperScopeV4(serveripaddress : windows_core::PCWSTR, superscopename : windows_core::PCWSTR) -> u32);
-    DhcpDeleteSuperScopeV4(serveripaddress.param().abi(), superscopename.param().abi())
+    unsafe { DhcpDeleteSuperScopeV4(serveripaddress.param().abi(), superscopename.param().abi()) }
 }
 #[inline]
 pub unsafe fn DhcpDsCleanup() {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpDsCleanup());
-    DhcpDsCleanup()
+    unsafe { DhcpDsCleanup() }
 }
 #[inline]
 pub unsafe fn DhcpDsInit() -> u32 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpDsInit() -> u32);
-    DhcpDsInit()
+    unsafe { DhcpDsInit() }
 }
 #[inline]
 pub unsafe fn DhcpEnumClasses<P0>(serveripaddress: P0, reservedmustbezero: u32, resumehandle: *mut u32, preferredmaximum: u32, classinfoarray: *mut *mut DHCP_CLASS_INFO_ARRAY, nread: *mut u32, ntotal: *mut u32) -> u32
@@ -263,7 +263,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpEnumClasses(serveripaddress : windows_core::PCWSTR, reservedmustbezero : u32, resumehandle : *mut u32, preferredmaximum : u32, classinfoarray : *mut *mut DHCP_CLASS_INFO_ARRAY, nread : *mut u32, ntotal : *mut u32) -> u32);
-    DhcpEnumClasses(serveripaddress.param().abi(), reservedmustbezero, core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(classinfoarray), core::mem::transmute(nread), core::mem::transmute(ntotal))
+    unsafe { DhcpEnumClasses(serveripaddress.param().abi(), reservedmustbezero, core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(classinfoarray), core::mem::transmute(nread), core::mem::transmute(ntotal)) }
 }
 #[inline]
 pub unsafe fn DhcpEnumClassesV6<P0>(serveripaddress: P0, reservedmustbezero: u32, resumehandle: *mut u32, preferredmaximum: u32, classinfoarray: *mut *mut DHCP_CLASS_INFO_ARRAY_V6, nread: *mut u32, ntotal: *mut u32) -> u32
@@ -271,7 +271,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpEnumClassesV6(serveripaddress : windows_core::PCWSTR, reservedmustbezero : u32, resumehandle : *mut u32, preferredmaximum : u32, classinfoarray : *mut *mut DHCP_CLASS_INFO_ARRAY_V6, nread : *mut u32, ntotal : *mut u32) -> u32);
-    DhcpEnumClassesV6(serveripaddress.param().abi(), reservedmustbezero, core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(classinfoarray), core::mem::transmute(nread), core::mem::transmute(ntotal))
+    unsafe { DhcpEnumClassesV6(serveripaddress.param().abi(), reservedmustbezero, core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(classinfoarray), core::mem::transmute(nread), core::mem::transmute(ntotal)) }
 }
 #[inline]
 pub unsafe fn DhcpEnumFilterV4<P0>(serveripaddress: P0, resumehandle: *mut DHCP_ADDR_PATTERN, preferredmaximum: u32, listtype: DHCP_FILTER_LIST_TYPE, enumfilterinfo: *mut *mut DHCP_FILTER_ENUM_INFO, elementsread: *mut u32, elementstotal: *mut u32) -> u32
@@ -279,7 +279,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpEnumFilterV4(serveripaddress : windows_core::PCWSTR, resumehandle : *mut DHCP_ADDR_PATTERN, preferredmaximum : u32, listtype : DHCP_FILTER_LIST_TYPE, enumfilterinfo : *mut *mut DHCP_FILTER_ENUM_INFO, elementsread : *mut u32, elementstotal : *mut u32) -> u32);
-    DhcpEnumFilterV4(serveripaddress.param().abi(), core::mem::transmute(resumehandle), preferredmaximum, listtype, core::mem::transmute(enumfilterinfo), core::mem::transmute(elementsread), core::mem::transmute(elementstotal))
+    unsafe { DhcpEnumFilterV4(serveripaddress.param().abi(), core::mem::transmute(resumehandle), preferredmaximum, listtype, core::mem::transmute(enumfilterinfo), core::mem::transmute(elementsread), core::mem::transmute(elementstotal)) }
 }
 #[inline]
 pub unsafe fn DhcpEnumOptionValues<P0>(serveripaddress: P0, scopeinfo: *const DHCP_OPTION_SCOPE_INFO, resumehandle: *mut u32, preferredmaximum: u32, optionvalues: *mut *mut DHCP_OPTION_VALUE_ARRAY, optionsread: *mut u32, optionstotal: *mut u32) -> u32
@@ -287,7 +287,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpEnumOptionValues(serveripaddress : windows_core::PCWSTR, scopeinfo : *const DHCP_OPTION_SCOPE_INFO, resumehandle : *mut u32, preferredmaximum : u32, optionvalues : *mut *mut DHCP_OPTION_VALUE_ARRAY, optionsread : *mut u32, optionstotal : *mut u32) -> u32);
-    DhcpEnumOptionValues(serveripaddress.param().abi(), scopeinfo, core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(optionvalues), core::mem::transmute(optionsread), core::mem::transmute(optionstotal))
+    unsafe { DhcpEnumOptionValues(serveripaddress.param().abi(), scopeinfo, core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(optionvalues), core::mem::transmute(optionsread), core::mem::transmute(optionstotal)) }
 }
 #[inline]
 pub unsafe fn DhcpEnumOptionValuesV5<P0, P2, P3>(serveripaddress: P0, flags: u32, classname: P2, vendorname: P3, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, resumehandle: *mut u32, preferredmaximum: u32, optionvalues: *mut *mut DHCP_OPTION_VALUE_ARRAY, optionsread: *mut u32, optionstotal: *mut u32) -> u32
@@ -297,7 +297,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpEnumOptionValuesV5(serveripaddress : windows_core::PCWSTR, flags : u32, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, scopeinfo : *mut DHCP_OPTION_SCOPE_INFO, resumehandle : *mut u32, preferredmaximum : u32, optionvalues : *mut *mut DHCP_OPTION_VALUE_ARRAY, optionsread : *mut u32, optionstotal : *mut u32) -> u32);
-    DhcpEnumOptionValuesV5(serveripaddress.param().abi(), flags, classname.param().abi(), vendorname.param().abi(), core::mem::transmute(scopeinfo), core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(optionvalues), core::mem::transmute(optionsread), core::mem::transmute(optionstotal))
+    unsafe { DhcpEnumOptionValuesV5(serveripaddress.param().abi(), flags, classname.param().abi(), vendorname.param().abi(), core::mem::transmute(scopeinfo), core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(optionvalues), core::mem::transmute(optionsread), core::mem::transmute(optionstotal)) }
 }
 #[inline]
 pub unsafe fn DhcpEnumOptionValuesV6<P0, P2, P3>(serveripaddress: P0, flags: u32, classname: P2, vendorname: P3, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6, resumehandle: *mut u32, preferredmaximum: u32, optionvalues: *mut *mut DHCP_OPTION_VALUE_ARRAY, optionsread: *mut u32, optionstotal: *mut u32) -> u32
@@ -307,7 +307,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpEnumOptionValuesV6(serveripaddress : windows_core::PCWSTR, flags : u32, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, scopeinfo : *mut DHCP_OPTION_SCOPE_INFO6, resumehandle : *mut u32, preferredmaximum : u32, optionvalues : *mut *mut DHCP_OPTION_VALUE_ARRAY, optionsread : *mut u32, optionstotal : *mut u32) -> u32);
-    DhcpEnumOptionValuesV6(serveripaddress.param().abi(), flags, classname.param().abi(), vendorname.param().abi(), core::mem::transmute(scopeinfo), core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(optionvalues), core::mem::transmute(optionsread), core::mem::transmute(optionstotal))
+    unsafe { DhcpEnumOptionValuesV6(serveripaddress.param().abi(), flags, classname.param().abi(), vendorname.param().abi(), core::mem::transmute(scopeinfo), core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(optionvalues), core::mem::transmute(optionsread), core::mem::transmute(optionstotal)) }
 }
 #[inline]
 pub unsafe fn DhcpEnumOptions<P0>(serveripaddress: P0, resumehandle: *mut u32, preferredmaximum: u32, options: *mut *mut DHCP_OPTION_ARRAY, optionsread: *mut u32, optionstotal: *mut u32) -> u32
@@ -315,7 +315,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpEnumOptions(serveripaddress : windows_core::PCWSTR, resumehandle : *mut u32, preferredmaximum : u32, options : *mut *mut DHCP_OPTION_ARRAY, optionsread : *mut u32, optionstotal : *mut u32) -> u32);
-    DhcpEnumOptions(serveripaddress.param().abi(), core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(options), core::mem::transmute(optionsread), core::mem::transmute(optionstotal))
+    unsafe { DhcpEnumOptions(serveripaddress.param().abi(), core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(options), core::mem::transmute(optionsread), core::mem::transmute(optionstotal)) }
 }
 #[inline]
 pub unsafe fn DhcpEnumOptionsV5<P0, P2, P3>(serveripaddress: P0, flags: u32, classname: P2, vendorname: P3, resumehandle: *mut u32, preferredmaximum: u32, options: *mut *mut DHCP_OPTION_ARRAY, optionsread: *mut u32, optionstotal: *mut u32) -> u32
@@ -325,7 +325,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpEnumOptionsV5(serveripaddress : windows_core::PCWSTR, flags : u32, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, resumehandle : *mut u32, preferredmaximum : u32, options : *mut *mut DHCP_OPTION_ARRAY, optionsread : *mut u32, optionstotal : *mut u32) -> u32);
-    DhcpEnumOptionsV5(serveripaddress.param().abi(), flags, classname.param().abi(), vendorname.param().abi(), core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(options), core::mem::transmute(optionsread), core::mem::transmute(optionstotal))
+    unsafe { DhcpEnumOptionsV5(serveripaddress.param().abi(), flags, classname.param().abi(), vendorname.param().abi(), core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(options), core::mem::transmute(optionsread), core::mem::transmute(optionstotal)) }
 }
 #[inline]
 pub unsafe fn DhcpEnumOptionsV6<P0, P2, P3>(serveripaddress: P0, flags: u32, classname: P2, vendorname: P3, resumehandle: *mut u32, preferredmaximum: u32, options: *mut *mut DHCP_OPTION_ARRAY, optionsread: *mut u32, optionstotal: *mut u32) -> u32
@@ -335,12 +335,12 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpEnumOptionsV6(serveripaddress : windows_core::PCWSTR, flags : u32, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, resumehandle : *mut u32, preferredmaximum : u32, options : *mut *mut DHCP_OPTION_ARRAY, optionsread : *mut u32, optionstotal : *mut u32) -> u32);
-    DhcpEnumOptionsV6(serveripaddress.param().abi(), flags, classname.param().abi(), vendorname.param().abi(), core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(options), core::mem::transmute(optionsread), core::mem::transmute(optionstotal))
+    unsafe { DhcpEnumOptionsV6(serveripaddress.param().abi(), flags, classname.param().abi(), vendorname.param().abi(), core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(options), core::mem::transmute(optionsread), core::mem::transmute(optionstotal)) }
 }
 #[inline]
 pub unsafe fn DhcpEnumServers(flags: u32, idinfo: *mut core::ffi::c_void, servers: *mut *mut DHCPDS_SERVERS, callbackfn: *mut core::ffi::c_void, callbackdata: *mut core::ffi::c_void) -> u32 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpEnumServers(flags : u32, idinfo : *mut core::ffi::c_void, servers : *mut *mut DHCPDS_SERVERS, callbackfn : *mut core::ffi::c_void, callbackdata : *mut core::ffi::c_void) -> u32);
-    DhcpEnumServers(flags, core::mem::transmute(idinfo), core::mem::transmute(servers), core::mem::transmute(callbackfn), core::mem::transmute(callbackdata))
+    unsafe { DhcpEnumServers(flags, core::mem::transmute(idinfo), core::mem::transmute(servers), core::mem::transmute(callbackfn), core::mem::transmute(callbackdata)) }
 }
 #[inline]
 pub unsafe fn DhcpEnumSubnetClients<P0>(serveripaddress: P0, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_ARRAY, clientsread: *mut u32, clientstotal: *mut u32) -> u32
@@ -348,7 +348,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpEnumSubnetClients(serveripaddress : windows_core::PCWSTR, subnetaddress : u32, resumehandle : *mut u32, preferredmaximum : u32, clientinfo : *mut *mut DHCP_CLIENT_INFO_ARRAY, clientsread : *mut u32, clientstotal : *mut u32) -> u32);
-    DhcpEnumSubnetClients(serveripaddress.param().abi(), subnetaddress, core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(clientinfo), core::mem::transmute(clientsread), core::mem::transmute(clientstotal))
+    unsafe { DhcpEnumSubnetClients(serveripaddress.param().abi(), subnetaddress, core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(clientinfo), core::mem::transmute(clientsread), core::mem::transmute(clientstotal)) }
 }
 #[inline]
 pub unsafe fn DhcpEnumSubnetClientsFilterStatusInfo<P0>(serveripaddress: P0, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY, clientsread: *mut u32, clientstotal: *mut u32) -> u32
@@ -356,7 +356,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpEnumSubnetClientsFilterStatusInfo(serveripaddress : windows_core::PCWSTR, subnetaddress : u32, resumehandle : *mut u32, preferredmaximum : u32, clientinfo : *mut *mut DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY, clientsread : *mut u32, clientstotal : *mut u32) -> u32);
-    DhcpEnumSubnetClientsFilterStatusInfo(serveripaddress.param().abi(), subnetaddress, core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(clientinfo), core::mem::transmute(clientsread), core::mem::transmute(clientstotal))
+    unsafe { DhcpEnumSubnetClientsFilterStatusInfo(serveripaddress.param().abi(), subnetaddress, core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(clientinfo), core::mem::transmute(clientsread), core::mem::transmute(clientstotal)) }
 }
 #[inline]
 pub unsafe fn DhcpEnumSubnetClientsV4<P0>(serveripaddress: P0, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_ARRAY_V4, clientsread: *mut u32, clientstotal: *mut u32) -> u32
@@ -364,7 +364,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpEnumSubnetClientsV4(serveripaddress : windows_core::PCWSTR, subnetaddress : u32, resumehandle : *mut u32, preferredmaximum : u32, clientinfo : *mut *mut DHCP_CLIENT_INFO_ARRAY_V4, clientsread : *mut u32, clientstotal : *mut u32) -> u32);
-    DhcpEnumSubnetClientsV4(serveripaddress.param().abi(), subnetaddress, core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(clientinfo), core::mem::transmute(clientsread), core::mem::transmute(clientstotal))
+    unsafe { DhcpEnumSubnetClientsV4(serveripaddress.param().abi(), subnetaddress, core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(clientinfo), core::mem::transmute(clientsread), core::mem::transmute(clientstotal)) }
 }
 #[inline]
 pub unsafe fn DhcpEnumSubnetClientsV5<P0>(serveripaddress: P0, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_ARRAY_V5, clientsread: *mut u32, clientstotal: *mut u32) -> u32
@@ -372,7 +372,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpEnumSubnetClientsV5(serveripaddress : windows_core::PCWSTR, subnetaddress : u32, resumehandle : *mut u32, preferredmaximum : u32, clientinfo : *mut *mut DHCP_CLIENT_INFO_ARRAY_V5, clientsread : *mut u32, clientstotal : *mut u32) -> u32);
-    DhcpEnumSubnetClientsV5(serveripaddress.param().abi(), subnetaddress, core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(clientinfo), core::mem::transmute(clientsread), core::mem::transmute(clientstotal))
+    unsafe { DhcpEnumSubnetClientsV5(serveripaddress.param().abi(), subnetaddress, core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(clientinfo), core::mem::transmute(clientsread), core::mem::transmute(clientstotal)) }
 }
 #[inline]
 pub unsafe fn DhcpEnumSubnetClientsV6<P0>(serveripaddress: P0, subnetaddress: DHCP_IPV6_ADDRESS, resumehandle: *mut DHCP_IPV6_ADDRESS, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_ARRAY_V6, clientsread: *mut u32, clientstotal: *mut u32) -> u32
@@ -380,7 +380,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpEnumSubnetClientsV6(serveripaddress : windows_core::PCWSTR, subnetaddress : DHCP_IPV6_ADDRESS, resumehandle : *mut DHCP_IPV6_ADDRESS, preferredmaximum : u32, clientinfo : *mut *mut DHCP_CLIENT_INFO_ARRAY_V6, clientsread : *mut u32, clientstotal : *mut u32) -> u32);
-    DhcpEnumSubnetClientsV6(serveripaddress.param().abi(), core::mem::transmute(subnetaddress), core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(clientinfo), core::mem::transmute(clientsread), core::mem::transmute(clientstotal))
+    unsafe { DhcpEnumSubnetClientsV6(serveripaddress.param().abi(), core::mem::transmute(subnetaddress), core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(clientinfo), core::mem::transmute(clientsread), core::mem::transmute(clientstotal)) }
 }
 #[inline]
 pub unsafe fn DhcpEnumSubnetClientsVQ<P0>(serveripaddress: P0, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_ARRAY_VQ, clientsread: *mut u32, clientstotal: *mut u32) -> u32
@@ -388,7 +388,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpEnumSubnetClientsVQ(serveripaddress : windows_core::PCWSTR, subnetaddress : u32, resumehandle : *mut u32, preferredmaximum : u32, clientinfo : *mut *mut DHCP_CLIENT_INFO_ARRAY_VQ, clientsread : *mut u32, clientstotal : *mut u32) -> u32);
-    DhcpEnumSubnetClientsVQ(serveripaddress.param().abi(), subnetaddress, core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(clientinfo), core::mem::transmute(clientsread), core::mem::transmute(clientstotal))
+    unsafe { DhcpEnumSubnetClientsVQ(serveripaddress.param().abi(), subnetaddress, core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(clientinfo), core::mem::transmute(clientsread), core::mem::transmute(clientstotal)) }
 }
 #[inline]
 pub unsafe fn DhcpEnumSubnetElements<P0>(serveripaddress: P0, subnetaddress: u32, enumelementtype: DHCP_SUBNET_ELEMENT_TYPE, resumehandle: *mut u32, preferredmaximum: u32, enumelementinfo: *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32
@@ -396,7 +396,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpEnumSubnetElements(serveripaddress : windows_core::PCWSTR, subnetaddress : u32, enumelementtype : DHCP_SUBNET_ELEMENT_TYPE, resumehandle : *mut u32, preferredmaximum : u32, enumelementinfo : *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY, elementsread : *mut u32, elementstotal : *mut u32) -> u32);
-    DhcpEnumSubnetElements(serveripaddress.param().abi(), subnetaddress, enumelementtype, core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(enumelementinfo), core::mem::transmute(elementsread), core::mem::transmute(elementstotal))
+    unsafe { DhcpEnumSubnetElements(serveripaddress.param().abi(), subnetaddress, enumelementtype, core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(enumelementinfo), core::mem::transmute(elementsread), core::mem::transmute(elementstotal)) }
 }
 #[inline]
 pub unsafe fn DhcpEnumSubnetElementsV4<P0>(serveripaddress: P0, subnetaddress: u32, enumelementtype: DHCP_SUBNET_ELEMENT_TYPE, resumehandle: *mut u32, preferredmaximum: u32, enumelementinfo: *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4, elementsread: *mut u32, elementstotal: *mut u32) -> u32
@@ -404,7 +404,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpEnumSubnetElementsV4(serveripaddress : windows_core::PCWSTR, subnetaddress : u32, enumelementtype : DHCP_SUBNET_ELEMENT_TYPE, resumehandle : *mut u32, preferredmaximum : u32, enumelementinfo : *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4, elementsread : *mut u32, elementstotal : *mut u32) -> u32);
-    DhcpEnumSubnetElementsV4(serveripaddress.param().abi(), subnetaddress, enumelementtype, core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(enumelementinfo), core::mem::transmute(elementsread), core::mem::transmute(elementstotal))
+    unsafe { DhcpEnumSubnetElementsV4(serveripaddress.param().abi(), subnetaddress, enumelementtype, core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(enumelementinfo), core::mem::transmute(elementsread), core::mem::transmute(elementstotal)) }
 }
 #[inline]
 pub unsafe fn DhcpEnumSubnetElementsV5<P0>(serveripaddress: P0, subnetaddress: u32, enumelementtype: DHCP_SUBNET_ELEMENT_TYPE, resumehandle: *mut u32, preferredmaximum: u32, enumelementinfo: *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5, elementsread: *mut u32, elementstotal: *mut u32) -> u32
@@ -412,7 +412,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpEnumSubnetElementsV5(serveripaddress : windows_core::PCWSTR, subnetaddress : u32, enumelementtype : DHCP_SUBNET_ELEMENT_TYPE, resumehandle : *mut u32, preferredmaximum : u32, enumelementinfo : *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5, elementsread : *mut u32, elementstotal : *mut u32) -> u32);
-    DhcpEnumSubnetElementsV5(serveripaddress.param().abi(), subnetaddress, enumelementtype, core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(enumelementinfo), core::mem::transmute(elementsread), core::mem::transmute(elementstotal))
+    unsafe { DhcpEnumSubnetElementsV5(serveripaddress.param().abi(), subnetaddress, enumelementtype, core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(enumelementinfo), core::mem::transmute(elementsread), core::mem::transmute(elementstotal)) }
 }
 #[inline]
 pub unsafe fn DhcpEnumSubnetElementsV6<P0>(serveripaddress: P0, subnetaddress: DHCP_IPV6_ADDRESS, enumelementtype: DHCP_SUBNET_ELEMENT_TYPE_V6, resumehandle: *mut u32, preferredmaximum: u32, enumelementinfo: *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6, elementsread: *mut u32, elementstotal: *mut u32) -> u32
@@ -420,7 +420,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpEnumSubnetElementsV6(serveripaddress : windows_core::PCWSTR, subnetaddress : DHCP_IPV6_ADDRESS, enumelementtype : DHCP_SUBNET_ELEMENT_TYPE_V6, resumehandle : *mut u32, preferredmaximum : u32, enumelementinfo : *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6, elementsread : *mut u32, elementstotal : *mut u32) -> u32);
-    DhcpEnumSubnetElementsV6(serveripaddress.param().abi(), core::mem::transmute(subnetaddress), enumelementtype, core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(enumelementinfo), core::mem::transmute(elementsread), core::mem::transmute(elementstotal))
+    unsafe { DhcpEnumSubnetElementsV6(serveripaddress.param().abi(), core::mem::transmute(subnetaddress), enumelementtype, core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(enumelementinfo), core::mem::transmute(elementsread), core::mem::transmute(elementstotal)) }
 }
 #[inline]
 pub unsafe fn DhcpEnumSubnets<P0>(serveripaddress: P0, resumehandle: *mut u32, preferredmaximum: u32, enuminfo: *mut *mut DHCP_IP_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32
@@ -428,7 +428,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpEnumSubnets(serveripaddress : windows_core::PCWSTR, resumehandle : *mut u32, preferredmaximum : u32, enuminfo : *mut *mut DHCP_IP_ARRAY, elementsread : *mut u32, elementstotal : *mut u32) -> u32);
-    DhcpEnumSubnets(serveripaddress.param().abi(), core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(enuminfo), core::mem::transmute(elementsread), core::mem::transmute(elementstotal))
+    unsafe { DhcpEnumSubnets(serveripaddress.param().abi(), core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(enuminfo), core::mem::transmute(elementsread), core::mem::transmute(elementstotal)) }
 }
 #[inline]
 pub unsafe fn DhcpEnumSubnetsV6<P0>(serveripaddress: P0, resumehandle: *mut u32, preferredmaximum: u32, enuminfo: *mut *mut DHCPV6_IP_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32
@@ -436,7 +436,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpEnumSubnetsV6(serveripaddress : windows_core::PCWSTR, resumehandle : *mut u32, preferredmaximum : u32, enuminfo : *mut *mut DHCPV6_IP_ARRAY, elementsread : *mut u32, elementstotal : *mut u32) -> u32);
-    DhcpEnumSubnetsV6(serveripaddress.param().abi(), core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(enuminfo), core::mem::transmute(elementsread), core::mem::transmute(elementstotal))
+    unsafe { DhcpEnumSubnetsV6(serveripaddress.param().abi(), core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(enuminfo), core::mem::transmute(elementsread), core::mem::transmute(elementstotal)) }
 }
 #[inline]
 pub unsafe fn DhcpGetAllOptionValues<P0>(serveripaddress: P0, flags: u32, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, values: *mut *mut DHCP_ALL_OPTION_VALUES) -> u32
@@ -444,7 +444,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpGetAllOptionValues(serveripaddress : windows_core::PCWSTR, flags : u32, scopeinfo : *mut DHCP_OPTION_SCOPE_INFO, values : *mut *mut DHCP_ALL_OPTION_VALUES) -> u32);
-    DhcpGetAllOptionValues(serveripaddress.param().abi(), flags, core::mem::transmute(scopeinfo), core::mem::transmute(values))
+    unsafe { DhcpGetAllOptionValues(serveripaddress.param().abi(), flags, core::mem::transmute(scopeinfo), core::mem::transmute(values)) }
 }
 #[inline]
 pub unsafe fn DhcpGetAllOptionValuesV6<P0>(serveripaddress: P0, flags: u32, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6, values: *mut *mut DHCP_ALL_OPTION_VALUES) -> u32
@@ -452,7 +452,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpGetAllOptionValuesV6(serveripaddress : windows_core::PCWSTR, flags : u32, scopeinfo : *mut DHCP_OPTION_SCOPE_INFO6, values : *mut *mut DHCP_ALL_OPTION_VALUES) -> u32);
-    DhcpGetAllOptionValuesV6(serveripaddress.param().abi(), flags, core::mem::transmute(scopeinfo), core::mem::transmute(values))
+    unsafe { DhcpGetAllOptionValuesV6(serveripaddress.param().abi(), flags, core::mem::transmute(scopeinfo), core::mem::transmute(values)) }
 }
 #[inline]
 pub unsafe fn DhcpGetAllOptions<P0>(serveripaddress: P0, flags: u32, optionstruct: *mut *mut DHCP_ALL_OPTIONS) -> u32
@@ -460,7 +460,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpGetAllOptions(serveripaddress : windows_core::PCWSTR, flags : u32, optionstruct : *mut *mut DHCP_ALL_OPTIONS) -> u32);
-    DhcpGetAllOptions(serveripaddress.param().abi(), flags, core::mem::transmute(optionstruct))
+    unsafe { DhcpGetAllOptions(serveripaddress.param().abi(), flags, core::mem::transmute(optionstruct)) }
 }
 #[inline]
 pub unsafe fn DhcpGetAllOptionsV6<P0>(serveripaddress: P0, flags: u32, optionstruct: *mut *mut DHCP_ALL_OPTIONS) -> u32
@@ -468,7 +468,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpGetAllOptionsV6(serveripaddress : windows_core::PCWSTR, flags : u32, optionstruct : *mut *mut DHCP_ALL_OPTIONS) -> u32);
-    DhcpGetAllOptionsV6(serveripaddress.param().abi(), flags, core::mem::transmute(optionstruct))
+    unsafe { DhcpGetAllOptionsV6(serveripaddress.param().abi(), flags, core::mem::transmute(optionstruct)) }
 }
 #[inline]
 pub unsafe fn DhcpGetClassInfo<P0>(serveripaddress: P0, reservedmustbezero: u32, partialclassinfo: *mut DHCP_CLASS_INFO, filledclassinfo: *mut *mut DHCP_CLASS_INFO) -> u32
@@ -476,7 +476,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpGetClassInfo(serveripaddress : windows_core::PCWSTR, reservedmustbezero : u32, partialclassinfo : *mut DHCP_CLASS_INFO, filledclassinfo : *mut *mut DHCP_CLASS_INFO) -> u32);
-    DhcpGetClassInfo(serveripaddress.param().abi(), reservedmustbezero, core::mem::transmute(partialclassinfo), core::mem::transmute(filledclassinfo))
+    unsafe { DhcpGetClassInfo(serveripaddress.param().abi(), reservedmustbezero, core::mem::transmute(partialclassinfo), core::mem::transmute(filledclassinfo)) }
 }
 #[inline]
 pub unsafe fn DhcpGetClientInfo<P0>(serveripaddress: P0, searchinfo: *const DHCP_SEARCH_INFO, clientinfo: *mut *mut DHCP_CLIENT_INFO) -> u32
@@ -484,7 +484,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpGetClientInfo(serveripaddress : windows_core::PCWSTR, searchinfo : *const DHCP_SEARCH_INFO, clientinfo : *mut *mut DHCP_CLIENT_INFO) -> u32);
-    DhcpGetClientInfo(serveripaddress.param().abi(), searchinfo, core::mem::transmute(clientinfo))
+    unsafe { DhcpGetClientInfo(serveripaddress.param().abi(), searchinfo, core::mem::transmute(clientinfo)) }
 }
 #[inline]
 pub unsafe fn DhcpGetClientInfoV4<P0>(serveripaddress: P0, searchinfo: *const DHCP_SEARCH_INFO, clientinfo: *mut *mut DHCP_CLIENT_INFO_V4) -> u32
@@ -492,7 +492,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpGetClientInfoV4(serveripaddress : windows_core::PCWSTR, searchinfo : *const DHCP_SEARCH_INFO, clientinfo : *mut *mut DHCP_CLIENT_INFO_V4) -> u32);
-    DhcpGetClientInfoV4(serveripaddress.param().abi(), searchinfo, core::mem::transmute(clientinfo))
+    unsafe { DhcpGetClientInfoV4(serveripaddress.param().abi(), searchinfo, core::mem::transmute(clientinfo)) }
 }
 #[inline]
 pub unsafe fn DhcpGetClientInfoV6<P0>(serveripaddress: P0, searchinfo: *const DHCP_SEARCH_INFO_V6, clientinfo: *mut *mut DHCP_CLIENT_INFO_V6) -> u32
@@ -500,7 +500,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpGetClientInfoV6(serveripaddress : windows_core::PCWSTR, searchinfo : *const DHCP_SEARCH_INFO_V6, clientinfo : *mut *mut DHCP_CLIENT_INFO_V6) -> u32);
-    DhcpGetClientInfoV6(serveripaddress.param().abi(), searchinfo, core::mem::transmute(clientinfo))
+    unsafe { DhcpGetClientInfoV6(serveripaddress.param().abi(), searchinfo, core::mem::transmute(clientinfo)) }
 }
 #[inline]
 pub unsafe fn DhcpGetClientInfoVQ<P0>(serveripaddress: P0, searchinfo: *const DHCP_SEARCH_INFO, clientinfo: *mut *mut DHCP_CLIENT_INFO_VQ) -> u32
@@ -508,7 +508,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpGetClientInfoVQ(serveripaddress : windows_core::PCWSTR, searchinfo : *const DHCP_SEARCH_INFO, clientinfo : *mut *mut DHCP_CLIENT_INFO_VQ) -> u32);
-    DhcpGetClientInfoVQ(serveripaddress.param().abi(), searchinfo, core::mem::transmute(clientinfo))
+    unsafe { DhcpGetClientInfoVQ(serveripaddress.param().abi(), searchinfo, core::mem::transmute(clientinfo)) }
 }
 #[inline]
 pub unsafe fn DhcpGetClientOptions<P0>(serveripaddress: P0, clientipaddress: u32, clientsubnetmask: u32, clientoptions: *mut *mut DHCP_OPTION_LIST) -> u32
@@ -516,7 +516,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpGetClientOptions(serveripaddress : windows_core::PCWSTR, clientipaddress : u32, clientsubnetmask : u32, clientoptions : *mut *mut DHCP_OPTION_LIST) -> u32);
-    DhcpGetClientOptions(serveripaddress.param().abi(), clientipaddress, clientsubnetmask, core::mem::transmute(clientoptions))
+    unsafe { DhcpGetClientOptions(serveripaddress.param().abi(), clientipaddress, clientsubnetmask, core::mem::transmute(clientoptions)) }
 }
 #[inline]
 pub unsafe fn DhcpGetFilterV4<P0>(serveripaddress: P0, globalfilterinfo: *mut DHCP_FILTER_GLOBAL_INFO) -> u32
@@ -524,7 +524,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpGetFilterV4(serveripaddress : windows_core::PCWSTR, globalfilterinfo : *mut DHCP_FILTER_GLOBAL_INFO) -> u32);
-    DhcpGetFilterV4(serveripaddress.param().abi(), core::mem::transmute(globalfilterinfo))
+    unsafe { DhcpGetFilterV4(serveripaddress.param().abi(), core::mem::transmute(globalfilterinfo)) }
 }
 #[inline]
 pub unsafe fn DhcpGetMibInfo<P0>(serveripaddress: P0, mibinfo: *mut *mut DHCP_MIB_INFO) -> u32
@@ -532,7 +532,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpGetMibInfo(serveripaddress : windows_core::PCWSTR, mibinfo : *mut *mut DHCP_MIB_INFO) -> u32);
-    DhcpGetMibInfo(serveripaddress.param().abi(), core::mem::transmute(mibinfo))
+    unsafe { DhcpGetMibInfo(serveripaddress.param().abi(), core::mem::transmute(mibinfo)) }
 }
 #[inline]
 pub unsafe fn DhcpGetMibInfoV5<P0>(serveripaddress: P0, mibinfo: *mut *mut DHCP_MIB_INFO_V5) -> u32
@@ -540,7 +540,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpGetMibInfoV5(serveripaddress : windows_core::PCWSTR, mibinfo : *mut *mut DHCP_MIB_INFO_V5) -> u32);
-    DhcpGetMibInfoV5(serveripaddress.param().abi(), core::mem::transmute(mibinfo))
+    unsafe { DhcpGetMibInfoV5(serveripaddress.param().abi(), core::mem::transmute(mibinfo)) }
 }
 #[inline]
 pub unsafe fn DhcpGetMibInfoV6<P0>(serveripaddress: P0, mibinfo: *mut *mut DHCP_MIB_INFO_V6) -> u32
@@ -548,7 +548,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpGetMibInfoV6(serveripaddress : windows_core::PCWSTR, mibinfo : *mut *mut DHCP_MIB_INFO_V6) -> u32);
-    DhcpGetMibInfoV6(serveripaddress.param().abi(), core::mem::transmute(mibinfo))
+    unsafe { DhcpGetMibInfoV6(serveripaddress.param().abi(), core::mem::transmute(mibinfo)) }
 }
 #[inline]
 pub unsafe fn DhcpGetOptionInfo<P0>(serveripaddress: P0, optionid: u32, optioninfo: *mut *mut DHCP_OPTION) -> u32
@@ -556,7 +556,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpGetOptionInfo(serveripaddress : windows_core::PCWSTR, optionid : u32, optioninfo : *mut *mut DHCP_OPTION) -> u32);
-    DhcpGetOptionInfo(serveripaddress.param().abi(), optionid, core::mem::transmute(optioninfo))
+    unsafe { DhcpGetOptionInfo(serveripaddress.param().abi(), optionid, core::mem::transmute(optioninfo)) }
 }
 #[inline]
 pub unsafe fn DhcpGetOptionInfoV5<P0, P3, P4>(serveripaddress: P0, flags: u32, optionid: u32, classname: P3, vendorname: P4, optioninfo: *mut *mut DHCP_OPTION) -> u32
@@ -566,7 +566,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpGetOptionInfoV5(serveripaddress : windows_core::PCWSTR, flags : u32, optionid : u32, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, optioninfo : *mut *mut DHCP_OPTION) -> u32);
-    DhcpGetOptionInfoV5(serveripaddress.param().abi(), flags, optionid, classname.param().abi(), vendorname.param().abi(), core::mem::transmute(optioninfo))
+    unsafe { DhcpGetOptionInfoV5(serveripaddress.param().abi(), flags, optionid, classname.param().abi(), vendorname.param().abi(), core::mem::transmute(optioninfo)) }
 }
 #[inline]
 pub unsafe fn DhcpGetOptionInfoV6<P0, P3, P4>(serveripaddress: P0, flags: u32, optionid: u32, classname: P3, vendorname: P4, optioninfo: *mut *mut DHCP_OPTION) -> u32
@@ -576,7 +576,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpGetOptionInfoV6(serveripaddress : windows_core::PCWSTR, flags : u32, optionid : u32, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, optioninfo : *mut *mut DHCP_OPTION) -> u32);
-    DhcpGetOptionInfoV6(serveripaddress.param().abi(), flags, optionid, classname.param().abi(), vendorname.param().abi(), core::mem::transmute(optioninfo))
+    unsafe { DhcpGetOptionInfoV6(serveripaddress.param().abi(), flags, optionid, classname.param().abi(), vendorname.param().abi(), core::mem::transmute(optioninfo)) }
 }
 #[inline]
 pub unsafe fn DhcpGetOptionValue<P0>(serveripaddress: P0, optionid: u32, scopeinfo: *const DHCP_OPTION_SCOPE_INFO, optionvalue: *mut *mut DHCP_OPTION_VALUE) -> u32
@@ -584,7 +584,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpGetOptionValue(serveripaddress : windows_core::PCWSTR, optionid : u32, scopeinfo : *const DHCP_OPTION_SCOPE_INFO, optionvalue : *mut *mut DHCP_OPTION_VALUE) -> u32);
-    DhcpGetOptionValue(serveripaddress.param().abi(), optionid, scopeinfo, core::mem::transmute(optionvalue))
+    unsafe { DhcpGetOptionValue(serveripaddress.param().abi(), optionid, scopeinfo, core::mem::transmute(optionvalue)) }
 }
 #[inline]
 pub unsafe fn DhcpGetOptionValueV5<P0, P3, P4>(serveripaddress: P0, flags: u32, optionid: u32, classname: P3, vendorname: P4, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, optionvalue: *mut *mut DHCP_OPTION_VALUE) -> u32
@@ -594,7 +594,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpGetOptionValueV5(serveripaddress : windows_core::PCWSTR, flags : u32, optionid : u32, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, scopeinfo : *mut DHCP_OPTION_SCOPE_INFO, optionvalue : *mut *mut DHCP_OPTION_VALUE) -> u32);
-    DhcpGetOptionValueV5(serveripaddress.param().abi(), flags, optionid, classname.param().abi(), vendorname.param().abi(), core::mem::transmute(scopeinfo), core::mem::transmute(optionvalue))
+    unsafe { DhcpGetOptionValueV5(serveripaddress.param().abi(), flags, optionid, classname.param().abi(), vendorname.param().abi(), core::mem::transmute(scopeinfo), core::mem::transmute(optionvalue)) }
 }
 #[inline]
 pub unsafe fn DhcpGetOptionValueV6<P0, P3, P4>(serveripaddress: P0, flags: u32, optionid: u32, classname: P3, vendorname: P4, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6, optionvalue: *mut *mut DHCP_OPTION_VALUE) -> u32
@@ -604,7 +604,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpGetOptionValueV6(serveripaddress : windows_core::PCWSTR, flags : u32, optionid : u32, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, scopeinfo : *mut DHCP_OPTION_SCOPE_INFO6, optionvalue : *mut *mut DHCP_OPTION_VALUE) -> u32);
-    DhcpGetOptionValueV6(serveripaddress.param().abi(), flags, optionid, classname.param().abi(), vendorname.param().abi(), core::mem::transmute(scopeinfo), core::mem::transmute(optionvalue))
+    unsafe { DhcpGetOptionValueV6(serveripaddress.param().abi(), flags, optionid, classname.param().abi(), vendorname.param().abi(), core::mem::transmute(scopeinfo), core::mem::transmute(optionvalue)) }
 }
 #[inline]
 pub unsafe fn DhcpGetOriginalSubnetMask<P0>(sadaptername: P0, dwsubnetmask: *mut u32) -> u32
@@ -612,7 +612,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpcsvc.dll" "system" fn DhcpGetOriginalSubnetMask(sadaptername : windows_core::PCWSTR, dwsubnetmask : *mut u32) -> u32);
-    DhcpGetOriginalSubnetMask(sadaptername.param().abi(), core::mem::transmute(dwsubnetmask))
+    unsafe { DhcpGetOriginalSubnetMask(sadaptername.param().abi(), core::mem::transmute(dwsubnetmask)) }
 }
 #[inline]
 pub unsafe fn DhcpGetServerBindingInfo<P0>(serveripaddress: P0, flags: u32, bindelementsinfo: *mut *mut DHCP_BIND_ELEMENT_ARRAY) -> u32
@@ -620,7 +620,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpGetServerBindingInfo(serveripaddress : windows_core::PCWSTR, flags : u32, bindelementsinfo : *mut *mut DHCP_BIND_ELEMENT_ARRAY) -> u32);
-    DhcpGetServerBindingInfo(serveripaddress.param().abi(), flags, core::mem::transmute(bindelementsinfo))
+    unsafe { DhcpGetServerBindingInfo(serveripaddress.param().abi(), flags, core::mem::transmute(bindelementsinfo)) }
 }
 #[inline]
 pub unsafe fn DhcpGetServerBindingInfoV6<P0>(serveripaddress: P0, flags: u32, bindelementsinfo: *mut *mut DHCPV6_BIND_ELEMENT_ARRAY) -> u32
@@ -628,7 +628,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpGetServerBindingInfoV6(serveripaddress : windows_core::PCWSTR, flags : u32, bindelementsinfo : *mut *mut DHCPV6_BIND_ELEMENT_ARRAY) -> u32);
-    DhcpGetServerBindingInfoV6(serveripaddress.param().abi(), flags, core::mem::transmute(bindelementsinfo))
+    unsafe { DhcpGetServerBindingInfoV6(serveripaddress.param().abi(), flags, core::mem::transmute(bindelementsinfo)) }
 }
 #[inline]
 pub unsafe fn DhcpGetServerSpecificStrings<P0>(serveripaddress: P0, serverspecificstrings: *mut *mut DHCP_SERVER_SPECIFIC_STRINGS) -> u32
@@ -636,7 +636,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpGetServerSpecificStrings(serveripaddress : windows_core::PCWSTR, serverspecificstrings : *mut *mut DHCP_SERVER_SPECIFIC_STRINGS) -> u32);
-    DhcpGetServerSpecificStrings(serveripaddress.param().abi(), core::mem::transmute(serverspecificstrings))
+    unsafe { DhcpGetServerSpecificStrings(serveripaddress.param().abi(), core::mem::transmute(serverspecificstrings)) }
 }
 #[inline]
 pub unsafe fn DhcpGetSubnetDelayOffer<P0>(serveripaddress: P0, subnetaddress: u32, timedelayinmilliseconds: *mut u16) -> u32
@@ -644,7 +644,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpGetSubnetDelayOffer(serveripaddress : windows_core::PCWSTR, subnetaddress : u32, timedelayinmilliseconds : *mut u16) -> u32);
-    DhcpGetSubnetDelayOffer(serveripaddress.param().abi(), subnetaddress, core::mem::transmute(timedelayinmilliseconds))
+    unsafe { DhcpGetSubnetDelayOffer(serveripaddress.param().abi(), subnetaddress, core::mem::transmute(timedelayinmilliseconds)) }
 }
 #[inline]
 pub unsafe fn DhcpGetSubnetInfo<P0>(serveripaddress: P0, subnetaddress: u32, subnetinfo: *mut *mut DHCP_SUBNET_INFO) -> u32
@@ -652,7 +652,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpGetSubnetInfo(serveripaddress : windows_core::PCWSTR, subnetaddress : u32, subnetinfo : *mut *mut DHCP_SUBNET_INFO) -> u32);
-    DhcpGetSubnetInfo(serveripaddress.param().abi(), subnetaddress, core::mem::transmute(subnetinfo))
+    unsafe { DhcpGetSubnetInfo(serveripaddress.param().abi(), subnetaddress, core::mem::transmute(subnetinfo)) }
 }
 #[inline]
 pub unsafe fn DhcpGetSubnetInfoV6<P0>(serveripaddress: P0, subnetaddress: DHCP_IPV6_ADDRESS, subnetinfo: *mut *mut DHCP_SUBNET_INFO_V6) -> u32
@@ -660,7 +660,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpGetSubnetInfoV6(serveripaddress : windows_core::PCWSTR, subnetaddress : DHCP_IPV6_ADDRESS, subnetinfo : *mut *mut DHCP_SUBNET_INFO_V6) -> u32);
-    DhcpGetSubnetInfoV6(serveripaddress.param().abi(), core::mem::transmute(subnetaddress), core::mem::transmute(subnetinfo))
+    unsafe { DhcpGetSubnetInfoV6(serveripaddress.param().abi(), core::mem::transmute(subnetaddress), core::mem::transmute(subnetinfo)) }
 }
 #[inline]
 pub unsafe fn DhcpGetSubnetInfoVQ<P0>(serveripaddress: P0, subnetaddress: u32, subnetinfo: *mut *mut DHCP_SUBNET_INFO_VQ) -> u32
@@ -668,7 +668,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpGetSubnetInfoVQ(serveripaddress : windows_core::PCWSTR, subnetaddress : u32, subnetinfo : *mut *mut DHCP_SUBNET_INFO_VQ) -> u32);
-    DhcpGetSubnetInfoVQ(serveripaddress.param().abi(), subnetaddress, core::mem::transmute(subnetinfo))
+    unsafe { DhcpGetSubnetInfoVQ(serveripaddress.param().abi(), subnetaddress, core::mem::transmute(subnetinfo)) }
 }
 #[inline]
 pub unsafe fn DhcpGetSuperScopeInfoV4<P0>(serveripaddress: P0, superscopetable: *mut *mut DHCP_SUPER_SCOPE_TABLE) -> u32
@@ -676,12 +676,12 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpGetSuperScopeInfoV4(serveripaddress : windows_core::PCWSTR, superscopetable : *mut *mut DHCP_SUPER_SCOPE_TABLE) -> u32);
-    DhcpGetSuperScopeInfoV4(serveripaddress.param().abi(), core::mem::transmute(superscopetable))
+    unsafe { DhcpGetSuperScopeInfoV4(serveripaddress.param().abi(), core::mem::transmute(superscopetable)) }
 }
 #[inline]
 pub unsafe fn DhcpGetThreadOptions(pflags: *mut u32, reserved: *mut core::ffi::c_void) -> u32 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpGetThreadOptions(pflags : *mut u32, reserved : *mut core::ffi::c_void) -> u32);
-    DhcpGetThreadOptions(core::mem::transmute(pflags), core::mem::transmute(reserved))
+    unsafe { DhcpGetThreadOptions(core::mem::transmute(pflags), core::mem::transmute(reserved)) }
 }
 #[inline]
 pub unsafe fn DhcpGetVersion<P0>(serveripaddress: P0, majorversion: *mut u32, minorversion: *mut u32) -> u32
@@ -689,7 +689,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpGetVersion(serveripaddress : windows_core::PCWSTR, majorversion : *mut u32, minorversion : *mut u32) -> u32);
-    DhcpGetVersion(serveripaddress.param().abi(), core::mem::transmute(majorversion), core::mem::transmute(minorversion))
+    unsafe { DhcpGetVersion(serveripaddress.param().abi(), core::mem::transmute(majorversion), core::mem::transmute(minorversion)) }
 }
 #[inline]
 pub unsafe fn DhcpHlprAddV4PolicyCondition<P5>(policy: *mut DHCP_POLICY, parentexpr: u32, r#type: DHCP_POL_ATTR_TYPE, optionid: u32, suboptionid: u32, vendorname: P5, operator: DHCP_POL_COMPARATOR, value: &[u8], conditionindex: *mut u32) -> u32
@@ -697,17 +697,17 @@ where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprAddV4PolicyCondition(policy : *mut DHCP_POLICY, parentexpr : u32, r#type : DHCP_POL_ATTR_TYPE, optionid : u32, suboptionid : u32, vendorname : windows_core::PCWSTR, operator : DHCP_POL_COMPARATOR, value : *const u8, valuelength : u32, conditionindex : *mut u32) -> u32);
-    DhcpHlprAddV4PolicyCondition(core::mem::transmute(policy), parentexpr, r#type, optionid, suboptionid, vendorname.param().abi(), operator, core::mem::transmute(value.as_ptr()), value.len().try_into().unwrap(), core::mem::transmute(conditionindex))
+    unsafe { DhcpHlprAddV4PolicyCondition(core::mem::transmute(policy), parentexpr, r#type, optionid, suboptionid, vendorname.param().abi(), operator, core::mem::transmute(value.as_ptr()), value.len().try_into().unwrap(), core::mem::transmute(conditionindex)) }
 }
 #[inline]
 pub unsafe fn DhcpHlprAddV4PolicyExpr(policy: *mut DHCP_POLICY, parentexpr: u32, operator: DHCP_POL_LOGIC_OPER, exprindex: *mut u32) -> u32 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprAddV4PolicyExpr(policy : *mut DHCP_POLICY, parentexpr : u32, operator : DHCP_POL_LOGIC_OPER, exprindex : *mut u32) -> u32);
-    DhcpHlprAddV4PolicyExpr(core::mem::transmute(policy), parentexpr, operator, core::mem::transmute(exprindex))
+    unsafe { DhcpHlprAddV4PolicyExpr(core::mem::transmute(policy), parentexpr, operator, core::mem::transmute(exprindex)) }
 }
 #[inline]
 pub unsafe fn DhcpHlprAddV4PolicyRange(policy: *mut DHCP_POLICY, range: *const DHCP_IP_RANGE) -> u32 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprAddV4PolicyRange(policy : *mut DHCP_POLICY, range : *const DHCP_IP_RANGE) -> u32);
-    DhcpHlprAddV4PolicyRange(core::mem::transmute(policy), range)
+    unsafe { DhcpHlprAddV4PolicyRange(core::mem::transmute(policy), range) }
 }
 #[inline]
 pub unsafe fn DhcpHlprCreateV4Policy<P0, P5>(policyname: P0, fglobalpolicy: bool, subnet: u32, processingorder: u32, rootoperator: DHCP_POL_LOGIC_OPER, description: P5, enabled: bool, policy: *mut *mut DHCP_POLICY) -> u32
@@ -716,7 +716,7 @@ where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprCreateV4Policy(policyname : windows_core::PCWSTR, fglobalpolicy : super::super::Foundation:: BOOL, subnet : u32, processingorder : u32, rootoperator : DHCP_POL_LOGIC_OPER, description : windows_core::PCWSTR, enabled : super::super::Foundation:: BOOL, policy : *mut *mut DHCP_POLICY) -> u32);
-    DhcpHlprCreateV4Policy(policyname.param().abi(), fglobalpolicy.into(), subnet, processingorder, rootoperator, description.param().abi(), enabled.into(), core::mem::transmute(policy))
+    unsafe { DhcpHlprCreateV4Policy(policyname.param().abi(), fglobalpolicy.into(), subnet, processingorder, rootoperator, description.param().abi(), enabled.into(), core::mem::transmute(policy)) }
 }
 #[inline]
 pub unsafe fn DhcpHlprCreateV4PolicyEx<P0, P5>(policyname: P0, fglobalpolicy: bool, subnet: u32, processingorder: u32, rootoperator: DHCP_POL_LOGIC_OPER, description: P5, enabled: bool, policy: *mut *mut DHCP_POLICY_EX) -> u32
@@ -725,67 +725,67 @@ where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprCreateV4PolicyEx(policyname : windows_core::PCWSTR, fglobalpolicy : super::super::Foundation:: BOOL, subnet : u32, processingorder : u32, rootoperator : DHCP_POL_LOGIC_OPER, description : windows_core::PCWSTR, enabled : super::super::Foundation:: BOOL, policy : *mut *mut DHCP_POLICY_EX) -> u32);
-    DhcpHlprCreateV4PolicyEx(policyname.param().abi(), fglobalpolicy.into(), subnet, processingorder, rootoperator, description.param().abi(), enabled.into(), core::mem::transmute(policy))
+    unsafe { DhcpHlprCreateV4PolicyEx(policyname.param().abi(), fglobalpolicy.into(), subnet, processingorder, rootoperator, description.param().abi(), enabled.into(), core::mem::transmute(policy)) }
 }
 #[inline]
 pub unsafe fn DhcpHlprFindV4DhcpProperty(propertyarray: *const DHCP_PROPERTY_ARRAY, id: DHCP_PROPERTY_ID, r#type: DHCP_PROPERTY_TYPE) -> *mut DHCP_PROPERTY {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprFindV4DhcpProperty(propertyarray : *const DHCP_PROPERTY_ARRAY, id : DHCP_PROPERTY_ID, r#type : DHCP_PROPERTY_TYPE) -> *mut DHCP_PROPERTY);
-    DhcpHlprFindV4DhcpProperty(propertyarray, id, r#type)
+    unsafe { DhcpHlprFindV4DhcpProperty(propertyarray, id, r#type) }
 }
 #[inline]
 pub unsafe fn DhcpHlprFreeV4DhcpProperty(property: *mut DHCP_PROPERTY) {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprFreeV4DhcpProperty(property : *mut DHCP_PROPERTY));
-    DhcpHlprFreeV4DhcpProperty(core::mem::transmute(property))
+    unsafe { DhcpHlprFreeV4DhcpProperty(core::mem::transmute(property)) }
 }
 #[inline]
 pub unsafe fn DhcpHlprFreeV4DhcpPropertyArray(propertyarray: *mut DHCP_PROPERTY_ARRAY) {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprFreeV4DhcpPropertyArray(propertyarray : *mut DHCP_PROPERTY_ARRAY));
-    DhcpHlprFreeV4DhcpPropertyArray(core::mem::transmute(propertyarray))
+    unsafe { DhcpHlprFreeV4DhcpPropertyArray(core::mem::transmute(propertyarray)) }
 }
 #[inline]
 pub unsafe fn DhcpHlprFreeV4Policy(policy: *mut DHCP_POLICY) {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprFreeV4Policy(policy : *mut DHCP_POLICY));
-    DhcpHlprFreeV4Policy(core::mem::transmute(policy))
+    unsafe { DhcpHlprFreeV4Policy(core::mem::transmute(policy)) }
 }
 #[inline]
 pub unsafe fn DhcpHlprFreeV4PolicyArray(policyarray: *mut DHCP_POLICY_ARRAY) {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprFreeV4PolicyArray(policyarray : *mut DHCP_POLICY_ARRAY));
-    DhcpHlprFreeV4PolicyArray(core::mem::transmute(policyarray))
+    unsafe { DhcpHlprFreeV4PolicyArray(core::mem::transmute(policyarray)) }
 }
 #[inline]
 pub unsafe fn DhcpHlprFreeV4PolicyEx(policyex: *mut DHCP_POLICY_EX) {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprFreeV4PolicyEx(policyex : *mut DHCP_POLICY_EX));
-    DhcpHlprFreeV4PolicyEx(core::mem::transmute(policyex))
+    unsafe { DhcpHlprFreeV4PolicyEx(core::mem::transmute(policyex)) }
 }
 #[inline]
 pub unsafe fn DhcpHlprFreeV4PolicyExArray(policyexarray: *mut DHCP_POLICY_EX_ARRAY) {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprFreeV4PolicyExArray(policyexarray : *mut DHCP_POLICY_EX_ARRAY));
-    DhcpHlprFreeV4PolicyExArray(core::mem::transmute(policyexarray))
+    unsafe { DhcpHlprFreeV4PolicyExArray(core::mem::transmute(policyexarray)) }
 }
 #[inline]
 pub unsafe fn DhcpHlprIsV4PolicySingleUC(policy: *const DHCP_POLICY) -> super::super::Foundation::BOOL {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprIsV4PolicySingleUC(policy : *const DHCP_POLICY) -> super::super::Foundation:: BOOL);
-    DhcpHlprIsV4PolicySingleUC(policy)
+    unsafe { DhcpHlprIsV4PolicySingleUC(policy) }
 }
 #[inline]
 pub unsafe fn DhcpHlprIsV4PolicyValid(ppolicy: *const DHCP_POLICY) -> u32 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprIsV4PolicyValid(ppolicy : *const DHCP_POLICY) -> u32);
-    DhcpHlprIsV4PolicyValid(ppolicy)
+    unsafe { DhcpHlprIsV4PolicyValid(ppolicy) }
 }
 #[inline]
 pub unsafe fn DhcpHlprIsV4PolicyWellFormed(ppolicy: *const DHCP_POLICY) -> super::super::Foundation::BOOL {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprIsV4PolicyWellFormed(ppolicy : *const DHCP_POLICY) -> super::super::Foundation:: BOOL);
-    DhcpHlprIsV4PolicyWellFormed(ppolicy)
+    unsafe { DhcpHlprIsV4PolicyWellFormed(ppolicy) }
 }
 #[inline]
 pub unsafe fn DhcpHlprModifyV4PolicyExpr(policy: *mut DHCP_POLICY, operator: DHCP_POL_LOGIC_OPER) -> u32 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprModifyV4PolicyExpr(policy : *mut DHCP_POLICY, operator : DHCP_POL_LOGIC_OPER) -> u32);
-    DhcpHlprModifyV4PolicyExpr(core::mem::transmute(policy), operator)
+    unsafe { DhcpHlprModifyV4PolicyExpr(core::mem::transmute(policy), operator) }
 }
 #[inline]
 pub unsafe fn DhcpHlprResetV4PolicyExpr(policy: *mut DHCP_POLICY) -> u32 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprResetV4PolicyExpr(policy : *mut DHCP_POLICY) -> u32);
-    DhcpHlprResetV4PolicyExpr(core::mem::transmute(policy))
+    unsafe { DhcpHlprResetV4PolicyExpr(core::mem::transmute(policy)) }
 }
 #[inline]
 pub unsafe fn DhcpModifyClass<P0>(serveripaddress: P0, reservedmustbezero: u32, classinfo: *mut DHCP_CLASS_INFO) -> u32
@@ -793,7 +793,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpModifyClass(serveripaddress : windows_core::PCWSTR, reservedmustbezero : u32, classinfo : *mut DHCP_CLASS_INFO) -> u32);
-    DhcpModifyClass(serveripaddress.param().abi(), reservedmustbezero, core::mem::transmute(classinfo))
+    unsafe { DhcpModifyClass(serveripaddress.param().abi(), reservedmustbezero, core::mem::transmute(classinfo)) }
 }
 #[inline]
 pub unsafe fn DhcpModifyClassV6<P0>(serveripaddress: P0, reservedmustbezero: u32, classinfo: *mut DHCP_CLASS_INFO_V6) -> u32
@@ -801,7 +801,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpModifyClassV6(serveripaddress : windows_core::PCWSTR, reservedmustbezero : u32, classinfo : *mut DHCP_CLASS_INFO_V6) -> u32);
-    DhcpModifyClassV6(serveripaddress.param().abi(), reservedmustbezero, core::mem::transmute(classinfo))
+    unsafe { DhcpModifyClassV6(serveripaddress.param().abi(), reservedmustbezero, core::mem::transmute(classinfo)) }
 }
 #[inline]
 pub unsafe fn DhcpRegisterParamChange<P2>(flags: u32, reserved: Option<*const core::ffi::c_void>, adaptername: P2, classid: *mut DHCPCAPI_CLASSID, params: DHCPCAPI_PARAMS_ARRAY, handle: *mut core::ffi::c_void) -> u32
@@ -809,12 +809,12 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpcsvc.dll" "system" fn DhcpRegisterParamChange(flags : u32, reserved : *const core::ffi::c_void, adaptername : windows_core::PCWSTR, classid : *mut DHCPCAPI_CLASSID, params : DHCPCAPI_PARAMS_ARRAY, handle : *mut core::ffi::c_void) -> u32);
-    DhcpRegisterParamChange(flags, core::mem::transmute(reserved.unwrap_or(core::mem::zeroed())), adaptername.param().abi(), core::mem::transmute(classid), core::mem::transmute(params), core::mem::transmute(handle))
+    unsafe { DhcpRegisterParamChange(flags, core::mem::transmute(reserved.unwrap_or(core::mem::zeroed())), adaptername.param().abi(), core::mem::transmute(classid), core::mem::transmute(params), core::mem::transmute(handle)) }
 }
 #[inline]
 pub unsafe fn DhcpRemoveDNSRegistrations() -> u32 {
     windows_targets::link!("dhcpcsvc.dll" "system" fn DhcpRemoveDNSRegistrations() -> u32);
-    DhcpRemoveDNSRegistrations()
+    unsafe { DhcpRemoveDNSRegistrations() }
 }
 #[inline]
 pub unsafe fn DhcpRemoveOption<P0>(serveripaddress: P0, optionid: u32) -> u32
@@ -822,7 +822,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpRemoveOption(serveripaddress : windows_core::PCWSTR, optionid : u32) -> u32);
-    DhcpRemoveOption(serveripaddress.param().abi(), optionid)
+    unsafe { DhcpRemoveOption(serveripaddress.param().abi(), optionid) }
 }
 #[inline]
 pub unsafe fn DhcpRemoveOptionV5<P0, P3, P4>(serveripaddress: P0, flags: u32, optionid: u32, classname: P3, vendorname: P4) -> u32
@@ -832,7 +832,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpRemoveOptionV5(serveripaddress : windows_core::PCWSTR, flags : u32, optionid : u32, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR) -> u32);
-    DhcpRemoveOptionV5(serveripaddress.param().abi(), flags, optionid, classname.param().abi(), vendorname.param().abi())
+    unsafe { DhcpRemoveOptionV5(serveripaddress.param().abi(), flags, optionid, classname.param().abi(), vendorname.param().abi()) }
 }
 #[inline]
 pub unsafe fn DhcpRemoveOptionV6<P0, P3, P4>(serveripaddress: P0, flags: u32, optionid: u32, classname: P3, vendorname: P4) -> u32
@@ -842,7 +842,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpRemoveOptionV6(serveripaddress : windows_core::PCWSTR, flags : u32, optionid : u32, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR) -> u32);
-    DhcpRemoveOptionV6(serveripaddress.param().abi(), flags, optionid, classname.param().abi(), vendorname.param().abi())
+    unsafe { DhcpRemoveOptionV6(serveripaddress.param().abi(), flags, optionid, classname.param().abi(), vendorname.param().abi()) }
 }
 #[inline]
 pub unsafe fn DhcpRemoveOptionValue<P0>(serveripaddress: P0, optionid: u32, scopeinfo: *const DHCP_OPTION_SCOPE_INFO) -> u32
@@ -850,7 +850,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpRemoveOptionValue(serveripaddress : windows_core::PCWSTR, optionid : u32, scopeinfo : *const DHCP_OPTION_SCOPE_INFO) -> u32);
-    DhcpRemoveOptionValue(serveripaddress.param().abi(), optionid, scopeinfo)
+    unsafe { DhcpRemoveOptionValue(serveripaddress.param().abi(), optionid, scopeinfo) }
 }
 #[inline]
 pub unsafe fn DhcpRemoveOptionValueV5<P0, P3, P4>(serveripaddress: P0, flags: u32, optionid: u32, classname: P3, vendorname: P4, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO) -> u32
@@ -860,7 +860,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpRemoveOptionValueV5(serveripaddress : windows_core::PCWSTR, flags : u32, optionid : u32, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, scopeinfo : *mut DHCP_OPTION_SCOPE_INFO) -> u32);
-    DhcpRemoveOptionValueV5(serveripaddress.param().abi(), flags, optionid, classname.param().abi(), vendorname.param().abi(), core::mem::transmute(scopeinfo))
+    unsafe { DhcpRemoveOptionValueV5(serveripaddress.param().abi(), flags, optionid, classname.param().abi(), vendorname.param().abi(), core::mem::transmute(scopeinfo)) }
 }
 #[inline]
 pub unsafe fn DhcpRemoveOptionValueV6<P0, P3, P4>(serveripaddress: P0, flags: u32, optionid: u32, classname: P3, vendorname: P4, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6) -> u32
@@ -870,7 +870,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpRemoveOptionValueV6(serveripaddress : windows_core::PCWSTR, flags : u32, optionid : u32, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, scopeinfo : *mut DHCP_OPTION_SCOPE_INFO6) -> u32);
-    DhcpRemoveOptionValueV6(serveripaddress.param().abi(), flags, optionid, classname.param().abi(), vendorname.param().abi(), core::mem::transmute(scopeinfo))
+    unsafe { DhcpRemoveOptionValueV6(serveripaddress.param().abi(), flags, optionid, classname.param().abi(), vendorname.param().abi(), core::mem::transmute(scopeinfo)) }
 }
 #[inline]
 pub unsafe fn DhcpRemoveSubnetElement<P0>(serveripaddress: P0, subnetaddress: u32, removeelementinfo: *const DHCP_SUBNET_ELEMENT_DATA, forceflag: DHCP_FORCE_FLAG) -> u32
@@ -878,7 +878,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpRemoveSubnetElement(serveripaddress : windows_core::PCWSTR, subnetaddress : u32, removeelementinfo : *const DHCP_SUBNET_ELEMENT_DATA, forceflag : DHCP_FORCE_FLAG) -> u32);
-    DhcpRemoveSubnetElement(serveripaddress.param().abi(), subnetaddress, removeelementinfo, forceflag)
+    unsafe { DhcpRemoveSubnetElement(serveripaddress.param().abi(), subnetaddress, removeelementinfo, forceflag) }
 }
 #[inline]
 pub unsafe fn DhcpRemoveSubnetElementV4<P0>(serveripaddress: P0, subnetaddress: u32, removeelementinfo: *const DHCP_SUBNET_ELEMENT_DATA_V4, forceflag: DHCP_FORCE_FLAG) -> u32
@@ -886,7 +886,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpRemoveSubnetElementV4(serveripaddress : windows_core::PCWSTR, subnetaddress : u32, removeelementinfo : *const DHCP_SUBNET_ELEMENT_DATA_V4, forceflag : DHCP_FORCE_FLAG) -> u32);
-    DhcpRemoveSubnetElementV4(serveripaddress.param().abi(), subnetaddress, removeelementinfo, forceflag)
+    unsafe { DhcpRemoveSubnetElementV4(serveripaddress.param().abi(), subnetaddress, removeelementinfo, forceflag) }
 }
 #[inline]
 pub unsafe fn DhcpRemoveSubnetElementV5<P0>(serveripaddress: P0, subnetaddress: u32, removeelementinfo: *const DHCP_SUBNET_ELEMENT_DATA_V5, forceflag: DHCP_FORCE_FLAG) -> u32
@@ -894,7 +894,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpRemoveSubnetElementV5(serveripaddress : windows_core::PCWSTR, subnetaddress : u32, removeelementinfo : *const DHCP_SUBNET_ELEMENT_DATA_V5, forceflag : DHCP_FORCE_FLAG) -> u32);
-    DhcpRemoveSubnetElementV5(serveripaddress.param().abi(), subnetaddress, removeelementinfo, forceflag)
+    unsafe { DhcpRemoveSubnetElementV5(serveripaddress.param().abi(), subnetaddress, removeelementinfo, forceflag) }
 }
 #[inline]
 pub unsafe fn DhcpRemoveSubnetElementV6<P0>(serveripaddress: P0, subnetaddress: DHCP_IPV6_ADDRESS, removeelementinfo: *mut DHCP_SUBNET_ELEMENT_DATA_V6, forceflag: DHCP_FORCE_FLAG) -> u32
@@ -902,7 +902,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpRemoveSubnetElementV6(serveripaddress : windows_core::PCWSTR, subnetaddress : DHCP_IPV6_ADDRESS, removeelementinfo : *mut DHCP_SUBNET_ELEMENT_DATA_V6, forceflag : DHCP_FORCE_FLAG) -> u32);
-    DhcpRemoveSubnetElementV6(serveripaddress.param().abi(), core::mem::transmute(subnetaddress), core::mem::transmute(removeelementinfo), forceflag)
+    unsafe { DhcpRemoveSubnetElementV6(serveripaddress.param().abi(), core::mem::transmute(subnetaddress), core::mem::transmute(removeelementinfo), forceflag) }
 }
 #[inline]
 pub unsafe fn DhcpRequestParams<P2, P8>(flags: u32, reserved: *mut core::ffi::c_void, adaptername: P2, classid: *mut DHCPCAPI_CLASSID, sendparams: DHCPCAPI_PARAMS_ARRAY, recdparams: DHCPCAPI_PARAMS_ARRAY, buffer: *mut u8, psize: *mut u32, requestidstr: P8) -> u32
@@ -911,12 +911,12 @@ where
     P8: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpcsvc.dll" "system" fn DhcpRequestParams(flags : u32, reserved : *mut core::ffi::c_void, adaptername : windows_core::PCWSTR, classid : *mut DHCPCAPI_CLASSID, sendparams : DHCPCAPI_PARAMS_ARRAY, recdparams : DHCPCAPI_PARAMS_ARRAY, buffer : *mut u8, psize : *mut u32, requestidstr : windows_core::PCWSTR) -> u32);
-    DhcpRequestParams(flags, core::mem::transmute(reserved), adaptername.param().abi(), core::mem::transmute(classid), core::mem::transmute(sendparams), core::mem::transmute(recdparams), core::mem::transmute(buffer), core::mem::transmute(psize), requestidstr.param().abi())
+    unsafe { DhcpRequestParams(flags, core::mem::transmute(reserved), adaptername.param().abi(), core::mem::transmute(classid), core::mem::transmute(sendparams), core::mem::transmute(recdparams), core::mem::transmute(buffer), core::mem::transmute(psize), requestidstr.param().abi()) }
 }
 #[inline]
 pub unsafe fn DhcpRpcFreeMemory(bufferpointer: *mut core::ffi::c_void) {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpRpcFreeMemory(bufferpointer : *mut core::ffi::c_void));
-    DhcpRpcFreeMemory(core::mem::transmute(bufferpointer))
+    unsafe { DhcpRpcFreeMemory(core::mem::transmute(bufferpointer)) }
 }
 #[inline]
 pub unsafe fn DhcpScanDatabase<P0>(serveripaddress: P0, subnetaddress: u32, fixflag: u32, scanlist: *mut *mut DHCP_SCAN_LIST) -> u32
@@ -924,12 +924,12 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpScanDatabase(serveripaddress : windows_core::PCWSTR, subnetaddress : u32, fixflag : u32, scanlist : *mut *mut DHCP_SCAN_LIST) -> u32);
-    DhcpScanDatabase(serveripaddress.param().abi(), subnetaddress, fixflag, core::mem::transmute(scanlist))
+    unsafe { DhcpScanDatabase(serveripaddress.param().abi(), subnetaddress, fixflag, core::mem::transmute(scanlist)) }
 }
 #[inline]
 pub unsafe fn DhcpServerAuditlogParamsFree(configinfo: *mut DHCP_SERVER_CONFIG_INFO_VQ) {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpServerAuditlogParamsFree(configinfo : *mut DHCP_SERVER_CONFIG_INFO_VQ));
-    DhcpServerAuditlogParamsFree(core::mem::transmute(configinfo))
+    unsafe { DhcpServerAuditlogParamsFree(core::mem::transmute(configinfo)) }
 }
 #[inline]
 pub unsafe fn DhcpServerBackupDatabase<P0, P1>(serveripaddress: P0, path: P1) -> u32
@@ -938,7 +938,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpServerBackupDatabase(serveripaddress : windows_core::PCWSTR, path : windows_core::PCWSTR) -> u32);
-    DhcpServerBackupDatabase(serveripaddress.param().abi(), path.param().abi())
+    unsafe { DhcpServerBackupDatabase(serveripaddress.param().abi(), path.param().abi()) }
 }
 #[inline]
 pub unsafe fn DhcpServerGetConfig<P0>(serveripaddress: P0, configinfo: *mut *mut DHCP_SERVER_CONFIG_INFO) -> u32
@@ -946,7 +946,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpServerGetConfig(serveripaddress : windows_core::PCWSTR, configinfo : *mut *mut DHCP_SERVER_CONFIG_INFO) -> u32);
-    DhcpServerGetConfig(serveripaddress.param().abi(), core::mem::transmute(configinfo))
+    unsafe { DhcpServerGetConfig(serveripaddress.param().abi(), core::mem::transmute(configinfo)) }
 }
 #[inline]
 pub unsafe fn DhcpServerGetConfigV4<P0>(serveripaddress: P0, configinfo: *mut *mut DHCP_SERVER_CONFIG_INFO_V4) -> u32
@@ -954,7 +954,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpServerGetConfigV4(serveripaddress : windows_core::PCWSTR, configinfo : *mut *mut DHCP_SERVER_CONFIG_INFO_V4) -> u32);
-    DhcpServerGetConfigV4(serveripaddress.param().abi(), core::mem::transmute(configinfo))
+    unsafe { DhcpServerGetConfigV4(serveripaddress.param().abi(), core::mem::transmute(configinfo)) }
 }
 #[inline]
 pub unsafe fn DhcpServerGetConfigV6<P0>(serveripaddress: P0, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6, configinfo: *mut *mut DHCP_SERVER_CONFIG_INFO_V6) -> u32
@@ -962,7 +962,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpServerGetConfigV6(serveripaddress : windows_core::PCWSTR, scopeinfo : *mut DHCP_OPTION_SCOPE_INFO6, configinfo : *mut *mut DHCP_SERVER_CONFIG_INFO_V6) -> u32);
-    DhcpServerGetConfigV6(serveripaddress.param().abi(), core::mem::transmute(scopeinfo), core::mem::transmute(configinfo))
+    unsafe { DhcpServerGetConfigV6(serveripaddress.param().abi(), core::mem::transmute(scopeinfo), core::mem::transmute(configinfo)) }
 }
 #[inline]
 pub unsafe fn DhcpServerGetConfigVQ<P0>(serveripaddress: P0, configinfo: *mut *mut DHCP_SERVER_CONFIG_INFO_VQ) -> u32
@@ -970,7 +970,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpServerGetConfigVQ(serveripaddress : windows_core::PCWSTR, configinfo : *mut *mut DHCP_SERVER_CONFIG_INFO_VQ) -> u32);
-    DhcpServerGetConfigVQ(serveripaddress.param().abi(), core::mem::transmute(configinfo))
+    unsafe { DhcpServerGetConfigVQ(serveripaddress.param().abi(), core::mem::transmute(configinfo)) }
 }
 #[inline]
 pub unsafe fn DhcpServerQueryAttribute<P0>(serveripaddr: P0, dwreserved: u32, dhcpattribid: u32, pdhcpattrib: *mut *mut DHCP_ATTRIB) -> u32
@@ -978,7 +978,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpServerQueryAttribute(serveripaddr : windows_core::PCWSTR, dwreserved : u32, dhcpattribid : u32, pdhcpattrib : *mut *mut DHCP_ATTRIB) -> u32);
-    DhcpServerQueryAttribute(serveripaddr.param().abi(), dwreserved, dhcpattribid, core::mem::transmute(pdhcpattrib))
+    unsafe { DhcpServerQueryAttribute(serveripaddr.param().abi(), dwreserved, dhcpattribid, core::mem::transmute(pdhcpattrib)) }
 }
 #[inline]
 pub unsafe fn DhcpServerQueryAttributes<P0>(serveripaddr: P0, dwreserved: u32, dwattribcount: u32, pdhcpattribs: *mut u32, pdhcpattribarr: *mut *mut DHCP_ATTRIB_ARRAY) -> u32
@@ -986,7 +986,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpServerQueryAttributes(serveripaddr : windows_core::PCWSTR, dwreserved : u32, dwattribcount : u32, pdhcpattribs : *mut u32, pdhcpattribarr : *mut *mut DHCP_ATTRIB_ARRAY) -> u32);
-    DhcpServerQueryAttributes(serveripaddr.param().abi(), dwreserved, dwattribcount, core::mem::transmute(pdhcpattribs), core::mem::transmute(pdhcpattribarr))
+    unsafe { DhcpServerQueryAttributes(serveripaddr.param().abi(), dwreserved, dwattribcount, core::mem::transmute(pdhcpattribs), core::mem::transmute(pdhcpattribarr)) }
 }
 #[inline]
 pub unsafe fn DhcpServerQueryDnsRegCredentials<P0>(serveripaddress: P0, uname: &mut [u16], domain: &mut [u16]) -> u32
@@ -994,7 +994,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpServerQueryDnsRegCredentials(serveripaddress : windows_core::PCWSTR, unamesize : u32, uname : windows_core::PWSTR, domainsize : u32, domain : windows_core::PWSTR) -> u32);
-    DhcpServerQueryDnsRegCredentials(serveripaddress.param().abi(), uname.len().try_into().unwrap(), core::mem::transmute(uname.as_ptr()), domain.len().try_into().unwrap(), core::mem::transmute(domain.as_ptr()))
+    unsafe { DhcpServerQueryDnsRegCredentials(serveripaddress.param().abi(), uname.len().try_into().unwrap(), core::mem::transmute(uname.as_ptr()), domain.len().try_into().unwrap(), core::mem::transmute(domain.as_ptr())) }
 }
 #[inline]
 pub unsafe fn DhcpServerRedoAuthorization<P0>(serveripaddr: P0, dwreserved: u32) -> u32
@@ -1002,7 +1002,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpServerRedoAuthorization(serveripaddr : windows_core::PCWSTR, dwreserved : u32) -> u32);
-    DhcpServerRedoAuthorization(serveripaddr.param().abi(), dwreserved)
+    unsafe { DhcpServerRedoAuthorization(serveripaddr.param().abi(), dwreserved) }
 }
 #[inline]
 pub unsafe fn DhcpServerRestoreDatabase<P0, P1>(serveripaddress: P0, path: P1) -> u32
@@ -1011,7 +1011,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpServerRestoreDatabase(serveripaddress : windows_core::PCWSTR, path : windows_core::PCWSTR) -> u32);
-    DhcpServerRestoreDatabase(serveripaddress.param().abi(), path.param().abi())
+    unsafe { DhcpServerRestoreDatabase(serveripaddress.param().abi(), path.param().abi()) }
 }
 #[inline]
 pub unsafe fn DhcpServerSetConfig<P0>(serveripaddress: P0, fieldstoset: u32, configinfo: *mut DHCP_SERVER_CONFIG_INFO) -> u32
@@ -1019,7 +1019,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpServerSetConfig(serveripaddress : windows_core::PCWSTR, fieldstoset : u32, configinfo : *mut DHCP_SERVER_CONFIG_INFO) -> u32);
-    DhcpServerSetConfig(serveripaddress.param().abi(), fieldstoset, core::mem::transmute(configinfo))
+    unsafe { DhcpServerSetConfig(serveripaddress.param().abi(), fieldstoset, core::mem::transmute(configinfo)) }
 }
 #[inline]
 pub unsafe fn DhcpServerSetConfigV4<P0>(serveripaddress: P0, fieldstoset: u32, configinfo: *mut DHCP_SERVER_CONFIG_INFO_V4) -> u32
@@ -1027,7 +1027,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpServerSetConfigV4(serveripaddress : windows_core::PCWSTR, fieldstoset : u32, configinfo : *mut DHCP_SERVER_CONFIG_INFO_V4) -> u32);
-    DhcpServerSetConfigV4(serveripaddress.param().abi(), fieldstoset, core::mem::transmute(configinfo))
+    unsafe { DhcpServerSetConfigV4(serveripaddress.param().abi(), fieldstoset, core::mem::transmute(configinfo)) }
 }
 #[inline]
 pub unsafe fn DhcpServerSetConfigV6<P0>(serveripaddress: P0, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6, fieldstoset: u32, configinfo: *mut DHCP_SERVER_CONFIG_INFO_V6) -> u32
@@ -1035,7 +1035,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpServerSetConfigV6(serveripaddress : windows_core::PCWSTR, scopeinfo : *mut DHCP_OPTION_SCOPE_INFO6, fieldstoset : u32, configinfo : *mut DHCP_SERVER_CONFIG_INFO_V6) -> u32);
-    DhcpServerSetConfigV6(serveripaddress.param().abi(), core::mem::transmute(scopeinfo), fieldstoset, core::mem::transmute(configinfo))
+    unsafe { DhcpServerSetConfigV6(serveripaddress.param().abi(), core::mem::transmute(scopeinfo), fieldstoset, core::mem::transmute(configinfo)) }
 }
 #[inline]
 pub unsafe fn DhcpServerSetConfigVQ<P0>(serveripaddress: P0, fieldstoset: u32, configinfo: *mut DHCP_SERVER_CONFIG_INFO_VQ) -> u32
@@ -1043,7 +1043,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpServerSetConfigVQ(serveripaddress : windows_core::PCWSTR, fieldstoset : u32, configinfo : *mut DHCP_SERVER_CONFIG_INFO_VQ) -> u32);
-    DhcpServerSetConfigVQ(serveripaddress.param().abi(), fieldstoset, core::mem::transmute(configinfo))
+    unsafe { DhcpServerSetConfigVQ(serveripaddress.param().abi(), fieldstoset, core::mem::transmute(configinfo)) }
 }
 #[inline]
 pub unsafe fn DhcpServerSetDnsRegCredentials<P0, P1, P2, P3>(serveripaddress: P0, uname: P1, domain: P2, passwd: P3) -> u32
@@ -1054,7 +1054,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpServerSetDnsRegCredentials(serveripaddress : windows_core::PCWSTR, uname : windows_core::PCWSTR, domain : windows_core::PCWSTR, passwd : windows_core::PCWSTR) -> u32);
-    DhcpServerSetDnsRegCredentials(serveripaddress.param().abi(), uname.param().abi(), domain.param().abi(), passwd.param().abi())
+    unsafe { DhcpServerSetDnsRegCredentials(serveripaddress.param().abi(), uname.param().abi(), domain.param().abi(), passwd.param().abi()) }
 }
 #[inline]
 pub unsafe fn DhcpServerSetDnsRegCredentialsV5<P0, P1, P2, P3>(serveripaddress: P0, uname: P1, domain: P2, passwd: P3) -> u32
@@ -1065,7 +1065,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpServerSetDnsRegCredentialsV5(serveripaddress : windows_core::PCWSTR, uname : windows_core::PCWSTR, domain : windows_core::PCWSTR, passwd : windows_core::PCWSTR) -> u32);
-    DhcpServerSetDnsRegCredentialsV5(serveripaddress.param().abi(), uname.param().abi(), domain.param().abi(), passwd.param().abi())
+    unsafe { DhcpServerSetDnsRegCredentialsV5(serveripaddress.param().abi(), uname.param().abi(), domain.param().abi(), passwd.param().abi()) }
 }
 #[inline]
 pub unsafe fn DhcpSetClientInfo<P0>(serveripaddress: P0, clientinfo: *const DHCP_CLIENT_INFO) -> u32
@@ -1073,7 +1073,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpSetClientInfo(serveripaddress : windows_core::PCWSTR, clientinfo : *const DHCP_CLIENT_INFO) -> u32);
-    DhcpSetClientInfo(serveripaddress.param().abi(), clientinfo)
+    unsafe { DhcpSetClientInfo(serveripaddress.param().abi(), clientinfo) }
 }
 #[inline]
 pub unsafe fn DhcpSetClientInfoV4<P0>(serveripaddress: P0, clientinfo: *const DHCP_CLIENT_INFO_V4) -> u32
@@ -1081,7 +1081,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpSetClientInfoV4(serveripaddress : windows_core::PCWSTR, clientinfo : *const DHCP_CLIENT_INFO_V4) -> u32);
-    DhcpSetClientInfoV4(serveripaddress.param().abi(), clientinfo)
+    unsafe { DhcpSetClientInfoV4(serveripaddress.param().abi(), clientinfo) }
 }
 #[inline]
 pub unsafe fn DhcpSetClientInfoV6<P0>(serveripaddress: P0, clientinfo: *const DHCP_CLIENT_INFO_V6) -> u32
@@ -1089,7 +1089,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpSetClientInfoV6(serveripaddress : windows_core::PCWSTR, clientinfo : *const DHCP_CLIENT_INFO_V6) -> u32);
-    DhcpSetClientInfoV6(serveripaddress.param().abi(), clientinfo)
+    unsafe { DhcpSetClientInfoV6(serveripaddress.param().abi(), clientinfo) }
 }
 #[inline]
 pub unsafe fn DhcpSetClientInfoVQ<P0>(serveripaddress: P0, clientinfo: *const DHCP_CLIENT_INFO_VQ) -> u32
@@ -1097,7 +1097,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpSetClientInfoVQ(serveripaddress : windows_core::PCWSTR, clientinfo : *const DHCP_CLIENT_INFO_VQ) -> u32);
-    DhcpSetClientInfoVQ(serveripaddress.param().abi(), clientinfo)
+    unsafe { DhcpSetClientInfoVQ(serveripaddress.param().abi(), clientinfo) }
 }
 #[inline]
 pub unsafe fn DhcpSetFilterV4<P0>(serveripaddress: P0, globalfilterinfo: *const DHCP_FILTER_GLOBAL_INFO) -> u32
@@ -1105,7 +1105,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpSetFilterV4(serveripaddress : windows_core::PCWSTR, globalfilterinfo : *const DHCP_FILTER_GLOBAL_INFO) -> u32);
-    DhcpSetFilterV4(serveripaddress.param().abi(), globalfilterinfo)
+    unsafe { DhcpSetFilterV4(serveripaddress.param().abi(), globalfilterinfo) }
 }
 #[inline]
 pub unsafe fn DhcpSetOptionInfo<P0>(serveripaddress: P0, optionid: u32, optioninfo: *const DHCP_OPTION) -> u32
@@ -1113,7 +1113,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpSetOptionInfo(serveripaddress : windows_core::PCWSTR, optionid : u32, optioninfo : *const DHCP_OPTION) -> u32);
-    DhcpSetOptionInfo(serveripaddress.param().abi(), optionid, optioninfo)
+    unsafe { DhcpSetOptionInfo(serveripaddress.param().abi(), optionid, optioninfo) }
 }
 #[inline]
 pub unsafe fn DhcpSetOptionInfoV5<P0, P3, P4>(serveripaddress: P0, flags: u32, optionid: u32, classname: P3, vendorname: P4, optioninfo: *mut DHCP_OPTION) -> u32
@@ -1123,7 +1123,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpSetOptionInfoV5(serveripaddress : windows_core::PCWSTR, flags : u32, optionid : u32, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, optioninfo : *mut DHCP_OPTION) -> u32);
-    DhcpSetOptionInfoV5(serveripaddress.param().abi(), flags, optionid, classname.param().abi(), vendorname.param().abi(), core::mem::transmute(optioninfo))
+    unsafe { DhcpSetOptionInfoV5(serveripaddress.param().abi(), flags, optionid, classname.param().abi(), vendorname.param().abi(), core::mem::transmute(optioninfo)) }
 }
 #[inline]
 pub unsafe fn DhcpSetOptionInfoV6<P0, P3, P4>(serveripaddress: P0, flags: u32, optionid: u32, classname: P3, vendorname: P4, optioninfo: *mut DHCP_OPTION) -> u32
@@ -1133,7 +1133,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpSetOptionInfoV6(serveripaddress : windows_core::PCWSTR, flags : u32, optionid : u32, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, optioninfo : *mut DHCP_OPTION) -> u32);
-    DhcpSetOptionInfoV6(serveripaddress.param().abi(), flags, optionid, classname.param().abi(), vendorname.param().abi(), core::mem::transmute(optioninfo))
+    unsafe { DhcpSetOptionInfoV6(serveripaddress.param().abi(), flags, optionid, classname.param().abi(), vendorname.param().abi(), core::mem::transmute(optioninfo)) }
 }
 #[inline]
 pub unsafe fn DhcpSetOptionValue<P0>(serveripaddress: P0, optionid: u32, scopeinfo: *const DHCP_OPTION_SCOPE_INFO, optionvalue: *const DHCP_OPTION_DATA) -> u32
@@ -1141,7 +1141,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpSetOptionValue(serveripaddress : windows_core::PCWSTR, optionid : u32, scopeinfo : *const DHCP_OPTION_SCOPE_INFO, optionvalue : *const DHCP_OPTION_DATA) -> u32);
-    DhcpSetOptionValue(serveripaddress.param().abi(), optionid, scopeinfo, optionvalue)
+    unsafe { DhcpSetOptionValue(serveripaddress.param().abi(), optionid, scopeinfo, optionvalue) }
 }
 #[inline]
 pub unsafe fn DhcpSetOptionValueV5<P0, P3, P4>(serveripaddress: P0, flags: u32, optionid: u32, classname: P3, vendorname: P4, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, optionvalue: *mut DHCP_OPTION_DATA) -> u32
@@ -1151,7 +1151,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpSetOptionValueV5(serveripaddress : windows_core::PCWSTR, flags : u32, optionid : u32, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, scopeinfo : *mut DHCP_OPTION_SCOPE_INFO, optionvalue : *mut DHCP_OPTION_DATA) -> u32);
-    DhcpSetOptionValueV5(serveripaddress.param().abi(), flags, optionid, classname.param().abi(), vendorname.param().abi(), core::mem::transmute(scopeinfo), core::mem::transmute(optionvalue))
+    unsafe { DhcpSetOptionValueV5(serveripaddress.param().abi(), flags, optionid, classname.param().abi(), vendorname.param().abi(), core::mem::transmute(scopeinfo), core::mem::transmute(optionvalue)) }
 }
 #[inline]
 pub unsafe fn DhcpSetOptionValueV6<P0, P3, P4>(serveripaddress: P0, flags: u32, optionid: u32, classname: P3, vendorname: P4, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6, optionvalue: *mut DHCP_OPTION_DATA) -> u32
@@ -1161,7 +1161,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpSetOptionValueV6(serveripaddress : windows_core::PCWSTR, flags : u32, optionid : u32, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, scopeinfo : *mut DHCP_OPTION_SCOPE_INFO6, optionvalue : *mut DHCP_OPTION_DATA) -> u32);
-    DhcpSetOptionValueV6(serveripaddress.param().abi(), flags, optionid, classname.param().abi(), vendorname.param().abi(), core::mem::transmute(scopeinfo), core::mem::transmute(optionvalue))
+    unsafe { DhcpSetOptionValueV6(serveripaddress.param().abi(), flags, optionid, classname.param().abi(), vendorname.param().abi(), core::mem::transmute(scopeinfo), core::mem::transmute(optionvalue)) }
 }
 #[inline]
 pub unsafe fn DhcpSetOptionValues<P0>(serveripaddress: P0, scopeinfo: *const DHCP_OPTION_SCOPE_INFO, optionvalues: *const DHCP_OPTION_VALUE_ARRAY) -> u32
@@ -1169,7 +1169,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpSetOptionValues(serveripaddress : windows_core::PCWSTR, scopeinfo : *const DHCP_OPTION_SCOPE_INFO, optionvalues : *const DHCP_OPTION_VALUE_ARRAY) -> u32);
-    DhcpSetOptionValues(serveripaddress.param().abi(), scopeinfo, optionvalues)
+    unsafe { DhcpSetOptionValues(serveripaddress.param().abi(), scopeinfo, optionvalues) }
 }
 #[inline]
 pub unsafe fn DhcpSetOptionValuesV5<P0, P2, P3>(serveripaddress: P0, flags: u32, classname: P2, vendorname: P3, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, optionvalues: *mut DHCP_OPTION_VALUE_ARRAY) -> u32
@@ -1179,7 +1179,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpSetOptionValuesV5(serveripaddress : windows_core::PCWSTR, flags : u32, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, scopeinfo : *mut DHCP_OPTION_SCOPE_INFO, optionvalues : *mut DHCP_OPTION_VALUE_ARRAY) -> u32);
-    DhcpSetOptionValuesV5(serveripaddress.param().abi(), flags, classname.param().abi(), vendorname.param().abi(), core::mem::transmute(scopeinfo), core::mem::transmute(optionvalues))
+    unsafe { DhcpSetOptionValuesV5(serveripaddress.param().abi(), flags, classname.param().abi(), vendorname.param().abi(), core::mem::transmute(scopeinfo), core::mem::transmute(optionvalues)) }
 }
 #[inline]
 pub unsafe fn DhcpSetServerBindingInfo<P0>(serveripaddress: P0, flags: u32, bindelementinfo: *mut DHCP_BIND_ELEMENT_ARRAY) -> u32
@@ -1187,7 +1187,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpSetServerBindingInfo(serveripaddress : windows_core::PCWSTR, flags : u32, bindelementinfo : *mut DHCP_BIND_ELEMENT_ARRAY) -> u32);
-    DhcpSetServerBindingInfo(serveripaddress.param().abi(), flags, core::mem::transmute(bindelementinfo))
+    unsafe { DhcpSetServerBindingInfo(serveripaddress.param().abi(), flags, core::mem::transmute(bindelementinfo)) }
 }
 #[inline]
 pub unsafe fn DhcpSetServerBindingInfoV6<P0>(serveripaddress: P0, flags: u32, bindelementinfo: *mut DHCPV6_BIND_ELEMENT_ARRAY) -> u32
@@ -1195,7 +1195,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpSetServerBindingInfoV6(serveripaddress : windows_core::PCWSTR, flags : u32, bindelementinfo : *mut DHCPV6_BIND_ELEMENT_ARRAY) -> u32);
-    DhcpSetServerBindingInfoV6(serveripaddress.param().abi(), flags, core::mem::transmute(bindelementinfo))
+    unsafe { DhcpSetServerBindingInfoV6(serveripaddress.param().abi(), flags, core::mem::transmute(bindelementinfo)) }
 }
 #[inline]
 pub unsafe fn DhcpSetSubnetDelayOffer<P0>(serveripaddress: P0, subnetaddress: u32, timedelayinmilliseconds: u16) -> u32
@@ -1203,7 +1203,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpSetSubnetDelayOffer(serveripaddress : windows_core::PCWSTR, subnetaddress : u32, timedelayinmilliseconds : u16) -> u32);
-    DhcpSetSubnetDelayOffer(serveripaddress.param().abi(), subnetaddress, timedelayinmilliseconds)
+    unsafe { DhcpSetSubnetDelayOffer(serveripaddress.param().abi(), subnetaddress, timedelayinmilliseconds) }
 }
 #[inline]
 pub unsafe fn DhcpSetSubnetInfo<P0>(serveripaddress: P0, subnetaddress: u32, subnetinfo: *const DHCP_SUBNET_INFO) -> u32
@@ -1211,7 +1211,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpSetSubnetInfo(serveripaddress : windows_core::PCWSTR, subnetaddress : u32, subnetinfo : *const DHCP_SUBNET_INFO) -> u32);
-    DhcpSetSubnetInfo(serveripaddress.param().abi(), subnetaddress, subnetinfo)
+    unsafe { DhcpSetSubnetInfo(serveripaddress.param().abi(), subnetaddress, subnetinfo) }
 }
 #[inline]
 pub unsafe fn DhcpSetSubnetInfoV6<P0>(serveripaddress: P0, subnetaddress: DHCP_IPV6_ADDRESS, subnetinfo: *mut DHCP_SUBNET_INFO_V6) -> u32
@@ -1219,7 +1219,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpSetSubnetInfoV6(serveripaddress : windows_core::PCWSTR, subnetaddress : DHCP_IPV6_ADDRESS, subnetinfo : *mut DHCP_SUBNET_INFO_V6) -> u32);
-    DhcpSetSubnetInfoV6(serveripaddress.param().abi(), core::mem::transmute(subnetaddress), core::mem::transmute(subnetinfo))
+    unsafe { DhcpSetSubnetInfoV6(serveripaddress.param().abi(), core::mem::transmute(subnetaddress), core::mem::transmute(subnetinfo)) }
 }
 #[inline]
 pub unsafe fn DhcpSetSubnetInfoVQ<P0>(serveripaddress: P0, subnetaddress: u32, subnetinfo: *const DHCP_SUBNET_INFO_VQ) -> u32
@@ -1227,7 +1227,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpSetSubnetInfoVQ(serveripaddress : windows_core::PCWSTR, subnetaddress : u32, subnetinfo : *const DHCP_SUBNET_INFO_VQ) -> u32);
-    DhcpSetSubnetInfoVQ(serveripaddress.param().abi(), subnetaddress, subnetinfo)
+    unsafe { DhcpSetSubnetInfoVQ(serveripaddress.param().abi(), subnetaddress, subnetinfo) }
 }
 #[inline]
 pub unsafe fn DhcpSetSuperScopeV4<P0, P2>(serveripaddress: P0, subnetaddress: u32, superscopename: P2, changeexisting: bool) -> u32
@@ -1236,12 +1236,12 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpSetSuperScopeV4(serveripaddress : windows_core::PCWSTR, subnetaddress : u32, superscopename : windows_core::PCWSTR, changeexisting : super::super::Foundation:: BOOL) -> u32);
-    DhcpSetSuperScopeV4(serveripaddress.param().abi(), subnetaddress, superscopename.param().abi(), changeexisting.into())
+    unsafe { DhcpSetSuperScopeV4(serveripaddress.param().abi(), subnetaddress, superscopename.param().abi(), changeexisting.into()) }
 }
 #[inline]
 pub unsafe fn DhcpSetThreadOptions(flags: u32, reserved: *mut core::ffi::c_void) -> u32 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpSetThreadOptions(flags : u32, reserved : *mut core::ffi::c_void) -> u32);
-    DhcpSetThreadOptions(flags, core::mem::transmute(reserved))
+    unsafe { DhcpSetThreadOptions(flags, core::mem::transmute(reserved)) }
 }
 #[inline]
 pub unsafe fn DhcpUndoRequestParams<P2, P3>(flags: Option<u32>, reserved: Option<*const core::ffi::c_void>, adaptername: P2, requestidstr: P3) -> u32
@@ -1250,7 +1250,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpcsvc.dll" "system" fn DhcpUndoRequestParams(flags : u32, reserved : *const core::ffi::c_void, adaptername : windows_core::PCWSTR, requestidstr : windows_core::PCWSTR) -> u32);
-    DhcpUndoRequestParams(core::mem::transmute(flags.unwrap_or(core::mem::zeroed())), core::mem::transmute(reserved.unwrap_or(core::mem::zeroed())), adaptername.param().abi(), requestidstr.param().abi())
+    unsafe { DhcpUndoRequestParams(core::mem::transmute(flags.unwrap_or(core::mem::zeroed())), core::mem::transmute(reserved.unwrap_or(core::mem::zeroed())), adaptername.param().abi(), requestidstr.param().abi()) }
 }
 #[inline]
 pub unsafe fn DhcpV4AddPolicyRange<P0, P2>(serveripaddress: P0, subnetaddress: u32, policyname: P2, range: *const DHCP_IP_RANGE) -> u32
@@ -1259,7 +1259,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4AddPolicyRange(serveripaddress : windows_core::PCWSTR, subnetaddress : u32, policyname : windows_core::PCWSTR, range : *const DHCP_IP_RANGE) -> u32);
-    DhcpV4AddPolicyRange(serveripaddress.param().abi(), subnetaddress, policyname.param().abi(), range)
+    unsafe { DhcpV4AddPolicyRange(serveripaddress.param().abi(), subnetaddress, policyname.param().abi(), range) }
 }
 #[inline]
 pub unsafe fn DhcpV4CreateClientInfo<P0>(serveripaddress: P0, clientinfo: *const DHCP_CLIENT_INFO_PB) -> u32
@@ -1267,7 +1267,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4CreateClientInfo(serveripaddress : windows_core::PCWSTR, clientinfo : *const DHCP_CLIENT_INFO_PB) -> u32);
-    DhcpV4CreateClientInfo(serveripaddress.param().abi(), clientinfo)
+    unsafe { DhcpV4CreateClientInfo(serveripaddress.param().abi(), clientinfo) }
 }
 #[inline]
 pub unsafe fn DhcpV4CreateClientInfoEx<P0>(serveripaddress: P0, clientinfo: *const DHCP_CLIENT_INFO_EX) -> u32
@@ -1275,7 +1275,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4CreateClientInfoEx(serveripaddress : windows_core::PCWSTR, clientinfo : *const DHCP_CLIENT_INFO_EX) -> u32);
-    DhcpV4CreateClientInfoEx(serveripaddress.param().abi(), clientinfo)
+    unsafe { DhcpV4CreateClientInfoEx(serveripaddress.param().abi(), clientinfo) }
 }
 #[inline]
 pub unsafe fn DhcpV4CreatePolicy<P0>(serveripaddress: P0, ppolicy: *const DHCP_POLICY) -> u32
@@ -1283,7 +1283,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4CreatePolicy(serveripaddress : windows_core::PCWSTR, ppolicy : *const DHCP_POLICY) -> u32);
-    DhcpV4CreatePolicy(serveripaddress.param().abi(), ppolicy)
+    unsafe { DhcpV4CreatePolicy(serveripaddress.param().abi(), ppolicy) }
 }
 #[inline]
 pub unsafe fn DhcpV4CreatePolicyEx<P0>(serveripaddress: P0, policyex: *const DHCP_POLICY_EX) -> u32
@@ -1291,7 +1291,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4CreatePolicyEx(serveripaddress : windows_core::PCWSTR, policyex : *const DHCP_POLICY_EX) -> u32);
-    DhcpV4CreatePolicyEx(serveripaddress.param().abi(), policyex)
+    unsafe { DhcpV4CreatePolicyEx(serveripaddress.param().abi(), policyex) }
 }
 #[inline]
 pub unsafe fn DhcpV4DeletePolicy<P0, P3>(serveripaddress: P0, fglobalpolicy: bool, subnetaddress: u32, policyname: P3) -> u32
@@ -1300,7 +1300,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4DeletePolicy(serveripaddress : windows_core::PCWSTR, fglobalpolicy : super::super::Foundation:: BOOL, subnetaddress : u32, policyname : windows_core::PCWSTR) -> u32);
-    DhcpV4DeletePolicy(serveripaddress.param().abi(), fglobalpolicy.into(), subnetaddress, policyname.param().abi())
+    unsafe { DhcpV4DeletePolicy(serveripaddress.param().abi(), fglobalpolicy.into(), subnetaddress, policyname.param().abi()) }
 }
 #[inline]
 pub unsafe fn DhcpV4EnumPolicies<P0>(serveripaddress: P0, resumehandle: *mut u32, preferredmaximum: u32, fglobalpolicy: bool, subnetaddress: u32, enuminfo: *mut *mut DHCP_POLICY_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32
@@ -1308,7 +1308,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4EnumPolicies(serveripaddress : windows_core::PCWSTR, resumehandle : *mut u32, preferredmaximum : u32, fglobalpolicy : super::super::Foundation:: BOOL, subnetaddress : u32, enuminfo : *mut *mut DHCP_POLICY_ARRAY, elementsread : *mut u32, elementstotal : *mut u32) -> u32);
-    DhcpV4EnumPolicies(serveripaddress.param().abi(), core::mem::transmute(resumehandle), preferredmaximum, fglobalpolicy.into(), subnetaddress, core::mem::transmute(enuminfo), core::mem::transmute(elementsread), core::mem::transmute(elementstotal))
+    unsafe { DhcpV4EnumPolicies(serveripaddress.param().abi(), core::mem::transmute(resumehandle), preferredmaximum, fglobalpolicy.into(), subnetaddress, core::mem::transmute(enuminfo), core::mem::transmute(elementsread), core::mem::transmute(elementstotal)) }
 }
 #[inline]
 pub unsafe fn DhcpV4EnumPoliciesEx<P0>(serveripaddress: P0, resumehandle: *mut u32, preferredmaximum: u32, globalpolicy: bool, subnetaddress: u32, enuminfo: *mut *mut DHCP_POLICY_EX_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32
@@ -1316,7 +1316,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4EnumPoliciesEx(serveripaddress : windows_core::PCWSTR, resumehandle : *mut u32, preferredmaximum : u32, globalpolicy : super::super::Foundation:: BOOL, subnetaddress : u32, enuminfo : *mut *mut DHCP_POLICY_EX_ARRAY, elementsread : *mut u32, elementstotal : *mut u32) -> u32);
-    DhcpV4EnumPoliciesEx(serveripaddress.param().abi(), core::mem::transmute(resumehandle), preferredmaximum, globalpolicy.into(), subnetaddress, core::mem::transmute(enuminfo), core::mem::transmute(elementsread), core::mem::transmute(elementstotal))
+    unsafe { DhcpV4EnumPoliciesEx(serveripaddress.param().abi(), core::mem::transmute(resumehandle), preferredmaximum, globalpolicy.into(), subnetaddress, core::mem::transmute(enuminfo), core::mem::transmute(elementsread), core::mem::transmute(elementstotal)) }
 }
 #[inline]
 pub unsafe fn DhcpV4EnumSubnetClients<P0>(serveripaddress: P0, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_PB_ARRAY, clientsread: *mut u32, clientstotal: *mut u32) -> u32
@@ -1324,7 +1324,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4EnumSubnetClients(serveripaddress : windows_core::PCWSTR, subnetaddress : u32, resumehandle : *mut u32, preferredmaximum : u32, clientinfo : *mut *mut DHCP_CLIENT_INFO_PB_ARRAY, clientsread : *mut u32, clientstotal : *mut u32) -> u32);
-    DhcpV4EnumSubnetClients(serveripaddress.param().abi(), subnetaddress, core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(clientinfo), core::mem::transmute(clientsread), core::mem::transmute(clientstotal))
+    unsafe { DhcpV4EnumSubnetClients(serveripaddress.param().abi(), subnetaddress, core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(clientinfo), core::mem::transmute(clientsread), core::mem::transmute(clientstotal)) }
 }
 #[inline]
 pub unsafe fn DhcpV4EnumSubnetClientsEx<P0>(serveripaddress: P0, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_EX_ARRAY, clientsread: *mut u32, clientstotal: *mut u32) -> u32
@@ -1332,7 +1332,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4EnumSubnetClientsEx(serveripaddress : windows_core::PCWSTR, subnetaddress : u32, resumehandle : *mut u32, preferredmaximum : u32, clientinfo : *mut *mut DHCP_CLIENT_INFO_EX_ARRAY, clientsread : *mut u32, clientstotal : *mut u32) -> u32);
-    DhcpV4EnumSubnetClientsEx(serveripaddress.param().abi(), subnetaddress, core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(clientinfo), core::mem::transmute(clientsread), core::mem::transmute(clientstotal))
+    unsafe { DhcpV4EnumSubnetClientsEx(serveripaddress.param().abi(), subnetaddress, core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(clientinfo), core::mem::transmute(clientsread), core::mem::transmute(clientstotal)) }
 }
 #[inline]
 pub unsafe fn DhcpV4EnumSubnetReservations<P0>(serveripaddress: P0, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, enumelementinfo: *mut *mut DHCP_RESERVATION_INFO_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32
@@ -1340,7 +1340,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4EnumSubnetReservations(serveripaddress : windows_core::PCWSTR, subnetaddress : u32, resumehandle : *mut u32, preferredmaximum : u32, enumelementinfo : *mut *mut DHCP_RESERVATION_INFO_ARRAY, elementsread : *mut u32, elementstotal : *mut u32) -> u32);
-    DhcpV4EnumSubnetReservations(serveripaddress.param().abi(), subnetaddress, core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(enumelementinfo), core::mem::transmute(elementsread), core::mem::transmute(elementstotal))
+    unsafe { DhcpV4EnumSubnetReservations(serveripaddress.param().abi(), subnetaddress, core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(enumelementinfo), core::mem::transmute(elementsread), core::mem::transmute(elementstotal)) }
 }
 #[inline]
 pub unsafe fn DhcpV4FailoverAddScopeToRelationship<P0>(serveripaddress: P0, prelationship: *const DHCP_FAILOVER_RELATIONSHIP) -> u32
@@ -1348,7 +1348,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4FailoverAddScopeToRelationship(serveripaddress : windows_core::PCWSTR, prelationship : *const DHCP_FAILOVER_RELATIONSHIP) -> u32);
-    DhcpV4FailoverAddScopeToRelationship(serveripaddress.param().abi(), prelationship)
+    unsafe { DhcpV4FailoverAddScopeToRelationship(serveripaddress.param().abi(), prelationship) }
 }
 #[inline]
 pub unsafe fn DhcpV4FailoverCreateRelationship<P0>(serveripaddress: P0, prelationship: *const DHCP_FAILOVER_RELATIONSHIP) -> u32
@@ -1356,7 +1356,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4FailoverCreateRelationship(serveripaddress : windows_core::PCWSTR, prelationship : *const DHCP_FAILOVER_RELATIONSHIP) -> u32);
-    DhcpV4FailoverCreateRelationship(serveripaddress.param().abi(), prelationship)
+    unsafe { DhcpV4FailoverCreateRelationship(serveripaddress.param().abi(), prelationship) }
 }
 #[inline]
 pub unsafe fn DhcpV4FailoverDeleteRelationship<P0, P1>(serveripaddress: P0, prelationshipname: P1) -> u32
@@ -1365,7 +1365,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4FailoverDeleteRelationship(serveripaddress : windows_core::PCWSTR, prelationshipname : windows_core::PCWSTR) -> u32);
-    DhcpV4FailoverDeleteRelationship(serveripaddress.param().abi(), prelationshipname.param().abi())
+    unsafe { DhcpV4FailoverDeleteRelationship(serveripaddress.param().abi(), prelationshipname.param().abi()) }
 }
 #[inline]
 pub unsafe fn DhcpV4FailoverDeleteScopeFromRelationship<P0>(serveripaddress: P0, prelationship: *const DHCP_FAILOVER_RELATIONSHIP) -> u32
@@ -1373,7 +1373,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4FailoverDeleteScopeFromRelationship(serveripaddress : windows_core::PCWSTR, prelationship : *const DHCP_FAILOVER_RELATIONSHIP) -> u32);
-    DhcpV4FailoverDeleteScopeFromRelationship(serveripaddress.param().abi(), prelationship)
+    unsafe { DhcpV4FailoverDeleteScopeFromRelationship(serveripaddress.param().abi(), prelationship) }
 }
 #[inline]
 pub unsafe fn DhcpV4FailoverEnumRelationship<P0>(serveripaddress: P0, resumehandle: *mut u32, preferredmaximum: u32, prelationship: *mut *mut DHCP_FAILOVER_RELATIONSHIP_ARRAY, relationshipread: *mut u32, relationshiptotal: *mut u32) -> u32
@@ -1381,7 +1381,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4FailoverEnumRelationship(serveripaddress : windows_core::PCWSTR, resumehandle : *mut u32, preferredmaximum : u32, prelationship : *mut *mut DHCP_FAILOVER_RELATIONSHIP_ARRAY, relationshipread : *mut u32, relationshiptotal : *mut u32) -> u32);
-    DhcpV4FailoverEnumRelationship(serveripaddress.param().abi(), core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(prelationship), core::mem::transmute(relationshipread), core::mem::transmute(relationshiptotal))
+    unsafe { DhcpV4FailoverEnumRelationship(serveripaddress.param().abi(), core::mem::transmute(resumehandle), preferredmaximum, core::mem::transmute(prelationship), core::mem::transmute(relationshipread), core::mem::transmute(relationshiptotal)) }
 }
 #[inline]
 pub unsafe fn DhcpV4FailoverGetAddressStatus<P0>(serveripaddress: P0, subnetaddress: u32, pstatus: *mut u32) -> u32
@@ -1389,7 +1389,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4FailoverGetAddressStatus(serveripaddress : windows_core::PCWSTR, subnetaddress : u32, pstatus : *mut u32) -> u32);
-    DhcpV4FailoverGetAddressStatus(serveripaddress.param().abi(), subnetaddress, core::mem::transmute(pstatus))
+    unsafe { DhcpV4FailoverGetAddressStatus(serveripaddress.param().abi(), subnetaddress, core::mem::transmute(pstatus)) }
 }
 #[inline]
 pub unsafe fn DhcpV4FailoverGetClientInfo<P0>(serveripaddress: P0, searchinfo: *const DHCP_SEARCH_INFO, clientinfo: *mut *mut DHCPV4_FAILOVER_CLIENT_INFO) -> u32
@@ -1397,7 +1397,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4FailoverGetClientInfo(serveripaddress : windows_core::PCWSTR, searchinfo : *const DHCP_SEARCH_INFO, clientinfo : *mut *mut DHCPV4_FAILOVER_CLIENT_INFO) -> u32);
-    DhcpV4FailoverGetClientInfo(serveripaddress.param().abi(), searchinfo, core::mem::transmute(clientinfo))
+    unsafe { DhcpV4FailoverGetClientInfo(serveripaddress.param().abi(), searchinfo, core::mem::transmute(clientinfo)) }
 }
 #[inline]
 pub unsafe fn DhcpV4FailoverGetRelationship<P0, P1>(serveripaddress: P0, prelationshipname: P1, prelationship: *mut *mut DHCP_FAILOVER_RELATIONSHIP) -> u32
@@ -1406,7 +1406,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4FailoverGetRelationship(serveripaddress : windows_core::PCWSTR, prelationshipname : windows_core::PCWSTR, prelationship : *mut *mut DHCP_FAILOVER_RELATIONSHIP) -> u32);
-    DhcpV4FailoverGetRelationship(serveripaddress.param().abi(), prelationshipname.param().abi(), core::mem::transmute(prelationship))
+    unsafe { DhcpV4FailoverGetRelationship(serveripaddress.param().abi(), prelationshipname.param().abi(), core::mem::transmute(prelationship)) }
 }
 #[inline]
 pub unsafe fn DhcpV4FailoverGetScopeRelationship<P0>(serveripaddress: P0, scopeid: u32, prelationship: *mut *mut DHCP_FAILOVER_RELATIONSHIP) -> u32
@@ -1414,7 +1414,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4FailoverGetScopeRelationship(serveripaddress : windows_core::PCWSTR, scopeid : u32, prelationship : *mut *mut DHCP_FAILOVER_RELATIONSHIP) -> u32);
-    DhcpV4FailoverGetScopeRelationship(serveripaddress.param().abi(), scopeid, core::mem::transmute(prelationship))
+    unsafe { DhcpV4FailoverGetScopeRelationship(serveripaddress.param().abi(), scopeid, core::mem::transmute(prelationship)) }
 }
 #[inline]
 pub unsafe fn DhcpV4FailoverGetScopeStatistics<P0>(serveripaddress: P0, scopeid: u32, pstats: *mut *mut DHCP_FAILOVER_STATISTICS) -> u32
@@ -1422,7 +1422,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4FailoverGetScopeStatistics(serveripaddress : windows_core::PCWSTR, scopeid : u32, pstats : *mut *mut DHCP_FAILOVER_STATISTICS) -> u32);
-    DhcpV4FailoverGetScopeStatistics(serveripaddress.param().abi(), scopeid, core::mem::transmute(pstats))
+    unsafe { DhcpV4FailoverGetScopeStatistics(serveripaddress.param().abi(), scopeid, core::mem::transmute(pstats)) }
 }
 #[inline]
 pub unsafe fn DhcpV4FailoverGetSystemTime<P0>(serveripaddress: P0, ptime: *mut u32, pmaxalloweddeltatime: *mut u32) -> u32
@@ -1430,7 +1430,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4FailoverGetSystemTime(serveripaddress : windows_core::PCWSTR, ptime : *mut u32, pmaxalloweddeltatime : *mut u32) -> u32);
-    DhcpV4FailoverGetSystemTime(serveripaddress.param().abi(), core::mem::transmute(ptime), core::mem::transmute(pmaxalloweddeltatime))
+    unsafe { DhcpV4FailoverGetSystemTime(serveripaddress.param().abi(), core::mem::transmute(ptime), core::mem::transmute(pmaxalloweddeltatime)) }
 }
 #[inline]
 pub unsafe fn DhcpV4FailoverSetRelationship<P0>(serveripaddress: P0, flags: u32, prelationship: *const DHCP_FAILOVER_RELATIONSHIP) -> u32
@@ -1438,7 +1438,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4FailoverSetRelationship(serveripaddress : windows_core::PCWSTR, flags : u32, prelationship : *const DHCP_FAILOVER_RELATIONSHIP) -> u32);
-    DhcpV4FailoverSetRelationship(serveripaddress.param().abi(), flags, prelationship)
+    unsafe { DhcpV4FailoverSetRelationship(serveripaddress.param().abi(), flags, prelationship) }
 }
 #[inline]
 pub unsafe fn DhcpV4FailoverTriggerAddrAllocation<P0, P1>(serveripaddress: P0, pfailrelname: P1) -> u32
@@ -1447,7 +1447,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4FailoverTriggerAddrAllocation(serveripaddress : windows_core::PCWSTR, pfailrelname : windows_core::PCWSTR) -> u32);
-    DhcpV4FailoverTriggerAddrAllocation(serveripaddress.param().abi(), pfailrelname.param().abi())
+    unsafe { DhcpV4FailoverTriggerAddrAllocation(serveripaddress.param().abi(), pfailrelname.param().abi()) }
 }
 #[inline]
 pub unsafe fn DhcpV4GetAllOptionValues<P0>(serveripaddress: P0, flags: u32, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, values: *mut *mut DHCP_ALL_OPTION_VALUES_PB) -> u32
@@ -1455,7 +1455,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4GetAllOptionValues(serveripaddress : windows_core::PCWSTR, flags : u32, scopeinfo : *mut DHCP_OPTION_SCOPE_INFO, values : *mut *mut DHCP_ALL_OPTION_VALUES_PB) -> u32);
-    DhcpV4GetAllOptionValues(serveripaddress.param().abi(), flags, core::mem::transmute(scopeinfo), core::mem::transmute(values))
+    unsafe { DhcpV4GetAllOptionValues(serveripaddress.param().abi(), flags, core::mem::transmute(scopeinfo), core::mem::transmute(values)) }
 }
 #[inline]
 pub unsafe fn DhcpV4GetClientInfo<P0>(serveripaddress: P0, searchinfo: *const DHCP_SEARCH_INFO, clientinfo: *mut *mut DHCP_CLIENT_INFO_PB) -> u32
@@ -1463,7 +1463,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4GetClientInfo(serveripaddress : windows_core::PCWSTR, searchinfo : *const DHCP_SEARCH_INFO, clientinfo : *mut *mut DHCP_CLIENT_INFO_PB) -> u32);
-    DhcpV4GetClientInfo(serveripaddress.param().abi(), searchinfo, core::mem::transmute(clientinfo))
+    unsafe { DhcpV4GetClientInfo(serveripaddress.param().abi(), searchinfo, core::mem::transmute(clientinfo)) }
 }
 #[inline]
 pub unsafe fn DhcpV4GetClientInfoEx<P0>(serveripaddress: P0, searchinfo: *const DHCP_SEARCH_INFO, clientinfo: *mut *mut DHCP_CLIENT_INFO_EX) -> u32
@@ -1471,7 +1471,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4GetClientInfoEx(serveripaddress : windows_core::PCWSTR, searchinfo : *const DHCP_SEARCH_INFO, clientinfo : *mut *mut DHCP_CLIENT_INFO_EX) -> u32);
-    DhcpV4GetClientInfoEx(serveripaddress.param().abi(), searchinfo, core::mem::transmute(clientinfo))
+    unsafe { DhcpV4GetClientInfoEx(serveripaddress.param().abi(), searchinfo, core::mem::transmute(clientinfo)) }
 }
 #[inline]
 pub unsafe fn DhcpV4GetFreeIPAddress<P0>(serveripaddress: P0, scopeid: u32, startip: u32, endip: u32, numfreeaddrreq: u32, ipaddrlist: *mut *mut DHCP_IP_ARRAY) -> u32
@@ -1479,7 +1479,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4GetFreeIPAddress(serveripaddress : windows_core::PCWSTR, scopeid : u32, startip : u32, endip : u32, numfreeaddrreq : u32, ipaddrlist : *mut *mut DHCP_IP_ARRAY) -> u32);
-    DhcpV4GetFreeIPAddress(serveripaddress.param().abi(), scopeid, startip, endip, numfreeaddrreq, core::mem::transmute(ipaddrlist))
+    unsafe { DhcpV4GetFreeIPAddress(serveripaddress.param().abi(), scopeid, startip, endip, numfreeaddrreq, core::mem::transmute(ipaddrlist)) }
 }
 #[inline]
 pub unsafe fn DhcpV4GetOptionValue<P0, P3, P4>(serveripaddress: P0, flags: u32, optionid: u32, policyname: P3, vendorname: P4, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, optionvalue: *mut *mut DHCP_OPTION_VALUE) -> u32
@@ -1489,7 +1489,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4GetOptionValue(serveripaddress : windows_core::PCWSTR, flags : u32, optionid : u32, policyname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, scopeinfo : *mut DHCP_OPTION_SCOPE_INFO, optionvalue : *mut *mut DHCP_OPTION_VALUE) -> u32);
-    DhcpV4GetOptionValue(serveripaddress.param().abi(), flags, optionid, policyname.param().abi(), vendorname.param().abi(), core::mem::transmute(scopeinfo), core::mem::transmute(optionvalue))
+    unsafe { DhcpV4GetOptionValue(serveripaddress.param().abi(), flags, optionid, policyname.param().abi(), vendorname.param().abi(), core::mem::transmute(scopeinfo), core::mem::transmute(optionvalue)) }
 }
 #[inline]
 pub unsafe fn DhcpV4GetPolicy<P0, P3>(serveripaddress: P0, fglobalpolicy: bool, subnetaddress: u32, policyname: P3, policy: *mut *mut DHCP_POLICY) -> u32
@@ -1498,7 +1498,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4GetPolicy(serveripaddress : windows_core::PCWSTR, fglobalpolicy : super::super::Foundation:: BOOL, subnetaddress : u32, policyname : windows_core::PCWSTR, policy : *mut *mut DHCP_POLICY) -> u32);
-    DhcpV4GetPolicy(serveripaddress.param().abi(), fglobalpolicy.into(), subnetaddress, policyname.param().abi(), core::mem::transmute(policy))
+    unsafe { DhcpV4GetPolicy(serveripaddress.param().abi(), fglobalpolicy.into(), subnetaddress, policyname.param().abi(), core::mem::transmute(policy)) }
 }
 #[inline]
 pub unsafe fn DhcpV4GetPolicyEx<P0, P3>(serveripaddress: P0, globalpolicy: bool, subnetaddress: u32, policyname: P3, policy: *mut *mut DHCP_POLICY_EX) -> u32
@@ -1507,7 +1507,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4GetPolicyEx(serveripaddress : windows_core::PCWSTR, globalpolicy : super::super::Foundation:: BOOL, subnetaddress : u32, policyname : windows_core::PCWSTR, policy : *mut *mut DHCP_POLICY_EX) -> u32);
-    DhcpV4GetPolicyEx(serveripaddress.param().abi(), globalpolicy.into(), subnetaddress, policyname.param().abi(), core::mem::transmute(policy))
+    unsafe { DhcpV4GetPolicyEx(serveripaddress.param().abi(), globalpolicy.into(), subnetaddress, policyname.param().abi(), core::mem::transmute(policy)) }
 }
 #[inline]
 pub unsafe fn DhcpV4QueryPolicyEnforcement<P0>(serveripaddress: P0, fglobalpolicy: bool, subnetaddress: u32, enabled: *mut super::super::Foundation::BOOL) -> u32
@@ -1515,7 +1515,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4QueryPolicyEnforcement(serveripaddress : windows_core::PCWSTR, fglobalpolicy : super::super::Foundation:: BOOL, subnetaddress : u32, enabled : *mut super::super::Foundation:: BOOL) -> u32);
-    DhcpV4QueryPolicyEnforcement(serveripaddress.param().abi(), fglobalpolicy.into(), subnetaddress, core::mem::transmute(enabled))
+    unsafe { DhcpV4QueryPolicyEnforcement(serveripaddress.param().abi(), fglobalpolicy.into(), subnetaddress, core::mem::transmute(enabled)) }
 }
 #[inline]
 pub unsafe fn DhcpV4RemoveOptionValue<P0, P3, P4>(serveripaddress: P0, flags: u32, optionid: u32, policyname: P3, vendorname: P4, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO) -> u32
@@ -1525,7 +1525,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4RemoveOptionValue(serveripaddress : windows_core::PCWSTR, flags : u32, optionid : u32, policyname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, scopeinfo : *mut DHCP_OPTION_SCOPE_INFO) -> u32);
-    DhcpV4RemoveOptionValue(serveripaddress.param().abi(), flags, optionid, policyname.param().abi(), vendorname.param().abi(), core::mem::transmute(scopeinfo))
+    unsafe { DhcpV4RemoveOptionValue(serveripaddress.param().abi(), flags, optionid, policyname.param().abi(), vendorname.param().abi(), core::mem::transmute(scopeinfo)) }
 }
 #[inline]
 pub unsafe fn DhcpV4RemovePolicyRange<P0, P2>(serveripaddress: P0, subnetaddress: u32, policyname: P2, range: *const DHCP_IP_RANGE) -> u32
@@ -1534,7 +1534,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4RemovePolicyRange(serveripaddress : windows_core::PCWSTR, subnetaddress : u32, policyname : windows_core::PCWSTR, range : *const DHCP_IP_RANGE) -> u32);
-    DhcpV4RemovePolicyRange(serveripaddress.param().abi(), subnetaddress, policyname.param().abi(), range)
+    unsafe { DhcpV4RemovePolicyRange(serveripaddress.param().abi(), subnetaddress, policyname.param().abi(), range) }
 }
 #[inline]
 pub unsafe fn DhcpV4SetOptionValue<P0, P3, P4>(serveripaddress: P0, flags: u32, optionid: u32, policyname: P3, vendorname: P4, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, optionvalue: *mut DHCP_OPTION_DATA) -> u32
@@ -1544,7 +1544,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4SetOptionValue(serveripaddress : windows_core::PCWSTR, flags : u32, optionid : u32, policyname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, scopeinfo : *mut DHCP_OPTION_SCOPE_INFO, optionvalue : *mut DHCP_OPTION_DATA) -> u32);
-    DhcpV4SetOptionValue(serveripaddress.param().abi(), flags, optionid, policyname.param().abi(), vendorname.param().abi(), core::mem::transmute(scopeinfo), core::mem::transmute(optionvalue))
+    unsafe { DhcpV4SetOptionValue(serveripaddress.param().abi(), flags, optionid, policyname.param().abi(), vendorname.param().abi(), core::mem::transmute(scopeinfo), core::mem::transmute(optionvalue)) }
 }
 #[inline]
 pub unsafe fn DhcpV4SetOptionValues<P0, P2, P3>(serveripaddress: P0, flags: u32, policyname: P2, vendorname: P3, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, optionvalues: *mut DHCP_OPTION_VALUE_ARRAY) -> u32
@@ -1554,7 +1554,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4SetOptionValues(serveripaddress : windows_core::PCWSTR, flags : u32, policyname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, scopeinfo : *mut DHCP_OPTION_SCOPE_INFO, optionvalues : *mut DHCP_OPTION_VALUE_ARRAY) -> u32);
-    DhcpV4SetOptionValues(serveripaddress.param().abi(), flags, policyname.param().abi(), vendorname.param().abi(), core::mem::transmute(scopeinfo), core::mem::transmute(optionvalues))
+    unsafe { DhcpV4SetOptionValues(serveripaddress.param().abi(), flags, policyname.param().abi(), vendorname.param().abi(), core::mem::transmute(scopeinfo), core::mem::transmute(optionvalues)) }
 }
 #[inline]
 pub unsafe fn DhcpV4SetPolicy<P0, P4>(serveripaddress: P0, fieldsmodified: u32, fglobalpolicy: bool, subnetaddress: u32, policyname: P4, policy: *const DHCP_POLICY) -> u32
@@ -1563,7 +1563,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4SetPolicy(serveripaddress : windows_core::PCWSTR, fieldsmodified : u32, fglobalpolicy : super::super::Foundation:: BOOL, subnetaddress : u32, policyname : windows_core::PCWSTR, policy : *const DHCP_POLICY) -> u32);
-    DhcpV4SetPolicy(serveripaddress.param().abi(), fieldsmodified, fglobalpolicy.into(), subnetaddress, policyname.param().abi(), policy)
+    unsafe { DhcpV4SetPolicy(serveripaddress.param().abi(), fieldsmodified, fglobalpolicy.into(), subnetaddress, policyname.param().abi(), policy) }
 }
 #[inline]
 pub unsafe fn DhcpV4SetPolicyEnforcement<P0>(serveripaddress: P0, fglobalpolicy: bool, subnetaddress: u32, enable: bool) -> u32
@@ -1571,7 +1571,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4SetPolicyEnforcement(serveripaddress : windows_core::PCWSTR, fglobalpolicy : super::super::Foundation:: BOOL, subnetaddress : u32, enable : super::super::Foundation:: BOOL) -> u32);
-    DhcpV4SetPolicyEnforcement(serveripaddress.param().abi(), fglobalpolicy.into(), subnetaddress, enable.into())
+    unsafe { DhcpV4SetPolicyEnforcement(serveripaddress.param().abi(), fglobalpolicy.into(), subnetaddress, enable.into()) }
 }
 #[inline]
 pub unsafe fn DhcpV4SetPolicyEx<P0, P4>(serveripaddress: P0, fieldsmodified: u32, globalpolicy: bool, subnetaddress: u32, policyname: P4, policy: *const DHCP_POLICY_EX) -> u32
@@ -1580,7 +1580,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4SetPolicyEx(serveripaddress : windows_core::PCWSTR, fieldsmodified : u32, globalpolicy : super::super::Foundation:: BOOL, subnetaddress : u32, policyname : windows_core::PCWSTR, policy : *const DHCP_POLICY_EX) -> u32);
-    DhcpV4SetPolicyEx(serveripaddress.param().abi(), fieldsmodified, globalpolicy.into(), subnetaddress, policyname.param().abi(), policy)
+    unsafe { DhcpV4SetPolicyEx(serveripaddress.param().abi(), fieldsmodified, globalpolicy.into(), subnetaddress, policyname.param().abi(), policy) }
 }
 #[inline]
 pub unsafe fn DhcpV6CreateClientInfo<P0>(serveripaddress: P0, clientinfo: *const DHCP_CLIENT_INFO_V6) -> u32
@@ -1588,7 +1588,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV6CreateClientInfo(serveripaddress : windows_core::PCWSTR, clientinfo : *const DHCP_CLIENT_INFO_V6) -> u32);
-    DhcpV6CreateClientInfo(serveripaddress.param().abi(), clientinfo)
+    unsafe { DhcpV6CreateClientInfo(serveripaddress.param().abi(), clientinfo) }
 }
 #[inline]
 pub unsafe fn DhcpV6GetFreeIPAddress<P0>(serveripaddress: P0, scopeid: DHCP_IPV6_ADDRESS, startip: DHCP_IPV6_ADDRESS, endip: DHCP_IPV6_ADDRESS, numfreeaddrreq: u32, ipaddrlist: *mut *mut DHCPV6_IP_ARRAY) -> u32
@@ -1596,7 +1596,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV6GetFreeIPAddress(serveripaddress : windows_core::PCWSTR, scopeid : DHCP_IPV6_ADDRESS, startip : DHCP_IPV6_ADDRESS, endip : DHCP_IPV6_ADDRESS, numfreeaddrreq : u32, ipaddrlist : *mut *mut DHCPV6_IP_ARRAY) -> u32);
-    DhcpV6GetFreeIPAddress(serveripaddress.param().abi(), core::mem::transmute(scopeid), core::mem::transmute(startip), core::mem::transmute(endip), numfreeaddrreq, core::mem::transmute(ipaddrlist))
+    unsafe { DhcpV6GetFreeIPAddress(serveripaddress.param().abi(), core::mem::transmute(scopeid), core::mem::transmute(startip), core::mem::transmute(endip), numfreeaddrreq, core::mem::transmute(ipaddrlist)) }
 }
 #[inline]
 pub unsafe fn DhcpV6GetStatelessStatistics<P0>(serveripaddress: P0, statelessstats: *mut *mut DHCPV6_STATELESS_STATS) -> u32
@@ -1604,7 +1604,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV6GetStatelessStatistics(serveripaddress : windows_core::PCWSTR, statelessstats : *mut *mut DHCPV6_STATELESS_STATS) -> u32);
-    DhcpV6GetStatelessStatistics(serveripaddress.param().abi(), core::mem::transmute(statelessstats))
+    unsafe { DhcpV6GetStatelessStatistics(serveripaddress.param().abi(), core::mem::transmute(statelessstats)) }
 }
 #[inline]
 pub unsafe fn DhcpV6GetStatelessStoreParams<P0>(serveripaddress: P0, fserverlevel: bool, subnetaddress: DHCP_IPV6_ADDRESS, params: *mut *mut DHCPV6_STATELESS_PARAMS) -> u32
@@ -1612,7 +1612,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV6GetStatelessStoreParams(serveripaddress : windows_core::PCWSTR, fserverlevel : super::super::Foundation:: BOOL, subnetaddress : DHCP_IPV6_ADDRESS, params : *mut *mut DHCPV6_STATELESS_PARAMS) -> u32);
-    DhcpV6GetStatelessStoreParams(serveripaddress.param().abi(), fserverlevel.into(), core::mem::transmute(subnetaddress), core::mem::transmute(params))
+    unsafe { DhcpV6GetStatelessStoreParams(serveripaddress.param().abi(), fserverlevel.into(), core::mem::transmute(subnetaddress), core::mem::transmute(params)) }
 }
 #[inline]
 pub unsafe fn DhcpV6SetStatelessStoreParams<P0>(serveripaddress: P0, fserverlevel: bool, subnetaddress: DHCP_IPV6_ADDRESS, fieldmodified: u32, params: *const DHCPV6_STATELESS_PARAMS) -> u32
@@ -1620,17 +1620,17 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV6SetStatelessStoreParams(serveripaddress : windows_core::PCWSTR, fserverlevel : super::super::Foundation:: BOOL, subnetaddress : DHCP_IPV6_ADDRESS, fieldmodified : u32, params : *const DHCPV6_STATELESS_PARAMS) -> u32);
-    DhcpV6SetStatelessStoreParams(serveripaddress.param().abi(), fserverlevel.into(), core::mem::transmute(subnetaddress), fieldmodified, params)
+    unsafe { DhcpV6SetStatelessStoreParams(serveripaddress.param().abi(), fserverlevel.into(), core::mem::transmute(subnetaddress), fieldmodified, params) }
 }
 #[inline]
 pub unsafe fn Dhcpv6CApiCleanup() {
     windows_targets::link!("dhcpcsvc6.dll" "system" fn Dhcpv6CApiCleanup());
-    Dhcpv6CApiCleanup()
+    unsafe { Dhcpv6CApiCleanup() }
 }
 #[inline]
 pub unsafe fn Dhcpv6CApiInitialize(version: *mut u32) {
     windows_targets::link!("dhcpcsvc6.dll" "system" fn Dhcpv6CApiInitialize(version : *mut u32));
-    Dhcpv6CApiInitialize(core::mem::transmute(version))
+    unsafe { Dhcpv6CApiInitialize(core::mem::transmute(version)) }
 }
 #[inline]
 pub unsafe fn Dhcpv6ReleasePrefix<P0>(adaptername: P0, classid: *mut DHCPV6CAPI_CLASSID, leaseinfo: *mut DHCPV6PrefixLeaseInformation) -> u32
@@ -1638,7 +1638,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpcsvc6.dll" "system" fn Dhcpv6ReleasePrefix(adaptername : windows_core::PCWSTR, classid : *mut DHCPV6CAPI_CLASSID, leaseinfo : *mut DHCPV6PrefixLeaseInformation) -> u32);
-    Dhcpv6ReleasePrefix(adaptername.param().abi(), core::mem::transmute(classid), core::mem::transmute(leaseinfo))
+    unsafe { Dhcpv6ReleasePrefix(adaptername.param().abi(), core::mem::transmute(classid), core::mem::transmute(leaseinfo)) }
 }
 #[inline]
 pub unsafe fn Dhcpv6RenewPrefix<P0>(adaptername: P0, pclassid: *mut DHCPV6CAPI_CLASSID, prefixleaseinfo: *mut DHCPV6PrefixLeaseInformation, pdwtimetowait: *mut u32, bvalidateprefix: u32) -> u32
@@ -1646,7 +1646,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpcsvc6.dll" "system" fn Dhcpv6RenewPrefix(adaptername : windows_core::PCWSTR, pclassid : *mut DHCPV6CAPI_CLASSID, prefixleaseinfo : *mut DHCPV6PrefixLeaseInformation, pdwtimetowait : *mut u32, bvalidateprefix : u32) -> u32);
-    Dhcpv6RenewPrefix(adaptername.param().abi(), core::mem::transmute(pclassid), core::mem::transmute(prefixleaseinfo), core::mem::transmute(pdwtimetowait), bvalidateprefix)
+    unsafe { Dhcpv6RenewPrefix(adaptername.param().abi(), core::mem::transmute(pclassid), core::mem::transmute(prefixleaseinfo), core::mem::transmute(pdwtimetowait), bvalidateprefix) }
 }
 #[inline]
 pub unsafe fn Dhcpv6RequestParams<P2>(forcenewinform: bool, reserved: *mut core::ffi::c_void, adaptername: P2, classid: *mut DHCPV6CAPI_CLASSID, recdparams: DHCPV6CAPI_PARAMS_ARRAY, buffer: *mut u8, psize: *mut u32) -> u32
@@ -1654,7 +1654,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpcsvc6.dll" "system" fn Dhcpv6RequestParams(forcenewinform : super::super::Foundation:: BOOL, reserved : *mut core::ffi::c_void, adaptername : windows_core::PCWSTR, classid : *mut DHCPV6CAPI_CLASSID, recdparams : DHCPV6CAPI_PARAMS_ARRAY, buffer : *mut u8, psize : *mut u32) -> u32);
-    Dhcpv6RequestParams(forcenewinform.into(), core::mem::transmute(reserved), adaptername.param().abi(), core::mem::transmute(classid), core::mem::transmute(recdparams), core::mem::transmute(buffer), core::mem::transmute(psize))
+    unsafe { Dhcpv6RequestParams(forcenewinform.into(), core::mem::transmute(reserved), adaptername.param().abi(), core::mem::transmute(classid), core::mem::transmute(recdparams), core::mem::transmute(buffer), core::mem::transmute(psize)) }
 }
 #[inline]
 pub unsafe fn Dhcpv6RequestPrefix<P0>(adaptername: P0, pclassid: *mut DHCPV6CAPI_CLASSID, prefixleaseinfo: *mut DHCPV6PrefixLeaseInformation, pdwtimetowait: *mut u32) -> u32
@@ -1662,7 +1662,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpcsvc6.dll" "system" fn Dhcpv6RequestPrefix(adaptername : windows_core::PCWSTR, pclassid : *mut DHCPV6CAPI_CLASSID, prefixleaseinfo : *mut DHCPV6PrefixLeaseInformation, pdwtimetowait : *mut u32) -> u32);
-    Dhcpv6RequestPrefix(adaptername.param().abi(), core::mem::transmute(pclassid), core::mem::transmute(prefixleaseinfo), core::mem::transmute(pdwtimetowait))
+    unsafe { Dhcpv6RequestPrefix(adaptername.param().abi(), core::mem::transmute(pclassid), core::mem::transmute(prefixleaseinfo), core::mem::transmute(pdwtimetowait)) }
 }
 pub const ADDRESS_TYPE_IANA: u32 = 0u32;
 pub const ADDRESS_TYPE_IATA: u32 = 1u32;

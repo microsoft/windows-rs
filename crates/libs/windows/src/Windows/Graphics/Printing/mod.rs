@@ -199,13 +199,15 @@ pub trait IPrintTaskOptionsCore_Impl: windows_core::IUnknownImpl {
 impl IPrintTaskOptionsCore_Vtbl {
     pub const fn new<Identity: IPrintTaskOptionsCore_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetPageDescription<Identity: IPrintTaskOptionsCore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, jobpagenumber: u32, result__: *mut PrintPageDescription) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IPrintTaskOptionsCore_Impl::GetPageDescription(this, jobpagenumber) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IPrintTaskOptionsCore_Impl::GetPageDescription(this, jobpagenumber) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -396,177 +398,225 @@ pub trait IPrintTaskOptionsCoreProperties_Impl: windows_core::IUnknownImpl {
 impl IPrintTaskOptionsCoreProperties_Vtbl {
     pub const fn new<Identity: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetMediaSize<Identity: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: PrintMediaSize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPrintTaskOptionsCoreProperties_Impl::SetMediaSize(this, value).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPrintTaskOptionsCoreProperties_Impl::SetMediaSize(this, value).into()
+            }
         }
         unsafe extern "system" fn MediaSize<Identity: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut PrintMediaSize) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IPrintTaskOptionsCoreProperties_Impl::MediaSize(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IPrintTaskOptionsCoreProperties_Impl::MediaSize(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetMediaType<Identity: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: PrintMediaType) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPrintTaskOptionsCoreProperties_Impl::SetMediaType(this, value).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPrintTaskOptionsCoreProperties_Impl::SetMediaType(this, value).into()
+            }
         }
         unsafe extern "system" fn MediaType<Identity: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut PrintMediaType) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IPrintTaskOptionsCoreProperties_Impl::MediaType(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IPrintTaskOptionsCoreProperties_Impl::MediaType(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetOrientation<Identity: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: PrintOrientation) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPrintTaskOptionsCoreProperties_Impl::SetOrientation(this, value).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPrintTaskOptionsCoreProperties_Impl::SetOrientation(this, value).into()
+            }
         }
         unsafe extern "system" fn Orientation<Identity: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut PrintOrientation) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IPrintTaskOptionsCoreProperties_Impl::Orientation(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IPrintTaskOptionsCoreProperties_Impl::Orientation(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetPrintQuality<Identity: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: PrintQuality) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPrintTaskOptionsCoreProperties_Impl::SetPrintQuality(this, value).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPrintTaskOptionsCoreProperties_Impl::SetPrintQuality(this, value).into()
+            }
         }
         unsafe extern "system" fn PrintQuality<Identity: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut PrintQuality) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IPrintTaskOptionsCoreProperties_Impl::PrintQuality(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IPrintTaskOptionsCoreProperties_Impl::PrintQuality(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetColorMode<Identity: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: PrintColorMode) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPrintTaskOptionsCoreProperties_Impl::SetColorMode(this, value).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPrintTaskOptionsCoreProperties_Impl::SetColorMode(this, value).into()
+            }
         }
         unsafe extern "system" fn ColorMode<Identity: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut PrintColorMode) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IPrintTaskOptionsCoreProperties_Impl::ColorMode(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IPrintTaskOptionsCoreProperties_Impl::ColorMode(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetDuplex<Identity: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: PrintDuplex) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPrintTaskOptionsCoreProperties_Impl::SetDuplex(this, value).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPrintTaskOptionsCoreProperties_Impl::SetDuplex(this, value).into()
+            }
         }
         unsafe extern "system" fn Duplex<Identity: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut PrintDuplex) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IPrintTaskOptionsCoreProperties_Impl::Duplex(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IPrintTaskOptionsCoreProperties_Impl::Duplex(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetCollation<Identity: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: PrintCollation) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPrintTaskOptionsCoreProperties_Impl::SetCollation(this, value).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPrintTaskOptionsCoreProperties_Impl::SetCollation(this, value).into()
+            }
         }
         unsafe extern "system" fn Collation<Identity: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut PrintCollation) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IPrintTaskOptionsCoreProperties_Impl::Collation(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IPrintTaskOptionsCoreProperties_Impl::Collation(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetStaple<Identity: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: PrintStaple) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPrintTaskOptionsCoreProperties_Impl::SetStaple(this, value).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPrintTaskOptionsCoreProperties_Impl::SetStaple(this, value).into()
+            }
         }
         unsafe extern "system" fn Staple<Identity: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut PrintStaple) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IPrintTaskOptionsCoreProperties_Impl::Staple(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IPrintTaskOptionsCoreProperties_Impl::Staple(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetHolePunch<Identity: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: PrintHolePunch) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPrintTaskOptionsCoreProperties_Impl::SetHolePunch(this, value).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPrintTaskOptionsCoreProperties_Impl::SetHolePunch(this, value).into()
+            }
         }
         unsafe extern "system" fn HolePunch<Identity: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut PrintHolePunch) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IPrintTaskOptionsCoreProperties_Impl::HolePunch(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IPrintTaskOptionsCoreProperties_Impl::HolePunch(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetBinding<Identity: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: PrintBinding) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPrintTaskOptionsCoreProperties_Impl::SetBinding(this, value).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPrintTaskOptionsCoreProperties_Impl::SetBinding(this, value).into()
+            }
         }
         unsafe extern "system" fn Binding<Identity: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut PrintBinding) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IPrintTaskOptionsCoreProperties_Impl::Binding(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IPrintTaskOptionsCoreProperties_Impl::Binding(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn MinCopies<Identity: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IPrintTaskOptionsCoreProperties_Impl::MinCopies(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IPrintTaskOptionsCoreProperties_Impl::MinCopies(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn MaxCopies<Identity: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IPrintTaskOptionsCoreProperties_Impl::MaxCopies(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IPrintTaskOptionsCoreProperties_Impl::MaxCopies(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetNumberOfCopies<Identity: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPrintTaskOptionsCoreProperties_Impl::SetNumberOfCopies(this, value).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPrintTaskOptionsCoreProperties_Impl::SetNumberOfCopies(this, value).into()
+            }
         }
         unsafe extern "system" fn NumberOfCopies<Identity: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IPrintTaskOptionsCoreProperties_Impl::NumberOfCopies(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IPrintTaskOptionsCoreProperties_Impl::NumberOfCopies(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -656,14 +706,16 @@ pub trait IPrintTaskOptionsCoreUIConfiguration_Impl: windows_core::IUnknownImpl 
 impl IPrintTaskOptionsCoreUIConfiguration_Vtbl {
     pub const fn new<Identity: IPrintTaskOptionsCoreUIConfiguration_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DisplayedOptions<Identity: IPrintTaskOptionsCoreUIConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IPrintTaskOptionsCoreUIConfiguration_Impl::DisplayedOptions(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IPrintTaskOptionsCoreUIConfiguration_Impl::DisplayedOptions(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -2028,33 +2080,41 @@ struct PrintTaskSourceRequestedHandlerBox<F: FnMut(windows_core::Ref<'_, PrintTa
 impl<F: FnMut(windows_core::Ref<'_, PrintTaskSourceRequestedArgs>) -> windows_core::Result<()> + Send + 'static> PrintTaskSourceRequestedHandlerBox<F> {
     const VTABLE: PrintTaskSourceRequestedHandler_Vtbl = PrintTaskSourceRequestedHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        if iid.is_null() || interface.is_null() {
-            return windows_core::HRESULT(-2147467261);
-        }
-        *interface = if *iid == <PrintTaskSourceRequestedHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
-        if (*interface).is_null() {
-            windows_core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            windows_core::HRESULT(0)
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            if iid.is_null() || interface.is_null() {
+                return windows_core::HRESULT(-2147467261);
+            }
+            *interface = if *iid == <PrintTaskSourceRequestedHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
+            if (*interface).is_null() {
+                windows_core::HRESULT(-2147467262)
+            } else {
+                (*this).count.add_ref();
+                windows_core::HRESULT(0)
+            }
         }
     }
     unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            (*this).count.add_ref()
+        }
     }
     unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = windows_core::imp::Box::from_raw(this);
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            let remaining = (*this).count.release();
+            if remaining == 0 {
+                let _ = windows_core::imp::Box::from_raw(this);
+            }
+            remaining
         }
-        remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(core::mem::transmute_copy(&args)).into()
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            (this.invoke)(core::mem::transmute_copy(&args)).into()
+        }
     }
 }
 pub struct StandardPrintTaskOptions;

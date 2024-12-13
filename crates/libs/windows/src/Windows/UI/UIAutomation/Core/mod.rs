@@ -249,10 +249,12 @@ pub trait ICoreAutomationConnectionBoundObjectProvider_Impl: windows_core::IUnkn
 impl ICoreAutomationConnectionBoundObjectProvider_Vtbl {
     pub const fn new<Identity: ICoreAutomationConnectionBoundObjectProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn IsComThreadingRequired<Identity: ICoreAutomationConnectionBoundObjectProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            let ok__ = ICoreAutomationConnectionBoundObjectProvider_Impl::IsComThreadingRequired(this);
-            result__.write(core::mem::transmute_copy(&ok__));
-            windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let ok__ = ICoreAutomationConnectionBoundObjectProvider_Impl::IsComThreadingRequired(this);
+                result__.write(core::mem::transmute_copy(&ok__));
+                windows_core::HRESULT(0)
+            }
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, ICoreAutomationConnectionBoundObjectProvider, OFFSET>(),
@@ -342,17 +344,21 @@ pub trait ICoreAutomationRemoteOperationExtensionProvider_Impl: windows_core::IU
 impl ICoreAutomationRemoteOperationExtensionProvider_Vtbl {
     pub const fn new<Identity: ICoreAutomationRemoteOperationExtensionProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CallExtension<Identity: ICoreAutomationRemoteOperationExtensionProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, extensionid: windows_core::GUID, context: *mut core::ffi::c_void, operandids_array_size: u32, operandids: *const AutomationRemoteOperationOperandId) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICoreAutomationRemoteOperationExtensionProvider_Impl::CallExtension(this, core::mem::transmute(&extensionid), core::mem::transmute_copy(&context), core::slice::from_raw_parts(core::mem::transmute_copy(&operandids), operandids_array_size as usize)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreAutomationRemoteOperationExtensionProvider_Impl::CallExtension(this, core::mem::transmute(&extensionid), core::mem::transmute_copy(&context), core::slice::from_raw_parts(core::mem::transmute_copy(&operandids), operandids_array_size as usize)).into()
+            }
         }
         unsafe extern "system" fn IsExtensionSupported<Identity: ICoreAutomationRemoteOperationExtensionProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, extensionid: windows_core::GUID, result__: *mut bool) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICoreAutomationRemoteOperationExtensionProvider_Impl::IsExtensionSupported(this, core::mem::transmute(&extensionid)) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICoreAutomationRemoteOperationExtensionProvider_Impl::IsExtensionSupported(this, core::mem::transmute(&extensionid)) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {

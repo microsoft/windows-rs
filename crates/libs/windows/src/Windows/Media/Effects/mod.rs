@@ -434,25 +434,29 @@ pub trait IAudioEffectDefinition_Impl: windows_core::IUnknownImpl {
 impl IAudioEffectDefinition_Vtbl {
     pub const fn new<Identity: IAudioEffectDefinition_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ActivatableClassId<Identity: IAudioEffectDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IAudioEffectDefinition_Impl::ActivatableClassId(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IAudioEffectDefinition_Impl::ActivatableClassId(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn Properties<Identity: IAudioEffectDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IAudioEffectDefinition_Impl::Properties(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IAudioEffectDefinition_Impl::Properties(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -619,41 +623,53 @@ pub trait IBasicAudioEffect_Impl: super::IMediaExtension_Impl {
 impl IBasicAudioEffect_Vtbl {
     pub const fn new<Identity: IBasicAudioEffect_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn UseInputFrameForOutput<Identity: IBasicAudioEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IBasicAudioEffect_Impl::UseInputFrameForOutput(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IBasicAudioEffect_Impl::UseInputFrameForOutput(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SupportedEncodingProperties<Identity: IBasicAudioEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IBasicAudioEffect_Impl::SupportedEncodingProperties(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IBasicAudioEffect_Impl::SupportedEncodingProperties(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetEncodingProperties<Identity: IBasicAudioEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encodingproperties: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IBasicAudioEffect_Impl::SetEncodingProperties(this, core::mem::transmute_copy(&encodingproperties)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IBasicAudioEffect_Impl::SetEncodingProperties(this, core::mem::transmute_copy(&encodingproperties)).into()
+            }
         }
         unsafe extern "system" fn ProcessFrame<Identity: IBasicAudioEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IBasicAudioEffect_Impl::ProcessFrame(this, core::mem::transmute_copy(&context)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IBasicAudioEffect_Impl::ProcessFrame(this, core::mem::transmute_copy(&context)).into()
+            }
         }
         unsafe extern "system" fn Close<Identity: IBasicAudioEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reason: MediaEffectClosedReason) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IBasicAudioEffect_Impl::Close(this, reason).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IBasicAudioEffect_Impl::Close(this, reason).into()
+            }
         }
         unsafe extern "system" fn DiscardQueuedFrames<Identity: IBasicAudioEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IBasicAudioEffect_Impl::DiscardQueuedFrames(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IBasicAudioEffect_Impl::DiscardQueuedFrames(this).into()
+            }
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IBasicAudioEffect, OFFSET>(),
@@ -773,61 +789,77 @@ pub trait IBasicVideoEffect_Impl: super::IMediaExtension_Impl {
 impl IBasicVideoEffect_Vtbl {
     pub const fn new<Identity: IBasicVideoEffect_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn IsReadOnly<Identity: IBasicVideoEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IBasicVideoEffect_Impl::IsReadOnly(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IBasicVideoEffect_Impl::IsReadOnly(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SupportedMemoryTypes<Identity: IBasicVideoEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut MediaMemoryTypes) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IBasicVideoEffect_Impl::SupportedMemoryTypes(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IBasicVideoEffect_Impl::SupportedMemoryTypes(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn TimeIndependent<Identity: IBasicVideoEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IBasicVideoEffect_Impl::TimeIndependent(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IBasicVideoEffect_Impl::TimeIndependent(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SupportedEncodingProperties<Identity: IBasicVideoEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IBasicVideoEffect_Impl::SupportedEncodingProperties(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IBasicVideoEffect_Impl::SupportedEncodingProperties(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetEncodingProperties<Identity: IBasicVideoEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encodingproperties: *mut core::ffi::c_void, device: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IBasicVideoEffect_Impl::SetEncodingProperties(this, core::mem::transmute_copy(&encodingproperties), core::mem::transmute_copy(&device)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IBasicVideoEffect_Impl::SetEncodingProperties(this, core::mem::transmute_copy(&encodingproperties), core::mem::transmute_copy(&device)).into()
+            }
         }
         unsafe extern "system" fn ProcessFrame<Identity: IBasicVideoEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IBasicVideoEffect_Impl::ProcessFrame(this, core::mem::transmute_copy(&context)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IBasicVideoEffect_Impl::ProcessFrame(this, core::mem::transmute_copy(&context)).into()
+            }
         }
         unsafe extern "system" fn Close<Identity: IBasicVideoEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reason: MediaEffectClosedReason) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IBasicVideoEffect_Impl::Close(this, reason).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IBasicVideoEffect_Impl::Close(this, reason).into()
+            }
         }
         unsafe extern "system" fn DiscardQueuedFrames<Identity: IBasicVideoEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IBasicVideoEffect_Impl::DiscardQueuedFrames(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IBasicVideoEffect_Impl::DiscardQueuedFrames(this).into()
+            }
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IBasicVideoEffect, OFFSET>(),
@@ -974,30 +1006,40 @@ pub trait IVideoCompositor_Impl: super::IMediaExtension_Impl {
 impl IVideoCompositor_Vtbl {
     pub const fn new<Identity: IVideoCompositor_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn TimeIndependent<Identity: IVideoCompositor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IVideoCompositor_Impl::TimeIndependent(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IVideoCompositor_Impl::TimeIndependent(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetEncodingProperties<Identity: IVideoCompositor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, backgroundproperties: *mut core::ffi::c_void, device: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IVideoCompositor_Impl::SetEncodingProperties(this, core::mem::transmute_copy(&backgroundproperties), core::mem::transmute_copy(&device)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IVideoCompositor_Impl::SetEncodingProperties(this, core::mem::transmute_copy(&backgroundproperties), core::mem::transmute_copy(&device)).into()
+            }
         }
         unsafe extern "system" fn CompositeFrame<Identity: IVideoCompositor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IVideoCompositor_Impl::CompositeFrame(this, core::mem::transmute_copy(&context)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IVideoCompositor_Impl::CompositeFrame(this, core::mem::transmute_copy(&context)).into()
+            }
         }
         unsafe extern "system" fn Close<Identity: IVideoCompositor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reason: MediaEffectClosedReason) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IVideoCompositor_Impl::Close(this, reason).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IVideoCompositor_Impl::Close(this, reason).into()
+            }
         }
         unsafe extern "system" fn DiscardQueuedFrames<Identity: IVideoCompositor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IVideoCompositor_Impl::DiscardQueuedFrames(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IVideoCompositor_Impl::DiscardQueuedFrames(this).into()
+            }
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IVideoCompositor, OFFSET>(),
@@ -1059,25 +1101,29 @@ pub trait IVideoCompositorDefinition_Impl: windows_core::IUnknownImpl {
 impl IVideoCompositorDefinition_Vtbl {
     pub const fn new<Identity: IVideoCompositorDefinition_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ActivatableClassId<Identity: IVideoCompositorDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IVideoCompositorDefinition_Impl::ActivatableClassId(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IVideoCompositorDefinition_Impl::ActivatableClassId(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn Properties<Identity: IVideoCompositorDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IVideoCompositorDefinition_Impl::Properties(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IVideoCompositorDefinition_Impl::Properties(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -1147,25 +1193,29 @@ pub trait IVideoEffectDefinition_Impl: windows_core::IUnknownImpl {
 impl IVideoEffectDefinition_Vtbl {
     pub const fn new<Identity: IVideoEffectDefinition_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ActivatableClassId<Identity: IVideoEffectDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IVideoEffectDefinition_Impl::ActivatableClassId(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IVideoEffectDefinition_Impl::ActivatableClassId(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn Properties<Identity: IVideoEffectDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IVideoEffectDefinition_Impl::Properties(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IVideoEffectDefinition_Impl::Properties(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {

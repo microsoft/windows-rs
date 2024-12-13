@@ -118,8 +118,10 @@ pub trait IDirect3DDevice_Impl: super::super::super::Foundation::IClosable_Impl 
 impl IDirect3DDevice_Vtbl {
     pub const fn new<Identity: IDirect3DDevice_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Trim<Identity: IDirect3DDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDirect3DDevice_Impl::Trim(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDirect3DDevice_Impl::Trim(this).into()
+            }
         }
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IDirect3DDevice, OFFSET>(), Trim: Trim::<Identity, OFFSET> }
     }
@@ -160,13 +162,15 @@ pub trait IDirect3DSurface_Impl: super::super::super::Foundation::IClosable_Impl
 impl IDirect3DSurface_Vtbl {
     pub const fn new<Identity: IDirect3DSurface_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Description<Identity: IDirect3DSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut Direct3DSurfaceDescription) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDirect3DSurface_Impl::Description(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IDirect3DSurface_Impl::Description(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IDirect3DSurface, OFFSET>(), Description: Description::<Identity, OFFSET> }

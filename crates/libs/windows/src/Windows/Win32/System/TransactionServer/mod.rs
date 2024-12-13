@@ -16,18 +16,22 @@ windows_core::imp::interface_hierarchy!(ICatalog, windows_core::IUnknown, super:
 #[cfg(feature = "Win32_System_Com")]
 impl ICatalog {
     pub unsafe fn GetCollection(&self, bstrcollname: &windows_core::BSTR) -> windows_core::Result<super::Com::IDispatch> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetCollection)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrcollname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetCollection)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrcollname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn Connect(&self, bstrconnectstring: &windows_core::BSTR) -> windows_core::Result<super::Com::IDispatch> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Connect)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrconnectstring), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Connect)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrconnectstring), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn MajorVersion(&self, retval: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).MajorVersion)(windows_core::Interface::as_raw(self), core::mem::transmute(retval)).ok()
+        unsafe { (windows_core::Interface::vtable(self).MajorVersion)(windows_core::Interface::as_raw(self), core::mem::transmute(retval)).ok() }
     }
     pub unsafe fn MinorVersion(&self, retval: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).MinorVersion)(windows_core::Interface::as_raw(self), core::mem::transmute(retval)).ok()
+        unsafe { (windows_core::Interface::vtable(self).MinorVersion)(windows_core::Interface::as_raw(self), core::mem::transmute(retval)).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -50,32 +54,40 @@ pub trait ICatalog_Impl: super::Com::IDispatch_Impl {
 impl ICatalog_Vtbl {
     pub const fn new<Identity: ICatalog_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCollection<Identity: ICatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcollname: *mut core::ffi::c_void, ppcatalogcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICatalog_Impl::GetCollection(this, core::mem::transmute(&bstrcollname)) {
-                Ok(ok__) => {
-                    ppcatalogcollection.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICatalog_Impl::GetCollection(this, core::mem::transmute(&bstrcollname)) {
+                    Ok(ok__) => {
+                        ppcatalogcollection.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn Connect<Identity: ICatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrconnectstring: *mut core::ffi::c_void, ppcatalogcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICatalog_Impl::Connect(this, core::mem::transmute(&bstrconnectstring)) {
-                Ok(ok__) => {
-                    ppcatalogcollection.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICatalog_Impl::Connect(this, core::mem::transmute(&bstrconnectstring)) {
+                    Ok(ok__) => {
+                        ppcatalogcollection.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn MajorVersion<Identity: ICatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICatalog_Impl::MajorVersion(this, core::mem::transmute_copy(&retval)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICatalog_Impl::MajorVersion(this, core::mem::transmute_copy(&retval)).into()
+            }
         }
         unsafe extern "system" fn MinorVersion<Identity: ICatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICatalog_Impl::MinorVersion(this, core::mem::transmute_copy(&retval)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICatalog_Impl::MinorVersion(this, core::mem::transmute_copy(&retval)).into()
+            }
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(),
@@ -105,17 +117,17 @@ windows_core::imp::interface_hierarchy!(IComponentUtil, windows_core::IUnknown, 
 #[cfg(feature = "Win32_System_Com")]
 impl IComponentUtil {
     pub unsafe fn InstallComponent(&self, bstrdllfile: &windows_core::BSTR, bstrtypelibfile: &windows_core::BSTR, bstrproxystubdllfile: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).InstallComponent)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdllfile), core::mem::transmute_copy(bstrtypelibfile), core::mem::transmute_copy(bstrproxystubdllfile)).ok()
+        unsafe { (windows_core::Interface::vtable(self).InstallComponent)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdllfile), core::mem::transmute_copy(bstrtypelibfile), core::mem::transmute_copy(bstrproxystubdllfile)).ok() }
     }
     pub unsafe fn ImportComponent(&self, bstrclsid: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ImportComponent)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrclsid)).ok()
+        unsafe { (windows_core::Interface::vtable(self).ImportComponent)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrclsid)).ok() }
     }
     pub unsafe fn ImportComponentByName(&self, bstrprogid: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ImportComponentByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprogid)).ok()
+        unsafe { (windows_core::Interface::vtable(self).ImportComponentByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprogid)).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCLSIDs(&self, bstrdllfile: &windows_core::BSTR, bstrtypelibfile: &windows_core::BSTR, aclsids: *mut *mut super::Com::SAFEARRAY) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetCLSIDs)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdllfile), core::mem::transmute_copy(bstrtypelibfile), core::mem::transmute(aclsids)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetCLSIDs)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdllfile), core::mem::transmute_copy(bstrtypelibfile), core::mem::transmute(aclsids)).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -141,20 +153,28 @@ pub trait IComponentUtil_Impl: super::Com::IDispatch_Impl {
 impl IComponentUtil_Vtbl {
     pub const fn new<Identity: IComponentUtil_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InstallComponent<Identity: IComponentUtil_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdllfile: *mut core::ffi::c_void, bstrtypelibfile: *mut core::ffi::c_void, bstrproxystubdllfile: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IComponentUtil_Impl::InstallComponent(this, core::mem::transmute(&bstrdllfile), core::mem::transmute(&bstrtypelibfile), core::mem::transmute(&bstrproxystubdllfile)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IComponentUtil_Impl::InstallComponent(this, core::mem::transmute(&bstrdllfile), core::mem::transmute(&bstrtypelibfile), core::mem::transmute(&bstrproxystubdllfile)).into()
+            }
         }
         unsafe extern "system" fn ImportComponent<Identity: IComponentUtil_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrclsid: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IComponentUtil_Impl::ImportComponent(this, core::mem::transmute(&bstrclsid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IComponentUtil_Impl::ImportComponent(this, core::mem::transmute(&bstrclsid)).into()
+            }
         }
         unsafe extern "system" fn ImportComponentByName<Identity: IComponentUtil_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprogid: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IComponentUtil_Impl::ImportComponentByName(this, core::mem::transmute(&bstrprogid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IComponentUtil_Impl::ImportComponentByName(this, core::mem::transmute(&bstrprogid)).into()
+            }
         }
         unsafe extern "system" fn GetCLSIDs<Identity: IComponentUtil_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdllfile: *mut core::ffi::c_void, bstrtypelibfile: *mut core::ffi::c_void, aclsids: *mut *mut super::Com::SAFEARRAY) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IComponentUtil_Impl::GetCLSIDs(this, core::mem::transmute(&bstrdllfile), core::mem::transmute(&bstrtypelibfile), core::mem::transmute_copy(&aclsids)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IComponentUtil_Impl::GetCLSIDs(this, core::mem::transmute(&bstrdllfile), core::mem::transmute(&bstrtypelibfile), core::mem::transmute_copy(&aclsids)).into()
+            }
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(),
@@ -184,13 +204,13 @@ windows_core::imp::interface_hierarchy!(IPackageUtil, windows_core::IUnknown, su
 #[cfg(feature = "Win32_System_Com")]
 impl IPackageUtil {
     pub unsafe fn InstallPackage(&self, bstrpackagefile: &windows_core::BSTR, bstrinstallpath: &windows_core::BSTR, loptions: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).InstallPackage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpackagefile), core::mem::transmute_copy(bstrinstallpath), loptions).ok()
+        unsafe { (windows_core::Interface::vtable(self).InstallPackage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpackagefile), core::mem::transmute_copy(bstrinstallpath), loptions).ok() }
     }
     pub unsafe fn ExportPackage(&self, bstrpackageid: &windows_core::BSTR, bstrpackagefile: &windows_core::BSTR, loptions: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ExportPackage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpackageid), core::mem::transmute_copy(bstrpackagefile), loptions).ok()
+        unsafe { (windows_core::Interface::vtable(self).ExportPackage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpackageid), core::mem::transmute_copy(bstrpackagefile), loptions).ok() }
     }
     pub unsafe fn ShutdownPackage(&self, bstrpackageid: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ShutdownPackage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpackageid)).ok()
+        unsafe { (windows_core::Interface::vtable(self).ShutdownPackage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpackageid)).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -211,16 +231,22 @@ pub trait IPackageUtil_Impl: super::Com::IDispatch_Impl {
 impl IPackageUtil_Vtbl {
     pub const fn new<Identity: IPackageUtil_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InstallPackage<Identity: IPackageUtil_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpackagefile: *mut core::ffi::c_void, bstrinstallpath: *mut core::ffi::c_void, loptions: i32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPackageUtil_Impl::InstallPackage(this, core::mem::transmute(&bstrpackagefile), core::mem::transmute(&bstrinstallpath), core::mem::transmute_copy(&loptions)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPackageUtil_Impl::InstallPackage(this, core::mem::transmute(&bstrpackagefile), core::mem::transmute(&bstrinstallpath), core::mem::transmute_copy(&loptions)).into()
+            }
         }
         unsafe extern "system" fn ExportPackage<Identity: IPackageUtil_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpackageid: *mut core::ffi::c_void, bstrpackagefile: *mut core::ffi::c_void, loptions: i32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPackageUtil_Impl::ExportPackage(this, core::mem::transmute(&bstrpackageid), core::mem::transmute(&bstrpackagefile), core::mem::transmute_copy(&loptions)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPackageUtil_Impl::ExportPackage(this, core::mem::transmute(&bstrpackageid), core::mem::transmute(&bstrpackagefile), core::mem::transmute_copy(&loptions)).into()
+            }
         }
         unsafe extern "system" fn ShutdownPackage<Identity: IPackageUtil_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpackageid: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPackageUtil_Impl::ShutdownPackage(this, core::mem::transmute(&bstrpackageid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPackageUtil_Impl::ShutdownPackage(this, core::mem::transmute(&bstrpackageid)).into()
+            }
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(),
@@ -249,10 +275,10 @@ windows_core::imp::interface_hierarchy!(IRemoteComponentUtil, windows_core::IUnk
 #[cfg(feature = "Win32_System_Com")]
 impl IRemoteComponentUtil {
     pub unsafe fn InstallRemoteComponent(&self, bstrserver: &windows_core::BSTR, bstrpackageid: &windows_core::BSTR, bstrclsid: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).InstallRemoteComponent)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrserver), core::mem::transmute_copy(bstrpackageid), core::mem::transmute_copy(bstrclsid)).ok()
+        unsafe { (windows_core::Interface::vtable(self).InstallRemoteComponent)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrserver), core::mem::transmute_copy(bstrpackageid), core::mem::transmute_copy(bstrclsid)).ok() }
     }
     pub unsafe fn InstallRemoteComponentByName(&self, bstrserver: &windows_core::BSTR, bstrpackagename: &windows_core::BSTR, bstrprogid: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).InstallRemoteComponentByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrserver), core::mem::transmute_copy(bstrpackagename), core::mem::transmute_copy(bstrprogid)).ok()
+        unsafe { (windows_core::Interface::vtable(self).InstallRemoteComponentByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrserver), core::mem::transmute_copy(bstrpackagename), core::mem::transmute_copy(bstrprogid)).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -271,12 +297,16 @@ pub trait IRemoteComponentUtil_Impl: super::Com::IDispatch_Impl {
 impl IRemoteComponentUtil_Vtbl {
     pub const fn new<Identity: IRemoteComponentUtil_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InstallRemoteComponent<Identity: IRemoteComponentUtil_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrserver: *mut core::ffi::c_void, bstrpackageid: *mut core::ffi::c_void, bstrclsid: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IRemoteComponentUtil_Impl::InstallRemoteComponent(this, core::mem::transmute(&bstrserver), core::mem::transmute(&bstrpackageid), core::mem::transmute(&bstrclsid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IRemoteComponentUtil_Impl::InstallRemoteComponent(this, core::mem::transmute(&bstrserver), core::mem::transmute(&bstrpackageid), core::mem::transmute(&bstrclsid)).into()
+            }
         }
         unsafe extern "system" fn InstallRemoteComponentByName<Identity: IRemoteComponentUtil_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrserver: *mut core::ffi::c_void, bstrpackagename: *mut core::ffi::c_void, bstrprogid: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IRemoteComponentUtil_Impl::InstallRemoteComponentByName(this, core::mem::transmute(&bstrserver), core::mem::transmute(&bstrpackagename), core::mem::transmute(&bstrprogid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IRemoteComponentUtil_Impl::InstallRemoteComponentByName(this, core::mem::transmute(&bstrserver), core::mem::transmute(&bstrpackagename), core::mem::transmute(&bstrprogid)).into()
+            }
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(),
@@ -304,10 +334,10 @@ windows_core::imp::interface_hierarchy!(IRoleAssociationUtil, windows_core::IUnk
 #[cfg(feature = "Win32_System_Com")]
 impl IRoleAssociationUtil {
     pub unsafe fn AssociateRole(&self, bstrroleid: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).AssociateRole)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrroleid)).ok()
+        unsafe { (windows_core::Interface::vtable(self).AssociateRole)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrroleid)).ok() }
     }
     pub unsafe fn AssociateRoleByName(&self, bstrrolename: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).AssociateRoleByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrrolename)).ok()
+        unsafe { (windows_core::Interface::vtable(self).AssociateRoleByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrrolename)).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -326,12 +356,16 @@ pub trait IRoleAssociationUtil_Impl: super::Com::IDispatch_Impl {
 impl IRoleAssociationUtil_Vtbl {
     pub const fn new<Identity: IRoleAssociationUtil_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AssociateRole<Identity: IRoleAssociationUtil_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrroleid: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IRoleAssociationUtil_Impl::AssociateRole(this, core::mem::transmute(&bstrroleid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IRoleAssociationUtil_Impl::AssociateRole(this, core::mem::transmute(&bstrroleid)).into()
+            }
         }
         unsafe extern "system" fn AssociateRoleByName<Identity: IRoleAssociationUtil_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrrolename: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IRoleAssociationUtil_Impl::AssociateRoleByName(this, core::mem::transmute(&bstrrolename)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IRoleAssociationUtil_Impl::AssociateRoleByName(this, core::mem::transmute(&bstrrolename)).into()
+            }
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(),
