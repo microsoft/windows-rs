@@ -232,13 +232,16 @@ impl IClassStatics_Vtbl {
             value: i32,
             result__: *mut i32,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IClassStatics_Impl::StaticSignal(this, value) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IClassStatics_Impl::StaticSignal(this, value) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn StaticEvent<Identity: IClassStatics_Impl, const OFFSET: isize>(
@@ -246,13 +249,16 @@ impl IClassStatics_Vtbl {
             handler: *mut core::ffi::c_void,
             result__: *mut i64,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IClassStatics_Impl::StaticEvent(this, core::mem::transmute_copy(&handler)) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IClassStatics_Impl::StaticEvent(this, core::mem::transmute_copy(&handler)) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn RemoveStaticEvent<
@@ -262,8 +268,11 @@ impl IClassStatics_Vtbl {
             this: *mut core::ffi::c_void,
             token: i64,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IClassStatics_Impl::RemoveStaticEvent(this, token).into()
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IClassStatics_Impl::RemoveStaticEvent(this, token).into()
+            }
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IClassStatics, OFFSET>(),
