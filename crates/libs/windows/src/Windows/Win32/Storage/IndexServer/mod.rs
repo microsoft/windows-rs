@@ -6,7 +6,7 @@ where
     P1: windows_core::Param<windows_core::IUnknown>,
 {
     windows_targets::link!("query.dll" "system" fn BindIFilterFromStorage(pstg : * mut core::ffi::c_void, punkouter : * mut core::ffi::c_void, ppiunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    BindIFilterFromStorage(pstg.param().abi(), punkouter.param().abi(), core::mem::transmute(ppiunk)).ok()
+    unsafe { BindIFilterFromStorage(pstg.param().abi(), punkouter.param().abi(), core::mem::transmute(ppiunk)).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -16,7 +16,7 @@ where
     P1: windows_core::Param<windows_core::IUnknown>,
 {
     windows_targets::link!("query.dll" "system" fn BindIFilterFromStream(pstm : * mut core::ffi::c_void, punkouter : * mut core::ffi::c_void, ppiunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    BindIFilterFromStream(pstm.param().abi(), punkouter.param().abi(), core::mem::transmute(ppiunk)).ok()
+    unsafe { BindIFilterFromStream(pstm.param().abi(), punkouter.param().abi(), core::mem::transmute(ppiunk)).ok() }
 }
 #[inline]
 pub unsafe fn LoadIFilter<P0, P1>(pwcspath: P0, punkouter: P1, ppiunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -25,7 +25,7 @@ where
     P1: windows_core::Param<windows_core::IUnknown>,
 {
     windows_targets::link!("query.dll" "system" fn LoadIFilter(pwcspath : windows_core::PCWSTR, punkouter : * mut core::ffi::c_void, ppiunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    LoadIFilter(pwcspath.param().abi(), punkouter.param().abi(), core::mem::transmute(ppiunk)).ok()
+    unsafe { LoadIFilter(pwcspath.param().abi(), punkouter.param().abi(), core::mem::transmute(ppiunk)).ok() }
 }
 #[inline]
 pub unsafe fn LoadIFilterEx<P0>(pwcspath: P0, dwflags: u32, riid: *const windows_core::GUID, ppiunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -33,7 +33,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("query.dll" "system" fn LoadIFilterEx(pwcspath : windows_core::PCWSTR, dwflags : u32, riid : *const windows_core::GUID, ppiunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    LoadIFilterEx(pwcspath.param().abi(), dwflags, riid, core::mem::transmute(ppiunk)).ok()
+    unsafe { LoadIFilterEx(pwcspath.param().abi(), dwflags, riid, core::mem::transmute(ppiunk)).ok() }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -297,21 +297,21 @@ windows_core::imp::interface_hierarchy!(IFilter, windows_core::IUnknown);
 impl IFilter {
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn Init(&self, grfflags: u32, aattributes: &[FULLPROPSPEC], pflags: *mut u32) -> i32 {
-        (windows_core::Interface::vtable(self).Init)(windows_core::Interface::as_raw(self), grfflags, aattributes.len().try_into().unwrap(), core::mem::transmute(aattributes.as_ptr()), core::mem::transmute(pflags))
+        unsafe { (windows_core::Interface::vtable(self).Init)(windows_core::Interface::as_raw(self), grfflags, aattributes.len().try_into().unwrap(), core::mem::transmute(aattributes.as_ptr()), core::mem::transmute(pflags)) }
     }
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn GetChunk(&self, pstat: *mut STAT_CHUNK) -> i32 {
-        (windows_core::Interface::vtable(self).GetChunk)(windows_core::Interface::as_raw(self), core::mem::transmute(pstat))
+        unsafe { (windows_core::Interface::vtable(self).GetChunk)(windows_core::Interface::as_raw(self), core::mem::transmute(pstat)) }
     }
     pub unsafe fn GetText(&self, pcwcbuffer: *mut u32, awcbuffer: windows_core::PWSTR) -> i32 {
-        (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), core::mem::transmute(pcwcbuffer), core::mem::transmute(awcbuffer))
+        unsafe { (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), core::mem::transmute(pcwcbuffer), core::mem::transmute(awcbuffer)) }
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetValue(&self, pppropvalue: *mut *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> i32 {
-        (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), core::mem::transmute(pppropvalue))
+        unsafe { (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), core::mem::transmute(pppropvalue)) }
     }
     pub unsafe fn BindRegion(&self, origpos: FILTERREGION, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> i32 {
-        (windows_core::Interface::vtable(self).BindRegion)(windows_core::Interface::as_raw(self), core::mem::transmute(origpos), riid, core::mem::transmute(ppunk))
+        unsafe { (windows_core::Interface::vtable(self).BindRegion)(windows_core::Interface::as_raw(self), core::mem::transmute(origpos), riid, core::mem::transmute(ppunk)) }
     }
 }
 #[repr(C)]
@@ -344,24 +344,34 @@ pub trait IFilter_Impl: windows_core::IUnknownImpl {
 impl IFilter_Vtbl {
     pub const fn new<Identity: IFilter_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Init<Identity: IFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grfflags: u32, cattributes: u32, aattributes: *const FULLPROPSPEC, pflags: *mut u32) -> i32 {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IFilter_Impl::Init(this, core::mem::transmute_copy(&grfflags), core::mem::transmute_copy(&cattributes), core::mem::transmute_copy(&aattributes), core::mem::transmute_copy(&pflags))
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IFilter_Impl::Init(this, core::mem::transmute_copy(&grfflags), core::mem::transmute_copy(&cattributes), core::mem::transmute_copy(&aattributes), core::mem::transmute_copy(&pflags))
+            }
         }
         unsafe extern "system" fn GetChunk<Identity: IFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstat: *mut STAT_CHUNK) -> i32 {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IFilter_Impl::GetChunk(this, core::mem::transmute_copy(&pstat))
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IFilter_Impl::GetChunk(this, core::mem::transmute_copy(&pstat))
+            }
         }
         unsafe extern "system" fn GetText<Identity: IFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcwcbuffer: *mut u32, awcbuffer: windows_core::PWSTR) -> i32 {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IFilter_Impl::GetText(this, core::mem::transmute_copy(&pcwcbuffer), core::mem::transmute_copy(&awcbuffer))
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IFilter_Impl::GetText(this, core::mem::transmute_copy(&pcwcbuffer), core::mem::transmute_copy(&awcbuffer))
+            }
         }
         unsafe extern "system" fn GetValue<Identity: IFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppropvalue: *mut *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> i32 {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IFilter_Impl::GetValue(this, core::mem::transmute_copy(&pppropvalue))
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IFilter_Impl::GetValue(this, core::mem::transmute_copy(&pppropvalue))
+            }
         }
         unsafe extern "system" fn BindRegion<Identity: IFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, origpos: FILTERREGION, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> i32 {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IFilter_Impl::BindRegion(this, core::mem::transmute(&origpos), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppunk))
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IFilter_Impl::BindRegion(this, core::mem::transmute(&origpos), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppunk))
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -386,13 +396,13 @@ impl IPhraseSink {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).PutSmallPhrase)(windows_core::Interface::as_raw(self), pwcnoun.param().abi(), cwcnoun, pwcmodifier.param().abi(), cwcmodifier, ulattachmenttype).ok()
+        unsafe { (windows_core::Interface::vtable(self).PutSmallPhrase)(windows_core::Interface::as_raw(self), pwcnoun.param().abi(), cwcnoun, pwcmodifier.param().abi(), cwcmodifier, ulattachmenttype).ok() }
     }
     pub unsafe fn PutPhrase<P0>(&self, pwcphrase: P0, cwcphrase: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).PutPhrase)(windows_core::Interface::as_raw(self), pwcphrase.param().abi(), cwcphrase).ok()
+        unsafe { (windows_core::Interface::vtable(self).PutPhrase)(windows_core::Interface::as_raw(self), pwcphrase.param().abi(), cwcphrase).ok() }
     }
 }
 #[repr(C)]
@@ -408,12 +418,16 @@ pub trait IPhraseSink_Impl: windows_core::IUnknownImpl {
 impl IPhraseSink_Vtbl {
     pub const fn new<Identity: IPhraseSink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn PutSmallPhrase<Identity: IPhraseSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwcnoun: windows_core::PCWSTR, cwcnoun: u32, pwcmodifier: windows_core::PCWSTR, cwcmodifier: u32, ulattachmenttype: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPhraseSink_Impl::PutSmallPhrase(this, core::mem::transmute(&pwcnoun), core::mem::transmute_copy(&cwcnoun), core::mem::transmute(&pwcmodifier), core::mem::transmute_copy(&cwcmodifier), core::mem::transmute_copy(&ulattachmenttype)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPhraseSink_Impl::PutSmallPhrase(this, core::mem::transmute(&pwcnoun), core::mem::transmute_copy(&cwcnoun), core::mem::transmute(&pwcmodifier), core::mem::transmute_copy(&cwcmodifier), core::mem::transmute_copy(&ulattachmenttype)).into()
+            }
         }
         unsafe extern "system" fn PutPhrase<Identity: IPhraseSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwcphrase: windows_core::PCWSTR, cwcphrase: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPhraseSink_Impl::PutPhrase(this, core::mem::transmute(&pwcphrase), core::mem::transmute_copy(&cwcphrase)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPhraseSink_Impl::PutPhrase(this, core::mem::transmute(&pwcphrase), core::mem::transmute_copy(&cwcphrase)).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

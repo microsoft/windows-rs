@@ -1029,32 +1029,46 @@ impl core::ops::Deref for ICivicAddressReport {
 windows_core::imp::interface_hierarchy!(ICivicAddressReport, windows_core::IUnknown, ILocationReport);
 impl ICivicAddressReport {
     pub unsafe fn GetAddressLine1(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAddressLine1)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetAddressLine1)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn GetAddressLine2(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAddressLine2)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetAddressLine2)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn GetCity(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetCity)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetCity)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn GetStateProvince(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetStateProvince)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetStateProvince)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn GetPostalCode(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetPostalCode)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetPostalCode)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn GetCountryRegion(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetCountryRegion)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetCountryRegion)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn GetDetailLevel(&self) -> windows_core::Result<u32> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetDetailLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetDetailLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
 }
 #[repr(C)]
@@ -1082,73 +1096,87 @@ pub trait ICivicAddressReport_Impl: ILocationReport_Impl {
 impl ICivicAddressReport_Vtbl {
     pub const fn new<Identity: ICivicAddressReport_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetAddressLine1<Identity: ICivicAddressReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstraddress1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICivicAddressReport_Impl::GetAddressLine1(this) {
-                Ok(ok__) => {
-                    pbstraddress1.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICivicAddressReport_Impl::GetAddressLine1(this) {
+                    Ok(ok__) => {
+                        pbstraddress1.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetAddressLine2<Identity: ICivicAddressReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstraddress2: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICivicAddressReport_Impl::GetAddressLine2(this) {
-                Ok(ok__) => {
-                    pbstraddress2.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICivicAddressReport_Impl::GetAddressLine2(this) {
+                    Ok(ok__) => {
+                        pbstraddress2.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetCity<Identity: ICivicAddressReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcity: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICivicAddressReport_Impl::GetCity(this) {
-                Ok(ok__) => {
-                    pbstrcity.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICivicAddressReport_Impl::GetCity(this) {
+                    Ok(ok__) => {
+                        pbstrcity.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetStateProvince<Identity: ICivicAddressReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrstateprovince: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICivicAddressReport_Impl::GetStateProvince(this) {
-                Ok(ok__) => {
-                    pbstrstateprovince.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICivicAddressReport_Impl::GetStateProvince(this) {
+                    Ok(ok__) => {
+                        pbstrstateprovince.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetPostalCode<Identity: ICivicAddressReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrpostalcode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICivicAddressReport_Impl::GetPostalCode(this) {
-                Ok(ok__) => {
-                    pbstrpostalcode.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICivicAddressReport_Impl::GetPostalCode(this) {
+                    Ok(ok__) => {
+                        pbstrpostalcode.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetCountryRegion<Identity: ICivicAddressReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcountryregion: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICivicAddressReport_Impl::GetCountryRegion(this) {
-                Ok(ok__) => {
-                    pbstrcountryregion.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICivicAddressReport_Impl::GetCountryRegion(this) {
+                    Ok(ok__) => {
+                        pbstrcountryregion.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetDetailLevel<Identity: ICivicAddressReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdetaillevel: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICivicAddressReport_Impl::GetDetailLevel(this) {
-                Ok(ok__) => {
-                    pdetaillevel.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICivicAddressReport_Impl::GetDetailLevel(this) {
+                    Ok(ok__) => {
+                        pdetaillevel.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -1182,8 +1210,10 @@ windows_core::imp::interface_hierarchy!(ICivicAddressReportFactory, windows_core
 #[cfg(feature = "Win32_System_Com")]
 impl ICivicAddressReportFactory {
     pub unsafe fn CivicAddressReport(&self) -> windows_core::Result<IDispCivicAddressReport> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CivicAddressReport)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CivicAddressReport)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1200,13 +1230,15 @@ pub trait ICivicAddressReportFactory_Impl: ILocationReportFactory_Impl {
 impl ICivicAddressReportFactory_Vtbl {
     pub const fn new<Identity: ICivicAddressReportFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CivicAddressReport<Identity: ICivicAddressReportFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICivicAddressReportFactory_Impl::CivicAddressReport(this) {
-                Ok(ok__) => {
-                    pval.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICivicAddressReportFactory_Impl::CivicAddressReport(this) {
+                    Ok(ok__) => {
+                        pval.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self { base__: ILocationReportFactory_Vtbl::new::<Identity, OFFSET>(), CivicAddressReport: CivicAddressReport::<Identity, OFFSET> }
@@ -1224,11 +1256,13 @@ impl IDefaultLocation {
     where
         P1: windows_core::Param<ILocationReport>,
     {
-        (windows_core::Interface::vtable(self).SetReport)(windows_core::Interface::as_raw(self), reporttype, plocationreport.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetReport)(windows_core::Interface::as_raw(self), reporttype, plocationreport.param().abi()).ok() }
     }
     pub unsafe fn GetReport(&self, reporttype: *const windows_core::GUID) -> windows_core::Result<ILocationReport> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetReport)(windows_core::Interface::as_raw(self), reporttype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetReport)(windows_core::Interface::as_raw(self), reporttype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -1244,17 +1278,21 @@ pub trait IDefaultLocation_Impl: windows_core::IUnknownImpl {
 impl IDefaultLocation_Vtbl {
     pub const fn new<Identity: IDefaultLocation_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetReport<Identity: IDefaultLocation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *const windows_core::GUID, plocationreport: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDefaultLocation_Impl::SetReport(this, core::mem::transmute_copy(&reporttype), core::mem::transmute_copy(&plocationreport)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDefaultLocation_Impl::SetReport(this, core::mem::transmute_copy(&reporttype), core::mem::transmute_copy(&plocationreport)).into()
+            }
         }
         unsafe extern "system" fn GetReport<Identity: IDefaultLocation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *const windows_core::GUID, pplocationreport: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDefaultLocation_Impl::GetReport(this, core::mem::transmute_copy(&reporttype)) {
-                Ok(ok__) => {
-                    pplocationreport.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IDefaultLocation_Impl::GetReport(this, core::mem::transmute_copy(&reporttype)) {
+                    Ok(ok__) => {
+                        pplocationreport.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -1282,36 +1320,52 @@ windows_core::imp::interface_hierarchy!(IDispCivicAddressReport, windows_core::I
 #[cfg(feature = "Win32_System_Com")]
 impl IDispCivicAddressReport {
     pub unsafe fn AddressLine1(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).AddressLine1)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).AddressLine1)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn AddressLine2(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).AddressLine2)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).AddressLine2)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn City(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).City)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).City)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn StateProvince(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).StateProvince)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).StateProvince)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn PostalCode(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).PostalCode)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).PostalCode)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn CountryRegion(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CountryRegion)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CountryRegion)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn DetailLevel(&self) -> windows_core::Result<u32> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).DetailLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).DetailLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn Timestamp(&self) -> windows_core::Result<f64> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Timestamp)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Timestamp)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1342,83 +1396,99 @@ pub trait IDispCivicAddressReport_Impl: super::super::System::Com::IDispatch_Imp
 impl IDispCivicAddressReport_Vtbl {
     pub const fn new<Identity: IDispCivicAddressReport_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddressLine1<Identity: IDispCivicAddressReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paddress1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDispCivicAddressReport_Impl::AddressLine1(this) {
-                Ok(ok__) => {
-                    paddress1.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IDispCivicAddressReport_Impl::AddressLine1(this) {
+                    Ok(ok__) => {
+                        paddress1.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn AddressLine2<Identity: IDispCivicAddressReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paddress2: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDispCivicAddressReport_Impl::AddressLine2(this) {
-                Ok(ok__) => {
-                    paddress2.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IDispCivicAddressReport_Impl::AddressLine2(this) {
+                    Ok(ok__) => {
+                        paddress2.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn City<Identity: IDispCivicAddressReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcity: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDispCivicAddressReport_Impl::City(this) {
-                Ok(ok__) => {
-                    pcity.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IDispCivicAddressReport_Impl::City(this) {
+                    Ok(ok__) => {
+                        pcity.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn StateProvince<Identity: IDispCivicAddressReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstateprovince: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDispCivicAddressReport_Impl::StateProvince(this) {
-                Ok(ok__) => {
-                    pstateprovince.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IDispCivicAddressReport_Impl::StateProvince(this) {
+                    Ok(ok__) => {
+                        pstateprovince.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn PostalCode<Identity: IDispCivicAddressReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppostalcode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDispCivicAddressReport_Impl::PostalCode(this) {
-                Ok(ok__) => {
-                    ppostalcode.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IDispCivicAddressReport_Impl::PostalCode(this) {
+                    Ok(ok__) => {
+                        ppostalcode.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn CountryRegion<Identity: IDispCivicAddressReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcountryregion: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDispCivicAddressReport_Impl::CountryRegion(this) {
-                Ok(ok__) => {
-                    pcountryregion.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IDispCivicAddressReport_Impl::CountryRegion(this) {
+                    Ok(ok__) => {
+                        pcountryregion.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn DetailLevel<Identity: IDispCivicAddressReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdetaillevel: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDispCivicAddressReport_Impl::DetailLevel(this) {
-                Ok(ok__) => {
-                    pdetaillevel.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IDispCivicAddressReport_Impl::DetailLevel(this) {
+                    Ok(ok__) => {
+                        pdetaillevel.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn Timestamp<Identity: IDispCivicAddressReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut f64) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDispCivicAddressReport_Impl::Timestamp(this) {
-                Ok(ok__) => {
-                    pval.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IDispCivicAddressReport_Impl::Timestamp(this) {
+                    Ok(ok__) => {
+                        pval.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -1453,28 +1523,40 @@ windows_core::imp::interface_hierarchy!(IDispLatLongReport, windows_core::IUnkno
 #[cfg(feature = "Win32_System_Com")]
 impl IDispLatLongReport {
     pub unsafe fn Latitude(&self) -> windows_core::Result<f64> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Latitude)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Latitude)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn Longitude(&self) -> windows_core::Result<f64> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Longitude)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Longitude)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn ErrorRadius(&self) -> windows_core::Result<f64> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).ErrorRadius)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ErrorRadius)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn Altitude(&self) -> windows_core::Result<f64> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Altitude)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Altitude)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn AltitudeError(&self) -> windows_core::Result<f64> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).AltitudeError)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).AltitudeError)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn Timestamp(&self) -> windows_core::Result<f64> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Timestamp)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Timestamp)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1501,63 +1583,75 @@ pub trait IDispLatLongReport_Impl: super::super::System::Com::IDispatch_Impl {
 impl IDispLatLongReport_Vtbl {
     pub const fn new<Identity: IDispLatLongReport_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Latitude<Identity: IDispLatLongReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut f64) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDispLatLongReport_Impl::Latitude(this) {
-                Ok(ok__) => {
-                    pval.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IDispLatLongReport_Impl::Latitude(this) {
+                    Ok(ok__) => {
+                        pval.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn Longitude<Identity: IDispLatLongReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut f64) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDispLatLongReport_Impl::Longitude(this) {
-                Ok(ok__) => {
-                    pval.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IDispLatLongReport_Impl::Longitude(this) {
+                    Ok(ok__) => {
+                        pval.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn ErrorRadius<Identity: IDispLatLongReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut f64) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDispLatLongReport_Impl::ErrorRadius(this) {
-                Ok(ok__) => {
-                    pval.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IDispLatLongReport_Impl::ErrorRadius(this) {
+                    Ok(ok__) => {
+                        pval.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn Altitude<Identity: IDispLatLongReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut f64) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDispLatLongReport_Impl::Altitude(this) {
-                Ok(ok__) => {
-                    pval.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IDispLatLongReport_Impl::Altitude(this) {
+                    Ok(ok__) => {
+                        pval.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn AltitudeError<Identity: IDispLatLongReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut f64) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDispLatLongReport_Impl::AltitudeError(this) {
-                Ok(ok__) => {
-                    pval.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IDispLatLongReport_Impl::AltitudeError(this) {
+                    Ok(ok__) => {
+                        pval.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn Timestamp<Identity: IDispLatLongReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut f64) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDispLatLongReport_Impl::Timestamp(this) {
-                Ok(ok__) => {
-                    pval.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IDispLatLongReport_Impl::Timestamp(this) {
+                    Ok(ok__) => {
+                        pval.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -1586,24 +1680,34 @@ impl core::ops::Deref for ILatLongReport {
 windows_core::imp::interface_hierarchy!(ILatLongReport, windows_core::IUnknown, ILocationReport);
 impl ILatLongReport {
     pub unsafe fn GetLatitude(&self) -> windows_core::Result<f64> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetLatitude)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetLatitude)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn GetLongitude(&self) -> windows_core::Result<f64> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetLongitude)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetLongitude)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn GetErrorRadius(&self) -> windows_core::Result<f64> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetErrorRadius)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetErrorRadius)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn GetAltitude(&self) -> windows_core::Result<f64> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAltitude)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetAltitude)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn GetAltitudeError(&self) -> windows_core::Result<f64> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAltitudeError)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetAltitudeError)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
 }
 #[repr(C)]
@@ -1627,53 +1731,63 @@ pub trait ILatLongReport_Impl: ILocationReport_Impl {
 impl ILatLongReport_Vtbl {
     pub const fn new<Identity: ILatLongReport_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetLatitude<Identity: ILatLongReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, platitude: *mut f64) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ILatLongReport_Impl::GetLatitude(this) {
-                Ok(ok__) => {
-                    platitude.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ILatLongReport_Impl::GetLatitude(this) {
+                    Ok(ok__) => {
+                        platitude.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetLongitude<Identity: ILatLongReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plongitude: *mut f64) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ILatLongReport_Impl::GetLongitude(this) {
-                Ok(ok__) => {
-                    plongitude.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ILatLongReport_Impl::GetLongitude(this) {
+                    Ok(ok__) => {
+                        plongitude.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetErrorRadius<Identity: ILatLongReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, perrorradius: *mut f64) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ILatLongReport_Impl::GetErrorRadius(this) {
-                Ok(ok__) => {
-                    perrorradius.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ILatLongReport_Impl::GetErrorRadius(this) {
+                    Ok(ok__) => {
+                        perrorradius.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetAltitude<Identity: ILatLongReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paltitude: *mut f64) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ILatLongReport_Impl::GetAltitude(this) {
-                Ok(ok__) => {
-                    paltitude.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ILatLongReport_Impl::GetAltitude(this) {
+                    Ok(ok__) => {
+                        paltitude.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetAltitudeError<Identity: ILatLongReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paltitudeerror: *mut f64) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ILatLongReport_Impl::GetAltitudeError(this) {
-                Ok(ok__) => {
-                    paltitudeerror.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ILatLongReport_Impl::GetAltitudeError(this) {
+                    Ok(ok__) => {
+                        paltitudeerror.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -1705,8 +1819,10 @@ windows_core::imp::interface_hierarchy!(ILatLongReportFactory, windows_core::IUn
 #[cfg(feature = "Win32_System_Com")]
 impl ILatLongReportFactory {
     pub unsafe fn LatLongReport(&self) -> windows_core::Result<IDispLatLongReport> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).LatLongReport)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).LatLongReport)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1723,13 +1839,15 @@ pub trait ILatLongReportFactory_Impl: ILocationReportFactory_Impl {
 impl ILatLongReportFactory_Vtbl {
     pub const fn new<Identity: ILatLongReportFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn LatLongReport<Identity: ILatLongReportFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ILatLongReportFactory_Impl::LatLongReport(this) {
-                Ok(ok__) => {
-                    pval.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ILatLongReportFactory_Impl::LatLongReport(this) {
+                    Ok(ok__) => {
+                        pval.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self { base__: ILocationReportFactory_Vtbl::new::<Identity, OFFSET>(), LatLongReport: LatLongReport::<Identity, OFFSET> }
@@ -1747,37 +1865,45 @@ impl ILocation {
     where
         P0: windows_core::Param<ILocationEvents>,
     {
-        (windows_core::Interface::vtable(self).RegisterForReport)(windows_core::Interface::as_raw(self), pevents.param().abi(), reporttype, dwrequestedreportinterval).ok()
+        unsafe { (windows_core::Interface::vtable(self).RegisterForReport)(windows_core::Interface::as_raw(self), pevents.param().abi(), reporttype, dwrequestedreportinterval).ok() }
     }
     pub unsafe fn UnregisterForReport(&self, reporttype: *const windows_core::GUID) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).UnregisterForReport)(windows_core::Interface::as_raw(self), reporttype).ok()
+        unsafe { (windows_core::Interface::vtable(self).UnregisterForReport)(windows_core::Interface::as_raw(self), reporttype).ok() }
     }
     pub unsafe fn GetReport(&self, reporttype: *const windows_core::GUID) -> windows_core::Result<ILocationReport> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetReport)(windows_core::Interface::as_raw(self), reporttype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetReport)(windows_core::Interface::as_raw(self), reporttype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetReportStatus(&self, reporttype: *const windows_core::GUID) -> windows_core::Result<LOCATION_REPORT_STATUS> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetReportStatus)(windows_core::Interface::as_raw(self), reporttype, &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetReportStatus)(windows_core::Interface::as_raw(self), reporttype, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn GetReportInterval(&self, reporttype: *const windows_core::GUID) -> windows_core::Result<u32> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetReportInterval)(windows_core::Interface::as_raw(self), reporttype, &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetReportInterval)(windows_core::Interface::as_raw(self), reporttype, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn SetReportInterval(&self, reporttype: *const windows_core::GUID, millisecondsrequested: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetReportInterval)(windows_core::Interface::as_raw(self), reporttype, millisecondsrequested).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetReportInterval)(windows_core::Interface::as_raw(self), reporttype, millisecondsrequested).ok() }
     }
     #[cfg(feature = "Win32_Devices_Sensors")]
     pub unsafe fn GetDesiredAccuracy(&self, reporttype: *const windows_core::GUID) -> windows_core::Result<super::Sensors::LOCATION_DESIRED_ACCURACY> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetDesiredAccuracy)(windows_core::Interface::as_raw(self), reporttype, &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetDesiredAccuracy)(windows_core::Interface::as_raw(self), reporttype, &mut result__).map(|| result__)
+        }
     }
     #[cfg(feature = "Win32_Devices_Sensors")]
     pub unsafe fn SetDesiredAccuracy(&self, reporttype: *const windows_core::GUID, desiredaccuracy: super::Sensors::LOCATION_DESIRED_ACCURACY) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetDesiredAccuracy)(windows_core::Interface::as_raw(self), reporttype, desiredaccuracy).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetDesiredAccuracy)(windows_core::Interface::as_raw(self), reporttype, desiredaccuracy).ok() }
     }
     pub unsafe fn RequestPermissions(&self, hparent: Option<super::super::Foundation::HWND>, preporttypes: &[windows_core::GUID], fmodal: bool) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RequestPermissions)(windows_core::Interface::as_raw(self), core::mem::transmute(hparent.unwrap_or(core::mem::zeroed())), core::mem::transmute(preporttypes.as_ptr()), preporttypes.len().try_into().unwrap(), fmodal.into()).ok()
+        unsafe { (windows_core::Interface::vtable(self).RequestPermissions)(windows_core::Interface::as_raw(self), core::mem::transmute(hparent.unwrap_or(core::mem::zeroed())), core::mem::transmute(preporttypes.as_ptr()), preporttypes.len().try_into().unwrap(), fmodal.into()).ok() }
     }
 }
 #[repr(C)]
@@ -1815,64 +1941,82 @@ pub trait ILocation_Impl: windows_core::IUnknownImpl {
 impl ILocation_Vtbl {
     pub const fn new<Identity: ILocation_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RegisterForReport<Identity: ILocation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pevents: *mut core::ffi::c_void, reporttype: *const windows_core::GUID, dwrequestedreportinterval: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ILocation_Impl::RegisterForReport(this, core::mem::transmute_copy(&pevents), core::mem::transmute_copy(&reporttype), core::mem::transmute_copy(&dwrequestedreportinterval)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ILocation_Impl::RegisterForReport(this, core::mem::transmute_copy(&pevents), core::mem::transmute_copy(&reporttype), core::mem::transmute_copy(&dwrequestedreportinterval)).into()
+            }
         }
         unsafe extern "system" fn UnregisterForReport<Identity: ILocation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *const windows_core::GUID) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ILocation_Impl::UnregisterForReport(this, core::mem::transmute_copy(&reporttype)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ILocation_Impl::UnregisterForReport(this, core::mem::transmute_copy(&reporttype)).into()
+            }
         }
         unsafe extern "system" fn GetReport<Identity: ILocation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *const windows_core::GUID, pplocationreport: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ILocation_Impl::GetReport(this, core::mem::transmute_copy(&reporttype)) {
-                Ok(ok__) => {
-                    pplocationreport.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ILocation_Impl::GetReport(this, core::mem::transmute_copy(&reporttype)) {
+                    Ok(ok__) => {
+                        pplocationreport.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetReportStatus<Identity: ILocation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *const windows_core::GUID, pstatus: *mut LOCATION_REPORT_STATUS) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ILocation_Impl::GetReportStatus(this, core::mem::transmute_copy(&reporttype)) {
-                Ok(ok__) => {
-                    pstatus.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ILocation_Impl::GetReportStatus(this, core::mem::transmute_copy(&reporttype)) {
+                    Ok(ok__) => {
+                        pstatus.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetReportInterval<Identity: ILocation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *const windows_core::GUID, pmilliseconds: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ILocation_Impl::GetReportInterval(this, core::mem::transmute_copy(&reporttype)) {
-                Ok(ok__) => {
-                    pmilliseconds.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ILocation_Impl::GetReportInterval(this, core::mem::transmute_copy(&reporttype)) {
+                    Ok(ok__) => {
+                        pmilliseconds.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetReportInterval<Identity: ILocation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *const windows_core::GUID, millisecondsrequested: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ILocation_Impl::SetReportInterval(this, core::mem::transmute_copy(&reporttype), core::mem::transmute_copy(&millisecondsrequested)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ILocation_Impl::SetReportInterval(this, core::mem::transmute_copy(&reporttype), core::mem::transmute_copy(&millisecondsrequested)).into()
+            }
         }
         unsafe extern "system" fn GetDesiredAccuracy<Identity: ILocation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *const windows_core::GUID, pdesiredaccuracy: *mut super::Sensors::LOCATION_DESIRED_ACCURACY) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ILocation_Impl::GetDesiredAccuracy(this, core::mem::transmute_copy(&reporttype)) {
-                Ok(ok__) => {
-                    pdesiredaccuracy.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ILocation_Impl::GetDesiredAccuracy(this, core::mem::transmute_copy(&reporttype)) {
+                    Ok(ok__) => {
+                        pdesiredaccuracy.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetDesiredAccuracy<Identity: ILocation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *const windows_core::GUID, desiredaccuracy: super::Sensors::LOCATION_DESIRED_ACCURACY) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ILocation_Impl::SetDesiredAccuracy(this, core::mem::transmute_copy(&reporttype), core::mem::transmute_copy(&desiredaccuracy)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ILocation_Impl::SetDesiredAccuracy(this, core::mem::transmute_copy(&reporttype), core::mem::transmute_copy(&desiredaccuracy)).into()
+            }
         }
         unsafe extern "system" fn RequestPermissions<Identity: ILocation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hparent: super::super::Foundation::HWND, preporttypes: *const windows_core::GUID, count: u32, fmodal: super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ILocation_Impl::RequestPermissions(this, core::mem::transmute_copy(&hparent), core::mem::transmute_copy(&preporttypes), core::mem::transmute_copy(&count), core::mem::transmute_copy(&fmodal)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ILocation_Impl::RequestPermissions(this, core::mem::transmute_copy(&hparent), core::mem::transmute_copy(&preporttypes), core::mem::transmute_copy(&count), core::mem::transmute_copy(&fmodal)).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -1900,10 +2044,10 @@ impl ILocationEvents {
     where
         P1: windows_core::Param<ILocationReport>,
     {
-        (windows_core::Interface::vtable(self).OnLocationChanged)(windows_core::Interface::as_raw(self), reporttype, plocationreport.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).OnLocationChanged)(windows_core::Interface::as_raw(self), reporttype, plocationreport.param().abi()).ok() }
     }
     pub unsafe fn OnStatusChanged(&self, reporttype: *const windows_core::GUID, newstatus: LOCATION_REPORT_STATUS) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).OnStatusChanged)(windows_core::Interface::as_raw(self), reporttype, newstatus).ok()
+        unsafe { (windows_core::Interface::vtable(self).OnStatusChanged)(windows_core::Interface::as_raw(self), reporttype, newstatus).ok() }
     }
 }
 #[repr(C)]
@@ -1919,12 +2063,16 @@ pub trait ILocationEvents_Impl: windows_core::IUnknownImpl {
 impl ILocationEvents_Vtbl {
     pub const fn new<Identity: ILocationEvents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnLocationChanged<Identity: ILocationEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *const windows_core::GUID, plocationreport: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ILocationEvents_Impl::OnLocationChanged(this, core::mem::transmute_copy(&reporttype), core::mem::transmute_copy(&plocationreport)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ILocationEvents_Impl::OnLocationChanged(this, core::mem::transmute_copy(&reporttype), core::mem::transmute_copy(&plocationreport)).into()
+            }
         }
         unsafe extern "system" fn OnStatusChanged<Identity: ILocationEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *const windows_core::GUID, newstatus: LOCATION_REPORT_STATUS) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ILocationEvents_Impl::OnStatusChanged(this, core::mem::transmute_copy(&reporttype), core::mem::transmute_copy(&newstatus)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ILocationEvents_Impl::OnStatusChanged(this, core::mem::transmute_copy(&reporttype), core::mem::transmute_copy(&newstatus)).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -1941,10 +2089,10 @@ windows_core::imp::define_interface!(ILocationPower, ILocationPower_Vtbl, 0x193e
 windows_core::imp::interface_hierarchy!(ILocationPower, windows_core::IUnknown);
 impl ILocationPower {
     pub unsafe fn Connect(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Connect)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Connect)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn Disconnect(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Disconnect)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Disconnect)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
 #[repr(C)]
@@ -1960,12 +2108,16 @@ pub trait ILocationPower_Impl: windows_core::IUnknownImpl {
 impl ILocationPower_Vtbl {
     pub const fn new<Identity: ILocationPower_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Connect<Identity: ILocationPower_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ILocationPower_Impl::Connect(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ILocationPower_Impl::Connect(this).into()
+            }
         }
         unsafe extern "system" fn Disconnect<Identity: ILocationPower_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ILocationPower_Impl::Disconnect(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ILocationPower_Impl::Disconnect(this).into()
+            }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Connect: Connect::<Identity, OFFSET>, Disconnect: Disconnect::<Identity, OFFSET> }
     }
@@ -1978,17 +2130,23 @@ windows_core::imp::define_interface!(ILocationReport, ILocationReport_Vtbl, 0xc8
 windows_core::imp::interface_hierarchy!(ILocationReport, windows_core::IUnknown);
 impl ILocationReport {
     pub unsafe fn GetSensorID(&self) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetSensorID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetSensorID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn GetTimestamp(&self) -> windows_core::Result<super::super::Foundation::SYSTEMTIME> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetTimestamp)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetTimestamp)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetValue(&self, pkey: *const super::super::Foundation::PROPERTYKEY) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), pkey, &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), pkey, &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
 }
 #[repr(C)]
@@ -2011,33 +2169,39 @@ pub trait ILocationReport_Impl: windows_core::IUnknownImpl {
 impl ILocationReport_Vtbl {
     pub const fn new<Identity: ILocationReport_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetSensorID<Identity: ILocationReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psensorid: *mut windows_core::GUID) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ILocationReport_Impl::GetSensorID(this) {
-                Ok(ok__) => {
-                    psensorid.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ILocationReport_Impl::GetSensorID(this) {
+                    Ok(ok__) => {
+                        psensorid.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetTimestamp<Identity: ILocationReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcreationtime: *mut super::super::Foundation::SYSTEMTIME) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ILocationReport_Impl::GetTimestamp(this) {
-                Ok(ok__) => {
-                    pcreationtime.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ILocationReport_Impl::GetTimestamp(this) {
+                    Ok(ok__) => {
+                        pcreationtime.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetValue<Identity: ILocationReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pkey: *const super::super::Foundation::PROPERTYKEY, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ILocationReport_Impl::GetValue(this, core::mem::transmute_copy(&pkey)) {
-                Ok(ok__) => {
-                    pvalue.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ILocationReport_Impl::GetValue(this, core::mem::transmute_copy(&pkey)) {
+                    Ok(ok__) => {
+                        pvalue.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -2067,31 +2231,37 @@ windows_core::imp::interface_hierarchy!(ILocationReportFactory, windows_core::IU
 #[cfg(feature = "Win32_System_Com")]
 impl ILocationReportFactory {
     pub unsafe fn ListenForReports(&self, requestedreportinterval: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ListenForReports)(windows_core::Interface::as_raw(self), requestedreportinterval).ok()
+        unsafe { (windows_core::Interface::vtable(self).ListenForReports)(windows_core::Interface::as_raw(self), requestedreportinterval).ok() }
     }
     pub unsafe fn StopListeningForReports(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).StopListeningForReports)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).StopListeningForReports)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn Status(&self) -> windows_core::Result<u32> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Status)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Status)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn ReportInterval(&self) -> windows_core::Result<u32> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).ReportInterval)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ReportInterval)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn SetReportInterval(&self, millisecondsrequested: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetReportInterval)(windows_core::Interface::as_raw(self), millisecondsrequested).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetReportInterval)(windows_core::Interface::as_raw(self), millisecondsrequested).ok() }
     }
     pub unsafe fn DesiredAccuracy(&self) -> windows_core::Result<u32> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).DesiredAccuracy)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).DesiredAccuracy)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn SetDesiredAccuracy(&self, desiredaccuracy: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetDesiredAccuracy)(windows_core::Interface::as_raw(self), desiredaccuracy).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetDesiredAccuracy)(windows_core::Interface::as_raw(self), desiredaccuracy).ok() }
     }
     pub unsafe fn RequestPermissions(&self, hwnd: *const u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RequestPermissions)(windows_core::Interface::as_raw(self), hwnd).ok()
+        unsafe { (windows_core::Interface::vtable(self).RequestPermissions)(windows_core::Interface::as_raw(self), hwnd).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2122,54 +2292,70 @@ pub trait ILocationReportFactory_Impl: super::super::System::Com::IDispatch_Impl
 impl ILocationReportFactory_Vtbl {
     pub const fn new<Identity: ILocationReportFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ListenForReports<Identity: ILocationReportFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, requestedreportinterval: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ILocationReportFactory_Impl::ListenForReports(this, core::mem::transmute_copy(&requestedreportinterval)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ILocationReportFactory_Impl::ListenForReports(this, core::mem::transmute_copy(&requestedreportinterval)).into()
+            }
         }
         unsafe extern "system" fn StopListeningForReports<Identity: ILocationReportFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ILocationReportFactory_Impl::StopListeningForReports(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ILocationReportFactory_Impl::StopListeningForReports(this).into()
+            }
         }
         unsafe extern "system" fn Status<Identity: ILocationReportFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ILocationReportFactory_Impl::Status(this) {
-                Ok(ok__) => {
-                    pval.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ILocationReportFactory_Impl::Status(this) {
+                    Ok(ok__) => {
+                        pval.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn ReportInterval<Identity: ILocationReportFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmilliseconds: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ILocationReportFactory_Impl::ReportInterval(this) {
-                Ok(ok__) => {
-                    pmilliseconds.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ILocationReportFactory_Impl::ReportInterval(this) {
+                    Ok(ok__) => {
+                        pmilliseconds.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetReportInterval<Identity: ILocationReportFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, millisecondsrequested: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ILocationReportFactory_Impl::SetReportInterval(this, core::mem::transmute_copy(&millisecondsrequested)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ILocationReportFactory_Impl::SetReportInterval(this, core::mem::transmute_copy(&millisecondsrequested)).into()
+            }
         }
         unsafe extern "system" fn DesiredAccuracy<Identity: ILocationReportFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesiredaccuracy: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ILocationReportFactory_Impl::DesiredAccuracy(this) {
-                Ok(ok__) => {
-                    pdesiredaccuracy.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ILocationReportFactory_Impl::DesiredAccuracy(this) {
+                    Ok(ok__) => {
+                        pdesiredaccuracy.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetDesiredAccuracy<Identity: ILocationReportFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, desiredaccuracy: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ILocationReportFactory_Impl::SetDesiredAccuracy(this, core::mem::transmute_copy(&desiredaccuracy)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ILocationReportFactory_Impl::SetDesiredAccuracy(this, core::mem::transmute_copy(&desiredaccuracy)).into()
+            }
         }
         unsafe extern "system" fn RequestPermissions<Identity: ILocationReportFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: *const u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ILocationReportFactory_Impl::RequestPermissions(this, core::mem::transmute_copy(&hwnd)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ILocationReportFactory_Impl::RequestPermissions(this, core::mem::transmute_copy(&hwnd)).into()
+            }
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(),

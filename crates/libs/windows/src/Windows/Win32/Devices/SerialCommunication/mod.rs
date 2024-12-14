@@ -1,37 +1,37 @@
 #[inline]
 pub unsafe fn ComDBClaimNextFreePort(hcomdb: HCOMDB, comnumber: *mut u32) -> i32 {
     windows_targets::link!("msports.dll" "system" fn ComDBClaimNextFreePort(hcomdb : HCOMDB, comnumber : *mut u32) -> i32);
-    ComDBClaimNextFreePort(hcomdb, core::mem::transmute(comnumber))
+    unsafe { ComDBClaimNextFreePort(hcomdb, core::mem::transmute(comnumber)) }
 }
 #[inline]
 pub unsafe fn ComDBClaimPort(hcomdb: HCOMDB, comnumber: u32, forceclaim: bool, forced: Option<*mut super::super::Foundation::BOOL>) -> i32 {
     windows_targets::link!("msports.dll" "system" fn ComDBClaimPort(hcomdb : HCOMDB, comnumber : u32, forceclaim : super::super::Foundation:: BOOL, forced : *mut super::super::Foundation:: BOOL) -> i32);
-    ComDBClaimPort(hcomdb, comnumber, forceclaim.into(), core::mem::transmute(forced.unwrap_or(core::mem::zeroed())))
+    unsafe { ComDBClaimPort(hcomdb, comnumber, forceclaim.into(), core::mem::transmute(forced.unwrap_or(core::mem::zeroed()))) }
 }
 #[inline]
 pub unsafe fn ComDBClose(hcomdb: HCOMDB) -> i32 {
     windows_targets::link!("msports.dll" "system" fn ComDBClose(hcomdb : HCOMDB) -> i32);
-    ComDBClose(hcomdb)
+    unsafe { ComDBClose(hcomdb) }
 }
 #[inline]
 pub unsafe fn ComDBGetCurrentPortUsage(hcomdb: HCOMDB, buffer: Option<&mut [u8]>, reporttype: u32, maxportsreported: Option<*mut u32>) -> i32 {
     windows_targets::link!("msports.dll" "system" fn ComDBGetCurrentPortUsage(hcomdb : HCOMDB, buffer : *mut u8, buffersize : u32, reporttype : u32, maxportsreported : *mut u32) -> i32);
-    ComDBGetCurrentPortUsage(hcomdb, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), reporttype, core::mem::transmute(maxportsreported.unwrap_or(core::mem::zeroed())))
+    unsafe { ComDBGetCurrentPortUsage(hcomdb, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), reporttype, core::mem::transmute(maxportsreported.unwrap_or(core::mem::zeroed()))) }
 }
 #[inline]
 pub unsafe fn ComDBOpen(phcomdb: *mut HCOMDB) -> i32 {
     windows_targets::link!("msports.dll" "system" fn ComDBOpen(phcomdb : *mut HCOMDB) -> i32);
-    ComDBOpen(core::mem::transmute(phcomdb))
+    unsafe { ComDBOpen(core::mem::transmute(phcomdb)) }
 }
 #[inline]
 pub unsafe fn ComDBReleasePort(hcomdb: HCOMDB, comnumber: u32) -> i32 {
     windows_targets::link!("msports.dll" "system" fn ComDBReleasePort(hcomdb : HCOMDB, comnumber : u32) -> i32);
-    ComDBReleasePort(hcomdb, comnumber)
+    unsafe { ComDBReleasePort(hcomdb, comnumber) }
 }
 #[inline]
 pub unsafe fn ComDBResizeDatabase(hcomdb: HCOMDB, newsize: u32) -> i32 {
     windows_targets::link!("msports.dll" "system" fn ComDBResizeDatabase(hcomdb : HCOMDB, newsize : u32) -> i32);
-    ComDBResizeDatabase(hcomdb, newsize)
+    unsafe { ComDBResizeDatabase(hcomdb, newsize) }
 }
 pub const CDB_REPORT_BITS: u32 = 0u32;
 pub const CDB_REPORT_BYTES: u32 = 1u32;
@@ -54,7 +54,9 @@ impl windows_core::Free for HCOMDB {
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             windows_targets::link!("msports.dll" "system" fn ComDBClose(hcomdb : *mut core::ffi::c_void) -> i32);
-            ComDBClose(self.0);
+            unsafe {
+                ComDBClose(self.0);
+            }
         }
     }
 }

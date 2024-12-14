@@ -6,7 +6,7 @@ where
     T: windows_core::Interface,
 {
     windows_targets::link!("directml.dll" "system" fn DMLCreateDevice(d3d12device : * mut core::ffi::c_void, flags : DML_CREATE_DEVICE_FLAGS, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    DMLCreateDevice(d3d12device.param().abi(), flags, &T::IID, result__ as *mut _ as *mut _).ok()
+    unsafe { DMLCreateDevice(d3d12device.param().abi(), flags, &T::IID, result__ as *mut _ as *mut _).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[inline]
@@ -16,7 +16,7 @@ where
     T: windows_core::Interface,
 {
     windows_targets::link!("directml.dll" "system" fn DMLCreateDevice1(d3d12device : * mut core::ffi::c_void, flags : DML_CREATE_DEVICE_FLAGS, minimumfeaturelevel : DML_FEATURE_LEVEL, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    DMLCreateDevice1(d3d12device.param().abi(), flags, minimumfeaturelevel, &T::IID, result__ as *mut _ as *mut _).ok()
+    unsafe { DMLCreateDevice1(d3d12device.param().abi(), flags, minimumfeaturelevel, &T::IID, result__ as *mut _ as *mut _).ok() }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2748,20 +2748,20 @@ impl core::ops::Deref for IDMLBindingTable {
 windows_core::imp::interface_hierarchy!(IDMLBindingTable, windows_core::IUnknown, IDMLObject, IDMLDeviceChild);
 impl IDMLBindingTable {
     pub unsafe fn BindInputs(&self, bindings: Option<&[DML_BINDING_DESC]>) {
-        (windows_core::Interface::vtable(self).BindInputs)(windows_core::Interface::as_raw(self), bindings.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(bindings.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
+        unsafe { (windows_core::Interface::vtable(self).BindInputs)(windows_core::Interface::as_raw(self), bindings.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(bindings.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
     }
     pub unsafe fn BindOutputs(&self, bindings: Option<&[DML_BINDING_DESC]>) {
-        (windows_core::Interface::vtable(self).BindOutputs)(windows_core::Interface::as_raw(self), bindings.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(bindings.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
+        unsafe { (windows_core::Interface::vtable(self).BindOutputs)(windows_core::Interface::as_raw(self), bindings.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(bindings.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
     }
     pub unsafe fn BindTemporaryResource(&self, binding: Option<*const DML_BINDING_DESC>) {
-        (windows_core::Interface::vtable(self).BindTemporaryResource)(windows_core::Interface::as_raw(self), core::mem::transmute(binding.unwrap_or(core::mem::zeroed())))
+        unsafe { (windows_core::Interface::vtable(self).BindTemporaryResource)(windows_core::Interface::as_raw(self), core::mem::transmute(binding.unwrap_or(core::mem::zeroed()))) }
     }
     pub unsafe fn BindPersistentResource(&self, binding: Option<*const DML_BINDING_DESC>) {
-        (windows_core::Interface::vtable(self).BindPersistentResource)(windows_core::Interface::as_raw(self), core::mem::transmute(binding.unwrap_or(core::mem::zeroed())))
+        unsafe { (windows_core::Interface::vtable(self).BindPersistentResource)(windows_core::Interface::as_raw(self), core::mem::transmute(binding.unwrap_or(core::mem::zeroed()))) }
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn Reset(&self, desc: Option<*const DML_BINDING_TABLE_DESC>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self), core::mem::transmute(desc.unwrap_or(core::mem::zeroed()))).ok()
+        unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self), core::mem::transmute(desc.unwrap_or(core::mem::zeroed()))).ok() }
     }
 }
 #[repr(C)]
@@ -2788,24 +2788,34 @@ pub trait IDMLBindingTable_Impl: IDMLDeviceChild_Impl {
 impl IDMLBindingTable_Vtbl {
     pub const fn new<Identity: IDMLBindingTable_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn BindInputs<Identity: IDMLBindingTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bindingcount: u32, bindings: *const DML_BINDING_DESC) {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDMLBindingTable_Impl::BindInputs(this, core::mem::transmute_copy(&bindingcount), core::mem::transmute_copy(&bindings))
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDMLBindingTable_Impl::BindInputs(this, core::mem::transmute_copy(&bindingcount), core::mem::transmute_copy(&bindings))
+            }
         }
         unsafe extern "system" fn BindOutputs<Identity: IDMLBindingTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bindingcount: u32, bindings: *const DML_BINDING_DESC) {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDMLBindingTable_Impl::BindOutputs(this, core::mem::transmute_copy(&bindingcount), core::mem::transmute_copy(&bindings))
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDMLBindingTable_Impl::BindOutputs(this, core::mem::transmute_copy(&bindingcount), core::mem::transmute_copy(&bindings))
+            }
         }
         unsafe extern "system" fn BindTemporaryResource<Identity: IDMLBindingTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, binding: *const DML_BINDING_DESC) {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDMLBindingTable_Impl::BindTemporaryResource(this, core::mem::transmute_copy(&binding))
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDMLBindingTable_Impl::BindTemporaryResource(this, core::mem::transmute_copy(&binding))
+            }
         }
         unsafe extern "system" fn BindPersistentResource<Identity: IDMLBindingTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, binding: *const DML_BINDING_DESC) {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDMLBindingTable_Impl::BindPersistentResource(this, core::mem::transmute_copy(&binding))
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDMLBindingTable_Impl::BindPersistentResource(this, core::mem::transmute_copy(&binding))
+            }
         }
         unsafe extern "system" fn Reset<Identity: IDMLBindingTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, desc: *const DML_BINDING_TABLE_DESC) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDMLBindingTable_Impl::Reset(this, core::mem::transmute_copy(&desc)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDMLBindingTable_Impl::Reset(this, core::mem::transmute_copy(&desc)).into()
+            }
         }
         Self {
             base__: IDMLDeviceChild_Vtbl::new::<Identity, OFFSET>(),
@@ -2838,7 +2848,7 @@ impl IDMLCommandRecorder {
         P1: windows_core::Param<IDMLDispatchable>,
         P2: windows_core::Param<IDMLBindingTable>,
     {
-        (windows_core::Interface::vtable(self).RecordDispatch)(windows_core::Interface::as_raw(self), commandlist.param().abi(), dispatchable.param().abi(), bindings.param().abi())
+        unsafe { (windows_core::Interface::vtable(self).RecordDispatch)(windows_core::Interface::as_raw(self), commandlist.param().abi(), dispatchable.param().abi(), bindings.param().abi()) }
     }
 }
 #[repr(C)]
@@ -2857,8 +2867,10 @@ pub trait IDMLCommandRecorder_Impl: IDMLDeviceChild_Impl {
 impl IDMLCommandRecorder_Vtbl {
     pub const fn new<Identity: IDMLCommandRecorder_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RecordDispatch<Identity: IDMLCommandRecorder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, commandlist: *mut core::ffi::c_void, dispatchable: *mut core::ffi::c_void, bindings: *mut core::ffi::c_void) {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDMLCommandRecorder_Impl::RecordDispatch(this, core::mem::transmute_copy(&commandlist), core::mem::transmute_copy(&dispatchable), core::mem::transmute_copy(&bindings))
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDMLCommandRecorder_Impl::RecordDispatch(this, core::mem::transmute_copy(&commandlist), core::mem::transmute_copy(&dispatchable), core::mem::transmute_copy(&bindings))
+            }
         }
         Self { base__: IDMLDeviceChild_Vtbl::new::<Identity, OFFSET>(), RecordDispatch: RecordDispatch::<Identity, OFFSET> }
     }
@@ -2894,7 +2906,7 @@ windows_core::imp::define_interface!(IDMLDebugDevice, IDMLDebugDevice_Vtbl, 0x7d
 windows_core::imp::interface_hierarchy!(IDMLDebugDevice, windows_core::IUnknown);
 impl IDMLDebugDevice {
     pub unsafe fn SetMuteDebugOutput(&self, mute: bool) {
-        (windows_core::Interface::vtable(self).SetMuteDebugOutput)(windows_core::Interface::as_raw(self), mute.into())
+        unsafe { (windows_core::Interface::vtable(self).SetMuteDebugOutput)(windows_core::Interface::as_raw(self), mute.into()) }
     }
 }
 #[repr(C)]
@@ -2908,8 +2920,10 @@ pub trait IDMLDebugDevice_Impl: windows_core::IUnknownImpl {
 impl IDMLDebugDevice_Vtbl {
     pub const fn new<Identity: IDMLDebugDevice_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetMuteDebugOutput<Identity: IDMLDebugDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mute: super::super::super::Foundation::BOOL) {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDMLDebugDevice_Impl::SetMuteDebugOutput(this, core::mem::transmute_copy(&mute))
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDMLDebugDevice_Impl::SetMuteDebugOutput(this, core::mem::transmute_copy(&mute))
+            }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetMuteDebugOutput: SetMuteDebugOutput::<Identity, OFFSET> }
     }
@@ -2928,34 +2942,34 @@ impl core::ops::Deref for IDMLDevice {
 windows_core::imp::interface_hierarchy!(IDMLDevice, windows_core::IUnknown, IDMLObject);
 impl IDMLDevice {
     pub unsafe fn CheckFeatureSupport(&self, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: Option<*const core::ffi::c_void>, featuresupportdatasize: u32, featuresupportdata: *mut core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).CheckFeatureSupport)(windows_core::Interface::as_raw(self), feature, featurequerydatasize, core::mem::transmute(featurequerydata.unwrap_or(core::mem::zeroed())), featuresupportdatasize, core::mem::transmute(featuresupportdata)).ok()
+        unsafe { (windows_core::Interface::vtable(self).CheckFeatureSupport)(windows_core::Interface::as_raw(self), feature, featurequerydatasize, core::mem::transmute(featurequerydata.unwrap_or(core::mem::zeroed())), featuresupportdatasize, core::mem::transmute(featuresupportdata)).ok() }
     }
     pub unsafe fn CreateOperator<T>(&self, desc: *const DML_OPERATOR_DESC, result__: *mut Option<T>) -> windows_core::Result<()>
     where
         T: windows_core::Interface,
     {
-        (windows_core::Interface::vtable(self).CreateOperator)(windows_core::Interface::as_raw(self), desc, &T::IID, result__ as *mut _ as *mut _).ok()
+        unsafe { (windows_core::Interface::vtable(self).CreateOperator)(windows_core::Interface::as_raw(self), desc, &T::IID, result__ as *mut _ as *mut _).ok() }
     }
     pub unsafe fn CompileOperator<P0, T>(&self, op: P0, flags: DML_EXECUTION_FLAGS, result__: *mut Option<T>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IDMLOperator>,
         T: windows_core::Interface,
     {
-        (windows_core::Interface::vtable(self).CompileOperator)(windows_core::Interface::as_raw(self), op.param().abi(), flags, &T::IID, result__ as *mut _ as *mut _).ok()
+        unsafe { (windows_core::Interface::vtable(self).CompileOperator)(windows_core::Interface::as_raw(self), op.param().abi(), flags, &T::IID, result__ as *mut _ as *mut _).ok() }
     }
     pub unsafe fn CreateOperatorInitializer<T>(&self, operators: Option<&[Option<IDMLCompiledOperator>]>) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        (windows_core::Interface::vtable(self).CreateOperatorInitializer)(windows_core::Interface::as_raw(self), operators.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(operators.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe { (windows_core::Interface::vtable(self).CreateOperatorInitializer)(windows_core::Interface::as_raw(self), operators.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(operators.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn CreateCommandRecorder<T>(&self) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        (windows_core::Interface::vtable(self).CreateCommandRecorder)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe { (windows_core::Interface::vtable(self).CreateCommandRecorder)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn CreateBindingTable<T>(&self, desc: Option<*const DML_BINDING_TABLE_DESC>) -> windows_core::Result<T>
@@ -2963,23 +2977,23 @@ impl IDMLDevice {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        (windows_core::Interface::vtable(self).CreateBindingTable)(windows_core::Interface::as_raw(self), core::mem::transmute(desc.unwrap_or(core::mem::zeroed())), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe { (windows_core::Interface::vtable(self).CreateBindingTable)(windows_core::Interface::as_raw(self), core::mem::transmute(desc.unwrap_or(core::mem::zeroed())), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn Evict(&self, ppobjects: &[Option<IDMLPageable>]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Evict)(windows_core::Interface::as_raw(self), ppobjects.len().try_into().unwrap(), core::mem::transmute(ppobjects.as_ptr())).ok()
+        unsafe { (windows_core::Interface::vtable(self).Evict)(windows_core::Interface::as_raw(self), ppobjects.len().try_into().unwrap(), core::mem::transmute(ppobjects.as_ptr())).ok() }
     }
     pub unsafe fn MakeResident(&self, ppobjects: &[Option<IDMLPageable>]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).MakeResident)(windows_core::Interface::as_raw(self), ppobjects.len().try_into().unwrap(), core::mem::transmute(ppobjects.as_ptr())).ok()
+        unsafe { (windows_core::Interface::vtable(self).MakeResident)(windows_core::Interface::as_raw(self), ppobjects.len().try_into().unwrap(), core::mem::transmute(ppobjects.as_ptr())).ok() }
     }
     pub unsafe fn GetDeviceRemovedReason(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetDeviceRemovedReason)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetDeviceRemovedReason)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn GetParentDevice<T>(&self) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        (windows_core::Interface::vtable(self).GetParentDevice)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe { (windows_core::Interface::vtable(self).GetParentDevice)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -3016,44 +3030,64 @@ pub trait IDMLDevice_Impl: IDMLObject_Impl {
 impl IDMLDevice_Vtbl {
     pub const fn new<Identity: IDMLDevice_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CheckFeatureSupport<Identity: IDMLDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: *const core::ffi::c_void, featuresupportdatasize: u32, featuresupportdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDMLDevice_Impl::CheckFeatureSupport(this, core::mem::transmute_copy(&feature), core::mem::transmute_copy(&featurequerydatasize), core::mem::transmute_copy(&featurequerydata), core::mem::transmute_copy(&featuresupportdatasize), core::mem::transmute_copy(&featuresupportdata)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDMLDevice_Impl::CheckFeatureSupport(this, core::mem::transmute_copy(&feature), core::mem::transmute_copy(&featurequerydatasize), core::mem::transmute_copy(&featurequerydata), core::mem::transmute_copy(&featuresupportdatasize), core::mem::transmute_copy(&featuresupportdata)).into()
+            }
         }
         unsafe extern "system" fn CreateOperator<Identity: IDMLDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, desc: *const DML_OPERATOR_DESC, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDMLDevice_Impl::CreateOperator(this, core::mem::transmute_copy(&desc), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDMLDevice_Impl::CreateOperator(this, core::mem::transmute_copy(&desc), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            }
         }
         unsafe extern "system" fn CompileOperator<Identity: IDMLDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, op: *mut core::ffi::c_void, flags: DML_EXECUTION_FLAGS, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDMLDevice_Impl::CompileOperator(this, core::mem::transmute_copy(&op), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDMLDevice_Impl::CompileOperator(this, core::mem::transmute_copy(&op), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            }
         }
         unsafe extern "system" fn CreateOperatorInitializer<Identity: IDMLDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, operatorcount: u32, operators: *const *mut core::ffi::c_void, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDMLDevice_Impl::CreateOperatorInitializer(this, core::mem::transmute_copy(&operatorcount), core::mem::transmute_copy(&operators), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDMLDevice_Impl::CreateOperatorInitializer(this, core::mem::transmute_copy(&operatorcount), core::mem::transmute_copy(&operators), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            }
         }
         unsafe extern "system" fn CreateCommandRecorder<Identity: IDMLDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDMLDevice_Impl::CreateCommandRecorder(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDMLDevice_Impl::CreateCommandRecorder(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            }
         }
         unsafe extern "system" fn CreateBindingTable<Identity: IDMLDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, desc: *const DML_BINDING_TABLE_DESC, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDMLDevice_Impl::CreateBindingTable(this, core::mem::transmute_copy(&desc), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDMLDevice_Impl::CreateBindingTable(this, core::mem::transmute_copy(&desc), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            }
         }
         unsafe extern "system" fn Evict<Identity: IDMLDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, ppobjects: *const *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDMLDevice_Impl::Evict(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&ppobjects)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDMLDevice_Impl::Evict(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&ppobjects)).into()
+            }
         }
         unsafe extern "system" fn MakeResident<Identity: IDMLDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, ppobjects: *const *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDMLDevice_Impl::MakeResident(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&ppobjects)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDMLDevice_Impl::MakeResident(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&ppobjects)).into()
+            }
         }
         unsafe extern "system" fn GetDeviceRemovedReason<Identity: IDMLDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDMLDevice_Impl::GetDeviceRemovedReason(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDMLDevice_Impl::GetDeviceRemovedReason(this).into()
+            }
         }
         unsafe extern "system" fn GetParentDevice<Identity: IDMLDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDMLDevice_Impl::GetParentDevice(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDMLDevice_Impl::GetParentDevice(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            }
         }
         Self {
             base__: IDMLObject_Vtbl::new::<Identity, OFFSET>(),
@@ -3088,7 +3122,7 @@ impl IDMLDevice1 {
     where
         T: windows_core::Interface,
     {
-        (windows_core::Interface::vtable(self).CompileGraph)(windows_core::Interface::as_raw(self), desc, flags, &T::IID, result__ as *mut _ as *mut _).ok()
+        unsafe { (windows_core::Interface::vtable(self).CompileGraph)(windows_core::Interface::as_raw(self), desc, flags, &T::IID, result__ as *mut _ as *mut _).ok() }
     }
 }
 #[repr(C)]
@@ -3104,8 +3138,10 @@ pub trait IDMLDevice1_Impl: IDMLDevice_Impl {
 impl IDMLDevice1_Vtbl {
     pub const fn new<Identity: IDMLDevice1_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CompileGraph<Identity: IDMLDevice1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, desc: *const DML_GRAPH_DESC, flags: DML_EXECUTION_FLAGS, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDMLDevice1_Impl::CompileGraph(this, core::mem::transmute_copy(&desc), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDMLDevice1_Impl::CompileGraph(this, core::mem::transmute_copy(&desc), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            }
         }
         Self { base__: IDMLDevice_Vtbl::new::<Identity, OFFSET>(), CompileGraph: CompileGraph::<Identity, OFFSET> }
     }
@@ -3129,7 +3165,7 @@ impl IDMLDeviceChild {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        (windows_core::Interface::vtable(self).GetDevice)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe { (windows_core::Interface::vtable(self).GetDevice)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -3143,8 +3179,10 @@ pub trait IDMLDeviceChild_Impl: IDMLObject_Impl {
 impl IDMLDeviceChild_Vtbl {
     pub const fn new<Identity: IDMLDeviceChild_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDevice<Identity: IDMLDeviceChild_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDMLDeviceChild_Impl::GetDevice(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDMLDeviceChild_Impl::GetDevice(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            }
         }
         Self { base__: IDMLObject_Vtbl::new::<Identity, OFFSET>(), GetDevice: GetDevice::<Identity, OFFSET> }
     }
@@ -3163,9 +3201,11 @@ impl core::ops::Deref for IDMLDispatchable {
 windows_core::imp::interface_hierarchy!(IDMLDispatchable, windows_core::IUnknown, IDMLObject, IDMLDeviceChild, IDMLPageable);
 impl IDMLDispatchable {
     pub unsafe fn GetBindingProperties(&self) -> DML_BINDING_PROPERTIES {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetBindingProperties)(windows_core::Interface::as_raw(self), &mut result__);
-        result__
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetBindingProperties)(windows_core::Interface::as_raw(self), &mut result__);
+            result__
+        }
     }
 }
 #[repr(C)]
@@ -3179,8 +3219,10 @@ pub trait IDMLDispatchable_Impl: IDMLPageable_Impl {
 impl IDMLDispatchable_Vtbl {
     pub const fn new<Identity: IDMLDispatchable_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetBindingProperties<Identity: IDMLDispatchable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut DML_BINDING_PROPERTIES) {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            *result__ = IDMLDispatchable_Impl::GetBindingProperties(this)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                *result__ = IDMLDispatchable_Impl::GetBindingProperties(this)
+            }
         }
         Self { base__: IDMLPageable_Vtbl::new::<Identity, OFFSET>(), GetBindingProperties: GetBindingProperties::<Identity, OFFSET> }
     }
@@ -3193,22 +3235,22 @@ windows_core::imp::define_interface!(IDMLObject, IDMLObject_Vtbl, 0xc8263aac_9e0
 windows_core::imp::interface_hierarchy!(IDMLObject, windows_core::IUnknown);
 impl IDMLObject {
     pub unsafe fn GetPrivateData(&self, guid: *const windows_core::GUID, datasize: *mut u32, data: Option<*mut core::ffi::c_void>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetPrivateData)(windows_core::Interface::as_raw(self), guid, core::mem::transmute(datasize), core::mem::transmute(data.unwrap_or(core::mem::zeroed()))).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetPrivateData)(windows_core::Interface::as_raw(self), guid, core::mem::transmute(datasize), core::mem::transmute(data.unwrap_or(core::mem::zeroed()))).ok() }
     }
     pub unsafe fn SetPrivateData(&self, guid: *const windows_core::GUID, datasize: u32, data: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetPrivateData)(windows_core::Interface::as_raw(self), guid, datasize, core::mem::transmute(data.unwrap_or(core::mem::zeroed()))).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetPrivateData)(windows_core::Interface::as_raw(self), guid, datasize, core::mem::transmute(data.unwrap_or(core::mem::zeroed()))).ok() }
     }
     pub unsafe fn SetPrivateDataInterface<P1>(&self, guid: *const windows_core::GUID, data: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).SetPrivateDataInterface)(windows_core::Interface::as_raw(self), guid, data.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetPrivateDataInterface)(windows_core::Interface::as_raw(self), guid, data.param().abi()).ok() }
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), name.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), name.param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -3228,20 +3270,28 @@ pub trait IDMLObject_Impl: windows_core::IUnknownImpl {
 impl IDMLObject_Vtbl {
     pub const fn new<Identity: IDMLObject_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetPrivateData<Identity: IDMLObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *const windows_core::GUID, datasize: *mut u32, data: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDMLObject_Impl::GetPrivateData(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&datasize), core::mem::transmute_copy(&data)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDMLObject_Impl::GetPrivateData(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&datasize), core::mem::transmute_copy(&data)).into()
+            }
         }
         unsafe extern "system" fn SetPrivateData<Identity: IDMLObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *const windows_core::GUID, datasize: u32, data: *const core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDMLObject_Impl::SetPrivateData(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&datasize), core::mem::transmute_copy(&data)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDMLObject_Impl::SetPrivateData(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&datasize), core::mem::transmute_copy(&data)).into()
+            }
         }
         unsafe extern "system" fn SetPrivateDataInterface<Identity: IDMLObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *const windows_core::GUID, data: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDMLObject_Impl::SetPrivateDataInterface(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&data)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDMLObject_Impl::SetPrivateDataInterface(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&data)).into()
+            }
         }
         unsafe extern "system" fn SetName<Identity: IDMLObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDMLObject_Impl::SetName(this, core::mem::transmute(&name)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDMLObject_Impl::SetName(this, core::mem::transmute(&name)).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -3288,7 +3338,7 @@ impl core::ops::Deref for IDMLOperatorInitializer {
 windows_core::imp::interface_hierarchy!(IDMLOperatorInitializer, windows_core::IUnknown, IDMLObject, IDMLDeviceChild, IDMLPageable, IDMLDispatchable);
 impl IDMLOperatorInitializer {
     pub unsafe fn Reset(&self, operators: Option<&[Option<IDMLCompiledOperator>]>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self), operators.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(operators.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok()
+        unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self), operators.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(operators.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
     }
 }
 #[repr(C)]
@@ -3302,8 +3352,10 @@ pub trait IDMLOperatorInitializer_Impl: IDMLDispatchable_Impl {
 impl IDMLOperatorInitializer_Vtbl {
     pub const fn new<Identity: IDMLOperatorInitializer_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Reset<Identity: IDMLOperatorInitializer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, operatorcount: u32, operators: *const *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDMLOperatorInitializer_Impl::Reset(this, core::mem::transmute_copy(&operatorcount), core::mem::transmute_copy(&operators)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDMLOperatorInitializer_Impl::Reset(this, core::mem::transmute_copy(&operatorcount), core::mem::transmute_copy(&operators)).into()
+            }
         }
         Self { base__: IDMLDispatchable_Vtbl::new::<Identity, OFFSET>(), Reset: Reset::<Identity, OFFSET> }
     }

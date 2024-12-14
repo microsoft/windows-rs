@@ -14,14 +14,14 @@
 #[inline]
 pub unsafe fn GetWindowLongPtrW(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX) -> isize {
     windows_targets::link!("user32.dll" "system" fn GetWindowLongPtrW(hwnd : HWND, nindex : WINDOW_LONG_PTR_INDEX) -> isize);
-    GetWindowLongPtrW(hwnd, nindex)
+    unsafe { GetWindowLongPtrW(hwnd, nindex) }
 }
 #[cfg(target_pointer_width = "32")]
 pub use GetWindowLongW as GetWindowLongPtrW;
 #[inline]
 pub unsafe fn GetWindowLongW(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX) -> i32 {
     windows_targets::link!("user32.dll" "system" fn GetWindowLongW(hwnd : HWND, nindex : WINDOW_LONG_PTR_INDEX) -> i32);
-    GetWindowLongW(hwnd, nindex)
+    unsafe { GetWindowLongW(hwnd, nindex) }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -36,7 +36,9 @@ impl windows_core::Free for HANDLE {
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             windows_targets::link!("kernel32.dll" "system" fn CloseHandle(hobject : *mut core::ffi::c_void) -> i32);
-            CloseHandle(self.0);
+            unsafe {
+                CloseHandle(self.0);
+            }
         }
     }
 }

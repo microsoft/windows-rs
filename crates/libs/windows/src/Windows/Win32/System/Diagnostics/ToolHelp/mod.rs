@@ -1,83 +1,83 @@
 #[inline]
 pub unsafe fn CreateToolhelp32Snapshot(dwflags: CREATE_TOOLHELP_SNAPSHOT_FLAGS, th32processid: u32) -> windows_core::Result<super::super::super::Foundation::HANDLE> {
     windows_targets::link!("kernel32.dll" "system" fn CreateToolhelp32Snapshot(dwflags : CREATE_TOOLHELP_SNAPSHOT_FLAGS, th32processid : u32) -> super::super::super::Foundation:: HANDLE);
-    let result__ = CreateToolhelp32Snapshot(dwflags, th32processid);
+    let result__ = unsafe { CreateToolhelp32Snapshot(dwflags, th32processid) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn Heap32First(lphe: *mut HEAPENTRY32, th32processid: u32, th32heapid: usize) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn Heap32First(lphe : *mut HEAPENTRY32, th32processid : u32, th32heapid : usize) -> super::super::super::Foundation:: BOOL);
-    Heap32First(core::mem::transmute(lphe), th32processid, th32heapid).ok()
+    unsafe { Heap32First(core::mem::transmute(lphe), th32processid, th32heapid).ok() }
 }
 #[inline]
 pub unsafe fn Heap32ListFirst(hsnapshot: super::super::super::Foundation::HANDLE, lphl: *mut HEAPLIST32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn Heap32ListFirst(hsnapshot : super::super::super::Foundation:: HANDLE, lphl : *mut HEAPLIST32) -> super::super::super::Foundation:: BOOL);
-    Heap32ListFirst(hsnapshot, core::mem::transmute(lphl)).ok()
+    unsafe { Heap32ListFirst(hsnapshot, core::mem::transmute(lphl)).ok() }
 }
 #[inline]
 pub unsafe fn Heap32ListNext(hsnapshot: super::super::super::Foundation::HANDLE, lphl: *mut HEAPLIST32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn Heap32ListNext(hsnapshot : super::super::super::Foundation:: HANDLE, lphl : *mut HEAPLIST32) -> super::super::super::Foundation:: BOOL);
-    Heap32ListNext(hsnapshot, core::mem::transmute(lphl)).ok()
+    unsafe { Heap32ListNext(hsnapshot, core::mem::transmute(lphl)).ok() }
 }
 #[inline]
 pub unsafe fn Heap32Next(lphe: *mut HEAPENTRY32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn Heap32Next(lphe : *mut HEAPENTRY32) -> super::super::super::Foundation:: BOOL);
-    Heap32Next(core::mem::transmute(lphe)).ok()
+    unsafe { Heap32Next(core::mem::transmute(lphe)).ok() }
 }
 #[inline]
 pub unsafe fn Module32First(hsnapshot: super::super::super::Foundation::HANDLE, lpme: *mut MODULEENTRY32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn Module32First(hsnapshot : super::super::super::Foundation:: HANDLE, lpme : *mut MODULEENTRY32) -> super::super::super::Foundation:: BOOL);
-    Module32First(hsnapshot, core::mem::transmute(lpme)).ok()
+    unsafe { Module32First(hsnapshot, core::mem::transmute(lpme)).ok() }
 }
 #[inline]
 pub unsafe fn Module32FirstW(hsnapshot: super::super::super::Foundation::HANDLE, lpme: *mut MODULEENTRY32W) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn Module32FirstW(hsnapshot : super::super::super::Foundation:: HANDLE, lpme : *mut MODULEENTRY32W) -> super::super::super::Foundation:: BOOL);
-    Module32FirstW(hsnapshot, core::mem::transmute(lpme)).ok()
+    unsafe { Module32FirstW(hsnapshot, core::mem::transmute(lpme)).ok() }
 }
 #[inline]
 pub unsafe fn Module32Next(hsnapshot: super::super::super::Foundation::HANDLE, lpme: *mut MODULEENTRY32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn Module32Next(hsnapshot : super::super::super::Foundation:: HANDLE, lpme : *mut MODULEENTRY32) -> super::super::super::Foundation:: BOOL);
-    Module32Next(hsnapshot, core::mem::transmute(lpme)).ok()
+    unsafe { Module32Next(hsnapshot, core::mem::transmute(lpme)).ok() }
 }
 #[inline]
 pub unsafe fn Module32NextW(hsnapshot: super::super::super::Foundation::HANDLE, lpme: *mut MODULEENTRY32W) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn Module32NextW(hsnapshot : super::super::super::Foundation:: HANDLE, lpme : *mut MODULEENTRY32W) -> super::super::super::Foundation:: BOOL);
-    Module32NextW(hsnapshot, core::mem::transmute(lpme)).ok()
+    unsafe { Module32NextW(hsnapshot, core::mem::transmute(lpme)).ok() }
 }
 #[inline]
 pub unsafe fn Process32First(hsnapshot: super::super::super::Foundation::HANDLE, lppe: *mut PROCESSENTRY32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn Process32First(hsnapshot : super::super::super::Foundation:: HANDLE, lppe : *mut PROCESSENTRY32) -> super::super::super::Foundation:: BOOL);
-    Process32First(hsnapshot, core::mem::transmute(lppe)).ok()
+    unsafe { Process32First(hsnapshot, core::mem::transmute(lppe)).ok() }
 }
 #[inline]
 pub unsafe fn Process32FirstW(hsnapshot: super::super::super::Foundation::HANDLE, lppe: *mut PROCESSENTRY32W) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn Process32FirstW(hsnapshot : super::super::super::Foundation:: HANDLE, lppe : *mut PROCESSENTRY32W) -> super::super::super::Foundation:: BOOL);
-    Process32FirstW(hsnapshot, core::mem::transmute(lppe)).ok()
+    unsafe { Process32FirstW(hsnapshot, core::mem::transmute(lppe)).ok() }
 }
 #[inline]
 pub unsafe fn Process32Next(hsnapshot: super::super::super::Foundation::HANDLE, lppe: *mut PROCESSENTRY32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn Process32Next(hsnapshot : super::super::super::Foundation:: HANDLE, lppe : *mut PROCESSENTRY32) -> super::super::super::Foundation:: BOOL);
-    Process32Next(hsnapshot, core::mem::transmute(lppe)).ok()
+    unsafe { Process32Next(hsnapshot, core::mem::transmute(lppe)).ok() }
 }
 #[inline]
 pub unsafe fn Process32NextW(hsnapshot: super::super::super::Foundation::HANDLE, lppe: *mut PROCESSENTRY32W) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn Process32NextW(hsnapshot : super::super::super::Foundation:: HANDLE, lppe : *mut PROCESSENTRY32W) -> super::super::super::Foundation:: BOOL);
-    Process32NextW(hsnapshot, core::mem::transmute(lppe)).ok()
+    unsafe { Process32NextW(hsnapshot, core::mem::transmute(lppe)).ok() }
 }
 #[inline]
 pub unsafe fn Thread32First(hsnapshot: super::super::super::Foundation::HANDLE, lpte: *mut THREADENTRY32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn Thread32First(hsnapshot : super::super::super::Foundation:: HANDLE, lpte : *mut THREADENTRY32) -> super::super::super::Foundation:: BOOL);
-    Thread32First(hsnapshot, core::mem::transmute(lpte)).ok()
+    unsafe { Thread32First(hsnapshot, core::mem::transmute(lpte)).ok() }
 }
 #[inline]
 pub unsafe fn Thread32Next(hsnapshot: super::super::super::Foundation::HANDLE, lpte: *mut THREADENTRY32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn Thread32Next(hsnapshot : super::super::super::Foundation:: HANDLE, lpte : *mut THREADENTRY32) -> super::super::super::Foundation:: BOOL);
-    Thread32Next(hsnapshot, core::mem::transmute(lpte)).ok()
+    unsafe { Thread32Next(hsnapshot, core::mem::transmute(lpte)).ok() }
 }
 #[inline]
 pub unsafe fn Toolhelp32ReadProcessMemory(th32processid: u32, lpbaseaddress: *const core::ffi::c_void, lpbuffer: *mut core::ffi::c_void, cbread: usize, lpnumberofbytesread: *mut usize) -> super::super::super::Foundation::BOOL {
     windows_targets::link!("kernel32.dll" "system" fn Toolhelp32ReadProcessMemory(th32processid : u32, lpbaseaddress : *const core::ffi::c_void, lpbuffer : *mut core::ffi::c_void, cbread : usize, lpnumberofbytesread : *mut usize) -> super::super::super::Foundation:: BOOL);
-    Toolhelp32ReadProcessMemory(th32processid, lpbaseaddress, core::mem::transmute(lpbuffer), cbread, core::mem::transmute(lpnumberofbytesread))
+    unsafe { Toolhelp32ReadProcessMemory(th32processid, lpbaseaddress, core::mem::transmute(lpbuffer), cbread, core::mem::transmute(lpnumberofbytesread)) }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

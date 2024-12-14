@@ -489,47 +489,55 @@ pub trait ICoreDropOperationTarget_Impl: windows_core::IUnknownImpl {
 impl ICoreDropOperationTarget_Vtbl {
     pub const fn new<Identity: ICoreDropOperationTarget_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn EnterAsync<Identity: ICoreDropOperationTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, draginfo: *mut core::ffi::c_void, draguioverride: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICoreDropOperationTarget_Impl::EnterAsync(this, core::mem::transmute_copy(&draginfo), core::mem::transmute_copy(&draguioverride)) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICoreDropOperationTarget_Impl::EnterAsync(this, core::mem::transmute_copy(&draginfo), core::mem::transmute_copy(&draguioverride)) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn OverAsync<Identity: ICoreDropOperationTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, draginfo: *mut core::ffi::c_void, draguioverride: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICoreDropOperationTarget_Impl::OverAsync(this, core::mem::transmute_copy(&draginfo), core::mem::transmute_copy(&draguioverride)) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICoreDropOperationTarget_Impl::OverAsync(this, core::mem::transmute_copy(&draginfo), core::mem::transmute_copy(&draguioverride)) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn LeaveAsync<Identity: ICoreDropOperationTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, draginfo: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICoreDropOperationTarget_Impl::LeaveAsync(this, core::mem::transmute_copy(&draginfo)) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICoreDropOperationTarget_Impl::LeaveAsync(this, core::mem::transmute_copy(&draginfo)) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn DropAsync<Identity: ICoreDropOperationTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, draginfo: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICoreDropOperationTarget_Impl::DropAsync(this, core::mem::transmute_copy(&draginfo)) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICoreDropOperationTarget_Impl::DropAsync(this, core::mem::transmute_copy(&draginfo)) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {

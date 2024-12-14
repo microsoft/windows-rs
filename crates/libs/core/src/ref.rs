@@ -45,7 +45,7 @@ impl<T: Type<T, Default = Option<T>, Abi = *mut c_void>> Ref<'_, T> {
     }
 
     unsafe fn assume_init(&self) -> &T {
-        transmute::<&*mut c_void, &T>(&self.0)
+        unsafe { transmute::<&*mut c_void, &T>(&self.0) }
     }
 }
 

@@ -27,19 +27,23 @@ pub trait IGraphicsEffect_Impl: IGraphicsEffectSource_Impl {
 impl IGraphicsEffect_Vtbl {
     pub const fn new<Identity: IGraphicsEffect_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Name<Identity: IGraphicsEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IGraphicsEffect_Impl::Name(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IGraphicsEffect_Impl::Name(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetName<Identity: IGraphicsEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IGraphicsEffect_Impl::SetName(this, core::mem::transmute(&name)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IGraphicsEffect_Impl::SetName(this, core::mem::transmute(&name)).into()
+            }
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IGraphicsEffect, OFFSET>(),

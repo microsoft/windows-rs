@@ -1,33 +1,33 @@
 #[inline]
 pub unsafe fn SaferCloseLevel(hlevelhandle: super::SAFER_LEVEL_HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("advapi32.dll" "system" fn SaferCloseLevel(hlevelhandle : super:: SAFER_LEVEL_HANDLE) -> super::super::Foundation:: BOOL);
-    SaferCloseLevel(hlevelhandle).ok()
+    unsafe { SaferCloseLevel(hlevelhandle).ok() }
 }
 #[inline]
 pub unsafe fn SaferComputeTokenFromLevel(levelhandle: super::SAFER_LEVEL_HANDLE, inaccesstoken: Option<super::super::Foundation::HANDLE>, outaccesstoken: *mut super::super::Foundation::HANDLE, dwflags: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS, lpreserved: Option<*mut core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("advapi32.dll" "system" fn SaferComputeTokenFromLevel(levelhandle : super:: SAFER_LEVEL_HANDLE, inaccesstoken : super::super::Foundation:: HANDLE, outaccesstoken : *mut super::super::Foundation:: HANDLE, dwflags : SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS, lpreserved : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    SaferComputeTokenFromLevel(levelhandle, core::mem::transmute(inaccesstoken.unwrap_or(core::mem::zeroed())), core::mem::transmute(outaccesstoken), dwflags, core::mem::transmute(lpreserved.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { SaferComputeTokenFromLevel(levelhandle, core::mem::transmute(inaccesstoken.unwrap_or(core::mem::zeroed())), core::mem::transmute(outaccesstoken), dwflags, core::mem::transmute(lpreserved.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn SaferCreateLevel(dwscopeid: u32, dwlevelid: u32, openflags: u32, plevelhandle: *mut super::SAFER_LEVEL_HANDLE, lpreserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("advapi32.dll" "system" fn SaferCreateLevel(dwscopeid : u32, dwlevelid : u32, openflags : u32, plevelhandle : *mut super:: SAFER_LEVEL_HANDLE, lpreserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    SaferCreateLevel(dwscopeid, dwlevelid, openflags, core::mem::transmute(plevelhandle), core::mem::transmute(lpreserved.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { SaferCreateLevel(dwscopeid, dwlevelid, openflags, core::mem::transmute(plevelhandle), core::mem::transmute(lpreserved.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn SaferGetLevelInformation(levelhandle: super::SAFER_LEVEL_HANDLE, dwinfotype: SAFER_OBJECT_INFO_CLASS, lpquerybuffer: Option<*mut core::ffi::c_void>, dwinbuffersize: u32, lpdwoutbuffersize: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("advapi32.dll" "system" fn SaferGetLevelInformation(levelhandle : super:: SAFER_LEVEL_HANDLE, dwinfotype : SAFER_OBJECT_INFO_CLASS, lpquerybuffer : *mut core::ffi::c_void, dwinbuffersize : u32, lpdwoutbuffersize : *mut u32) -> super::super::Foundation:: BOOL);
-    SaferGetLevelInformation(levelhandle, dwinfotype, core::mem::transmute(lpquerybuffer.unwrap_or(core::mem::zeroed())), dwinbuffersize, core::mem::transmute(lpdwoutbuffersize)).ok()
+    unsafe { SaferGetLevelInformation(levelhandle, dwinfotype, core::mem::transmute(lpquerybuffer.unwrap_or(core::mem::zeroed())), dwinbuffersize, core::mem::transmute(lpdwoutbuffersize)).ok() }
 }
 #[inline]
 pub unsafe fn SaferGetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SAFER_POLICY_INFO_CLASS, infobuffersize: u32, infobuffer: *mut core::ffi::c_void, infobufferretsize: *mut u32, lpreserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("advapi32.dll" "system" fn SaferGetPolicyInformation(dwscopeid : u32, saferpolicyinfoclass : SAFER_POLICY_INFO_CLASS, infobuffersize : u32, infobuffer : *mut core::ffi::c_void, infobufferretsize : *mut u32, lpreserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    SaferGetPolicyInformation(dwscopeid, saferpolicyinfoclass, infobuffersize, core::mem::transmute(infobuffer), core::mem::transmute(infobufferretsize), core::mem::transmute(lpreserved.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { SaferGetPolicyInformation(dwscopeid, saferpolicyinfoclass, infobuffersize, core::mem::transmute(infobuffer), core::mem::transmute(infobufferretsize), core::mem::transmute(lpreserved.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
 pub unsafe fn SaferIdentifyLevel(pcodeproperties: Option<&[SAFER_CODE_PROPERTIES_V2]>, plevelhandle: *mut super::SAFER_LEVEL_HANDLE, lpreserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("advapi32.dll" "system" fn SaferIdentifyLevel(dwnumproperties : u32, pcodeproperties : *const SAFER_CODE_PROPERTIES_V2, plevelhandle : *mut super:: SAFER_LEVEL_HANDLE, lpreserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    SaferIdentifyLevel(pcodeproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcodeproperties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(plevelhandle), core::mem::transmute(lpreserved.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { SaferIdentifyLevel(pcodeproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcodeproperties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(plevelhandle), core::mem::transmute(lpreserved.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn SaferRecordEventLogEntry<P1>(hlevel: super::SAFER_LEVEL_HANDLE, sztargetpath: P1, lpreserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -35,17 +35,17 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn SaferRecordEventLogEntry(hlevel : super:: SAFER_LEVEL_HANDLE, sztargetpath : windows_core::PCWSTR, lpreserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    SaferRecordEventLogEntry(hlevel, sztargetpath.param().abi(), core::mem::transmute(lpreserved.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { SaferRecordEventLogEntry(hlevel, sztargetpath.param().abi(), core::mem::transmute(lpreserved.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn SaferSetLevelInformation(levelhandle: super::SAFER_LEVEL_HANDLE, dwinfotype: SAFER_OBJECT_INFO_CLASS, lpquerybuffer: *const core::ffi::c_void, dwinbuffersize: u32) -> windows_core::Result<()> {
     windows_targets::link!("advapi32.dll" "system" fn SaferSetLevelInformation(levelhandle : super:: SAFER_LEVEL_HANDLE, dwinfotype : SAFER_OBJECT_INFO_CLASS, lpquerybuffer : *const core::ffi::c_void, dwinbuffersize : u32) -> super::super::Foundation:: BOOL);
-    SaferSetLevelInformation(levelhandle, dwinfotype, lpquerybuffer, dwinbuffersize).ok()
+    unsafe { SaferSetLevelInformation(levelhandle, dwinfotype, lpquerybuffer, dwinbuffersize).ok() }
 }
 #[inline]
 pub unsafe fn SaferSetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SAFER_POLICY_INFO_CLASS, infobuffersize: u32, infobuffer: *const core::ffi::c_void, lpreserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("advapi32.dll" "system" fn SaferSetPolicyInformation(dwscopeid : u32, saferpolicyinfoclass : SAFER_POLICY_INFO_CLASS, infobuffersize : u32, infobuffer : *const core::ffi::c_void, lpreserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    SaferSetPolicyInformation(dwscopeid, saferpolicyinfoclass, infobuffersize, infobuffer, core::mem::transmute(lpreserved.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { SaferSetPolicyInformation(dwscopeid, saferpolicyinfoclass, infobuffersize, infobuffer, core::mem::transmute(lpreserved.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn SaferiIsExecutableFileType<P0>(szfullpathname: P0, bfromshellexecute: bool) -> super::super::Foundation::BOOL
@@ -53,7 +53,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn SaferiIsExecutableFileType(szfullpathname : windows_core::PCWSTR, bfromshellexecute : bool) -> super::super::Foundation:: BOOL);
-    SaferiIsExecutableFileType(szfullpathname.param().abi(), bfromshellexecute)
+    unsafe { SaferiIsExecutableFileType(szfullpathname.param().abi(), bfromshellexecute) }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]

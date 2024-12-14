@@ -318,7 +318,9 @@ fn spawn<F: FnOnce() + Send + 'static>(f: F) {
     windows_targets::link!("kernel32.dll" "system" fn TrySubmitThreadpoolCallback(callback: PTP_SIMPLE_CALLBACK, context: *const c_void, environment: *const c_void) -> i32);
 
     unsafe extern "system" fn callback<F: FnOnce() + Send + 'static>(_: *const c_void, callback: *const c_void) {
-        Box::from_raw(callback as *mut F)();
+        unsafe {
+            Box::from_raw(callback as *mut F)();
+        }
     }
 
     unsafe {

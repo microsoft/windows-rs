@@ -2,10 +2,10 @@ windows_core::imp::define_interface!(IWCNConnectNotify, IWCNConnectNotify_Vtbl, 
 windows_core::imp::interface_hierarchy!(IWCNConnectNotify, windows_core::IUnknown);
 impl IWCNConnectNotify {
     pub unsafe fn ConnectSucceeded(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ConnectSucceeded)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).ConnectSucceeded)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn ConnectFailed(&self, hrfailure: windows_core::HRESULT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ConnectFailed)(windows_core::Interface::as_raw(self), hrfailure).ok()
+        unsafe { (windows_core::Interface::vtable(self).ConnectFailed)(windows_core::Interface::as_raw(self), hrfailure).ok() }
     }
 }
 #[repr(C)]
@@ -21,12 +21,16 @@ pub trait IWCNConnectNotify_Impl: windows_core::IUnknownImpl {
 impl IWCNConnectNotify_Vtbl {
     pub const fn new<Identity: IWCNConnectNotify_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ConnectSucceeded<Identity: IWCNConnectNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWCNConnectNotify_Impl::ConnectSucceeded(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IWCNConnectNotify_Impl::ConnectSucceeded(this).into()
+            }
         }
         unsafe extern "system" fn ConnectFailed<Identity: IWCNConnectNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hrfailure: windows_core::HRESULT) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWCNConnectNotify_Impl::ConnectFailed(this, core::mem::transmute_copy(&hrfailure)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IWCNConnectNotify_Impl::ConnectFailed(this, core::mem::transmute_copy(&hrfailure)).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -43,55 +47,59 @@ windows_core::imp::define_interface!(IWCNDevice, IWCNDevice_Vtbl, 0xc100be9c_d33
 windows_core::imp::interface_hierarchy!(IWCNDevice, windows_core::IUnknown);
 impl IWCNDevice {
     pub unsafe fn SetPassword(&self, r#type: WCN_PASSWORD_TYPE, pbpassword: &[u8]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetPassword)(windows_core::Interface::as_raw(self), r#type, pbpassword.len().try_into().unwrap(), core::mem::transmute(pbpassword.as_ptr())).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetPassword)(windows_core::Interface::as_raw(self), r#type, pbpassword.len().try_into().unwrap(), core::mem::transmute(pbpassword.as_ptr())).ok() }
     }
     pub unsafe fn Connect<P0>(&self, pnotify: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IWCNConnectNotify>,
     {
-        (windows_core::Interface::vtable(self).Connect)(windows_core::Interface::as_raw(self), pnotify.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).Connect)(windows_core::Interface::as_raw(self), pnotify.param().abi()).ok() }
     }
     pub unsafe fn GetAttribute(&self, attributetype: WCN_ATTRIBUTE_TYPE, pbbuffer: &mut [u8], pdwbufferused: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetAttribute)(windows_core::Interface::as_raw(self), attributetype, pbbuffer.len().try_into().unwrap(), core::mem::transmute(pbbuffer.as_ptr()), core::mem::transmute(pdwbufferused)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetAttribute)(windows_core::Interface::as_raw(self), attributetype, pbbuffer.len().try_into().unwrap(), core::mem::transmute(pbbuffer.as_ptr()), core::mem::transmute(pdwbufferused)).ok() }
     }
     pub unsafe fn GetIntegerAttribute(&self, attributetype: WCN_ATTRIBUTE_TYPE) -> windows_core::Result<u32> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetIntegerAttribute)(windows_core::Interface::as_raw(self), attributetype, &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetIntegerAttribute)(windows_core::Interface::as_raw(self), attributetype, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn GetStringAttribute(&self, attributetype: WCN_ATTRIBUTE_TYPE, wszstring: &mut [u16]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetStringAttribute)(windows_core::Interface::as_raw(self), attributetype, wszstring.len().try_into().unwrap(), core::mem::transmute(wszstring.as_ptr())).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetStringAttribute)(windows_core::Interface::as_raw(self), attributetype, wszstring.len().try_into().unwrap(), core::mem::transmute(wszstring.as_ptr())).ok() }
     }
     pub unsafe fn GetNetworkProfile(&self, wszprofile: &mut [u16]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetNetworkProfile)(windows_core::Interface::as_raw(self), wszprofile.len().try_into().unwrap(), core::mem::transmute(wszprofile.as_ptr())).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetNetworkProfile)(windows_core::Interface::as_raw(self), wszprofile.len().try_into().unwrap(), core::mem::transmute(wszprofile.as_ptr())).ok() }
     }
     pub unsafe fn SetNetworkProfile<P0>(&self, pszprofilexml: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetNetworkProfile)(windows_core::Interface::as_raw(self), pszprofilexml.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetNetworkProfile)(windows_core::Interface::as_raw(self), pszprofilexml.param().abi()).ok() }
     }
     pub unsafe fn GetVendorExtension(&self, pvendorextspec: *const WCN_VENDOR_EXTENSION_SPEC, pbbuffer: &mut [u8], pdwbufferused: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetVendorExtension)(windows_core::Interface::as_raw(self), pvendorextspec, pbbuffer.len().try_into().unwrap(), core::mem::transmute(pbbuffer.as_ptr()), core::mem::transmute(pdwbufferused)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetVendorExtension)(windows_core::Interface::as_raw(self), pvendorextspec, pbbuffer.len().try_into().unwrap(), core::mem::transmute(pbbuffer.as_ptr()), core::mem::transmute(pdwbufferused)).ok() }
     }
     pub unsafe fn SetVendorExtension(&self, pvendorextspec: *const WCN_VENDOR_EXTENSION_SPEC, pbbuffer: &[u8]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetVendorExtension)(windows_core::Interface::as_raw(self), pvendorextspec, pbbuffer.len().try_into().unwrap(), core::mem::transmute(pbbuffer.as_ptr())).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetVendorExtension)(windows_core::Interface::as_raw(self), pvendorextspec, pbbuffer.len().try_into().unwrap(), core::mem::transmute(pbbuffer.as_ptr())).ok() }
     }
     pub unsafe fn Unadvise(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Unadvise)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Unadvise)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn SetNFCPasswordParams(&self, r#type: WCN_PASSWORD_TYPE, dwoobpasswordid: u32, pbpassword: Option<&[u8]>, pbremotepublickeyhash: Option<&[u8]>, pbdhkeyblob: Option<&[u8]>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetNFCPasswordParams)(
-            windows_core::Interface::as_raw(self),
-            r#type,
-            dwoobpasswordid,
-            pbpassword.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(pbpassword.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            pbremotepublickeyhash.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(pbremotepublickeyhash.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            pbdhkeyblob.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(pbdhkeyblob.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-        )
-        .ok()
+        unsafe {
+            (windows_core::Interface::vtable(self).SetNFCPasswordParams)(
+                windows_core::Interface::as_raw(self),
+                r#type,
+                dwoobpasswordid,
+                pbpassword.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+                core::mem::transmute(pbpassword.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                pbremotepublickeyhash.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+                core::mem::transmute(pbremotepublickeyhash.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                pbdhkeyblob.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+                core::mem::transmute(pbdhkeyblob.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            )
+            .ok()
+        }
     }
 }
 #[repr(C)]
@@ -125,54 +133,76 @@ pub trait IWCNDevice_Impl: windows_core::IUnknownImpl {
 impl IWCNDevice_Vtbl {
     pub const fn new<Identity: IWCNDevice_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetPassword<Identity: IWCNDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: WCN_PASSWORD_TYPE, dwpasswordlength: u32, pbpassword: *const u8) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWCNDevice_Impl::SetPassword(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&dwpasswordlength), core::mem::transmute_copy(&pbpassword)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IWCNDevice_Impl::SetPassword(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&dwpasswordlength), core::mem::transmute_copy(&pbpassword)).into()
+            }
         }
         unsafe extern "system" fn Connect<Identity: IWCNDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnotify: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWCNDevice_Impl::Connect(this, core::mem::transmute_copy(&pnotify)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IWCNDevice_Impl::Connect(this, core::mem::transmute_copy(&pnotify)).into()
+            }
         }
         unsafe extern "system" fn GetAttribute<Identity: IWCNDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributetype: WCN_ATTRIBUTE_TYPE, dwmaxbuffersize: u32, pbbuffer: *mut u8, pdwbufferused: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWCNDevice_Impl::GetAttribute(this, core::mem::transmute_copy(&attributetype), core::mem::transmute_copy(&dwmaxbuffersize), core::mem::transmute_copy(&pbbuffer), core::mem::transmute_copy(&pdwbufferused)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IWCNDevice_Impl::GetAttribute(this, core::mem::transmute_copy(&attributetype), core::mem::transmute_copy(&dwmaxbuffersize), core::mem::transmute_copy(&pbbuffer), core::mem::transmute_copy(&pdwbufferused)).into()
+            }
         }
         unsafe extern "system" fn GetIntegerAttribute<Identity: IWCNDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributetype: WCN_ATTRIBUTE_TYPE, puinteger: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWCNDevice_Impl::GetIntegerAttribute(this, core::mem::transmute_copy(&attributetype)) {
-                Ok(ok__) => {
-                    puinteger.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IWCNDevice_Impl::GetIntegerAttribute(this, core::mem::transmute_copy(&attributetype)) {
+                    Ok(ok__) => {
+                        puinteger.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetStringAttribute<Identity: IWCNDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributetype: WCN_ATTRIBUTE_TYPE, cchmaxstring: u32, wszstring: windows_core::PWSTR) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWCNDevice_Impl::GetStringAttribute(this, core::mem::transmute_copy(&attributetype), core::mem::transmute_copy(&cchmaxstring), core::mem::transmute_copy(&wszstring)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IWCNDevice_Impl::GetStringAttribute(this, core::mem::transmute_copy(&attributetype), core::mem::transmute_copy(&cchmaxstring), core::mem::transmute_copy(&wszstring)).into()
+            }
         }
         unsafe extern "system" fn GetNetworkProfile<Identity: IWCNDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cchmaxstringlength: u32, wszprofile: windows_core::PWSTR) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWCNDevice_Impl::GetNetworkProfile(this, core::mem::transmute_copy(&cchmaxstringlength), core::mem::transmute_copy(&wszprofile)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IWCNDevice_Impl::GetNetworkProfile(this, core::mem::transmute_copy(&cchmaxstringlength), core::mem::transmute_copy(&wszprofile)).into()
+            }
         }
         unsafe extern "system" fn SetNetworkProfile<Identity: IWCNDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszprofilexml: windows_core::PCWSTR) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWCNDevice_Impl::SetNetworkProfile(this, core::mem::transmute(&pszprofilexml)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IWCNDevice_Impl::SetNetworkProfile(this, core::mem::transmute(&pszprofilexml)).into()
+            }
         }
         unsafe extern "system" fn GetVendorExtension<Identity: IWCNDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvendorextspec: *const WCN_VENDOR_EXTENSION_SPEC, dwmaxbuffersize: u32, pbbuffer: *mut u8, pdwbufferused: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWCNDevice_Impl::GetVendorExtension(this, core::mem::transmute_copy(&pvendorextspec), core::mem::transmute_copy(&dwmaxbuffersize), core::mem::transmute_copy(&pbbuffer), core::mem::transmute_copy(&pdwbufferused)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IWCNDevice_Impl::GetVendorExtension(this, core::mem::transmute_copy(&pvendorextspec), core::mem::transmute_copy(&dwmaxbuffersize), core::mem::transmute_copy(&pbbuffer), core::mem::transmute_copy(&pdwbufferused)).into()
+            }
         }
         unsafe extern "system" fn SetVendorExtension<Identity: IWCNDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvendorextspec: *const WCN_VENDOR_EXTENSION_SPEC, cbbuffer: u32, pbbuffer: *const u8) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWCNDevice_Impl::SetVendorExtension(this, core::mem::transmute_copy(&pvendorextspec), core::mem::transmute_copy(&cbbuffer), core::mem::transmute_copy(&pbbuffer)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IWCNDevice_Impl::SetVendorExtension(this, core::mem::transmute_copy(&pvendorextspec), core::mem::transmute_copy(&cbbuffer), core::mem::transmute_copy(&pbbuffer)).into()
+            }
         }
         unsafe extern "system" fn Unadvise<Identity: IWCNDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWCNDevice_Impl::Unadvise(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IWCNDevice_Impl::Unadvise(this).into()
+            }
         }
         unsafe extern "system" fn SetNFCPasswordParams<Identity: IWCNDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: WCN_PASSWORD_TYPE, dwoobpasswordid: u32, dwpasswordlength: u32, pbpassword: *const u8, dwremotepublickeyhashlength: u32, pbremotepublickeyhash: *const u8, dwdhkeybloblength: u32, pbdhkeyblob: *const u8) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWCNDevice_Impl::SetNFCPasswordParams(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&dwoobpasswordid), core::mem::transmute_copy(&dwpasswordlength), core::mem::transmute_copy(&pbpassword), core::mem::transmute_copy(&dwremotepublickeyhashlength), core::mem::transmute_copy(&pbremotepublickeyhash), core::mem::transmute_copy(&dwdhkeybloblength), core::mem::transmute_copy(&pbdhkeyblob)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IWCNDevice_Impl::SetNFCPasswordParams(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&dwoobpasswordid), core::mem::transmute_copy(&dwpasswordlength), core::mem::transmute_copy(&pbpassword), core::mem::transmute_copy(&dwremotepublickeyhashlength), core::mem::transmute_copy(&pbremotepublickeyhash), core::mem::transmute_copy(&dwdhkeybloblength), core::mem::transmute_copy(&pbdhkeyblob)).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

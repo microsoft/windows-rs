@@ -17,15 +17,17 @@ windows_core::imp::define_interface!(IObjectArray, IObjectArray_Vtbl, 0x92ca9dcd
 windows_core::imp::interface_hierarchy!(IObjectArray, windows_core::IUnknown);
 impl IObjectArray {
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn GetAt<T>(&self, uiindex: u32) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), uiindex, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe { (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), uiindex, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -41,18 +43,22 @@ pub trait IObjectArray_Impl: windows_core::IUnknownImpl {
 impl IObjectArray_Vtbl {
     pub const fn new<Identity: IObjectArray_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCount<Identity: IObjectArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcobjects: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IObjectArray_Impl::GetCount(this) {
-                Ok(ok__) => {
-                    pcobjects.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IObjectArray_Impl::GetCount(this) {
+                    Ok(ok__) => {
+                        pcobjects.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetAt<Identity: IObjectArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uiindex: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IObjectArray_Impl::GetAt(this, core::mem::transmute_copy(&uiindex), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IObjectArray_Impl::GetAt(this, core::mem::transmute_copy(&uiindex), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetCount: GetCount::<Identity, OFFSET>, GetAt: GetAt::<Identity, OFFSET> }
     }
@@ -74,19 +80,19 @@ impl IObjectCollection {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).AddObject)(windows_core::Interface::as_raw(self), punk.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).AddObject)(windows_core::Interface::as_raw(self), punk.param().abi()).ok() }
     }
     pub unsafe fn AddFromArray<P0>(&self, poasource: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IObjectArray>,
     {
-        (windows_core::Interface::vtable(self).AddFromArray)(windows_core::Interface::as_raw(self), poasource.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).AddFromArray)(windows_core::Interface::as_raw(self), poasource.param().abi()).ok() }
     }
     pub unsafe fn RemoveObjectAt(&self, uiindex: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemoveObjectAt)(windows_core::Interface::as_raw(self), uiindex).ok()
+        unsafe { (windows_core::Interface::vtable(self).RemoveObjectAt)(windows_core::Interface::as_raw(self), uiindex).ok() }
     }
     pub unsafe fn Clear(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
 #[repr(C)]
@@ -106,20 +112,28 @@ pub trait IObjectCollection_Impl: IObjectArray_Impl {
 impl IObjectCollection_Vtbl {
     pub const fn new<Identity: IObjectCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddObject<Identity: IObjectCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punk: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IObjectCollection_Impl::AddObject(this, core::mem::transmute_copy(&punk)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IObjectCollection_Impl::AddObject(this, core::mem::transmute_copy(&punk)).into()
+            }
         }
         unsafe extern "system" fn AddFromArray<Identity: IObjectCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, poasource: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IObjectCollection_Impl::AddFromArray(this, core::mem::transmute_copy(&poasource)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IObjectCollection_Impl::AddFromArray(this, core::mem::transmute_copy(&poasource)).into()
+            }
         }
         unsafe extern "system" fn RemoveObjectAt<Identity: IObjectCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uiindex: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IObjectCollection_Impl::RemoveObjectAt(this, core::mem::transmute_copy(&uiindex)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IObjectCollection_Impl::RemoveObjectAt(this, core::mem::transmute_copy(&uiindex)).into()
+            }
         }
         unsafe extern "system" fn Clear<Identity: IObjectCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IObjectCollection_Impl::Clear(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IObjectCollection_Impl::Clear(this).into()
+            }
         }
         Self {
             base__: IObjectArray_Vtbl::new::<Identity, OFFSET>(),

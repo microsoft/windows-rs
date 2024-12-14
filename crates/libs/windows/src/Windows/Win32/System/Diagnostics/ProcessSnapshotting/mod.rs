@@ -1,52 +1,52 @@
 #[inline]
 pub unsafe fn PssCaptureSnapshot(processhandle: super::super::super::Foundation::HANDLE, captureflags: PSS_CAPTURE_FLAGS, threadcontextflags: Option<u32>, snapshothandle: *mut HPSS) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn PssCaptureSnapshot(processhandle : super::super::super::Foundation:: HANDLE, captureflags : PSS_CAPTURE_FLAGS, threadcontextflags : u32, snapshothandle : *mut HPSS) -> u32);
-    PssCaptureSnapshot(processhandle, captureflags, core::mem::transmute(threadcontextflags.unwrap_or(core::mem::zeroed())), core::mem::transmute(snapshothandle))
+    unsafe { PssCaptureSnapshot(processhandle, captureflags, core::mem::transmute(threadcontextflags.unwrap_or(core::mem::zeroed())), core::mem::transmute(snapshothandle)) }
 }
 #[inline]
 pub unsafe fn PssDuplicateSnapshot(sourceprocesshandle: super::super::super::Foundation::HANDLE, snapshothandle: HPSS, targetprocesshandle: super::super::super::Foundation::HANDLE, targetsnapshothandle: *mut HPSS, flags: Option<PSS_DUPLICATE_FLAGS>) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn PssDuplicateSnapshot(sourceprocesshandle : super::super::super::Foundation:: HANDLE, snapshothandle : HPSS, targetprocesshandle : super::super::super::Foundation:: HANDLE, targetsnapshothandle : *mut HPSS, flags : PSS_DUPLICATE_FLAGS) -> u32);
-    PssDuplicateSnapshot(sourceprocesshandle, snapshothandle, targetprocesshandle, core::mem::transmute(targetsnapshothandle), core::mem::transmute(flags.unwrap_or(core::mem::zeroed())))
+    unsafe { PssDuplicateSnapshot(sourceprocesshandle, snapshothandle, targetprocesshandle, core::mem::transmute(targetsnapshothandle), core::mem::transmute(flags.unwrap_or(core::mem::zeroed()))) }
 }
 #[inline]
 pub unsafe fn PssFreeSnapshot(processhandle: super::super::super::Foundation::HANDLE, snapshothandle: HPSS) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn PssFreeSnapshot(processhandle : super::super::super::Foundation:: HANDLE, snapshothandle : HPSS) -> u32);
-    PssFreeSnapshot(processhandle, snapshothandle)
+    unsafe { PssFreeSnapshot(processhandle, snapshothandle) }
 }
 #[inline]
 pub unsafe fn PssQuerySnapshot(snapshothandle: HPSS, informationclass: PSS_QUERY_INFORMATION_CLASS, buffer: *mut core::ffi::c_void, bufferlength: u32) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn PssQuerySnapshot(snapshothandle : HPSS, informationclass : PSS_QUERY_INFORMATION_CLASS, buffer : *mut core::ffi::c_void, bufferlength : u32) -> u32);
-    PssQuerySnapshot(snapshothandle, informationclass, core::mem::transmute(buffer), bufferlength)
+    unsafe { PssQuerySnapshot(snapshothandle, informationclass, core::mem::transmute(buffer), bufferlength) }
 }
 #[inline]
 pub unsafe fn PssWalkMarkerCreate(allocator: Option<*const PSS_ALLOCATOR>, walkmarkerhandle: *mut HPSSWALK) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn PssWalkMarkerCreate(allocator : *const PSS_ALLOCATOR, walkmarkerhandle : *mut HPSSWALK) -> u32);
-    PssWalkMarkerCreate(core::mem::transmute(allocator.unwrap_or(core::mem::zeroed())), core::mem::transmute(walkmarkerhandle))
+    unsafe { PssWalkMarkerCreate(core::mem::transmute(allocator.unwrap_or(core::mem::zeroed())), core::mem::transmute(walkmarkerhandle)) }
 }
 #[inline]
 pub unsafe fn PssWalkMarkerFree(walkmarkerhandle: HPSSWALK) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn PssWalkMarkerFree(walkmarkerhandle : HPSSWALK) -> u32);
-    PssWalkMarkerFree(walkmarkerhandle)
+    unsafe { PssWalkMarkerFree(walkmarkerhandle) }
 }
 #[inline]
 pub unsafe fn PssWalkMarkerGetPosition(walkmarkerhandle: HPSSWALK, position: *mut usize) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn PssWalkMarkerGetPosition(walkmarkerhandle : HPSSWALK, position : *mut usize) -> u32);
-    PssWalkMarkerGetPosition(walkmarkerhandle, core::mem::transmute(position))
+    unsafe { PssWalkMarkerGetPosition(walkmarkerhandle, core::mem::transmute(position)) }
 }
 #[inline]
 pub unsafe fn PssWalkMarkerSeekToBeginning(walkmarkerhandle: HPSSWALK) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn PssWalkMarkerSeekToBeginning(walkmarkerhandle : HPSSWALK) -> u32);
-    PssWalkMarkerSeekToBeginning(walkmarkerhandle)
+    unsafe { PssWalkMarkerSeekToBeginning(walkmarkerhandle) }
 }
 #[inline]
 pub unsafe fn PssWalkMarkerSetPosition(walkmarkerhandle: HPSSWALK, position: usize) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn PssWalkMarkerSetPosition(walkmarkerhandle : HPSSWALK, position : usize) -> u32);
-    PssWalkMarkerSetPosition(walkmarkerhandle, position)
+    unsafe { PssWalkMarkerSetPosition(walkmarkerhandle, position) }
 }
 #[inline]
 pub unsafe fn PssWalkSnapshot(snapshothandle: HPSS, informationclass: PSS_WALK_INFORMATION_CLASS, walkmarkerhandle: HPSSWALK, buffer: Option<&mut [u8]>) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn PssWalkSnapshot(snapshothandle : HPSS, informationclass : PSS_WALK_INFORMATION_CLASS, walkmarkerhandle : HPSSWALK, buffer : *mut core::ffi::c_void, bufferlength : u32) -> u32);
-    PssWalkSnapshot(snapshothandle, informationclass, walkmarkerhandle, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    unsafe { PssWalkSnapshot(snapshothandle, informationclass, walkmarkerhandle, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -74,7 +74,9 @@ impl windows_core::Free for HPSSWALK {
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             windows_targets::link!("kernel32.dll" "system" fn PssWalkMarkerFree(walkmarkerhandle : *mut core::ffi::c_void) -> u32);
-            PssWalkMarkerFree(self.0);
+            unsafe {
+                PssWalkMarkerFree(self.0);
+            }
         }
     }
 }

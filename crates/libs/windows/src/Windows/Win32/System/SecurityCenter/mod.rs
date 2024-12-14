@@ -1,34 +1,36 @@
 #[inline]
 pub unsafe fn WscGetAntiMalwareUri() -> windows_core::Result<windows_core::PWSTR> {
     windows_targets::link!("wscapi.dll" "system" fn WscGetAntiMalwareUri(ppszuri : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    WscGetAntiMalwareUri(&mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        WscGetAntiMalwareUri(&mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[inline]
 pub unsafe fn WscGetSecurityProviderHealth(providers: u32, phealth: *mut WSC_SECURITY_PROVIDER_HEALTH) -> windows_core::Result<()> {
     windows_targets::link!("wscapi.dll" "system" fn WscGetSecurityProviderHealth(providers : u32, phealth : *mut WSC_SECURITY_PROVIDER_HEALTH) -> windows_core::HRESULT);
-    WscGetSecurityProviderHealth(providers, core::mem::transmute(phealth)).ok()
+    unsafe { WscGetSecurityProviderHealth(providers, core::mem::transmute(phealth)).ok() }
 }
 #[inline]
 pub unsafe fn WscQueryAntiMalwareUri() -> windows_core::Result<()> {
     windows_targets::link!("wscapi.dll" "system" fn WscQueryAntiMalwareUri() -> windows_core::HRESULT);
-    WscQueryAntiMalwareUri().ok()
+    unsafe { WscQueryAntiMalwareUri().ok() }
 }
 #[cfg(feature = "Win32_System_Threading")]
 #[inline]
 pub unsafe fn WscRegisterForChanges(reserved: *mut core::ffi::c_void, phcallbackregistration: *mut super::super::Foundation::HANDLE, lpcallbackaddress: super::Threading::LPTHREAD_START_ROUTINE, pcontext: *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("wscapi.dll" "system" fn WscRegisterForChanges(reserved : *mut core::ffi::c_void, phcallbackregistration : *mut super::super::Foundation:: HANDLE, lpcallbackaddress : super::Threading:: LPTHREAD_START_ROUTINE, pcontext : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    WscRegisterForChanges(core::mem::transmute(reserved), core::mem::transmute(phcallbackregistration), lpcallbackaddress, core::mem::transmute(pcontext)).ok()
+    unsafe { WscRegisterForChanges(core::mem::transmute(reserved), core::mem::transmute(phcallbackregistration), lpcallbackaddress, core::mem::transmute(pcontext)).ok() }
 }
 #[inline]
 pub unsafe fn WscRegisterForUserNotifications() -> windows_core::Result<()> {
     windows_targets::link!("wscapi.dll" "system" fn WscRegisterForUserNotifications() -> windows_core::HRESULT);
-    WscRegisterForUserNotifications().ok()
+    unsafe { WscRegisterForUserNotifications().ok() }
 }
 #[inline]
 pub unsafe fn WscUnRegisterChanges(hregistrationhandle: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("wscapi.dll" "system" fn WscUnRegisterChanges(hregistrationhandle : super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
-    WscUnRegisterChanges(hregistrationhandle).ok()
+    unsafe { WscUnRegisterChanges(hregistrationhandle).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWSCDefaultProduct, IWSCDefaultProduct_Vtbl, 0x0476d69c_f21a_11e5_9ce9_5e5517507c66);
@@ -44,7 +46,7 @@ windows_core::imp::interface_hierarchy!(IWSCDefaultProduct, windows_core::IUnkno
 #[cfg(feature = "Win32_System_Com")]
 impl IWSCDefaultProduct {
     pub unsafe fn SetDefaultProduct(&self, etype: SECURITY_PRODUCT_TYPE, pguid: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetDefaultProduct)(windows_core::Interface::as_raw(self), etype, core::mem::transmute_copy(pguid)).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetDefaultProduct)(windows_core::Interface::as_raw(self), etype, core::mem::transmute_copy(pguid)).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -61,8 +63,10 @@ pub trait IWSCDefaultProduct_Impl: super::Com::IDispatch_Impl {
 impl IWSCDefaultProduct_Vtbl {
     pub const fn new<Identity: IWSCDefaultProduct_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetDefaultProduct<Identity: IWSCDefaultProduct_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, etype: SECURITY_PRODUCT_TYPE, pguid: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWSCDefaultProduct_Impl::SetDefaultProduct(this, core::mem::transmute_copy(&etype), core::mem::transmute(&pguid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IWSCDefaultProduct_Impl::SetDefaultProduct(this, core::mem::transmute_copy(&etype), core::mem::transmute(&pguid)).into()
+            }
         }
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(), SetDefaultProduct: SetDefaultProduct::<Identity, OFFSET> }
     }
@@ -86,15 +90,19 @@ windows_core::imp::interface_hierarchy!(IWSCProductList, windows_core::IUnknown,
 #[cfg(feature = "Win32_System_Com")]
 impl IWSCProductList {
     pub unsafe fn Initialize(&self, provider: WSC_SECURITY_PROVIDER) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), provider.0 as _).ok()
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), provider.0 as _).ok() }
     }
     pub unsafe fn Count(&self) -> windows_core::Result<i32> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn get_Item(&self, index: u32) -> windows_core::Result<IWscProduct> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -115,27 +123,33 @@ pub trait IWSCProductList_Impl: super::Com::IDispatch_Impl {
 impl IWSCProductList_Vtbl {
     pub const fn new<Identity: IWSCProductList_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IWSCProductList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, provider: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWSCProductList_Impl::Initialize(this, core::mem::transmute(&provider)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IWSCProductList_Impl::Initialize(this, core::mem::transmute(&provider)).into()
+            }
         }
         unsafe extern "system" fn Count<Identity: IWSCProductList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWSCProductList_Impl::Count(this) {
-                Ok(ok__) => {
-                    pval.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IWSCProductList_Impl::Count(this) {
+                    Ok(ok__) => {
+                        pval.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn get_Item<Identity: IWSCProductList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWSCProductList_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
-                Ok(ok__) => {
-                    pval.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IWSCProductList_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
+                    Ok(ok__) => {
+                        pval.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -165,32 +179,46 @@ windows_core::imp::interface_hierarchy!(IWscProduct, windows_core::IUnknown, sup
 #[cfg(feature = "Win32_System_Com")]
 impl IWscProduct {
     pub unsafe fn ProductName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).ProductName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ProductName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn ProductState(&self) -> windows_core::Result<WSC_SECURITY_PRODUCT_STATE> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).ProductState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ProductState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn SignatureStatus(&self) -> windows_core::Result<WSC_SECURITY_SIGNATURE_STATUS> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).SignatureStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).SignatureStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn RemediationPath(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).RemediationPath)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).RemediationPath)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn ProductStateTimestamp(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).ProductStateTimestamp)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ProductStateTimestamp)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn ProductGuid(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).ProductGuid)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ProductGuid)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn ProductIsDefault(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).ProductIsDefault)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ProductIsDefault)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -219,73 +247,87 @@ pub trait IWscProduct_Impl: super::Com::IDispatch_Impl {
 impl IWscProduct_Vtbl {
     pub const fn new<Identity: IWscProduct_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ProductName<Identity: IWscProduct_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWscProduct_Impl::ProductName(this) {
-                Ok(ok__) => {
-                    pval.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IWscProduct_Impl::ProductName(this) {
+                    Ok(ok__) => {
+                        pval.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn ProductState<Identity: IWscProduct_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut WSC_SECURITY_PRODUCT_STATE) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWscProduct_Impl::ProductState(this) {
-                Ok(ok__) => {
-                    pval.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IWscProduct_Impl::ProductState(this) {
+                    Ok(ok__) => {
+                        pval.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SignatureStatus<Identity: IWscProduct_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut WSC_SECURITY_SIGNATURE_STATUS) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWscProduct_Impl::SignatureStatus(this) {
-                Ok(ok__) => {
-                    pval.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IWscProduct_Impl::SignatureStatus(this) {
+                    Ok(ok__) => {
+                        pval.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn RemediationPath<Identity: IWscProduct_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWscProduct_Impl::RemediationPath(this) {
-                Ok(ok__) => {
-                    pval.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IWscProduct_Impl::RemediationPath(this) {
+                    Ok(ok__) => {
+                        pval.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn ProductStateTimestamp<Identity: IWscProduct_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWscProduct_Impl::ProductStateTimestamp(this) {
-                Ok(ok__) => {
-                    pval.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IWscProduct_Impl::ProductStateTimestamp(this) {
+                    Ok(ok__) => {
+                        pval.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn ProductGuid<Identity: IWscProduct_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWscProduct_Impl::ProductGuid(this) {
-                Ok(ok__) => {
-                    pval.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IWscProduct_Impl::ProductGuid(this) {
+                    Ok(ok__) => {
+                        pval.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn ProductIsDefault<Identity: IWscProduct_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWscProduct_Impl::ProductIsDefault(this) {
-                Ok(ok__) => {
-                    pval.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IWscProduct_Impl::ProductIsDefault(this) {
+                    Ok(ok__) => {
+                        pval.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -319,28 +361,40 @@ windows_core::imp::interface_hierarchy!(IWscProduct2, windows_core::IUnknown, su
 #[cfg(feature = "Win32_System_Com")]
 impl IWscProduct2 {
     pub unsafe fn AntivirusScanSubstatus(&self) -> windows_core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).AntivirusScanSubstatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).AntivirusScanSubstatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn AntivirusSettingsSubstatus(&self) -> windows_core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).AntivirusSettingsSubstatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).AntivirusSettingsSubstatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn AntivirusProtectionUpdateSubstatus(&self) -> windows_core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).AntivirusProtectionUpdateSubstatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).AntivirusProtectionUpdateSubstatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn FirewallDomainProfileSubstatus(&self) -> windows_core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).FirewallDomainProfileSubstatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).FirewallDomainProfileSubstatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn FirewallPrivateProfileSubstatus(&self) -> windows_core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).FirewallPrivateProfileSubstatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).FirewallPrivateProfileSubstatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn FirewallPublicProfileSubstatus(&self) -> windows_core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).FirewallPublicProfileSubstatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).FirewallPublicProfileSubstatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -367,63 +421,75 @@ pub trait IWscProduct2_Impl: IWscProduct_Impl {
 impl IWscProduct2_Vtbl {
     pub const fn new<Identity: IWscProduct2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AntivirusScanSubstatus<Identity: IWscProduct2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pestatus: *mut WSC_SECURITY_PRODUCT_SUBSTATUS) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWscProduct2_Impl::AntivirusScanSubstatus(this) {
-                Ok(ok__) => {
-                    pestatus.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IWscProduct2_Impl::AntivirusScanSubstatus(this) {
+                    Ok(ok__) => {
+                        pestatus.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn AntivirusSettingsSubstatus<Identity: IWscProduct2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pestatus: *mut WSC_SECURITY_PRODUCT_SUBSTATUS) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWscProduct2_Impl::AntivirusSettingsSubstatus(this) {
-                Ok(ok__) => {
-                    pestatus.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IWscProduct2_Impl::AntivirusSettingsSubstatus(this) {
+                    Ok(ok__) => {
+                        pestatus.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn AntivirusProtectionUpdateSubstatus<Identity: IWscProduct2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pestatus: *mut WSC_SECURITY_PRODUCT_SUBSTATUS) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWscProduct2_Impl::AntivirusProtectionUpdateSubstatus(this) {
-                Ok(ok__) => {
-                    pestatus.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IWscProduct2_Impl::AntivirusProtectionUpdateSubstatus(this) {
+                    Ok(ok__) => {
+                        pestatus.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn FirewallDomainProfileSubstatus<Identity: IWscProduct2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pestatus: *mut WSC_SECURITY_PRODUCT_SUBSTATUS) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWscProduct2_Impl::FirewallDomainProfileSubstatus(this) {
-                Ok(ok__) => {
-                    pestatus.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IWscProduct2_Impl::FirewallDomainProfileSubstatus(this) {
+                    Ok(ok__) => {
+                        pestatus.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn FirewallPrivateProfileSubstatus<Identity: IWscProduct2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pestatus: *mut WSC_SECURITY_PRODUCT_SUBSTATUS) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWscProduct2_Impl::FirewallPrivateProfileSubstatus(this) {
-                Ok(ok__) => {
-                    pestatus.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IWscProduct2_Impl::FirewallPrivateProfileSubstatus(this) {
+                    Ok(ok__) => {
+                        pestatus.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn FirewallPublicProfileSubstatus<Identity: IWscProduct2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pestatus: *mut WSC_SECURITY_PRODUCT_SUBSTATUS) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWscProduct2_Impl::FirewallPublicProfileSubstatus(this) {
-                Ok(ok__) => {
-                    pestatus.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IWscProduct2_Impl::FirewallPublicProfileSubstatus(this) {
+                    Ok(ok__) => {
+                        pestatus.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -456,8 +522,10 @@ windows_core::imp::interface_hierarchy!(IWscProduct3, windows_core::IUnknown, su
 #[cfg(feature = "Win32_System_Com")]
 impl IWscProduct3 {
     pub unsafe fn AntivirusDaysUntilExpired(&self) -> windows_core::Result<u32> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).AntivirusDaysUntilExpired)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).AntivirusDaysUntilExpired)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -474,13 +542,15 @@ pub trait IWscProduct3_Impl: IWscProduct2_Impl {
 impl IWscProduct3_Vtbl {
     pub const fn new<Identity: IWscProduct3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AntivirusDaysUntilExpired<Identity: IWscProduct3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwdays: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWscProduct3_Impl::AntivirusDaysUntilExpired(this) {
-                Ok(ok__) => {
-                    pdwdays.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IWscProduct3_Impl::AntivirusDaysUntilExpired(this) {
+                    Ok(ok__) => {
+                        pdwdays.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self { base__: IWscProduct2_Vtbl::new::<Identity, OFFSET>(), AntivirusDaysUntilExpired: AntivirusDaysUntilExpired::<Identity, OFFSET> }

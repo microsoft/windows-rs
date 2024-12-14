@@ -2,20 +2,24 @@
 #[inline]
 pub unsafe fn ComputeInvCMAP(prgbcolors: *const super::super::Graphics::Gdi::RGBQUAD, ncolors: u32, pinvtable: *mut u8, cbtable: u32) -> windows_core::Result<()> {
     windows_targets::link!("imgutil.dll" "system" fn ComputeInvCMAP(prgbcolors : *const super::super::Graphics::Gdi:: RGBQUAD, ncolors : u32, pinvtable : *mut u8, cbtable : u32) -> windows_core::HRESULT);
-    ComputeInvCMAP(prgbcolors, ncolors, core::mem::transmute(pinvtable), cbtable).ok()
+    unsafe { ComputeInvCMAP(prgbcolors, ncolors, core::mem::transmute(pinvtable), cbtable).ok() }
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn CreateDDrawSurfaceOnDIB(hbmdib: super::super::Graphics::Gdi::HBITMAP) -> windows_core::Result<super::super::Graphics::DirectDraw::IDirectDrawSurface> {
     windows_targets::link!("imgutil.dll" "system" fn CreateDDrawSurfaceOnDIB(hbmdib : super::super::Graphics::Gdi:: HBITMAP, ppsurface : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    CreateDDrawSurfaceOnDIB(hbmdib, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        CreateDDrawSurfaceOnDIB(hbmdib, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    }
 }
 #[inline]
 pub unsafe fn CreateMIMEMap() -> windows_core::Result<IMapMIMEToCLSID> {
     windows_targets::link!("imgutil.dll" "system" fn CreateMIMEMap(ppmap : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    CreateMIMEMap(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        CreateMIMEMap(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -26,7 +30,7 @@ where
     P2: windows_core::Param<windows_core::IUnknown>,
 {
     windows_targets::link!("imgutil.dll" "system" fn DecodeImage(pstream : * mut core::ffi::c_void, pmap : * mut core::ffi::c_void, peventsink : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    DecodeImage(pstream.param().abi(), pmap.param().abi(), peventsink.param().abi()).ok()
+    unsafe { DecodeImage(pstream.param().abi(), pmap.param().abi(), peventsink.param().abi()).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -38,28 +42,28 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("imgutil.dll" "system" fn DecodeImageEx(pstream : * mut core::ffi::c_void, pmap : * mut core::ffi::c_void, peventsink : * mut core::ffi::c_void, pszmimetypeparam : windows_core::PCWSTR) -> windows_core::HRESULT);
-    DecodeImageEx(pstream.param().abi(), pmap.param().abi(), peventsink.param().abi(), pszmimetypeparam.param().abi()).ok()
+    unsafe { DecodeImageEx(pstream.param().abi(), pmap.param().abi(), peventsink.param().abi(), pszmimetypeparam.param().abi()).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn DitherTo8(pdestbits: *mut u8, ndestpitch: i32, psrcbits: *mut u8, nsrcpitch: i32, bfidsrc: *const windows_core::GUID, prgbdestcolors: *mut super::super::Graphics::Gdi::RGBQUAD, prgbsrccolors: *mut super::super::Graphics::Gdi::RGBQUAD, pbdestinvmap: *mut u8, x: i32, y: i32, cx: i32, cy: i32, ldesttrans: i32, lsrctrans: i32) -> windows_core::Result<()> {
     windows_targets::link!("imgutil.dll" "system" fn DitherTo8(pdestbits : *mut u8, ndestpitch : i32, psrcbits : *mut u8, nsrcpitch : i32, bfidsrc : *const windows_core::GUID, prgbdestcolors : *mut super::super::Graphics::Gdi:: RGBQUAD, prgbsrccolors : *mut super::super::Graphics::Gdi:: RGBQUAD, pbdestinvmap : *mut u8, x : i32, y : i32, cx : i32, cy : i32, ldesttrans : i32, lsrctrans : i32) -> windows_core::HRESULT);
-    DitherTo8(core::mem::transmute(pdestbits), ndestpitch, core::mem::transmute(psrcbits), nsrcpitch, bfidsrc, core::mem::transmute(prgbdestcolors), core::mem::transmute(prgbsrccolors), core::mem::transmute(pbdestinvmap), x, y, cx, cy, ldesttrans, lsrctrans).ok()
+    unsafe { DitherTo8(core::mem::transmute(pdestbits), ndestpitch, core::mem::transmute(psrcbits), nsrcpitch, bfidsrc, core::mem::transmute(prgbdestcolors), core::mem::transmute(prgbsrccolors), core::mem::transmute(pbdestinvmap), x, y, cx, cy, ldesttrans, lsrctrans).ok() }
 }
 #[inline]
 pub unsafe fn GetMaxMIMEIDBytes(pnmaxbytes: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("imgutil.dll" "system" fn GetMaxMIMEIDBytes(pnmaxbytes : *mut u32) -> windows_core::HRESULT);
-    GetMaxMIMEIDBytes(core::mem::transmute(pnmaxbytes)).ok()
+    unsafe { GetMaxMIMEIDBytes(core::mem::transmute(pnmaxbytes)).ok() }
 }
 #[inline]
 pub unsafe fn IEAssociateThreadWithTab(dwtabthreadid: u32, dwassociatedthreadid: u32) -> windows_core::Result<()> {
     windows_targets::link!("ieframe.dll" "system" fn IEAssociateThreadWithTab(dwtabthreadid : u32, dwassociatedthreadid : u32) -> windows_core::HRESULT);
-    IEAssociateThreadWithTab(dwtabthreadid, dwassociatedthreadid).ok()
+    unsafe { IEAssociateThreadWithTab(dwtabthreadid, dwassociatedthreadid).ok() }
 }
 #[inline]
 pub unsafe fn IECancelSaveFile(hstate: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("ieframe.dll" "system" fn IECancelSaveFile(hstate : super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
-    IECancelSaveFile(hstate).ok()
+    unsafe { IECancelSaveFile(hstate).ok() }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -68,7 +72,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ieframe.dll" "system" fn IECreateDirectory(lppathname : windows_core::PCWSTR, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES) -> super::super::Foundation:: BOOL);
-    IECreateDirectory(lppathname.param().abi(), lpsecurityattributes)
+    unsafe { IECreateDirectory(lppathname.param().abi(), lpsecurityattributes) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -77,7 +81,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ieframe.dll" "system" fn IECreateFile(lpfilename : windows_core::PCWSTR, dwdesiredaccess : u32, dwsharemode : u32, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, dwcreationdisposition : u32, dwflagsandattributes : u32, htemplatefile : super::super::Foundation:: HANDLE) -> super::super::Foundation:: HANDLE);
-    IECreateFile(lpfilename.param().abi(), dwdesiredaccess, dwsharemode, lpsecurityattributes, dwcreationdisposition, dwflagsandattributes, core::mem::transmute(htemplatefile.unwrap_or(core::mem::zeroed())))
+    unsafe { IECreateFile(lpfilename.param().abi(), dwdesiredaccess, dwsharemode, lpsecurityattributes, dwcreationdisposition, dwflagsandattributes, core::mem::transmute(htemplatefile.unwrap_or(core::mem::zeroed()))) }
 }
 #[inline]
 pub unsafe fn IEDeleteFile<P0>(lpfilename: P0) -> super::super::Foundation::BOOL
@@ -85,12 +89,12 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ieframe.dll" "system" fn IEDeleteFile(lpfilename : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
-    IEDeleteFile(lpfilename.param().abi())
+    unsafe { IEDeleteFile(lpfilename.param().abi()) }
 }
 #[inline]
 pub unsafe fn IEDisassociateThreadWithTab(dwtabthreadid: u32, dwassociatedthreadid: u32) -> windows_core::Result<()> {
     windows_targets::link!("ieframe.dll" "system" fn IEDisassociateThreadWithTab(dwtabthreadid : u32, dwassociatedthreadid : u32) -> windows_core::HRESULT);
-    IEDisassociateThreadWithTab(dwtabthreadid, dwassociatedthreadid).ok()
+    unsafe { IEDisassociateThreadWithTab(dwtabthreadid, dwassociatedthreadid).ok() }
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[inline]
@@ -99,7 +103,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ieframe.dll" "system" fn IEFindFirstFile(lpfilename : windows_core::PCWSTR, lpfindfiledata : *const super::super::Storage::FileSystem:: WIN32_FIND_DATAA) -> super::super::Foundation:: HANDLE);
-    IEFindFirstFile(lpfilename.param().abi(), lpfindfiledata)
+    unsafe { IEFindFirstFile(lpfilename.param().abi(), lpfindfiledata) }
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[inline]
@@ -108,7 +112,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ieframe.dll" "system" fn IEGetFileAttributesEx(lpfilename : windows_core::PCWSTR, finfolevelid : super::super::Storage::FileSystem:: GET_FILEEX_INFO_LEVELS, lpfileinformation : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    IEGetFileAttributesEx(lpfilename.param().abi(), finfolevelid, lpfileinformation)
+    unsafe { IEGetFileAttributesEx(lpfilename.param().abi(), finfolevelid, lpfileinformation) }
 }
 #[inline]
 pub unsafe fn IEGetProtectedModeCookie<P0, P1>(lpszurl: P0, lpszcookiename: P1, lpszcookiedata: windows_core::PWSTR, pcchcookiedata: *mut u32, dwflags: u32) -> windows_core::Result<()>
@@ -117,36 +121,42 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ieframe.dll" "system" fn IEGetProtectedModeCookie(lpszurl : windows_core::PCWSTR, lpszcookiename : windows_core::PCWSTR, lpszcookiedata : windows_core::PWSTR, pcchcookiedata : *mut u32, dwflags : u32) -> windows_core::HRESULT);
-    IEGetProtectedModeCookie(lpszurl.param().abi(), lpszcookiename.param().abi(), core::mem::transmute(lpszcookiedata), core::mem::transmute(pcchcookiedata), dwflags).ok()
+    unsafe { IEGetProtectedModeCookie(lpszurl.param().abi(), lpszcookiename.param().abi(), core::mem::transmute(lpszcookiedata), core::mem::transmute(pcchcookiedata), dwflags).ok() }
 }
 #[inline]
 pub unsafe fn IEGetWriteableFolderPath(clsidfolderid: *const windows_core::GUID) -> windows_core::Result<windows_core::PWSTR> {
     windows_targets::link!("ieframe.dll" "system" fn IEGetWriteableFolderPath(clsidfolderid : *const windows_core::GUID, lppwstrpath : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    IEGetWriteableFolderPath(clsidfolderid, &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        IEGetWriteableFolderPath(clsidfolderid, &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn IEGetWriteableLowHKCU() -> windows_core::Result<super::super::System::Registry::HKEY> {
     windows_targets::link!("ieframe.dll" "system" fn IEGetWriteableLowHKCU(phkey : *mut super::super::System::Registry:: HKEY) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    IEGetWriteableLowHKCU(&mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        IEGetWriteableLowHKCU(&mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[inline]
 pub unsafe fn IEInPrivateFilteringEnabled() -> super::super::Foundation::BOOL {
     windows_targets::link!("ieframe.dll" "system" fn IEInPrivateFilteringEnabled() -> super::super::Foundation:: BOOL);
-    IEInPrivateFilteringEnabled()
+    unsafe { IEInPrivateFilteringEnabled() }
 }
 #[inline]
 pub unsafe fn IEIsInPrivateBrowsing() -> super::super::Foundation::BOOL {
     windows_targets::link!("ieframe.dll" "system" fn IEIsInPrivateBrowsing() -> super::super::Foundation:: BOOL);
-    IEIsInPrivateBrowsing()
+    unsafe { IEIsInPrivateBrowsing() }
 }
 #[inline]
 pub unsafe fn IEIsProtectedModeProcess() -> windows_core::Result<super::super::Foundation::BOOL> {
     windows_targets::link!("ieframe.dll" "system" fn IEIsProtectedModeProcess(pbresult : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    IEIsProtectedModeProcess(&mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        IEIsProtectedModeProcess(&mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[inline]
 pub unsafe fn IEIsProtectedModeURL<P0>(lpwstrurl: P0) -> windows_core::Result<()>
@@ -154,7 +164,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ieframe.dll" "system" fn IEIsProtectedModeURL(lpwstrurl : windows_core::PCWSTR) -> windows_core::HRESULT);
-    IEIsProtectedModeURL(lpwstrurl.param().abi()).ok()
+    unsafe { IEIsProtectedModeURL(lpwstrurl.param().abi()).ok() }
 }
 #[cfg(feature = "Win32_System_Threading")]
 #[inline]
@@ -163,7 +173,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ieframe.dll" "system" fn IELaunchURL(lpwstrurl : windows_core::PCWSTR, lpprocinfo : *mut super::super::System::Threading:: PROCESS_INFORMATION, lpinfo : *const core::ffi::c_void) -> windows_core::HRESULT);
-    IELaunchURL(lpwstrurl.param().abi(), core::mem::transmute(lpprocinfo), core::mem::transmute(lpinfo.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { IELaunchURL(lpwstrurl.param().abi(), core::mem::transmute(lpprocinfo), core::mem::transmute(lpinfo.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn IEMoveFileEx<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, dwflags: u32) -> super::super::Foundation::BOOL
@@ -172,12 +182,12 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ieframe.dll" "system" fn IEMoveFileEx(lpexistingfilename : windows_core::PCWSTR, lpnewfilename : windows_core::PCWSTR, dwflags : u32) -> super::super::Foundation:: BOOL);
-    IEMoveFileEx(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), dwflags)
+    unsafe { IEMoveFileEx(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), dwflags) }
 }
 #[inline]
 pub unsafe fn IERefreshElevationPolicy() -> windows_core::Result<()> {
     windows_targets::link!("ieframe.dll" "system" fn IERefreshElevationPolicy() -> windows_core::HRESULT);
-    IERefreshElevationPolicy().ok()
+    unsafe { IERefreshElevationPolicy().ok() }
 }
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
 #[inline]
@@ -187,7 +197,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ieframe.dll" "system" fn IERegCreateKeyEx(lpsubkey : windows_core::PCWSTR, reserved : u32, lpclass : windows_core::PCWSTR, dwoptions : u32, samdesired : u32, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, phkresult : *mut super::super::System::Registry:: HKEY, lpdwdisposition : *mut u32) -> windows_core::HRESULT);
-    IERegCreateKeyEx(lpsubkey.param().abi(), reserved, lpclass.param().abi(), dwoptions, samdesired, core::mem::transmute(lpsecurityattributes.unwrap_or(core::mem::zeroed())), core::mem::transmute(phkresult), core::mem::transmute(lpdwdisposition)).ok()
+    unsafe { IERegCreateKeyEx(lpsubkey.param().abi(), reserved, lpclass.param().abi(), dwoptions, samdesired, core::mem::transmute(lpsecurityattributes.unwrap_or(core::mem::zeroed())), core::mem::transmute(phkresult), core::mem::transmute(lpdwdisposition)).ok() }
 }
 #[inline]
 pub unsafe fn IERegSetValueEx<P0, P1>(lpsubkey: P0, lpvaluename: P1, reserved: u32, dwtype: u32, lpdata: &[u8]) -> windows_core::Result<()>
@@ -196,7 +206,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ieframe.dll" "system" fn IERegSetValueEx(lpsubkey : windows_core::PCWSTR, lpvaluename : windows_core::PCWSTR, reserved : u32, dwtype : u32, lpdata : *const u8, cbdata : u32) -> windows_core::HRESULT);
-    IERegSetValueEx(lpsubkey.param().abi(), lpvaluename.param().abi(), reserved, dwtype, core::mem::transmute(lpdata.as_ptr()), lpdata.len().try_into().unwrap()).ok()
+    unsafe { IERegSetValueEx(lpsubkey.param().abi(), lpvaluename.param().abi(), reserved, dwtype, core::mem::transmute(lpdata.as_ptr()), lpdata.len().try_into().unwrap()).ok() }
 }
 #[inline]
 pub unsafe fn IERegisterWritableRegistryKey<P1>(guid: windows_core::GUID, lpsubkey: P1, fsubkeyallowed: bool) -> windows_core::Result<()>
@@ -204,7 +214,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ieframe.dll" "system" fn IERegisterWritableRegistryKey(guid : windows_core::GUID, lpsubkey : windows_core::PCWSTR, fsubkeyallowed : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    IERegisterWritableRegistryKey(core::mem::transmute(guid), lpsubkey.param().abi(), fsubkeyallowed.into()).ok()
+    unsafe { IERegisterWritableRegistryKey(core::mem::transmute(guid), lpsubkey.param().abi(), fsubkeyallowed.into()).ok() }
 }
 #[inline]
 pub unsafe fn IERegisterWritableRegistryValue<P1, P2>(guid: windows_core::GUID, lppath: P1, lpvaluename: P2, dwtype: u32, lpdata: Option<&[u8]>) -> windows_core::Result<()>
@@ -213,7 +223,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ieframe.dll" "system" fn IERegisterWritableRegistryValue(guid : windows_core::GUID, lppath : windows_core::PCWSTR, lpvaluename : windows_core::PCWSTR, dwtype : u32, lpdata : *const u8, cbmaxdata : u32) -> windows_core::HRESULT);
-    IERegisterWritableRegistryValue(core::mem::transmute(guid), lppath.param().abi(), lpvaluename.param().abi(), dwtype, core::mem::transmute(lpdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
+    unsafe { IERegisterWritableRegistryValue(core::mem::transmute(guid), lppath.param().abi(), lpvaluename.param().abi(), dwtype, core::mem::transmute(lpdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
 }
 #[inline]
 pub unsafe fn IERemoveDirectory<P0>(lppathname: P0) -> super::super::Foundation::BOOL
@@ -221,7 +231,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ieframe.dll" "system" fn IERemoveDirectory(lppathname : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
-    IERemoveDirectory(lppathname.param().abi())
+    unsafe { IERemoveDirectory(lppathname.param().abi()) }
 }
 #[inline]
 pub unsafe fn IESaveFile<P1>(hstate: super::super::Foundation::HANDLE, lpwstrsourcefile: P1) -> windows_core::Result<()>
@@ -229,7 +239,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ieframe.dll" "system" fn IESaveFile(hstate : super::super::Foundation:: HANDLE, lpwstrsourcefile : windows_core::PCWSTR) -> windows_core::HRESULT);
-    IESaveFile(hstate, lpwstrsourcefile.param().abi()).ok()
+    unsafe { IESaveFile(hstate, lpwstrsourcefile.param().abi()).ok() }
 }
 #[inline]
 pub unsafe fn IESetProtectedModeCookie<P0, P1, P2>(lpszurl: P0, lpszcookiename: P1, lpszcookiedata: P2, dwflags: u32) -> windows_core::Result<()>
@@ -239,7 +249,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ieframe.dll" "system" fn IESetProtectedModeCookie(lpszurl : windows_core::PCWSTR, lpszcookiename : windows_core::PCWSTR, lpszcookiedata : windows_core::PCWSTR, dwflags : u32) -> windows_core::HRESULT);
-    IESetProtectedModeCookie(lpszurl.param().abi(), lpszcookiename.param().abi(), lpszcookiedata.param().abi(), dwflags).ok()
+    unsafe { IESetProtectedModeCookie(lpszurl.param().abi(), lpszcookiename.param().abi(), lpszcookiedata.param().abi(), dwflags).ok() }
 }
 #[inline]
 pub unsafe fn IEShowOpenFileDialog<P3, P4, P5>(hwnd: super::super::Foundation::HWND, lpwstrfilename: &mut [u16], lpwstrinitialdir: P3, lpwstrfilter: P4, lpwstrdefext: P5, dwfilterindex: u32, dwflags: u32, phfile: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()>
@@ -249,7 +259,7 @@ where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ieframe.dll" "system" fn IEShowOpenFileDialog(hwnd : super::super::Foundation:: HWND, lpwstrfilename : windows_core::PWSTR, cchmaxfilename : u32, lpwstrinitialdir : windows_core::PCWSTR, lpwstrfilter : windows_core::PCWSTR, lpwstrdefext : windows_core::PCWSTR, dwfilterindex : u32, dwflags : u32, phfile : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
-    IEShowOpenFileDialog(hwnd, core::mem::transmute(lpwstrfilename.as_ptr()), lpwstrfilename.len().try_into().unwrap(), lpwstrinitialdir.param().abi(), lpwstrfilter.param().abi(), lpwstrdefext.param().abi(), dwfilterindex, dwflags, core::mem::transmute(phfile)).ok()
+    unsafe { IEShowOpenFileDialog(hwnd, core::mem::transmute(lpwstrfilename.as_ptr()), lpwstrfilename.len().try_into().unwrap(), lpwstrinitialdir.param().abi(), lpwstrfilter.param().abi(), lpwstrdefext.param().abi(), dwfilterindex, dwflags, core::mem::transmute(phfile)).ok() }
 }
 #[inline]
 pub unsafe fn IEShowSaveFileDialog<P1, P2, P3, P4>(hwnd: super::super::Foundation::HWND, lpwstrinitialfilename: P1, lpwstrinitialdir: P2, lpwstrfilter: P3, lpwstrdefext: P4, dwfilterindex: u32, dwflags: u32, lppwstrdestinationfilepath: *mut windows_core::PWSTR, phstate: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()>
@@ -260,22 +270,22 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ieframe.dll" "system" fn IEShowSaveFileDialog(hwnd : super::super::Foundation:: HWND, lpwstrinitialfilename : windows_core::PCWSTR, lpwstrinitialdir : windows_core::PCWSTR, lpwstrfilter : windows_core::PCWSTR, lpwstrdefext : windows_core::PCWSTR, dwfilterindex : u32, dwflags : u32, lppwstrdestinationfilepath : *mut windows_core::PWSTR, phstate : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
-    IEShowSaveFileDialog(hwnd, lpwstrinitialfilename.param().abi(), lpwstrinitialdir.param().abi(), lpwstrfilter.param().abi(), lpwstrdefext.param().abi(), dwfilterindex, dwflags, core::mem::transmute(lppwstrdestinationfilepath), core::mem::transmute(phstate)).ok()
+    unsafe { IEShowSaveFileDialog(hwnd, lpwstrinitialfilename.param().abi(), lpwstrinitialdir.param().abi(), lpwstrfilter.param().abi(), lpwstrdefext.param().abi(), dwfilterindex, dwflags, core::mem::transmute(lppwstrdestinationfilepath), core::mem::transmute(phstate)).ok() }
 }
 #[inline]
 pub unsafe fn IETrackingProtectionEnabled() -> super::super::Foundation::BOOL {
     windows_targets::link!("ieframe.dll" "system" fn IETrackingProtectionEnabled() -> super::super::Foundation:: BOOL);
-    IETrackingProtectionEnabled()
+    unsafe { IETrackingProtectionEnabled() }
 }
 #[inline]
 pub unsafe fn IEUnregisterWritableRegistry(guid: windows_core::GUID) -> windows_core::Result<()> {
     windows_targets::link!("ieframe.dll" "system" fn IEUnregisterWritableRegistry(guid : windows_core::GUID) -> windows_core::HRESULT);
-    IEUnregisterWritableRegistry(core::mem::transmute(guid)).ok()
+    unsafe { IEUnregisterWritableRegistry(core::mem::transmute(guid)).ok() }
 }
 #[inline]
 pub unsafe fn IdentifyMIMEType(pbbytes: *const u8, nbytes: u32, pnformat: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("imgutil.dll" "system" fn IdentifyMIMEType(pbbytes : *const u8, nbytes : u32, pnformat : *mut u32) -> windows_core::HRESULT);
-    IdentifyMIMEType(pbbytes, nbytes, core::mem::transmute(pnformat)).ok()
+    unsafe { IdentifyMIMEType(pbbytes, nbytes, core::mem::transmute(pnformat)).ok() }
 }
 #[inline]
 pub unsafe fn RatingAccessDeniedDialog<P1, P2>(hdlg: super::super::Foundation::HWND, pszusername: P1, pszcontentdescription: P2, pratingdetails: *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -284,7 +294,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingAccessDeniedDialog(hdlg : super::super::Foundation:: HWND, pszusername : windows_core::PCSTR, pszcontentdescription : windows_core::PCSTR, pratingdetails : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    RatingAccessDeniedDialog(hdlg, pszusername.param().abi(), pszcontentdescription.param().abi(), core::mem::transmute(pratingdetails)).ok()
+    unsafe { RatingAccessDeniedDialog(hdlg, pszusername.param().abi(), pszcontentdescription.param().abi(), core::mem::transmute(pratingdetails)).ok() }
 }
 #[inline]
 pub unsafe fn RatingAccessDeniedDialog2<P1>(hdlg: super::super::Foundation::HWND, pszusername: P1, pratingdetails: *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -292,7 +302,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingAccessDeniedDialog2(hdlg : super::super::Foundation:: HWND, pszusername : windows_core::PCSTR, pratingdetails : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    RatingAccessDeniedDialog2(hdlg, pszusername.param().abi(), core::mem::transmute(pratingdetails)).ok()
+    unsafe { RatingAccessDeniedDialog2(hdlg, pszusername.param().abi(), core::mem::transmute(pratingdetails)).ok() }
 }
 #[inline]
 pub unsafe fn RatingAccessDeniedDialog2W<P1>(hdlg: super::super::Foundation::HWND, pszusername: P1, pratingdetails: *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -300,7 +310,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingAccessDeniedDialog2W(hdlg : super::super::Foundation:: HWND, pszusername : windows_core::PCWSTR, pratingdetails : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    RatingAccessDeniedDialog2W(hdlg, pszusername.param().abi(), core::mem::transmute(pratingdetails)).ok()
+    unsafe { RatingAccessDeniedDialog2W(hdlg, pszusername.param().abi(), core::mem::transmute(pratingdetails)).ok() }
 }
 #[inline]
 pub unsafe fn RatingAccessDeniedDialogW<P1, P2>(hdlg: super::super::Foundation::HWND, pszusername: P1, pszcontentdescription: P2, pratingdetails: *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -309,7 +319,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingAccessDeniedDialogW(hdlg : super::super::Foundation:: HWND, pszusername : windows_core::PCWSTR, pszcontentdescription : windows_core::PCWSTR, pratingdetails : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    RatingAccessDeniedDialogW(hdlg, pszusername.param().abi(), pszcontentdescription.param().abi(), core::mem::transmute(pratingdetails)).ok()
+    unsafe { RatingAccessDeniedDialogW(hdlg, pszusername.param().abi(), pszcontentdescription.param().abi(), core::mem::transmute(pratingdetails)).ok() }
 }
 #[inline]
 pub unsafe fn RatingAddToApprovedSites<P3>(hdlg: super::super::Foundation::HWND, pbpasswordblob: &mut [u8], lpszurl: P3, falwaysnever: bool, fsitepage: bool, fapprovedsitesenforced: bool) -> windows_core::Result<()>
@@ -317,7 +327,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingAddToApprovedSites(hdlg : super::super::Foundation:: HWND, cbpasswordblob : u32, pbpasswordblob : *mut u8, lpszurl : windows_core::PCWSTR, falwaysnever : super::super::Foundation:: BOOL, fsitepage : super::super::Foundation:: BOOL, fapprovedsitesenforced : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    RatingAddToApprovedSites(hdlg, pbpasswordblob.len().try_into().unwrap(), core::mem::transmute(pbpasswordblob.as_ptr()), lpszurl.param().abi(), falwaysnever.into(), fsitepage.into(), fapprovedsitesenforced.into()).ok()
+    unsafe { RatingAddToApprovedSites(hdlg, pbpasswordblob.len().try_into().unwrap(), core::mem::transmute(pbpasswordblob.as_ptr()), lpszurl.param().abi(), falwaysnever.into(), fsitepage.into(), fapprovedsitesenforced.into()).ok() }
 }
 #[inline]
 pub unsafe fn RatingCheckUserAccess<P0, P1, P2>(pszusername: P0, pszurl: P1, pszratinginfo: P2, pdata: Option<&[u8]>, ppratingdetails: Option<*mut *mut core::ffi::c_void>) -> windows_core::Result<()>
@@ -327,7 +337,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingCheckUserAccess(pszusername : windows_core::PCSTR, pszurl : windows_core::PCSTR, pszratinginfo : windows_core::PCSTR, pdata : *const u8, cbdata : u32, ppratingdetails : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    RatingCheckUserAccess(pszusername.param().abi(), pszurl.param().abi(), pszratinginfo.param().abi(), core::mem::transmute(pdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppratingdetails.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { RatingCheckUserAccess(pszusername.param().abi(), pszurl.param().abi(), pszratinginfo.param().abi(), core::mem::transmute(pdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppratingdetails.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn RatingCheckUserAccessW<P0, P1, P2>(pszusername: P0, pszurl: P1, pszratinginfo: P2, pdata: Option<&[u8]>, ppratingdetails: Option<*mut *mut core::ffi::c_void>) -> windows_core::Result<()>
@@ -337,7 +347,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingCheckUserAccessW(pszusername : windows_core::PCWSTR, pszurl : windows_core::PCWSTR, pszratinginfo : windows_core::PCWSTR, pdata : *const u8, cbdata : u32, ppratingdetails : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    RatingCheckUserAccessW(pszusername.param().abi(), pszurl.param().abi(), pszratinginfo.param().abi(), core::mem::transmute(pdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppratingdetails.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { RatingCheckUserAccessW(pszusername.param().abi(), pszurl.param().abi(), pszratinginfo.param().abi(), core::mem::transmute(pdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppratingdetails.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn RatingClickedOnPRFInternal<P2>(hwndowner: super::super::Foundation::HWND, param1: super::super::Foundation::HINSTANCE, lpszfilename: P2, nshow: i32) -> windows_core::Result<()>
@@ -345,7 +355,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingClickedOnPRFInternal(hwndowner : super::super::Foundation:: HWND, param1 : super::super::Foundation:: HINSTANCE, lpszfilename : windows_core::PCSTR, nshow : i32) -> windows_core::HRESULT);
-    RatingClickedOnPRFInternal(hwndowner, param1, lpszfilename.param().abi(), nshow).ok()
+    unsafe { RatingClickedOnPRFInternal(hwndowner, param1, lpszfilename.param().abi(), nshow).ok() }
 }
 #[inline]
 pub unsafe fn RatingClickedOnRATInternal<P2>(hwndowner: super::super::Foundation::HWND, param1: super::super::Foundation::HINSTANCE, lpszfilename: P2, nshow: i32) -> windows_core::Result<()>
@@ -353,7 +363,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingClickedOnRATInternal(hwndowner : super::super::Foundation:: HWND, param1 : super::super::Foundation:: HINSTANCE, lpszfilename : windows_core::PCSTR, nshow : i32) -> windows_core::HRESULT);
-    RatingClickedOnRATInternal(hwndowner, param1, lpszfilename.param().abi(), nshow).ok()
+    unsafe { RatingClickedOnRATInternal(hwndowner, param1, lpszfilename.param().abi(), nshow).ok() }
 }
 #[inline]
 pub unsafe fn RatingEnable<P1>(hwndparent: super::super::Foundation::HWND, pszusername: P1, fenable: bool) -> windows_core::Result<()>
@@ -361,7 +371,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingEnable(hwndparent : super::super::Foundation:: HWND, pszusername : windows_core::PCSTR, fenable : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    RatingEnable(hwndparent, pszusername.param().abi(), fenable.into()).ok()
+    unsafe { RatingEnable(hwndparent, pszusername.param().abi(), fenable.into()).ok() }
 }
 #[inline]
 pub unsafe fn RatingEnableW<P1>(hwndparent: super::super::Foundation::HWND, pszusername: P1, fenable: bool) -> windows_core::Result<()>
@@ -369,27 +379,27 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingEnableW(hwndparent : super::super::Foundation:: HWND, pszusername : windows_core::PCWSTR, fenable : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    RatingEnableW(hwndparent, pszusername.param().abi(), fenable.into()).ok()
+    unsafe { RatingEnableW(hwndparent, pszusername.param().abi(), fenable.into()).ok() }
 }
 #[inline]
 pub unsafe fn RatingEnabledQuery() -> windows_core::Result<()> {
     windows_targets::link!("msrating.dll" "system" fn RatingEnabledQuery() -> windows_core::HRESULT);
-    RatingEnabledQuery().ok()
+    unsafe { RatingEnabledQuery().ok() }
 }
 #[inline]
 pub unsafe fn RatingFreeDetails(pratingdetails: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("msrating.dll" "system" fn RatingFreeDetails(pratingdetails : *const core::ffi::c_void) -> windows_core::HRESULT);
-    RatingFreeDetails(core::mem::transmute(pratingdetails.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { RatingFreeDetails(core::mem::transmute(pratingdetails.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn RatingInit() -> windows_core::Result<()> {
     windows_targets::link!("msrating.dll" "system" fn RatingInit() -> windows_core::HRESULT);
-    RatingInit().ok()
+    unsafe { RatingInit().ok() }
 }
 #[inline]
 pub unsafe fn RatingObtainCancel(hratingobtainquery: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("msrating.dll" "system" fn RatingObtainCancel(hratingobtainquery : super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
-    RatingObtainCancel(hratingobtainquery).ok()
+    unsafe { RatingObtainCancel(hratingobtainquery).ok() }
 }
 #[inline]
 pub unsafe fn RatingObtainQuery<P0>(psztargeturl: P0, dwuserdata: u32, fcallback: isize, phratingobtainquery: Option<*mut super::super::Foundation::HANDLE>) -> windows_core::Result<()>
@@ -397,7 +407,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingObtainQuery(psztargeturl : windows_core::PCSTR, dwuserdata : u32, fcallback : isize, phratingobtainquery : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
-    RatingObtainQuery(psztargeturl.param().abi(), dwuserdata, fcallback, core::mem::transmute(phratingobtainquery.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { RatingObtainQuery(psztargeturl.param().abi(), dwuserdata, fcallback, core::mem::transmute(phratingobtainquery.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn RatingObtainQueryW<P0>(psztargeturl: P0, dwuserdata: u32, fcallback: isize, phratingobtainquery: Option<*mut super::super::Foundation::HANDLE>) -> windows_core::Result<()>
@@ -405,7 +415,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingObtainQueryW(psztargeturl : windows_core::PCWSTR, dwuserdata : u32, fcallback : isize, phratingobtainquery : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
-    RatingObtainQueryW(psztargeturl.param().abi(), dwuserdata, fcallback, core::mem::transmute(phratingobtainquery.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { RatingObtainQueryW(psztargeturl.param().abi(), dwuserdata, fcallback, core::mem::transmute(phratingobtainquery.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn RatingSetupUI<P1>(hdlg: super::super::Foundation::HWND, pszusername: P1) -> windows_core::Result<()>
@@ -413,7 +423,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingSetupUI(hdlg : super::super::Foundation:: HWND, pszusername : windows_core::PCSTR) -> windows_core::HRESULT);
-    RatingSetupUI(hdlg, pszusername.param().abi()).ok()
+    unsafe { RatingSetupUI(hdlg, pszusername.param().abi()).ok() }
 }
 #[inline]
 pub unsafe fn RatingSetupUIW<P1>(hdlg: super::super::Foundation::HWND, pszusername: P1) -> windows_core::Result<()>
@@ -421,7 +431,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingSetupUIW(hdlg : super::super::Foundation:: HWND, pszusername : windows_core::PCWSTR) -> windows_core::HRESULT);
-    RatingSetupUIW(hdlg, pszusername.param().abi()).ok()
+    unsafe { RatingSetupUIW(hdlg, pszusername.param().abi()).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -430,7 +440,7 @@ where
     P0: windows_core::Param<super::super::System::Com::IStream>,
 {
     windows_targets::link!("imgutil.dll" "system" fn SniffStream(pinstream : * mut core::ffi::c_void, pnformat : *mut u32, ppoutstream : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    SniffStream(pinstream.param().abi(), core::mem::transmute(pnformat), core::mem::transmute(ppoutstream)).ok()
+    unsafe { SniffStream(pinstream.param().abi(), core::mem::transmute(pnformat), core::mem::transmute(ppoutstream)).ok() }
 }
 pub const ADDRESSBAND: u32 = 2u32;
 pub const ADDURL_ADDTOCACHE: ADDURL_FLAG = ADDURL_FLAG(1i32);
@@ -707,15 +717,19 @@ windows_core::imp::define_interface!(IActiveXUIHandlerSite, IActiveXUIHandlerSit
 windows_core::imp::interface_hierarchy!(IActiveXUIHandlerSite, windows_core::IUnknown);
 impl IActiveXUIHandlerSite {
     pub unsafe fn CreateScrollableContextMenu(&self) -> windows_core::Result<IScrollableContextMenu> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateScrollableContextMenu)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateScrollableContextMenu)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn PickFileAndGetResult<P0>(&self, filepicker: P0, allowmultipleselections: bool) -> windows_core::Result<windows_core::IUnknown>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).PickFileAndGetResult)(windows_core::Interface::as_raw(self), filepicker.param().abi(), allowmultipleselections.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).PickFileAndGetResult)(windows_core::Interface::as_raw(self), filepicker.param().abi(), allowmultipleselections.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -731,23 +745,27 @@ pub trait IActiveXUIHandlerSite_Impl: windows_core::IUnknownImpl {
 impl IActiveXUIHandlerSite_Vtbl {
     pub const fn new<Identity: IActiveXUIHandlerSite_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateScrollableContextMenu<Identity: IActiveXUIHandlerSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scrollablecontextmenu: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IActiveXUIHandlerSite_Impl::CreateScrollableContextMenu(this) {
-                Ok(ok__) => {
-                    scrollablecontextmenu.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IActiveXUIHandlerSite_Impl::CreateScrollableContextMenu(this) {
+                    Ok(ok__) => {
+                        scrollablecontextmenu.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn PickFileAndGetResult<Identity: IActiveXUIHandlerSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepicker: *mut core::ffi::c_void, allowmultipleselections: super::super::Foundation::BOOL, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IActiveXUIHandlerSite_Impl::PickFileAndGetResult(this, core::mem::transmute_copy(&filepicker), core::mem::transmute_copy(&allowmultipleselections)) {
-                Ok(ok__) => {
-                    result.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IActiveXUIHandlerSite_Impl::PickFileAndGetResult(this, core::mem::transmute_copy(&filepicker), core::mem::transmute_copy(&allowmultipleselections)) {
+                    Ok(ok__) => {
+                        result.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -765,11 +783,13 @@ windows_core::imp::define_interface!(IActiveXUIHandlerSite2, IActiveXUIHandlerSi
 windows_core::imp::interface_hierarchy!(IActiveXUIHandlerSite2, windows_core::IUnknown);
 impl IActiveXUIHandlerSite2 {
     pub unsafe fn AddSuspensionExemption(&self) -> windows_core::Result<u64> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).AddSuspensionExemption)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).AddSuspensionExemption)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn RemoveSuspensionExemption(&self, ullcookie: u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemoveSuspensionExemption)(windows_core::Interface::as_raw(self), ullcookie).ok()
+        unsafe { (windows_core::Interface::vtable(self).RemoveSuspensionExemption)(windows_core::Interface::as_raw(self), ullcookie).ok() }
     }
 }
 #[repr(C)]
@@ -785,18 +805,22 @@ pub trait IActiveXUIHandlerSite2_Impl: windows_core::IUnknownImpl {
 impl IActiveXUIHandlerSite2_Vtbl {
     pub const fn new<Identity: IActiveXUIHandlerSite2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddSuspensionExemption<Identity: IActiveXUIHandlerSite2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pullcookie: *mut u64) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IActiveXUIHandlerSite2_Impl::AddSuspensionExemption(this) {
-                Ok(ok__) => {
-                    pullcookie.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IActiveXUIHandlerSite2_Impl::AddSuspensionExemption(this) {
+                    Ok(ok__) => {
+                        pullcookie.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn RemoveSuspensionExemption<Identity: IActiveXUIHandlerSite2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ullcookie: u64) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IActiveXUIHandlerSite2_Impl::RemoveSuspensionExemption(this, core::mem::transmute_copy(&ullcookie)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IActiveXUIHandlerSite2_Impl::RemoveSuspensionExemption(this, core::mem::transmute_copy(&ullcookie)).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -817,8 +841,10 @@ impl IActiveXUIHandlerSite3 {
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).MessageBoxW)(windows_core::Interface::as_raw(self), core::mem::transmute(hwnd.unwrap_or(core::mem::zeroed())), text.param().abi(), caption.param().abi(), r#type, &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).MessageBoxW)(windows_core::Interface::as_raw(self), core::mem::transmute(hwnd.unwrap_or(core::mem::zeroed())), text.param().abi(), caption.param().abi(), r#type, &mut result__).map(|| result__)
+        }
     }
 }
 #[repr(C)]
@@ -832,13 +858,15 @@ pub trait IActiveXUIHandlerSite3_Impl: windows_core::IUnknownImpl {
 impl IActiveXUIHandlerSite3_Vtbl {
     pub const fn new<Identity: IActiveXUIHandlerSite3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn MessageBoxW<Identity: IActiveXUIHandlerSite3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, text: windows_core::PCWSTR, caption: windows_core::PCWSTR, r#type: u32, result: *mut i32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IActiveXUIHandlerSite3_Impl::MessageBoxW(this, core::mem::transmute_copy(&hwnd), core::mem::transmute(&text), core::mem::transmute(&caption), core::mem::transmute_copy(&r#type)) {
-                Ok(ok__) => {
-                    result.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IActiveXUIHandlerSite3_Impl::MessageBoxW(this, core::mem::transmute_copy(&hwnd), core::mem::transmute(&text), core::mem::transmute(&caption), core::mem::transmute_copy(&r#type)) {
+                    Ok(ok__) => {
+                        result.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), MessageBoxW: MessageBoxW::<Identity, OFFSET> }
@@ -862,7 +890,7 @@ windows_core::imp::interface_hierarchy!(IAnchorClick, windows_core::IUnknown, su
 #[cfg(feature = "Win32_System_Com")]
 impl IAnchorClick {
     pub unsafe fn ProcOnClick(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ProcOnClick)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).ProcOnClick)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -879,8 +907,10 @@ pub trait IAnchorClick_Impl: super::super::System::Com::IDispatch_Impl {
 impl IAnchorClick_Vtbl {
     pub const fn new<Identity: IAnchorClick_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ProcOnClick<Identity: IAnchorClick_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IAnchorClick_Impl::ProcOnClick(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IAnchorClick_Impl::ProcOnClick(this).into()
+            }
         }
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(), ProcOnClick: ProcOnClick::<Identity, OFFSET> }
     }
@@ -894,20 +924,22 @@ windows_core::imp::define_interface!(IAudioSessionSite, IAudioSessionSite_Vtbl, 
 windows_core::imp::interface_hierarchy!(IAudioSessionSite, windows_core::IUnknown);
 impl IAudioSessionSite {
     pub unsafe fn GetAudioSessionGuid(&self) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAudioSessionGuid)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetAudioSessionGuid)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn OnAudioStreamCreated<P0>(&self, endpointid: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OnAudioStreamCreated)(windows_core::Interface::as_raw(self), endpointid.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).OnAudioStreamCreated)(windows_core::Interface::as_raw(self), endpointid.param().abi()).ok() }
     }
     pub unsafe fn OnAudioStreamDestroyed<P0>(&self, endpointid: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OnAudioStreamDestroyed)(windows_core::Interface::as_raw(self), endpointid.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).OnAudioStreamDestroyed)(windows_core::Interface::as_raw(self), endpointid.param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -925,22 +957,28 @@ pub trait IAudioSessionSite_Impl: windows_core::IUnknownImpl {
 impl IAudioSessionSite_Vtbl {
     pub const fn new<Identity: IAudioSessionSite_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetAudioSessionGuid<Identity: IAudioSessionSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, audiosessionguid: *mut windows_core::GUID) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IAudioSessionSite_Impl::GetAudioSessionGuid(this) {
-                Ok(ok__) => {
-                    audiosessionguid.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IAudioSessionSite_Impl::GetAudioSessionGuid(this) {
+                    Ok(ok__) => {
+                        audiosessionguid.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn OnAudioStreamCreated<Identity: IAudioSessionSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, endpointid: windows_core::PCWSTR) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IAudioSessionSite_Impl::OnAudioStreamCreated(this, core::mem::transmute(&endpointid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IAudioSessionSite_Impl::OnAudioStreamCreated(this, core::mem::transmute(&endpointid)).into()
+            }
         }
         unsafe extern "system" fn OnAudioStreamDestroyed<Identity: IAudioSessionSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, endpointid: windows_core::PCWSTR) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IAudioSessionSite_Impl::OnAudioStreamDestroyed(this, core::mem::transmute(&endpointid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IAudioSessionSite_Impl::OnAudioStreamDestroyed(this, core::mem::transmute(&endpointid)).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -958,7 +996,7 @@ windows_core::imp::define_interface!(ICaretPositionProvider, ICaretPositionProvi
 windows_core::imp::interface_hierarchy!(ICaretPositionProvider, windows_core::IUnknown);
 impl ICaretPositionProvider {
     pub unsafe fn GetCaretPosition(&self, pptcaret: *mut super::super::Foundation::POINT, pflheight: *mut f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetCaretPosition)(windows_core::Interface::as_raw(self), core::mem::transmute(pptcaret), core::mem::transmute(pflheight)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetCaretPosition)(windows_core::Interface::as_raw(self), core::mem::transmute(pptcaret), core::mem::transmute(pflheight)).ok() }
     }
 }
 #[repr(C)]
@@ -972,8 +1010,10 @@ pub trait ICaretPositionProvider_Impl: windows_core::IUnknownImpl {
 impl ICaretPositionProvider_Vtbl {
     pub const fn new<Identity: ICaretPositionProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCaretPosition<Identity: ICaretPositionProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pptcaret: *mut super::super::Foundation::POINT, pflheight: *mut f32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ICaretPositionProvider_Impl::GetCaretPosition(this, core::mem::transmute_copy(&pptcaret), core::mem::transmute_copy(&pflheight)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICaretPositionProvider_Impl::GetCaretPosition(this, core::mem::transmute_copy(&pptcaret), core::mem::transmute_copy(&pflheight)).into()
+            }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetCaretPosition: GetCaretPosition::<Identity, OFFSET> }
     }
@@ -1016,13 +1056,13 @@ windows_core::imp::interface_hierarchy!(IDithererImpl, windows_core::IUnknown);
 impl IDithererImpl {
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn SetDestColorTable(&self, ncolors: u32, prgbcolors: *const super::super::Graphics::Gdi::RGBQUAD) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetDestColorTable)(windows_core::Interface::as_raw(self), ncolors, prgbcolors).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetDestColorTable)(windows_core::Interface::as_raw(self), ncolors, prgbcolors).ok() }
     }
     pub unsafe fn SetEventSink<P0>(&self, peventsink: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IImageDecodeEventSink>,
     {
-        (windows_core::Interface::vtable(self).SetEventSink)(windows_core::Interface::as_raw(self), peventsink.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetEventSink)(windows_core::Interface::as_raw(self), peventsink.param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -1043,12 +1083,16 @@ pub trait IDithererImpl_Impl: windows_core::IUnknownImpl {
 impl IDithererImpl_Vtbl {
     pub const fn new<Identity: IDithererImpl_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetDestColorTable<Identity: IDithererImpl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ncolors: u32, prgbcolors: *const super::super::Graphics::Gdi::RGBQUAD) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDithererImpl_Impl::SetDestColorTable(this, core::mem::transmute_copy(&ncolors), core::mem::transmute_copy(&prgbcolors)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDithererImpl_Impl::SetDestColorTable(this, core::mem::transmute_copy(&ncolors), core::mem::transmute_copy(&prgbcolors)).into()
+            }
         }
         unsafe extern "system" fn SetEventSink<Identity: IDithererImpl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peventsink: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDithererImpl_Impl::SetEventSink(this, core::mem::transmute_copy(&peventsink)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDithererImpl_Impl::SetEventSink(this, core::mem::transmute_copy(&peventsink)).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -1073,29 +1117,37 @@ impl IDocObjectService {
         P3: windows_core::Param<windows_core::PCWSTR>,
         P6: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).FireBeforeNavigate2)(windows_core::Interface::as_raw(self), pdispatch.param().abi(), lpszurl.param().abi(), dwflags, lpszframename.param().abi(), ppostdata, cbpostdata, lpszheaders.param().abi(), fplaynavsound.into(), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).FireBeforeNavigate2)(windows_core::Interface::as_raw(self), pdispatch.param().abi(), lpszurl.param().abi(), dwflags, lpszframename.param().abi(), ppostdata, cbpostdata, lpszheaders.param().abi(), fplaynavsound.into(), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn FireDownloadBegin(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).FireDownloadBegin)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).FireDownloadBegin)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn FireDownloadComplete(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).FireDownloadComplete)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).FireDownloadComplete)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn GetPendingUrl(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetPendingUrl)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetPendingUrl)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn GetUrlSearchComponent(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetUrlSearchComponent)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetUrlSearchComponent)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn IsErrorUrl<P0>(&self, lpszurl: P0) -> windows_core::Result<super::super::Foundation::BOOL>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).IsErrorUrl)(windows_core::Interface::as_raw(self), lpszurl.param().abi(), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).IsErrorUrl)(windows_core::Interface::as_raw(self), lpszurl.param().abi(), &mut result__).map(|| result__)
+        }
     }
 }
 #[repr(C)]
@@ -1128,51 +1180,63 @@ pub trait IDocObjectService_Impl: windows_core::IUnknownImpl {
 impl IDocObjectService_Vtbl {
     pub const fn new<Identity: IDocObjectService_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn FireBeforeNavigate2<Identity: IDocObjectService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdispatch: *mut core::ffi::c_void, lpszurl: windows_core::PCWSTR, dwflags: u32, lpszframename: windows_core::PCWSTR, ppostdata: *const u8, cbpostdata: u32, lpszheaders: windows_core::PCWSTR, fplaynavsound: super::super::Foundation::BOOL, pfcancel: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDocObjectService_Impl::FireBeforeNavigate2(this, core::mem::transmute_copy(&pdispatch), core::mem::transmute(&lpszurl), core::mem::transmute_copy(&dwflags), core::mem::transmute(&lpszframename), core::mem::transmute_copy(&ppostdata), core::mem::transmute_copy(&cbpostdata), core::mem::transmute(&lpszheaders), core::mem::transmute_copy(&fplaynavsound)) {
-                Ok(ok__) => {
-                    pfcancel.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IDocObjectService_Impl::FireBeforeNavigate2(this, core::mem::transmute_copy(&pdispatch), core::mem::transmute(&lpszurl), core::mem::transmute_copy(&dwflags), core::mem::transmute(&lpszframename), core::mem::transmute_copy(&ppostdata), core::mem::transmute_copy(&cbpostdata), core::mem::transmute(&lpszheaders), core::mem::transmute_copy(&fplaynavsound)) {
+                    Ok(ok__) => {
+                        pfcancel.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn FireDownloadBegin<Identity: IDocObjectService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDocObjectService_Impl::FireDownloadBegin(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDocObjectService_Impl::FireDownloadBegin(this).into()
+            }
         }
         unsafe extern "system" fn FireDownloadComplete<Identity: IDocObjectService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDocObjectService_Impl::FireDownloadComplete(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDocObjectService_Impl::FireDownloadComplete(this).into()
+            }
         }
         unsafe extern "system" fn GetPendingUrl<Identity: IDocObjectService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrpendingurl: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDocObjectService_Impl::GetPendingUrl(this) {
-                Ok(ok__) => {
-                    pbstrpendingurl.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IDocObjectService_Impl::GetPendingUrl(this) {
+                    Ok(ok__) => {
+                        pbstrpendingurl.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetUrlSearchComponent<Identity: IDocObjectService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsearch: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDocObjectService_Impl::GetUrlSearchComponent(this) {
-                Ok(ok__) => {
-                    pbstrsearch.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IDocObjectService_Impl::GetUrlSearchComponent(this) {
+                    Ok(ok__) => {
+                        pbstrsearch.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn IsErrorUrl<Identity: IDocObjectService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpszurl: windows_core::PCWSTR, pfiserror: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IDocObjectService_Impl::IsErrorUrl(this, core::mem::transmute(&lpszurl)) {
-                Ok(ok__) => {
-                    pfiserror.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IDocObjectService_Impl::IsErrorUrl(this, core::mem::transmute(&lpszurl)) {
+                    Ok(ok__) => {
+                        pfiserror.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -1212,7 +1276,7 @@ impl IDownloadBehavior {
     where
         P1: windows_core::Param<super::super::System::Com::IDispatch>,
     {
-        (windows_core::Interface::vtable(self).startDownload)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrurl), pdispcallback.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).startDownload)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrurl), pdispcallback.param().abi()).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1229,8 +1293,10 @@ pub trait IDownloadBehavior_Impl: super::super::System::Com::IDispatch_Impl {
 impl IDownloadBehavior_Vtbl {
     pub const fn new<Identity: IDownloadBehavior_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn startDownload<Identity: IDownloadBehavior_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrurl: *mut core::ffi::c_void, pdispcallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDownloadBehavior_Impl::startDownload(this, core::mem::transmute(&bstrurl), core::mem::transmute_copy(&pdispcallback)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDownloadBehavior_Impl::startDownload(this, core::mem::transmute(&bstrurl), core::mem::transmute_copy(&pdispcallback)).into()
+            }
         }
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(), startDownload: startDownload::<Identity, OFFSET> }
     }
@@ -1251,7 +1317,7 @@ impl IDownloadManager {
         P5: windows_core::Param<windows_core::PCWSTR>,
         P6: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).Download)(windows_core::Interface::as_raw(self), pmk.param().abi(), pbc.param().abi(), dwbindverb, grfbindf, core::mem::transmute(pbindinfo), pszheaders.param().abi(), pszredir.param().abi(), uicp).ok()
+        unsafe { (windows_core::Interface::vtable(self).Download)(windows_core::Interface::as_raw(self), pmk.param().abi(), pbc.param().abi(), dwbindverb, grfbindf, core::mem::transmute(pbindinfo), pszheaders.param().abi(), pszredir.param().abi(), uicp).ok() }
     }
 }
 #[repr(C)]
@@ -1270,8 +1336,10 @@ pub trait IDownloadManager_Impl: windows_core::IUnknownImpl {
 impl IDownloadManager_Vtbl {
     pub const fn new<Identity: IDownloadManager_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Download<Identity: IDownloadManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmk: *mut core::ffi::c_void, pbc: *mut core::ffi::c_void, dwbindverb: u32, grfbindf: i32, pbindinfo: *const super::super::System::Com::BINDINFO, pszheaders: windows_core::PCWSTR, pszredir: windows_core::PCWSTR, uicp: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDownloadManager_Impl::Download(this, core::mem::transmute_copy(&pmk), core::mem::transmute_copy(&pbc), core::mem::transmute_copy(&dwbindverb), core::mem::transmute_copy(&grfbindf), core::mem::transmute_copy(&pbindinfo), core::mem::transmute(&pszheaders), core::mem::transmute(&pszredir), core::mem::transmute_copy(&uicp)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDownloadManager_Impl::Download(this, core::mem::transmute_copy(&pmk), core::mem::transmute_copy(&pbc), core::mem::transmute_copy(&dwbindverb), core::mem::transmute_copy(&grfbindf), core::mem::transmute_copy(&pbindinfo), core::mem::transmute(&pszheaders), core::mem::transmute(&pszredir), core::mem::transmute_copy(&uicp)).into()
+            }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Download: Download::<Identity, OFFSET> }
     }
@@ -1326,21 +1394,25 @@ windows_core::imp::define_interface!(IEnumManagerFrames, IEnumManagerFrames_Vtbl
 windows_core::imp::interface_hierarchy!(IEnumManagerFrames, windows_core::IUnknown);
 impl IEnumManagerFrames {
     pub unsafe fn Next(&self, ppwindows: &mut [*mut super::super::Foundation::HWND], pceltfetched: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppwindows.len().try_into().unwrap(), core::mem::transmute(ppwindows.as_ptr()), core::mem::transmute(pceltfetched)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppwindows.len().try_into().unwrap(), core::mem::transmute(ppwindows.as_ptr()), core::mem::transmute(pceltfetched)).ok() }
     }
     pub unsafe fn Count(&self) -> windows_core::Result<u32> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok()
+        unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumManagerFrames> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -1362,35 +1434,45 @@ pub trait IEnumManagerFrames_Impl: windows_core::IUnknownImpl {
 impl IEnumManagerFrames_Vtbl {
     pub const fn new<Identity: IEnumManagerFrames_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Next<Identity: IEnumManagerFrames_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, ppwindows: *mut *mut super::super::Foundation::HWND, pceltfetched: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IEnumManagerFrames_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&ppwindows), core::mem::transmute_copy(&pceltfetched)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IEnumManagerFrames_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&ppwindows), core::mem::transmute_copy(&pceltfetched)).into()
+            }
         }
         unsafe extern "system" fn Count<Identity: IEnumManagerFrames_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelt: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IEnumManagerFrames_Impl::Count(this) {
-                Ok(ok__) => {
-                    pcelt.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IEnumManagerFrames_Impl::Count(this) {
+                    Ok(ok__) => {
+                        pcelt.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn Skip<Identity: IEnumManagerFrames_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IEnumManagerFrames_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IEnumManagerFrames_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+            }
         }
         unsafe extern "system" fn Reset<Identity: IEnumManagerFrames_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IEnumManagerFrames_Impl::Reset(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IEnumManagerFrames_Impl::Reset(this).into()
+            }
         }
         unsafe extern "system" fn Clone<Identity: IEnumManagerFrames_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IEnumManagerFrames_Impl::Clone(this) {
-                Ok(ok__) => {
-                    ppenum.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IEnumManagerFrames_Impl::Clone(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -1411,17 +1493,19 @@ windows_core::imp::define_interface!(IEnumOpenServiceActivity, IEnumOpenServiceA
 windows_core::imp::interface_hierarchy!(IEnumOpenServiceActivity, windows_core::IUnknown);
 impl IEnumOpenServiceActivity {
     pub unsafe fn Next(&self, rgelt: &mut [Option<IOpenServiceActivity>], pceltfetched: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), core::mem::transmute(pceltfetched)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), core::mem::transmute(pceltfetched)).ok() }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok()
+        unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumOpenServiceActivity> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -1441,25 +1525,33 @@ pub trait IEnumOpenServiceActivity_Impl: windows_core::IUnknownImpl {
 impl IEnumOpenServiceActivity_Vtbl {
     pub const fn new<Identity: IEnumOpenServiceActivity_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Next<Identity: IEnumOpenServiceActivity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgelt: *mut *mut core::ffi::c_void, pceltfetched: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IEnumOpenServiceActivity_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IEnumOpenServiceActivity_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
+            }
         }
         unsafe extern "system" fn Skip<Identity: IEnumOpenServiceActivity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IEnumOpenServiceActivity_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IEnumOpenServiceActivity_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+            }
         }
         unsafe extern "system" fn Reset<Identity: IEnumOpenServiceActivity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IEnumOpenServiceActivity_Impl::Reset(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IEnumOpenServiceActivity_Impl::Reset(this).into()
+            }
         }
         unsafe extern "system" fn Clone<Identity: IEnumOpenServiceActivity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IEnumOpenServiceActivity_Impl::Clone(this) {
-                Ok(ok__) => {
-                    ppenum.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IEnumOpenServiceActivity_Impl::Clone(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -1479,17 +1571,19 @@ windows_core::imp::define_interface!(IEnumOpenServiceActivityCategory, IEnumOpen
 windows_core::imp::interface_hierarchy!(IEnumOpenServiceActivityCategory, windows_core::IUnknown);
 impl IEnumOpenServiceActivityCategory {
     pub unsafe fn Next(&self, rgelt: &mut [Option<IOpenServiceActivityCategory>], pceltfetched: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), core::mem::transmute(pceltfetched)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), core::mem::transmute(pceltfetched)).ok() }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok()
+        unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumOpenServiceActivityCategory> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -1509,25 +1603,33 @@ pub trait IEnumOpenServiceActivityCategory_Impl: windows_core::IUnknownImpl {
 impl IEnumOpenServiceActivityCategory_Vtbl {
     pub const fn new<Identity: IEnumOpenServiceActivityCategory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Next<Identity: IEnumOpenServiceActivityCategory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgelt: *mut *mut core::ffi::c_void, pceltfetched: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IEnumOpenServiceActivityCategory_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IEnumOpenServiceActivityCategory_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
+            }
         }
         unsafe extern "system" fn Skip<Identity: IEnumOpenServiceActivityCategory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IEnumOpenServiceActivityCategory_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IEnumOpenServiceActivityCategory_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+            }
         }
         unsafe extern "system" fn Reset<Identity: IEnumOpenServiceActivityCategory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IEnumOpenServiceActivityCategory_Impl::Reset(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IEnumOpenServiceActivityCategory_Impl::Reset(this).into()
+            }
         }
         unsafe extern "system" fn Clone<Identity: IEnumOpenServiceActivityCategory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IEnumOpenServiceActivityCategory_Impl::Clone(this) {
-                Ok(ok__) => {
-                    ppenum.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IEnumOpenServiceActivityCategory_Impl::Clone(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -1547,23 +1649,25 @@ windows_core::imp::define_interface!(IEnumSTATURL, IEnumSTATURL_Vtbl, 0x3c374a42
 windows_core::imp::interface_hierarchy!(IEnumSTATURL, windows_core::IUnknown);
 impl IEnumSTATURL {
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut STATURL, pceltfetched: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(rgelt), core::mem::transmute(pceltfetched)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(rgelt), core::mem::transmute(pceltfetched)).ok() }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok()
+        unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumSTATURL> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn SetFilter<P0>(&self, poszfilter: P0, dwflags: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetFilter)(windows_core::Interface::as_raw(self), poszfilter.param().abi(), dwflags).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetFilter)(windows_core::Interface::as_raw(self), poszfilter.param().abi(), dwflags).ok() }
     }
 }
 #[repr(C)]
@@ -1585,30 +1689,40 @@ pub trait IEnumSTATURL_Impl: windows_core::IUnknownImpl {
 impl IEnumSTATURL_Vtbl {
     pub const fn new<Identity: IEnumSTATURL_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Next<Identity: IEnumSTATURL_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgelt: *mut STATURL, pceltfetched: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IEnumSTATURL_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IEnumSTATURL_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
+            }
         }
         unsafe extern "system" fn Skip<Identity: IEnumSTATURL_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IEnumSTATURL_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IEnumSTATURL_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+            }
         }
         unsafe extern "system" fn Reset<Identity: IEnumSTATURL_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IEnumSTATURL_Impl::Reset(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IEnumSTATURL_Impl::Reset(this).into()
+            }
         }
         unsafe extern "system" fn Clone<Identity: IEnumSTATURL_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IEnumSTATURL_Impl::Clone(this) {
-                Ok(ok__) => {
-                    ppenum.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IEnumSTATURL_Impl::Clone(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetFilter<Identity: IEnumSTATURL_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, poszfilter: windows_core::PCWSTR, dwflags: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IEnumSTATURL_Impl::SetFilter(this, core::mem::transmute(&poszfilter), core::mem::transmute_copy(&dwflags)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IEnumSTATURL_Impl::SetFilter(this, core::mem::transmute(&poszfilter), core::mem::transmute_copy(&dwflags)).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -1628,8 +1742,10 @@ windows_core::imp::define_interface!(IExtensionValidation, IExtensionValidation_
 windows_core::imp::interface_hierarchy!(IExtensionValidation, windows_core::IUnknown);
 impl IExtensionValidation {
     pub unsafe fn DisplayName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).DisplayName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).DisplayName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
 }
 #[repr(C)]
@@ -1644,13 +1760,15 @@ pub trait IExtensionValidation_Impl: windows_core::IUnknownImpl {
 impl IExtensionValidation_Vtbl {
     pub const fn new<Identity: IExtensionValidation_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DisplayName<Identity: IExtensionValidation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, displayname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IExtensionValidation_Impl::DisplayName(this) {
-                Ok(ok__) => {
-                    displayname.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IExtensionValidation_Impl::DisplayName(this) {
+                    Ok(ok__) => {
+                        displayname.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Validate: 0, DisplayName: DisplayName::<Identity, OFFSET> }
@@ -1667,19 +1785,25 @@ impl IHTMLPersistData {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).save)(windows_core::Interface::as_raw(self), punk.param().abi(), ltype, &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).save)(windows_core::Interface::as_raw(self), punk.param().abi(), ltype, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn load<P0>(&self, punk: P0, ltype: i32) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).load)(windows_core::Interface::as_raw(self), punk.param().abi(), ltype, &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).load)(windows_core::Interface::as_raw(self), punk.param().abi(), ltype, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn queryType(&self, ltype: i32) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).queryType)(windows_core::Interface::as_raw(self), ltype, &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).queryType)(windows_core::Interface::as_raw(self), ltype, &mut result__).map(|| result__)
+        }
     }
 }
 #[repr(C)]
@@ -1697,33 +1821,39 @@ pub trait IHTMLPersistData_Impl: windows_core::IUnknownImpl {
 impl IHTMLPersistData_Vtbl {
     pub const fn new<Identity: IHTMLPersistData_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn save<Identity: IHTMLPersistData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punk: *mut core::ffi::c_void, ltype: i32, fcontinuebroacast: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IHTMLPersistData_Impl::save(this, core::mem::transmute_copy(&punk), core::mem::transmute_copy(&ltype)) {
-                Ok(ok__) => {
-                    fcontinuebroacast.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IHTMLPersistData_Impl::save(this, core::mem::transmute_copy(&punk), core::mem::transmute_copy(&ltype)) {
+                    Ok(ok__) => {
+                        fcontinuebroacast.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn load<Identity: IHTMLPersistData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punk: *mut core::ffi::c_void, ltype: i32, fdodefault: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IHTMLPersistData_Impl::load(this, core::mem::transmute_copy(&punk), core::mem::transmute_copy(&ltype)) {
-                Ok(ok__) => {
-                    fdodefault.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IHTMLPersistData_Impl::load(this, core::mem::transmute_copy(&punk), core::mem::transmute_copy(&ltype)) {
+                    Ok(ok__) => {
+                        fdodefault.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn queryType<Identity: IHTMLPersistData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ltype: i32, pfsupportstype: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IHTMLPersistData_Impl::queryType(this, core::mem::transmute_copy(&ltype)) {
-                Ok(ok__) => {
-                    pfsupportstype.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IHTMLPersistData_Impl::queryType(this, core::mem::transmute_copy(&ltype)) {
+                    Ok(ok__) => {
+                        pfsupportstype.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -1752,20 +1882,24 @@ windows_core::imp::interface_hierarchy!(IHTMLPersistDataOM, windows_core::IUnkno
 #[cfg(feature = "Win32_System_Com")]
 impl IHTMLPersistDataOM {
     pub unsafe fn XMLDocument(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).XMLDocument)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).XMLDocument)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn getAttribute(&self, name: &windows_core::BSTR) -> windows_core::Result<super::super::System::Variant::VARIANT> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).getAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).getAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn setAttribute(&self, name: &windows_core::BSTR, value: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).setAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), core::mem::transmute_copy(value)).ok()
+        unsafe { (windows_core::Interface::vtable(self).setAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), core::mem::transmute_copy(value)).ok() }
     }
     pub unsafe fn removeAttribute(&self, name: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).removeAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name)).ok()
+        unsafe { (windows_core::Interface::vtable(self).removeAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name)).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1794,32 +1928,40 @@ pub trait IHTMLPersistDataOM_Impl: super::super::System::Com::IDispatch_Impl {
 impl IHTMLPersistDataOM_Vtbl {
     pub const fn new<Identity: IHTMLPersistDataOM_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn XMLDocument<Identity: IHTMLPersistDataOM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IHTMLPersistDataOM_Impl::XMLDocument(this) {
-                Ok(ok__) => {
-                    p.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IHTMLPersistDataOM_Impl::XMLDocument(this) {
+                    Ok(ok__) => {
+                        p.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn getAttribute<Identity: IHTMLPersistDataOM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, pvalue: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IHTMLPersistDataOM_Impl::getAttribute(this, core::mem::transmute(&name)) {
-                Ok(ok__) => {
-                    pvalue.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IHTMLPersistDataOM_Impl::getAttribute(this, core::mem::transmute(&name)) {
+                    Ok(ok__) => {
+                        pvalue.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn setAttribute<Identity: IHTMLPersistDataOM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, value: super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IHTMLPersistDataOM_Impl::setAttribute(this, core::mem::transmute(&name), core::mem::transmute(&value)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IHTMLPersistDataOM_Impl::setAttribute(this, core::mem::transmute(&name), core::mem::transmute(&value)).into()
+            }
         }
         unsafe extern "system" fn removeAttribute<Identity: IHTMLPersistDataOM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IHTMLPersistDataOM_Impl::removeAttribute(this, core::mem::transmute(&name)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IHTMLPersistDataOM_Impl::removeAttribute(this, core::mem::transmute(&name)).into()
+            }
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(),
@@ -1849,33 +1991,39 @@ windows_core::imp::interface_hierarchy!(IHTMLUserDataOM, windows_core::IUnknown,
 #[cfg(feature = "Win32_System_Com")]
 impl IHTMLUserDataOM {
     pub unsafe fn XMLDocument(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).XMLDocument)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).XMLDocument)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn save(&self, strname: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).save)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strname)).ok()
+        unsafe { (windows_core::Interface::vtable(self).save)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strname)).ok() }
     }
     pub unsafe fn load(&self, strname: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).load)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strname)).ok()
+        unsafe { (windows_core::Interface::vtable(self).load)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strname)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn getAttribute(&self, name: &windows_core::BSTR) -> windows_core::Result<super::super::System::Variant::VARIANT> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).getAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).getAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn setAttribute(&self, name: &windows_core::BSTR, value: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).setAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), core::mem::transmute_copy(value)).ok()
+        unsafe { (windows_core::Interface::vtable(self).setAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), core::mem::transmute_copy(value)).ok() }
     }
     pub unsafe fn removeAttribute(&self, name: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).removeAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name)).ok()
+        unsafe { (windows_core::Interface::vtable(self).removeAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name)).ok() }
     }
     pub unsafe fn Setexpires(&self, bstr: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Setexpires)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstr)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Setexpires)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstr)).ok() }
     }
     pub unsafe fn expires(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).expires)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).expires)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1912,53 +2060,69 @@ pub trait IHTMLUserDataOM_Impl: super::super::System::Com::IDispatch_Impl {
 impl IHTMLUserDataOM_Vtbl {
     pub const fn new<Identity: IHTMLUserDataOM_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn XMLDocument<Identity: IHTMLUserDataOM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IHTMLUserDataOM_Impl::XMLDocument(this) {
-                Ok(ok__) => {
-                    p.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IHTMLUserDataOM_Impl::XMLDocument(this) {
+                    Ok(ok__) => {
+                        p.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn save<Identity: IHTMLUserDataOM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IHTMLUserDataOM_Impl::save(this, core::mem::transmute(&strname)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IHTMLUserDataOM_Impl::save(this, core::mem::transmute(&strname)).into()
+            }
         }
         unsafe extern "system" fn load<Identity: IHTMLUserDataOM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IHTMLUserDataOM_Impl::load(this, core::mem::transmute(&strname)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IHTMLUserDataOM_Impl::load(this, core::mem::transmute(&strname)).into()
+            }
         }
         unsafe extern "system" fn getAttribute<Identity: IHTMLUserDataOM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, pvalue: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IHTMLUserDataOM_Impl::getAttribute(this, core::mem::transmute(&name)) {
-                Ok(ok__) => {
-                    pvalue.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IHTMLUserDataOM_Impl::getAttribute(this, core::mem::transmute(&name)) {
+                    Ok(ok__) => {
+                        pvalue.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn setAttribute<Identity: IHTMLUserDataOM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, value: super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IHTMLUserDataOM_Impl::setAttribute(this, core::mem::transmute(&name), core::mem::transmute(&value)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IHTMLUserDataOM_Impl::setAttribute(this, core::mem::transmute(&name), core::mem::transmute(&value)).into()
+            }
         }
         unsafe extern "system" fn removeAttribute<Identity: IHTMLUserDataOM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IHTMLUserDataOM_Impl::removeAttribute(this, core::mem::transmute(&name)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IHTMLUserDataOM_Impl::removeAttribute(this, core::mem::transmute(&name)).into()
+            }
         }
         unsafe extern "system" fn Setexpires<Identity: IHTMLUserDataOM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstr: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IHTMLUserDataOM_Impl::Setexpires(this, core::mem::transmute(&bstr)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IHTMLUserDataOM_Impl::Setexpires(this, core::mem::transmute(&bstr)).into()
+            }
         }
         unsafe extern "system" fn expires<Identity: IHTMLUserDataOM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstr: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IHTMLUserDataOM_Impl::expires(this) {
-                Ok(ok__) => {
-                    pbstr.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IHTMLUserDataOM_Impl::expires(this) {
+                    Ok(ok__) => {
+                        pbstr.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -1993,82 +2157,106 @@ windows_core::imp::interface_hierarchy!(IHeaderFooter, windows_core::IUnknown, s
 #[cfg(feature = "Win32_System_Com")]
 impl IHeaderFooter {
     pub unsafe fn htmlHead(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).htmlHead)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).htmlHead)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn htmlFoot(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).htmlFoot)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).htmlFoot)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn SettextHead(&self, v: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SettextHead)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(v)).ok()
+        unsafe { (windows_core::Interface::vtable(self).SettextHead)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(v)).ok() }
     }
     pub unsafe fn textHead(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).textHead)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).textHead)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn SettextFoot(&self, v: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SettextFoot)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(v)).ok()
+        unsafe { (windows_core::Interface::vtable(self).SettextFoot)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(v)).ok() }
     }
     pub unsafe fn textFoot(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).textFoot)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).textFoot)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn Setpage(&self, v: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Setpage)(windows_core::Interface::as_raw(self), v).ok()
+        unsafe { (windows_core::Interface::vtable(self).Setpage)(windows_core::Interface::as_raw(self), v).ok() }
     }
     pub unsafe fn page(&self) -> windows_core::Result<u32> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).page)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).page)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn SetpageTotal(&self, v: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetpageTotal)(windows_core::Interface::as_raw(self), v).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetpageTotal)(windows_core::Interface::as_raw(self), v).ok() }
     }
     pub unsafe fn pageTotal(&self) -> windows_core::Result<u32> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).pageTotal)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).pageTotal)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn SetURL(&self, v: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetURL)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(v)).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetURL)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(v)).ok() }
     }
     pub unsafe fn URL(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).URL)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).URL)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn Settitle(&self, v: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Settitle)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(v)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Settitle)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(v)).ok() }
     }
     pub unsafe fn title(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).title)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).title)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn SetdateShort(&self, v: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetdateShort)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(v)).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetdateShort)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(v)).ok() }
     }
     pub unsafe fn dateShort(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).dateShort)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).dateShort)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn SetdateLong(&self, v: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetdateLong)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(v)).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetdateLong)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(v)).ok() }
     }
     pub unsafe fn dateLong(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).dateLong)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).dateLong)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn SettimeShort(&self, v: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SettimeShort)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(v)).ok()
+        unsafe { (windows_core::Interface::vtable(self).SettimeShort)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(v)).ok() }
     }
     pub unsafe fn timeShort(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).timeShort)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).timeShort)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn SettimeLong(&self, v: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SettimeLong)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(v)).ok()
+        unsafe { (windows_core::Interface::vtable(self).SettimeLong)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(v)).ok() }
     }
     pub unsafe fn timeLong(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).timeLong)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).timeLong)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2127,163 +2315,207 @@ pub trait IHeaderFooter_Impl: super::super::System::Com::IDispatch_Impl {
 impl IHeaderFooter_Vtbl {
     pub const fn new<Identity: IHeaderFooter_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn htmlHead<Identity: IHeaderFooter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IHeaderFooter_Impl::htmlHead(this) {
-                Ok(ok__) => {
-                    p.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IHeaderFooter_Impl::htmlHead(this) {
+                    Ok(ok__) => {
+                        p.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn htmlFoot<Identity: IHeaderFooter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IHeaderFooter_Impl::htmlFoot(this) {
-                Ok(ok__) => {
-                    p.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IHeaderFooter_Impl::htmlFoot(this) {
+                    Ok(ok__) => {
+                        p.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SettextHead<Identity: IHeaderFooter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, v: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IHeaderFooter_Impl::SettextHead(this, core::mem::transmute(&v)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IHeaderFooter_Impl::SettextHead(this, core::mem::transmute(&v)).into()
+            }
         }
         unsafe extern "system" fn textHead<Identity: IHeaderFooter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IHeaderFooter_Impl::textHead(this) {
-                Ok(ok__) => {
-                    p.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IHeaderFooter_Impl::textHead(this) {
+                    Ok(ok__) => {
+                        p.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SettextFoot<Identity: IHeaderFooter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, v: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IHeaderFooter_Impl::SettextFoot(this, core::mem::transmute(&v)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IHeaderFooter_Impl::SettextFoot(this, core::mem::transmute(&v)).into()
+            }
         }
         unsafe extern "system" fn textFoot<Identity: IHeaderFooter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IHeaderFooter_Impl::textFoot(this) {
-                Ok(ok__) => {
-                    p.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IHeaderFooter_Impl::textFoot(this) {
+                    Ok(ok__) => {
+                        p.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn Setpage<Identity: IHeaderFooter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, v: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IHeaderFooter_Impl::Setpage(this, core::mem::transmute_copy(&v)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IHeaderFooter_Impl::Setpage(this, core::mem::transmute_copy(&v)).into()
+            }
         }
         unsafe extern "system" fn page<Identity: IHeaderFooter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IHeaderFooter_Impl::page(this) {
-                Ok(ok__) => {
-                    p.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IHeaderFooter_Impl::page(this) {
+                    Ok(ok__) => {
+                        p.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetpageTotal<Identity: IHeaderFooter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, v: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IHeaderFooter_Impl::SetpageTotal(this, core::mem::transmute_copy(&v)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IHeaderFooter_Impl::SetpageTotal(this, core::mem::transmute_copy(&v)).into()
+            }
         }
         unsafe extern "system" fn pageTotal<Identity: IHeaderFooter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IHeaderFooter_Impl::pageTotal(this) {
-                Ok(ok__) => {
-                    p.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IHeaderFooter_Impl::pageTotal(this) {
+                    Ok(ok__) => {
+                        p.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetURL<Identity: IHeaderFooter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, v: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IHeaderFooter_Impl::SetURL(this, core::mem::transmute(&v)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IHeaderFooter_Impl::SetURL(this, core::mem::transmute(&v)).into()
+            }
         }
         unsafe extern "system" fn URL<Identity: IHeaderFooter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IHeaderFooter_Impl::URL(this) {
-                Ok(ok__) => {
-                    p.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IHeaderFooter_Impl::URL(this) {
+                    Ok(ok__) => {
+                        p.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn Settitle<Identity: IHeaderFooter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, v: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IHeaderFooter_Impl::Settitle(this, core::mem::transmute(&v)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IHeaderFooter_Impl::Settitle(this, core::mem::transmute(&v)).into()
+            }
         }
         unsafe extern "system" fn title<Identity: IHeaderFooter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IHeaderFooter_Impl::title(this) {
-                Ok(ok__) => {
-                    p.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IHeaderFooter_Impl::title(this) {
+                    Ok(ok__) => {
+                        p.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetdateShort<Identity: IHeaderFooter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, v: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IHeaderFooter_Impl::SetdateShort(this, core::mem::transmute(&v)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IHeaderFooter_Impl::SetdateShort(this, core::mem::transmute(&v)).into()
+            }
         }
         unsafe extern "system" fn dateShort<Identity: IHeaderFooter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IHeaderFooter_Impl::dateShort(this) {
-                Ok(ok__) => {
-                    p.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IHeaderFooter_Impl::dateShort(this) {
+                    Ok(ok__) => {
+                        p.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetdateLong<Identity: IHeaderFooter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, v: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IHeaderFooter_Impl::SetdateLong(this, core::mem::transmute(&v)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IHeaderFooter_Impl::SetdateLong(this, core::mem::transmute(&v)).into()
+            }
         }
         unsafe extern "system" fn dateLong<Identity: IHeaderFooter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IHeaderFooter_Impl::dateLong(this) {
-                Ok(ok__) => {
-                    p.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IHeaderFooter_Impl::dateLong(this) {
+                    Ok(ok__) => {
+                        p.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SettimeShort<Identity: IHeaderFooter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, v: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IHeaderFooter_Impl::SettimeShort(this, core::mem::transmute(&v)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IHeaderFooter_Impl::SettimeShort(this, core::mem::transmute(&v)).into()
+            }
         }
         unsafe extern "system" fn timeShort<Identity: IHeaderFooter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IHeaderFooter_Impl::timeShort(this) {
-                Ok(ok__) => {
-                    p.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IHeaderFooter_Impl::timeShort(this) {
+                    Ok(ok__) => {
+                        p.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SettimeLong<Identity: IHeaderFooter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, v: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IHeaderFooter_Impl::SettimeLong(this, core::mem::transmute(&v)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IHeaderFooter_Impl::SettimeLong(this, core::mem::transmute(&v)).into()
+            }
         }
         unsafe extern "system" fn timeLong<Identity: IHeaderFooter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IHeaderFooter_Impl::timeLong(this) {
-                Ok(ok__) => {
-                    p.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IHeaderFooter_Impl::timeLong(this) {
+                    Ok(ok__) => {
+                        p.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -2332,11 +2564,13 @@ windows_core::imp::interface_hierarchy!(IHeaderFooter2, windows_core::IUnknown, 
 #[cfg(feature = "Win32_System_Com")]
 impl IHeaderFooter2 {
     pub unsafe fn Setfont(&self, v: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Setfont)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(v)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Setfont)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(v)).ok() }
     }
     pub unsafe fn font(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).font)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).font)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2355,17 +2589,21 @@ pub trait IHeaderFooter2_Impl: IHeaderFooter_Impl {
 impl IHeaderFooter2_Vtbl {
     pub const fn new<Identity: IHeaderFooter2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Setfont<Identity: IHeaderFooter2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, v: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IHeaderFooter2_Impl::Setfont(this, core::mem::transmute(&v)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IHeaderFooter2_Impl::Setfont(this, core::mem::transmute(&v)).into()
+            }
         }
         unsafe extern "system" fn font<Identity: IHeaderFooter2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IHeaderFooter2_Impl::font(this) {
-                Ok(ok__) => {
-                    p.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IHeaderFooter2_Impl::font(this) {
+                    Ok(ok__) => {
+                        p.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self { base__: IHeaderFooter_Vtbl::new::<Identity, OFFSET>(), Setfont: Setfont::<Identity, OFFSET>, font: font::<Identity, OFFSET> }
@@ -2390,14 +2628,16 @@ windows_core::imp::interface_hierarchy!(IHomePage, windows_core::IUnknown, super
 #[cfg(feature = "Win32_System_Com")]
 impl IHomePage {
     pub unsafe fn navigateHomePage(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).navigateHomePage)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).navigateHomePage)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn setHomePage(&self, bstrurl: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).setHomePage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrurl)).ok()
+        unsafe { (windows_core::Interface::vtable(self).setHomePage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrurl)).ok() }
     }
     pub unsafe fn isHomePage(&self, bstrurl: &windows_core::BSTR) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).isHomePage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrurl), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).isHomePage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrurl), &mut result__).map(|| result__)
+        }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2418,21 +2658,27 @@ pub trait IHomePage_Impl: super::super::System::Com::IDispatch_Impl {
 impl IHomePage_Vtbl {
     pub const fn new<Identity: IHomePage_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn navigateHomePage<Identity: IHomePage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IHomePage_Impl::navigateHomePage(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IHomePage_Impl::navigateHomePage(this).into()
+            }
         }
         unsafe extern "system" fn setHomePage<Identity: IHomePage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrurl: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IHomePage_Impl::setHomePage(this, core::mem::transmute(&bstrurl)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IHomePage_Impl::setHomePage(this, core::mem::transmute(&bstrurl)).into()
+            }
         }
         unsafe extern "system" fn isHomePage<Identity: IHomePage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrurl: *mut core::ffi::c_void, p: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IHomePage_Impl::isHomePage(this, core::mem::transmute(&bstrurl)) {
-                Ok(ok__) => {
-                    p.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IHomePage_Impl::isHomePage(this, core::mem::transmute(&bstrurl)) {
+                    Ok(ok__) => {
+                        p.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -2456,17 +2702,19 @@ impl IHomePageSetting {
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetHomePage)(windows_core::Interface::as_raw(self), hwnd, homepageuri.param().abi(), brandingmessage.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetHomePage)(windows_core::Interface::as_raw(self), hwnd, homepageuri.param().abi(), brandingmessage.param().abi()).ok() }
     }
     pub unsafe fn IsHomePage<P0>(&self, uri: P0) -> windows_core::Result<super::super::Foundation::BOOL>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).IsHomePage)(windows_core::Interface::as_raw(self), uri.param().abi(), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).IsHomePage)(windows_core::Interface::as_raw(self), uri.param().abi(), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn SetHomePageToBrowserDefault(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetHomePageToBrowserDefault)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetHomePageToBrowserDefault)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
 #[repr(C)]
@@ -2484,22 +2732,28 @@ pub trait IHomePageSetting_Impl: windows_core::IUnknownImpl {
 impl IHomePageSetting_Vtbl {
     pub const fn new<Identity: IHomePageSetting_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetHomePage<Identity: IHomePageSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, homepageuri: windows_core::PCWSTR, brandingmessage: windows_core::PCWSTR) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IHomePageSetting_Impl::SetHomePage(this, core::mem::transmute_copy(&hwnd), core::mem::transmute(&homepageuri), core::mem::transmute(&brandingmessage)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IHomePageSetting_Impl::SetHomePage(this, core::mem::transmute_copy(&hwnd), core::mem::transmute(&homepageuri), core::mem::transmute(&brandingmessage)).into()
+            }
         }
         unsafe extern "system" fn IsHomePage<Identity: IHomePageSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uri: windows_core::PCWSTR, isdefault: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IHomePageSetting_Impl::IsHomePage(this, core::mem::transmute(&uri)) {
-                Ok(ok__) => {
-                    isdefault.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IHomePageSetting_Impl::IsHomePage(this, core::mem::transmute(&uri)) {
+                    Ok(ok__) => {
+                        isdefault.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetHomePageToBrowserDefault<Identity: IHomePageSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IHomePageSetting_Impl::SetHomePageToBrowserDefault(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IHomePageSetting_Impl::SetHomePageToBrowserDefault(this).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -2530,8 +2784,10 @@ impl IIEWebDriverManager {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).ExecuteCommand)(windows_core::Interface::as_raw(self), command.param().abi(), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ExecuteCommand)(windows_core::Interface::as_raw(self), command.param().abi(), &mut result__).map(|| result__)
+        }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2548,13 +2804,15 @@ pub trait IIEWebDriverManager_Impl: super::super::System::Com::IDispatch_Impl {
 impl IIEWebDriverManager_Vtbl {
     pub const fn new<Identity: IIEWebDriverManager_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ExecuteCommand<Identity: IIEWebDriverManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, command: windows_core::PCWSTR, response: *mut windows_core::PWSTR) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IIEWebDriverManager_Impl::ExecuteCommand(this, core::mem::transmute(&command)) {
-                Ok(ok__) => {
-                    response.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IIEWebDriverManager_Impl::ExecuteCommand(this, core::mem::transmute(&command)) {
+                    Ok(ok__) => {
+                        response.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(), ExecuteCommand: ExecuteCommand::<Identity, OFFSET> }
@@ -2579,13 +2837,13 @@ windows_core::imp::interface_hierarchy!(IIEWebDriverSite, windows_core::IUnknown
 #[cfg(feature = "Win32_System_Com")]
 impl IIEWebDriverSite {
     pub unsafe fn WindowOperation(&self, operationcode: u32, hwnd: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).WindowOperation)(windows_core::Interface::as_raw(self), operationcode, hwnd).ok()
+        unsafe { (windows_core::Interface::vtable(self).WindowOperation)(windows_core::Interface::as_raw(self), operationcode, hwnd).ok() }
     }
     pub unsafe fn DetachWebdriver<P0>(&self, punkwd: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).DetachWebdriver)(windows_core::Interface::as_raw(self), punkwd.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).DetachWebdriver)(windows_core::Interface::as_raw(self), punkwd.param().abi()).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCapabilityValue<P0, P1>(&self, punkwd: P0, capname: P1) -> windows_core::Result<super::super::System::Variant::VARIANT>
@@ -2593,8 +2851,10 @@ impl IIEWebDriverSite {
         P0: windows_core::Param<windows_core::IUnknown>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetCapabilityValue)(windows_core::Interface::as_raw(self), punkwd.param().abi(), capname.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetCapabilityValue)(windows_core::Interface::as_raw(self), punkwd.param().abi(), capname.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2618,21 +2878,27 @@ pub trait IIEWebDriverSite_Impl: super::super::System::Com::IDispatch_Impl {
 impl IIEWebDriverSite_Vtbl {
     pub const fn new<Identity: IIEWebDriverSite_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn WindowOperation<Identity: IIEWebDriverSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, operationcode: u32, hwnd: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IIEWebDriverSite_Impl::WindowOperation(this, core::mem::transmute_copy(&operationcode), core::mem::transmute_copy(&hwnd)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IIEWebDriverSite_Impl::WindowOperation(this, core::mem::transmute_copy(&operationcode), core::mem::transmute_copy(&hwnd)).into()
+            }
         }
         unsafe extern "system" fn DetachWebdriver<Identity: IIEWebDriverSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkwd: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IIEWebDriverSite_Impl::DetachWebdriver(this, core::mem::transmute_copy(&punkwd)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IIEWebDriverSite_Impl::DetachWebdriver(this, core::mem::transmute_copy(&punkwd)).into()
+            }
         }
         unsafe extern "system" fn GetCapabilityValue<Identity: IIEWebDriverSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkwd: *mut core::ffi::c_void, capname: windows_core::PCWSTR, capvalue: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IIEWebDriverSite_Impl::GetCapabilityValue(this, core::mem::transmute_copy(&punkwd), core::mem::transmute(&capname)) {
-                Ok(ok__) => {
-                    capvalue.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IIEWebDriverSite_Impl::GetCapabilityValue(this, core::mem::transmute_copy(&punkwd), core::mem::transmute(&capname)) {
+                    Ok(ok__) => {
+                        capvalue.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -2652,23 +2918,25 @@ windows_core::imp::define_interface!(IImageDecodeEventSink, IImageDecodeEventSin
 windows_core::imp::interface_hierarchy!(IImageDecodeEventSink, windows_core::IUnknown);
 impl IImageDecodeEventSink {
     pub unsafe fn GetSurface(&self, nwidth: i32, nheight: i32, bfid: *const windows_core::GUID, npasses: u32, dwhints: u32) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetSurface)(windows_core::Interface::as_raw(self), nwidth, nheight, bfid, npasses, dwhints, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetSurface)(windows_core::Interface::as_raw(self), nwidth, nheight, bfid, npasses, dwhints, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn OnBeginDecode(&self, pdwevents: *mut u32, pnformats: *mut u32, ppformats: *mut *mut windows_core::GUID) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).OnBeginDecode)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwevents), core::mem::transmute(pnformats), core::mem::transmute(ppformats)).ok()
+        unsafe { (windows_core::Interface::vtable(self).OnBeginDecode)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwevents), core::mem::transmute(pnformats), core::mem::transmute(ppformats)).ok() }
     }
     pub unsafe fn OnBitsComplete(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).OnBitsComplete)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).OnBitsComplete)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn OnDecodeComplete(&self, hrstatus: windows_core::HRESULT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).OnDecodeComplete)(windows_core::Interface::as_raw(self), hrstatus).ok()
+        unsafe { (windows_core::Interface::vtable(self).OnDecodeComplete)(windows_core::Interface::as_raw(self), hrstatus).ok() }
     }
     pub unsafe fn OnPalette(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).OnPalette)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).OnPalette)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn OnProgress(&self, pbounds: *const super::super::Foundation::RECT, bcomplete: bool) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).OnProgress)(windows_core::Interface::as_raw(self), pbounds, bcomplete.into()).ok()
+        unsafe { (windows_core::Interface::vtable(self).OnProgress)(windows_core::Interface::as_raw(self), pbounds, bcomplete.into()).ok() }
     }
 }
 #[repr(C)]
@@ -2692,34 +2960,46 @@ pub trait IImageDecodeEventSink_Impl: windows_core::IUnknownImpl {
 impl IImageDecodeEventSink_Vtbl {
     pub const fn new<Identity: IImageDecodeEventSink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetSurface<Identity: IImageDecodeEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nwidth: i32, nheight: i32, bfid: *const windows_core::GUID, npasses: u32, dwhints: u32, ppsurface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IImageDecodeEventSink_Impl::GetSurface(this, core::mem::transmute_copy(&nwidth), core::mem::transmute_copy(&nheight), core::mem::transmute_copy(&bfid), core::mem::transmute_copy(&npasses), core::mem::transmute_copy(&dwhints)) {
-                Ok(ok__) => {
-                    ppsurface.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IImageDecodeEventSink_Impl::GetSurface(this, core::mem::transmute_copy(&nwidth), core::mem::transmute_copy(&nheight), core::mem::transmute_copy(&bfid), core::mem::transmute_copy(&npasses), core::mem::transmute_copy(&dwhints)) {
+                    Ok(ok__) => {
+                        ppsurface.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn OnBeginDecode<Identity: IImageDecodeEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwevents: *mut u32, pnformats: *mut u32, ppformats: *mut *mut windows_core::GUID) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IImageDecodeEventSink_Impl::OnBeginDecode(this, core::mem::transmute_copy(&pdwevents), core::mem::transmute_copy(&pnformats), core::mem::transmute_copy(&ppformats)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IImageDecodeEventSink_Impl::OnBeginDecode(this, core::mem::transmute_copy(&pdwevents), core::mem::transmute_copy(&pnformats), core::mem::transmute_copy(&ppformats)).into()
+            }
         }
         unsafe extern "system" fn OnBitsComplete<Identity: IImageDecodeEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IImageDecodeEventSink_Impl::OnBitsComplete(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IImageDecodeEventSink_Impl::OnBitsComplete(this).into()
+            }
         }
         unsafe extern "system" fn OnDecodeComplete<Identity: IImageDecodeEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hrstatus: windows_core::HRESULT) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IImageDecodeEventSink_Impl::OnDecodeComplete(this, core::mem::transmute_copy(&hrstatus)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IImageDecodeEventSink_Impl::OnDecodeComplete(this, core::mem::transmute_copy(&hrstatus)).into()
+            }
         }
         unsafe extern "system" fn OnPalette<Identity: IImageDecodeEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IImageDecodeEventSink_Impl::OnPalette(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IImageDecodeEventSink_Impl::OnPalette(this).into()
+            }
         }
         unsafe extern "system" fn OnProgress<Identity: IImageDecodeEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbounds: *const super::super::Foundation::RECT, bcomplete: super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IImageDecodeEventSink_Impl::OnProgress(this, core::mem::transmute_copy(&pbounds), core::mem::transmute_copy(&bcomplete)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IImageDecodeEventSink_Impl::OnProgress(this, core::mem::transmute_copy(&pbounds), core::mem::transmute_copy(&bcomplete)).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -2746,8 +3026,10 @@ impl core::ops::Deref for IImageDecodeEventSink2 {
 windows_core::imp::interface_hierarchy!(IImageDecodeEventSink2, windows_core::IUnknown, IImageDecodeEventSink);
 impl IImageDecodeEventSink2 {
     pub unsafe fn IsAlphaPremultRequired(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).IsAlphaPremultRequired)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).IsAlphaPremultRequired)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
 }
 #[repr(C)]
@@ -2761,13 +3043,15 @@ pub trait IImageDecodeEventSink2_Impl: IImageDecodeEventSink_Impl {
 impl IImageDecodeEventSink2_Vtbl {
     pub const fn new<Identity: IImageDecodeEventSink2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn IsAlphaPremultRequired<Identity: IImageDecodeEventSink2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfpremultalpha: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IImageDecodeEventSink2_Impl::IsAlphaPremultRequired(this) {
-                Ok(ok__) => {
-                    pfpremultalpha.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IImageDecodeEventSink2_Impl::IsAlphaPremultRequired(this) {
+                    Ok(ok__) => {
+                        pfpremultalpha.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self { base__: IImageDecodeEventSink_Vtbl::new::<Identity, OFFSET>(), IsAlphaPremultRequired: IsAlphaPremultRequired::<Identity, OFFSET> }
@@ -2784,17 +3068,17 @@ impl IImageDecodeFilter {
     where
         P0: windows_core::Param<IImageDecodeEventSink>,
     {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), peventsink.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), peventsink.param().abi()).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Process<P0>(&self, pstream: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::System::Com::IStream>,
     {
-        (windows_core::Interface::vtable(self).Process)(windows_core::Interface::as_raw(self), pstream.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).Process)(windows_core::Interface::as_raw(self), pstream.param().abi()).ok() }
     }
     pub unsafe fn Terminate(&self, hrstatus: windows_core::HRESULT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Terminate)(windows_core::Interface::as_raw(self), hrstatus).ok()
+        unsafe { (windows_core::Interface::vtable(self).Terminate)(windows_core::Interface::as_raw(self), hrstatus).ok() }
     }
 }
 #[repr(C)]
@@ -2817,16 +3101,22 @@ pub trait IImageDecodeFilter_Impl: windows_core::IUnknownImpl {
 impl IImageDecodeFilter_Vtbl {
     pub const fn new<Identity: IImageDecodeFilter_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IImageDecodeFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peventsink: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IImageDecodeFilter_Impl::Initialize(this, core::mem::transmute_copy(&peventsink)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IImageDecodeFilter_Impl::Initialize(this, core::mem::transmute_copy(&peventsink)).into()
+            }
         }
         unsafe extern "system" fn Process<Identity: IImageDecodeFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstream: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IImageDecodeFilter_Impl::Process(this, core::mem::transmute_copy(&pstream)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IImageDecodeFilter_Impl::Process(this, core::mem::transmute_copy(&pstream)).into()
+            }
         }
         unsafe extern "system" fn Terminate<Identity: IImageDecodeFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hrstatus: windows_core::HRESULT) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IImageDecodeFilter_Impl::Terminate(this, core::mem::transmute_copy(&hrstatus)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IImageDecodeFilter_Impl::Terminate(this, core::mem::transmute_copy(&hrstatus)).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -2855,11 +3145,13 @@ windows_core::imp::interface_hierarchy!(IIntelliForms, windows_core::IUnknown, s
 #[cfg(feature = "Win32_System_Com")]
 impl IIntelliForms {
     pub unsafe fn enabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn Setenabled(&self, bval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Setenabled)(windows_core::Interface::as_raw(self), bval).ok()
+        unsafe { (windows_core::Interface::vtable(self).Setenabled)(windows_core::Interface::as_raw(self), bval).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2878,18 +3170,22 @@ pub trait IIntelliForms_Impl: super::super::System::Com::IDispatch_Impl {
 impl IIntelliForms_Vtbl {
     pub const fn new<Identity: IIntelliForms_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn enabled<Identity: IIntelliForms_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IIntelliForms_Impl::enabled(this) {
-                Ok(ok__) => {
-                    pval.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IIntelliForms_Impl::enabled(this) {
+                    Ok(ok__) => {
+                        pval.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn Setenabled<Identity: IIntelliForms_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bval: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IIntelliForms_Impl::Setenabled(this, core::mem::transmute_copy(&bval)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IIntelliForms_Impl::Setenabled(this, core::mem::transmute_copy(&bval)).into()
+            }
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(),
@@ -2912,7 +3208,7 @@ impl IInternetExplorerManager {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        (windows_core::Interface::vtable(self).CreateObject)(windows_core::Interface::as_raw(self), dwconfig, pszurl.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe { (windows_core::Interface::vtable(self).CreateObject)(windows_core::Interface::as_raw(self), dwconfig, pszurl.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -2926,8 +3222,10 @@ pub trait IInternetExplorerManager_Impl: windows_core::IUnknownImpl {
 impl IInternetExplorerManager_Vtbl {
     pub const fn new<Identity: IInternetExplorerManager_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateObject<Identity: IInternetExplorerManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwconfig: u32, pszurl: windows_core::PCWSTR, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IInternetExplorerManager_Impl::CreateObject(this, core::mem::transmute_copy(&dwconfig), core::mem::transmute(&pszurl), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IInternetExplorerManager_Impl::CreateObject(this, core::mem::transmute_copy(&dwconfig), core::mem::transmute(&pszurl), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateObject: CreateObject::<Identity, OFFSET> }
     }
@@ -2940,8 +3238,10 @@ windows_core::imp::define_interface!(IInternetExplorerManager2, IInternetExplore
 windows_core::imp::interface_hierarchy!(IInternetExplorerManager2, windows_core::IUnknown);
 impl IInternetExplorerManager2 {
     pub unsafe fn EnumFrameWindows(&self) -> windows_core::Result<IEnumManagerFrames> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumFrameWindows)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EnumFrameWindows)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -2955,13 +3255,15 @@ pub trait IInternetExplorerManager2_Impl: windows_core::IUnknownImpl {
 impl IInternetExplorerManager2_Vtbl {
     pub const fn new<Identity: IInternetExplorerManager2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn EnumFrameWindows<Identity: IInternetExplorerManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IInternetExplorerManager2_Impl::EnumFrameWindows(this) {
-                Ok(ok__) => {
-                    ppenum.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IInternetExplorerManager2_Impl::EnumFrameWindows(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), EnumFrameWindows: EnumFrameWindows::<Identity, OFFSET> }
@@ -2985,48 +3287,60 @@ windows_core::imp::interface_hierarchy!(ILayoutRect, windows_core::IUnknown, sup
 #[cfg(feature = "Win32_System_Com")]
 impl ILayoutRect {
     pub unsafe fn SetnextRect(&self, bstrelementid: &windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetnextRect)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrelementid)).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetnextRect)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrelementid)).ok() }
     }
     pub unsafe fn nextRect(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).nextRect)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).nextRect)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetcontentSrc(&self, varcontentsrc: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetcontentSrc)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varcontentsrc)).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetcontentSrc)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varcontentsrc)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn contentSrc(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).contentSrc)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).contentSrc)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn SethonorPageBreaks(&self, v: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SethonorPageBreaks)(windows_core::Interface::as_raw(self), v).ok()
+        unsafe { (windows_core::Interface::vtable(self).SethonorPageBreaks)(windows_core::Interface::as_raw(self), v).ok() }
     }
     pub unsafe fn honorPageBreaks(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).honorPageBreaks)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).honorPageBreaks)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn SethonorPageRules(&self, v: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SethonorPageRules)(windows_core::Interface::as_raw(self), v).ok()
+        unsafe { (windows_core::Interface::vtable(self).SethonorPageRules)(windows_core::Interface::as_raw(self), v).ok() }
     }
     pub unsafe fn honorPageRules(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).honorPageRules)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).honorPageRules)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn SetnextRectElement<P0>(&self, pelem: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::System::Com::IDispatch>,
     {
-        (windows_core::Interface::vtable(self).SetnextRectElement)(windows_core::Interface::as_raw(self), pelem.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetnextRectElement)(windows_core::Interface::as_raw(self), pelem.param().abi()).ok() }
     }
     pub unsafe fn nextRectElement(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).nextRectElement)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).nextRectElement)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn contentDocument(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).contentDocument)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).contentDocument)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3069,83 +3383,105 @@ pub trait ILayoutRect_Impl: super::super::System::Com::IDispatch_Impl {
 impl ILayoutRect_Vtbl {
     pub const fn new<Identity: ILayoutRect_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetnextRect<Identity: ILayoutRect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrelementid: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ILayoutRect_Impl::SetnextRect(this, core::mem::transmute(&bstrelementid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ILayoutRect_Impl::SetnextRect(this, core::mem::transmute(&bstrelementid)).into()
+            }
         }
         unsafe extern "system" fn nextRect<Identity: ILayoutRect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrelementid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ILayoutRect_Impl::nextRect(this) {
-                Ok(ok__) => {
-                    pbstrelementid.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ILayoutRect_Impl::nextRect(this) {
+                    Ok(ok__) => {
+                        pbstrelementid.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetcontentSrc<Identity: ILayoutRect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varcontentsrc: super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ILayoutRect_Impl::SetcontentSrc(this, core::mem::transmute(&varcontentsrc)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ILayoutRect_Impl::SetcontentSrc(this, core::mem::transmute(&varcontentsrc)).into()
+            }
         }
         unsafe extern "system" fn contentSrc<Identity: ILayoutRect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarcontentsrc: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ILayoutRect_Impl::contentSrc(this) {
-                Ok(ok__) => {
-                    pvarcontentsrc.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ILayoutRect_Impl::contentSrc(this) {
+                    Ok(ok__) => {
+                        pvarcontentsrc.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SethonorPageBreaks<Identity: ILayoutRect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, v: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ILayoutRect_Impl::SethonorPageBreaks(this, core::mem::transmute_copy(&v)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ILayoutRect_Impl::SethonorPageBreaks(this, core::mem::transmute_copy(&v)).into()
+            }
         }
         unsafe extern "system" fn honorPageBreaks<Identity: ILayoutRect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ILayoutRect_Impl::honorPageBreaks(this) {
-                Ok(ok__) => {
-                    p.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ILayoutRect_Impl::honorPageBreaks(this) {
+                    Ok(ok__) => {
+                        p.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SethonorPageRules<Identity: ILayoutRect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, v: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ILayoutRect_Impl::SethonorPageRules(this, core::mem::transmute_copy(&v)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ILayoutRect_Impl::SethonorPageRules(this, core::mem::transmute_copy(&v)).into()
+            }
         }
         unsafe extern "system" fn honorPageRules<Identity: ILayoutRect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ILayoutRect_Impl::honorPageRules(this) {
-                Ok(ok__) => {
-                    p.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ILayoutRect_Impl::honorPageRules(this) {
+                    Ok(ok__) => {
+                        p.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetnextRectElement<Identity: ILayoutRect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pelem: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ILayoutRect_Impl::SetnextRectElement(this, core::mem::transmute_copy(&pelem)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ILayoutRect_Impl::SetnextRectElement(this, core::mem::transmute_copy(&pelem)).into()
+            }
         }
         unsafe extern "system" fn nextRectElement<Identity: ILayoutRect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppelem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ILayoutRect_Impl::nextRectElement(this) {
-                Ok(ok__) => {
-                    ppelem.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ILayoutRect_Impl::nextRectElement(this) {
+                    Ok(ok__) => {
+                        ppelem.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn contentDocument<Identity: ILayoutRect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdoc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ILayoutRect_Impl::contentDocument(this) {
-                Ok(ok__) => {
-                    pdoc.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ILayoutRect_Impl::contentDocument(this) {
+                    Ok(ok__) => {
+                        pdoc.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -3181,19 +3517,19 @@ windows_core::imp::define_interface!(IMapMIMEToCLSID, IMapMIMEToCLSID_Vtbl, 0xd9
 windows_core::imp::interface_hierarchy!(IMapMIMEToCLSID, windows_core::IUnknown);
 impl IMapMIMEToCLSID {
     pub unsafe fn EnableDefaultMappings(&self, benable: bool) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).EnableDefaultMappings)(windows_core::Interface::as_raw(self), benable.into()).ok()
+        unsafe { (windows_core::Interface::vtable(self).EnableDefaultMappings)(windows_core::Interface::as_raw(self), benable.into()).ok() }
     }
     pub unsafe fn MapMIMEToCLSID<P0>(&self, pszmimetype: P0, pclsid: *const windows_core::GUID) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).MapMIMEToCLSID)(windows_core::Interface::as_raw(self), pszmimetype.param().abi(), pclsid).ok()
+        unsafe { (windows_core::Interface::vtable(self).MapMIMEToCLSID)(windows_core::Interface::as_raw(self), pszmimetype.param().abi(), pclsid).ok() }
     }
     pub unsafe fn SetMapping<P0>(&self, pszmimetype: P0, dwmapmode: u32, clsid: *const windows_core::GUID) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetMapping)(windows_core::Interface::as_raw(self), pszmimetype.param().abi(), dwmapmode, clsid).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetMapping)(windows_core::Interface::as_raw(self), pszmimetype.param().abi(), dwmapmode, clsid).ok() }
     }
 }
 #[repr(C)]
@@ -3211,16 +3547,22 @@ pub trait IMapMIMEToCLSID_Impl: windows_core::IUnknownImpl {
 impl IMapMIMEToCLSID_Vtbl {
     pub const fn new<Identity: IMapMIMEToCLSID_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn EnableDefaultMappings<Identity: IMapMIMEToCLSID_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, benable: super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IMapMIMEToCLSID_Impl::EnableDefaultMappings(this, core::mem::transmute_copy(&benable)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IMapMIMEToCLSID_Impl::EnableDefaultMappings(this, core::mem::transmute_copy(&benable)).into()
+            }
         }
         unsafe extern "system" fn MapMIMEToCLSID<Identity: IMapMIMEToCLSID_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszmimetype: windows_core::PCWSTR, pclsid: *const windows_core::GUID) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IMapMIMEToCLSID_Impl::MapMIMEToCLSID(this, core::mem::transmute(&pszmimetype), core::mem::transmute_copy(&pclsid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IMapMIMEToCLSID_Impl::MapMIMEToCLSID(this, core::mem::transmute(&pszmimetype), core::mem::transmute_copy(&pclsid)).into()
+            }
         }
         unsafe extern "system" fn SetMapping<Identity: IMapMIMEToCLSID_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszmimetype: windows_core::PCWSTR, dwmapmode: u32, clsid: *const windows_core::GUID) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IMapMIMEToCLSID_Impl::SetMapping(this, core::mem::transmute(&pszmimetype), core::mem::transmute_copy(&dwmapmode), core::mem::transmute_copy(&clsid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IMapMIMEToCLSID_Impl::SetMapping(this, core::mem::transmute(&pszmimetype), core::mem::transmute_copy(&dwmapmode), core::mem::transmute_copy(&clsid)).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -3238,10 +3580,10 @@ windows_core::imp::define_interface!(IMediaActivityNotifySite, IMediaActivityNot
 windows_core::imp::interface_hierarchy!(IMediaActivityNotifySite, windows_core::IUnknown);
 impl IMediaActivityNotifySite {
     pub unsafe fn OnMediaActivityStarted(&self, mediaactivitytype: MEDIA_ACTIVITY_NOTIFY_TYPE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).OnMediaActivityStarted)(windows_core::Interface::as_raw(self), mediaactivitytype).ok()
+        unsafe { (windows_core::Interface::vtable(self).OnMediaActivityStarted)(windows_core::Interface::as_raw(self), mediaactivitytype).ok() }
     }
     pub unsafe fn OnMediaActivityStopped(&self, mediaactivitytype: MEDIA_ACTIVITY_NOTIFY_TYPE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).OnMediaActivityStopped)(windows_core::Interface::as_raw(self), mediaactivitytype).ok()
+        unsafe { (windows_core::Interface::vtable(self).OnMediaActivityStopped)(windows_core::Interface::as_raw(self), mediaactivitytype).ok() }
     }
 }
 #[repr(C)]
@@ -3257,12 +3599,16 @@ pub trait IMediaActivityNotifySite_Impl: windows_core::IUnknownImpl {
 impl IMediaActivityNotifySite_Vtbl {
     pub const fn new<Identity: IMediaActivityNotifySite_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnMediaActivityStarted<Identity: IMediaActivityNotifySite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mediaactivitytype: MEDIA_ACTIVITY_NOTIFY_TYPE) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IMediaActivityNotifySite_Impl::OnMediaActivityStarted(this, core::mem::transmute_copy(&mediaactivitytype)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IMediaActivityNotifySite_Impl::OnMediaActivityStarted(this, core::mem::transmute_copy(&mediaactivitytype)).into()
+            }
         }
         unsafe extern "system" fn OnMediaActivityStopped<Identity: IMediaActivityNotifySite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mediaactivitytype: MEDIA_ACTIVITY_NOTIFY_TYPE) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IMediaActivityNotifySite_Impl::OnMediaActivityStopped(this, core::mem::transmute_copy(&mediaactivitytype)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IMediaActivityNotifySite_Impl::OnMediaActivityStopped(this, core::mem::transmute_copy(&mediaactivitytype)).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -3285,15 +3631,19 @@ windows_core::imp::define_interface!(IOpenService, IOpenService_Vtbl, 0xc2952ed1
 windows_core::imp::interface_hierarchy!(IOpenService, windows_core::IUnknown);
 impl IOpenService {
     pub unsafe fn IsDefault(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).IsDefault)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).IsDefault)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn SetDefault(&self, fdefault: bool, hwnd: super::super::Foundation::HWND) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetDefault)(windows_core::Interface::as_raw(self), fdefault.into(), hwnd).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetDefault)(windows_core::Interface::as_raw(self), fdefault.into(), hwnd).ok() }
     }
     pub unsafe fn GetID(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
 }
 #[repr(C)]
@@ -3311,27 +3661,33 @@ pub trait IOpenService_Impl: windows_core::IUnknownImpl {
 impl IOpenService_Vtbl {
     pub const fn new<Identity: IOpenService_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn IsDefault<Identity: IOpenService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfisdefault: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IOpenService_Impl::IsDefault(this) {
-                Ok(ok__) => {
-                    pfisdefault.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IOpenService_Impl::IsDefault(this) {
+                    Ok(ok__) => {
+                        pfisdefault.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetDefault<Identity: IOpenService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fdefault: super::super::Foundation::BOOL, hwnd: super::super::Foundation::HWND) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOpenService_Impl::SetDefault(this, core::mem::transmute_copy(&fdefault), core::mem::transmute_copy(&hwnd)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IOpenService_Impl::SetDefault(this, core::mem::transmute_copy(&fdefault), core::mem::transmute_copy(&hwnd)).into()
+            }
         }
         unsafe extern "system" fn GetID<Identity: IOpenService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IOpenService_Impl::GetID(this) {
-                Ok(ok__) => {
-                    pbstrid.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IOpenService_Impl::GetID(this) {
+                    Ok(ok__) => {
+                        pbstrid.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -3360,89 +3716,119 @@ impl IOpenServiceActivity {
         P0: windows_core::Param<IOpenServiceActivityInput>,
         P1: windows_core::Param<IOpenServiceActivityOutputContext>,
     {
-        (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), pinput.param().abi(), poutput.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), pinput.param().abi(), poutput.param().abi()).ok() }
     }
     pub unsafe fn CanExecute<P0, P1>(&self, pinput: P0, poutput: P1) -> windows_core::Result<super::super::Foundation::BOOL>
     where
         P0: windows_core::Param<IOpenServiceActivityInput>,
         P1: windows_core::Param<IOpenServiceActivityOutputContext>,
     {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CanExecute)(windows_core::Interface::as_raw(self), pinput.param().abi(), poutput.param().abi(), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CanExecute)(windows_core::Interface::as_raw(self), pinput.param().abi(), poutput.param().abi(), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn CanExecuteType(&self, r#type: OpenServiceActivityContentType) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CanExecuteType)(windows_core::Interface::as_raw(self), r#type, &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CanExecuteType)(windows_core::Interface::as_raw(self), r#type, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn Preview<P0, P1>(&self, pinput: P0, poutput: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IOpenServiceActivityInput>,
         P1: windows_core::Param<IOpenServiceActivityOutputContext>,
     {
-        (windows_core::Interface::vtable(self).Preview)(windows_core::Interface::as_raw(self), pinput.param().abi(), poutput.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).Preview)(windows_core::Interface::as_raw(self), pinput.param().abi(), poutput.param().abi()).ok() }
     }
     pub unsafe fn CanPreview<P0, P1>(&self, pinput: P0, poutput: P1) -> windows_core::Result<super::super::Foundation::BOOL>
     where
         P0: windows_core::Param<IOpenServiceActivityInput>,
         P1: windows_core::Param<IOpenServiceActivityOutputContext>,
     {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CanPreview)(windows_core::Interface::as_raw(self), pinput.param().abi(), poutput.param().abi(), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CanPreview)(windows_core::Interface::as_raw(self), pinput.param().abi(), poutput.param().abi(), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn CanPreviewType(&self, r#type: OpenServiceActivityContentType) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CanPreviewType)(windows_core::Interface::as_raw(self), r#type, &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CanPreviewType)(windows_core::Interface::as_raw(self), r#type, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn GetStatusText<P0>(&self, pinput: P0) -> windows_core::Result<windows_core::BSTR>
     where
         P0: windows_core::Param<IOpenServiceActivityInput>,
     {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetStatusText)(windows_core::Interface::as_raw(self), pinput.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetStatusText)(windows_core::Interface::as_raw(self), pinput.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn GetHomepageUrl(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetHomepageUrl)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetHomepageUrl)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn GetDisplayName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetDisplayName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetDisplayName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn GetDescription(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn GetCategoryName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetCategoryName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetCategoryName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn GetIconPath(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetIconPath)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetIconPath)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn GetIcon(&self, fsmallicon: bool) -> windows_core::Result<super::super::UI::WindowsAndMessaging::HICON> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetIcon)(windows_core::Interface::as_raw(self), fsmallicon.into(), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetIcon)(windows_core::Interface::as_raw(self), fsmallicon.into(), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn GetDescriptionFilePath(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetDescriptionFilePath)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetDescriptionFilePath)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn GetDownloadUrl(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetDownloadUrl)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetDownloadUrl)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn GetInstallUrl(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetInstallUrl)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetInstallUrl)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn IsEnabled(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).IsEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).IsEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn SetEnabled(&self, fenable: bool) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), fenable.into()).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), fenable.into()).ok() }
     }
 }
 #[repr(C)]
@@ -3495,166 +3881,202 @@ pub trait IOpenServiceActivity_Impl: IOpenService_Impl {
 impl IOpenServiceActivity_Vtbl {
     pub const fn new<Identity: IOpenServiceActivity_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Execute<Identity: IOpenServiceActivity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinput: *mut core::ffi::c_void, poutput: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOpenServiceActivity_Impl::Execute(this, core::mem::transmute_copy(&pinput), core::mem::transmute_copy(&poutput)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IOpenServiceActivity_Impl::Execute(this, core::mem::transmute_copy(&pinput), core::mem::transmute_copy(&poutput)).into()
+            }
         }
         unsafe extern "system" fn CanExecute<Identity: IOpenServiceActivity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinput: *mut core::ffi::c_void, poutput: *mut core::ffi::c_void, pfcanexecute: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IOpenServiceActivity_Impl::CanExecute(this, core::mem::transmute_copy(&pinput), core::mem::transmute_copy(&poutput)) {
-                Ok(ok__) => {
-                    pfcanexecute.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IOpenServiceActivity_Impl::CanExecute(this, core::mem::transmute_copy(&pinput), core::mem::transmute_copy(&poutput)) {
+                    Ok(ok__) => {
+                        pfcanexecute.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn CanExecuteType<Identity: IOpenServiceActivity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: OpenServiceActivityContentType, pfcanexecute: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IOpenServiceActivity_Impl::CanExecuteType(this, core::mem::transmute_copy(&r#type)) {
-                Ok(ok__) => {
-                    pfcanexecute.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IOpenServiceActivity_Impl::CanExecuteType(this, core::mem::transmute_copy(&r#type)) {
+                    Ok(ok__) => {
+                        pfcanexecute.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn Preview<Identity: IOpenServiceActivity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinput: *mut core::ffi::c_void, poutput: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOpenServiceActivity_Impl::Preview(this, core::mem::transmute_copy(&pinput), core::mem::transmute_copy(&poutput)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IOpenServiceActivity_Impl::Preview(this, core::mem::transmute_copy(&pinput), core::mem::transmute_copy(&poutput)).into()
+            }
         }
         unsafe extern "system" fn CanPreview<Identity: IOpenServiceActivity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinput: *mut core::ffi::c_void, poutput: *mut core::ffi::c_void, pfcanpreview: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IOpenServiceActivity_Impl::CanPreview(this, core::mem::transmute_copy(&pinput), core::mem::transmute_copy(&poutput)) {
-                Ok(ok__) => {
-                    pfcanpreview.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IOpenServiceActivity_Impl::CanPreview(this, core::mem::transmute_copy(&pinput), core::mem::transmute_copy(&poutput)) {
+                    Ok(ok__) => {
+                        pfcanpreview.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn CanPreviewType<Identity: IOpenServiceActivity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: OpenServiceActivityContentType, pfcanpreview: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IOpenServiceActivity_Impl::CanPreviewType(this, core::mem::transmute_copy(&r#type)) {
-                Ok(ok__) => {
-                    pfcanpreview.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IOpenServiceActivity_Impl::CanPreviewType(this, core::mem::transmute_copy(&r#type)) {
+                    Ok(ok__) => {
+                        pfcanpreview.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetStatusText<Identity: IOpenServiceActivity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinput: *mut core::ffi::c_void, pbstrstatustext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IOpenServiceActivity_Impl::GetStatusText(this, core::mem::transmute_copy(&pinput)) {
-                Ok(ok__) => {
-                    pbstrstatustext.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IOpenServiceActivity_Impl::GetStatusText(this, core::mem::transmute_copy(&pinput)) {
+                    Ok(ok__) => {
+                        pbstrstatustext.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetHomepageUrl<Identity: IOpenServiceActivity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrhomepageurl: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IOpenServiceActivity_Impl::GetHomepageUrl(this) {
-                Ok(ok__) => {
-                    pbstrhomepageurl.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IOpenServiceActivity_Impl::GetHomepageUrl(this) {
+                    Ok(ok__) => {
+                        pbstrhomepageurl.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetDisplayName<Identity: IOpenServiceActivity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdisplayname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IOpenServiceActivity_Impl::GetDisplayName(this) {
-                Ok(ok__) => {
-                    pbstrdisplayname.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IOpenServiceActivity_Impl::GetDisplayName(this) {
+                    Ok(ok__) => {
+                        pbstrdisplayname.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetDescription<Identity: IOpenServiceActivity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdescription: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IOpenServiceActivity_Impl::GetDescription(this) {
-                Ok(ok__) => {
-                    pbstrdescription.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IOpenServiceActivity_Impl::GetDescription(this) {
+                    Ok(ok__) => {
+                        pbstrdescription.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetCategoryName<Identity: IOpenServiceActivity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcategoryname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IOpenServiceActivity_Impl::GetCategoryName(this) {
-                Ok(ok__) => {
-                    pbstrcategoryname.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IOpenServiceActivity_Impl::GetCategoryName(this) {
+                    Ok(ok__) => {
+                        pbstrcategoryname.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetIconPath<Identity: IOpenServiceActivity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstriconpath: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IOpenServiceActivity_Impl::GetIconPath(this) {
-                Ok(ok__) => {
-                    pbstriconpath.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IOpenServiceActivity_Impl::GetIconPath(this) {
+                    Ok(ok__) => {
+                        pbstriconpath.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetIcon<Identity: IOpenServiceActivity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fsmallicon: super::super::Foundation::BOOL, phicon: *mut super::super::UI::WindowsAndMessaging::HICON) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IOpenServiceActivity_Impl::GetIcon(this, core::mem::transmute_copy(&fsmallicon)) {
-                Ok(ok__) => {
-                    phicon.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IOpenServiceActivity_Impl::GetIcon(this, core::mem::transmute_copy(&fsmallicon)) {
+                    Ok(ok__) => {
+                        phicon.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetDescriptionFilePath<Identity: IOpenServiceActivity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrxmlpath: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IOpenServiceActivity_Impl::GetDescriptionFilePath(this) {
-                Ok(ok__) => {
-                    pbstrxmlpath.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IOpenServiceActivity_Impl::GetDescriptionFilePath(this) {
+                    Ok(ok__) => {
+                        pbstrxmlpath.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetDownloadUrl<Identity: IOpenServiceActivity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrxmluri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IOpenServiceActivity_Impl::GetDownloadUrl(this) {
-                Ok(ok__) => {
-                    pbstrxmluri.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IOpenServiceActivity_Impl::GetDownloadUrl(this) {
+                    Ok(ok__) => {
+                        pbstrxmluri.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetInstallUrl<Identity: IOpenServiceActivity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrinstalluri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IOpenServiceActivity_Impl::GetInstallUrl(this) {
-                Ok(ok__) => {
-                    pbstrinstalluri.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IOpenServiceActivity_Impl::GetInstallUrl(this) {
+                    Ok(ok__) => {
+                        pbstrinstalluri.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn IsEnabled<Identity: IOpenServiceActivity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfisenabled: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IOpenServiceActivity_Impl::IsEnabled(this) {
-                Ok(ok__) => {
-                    pfisenabled.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IOpenServiceActivity_Impl::IsEnabled(this) {
+                    Ok(ok__) => {
+                        pfisenabled.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetEnabled<Identity: IOpenServiceActivity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fenable: super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOpenServiceActivity_Impl::SetEnabled(this, core::mem::transmute_copy(&fenable)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IOpenServiceActivity_Impl::SetEnabled(this, core::mem::transmute_copy(&fenable)).into()
+            }
         }
         Self {
             base__: IOpenService_Vtbl::new::<Identity, OFFSET>(),
@@ -3688,30 +4110,38 @@ windows_core::imp::define_interface!(IOpenServiceActivityCategory, IOpenServiceA
 windows_core::imp::interface_hierarchy!(IOpenServiceActivityCategory, windows_core::IUnknown);
 impl IOpenServiceActivityCategory {
     pub unsafe fn HasDefaultActivity(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).HasDefaultActivity)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).HasDefaultActivity)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn GetDefaultActivity(&self) -> windows_core::Result<IOpenServiceActivity> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetDefaultActivity)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetDefaultActivity)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn SetDefaultActivity<P0>(&self, pactivity: P0, hwnd: super::super::Foundation::HWND) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IOpenServiceActivity>,
     {
-        (windows_core::Interface::vtable(self).SetDefaultActivity)(windows_core::Interface::as_raw(self), pactivity.param().abi(), hwnd).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetDefaultActivity)(windows_core::Interface::as_raw(self), pactivity.param().abi(), hwnd).ok() }
     }
     pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn GetActivityEnumerator<P0, P1>(&self, pinput: P0, poutput: P1) -> windows_core::Result<IEnumOpenServiceActivity>
     where
         P0: windows_core::Param<IOpenServiceActivityInput>,
         P1: windows_core::Param<IOpenServiceActivityOutputContext>,
     {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetActivityEnumerator)(windows_core::Interface::as_raw(self), pinput.param().abi(), poutput.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetActivityEnumerator)(windows_core::Interface::as_raw(self), pinput.param().abi(), poutput.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -3733,47 +4163,57 @@ pub trait IOpenServiceActivityCategory_Impl: windows_core::IUnknownImpl {
 impl IOpenServiceActivityCategory_Vtbl {
     pub const fn new<Identity: IOpenServiceActivityCategory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn HasDefaultActivity<Identity: IOpenServiceActivityCategory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfhasdefaultactivity: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IOpenServiceActivityCategory_Impl::HasDefaultActivity(this) {
-                Ok(ok__) => {
-                    pfhasdefaultactivity.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IOpenServiceActivityCategory_Impl::HasDefaultActivity(this) {
+                    Ok(ok__) => {
+                        pfhasdefaultactivity.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetDefaultActivity<Identity: IOpenServiceActivityCategory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdefaultactivity: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IOpenServiceActivityCategory_Impl::GetDefaultActivity(this) {
-                Ok(ok__) => {
-                    ppdefaultactivity.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IOpenServiceActivityCategory_Impl::GetDefaultActivity(this) {
+                    Ok(ok__) => {
+                        ppdefaultactivity.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetDefaultActivity<Identity: IOpenServiceActivityCategory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pactivity: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOpenServiceActivityCategory_Impl::SetDefaultActivity(this, core::mem::transmute_copy(&pactivity), core::mem::transmute_copy(&hwnd)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IOpenServiceActivityCategory_Impl::SetDefaultActivity(this, core::mem::transmute_copy(&pactivity), core::mem::transmute_copy(&hwnd)).into()
+            }
         }
         unsafe extern "system" fn GetName<Identity: IOpenServiceActivityCategory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IOpenServiceActivityCategory_Impl::GetName(this) {
-                Ok(ok__) => {
-                    pbstrname.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IOpenServiceActivityCategory_Impl::GetName(this) {
+                    Ok(ok__) => {
+                        pbstrname.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetActivityEnumerator<Identity: IOpenServiceActivityCategory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinput: *mut core::ffi::c_void, poutput: *mut core::ffi::c_void, ppenumactivity: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IOpenServiceActivityCategory_Impl::GetActivityEnumerator(this, core::mem::transmute_copy(&pinput), core::mem::transmute_copy(&poutput)) {
-                Ok(ok__) => {
-                    ppenumactivity.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IOpenServiceActivityCategory_Impl::GetActivityEnumerator(this, core::mem::transmute_copy(&pinput), core::mem::transmute_copy(&poutput)) {
+                    Ok(ok__) => {
+                        ppenumactivity.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -3798,20 +4238,26 @@ impl IOpenServiceActivityInput {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetVariable)(windows_core::Interface::as_raw(self), pwzvariablename.param().abi(), pwzvariabletype.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetVariable)(windows_core::Interface::as_raw(self), pwzvariablename.param().abi(), pwzvariabletype.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn HasVariable<P0, P1>(&self, pwzvariablename: P0, pwzvariabletype: P1) -> windows_core::Result<super::super::Foundation::BOOL>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).HasVariable)(windows_core::Interface::as_raw(self), pwzvariablename.param().abi(), pwzvariabletype.param().abi(), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).HasVariable)(windows_core::Interface::as_raw(self), pwzvariablename.param().abi(), pwzvariabletype.param().abi(), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn GetType(&self) -> windows_core::Result<OpenServiceActivityContentType> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
 }
 #[repr(C)]
@@ -3829,33 +4275,39 @@ pub trait IOpenServiceActivityInput_Impl: windows_core::IUnknownImpl {
 impl IOpenServiceActivityInput_Vtbl {
     pub const fn new<Identity: IOpenServiceActivityInput_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetVariable<Identity: IOpenServiceActivityInput_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwzvariablename: windows_core::PCWSTR, pwzvariabletype: windows_core::PCWSTR, pbstrvariablecontent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IOpenServiceActivityInput_Impl::GetVariable(this, core::mem::transmute(&pwzvariablename), core::mem::transmute(&pwzvariabletype)) {
-                Ok(ok__) => {
-                    pbstrvariablecontent.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IOpenServiceActivityInput_Impl::GetVariable(this, core::mem::transmute(&pwzvariablename), core::mem::transmute(&pwzvariabletype)) {
+                    Ok(ok__) => {
+                        pbstrvariablecontent.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn HasVariable<Identity: IOpenServiceActivityInput_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwzvariablename: windows_core::PCWSTR, pwzvariabletype: windows_core::PCWSTR, pfhasvariable: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IOpenServiceActivityInput_Impl::HasVariable(this, core::mem::transmute(&pwzvariablename), core::mem::transmute(&pwzvariabletype)) {
-                Ok(ok__) => {
-                    pfhasvariable.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IOpenServiceActivityInput_Impl::HasVariable(this, core::mem::transmute(&pwzvariablename), core::mem::transmute(&pwzvariabletype)) {
+                    Ok(ok__) => {
+                        pfhasvariable.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetType<Identity: IOpenServiceActivityInput_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptype: *mut OpenServiceActivityContentType) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IOpenServiceActivityInput_Impl::GetType(this) {
-                Ok(ok__) => {
-                    ptype.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IOpenServiceActivityInput_Impl::GetType(this) {
+                    Ok(ok__) => {
+                        ptype.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -3874,27 +4326,35 @@ windows_core::imp::define_interface!(IOpenServiceActivityManager, IOpenServiceAc
 windows_core::imp::interface_hierarchy!(IOpenServiceActivityManager, windows_core::IUnknown);
 impl IOpenServiceActivityManager {
     pub unsafe fn GetCategoryEnumerator(&self, etype: OpenServiceActivityContentType) -> windows_core::Result<IEnumOpenServiceActivityCategory> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetCategoryEnumerator)(windows_core::Interface::as_raw(self), etype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetCategoryEnumerator)(windows_core::Interface::as_raw(self), etype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetActivityByID<P0>(&self, pwzactivityid: P0) -> windows_core::Result<IOpenServiceActivity>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetActivityByID)(windows_core::Interface::as_raw(self), pwzactivityid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetActivityByID)(windows_core::Interface::as_raw(self), pwzactivityid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetActivityByHomepageAndCategory<P0, P1>(&self, pwzhomepage: P0, pwzcategory: P1) -> windows_core::Result<IOpenServiceActivity>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetActivityByHomepageAndCategory)(windows_core::Interface::as_raw(self), pwzhomepage.param().abi(), pwzcategory.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetActivityByHomepageAndCategory)(windows_core::Interface::as_raw(self), pwzhomepage.param().abi(), pwzcategory.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetVersionCookie(&self) -> windows_core::Result<u32> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetVersionCookie)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetVersionCookie)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
 }
 #[repr(C)]
@@ -3914,43 +4374,51 @@ pub trait IOpenServiceActivityManager_Impl: windows_core::IUnknownImpl {
 impl IOpenServiceActivityManager_Vtbl {
     pub const fn new<Identity: IOpenServiceActivityManager_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCategoryEnumerator<Identity: IOpenServiceActivityManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, etype: OpenServiceActivityContentType, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IOpenServiceActivityManager_Impl::GetCategoryEnumerator(this, core::mem::transmute_copy(&etype)) {
-                Ok(ok__) => {
-                    ppenum.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IOpenServiceActivityManager_Impl::GetCategoryEnumerator(this, core::mem::transmute_copy(&etype)) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetActivityByID<Identity: IOpenServiceActivityManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwzactivityid: windows_core::PCWSTR, ppactivity: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IOpenServiceActivityManager_Impl::GetActivityByID(this, core::mem::transmute(&pwzactivityid)) {
-                Ok(ok__) => {
-                    ppactivity.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IOpenServiceActivityManager_Impl::GetActivityByID(this, core::mem::transmute(&pwzactivityid)) {
+                    Ok(ok__) => {
+                        ppactivity.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetActivityByHomepageAndCategory<Identity: IOpenServiceActivityManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwzhomepage: windows_core::PCWSTR, pwzcategory: windows_core::PCWSTR, ppactivity: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IOpenServiceActivityManager_Impl::GetActivityByHomepageAndCategory(this, core::mem::transmute(&pwzhomepage), core::mem::transmute(&pwzcategory)) {
-                Ok(ok__) => {
-                    ppactivity.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IOpenServiceActivityManager_Impl::GetActivityByHomepageAndCategory(this, core::mem::transmute(&pwzhomepage), core::mem::transmute(&pwzcategory)) {
+                    Ok(ok__) => {
+                        ppactivity.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetVersionCookie<Identity: IOpenServiceActivityManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwversioncookie: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IOpenServiceActivityManager_Impl::GetVersionCookie(this) {
-                Ok(ok__) => {
-                    pdwversioncookie.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IOpenServiceActivityManager_Impl::GetVersionCookie(this) {
+                    Ok(ok__) => {
+                        pdwversioncookie.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -3977,7 +4445,7 @@ impl IOpenServiceActivityOutputContext {
         P2: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<super::super::System::Com::IStream>,
     {
-        (windows_core::Interface::vtable(self).Navigate)(windows_core::Interface::as_raw(self), pwzuri.param().abi(), pwzmethod.param().abi(), pwzheaders.param().abi(), ppostdata.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).Navigate)(windows_core::Interface::as_raw(self), pwzuri.param().abi(), pwzmethod.param().abi(), pwzheaders.param().abi(), ppostdata.param().abi()).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CanNavigate<P0, P1, P2, P3>(&self, pwzuri: P0, pwzmethod: P1, pwzheaders: P2, ppostdata: P3) -> windows_core::Result<super::super::Foundation::BOOL>
@@ -3987,8 +4455,10 @@ impl IOpenServiceActivityOutputContext {
         P2: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<super::super::System::Com::IStream>,
     {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CanNavigate)(windows_core::Interface::as_raw(self), pwzuri.param().abi(), pwzmethod.param().abi(), pwzheaders.param().abi(), ppostdata.param().abi(), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CanNavigate)(windows_core::Interface::as_raw(self), pwzuri.param().abi(), pwzmethod.param().abi(), pwzheaders.param().abi(), ppostdata.param().abi(), &mut result__).map(|| result__)
+        }
     }
 }
 #[repr(C)]
@@ -4012,17 +4482,21 @@ pub trait IOpenServiceActivityOutputContext_Impl: windows_core::IUnknownImpl {
 impl IOpenServiceActivityOutputContext_Vtbl {
     pub const fn new<Identity: IOpenServiceActivityOutputContext_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Navigate<Identity: IOpenServiceActivityOutputContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwzuri: windows_core::PCWSTR, pwzmethod: windows_core::PCWSTR, pwzheaders: windows_core::PCWSTR, ppostdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOpenServiceActivityOutputContext_Impl::Navigate(this, core::mem::transmute(&pwzuri), core::mem::transmute(&pwzmethod), core::mem::transmute(&pwzheaders), core::mem::transmute_copy(&ppostdata)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IOpenServiceActivityOutputContext_Impl::Navigate(this, core::mem::transmute(&pwzuri), core::mem::transmute(&pwzmethod), core::mem::transmute(&pwzheaders), core::mem::transmute_copy(&ppostdata)).into()
+            }
         }
         unsafe extern "system" fn CanNavigate<Identity: IOpenServiceActivityOutputContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwzuri: windows_core::PCWSTR, pwzmethod: windows_core::PCWSTR, pwzheaders: windows_core::PCWSTR, ppostdata: *mut core::ffi::c_void, pfcannavigate: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IOpenServiceActivityOutputContext_Impl::CanNavigate(this, core::mem::transmute(&pwzuri), core::mem::transmute(&pwzmethod), core::mem::transmute(&pwzheaders), core::mem::transmute_copy(&ppostdata)) {
-                Ok(ok__) => {
-                    pfcannavigate.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IOpenServiceActivityOutputContext_Impl::CanNavigate(this, core::mem::transmute(&pwzuri), core::mem::transmute(&pwzmethod), core::mem::transmute(&pwzheaders), core::mem::transmute_copy(&ppostdata)) {
+                    Ok(ok__) => {
+                        pfcannavigate.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -4044,21 +4518,25 @@ impl IOpenServiceManager {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).InstallService)(windows_core::Interface::as_raw(self), pwzserviceurl.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).InstallService)(windows_core::Interface::as_raw(self), pwzserviceurl.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn UninstallService<P0>(&self, pservice: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IOpenService>,
     {
-        (windows_core::Interface::vtable(self).UninstallService)(windows_core::Interface::as_raw(self), pservice.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).UninstallService)(windows_core::Interface::as_raw(self), pservice.param().abi()).ok() }
     }
     pub unsafe fn GetServiceByID<P0>(&self, pwzid: P0) -> windows_core::Result<IOpenService>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetServiceByID)(windows_core::Interface::as_raw(self), pwzid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetServiceByID)(windows_core::Interface::as_raw(self), pwzid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -4076,27 +4554,33 @@ pub trait IOpenServiceManager_Impl: windows_core::IUnknownImpl {
 impl IOpenServiceManager_Vtbl {
     pub const fn new<Identity: IOpenServiceManager_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InstallService<Identity: IOpenServiceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwzserviceurl: windows_core::PCWSTR, ppservice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IOpenServiceManager_Impl::InstallService(this, core::mem::transmute(&pwzserviceurl)) {
-                Ok(ok__) => {
-                    ppservice.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IOpenServiceManager_Impl::InstallService(this, core::mem::transmute(&pwzserviceurl)) {
+                    Ok(ok__) => {
+                        ppservice.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn UninstallService<Identity: IOpenServiceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pservice: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IOpenServiceManager_Impl::UninstallService(this, core::mem::transmute_copy(&pservice)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IOpenServiceManager_Impl::UninstallService(this, core::mem::transmute_copy(&pservice)).into()
+            }
         }
         unsafe extern "system" fn GetServiceByID<Identity: IOpenServiceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwzid: windows_core::PCWSTR, ppservice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IOpenServiceManager_Impl::GetServiceByID(this, core::mem::transmute(&pwzid)) {
-                Ok(ok__) => {
-                    ppservice.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IOpenServiceManager_Impl::GetServiceByID(this, core::mem::transmute(&pwzid)) {
+                    Ok(ok__) => {
+                        ppservice.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -4146,21 +4630,23 @@ impl IPersistHistory {
         P0: windows_core::Param<super::super::System::Com::IStream>,
         P1: windows_core::Param<super::super::System::Com::IBindCtx>,
     {
-        (windows_core::Interface::vtable(self).LoadHistory)(windows_core::Interface::as_raw(self), pstream.param().abi(), pbc.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).LoadHistory)(windows_core::Interface::as_raw(self), pstream.param().abi(), pbc.param().abi()).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SaveHistory<P0>(&self, pstream: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::System::Com::IStream>,
     {
-        (windows_core::Interface::vtable(self).SaveHistory)(windows_core::Interface::as_raw(self), pstream.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).SaveHistory)(windows_core::Interface::as_raw(self), pstream.param().abi()).ok() }
     }
     pub unsafe fn SetPositionCookie(&self, dwpositioncookie: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetPositionCookie)(windows_core::Interface::as_raw(self), dwpositioncookie).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetPositionCookie)(windows_core::Interface::as_raw(self), dwpositioncookie).ok() }
     }
     pub unsafe fn GetPositionCookie(&self) -> windows_core::Result<u32> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetPositionCookie)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetPositionCookie)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4189,25 +4675,33 @@ pub trait IPersistHistory_Impl: super::super::System::Com::IPersist_Impl {
 impl IPersistHistory_Vtbl {
     pub const fn new<Identity: IPersistHistory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn LoadHistory<Identity: IPersistHistory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstream: *mut core::ffi::c_void, pbc: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPersistHistory_Impl::LoadHistory(this, core::mem::transmute_copy(&pstream), core::mem::transmute_copy(&pbc)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPersistHistory_Impl::LoadHistory(this, core::mem::transmute_copy(&pstream), core::mem::transmute_copy(&pbc)).into()
+            }
         }
         unsafe extern "system" fn SaveHistory<Identity: IPersistHistory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstream: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPersistHistory_Impl::SaveHistory(this, core::mem::transmute_copy(&pstream)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPersistHistory_Impl::SaveHistory(this, core::mem::transmute_copy(&pstream)).into()
+            }
         }
         unsafe extern "system" fn SetPositionCookie<Identity: IPersistHistory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwpositioncookie: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPersistHistory_Impl::SetPositionCookie(this, core::mem::transmute_copy(&dwpositioncookie)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPersistHistory_Impl::SetPositionCookie(this, core::mem::transmute_copy(&dwpositioncookie)).into()
+            }
         }
         unsafe extern "system" fn GetPositionCookie<Identity: IPersistHistory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwpositioncookie: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IPersistHistory_Impl::GetPositionCookie(this) {
-                Ok(ok__) => {
-                    pdwpositioncookie.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IPersistHistory_Impl::GetPositionCookie(this) {
+                    Ok(ok__) => {
+                        pdwpositioncookie.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -4231,7 +4725,7 @@ impl IPrintTaskRequestFactory {
     where
         P0: windows_core::Param<IPrintTaskRequestHandler>,
     {
-        (windows_core::Interface::vtable(self).CreatePrintTaskRequest)(windows_core::Interface::as_raw(self), pprinttaskrequesthandler.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).CreatePrintTaskRequest)(windows_core::Interface::as_raw(self), pprinttaskrequesthandler.param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -4245,8 +4739,10 @@ pub trait IPrintTaskRequestFactory_Impl: windows_core::IUnknownImpl {
 impl IPrintTaskRequestFactory_Vtbl {
     pub const fn new<Identity: IPrintTaskRequestFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreatePrintTaskRequest<Identity: IPrintTaskRequestFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprinttaskrequesthandler: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPrintTaskRequestFactory_Impl::CreatePrintTaskRequest(this, core::mem::transmute_copy(&pprinttaskrequesthandler)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPrintTaskRequestFactory_Impl::CreatePrintTaskRequest(this, core::mem::transmute_copy(&pprinttaskrequesthandler)).into()
+            }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreatePrintTaskRequest: CreatePrintTaskRequest::<Identity, OFFSET> }
     }
@@ -4262,7 +4758,7 @@ impl IPrintTaskRequestHandler {
     where
         P0: windows_core::Param<windows_core::IInspectable>,
     {
-        (windows_core::Interface::vtable(self).HandlePrintTaskRequest)(windows_core::Interface::as_raw(self), pprinttaskrequest.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).HandlePrintTaskRequest)(windows_core::Interface::as_raw(self), pprinttaskrequest.param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -4276,8 +4772,10 @@ pub trait IPrintTaskRequestHandler_Impl: windows_core::IUnknownImpl {
 impl IPrintTaskRequestHandler_Vtbl {
     pub const fn new<Identity: IPrintTaskRequestHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn HandlePrintTaskRequest<Identity: IPrintTaskRequestHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprinttaskrequest: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPrintTaskRequestHandler_Impl::HandlePrintTaskRequest(this, core::mem::transmute_copy(&pprinttaskrequest)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPrintTaskRequestHandler_Impl::HandlePrintTaskRequest(this, core::mem::transmute_copy(&pprinttaskrequest)).into()
+            }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), HandlePrintTaskRequest: HandlePrintTaskRequest::<Identity, OFFSET> }
     }
@@ -4293,11 +4791,13 @@ impl IScrollableContextMenu {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AddItem)(windows_core::Interface::as_raw(self), itemtext.param().abi(), cmdid).ok()
+        unsafe { (windows_core::Interface::vtable(self).AddItem)(windows_core::Interface::as_raw(self), itemtext.param().abi(), cmdid).ok() }
     }
     pub unsafe fn ShowModal(&self, x: i32, y: i32) -> windows_core::Result<u32> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).ShowModal)(windows_core::Interface::as_raw(self), x, y, &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ShowModal)(windows_core::Interface::as_raw(self), x, y, &mut result__).map(|| result__)
+        }
     }
 }
 #[repr(C)]
@@ -4313,17 +4813,21 @@ pub trait IScrollableContextMenu_Impl: windows_core::IUnknownImpl {
 impl IScrollableContextMenu_Vtbl {
     pub const fn new<Identity: IScrollableContextMenu_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddItem<Identity: IScrollableContextMenu_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, itemtext: windows_core::PCWSTR, cmdid: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IScrollableContextMenu_Impl::AddItem(this, core::mem::transmute(&itemtext), core::mem::transmute_copy(&cmdid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IScrollableContextMenu_Impl::AddItem(this, core::mem::transmute(&itemtext), core::mem::transmute_copy(&cmdid)).into()
+            }
         }
         unsafe extern "system" fn ShowModal<Identity: IScrollableContextMenu_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, x: i32, y: i32, cmdid: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IScrollableContextMenu_Impl::ShowModal(this, core::mem::transmute_copy(&x), core::mem::transmute_copy(&y)) {
-                Ok(ok__) => {
-                    cmdid.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IScrollableContextMenu_Impl::ShowModal(this, core::mem::transmute_copy(&x), core::mem::transmute_copy(&y)) {
+                    Ok(ok__) => {
+                        cmdid.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AddItem: AddItem::<Identity, OFFSET>, ShowModal: ShowModal::<Identity, OFFSET> }
@@ -4343,10 +4847,10 @@ impl core::ops::Deref for IScrollableContextMenu2 {
 windows_core::imp::interface_hierarchy!(IScrollableContextMenu2, windows_core::IUnknown, IScrollableContextMenu);
 impl IScrollableContextMenu2 {
     pub unsafe fn AddSeparator(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).AddSeparator)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).AddSeparator)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn SetPlacement(&self, scmp: SCROLLABLECONTEXTMENU_PLACEMENT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetPlacement)(windows_core::Interface::as_raw(self), scmp).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetPlacement)(windows_core::Interface::as_raw(self), scmp).ok() }
     }
 }
 #[repr(C)]
@@ -4362,12 +4866,16 @@ pub trait IScrollableContextMenu2_Impl: IScrollableContextMenu_Impl {
 impl IScrollableContextMenu2_Vtbl {
     pub const fn new<Identity: IScrollableContextMenu2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddSeparator<Identity: IScrollableContextMenu2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IScrollableContextMenu2_Impl::AddSeparator(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IScrollableContextMenu2_Impl::AddSeparator(this).into()
+            }
         }
         unsafe extern "system" fn SetPlacement<Identity: IScrollableContextMenu2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scmp: SCROLLABLECONTEXTMENU_PLACEMENT) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IScrollableContextMenu2_Impl::SetPlacement(this, core::mem::transmute_copy(&scmp)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IScrollableContextMenu2_Impl::SetPlacement(this, core::mem::transmute_copy(&scmp)).into()
+            }
         }
         Self {
             base__: IScrollableContextMenu_Vtbl::new::<Identity, OFFSET>(),
@@ -4388,10 +4896,10 @@ impl ISniffStream {
     where
         P0: windows_core::Param<super::super::System::Com::IStream>,
     {
-        (windows_core::Interface::vtable(self).Init)(windows_core::Interface::as_raw(self), pstream.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).Init)(windows_core::Interface::as_raw(self), pstream.param().abi()).ok() }
     }
     pub unsafe fn Peek(&self, pbuffer: *mut core::ffi::c_void, nbytes: u32, pnbytesread: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Peek)(windows_core::Interface::as_raw(self), core::mem::transmute(pbuffer), nbytes, core::mem::transmute(pnbytesread)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Peek)(windows_core::Interface::as_raw(self), core::mem::transmute(pbuffer), nbytes, core::mem::transmute(pnbytesread)).ok() }
     }
 }
 #[repr(C)]
@@ -4412,12 +4920,16 @@ pub trait ISniffStream_Impl: windows_core::IUnknownImpl {
 impl ISniffStream_Vtbl {
     pub const fn new<Identity: ISniffStream_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Init<Identity: ISniffStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstream: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISniffStream_Impl::Init(this, core::mem::transmute_copy(&pstream)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ISniffStream_Impl::Init(this, core::mem::transmute_copy(&pstream)).into()
+            }
         }
         unsafe extern "system" fn Peek<Identity: ISniffStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuffer: *mut core::ffi::c_void, nbytes: u32, pnbytesread: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISniffStream_Impl::Peek(this, core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&nbytes), core::mem::transmute_copy(&pnbytesread)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ISniffStream_Impl::Peek(this, core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&nbytes), core::mem::transmute_copy(&pnbytesread)).into()
+            }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Init: Init::<Identity, OFFSET>, Peek: Peek::<Identity, OFFSET> }
     }
@@ -4431,10 +4943,10 @@ windows_core::imp::define_interface!(ISurfacePresenterFlip, ISurfacePresenterFli
 windows_core::imp::interface_hierarchy!(ISurfacePresenterFlip, windows_core::IUnknown);
 impl ISurfacePresenterFlip {
     pub unsafe fn Present(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Present)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Present)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn GetBuffer(&self, backbufferindex: u32, riid: *const windows_core::GUID, ppbuffer: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetBuffer)(windows_core::Interface::as_raw(self), backbufferindex, riid, core::mem::transmute(ppbuffer)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetBuffer)(windows_core::Interface::as_raw(self), backbufferindex, riid, core::mem::transmute(ppbuffer)).ok() }
     }
 }
 #[repr(C)]
@@ -4450,12 +4962,16 @@ pub trait ISurfacePresenterFlip_Impl: windows_core::IUnknownImpl {
 impl ISurfacePresenterFlip_Vtbl {
     pub const fn new<Identity: ISurfacePresenterFlip_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Present<Identity: ISurfacePresenterFlip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISurfacePresenterFlip_Impl::Present(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ISurfacePresenterFlip_Impl::Present(this).into()
+            }
         }
         unsafe extern "system" fn GetBuffer<Identity: ISurfacePresenterFlip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, backbufferindex: u32, riid: *const windows_core::GUID, ppbuffer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISurfacePresenterFlip_Impl::GetBuffer(this, core::mem::transmute_copy(&backbufferindex), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppbuffer)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ISurfacePresenterFlip_Impl::GetBuffer(this, core::mem::transmute_copy(&backbufferindex), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppbuffer)).into()
+            }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Present: Present::<Identity, OFFSET>, GetBuffer: GetBuffer::<Identity, OFFSET> }
     }
@@ -4469,7 +4985,7 @@ windows_core::imp::interface_hierarchy!(ISurfacePresenterFlip2, windows_core::IU
 impl ISurfacePresenterFlip2 {
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn SetRotation(&self, dxgirotation: super::super::Graphics::Dxgi::Common::DXGI_MODE_ROTATION) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetRotation)(windows_core::Interface::as_raw(self), dxgirotation).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetRotation)(windows_core::Interface::as_raw(self), dxgirotation).ok() }
     }
 }
 #[repr(C)]
@@ -4488,8 +5004,10 @@ pub trait ISurfacePresenterFlip2_Impl: windows_core::IUnknownImpl {
 impl ISurfacePresenterFlip2_Vtbl {
     pub const fn new<Identity: ISurfacePresenterFlip2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetRotation<Identity: ISurfacePresenterFlip2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dxgirotation: super::super::Graphics::Dxgi::Common::DXGI_MODE_ROTATION) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISurfacePresenterFlip2_Impl::SetRotation(this, core::mem::transmute_copy(&dxgirotation)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ISurfacePresenterFlip2_Impl::SetRotation(this, core::mem::transmute_copy(&dxgirotation)).into()
+            }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetRotation: SetRotation::<Identity, OFFSET> }
     }
@@ -4503,10 +5021,10 @@ windows_core::imp::define_interface!(ISurfacePresenterFlipBuffer, ISurfacePresen
 windows_core::imp::interface_hierarchy!(ISurfacePresenterFlipBuffer, windows_core::IUnknown);
 impl ISurfacePresenterFlipBuffer {
     pub unsafe fn BeginDraw(&self, riid: *const windows_core::GUID, ppbuffer: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).BeginDraw)(windows_core::Interface::as_raw(self), riid, core::mem::transmute(ppbuffer)).ok()
+        unsafe { (windows_core::Interface::vtable(self).BeginDraw)(windows_core::Interface::as_raw(self), riid, core::mem::transmute(ppbuffer)).ok() }
     }
     pub unsafe fn EndDraw(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).EndDraw)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).EndDraw)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
 #[repr(C)]
@@ -4522,12 +5040,16 @@ pub trait ISurfacePresenterFlipBuffer_Impl: windows_core::IUnknownImpl {
 impl ISurfacePresenterFlipBuffer_Vtbl {
     pub const fn new<Identity: ISurfacePresenterFlipBuffer_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn BeginDraw<Identity: ISurfacePresenterFlipBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppbuffer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISurfacePresenterFlipBuffer_Impl::BeginDraw(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppbuffer)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ISurfacePresenterFlipBuffer_Impl::BeginDraw(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppbuffer)).into()
+            }
         }
         unsafe extern "system" fn EndDraw<Identity: ISurfacePresenterFlipBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISurfacePresenterFlipBuffer_Impl::EndDraw(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ISurfacePresenterFlipBuffer_Impl::EndDraw(this).into()
+            }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), BeginDraw: BeginDraw::<Identity, OFFSET>, EndDraw: EndDraw::<Identity, OFFSET> }
     }
@@ -4540,13 +5062,17 @@ windows_core::imp::define_interface!(ITargetContainer, ITargetContainer_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(ITargetContainer, windows_core::IUnknown);
 impl ITargetContainer {
     pub unsafe fn GetFrameUrl(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetFrameUrl)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetFrameUrl)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn GetFramesContainer(&self) -> windows_core::Result<super::super::System::Ole::IOleContainer> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetFramesContainer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetFramesContainer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -4567,23 +5093,27 @@ pub trait ITargetContainer_Impl: windows_core::IUnknownImpl {
 impl ITargetContainer_Vtbl {
     pub const fn new<Identity: ITargetContainer_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetFrameUrl<Identity: ITargetContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszframesrc: *mut windows_core::PWSTR) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITargetContainer_Impl::GetFrameUrl(this) {
-                Ok(ok__) => {
-                    ppszframesrc.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ITargetContainer_Impl::GetFrameUrl(this) {
+                    Ok(ok__) => {
+                        ppszframesrc.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetFramesContainer<Identity: ITargetContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcontainer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITargetContainer_Impl::GetFramesContainer(this) {
-                Ok(ok__) => {
-                    ppcontainer.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ITargetContainer_Impl::GetFramesContainer(this) {
+                    Ok(ok__) => {
+                        ppcontainer.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -4602,8 +5132,10 @@ windows_core::imp::define_interface!(ITargetEmbedding, ITargetEmbedding_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(ITargetEmbedding, windows_core::IUnknown);
 impl ITargetEmbedding {
     pub unsafe fn GetTargetFrame(&self) -> windows_core::Result<ITargetFrame> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetTargetFrame)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetTargetFrame)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -4617,13 +5149,15 @@ pub trait ITargetEmbedding_Impl: windows_core::IUnknownImpl {
 impl ITargetEmbedding_Vtbl {
     pub const fn new<Identity: ITargetEmbedding_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetTargetFrame<Identity: ITargetEmbedding_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pptargetframe: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITargetEmbedding_Impl::GetTargetFrame(this) {
-                Ok(ok__) => {
-                    pptargetframe.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ITargetEmbedding_Impl::GetTargetFrame(this) {
+                    Ok(ok__) => {
+                        pptargetframe.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetTargetFrame: GetTargetFrame::<Identity, OFFSET> }
@@ -4640,66 +5174,78 @@ impl ITargetFrame {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetFrameName)(windows_core::Interface::as_raw(self), pszframename.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetFrameName)(windows_core::Interface::as_raw(self), pszframename.param().abi()).ok() }
     }
     pub unsafe fn GetFrameName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetFrameName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetFrameName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn GetParentFrame(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetParentFrame)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetParentFrame)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn FindFrame<P0, P1>(&self, psztargetname: P0, ppunkcontextframe: P1, dwflags: u32) -> windows_core::Result<windows_core::IUnknown>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::IUnknown>,
     {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindFrame)(windows_core::Interface::as_raw(self), psztargetname.param().abi(), ppunkcontextframe.param().abi(), dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).FindFrame)(windows_core::Interface::as_raw(self), psztargetname.param().abi(), ppunkcontextframe.param().abi(), dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn SetFrameSrc<P0>(&self, pszframesrc: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetFrameSrc)(windows_core::Interface::as_raw(self), pszframesrc.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetFrameSrc)(windows_core::Interface::as_raw(self), pszframesrc.param().abi()).ok() }
     }
     pub unsafe fn GetFrameSrc(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetFrameSrc)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetFrameSrc)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn GetFramesContainer(&self) -> windows_core::Result<super::super::System::Ole::IOleContainer> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetFramesContainer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetFramesContainer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn SetFrameOptions(&self, dwflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetFrameOptions)(windows_core::Interface::as_raw(self), dwflags).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetFrameOptions)(windows_core::Interface::as_raw(self), dwflags).ok() }
     }
     pub unsafe fn GetFrameOptions(&self) -> windows_core::Result<u32> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetFrameOptions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetFrameOptions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn SetFrameMargins(&self, dwwidth: u32, dwheight: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetFrameMargins)(windows_core::Interface::as_raw(self), dwwidth, dwheight).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetFrameMargins)(windows_core::Interface::as_raw(self), dwwidth, dwheight).ok() }
     }
     pub unsafe fn GetFrameMargins(&self, pdwwidth: *mut u32, pdwheight: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetFrameMargins)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwwidth), core::mem::transmute(pdwheight)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetFrameMargins)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwwidth), core::mem::transmute(pdwheight)).ok() }
     }
     pub unsafe fn RemoteNavigate(&self, puldata: &[u32]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RemoteNavigate)(windows_core::Interface::as_raw(self), puldata.len().try_into().unwrap(), core::mem::transmute(puldata.as_ptr())).ok()
+        unsafe { (windows_core::Interface::vtable(self).RemoteNavigate)(windows_core::Interface::as_raw(self), puldata.len().try_into().unwrap(), core::mem::transmute(puldata.as_ptr())).ok() }
     }
     pub unsafe fn OnChildFrameActivate<P0>(&self, punkchildframe: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).OnChildFrameActivate)(windows_core::Interface::as_raw(self), punkchildframe.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).OnChildFrameActivate)(windows_core::Interface::as_raw(self), punkchildframe.param().abi()).ok() }
     }
     pub unsafe fn OnChildFrameDeactivate<P0>(&self, punkchildframe: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).OnChildFrameDeactivate)(windows_core::Interface::as_raw(self), punkchildframe.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).OnChildFrameDeactivate)(windows_core::Interface::as_raw(self), punkchildframe.param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -4744,96 +5290,124 @@ pub trait ITargetFrame_Impl: windows_core::IUnknownImpl {
 impl ITargetFrame_Vtbl {
     pub const fn new<Identity: ITargetFrame_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetFrameName<Identity: ITargetFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszframename: windows_core::PCWSTR) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITargetFrame_Impl::SetFrameName(this, core::mem::transmute(&pszframename)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ITargetFrame_Impl::SetFrameName(this, core::mem::transmute(&pszframename)).into()
+            }
         }
         unsafe extern "system" fn GetFrameName<Identity: ITargetFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszframename: *mut windows_core::PWSTR) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITargetFrame_Impl::GetFrameName(this) {
-                Ok(ok__) => {
-                    ppszframename.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ITargetFrame_Impl::GetFrameName(this) {
+                    Ok(ok__) => {
+                        ppszframename.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetParentFrame<Identity: ITargetFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunkparent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITargetFrame_Impl::GetParentFrame(this) {
-                Ok(ok__) => {
-                    ppunkparent.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ITargetFrame_Impl::GetParentFrame(this) {
+                    Ok(ok__) => {
+                        ppunkparent.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn FindFrame<Identity: ITargetFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psztargetname: windows_core::PCWSTR, ppunkcontextframe: *mut core::ffi::c_void, dwflags: u32, ppunktargetframe: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITargetFrame_Impl::FindFrame(this, core::mem::transmute(&psztargetname), core::mem::transmute_copy(&ppunkcontextframe), core::mem::transmute_copy(&dwflags)) {
-                Ok(ok__) => {
-                    ppunktargetframe.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ITargetFrame_Impl::FindFrame(this, core::mem::transmute(&psztargetname), core::mem::transmute_copy(&ppunkcontextframe), core::mem::transmute_copy(&dwflags)) {
+                    Ok(ok__) => {
+                        ppunktargetframe.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetFrameSrc<Identity: ITargetFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszframesrc: windows_core::PCWSTR) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITargetFrame_Impl::SetFrameSrc(this, core::mem::transmute(&pszframesrc)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ITargetFrame_Impl::SetFrameSrc(this, core::mem::transmute(&pszframesrc)).into()
+            }
         }
         unsafe extern "system" fn GetFrameSrc<Identity: ITargetFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszframesrc: *mut windows_core::PWSTR) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITargetFrame_Impl::GetFrameSrc(this) {
-                Ok(ok__) => {
-                    ppszframesrc.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ITargetFrame_Impl::GetFrameSrc(this) {
+                    Ok(ok__) => {
+                        ppszframesrc.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetFramesContainer<Identity: ITargetFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcontainer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITargetFrame_Impl::GetFramesContainer(this) {
-                Ok(ok__) => {
-                    ppcontainer.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ITargetFrame_Impl::GetFramesContainer(this) {
+                    Ok(ok__) => {
+                        ppcontainer.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetFrameOptions<Identity: ITargetFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITargetFrame_Impl::SetFrameOptions(this, core::mem::transmute_copy(&dwflags)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ITargetFrame_Impl::SetFrameOptions(this, core::mem::transmute_copy(&dwflags)).into()
+            }
         }
         unsafe extern "system" fn GetFrameOptions<Identity: ITargetFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwflags: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITargetFrame_Impl::GetFrameOptions(this) {
-                Ok(ok__) => {
-                    pdwflags.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ITargetFrame_Impl::GetFrameOptions(this) {
+                    Ok(ok__) => {
+                        pdwflags.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetFrameMargins<Identity: ITargetFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwwidth: u32, dwheight: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITargetFrame_Impl::SetFrameMargins(this, core::mem::transmute_copy(&dwwidth), core::mem::transmute_copy(&dwheight)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ITargetFrame_Impl::SetFrameMargins(this, core::mem::transmute_copy(&dwwidth), core::mem::transmute_copy(&dwheight)).into()
+            }
         }
         unsafe extern "system" fn GetFrameMargins<Identity: ITargetFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwwidth: *mut u32, pdwheight: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITargetFrame_Impl::GetFrameMargins(this, core::mem::transmute_copy(&pdwwidth), core::mem::transmute_copy(&pdwheight)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ITargetFrame_Impl::GetFrameMargins(this, core::mem::transmute_copy(&pdwwidth), core::mem::transmute_copy(&pdwheight)).into()
+            }
         }
         unsafe extern "system" fn RemoteNavigate<Identity: ITargetFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clength: u32, puldata: *const u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITargetFrame_Impl::RemoteNavigate(this, core::mem::transmute_copy(&clength), core::mem::transmute_copy(&puldata)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ITargetFrame_Impl::RemoteNavigate(this, core::mem::transmute_copy(&clength), core::mem::transmute_copy(&puldata)).into()
+            }
         }
         unsafe extern "system" fn OnChildFrameActivate<Identity: ITargetFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkchildframe: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITargetFrame_Impl::OnChildFrameActivate(this, core::mem::transmute_copy(&punkchildframe)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ITargetFrame_Impl::OnChildFrameActivate(this, core::mem::transmute_copy(&punkchildframe)).into()
+            }
         }
         unsafe extern "system" fn OnChildFrameDeactivate<Identity: ITargetFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkchildframe: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITargetFrame_Impl::OnChildFrameDeactivate(this, core::mem::transmute_copy(&punkchildframe)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ITargetFrame_Impl::OnChildFrameDeactivate(this, core::mem::transmute_copy(&punkchildframe)).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -4866,57 +5440,71 @@ impl ITargetFrame2 {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetFrameName)(windows_core::Interface::as_raw(self), pszframename.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetFrameName)(windows_core::Interface::as_raw(self), pszframename.param().abi()).ok() }
     }
     pub unsafe fn GetFrameName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetFrameName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetFrameName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn GetParentFrame(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetParentFrame)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetParentFrame)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn SetFrameSrc<P0>(&self, pszframesrc: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetFrameSrc)(windows_core::Interface::as_raw(self), pszframesrc.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetFrameSrc)(windows_core::Interface::as_raw(self), pszframesrc.param().abi()).ok() }
     }
     pub unsafe fn GetFrameSrc(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetFrameSrc)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetFrameSrc)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn GetFramesContainer(&self) -> windows_core::Result<super::super::System::Ole::IOleContainer> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetFramesContainer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetFramesContainer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn SetFrameOptions(&self, dwflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetFrameOptions)(windows_core::Interface::as_raw(self), dwflags).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetFrameOptions)(windows_core::Interface::as_raw(self), dwflags).ok() }
     }
     pub unsafe fn GetFrameOptions(&self) -> windows_core::Result<u32> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetFrameOptions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetFrameOptions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn SetFrameMargins(&self, dwwidth: u32, dwheight: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetFrameMargins)(windows_core::Interface::as_raw(self), dwwidth, dwheight).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetFrameMargins)(windows_core::Interface::as_raw(self), dwwidth, dwheight).ok() }
     }
     pub unsafe fn GetFrameMargins(&self, pdwwidth: *mut u32, pdwheight: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetFrameMargins)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwwidth), core::mem::transmute(pdwheight)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetFrameMargins)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwwidth), core::mem::transmute(pdwheight)).ok() }
     }
     pub unsafe fn FindFrame<P0>(&self, psztargetname: P0, dwflags: u32) -> windows_core::Result<windows_core::IUnknown>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindFrame)(windows_core::Interface::as_raw(self), psztargetname.param().abi(), dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).FindFrame)(windows_core::Interface::as_raw(self), psztargetname.param().abi(), dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetTargetAlias<P0>(&self, psztargetname: P0) -> windows_core::Result<windows_core::PWSTR>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetTargetAlias)(windows_core::Interface::as_raw(self), psztargetname.param().abi(), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetTargetAlias)(windows_core::Interface::as_raw(self), psztargetname.param().abi(), &mut result__).map(|| result__)
+        }
     }
 }
 #[repr(C)]
@@ -4957,93 +5545,117 @@ pub trait ITargetFrame2_Impl: windows_core::IUnknownImpl {
 impl ITargetFrame2_Vtbl {
     pub const fn new<Identity: ITargetFrame2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetFrameName<Identity: ITargetFrame2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszframename: windows_core::PCWSTR) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITargetFrame2_Impl::SetFrameName(this, core::mem::transmute(&pszframename)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ITargetFrame2_Impl::SetFrameName(this, core::mem::transmute(&pszframename)).into()
+            }
         }
         unsafe extern "system" fn GetFrameName<Identity: ITargetFrame2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszframename: *mut windows_core::PWSTR) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITargetFrame2_Impl::GetFrameName(this) {
-                Ok(ok__) => {
-                    ppszframename.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ITargetFrame2_Impl::GetFrameName(this) {
+                    Ok(ok__) => {
+                        ppszframename.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetParentFrame<Identity: ITargetFrame2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunkparent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITargetFrame2_Impl::GetParentFrame(this) {
-                Ok(ok__) => {
-                    ppunkparent.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ITargetFrame2_Impl::GetParentFrame(this) {
+                    Ok(ok__) => {
+                        ppunkparent.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetFrameSrc<Identity: ITargetFrame2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszframesrc: windows_core::PCWSTR) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITargetFrame2_Impl::SetFrameSrc(this, core::mem::transmute(&pszframesrc)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ITargetFrame2_Impl::SetFrameSrc(this, core::mem::transmute(&pszframesrc)).into()
+            }
         }
         unsafe extern "system" fn GetFrameSrc<Identity: ITargetFrame2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszframesrc: *mut windows_core::PWSTR) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITargetFrame2_Impl::GetFrameSrc(this) {
-                Ok(ok__) => {
-                    ppszframesrc.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ITargetFrame2_Impl::GetFrameSrc(this) {
+                    Ok(ok__) => {
+                        ppszframesrc.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetFramesContainer<Identity: ITargetFrame2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcontainer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITargetFrame2_Impl::GetFramesContainer(this) {
-                Ok(ok__) => {
-                    ppcontainer.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ITargetFrame2_Impl::GetFramesContainer(this) {
+                    Ok(ok__) => {
+                        ppcontainer.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetFrameOptions<Identity: ITargetFrame2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITargetFrame2_Impl::SetFrameOptions(this, core::mem::transmute_copy(&dwflags)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ITargetFrame2_Impl::SetFrameOptions(this, core::mem::transmute_copy(&dwflags)).into()
+            }
         }
         unsafe extern "system" fn GetFrameOptions<Identity: ITargetFrame2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwflags: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITargetFrame2_Impl::GetFrameOptions(this) {
-                Ok(ok__) => {
-                    pdwflags.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ITargetFrame2_Impl::GetFrameOptions(this) {
+                    Ok(ok__) => {
+                        pdwflags.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetFrameMargins<Identity: ITargetFrame2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwwidth: u32, dwheight: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITargetFrame2_Impl::SetFrameMargins(this, core::mem::transmute_copy(&dwwidth), core::mem::transmute_copy(&dwheight)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ITargetFrame2_Impl::SetFrameMargins(this, core::mem::transmute_copy(&dwwidth), core::mem::transmute_copy(&dwheight)).into()
+            }
         }
         unsafe extern "system" fn GetFrameMargins<Identity: ITargetFrame2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwwidth: *mut u32, pdwheight: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITargetFrame2_Impl::GetFrameMargins(this, core::mem::transmute_copy(&pdwwidth), core::mem::transmute_copy(&pdwheight)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ITargetFrame2_Impl::GetFrameMargins(this, core::mem::transmute_copy(&pdwwidth), core::mem::transmute_copy(&pdwheight)).into()
+            }
         }
         unsafe extern "system" fn FindFrame<Identity: ITargetFrame2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psztargetname: windows_core::PCWSTR, dwflags: u32, ppunktargetframe: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITargetFrame2_Impl::FindFrame(this, core::mem::transmute(&psztargetname), core::mem::transmute_copy(&dwflags)) {
-                Ok(ok__) => {
-                    ppunktargetframe.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ITargetFrame2_Impl::FindFrame(this, core::mem::transmute(&psztargetname), core::mem::transmute_copy(&dwflags)) {
+                    Ok(ok__) => {
+                        ppunktargetframe.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetTargetAlias<Identity: ITargetFrame2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psztargetname: windows_core::PCWSTR, ppsztargetalias: *mut windows_core::PWSTR) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITargetFrame2_Impl::GetTargetAlias(this, core::mem::transmute(&psztargetname)) {
-                Ok(ok__) => {
-                    ppsztargetalias.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ITargetFrame2_Impl::GetTargetAlias(this, core::mem::transmute(&psztargetname)) {
+                    Ok(ok__) => {
+                        ppsztargetalias.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -5075,28 +5687,32 @@ impl ITargetFramePriv {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindFrameDownwards)(windows_core::Interface::as_raw(self), psztargetname.param().abi(), dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).FindFrameDownwards)(windows_core::Interface::as_raw(self), psztargetname.param().abi(), dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn FindFrameInContext<P0, P1>(&self, psztargetname: P0, punkcontextframe: P1, dwflags: u32) -> windows_core::Result<windows_core::IUnknown>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::IUnknown>,
     {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindFrameInContext)(windows_core::Interface::as_raw(self), psztargetname.param().abi(), punkcontextframe.param().abi(), dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).FindFrameInContext)(windows_core::Interface::as_raw(self), psztargetname.param().abi(), punkcontextframe.param().abi(), dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn OnChildFrameActivate<P0>(&self, punkchildframe: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).OnChildFrameActivate)(windows_core::Interface::as_raw(self), punkchildframe.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).OnChildFrameActivate)(windows_core::Interface::as_raw(self), punkchildframe.param().abi()).ok() }
     }
     pub unsafe fn OnChildFrameDeactivate<P0>(&self, punkchildframe: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).OnChildFrameDeactivate)(windows_core::Interface::as_raw(self), punkchildframe.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).OnChildFrameDeactivate)(windows_core::Interface::as_raw(self), punkchildframe.param().abi()).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NavigateHack<P1, P2, P3, P4, P5>(&self, grfhlnf: u32, pbc: P1, pibsc: P2, psztargetname: P3, pszurl: P4, pszlocation: P5) -> windows_core::Result<()>
@@ -5107,11 +5723,13 @@ impl ITargetFramePriv {
         P4: windows_core::Param<windows_core::PCWSTR>,
         P5: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).NavigateHack)(windows_core::Interface::as_raw(self), grfhlnf, pbc.param().abi(), pibsc.param().abi(), psztargetname.param().abi(), pszurl.param().abi(), pszlocation.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).NavigateHack)(windows_core::Interface::as_raw(self), grfhlnf, pbc.param().abi(), pibsc.param().abi(), psztargetname.param().abi(), pszurl.param().abi(), pszlocation.param().abi()).ok() }
     }
     pub unsafe fn FindBrowserByIndex(&self, dwid: u32) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindBrowserByIndex)(windows_core::Interface::as_raw(self), dwid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).FindBrowserByIndex)(windows_core::Interface::as_raw(self), dwid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -5140,45 +5758,57 @@ pub trait ITargetFramePriv_Impl: windows_core::IUnknownImpl {
 impl ITargetFramePriv_Vtbl {
     pub const fn new<Identity: ITargetFramePriv_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn FindFrameDownwards<Identity: ITargetFramePriv_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psztargetname: windows_core::PCWSTR, dwflags: u32, ppunktargetframe: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITargetFramePriv_Impl::FindFrameDownwards(this, core::mem::transmute(&psztargetname), core::mem::transmute_copy(&dwflags)) {
-                Ok(ok__) => {
-                    ppunktargetframe.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ITargetFramePriv_Impl::FindFrameDownwards(this, core::mem::transmute(&psztargetname), core::mem::transmute_copy(&dwflags)) {
+                    Ok(ok__) => {
+                        ppunktargetframe.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn FindFrameInContext<Identity: ITargetFramePriv_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psztargetname: windows_core::PCWSTR, punkcontextframe: *mut core::ffi::c_void, dwflags: u32, ppunktargetframe: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITargetFramePriv_Impl::FindFrameInContext(this, core::mem::transmute(&psztargetname), core::mem::transmute_copy(&punkcontextframe), core::mem::transmute_copy(&dwflags)) {
-                Ok(ok__) => {
-                    ppunktargetframe.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ITargetFramePriv_Impl::FindFrameInContext(this, core::mem::transmute(&psztargetname), core::mem::transmute_copy(&punkcontextframe), core::mem::transmute_copy(&dwflags)) {
+                    Ok(ok__) => {
+                        ppunktargetframe.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn OnChildFrameActivate<Identity: ITargetFramePriv_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkchildframe: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITargetFramePriv_Impl::OnChildFrameActivate(this, core::mem::transmute_copy(&punkchildframe)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ITargetFramePriv_Impl::OnChildFrameActivate(this, core::mem::transmute_copy(&punkchildframe)).into()
+            }
         }
         unsafe extern "system" fn OnChildFrameDeactivate<Identity: ITargetFramePriv_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkchildframe: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITargetFramePriv_Impl::OnChildFrameDeactivate(this, core::mem::transmute_copy(&punkchildframe)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ITargetFramePriv_Impl::OnChildFrameDeactivate(this, core::mem::transmute_copy(&punkchildframe)).into()
+            }
         }
         unsafe extern "system" fn NavigateHack<Identity: ITargetFramePriv_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grfhlnf: u32, pbc: *mut core::ffi::c_void, pibsc: *mut core::ffi::c_void, psztargetname: windows_core::PCWSTR, pszurl: windows_core::PCWSTR, pszlocation: windows_core::PCWSTR) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITargetFramePriv_Impl::NavigateHack(this, core::mem::transmute_copy(&grfhlnf), core::mem::transmute_copy(&pbc), core::mem::transmute_copy(&pibsc), core::mem::transmute(&psztargetname), core::mem::transmute(&pszurl), core::mem::transmute(&pszlocation)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ITargetFramePriv_Impl::NavigateHack(this, core::mem::transmute_copy(&grfhlnf), core::mem::transmute_copy(&pbc), core::mem::transmute_copy(&pibsc), core::mem::transmute(&psztargetname), core::mem::transmute(&pszurl), core::mem::transmute(&pszlocation)).into()
+            }
         }
         unsafe extern "system" fn FindBrowserByIndex<Identity: ITargetFramePriv_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwid: u32, ppunkbrowser: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITargetFramePriv_Impl::FindBrowserByIndex(this, core::mem::transmute_copy(&dwid)) {
-                Ok(ok__) => {
-                    ppunkbrowser.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ITargetFramePriv_Impl::FindBrowserByIndex(this, core::mem::transmute_copy(&dwid)) {
+                    Ok(ok__) => {
+                        ppunkbrowser.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -5215,7 +5845,7 @@ impl ITargetFramePriv2 {
         P4: windows_core::Param<super::super::System::Com::IUri>,
         P5: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AggregatedNavigation2)(windows_core::Interface::as_raw(self), grfhlnf, pbc.param().abi(), pibsc.param().abi(), psztargetname.param().abi(), puri.param().abi(), pszlocation.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).AggregatedNavigation2)(windows_core::Interface::as_raw(self), grfhlnf, pbc.param().abi(), pibsc.param().abi(), psztargetname.param().abi(), puri.param().abi(), pszlocation.param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -5234,8 +5864,10 @@ pub trait ITargetFramePriv2_Impl: ITargetFramePriv_Impl {
 impl ITargetFramePriv2_Vtbl {
     pub const fn new<Identity: ITargetFramePriv2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AggregatedNavigation2<Identity: ITargetFramePriv2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grfhlnf: u32, pbc: *mut core::ffi::c_void, pibsc: *mut core::ffi::c_void, psztargetname: windows_core::PCWSTR, puri: *mut core::ffi::c_void, pszlocation: windows_core::PCWSTR) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITargetFramePriv2_Impl::AggregatedNavigation2(this, core::mem::transmute_copy(&grfhlnf), core::mem::transmute_copy(&pbc), core::mem::transmute_copy(&pibsc), core::mem::transmute(&psztargetname), core::mem::transmute_copy(&puri), core::mem::transmute(&pszlocation)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ITargetFramePriv2_Impl::AggregatedNavigation2(this, core::mem::transmute_copy(&grfhlnf), core::mem::transmute_copy(&pbc), core::mem::transmute_copy(&pibsc), core::mem::transmute(&psztargetname), core::mem::transmute_copy(&puri), core::mem::transmute(&pszlocation)).into()
+            }
         }
         Self { base__: ITargetFramePriv_Vtbl::new::<Identity, OFFSET>(), AggregatedNavigation2: AggregatedNavigation2::<Identity, OFFSET> }
     }
@@ -5252,13 +5884,13 @@ impl ITargetNotify {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).OnCreate)(windows_core::Interface::as_raw(self), punkdestination.param().abi(), cbcookie).ok()
+        unsafe { (windows_core::Interface::vtable(self).OnCreate)(windows_core::Interface::as_raw(self), punkdestination.param().abi(), cbcookie).ok() }
     }
     pub unsafe fn OnReuse<P0>(&self, punkdestination: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).OnReuse)(windows_core::Interface::as_raw(self), punkdestination.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).OnReuse)(windows_core::Interface::as_raw(self), punkdestination.param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -5274,12 +5906,16 @@ pub trait ITargetNotify_Impl: windows_core::IUnknownImpl {
 impl ITargetNotify_Vtbl {
     pub const fn new<Identity: ITargetNotify_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnCreate<Identity: ITargetNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkdestination: *mut core::ffi::c_void, cbcookie: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITargetNotify_Impl::OnCreate(this, core::mem::transmute_copy(&punkdestination), core::mem::transmute_copy(&cbcookie)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ITargetNotify_Impl::OnCreate(this, core::mem::transmute_copy(&punkdestination), core::mem::transmute_copy(&cbcookie)).into()
+            }
         }
         unsafe extern "system" fn OnReuse<Identity: ITargetNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkdestination: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITargetNotify_Impl::OnReuse(this, core::mem::transmute_copy(&punkdestination)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ITargetNotify_Impl::OnReuse(this, core::mem::transmute_copy(&punkdestination)).into()
+            }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnCreate: OnCreate::<Identity, OFFSET>, OnReuse: OnReuse::<Identity, OFFSET> }
     }
@@ -5298,7 +5934,7 @@ impl core::ops::Deref for ITargetNotify2 {
 windows_core::imp::interface_hierarchy!(ITargetNotify2, windows_core::IUnknown, ITargetNotify);
 impl ITargetNotify2 {
     pub unsafe fn GetOptionString(&self, pbstroptions: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetOptionString)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstroptions)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetOptionString)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstroptions)).ok() }
     }
 }
 #[repr(C)]
@@ -5312,8 +5948,10 @@ pub trait ITargetNotify2_Impl: ITargetNotify_Impl {
 impl ITargetNotify2_Vtbl {
     pub const fn new<Identity: ITargetNotify2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetOptionString<Identity: ITargetNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstroptions: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITargetNotify2_Impl::GetOptionString(this, core::mem::transmute_copy(&pbstroptions)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ITargetNotify2_Impl::GetOptionString(this, core::mem::transmute_copy(&pbstroptions)).into()
+            }
         }
         Self { base__: ITargetNotify_Vtbl::new::<Identity, OFFSET>(), GetOptionString: GetOptionString::<Identity, OFFSET> }
     }
@@ -5330,19 +5968,23 @@ impl ITimer {
     where
         P4: windows_core::Param<ITimerSink>,
     {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Advise)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(vtimemin), core::mem::transmute_copy(vtimemax), core::mem::transmute_copy(vtimeinterval), dwflags, ptimersink.param().abi(), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Advise)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(vtimemin), core::mem::transmute_copy(vtimemax), core::mem::transmute_copy(vtimeinterval), dwflags, ptimersink.param().abi(), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn Unadvise(&self, dwcookie: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Unadvise)(windows_core::Interface::as_raw(self), dwcookie).ok()
+        unsafe { (windows_core::Interface::vtable(self).Unadvise)(windows_core::Interface::as_raw(self), dwcookie).ok() }
     }
     pub unsafe fn Freeze(&self, ffreeze: bool) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Freeze)(windows_core::Interface::as_raw(self), ffreeze.into()).ok()
+        unsafe { (windows_core::Interface::vtable(self).Freeze)(windows_core::Interface::as_raw(self), ffreeze.into()).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetTime(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
 }
 #[repr(C)]
@@ -5370,31 +6012,39 @@ pub trait ITimer_Impl: windows_core::IUnknownImpl {
 impl ITimer_Vtbl {
     pub const fn new<Identity: ITimer_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Advise<Identity: ITimer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vtimemin: super::super::System::Variant::VARIANT, vtimemax: super::super::System::Variant::VARIANT, vtimeinterval: super::super::System::Variant::VARIANT, dwflags: u32, ptimersink: *mut core::ffi::c_void, pdwcookie: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITimer_Impl::Advise(this, core::mem::transmute(&vtimemin), core::mem::transmute(&vtimemax), core::mem::transmute(&vtimeinterval), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&ptimersink)) {
-                Ok(ok__) => {
-                    pdwcookie.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ITimer_Impl::Advise(this, core::mem::transmute(&vtimemin), core::mem::transmute(&vtimemax), core::mem::transmute(&vtimeinterval), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&ptimersink)) {
+                    Ok(ok__) => {
+                        pdwcookie.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn Unadvise<Identity: ITimer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcookie: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITimer_Impl::Unadvise(this, core::mem::transmute_copy(&dwcookie)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ITimer_Impl::Unadvise(this, core::mem::transmute_copy(&dwcookie)).into()
+            }
         }
         unsafe extern "system" fn Freeze<Identity: ITimer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ffreeze: super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITimer_Impl::Freeze(this, core::mem::transmute_copy(&ffreeze)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ITimer_Impl::Freeze(this, core::mem::transmute_copy(&ffreeze)).into()
+            }
         }
         unsafe extern "system" fn GetTime<Identity: ITimer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvtime: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITimer_Impl::GetTime(this) {
-                Ok(ok__) => {
-                    pvtime.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ITimer_Impl::GetTime(this) {
+                    Ok(ok__) => {
+                        pvtime.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -5421,7 +6071,7 @@ impl core::ops::Deref for ITimerEx {
 windows_core::imp::interface_hierarchy!(ITimerEx, windows_core::IUnknown, ITimer);
 impl ITimerEx {
     pub unsafe fn SetMode(&self, dwmode: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetMode)(windows_core::Interface::as_raw(self), dwmode).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetMode)(windows_core::Interface::as_raw(self), dwmode).ok() }
     }
 }
 #[repr(C)]
@@ -5437,8 +6087,10 @@ pub trait ITimerEx_Impl: ITimer_Impl {
 impl ITimerEx_Vtbl {
     pub const fn new<Identity: ITimerEx_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetMode<Identity: ITimerEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwmode: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITimerEx_Impl::SetMode(this, core::mem::transmute_copy(&dwmode)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ITimerEx_Impl::SetMode(this, core::mem::transmute_copy(&dwmode)).into()
+            }
         }
         Self { base__: ITimer_Vtbl::new::<Identity, OFFSET>(), SetMode: SetMode::<Identity, OFFSET> }
     }
@@ -5455,18 +6107,22 @@ impl ITimerService {
     where
         P0: windows_core::Param<ITimer>,
     {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateTimer)(windows_core::Interface::as_raw(self), preferencetimer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateTimer)(windows_core::Interface::as_raw(self), preferencetimer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetNamedTimer(&self, rguidname: *const windows_core::GUID) -> windows_core::Result<ITimer> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetNamedTimer)(windows_core::Interface::as_raw(self), rguidname, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetNamedTimer)(windows_core::Interface::as_raw(self), rguidname, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn SetNamedTimerReference<P1>(&self, rguidname: *const windows_core::GUID, preferencetimer: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<ITimer>,
     {
-        (windows_core::Interface::vtable(self).SetNamedTimerReference)(windows_core::Interface::as_raw(self), rguidname, preferencetimer.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetNamedTimerReference)(windows_core::Interface::as_raw(self), rguidname, preferencetimer.param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -5484,28 +6140,34 @@ pub trait ITimerService_Impl: windows_core::IUnknownImpl {
 impl ITimerService_Vtbl {
     pub const fn new<Identity: ITimerService_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateTimer<Identity: ITimerService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, preferencetimer: *mut core::ffi::c_void, ppnewtimer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITimerService_Impl::CreateTimer(this, core::mem::transmute_copy(&preferencetimer)) {
-                Ok(ok__) => {
-                    ppnewtimer.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ITimerService_Impl::CreateTimer(this, core::mem::transmute_copy(&preferencetimer)) {
+                    Ok(ok__) => {
+                        ppnewtimer.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetNamedTimer<Identity: ITimerService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rguidname: *const windows_core::GUID, pptimer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITimerService_Impl::GetNamedTimer(this, core::mem::transmute_copy(&rguidname)) {
-                Ok(ok__) => {
-                    pptimer.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ITimerService_Impl::GetNamedTimer(this, core::mem::transmute_copy(&rguidname)) {
+                    Ok(ok__) => {
+                        pptimer.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetNamedTimerReference<Identity: ITimerService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rguidname: *const windows_core::GUID, preferencetimer: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITimerService_Impl::SetNamedTimerReference(this, core::mem::transmute_copy(&rguidname), core::mem::transmute_copy(&preferencetimer)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ITimerService_Impl::SetNamedTimerReference(this, core::mem::transmute_copy(&rguidname), core::mem::transmute_copy(&preferencetimer)).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -5524,7 +6186,7 @@ windows_core::imp::interface_hierarchy!(ITimerSink, windows_core::IUnknown);
 impl ITimerSink {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn OnTimer(&self, vtimeadvise: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).OnTimer)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(vtimeadvise)).ok()
+        unsafe { (windows_core::Interface::vtable(self).OnTimer)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(vtimeadvise)).ok() }
     }
 }
 #[repr(C)]
@@ -5543,8 +6205,10 @@ pub trait ITimerSink_Impl: windows_core::IUnknownImpl {
 impl ITimerSink_Vtbl {
     pub const fn new<Identity: ITimerSink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnTimer<Identity: ITimerSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vtimeadvise: super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITimerSink_Impl::OnTimer(this, core::mem::transmute(&vtimeadvise)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ITimerSink_Impl::OnTimer(this, core::mem::transmute(&vtimeadvise)).into()
+            }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnTimer: OnTimer::<Identity, OFFSET> }
     }
@@ -5558,8 +6222,10 @@ windows_core::imp::define_interface!(ITridentTouchInput, ITridentTouchInput_Vtbl
 windows_core::imp::interface_hierarchy!(ITridentTouchInput, windows_core::IUnknown);
 impl ITridentTouchInput {
     pub unsafe fn OnPointerMessage(&self, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).OnPointerMessage)(windows_core::Interface::as_raw(self), msg, wparam, lparam, &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).OnPointerMessage)(windows_core::Interface::as_raw(self), msg, wparam, lparam, &mut result__).map(|| result__)
+        }
     }
 }
 #[repr(C)]
@@ -5573,13 +6239,15 @@ pub trait ITridentTouchInput_Impl: windows_core::IUnknownImpl {
 impl ITridentTouchInput_Vtbl {
     pub const fn new<Identity: ITridentTouchInput_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnPointerMessage<Identity: ITridentTouchInput_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, pfallowmanipulations: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ITridentTouchInput_Impl::OnPointerMessage(this, core::mem::transmute_copy(&msg), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam)) {
-                Ok(ok__) => {
-                    pfallowmanipulations.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ITridentTouchInput_Impl::OnPointerMessage(this, core::mem::transmute_copy(&msg), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam)) {
+                    Ok(ok__) => {
+                        pfallowmanipulations.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnPointerMessage: OnPointerMessage::<Identity, OFFSET> }
@@ -5593,7 +6261,7 @@ windows_core::imp::define_interface!(ITridentTouchInputSite, ITridentTouchInputS
 windows_core::imp::interface_hierarchy!(ITridentTouchInputSite, windows_core::IUnknown);
 impl ITridentTouchInputSite {
     pub unsafe fn ZoomToPoint(&self, x: i32, y: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ZoomToPoint)(windows_core::Interface::as_raw(self), x, y).ok()
+        unsafe { (windows_core::Interface::vtable(self).ZoomToPoint)(windows_core::Interface::as_raw(self), x, y).ok() }
     }
 }
 #[repr(C)]
@@ -5608,8 +6276,10 @@ pub trait ITridentTouchInputSite_Impl: windows_core::IUnknownImpl {
 impl ITridentTouchInputSite_Vtbl {
     pub const fn new<Identity: ITridentTouchInputSite_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ZoomToPoint<Identity: ITridentTouchInputSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, x: i32, y: i32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ITridentTouchInputSite_Impl::ZoomToPoint(this, core::mem::transmute_copy(&x), core::mem::transmute_copy(&y)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ITridentTouchInputSite_Impl::ZoomToPoint(this, core::mem::transmute_copy(&x), core::mem::transmute_copy(&y)).into()
+            }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetManipulationMode: 0, ZoomToPoint: ZoomToPoint::<Identity, OFFSET> }
     }
@@ -5655,19 +6325,19 @@ impl IUrlHistoryStg {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AddUrl)(windows_core::Interface::as_raw(self), pocsurl.param().abi(), pocstitle.param().abi(), dwflags).ok()
+        unsafe { (windows_core::Interface::vtable(self).AddUrl)(windows_core::Interface::as_raw(self), pocsurl.param().abi(), pocstitle.param().abi(), dwflags).ok() }
     }
     pub unsafe fn DeleteUrl<P0>(&self, pocsurl: P0, dwflags: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).DeleteUrl)(windows_core::Interface::as_raw(self), pocsurl.param().abi(), dwflags).ok()
+        unsafe { (windows_core::Interface::vtable(self).DeleteUrl)(windows_core::Interface::as_raw(self), pocsurl.param().abi(), dwflags).ok() }
     }
     pub unsafe fn QueryUrl<P0>(&self, pocsurl: P0, dwflags: u32, lpstaturl: *mut STATURL) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).QueryUrl)(windows_core::Interface::as_raw(self), pocsurl.param().abi(), dwflags, core::mem::transmute(lpstaturl)).ok()
+        unsafe { (windows_core::Interface::vtable(self).QueryUrl)(windows_core::Interface::as_raw(self), pocsurl.param().abi(), dwflags, core::mem::transmute(lpstaturl)).ok() }
     }
     pub unsafe fn BindToObject<P0, T>(&self, pocsurl: P0) -> windows_core::Result<T>
     where
@@ -5675,11 +6345,13 @@ impl IUrlHistoryStg {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        (windows_core::Interface::vtable(self).BindToObject)(windows_core::Interface::as_raw(self), pocsurl.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe { (windows_core::Interface::vtable(self).BindToObject)(windows_core::Interface::as_raw(self), pocsurl.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn EnumUrls(&self) -> windows_core::Result<IEnumSTATURL> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumUrls)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EnumUrls)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -5701,29 +6373,39 @@ pub trait IUrlHistoryStg_Impl: windows_core::IUnknownImpl {
 impl IUrlHistoryStg_Vtbl {
     pub const fn new<Identity: IUrlHistoryStg_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddUrl<Identity: IUrlHistoryStg_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pocsurl: windows_core::PCWSTR, pocstitle: windows_core::PCWSTR, dwflags: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IUrlHistoryStg_Impl::AddUrl(this, core::mem::transmute(&pocsurl), core::mem::transmute(&pocstitle), core::mem::transmute_copy(&dwflags)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IUrlHistoryStg_Impl::AddUrl(this, core::mem::transmute(&pocsurl), core::mem::transmute(&pocstitle), core::mem::transmute_copy(&dwflags)).into()
+            }
         }
         unsafe extern "system" fn DeleteUrl<Identity: IUrlHistoryStg_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pocsurl: windows_core::PCWSTR, dwflags: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IUrlHistoryStg_Impl::DeleteUrl(this, core::mem::transmute(&pocsurl), core::mem::transmute_copy(&dwflags)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IUrlHistoryStg_Impl::DeleteUrl(this, core::mem::transmute(&pocsurl), core::mem::transmute_copy(&dwflags)).into()
+            }
         }
         unsafe extern "system" fn QueryUrl<Identity: IUrlHistoryStg_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pocsurl: windows_core::PCWSTR, dwflags: u32, lpstaturl: *mut STATURL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IUrlHistoryStg_Impl::QueryUrl(this, core::mem::transmute(&pocsurl), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&lpstaturl)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IUrlHistoryStg_Impl::QueryUrl(this, core::mem::transmute(&pocsurl), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&lpstaturl)).into()
+            }
         }
         unsafe extern "system" fn BindToObject<Identity: IUrlHistoryStg_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pocsurl: windows_core::PCWSTR, riid: *const windows_core::GUID, ppvout: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IUrlHistoryStg_Impl::BindToObject(this, core::mem::transmute(&pocsurl), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvout)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IUrlHistoryStg_Impl::BindToObject(this, core::mem::transmute(&pocsurl), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvout)).into()
+            }
         }
         unsafe extern "system" fn EnumUrls<Identity: IUrlHistoryStg_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IUrlHistoryStg_Impl::EnumUrls(this) {
-                Ok(ok__) => {
-                    ppenum.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IUrlHistoryStg_Impl::EnumUrls(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -5757,10 +6439,10 @@ impl IUrlHistoryStg2 {
         P4: windows_core::Param<super::super::System::Ole::IOleCommandTarget>,
         P5: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).AddUrlAndNotify)(windows_core::Interface::as_raw(self), pocsurl.param().abi(), pocstitle.param().abi(), dwflags, fwritehistory.into(), poctnotify.param().abi(), punkisfolder.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).AddUrlAndNotify)(windows_core::Interface::as_raw(self), pocsurl.param().abi(), pocstitle.param().abi(), dwflags, fwritehistory.into(), poctnotify.param().abi(), punkisfolder.param().abi()).ok() }
     }
     pub unsafe fn ClearHistory(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ClearHistory)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).ClearHistory)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
 #[repr(C)]
@@ -5781,12 +6463,16 @@ pub trait IUrlHistoryStg2_Impl: IUrlHistoryStg_Impl {
 impl IUrlHistoryStg2_Vtbl {
     pub const fn new<Identity: IUrlHistoryStg2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddUrlAndNotify<Identity: IUrlHistoryStg2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pocsurl: windows_core::PCWSTR, pocstitle: windows_core::PCWSTR, dwflags: u32, fwritehistory: super::super::Foundation::BOOL, poctnotify: *mut core::ffi::c_void, punkisfolder: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IUrlHistoryStg2_Impl::AddUrlAndNotify(this, core::mem::transmute(&pocsurl), core::mem::transmute(&pocstitle), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&fwritehistory), core::mem::transmute_copy(&poctnotify), core::mem::transmute_copy(&punkisfolder)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IUrlHistoryStg2_Impl::AddUrlAndNotify(this, core::mem::transmute(&pocsurl), core::mem::transmute(&pocstitle), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&fwritehistory), core::mem::transmute_copy(&poctnotify), core::mem::transmute_copy(&punkisfolder)).into()
+            }
         }
         unsafe extern "system" fn ClearHistory<Identity: IUrlHistoryStg2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IUrlHistoryStg2_Impl::ClearHistory(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IUrlHistoryStg2_Impl::ClearHistory(this).into()
+            }
         }
         Self {
             base__: IUrlHistoryStg_Vtbl::new::<Identity, OFFSET>(),
@@ -5804,19 +6490,19 @@ windows_core::imp::define_interface!(IViewObjectPresentFlip, IViewObjectPresentF
 windows_core::imp::interface_hierarchy!(IViewObjectPresentFlip, windows_core::IUnknown);
 impl IViewObjectPresentFlip {
     pub unsafe fn NotifyRender(&self, frecreatepresenter: bool) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).NotifyRender)(windows_core::Interface::as_raw(self), frecreatepresenter.into()).ok()
+        unsafe { (windows_core::Interface::vtable(self).NotifyRender)(windows_core::Interface::as_raw(self), frecreatepresenter.into()).ok() }
     }
     pub unsafe fn RenderObjectToBitmap<P0>(&self, pbitmap: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).RenderObjectToBitmap)(windows_core::Interface::as_raw(self), pbitmap.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).RenderObjectToBitmap)(windows_core::Interface::as_raw(self), pbitmap.param().abi()).ok() }
     }
     pub unsafe fn RenderObjectToSharedBuffer<P0>(&self, pbuffer: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ISurfacePresenterFlipBuffer>,
     {
-        (windows_core::Interface::vtable(self).RenderObjectToSharedBuffer)(windows_core::Interface::as_raw(self), pbuffer.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).RenderObjectToSharedBuffer)(windows_core::Interface::as_raw(self), pbuffer.param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -5834,16 +6520,22 @@ pub trait IViewObjectPresentFlip_Impl: windows_core::IUnknownImpl {
 impl IViewObjectPresentFlip_Vtbl {
     pub const fn new<Identity: IViewObjectPresentFlip_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn NotifyRender<Identity: IViewObjectPresentFlip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, frecreatepresenter: super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IViewObjectPresentFlip_Impl::NotifyRender(this, core::mem::transmute_copy(&frecreatepresenter)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IViewObjectPresentFlip_Impl::NotifyRender(this, core::mem::transmute_copy(&frecreatepresenter)).into()
+            }
         }
         unsafe extern "system" fn RenderObjectToBitmap<Identity: IViewObjectPresentFlip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbitmap: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IViewObjectPresentFlip_Impl::RenderObjectToBitmap(this, core::mem::transmute_copy(&pbitmap)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IViewObjectPresentFlip_Impl::RenderObjectToBitmap(this, core::mem::transmute_copy(&pbitmap)).into()
+            }
         }
         unsafe extern "system" fn RenderObjectToSharedBuffer<Identity: IViewObjectPresentFlip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuffer: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IViewObjectPresentFlip_Impl::RenderObjectToSharedBuffer(this, core::mem::transmute_copy(&pbuffer)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IViewObjectPresentFlip_Impl::RenderObjectToSharedBuffer(this, core::mem::transmute_copy(&pbuffer)).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -5861,7 +6553,7 @@ windows_core::imp::define_interface!(IViewObjectPresentFlip2, IViewObjectPresent
 windows_core::imp::interface_hierarchy!(IViewObjectPresentFlip2, windows_core::IUnknown);
 impl IViewObjectPresentFlip2 {
     pub unsafe fn NotifyLeavingView(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).NotifyLeavingView)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).NotifyLeavingView)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
 #[repr(C)]
@@ -5875,8 +6567,10 @@ pub trait IViewObjectPresentFlip2_Impl: windows_core::IUnknownImpl {
 impl IViewObjectPresentFlip2_Vtbl {
     pub const fn new<Identity: IViewObjectPresentFlip2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn NotifyLeavingView<Identity: IViewObjectPresentFlip2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IViewObjectPresentFlip2_Impl::NotifyLeavingView(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IViewObjectPresentFlip2_Impl::NotifyLeavingView(this).into()
+            }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), NotifyLeavingView: NotifyLeavingView::<Identity, OFFSET> }
     }
@@ -5889,29 +6583,37 @@ windows_core::imp::define_interface!(IViewObjectPresentFlipSite, IViewObjectPres
 windows_core::imp::interface_hierarchy!(IViewObjectPresentFlipSite, windows_core::IUnknown);
 impl IViewObjectPresentFlipSite {
     pub unsafe fn GetDeviceLuid(&self) -> windows_core::Result<super::super::Foundation::LUID> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetDeviceLuid)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetDeviceLuid)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn EnterFullScreen(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).EnterFullScreen)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).EnterFullScreen)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn ExitFullScreen(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ExitFullScreen)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).ExitFullScreen)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn IsFullScreen(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).IsFullScreen)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).IsFullScreen)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn GetBoundingRect(&self) -> windows_core::Result<super::super::Foundation::RECT> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetBoundingRect)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetBoundingRect)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn GetMetrics(&self, ppos: *mut super::super::Foundation::POINT, psize: *mut super::super::Foundation::SIZE, pscalex: *mut f32, pscaley: *mut f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetMetrics)(windows_core::Interface::as_raw(self), core::mem::transmute(ppos), core::mem::transmute(psize), core::mem::transmute(pscalex), core::mem::transmute(pscaley)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetMetrics)(windows_core::Interface::as_raw(self), core::mem::transmute(ppos), core::mem::transmute(psize), core::mem::transmute(pscalex), core::mem::transmute(pscaley)).ok() }
     }
     pub unsafe fn GetFullScreenSize(&self) -> windows_core::Result<super::super::Foundation::SIZE> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetFullScreenSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetFullScreenSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
 }
 #[repr(C)]
@@ -5938,55 +6640,69 @@ pub trait IViewObjectPresentFlipSite_Impl: windows_core::IUnknownImpl {
 impl IViewObjectPresentFlipSite_Vtbl {
     pub const fn new<Identity: IViewObjectPresentFlipSite_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDeviceLuid<Identity: IViewObjectPresentFlipSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pluid: *mut super::super::Foundation::LUID) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IViewObjectPresentFlipSite_Impl::GetDeviceLuid(this) {
-                Ok(ok__) => {
-                    pluid.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IViewObjectPresentFlipSite_Impl::GetDeviceLuid(this) {
+                    Ok(ok__) => {
+                        pluid.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn EnterFullScreen<Identity: IViewObjectPresentFlipSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IViewObjectPresentFlipSite_Impl::EnterFullScreen(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IViewObjectPresentFlipSite_Impl::EnterFullScreen(this).into()
+            }
         }
         unsafe extern "system" fn ExitFullScreen<Identity: IViewObjectPresentFlipSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IViewObjectPresentFlipSite_Impl::ExitFullScreen(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IViewObjectPresentFlipSite_Impl::ExitFullScreen(this).into()
+            }
         }
         unsafe extern "system" fn IsFullScreen<Identity: IViewObjectPresentFlipSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pffullscreen: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IViewObjectPresentFlipSite_Impl::IsFullScreen(this) {
-                Ok(ok__) => {
-                    pffullscreen.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IViewObjectPresentFlipSite_Impl::IsFullScreen(this) {
+                    Ok(ok__) => {
+                        pffullscreen.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetBoundingRect<Identity: IViewObjectPresentFlipSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prect: *mut super::super::Foundation::RECT) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IViewObjectPresentFlipSite_Impl::GetBoundingRect(this) {
-                Ok(ok__) => {
-                    prect.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IViewObjectPresentFlipSite_Impl::GetBoundingRect(this) {
+                    Ok(ok__) => {
+                        prect.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetMetrics<Identity: IViewObjectPresentFlipSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppos: *mut super::super::Foundation::POINT, psize: *mut super::super::Foundation::SIZE, pscalex: *mut f32, pscaley: *mut f32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IViewObjectPresentFlipSite_Impl::GetMetrics(this, core::mem::transmute_copy(&ppos), core::mem::transmute_copy(&psize), core::mem::transmute_copy(&pscalex), core::mem::transmute_copy(&pscaley)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IViewObjectPresentFlipSite_Impl::GetMetrics(this, core::mem::transmute_copy(&ppos), core::mem::transmute_copy(&psize), core::mem::transmute_copy(&pscalex), core::mem::transmute_copy(&pscaley)).into()
+            }
         }
         unsafe extern "system" fn GetFullScreenSize<Identity: IViewObjectPresentFlipSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psize: *mut super::super::Foundation::SIZE) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IViewObjectPresentFlipSite_Impl::GetFullScreenSize(this) {
-                Ok(ok__) => {
-                    psize.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IViewObjectPresentFlipSite_Impl::GetFullScreenSize(this) {
+                    Ok(ok__) => {
+                        psize.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -6011,8 +6727,10 @@ windows_core::imp::interface_hierarchy!(IViewObjectPresentFlipSite2, windows_cor
 impl IViewObjectPresentFlipSite2 {
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetRotationForCurrentOutput(&self) -> windows_core::Result<super::super::Graphics::Dxgi::Common::DXGI_MODE_ROTATION> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetRotationForCurrentOutput)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetRotationForCurrentOutput)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
 }
 #[repr(C)]
@@ -6031,13 +6749,15 @@ pub trait IViewObjectPresentFlipSite2_Impl: windows_core::IUnknownImpl {
 impl IViewObjectPresentFlipSite2_Vtbl {
     pub const fn new<Identity: IViewObjectPresentFlipSite2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetRotationForCurrentOutput<Identity: IViewObjectPresentFlipSite2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdxgirotation: *mut super::super::Graphics::Dxgi::Common::DXGI_MODE_ROTATION) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IViewObjectPresentFlipSite2_Impl::GetRotationForCurrentOutput(this) {
-                Ok(ok__) => {
-                    pdxgirotation.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IViewObjectPresentFlipSite2_Impl::GetRotationForCurrentOutput(this) {
+                    Ok(ok__) => {
+                        pdxgirotation.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetRotationForCurrentOutput: GetRotationForCurrentOutput::<Identity, OFFSET> }
@@ -6052,20 +6772,22 @@ windows_core::imp::define_interface!(IWebBrowserEventsService, IWebBrowserEvents
 windows_core::imp::interface_hierarchy!(IWebBrowserEventsService, windows_core::IUnknown);
 impl IWebBrowserEventsService {
     pub unsafe fn FireBeforeNavigate2Event(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).FireBeforeNavigate2Event)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).FireBeforeNavigate2Event)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn FireNavigateComplete2Event(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).FireNavigateComplete2Event)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).FireNavigateComplete2Event)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn FireDownloadBeginEvent(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).FireDownloadBeginEvent)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).FireDownloadBeginEvent)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn FireDownloadCompleteEvent(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).FireDownloadCompleteEvent)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).FireDownloadCompleteEvent)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn FireDocumentCompleteEvent(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).FireDocumentCompleteEvent)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).FireDocumentCompleteEvent)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
 #[repr(C)]
@@ -6087,30 +6809,40 @@ pub trait IWebBrowserEventsService_Impl: windows_core::IUnknownImpl {
 impl IWebBrowserEventsService_Vtbl {
     pub const fn new<Identity: IWebBrowserEventsService_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn FireBeforeNavigate2Event<Identity: IWebBrowserEventsService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfcancel: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWebBrowserEventsService_Impl::FireBeforeNavigate2Event(this) {
-                Ok(ok__) => {
-                    pfcancel.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IWebBrowserEventsService_Impl::FireBeforeNavigate2Event(this) {
+                    Ok(ok__) => {
+                        pfcancel.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn FireNavigateComplete2Event<Identity: IWebBrowserEventsService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWebBrowserEventsService_Impl::FireNavigateComplete2Event(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IWebBrowserEventsService_Impl::FireNavigateComplete2Event(this).into()
+            }
         }
         unsafe extern "system" fn FireDownloadBeginEvent<Identity: IWebBrowserEventsService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWebBrowserEventsService_Impl::FireDownloadBeginEvent(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IWebBrowserEventsService_Impl::FireDownloadBeginEvent(this).into()
+            }
         }
         unsafe extern "system" fn FireDownloadCompleteEvent<Identity: IWebBrowserEventsService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWebBrowserEventsService_Impl::FireDownloadCompleteEvent(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IWebBrowserEventsService_Impl::FireDownloadCompleteEvent(this).into()
+            }
         }
         unsafe extern "system" fn FireDocumentCompleteEvent<Identity: IWebBrowserEventsService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWebBrowserEventsService_Impl::FireDocumentCompleteEvent(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IWebBrowserEventsService_Impl::FireDocumentCompleteEvent(this).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -6130,8 +6862,10 @@ windows_core::imp::define_interface!(IWebBrowserEventsUrlService, IWebBrowserEve
 windows_core::imp::interface_hierarchy!(IWebBrowserEventsUrlService, windows_core::IUnknown);
 impl IWebBrowserEventsUrlService {
     pub unsafe fn GetUrlForEvents(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetUrlForEvents)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetUrlForEvents)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
 }
 #[repr(C)]
@@ -6145,13 +6879,15 @@ pub trait IWebBrowserEventsUrlService_Impl: windows_core::IUnknownImpl {
 impl IWebBrowserEventsUrlService_Vtbl {
     pub const fn new<Identity: IWebBrowserEventsUrlService_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetUrlForEvents<Identity: IWebBrowserEventsUrlService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, purl: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWebBrowserEventsUrlService_Impl::GetUrlForEvents(this) {
-                Ok(ok__) => {
-                    purl.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IWebBrowserEventsUrlService_Impl::GetUrlForEvents(this) {
+                    Ok(ok__) => {
+                        purl.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetUrlForEvents: GetUrlForEvents::<Identity, OFFSET> }
@@ -6177,18 +6913,22 @@ windows_core::imp::interface_hierarchy!(Iwfolders, windows_core::IUnknown, super
 #[cfg(feature = "Win32_System_Com")]
 impl Iwfolders {
     pub unsafe fn navigate(&self, bstrurl: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).navigate)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrurl), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).navigate)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrurl), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn navigateFrame(&self, bstrurl: &windows_core::BSTR, bstrtargetframe: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).navigateFrame)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrurl), core::mem::transmute_copy(bstrtargetframe), &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).navigateFrame)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrurl), core::mem::transmute_copy(bstrtargetframe), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn navigateNoSite<P3>(&self, bstrurl: &windows_core::BSTR, bstrtargetframe: &windows_core::BSTR, dwhwnd: u32, pwb: P3) -> windows_core::Result<()>
     where
         P3: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).navigateNoSite)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrurl), core::mem::transmute_copy(bstrtargetframe), dwhwnd, pwb.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).navigateNoSite)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrurl), core::mem::transmute_copy(bstrtargetframe), dwhwnd, pwb.param().abi()).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6209,28 +6949,34 @@ pub trait Iwfolders_Impl: super::super::System::Com::IDispatch_Impl {
 impl Iwfolders_Vtbl {
     pub const fn new<Identity: Iwfolders_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn navigate<Identity: Iwfolders_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrurl: *mut core::ffi::c_void, pbstrretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match Iwfolders_Impl::navigate(this, core::mem::transmute(&bstrurl)) {
-                Ok(ok__) => {
-                    pbstrretval.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match Iwfolders_Impl::navigate(this, core::mem::transmute(&bstrurl)) {
+                    Ok(ok__) => {
+                        pbstrretval.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn navigateFrame<Identity: Iwfolders_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrurl: *mut core::ffi::c_void, bstrtargetframe: *mut core::ffi::c_void, pbstrretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match Iwfolders_Impl::navigateFrame(this, core::mem::transmute(&bstrurl), core::mem::transmute(&bstrtargetframe)) {
-                Ok(ok__) => {
-                    pbstrretval.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match Iwfolders_Impl::navigateFrame(this, core::mem::transmute(&bstrurl), core::mem::transmute(&bstrtargetframe)) {
+                    Ok(ok__) => {
+                        pbstrretval.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn navigateNoSite<Identity: Iwfolders_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrurl: *mut core::ffi::c_void, bstrtargetframe: *mut core::ffi::c_void, dwhwnd: u32, pwb: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            Iwfolders_Impl::navigateNoSite(this, core::mem::transmute(&bstrurl), core::mem::transmute(&bstrtargetframe), core::mem::transmute_copy(&dwhwnd), core::mem::transmute_copy(&pwb)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                Iwfolders_Impl::navigateNoSite(this, core::mem::transmute(&bstrurl), core::mem::transmute(&bstrtargetframe), core::mem::transmute_copy(&dwhwnd), core::mem::transmute_copy(&pwb)).into()
+            }
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(),

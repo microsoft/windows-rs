@@ -141,14 +141,17 @@ impl ICompositor_Vtbl {
             brush: i32,
             result__: *mut *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICompositor_Impl::CreateSpriteVisual(this, brush) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICompositor_Impl::CreateSpriteVisual(this, brush) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn CreateContainerVisual<
@@ -159,14 +162,17 @@ impl ICompositor_Vtbl {
             children: i32,
             result__: *mut *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ICompositor_Impl::CreateContainerVisual(this, children) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICompositor_Impl::CreateContainerVisual(this, children) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -214,10 +220,13 @@ impl IContainerVisual_Vtbl {
             this: *mut core::ffi::c_void,
             result__: *mut i32,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            let ok__ = IContainerVisual_Impl::Children(this);
-            result__.write(core::mem::transmute_copy(&ok__));
-            windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let ok__ = IContainerVisual_Impl::Children(this);
+                result__.write(core::mem::transmute_copy(&ok__));
+                windows_core::HRESULT(0)
+            }
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IContainerVisual, OFFSET>(),
@@ -283,10 +292,13 @@ impl ISpriteVisual_Vtbl {
             this: *mut core::ffi::c_void,
             result__: *mut i32,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            let ok__ = ISpriteVisual_Impl::Brush(this);
-            result__.write(core::mem::transmute_copy(&ok__));
-            windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let ok__ = ISpriteVisual_Impl::Brush(this);
+                result__.write(core::mem::transmute_copy(&ok__));
+                windows_core::HRESULT(0)
+            }
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, ISpriteVisual, OFFSET>(),
@@ -323,14 +335,17 @@ impl IVisual_Vtbl {
             this: *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IVisual_Impl::Compositor(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IVisual_Impl::Compositor(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {

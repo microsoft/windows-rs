@@ -7,7 +7,7 @@ pub trait AsImpl<T> {
     /// The caller needs to ensure that `self` is actually implemented by the
     /// implementation `T`.
     unsafe fn as_impl(&self) -> &T {
-        self.as_impl_ptr().as_ref()
+        unsafe { self.as_impl_ptr().as_ref() }
     }
 
     /// Returns a pointer to the implementation object.

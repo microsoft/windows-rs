@@ -180,33 +180,41 @@ struct TimerDestroyedHandlerBox<F: FnMut(windows_core::Ref<'_, ThreadPoolTimer>)
 impl<F: FnMut(windows_core::Ref<'_, ThreadPoolTimer>) -> windows_core::Result<()> + Send + 'static> TimerDestroyedHandlerBox<F> {
     const VTABLE: TimerDestroyedHandler_Vtbl = TimerDestroyedHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        if iid.is_null() || interface.is_null() {
-            return windows_core::HRESULT(-2147467261);
-        }
-        *interface = if *iid == <TimerDestroyedHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
-        if (*interface).is_null() {
-            windows_core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            windows_core::HRESULT(0)
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            if iid.is_null() || interface.is_null() {
+                return windows_core::HRESULT(-2147467261);
+            }
+            *interface = if *iid == <TimerDestroyedHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
+            if (*interface).is_null() {
+                windows_core::HRESULT(-2147467262)
+            } else {
+                (*this).count.add_ref();
+                windows_core::HRESULT(0)
+            }
         }
     }
     unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            (*this).count.add_ref()
+        }
     }
     unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = windows_core::imp::Box::from_raw(this);
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            let remaining = (*this).count.release();
+            if remaining == 0 {
+                let _ = windows_core::imp::Box::from_raw(this);
+            }
+            remaining
         }
-        remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, timer: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(core::mem::transmute_copy(&timer)).into()
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            (this.invoke)(core::mem::transmute_copy(&timer)).into()
+        }
     }
 }
 windows_core::imp::define_interface!(TimerElapsedHandler, TimerElapsedHandler_Vtbl, 0xfaaea667_fbeb_49cb_adb2_71184c556e43);
@@ -240,33 +248,41 @@ struct TimerElapsedHandlerBox<F: FnMut(windows_core::Ref<'_, ThreadPoolTimer>) -
 impl<F: FnMut(windows_core::Ref<'_, ThreadPoolTimer>) -> windows_core::Result<()> + Send + 'static> TimerElapsedHandlerBox<F> {
     const VTABLE: TimerElapsedHandler_Vtbl = TimerElapsedHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        if iid.is_null() || interface.is_null() {
-            return windows_core::HRESULT(-2147467261);
-        }
-        *interface = if *iid == <TimerElapsedHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
-        if (*interface).is_null() {
-            windows_core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            windows_core::HRESULT(0)
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            if iid.is_null() || interface.is_null() {
+                return windows_core::HRESULT(-2147467261);
+            }
+            *interface = if *iid == <TimerElapsedHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
+            if (*interface).is_null() {
+                windows_core::HRESULT(-2147467262)
+            } else {
+                (*this).count.add_ref();
+                windows_core::HRESULT(0)
+            }
         }
     }
     unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            (*this).count.add_ref()
+        }
     }
     unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = windows_core::imp::Box::from_raw(this);
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            let remaining = (*this).count.release();
+            if remaining == 0 {
+                let _ = windows_core::imp::Box::from_raw(this);
+            }
+            remaining
         }
-        remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, timer: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(core::mem::transmute_copy(&timer)).into()
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            (this.invoke)(core::mem::transmute_copy(&timer)).into()
+        }
     }
 }
 windows_core::imp::define_interface!(WorkItemHandler, WorkItemHandler_Vtbl, 0x1d1a8b8b_fa66_414f_9cbd_b65fc99d17fa);
@@ -300,33 +316,41 @@ struct WorkItemHandlerBox<F: FnMut(windows_core::Ref<'_, super::super::Foundatio
 impl<F: FnMut(windows_core::Ref<'_, super::super::Foundation::IAsyncAction>) -> windows_core::Result<()> + Send + 'static> WorkItemHandlerBox<F> {
     const VTABLE: WorkItemHandler_Vtbl = WorkItemHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        if iid.is_null() || interface.is_null() {
-            return windows_core::HRESULT(-2147467261);
-        }
-        *interface = if *iid == <WorkItemHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
-        if (*interface).is_null() {
-            windows_core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            windows_core::HRESULT(0)
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            if iid.is_null() || interface.is_null() {
+                return windows_core::HRESULT(-2147467261);
+            }
+            *interface = if *iid == <WorkItemHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
+            if (*interface).is_null() {
+                windows_core::HRESULT(-2147467262)
+            } else {
+                (*this).count.add_ref();
+                windows_core::HRESULT(0)
+            }
         }
     }
     unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            (*this).count.add_ref()
+        }
     }
     unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = windows_core::imp::Box::from_raw(this);
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            let remaining = (*this).count.release();
+            if remaining == 0 {
+                let _ = windows_core::imp::Box::from_raw(this);
+            }
+            remaining
         }
-        remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, operation: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(core::mem::transmute_copy(&operation)).into()
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            (this.invoke)(core::mem::transmute_copy(&operation)).into()
+        }
     }
 }
 #[repr(transparent)]

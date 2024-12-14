@@ -402,8 +402,10 @@ impl Interface {
 
                     quote! {
                         unsafe extern "system" fn #name<#constraints Identity: #impl_name <#(#generics,)*>, const OFFSET: isize> (#signature) -> windows_core::HRESULT {
-                            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                            #upcall
+                            unsafe {
+                                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                                #upcall
+                            }
                         }
                     }
                 }

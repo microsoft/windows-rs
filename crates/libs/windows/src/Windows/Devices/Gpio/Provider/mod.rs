@@ -64,24 +64,28 @@ pub trait IGpioControllerProvider_Impl: windows_core::IUnknownImpl {
 impl IGpioControllerProvider_Vtbl {
     pub const fn new<Identity: IGpioControllerProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn PinCount<Identity: IGpioControllerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut i32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IGpioControllerProvider_Impl::PinCount(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IGpioControllerProvider_Impl::PinCount(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn OpenPinProvider<Identity: IGpioControllerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pin: i32, sharingmode: ProviderGpioSharingMode, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IGpioControllerProvider_Impl::OpenPinProvider(this, pin, sharingmode) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IGpioControllerProvider_Impl::OpenPinProvider(this, pin, sharingmode) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -194,89 +198,111 @@ pub trait IGpioPinProvider_Impl: windows_core::IUnknownImpl {
 impl IGpioPinProvider_Vtbl {
     pub const fn new<Identity: IGpioPinProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ValueChanged<Identity: IGpioPinProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IGpioPinProvider_Impl::ValueChanged(this, core::mem::transmute_copy(&handler)) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IGpioPinProvider_Impl::ValueChanged(this, core::mem::transmute_copy(&handler)) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn RemoveValueChanged<Identity: IGpioPinProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IGpioPinProvider_Impl::RemoveValueChanged(this, token).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IGpioPinProvider_Impl::RemoveValueChanged(this, token).into()
+            }
         }
         unsafe extern "system" fn DebounceTimeout<Identity: IGpioPinProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IGpioPinProvider_Impl::DebounceTimeout(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IGpioPinProvider_Impl::DebounceTimeout(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetDebounceTimeout<Identity: IGpioPinProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IGpioPinProvider_Impl::SetDebounceTimeout(this, core::mem::transmute(&value)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IGpioPinProvider_Impl::SetDebounceTimeout(this, core::mem::transmute(&value)).into()
+            }
         }
         unsafe extern "system" fn PinNumber<Identity: IGpioPinProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut i32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IGpioPinProvider_Impl::PinNumber(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IGpioPinProvider_Impl::PinNumber(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SharingMode<Identity: IGpioPinProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut ProviderGpioSharingMode) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IGpioPinProvider_Impl::SharingMode(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IGpioPinProvider_Impl::SharingMode(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn IsDriveModeSupported<Identity: IGpioPinProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, drivemode: ProviderGpioPinDriveMode, result__: *mut bool) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IGpioPinProvider_Impl::IsDriveModeSupported(this, drivemode) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IGpioPinProvider_Impl::IsDriveModeSupported(this, drivemode) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetDriveMode<Identity: IGpioPinProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut ProviderGpioPinDriveMode) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IGpioPinProvider_Impl::GetDriveMode(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IGpioPinProvider_Impl::GetDriveMode(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetDriveMode<Identity: IGpioPinProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: ProviderGpioPinDriveMode) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IGpioPinProvider_Impl::SetDriveMode(this, value).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IGpioPinProvider_Impl::SetDriveMode(this, value).into()
+            }
         }
         unsafe extern "system" fn Write<Identity: IGpioPinProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: ProviderGpioPinValue) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IGpioPinProvider_Impl::Write(this, value).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IGpioPinProvider_Impl::Write(this, value).into()
+            }
         }
         unsafe extern "system" fn Read<Identity: IGpioPinProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut ProviderGpioPinValue) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IGpioPinProvider_Impl::Read(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IGpioPinProvider_Impl::Read(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -358,14 +384,16 @@ pub trait IGpioProvider_Impl: windows_core::IUnknownImpl {
 impl IGpioProvider_Vtbl {
     pub const fn new<Identity: IGpioProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetControllers<Identity: IGpioProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IGpioProvider_Impl::GetControllers(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IGpioProvider_Impl::GetControllers(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IGpioProvider, OFFSET>(), GetControllers: GetControllers::<Identity, OFFSET> }

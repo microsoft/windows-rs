@@ -1,54 +1,54 @@
 #[inline]
 pub unsafe fn CryptSIPAddProvider(psnewprov: *mut SIP_ADD_NEWPROVIDER) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptSIPAddProvider(psnewprov : *mut SIP_ADD_NEWPROVIDER) -> super::super::super::Foundation:: BOOL);
-    CryptSIPAddProvider(core::mem::transmute(psnewprov)).ok()
+    unsafe { CryptSIPAddProvider(core::mem::transmute(psnewprov)).ok() }
 }
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
 #[inline]
 pub unsafe fn CryptSIPCreateIndirectData(psubjectinfo: *mut SIP_SUBJECTINFO, pcbindirectdata: *mut u32, pindirectdata: *mut SIP_INDIRECT_DATA) -> windows_core::Result<()> {
     windows_targets::link!("wintrust.dll" "system" fn CryptSIPCreateIndirectData(psubjectinfo : *mut SIP_SUBJECTINFO, pcbindirectdata : *mut u32, pindirectdata : *mut SIP_INDIRECT_DATA) -> super::super::super::Foundation:: BOOL);
-    CryptSIPCreateIndirectData(core::mem::transmute(psubjectinfo), core::mem::transmute(pcbindirectdata), core::mem::transmute(pindirectdata)).ok()
+    unsafe { CryptSIPCreateIndirectData(core::mem::transmute(psubjectinfo), core::mem::transmute(pcbindirectdata), core::mem::transmute(pindirectdata)).ok() }
 }
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
 #[inline]
 pub unsafe fn CryptSIPGetCaps(psubjinfo: *const SIP_SUBJECTINFO, pcaps: *mut SIP_CAP_SET_V3) -> super::super::super::Foundation::BOOL {
     windows_targets::link!("wintrust.dll" "system" fn CryptSIPGetCaps(psubjinfo : *const SIP_SUBJECTINFO, pcaps : *mut SIP_CAP_SET_V3) -> super::super::super::Foundation:: BOOL);
-    CryptSIPGetCaps(psubjinfo, core::mem::transmute(pcaps))
+    unsafe { CryptSIPGetCaps(psubjinfo, core::mem::transmute(pcaps)) }
 }
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
 #[inline]
 pub unsafe fn CryptSIPGetSealedDigest(psubjectinfo: *const SIP_SUBJECTINFO, psig: Option<&[u8]>, pbdigest: Option<*mut u8>, pcbdigest: *mut u32) -> super::super::super::Foundation::BOOL {
     windows_targets::link!("wintrust.dll" "system" fn CryptSIPGetSealedDigest(psubjectinfo : *const SIP_SUBJECTINFO, psig : *const u8, dwsig : u32, pbdigest : *mut u8, pcbdigest : *mut u32) -> super::super::super::Foundation:: BOOL);
-    CryptSIPGetSealedDigest(psubjectinfo, core::mem::transmute(psig.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), psig.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbdigest.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbdigest))
+    unsafe { CryptSIPGetSealedDigest(psubjectinfo, core::mem::transmute(psig.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), psig.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbdigest.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbdigest)) }
 }
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
 #[inline]
 pub unsafe fn CryptSIPGetSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, pdwencodingtype: *mut super::CERT_QUERY_ENCODING_TYPE, dwindex: u32, pcbsigneddatamsg: *mut u32, pbsigneddatamsg: *mut u8) -> windows_core::Result<()> {
     windows_targets::link!("wintrust.dll" "system" fn CryptSIPGetSignedDataMsg(psubjectinfo : *mut SIP_SUBJECTINFO, pdwencodingtype : *mut super:: CERT_QUERY_ENCODING_TYPE, dwindex : u32, pcbsigneddatamsg : *mut u32, pbsigneddatamsg : *mut u8) -> super::super::super::Foundation:: BOOL);
-    CryptSIPGetSignedDataMsg(core::mem::transmute(psubjectinfo), core::mem::transmute(pdwencodingtype), dwindex, core::mem::transmute(pcbsigneddatamsg), core::mem::transmute(pbsigneddatamsg)).ok()
+    unsafe { CryptSIPGetSignedDataMsg(core::mem::transmute(psubjectinfo), core::mem::transmute(pdwencodingtype), dwindex, core::mem::transmute(pcbsigneddatamsg), core::mem::transmute(pbsigneddatamsg)).ok() }
 }
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
 #[inline]
 pub unsafe fn CryptSIPLoad(pgsubject: *const windows_core::GUID, dwflags: u32, psipdispatch: *mut SIP_DISPATCH_INFO) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptSIPLoad(pgsubject : *const windows_core::GUID, dwflags : u32, psipdispatch : *mut SIP_DISPATCH_INFO) -> super::super::super::Foundation:: BOOL);
-    CryptSIPLoad(pgsubject, dwflags, core::mem::transmute(psipdispatch)).ok()
+    unsafe { CryptSIPLoad(pgsubject, dwflags, core::mem::transmute(psipdispatch)).ok() }
 }
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
 #[inline]
 pub unsafe fn CryptSIPPutSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, dwencodingtype: super::CERT_QUERY_ENCODING_TYPE, pdwindex: *mut u32, cbsigneddatamsg: u32, pbsigneddatamsg: *mut u8) -> windows_core::Result<()> {
     windows_targets::link!("wintrust.dll" "system" fn CryptSIPPutSignedDataMsg(psubjectinfo : *mut SIP_SUBJECTINFO, dwencodingtype : super:: CERT_QUERY_ENCODING_TYPE, pdwindex : *mut u32, cbsigneddatamsg : u32, pbsigneddatamsg : *mut u8) -> super::super::super::Foundation:: BOOL);
-    CryptSIPPutSignedDataMsg(core::mem::transmute(psubjectinfo), dwencodingtype, core::mem::transmute(pdwindex), cbsigneddatamsg, core::mem::transmute(pbsigneddatamsg)).ok()
+    unsafe { CryptSIPPutSignedDataMsg(core::mem::transmute(psubjectinfo), dwencodingtype, core::mem::transmute(pdwindex), cbsigneddatamsg, core::mem::transmute(pbsigneddatamsg)).ok() }
 }
 #[inline]
 pub unsafe fn CryptSIPRemoveProvider(pgprov: *mut windows_core::GUID) -> windows_core::Result<()> {
     windows_targets::link!("crypt32.dll" "system" fn CryptSIPRemoveProvider(pgprov : *mut windows_core::GUID) -> super::super::super::Foundation:: BOOL);
-    CryptSIPRemoveProvider(core::mem::transmute(pgprov)).ok()
+    unsafe { CryptSIPRemoveProvider(core::mem::transmute(pgprov)).ok() }
 }
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
 #[inline]
 pub unsafe fn CryptSIPRemoveSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, dwindex: u32) -> windows_core::Result<()> {
     windows_targets::link!("wintrust.dll" "system" fn CryptSIPRemoveSignedDataMsg(psubjectinfo : *mut SIP_SUBJECTINFO, dwindex : u32) -> super::super::super::Foundation:: BOOL);
-    CryptSIPRemoveSignedDataMsg(core::mem::transmute(psubjectinfo), dwindex).ok()
+    unsafe { CryptSIPRemoveSignedDataMsg(core::mem::transmute(psubjectinfo), dwindex).ok() }
 }
 #[inline]
 pub unsafe fn CryptSIPRetrieveSubjectGuid<P0>(filename: P0, hfilein: super::super::super::Foundation::HANDLE, pgsubject: *mut windows_core::GUID) -> windows_core::Result<()>
@@ -56,7 +56,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptSIPRetrieveSubjectGuid(filename : windows_core::PCWSTR, hfilein : super::super::super::Foundation:: HANDLE, pgsubject : *mut windows_core::GUID) -> super::super::super::Foundation:: BOOL);
-    CryptSIPRetrieveSubjectGuid(filename.param().abi(), hfilein, core::mem::transmute(pgsubject)).ok()
+    unsafe { CryptSIPRetrieveSubjectGuid(filename.param().abi(), hfilein, core::mem::transmute(pgsubject)).ok() }
 }
 #[inline]
 pub unsafe fn CryptSIPRetrieveSubjectGuidForCatalogFile<P0>(filename: P0, hfilein: super::super::super::Foundation::HANDLE, pgsubject: *mut windows_core::GUID) -> windows_core::Result<()>
@@ -64,13 +64,13 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptSIPRetrieveSubjectGuidForCatalogFile(filename : windows_core::PCWSTR, hfilein : super::super::super::Foundation:: HANDLE, pgsubject : *mut windows_core::GUID) -> super::super::super::Foundation:: BOOL);
-    CryptSIPRetrieveSubjectGuidForCatalogFile(filename.param().abi(), hfilein, core::mem::transmute(pgsubject)).ok()
+    unsafe { CryptSIPRetrieveSubjectGuidForCatalogFile(filename.param().abi(), hfilein, core::mem::transmute(pgsubject)).ok() }
 }
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
 #[inline]
 pub unsafe fn CryptSIPVerifyIndirectData(psubjectinfo: *mut SIP_SUBJECTINFO, pindirectdata: *mut SIP_INDIRECT_DATA) -> windows_core::Result<()> {
     windows_targets::link!("wintrust.dll" "system" fn CryptSIPVerifyIndirectData(psubjectinfo : *mut SIP_SUBJECTINFO, pindirectdata : *mut SIP_INDIRECT_DATA) -> super::super::super::Foundation:: BOOL);
-    CryptSIPVerifyIndirectData(core::mem::transmute(psubjectinfo), core::mem::transmute(pindirectdata)).ok()
+    unsafe { CryptSIPVerifyIndirectData(core::mem::transmute(psubjectinfo), core::mem::transmute(pindirectdata)).ok() }
 }
 pub const MSSIP_ADDINFO_BLOB: u32 = 3u32;
 pub const MSSIP_ADDINFO_CATMEMBER: u32 = 2u32;

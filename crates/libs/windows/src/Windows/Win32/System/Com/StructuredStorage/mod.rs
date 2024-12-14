@@ -2,7 +2,7 @@
 #[inline]
 pub unsafe fn ClearPropVariantArray(rgpropvar: &mut [PROPVARIANT]) {
     windows_targets::link!("propsys.dll" "system" fn ClearPropVariantArray(rgpropvar : *mut PROPVARIANT, cvars : u32));
-    ClearPropVariantArray(core::mem::transmute(rgpropvar.as_ptr()), rgpropvar.len().try_into().unwrap())
+    unsafe { ClearPropVariantArray(core::mem::transmute(rgpropvar.as_ptr()), rgpropvar.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn CoGetInstanceFromFile<P2, P5>(pserverinfo: Option<*const super::COSERVERINFO>, pclsid: Option<*const windows_core::GUID>, punkouter: P2, dwclsctx: super::CLSCTX, grfmode: u32, pwszname: P5, presults: &mut [super::MULTI_QI]) -> windows_core::Result<()>
@@ -11,7 +11,7 @@ where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ole32.dll" "system" fn CoGetInstanceFromFile(pserverinfo : *const super:: COSERVERINFO, pclsid : *const windows_core::GUID, punkouter : * mut core::ffi::c_void, dwclsctx : super:: CLSCTX, grfmode : u32, pwszname : windows_core::PCWSTR, dwcount : u32, presults : *mut super:: MULTI_QI) -> windows_core::HRESULT);
-    CoGetInstanceFromFile(core::mem::transmute(pserverinfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(pclsid.unwrap_or(core::mem::zeroed())), punkouter.param().abi(), dwclsctx, grfmode, pwszname.param().abi(), presults.len().try_into().unwrap(), core::mem::transmute(presults.as_ptr())).ok()
+    unsafe { CoGetInstanceFromFile(core::mem::transmute(pserverinfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(pclsid.unwrap_or(core::mem::zeroed())), punkouter.param().abi(), dwclsctx, grfmode, pwszname.param().abi(), presults.len().try_into().unwrap(), core::mem::transmute(presults.as_ptr())).ok() }
 }
 #[inline]
 pub unsafe fn CoGetInstanceFromIStorage<P2, P4>(pserverinfo: Option<*const super::COSERVERINFO>, pclsid: Option<*const windows_core::GUID>, punkouter: P2, dwclsctx: super::CLSCTX, pstg: P4, presults: &mut [super::MULTI_QI]) -> windows_core::Result<()>
@@ -20,7 +20,7 @@ where
     P4: windows_core::Param<IStorage>,
 {
     windows_targets::link!("ole32.dll" "system" fn CoGetInstanceFromIStorage(pserverinfo : *const super:: COSERVERINFO, pclsid : *const windows_core::GUID, punkouter : * mut core::ffi::c_void, dwclsctx : super:: CLSCTX, pstg : * mut core::ffi::c_void, dwcount : u32, presults : *mut super:: MULTI_QI) -> windows_core::HRESULT);
-    CoGetInstanceFromIStorage(core::mem::transmute(pserverinfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(pclsid.unwrap_or(core::mem::zeroed())), punkouter.param().abi(), dwclsctx, pstg.param().abi(), presults.len().try_into().unwrap(), core::mem::transmute(presults.as_ptr())).ok()
+    unsafe { CoGetInstanceFromIStorage(core::mem::transmute(pserverinfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(pclsid.unwrap_or(core::mem::zeroed())), punkouter.param().abi(), dwclsctx, pstg.param().abi(), presults.len().try_into().unwrap(), core::mem::transmute(presults.as_ptr())).ok() }
 }
 #[inline]
 pub unsafe fn CoGetInterfaceAndReleaseStream<P0, T>(pstm: P0) -> windows_core::Result<T>
@@ -30,30 +30,34 @@ where
 {
     windows_targets::link!("ole32.dll" "system" fn CoGetInterfaceAndReleaseStream(pstm : * mut core::ffi::c_void, iid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    CoGetInterfaceAndReleaseStream(pstm.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    unsafe { CoGetInterfaceAndReleaseStream(pstm.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn CreateILockBytesOnHGlobal(hglobal: Option<super::super::super::Foundation::HGLOBAL>, fdeleteonrelease: bool) -> windows_core::Result<ILockBytes> {
     windows_targets::link!("ole32.dll" "system" fn CreateILockBytesOnHGlobal(hglobal : super::super::super::Foundation:: HGLOBAL, fdeleteonrelease : super::super::super::Foundation:: BOOL, pplkbyt : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    CreateILockBytesOnHGlobal(core::mem::transmute(hglobal.unwrap_or(core::mem::zeroed())), fdeleteonrelease.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        CreateILockBytesOnHGlobal(core::mem::transmute(hglobal.unwrap_or(core::mem::zeroed())), fdeleteonrelease.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    }
 }
 #[inline]
 pub unsafe fn CreateStreamOnHGlobal(hglobal: super::super::super::Foundation::HGLOBAL, fdeleteonrelease: bool) -> windows_core::Result<super::IStream> {
     windows_targets::link!("ole32.dll" "system" fn CreateStreamOnHGlobal(hglobal : super::super::super::Foundation:: HGLOBAL, fdeleteonrelease : super::super::super::Foundation:: BOOL, ppstm : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    CreateStreamOnHGlobal(hglobal, fdeleteonrelease.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        CreateStreamOnHGlobal(hglobal, fdeleteonrelease.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    }
 }
 #[inline]
 pub unsafe fn FmtIdToPropStgName(pfmtid: *const windows_core::GUID, oszname: windows_core::PWSTR) -> windows_core::Result<()> {
     windows_targets::link!("ole32.dll" "system" fn FmtIdToPropStgName(pfmtid : *const windows_core::GUID, oszname : windows_core::PWSTR) -> windows_core::HRESULT);
-    FmtIdToPropStgName(pfmtid, core::mem::transmute(oszname)).ok()
+    unsafe { FmtIdToPropStgName(pfmtid, core::mem::transmute(oszname)).ok() }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn FreePropVariantArray(rgvars: &mut [PROPVARIANT]) -> windows_core::Result<()> {
     windows_targets::link!("ole32.dll" "system" fn FreePropVariantArray(cvariants : u32, rgvars : *mut PROPVARIANT) -> windows_core::HRESULT);
-    FreePropVariantArray(rgvars.len().try_into().unwrap(), core::mem::transmute(rgvars.as_ptr())).ok()
+    unsafe { FreePropVariantArray(rgvars.len().try_into().unwrap(), core::mem::transmute(rgvars.as_ptr())).ok() }
 }
 #[inline]
 pub unsafe fn GetConvertStg<P0>(pstg: P0) -> windows_core::Result<()>
@@ -61,7 +65,7 @@ where
     P0: windows_core::Param<IStorage>,
 {
     windows_targets::link!("ole32.dll" "system" fn GetConvertStg(pstg : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    GetConvertStg(pstg.param().abi()).ok()
+    unsafe { GetConvertStg(pstg.param().abi()).ok() }
 }
 #[inline]
 pub unsafe fn GetHGlobalFromILockBytes<P0>(plkbyt: P0) -> windows_core::Result<super::super::super::Foundation::HGLOBAL>
@@ -69,8 +73,10 @@ where
     P0: windows_core::Param<ILockBytes>,
 {
     windows_targets::link!("ole32.dll" "system" fn GetHGlobalFromILockBytes(plkbyt : * mut core::ffi::c_void, phglobal : *mut super::super::super::Foundation:: HGLOBAL) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    GetHGlobalFromILockBytes(plkbyt.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        GetHGlobalFromILockBytes(plkbyt.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[inline]
 pub unsafe fn GetHGlobalFromStream<P0>(pstm: P0) -> windows_core::Result<super::super::super::Foundation::HGLOBAL>
@@ -78,92 +84,118 @@ where
     P0: windows_core::Param<super::IStream>,
 {
     windows_targets::link!("ole32.dll" "system" fn GetHGlobalFromStream(pstm : * mut core::ffi::c_void, phglobal : *mut super::super::super::Foundation:: HGLOBAL) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    GetHGlobalFromStream(pstm.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        GetHGlobalFromStream(pstm.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn InitPropVariantFromBooleanVector(prgf: Option<&[super::super::super::Foundation::BOOL]>) -> windows_core::Result<PROPVARIANT> {
     windows_targets::link!("propsys.dll" "system" fn InitPropVariantFromBooleanVector(prgf : *const super::super::super::Foundation:: BOOL, celems : u32, ppropvar : *mut PROPVARIANT) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    InitPropVariantFromBooleanVector(core::mem::transmute(prgf.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), prgf.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        InitPropVariantFromBooleanVector(core::mem::transmute(prgf.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), prgf.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn InitPropVariantFromBuffer(pv: *const core::ffi::c_void, cb: u32) -> windows_core::Result<PROPVARIANT> {
     windows_targets::link!("propsys.dll" "system" fn InitPropVariantFromBuffer(pv : *const core::ffi::c_void, cb : u32, ppropvar : *mut PROPVARIANT) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    InitPropVariantFromBuffer(pv, cb, &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        InitPropVariantFromBuffer(pv, cb, &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn InitPropVariantFromCLSID(clsid: *const windows_core::GUID) -> windows_core::Result<PROPVARIANT> {
     windows_targets::link!("propsys.dll" "system" fn InitPropVariantFromCLSID(clsid : *const windows_core::GUID, ppropvar : *mut PROPVARIANT) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    InitPropVariantFromCLSID(clsid, &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        InitPropVariantFromCLSID(clsid, &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn InitPropVariantFromDoubleVector(prgn: Option<&[f64]>) -> windows_core::Result<PROPVARIANT> {
     windows_targets::link!("propsys.dll" "system" fn InitPropVariantFromDoubleVector(prgn : *const f64, celems : u32, ppropvar : *mut PROPVARIANT) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    InitPropVariantFromDoubleVector(core::mem::transmute(prgn.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), prgn.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        InitPropVariantFromDoubleVector(core::mem::transmute(prgn.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), prgn.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn InitPropVariantFromFileTime(pftin: *const super::super::super::Foundation::FILETIME) -> windows_core::Result<PROPVARIANT> {
     windows_targets::link!("propsys.dll" "system" fn InitPropVariantFromFileTime(pftin : *const super::super::super::Foundation:: FILETIME, ppropvar : *mut PROPVARIANT) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    InitPropVariantFromFileTime(pftin, &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        InitPropVariantFromFileTime(pftin, &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn InitPropVariantFromFileTimeVector(prgft: Option<&[super::super::super::Foundation::FILETIME]>) -> windows_core::Result<PROPVARIANT> {
     windows_targets::link!("propsys.dll" "system" fn InitPropVariantFromFileTimeVector(prgft : *const super::super::super::Foundation:: FILETIME, celems : u32, ppropvar : *mut PROPVARIANT) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    InitPropVariantFromFileTimeVector(core::mem::transmute(prgft.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), prgft.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        InitPropVariantFromFileTimeVector(core::mem::transmute(prgft.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), prgft.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn InitPropVariantFromGUIDAsString(guid: *const windows_core::GUID) -> windows_core::Result<PROPVARIANT> {
     windows_targets::link!("propsys.dll" "system" fn InitPropVariantFromGUIDAsString(guid : *const windows_core::GUID, ppropvar : *mut PROPVARIANT) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    InitPropVariantFromGUIDAsString(guid, &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        InitPropVariantFromGUIDAsString(guid, &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn InitPropVariantFromInt16Vector(prgn: Option<&[i16]>) -> windows_core::Result<PROPVARIANT> {
     windows_targets::link!("propsys.dll" "system" fn InitPropVariantFromInt16Vector(prgn : *const i16, celems : u32, ppropvar : *mut PROPVARIANT) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    InitPropVariantFromInt16Vector(core::mem::transmute(prgn.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), prgn.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        InitPropVariantFromInt16Vector(core::mem::transmute(prgn.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), prgn.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn InitPropVariantFromInt32Vector(prgn: Option<&[i32]>) -> windows_core::Result<PROPVARIANT> {
     windows_targets::link!("propsys.dll" "system" fn InitPropVariantFromInt32Vector(prgn : *const i32, celems : u32, ppropvar : *mut PROPVARIANT) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    InitPropVariantFromInt32Vector(core::mem::transmute(prgn.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), prgn.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        InitPropVariantFromInt32Vector(core::mem::transmute(prgn.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), prgn.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn InitPropVariantFromInt64Vector(prgn: Option<&[i64]>) -> windows_core::Result<PROPVARIANT> {
     windows_targets::link!("propsys.dll" "system" fn InitPropVariantFromInt64Vector(prgn : *const i64, celems : u32, ppropvar : *mut PROPVARIANT) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    InitPropVariantFromInt64Vector(core::mem::transmute(prgn.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), prgn.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        InitPropVariantFromInt64Vector(core::mem::transmute(prgn.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), prgn.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn InitPropVariantFromPropVariantVectorElem(propvarin: *const PROPVARIANT, ielem: u32) -> windows_core::Result<PROPVARIANT> {
     windows_targets::link!("propsys.dll" "system" fn InitPropVariantFromPropVariantVectorElem(propvarin : *const PROPVARIANT, ielem : u32, ppropvar : *mut PROPVARIANT) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    InitPropVariantFromPropVariantVectorElem(core::mem::transmute(propvarin), ielem, &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        InitPropVariantFromPropVariantVectorElem(core::mem::transmute(propvarin), ielem, &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn InitPropVariantFromResource(hinst: super::super::super::Foundation::HINSTANCE, id: u32) -> windows_core::Result<PROPVARIANT> {
     windows_targets::link!("propsys.dll" "system" fn InitPropVariantFromResource(hinst : super::super::super::Foundation:: HINSTANCE, id : u32, ppropvar : *mut PROPVARIANT) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    InitPropVariantFromResource(hinst, id, &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        InitPropVariantFromResource(hinst, id, &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
@@ -172,43 +204,55 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("propsys.dll" "system" fn InitPropVariantFromStringAsVector(psz : windows_core::PCWSTR, ppropvar : *mut PROPVARIANT) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    InitPropVariantFromStringAsVector(psz.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        InitPropVariantFromStringAsVector(psz.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn InitPropVariantFromStringVector(prgsz: Option<&[windows_core::PCWSTR]>) -> windows_core::Result<PROPVARIANT> {
     windows_targets::link!("propsys.dll" "system" fn InitPropVariantFromStringVector(prgsz : *const windows_core::PCWSTR, celems : u32, ppropvar : *mut PROPVARIANT) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    InitPropVariantFromStringVector(core::mem::transmute(prgsz.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), prgsz.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        InitPropVariantFromStringVector(core::mem::transmute(prgsz.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), prgsz.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn InitPropVariantFromUInt16Vector(prgn: Option<&[u16]>) -> windows_core::Result<PROPVARIANT> {
     windows_targets::link!("propsys.dll" "system" fn InitPropVariantFromUInt16Vector(prgn : *const u16, celems : u32, ppropvar : *mut PROPVARIANT) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    InitPropVariantFromUInt16Vector(core::mem::transmute(prgn.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), prgn.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        InitPropVariantFromUInt16Vector(core::mem::transmute(prgn.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), prgn.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn InitPropVariantFromUInt32Vector(prgn: Option<&[u32]>) -> windows_core::Result<PROPVARIANT> {
     windows_targets::link!("propsys.dll" "system" fn InitPropVariantFromUInt32Vector(prgn : *const u32, celems : u32, ppropvar : *mut PROPVARIANT) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    InitPropVariantFromUInt32Vector(core::mem::transmute(prgn.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), prgn.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        InitPropVariantFromUInt32Vector(core::mem::transmute(prgn.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), prgn.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn InitPropVariantFromUInt64Vector(prgn: Option<&[u64]>) -> windows_core::Result<PROPVARIANT> {
     windows_targets::link!("propsys.dll" "system" fn InitPropVariantFromUInt64Vector(prgn : *const u64, celems : u32, ppropvar : *mut PROPVARIANT) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    InitPropVariantFromUInt64Vector(core::mem::transmute(prgn.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), prgn.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        InitPropVariantFromUInt64Vector(core::mem::transmute(prgn.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), prgn.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn InitPropVariantVectorFromPropVariant(propvarsingle: *const PROPVARIANT) -> windows_core::Result<PROPVARIANT> {
     windows_targets::link!("propsys.dll" "system" fn InitPropVariantVectorFromPropVariant(propvarsingle : *const PROPVARIANT, ppropvarvector : *mut PROPVARIANT) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    InitPropVariantVectorFromPropVariant(core::mem::transmute(propvarsingle), &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        InitPropVariantVectorFromPropVariant(core::mem::transmute(propvarsingle), &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[inline]
 pub unsafe fn OleConvertIStorageToOLESTREAM<P0>(pstg: P0) -> windows_core::Result<OLESTREAM>
@@ -216,8 +260,10 @@ where
     P0: windows_core::Param<IStorage>,
 {
     windows_targets::link!("ole32.dll" "system" fn OleConvertIStorageToOLESTREAM(pstg : * mut core::ffi::c_void, lpolestream : *mut OLESTREAM) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    OleConvertIStorageToOLESTREAM(pstg.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        OleConvertIStorageToOLESTREAM(pstg.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -226,8 +272,10 @@ where
     P0: windows_core::Param<IStorage>,
 {
     windows_targets::link!("ole32.dll" "system" fn OleConvertIStorageToOLESTREAMEx(pstg : * mut core::ffi::c_void, cfformat : u16, lwidth : i32, lheight : i32, dwsize : u32, pmedium : *const super:: STGMEDIUM, polestm : *mut OLESTREAM) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    OleConvertIStorageToOLESTREAMEx(pstg.param().abi(), cfformat, lwidth, lheight, dwsize, core::mem::transmute(pmedium), &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        OleConvertIStorageToOLESTREAMEx(pstg.param().abi(), cfformat, lwidth, lheight, dwsize, core::mem::transmute(pmedium), &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[inline]
 pub unsafe fn OleConvertOLESTREAMToIStorage<P1>(lpolestream: *const OLESTREAM, pstg: P1, ptd: *const super::DVTARGETDEVICE) -> windows_core::Result<()>
@@ -235,7 +283,7 @@ where
     P1: windows_core::Param<IStorage>,
 {
     windows_targets::link!("ole32.dll" "system" fn OleConvertOLESTREAMToIStorage(lpolestream : *const OLESTREAM, pstg : * mut core::ffi::c_void, ptd : *const super:: DVTARGETDEVICE) -> windows_core::HRESULT);
-    OleConvertOLESTREAMToIStorage(lpolestream, pstg.param().abi(), ptd).ok()
+    unsafe { OleConvertOLESTREAMToIStorage(lpolestream, pstg.param().abi(), ptd).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -244,7 +292,7 @@ where
     P1: windows_core::Param<IStorage>,
 {
     windows_targets::link!("ole32.dll" "system" fn OleConvertOLESTREAMToIStorageEx(polestm : *const OLESTREAM, pstg : * mut core::ffi::c_void, pcfformat : *mut u16, plwwidth : *mut i32, plheight : *mut i32, pdwsize : *mut u32, pmedium : *mut super:: STGMEDIUM) -> windows_core::HRESULT);
-    OleConvertOLESTREAMToIStorageEx(polestm, pstg.param().abi(), core::mem::transmute(pcfformat), core::mem::transmute(plwwidth), core::mem::transmute(plheight), core::mem::transmute(pdwsize), core::mem::transmute(pmedium)).ok()
+    unsafe { OleConvertOLESTREAMToIStorageEx(polestm, pstg.param().abi(), core::mem::transmute(pcfformat), core::mem::transmute(plwwidth), core::mem::transmute(plheight), core::mem::transmute(pdwsize), core::mem::transmute(pmedium)).ok() }
 }
 #[inline]
 pub unsafe fn PropStgNameToFmtId<P0>(oszname: P0) -> windows_core::Result<windows_core::GUID>
@@ -252,297 +300,337 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ole32.dll" "system" fn PropStgNameToFmtId(oszname : windows_core::PCWSTR, pfmtid : *mut windows_core::GUID) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    PropStgNameToFmtId(oszname.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        PropStgNameToFmtId(oszname.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantChangeType(ppropvardest: *mut PROPVARIANT, propvarsrc: *const PROPVARIANT, flags: PROPVAR_CHANGE_FLAGS, vt: super::super::Variant::VARENUM) -> windows_core::Result<()> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantChangeType(ppropvardest : *mut PROPVARIANT, propvarsrc : *const PROPVARIANT, flags : PROPVAR_CHANGE_FLAGS, vt : super::super::Variant:: VARENUM) -> windows_core::HRESULT);
-    PropVariantChangeType(core::mem::transmute(ppropvardest), core::mem::transmute(propvarsrc), flags, vt).ok()
+    unsafe { PropVariantChangeType(core::mem::transmute(ppropvardest), core::mem::transmute(propvarsrc), flags, vt).ok() }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantClear(pvar: *mut PROPVARIANT) -> windows_core::Result<()> {
     windows_targets::link!("ole32.dll" "system" fn PropVariantClear(pvar : *mut PROPVARIANT) -> windows_core::HRESULT);
-    PropVariantClear(core::mem::transmute(pvar)).ok()
+    unsafe { PropVariantClear(core::mem::transmute(pvar)).ok() }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantCompareEx(propvar1: *const PROPVARIANT, propvar2: *const PROPVARIANT, unit: PROPVAR_COMPARE_UNIT, flags: PROPVAR_COMPARE_FLAGS) -> i32 {
     windows_targets::link!("propsys.dll" "system" fn PropVariantCompareEx(propvar1 : *const PROPVARIANT, propvar2 : *const PROPVARIANT, unit : PROPVAR_COMPARE_UNIT, flags : PROPVAR_COMPARE_FLAGS) -> i32);
-    PropVariantCompareEx(core::mem::transmute(propvar1), core::mem::transmute(propvar2), unit, flags)
+    unsafe { PropVariantCompareEx(core::mem::transmute(propvar1), core::mem::transmute(propvar2), unit, flags) }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantCopy(pvardest: *mut PROPVARIANT, pvarsrc: *const PROPVARIANT) -> windows_core::Result<()> {
     windows_targets::link!("ole32.dll" "system" fn PropVariantCopy(pvardest : *mut PROPVARIANT, pvarsrc : *const PROPVARIANT) -> windows_core::HRESULT);
-    PropVariantCopy(core::mem::transmute(pvardest), core::mem::transmute(pvarsrc)).ok()
+    unsafe { PropVariantCopy(core::mem::transmute(pvardest), core::mem::transmute(pvarsrc)).ok() }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantGetBooleanElem(propvar: *const PROPVARIANT, ielem: u32) -> windows_core::Result<super::super::super::Foundation::BOOL> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantGetBooleanElem(propvar : *const PROPVARIANT, ielem : u32, pfval : *mut super::super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    PropVariantGetBooleanElem(core::mem::transmute(propvar), ielem, &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        PropVariantGetBooleanElem(core::mem::transmute(propvar), ielem, &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantGetDoubleElem(propvar: *const PROPVARIANT, ielem: u32) -> windows_core::Result<f64> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantGetDoubleElem(propvar : *const PROPVARIANT, ielem : u32, pnval : *mut f64) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    PropVariantGetDoubleElem(core::mem::transmute(propvar), ielem, &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        PropVariantGetDoubleElem(core::mem::transmute(propvar), ielem, &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantGetElementCount(propvar: *const PROPVARIANT) -> u32 {
     windows_targets::link!("propsys.dll" "system" fn PropVariantGetElementCount(propvar : *const PROPVARIANT) -> u32);
-    PropVariantGetElementCount(core::mem::transmute(propvar))
+    unsafe { PropVariantGetElementCount(core::mem::transmute(propvar)) }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantGetFileTimeElem(propvar: *const PROPVARIANT, ielem: u32) -> windows_core::Result<super::super::super::Foundation::FILETIME> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantGetFileTimeElem(propvar : *const PROPVARIANT, ielem : u32, pftval : *mut super::super::super::Foundation:: FILETIME) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    PropVariantGetFileTimeElem(core::mem::transmute(propvar), ielem, &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        PropVariantGetFileTimeElem(core::mem::transmute(propvar), ielem, &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantGetInt16Elem(propvar: *const PROPVARIANT, ielem: u32) -> windows_core::Result<i16> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantGetInt16Elem(propvar : *const PROPVARIANT, ielem : u32, pnval : *mut i16) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    PropVariantGetInt16Elem(core::mem::transmute(propvar), ielem, &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        PropVariantGetInt16Elem(core::mem::transmute(propvar), ielem, &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantGetInt32Elem(propvar: *const PROPVARIANT, ielem: u32) -> windows_core::Result<i32> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantGetInt32Elem(propvar : *const PROPVARIANT, ielem : u32, pnval : *mut i32) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    PropVariantGetInt32Elem(core::mem::transmute(propvar), ielem, &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        PropVariantGetInt32Elem(core::mem::transmute(propvar), ielem, &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantGetInt64Elem(propvar: *const PROPVARIANT, ielem: u32) -> windows_core::Result<i64> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantGetInt64Elem(propvar : *const PROPVARIANT, ielem : u32, pnval : *mut i64) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    PropVariantGetInt64Elem(core::mem::transmute(propvar), ielem, &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        PropVariantGetInt64Elem(core::mem::transmute(propvar), ielem, &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantGetStringElem(propvar: *const PROPVARIANT, ielem: u32) -> windows_core::Result<windows_core::PWSTR> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantGetStringElem(propvar : *const PROPVARIANT, ielem : u32, ppszval : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    PropVariantGetStringElem(core::mem::transmute(propvar), ielem, &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        PropVariantGetStringElem(core::mem::transmute(propvar), ielem, &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantGetUInt16Elem(propvar: *const PROPVARIANT, ielem: u32) -> windows_core::Result<u16> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantGetUInt16Elem(propvar : *const PROPVARIANT, ielem : u32, pnval : *mut u16) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    PropVariantGetUInt16Elem(core::mem::transmute(propvar), ielem, &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        PropVariantGetUInt16Elem(core::mem::transmute(propvar), ielem, &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantGetUInt32Elem(propvar: *const PROPVARIANT, ielem: u32) -> windows_core::Result<u32> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantGetUInt32Elem(propvar : *const PROPVARIANT, ielem : u32, pnval : *mut u32) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    PropVariantGetUInt32Elem(core::mem::transmute(propvar), ielem, &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        PropVariantGetUInt32Elem(core::mem::transmute(propvar), ielem, &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantGetUInt64Elem(propvar: *const PROPVARIANT, ielem: u32) -> windows_core::Result<u64> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantGetUInt64Elem(propvar : *const PROPVARIANT, ielem : u32, pnval : *mut u64) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    PropVariantGetUInt64Elem(core::mem::transmute(propvar), ielem, &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        PropVariantGetUInt64Elem(core::mem::transmute(propvar), ielem, &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToBSTR(propvar: *const PROPVARIANT) -> windows_core::Result<windows_core::BSTR> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToBSTR(propvar : *const PROPVARIANT, pbstrout : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    PropVariantToBSTR(core::mem::transmute(propvar), &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        PropVariantToBSTR(core::mem::transmute(propvar), &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToBoolean(propvarin: *const PROPVARIANT) -> windows_core::Result<super::super::super::Foundation::BOOL> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToBoolean(propvarin : *const PROPVARIANT, pfret : *mut super::super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    PropVariantToBoolean(core::mem::transmute(propvarin), &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        PropVariantToBoolean(core::mem::transmute(propvarin), &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToBooleanVector(propvar: *const PROPVARIANT, prgf: &mut [super::super::super::Foundation::BOOL], pcelem: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToBooleanVector(propvar : *const PROPVARIANT, prgf : *mut super::super::super::Foundation:: BOOL, crgf : u32, pcelem : *mut u32) -> windows_core::HRESULT);
-    PropVariantToBooleanVector(core::mem::transmute(propvar), core::mem::transmute(prgf.as_ptr()), prgf.len().try_into().unwrap(), core::mem::transmute(pcelem)).ok()
+    unsafe { PropVariantToBooleanVector(core::mem::transmute(propvar), core::mem::transmute(prgf.as_ptr()), prgf.len().try_into().unwrap(), core::mem::transmute(pcelem)).ok() }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToBooleanVectorAlloc(propvar: *const PROPVARIANT, pprgf: *mut *mut super::super::super::Foundation::BOOL, pcelem: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToBooleanVectorAlloc(propvar : *const PROPVARIANT, pprgf : *mut *mut super::super::super::Foundation:: BOOL, pcelem : *mut u32) -> windows_core::HRESULT);
-    PropVariantToBooleanVectorAlloc(core::mem::transmute(propvar), core::mem::transmute(pprgf), core::mem::transmute(pcelem)).ok()
+    unsafe { PropVariantToBooleanVectorAlloc(core::mem::transmute(propvar), core::mem::transmute(pprgf), core::mem::transmute(pcelem)).ok() }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToBooleanWithDefault(propvarin: *const PROPVARIANT, fdefault: bool) -> super::super::super::Foundation::BOOL {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToBooleanWithDefault(propvarin : *const PROPVARIANT, fdefault : super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
-    PropVariantToBooleanWithDefault(core::mem::transmute(propvarin), fdefault.into())
+    unsafe { PropVariantToBooleanWithDefault(core::mem::transmute(propvarin), fdefault.into()) }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToBuffer(propvar: *const PROPVARIANT, pv: *mut core::ffi::c_void, cb: u32) -> windows_core::Result<()> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToBuffer(propvar : *const PROPVARIANT, pv : *mut core::ffi::c_void, cb : u32) -> windows_core::HRESULT);
-    PropVariantToBuffer(core::mem::transmute(propvar), core::mem::transmute(pv), cb).ok()
+    unsafe { PropVariantToBuffer(core::mem::transmute(propvar), core::mem::transmute(pv), cb).ok() }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToDouble(propvarin: *const PROPVARIANT) -> windows_core::Result<f64> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToDouble(propvarin : *const PROPVARIANT, pdblret : *mut f64) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    PropVariantToDouble(core::mem::transmute(propvarin), &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        PropVariantToDouble(core::mem::transmute(propvarin), &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToDoubleVector(propvar: *const PROPVARIANT, prgn: &mut [f64], pcelem: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToDoubleVector(propvar : *const PROPVARIANT, prgn : *mut f64, crgn : u32, pcelem : *mut u32) -> windows_core::HRESULT);
-    PropVariantToDoubleVector(core::mem::transmute(propvar), core::mem::transmute(prgn.as_ptr()), prgn.len().try_into().unwrap(), core::mem::transmute(pcelem)).ok()
+    unsafe { PropVariantToDoubleVector(core::mem::transmute(propvar), core::mem::transmute(prgn.as_ptr()), prgn.len().try_into().unwrap(), core::mem::transmute(pcelem)).ok() }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToDoubleVectorAlloc(propvar: *const PROPVARIANT, pprgn: *mut *mut f64, pcelem: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToDoubleVectorAlloc(propvar : *const PROPVARIANT, pprgn : *mut *mut f64, pcelem : *mut u32) -> windows_core::HRESULT);
-    PropVariantToDoubleVectorAlloc(core::mem::transmute(propvar), core::mem::transmute(pprgn), core::mem::transmute(pcelem)).ok()
+    unsafe { PropVariantToDoubleVectorAlloc(core::mem::transmute(propvar), core::mem::transmute(pprgn), core::mem::transmute(pcelem)).ok() }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToDoubleWithDefault(propvarin: *const PROPVARIANT, dbldefault: f64) -> f64 {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToDoubleWithDefault(propvarin : *const PROPVARIANT, dbldefault : f64) -> f64);
-    PropVariantToDoubleWithDefault(core::mem::transmute(propvarin), dbldefault)
+    unsafe { PropVariantToDoubleWithDefault(core::mem::transmute(propvarin), dbldefault) }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToFileTime(propvar: *const PROPVARIANT, pstfout: super::super::Variant::PSTIME_FLAGS) -> windows_core::Result<super::super::super::Foundation::FILETIME> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToFileTime(propvar : *const PROPVARIANT, pstfout : super::super::Variant:: PSTIME_FLAGS, pftout : *mut super::super::super::Foundation:: FILETIME) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    PropVariantToFileTime(core::mem::transmute(propvar), pstfout, &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        PropVariantToFileTime(core::mem::transmute(propvar), pstfout, &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToFileTimeVector(propvar: *const PROPVARIANT, prgft: &mut [super::super::super::Foundation::FILETIME], pcelem: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToFileTimeVector(propvar : *const PROPVARIANT, prgft : *mut super::super::super::Foundation:: FILETIME, crgft : u32, pcelem : *mut u32) -> windows_core::HRESULT);
-    PropVariantToFileTimeVector(core::mem::transmute(propvar), core::mem::transmute(prgft.as_ptr()), prgft.len().try_into().unwrap(), core::mem::transmute(pcelem)).ok()
+    unsafe { PropVariantToFileTimeVector(core::mem::transmute(propvar), core::mem::transmute(prgft.as_ptr()), prgft.len().try_into().unwrap(), core::mem::transmute(pcelem)).ok() }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToFileTimeVectorAlloc(propvar: *const PROPVARIANT, pprgft: *mut *mut super::super::super::Foundation::FILETIME, pcelem: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToFileTimeVectorAlloc(propvar : *const PROPVARIANT, pprgft : *mut *mut super::super::super::Foundation:: FILETIME, pcelem : *mut u32) -> windows_core::HRESULT);
-    PropVariantToFileTimeVectorAlloc(core::mem::transmute(propvar), core::mem::transmute(pprgft), core::mem::transmute(pcelem)).ok()
+    unsafe { PropVariantToFileTimeVectorAlloc(core::mem::transmute(propvar), core::mem::transmute(pprgft), core::mem::transmute(pcelem)).ok() }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToGUID(propvar: *const PROPVARIANT) -> windows_core::Result<windows_core::GUID> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToGUID(propvar : *const PROPVARIANT, pguid : *mut windows_core::GUID) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    PropVariantToGUID(core::mem::transmute(propvar), &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        PropVariantToGUID(core::mem::transmute(propvar), &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToInt16(propvarin: *const PROPVARIANT) -> windows_core::Result<i16> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToInt16(propvarin : *const PROPVARIANT, piret : *mut i16) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    PropVariantToInt16(core::mem::transmute(propvarin), &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        PropVariantToInt16(core::mem::transmute(propvarin), &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToInt16Vector(propvar: *const PROPVARIANT, prgn: &mut [i16], pcelem: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToInt16Vector(propvar : *const PROPVARIANT, prgn : *mut i16, crgn : u32, pcelem : *mut u32) -> windows_core::HRESULT);
-    PropVariantToInt16Vector(core::mem::transmute(propvar), core::mem::transmute(prgn.as_ptr()), prgn.len().try_into().unwrap(), core::mem::transmute(pcelem)).ok()
+    unsafe { PropVariantToInt16Vector(core::mem::transmute(propvar), core::mem::transmute(prgn.as_ptr()), prgn.len().try_into().unwrap(), core::mem::transmute(pcelem)).ok() }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToInt16VectorAlloc(propvar: *const PROPVARIANT, pprgn: *mut *mut i16, pcelem: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToInt16VectorAlloc(propvar : *const PROPVARIANT, pprgn : *mut *mut i16, pcelem : *mut u32) -> windows_core::HRESULT);
-    PropVariantToInt16VectorAlloc(core::mem::transmute(propvar), core::mem::transmute(pprgn), core::mem::transmute(pcelem)).ok()
+    unsafe { PropVariantToInt16VectorAlloc(core::mem::transmute(propvar), core::mem::transmute(pprgn), core::mem::transmute(pcelem)).ok() }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToInt16WithDefault(propvarin: *const PROPVARIANT, idefault: i16) -> i16 {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToInt16WithDefault(propvarin : *const PROPVARIANT, idefault : i16) -> i16);
-    PropVariantToInt16WithDefault(core::mem::transmute(propvarin), idefault)
+    unsafe { PropVariantToInt16WithDefault(core::mem::transmute(propvarin), idefault) }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToInt32(propvarin: *const PROPVARIANT) -> windows_core::Result<i32> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToInt32(propvarin : *const PROPVARIANT, plret : *mut i32) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    PropVariantToInt32(core::mem::transmute(propvarin), &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        PropVariantToInt32(core::mem::transmute(propvarin), &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToInt32Vector(propvar: *const PROPVARIANT, prgn: &mut [i32], pcelem: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToInt32Vector(propvar : *const PROPVARIANT, prgn : *mut i32, crgn : u32, pcelem : *mut u32) -> windows_core::HRESULT);
-    PropVariantToInt32Vector(core::mem::transmute(propvar), core::mem::transmute(prgn.as_ptr()), prgn.len().try_into().unwrap(), core::mem::transmute(pcelem)).ok()
+    unsafe { PropVariantToInt32Vector(core::mem::transmute(propvar), core::mem::transmute(prgn.as_ptr()), prgn.len().try_into().unwrap(), core::mem::transmute(pcelem)).ok() }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToInt32VectorAlloc(propvar: *const PROPVARIANT, pprgn: *mut *mut i32, pcelem: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToInt32VectorAlloc(propvar : *const PROPVARIANT, pprgn : *mut *mut i32, pcelem : *mut u32) -> windows_core::HRESULT);
-    PropVariantToInt32VectorAlloc(core::mem::transmute(propvar), core::mem::transmute(pprgn), core::mem::transmute(pcelem)).ok()
+    unsafe { PropVariantToInt32VectorAlloc(core::mem::transmute(propvar), core::mem::transmute(pprgn), core::mem::transmute(pcelem)).ok() }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToInt32WithDefault(propvarin: *const PROPVARIANT, ldefault: i32) -> i32 {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToInt32WithDefault(propvarin : *const PROPVARIANT, ldefault : i32) -> i32);
-    PropVariantToInt32WithDefault(core::mem::transmute(propvarin), ldefault)
+    unsafe { PropVariantToInt32WithDefault(core::mem::transmute(propvarin), ldefault) }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToInt64(propvarin: *const PROPVARIANT) -> windows_core::Result<i64> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToInt64(propvarin : *const PROPVARIANT, pllret : *mut i64) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    PropVariantToInt64(core::mem::transmute(propvarin), &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        PropVariantToInt64(core::mem::transmute(propvarin), &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToInt64Vector(propvar: *const PROPVARIANT, prgn: &mut [i64], pcelem: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToInt64Vector(propvar : *const PROPVARIANT, prgn : *mut i64, crgn : u32, pcelem : *mut u32) -> windows_core::HRESULT);
-    PropVariantToInt64Vector(core::mem::transmute(propvar), core::mem::transmute(prgn.as_ptr()), prgn.len().try_into().unwrap(), core::mem::transmute(pcelem)).ok()
+    unsafe { PropVariantToInt64Vector(core::mem::transmute(propvar), core::mem::transmute(prgn.as_ptr()), prgn.len().try_into().unwrap(), core::mem::transmute(pcelem)).ok() }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToInt64VectorAlloc(propvar: *const PROPVARIANT, pprgn: *mut *mut i64, pcelem: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToInt64VectorAlloc(propvar : *const PROPVARIANT, pprgn : *mut *mut i64, pcelem : *mut u32) -> windows_core::HRESULT);
-    PropVariantToInt64VectorAlloc(core::mem::transmute(propvar), core::mem::transmute(pprgn), core::mem::transmute(pcelem)).ok()
+    unsafe { PropVariantToInt64VectorAlloc(core::mem::transmute(propvar), core::mem::transmute(pprgn), core::mem::transmute(pcelem)).ok() }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToInt64WithDefault(propvarin: *const PROPVARIANT, lldefault: i64) -> i64 {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToInt64WithDefault(propvarin : *const PROPVARIANT, lldefault : i64) -> i64);
-    PropVariantToInt64WithDefault(core::mem::transmute(propvarin), lldefault)
+    unsafe { PropVariantToInt64WithDefault(core::mem::transmute(propvarin), lldefault) }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToString(propvar: *const PROPVARIANT, psz: &mut [u16]) -> windows_core::Result<()> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToString(propvar : *const PROPVARIANT, psz : windows_core::PWSTR, cch : u32) -> windows_core::HRESULT);
-    PropVariantToString(core::mem::transmute(propvar), core::mem::transmute(psz.as_ptr()), psz.len().try_into().unwrap()).ok()
+    unsafe { PropVariantToString(core::mem::transmute(propvar), core::mem::transmute(psz.as_ptr()), psz.len().try_into().unwrap()).ok() }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToStringAlloc(propvar: *const PROPVARIANT) -> windows_core::Result<windows_core::PWSTR> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToStringAlloc(propvar : *const PROPVARIANT, ppszout : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    PropVariantToStringAlloc(core::mem::transmute(propvar), &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        PropVariantToStringAlloc(core::mem::transmute(propvar), &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToStringVector(propvar: *const PROPVARIANT, prgsz: &mut [windows_core::PWSTR], pcelem: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToStringVector(propvar : *const PROPVARIANT, prgsz : *mut windows_core::PWSTR, crgsz : u32, pcelem : *mut u32) -> windows_core::HRESULT);
-    PropVariantToStringVector(core::mem::transmute(propvar), core::mem::transmute(prgsz.as_ptr()), prgsz.len().try_into().unwrap(), core::mem::transmute(pcelem)).ok()
+    unsafe { PropVariantToStringVector(core::mem::transmute(propvar), core::mem::transmute(prgsz.as_ptr()), prgsz.len().try_into().unwrap(), core::mem::transmute(pcelem)).ok() }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToStringVectorAlloc(propvar: *const PROPVARIANT, pprgsz: *mut *mut windows_core::PWSTR, pcelem: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToStringVectorAlloc(propvar : *const PROPVARIANT, pprgsz : *mut *mut windows_core::PWSTR, pcelem : *mut u32) -> windows_core::HRESULT);
-    PropVariantToStringVectorAlloc(core::mem::transmute(propvar), core::mem::transmute(pprgsz), core::mem::transmute(pcelem)).ok()
+    unsafe { PropVariantToStringVectorAlloc(core::mem::transmute(propvar), core::mem::transmute(pprgsz), core::mem::transmute(pcelem)).ok() }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
@@ -551,89 +639,97 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToStringWithDefault(propvarin : *const PROPVARIANT, pszdefault : windows_core::PCWSTR) -> windows_core::PCWSTR);
-    PropVariantToStringWithDefault(core::mem::transmute(propvarin), pszdefault.param().abi())
+    unsafe { PropVariantToStringWithDefault(core::mem::transmute(propvarin), pszdefault.param().abi()) }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToUInt16(propvarin: *const PROPVARIANT) -> windows_core::Result<u16> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToUInt16(propvarin : *const PROPVARIANT, puiret : *mut u16) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    PropVariantToUInt16(core::mem::transmute(propvarin), &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        PropVariantToUInt16(core::mem::transmute(propvarin), &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToUInt16Vector(propvar: *const PROPVARIANT, prgn: &mut [u16], pcelem: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToUInt16Vector(propvar : *const PROPVARIANT, prgn : *mut u16, crgn : u32, pcelem : *mut u32) -> windows_core::HRESULT);
-    PropVariantToUInt16Vector(core::mem::transmute(propvar), core::mem::transmute(prgn.as_ptr()), prgn.len().try_into().unwrap(), core::mem::transmute(pcelem)).ok()
+    unsafe { PropVariantToUInt16Vector(core::mem::transmute(propvar), core::mem::transmute(prgn.as_ptr()), prgn.len().try_into().unwrap(), core::mem::transmute(pcelem)).ok() }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToUInt16VectorAlloc(propvar: *const PROPVARIANT, pprgn: *mut *mut u16, pcelem: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToUInt16VectorAlloc(propvar : *const PROPVARIANT, pprgn : *mut *mut u16, pcelem : *mut u32) -> windows_core::HRESULT);
-    PropVariantToUInt16VectorAlloc(core::mem::transmute(propvar), core::mem::transmute(pprgn), core::mem::transmute(pcelem)).ok()
+    unsafe { PropVariantToUInt16VectorAlloc(core::mem::transmute(propvar), core::mem::transmute(pprgn), core::mem::transmute(pcelem)).ok() }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToUInt16WithDefault(propvarin: *const PROPVARIANT, uidefault: u16) -> u16 {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToUInt16WithDefault(propvarin : *const PROPVARIANT, uidefault : u16) -> u16);
-    PropVariantToUInt16WithDefault(core::mem::transmute(propvarin), uidefault)
+    unsafe { PropVariantToUInt16WithDefault(core::mem::transmute(propvarin), uidefault) }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToUInt32(propvarin: *const PROPVARIANT) -> windows_core::Result<u32> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToUInt32(propvarin : *const PROPVARIANT, pulret : *mut u32) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    PropVariantToUInt32(core::mem::transmute(propvarin), &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        PropVariantToUInt32(core::mem::transmute(propvarin), &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToUInt32Vector(propvar: *const PROPVARIANT, prgn: &mut [u32], pcelem: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToUInt32Vector(propvar : *const PROPVARIANT, prgn : *mut u32, crgn : u32, pcelem : *mut u32) -> windows_core::HRESULT);
-    PropVariantToUInt32Vector(core::mem::transmute(propvar), core::mem::transmute(prgn.as_ptr()), prgn.len().try_into().unwrap(), core::mem::transmute(pcelem)).ok()
+    unsafe { PropVariantToUInt32Vector(core::mem::transmute(propvar), core::mem::transmute(prgn.as_ptr()), prgn.len().try_into().unwrap(), core::mem::transmute(pcelem)).ok() }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToUInt32VectorAlloc(propvar: *const PROPVARIANT, pprgn: *mut *mut u32, pcelem: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToUInt32VectorAlloc(propvar : *const PROPVARIANT, pprgn : *mut *mut u32, pcelem : *mut u32) -> windows_core::HRESULT);
-    PropVariantToUInt32VectorAlloc(core::mem::transmute(propvar), core::mem::transmute(pprgn), core::mem::transmute(pcelem)).ok()
+    unsafe { PropVariantToUInt32VectorAlloc(core::mem::transmute(propvar), core::mem::transmute(pprgn), core::mem::transmute(pcelem)).ok() }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToUInt32WithDefault(propvarin: *const PROPVARIANT, uldefault: u32) -> u32 {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToUInt32WithDefault(propvarin : *const PROPVARIANT, uldefault : u32) -> u32);
-    PropVariantToUInt32WithDefault(core::mem::transmute(propvarin), uldefault)
+    unsafe { PropVariantToUInt32WithDefault(core::mem::transmute(propvarin), uldefault) }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToUInt64(propvarin: *const PROPVARIANT) -> windows_core::Result<u64> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToUInt64(propvarin : *const PROPVARIANT, pullret : *mut u64) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    PropVariantToUInt64(core::mem::transmute(propvarin), &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        PropVariantToUInt64(core::mem::transmute(propvarin), &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToUInt64Vector(propvar: *const PROPVARIANT, prgn: &mut [u64], pcelem: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToUInt64Vector(propvar : *const PROPVARIANT, prgn : *mut u64, crgn : u32, pcelem : *mut u32) -> windows_core::HRESULT);
-    PropVariantToUInt64Vector(core::mem::transmute(propvar), core::mem::transmute(prgn.as_ptr()), prgn.len().try_into().unwrap(), core::mem::transmute(pcelem)).ok()
+    unsafe { PropVariantToUInt64Vector(core::mem::transmute(propvar), core::mem::transmute(prgn.as_ptr()), prgn.len().try_into().unwrap(), core::mem::transmute(pcelem)).ok() }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToUInt64VectorAlloc(propvar: *const PROPVARIANT, pprgn: *mut *mut u64, pcelem: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToUInt64VectorAlloc(propvar : *const PROPVARIANT, pprgn : *mut *mut u64, pcelem : *mut u32) -> windows_core::HRESULT);
-    PropVariantToUInt64VectorAlloc(core::mem::transmute(propvar), core::mem::transmute(pprgn), core::mem::transmute(pcelem)).ok()
+    unsafe { PropVariantToUInt64VectorAlloc(core::mem::transmute(propvar), core::mem::transmute(pprgn), core::mem::transmute(pcelem)).ok() }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToUInt64WithDefault(propvarin: *const PROPVARIANT, ulldefault: u64) -> u64 {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToUInt64WithDefault(propvarin : *const PROPVARIANT, ulldefault : u64) -> u64);
-    PropVariantToUInt64WithDefault(core::mem::transmute(propvarin), ulldefault)
+    unsafe { PropVariantToUInt64WithDefault(core::mem::transmute(propvarin), ulldefault) }
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn PropVariantToVariant(ppropvar: *const PROPVARIANT) -> windows_core::Result<super::super::Variant::VARIANT> {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToVariant(ppropvar : *const PROPVARIANT, pvar : *mut super::super::Variant:: VARIANT) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    PropVariantToVariant(core::mem::transmute(ppropvar), &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        PropVariantToVariant(core::mem::transmute(ppropvar), &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
@@ -643,7 +739,7 @@ where
 {
     windows_targets::link!("propsys.dll" "system" fn PropVariantToWinRTPropertyValue(propvar : *const PROPVARIANT, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    PropVariantToWinRTPropertyValue(core::mem::transmute(propvar), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    unsafe { PropVariantToWinRTPropertyValue(core::mem::transmute(propvar), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn ReadClassStg<P0>(pstg: P0) -> windows_core::Result<windows_core::GUID>
@@ -651,8 +747,10 @@ where
     P0: windows_core::Param<IStorage>,
 {
     windows_targets::link!("ole32.dll" "system" fn ReadClassStg(pstg : * mut core::ffi::c_void, pclsid : *mut windows_core::GUID) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    ReadClassStg(pstg.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        ReadClassStg(pstg.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[inline]
 pub unsafe fn ReadClassStm<P0>(pstm: P0) -> windows_core::Result<windows_core::GUID>
@@ -660,8 +758,10 @@ where
     P0: windows_core::Param<super::IStream>,
 {
     windows_targets::link!("ole32.dll" "system" fn ReadClassStm(pstm : * mut core::ffi::c_void, pclsid : *mut windows_core::GUID) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    ReadClassStm(pstm.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        ReadClassStm(pstm.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[inline]
 pub unsafe fn ReadFmtUserTypeStg<P0>(pstg: P0, pcf: *mut u16, lplpszusertype: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()>
@@ -669,7 +769,7 @@ where
     P0: windows_core::Param<IStorage>,
 {
     windows_targets::link!("ole32.dll" "system" fn ReadFmtUserTypeStg(pstg : * mut core::ffi::c_void, pcf : *mut u16, lplpszusertype : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    ReadFmtUserTypeStg(pstg.param().abi(), core::mem::transmute(pcf), core::mem::transmute(lplpszusertype.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { ReadFmtUserTypeStg(pstg.param().abi(), core::mem::transmute(pcf), core::mem::transmute(lplpszusertype.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn SetConvertStg<P0>(pstg: P0, fconvert: bool) -> windows_core::Result<()>
@@ -677,7 +777,7 @@ where
     P0: windows_core::Param<IStorage>,
 {
     windows_targets::link!("ole32.dll" "system" fn SetConvertStg(pstg : * mut core::ffi::c_void, fconvert : super::super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    SetConvertStg(pstg.param().abi(), fconvert.into()).ok()
+    unsafe { SetConvertStg(pstg.param().abi(), fconvert.into()).ok() }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
@@ -686,13 +786,13 @@ where
     P3: windows_core::Param<IMemoryAllocator>,
 {
     windows_targets::link!("ole32.dll" "system" fn StgConvertPropertyToVariant(pprop : *const SERIALIZEDPROPERTYVALUE, codepage : u16, pvar : *mut PROPVARIANT, pma : * mut core::ffi::c_void) -> bool);
-    StgConvertPropertyToVariant(pprop, codepage, core::mem::transmute(pvar), pma.param().abi())
+    unsafe { StgConvertPropertyToVariant(pprop, codepage, core::mem::transmute(pvar), pma.param().abi()) }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn StgConvertVariantToProperty(pvar: *const PROPVARIANT, codepage: u16, pprop: Option<*mut SERIALIZEDPROPERTYVALUE>, pcb: *mut u32, pid: u32, freserved: Option<bool>, pcindirect: Option<*mut u32>) -> *mut SERIALIZEDPROPERTYVALUE {
     windows_targets::link!("ole32.dll" "system" fn StgConvertVariantToProperty(pvar : *const PROPVARIANT, codepage : u16, pprop : *mut SERIALIZEDPROPERTYVALUE, pcb : *mut u32, pid : u32, freserved : bool, pcindirect : *mut u32) -> *mut SERIALIZEDPROPERTYVALUE);
-    StgConvertVariantToProperty(core::mem::transmute(pvar), codepage, core::mem::transmute(pprop.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcb), pid, core::mem::transmute(freserved.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcindirect.unwrap_or(core::mem::zeroed())))
+    unsafe { StgConvertVariantToProperty(core::mem::transmute(pvar), codepage, core::mem::transmute(pprop.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcb), pid, core::mem::transmute(freserved.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcindirect.unwrap_or(core::mem::zeroed()))) }
 }
 #[inline]
 pub unsafe fn StgCreateDocfile<P0>(pwcsname: P0, grfmode: super::STGM, reserved: Option<u32>) -> windows_core::Result<IStorage>
@@ -700,8 +800,10 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ole32.dll" "system" fn StgCreateDocfile(pwcsname : windows_core::PCWSTR, grfmode : super:: STGM, reserved : u32, ppstgopen : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    StgCreateDocfile(pwcsname.param().abi(), grfmode, core::mem::transmute(reserved.unwrap_or(core::mem::zeroed())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        StgCreateDocfile(pwcsname.param().abi(), grfmode, core::mem::transmute(reserved.unwrap_or(core::mem::zeroed())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    }
 }
 #[inline]
 pub unsafe fn StgCreateDocfileOnILockBytes<P0>(plkbyt: P0, grfmode: super::STGM, reserved: u32) -> windows_core::Result<IStorage>
@@ -709,8 +811,10 @@ where
     P0: windows_core::Param<ILockBytes>,
 {
     windows_targets::link!("ole32.dll" "system" fn StgCreateDocfileOnILockBytes(plkbyt : * mut core::ffi::c_void, grfmode : super:: STGM, reserved : u32, ppstgopen : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    StgCreateDocfileOnILockBytes(plkbyt.param().abi(), grfmode, reserved, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        StgCreateDocfileOnILockBytes(plkbyt.param().abi(), grfmode, reserved, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    }
 }
 #[inline]
 pub unsafe fn StgCreatePropSetStg<P0>(pstorage: P0, dwreserved: Option<u32>) -> windows_core::Result<IPropertySetStorage>
@@ -718,8 +822,10 @@ where
     P0: windows_core::Param<IStorage>,
 {
     windows_targets::link!("ole32.dll" "system" fn StgCreatePropSetStg(pstorage : * mut core::ffi::c_void, dwreserved : u32, pppropsetstg : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    StgCreatePropSetStg(pstorage.param().abi(), core::mem::transmute(dwreserved.unwrap_or(core::mem::zeroed())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        StgCreatePropSetStg(pstorage.param().abi(), core::mem::transmute(dwreserved.unwrap_or(core::mem::zeroed())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    }
 }
 #[inline]
 pub unsafe fn StgCreatePropStg<P0>(punk: P0, fmtid: *const windows_core::GUID, pclsid: *const windows_core::GUID, grfflags: u32, dwreserved: Option<u32>) -> windows_core::Result<IPropertyStorage>
@@ -727,8 +833,10 @@ where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
     windows_targets::link!("ole32.dll" "system" fn StgCreatePropStg(punk : * mut core::ffi::c_void, fmtid : *const windows_core::GUID, pclsid : *const windows_core::GUID, grfflags : u32, dwreserved : u32, pppropstg : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    StgCreatePropStg(punk.param().abi(), fmtid, pclsid, grfflags, core::mem::transmute(dwreserved.unwrap_or(core::mem::zeroed())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        StgCreatePropStg(punk.param().abi(), fmtid, pclsid, grfflags, core::mem::transmute(dwreserved.unwrap_or(core::mem::zeroed())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -737,14 +845,16 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ole32.dll" "system" fn StgCreateStorageEx(pwcsname : windows_core::PCWSTR, grfmode : super:: STGM, stgfmt : STGFMT, grfattrs : u32, pstgoptions : *mut STGOPTIONS, psecuritydescriptor : super::super::super::Security:: PSECURITY_DESCRIPTOR, riid : *const windows_core::GUID, ppobjectopen : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    StgCreateStorageEx(pwcsname.param().abi(), grfmode, stgfmt, grfattrs, core::mem::transmute(pstgoptions.unwrap_or(core::mem::zeroed())), core::mem::transmute(psecuritydescriptor.unwrap_or(core::mem::zeroed())), riid, core::mem::transmute(ppobjectopen)).ok()
+    unsafe { StgCreateStorageEx(pwcsname.param().abi(), grfmode, stgfmt, grfattrs, core::mem::transmute(pstgoptions.unwrap_or(core::mem::zeroed())), core::mem::transmute(psecuritydescriptor.unwrap_or(core::mem::zeroed())), riid, core::mem::transmute(ppobjectopen)).ok() }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn StgDeserializePropVariant(pprop: *const SERIALIZEDPROPERTYVALUE, cbmax: u32) -> windows_core::Result<PROPVARIANT> {
     windows_targets::link!("propsys.dll" "system" fn StgDeserializePropVariant(pprop : *const SERIALIZEDPROPERTYVALUE, cbmax : u32, ppropvar : *mut PROPVARIANT) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    StgDeserializePropVariant(pprop, cbmax, &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        StgDeserializePropVariant(pprop, cbmax, &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[inline]
 pub unsafe fn StgGetIFillLockBytesOnFile<P0>(pwcsname: P0) -> windows_core::Result<IFillLockBytes>
@@ -752,8 +862,10 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ole32.dll" "system" fn StgGetIFillLockBytesOnFile(pwcsname : windows_core::PCWSTR, ppflb : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    StgGetIFillLockBytesOnFile(pwcsname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        StgGetIFillLockBytesOnFile(pwcsname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    }
 }
 #[inline]
 pub unsafe fn StgGetIFillLockBytesOnILockBytes<P0>(pilb: P0) -> windows_core::Result<IFillLockBytes>
@@ -761,8 +873,10 @@ where
     P0: windows_core::Param<ILockBytes>,
 {
     windows_targets::link!("ole32.dll" "system" fn StgGetIFillLockBytesOnILockBytes(pilb : * mut core::ffi::c_void, ppflb : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    StgGetIFillLockBytesOnILockBytes(pilb.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        StgGetIFillLockBytesOnILockBytes(pilb.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    }
 }
 #[inline]
 pub unsafe fn StgIsStorageFile<P0>(pwcsname: P0) -> windows_core::Result<()>
@@ -770,7 +884,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ole32.dll" "system" fn StgIsStorageFile(pwcsname : windows_core::PCWSTR) -> windows_core::HRESULT);
-    StgIsStorageFile(pwcsname.param().abi()).ok()
+    unsafe { StgIsStorageFile(pwcsname.param().abi()).ok() }
 }
 #[inline]
 pub unsafe fn StgIsStorageILockBytes<P0>(plkbyt: P0) -> windows_core::Result<()>
@@ -778,7 +892,7 @@ where
     P0: windows_core::Param<ILockBytes>,
 {
     windows_targets::link!("ole32.dll" "system" fn StgIsStorageILockBytes(plkbyt : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    StgIsStorageILockBytes(plkbyt.param().abi()).ok()
+    unsafe { StgIsStorageILockBytes(plkbyt.param().abi()).ok() }
 }
 #[inline]
 pub unsafe fn StgOpenAsyncDocfileOnIFillLockBytes<P0>(pflb: P0, grfmode: u32, asyncflags: u32) -> windows_core::Result<IStorage>
@@ -786,8 +900,10 @@ where
     P0: windows_core::Param<IFillLockBytes>,
 {
     windows_targets::link!("ole32.dll" "system" fn StgOpenAsyncDocfileOnIFillLockBytes(pflb : * mut core::ffi::c_void, grfmode : u32, asyncflags : u32, ppstgopen : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    StgOpenAsyncDocfileOnIFillLockBytes(pflb.param().abi(), grfmode, asyncflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        StgOpenAsyncDocfileOnIFillLockBytes(pflb.param().abi(), grfmode, asyncflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    }
 }
 #[inline]
 pub unsafe fn StgOpenLayoutDocfile<P0>(pwcsdfname: P0, grfmode: u32, reserved: u32) -> windows_core::Result<IStorage>
@@ -795,8 +911,10 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dflayout.dll" "system" fn StgOpenLayoutDocfile(pwcsdfname : windows_core::PCWSTR, grfmode : u32, reserved : u32, ppstgopen : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    StgOpenLayoutDocfile(pwcsdfname.param().abi(), grfmode, reserved, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        StgOpenLayoutDocfile(pwcsdfname.param().abi(), grfmode, reserved, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    }
 }
 #[inline]
 pub unsafe fn StgOpenPropStg<P0>(punk: P0, fmtid: *const windows_core::GUID, grfflags: u32, dwreserved: Option<u32>) -> windows_core::Result<IPropertyStorage>
@@ -804,8 +922,10 @@ where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
     windows_targets::link!("ole32.dll" "system" fn StgOpenPropStg(punk : * mut core::ffi::c_void, fmtid : *const windows_core::GUID, grfflags : u32, dwreserved : u32, pppropstg : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    StgOpenPropStg(punk.param().abi(), fmtid, grfflags, core::mem::transmute(dwreserved.unwrap_or(core::mem::zeroed())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        StgOpenPropStg(punk.param().abi(), fmtid, grfflags, core::mem::transmute(dwreserved.unwrap_or(core::mem::zeroed())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    }
 }
 #[inline]
 pub unsafe fn StgOpenStorage<P0, P1>(pwcsname: P0, pstgpriority: P1, grfmode: super::STGM, snbexclude: Option<*const *const u16>, reserved: u32) -> windows_core::Result<IStorage>
@@ -814,8 +934,10 @@ where
     P1: windows_core::Param<IStorage>,
 {
     windows_targets::link!("ole32.dll" "system" fn StgOpenStorage(pwcsname : windows_core::PCWSTR, pstgpriority : * mut core::ffi::c_void, grfmode : super:: STGM, snbexclude : *const *const u16, reserved : u32, ppstgopen : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    StgOpenStorage(pwcsname.param().abi(), pstgpriority.param().abi(), grfmode, core::mem::transmute(snbexclude.unwrap_or(core::mem::zeroed())), reserved, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        StgOpenStorage(pwcsname.param().abi(), pstgpriority.param().abi(), grfmode, core::mem::transmute(snbexclude.unwrap_or(core::mem::zeroed())), reserved, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -824,7 +946,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ole32.dll" "system" fn StgOpenStorageEx(pwcsname : windows_core::PCWSTR, grfmode : super:: STGM, stgfmt : STGFMT, grfattrs : u32, pstgoptions : *mut STGOPTIONS, psecuritydescriptor : super::super::super::Security:: PSECURITY_DESCRIPTOR, riid : *const windows_core::GUID, ppobjectopen : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    StgOpenStorageEx(pwcsname.param().abi(), grfmode, stgfmt, grfattrs, core::mem::transmute(pstgoptions.unwrap_or(core::mem::zeroed())), core::mem::transmute(psecuritydescriptor.unwrap_or(core::mem::zeroed())), riid, core::mem::transmute(ppobjectopen)).ok()
+    unsafe { StgOpenStorageEx(pwcsname.param().abi(), grfmode, stgfmt, grfattrs, core::mem::transmute(pstgoptions.unwrap_or(core::mem::zeroed())), core::mem::transmute(psecuritydescriptor.unwrap_or(core::mem::zeroed())), riid, core::mem::transmute(ppobjectopen)).ok() }
 }
 #[inline]
 pub unsafe fn StgOpenStorageOnILockBytes<P0, P1>(plkbyt: P0, pstgpriority: P1, grfmode: super::STGM, snbexclude: Option<*const *const u16>, reserved: Option<u32>) -> windows_core::Result<IStorage>
@@ -833,19 +955,21 @@ where
     P1: windows_core::Param<IStorage>,
 {
     windows_targets::link!("ole32.dll" "system" fn StgOpenStorageOnILockBytes(plkbyt : * mut core::ffi::c_void, pstgpriority : * mut core::ffi::c_void, grfmode : super:: STGM, snbexclude : *const *const u16, reserved : u32, ppstgopen : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    StgOpenStorageOnILockBytes(plkbyt.param().abi(), pstgpriority.param().abi(), grfmode, core::mem::transmute(snbexclude.unwrap_or(core::mem::zeroed())), core::mem::transmute(reserved.unwrap_or(core::mem::zeroed())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        StgOpenStorageOnILockBytes(plkbyt.param().abi(), pstgpriority.param().abi(), grfmode, core::mem::transmute(snbexclude.unwrap_or(core::mem::zeroed())), core::mem::transmute(reserved.unwrap_or(core::mem::zeroed())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    }
 }
 #[inline]
 pub unsafe fn StgPropertyLengthAsVariant(pprop: *const SERIALIZEDPROPERTYVALUE, cbprop: u32, codepage: u16, breserved: Option<u8>) -> u32 {
     windows_targets::link!("ole32.dll" "system" fn StgPropertyLengthAsVariant(pprop : *const SERIALIZEDPROPERTYVALUE, cbprop : u32, codepage : u16, breserved : u8) -> u32);
-    StgPropertyLengthAsVariant(pprop, cbprop, codepage, core::mem::transmute(breserved.unwrap_or(core::mem::zeroed())))
+    unsafe { StgPropertyLengthAsVariant(pprop, cbprop, codepage, core::mem::transmute(breserved.unwrap_or(core::mem::zeroed()))) }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn StgSerializePropVariant(ppropvar: *const PROPVARIANT, ppprop: *mut *mut SERIALIZEDPROPERTYVALUE, pcb: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("propsys.dll" "system" fn StgSerializePropVariant(ppropvar : *const PROPVARIANT, ppprop : *mut *mut SERIALIZEDPROPERTYVALUE, pcb : *mut u32) -> windows_core::HRESULT);
-    StgSerializePropVariant(core::mem::transmute(ppropvar), core::mem::transmute(ppprop), core::mem::transmute(pcb)).ok()
+    unsafe { StgSerializePropVariant(core::mem::transmute(ppropvar), core::mem::transmute(ppprop), core::mem::transmute(pcb)).ok() }
 }
 #[inline]
 pub unsafe fn StgSetTimes<P0>(lpszname: P0, pctime: Option<*const super::super::super::Foundation::FILETIME>, patime: Option<*const super::super::super::Foundation::FILETIME>, pmtime: Option<*const super::super::super::Foundation::FILETIME>) -> windows_core::Result<()>
@@ -853,14 +977,16 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ole32.dll" "system" fn StgSetTimes(lpszname : windows_core::PCWSTR, pctime : *const super::super::super::Foundation:: FILETIME, patime : *const super::super::super::Foundation:: FILETIME, pmtime : *const super::super::super::Foundation:: FILETIME) -> windows_core::HRESULT);
-    StgSetTimes(lpszname.param().abi(), core::mem::transmute(pctime.unwrap_or(core::mem::zeroed())), core::mem::transmute(patime.unwrap_or(core::mem::zeroed())), core::mem::transmute(pmtime.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { StgSetTimes(lpszname.param().abi(), core::mem::transmute(pctime.unwrap_or(core::mem::zeroed())), core::mem::transmute(patime.unwrap_or(core::mem::zeroed())), core::mem::transmute(pmtime.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn VariantToPropVariant(pvar: *const super::super::Variant::VARIANT) -> windows_core::Result<PROPVARIANT> {
     windows_targets::link!("propsys.dll" "system" fn VariantToPropVariant(pvar : *const super::super::Variant:: VARIANT, ppropvar : *mut PROPVARIANT) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    VariantToPropVariant(core::mem::transmute(pvar), &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        VariantToPropVariant(core::mem::transmute(pvar), &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
@@ -869,8 +995,10 @@ where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
     windows_targets::link!("propsys.dll" "system" fn WinRTPropertyValueToPropVariant(punkpropertyvalue : * mut core::ffi::c_void, ppropvar : *mut PROPVARIANT) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    WinRTPropertyValueToPropVariant(punkpropertyvalue.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        WinRTPropertyValueToPropVariant(punkpropertyvalue.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[inline]
 pub unsafe fn WriteClassStg<P0>(pstg: P0, rclsid: *const windows_core::GUID) -> windows_core::Result<()>
@@ -878,7 +1006,7 @@ where
     P0: windows_core::Param<IStorage>,
 {
     windows_targets::link!("ole32.dll" "system" fn WriteClassStg(pstg : * mut core::ffi::c_void, rclsid : *const windows_core::GUID) -> windows_core::HRESULT);
-    WriteClassStg(pstg.param().abi(), rclsid).ok()
+    unsafe { WriteClassStg(pstg.param().abi(), rclsid).ok() }
 }
 #[inline]
 pub unsafe fn WriteClassStm<P0>(pstm: P0, rclsid: *const windows_core::GUID) -> windows_core::Result<()>
@@ -886,7 +1014,7 @@ where
     P0: windows_core::Param<super::IStream>,
 {
     windows_targets::link!("ole32.dll" "system" fn WriteClassStm(pstm : * mut core::ffi::c_void, rclsid : *const windows_core::GUID) -> windows_core::HRESULT);
-    WriteClassStm(pstm.param().abi(), rclsid).ok()
+    unsafe { WriteClassStm(pstm.param().abi(), rclsid).ok() }
 }
 #[inline]
 pub unsafe fn WriteFmtUserTypeStg<P0, P2>(pstg: P0, cf: u16, lpszusertype: P2) -> windows_core::Result<()>
@@ -895,7 +1023,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ole32.dll" "system" fn WriteFmtUserTypeStg(pstg : * mut core::ffi::c_void, cf : u16, lpszusertype : windows_core::PCWSTR) -> windows_core::HRESULT);
-    WriteFmtUserTypeStg(pstg.param().abi(), cf, lpszusertype.param().abi()).ok()
+    unsafe { WriteFmtUserTypeStg(pstg.param().abi(), cf, lpszusertype.param().abi()).ok() }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1170,13 +1298,13 @@ windows_core::imp::define_interface!(IDirectWriterLock, IDirectWriterLock_Vtbl, 
 windows_core::imp::interface_hierarchy!(IDirectWriterLock, windows_core::IUnknown);
 impl IDirectWriterLock {
     pub unsafe fn WaitForWriteAccess(&self, dwtimeout: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).WaitForWriteAccess)(windows_core::Interface::as_raw(self), dwtimeout).ok()
+        unsafe { (windows_core::Interface::vtable(self).WaitForWriteAccess)(windows_core::Interface::as_raw(self), dwtimeout).ok() }
     }
     pub unsafe fn ReleaseWriteAccess(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ReleaseWriteAccess)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).ReleaseWriteAccess)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn HaveWriteAccess(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).HaveWriteAccess)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).HaveWriteAccess)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
 #[repr(C)]
@@ -1194,16 +1322,22 @@ pub trait IDirectWriterLock_Impl: windows_core::IUnknownImpl {
 impl IDirectWriterLock_Vtbl {
     pub const fn new<Identity: IDirectWriterLock_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn WaitForWriteAccess<Identity: IDirectWriterLock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwtimeout: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDirectWriterLock_Impl::WaitForWriteAccess(this, core::mem::transmute_copy(&dwtimeout)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDirectWriterLock_Impl::WaitForWriteAccess(this, core::mem::transmute_copy(&dwtimeout)).into()
+            }
         }
         unsafe extern "system" fn ReleaseWriteAccess<Identity: IDirectWriterLock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDirectWriterLock_Impl::ReleaseWriteAccess(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDirectWriterLock_Impl::ReleaseWriteAccess(this).into()
+            }
         }
         unsafe extern "system" fn HaveWriteAccess<Identity: IDirectWriterLock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDirectWriterLock_Impl::HaveWriteAccess(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDirectWriterLock_Impl::HaveWriteAccess(this).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -1221,17 +1355,19 @@ windows_core::imp::define_interface!(IEnumSTATPROPSETSTG, IEnumSTATPROPSETSTG_Vt
 windows_core::imp::interface_hierarchy!(IEnumSTATPROPSETSTG, windows_core::IUnknown);
 impl IEnumSTATPROPSETSTG {
     pub unsafe fn Next(&self, rgelt: &mut [STATPROPSETSTG], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::mem::zeroed())))
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::mem::zeroed()))) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
-        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt)
+        unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumSTATPROPSETSTG> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -1251,25 +1387,33 @@ pub trait IEnumSTATPROPSETSTG_Impl: windows_core::IUnknownImpl {
 impl IEnumSTATPROPSETSTG_Vtbl {
     pub const fn new<Identity: IEnumSTATPROPSETSTG_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Next<Identity: IEnumSTATPROPSETSTG_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgelt: *mut STATPROPSETSTG, pceltfetched: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IEnumSTATPROPSETSTG_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched))
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IEnumSTATPROPSETSTG_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched))
+            }
         }
         unsafe extern "system" fn Skip<Identity: IEnumSTATPROPSETSTG_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IEnumSTATPROPSETSTG_Impl::Skip(this, core::mem::transmute_copy(&celt))
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IEnumSTATPROPSETSTG_Impl::Skip(this, core::mem::transmute_copy(&celt))
+            }
         }
         unsafe extern "system" fn Reset<Identity: IEnumSTATPROPSETSTG_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IEnumSTATPROPSETSTG_Impl::Reset(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IEnumSTATPROPSETSTG_Impl::Reset(this).into()
+            }
         }
         unsafe extern "system" fn Clone<Identity: IEnumSTATPROPSETSTG_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IEnumSTATPROPSETSTG_Impl::Clone(this) {
-                Ok(ok__) => {
-                    ppenum.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IEnumSTATPROPSETSTG_Impl::Clone(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -1290,17 +1434,19 @@ windows_core::imp::interface_hierarchy!(IEnumSTATPROPSTG, windows_core::IUnknown
 impl IEnumSTATPROPSTG {
     #[cfg(feature = "Win32_System_Variant")]
     pub unsafe fn Next(&self, rgelt: &mut [STATPROPSTG], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::mem::zeroed())))
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::mem::zeroed()))) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
-        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt)
+        unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumSTATPROPSTG> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -1325,25 +1471,33 @@ pub trait IEnumSTATPROPSTG_Impl: windows_core::IUnknownImpl {
 impl IEnumSTATPROPSTG_Vtbl {
     pub const fn new<Identity: IEnumSTATPROPSTG_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Next<Identity: IEnumSTATPROPSTG_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgelt: *mut STATPROPSTG, pceltfetched: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IEnumSTATPROPSTG_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched))
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IEnumSTATPROPSTG_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched))
+            }
         }
         unsafe extern "system" fn Skip<Identity: IEnumSTATPROPSTG_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IEnumSTATPROPSTG_Impl::Skip(this, core::mem::transmute_copy(&celt))
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IEnumSTATPROPSTG_Impl::Skip(this, core::mem::transmute_copy(&celt))
+            }
         }
         unsafe extern "system" fn Reset<Identity: IEnumSTATPROPSTG_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IEnumSTATPROPSTG_Impl::Reset(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IEnumSTATPROPSTG_Impl::Reset(this).into()
+            }
         }
         unsafe extern "system" fn Clone<Identity: IEnumSTATPROPSTG_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IEnumSTATPROPSTG_Impl::Clone(this) {
-                Ok(ok__) => {
-                    ppenum.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IEnumSTATPROPSTG_Impl::Clone(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -1364,17 +1518,19 @@ windows_core::imp::define_interface!(IEnumSTATSTG, IEnumSTATSTG_Vtbl, 0x0000000d
 windows_core::imp::interface_hierarchy!(IEnumSTATSTG, windows_core::IUnknown);
 impl IEnumSTATSTG {
     pub unsafe fn Next(&self, rgelt: &mut [super::STATSTG], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::mem::zeroed()))).ok()
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::mem::zeroed()))).ok() }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok()
+        unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumSTATSTG> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -1394,25 +1550,33 @@ pub trait IEnumSTATSTG_Impl: windows_core::IUnknownImpl {
 impl IEnumSTATSTG_Vtbl {
     pub const fn new<Identity: IEnumSTATSTG_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Next<Identity: IEnumSTATSTG_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgelt: *mut super::STATSTG, pceltfetched: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IEnumSTATSTG_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IEnumSTATSTG_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
+            }
         }
         unsafe extern "system" fn Skip<Identity: IEnumSTATSTG_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IEnumSTATSTG_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IEnumSTATSTG_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+            }
         }
         unsafe extern "system" fn Reset<Identity: IEnumSTATSTG_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IEnumSTATSTG_Impl::Reset(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IEnumSTATSTG_Impl::Reset(this).into()
+            }
         }
         unsafe extern "system" fn Clone<Identity: IEnumSTATSTG_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IEnumSTATSTG_Impl::Clone(this) {
-                Ok(ok__) => {
-                    ppenum.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IEnumSTATSTG_Impl::Clone(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -1432,18 +1596,22 @@ windows_core::imp::define_interface!(IFillLockBytes, IFillLockBytes_Vtbl, 0x99ca
 windows_core::imp::interface_hierarchy!(IFillLockBytes, windows_core::IUnknown);
 impl IFillLockBytes {
     pub unsafe fn FillAppend(&self, pv: *const core::ffi::c_void, cb: u32) -> windows_core::Result<u32> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).FillAppend)(windows_core::Interface::as_raw(self), pv, cb, &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).FillAppend)(windows_core::Interface::as_raw(self), pv, cb, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn FillAt(&self, uloffset: u64, pv: *const core::ffi::c_void, cb: u32) -> windows_core::Result<u32> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).FillAt)(windows_core::Interface::as_raw(self), uloffset, pv, cb, &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).FillAt)(windows_core::Interface::as_raw(self), uloffset, pv, cb, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn SetFillSize(&self, ulsize: u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetFillSize)(windows_core::Interface::as_raw(self), ulsize).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetFillSize)(windows_core::Interface::as_raw(self), ulsize).ok() }
     }
     pub unsafe fn Terminate(&self, bcanceled: bool) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Terminate)(windows_core::Interface::as_raw(self), bcanceled.into()).ok()
+        unsafe { (windows_core::Interface::vtable(self).Terminate)(windows_core::Interface::as_raw(self), bcanceled.into()).ok() }
     }
 }
 #[repr(C)]
@@ -1463,32 +1631,40 @@ pub trait IFillLockBytes_Impl: windows_core::IUnknownImpl {
 impl IFillLockBytes_Vtbl {
     pub const fn new<Identity: IFillLockBytes_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn FillAppend<Identity: IFillLockBytes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pv: *const core::ffi::c_void, cb: u32, pcbwritten: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IFillLockBytes_Impl::FillAppend(this, core::mem::transmute_copy(&pv), core::mem::transmute_copy(&cb)) {
-                Ok(ok__) => {
-                    pcbwritten.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IFillLockBytes_Impl::FillAppend(this, core::mem::transmute_copy(&pv), core::mem::transmute_copy(&cb)) {
+                    Ok(ok__) => {
+                        pcbwritten.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn FillAt<Identity: IFillLockBytes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uloffset: u64, pv: *const core::ffi::c_void, cb: u32, pcbwritten: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IFillLockBytes_Impl::FillAt(this, core::mem::transmute_copy(&uloffset), core::mem::transmute_copy(&pv), core::mem::transmute_copy(&cb)) {
-                Ok(ok__) => {
-                    pcbwritten.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IFillLockBytes_Impl::FillAt(this, core::mem::transmute_copy(&uloffset), core::mem::transmute_copy(&pv), core::mem::transmute_copy(&cb)) {
+                    Ok(ok__) => {
+                        pcbwritten.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetFillSize<Identity: IFillLockBytes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulsize: u64) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IFillLockBytes_Impl::SetFillSize(this, core::mem::transmute_copy(&ulsize)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IFillLockBytes_Impl::SetFillSize(this, core::mem::transmute_copy(&ulsize)).into()
+            }
         }
         unsafe extern "system" fn Terminate<Identity: IFillLockBytes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bcanceled: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IFillLockBytes_Impl::Terminate(this, core::mem::transmute_copy(&bcanceled)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IFillLockBytes_Impl::Terminate(this, core::mem::transmute_copy(&bcanceled)).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -1507,25 +1683,25 @@ windows_core::imp::define_interface!(ILayoutStorage, ILayoutStorage_Vtbl, 0x0e6d
 windows_core::imp::interface_hierarchy!(ILayoutStorage, windows_core::IUnknown);
 impl ILayoutStorage {
     pub unsafe fn LayoutScript(&self, pstoragelayout: &[super::StorageLayout], glfinterleavedflag: Option<u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).LayoutScript)(windows_core::Interface::as_raw(self), core::mem::transmute(pstoragelayout.as_ptr()), pstoragelayout.len().try_into().unwrap(), core::mem::transmute(glfinterleavedflag.unwrap_or(core::mem::zeroed()))).ok()
+        unsafe { (windows_core::Interface::vtable(self).LayoutScript)(windows_core::Interface::as_raw(self), core::mem::transmute(pstoragelayout.as_ptr()), pstoragelayout.len().try_into().unwrap(), core::mem::transmute(glfinterleavedflag.unwrap_or(core::mem::zeroed()))).ok() }
     }
     pub unsafe fn BeginMonitor(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).BeginMonitor)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).BeginMonitor)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn EndMonitor(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).EndMonitor)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).EndMonitor)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn ReLayoutDocfile<P0>(&self, pwcsnewdfname: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ReLayoutDocfile)(windows_core::Interface::as_raw(self), pwcsnewdfname.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).ReLayoutDocfile)(windows_core::Interface::as_raw(self), pwcsnewdfname.param().abi()).ok() }
     }
     pub unsafe fn ReLayoutDocfileOnILockBytes<P0>(&self, pilockbytes: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ILockBytes>,
     {
-        (windows_core::Interface::vtable(self).ReLayoutDocfileOnILockBytes)(windows_core::Interface::as_raw(self), pilockbytes.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).ReLayoutDocfileOnILockBytes)(windows_core::Interface::as_raw(self), pilockbytes.param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -1547,24 +1723,34 @@ pub trait ILayoutStorage_Impl: windows_core::IUnknownImpl {
 impl ILayoutStorage_Vtbl {
     pub const fn new<Identity: ILayoutStorage_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn LayoutScript<Identity: ILayoutStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstoragelayout: *const super::StorageLayout, nentries: u32, glfinterleavedflag: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ILayoutStorage_Impl::LayoutScript(this, core::mem::transmute_copy(&pstoragelayout), core::mem::transmute_copy(&nentries), core::mem::transmute_copy(&glfinterleavedflag)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ILayoutStorage_Impl::LayoutScript(this, core::mem::transmute_copy(&pstoragelayout), core::mem::transmute_copy(&nentries), core::mem::transmute_copy(&glfinterleavedflag)).into()
+            }
         }
         unsafe extern "system" fn BeginMonitor<Identity: ILayoutStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ILayoutStorage_Impl::BeginMonitor(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ILayoutStorage_Impl::BeginMonitor(this).into()
+            }
         }
         unsafe extern "system" fn EndMonitor<Identity: ILayoutStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ILayoutStorage_Impl::EndMonitor(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ILayoutStorage_Impl::EndMonitor(this).into()
+            }
         }
         unsafe extern "system" fn ReLayoutDocfile<Identity: ILayoutStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwcsnewdfname: windows_core::PCWSTR) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ILayoutStorage_Impl::ReLayoutDocfile(this, core::mem::transmute(&pwcsnewdfname)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ILayoutStorage_Impl::ReLayoutDocfile(this, core::mem::transmute(&pwcsnewdfname)).into()
+            }
         }
         unsafe extern "system" fn ReLayoutDocfileOnILockBytes<Identity: ILayoutStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pilockbytes: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ILayoutStorage_Impl::ReLayoutDocfileOnILockBytes(this, core::mem::transmute_copy(&pilockbytes)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ILayoutStorage_Impl::ReLayoutDocfileOnILockBytes(this, core::mem::transmute_copy(&pilockbytes)).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -1584,25 +1770,25 @@ windows_core::imp::define_interface!(ILockBytes, ILockBytes_Vtbl, 0x0000000a_000
 windows_core::imp::interface_hierarchy!(ILockBytes, windows_core::IUnknown);
 impl ILockBytes {
     pub unsafe fn ReadAt(&self, uloffset: u64, pv: *mut core::ffi::c_void, cb: u32, pcbread: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ReadAt)(windows_core::Interface::as_raw(self), uloffset, core::mem::transmute(pv), cb, core::mem::transmute(pcbread.unwrap_or(core::mem::zeroed()))).ok()
+        unsafe { (windows_core::Interface::vtable(self).ReadAt)(windows_core::Interface::as_raw(self), uloffset, core::mem::transmute(pv), cb, core::mem::transmute(pcbread.unwrap_or(core::mem::zeroed()))).ok() }
     }
     pub unsafe fn WriteAt(&self, uloffset: u64, pv: *const core::ffi::c_void, cb: u32, pcbwritten: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).WriteAt)(windows_core::Interface::as_raw(self), uloffset, pv, cb, core::mem::transmute(pcbwritten.unwrap_or(core::mem::zeroed()))).ok()
+        unsafe { (windows_core::Interface::vtable(self).WriteAt)(windows_core::Interface::as_raw(self), uloffset, pv, cb, core::mem::transmute(pcbwritten.unwrap_or(core::mem::zeroed()))).ok() }
     }
     pub unsafe fn Flush(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Flush)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Flush)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn SetSize(&self, cb: u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetSize)(windows_core::Interface::as_raw(self), cb).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetSize)(windows_core::Interface::as_raw(self), cb).ok() }
     }
     pub unsafe fn LockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).LockRegion)(windows_core::Interface::as_raw(self), liboffset, cb, dwlocktype).ok()
+        unsafe { (windows_core::Interface::vtable(self).LockRegion)(windows_core::Interface::as_raw(self), liboffset, cb, dwlocktype).ok() }
     }
     pub unsafe fn UnlockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).UnlockRegion)(windows_core::Interface::as_raw(self), liboffset, cb, dwlocktype).ok()
+        unsafe { (windows_core::Interface::vtable(self).UnlockRegion)(windows_core::Interface::as_raw(self), liboffset, cb, dwlocktype).ok() }
     }
     pub unsafe fn Stat(&self, pstatstg: *mut super::STATSTG, grfstatflag: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Stat)(windows_core::Interface::as_raw(self), core::mem::transmute(pstatstg), grfstatflag).ok()
+        unsafe { (windows_core::Interface::vtable(self).Stat)(windows_core::Interface::as_raw(self), core::mem::transmute(pstatstg), grfstatflag).ok() }
     }
 }
 #[repr(C)]
@@ -1628,32 +1814,46 @@ pub trait ILockBytes_Impl: windows_core::IUnknownImpl {
 impl ILockBytes_Vtbl {
     pub const fn new<Identity: ILockBytes_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ReadAt<Identity: ILockBytes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uloffset: u64, pv: *mut core::ffi::c_void, cb: u32, pcbread: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ILockBytes_Impl::ReadAt(this, core::mem::transmute_copy(&uloffset), core::mem::transmute_copy(&pv), core::mem::transmute_copy(&cb), core::mem::transmute_copy(&pcbread)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ILockBytes_Impl::ReadAt(this, core::mem::transmute_copy(&uloffset), core::mem::transmute_copy(&pv), core::mem::transmute_copy(&cb), core::mem::transmute_copy(&pcbread)).into()
+            }
         }
         unsafe extern "system" fn WriteAt<Identity: ILockBytes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uloffset: u64, pv: *const core::ffi::c_void, cb: u32, pcbwritten: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ILockBytes_Impl::WriteAt(this, core::mem::transmute_copy(&uloffset), core::mem::transmute_copy(&pv), core::mem::transmute_copy(&cb), core::mem::transmute_copy(&pcbwritten)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ILockBytes_Impl::WriteAt(this, core::mem::transmute_copy(&uloffset), core::mem::transmute_copy(&pv), core::mem::transmute_copy(&cb), core::mem::transmute_copy(&pcbwritten)).into()
+            }
         }
         unsafe extern "system" fn Flush<Identity: ILockBytes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ILockBytes_Impl::Flush(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ILockBytes_Impl::Flush(this).into()
+            }
         }
         unsafe extern "system" fn SetSize<Identity: ILockBytes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cb: u64) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ILockBytes_Impl::SetSize(this, core::mem::transmute_copy(&cb)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ILockBytes_Impl::SetSize(this, core::mem::transmute_copy(&cb)).into()
+            }
         }
         unsafe extern "system" fn LockRegion<Identity: ILockBytes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, liboffset: u64, cb: u64, dwlocktype: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ILockBytes_Impl::LockRegion(this, core::mem::transmute_copy(&liboffset), core::mem::transmute_copy(&cb), core::mem::transmute_copy(&dwlocktype)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ILockBytes_Impl::LockRegion(this, core::mem::transmute_copy(&liboffset), core::mem::transmute_copy(&cb), core::mem::transmute_copy(&dwlocktype)).into()
+            }
         }
         unsafe extern "system" fn UnlockRegion<Identity: ILockBytes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, liboffset: u64, cb: u64, dwlocktype: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ILockBytes_Impl::UnlockRegion(this, core::mem::transmute_copy(&liboffset), core::mem::transmute_copy(&cb), core::mem::transmute_copy(&dwlocktype)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ILockBytes_Impl::UnlockRegion(this, core::mem::transmute_copy(&liboffset), core::mem::transmute_copy(&cb), core::mem::transmute_copy(&dwlocktype)).into()
+            }
         }
         unsafe extern "system" fn Stat<Identity: ILockBytes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstatstg: *mut super::STATSTG, grfstatflag: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ILockBytes_Impl::Stat(this, core::mem::transmute_copy(&pstatstg), core::mem::transmute_copy(&grfstatflag)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ILockBytes_Impl::Stat(this, core::mem::transmute_copy(&pstatstg), core::mem::transmute_copy(&grfstatflag)).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -1674,10 +1874,10 @@ impl windows_core::RuntimeName for ILockBytes {}
 windows_core::imp::define_interface!(IMemoryAllocator, IMemoryAllocator_Vtbl);
 impl IMemoryAllocator {
     pub unsafe fn Allocate(&self, cbsize: u32) -> *mut core::ffi::c_void {
-        (windows_core::Interface::vtable(self).Allocate)(windows_core::Interface::as_raw(self), cbsize)
+        unsafe { (windows_core::Interface::vtable(self).Allocate)(windows_core::Interface::as_raw(self), cbsize) }
     }
     pub unsafe fn Free(&self, pv: *mut core::ffi::c_void) {
-        (windows_core::Interface::vtable(self).Free)(windows_core::Interface::as_raw(self), core::mem::transmute(pv))
+        unsafe { (windows_core::Interface::vtable(self).Free)(windows_core::Interface::as_raw(self), core::mem::transmute(pv)) }
     }
 }
 #[repr(C)]
@@ -1692,14 +1892,18 @@ pub trait IMemoryAllocator_Impl {
 impl IMemoryAllocator_Vtbl {
     pub const fn new<Identity: IMemoryAllocator_Impl>() -> Self {
         unsafe extern "system" fn Allocate<Identity: IMemoryAllocator_Impl>(this: *mut core::ffi::c_void, cbsize: u32) -> *mut core::ffi::c_void {
-            let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
-            let this = &*((*this).this as *const Identity);
-            IMemoryAllocator_Impl::Allocate(this, core::mem::transmute_copy(&cbsize))
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                IMemoryAllocator_Impl::Allocate(this, core::mem::transmute_copy(&cbsize))
+            }
         }
         unsafe extern "system" fn Free<Identity: IMemoryAllocator_Impl>(this: *mut core::ffi::c_void, pv: *mut core::ffi::c_void) {
-            let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
-            let this = &*((*this).this as *const Identity);
-            IMemoryAllocator_Impl::Free(this, core::mem::transmute_copy(&pv))
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                IMemoryAllocator_Impl::Free(this, core::mem::transmute_copy(&pv))
+            }
         }
         Self { Allocate: Allocate::<Identity>, Free: Free::<Identity> }
     }
@@ -1725,34 +1929,34 @@ impl core::ops::Deref for IPersistStorage {
 windows_core::imp::interface_hierarchy!(IPersistStorage, windows_core::IUnknown, super::IPersist);
 impl IPersistStorage {
     pub unsafe fn IsDirty(&self) -> windows_core::HRESULT {
-        (windows_core::Interface::vtable(self).IsDirty)(windows_core::Interface::as_raw(self))
+        unsafe { (windows_core::Interface::vtable(self).IsDirty)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn InitNew<P0>(&self, pstg: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IStorage>,
     {
-        (windows_core::Interface::vtable(self).InitNew)(windows_core::Interface::as_raw(self), pstg.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).InitNew)(windows_core::Interface::as_raw(self), pstg.param().abi()).ok() }
     }
     pub unsafe fn Load<P0>(&self, pstg: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IStorage>,
     {
-        (windows_core::Interface::vtable(self).Load)(windows_core::Interface::as_raw(self), pstg.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).Load)(windows_core::Interface::as_raw(self), pstg.param().abi()).ok() }
     }
     pub unsafe fn Save<P0>(&self, pstgsave: P0, fsameasload: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IStorage>,
     {
-        (windows_core::Interface::vtable(self).Save)(windows_core::Interface::as_raw(self), pstgsave.param().abi(), fsameasload.into()).ok()
+        unsafe { (windows_core::Interface::vtable(self).Save)(windows_core::Interface::as_raw(self), pstgsave.param().abi(), fsameasload.into()).ok() }
     }
     pub unsafe fn SaveCompleted<P0>(&self, pstgnew: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IStorage>,
     {
-        (windows_core::Interface::vtable(self).SaveCompleted)(windows_core::Interface::as_raw(self), pstgnew.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).SaveCompleted)(windows_core::Interface::as_raw(self), pstgnew.param().abi()).ok() }
     }
     pub unsafe fn HandsOffStorage(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).HandsOffStorage)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).HandsOffStorage)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
 #[repr(C)]
@@ -1776,28 +1980,40 @@ pub trait IPersistStorage_Impl: super::IPersist_Impl {
 impl IPersistStorage_Vtbl {
     pub const fn new<Identity: IPersistStorage_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn IsDirty<Identity: IPersistStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPersistStorage_Impl::IsDirty(this)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPersistStorage_Impl::IsDirty(this)
+            }
         }
         unsafe extern "system" fn InitNew<Identity: IPersistStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstg: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPersistStorage_Impl::InitNew(this, core::mem::transmute_copy(&pstg)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPersistStorage_Impl::InitNew(this, core::mem::transmute_copy(&pstg)).into()
+            }
         }
         unsafe extern "system" fn Load<Identity: IPersistStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstg: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPersistStorage_Impl::Load(this, core::mem::transmute_copy(&pstg)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPersistStorage_Impl::Load(this, core::mem::transmute_copy(&pstg)).into()
+            }
         }
         unsafe extern "system" fn Save<Identity: IPersistStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstgsave: *mut core::ffi::c_void, fsameasload: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPersistStorage_Impl::Save(this, core::mem::transmute_copy(&pstgsave), core::mem::transmute_copy(&fsameasload)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPersistStorage_Impl::Save(this, core::mem::transmute_copy(&pstgsave), core::mem::transmute_copy(&fsameasload)).into()
+            }
         }
         unsafe extern "system" fn SaveCompleted<Identity: IPersistStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstgnew: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPersistStorage_Impl::SaveCompleted(this, core::mem::transmute_copy(&pstgnew)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPersistStorage_Impl::SaveCompleted(this, core::mem::transmute_copy(&pstgnew)).into()
+            }
         }
         unsafe extern "system" fn HandsOffStorage<Identity: IPersistStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPersistStorage_Impl::HandsOffStorage(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPersistStorage_Impl::HandsOffStorage(this).into()
+            }
         }
         Self {
             base__: super::IPersist_Vtbl::new::<Identity, OFFSET>(),
@@ -1823,14 +2039,14 @@ impl IPropertyBag {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<super::IErrorLog>,
     {
-        (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), pszpropname.param().abi(), core::mem::transmute(pvar), perrorlog.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), pszpropname.param().abi(), core::mem::transmute(pvar), perrorlog.param().abi()).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Write<P0>(&self, pszpropname: P0, pvar: *const super::super::Variant::VARIANT) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).Write)(windows_core::Interface::as_raw(self), pszpropname.param().abi(), core::mem::transmute(pvar)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Write)(windows_core::Interface::as_raw(self), pszpropname.param().abi(), core::mem::transmute(pvar)).ok() }
     }
 }
 #[repr(C)]
@@ -1854,12 +2070,16 @@ pub trait IPropertyBag_Impl: windows_core::IUnknownImpl {
 impl IPropertyBag_Vtbl {
     pub const fn new<Identity: IPropertyBag_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Read<Identity: IPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpropname: windows_core::PCWSTR, pvar: *mut super::super::Variant::VARIANT, perrorlog: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPropertyBag_Impl::Read(this, core::mem::transmute(&pszpropname), core::mem::transmute_copy(&pvar), core::mem::transmute_copy(&perrorlog)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPropertyBag_Impl::Read(this, core::mem::transmute(&pszpropname), core::mem::transmute_copy(&pvar), core::mem::transmute_copy(&perrorlog)).into()
+            }
         }
         unsafe extern "system" fn Write<Identity: IPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpropname: windows_core::PCWSTR, pvar: *const super::super::Variant::VARIANT) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPropertyBag_Impl::Write(this, core::mem::transmute(&pszpropname), core::mem::transmute_copy(&pvar)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPropertyBag_Impl::Write(this, core::mem::transmute(&pszpropname), core::mem::transmute_copy(&pvar)).into()
+            }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Read: Read::<Identity, OFFSET>, Write: Write::<Identity, OFFSET> }
     }
@@ -1877,19 +2097,21 @@ impl IPropertyBag2 {
     where
         P2: windows_core::Param<super::IErrorLog>,
     {
-        (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), cproperties, ppropbag, perrlog.param().abi(), core::mem::transmute(pvarvalue), core::mem::transmute(phrerror)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), cproperties, ppropbag, perrlog.param().abi(), core::mem::transmute(pvarvalue), core::mem::transmute(phrerror)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Write(&self, cproperties: u32, ppropbag: *const PROPBAG2, pvarvalue: *const super::super::Variant::VARIANT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Write)(windows_core::Interface::as_raw(self), cproperties, ppropbag, core::mem::transmute(pvarvalue)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Write)(windows_core::Interface::as_raw(self), cproperties, ppropbag, core::mem::transmute(pvarvalue)).ok() }
     }
     pub unsafe fn CountProperties(&self) -> windows_core::Result<u32> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CountProperties)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CountProperties)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     #[cfg(feature = "Win32_System_Variant")]
     pub unsafe fn GetPropertyInfo(&self, iproperty: u32, ppropbag: &mut [PROPBAG2], pcproperties: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetPropertyInfo)(windows_core::Interface::as_raw(self), iproperty, ppropbag.len().try_into().unwrap(), core::mem::transmute(ppropbag.as_ptr()), core::mem::transmute(pcproperties)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetPropertyInfo)(windows_core::Interface::as_raw(self), iproperty, ppropbag.len().try_into().unwrap(), core::mem::transmute(ppropbag.as_ptr()), core::mem::transmute(pcproperties)).ok() }
     }
     pub unsafe fn LoadObject<P0, P2, P3>(&self, pstrname: P0, dwhint: u32, punkobject: P2, perrlog: P3) -> windows_core::Result<()>
     where
@@ -1897,7 +2119,7 @@ impl IPropertyBag2 {
         P2: windows_core::Param<windows_core::IUnknown>,
         P3: windows_core::Param<super::IErrorLog>,
     {
-        (windows_core::Interface::vtable(self).LoadObject)(windows_core::Interface::as_raw(self), pstrname.param().abi(), dwhint, punkobject.param().abi(), perrlog.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).LoadObject)(windows_core::Interface::as_raw(self), pstrname.param().abi(), dwhint, punkobject.param().abi(), perrlog.param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -1930,30 +2152,40 @@ pub trait IPropertyBag2_Impl: windows_core::IUnknownImpl {
 impl IPropertyBag2_Vtbl {
     pub const fn new<Identity: IPropertyBag2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Read<Identity: IPropertyBag2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cproperties: u32, ppropbag: *const PROPBAG2, perrlog: *mut core::ffi::c_void, pvarvalue: *mut super::super::Variant::VARIANT, phrerror: *mut windows_core::HRESULT) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPropertyBag2_Impl::Read(this, core::mem::transmute_copy(&cproperties), core::mem::transmute_copy(&ppropbag), core::mem::transmute_copy(&perrlog), core::mem::transmute_copy(&pvarvalue), core::mem::transmute_copy(&phrerror)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPropertyBag2_Impl::Read(this, core::mem::transmute_copy(&cproperties), core::mem::transmute_copy(&ppropbag), core::mem::transmute_copy(&perrlog), core::mem::transmute_copy(&pvarvalue), core::mem::transmute_copy(&phrerror)).into()
+            }
         }
         unsafe extern "system" fn Write<Identity: IPropertyBag2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cproperties: u32, ppropbag: *const PROPBAG2, pvarvalue: *const super::super::Variant::VARIANT) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPropertyBag2_Impl::Write(this, core::mem::transmute_copy(&cproperties), core::mem::transmute_copy(&ppropbag), core::mem::transmute_copy(&pvarvalue)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPropertyBag2_Impl::Write(this, core::mem::transmute_copy(&cproperties), core::mem::transmute_copy(&ppropbag), core::mem::transmute_copy(&pvarvalue)).into()
+            }
         }
         unsafe extern "system" fn CountProperties<Identity: IPropertyBag2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcproperties: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IPropertyBag2_Impl::CountProperties(this) {
-                Ok(ok__) => {
-                    pcproperties.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IPropertyBag2_Impl::CountProperties(this) {
+                    Ok(ok__) => {
+                        pcproperties.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetPropertyInfo<Identity: IPropertyBag2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iproperty: u32, cproperties: u32, ppropbag: *mut PROPBAG2, pcproperties: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPropertyBag2_Impl::GetPropertyInfo(this, core::mem::transmute_copy(&iproperty), core::mem::transmute_copy(&cproperties), core::mem::transmute_copy(&ppropbag), core::mem::transmute_copy(&pcproperties)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPropertyBag2_Impl::GetPropertyInfo(this, core::mem::transmute_copy(&iproperty), core::mem::transmute_copy(&cproperties), core::mem::transmute_copy(&ppropbag), core::mem::transmute_copy(&pcproperties)).into()
+            }
         }
         unsafe extern "system" fn LoadObject<Identity: IPropertyBag2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstrname: windows_core::PCWSTR, dwhint: u32, punkobject: *mut core::ffi::c_void, perrlog: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPropertyBag2_Impl::LoadObject(this, core::mem::transmute(&pstrname), core::mem::transmute_copy(&dwhint), core::mem::transmute_copy(&punkobject), core::mem::transmute_copy(&perrlog)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPropertyBag2_Impl::LoadObject(this, core::mem::transmute(&pstrname), core::mem::transmute_copy(&dwhint), core::mem::transmute_copy(&punkobject), core::mem::transmute_copy(&perrlog)).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -1974,19 +2206,25 @@ windows_core::imp::define_interface!(IPropertySetStorage, IPropertySetStorage_Vt
 windows_core::imp::interface_hierarchy!(IPropertySetStorage, windows_core::IUnknown);
 impl IPropertySetStorage {
     pub unsafe fn Create(&self, rfmtid: *const windows_core::GUID, pclsid: *const windows_core::GUID, grfflags: u32, grfmode: u32) -> windows_core::Result<IPropertyStorage> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), rfmtid, pclsid, grfflags, grfmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), rfmtid, pclsid, grfflags, grfmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn Open(&self, rfmtid: *const windows_core::GUID, grfmode: u32) -> windows_core::Result<IPropertyStorage> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), rfmtid, grfmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), rfmtid, grfmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn Delete(&self, rfmtid: *const windows_core::GUID) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), rfmtid).ok()
+        unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), rfmtid).ok() }
     }
     pub unsafe fn Enum(&self) -> windows_core::Result<IEnumSTATPROPSETSTG> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Enum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Enum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -2006,37 +2244,45 @@ pub trait IPropertySetStorage_Impl: windows_core::IUnknownImpl {
 impl IPropertySetStorage_Vtbl {
     pub const fn new<Identity: IPropertySetStorage_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Create<Identity: IPropertySetStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rfmtid: *const windows_core::GUID, pclsid: *const windows_core::GUID, grfflags: u32, grfmode: u32, ppprstg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IPropertySetStorage_Impl::Create(this, core::mem::transmute_copy(&rfmtid), core::mem::transmute_copy(&pclsid), core::mem::transmute_copy(&grfflags), core::mem::transmute_copy(&grfmode)) {
-                Ok(ok__) => {
-                    ppprstg.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IPropertySetStorage_Impl::Create(this, core::mem::transmute_copy(&rfmtid), core::mem::transmute_copy(&pclsid), core::mem::transmute_copy(&grfflags), core::mem::transmute_copy(&grfmode)) {
+                    Ok(ok__) => {
+                        ppprstg.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn Open<Identity: IPropertySetStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rfmtid: *const windows_core::GUID, grfmode: u32, ppprstg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IPropertySetStorage_Impl::Open(this, core::mem::transmute_copy(&rfmtid), core::mem::transmute_copy(&grfmode)) {
-                Ok(ok__) => {
-                    ppprstg.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IPropertySetStorage_Impl::Open(this, core::mem::transmute_copy(&rfmtid), core::mem::transmute_copy(&grfmode)) {
+                    Ok(ok__) => {
+                        ppprstg.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn Delete<Identity: IPropertySetStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rfmtid: *const windows_core::GUID) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPropertySetStorage_Impl::Delete(this, core::mem::transmute_copy(&rfmtid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPropertySetStorage_Impl::Delete(this, core::mem::transmute_copy(&rfmtid)).into()
+            }
         }
         unsafe extern "system" fn Enum<Identity: IPropertySetStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IPropertySetStorage_Impl::Enum(this) {
-                Ok(ok__) => {
-                    ppenum.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IPropertySetStorage_Impl::Enum(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -2057,44 +2303,50 @@ windows_core::imp::interface_hierarchy!(IPropertyStorage, windows_core::IUnknown
 impl IPropertyStorage {
     #[cfg(feature = "Win32_System_Variant")]
     pub unsafe fn ReadMultiple(&self, cpspec: u32, rgpspec: *const PROPSPEC) -> windows_core::Result<PROPVARIANT> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).ReadMultiple)(windows_core::Interface::as_raw(self), cpspec, rgpspec, &mut result__).map(|| core::mem::transmute(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ReadMultiple)(windows_core::Interface::as_raw(self), cpspec, rgpspec, &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     #[cfg(feature = "Win32_System_Variant")]
     pub unsafe fn WriteMultiple(&self, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *const PROPVARIANT, propidnamefirst: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).WriteMultiple)(windows_core::Interface::as_raw(self), cpspec, rgpspec, core::mem::transmute(rgpropvar), propidnamefirst).ok()
+        unsafe { (windows_core::Interface::vtable(self).WriteMultiple)(windows_core::Interface::as_raw(self), cpspec, rgpspec, core::mem::transmute(rgpropvar), propidnamefirst).ok() }
     }
     pub unsafe fn DeleteMultiple(&self, rgpspec: &[PROPSPEC]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).DeleteMultiple)(windows_core::Interface::as_raw(self), rgpspec.len().try_into().unwrap(), core::mem::transmute(rgpspec.as_ptr())).ok()
+        unsafe { (windows_core::Interface::vtable(self).DeleteMultiple)(windows_core::Interface::as_raw(self), rgpspec.len().try_into().unwrap(), core::mem::transmute(rgpspec.as_ptr())).ok() }
     }
     pub unsafe fn ReadPropertyNames(&self, cpropid: u32, rgpropid: *const u32) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).ReadPropertyNames)(windows_core::Interface::as_raw(self), cpropid, rgpropid, &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ReadPropertyNames)(windows_core::Interface::as_raw(self), cpropid, rgpropid, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn WritePropertyNames(&self, cpropid: u32, rgpropid: *const u32, rglpwstrname: *const windows_core::PCWSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).WritePropertyNames)(windows_core::Interface::as_raw(self), cpropid, rgpropid, rglpwstrname).ok()
+        unsafe { (windows_core::Interface::vtable(self).WritePropertyNames)(windows_core::Interface::as_raw(self), cpropid, rgpropid, rglpwstrname).ok() }
     }
     pub unsafe fn DeletePropertyNames(&self, rgpropid: &[u32]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).DeletePropertyNames)(windows_core::Interface::as_raw(self), rgpropid.len().try_into().unwrap(), core::mem::transmute(rgpropid.as_ptr())).ok()
+        unsafe { (windows_core::Interface::vtable(self).DeletePropertyNames)(windows_core::Interface::as_raw(self), rgpropid.len().try_into().unwrap(), core::mem::transmute(rgpropid.as_ptr())).ok() }
     }
     pub unsafe fn Commit(&self, grfcommitflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Commit)(windows_core::Interface::as_raw(self), grfcommitflags).ok()
+        unsafe { (windows_core::Interface::vtable(self).Commit)(windows_core::Interface::as_raw(self), grfcommitflags).ok() }
     }
     pub unsafe fn Revert(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Revert)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Revert)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn Enum(&self) -> windows_core::Result<IEnumSTATPROPSTG> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Enum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Enum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn SetTimes(&self, pctime: *const super::super::super::Foundation::FILETIME, patime: *const super::super::super::Foundation::FILETIME, pmtime: *const super::super::super::Foundation::FILETIME) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetTimes)(windows_core::Interface::as_raw(self), pctime, patime, pmtime).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetTimes)(windows_core::Interface::as_raw(self), pctime, patime, pmtime).ok() }
     }
     pub unsafe fn SetClass(&self, clsid: *const windows_core::GUID) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetClass)(windows_core::Interface::as_raw(self), clsid).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetClass)(windows_core::Interface::as_raw(self), clsid).ok() }
     }
     pub unsafe fn Stat(&self, pstatpsstg: *mut STATPROPSETSTG) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Stat)(windows_core::Interface::as_raw(self), core::mem::transmute(pstatpsstg)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Stat)(windows_core::Interface::as_raw(self), core::mem::transmute(pstatpsstg)).ok() }
     }
 }
 #[repr(C)]
@@ -2138,70 +2390,94 @@ pub trait IPropertyStorage_Impl: windows_core::IUnknownImpl {
 impl IPropertyStorage_Vtbl {
     pub const fn new<Identity: IPropertyStorage_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ReadMultiple<Identity: IPropertyStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *mut PROPVARIANT) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IPropertyStorage_Impl::ReadMultiple(this, core::mem::transmute_copy(&cpspec), core::mem::transmute_copy(&rgpspec)) {
-                Ok(ok__) => {
-                    rgpropvar.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IPropertyStorage_Impl::ReadMultiple(this, core::mem::transmute_copy(&cpspec), core::mem::transmute_copy(&rgpspec)) {
+                    Ok(ok__) => {
+                        rgpropvar.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn WriteMultiple<Identity: IPropertyStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *const PROPVARIANT, propidnamefirst: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPropertyStorage_Impl::WriteMultiple(this, core::mem::transmute_copy(&cpspec), core::mem::transmute_copy(&rgpspec), core::mem::transmute_copy(&rgpropvar), core::mem::transmute_copy(&propidnamefirst)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPropertyStorage_Impl::WriteMultiple(this, core::mem::transmute_copy(&cpspec), core::mem::transmute_copy(&rgpspec), core::mem::transmute_copy(&rgpropvar), core::mem::transmute_copy(&propidnamefirst)).into()
+            }
         }
         unsafe extern "system" fn DeleteMultiple<Identity: IPropertyStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpspec: u32, rgpspec: *const PROPSPEC) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPropertyStorage_Impl::DeleteMultiple(this, core::mem::transmute_copy(&cpspec), core::mem::transmute_copy(&rgpspec)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPropertyStorage_Impl::DeleteMultiple(this, core::mem::transmute_copy(&cpspec), core::mem::transmute_copy(&rgpspec)).into()
+            }
         }
         unsafe extern "system" fn ReadPropertyNames<Identity: IPropertyStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropid: u32, rgpropid: *const u32, rglpwstrname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IPropertyStorage_Impl::ReadPropertyNames(this, core::mem::transmute_copy(&cpropid), core::mem::transmute_copy(&rgpropid)) {
-                Ok(ok__) => {
-                    rglpwstrname.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IPropertyStorage_Impl::ReadPropertyNames(this, core::mem::transmute_copy(&cpropid), core::mem::transmute_copy(&rgpropid)) {
+                    Ok(ok__) => {
+                        rglpwstrname.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn WritePropertyNames<Identity: IPropertyStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropid: u32, rgpropid: *const u32, rglpwstrname: *const windows_core::PCWSTR) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPropertyStorage_Impl::WritePropertyNames(this, core::mem::transmute_copy(&cpropid), core::mem::transmute_copy(&rgpropid), core::mem::transmute_copy(&rglpwstrname)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPropertyStorage_Impl::WritePropertyNames(this, core::mem::transmute_copy(&cpropid), core::mem::transmute_copy(&rgpropid), core::mem::transmute_copy(&rglpwstrname)).into()
+            }
         }
         unsafe extern "system" fn DeletePropertyNames<Identity: IPropertyStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropid: u32, rgpropid: *const u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPropertyStorage_Impl::DeletePropertyNames(this, core::mem::transmute_copy(&cpropid), core::mem::transmute_copy(&rgpropid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPropertyStorage_Impl::DeletePropertyNames(this, core::mem::transmute_copy(&cpropid), core::mem::transmute_copy(&rgpropid)).into()
+            }
         }
         unsafe extern "system" fn Commit<Identity: IPropertyStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grfcommitflags: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPropertyStorage_Impl::Commit(this, core::mem::transmute_copy(&grfcommitflags)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPropertyStorage_Impl::Commit(this, core::mem::transmute_copy(&grfcommitflags)).into()
+            }
         }
         unsafe extern "system" fn Revert<Identity: IPropertyStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPropertyStorage_Impl::Revert(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPropertyStorage_Impl::Revert(this).into()
+            }
         }
         unsafe extern "system" fn Enum<Identity: IPropertyStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IPropertyStorage_Impl::Enum(this) {
-                Ok(ok__) => {
-                    ppenum.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IPropertyStorage_Impl::Enum(this) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetTimes<Identity: IPropertyStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pctime: *const super::super::super::Foundation::FILETIME, patime: *const super::super::super::Foundation::FILETIME, pmtime: *const super::super::super::Foundation::FILETIME) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPropertyStorage_Impl::SetTimes(this, core::mem::transmute_copy(&pctime), core::mem::transmute_copy(&patime), core::mem::transmute_copy(&pmtime)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPropertyStorage_Impl::SetTimes(this, core::mem::transmute_copy(&pctime), core::mem::transmute_copy(&patime), core::mem::transmute_copy(&pmtime)).into()
+            }
         }
         unsafe extern "system" fn SetClass<Identity: IPropertyStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clsid: *const windows_core::GUID) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPropertyStorage_Impl::SetClass(this, core::mem::transmute_copy(&clsid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPropertyStorage_Impl::SetClass(this, core::mem::transmute_copy(&clsid)).into()
+            }
         }
         unsafe extern "system" fn Stat<Identity: IPropertyStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstatpsstg: *mut STATPROPSETSTG) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPropertyStorage_Impl::Stat(this, core::mem::transmute_copy(&pstatpsstg)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPropertyStorage_Impl::Stat(this, core::mem::transmute_copy(&pstatpsstg)).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -2232,7 +2508,7 @@ impl IRootStorage {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SwitchToFile)(windows_core::Interface::as_raw(self), pszfile.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).SwitchToFile)(windows_core::Interface::as_raw(self), pszfile.param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -2246,8 +2522,10 @@ pub trait IRootStorage_Impl: windows_core::IUnknownImpl {
 impl IRootStorage_Vtbl {
     pub const fn new<Identity: IRootStorage_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SwitchToFile<Identity: IRootStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszfile: windows_core::PCWSTR) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IRootStorage_Impl::SwitchToFile(this, core::mem::transmute(&pszfile)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IRootStorage_Impl::SwitchToFile(this, core::mem::transmute(&pszfile)).into()
+            }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SwitchToFile: SwitchToFile::<Identity, OFFSET> }
     }
@@ -2263,36 +2541,44 @@ impl IStorage {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateStream)(windows_core::Interface::as_raw(self), pwcsname.param().abi(), grfmode, reserved1, reserved2, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateStream)(windows_core::Interface::as_raw(self), pwcsname.param().abi(), grfmode, reserved1, reserved2, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn OpenStream<P0>(&self, pwcsname: P0, reserved1: Option<*const core::ffi::c_void>, grfmode: super::STGM, reserved2: u32) -> windows_core::Result<super::IStream>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).OpenStream)(windows_core::Interface::as_raw(self), pwcsname.param().abi(), core::mem::transmute(reserved1.unwrap_or(core::mem::zeroed())), grfmode, reserved2, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).OpenStream)(windows_core::Interface::as_raw(self), pwcsname.param().abi(), core::mem::transmute(reserved1.unwrap_or(core::mem::zeroed())), grfmode, reserved2, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn CreateStorage<P0>(&self, pwcsname: P0, grfmode: super::STGM, reserved1: u32, reserved2: u32) -> windows_core::Result<IStorage>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateStorage)(windows_core::Interface::as_raw(self), pwcsname.param().abi(), grfmode, reserved1, reserved2, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateStorage)(windows_core::Interface::as_raw(self), pwcsname.param().abi(), grfmode, reserved1, reserved2, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn OpenStorage<P0, P1>(&self, pwcsname: P0, pstgpriority: P1, grfmode: super::STGM, snbexclude: *const *const u16, reserved: u32) -> windows_core::Result<IStorage>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<IStorage>,
     {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).OpenStorage)(windows_core::Interface::as_raw(self), pwcsname.param().abi(), pstgpriority.param().abi(), grfmode, snbexclude, reserved, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).OpenStorage)(windows_core::Interface::as_raw(self), pwcsname.param().abi(), pstgpriority.param().abi(), grfmode, snbexclude, reserved, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn CopyTo<P3>(&self, rgiidexclude: Option<&[windows_core::GUID]>, snbexclude: Option<*const *const u16>, pstgdest: P3) -> windows_core::Result<()>
     where
         P3: windows_core::Param<IStorage>,
     {
-        (windows_core::Interface::vtable(self).CopyTo)(windows_core::Interface::as_raw(self), rgiidexclude.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgiidexclude.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(snbexclude.unwrap_or(core::mem::zeroed())), pstgdest.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).CopyTo)(windows_core::Interface::as_raw(self), rgiidexclude.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgiidexclude.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(snbexclude.unwrap_or(core::mem::zeroed())), pstgdest.param().abi()).ok() }
     }
     pub unsafe fn MoveElementTo<P0, P1, P2>(&self, pwcsname: P0, pstgdest: P1, pwcsnewname: P2, grfflags: STGMOVE) -> windows_core::Result<()>
     where
@@ -2300,45 +2586,47 @@ impl IStorage {
         P1: windows_core::Param<IStorage>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).MoveElementTo)(windows_core::Interface::as_raw(self), pwcsname.param().abi(), pstgdest.param().abi(), pwcsnewname.param().abi(), grfflags.0 as _).ok()
+        unsafe { (windows_core::Interface::vtable(self).MoveElementTo)(windows_core::Interface::as_raw(self), pwcsname.param().abi(), pstgdest.param().abi(), pwcsnewname.param().abi(), grfflags.0 as _).ok() }
     }
     pub unsafe fn Commit(&self, grfcommitflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Commit)(windows_core::Interface::as_raw(self), grfcommitflags).ok()
+        unsafe { (windows_core::Interface::vtable(self).Commit)(windows_core::Interface::as_raw(self), grfcommitflags).ok() }
     }
     pub unsafe fn Revert(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Revert)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Revert)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn EnumElements(&self, reserved1: Option<u32>, reserved2: Option<*const core::ffi::c_void>, reserved3: Option<u32>) -> windows_core::Result<IEnumSTATSTG> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumElements)(windows_core::Interface::as_raw(self), core::mem::transmute(reserved1.unwrap_or(core::mem::zeroed())), core::mem::transmute(reserved2.unwrap_or(core::mem::zeroed())), core::mem::transmute(reserved3.unwrap_or(core::mem::zeroed())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EnumElements)(windows_core::Interface::as_raw(self), core::mem::transmute(reserved1.unwrap_or(core::mem::zeroed())), core::mem::transmute(reserved2.unwrap_or(core::mem::zeroed())), core::mem::transmute(reserved3.unwrap_or(core::mem::zeroed())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn DestroyElement<P0>(&self, pwcsname: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).DestroyElement)(windows_core::Interface::as_raw(self), pwcsname.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).DestroyElement)(windows_core::Interface::as_raw(self), pwcsname.param().abi()).ok() }
     }
     pub unsafe fn RenameElement<P0, P1>(&self, pwcsoldname: P0, pwcsnewname: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).RenameElement)(windows_core::Interface::as_raw(self), pwcsoldname.param().abi(), pwcsnewname.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).RenameElement)(windows_core::Interface::as_raw(self), pwcsoldname.param().abi(), pwcsnewname.param().abi()).ok() }
     }
     pub unsafe fn SetElementTimes<P0>(&self, pwcsname: P0, pctime: *const super::super::super::Foundation::FILETIME, patime: *const super::super::super::Foundation::FILETIME, pmtime: *const super::super::super::Foundation::FILETIME) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetElementTimes)(windows_core::Interface::as_raw(self), pwcsname.param().abi(), pctime, patime, pmtime).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetElementTimes)(windows_core::Interface::as_raw(self), pwcsname.param().abi(), pctime, patime, pmtime).ok() }
     }
     pub unsafe fn SetClass(&self, clsid: *const windows_core::GUID) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetClass)(windows_core::Interface::as_raw(self), clsid).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetClass)(windows_core::Interface::as_raw(self), clsid).ok() }
     }
     pub unsafe fn SetStateBits(&self, grfstatebits: u32, grfmask: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetStateBits)(windows_core::Interface::as_raw(self), grfstatebits, grfmask).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetStateBits)(windows_core::Interface::as_raw(self), grfstatebits, grfmask).ok() }
     }
     pub unsafe fn Stat(&self, pstatstg: *mut super::STATSTG, grfstatflag: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Stat)(windows_core::Interface::as_raw(self), core::mem::transmute(pstatstg), grfstatflag).ok()
+        unsafe { (windows_core::Interface::vtable(self).Stat)(windows_core::Interface::as_raw(self), core::mem::transmute(pstatstg), grfstatflag).ok() }
     }
 }
 #[repr(C)]
@@ -2380,94 +2668,124 @@ pub trait IStorage_Impl: windows_core::IUnknownImpl {
 impl IStorage_Vtbl {
     pub const fn new<Identity: IStorage_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateStream<Identity: IStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwcsname: windows_core::PCWSTR, grfmode: super::STGM, reserved1: u32, reserved2: u32, ppstm: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IStorage_Impl::CreateStream(this, core::mem::transmute(&pwcsname), core::mem::transmute_copy(&grfmode), core::mem::transmute_copy(&reserved1), core::mem::transmute_copy(&reserved2)) {
-                Ok(ok__) => {
-                    ppstm.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IStorage_Impl::CreateStream(this, core::mem::transmute(&pwcsname), core::mem::transmute_copy(&grfmode), core::mem::transmute_copy(&reserved1), core::mem::transmute_copy(&reserved2)) {
+                    Ok(ok__) => {
+                        ppstm.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn OpenStream<Identity: IStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwcsname: windows_core::PCWSTR, reserved1: *const core::ffi::c_void, grfmode: super::STGM, reserved2: u32, ppstm: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IStorage_Impl::OpenStream(this, core::mem::transmute(&pwcsname), core::mem::transmute_copy(&reserved1), core::mem::transmute_copy(&grfmode), core::mem::transmute_copy(&reserved2)) {
-                Ok(ok__) => {
-                    ppstm.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IStorage_Impl::OpenStream(this, core::mem::transmute(&pwcsname), core::mem::transmute_copy(&reserved1), core::mem::transmute_copy(&grfmode), core::mem::transmute_copy(&reserved2)) {
+                    Ok(ok__) => {
+                        ppstm.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn CreateStorage<Identity: IStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwcsname: windows_core::PCWSTR, grfmode: super::STGM, reserved1: u32, reserved2: u32, ppstg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IStorage_Impl::CreateStorage(this, core::mem::transmute(&pwcsname), core::mem::transmute_copy(&grfmode), core::mem::transmute_copy(&reserved1), core::mem::transmute_copy(&reserved2)) {
-                Ok(ok__) => {
-                    ppstg.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IStorage_Impl::CreateStorage(this, core::mem::transmute(&pwcsname), core::mem::transmute_copy(&grfmode), core::mem::transmute_copy(&reserved1), core::mem::transmute_copy(&reserved2)) {
+                    Ok(ok__) => {
+                        ppstg.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn OpenStorage<Identity: IStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwcsname: windows_core::PCWSTR, pstgpriority: *mut core::ffi::c_void, grfmode: super::STGM, snbexclude: *const *const u16, reserved: u32, ppstg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IStorage_Impl::OpenStorage(this, core::mem::transmute(&pwcsname), core::mem::transmute_copy(&pstgpriority), core::mem::transmute_copy(&grfmode), core::mem::transmute_copy(&snbexclude), core::mem::transmute_copy(&reserved)) {
-                Ok(ok__) => {
-                    ppstg.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IStorage_Impl::OpenStorage(this, core::mem::transmute(&pwcsname), core::mem::transmute_copy(&pstgpriority), core::mem::transmute_copy(&grfmode), core::mem::transmute_copy(&snbexclude), core::mem::transmute_copy(&reserved)) {
+                    Ok(ok__) => {
+                        ppstg.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn CopyTo<Identity: IStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ciidexclude: u32, rgiidexclude: *const windows_core::GUID, snbexclude: *const *const u16, pstgdest: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IStorage_Impl::CopyTo(this, core::mem::transmute_copy(&ciidexclude), core::mem::transmute_copy(&rgiidexclude), core::mem::transmute_copy(&snbexclude), core::mem::transmute_copy(&pstgdest)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IStorage_Impl::CopyTo(this, core::mem::transmute_copy(&ciidexclude), core::mem::transmute_copy(&rgiidexclude), core::mem::transmute_copy(&snbexclude), core::mem::transmute_copy(&pstgdest)).into()
+            }
         }
         unsafe extern "system" fn MoveElementTo<Identity: IStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwcsname: windows_core::PCWSTR, pstgdest: *mut core::ffi::c_void, pwcsnewname: windows_core::PCWSTR, grfflags: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IStorage_Impl::MoveElementTo(this, core::mem::transmute(&pwcsname), core::mem::transmute_copy(&pstgdest), core::mem::transmute(&pwcsnewname), core::mem::transmute(&grfflags)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IStorage_Impl::MoveElementTo(this, core::mem::transmute(&pwcsname), core::mem::transmute_copy(&pstgdest), core::mem::transmute(&pwcsnewname), core::mem::transmute(&grfflags)).into()
+            }
         }
         unsafe extern "system" fn Commit<Identity: IStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grfcommitflags: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IStorage_Impl::Commit(this, core::mem::transmute_copy(&grfcommitflags)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IStorage_Impl::Commit(this, core::mem::transmute_copy(&grfcommitflags)).into()
+            }
         }
         unsafe extern "system" fn Revert<Identity: IStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IStorage_Impl::Revert(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IStorage_Impl::Revert(this).into()
+            }
         }
         unsafe extern "system" fn EnumElements<Identity: IStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reserved1: u32, reserved2: *const core::ffi::c_void, reserved3: u32, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IStorage_Impl::EnumElements(this, core::mem::transmute_copy(&reserved1), core::mem::transmute_copy(&reserved2), core::mem::transmute_copy(&reserved3)) {
-                Ok(ok__) => {
-                    ppenum.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IStorage_Impl::EnumElements(this, core::mem::transmute_copy(&reserved1), core::mem::transmute_copy(&reserved2), core::mem::transmute_copy(&reserved3)) {
+                    Ok(ok__) => {
+                        ppenum.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn DestroyElement<Identity: IStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwcsname: windows_core::PCWSTR) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IStorage_Impl::DestroyElement(this, core::mem::transmute(&pwcsname)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IStorage_Impl::DestroyElement(this, core::mem::transmute(&pwcsname)).into()
+            }
         }
         unsafe extern "system" fn RenameElement<Identity: IStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwcsoldname: windows_core::PCWSTR, pwcsnewname: windows_core::PCWSTR) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IStorage_Impl::RenameElement(this, core::mem::transmute(&pwcsoldname), core::mem::transmute(&pwcsnewname)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IStorage_Impl::RenameElement(this, core::mem::transmute(&pwcsoldname), core::mem::transmute(&pwcsnewname)).into()
+            }
         }
         unsafe extern "system" fn SetElementTimes<Identity: IStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwcsname: windows_core::PCWSTR, pctime: *const super::super::super::Foundation::FILETIME, patime: *const super::super::super::Foundation::FILETIME, pmtime: *const super::super::super::Foundation::FILETIME) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IStorage_Impl::SetElementTimes(this, core::mem::transmute(&pwcsname), core::mem::transmute_copy(&pctime), core::mem::transmute_copy(&patime), core::mem::transmute_copy(&pmtime)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IStorage_Impl::SetElementTimes(this, core::mem::transmute(&pwcsname), core::mem::transmute_copy(&pctime), core::mem::transmute_copy(&patime), core::mem::transmute_copy(&pmtime)).into()
+            }
         }
         unsafe extern "system" fn SetClass<Identity: IStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clsid: *const windows_core::GUID) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IStorage_Impl::SetClass(this, core::mem::transmute_copy(&clsid)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IStorage_Impl::SetClass(this, core::mem::transmute_copy(&clsid)).into()
+            }
         }
         unsafe extern "system" fn SetStateBits<Identity: IStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grfstatebits: u32, grfmask: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IStorage_Impl::SetStateBits(this, core::mem::transmute_copy(&grfstatebits), core::mem::transmute_copy(&grfmask)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IStorage_Impl::SetStateBits(this, core::mem::transmute_copy(&grfstatebits), core::mem::transmute_copy(&grfmask)).into()
+            }
         }
         unsafe extern "system" fn Stat<Identity: IStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstatstg: *mut super::STATSTG, grfstatflag: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IStorage_Impl::Stat(this, core::mem::transmute_copy(&pstatstg), core::mem::transmute_copy(&grfstatflag)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IStorage_Impl::Stat(this, core::mem::transmute_copy(&pstatstg), core::mem::transmute_copy(&grfstatflag)).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

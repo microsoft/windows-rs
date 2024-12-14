@@ -1,17 +1,17 @@
 #[inline]
 pub unsafe fn NdfCancelIncident(handle: *const core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("ndfapi.dll" "system" fn NdfCancelIncident(handle : *const core::ffi::c_void) -> windows_core::HRESULT);
-    NdfCancelIncident(handle).ok()
+    unsafe { NdfCancelIncident(handle).ok() }
 }
 #[inline]
 pub unsafe fn NdfCloseIncident(handle: *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("ndfapi.dll" "system" fn NdfCloseIncident(handle : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    NdfCloseIncident(core::mem::transmute(handle)).ok()
+    unsafe { NdfCloseIncident(core::mem::transmute(handle)).ok() }
 }
 #[inline]
 pub unsafe fn NdfCreateConnectivityIncident(handle: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("ndfapi.dll" "system" fn NdfCreateConnectivityIncident(handle : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    NdfCreateConnectivityIncident(core::mem::transmute(handle)).ok()
+    unsafe { NdfCreateConnectivityIncident(core::mem::transmute(handle)).ok() }
 }
 #[inline]
 pub unsafe fn NdfCreateDNSIncident<P0>(hostname: P0, querytype: u16, handle: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -19,7 +19,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ndfapi.dll" "system" fn NdfCreateDNSIncident(hostname : windows_core::PCWSTR, querytype : u16, handle : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    NdfCreateDNSIncident(hostname.param().abi(), querytype, core::mem::transmute(handle)).ok()
+    unsafe { NdfCreateDNSIncident(hostname.param().abi(), querytype, core::mem::transmute(handle)).ok() }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
@@ -32,7 +32,7 @@ where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ndfapi.dll" "system" fn NdfCreateGroupingIncident(cloudname : windows_core::PCWSTR, groupname : windows_core::PCWSTR, identity : windows_core::PCWSTR, invitation : windows_core::PCWSTR, addresses : *const super::super::Networking::WinSock:: SOCKET_ADDRESS_LIST, appid : windows_core::PCWSTR, handle : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    NdfCreateGroupingIncident(cloudname.param().abi(), groupname.param().abi(), identity.param().abi(), invitation.param().abi(), core::mem::transmute(addresses.unwrap_or(core::mem::zeroed())), appid.param().abi(), core::mem::transmute(handle)).ok()
+    unsafe { NdfCreateGroupingIncident(cloudname.param().abi(), groupname.param().abi(), identity.param().abi(), invitation.param().abi(), core::mem::transmute(addresses.unwrap_or(core::mem::zeroed())), appid.param().abi(), core::mem::transmute(handle)).ok() }
 }
 #[inline]
 pub unsafe fn NdfCreateIncident<P0>(helperclassname: P0, attributes: &[HELPER_ATTRIBUTE], handle: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -40,12 +40,12 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ndfapi.dll" "system" fn NdfCreateIncident(helperclassname : windows_core::PCWSTR, celt : u32, attributes : *const HELPER_ATTRIBUTE, handle : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    NdfCreateIncident(helperclassname.param().abi(), attributes.len().try_into().unwrap(), core::mem::transmute(attributes.as_ptr()), core::mem::transmute(handle)).ok()
+    unsafe { NdfCreateIncident(helperclassname.param().abi(), attributes.len().try_into().unwrap(), core::mem::transmute(attributes.as_ptr()), core::mem::transmute(handle)).ok() }
 }
 #[inline]
 pub unsafe fn NdfCreateNetConnectionIncident(handle: *mut *mut core::ffi::c_void, id: windows_core::GUID) -> windows_core::Result<()> {
     windows_targets::link!("ndfapi.dll" "system" fn NdfCreateNetConnectionIncident(handle : *mut *mut core::ffi::c_void, id : windows_core::GUID) -> windows_core::HRESULT);
-    NdfCreateNetConnectionIncident(core::mem::transmute(handle), core::mem::transmute(id)).ok()
+    unsafe { NdfCreateNetConnectionIncident(core::mem::transmute(handle), core::mem::transmute(id)).ok() }
 }
 #[inline]
 pub unsafe fn NdfCreatePnrpIncident<P0, P1, P3>(cloudname: P0, peername: P1, diagnosepublish: bool, appid: P3, handle: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -55,7 +55,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ndfapi.dll" "system" fn NdfCreatePnrpIncident(cloudname : windows_core::PCWSTR, peername : windows_core::PCWSTR, diagnosepublish : super::super::Foundation:: BOOL, appid : windows_core::PCWSTR, handle : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    NdfCreatePnrpIncident(cloudname.param().abi(), peername.param().abi(), diagnosepublish.into(), appid.param().abi(), core::mem::transmute(handle)).ok()
+    unsafe { NdfCreatePnrpIncident(cloudname.param().abi(), peername.param().abi(), diagnosepublish.into(), appid.param().abi(), core::mem::transmute(handle)).ok() }
 }
 #[inline]
 pub unsafe fn NdfCreateSharingIncident<P0>(uncpath: P0, handle: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -63,7 +63,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ndfapi.dll" "system" fn NdfCreateSharingIncident(uncpath : windows_core::PCWSTR, handle : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    NdfCreateSharingIncident(uncpath.param().abi(), core::mem::transmute(handle)).ok()
+    unsafe { NdfCreateSharingIncident(uncpath.param().abi(), core::mem::transmute(handle)).ok() }
 }
 #[inline]
 pub unsafe fn NdfCreateWebIncident<P0>(url: P0, handle: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -71,7 +71,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ndfapi.dll" "system" fn NdfCreateWebIncident(url : windows_core::PCWSTR, handle : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    NdfCreateWebIncident(url.param().abi(), core::mem::transmute(handle)).ok()
+    unsafe { NdfCreateWebIncident(url.param().abi(), core::mem::transmute(handle)).ok() }
 }
 #[inline]
 pub unsafe fn NdfCreateWebIncidentEx<P0, P2>(url: P0, usewinhttp: bool, modulename: P2, handle: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -80,7 +80,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ndfapi.dll" "system" fn NdfCreateWebIncidentEx(url : windows_core::PCWSTR, usewinhttp : super::super::Foundation:: BOOL, modulename : windows_core::PCWSTR, handle : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    NdfCreateWebIncidentEx(url.param().abi(), usewinhttp.into(), modulename.param().abi(), core::mem::transmute(handle)).ok()
+    unsafe { NdfCreateWebIncidentEx(url.param().abi(), usewinhttp.into(), modulename.param().abi(), core::mem::transmute(handle)).ok() }
 }
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security"))]
 #[inline]
@@ -90,28 +90,30 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ndfapi.dll" "system" fn NdfCreateWinSockIncident(sock : super::super::Networking::WinSock:: SOCKET, host : windows_core::PCWSTR, port : u16, appid : windows_core::PCWSTR, userid : *const super::super::Security:: SID, handle : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    NdfCreateWinSockIncident(sock, host.param().abi(), port, appid.param().abi(), core::mem::transmute(userid.unwrap_or(core::mem::zeroed())), core::mem::transmute(handle)).ok()
+    unsafe { NdfCreateWinSockIncident(sock, host.param().abi(), port, appid.param().abi(), core::mem::transmute(userid.unwrap_or(core::mem::zeroed())), core::mem::transmute(handle)).ok() }
 }
 #[inline]
 pub unsafe fn NdfDiagnoseIncident(handle: *const core::ffi::c_void, rootcausecount: *mut u32, rootcauses: *mut *mut RootCauseInfo, dwwait: u32, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("ndfapi.dll" "system" fn NdfDiagnoseIncident(handle : *const core::ffi::c_void, rootcausecount : *mut u32, rootcauses : *mut *mut RootCauseInfo, dwwait : u32, dwflags : u32) -> windows_core::HRESULT);
-    NdfDiagnoseIncident(handle, core::mem::transmute(rootcausecount), core::mem::transmute(rootcauses), dwwait, dwflags).ok()
+    unsafe { NdfDiagnoseIncident(handle, core::mem::transmute(rootcausecount), core::mem::transmute(rootcauses), dwwait, dwflags).ok() }
 }
 #[inline]
 pub unsafe fn NdfExecuteDiagnosis(handle: *const core::ffi::c_void, hwnd: Option<super::super::Foundation::HWND>) -> windows_core::Result<()> {
     windows_targets::link!("ndfapi.dll" "system" fn NdfExecuteDiagnosis(handle : *const core::ffi::c_void, hwnd : super::super::Foundation:: HWND) -> windows_core::HRESULT);
-    NdfExecuteDiagnosis(handle, core::mem::transmute(hwnd.unwrap_or(core::mem::zeroed()))).ok()
+    unsafe { NdfExecuteDiagnosis(handle, core::mem::transmute(hwnd.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
 pub unsafe fn NdfGetTraceFile(handle: *const core::ffi::c_void) -> windows_core::Result<windows_core::PCWSTR> {
     windows_targets::link!("ndfapi.dll" "system" fn NdfGetTraceFile(handle : *const core::ffi::c_void, tracefilelocation : *mut windows_core::PCWSTR) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    NdfGetTraceFile(handle, &mut result__).map(|| core::mem::transmute(result__))
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        NdfGetTraceFile(handle, &mut result__).map(|| core::mem::transmute(result__))
+    }
 }
 #[inline]
 pub unsafe fn NdfRepairIncident(handle: *const core::ffi::c_void, repairex: *const RepairInfoEx, dwwait: u32) -> windows_core::Result<()> {
     windows_targets::link!("ndfapi.dll" "system" fn NdfRepairIncident(handle : *const core::ffi::c_void, repairex : *const RepairInfoEx, dwwait : u32) -> windows_core::HRESULT);
-    NdfRepairIncident(handle, repairex, dwwait).ok()
+    unsafe { NdfRepairIncident(handle, repairex, dwwait).ok() }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -238,7 +240,7 @@ windows_core::imp::define_interface!(INetDiagExtensibleHelper, INetDiagExtensibl
 windows_core::imp::interface_hierarchy!(INetDiagExtensibleHelper, windows_core::IUnknown);
 impl INetDiagExtensibleHelper {
     pub unsafe fn ResolveAttributes(&self, rgkeyattributes: &[HELPER_ATTRIBUTE], pcelt: *mut u32, prgmatchvalues: *mut *mut HELPER_ATTRIBUTE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ResolveAttributes)(windows_core::Interface::as_raw(self), rgkeyattributes.len().try_into().unwrap(), core::mem::transmute(rgkeyattributes.as_ptr()), core::mem::transmute(pcelt), core::mem::transmute(prgmatchvalues)).ok()
+        unsafe { (windows_core::Interface::vtable(self).ResolveAttributes)(windows_core::Interface::as_raw(self), rgkeyattributes.len().try_into().unwrap(), core::mem::transmute(rgkeyattributes.as_ptr()), core::mem::transmute(pcelt), core::mem::transmute(prgmatchvalues)).ok() }
     }
 }
 #[repr(C)]
@@ -252,8 +254,10 @@ pub trait INetDiagExtensibleHelper_Impl: windows_core::IUnknownImpl {
 impl INetDiagExtensibleHelper_Vtbl {
     pub const fn new<Identity: INetDiagExtensibleHelper_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ResolveAttributes<Identity: INetDiagExtensibleHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgkeyattributes: *const HELPER_ATTRIBUTE, pcelt: *mut u32, prgmatchvalues: *mut *mut HELPER_ATTRIBUTE) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            INetDiagExtensibleHelper_Impl::ResolveAttributes(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgkeyattributes), core::mem::transmute_copy(&pcelt), core::mem::transmute_copy(&prgmatchvalues)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                INetDiagExtensibleHelper_Impl::ResolveAttributes(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgkeyattributes), core::mem::transmute_copy(&pcelt), core::mem::transmute_copy(&prgmatchvalues)).into()
+            }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ResolveAttributes: ResolveAttributes::<Identity, OFFSET> }
     }
@@ -266,67 +270,73 @@ windows_core::imp::define_interface!(INetDiagHelper, INetDiagHelper_Vtbl, 0xc0b3
 windows_core::imp::interface_hierarchy!(INetDiagHelper, windows_core::IUnknown);
 impl INetDiagHelper {
     pub unsafe fn Initialize(&self, rgattributes: &[HELPER_ATTRIBUTE]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), rgattributes.len().try_into().unwrap(), core::mem::transmute(rgattributes.as_ptr())).ok()
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), rgattributes.len().try_into().unwrap(), core::mem::transmute(rgattributes.as_ptr())).ok() }
     }
     pub unsafe fn GetDiagnosticsInfo(&self) -> windows_core::Result<*mut DiagnosticsInfo> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetDiagnosticsInfo)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetDiagnosticsInfo)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn GetKeyAttributes(&self, pcelt: *mut u32, pprgattributes: *mut *mut HELPER_ATTRIBUTE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetKeyAttributes)(windows_core::Interface::as_raw(self), core::mem::transmute(pcelt), core::mem::transmute(pprgattributes)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetKeyAttributes)(windows_core::Interface::as_raw(self), core::mem::transmute(pcelt), core::mem::transmute(pprgattributes)).ok() }
     }
     pub unsafe fn LowHealth<P0>(&self, pwszinstancedescription: P0, ppwszdescription: *mut windows_core::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).LowHealth)(windows_core::Interface::as_raw(self), pwszinstancedescription.param().abi(), core::mem::transmute(ppwszdescription), core::mem::transmute(pdeferredtime), core::mem::transmute(pstatus)).ok()
+        unsafe { (windows_core::Interface::vtable(self).LowHealth)(windows_core::Interface::as_raw(self), pwszinstancedescription.param().abi(), core::mem::transmute(ppwszdescription), core::mem::transmute(pdeferredtime), core::mem::transmute(pstatus)).ok() }
     }
     pub unsafe fn HighUtilization<P0>(&self, pwszinstancedescription: P0, ppwszdescription: *mut windows_core::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).HighUtilization)(windows_core::Interface::as_raw(self), pwszinstancedescription.param().abi(), core::mem::transmute(ppwszdescription), core::mem::transmute(pdeferredtime), core::mem::transmute(pstatus)).ok()
+        unsafe { (windows_core::Interface::vtable(self).HighUtilization)(windows_core::Interface::as_raw(self), pwszinstancedescription.param().abi(), core::mem::transmute(ppwszdescription), core::mem::transmute(pdeferredtime), core::mem::transmute(pstatus)).ok() }
     }
     pub unsafe fn GetLowerHypotheses(&self, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetLowerHypotheses)(windows_core::Interface::as_raw(self), core::mem::transmute(pcelt), core::mem::transmute(pprghypotheses)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetLowerHypotheses)(windows_core::Interface::as_raw(self), core::mem::transmute(pcelt), core::mem::transmute(pprghypotheses)).ok() }
     }
     pub unsafe fn GetDownStreamHypotheses(&self, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetDownStreamHypotheses)(windows_core::Interface::as_raw(self), core::mem::transmute(pcelt), core::mem::transmute(pprghypotheses)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetDownStreamHypotheses)(windows_core::Interface::as_raw(self), core::mem::transmute(pcelt), core::mem::transmute(pprghypotheses)).ok() }
     }
     pub unsafe fn GetHigherHypotheses(&self, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetHigherHypotheses)(windows_core::Interface::as_raw(self), core::mem::transmute(pcelt), core::mem::transmute(pprghypotheses)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetHigherHypotheses)(windows_core::Interface::as_raw(self), core::mem::transmute(pcelt), core::mem::transmute(pprghypotheses)).ok() }
     }
     pub unsafe fn GetUpStreamHypotheses(&self, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetUpStreamHypotheses)(windows_core::Interface::as_raw(self), core::mem::transmute(pcelt), core::mem::transmute(pprghypotheses)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetUpStreamHypotheses)(windows_core::Interface::as_raw(self), core::mem::transmute(pcelt), core::mem::transmute(pprghypotheses)).ok() }
     }
     pub unsafe fn Repair(&self, pinfo: *const RepairInfo, pdeferredtime: *mut i32, pstatus: *mut REPAIR_STATUS) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Repair)(windows_core::Interface::as_raw(self), pinfo, core::mem::transmute(pdeferredtime), core::mem::transmute(pstatus)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Repair)(windows_core::Interface::as_raw(self), pinfo, core::mem::transmute(pdeferredtime), core::mem::transmute(pstatus)).ok() }
     }
     pub unsafe fn Validate(&self, problem: PROBLEM_TYPE, pdeferredtime: *mut i32, pstatus: *mut REPAIR_STATUS) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Validate)(windows_core::Interface::as_raw(self), problem, core::mem::transmute(pdeferredtime), core::mem::transmute(pstatus)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Validate)(windows_core::Interface::as_raw(self), problem, core::mem::transmute(pdeferredtime), core::mem::transmute(pstatus)).ok() }
     }
     pub unsafe fn GetRepairInfo(&self, problem: PROBLEM_TYPE, pcelt: *mut u32, ppinfo: *mut *mut RepairInfo) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetRepairInfo)(windows_core::Interface::as_raw(self), problem, core::mem::transmute(pcelt), core::mem::transmute(ppinfo)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetRepairInfo)(windows_core::Interface::as_raw(self), problem, core::mem::transmute(pcelt), core::mem::transmute(ppinfo)).ok() }
     }
     pub unsafe fn GetLifeTime(&self) -> windows_core::Result<LIFE_TIME> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetLifeTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetLifeTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn SetLifeTime(&self, lifetime: LIFE_TIME) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetLifeTime)(windows_core::Interface::as_raw(self), core::mem::transmute(lifetime)).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetLifeTime)(windows_core::Interface::as_raw(self), core::mem::transmute(lifetime)).ok() }
     }
     pub unsafe fn GetCacheTime(&self) -> windows_core::Result<super::super::Foundation::FILETIME> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetCacheTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetCacheTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn GetAttributes(&self, pcelt: *mut u32, pprgattributes: *mut *mut HELPER_ATTRIBUTE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetAttributes)(windows_core::Interface::as_raw(self), core::mem::transmute(pcelt), core::mem::transmute(pprgattributes)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetAttributes)(windows_core::Interface::as_raw(self), core::mem::transmute(pcelt), core::mem::transmute(pprgattributes)).ok() }
     }
     pub unsafe fn Cancel(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn Cleanup(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Cleanup)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Cleanup)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
 #[repr(C)]
@@ -374,94 +384,130 @@ pub trait INetDiagHelper_Impl: windows_core::IUnknownImpl {
 impl INetDiagHelper_Vtbl {
     pub const fn new<Identity: INetDiagHelper_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgattributes: *const HELPER_ATTRIBUTE) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            INetDiagHelper_Impl::Initialize(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgattributes)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                INetDiagHelper_Impl::Initialize(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgattributes)).into()
+            }
         }
         unsafe extern "system" fn GetDiagnosticsInfo<Identity: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppinfo: *mut *mut DiagnosticsInfo) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match INetDiagHelper_Impl::GetDiagnosticsInfo(this) {
-                Ok(ok__) => {
-                    ppinfo.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match INetDiagHelper_Impl::GetDiagnosticsInfo(this) {
+                    Ok(ok__) => {
+                        ppinfo.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetKeyAttributes<Identity: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelt: *mut u32, pprgattributes: *mut *mut HELPER_ATTRIBUTE) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            INetDiagHelper_Impl::GetKeyAttributes(this, core::mem::transmute_copy(&pcelt), core::mem::transmute_copy(&pprgattributes)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                INetDiagHelper_Impl::GetKeyAttributes(this, core::mem::transmute_copy(&pcelt), core::mem::transmute_copy(&pprgattributes)).into()
+            }
         }
         unsafe extern "system" fn LowHealth<Identity: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszinstancedescription: windows_core::PCWSTR, ppwszdescription: *mut windows_core::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            INetDiagHelper_Impl::LowHealth(this, core::mem::transmute(&pwszinstancedescription), core::mem::transmute_copy(&ppwszdescription), core::mem::transmute_copy(&pdeferredtime), core::mem::transmute_copy(&pstatus)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                INetDiagHelper_Impl::LowHealth(this, core::mem::transmute(&pwszinstancedescription), core::mem::transmute_copy(&ppwszdescription), core::mem::transmute_copy(&pdeferredtime), core::mem::transmute_copy(&pstatus)).into()
+            }
         }
         unsafe extern "system" fn HighUtilization<Identity: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszinstancedescription: windows_core::PCWSTR, ppwszdescription: *mut windows_core::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            INetDiagHelper_Impl::HighUtilization(this, core::mem::transmute(&pwszinstancedescription), core::mem::transmute_copy(&ppwszdescription), core::mem::transmute_copy(&pdeferredtime), core::mem::transmute_copy(&pstatus)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                INetDiagHelper_Impl::HighUtilization(this, core::mem::transmute(&pwszinstancedescription), core::mem::transmute_copy(&ppwszdescription), core::mem::transmute_copy(&pdeferredtime), core::mem::transmute_copy(&pstatus)).into()
+            }
         }
         unsafe extern "system" fn GetLowerHypotheses<Identity: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            INetDiagHelper_Impl::GetLowerHypotheses(this, core::mem::transmute_copy(&pcelt), core::mem::transmute_copy(&pprghypotheses)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                INetDiagHelper_Impl::GetLowerHypotheses(this, core::mem::transmute_copy(&pcelt), core::mem::transmute_copy(&pprghypotheses)).into()
+            }
         }
         unsafe extern "system" fn GetDownStreamHypotheses<Identity: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            INetDiagHelper_Impl::GetDownStreamHypotheses(this, core::mem::transmute_copy(&pcelt), core::mem::transmute_copy(&pprghypotheses)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                INetDiagHelper_Impl::GetDownStreamHypotheses(this, core::mem::transmute_copy(&pcelt), core::mem::transmute_copy(&pprghypotheses)).into()
+            }
         }
         unsafe extern "system" fn GetHigherHypotheses<Identity: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            INetDiagHelper_Impl::GetHigherHypotheses(this, core::mem::transmute_copy(&pcelt), core::mem::transmute_copy(&pprghypotheses)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                INetDiagHelper_Impl::GetHigherHypotheses(this, core::mem::transmute_copy(&pcelt), core::mem::transmute_copy(&pprghypotheses)).into()
+            }
         }
         unsafe extern "system" fn GetUpStreamHypotheses<Identity: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            INetDiagHelper_Impl::GetUpStreamHypotheses(this, core::mem::transmute_copy(&pcelt), core::mem::transmute_copy(&pprghypotheses)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                INetDiagHelper_Impl::GetUpStreamHypotheses(this, core::mem::transmute_copy(&pcelt), core::mem::transmute_copy(&pprghypotheses)).into()
+            }
         }
         unsafe extern "system" fn Repair<Identity: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *const RepairInfo, pdeferredtime: *mut i32, pstatus: *mut REPAIR_STATUS) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            INetDiagHelper_Impl::Repair(this, core::mem::transmute_copy(&pinfo), core::mem::transmute_copy(&pdeferredtime), core::mem::transmute_copy(&pstatus)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                INetDiagHelper_Impl::Repair(this, core::mem::transmute_copy(&pinfo), core::mem::transmute_copy(&pdeferredtime), core::mem::transmute_copy(&pstatus)).into()
+            }
         }
         unsafe extern "system" fn Validate<Identity: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, problem: PROBLEM_TYPE, pdeferredtime: *mut i32, pstatus: *mut REPAIR_STATUS) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            INetDiagHelper_Impl::Validate(this, core::mem::transmute_copy(&problem), core::mem::transmute_copy(&pdeferredtime), core::mem::transmute_copy(&pstatus)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                INetDiagHelper_Impl::Validate(this, core::mem::transmute_copy(&problem), core::mem::transmute_copy(&pdeferredtime), core::mem::transmute_copy(&pstatus)).into()
+            }
         }
         unsafe extern "system" fn GetRepairInfo<Identity: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, problem: PROBLEM_TYPE, pcelt: *mut u32, ppinfo: *mut *mut RepairInfo) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            INetDiagHelper_Impl::GetRepairInfo(this, core::mem::transmute_copy(&problem), core::mem::transmute_copy(&pcelt), core::mem::transmute_copy(&ppinfo)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                INetDiagHelper_Impl::GetRepairInfo(this, core::mem::transmute_copy(&problem), core::mem::transmute_copy(&pcelt), core::mem::transmute_copy(&ppinfo)).into()
+            }
         }
         unsafe extern "system" fn GetLifeTime<Identity: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plifetime: *mut LIFE_TIME) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match INetDiagHelper_Impl::GetLifeTime(this) {
-                Ok(ok__) => {
-                    plifetime.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match INetDiagHelper_Impl::GetLifeTime(this) {
+                    Ok(ok__) => {
+                        plifetime.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetLifeTime<Identity: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lifetime: LIFE_TIME) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            INetDiagHelper_Impl::SetLifeTime(this, core::mem::transmute(&lifetime)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                INetDiagHelper_Impl::SetLifeTime(this, core::mem::transmute(&lifetime)).into()
+            }
         }
         unsafe extern "system" fn GetCacheTime<Identity: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcachetime: *mut super::super::Foundation::FILETIME) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match INetDiagHelper_Impl::GetCacheTime(this) {
-                Ok(ok__) => {
-                    pcachetime.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match INetDiagHelper_Impl::GetCacheTime(this) {
+                    Ok(ok__) => {
+                        pcachetime.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetAttributes<Identity: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelt: *mut u32, pprgattributes: *mut *mut HELPER_ATTRIBUTE) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            INetDiagHelper_Impl::GetAttributes(this, core::mem::transmute_copy(&pcelt), core::mem::transmute_copy(&pprgattributes)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                INetDiagHelper_Impl::GetAttributes(this, core::mem::transmute_copy(&pcelt), core::mem::transmute_copy(&pprgattributes)).into()
+            }
         }
         unsafe extern "system" fn Cancel<Identity: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            INetDiagHelper_Impl::Cancel(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                INetDiagHelper_Impl::Cancel(this).into()
+            }
         }
         unsafe extern "system" fn Cleanup<Identity: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            INetDiagHelper_Impl::Cleanup(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                INetDiagHelper_Impl::Cleanup(this).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -494,16 +540,16 @@ windows_core::imp::define_interface!(INetDiagHelperEx, INetDiagHelperEx_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(INetDiagHelperEx, windows_core::IUnknown);
 impl INetDiagHelperEx {
     pub unsafe fn ReconfirmLowHealth(&self, presults: &[HypothesisResult], ppwszupdateddescription: *mut windows_core::PWSTR, pupdatedstatus: *mut DIAGNOSIS_STATUS) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ReconfirmLowHealth)(windows_core::Interface::as_raw(self), presults.len().try_into().unwrap(), core::mem::transmute(presults.as_ptr()), core::mem::transmute(ppwszupdateddescription), core::mem::transmute(pupdatedstatus)).ok()
+        unsafe { (windows_core::Interface::vtable(self).ReconfirmLowHealth)(windows_core::Interface::as_raw(self), presults.len().try_into().unwrap(), core::mem::transmute(presults.as_ptr()), core::mem::transmute(ppwszupdateddescription), core::mem::transmute(pupdatedstatus)).ok() }
     }
     pub unsafe fn SetUtilities<P0>(&self, putilities: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<INetDiagHelperUtilFactory>,
     {
-        (windows_core::Interface::vtable(self).SetUtilities)(windows_core::Interface::as_raw(self), putilities.param().abi()).ok()
+        unsafe { (windows_core::Interface::vtable(self).SetUtilities)(windows_core::Interface::as_raw(self), putilities.param().abi()).ok() }
     }
     pub unsafe fn ReproduceFailure(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ReproduceFailure)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).ReproduceFailure)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
 #[repr(C)]
@@ -521,16 +567,22 @@ pub trait INetDiagHelperEx_Impl: windows_core::IUnknownImpl {
 impl INetDiagHelperEx_Vtbl {
     pub const fn new<Identity: INetDiagHelperEx_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ReconfirmLowHealth<Identity: INetDiagHelperEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, presults: *const HypothesisResult, ppwszupdateddescription: *mut windows_core::PWSTR, pupdatedstatus: *mut DIAGNOSIS_STATUS) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            INetDiagHelperEx_Impl::ReconfirmLowHealth(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&presults), core::mem::transmute_copy(&ppwszupdateddescription), core::mem::transmute_copy(&pupdatedstatus)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                INetDiagHelperEx_Impl::ReconfirmLowHealth(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&presults), core::mem::transmute_copy(&ppwszupdateddescription), core::mem::transmute_copy(&pupdatedstatus)).into()
+            }
         }
         unsafe extern "system" fn SetUtilities<Identity: INetDiagHelperEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, putilities: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            INetDiagHelperEx_Impl::SetUtilities(this, core::mem::transmute_copy(&putilities)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                INetDiagHelperEx_Impl::SetUtilities(this, core::mem::transmute_copy(&putilities)).into()
+            }
         }
         unsafe extern "system" fn ReproduceFailure<Identity: INetDiagHelperEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            INetDiagHelperEx_Impl::ReproduceFailure(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                INetDiagHelperEx_Impl::ReproduceFailure(this).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -548,7 +600,7 @@ windows_core::imp::define_interface!(INetDiagHelperInfo, INetDiagHelperInfo_Vtbl
 windows_core::imp::interface_hierarchy!(INetDiagHelperInfo, windows_core::IUnknown);
 impl INetDiagHelperInfo {
     pub unsafe fn GetAttributeInfo(&self, pcelt: *mut u32, pprgattributeinfos: *mut *mut HelperAttributeInfo) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetAttributeInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pcelt), core::mem::transmute(pprgattributeinfos)).ok()
+        unsafe { (windows_core::Interface::vtable(self).GetAttributeInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pcelt), core::mem::transmute(pprgattributeinfos)).ok() }
     }
 }
 #[repr(C)]
@@ -562,8 +614,10 @@ pub trait INetDiagHelperInfo_Impl: windows_core::IUnknownImpl {
 impl INetDiagHelperInfo_Vtbl {
     pub const fn new<Identity: INetDiagHelperInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetAttributeInfo<Identity: INetDiagHelperInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelt: *mut u32, pprgattributeinfos: *mut *mut HelperAttributeInfo) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            INetDiagHelperInfo_Impl::GetAttributeInfo(this, core::mem::transmute_copy(&pcelt), core::mem::transmute_copy(&pprgattributeinfos)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                INetDiagHelperInfo_Impl::GetAttributeInfo(this, core::mem::transmute_copy(&pcelt), core::mem::transmute_copy(&pprgattributeinfos)).into()
+            }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetAttributeInfo: GetAttributeInfo::<Identity, OFFSET> }
     }
@@ -580,7 +634,7 @@ impl INetDiagHelperUtilFactory {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        (windows_core::Interface::vtable(self).CreateUtilityInstance)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        unsafe { (windows_core::Interface::vtable(self).CreateUtilityInstance)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -594,8 +648,10 @@ pub trait INetDiagHelperUtilFactory_Impl: windows_core::IUnknownImpl {
 impl INetDiagHelperUtilFactory_Vtbl {
     pub const fn new<Identity: INetDiagHelperUtilFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateUtilityInstance<Identity: INetDiagHelperUtilFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            INetDiagHelperUtilFactory_Impl::CreateUtilityInstance(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobject)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                INetDiagHelperUtilFactory_Impl::CreateUtilityInstance(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobject)).into()
+            }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateUtilityInstance: CreateUtilityInstance::<Identity, OFFSET> }
     }

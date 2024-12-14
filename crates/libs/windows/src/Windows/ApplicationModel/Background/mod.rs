@@ -608,33 +608,41 @@ struct BackgroundTaskCanceledEventHandlerBox<F: FnMut(windows_core::Ref<'_, IBac
 impl<F: FnMut(windows_core::Ref<'_, IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> windows_core::Result<()> + Send + 'static> BackgroundTaskCanceledEventHandlerBox<F> {
     const VTABLE: BackgroundTaskCanceledEventHandler_Vtbl = BackgroundTaskCanceledEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        if iid.is_null() || interface.is_null() {
-            return windows_core::HRESULT(-2147467261);
-        }
-        *interface = if *iid == <BackgroundTaskCanceledEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
-        if (*interface).is_null() {
-            windows_core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            windows_core::HRESULT(0)
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            if iid.is_null() || interface.is_null() {
+                return windows_core::HRESULT(-2147467261);
+            }
+            *interface = if *iid == <BackgroundTaskCanceledEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
+            if (*interface).is_null() {
+                windows_core::HRESULT(-2147467262)
+            } else {
+                (*this).count.add_ref();
+                windows_core::HRESULT(0)
+            }
         }
     }
     unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            (*this).count.add_ref()
+        }
     }
     unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = windows_core::imp::Box::from_raw(this);
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            let remaining = (*this).count.release();
+            if remaining == 0 {
+                let _ = windows_core::imp::Box::from_raw(this);
+            }
+            remaining
         }
-        remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, reason: BackgroundTaskCancellationReason) -> windows_core::HRESULT {
-        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(core::mem::transmute_copy(&sender), reason).into()
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            (this.invoke)(core::mem::transmute_copy(&sender), reason).into()
+        }
     }
 }
 #[repr(transparent)]
@@ -721,33 +729,41 @@ struct BackgroundTaskCompletedEventHandlerBox<F: FnMut(windows_core::Ref<'_, Bac
 impl<F: FnMut(windows_core::Ref<'_, BackgroundTaskRegistration>, windows_core::Ref<'_, BackgroundTaskCompletedEventArgs>) -> windows_core::Result<()> + Send + 'static> BackgroundTaskCompletedEventHandlerBox<F> {
     const VTABLE: BackgroundTaskCompletedEventHandler_Vtbl = BackgroundTaskCompletedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        if iid.is_null() || interface.is_null() {
-            return windows_core::HRESULT(-2147467261);
-        }
-        *interface = if *iid == <BackgroundTaskCompletedEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
-        if (*interface).is_null() {
-            windows_core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            windows_core::HRESULT(0)
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            if iid.is_null() || interface.is_null() {
+                return windows_core::HRESULT(-2147467261);
+            }
+            *interface = if *iid == <BackgroundTaskCompletedEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
+            if (*interface).is_null() {
+                windows_core::HRESULT(-2147467262)
+            } else {
+                (*this).count.add_ref();
+                windows_core::HRESULT(0)
+            }
         }
     }
     unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            (*this).count.add_ref()
+        }
     }
     unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = windows_core::imp::Box::from_raw(this);
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            let remaining = (*this).count.release();
+            if remaining == 0 {
+                let _ = windows_core::imp::Box::from_raw(this);
+            }
+            remaining
         }
-        remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(core::mem::transmute_copy(&sender), core::mem::transmute_copy(&args)).into()
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            (this.invoke)(core::mem::transmute_copy(&sender), core::mem::transmute_copy(&args)).into()
+        }
     }
 }
 #[repr(transparent)]
@@ -836,33 +852,41 @@ struct BackgroundTaskProgressEventHandlerBox<F: FnMut(windows_core::Ref<'_, Back
 impl<F: FnMut(windows_core::Ref<'_, BackgroundTaskRegistration>, windows_core::Ref<'_, BackgroundTaskProgressEventArgs>) -> windows_core::Result<()> + Send + 'static> BackgroundTaskProgressEventHandlerBox<F> {
     const VTABLE: BackgroundTaskProgressEventHandler_Vtbl = BackgroundTaskProgressEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        if iid.is_null() || interface.is_null() {
-            return windows_core::HRESULT(-2147467261);
-        }
-        *interface = if *iid == <BackgroundTaskProgressEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
-        if (*interface).is_null() {
-            windows_core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            windows_core::HRESULT(0)
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            if iid.is_null() || interface.is_null() {
+                return windows_core::HRESULT(-2147467261);
+            }
+            *interface = if *iid == <BackgroundTaskProgressEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
+            if (*interface).is_null() {
+                windows_core::HRESULT(-2147467262)
+            } else {
+                (*this).count.add_ref();
+                windows_core::HRESULT(0)
+            }
         }
     }
     unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            (*this).count.add_ref()
+        }
     }
     unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = windows_core::imp::Box::from_raw(this);
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            let remaining = (*this).count.release();
+            if remaining == 0 {
+                let _ = windows_core::imp::Box::from_raw(this);
+            }
+            remaining
         }
-        remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(core::mem::transmute_copy(&sender), core::mem::transmute_copy(&args)).into()
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            (this.invoke)(core::mem::transmute_copy(&sender), core::mem::transmute_copy(&args)).into()
+        }
     }
 }
 #[repr(transparent)]
@@ -2229,8 +2253,10 @@ pub trait IBackgroundTask_Impl: windows_core::IUnknownImpl {
 impl IBackgroundTask_Vtbl {
     pub const fn new<Identity: IBackgroundTask_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Run<Identity: IBackgroundTask_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, taskinstance: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IBackgroundTask_Impl::Run(this, core::mem::transmute_copy(&taskinstance)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IBackgroundTask_Impl::Run(this, core::mem::transmute_copy(&taskinstance)).into()
+            }
         }
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IBackgroundTask, OFFSET>(), Run: Run::<Identity, OFFSET> }
     }
@@ -2421,84 +2447,102 @@ pub trait IBackgroundTaskInstance_Impl: windows_core::IUnknownImpl {
 impl IBackgroundTaskInstance_Vtbl {
     pub const fn new<Identity: IBackgroundTaskInstance_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InstanceId<Identity: IBackgroundTaskInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_core::GUID) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IBackgroundTaskInstance_Impl::InstanceId(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IBackgroundTaskInstance_Impl::InstanceId(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn Task<Identity: IBackgroundTaskInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IBackgroundTaskInstance_Impl::Task(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IBackgroundTaskInstance_Impl::Task(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn Progress<Identity: IBackgroundTaskInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IBackgroundTaskInstance_Impl::Progress(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IBackgroundTaskInstance_Impl::Progress(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetProgress<Identity: IBackgroundTaskInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IBackgroundTaskInstance_Impl::SetProgress(this, value).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IBackgroundTaskInstance_Impl::SetProgress(this, value).into()
+            }
         }
         unsafe extern "system" fn TriggerDetails<Identity: IBackgroundTaskInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IBackgroundTaskInstance_Impl::TriggerDetails(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IBackgroundTaskInstance_Impl::TriggerDetails(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn Canceled<Identity: IBackgroundTaskInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cancelhandler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IBackgroundTaskInstance_Impl::Canceled(this, core::mem::transmute_copy(&cancelhandler)) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IBackgroundTaskInstance_Impl::Canceled(this, core::mem::transmute_copy(&cancelhandler)) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn RemoveCanceled<Identity: IBackgroundTaskInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: i64) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IBackgroundTaskInstance_Impl::RemoveCanceled(this, cookie).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IBackgroundTaskInstance_Impl::RemoveCanceled(this, cookie).into()
+            }
         }
         unsafe extern "system" fn SuspendedCount<Identity: IBackgroundTaskInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IBackgroundTaskInstance_Impl::SuspendedCount(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IBackgroundTaskInstance_Impl::SuspendedCount(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn GetDeferral<Identity: IBackgroundTaskInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IBackgroundTaskInstance_Impl::GetDeferral(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IBackgroundTaskInstance_Impl::GetDeferral(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -2615,13 +2659,15 @@ pub trait IBackgroundTaskInstance2_Impl: IBackgroundTaskInstance_Impl {
 impl IBackgroundTaskInstance2_Vtbl {
     pub const fn new<Identity: IBackgroundTaskInstance2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetThrottleCount<Identity: IBackgroundTaskInstance2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, counter: BackgroundTaskThrottleCounter, result__: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IBackgroundTaskInstance2_Impl::GetThrottleCount(this, counter) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IBackgroundTaskInstance2_Impl::GetThrottleCount(this, counter) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self {
@@ -2726,14 +2772,16 @@ pub trait IBackgroundTaskInstance4_Impl: IBackgroundTaskInstance_Impl {
 impl IBackgroundTaskInstance4_Vtbl {
     pub const fn new<Identity: IBackgroundTaskInstance4_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn User<Identity: IBackgroundTaskInstance4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IBackgroundTaskInstance4_Impl::User(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IBackgroundTaskInstance4_Impl::User(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IBackgroundTaskInstance4, OFFSET>(), User: User::<Identity, OFFSET> }
@@ -2828,57 +2876,71 @@ pub trait IBackgroundTaskRegistration_Impl: windows_core::IUnknownImpl {
 impl IBackgroundTaskRegistration_Vtbl {
     pub const fn new<Identity: IBackgroundTaskRegistration_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn TaskId<Identity: IBackgroundTaskRegistration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_core::GUID) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IBackgroundTaskRegistration_Impl::TaskId(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IBackgroundTaskRegistration_Impl::TaskId(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn Name<Identity: IBackgroundTaskRegistration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IBackgroundTaskRegistration_Impl::Name(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IBackgroundTaskRegistration_Impl::Name(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn Progress<Identity: IBackgroundTaskRegistration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IBackgroundTaskRegistration_Impl::Progress(this, core::mem::transmute_copy(&handler)) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IBackgroundTaskRegistration_Impl::Progress(this, core::mem::transmute_copy(&handler)) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn RemoveProgress<Identity: IBackgroundTaskRegistration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: i64) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IBackgroundTaskRegistration_Impl::RemoveProgress(this, cookie).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IBackgroundTaskRegistration_Impl::RemoveProgress(this, cookie).into()
+            }
         }
         unsafe extern "system" fn Completed<Identity: IBackgroundTaskRegistration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IBackgroundTaskRegistration_Impl::Completed(this, core::mem::transmute_copy(&handler)) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IBackgroundTaskRegistration_Impl::Completed(this, core::mem::transmute_copy(&handler)) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn RemoveCompleted<Identity: IBackgroundTaskRegistration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: i64) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IBackgroundTaskRegistration_Impl::RemoveCompleted(this, cookie).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IBackgroundTaskRegistration_Impl::RemoveCompleted(this, cookie).into()
+            }
         }
         unsafe extern "system" fn Unregister<Identity: IBackgroundTaskRegistration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, canceltask: bool) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IBackgroundTaskRegistration_Impl::Unregister(this, canceltask).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IBackgroundTaskRegistration_Impl::Unregister(this, canceltask).into()
+            }
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IBackgroundTaskRegistration, OFFSET>(),
@@ -2976,14 +3038,16 @@ pub trait IBackgroundTaskRegistration2_Impl: IBackgroundTaskRegistration_Impl {
 impl IBackgroundTaskRegistration2_Vtbl {
     pub const fn new<Identity: IBackgroundTaskRegistration2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Trigger<Identity: IBackgroundTaskRegistration2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IBackgroundTaskRegistration2_Impl::Trigger(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IBackgroundTaskRegistration2_Impl::Trigger(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IBackgroundTaskRegistration2, OFFSET>(), Trigger: Trigger::<Identity, OFFSET> }
@@ -3067,14 +3131,16 @@ pub trait IBackgroundTaskRegistration3_Impl: IBackgroundTaskRegistration_Impl {
 impl IBackgroundTaskRegistration3_Vtbl {
     pub const fn new<Identity: IBackgroundTaskRegistration3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn TaskGroup<Identity: IBackgroundTaskRegistration3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IBackgroundTaskRegistration3_Impl::TaskGroup(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IBackgroundTaskRegistration3_Impl::TaskGroup(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IBackgroundTaskRegistration3, OFFSET>(), TaskGroup: TaskGroup::<Identity, OFFSET> }

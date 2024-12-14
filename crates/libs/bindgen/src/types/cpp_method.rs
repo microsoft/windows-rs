@@ -284,7 +284,7 @@ impl CppMethod {
                 quote! {
                     pub unsafe fn #name<#generics T>(&self, #params) -> windows_core::Result<T> #where_clause {
                         let mut result__ = core::ptr::null_mut();
-                        (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args).and_then(||windows_core::Type::from_abi(result__))
+                        unsafe { (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args).and_then(||windows_core::Type::from_abi(result__)) }
                     }
                 }
             }
@@ -293,7 +293,7 @@ impl CppMethod {
 
                 quote! {
                     pub unsafe fn #name<#generics T>(&self, #params result__: *mut Option<T>) -> windows_core::Result<()> #where_clause {
-                        (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args).ok()
+                        unsafe { (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args).ok() }
                     }
                 }
             }
@@ -316,8 +316,10 @@ impl CppMethod {
 
                 quote! {
                     pub unsafe fn #name<#generics>(&self, #params) -> windows_core::Result<#return_type> #where_clause {
-                        let mut result__ = core::mem::zeroed();
-                        (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args).#map
+                        unsafe {
+                            let mut result__ = core::mem::zeroed();
+                            (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args).#map
+                        }
                     }
                 }
             }
@@ -326,7 +328,7 @@ impl CppMethod {
 
                 quote! {
                     pub unsafe fn #name<#generics>(&self, #params) -> windows_core::Result<()> #where_clause {
-                        (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args).ok()
+                        unsafe { (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args).ok() }
                     }
                 }
             }
@@ -342,9 +344,11 @@ impl CppMethod {
 
                     quote! {
                         pub unsafe fn #name<#generics>(&self, #params) -> windows_core::Result<#return_type> #where_clause {
-                            let mut result__ = core::mem::zeroed();
-                            (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), #args);
-                            windows_core::Type::from_abi(result__)
+                            unsafe {
+                                let mut result__ = core::mem::zeroed();
+                                (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), #args);
+                                windows_core::Type::from_abi(result__)
+                            }
                         }
                     }
                 } else {
@@ -359,9 +363,11 @@ impl CppMethod {
 
                     quote! {
                         pub unsafe fn #name<#generics>(&self, #params) -> #return_type #where_clause {
-                            let mut result__ = core::mem::zeroed();
-                            (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), #args);
-                            #map
+                            unsafe {
+                                let mut result__ = core::mem::zeroed();
+                                (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), #args);
+                                #map
+                            }
                         }
                     }
                 }
@@ -372,9 +378,11 @@ impl CppMethod {
 
                 quote! {
                     pub unsafe fn #name<#generics>(&self, #params) -> #return_type #where_clause {
-                        let mut result__ = core::mem::zeroed();
-                        (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), &mut result__, #args);
-                        result__
+                        unsafe {
+                            let mut result__ = core::mem::zeroed();
+                            (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), &mut result__, #args);
+                            result__
+                        }
                     }
                 }
             }
@@ -383,7 +391,7 @@ impl CppMethod {
 
                 quote! {
                     pub unsafe fn #name<#generics>(&self, #params) #abi_return_type #where_clause {
-                        (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), #args)
+                        unsafe { (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), #args) }
                     }
                 }
             }

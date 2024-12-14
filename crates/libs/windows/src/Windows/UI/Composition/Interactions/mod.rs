@@ -817,28 +817,40 @@ pub trait IInteractionTrackerOwner_Impl: windows_core::IUnknownImpl {
 impl IInteractionTrackerOwner_Vtbl {
     pub const fn new<Identity: IInteractionTrackerOwner_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CustomAnimationStateEntered<Identity: IInteractionTrackerOwner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IInteractionTrackerOwner_Impl::CustomAnimationStateEntered(this, core::mem::transmute_copy(&sender), core::mem::transmute_copy(&args)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IInteractionTrackerOwner_Impl::CustomAnimationStateEntered(this, core::mem::transmute_copy(&sender), core::mem::transmute_copy(&args)).into()
+            }
         }
         unsafe extern "system" fn IdleStateEntered<Identity: IInteractionTrackerOwner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IInteractionTrackerOwner_Impl::IdleStateEntered(this, core::mem::transmute_copy(&sender), core::mem::transmute_copy(&args)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IInteractionTrackerOwner_Impl::IdleStateEntered(this, core::mem::transmute_copy(&sender), core::mem::transmute_copy(&args)).into()
+            }
         }
         unsafe extern "system" fn InertiaStateEntered<Identity: IInteractionTrackerOwner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IInteractionTrackerOwner_Impl::InertiaStateEntered(this, core::mem::transmute_copy(&sender), core::mem::transmute_copy(&args)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IInteractionTrackerOwner_Impl::InertiaStateEntered(this, core::mem::transmute_copy(&sender), core::mem::transmute_copy(&args)).into()
+            }
         }
         unsafe extern "system" fn InteractingStateEntered<Identity: IInteractionTrackerOwner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IInteractionTrackerOwner_Impl::InteractingStateEntered(this, core::mem::transmute_copy(&sender), core::mem::transmute_copy(&args)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IInteractionTrackerOwner_Impl::InteractingStateEntered(this, core::mem::transmute_copy(&sender), core::mem::transmute_copy(&args)).into()
+            }
         }
         unsafe extern "system" fn RequestIgnored<Identity: IInteractionTrackerOwner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IInteractionTrackerOwner_Impl::RequestIgnored(this, core::mem::transmute_copy(&sender), core::mem::transmute_copy(&args)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IInteractionTrackerOwner_Impl::RequestIgnored(this, core::mem::transmute_copy(&sender), core::mem::transmute_copy(&args)).into()
+            }
         }
         unsafe extern "system" fn ValuesChanged<Identity: IInteractionTrackerOwner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IInteractionTrackerOwner_Impl::ValuesChanged(this, core::mem::transmute_copy(&sender), core::mem::transmute_copy(&args)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IInteractionTrackerOwner_Impl::ValuesChanged(this, core::mem::transmute_copy(&sender), core::mem::transmute_copy(&args)).into()
+            }
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IInteractionTrackerOwner, OFFSET>(),

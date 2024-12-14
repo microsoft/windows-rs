@@ -270,16 +270,20 @@ impl CppInterface {
                     if has_unknown_base {
                     quote! {
                         unsafe extern "system" fn #name<Identity: #impl_name, const OFFSET: isize> #signature {
-                            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                            #upcall
+                            unsafe {
+                                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                                #upcall
+                            }
                         }
                     }
                 } else {
                     quote! {
                         unsafe extern "system" fn #name<Identity: #impl_name> #signature {
-                            let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
-                            let this = &*((*this).this as *const Identity);
-                            #upcall
+                            unsafe {
+                                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                                let this = &*((*this).this as *const Identity);
+                                #upcall
+                            }
                         }
                     }
                 }

@@ -107,57 +107,71 @@ pub trait ISpeechRecognitionConstraint_Impl: windows_core::IUnknownImpl {
 impl ISpeechRecognitionConstraint_Vtbl {
     pub const fn new<Identity: ISpeechRecognitionConstraint_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn IsEnabled<Identity: ISpeechRecognitionConstraint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ISpeechRecognitionConstraint_Impl::IsEnabled(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ISpeechRecognitionConstraint_Impl::IsEnabled(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetIsEnabled<Identity: ISpeechRecognitionConstraint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: bool) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISpeechRecognitionConstraint_Impl::SetIsEnabled(this, value).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ISpeechRecognitionConstraint_Impl::SetIsEnabled(this, value).into()
+            }
         }
         unsafe extern "system" fn Tag<Identity: ISpeechRecognitionConstraint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ISpeechRecognitionConstraint_Impl::Tag(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ISpeechRecognitionConstraint_Impl::Tag(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetTag<Identity: ISpeechRecognitionConstraint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISpeechRecognitionConstraint_Impl::SetTag(this, core::mem::transmute(&value)).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ISpeechRecognitionConstraint_Impl::SetTag(this, core::mem::transmute(&value)).into()
+            }
         }
         unsafe extern "system" fn Type<Identity: ISpeechRecognitionConstraint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut SpeechRecognitionConstraintType) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ISpeechRecognitionConstraint_Impl::Type(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ISpeechRecognitionConstraint_Impl::Type(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn Probability<Identity: ISpeechRecognitionConstraint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut SpeechRecognitionConstraintProbability) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ISpeechRecognitionConstraint_Impl::Probability(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ISpeechRecognitionConstraint_Impl::Probability(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
                 }
-                Err(err) => err.into(),
             }
         }
         unsafe extern "system" fn SetProbability<Identity: ISpeechRecognitionConstraint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: SpeechRecognitionConstraintProbability) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISpeechRecognitionConstraint_Impl::SetProbability(this, value).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ISpeechRecognitionConstraint_Impl::SetProbability(this, value).into()
+            }
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, ISpeechRecognitionConstraint, OFFSET>(),

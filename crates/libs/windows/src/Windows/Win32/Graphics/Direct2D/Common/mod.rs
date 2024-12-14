@@ -438,25 +438,25 @@ windows_core::imp::define_interface!(ID2D1SimplifiedGeometrySink, ID2D1Simplifie
 windows_core::imp::interface_hierarchy!(ID2D1SimplifiedGeometrySink, windows_core::IUnknown);
 impl ID2D1SimplifiedGeometrySink {
     pub unsafe fn SetFillMode(&self, fillmode: D2D1_FILL_MODE) {
-        (windows_core::Interface::vtable(self).SetFillMode)(windows_core::Interface::as_raw(self), fillmode)
+        unsafe { (windows_core::Interface::vtable(self).SetFillMode)(windows_core::Interface::as_raw(self), fillmode) }
     }
     pub unsafe fn SetSegmentFlags(&self, vertexflags: D2D1_PATH_SEGMENT) {
-        (windows_core::Interface::vtable(self).SetSegmentFlags)(windows_core::Interface::as_raw(self), vertexflags)
+        unsafe { (windows_core::Interface::vtable(self).SetSegmentFlags)(windows_core::Interface::as_raw(self), vertexflags) }
     }
     pub unsafe fn BeginFigure(&self, startpoint: D2D_POINT_2F, figurebegin: D2D1_FIGURE_BEGIN) {
-        (windows_core::Interface::vtable(self).BeginFigure)(windows_core::Interface::as_raw(self), core::mem::transmute(startpoint), figurebegin)
+        unsafe { (windows_core::Interface::vtable(self).BeginFigure)(windows_core::Interface::as_raw(self), core::mem::transmute(startpoint), figurebegin) }
     }
     pub unsafe fn AddLines(&self, points: &[D2D_POINT_2F]) {
-        (windows_core::Interface::vtable(self).AddLines)(windows_core::Interface::as_raw(self), core::mem::transmute(points.as_ptr()), points.len().try_into().unwrap())
+        unsafe { (windows_core::Interface::vtable(self).AddLines)(windows_core::Interface::as_raw(self), core::mem::transmute(points.as_ptr()), points.len().try_into().unwrap()) }
     }
     pub unsafe fn AddBeziers(&self, beziers: &[D2D1_BEZIER_SEGMENT]) {
-        (windows_core::Interface::vtable(self).AddBeziers)(windows_core::Interface::as_raw(self), core::mem::transmute(beziers.as_ptr()), beziers.len().try_into().unwrap())
+        unsafe { (windows_core::Interface::vtable(self).AddBeziers)(windows_core::Interface::as_raw(self), core::mem::transmute(beziers.as_ptr()), beziers.len().try_into().unwrap()) }
     }
     pub unsafe fn EndFigure(&self, figureend: D2D1_FIGURE_END) {
-        (windows_core::Interface::vtable(self).EndFigure)(windows_core::Interface::as_raw(self), figureend)
+        unsafe { (windows_core::Interface::vtable(self).EndFigure)(windows_core::Interface::as_raw(self), figureend) }
     }
     pub unsafe fn Close(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok()
+        unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
 #[repr(C)]
@@ -482,32 +482,46 @@ pub trait ID2D1SimplifiedGeometrySink_Impl: windows_core::IUnknownImpl {
 impl ID2D1SimplifiedGeometrySink_Vtbl {
     pub const fn new<Identity: ID2D1SimplifiedGeometrySink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetFillMode<Identity: ID2D1SimplifiedGeometrySink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fillmode: D2D1_FILL_MODE) {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ID2D1SimplifiedGeometrySink_Impl::SetFillMode(this, core::mem::transmute_copy(&fillmode))
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID2D1SimplifiedGeometrySink_Impl::SetFillMode(this, core::mem::transmute_copy(&fillmode))
+            }
         }
         unsafe extern "system" fn SetSegmentFlags<Identity: ID2D1SimplifiedGeometrySink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vertexflags: D2D1_PATH_SEGMENT) {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ID2D1SimplifiedGeometrySink_Impl::SetSegmentFlags(this, core::mem::transmute_copy(&vertexflags))
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID2D1SimplifiedGeometrySink_Impl::SetSegmentFlags(this, core::mem::transmute_copy(&vertexflags))
+            }
         }
         unsafe extern "system" fn BeginFigure<Identity: ID2D1SimplifiedGeometrySink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startpoint: D2D_POINT_2F, figurebegin: D2D1_FIGURE_BEGIN) {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ID2D1SimplifiedGeometrySink_Impl::BeginFigure(this, core::mem::transmute(&startpoint), core::mem::transmute_copy(&figurebegin))
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID2D1SimplifiedGeometrySink_Impl::BeginFigure(this, core::mem::transmute(&startpoint), core::mem::transmute_copy(&figurebegin))
+            }
         }
         unsafe extern "system" fn AddLines<Identity: ID2D1SimplifiedGeometrySink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, points: *const D2D_POINT_2F, pointscount: u32) {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ID2D1SimplifiedGeometrySink_Impl::AddLines(this, core::mem::transmute_copy(&points), core::mem::transmute_copy(&pointscount))
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID2D1SimplifiedGeometrySink_Impl::AddLines(this, core::mem::transmute_copy(&points), core::mem::transmute_copy(&pointscount))
+            }
         }
         unsafe extern "system" fn AddBeziers<Identity: ID2D1SimplifiedGeometrySink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, beziers: *const D2D1_BEZIER_SEGMENT, bezierscount: u32) {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ID2D1SimplifiedGeometrySink_Impl::AddBeziers(this, core::mem::transmute_copy(&beziers), core::mem::transmute_copy(&bezierscount))
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID2D1SimplifiedGeometrySink_Impl::AddBeziers(this, core::mem::transmute_copy(&beziers), core::mem::transmute_copy(&bezierscount))
+            }
         }
         unsafe extern "system" fn EndFigure<Identity: ID2D1SimplifiedGeometrySink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, figureend: D2D1_FIGURE_END) {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ID2D1SimplifiedGeometrySink_Impl::EndFigure(this, core::mem::transmute_copy(&figureend))
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID2D1SimplifiedGeometrySink_Impl::EndFigure(this, core::mem::transmute_copy(&figureend))
+            }
         }
         unsafe extern "system" fn Close<Identity: ID2D1SimplifiedGeometrySink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ID2D1SimplifiedGeometrySink_Impl::Close(this).into()
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID2D1SimplifiedGeometrySink_Impl::Close(this).into()
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
