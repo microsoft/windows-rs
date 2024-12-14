@@ -53,8 +53,9 @@ export class Search {
             throw new Error('Search index has not been initialized.');
         }
 
-        for (const namespace in this._searchIndex.namespaces) {
-            for (const item of this._searchIndex.namespaces[namespace]) {
+        const namespaces = this._searchIndex.namespaces;
+        for (const namespace in namespaces) {
+            for (const item of namespaces[namespace]!) {
                 if (summary.results.length >= 50) {
                     summary.truncated = true;
                     break;
@@ -62,7 +63,7 @@ export class Search {
 
                 const full_namespace = this._searchIndex.namespace_map[
                     Number.parseInt(namespace)
-                ]
+                ]!
                     .replace('Windows.', '')
                     .replace(/\./g, '::');
 
@@ -76,7 +77,7 @@ export class Search {
 
                 if (hit) {
                     let features: string[] = item.features.map(
-                        (idx) => this._searchIndex!.feature_map[idx]
+                        (idx) => this._searchIndex!.feature_map[idx]!
                     );
 
                     features = features.filter(
