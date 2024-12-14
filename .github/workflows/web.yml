@@ -42,18 +42,22 @@ jobs:
         run: npm run build
         working-directory: web/features
 
-      - name: Stage website
+      - name: Stage website (production)
         run: |
           mkdir -p web/build/features
           cp -r web/features/build/* web/build/features
         if: github.event_name != 'pull_request'
 
+      - name: Stage website (preview)
+        run: |
+          mkdir -p web/build/preview/${{ github.event.pull_request.number }}/features
+          cp -r web/features/build/* web/build/preview/${{ github.event.pull_request.number }}/features
+        if: github.event_name == 'pull_request'
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: web/build
-        if: github.event_name != 'pull_request'
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
-        if: github.event_name != 'pull_request'
