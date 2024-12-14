@@ -7,7 +7,7 @@ unsafe extern "system" fn DllGetActivationFactory(
     name: Ref<HSTRING>,
     factory: OutRef<IActivationFactory>,
 ) -> HRESULT {
-    if *name == "test_reference.Reference" {
+    if name.unwrap() == "test_reference.Reference" {
         factory.write(Some(ReferenceFactory.into())).into()
     } else {
         _ = factory.write(None);

@@ -19,7 +19,8 @@ pub trait Type<T: TypeKind, C = <T as TypeKind>::TypeKind>: TypeKind + Sized + C
     type Abi;
     type Default;
 
-    /// # Safety
+    fn is_null(abi: &Self::Abi) -> bool;
+    unsafe fn assume_init_ref(abi: &Self::Abi) -> &Self;
     unsafe fn from_abi(abi: Self::Abi) -> Result<Self>;
     fn from_default(default: &Self::Default) -> Result<Self>;
 }
@@ -30,6 +31,14 @@ where
 {
     type Abi = *mut core::ffi::c_void;
     type Default = Option<Self>;
+
+    fn is_null(abi: &Self::Abi) -> bool {
+        abi.is_null()
+    }
+
+    unsafe fn assume_init_ref(abi: &Self::Abi) -> &Self {
+        unsafe { core::mem::transmute::<&*mut core::ffi::c_void, &T>(abi) }
+    }
 
     unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
         unsafe {
@@ -53,6 +62,14 @@ where
     type Abi = core::mem::MaybeUninit<Self>;
     type Default = Self;
 
+    fn is_null(_: &Self::Abi) -> bool {
+        false
+    }
+
+    unsafe fn assume_init_ref(abi: &Self::Abi) -> &Self {
+        unsafe { abi.assume_init_ref() }
+    }
+
     unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
         unsafe { Ok(abi.assume_init()) }
     }
@@ -68,6 +85,14 @@ where
 {
     type Abi = Self;
     type Default = Self;
+
+    fn is_null(_: &Self::Abi) -> bool {
+        false
+    }
+
+    unsafe fn assume_init_ref(abi: &Self::Abi) -> &Self {
+        abi
+    }
 
     unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
         Ok(abi)

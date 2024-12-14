@@ -15,6 +15,11 @@ struct Test : implements<Test, ITest>
 
     int32_t Input(ITest const& input)
     {
+        if (!input)
+        {
+            throw hresult_error(E_POINTER);
+        }
+
         return input.Current();
     }
 
