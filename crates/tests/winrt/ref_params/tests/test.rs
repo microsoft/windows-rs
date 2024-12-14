@@ -32,6 +32,7 @@ fn test_interface(test: &ITest) -> Result<()> {
 
     assert_eq!(test.Input(&one_two_three)?, 123);
     assert_eq!(test.Input(&four_five_six)?, 456);
+    assert_eq!(test.Input(None).unwrap_err().code(), HRESULT(-2147467261)); // E_POINTER
 
     let mut seven_eight_nine = None;
     test.Output(789, &mut seven_eight_nine)?;
