@@ -1,63 +1,80 @@
 name: web
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: 'pages'
-  cancel-in-progress: false
+  contents: write
 
 on:
   pull_request:
-    paths:
-      - 'web/**'
+    paths: [web/**]
+    types: [opened, synchronize, reopened, closed]
   push:
-    paths:
-      - 'web/**'
-    branches:
-      - master
+    paths: [web/**]
+    branches: [master]
   workflow_dispatch:
 
 jobs:
   web:
-    name: web
     if: github.repository == 'microsoft/windows-rs'
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          path: current
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '23.1' # Temporary: https://github.com/nodejs/node/issues/55826
 
-      - name: Install dependencies
-        run: npm install
-        working-directory: web/features
-
-      - name: Build project
-        run: npm run build
-        working-directory: web/features
-
-      - name: Stage website (production)
+      - name: Build sites
+        shell: pwsh
         run: |
-          mkdir -p web/build/features
-          cp -r web/features/build/* web/build/features
-        if: github.event_name != 'pull_request'
+          cd current/web
+          $sites = Get-ChildItem -Directory
+          foreach ($site in $sites) {
+            Write-Host "Building $($site.Name)"
+            ./build.ps1 $site.Name
+          }
 
-      - name: Stage website (preview)
-        run: |
-          mkdir -p web/build/preview/${{ github.event.pull_request.number }}/features
-          cp -r web/features/build/* web/build/preview/${{ github.event.pull_request.number }}/features
-        if: github.event_name == 'pull_request'
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - uses: actions/checkout@v4
         with:
-          path: web/build
+          ref: gh-pages
+          path: gh-pages
 
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+      - name: Update gh-pages
+        shell: pwsh
+        run: |
+          cd gh-pages
+
+          $sites = Get-ChildItem ../current/web -Directory
+          foreach ($site in $sites) {
+              Write-Host "Deploying $($site.Name)"
+
+              if ("${{ github.event_name }}" -eq "pull_request") {
+                  if ("${{ github.event.action }}" -eq "closed") {
+                      Remove-Item -Recurse -Force -ErrorAction Ignore "$($site.Name)/preview/pr-${{ github.event.number }}"
+                  } else {
+                      if (Test-Path "$($site.FullName)/build") {
+                          $previewPath = "$($site.Name)/preview/pr-${{ github.event.number }}"
+                          New-Item -ItemType Directory -Force $previewPath | Out-Null
+                          Remove-Item -Recurse -Force -ErrorAction Ignore "$previewPath/*"
+                          Copy-Item "$($site.FullName)/build/*" $previewPath -Recurse -Force
+                      }
+                  }
+              } elseif ("${{ github.ref }}" -eq "refs/heads/master") {
+                  if (Test-Path "$($site.FullName)/build") {
+                      New-Item -ItemType Directory -Force $site.Name | Out-Null
+                      Get-ChildItem "$($site.Name)/*" -Exclude "preview" | Remove-Item -Recurse -Force -ErrorAction Ignore
+                      Copy-Item "$($site.FullName)/build/*" $site.Name -Recurse -Force
+                  }
+              }
+          }
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          $status = git status --porcelain
+          if ($status) {
+              git add .
+              git commit -m "Update from ${{ github.sha }}"
+              git push
+          }
