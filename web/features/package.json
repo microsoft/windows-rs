@@ -1,49 +1,45 @@
 {
     "name": "windows-rs.web.features",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "private": true,
     "homepage": ".",
     "dependencies": {
-        "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
         "@fluentui/react-components": "^9.45.0",
         "@fontsource/fira-sans": "^5.0.18",
-        "@types/node": "^16.18.69",
-        "@types/react": "^18.2.47",
-        "@types/react-dom": "^18.2.18",
-        "@typescript-eslint/eslint-plugin": "^6.19.1",
-        "@typescript-eslint/parser": "^6.19.1",
-        "eslint": "^8.56.0",
-        "eslint-plugin-react": "^7.33.2",
-        "gh-pages": "^6.1.1",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
-        "react-router-dom": "^6.22.1",
-        "react-scripts": "^5.0.1",
-        "typescript": "^4.9.5"
+        "react-router-dom": "^7.0.2"
     },
     "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "eject": "react-scripts eject"
-    },
-    "eslintConfig": {
-        "extends": [
-            "react-app"
-        ]
-    },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 3 chrome version",
-            "last 3 firefox version",
-            "last 3 safari version"
-        ]
+        "start": "webpack serve --mode development",
+        "build": "webpack --mode production"
     },
     "devDependencies": {
-        "eslint-plugin-react-hooks": "^4.6.0"
+        "@types/node": "^22.10.2",
+        "@types/react": "^18.3.16",
+        "@types/react-dom": "^18.3.5",
+        "@typescript-eslint/eslint-plugin": "^8.18.0",
+        "@typescript-eslint/parser": "^8.18.0",
+        "browserslist": "^4.24.3",
+        "copy-webpack-plugin": "^12.0.2",
+        "css-loader": "^7.1.2",
+        "dotenv": "^16.4.7",
+        "dotenv-expand": "^12.0.1",
+        "dotenv-webpack": "^8.1.0",
+        "eslint": "^8.57.1",
+        "eslint-plugin-react": "^7.37.2",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "eslint-webpack-plugin": "^4.2.0",
+        "gh-pages": "^6.2.0",
+        "html-webpack-plugin": "^5.6.3",
+        "mini-css-extract-plugin": "^2.9.2",
+        "sass": "^1.83.0",
+        "sass-loader": "^16.0.4",
+        "style-loader": "^4.0.0",
+        "ts-loader": "^9.5.1",
+        "typescript": "^5.7.2",
+        "webpack": "^5.97.1",
+        "webpack-cli": "^5.1.4",
+        "webpack-dev-server": "^5.2.0"
     }
 }
