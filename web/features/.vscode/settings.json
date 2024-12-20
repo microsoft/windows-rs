@@ -1,6 +1,12 @@
 {
-    "xml.trace.server": "off",
-    "typescript.tsserver.log": "off",
-    "js/ts.implicitProjectConfig.target": "ES2016",
-    "typescript.tsserver.experimental.enableProjectDiagnostics": false
+  "xml.trace.server": "off",
+  "typescript.tsserver.log": "off",
+  "js/ts.implicitProjectConfig.target": "ES2016",
+  "typescript.tsserver.experimental.enableProjectDiagnostics": false,
+
+  "editor.tabSize": 4,
+  "editor.detectIndentation": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  }
 }
