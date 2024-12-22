@@ -825,7 +825,7 @@ fn is_param_retval(ty: &Type, param: Param, hint: ParamHint) -> bool {
     {
         return false;
     }
-    if hint.is_array() {
+    if ParamHint::from_param(param).is_array() {
         return false;
     }
 

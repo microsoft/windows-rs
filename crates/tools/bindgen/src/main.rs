@@ -82,6 +82,7 @@ fn main() {
     test("--out interface_required_with_method.rs --filter IAsyncAction AsyncStatus");
     test("--out interface_required_with_method_sys.rs --filter IAsyncAction AsyncStatus --sys");
     test("--out interface_iterable.rs --filter IVector");
+    test("--out interface_array_return.rs --filter IDispatch");
 
     // Tests for functions
     test("--out fn_win.rs --filter GetTickCount");
