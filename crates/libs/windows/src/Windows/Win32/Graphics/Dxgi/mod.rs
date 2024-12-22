@@ -2626,11 +2626,8 @@ impl IDXGIDevice4 {
     pub unsafe fn OfferResources1(&self, ppresources: &[Option<IDXGIResource>], priority: DXGI_OFFER_RESOURCE_PRIORITY, flags: DXGI_OFFER_RESOURCE_FLAGS) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).OfferResources1)(windows_core::Interface::as_raw(self), ppresources.len().try_into().unwrap(), core::mem::transmute(ppresources.as_ptr()), priority, flags.0 as _).ok() }
     }
-    pub unsafe fn ReclaimResources1(&self, numresources: u32, ppresources: *const Option<IDXGIResource>) -> windows_core::Result<DXGI_RECLAIM_RESOURCE_RESULTS> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ReclaimResources1)(windows_core::Interface::as_raw(self), numresources, core::mem::transmute(ppresources), &mut result__).map(|| result__)
-        }
+    pub unsafe fn ReclaimResources1(&self, numresources: u32, ppresources: *const Option<IDXGIResource>, presults: *mut DXGI_RECLAIM_RESOURCE_RESULTS) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).ReclaimResources1)(windows_core::Interface::as_raw(self), numresources, core::mem::transmute(ppresources), core::mem::transmute(presults)).ok() }
     }
 }
 #[repr(C)]
@@ -2642,7 +2639,7 @@ pub struct IDXGIDevice4_Vtbl {
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IDXGIDevice4_Impl: IDXGIDevice3_Impl {
     fn OfferResources1(&self, numresources: u32, ppresources: *const Option<IDXGIResource>, priority: DXGI_OFFER_RESOURCE_PRIORITY, flags: &DXGI_OFFER_RESOURCE_FLAGS) -> windows_core::Result<()>;
-    fn ReclaimResources1(&self, numresources: u32, ppresources: *const Option<IDXGIResource>) -> windows_core::Result<DXGI_RECLAIM_RESOURCE_RESULTS>;
+    fn ReclaimResources1(&self, numresources: u32, ppresources: *const Option<IDXGIResource>, presults: *mut DXGI_RECLAIM_RESOURCE_RESULTS) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl IDXGIDevice4_Vtbl {
@@ -2656,13 +2653,7 @@ impl IDXGIDevice4_Vtbl {
         unsafe extern "system" fn ReclaimResources1<Identity: IDXGIDevice4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numresources: u32, ppresources: *const *mut core::ffi::c_void, presults: *mut DXGI_RECLAIM_RESOURCE_RESULTS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDXGIDevice4_Impl::ReclaimResources1(this, core::mem::transmute_copy(&numresources), core::mem::transmute_copy(&ppresources)) {
-                    Ok(ok__) => {
-                        presults.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDXGIDevice4_Impl::ReclaimResources1(this, core::mem::transmute_copy(&numresources), core::mem::transmute_copy(&ppresources), core::mem::transmute_copy(&presults)).into()
             }
         }
         Self {

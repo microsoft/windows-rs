@@ -6290,11 +6290,8 @@ impl ICommandWithParameters {
     pub unsafe fn GetParameterInfo(&self, pcparams: *mut usize, prgparaminfo: *mut *mut DBPARAMINFO, ppnamesbuffer: Option<*mut *mut u16>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetParameterInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pcparams), core::mem::transmute(prgparaminfo), core::mem::transmute(ppnamesbuffer.unwrap_or(core::mem::zeroed()))).ok() }
     }
-    pub unsafe fn MapParameterNames(&self, cparamnames: usize, rgparamnames: *const windows_core::PCWSTR) -> windows_core::Result<isize> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MapParameterNames)(windows_core::Interface::as_raw(self), cparamnames, rgparamnames, &mut result__).map(|| result__)
-        }
+    pub unsafe fn MapParameterNames(&self, cparamnames: usize, rgparamnames: *const windows_core::PCWSTR, rgparamordinals: *mut isize) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).MapParameterNames)(windows_core::Interface::as_raw(self), cparamnames, rgparamnames, core::mem::transmute(rgparamordinals)).ok() }
     }
     pub unsafe fn SetParameterInfo(&self, cparams: usize, rgparamordinals: Option<*const usize>, rgparambindinfo: Option<*const DBPARAMBINDINFO>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetParameterInfo)(windows_core::Interface::as_raw(self), cparams, core::mem::transmute(rgparamordinals.unwrap_or(core::mem::zeroed())), core::mem::transmute(rgparambindinfo.unwrap_or(core::mem::zeroed()))).ok() }
@@ -6313,7 +6310,7 @@ pub struct ICommandWithParameters_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait ICommandWithParameters_Impl: windows_core::IUnknownImpl {
     fn GetParameterInfo(&self, pcparams: *mut usize, prgparaminfo: *mut *mut DBPARAMINFO, ppnamesbuffer: *mut *mut u16) -> windows_core::Result<()>;
-    fn MapParameterNames(&self, cparamnames: usize, rgparamnames: *const windows_core::PCWSTR) -> windows_core::Result<isize>;
+    fn MapParameterNames(&self, cparamnames: usize, rgparamnames: *const windows_core::PCWSTR, rgparamordinals: *mut isize) -> windows_core::Result<()>;
     fn SetParameterInfo(&self, cparams: usize, rgparamordinals: *const usize, rgparambindinfo: *const DBPARAMBINDINFO) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6328,13 +6325,7 @@ impl ICommandWithParameters_Vtbl {
         unsafe extern "system" fn MapParameterNames<Identity: ICommandWithParameters_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cparamnames: usize, rgparamnames: *const windows_core::PCWSTR, rgparamordinals: *mut isize) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICommandWithParameters_Impl::MapParameterNames(this, core::mem::transmute_copy(&cparamnames), core::mem::transmute_copy(&rgparamnames)) {
-                    Ok(ok__) => {
-                        rgparamordinals.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ICommandWithParameters_Impl::MapParameterNames(this, core::mem::transmute_copy(&cparamnames), core::mem::transmute_copy(&rgparamnames), core::mem::transmute_copy(&rgparamordinals)).into()
             }
         }
         unsafe extern "system" fn SetParameterInfo<Identity: ICommandWithParameters_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cparams: usize, rgparamordinals: *const usize, rgparambindinfo: *const DBPARAMBINDINFO) -> windows_core::HRESULT {
@@ -7796,11 +7787,8 @@ windows_core::imp::define_interface!(IDCInfo, IDCInfo_Vtbl, 0x0c733a9c_2a1c_11ce
 windows_core::imp::interface_hierarchy!(IDCInfo, windows_core::IUnknown);
 impl IDCInfo {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetInfo(&self, cinfo: u32, rgeinfotype: *const u32) -> windows_core::Result<*mut DCINFO> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetInfo)(windows_core::Interface::as_raw(self), cinfo, rgeinfotype, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetInfo(&self, cinfo: u32, rgeinfotype: *const u32, prginfo: *mut *mut DCINFO) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetInfo)(windows_core::Interface::as_raw(self), cinfo, rgeinfotype, core::mem::transmute(prginfo)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetInfo(&self, rginfo: &[DCINFO]) -> windows_core::Result<()> {
@@ -7821,7 +7809,7 @@ pub struct IDCInfo_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDCInfo_Impl: windows_core::IUnknownImpl {
-    fn GetInfo(&self, cinfo: u32, rgeinfotype: *const u32) -> windows_core::Result<*mut DCINFO>;
+    fn GetInfo(&self, cinfo: u32, rgeinfotype: *const u32, prginfo: *mut *mut DCINFO) -> windows_core::Result<()>;
     fn SetInfo(&self, cinfo: u32, rginfo: *const DCINFO) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -7830,13 +7818,7 @@ impl IDCInfo_Vtbl {
         unsafe extern "system" fn GetInfo<Identity: IDCInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cinfo: u32, rgeinfotype: *const u32, prginfo: *mut *mut DCINFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDCInfo_Impl::GetInfo(this, core::mem::transmute_copy(&cinfo), core::mem::transmute_copy(&rgeinfotype)) {
-                    Ok(ok__) => {
-                        prginfo.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDCInfo_Impl::GetInfo(this, core::mem::transmute_copy(&cinfo), core::mem::transmute_copy(&rgeinfotype), core::mem::transmute_copy(&prginfo)).into()
             }
         }
         unsafe extern "system" fn SetInfo<Identity: IDCInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cinfo: u32, rginfo: *const DCINFO) -> windows_core::HRESULT {
@@ -11177,11 +11159,8 @@ impl windows_core::RuntimeName for IRowsetBookmark {}
 windows_core::imp::define_interface!(IRowsetChange, IRowsetChange_Vtbl, 0x0c733a05_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IRowsetChange, windows_core::IUnknown);
 impl IRowsetChange {
-    pub unsafe fn DeleteRows(&self, hreserved: usize, crows: usize, rghrows: *const usize) -> windows_core::Result<u32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DeleteRows)(windows_core::Interface::as_raw(self), hreserved, crows, rghrows, &mut result__).map(|| result__)
-        }
+    pub unsafe fn DeleteRows(&self, hreserved: usize, crows: usize, rghrows: *const usize, rgrowstatus: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).DeleteRows)(windows_core::Interface::as_raw(self), hreserved, crows, rghrows, core::mem::transmute(rgrowstatus)).ok() }
     }
     pub unsafe fn SetData(&self, hrow: usize, haccessor: HACCESSOR, pdata: *const core::ffi::c_void) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetData)(windows_core::Interface::as_raw(self), hrow, haccessor, pdata).ok() }
@@ -11201,7 +11180,7 @@ pub struct IRowsetChange_Vtbl {
     pub InsertRow: unsafe extern "system" fn(*mut core::ffi::c_void, usize, HACCESSOR, *const core::ffi::c_void, *mut usize) -> windows_core::HRESULT,
 }
 pub trait IRowsetChange_Impl: windows_core::IUnknownImpl {
-    fn DeleteRows(&self, hreserved: usize, crows: usize, rghrows: *const usize) -> windows_core::Result<u32>;
+    fn DeleteRows(&self, hreserved: usize, crows: usize, rghrows: *const usize, rgrowstatus: *mut u32) -> windows_core::Result<()>;
     fn SetData(&self, hrow: usize, haccessor: HACCESSOR, pdata: *const core::ffi::c_void) -> windows_core::Result<()>;
     fn InsertRow(&self, hreserved: usize, haccessor: HACCESSOR, pdata: *const core::ffi::c_void) -> windows_core::Result<usize>;
 }
@@ -11210,13 +11189,7 @@ impl IRowsetChange_Vtbl {
         unsafe extern "system" fn DeleteRows<Identity: IRowsetChange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hreserved: usize, crows: usize, rghrows: *const usize, rgrowstatus: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IRowsetChange_Impl::DeleteRows(this, core::mem::transmute_copy(&hreserved), core::mem::transmute_copy(&crows), core::mem::transmute_copy(&rghrows)) {
-                    Ok(ok__) => {
-                        rgrowstatus.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IRowsetChange_Impl::DeleteRows(this, core::mem::transmute_copy(&hreserved), core::mem::transmute_copy(&crows), core::mem::transmute_copy(&rghrows), core::mem::transmute_copy(&rgrowstatus)).into()
             }
         }
         unsafe extern "system" fn SetData<Identity: IRowsetChange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hrow: usize, haccessor: HACCESSOR, pdata: *const core::ffi::c_void) -> windows_core::HRESULT {
@@ -12371,11 +12344,8 @@ impl IRowsetUpdate {
     pub unsafe fn GetPendingRows(&self, hreserved: usize, dwrowstatus: u32, pcpendingrows: *mut usize, prgpendingrows: *mut *mut usize, prgpendingstatus: *mut *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetPendingRows)(windows_core::Interface::as_raw(self), hreserved, dwrowstatus, core::mem::transmute(pcpendingrows), core::mem::transmute(prgpendingrows), core::mem::transmute(prgpendingstatus)).ok() }
     }
-    pub unsafe fn GetRowStatus(&self, hreserved: usize, crows: usize, rghrows: *const usize) -> windows_core::Result<u32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetRowStatus)(windows_core::Interface::as_raw(self), hreserved, crows, rghrows, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetRowStatus(&self, hreserved: usize, crows: usize, rghrows: *const usize, rgpendingstatus: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetRowStatus)(windows_core::Interface::as_raw(self), hreserved, crows, rghrows, core::mem::transmute(rgpendingstatus)).ok() }
     }
     pub unsafe fn Undo(&self, hreserved: usize, rghrows: &[usize], pcrowsundone: *mut usize, prgrowsundone: *mut *mut usize, prgrowstatus: *mut *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Undo)(windows_core::Interface::as_raw(self), hreserved, rghrows.len().try_into().unwrap(), core::mem::transmute(rghrows.as_ptr()), core::mem::transmute(pcrowsundone), core::mem::transmute(prgrowsundone), core::mem::transmute(prgrowstatus)).ok() }
@@ -12396,7 +12366,7 @@ pub struct IRowsetUpdate_Vtbl {
 pub trait IRowsetUpdate_Impl: IRowsetChange_Impl {
     fn GetOriginalData(&self, hrow: usize, haccessor: HACCESSOR, pdata: *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetPendingRows(&self, hreserved: usize, dwrowstatus: u32, pcpendingrows: *mut usize, prgpendingrows: *mut *mut usize, prgpendingstatus: *mut *mut u32) -> windows_core::Result<()>;
-    fn GetRowStatus(&self, hreserved: usize, crows: usize, rghrows: *const usize) -> windows_core::Result<u32>;
+    fn GetRowStatus(&self, hreserved: usize, crows: usize, rghrows: *const usize, rgpendingstatus: *mut u32) -> windows_core::Result<()>;
     fn Undo(&self, hreserved: usize, crows: usize, rghrows: *const usize, pcrowsundone: *mut usize, prgrowsundone: *mut *mut usize, prgrowstatus: *mut *mut u32) -> windows_core::Result<()>;
     fn Update(&self, hreserved: usize, crows: usize, rghrows: *const usize, pcrows: *mut usize, prgrows: *mut *mut usize, prgrowstatus: *mut *mut u32) -> windows_core::Result<()>;
 }
@@ -12417,13 +12387,7 @@ impl IRowsetUpdate_Vtbl {
         unsafe extern "system" fn GetRowStatus<Identity: IRowsetUpdate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hreserved: usize, crows: usize, rghrows: *const usize, rgpendingstatus: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IRowsetUpdate_Impl::GetRowStatus(this, core::mem::transmute_copy(&hreserved), core::mem::transmute_copy(&crows), core::mem::transmute_copy(&rghrows)) {
-                    Ok(ok__) => {
-                        rgpendingstatus.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IRowsetUpdate_Impl::GetRowStatus(this, core::mem::transmute_copy(&hreserved), core::mem::transmute_copy(&crows), core::mem::transmute_copy(&rghrows), core::mem::transmute_copy(&rgpendingstatus)).into()
             }
         }
         unsafe extern "system" fn Undo<Identity: IRowsetUpdate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hreserved: usize, crows: usize, rghrows: *const usize, pcrowsundone: *mut usize, prgrowsundone: *mut *mut usize, prgrowstatus: *mut *mut u32) -> windows_core::HRESULT {
@@ -13151,11 +13115,8 @@ impl IScopedOperations {
     {
         unsafe { (windows_core::Interface::vtable(self).Move)(windows_core::Interface::as_raw(self), crows, core::mem::transmute(rgpwszsourceurls.unwrap_or(core::mem::zeroed())), rgpwszdesturls, dwmoveflags, pauthenticate.param().abi(), core::mem::transmute(rgdwstatus), core::mem::transmute(rgpwsznewurls.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppstringsbuffer.unwrap_or(core::mem::zeroed()))).ok() }
     }
-    pub unsafe fn Delete(&self, crows: usize, rgpwszurls: *const windows_core::PCWSTR, dwdeleteflags: u32) -> windows_core::Result<u32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), crows, rgpwszurls, dwdeleteflags, &mut result__).map(|| result__)
-        }
+    pub unsafe fn Delete(&self, crows: usize, rgpwszurls: *const windows_core::PCWSTR, dwdeleteflags: u32, rgdwstatus: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), crows, rgpwszurls, dwdeleteflags, core::mem::transmute(rgdwstatus)).ok() }
     }
     #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn OpenRowset<P0>(&self, punkouter: P0, ptableid: Option<*const super::super::Storage::IndexServer::DBID>, pindexid: Option<*const super::super::Storage::IndexServer::DBID>, riid: *const windows_core::GUID, rgpropertysets: &mut [DBPROPSET], pprowset: Option<*mut Option<windows_core::IUnknown>>) -> windows_core::Result<()>
@@ -13186,7 +13147,7 @@ pub struct IScopedOperations_Vtbl {
 pub trait IScopedOperations_Impl: IBindResource_Impl {
     fn Copy(&self, crows: usize, rgpwszsourceurls: *const windows_core::PCWSTR, rgpwszdesturls: *const windows_core::PCWSTR, dwcopyflags: u32, pauthenticate: windows_core::Ref<'_, super::Com::IAuthenticate>, rgdwstatus: *mut u32, rgpwsznewurls: *mut windows_core::PWSTR, ppstringsbuffer: *mut *mut u16) -> windows_core::Result<()>;
     fn Move(&self, crows: usize, rgpwszsourceurls: *const windows_core::PCWSTR, rgpwszdesturls: *const windows_core::PCWSTR, dwmoveflags: u32, pauthenticate: windows_core::Ref<'_, super::Com::IAuthenticate>, rgdwstatus: *mut u32, rgpwsznewurls: *mut windows_core::PWSTR, ppstringsbuffer: *mut *mut u16) -> windows_core::Result<()>;
-    fn Delete(&self, crows: usize, rgpwszurls: *const windows_core::PCWSTR, dwdeleteflags: u32) -> windows_core::Result<u32>;
+    fn Delete(&self, crows: usize, rgpwszurls: *const windows_core::PCWSTR, dwdeleteflags: u32, rgdwstatus: *mut u32) -> windows_core::Result<()>;
     fn OpenRowset(&self, punkouter: windows_core::Ref<'_, windows_core::IUnknown>, ptableid: *const super::super::Storage::IndexServer::DBID, pindexid: *const super::super::Storage::IndexServer::DBID, riid: *const windows_core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: windows_core::OutRef<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -13207,13 +13168,7 @@ impl IScopedOperations_Vtbl {
         unsafe extern "system" fn Delete<Identity: IScopedOperations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, crows: usize, rgpwszurls: *const windows_core::PCWSTR, dwdeleteflags: u32, rgdwstatus: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IScopedOperations_Impl::Delete(this, core::mem::transmute_copy(&crows), core::mem::transmute_copy(&rgpwszurls), core::mem::transmute_copy(&dwdeleteflags)) {
-                    Ok(ok__) => {
-                        rgdwstatus.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IScopedOperations_Impl::Delete(this, core::mem::transmute_copy(&crows), core::mem::transmute_copy(&rgpwszurls), core::mem::transmute_copy(&dwdeleteflags), core::mem::transmute_copy(&rgdwstatus)).into()
             }
         }
         unsafe extern "system" fn OpenRowset<Identity: IScopedOperations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, ptableid: *const super::super::Storage::IndexServer::DBID, pindexid: *const super::super::Storage::IndexServer::DBID, riid: *const windows_core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -14700,11 +14655,8 @@ impl ISearchPersistentItemsChangedSink {
     {
         unsafe { (windows_core::Interface::vtable(self).StoppedMonitoringScope)(windows_core::Interface::as_raw(self), pszurl.param().abi()).ok() }
     }
-    pub unsafe fn OnItemsChanged(&self, dwnumberofchanges: u32, datachangeentries: *const SEARCH_ITEM_PERSISTENT_CHANGE) -> windows_core::Result<windows_core::HRESULT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OnItemsChanged)(windows_core::Interface::as_raw(self), dwnumberofchanges, datachangeentries, &mut result__).map(|| result__)
-        }
+    pub unsafe fn OnItemsChanged(&self, dwnumberofchanges: u32, datachangeentries: *const SEARCH_ITEM_PERSISTENT_CHANGE, hrcompletioncodes: *mut windows_core::HRESULT) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).OnItemsChanged)(windows_core::Interface::as_raw(self), dwnumberofchanges, datachangeentries, core::mem::transmute(hrcompletioncodes)).ok() }
     }
 }
 #[repr(C)]
@@ -14717,7 +14669,7 @@ pub struct ISearchPersistentItemsChangedSink_Vtbl {
 pub trait ISearchPersistentItemsChangedSink_Impl: windows_core::IUnknownImpl {
     fn StartedMonitoringScope(&self, pszurl: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn StoppedMonitoringScope(&self, pszurl: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn OnItemsChanged(&self, dwnumberofchanges: u32, datachangeentries: *const SEARCH_ITEM_PERSISTENT_CHANGE) -> windows_core::Result<windows_core::HRESULT>;
+    fn OnItemsChanged(&self, dwnumberofchanges: u32, datachangeentries: *const SEARCH_ITEM_PERSISTENT_CHANGE, hrcompletioncodes: *mut windows_core::HRESULT) -> windows_core::Result<()>;
 }
 impl ISearchPersistentItemsChangedSink_Vtbl {
     pub const fn new<Identity: ISearchPersistentItemsChangedSink_Impl, const OFFSET: isize>() -> Self {
@@ -14736,13 +14688,7 @@ impl ISearchPersistentItemsChangedSink_Vtbl {
         unsafe extern "system" fn OnItemsChanged<Identity: ISearchPersistentItemsChangedSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwnumberofchanges: u32, datachangeentries: *const SEARCH_ITEM_PERSISTENT_CHANGE, hrcompletioncodes: *mut windows_core::HRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISearchPersistentItemsChangedSink_Impl::OnItemsChanged(this, core::mem::transmute_copy(&dwnumberofchanges), core::mem::transmute_copy(&datachangeentries)) {
-                    Ok(ok__) => {
-                        hrcompletioncodes.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ISearchPersistentItemsChangedSink_Impl::OnItemsChanged(this, core::mem::transmute_copy(&dwnumberofchanges), core::mem::transmute_copy(&datachangeentries), core::mem::transmute_copy(&hrcompletioncodes)).into()
             }
         }
         Self {
@@ -16318,11 +16264,8 @@ impl ISubscriptionItem {
         unsafe { (windows_core::Interface::vtable(self).SetSubscriptionItemInfo)(windows_core::Interface::as_raw(self), psubscriptioniteminfo).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn ReadProperties(&self, ncount: u32, rgwszname: *const windows_core::PCWSTR) -> windows_core::Result<super::Variant::VARIANT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ReadProperties)(windows_core::Interface::as_raw(self), ncount, rgwszname, &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn ReadProperties(&self, ncount: u32, rgwszname: *const windows_core::PCWSTR, rgvalue: *mut super::Variant::VARIANT) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).ReadProperties)(windows_core::Interface::as_raw(self), ncount, rgwszname, core::mem::transmute(rgvalue)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn WriteProperties(&self, ncount: u32, rgwszname: *const windows_core::PCWSTR, rgvalue: *const super::Variant::VARIANT) -> windows_core::Result<()> {
@@ -16360,7 +16303,7 @@ pub trait ISubscriptionItem_Impl: windows_core::IUnknownImpl {
     fn GetCookie(&self) -> windows_core::Result<windows_core::GUID>;
     fn GetSubscriptionItemInfo(&self, psubscriptioniteminfo: *mut SUBSCRIPTIONITEMINFO) -> windows_core::Result<()>;
     fn SetSubscriptionItemInfo(&self, psubscriptioniteminfo: *const SUBSCRIPTIONITEMINFO) -> windows_core::Result<()>;
-    fn ReadProperties(&self, ncount: u32, rgwszname: *const windows_core::PCWSTR) -> windows_core::Result<super::Variant::VARIANT>;
+    fn ReadProperties(&self, ncount: u32, rgwszname: *const windows_core::PCWSTR, rgvalue: *mut super::Variant::VARIANT) -> windows_core::Result<()>;
     fn WriteProperties(&self, ncount: u32, rgwszname: *const windows_core::PCWSTR, rgvalue: *const super::Variant::VARIANT) -> windows_core::Result<()>;
     fn EnumProperties(&self) -> windows_core::Result<IEnumItemProperties>;
     fn NotifyChanged(&self) -> windows_core::Result<()>;
@@ -16395,13 +16338,7 @@ impl ISubscriptionItem_Vtbl {
         unsafe extern "system" fn ReadProperties<Identity: ISubscriptionItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ncount: u32, rgwszname: *const windows_core::PCWSTR, rgvalue: *mut super::Variant::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISubscriptionItem_Impl::ReadProperties(this, core::mem::transmute_copy(&ncount), core::mem::transmute_copy(&rgwszname)) {
-                    Ok(ok__) => {
-                        rgvalue.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ISubscriptionItem_Impl::ReadProperties(this, core::mem::transmute_copy(&ncount), core::mem::transmute_copy(&rgwszname), core::mem::transmute_copy(&rgvalue)).into()
             }
         }
         unsafe extern "system" fn WriteProperties<Identity: ISubscriptionItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ncount: u32, rgwszname: *const windows_core::PCWSTR, rgvalue: *const super::Variant::VARIANT) -> windows_core::HRESULT {
@@ -16614,11 +16551,8 @@ impl ISubscriptionMgr2 {
             (windows_core::Interface::vtable(self).GetItemFromCookie)(windows_core::Interface::as_raw(self), psubscriptioncookie, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetSubscriptionRunState(&self, dwnumcookies: u32, pcookies: *const windows_core::GUID) -> windows_core::Result<u32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSubscriptionRunState)(windows_core::Interface::as_raw(self), dwnumcookies, pcookies, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetSubscriptionRunState(&self, dwnumcookies: u32, pcookies: *const windows_core::GUID, pdwrunstate: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetSubscriptionRunState)(windows_core::Interface::as_raw(self), dwnumcookies, pcookies, core::mem::transmute(pdwrunstate)).ok() }
     }
     pub unsafe fn EnumSubscriptions(&self, dwflags: u32) -> windows_core::Result<IEnumSubscription> {
         unsafe {
@@ -16650,7 +16584,7 @@ pub struct ISubscriptionMgr2_Vtbl {
 pub trait ISubscriptionMgr2_Impl: ISubscriptionMgr_Impl {
     fn GetItemFromURL(&self, pwszurl: &windows_core::PCWSTR) -> windows_core::Result<ISubscriptionItem>;
     fn GetItemFromCookie(&self, psubscriptioncookie: *const windows_core::GUID) -> windows_core::Result<ISubscriptionItem>;
-    fn GetSubscriptionRunState(&self, dwnumcookies: u32, pcookies: *const windows_core::GUID) -> windows_core::Result<u32>;
+    fn GetSubscriptionRunState(&self, dwnumcookies: u32, pcookies: *const windows_core::GUID, pdwrunstate: *mut u32) -> windows_core::Result<()>;
     fn EnumSubscriptions(&self, dwflags: u32) -> windows_core::Result<IEnumSubscription>;
     fn UpdateItems(&self, dwflags: u32, dwnumcookies: u32, pcookies: *const windows_core::GUID) -> windows_core::Result<()>;
     fn AbortItems(&self, dwnumcookies: u32, pcookies: *const windows_core::GUID) -> windows_core::Result<()>;
@@ -16685,13 +16619,7 @@ impl ISubscriptionMgr2_Vtbl {
         unsafe extern "system" fn GetSubscriptionRunState<Identity: ISubscriptionMgr2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwnumcookies: u32, pcookies: *const windows_core::GUID, pdwrunstate: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISubscriptionMgr2_Impl::GetSubscriptionRunState(this, core::mem::transmute_copy(&dwnumcookies), core::mem::transmute_copy(&pcookies)) {
-                    Ok(ok__) => {
-                        pdwrunstate.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ISubscriptionMgr2_Impl::GetSubscriptionRunState(this, core::mem::transmute_copy(&dwnumcookies), core::mem::transmute_copy(&pcookies), core::mem::transmute_copy(&pdwrunstate)).into()
             }
         }
         unsafe extern "system" fn EnumSubscriptions<Identity: ISubscriptionMgr2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32, ppenumsubscriptions: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {

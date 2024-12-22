@@ -10329,11 +10329,8 @@ impl ITfLangBarItemMgr {
             (windows_core::Interface::vtable(self).GetItemFloatingRect)(windows_core::Interface::as_raw(self), dwthreadid, rguid, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetItemsStatus(&self, ulcount: u32, prgguid: *const windows_core::GUID) -> windows_core::Result<u32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetItemsStatus)(windows_core::Interface::as_raw(self), ulcount, prgguid, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetItemsStatus(&self, ulcount: u32, prgguid: *const windows_core::GUID, pdwstatus: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetItemsStatus)(windows_core::Interface::as_raw(self), ulcount, prgguid, core::mem::transmute(pdwstatus)).ok() }
     }
     pub unsafe fn GetItemNum(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -10344,11 +10341,8 @@ impl ITfLangBarItemMgr {
     pub unsafe fn GetItems(&self, ulcount: u32, ppitem: *mut Option<ITfLangBarItem>, pinfo: *mut TF_LANGBARITEMINFO, pdwstatus: *mut u32, pcfetched: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetItems)(windows_core::Interface::as_raw(self), ulcount, core::mem::transmute(ppitem), core::mem::transmute(pinfo), core::mem::transmute(pdwstatus), core::mem::transmute(pcfetched)).ok() }
     }
-    pub unsafe fn AdviseItemsSink(&self, ulcount: u32, ppunk: *const Option<ITfLangBarItemSink>, pguiditem: *const windows_core::GUID) -> windows_core::Result<u32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AdviseItemsSink)(windows_core::Interface::as_raw(self), ulcount, core::mem::transmute(ppunk), pguiditem, &mut result__).map(|| result__)
-        }
+    pub unsafe fn AdviseItemsSink(&self, ulcount: u32, ppunk: *const Option<ITfLangBarItemSink>, pguiditem: *const windows_core::GUID, pdwcookie: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).AdviseItemsSink)(windows_core::Interface::as_raw(self), ulcount, core::mem::transmute(ppunk), pguiditem, core::mem::transmute(pdwcookie)).ok() }
     }
     pub unsafe fn UnadviseItemsSink(&self, pdwcookie: &[u32]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).UnadviseItemsSink)(windows_core::Interface::as_raw(self), pdwcookie.len().try_into().unwrap(), core::mem::transmute(pdwcookie.as_ptr())).ok() }
@@ -10378,10 +10372,10 @@ pub trait ITfLangBarItemMgr_Impl: windows_core::IUnknownImpl {
     fn AdviseItemSink(&self, punk: windows_core::Ref<'_, ITfLangBarItemSink>, pdwcookie: *mut u32, rguiditem: *const windows_core::GUID) -> windows_core::Result<()>;
     fn UnadviseItemSink(&self, dwcookie: u32) -> windows_core::Result<()>;
     fn GetItemFloatingRect(&self, dwthreadid: u32, rguid: *const windows_core::GUID) -> windows_core::Result<super::super::Foundation::RECT>;
-    fn GetItemsStatus(&self, ulcount: u32, prgguid: *const windows_core::GUID) -> windows_core::Result<u32>;
+    fn GetItemsStatus(&self, ulcount: u32, prgguid: *const windows_core::GUID, pdwstatus: *mut u32) -> windows_core::Result<()>;
     fn GetItemNum(&self) -> windows_core::Result<u32>;
     fn GetItems(&self, ulcount: u32, ppitem: windows_core::OutRef<'_, ITfLangBarItem>, pinfo: *mut TF_LANGBARITEMINFO, pdwstatus: *mut u32, pcfetched: *mut u32) -> windows_core::Result<()>;
-    fn AdviseItemsSink(&self, ulcount: u32, ppunk: *const Option<ITfLangBarItemSink>, pguiditem: *const windows_core::GUID) -> windows_core::Result<u32>;
+    fn AdviseItemsSink(&self, ulcount: u32, ppunk: *const Option<ITfLangBarItemSink>, pguiditem: *const windows_core::GUID, pdwcookie: *mut u32) -> windows_core::Result<()>;
     fn UnadviseItemsSink(&self, ulcount: u32, pdwcookie: *const u32) -> windows_core::Result<()>;
 }
 impl ITfLangBarItemMgr_Vtbl {
@@ -10449,13 +10443,7 @@ impl ITfLangBarItemMgr_Vtbl {
         unsafe extern "system" fn GetItemsStatus<Identity: ITfLangBarItemMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulcount: u32, prgguid: *const windows_core::GUID, pdwstatus: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITfLangBarItemMgr_Impl::GetItemsStatus(this, core::mem::transmute_copy(&ulcount), core::mem::transmute_copy(&prgguid)) {
-                    Ok(ok__) => {
-                        pdwstatus.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITfLangBarItemMgr_Impl::GetItemsStatus(this, core::mem::transmute_copy(&ulcount), core::mem::transmute_copy(&prgguid), core::mem::transmute_copy(&pdwstatus)).into()
             }
         }
         unsafe extern "system" fn GetItemNum<Identity: ITfLangBarItemMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulcount: *mut u32) -> windows_core::HRESULT {
@@ -10479,13 +10467,7 @@ impl ITfLangBarItemMgr_Vtbl {
         unsafe extern "system" fn AdviseItemsSink<Identity: ITfLangBarItemMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulcount: u32, ppunk: *const *mut core::ffi::c_void, pguiditem: *const windows_core::GUID, pdwcookie: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITfLangBarItemMgr_Impl::AdviseItemsSink(this, core::mem::transmute_copy(&ulcount), core::mem::transmute_copy(&ppunk), core::mem::transmute_copy(&pguiditem)) {
-                    Ok(ok__) => {
-                        pdwcookie.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITfLangBarItemMgr_Impl::AdviseItemsSink(this, core::mem::transmute_copy(&ulcount), core::mem::transmute_copy(&ppunk), core::mem::transmute_copy(&pguiditem), core::mem::transmute_copy(&pdwcookie)).into()
             }
         }
         unsafe extern "system" fn UnadviseItemsSink<Identity: ITfLangBarItemMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulcount: u32, pdwcookie: *const u32) -> windows_core::HRESULT {

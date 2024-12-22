@@ -458,12 +458,9 @@ where
     unsafe { RegisterMediaTypeClass(pbc.param().abi(), ctypes, rgsztypes, rgclsid, reserved).ok() }
 }
 #[inline]
-pub unsafe fn RegisterMediaTypes(ctypes: u32, rgsztypes: *const windows_core::PCSTR) -> windows_core::Result<u16> {
+pub unsafe fn RegisterMediaTypes(ctypes: u32, rgsztypes: *const windows_core::PCSTR, rgcftypes: *mut u16) -> windows_core::Result<()> {
     windows_targets::link!("urlmon.dll" "system" fn RegisterMediaTypes(ctypes : u32, rgsztypes : *const windows_core::PCSTR, rgcftypes : *mut u16) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        RegisterMediaTypes(ctypes, rgsztypes, &mut result__).map(|| core::mem::transmute(result__))
-    }
+    unsafe { RegisterMediaTypes(ctypes, rgsztypes, core::mem::transmute(rgcftypes)).ok() }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
