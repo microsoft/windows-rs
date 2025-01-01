@@ -32,10 +32,14 @@ impl PCWSTR {
     ///
     /// The `PCWSTR`'s pointer needs to be valid for reads up until and including the next `\0`.
     pub unsafe fn len(&self) -> usize {
-        extern "C" {
-            fn wcslen(s: *const u16) -> usize;
+        // Derived from the fallback strlen impl in rust-lang/compiler-builtins
+        let mut s = self.0;
+        let mut n = 0;
+        while unsafe { *s } != 0 {
+            n += 1;
+            s = s.wrapping_add(1);
         }
-        unsafe { wcslen(self.0) }
+        n
     }
 
     /// Returns `true` if the string length is zero, and `false` otherwise.
