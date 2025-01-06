@@ -11,7 +11,7 @@ typedef void (__stdcall *CloseJsonValidator)(uintptr_t handle);
 
 extern "C" {
     void __stdcall client() {
-        auto library = LoadLibraryExW(L"sample_component_json_validator.dll", 0, LOAD_LIBRARY_SEARCH_DEFAULT_DIRS);
+        auto library = LoadLibraryExW(L"sample_json_validator.dll", 0, LOAD_LIBRARY_SEARCH_DEFAULT_DIRS);
         assert(library != 0);
 
         auto create = reinterpret_cast<CreateJsonValidator>(GetProcAddress(library, "CreateJsonValidator"));
