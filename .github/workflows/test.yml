@@ -65,18 +65,6 @@ jobs:
         run:  cargo test -p sample_bits --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test sample_com_uri
         run:  cargo test -p sample_com_uri --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test sample_component_hello_world
-        run:  cargo test -p sample_component_hello_world --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test sample_component_json_validator
-        run:  cargo test -p sample_component_json_validator --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test sample_component_json_validator_client
-        run:  cargo test -p sample_component_json_validator_client --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test sample_component_json_validator_winrt
-        run:  cargo test -p sample_component_json_validator_winrt --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test sample_component_json_validator_winrt_client
-        run:  cargo test -p sample_component_json_validator_winrt_client --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test sample_component_json_validator_winrt_client_cpp
-        run:  cargo test -p sample_component_json_validator_winrt_client_cpp --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test sample_consent
         run:  cargo test -p sample_consent --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test sample_core_app
@@ -111,6 +99,16 @@ jobs:
         run:  cargo test -p sample_enum_windows_sys --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test sample_file_dialogs
         run:  cargo test -p sample_file_dialogs --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_json_validator
+        run:  cargo test -p sample_json_validator --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_json_validator_client
+        run:  cargo test -p sample_json_validator_client --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_json_validator_winrt
+        run:  cargo test -p sample_json_validator_winrt --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_json_validator_winrt_client
+        run:  cargo test -p sample_json_validator_winrt_client --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_json_validator_winrt_client_cpp
+        run:  cargo test -p sample_json_validator_winrt_client_cpp --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test sample_kernel_event
         run:  cargo test -p sample_kernel_event --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test sample_memory_buffer
@@ -157,10 +155,10 @@ jobs:
         run:  cargo test -p test_alternate_success_code --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_arch
         run:  cargo test -p test_arch --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Clean
-        run:  cargo clean
       - name: Test test_arch_feature
         run:  cargo test -p test_arch_feature --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Clean
+        run:  cargo clean
       - name: Test test_array
         run:  cargo test -p test_array --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_async
@@ -259,10 +257,10 @@ jobs:
         run:  cargo test -p test_readme --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_ref_params
         run:  cargo test -p test_ref_params --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Clean
-        run:  cargo clean
       - name: Test test_reference
         run:  cargo test -p test_reference --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Clean
+        run:  cargo clean
       - name: Test test_reference_client
         run:  cargo test -p test_reference_client --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_reference_float
@@ -361,8 +359,6 @@ jobs:
         run:  cargo test -p windows_x86_64_gnu --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows_x86_64_gnullvm
         run:  cargo test -p windows_x86_64_gnullvm --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Clean
-        run:  cargo clean
       - name: Test windows_x86_64_msvc
         run:  cargo test -p windows_x86_64_msvc --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Check diff
