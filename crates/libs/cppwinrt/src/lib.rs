@@ -6,6 +6,7 @@ const VERSION: &str = "2.0.240405.15";
 /// Calls the C++/WinRT compiler with the given arguments.
 ///
 /// Use `cppwinrt["-help"]` for available options.
+#[track_caller]
 pub fn cppwinrt<I, S>(args: I) -> String
 where
     I: IntoIterator<Item = S>,
