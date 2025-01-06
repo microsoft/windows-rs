@@ -1,5 +1,6 @@
 use windows_registry::*;
 use windows_strings::*;
+use std::borrow::Cow;
 
 #[test]
 fn string() -> Result<()> {
@@ -7,7 +8,7 @@ fn string() -> Result<()> {
     _ = CURRENT_USER.remove_tree(test_key);
     let key = CURRENT_USER.create(test_key)?;
 
-    key.set_string("string", "value")?;
+    key.set_string("string", Cow::Owned("lolz".to_string()))?;
     assert_eq!(key.get_type("string")?, Type::String);
     assert_eq!(key.get_string("string")?, "value");
     assert_eq!(key.get_hstring("string")?, "value");
@@ -19,7 +20,7 @@ fn string() -> Result<()> {
     assert_eq!(key.get_hstring("hstring")?, "value");
     assert_eq!(key.get_multi_string("hstring")?, ["value".to_string()]);
 
-    key.set_expand_string("expand_string", "value")?;
+    key.set_expand_string("expand_string".to_string(), "value")?;
     assert_eq!(key.get_type("expand_string")?, Type::ExpandString);
     assert_eq!(key.get_string("expand_string")?, "value");
     assert_eq!(key.get_hstring("expand_string")?, "value");
