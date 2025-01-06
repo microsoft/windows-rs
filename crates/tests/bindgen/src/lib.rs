@@ -45,6 +45,7 @@ pub mod fn_return_void_win;
 pub mod fn_sys;
 pub mod fn_win;
 pub mod interface;
+pub mod interface_array_return;
 pub mod interface_cpp;
 pub mod interface_cpp_derive;
 pub mod interface_cpp_derive_sys;

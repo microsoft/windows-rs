@@ -15057,11 +15057,8 @@ impl ICategorizer {
         unsafe { (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute(pszdesc.as_ptr()), pszdesc.len().try_into().unwrap()).ok() }
     }
     #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn GetCategory(&self, cidl: u32, apidl: *const *const Common::ITEMIDLIST) -> windows_core::Result<u32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCategory)(windows_core::Interface::as_raw(self), cidl, apidl, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetCategory(&self, cidl: u32, apidl: *const *const Common::ITEMIDLIST, rgcategoryids: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetCategory)(windows_core::Interface::as_raw(self), cidl, apidl, core::mem::transmute(rgcategoryids)).ok() }
     }
     pub unsafe fn GetCategoryInfo(&self, dwcategoryid: u32, pci: *mut CATEGORY_INFO) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetCategoryInfo)(windows_core::Interface::as_raw(self), dwcategoryid, core::mem::transmute(pci)).ok() }
@@ -15084,7 +15081,7 @@ pub struct ICategorizer_Vtbl {
 #[cfg(feature = "Win32_UI_Shell_Common")]
 pub trait ICategorizer_Impl: windows_core::IUnknownImpl {
     fn GetDescription(&self, pszdesc: windows_core::PWSTR, cch: u32) -> windows_core::Result<()>;
-    fn GetCategory(&self, cidl: u32, apidl: *const *const Common::ITEMIDLIST) -> windows_core::Result<u32>;
+    fn GetCategory(&self, cidl: u32, apidl: *const *const Common::ITEMIDLIST, rgcategoryids: *mut u32) -> windows_core::Result<()>;
     fn GetCategoryInfo(&self, dwcategoryid: u32, pci: *mut CATEGORY_INFO) -> windows_core::Result<()>;
     fn CompareCategory(&self, csfflags: CATSORT_FLAGS, dwcategoryid1: u32, dwcategoryid2: u32) -> windows_core::Result<()>;
 }
@@ -15100,13 +15097,7 @@ impl ICategorizer_Vtbl {
         unsafe extern "system" fn GetCategory<Identity: ICategorizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cidl: u32, apidl: *const *const Common::ITEMIDLIST, rgcategoryids: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICategorizer_Impl::GetCategory(this, core::mem::transmute_copy(&cidl), core::mem::transmute_copy(&apidl)) {
-                    Ok(ok__) => {
-                        rgcategoryids.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ICategorizer_Impl::GetCategory(this, core::mem::transmute_copy(&cidl), core::mem::transmute_copy(&apidl), core::mem::transmute_copy(&rgcategoryids)).into()
             }
         }
         unsafe extern "system" fn GetCategoryInfo<Identity: ICategorizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcategoryid: u32, pci: *mut CATEGORY_INFO) -> windows_core::HRESULT {

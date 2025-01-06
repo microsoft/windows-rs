@@ -783,15 +783,12 @@ pub unsafe fn ScriptApplyLogicalWidth(pidx: *const i32, cchars: i32, cglyphs: i3
     unsafe { ScriptApplyLogicalWidth(pidx, cchars, cglyphs, pwlogclust, psva, piadvance, psa, core::mem::transmute(pabc.unwrap_or(core::mem::zeroed())), core::mem::transmute(pijustify)).ok() }
 }
 #[inline]
-pub unsafe fn ScriptBreak<P0>(pwcchars: P0, cchars: i32, psa: *const SCRIPT_ANALYSIS) -> windows_core::Result<SCRIPT_LOGATTR>
+pub unsafe fn ScriptBreak<P0>(pwcchars: P0, cchars: i32, psa: *const SCRIPT_ANALYSIS, psla: *mut SCRIPT_LOGATTR) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("usp10.dll" "system" fn ScriptBreak(pwcchars : windows_core::PCWSTR, cchars : i32, psa : *const SCRIPT_ANALYSIS, psla : *mut SCRIPT_LOGATTR) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        ScriptBreak(pwcchars.param().abi(), cchars, psa, &mut result__).map(|| core::mem::transmute(result__))
-    }
+    unsafe { ScriptBreak(pwcchars.param().abi(), cchars, psa, core::mem::transmute(psla)).ok() }
 }
 #[inline]
 pub unsafe fn ScriptCPtoX(icp: i32, ftrailing: bool, cglyphs: i32, pwlogclust: &[u16], psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: *const SCRIPT_ANALYSIS, pix: *mut i32) -> windows_core::Result<()> {
@@ -880,12 +877,9 @@ pub unsafe fn ScriptItemizeOpenType(pwcinchars: &[u16], cmaxitems: i32, pscontro
     unsafe { ScriptItemizeOpenType(core::mem::transmute(pwcinchars.as_ptr()), pwcinchars.len().try_into().unwrap(), cmaxitems, core::mem::transmute(pscontrol.unwrap_or(core::mem::zeroed())), core::mem::transmute(psstate.unwrap_or(core::mem::zeroed())), core::mem::transmute(pitems), core::mem::transmute(pscripttags), core::mem::transmute(pcitems)).ok() }
 }
 #[inline]
-pub unsafe fn ScriptJustify(psva: *const SCRIPT_VISATTR, piadvance: *const i32, cglyphs: i32, idx: i32, iminkashida: i32) -> windows_core::Result<i32> {
+pub unsafe fn ScriptJustify(psva: *const SCRIPT_VISATTR, piadvance: *const i32, cglyphs: i32, idx: i32, iminkashida: i32, pijustify: *mut i32) -> windows_core::Result<()> {
     windows_targets::link!("usp10.dll" "system" fn ScriptJustify(psva : *const SCRIPT_VISATTR, piadvance : *const i32, cglyphs : i32, idx : i32, iminkashida : i32, pijustify : *mut i32) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        ScriptJustify(psva, piadvance, cglyphs, idx, iminkashida, &mut result__).map(|| core::mem::transmute(result__))
-    }
+    unsafe { ScriptJustify(psva, piadvance, cglyphs, idx, iminkashida, core::mem::transmute(pijustify)).ok() }
 }
 #[inline]
 pub unsafe fn ScriptLayout(cruns: i32, pblevel: *const u8, pivisualtological: Option<*mut i32>, pilogicaltovisual: Option<*mut i32>) -> windows_core::Result<()> {
