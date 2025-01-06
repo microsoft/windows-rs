@@ -6,7 +6,7 @@ const VERSION: &str = "2.0.240405.15";
 /// Calls the C++/WinRT compiler with the given arguments.
 ///
 /// Use `cppwinrt["-help"]` for available options.
-pub fn cppwinrt<I, S>(args: I) -> Result<String, String>
+pub fn cppwinrt<I, S>(args: I) -> String
 where
     I: IntoIterator<Item = S>,
     S: AsRef<std::ffi::OsStr>,
@@ -27,9 +27,9 @@ where
     _ = std::fs::remove_file(path);
 
     if output.status.success() {
-        Ok(String::from_utf8_lossy(&output.stdout).to_string())
+        String::from_utf8_lossy(&output.stdout).to_string()
     } else {
-        Err(String::from_utf8_lossy(&output.stderr).to_string())
+        panic!("{}", String::from_utf8_lossy(&output.stderr))
     }
 }
 
@@ -38,11 +38,14 @@ mod tests {
     use crate::*;
 
     #[test]
-    fn test() {
-        let ok = cppwinrt(["-help"]).unwrap();
-        assert!(ok.contains(VERSION), "unexpected version");
+    #[should_panic(expected = "'-invalid' is not supported")]
+    fn invalid_arg() {
+        cppwinrt(["-invalid"]);
+    }
 
-        let err = cppwinrt(["-invalid"]).unwrap_err();
-        assert!(err.contains("'-invalid' is not supported"));
+    #[test]
+    fn unexpected_version() {
+        let ok = cppwinrt(["-help"]);
+        assert!(ok.contains(VERSION), "unexpected version");
     }
 }
