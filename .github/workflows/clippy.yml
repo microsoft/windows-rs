@@ -41,18 +41,6 @@ jobs:
         run:  cargo clippy -p sample_bits
       - name: Clippy sample_com_uri
         run:  cargo clippy -p sample_com_uri
-      - name: Clippy sample_component_hello_world
-        run:  cargo clippy -p sample_component_hello_world
-      - name: Clippy sample_component_json_validator
-        run:  cargo clippy -p sample_component_json_validator
-      - name: Clippy sample_component_json_validator_client
-        run:  cargo clippy -p sample_component_json_validator_client
-      - name: Clippy sample_component_json_validator_winrt
-        run:  cargo clippy -p sample_component_json_validator_winrt
-      - name: Clippy sample_component_json_validator_winrt_client
-        run:  cargo clippy -p sample_component_json_validator_winrt_client
-      - name: Clippy sample_component_json_validator_winrt_client_cpp
-        run:  cargo clippy -p sample_component_json_validator_winrt_client_cpp
       - name: Clippy sample_consent
         run:  cargo clippy -p sample_consent
       - name: Clippy sample_core_app
@@ -87,6 +75,16 @@ jobs:
         run:  cargo clippy -p sample_enum_windows_sys
       - name: Clippy sample_file_dialogs
         run:  cargo clippy -p sample_file_dialogs
+      - name: Clippy sample_json_validator
+        run:  cargo clippy -p sample_json_validator
+      - name: Clippy sample_json_validator_client
+        run:  cargo clippy -p sample_json_validator_client
+      - name: Clippy sample_json_validator_winrt
+        run:  cargo clippy -p sample_json_validator_winrt
+      - name: Clippy sample_json_validator_winrt_client
+        run:  cargo clippy -p sample_json_validator_winrt_client
+      - name: Clippy sample_json_validator_winrt_client_cpp
+        run:  cargo clippy -p sample_json_validator_winrt_client_cpp
       - name: Clippy sample_kernel_event
         run:  cargo clippy -p sample_kernel_event
       - name: Clippy sample_memory_buffer

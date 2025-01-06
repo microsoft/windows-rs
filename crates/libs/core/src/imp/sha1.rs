@@ -110,11 +110,11 @@ impl ConstBuffer {
             .push(b'-')
             .push_hex_u16(guid.data3)
             .push(b'-')
-            .push_hex_u16((guid.data4[0] as u16) << 8 | guid.data4[1] as u16)
+            .push_hex_u16(((guid.data4[0] as u16) << 8) | guid.data4[1] as u16)
             .push(b'-')
-            .push_hex_u16((guid.data4[2] as u16) << 8 | guid.data4[3] as u16)
-            .push_hex_u16((guid.data4[4] as u16) << 8 | guid.data4[5] as u16)
-            .push_hex_u16((guid.data4[6] as u16) << 8 | guid.data4[7] as u16)
+            .push_hex_u16(((guid.data4[2] as u16) << 8) | guid.data4[3] as u16)
+            .push_hex_u16(((guid.data4[4] as u16) << 8) | guid.data4[5] as u16)
+            .push_hex_u16(((guid.data4[6] as u16) << 8) | guid.data4[7] as u16)
             .push(b'}')
     }
 }

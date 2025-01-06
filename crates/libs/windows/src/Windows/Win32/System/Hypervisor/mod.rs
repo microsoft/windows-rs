@@ -485,12 +485,9 @@ pub unsafe fn WHvGetVirtualProcessorInterruptControllerState2(partition: WHV_PAR
     unsafe { WHvGetVirtualProcessorInterruptControllerState2(partition, vpindex, core::mem::transmute(state), statesize, core::mem::transmute(writtensize.unwrap_or(core::mem::zeroed()))).ok() }
 }
 #[inline]
-pub unsafe fn WHvGetVirtualProcessorRegisters(partition: WHV_PARTITION_HANDLE, vpindex: u32, registernames: *const WHV_REGISTER_NAME, registercount: u32) -> windows_core::Result<WHV_REGISTER_VALUE> {
+pub unsafe fn WHvGetVirtualProcessorRegisters(partition: WHV_PARTITION_HANDLE, vpindex: u32, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *mut WHV_REGISTER_VALUE) -> windows_core::Result<()> {
     windows_targets::link!("winhvplatform.dll" "system" fn WHvGetVirtualProcessorRegisters(partition : WHV_PARTITION_HANDLE, vpindex : u32, registernames : *const WHV_REGISTER_NAME, registercount : u32, registervalues : *mut WHV_REGISTER_VALUE) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WHvGetVirtualProcessorRegisters(partition, vpindex, registernames, registercount, &mut result__).map(|| core::mem::transmute(result__))
-    }
+    unsafe { WHvGetVirtualProcessorRegisters(partition, vpindex, registernames, registercount, core::mem::transmute(registervalues)).ok() }
 }
 #[inline]
 pub unsafe fn WHvGetVirtualProcessorState(partition: WHV_PARTITION_HANDLE, vpindex: u32, statetype: WHV_VIRTUAL_PROCESSOR_STATE_TYPE, buffer: *mut core::ffi::c_void, buffersizeinbytes: u32, byteswritten: Option<*mut u32>) -> windows_core::Result<()> {

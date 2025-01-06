@@ -16,10 +16,7 @@ version = "0.1"
 Use `cppwinrt` function as needed:
 
 ```rust
-match cppwinrt::cppwinrt(["-help"]) {
-    Ok(output) => println!("{output}"),
-    Err(error) => println!("{error}"),
-};
+println!("{}", cppwinrt::cppwinrt(["-help"]));
 ```
 
 Source:

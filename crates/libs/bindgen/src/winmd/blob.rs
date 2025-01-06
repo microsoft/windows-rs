@@ -30,8 +30,8 @@ impl Blob {
         } else {
             (
                 (((self[0] & 0x1F) as usize) << 24)
-                    | (self[1] as usize) << 16
-                    | (self[2] as usize) << 8
+                    | ((self[1] as usize) << 16)
+                    | ((self[2] as usize) << 8)
                     | self[3] as usize,
                 4,
             )

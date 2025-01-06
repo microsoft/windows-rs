@@ -146,14 +146,11 @@ impl Default for DedupStreamEntry {
 windows_core::imp::define_interface!(IDedupBackupSupport, IDedupBackupSupport_Vtbl, 0xc719d963_2b2d_415e_acf7_7eb7ca596ff4);
 windows_core::imp::interface_hierarchy!(IDedupBackupSupport, windows_core::IUnknown);
 impl IDedupBackupSupport {
-    pub unsafe fn RestoreFiles<P2>(&self, numberoffiles: u32, filefullpaths: *const windows_core::BSTR, store: P2, flags: u32) -> windows_core::Result<windows_core::HRESULT>
+    pub unsafe fn RestoreFiles<P2>(&self, numberoffiles: u32, filefullpaths: *const windows_core::BSTR, store: P2, flags: u32, fileresults: *mut windows_core::HRESULT) -> windows_core::Result<()>
     where
         P2: windows_core::Param<IDedupReadFileCallback>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RestoreFiles)(windows_core::Interface::as_raw(self), numberoffiles, core::mem::transmute(filefullpaths), store.param().abi(), flags, &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).RestoreFiles)(windows_core::Interface::as_raw(self), numberoffiles, core::mem::transmute(filefullpaths), store.param().abi(), flags, core::mem::transmute(fileresults)).ok() }
     }
 }
 #[repr(C)]
@@ -162,20 +159,14 @@ pub struct IDedupBackupSupport_Vtbl {
     pub RestoreFiles: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const *mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
 pub trait IDedupBackupSupport_Impl: windows_core::IUnknownImpl {
-    fn RestoreFiles(&self, numberoffiles: u32, filefullpaths: *const windows_core::BSTR, store: windows_core::Ref<'_, IDedupReadFileCallback>, flags: u32) -> windows_core::Result<windows_core::HRESULT>;
+    fn RestoreFiles(&self, numberoffiles: u32, filefullpaths: *const windows_core::BSTR, store: windows_core::Ref<'_, IDedupReadFileCallback>, flags: u32, fileresults: *mut windows_core::HRESULT) -> windows_core::Result<()>;
 }
 impl IDedupBackupSupport_Vtbl {
     pub const fn new<Identity: IDedupBackupSupport_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RestoreFiles<Identity: IDedupBackupSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numberoffiles: u32, filefullpaths: *const *mut core::ffi::c_void, store: *mut core::ffi::c_void, flags: u32, fileresults: *mut windows_core::HRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDedupBackupSupport_Impl::RestoreFiles(this, core::mem::transmute_copy(&numberoffiles), core::mem::transmute_copy(&filefullpaths), core::mem::transmute_copy(&store), core::mem::transmute_copy(&flags)) {
-                    Ok(ok__) => {
-                        fileresults.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDedupBackupSupport_Impl::RestoreFiles(this, core::mem::transmute_copy(&numberoffiles), core::mem::transmute_copy(&filefullpaths), core::mem::transmute_copy(&store), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&fileresults)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), RestoreFiles: RestoreFiles::<Identity, OFFSET> }
