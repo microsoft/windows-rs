@@ -47,8 +47,7 @@ fn main() {
         &format!("{}\\System32\\WinMetadata", env!("windir")),
         "-out",
         &include,
-    ])
-    .unwrap();
+    ]);
 
     cc::Build::new()
         .cpp(true)
