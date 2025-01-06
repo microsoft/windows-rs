@@ -1,6 +1,6 @@
+use std::borrow::Cow;
 use windows_registry::*;
 use windows_strings::*;
-use std::borrow::Cow;
 
 #[test]
 fn string() -> Result<()> {
@@ -18,7 +18,10 @@ fn string() -> Result<()> {
     assert_eq!(key.get_type("string_different_types")?, Type::String);
     assert_eq!(key.get_string("string_different_types")?, "value");
     assert_eq!(key.get_hstring("string_different_types")?, "value");
-    assert_eq!(key.get_multi_string("string_different_types")?, ["value".to_string()]);
+    assert_eq!(
+        key.get_multi_string("string_different_types")?,
+        ["value".to_string()],
+    );
 
     key.set_hstring("hstring", h!("value"))?;
     assert_eq!(key.get_type("hstring")?, Type::String);
@@ -36,7 +39,10 @@ fn string() -> Result<()> {
     assert_eq!(key.get_type("expand_string_different_types")?, Type::ExpandString);
     assert_eq!(key.get_string("expand_string_different_types")?, "value");
     assert_eq!(key.get_hstring("expand_string_different_types")?, "value");
-    assert_eq!(key.get_multi_string("expand_string_different_types")?, ["value"]);
+    assert_eq!(
+        key.get_multi_string("expand_string_different_types")?,
+        ["value"],
+    );
 
     key.set_expand_hstring("expand_hstring", h!("value"))?;
     assert_eq!(key.get_type("expand_hstring")?, Type::ExpandString);
