@@ -119,7 +119,7 @@ impl Key {
     }
 
     /// Sets the name and value in the registry key.
-    pub fn set_multi_string<T: AsRef<str>,U: AsRef<str>>(&self, name: T, value: &[U]) -> Result<()> {
+    pub fn set_multi_string<T: AsRef<str>>(&self, name: T, value: &[T]) -> Result<()> {
         let value = multi_pcwstr(value);
         self.set_bytes(name, Type::MultiString, value.as_bytes())
     }
