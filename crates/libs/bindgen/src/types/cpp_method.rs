@@ -825,6 +825,8 @@ fn is_param_retval(ty: &Type, param: Param, hint: ParamHint) -> bool {
     {
         return false;
     }
+    // This is reevaluated to detect unsupported array parameters.
+    // https://github.com/microsoft/windows-rs/issues/3384
     if ParamHint::from_param(param).is_array() {
         return false;
     }
