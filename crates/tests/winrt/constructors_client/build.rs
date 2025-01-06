@@ -26,8 +26,7 @@ fn main() {
         "../../../libs/bindgen/default",
         "-out",
         &include,
-    ])
-    .unwrap();
+    ]);
 
     cc::Build::new()
         .cpp(true)

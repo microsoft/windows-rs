@@ -142,8 +142,8 @@ impl File {
 
         let heap_sizes = result.bytes.copy_as::<u8>(tables_data.0 + 6)?;
         let string_index_size = if (heap_sizes & 1) == 1 { 4 } else { 2 };
-        let guid_index_size = if (heap_sizes >> 1 & 1) == 1 { 4 } else { 2 };
-        let blob_index_size = if (heap_sizes >> 2 & 1) == 1 { 4 } else { 2 };
+        let guid_index_size = if ((heap_sizes >> 1) & 1) == 1 { 4 } else { 2 };
+        let blob_index_size = if ((heap_sizes >> 2) & 1) == 1 { 4 } else { 2 };
         let valid_bits = result.bytes.copy_as::<u64>(tables_data.0 + 8)?;
         view = tables_data.0 + 24;
 
@@ -174,7 +174,7 @@ impl File {
         let mut unused_module = Table::default();
 
         for i in 0..64 {
-            if (valid_bits >> i & 1) == 0 {
+            if ((valid_bits >> i) & 1) == 0 {
                 continue;
             }
 
