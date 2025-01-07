@@ -1,6 +1,6 @@
 [package]
 name = "windows-registry"
-version = "0.3.0"
+version = "0.4.0"
 authors = ["Microsoft"]
 edition = "2021"
 rust-version = "1.74"
@@ -18,16 +18,16 @@ default-target = "x86_64-pc-windows-msvc"
 targets = []
 
 [dependencies.windows-targets]
-version = "0.52.6"
+version = "0.53.0"
 path = "../targets"
 
 [dependencies.windows-result]
-version = "0.2.0"
+version = "0.3.0"
 path = "../result"
 default-features = false
 
 [dependencies.windows-strings]
-version = "0.2.0"
+version = "0.3.0"
 path = "../strings"
 default-features = false
 

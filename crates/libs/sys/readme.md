@@ -3,9 +3,9 @@
 The `windows-sys` crate is a zero-overhead fallback for the most demanding situations and primarily where the absolute best compile time is essential. It only includes function declarations (externs), structs, and constants. No convenience helpers, traits, or wrappers are provided.
 
 - [Getting started](https://kennykerr.ca/rust-getting-started/)
-- [Samples](https://github.com/microsoft/windows-rs/tree/0.59.0/crates/samples)
+- [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
 - [Releases](https://github.com/microsoft/windows-rs/releases)
-- [Feature search](https://microsoft.github.io/windows-rs/features/#/0.59.0)
+- [Feature search](https://microsoft.github.io/windows-rs/features)
 
 Start by adding the following to your Cargo.toml file:
 
