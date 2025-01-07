@@ -217,7 +217,7 @@ impl IFhConfigMgr {
         unsafe { (windows_core::Interface::vtable(self).ChangeDefaultTargetRecommendation)(windows_core::Interface::as_raw(self), recommend.into()).ok() }
     }
     pub unsafe fn QueryProtectionStatus(&self, protectionstate: *mut u32, protecteduntiltime: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).QueryProtectionStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(protectionstate), core::mem::transmute(protecteduntiltime)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).QueryProtectionStatus)(windows_core::Interface::as_raw(self), protectionstate as _, core::mem::transmute(protecteduntiltime)).ok() }
     }
 }
 #[repr(C)]
@@ -406,7 +406,7 @@ impl IFhReassociation {
         unsafe { (windows_core::Interface::vtable(self).ScanTargetForConfigurations)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(targeturl)).ok() }
     }
     pub unsafe fn GetConfigurationDetails(&self, index: u32, username: *mut windows_core::BSTR, pcname: *mut windows_core::BSTR, backuptime: *mut super::super::Foundation::FILETIME) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetConfigurationDetails)(windows_core::Interface::as_raw(self), index, core::mem::transmute(username), core::mem::transmute(pcname), core::mem::transmute(backuptime)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetConfigurationDetails)(windows_core::Interface::as_raw(self), index, core::mem::transmute(username), core::mem::transmute(pcname), backuptime as _).ok() }
     }
     pub unsafe fn SelectConfiguration(&self, index: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SelectConfiguration)(windows_core::Interface::as_raw(self), index).ok() }

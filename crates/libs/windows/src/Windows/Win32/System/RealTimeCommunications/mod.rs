@@ -6,11 +6,11 @@ windows_core::imp::interface_hierarchy!(INetworkTransportSettings, windows_core:
 impl INetworkTransportSettings {
     #[cfg(feature = "Win32_Networking_WinSock")]
     pub unsafe fn ApplySetting(&self, settingid: *const super::super::Networking::WinSock::TRANSPORT_SETTING_ID, valuein: &[u8], lengthout: *mut u32, valueout: *mut *mut u8) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ApplySetting)(windows_core::Interface::as_raw(self), settingid, valuein.len().try_into().unwrap(), core::mem::transmute(valuein.as_ptr()), core::mem::transmute(lengthout), core::mem::transmute(valueout)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ApplySetting)(windows_core::Interface::as_raw(self), settingid, valuein.len().try_into().unwrap(), core::mem::transmute(valuein.as_ptr()), lengthout as _, valueout as _).ok() }
     }
     #[cfg(feature = "Win32_Networking_WinSock")]
     pub unsafe fn QuerySetting(&self, settingid: *const super::super::Networking::WinSock::TRANSPORT_SETTING_ID, valuein: &[u8], lengthout: *mut u32, valueout: *mut *mut u8) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).QuerySetting)(windows_core::Interface::as_raw(self), settingid, valuein.len().try_into().unwrap(), core::mem::transmute(valuein.as_ptr()), core::mem::transmute(lengthout), core::mem::transmute(valueout)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).QuerySetting)(windows_core::Interface::as_raw(self), settingid, valuein.len().try_into().unwrap(), core::mem::transmute(valuein.as_ptr()), lengthout as _, valueout as _).ok() }
     }
 }
 #[repr(C)]
@@ -1869,7 +1869,7 @@ impl IRTCClientPortManagement {
         unsafe { (windows_core::Interface::vtable(self).StopListenAddressAndPort)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrinternallocaladdress), linternallocalport).ok() }
     }
     pub unsafe fn GetPortRange(&self, enporttype: RTC_PORT_TYPE, plminvalue: *mut i32, plmaxvalue: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetPortRange)(windows_core::Interface::as_raw(self), enporttype, core::mem::transmute(plminvalue), core::mem::transmute(plmaxvalue)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetPortRange)(windows_core::Interface::as_raw(self), enporttype, plminvalue as _, plmaxvalue as _).ok() }
     }
 }
 #[repr(C)]
@@ -2359,7 +2359,7 @@ impl IRTCClientPresence2 {
         unsafe { (windows_core::Interface::vtable(self).GetPresenceData)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrnamespace), core::mem::transmute(pbstrdata)).ok() }
     }
     pub unsafe fn GetLocalPresenceInfo(&self, penstatus: *mut RTC_PRESENCE_STATUS, pbstrnotes: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetLocalPresenceInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(penstatus), core::mem::transmute(pbstrnotes)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetLocalPresenceInfo)(windows_core::Interface::as_raw(self), penstatus as _, core::mem::transmute(pbstrnotes)).ok() }
     }
     pub unsafe fn AddBuddyEx<P5>(&self, bstrpresentityuri: &windows_core::BSTR, bstrusername: &windows_core::BSTR, bstrdata: &windows_core::BSTR, fpersistent: super::super::Foundation::VARIANT_BOOL, ensubscriptiontype: RTC_BUDDY_SUBSCRIPTION_TYPE, pprofile: P5, lflags: i32) -> windows_core::Result<IRTCBuddy2>
     where
@@ -2911,7 +2911,7 @@ windows_core::imp::define_interface!(IRTCEnumBuddies, IRTCEnumBuddies_Vtbl, 0xf7
 windows_core::imp::interface_hierarchy!(IRTCEnumBuddies, windows_core::IUnknown);
 impl IRTCEnumBuddies {
     pub unsafe fn Next(&self, ppelements: &mut [Option<IRTCBuddy>], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::mem::zeroed()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
@@ -2989,7 +2989,7 @@ windows_core::imp::define_interface!(IRTCEnumGroups, IRTCEnumGroups_Vtbl, 0x7423
 windows_core::imp::interface_hierarchy!(IRTCEnumGroups, windows_core::IUnknown);
 impl IRTCEnumGroups {
     pub unsafe fn Next(&self, ppelements: &mut [Option<IRTCBuddyGroup>], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::mem::zeroed()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
@@ -3067,7 +3067,7 @@ windows_core::imp::define_interface!(IRTCEnumParticipants, IRTCEnumParticipants_
 windows_core::imp::interface_hierarchy!(IRTCEnumParticipants, windows_core::IUnknown);
 impl IRTCEnumParticipants {
     pub unsafe fn Next(&self, ppelements: &mut [Option<IRTCParticipant>], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::mem::zeroed()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
@@ -3145,7 +3145,7 @@ windows_core::imp::define_interface!(IRTCEnumPresenceDevices, IRTCEnumPresenceDe
 windows_core::imp::interface_hierarchy!(IRTCEnumPresenceDevices, windows_core::IUnknown);
 impl IRTCEnumPresenceDevices {
     pub unsafe fn Next(&self, ppelements: &mut [Option<IRTCPresenceDevice>], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::mem::zeroed()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
@@ -3223,7 +3223,7 @@ windows_core::imp::define_interface!(IRTCEnumProfiles, IRTCEnumProfiles_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(IRTCEnumProfiles, windows_core::IUnknown);
 impl IRTCEnumProfiles {
     pub unsafe fn Next(&self, ppelements: &mut [Option<IRTCProfile>], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::mem::zeroed()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
@@ -3301,7 +3301,7 @@ windows_core::imp::define_interface!(IRTCEnumUserSearchResults, IRTCEnumUserSear
 windows_core::imp::interface_hierarchy!(IRTCEnumUserSearchResults, windows_core::IUnknown);
 impl IRTCEnumUserSearchResults {
     pub unsafe fn Next(&self, ppelements: &mut [Option<IRTCUserSearchResult>], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::mem::zeroed()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
@@ -3379,7 +3379,7 @@ windows_core::imp::define_interface!(IRTCEnumWatchers, IRTCEnumWatchers_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(IRTCEnumWatchers, windows_core::IUnknown);
 impl IRTCEnumWatchers {
     pub unsafe fn Next(&self, ppelements: &mut [Option<IRTCWatcher>], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::mem::zeroed()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
@@ -4382,7 +4382,7 @@ windows_core::imp::define_interface!(IRTCPortManager, IRTCPortManager_Vtbl, 0xda
 windows_core::imp::interface_hierarchy!(IRTCPortManager, windows_core::IUnknown);
 impl IRTCPortManager {
     pub unsafe fn GetMapping(&self, bstrremoteaddress: &windows_core::BSTR, enporttype: RTC_PORT_TYPE, pbstrinternallocaladdress: *mut windows_core::BSTR, plinternallocalport: *mut i32, pbstrexternallocaladdress: *mut windows_core::BSTR, plexternallocalport: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetMapping)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrremoteaddress), enporttype, core::mem::transmute(pbstrinternallocaladdress), core::mem::transmute(plinternallocalport), core::mem::transmute(pbstrexternallocaladdress), core::mem::transmute(plexternallocalport)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetMapping)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrremoteaddress), enporttype, core::mem::transmute(pbstrinternallocaladdress), plinternallocalport as _, core::mem::transmute(pbstrexternallocaladdress), plexternallocalport as _).ok() }
     }
     pub unsafe fn UpdateRemoteAddress(&self, bstrremoteaddress: &windows_core::BSTR, bstrinternallocaladdress: &windows_core::BSTR, linternallocalport: i32, bstrexternallocaladdress: &windows_core::BSTR, lexternallocalport: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).UpdateRemoteAddress)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrremoteaddress), core::mem::transmute_copy(bstrinternallocaladdress), linternallocalport, core::mem::transmute_copy(bstrexternallocaladdress), lexternallocalport).ok() }
@@ -4918,7 +4918,7 @@ impl IRTCPresenceStatusEvent {
         }
     }
     pub unsafe fn GetLocalPresenceInfo(&self, penstatus: *mut RTC_PRESENCE_STATUS, pbstrnotes: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetLocalPresenceInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(penstatus), core::mem::transmute(pbstrnotes)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetLocalPresenceInfo)(windows_core::Interface::as_raw(self), penstatus as _, core::mem::transmute(pbstrnotes)).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6610,7 +6610,7 @@ windows_core::imp::define_interface!(IRTCSessionDescriptionManager, IRTCSessionD
 windows_core::imp::interface_hierarchy!(IRTCSessionDescriptionManager, windows_core::IUnknown);
 impl IRTCSessionDescriptionManager {
     pub unsafe fn EvaluateSessionDescription(&self, bstrcontenttype: &windows_core::BSTR, bstrsessiondescription: &windows_core::BSTR, pfapplicationsession: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EvaluateSessionDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrcontenttype), core::mem::transmute_copy(bstrsessiondescription), core::mem::transmute(pfapplicationsession)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).EvaluateSessionDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrcontenttype), core::mem::transmute_copy(bstrsessiondescription), pfapplicationsession as _).ok() }
     }
 }
 #[repr(C)]
@@ -8031,11 +8031,11 @@ windows_core::imp::interface_hierarchy!(ITransportSettingsInternal, windows_core
 impl ITransportSettingsInternal {
     #[cfg(feature = "Win32_Networking_WinSock")]
     pub unsafe fn ApplySetting(&self, setting: *mut TRANSPORT_SETTING) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ApplySetting)(windows_core::Interface::as_raw(self), core::mem::transmute(setting)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ApplySetting)(windows_core::Interface::as_raw(self), setting as _).ok() }
     }
     #[cfg(feature = "Win32_Networking_WinSock")]
     pub unsafe fn QuerySetting(&self, setting: *mut TRANSPORT_SETTING) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).QuerySetting)(windows_core::Interface::as_raw(self), core::mem::transmute(setting)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).QuerySetting)(windows_core::Interface::as_raw(self), setting as _).ok() }
     }
 }
 #[repr(C)]

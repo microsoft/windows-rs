@@ -9,7 +9,7 @@ pub unsafe fn WscGetAntiMalwareUri() -> windows_core::Result<windows_core::PWSTR
 #[inline]
 pub unsafe fn WscGetSecurityProviderHealth(providers: u32, phealth: *mut WSC_SECURITY_PROVIDER_HEALTH) -> windows_core::Result<()> {
     windows_targets::link!("wscapi.dll" "system" fn WscGetSecurityProviderHealth(providers : u32, phealth : *mut WSC_SECURITY_PROVIDER_HEALTH) -> windows_core::HRESULT);
-    unsafe { WscGetSecurityProviderHealth(providers, core::mem::transmute(phealth)).ok() }
+    unsafe { WscGetSecurityProviderHealth(providers, phealth as _).ok() }
 }
 #[inline]
 pub unsafe fn WscQueryAntiMalwareUri() -> windows_core::Result<()> {
@@ -20,7 +20,7 @@ pub unsafe fn WscQueryAntiMalwareUri() -> windows_core::Result<()> {
 #[inline]
 pub unsafe fn WscRegisterForChanges(reserved: *mut core::ffi::c_void, phcallbackregistration: *mut super::super::Foundation::HANDLE, lpcallbackaddress: super::Threading::LPTHREAD_START_ROUTINE, pcontext: *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("wscapi.dll" "system" fn WscRegisterForChanges(reserved : *mut core::ffi::c_void, phcallbackregistration : *mut super::super::Foundation:: HANDLE, lpcallbackaddress : super::Threading:: LPTHREAD_START_ROUTINE, pcontext : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { WscRegisterForChanges(core::mem::transmute(reserved), core::mem::transmute(phcallbackregistration), lpcallbackaddress, core::mem::transmute(pcontext)).ok() }
+    unsafe { WscRegisterForChanges(reserved as _, phcallbackregistration as _, lpcallbackaddress, pcontext as _).ok() }
 }
 #[inline]
 pub unsafe fn WscRegisterForUserNotifications() -> windows_core::Result<()> {

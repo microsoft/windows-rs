@@ -19,7 +19,7 @@ impl IEnumNetworkConnections {
         }
     }
     pub unsafe fn Next(&self, rgelt: &mut [Option<INetworkConnection>], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::mem::zeroed()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
@@ -136,7 +136,7 @@ impl IEnumNetworks {
         }
     }
     pub unsafe fn Next(&self, rgelt: &mut [Option<INetwork>], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::mem::zeroed()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
@@ -282,7 +282,7 @@ impl INetwork {
         }
     }
     pub unsafe fn GetTimeCreatedAndConnected(&self, pdwlowdatetimecreated: *mut u32, pdwhighdatetimecreated: *mut u32, pdwlowdatetimeconnected: *mut u32, pdwhighdatetimeconnected: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetTimeCreatedAndConnected)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwlowdatetimecreated), core::mem::transmute(pdwhighdatetimecreated), core::mem::transmute(pdwlowdatetimeconnected), core::mem::transmute(pdwhighdatetimeconnected)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetTimeCreatedAndConnected)(windows_core::Interface::as_raw(self), pdwlowdatetimecreated as _, pdwhighdatetimecreated as _, pdwlowdatetimeconnected as _, pdwhighdatetimeconnected as _).ok() }
     }
     pub unsafe fn IsConnectedToInternet(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
@@ -802,7 +802,7 @@ impl INetworkConnectionCost {
         }
     }
     pub unsafe fn GetDataPlanStatus(&self, pdataplanstatus: *mut NLM_DATAPLAN_STATUS) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDataPlanStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(pdataplanstatus)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetDataPlanStatus)(windows_core::Interface::as_raw(self), pdataplanstatus as _).ok() }
     }
 }
 #[repr(C)]
@@ -940,10 +940,10 @@ windows_core::imp::define_interface!(INetworkCostManager, INetworkCostManager_Vt
 windows_core::imp::interface_hierarchy!(INetworkCostManager, windows_core::IUnknown);
 impl INetworkCostManager {
     pub unsafe fn GetCost(&self, pcost: *mut u32, pdestipaddr: *const NLM_SOCKADDR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetCost)(windows_core::Interface::as_raw(self), core::mem::transmute(pcost), pdestipaddr).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetCost)(windows_core::Interface::as_raw(self), pcost as _, pdestipaddr).ok() }
     }
     pub unsafe fn GetDataPlanStatus(&self, pdataplanstatus: *mut NLM_DATAPLAN_STATUS, pdestipaddr: *const NLM_SOCKADDR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDataPlanStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(pdataplanstatus), pdestipaddr).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetDataPlanStatus)(windows_core::Interface::as_raw(self), pdataplanstatus as _, pdestipaddr).ok() }
     }
     pub unsafe fn SetDestinationAddresses(&self, pdestipaddrlist: &[NLM_SOCKADDR], bappend: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDestinationAddresses)(windows_core::Interface::as_raw(self), pdestipaddrlist.len().try_into().unwrap(), core::mem::transmute(pdestipaddrlist.as_ptr()), bappend).ok() }

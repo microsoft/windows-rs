@@ -544,14 +544,14 @@ impl IActiveScriptAuthor {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetScriptTextAttributes)(windows_core::Interface::as_raw(self), pszcode.param().abi(), cch, pszdelimiter.param().abi(), dwflags, core::mem::transmute(pattr)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetScriptTextAttributes)(windows_core::Interface::as_raw(self), pszcode.param().abi(), cch, pszdelimiter.param().abi(), dwflags, pattr as _).ok() }
     }
     pub unsafe fn GetScriptletTextAttributes<P0, P2>(&self, pszcode: P0, cch: u32, pszdelimiter: P2, dwflags: u32, pattr: *mut u16) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetScriptletTextAttributes)(windows_core::Interface::as_raw(self), pszcode.param().abi(), cch, pszdelimiter.param().abi(), dwflags, core::mem::transmute(pattr)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetScriptletTextAttributes)(windows_core::Interface::as_raw(self), pszcode.param().abi(), cch, pszdelimiter.param().abi(), dwflags, pattr as _).ok() }
     }
     pub unsafe fn GetRoot(&self) -> windows_core::Result<IScriptNode> {
         unsafe {
@@ -600,7 +600,7 @@ impl IActiveScriptAuthor {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetInfoFromContext)(windows_core::Interface::as_raw(self), pszcode.param().abi(), cchcode, ichcurrentposition, dwlisttypesrequested, core::mem::transmute(pdwlisttypesprovided), core::mem::transmute(pichlistanchorposition), core::mem::transmute(pichfuncanchorposition), core::mem::transmute(pmemid), core::mem::transmute(picurrentparameter), core::mem::transmute(ppunk)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetInfoFromContext)(windows_core::Interface::as_raw(self), pszcode.param().abi(), cchcode, ichcurrentposition, dwlisttypesrequested, pdwlisttypesprovided as _, pichlistanchorposition as _, pichfuncanchorposition as _, pmemid as _, picurrentparameter as _, core::mem::transmute(ppunk)).ok() }
     }
     pub unsafe fn IsCommitChar(&self, ch: u16) -> windows_core::Result<super::super::super::super::Foundation::BOOL> {
         unsafe {
@@ -844,14 +844,14 @@ impl IActiveScriptDebug32 {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetScriptTextAttributes)(windows_core::Interface::as_raw(self), pstrcode.param().abi(), unumcodechars, pstrdelimiter.param().abi(), dwflags, core::mem::transmute(pattr)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetScriptTextAttributes)(windows_core::Interface::as_raw(self), pstrcode.param().abi(), unumcodechars, pstrdelimiter.param().abi(), dwflags, pattr as _).ok() }
     }
     pub unsafe fn GetScriptletTextAttributes<P0, P2>(&self, pstrcode: P0, unumcodechars: u32, pstrdelimiter: P2, dwflags: u32, pattr: *mut u16) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetScriptletTextAttributes)(windows_core::Interface::as_raw(self), pstrcode.param().abi(), unumcodechars, pstrdelimiter.param().abi(), dwflags, core::mem::transmute(pattr)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetScriptletTextAttributes)(windows_core::Interface::as_raw(self), pstrcode.param().abi(), unumcodechars, pstrdelimiter.param().abi(), dwflags, pattr as _).ok() }
     }
     pub unsafe fn EnumCodeContextsOfPosition(&self, dwsourcecontext: u32, ucharacteroffset: u32, unumchars: u32) -> windows_core::Result<IEnumDebugCodeContexts> {
         unsafe {
@@ -918,14 +918,14 @@ impl IActiveScriptDebug64 {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetScriptTextAttributes)(windows_core::Interface::as_raw(self), pstrcode.param().abi(), unumcodechars, pstrdelimiter.param().abi(), dwflags, core::mem::transmute(pattr)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetScriptTextAttributes)(windows_core::Interface::as_raw(self), pstrcode.param().abi(), unumcodechars, pstrdelimiter.param().abi(), dwflags, pattr as _).ok() }
     }
     pub unsafe fn GetScriptletTextAttributes<P0, P2>(&self, pstrcode: P0, unumcodechars: u32, pstrdelimiter: P2, dwflags: u32, pattr: *mut u16) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetScriptletTextAttributes)(windows_core::Interface::as_raw(self), pstrcode.param().abi(), unumcodechars, pstrdelimiter.param().abi(), dwflags, core::mem::transmute(pattr)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetScriptletTextAttributes)(windows_core::Interface::as_raw(self), pstrcode.param().abi(), unumcodechars, pstrdelimiter.param().abi(), dwflags, pattr as _).ok() }
     }
     pub unsafe fn EnumCodeContextsOfPosition(&self, dwsourcecontext: u64, ucharacteroffset: u32, unumchars: u32) -> windows_core::Result<IEnumDebugCodeContexts> {
         unsafe {
@@ -991,13 +991,13 @@ impl IActiveScriptEncode {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EncodeSection)(windows_core::Interface::as_raw(self), pchin.param().abi(), cchin, core::mem::transmute(pchout), cchout, core::mem::transmute(pcchret)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).EncodeSection)(windows_core::Interface::as_raw(self), pchin.param().abi(), cchin, core::mem::transmute(pchout), cchout, pcchret as _).ok() }
     }
     pub unsafe fn DecodeScript<P0>(&self, pchin: P0, cchin: u32, pchout: windows_core::PWSTR, cchout: u32, pcchret: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DecodeScript)(windows_core::Interface::as_raw(self), pchin.param().abi(), cchin, core::mem::transmute(pchout), cchout, core::mem::transmute(pcchret)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DecodeScript)(windows_core::Interface::as_raw(self), pchin.param().abi(), cchin, core::mem::transmute(pchout), cchout, pcchret as _).ok() }
     }
     pub unsafe fn GetEncodeProgId(&self, pbstrout: *mut windows_core::BSTR) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetEncodeProgId)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrout)).ok() }
@@ -1055,7 +1055,7 @@ impl IActiveScriptError {
         unsafe { (windows_core::Interface::vtable(self).GetExceptionInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pexcepinfo)).ok() }
     }
     pub unsafe fn GetSourcePosition(&self, pdwsourcecontext: *mut u32, pullinenumber: *mut u32, plcharacterposition: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetSourcePosition)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwsourcecontext), core::mem::transmute(pullinenumber), core::mem::transmute(plcharacterposition)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetSourcePosition)(windows_core::Interface::as_raw(self), pdwsourcecontext as _, pullinenumber as _, plcharacterposition as _).ok() }
     }
     pub unsafe fn GetSourceLineText(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -1130,7 +1130,7 @@ impl core::ops::Deref for IActiveScriptError64 {
 windows_core::imp::interface_hierarchy!(IActiveScriptError64, windows_core::IUnknown, IActiveScriptError);
 impl IActiveScriptError64 {
     pub unsafe fn GetSourcePosition64(&self, pdwsourcecontext: *mut u64, pullinenumber: *mut u32, plcharacterposition: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetSourcePosition64)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwsourcecontext), core::mem::transmute(pullinenumber), core::mem::transmute(plcharacterposition)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetSourcePosition64)(windows_core::Interface::as_raw(self), pdwsourcecontext as _, pullinenumber as _, plcharacterposition as _).ok() }
     }
 }
 #[repr(C)]
@@ -2115,7 +2115,7 @@ impl core::ops::Deref for IActiveScriptProfilerControl4 {
 windows_core::imp::interface_hierarchy!(IActiveScriptProfilerControl4, windows_core::IUnknown, IActiveScriptProfilerControl, IActiveScriptProfilerControl2, IActiveScriptProfilerControl3);
 impl IActiveScriptProfilerControl4 {
     pub unsafe fn SummarizeHeap(&self, heapsummary: *mut PROFILER_HEAP_SUMMARY) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SummarizeHeap)(windows_core::Interface::as_raw(self), core::mem::transmute(heapsummary)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SummarizeHeap)(windows_core::Interface::as_raw(self), heapsummary as _).ok() }
     }
 }
 #[repr(C)]
@@ -2190,7 +2190,7 @@ windows_core::imp::define_interface!(IActiveScriptProfilerHeapEnum, IActiveScrip
 windows_core::imp::interface_hierarchy!(IActiveScriptProfilerHeapEnum, windows_core::IUnknown);
 impl IActiveScriptProfilerHeapEnum {
     pub unsafe fn Next(&self, heapobjects: &mut [*mut PROFILER_HEAP_OBJECT], pceltfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), heapobjects.len().try_into().unwrap(), core::mem::transmute(heapobjects.as_ptr()), core::mem::transmute(pceltfetched)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), heapobjects.len().try_into().unwrap(), core::mem::transmute(heapobjects.as_ptr()), pceltfetched as _).ok() }
     }
     pub unsafe fn GetOptionalInfo(&self, heapobject: *const PROFILER_HEAP_OBJECT, optionalinfo: &mut [PROFILER_HEAP_OBJECT_OPTIONAL_INFO]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetOptionalInfo)(windows_core::Interface::as_raw(self), heapobject, optionalinfo.len().try_into().unwrap(), core::mem::transmute(optionalinfo.as_ptr())).ok() }
@@ -2199,7 +2199,7 @@ impl IActiveScriptProfilerHeapEnum {
         unsafe { (windows_core::Interface::vtable(self).FreeObjectAndOptionalInfo)(windows_core::Interface::as_raw(self), heapobjects.len().try_into().unwrap(), core::mem::transmute(heapobjects.as_ptr())).ok() }
     }
     pub unsafe fn GetNameIdMap(&self, pnamelist: *mut *mut *mut windows_core::PCWSTR, pcelt: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetNameIdMap)(windows_core::Interface::as_raw(self), core::mem::transmute(pnamelist), core::mem::transmute(pcelt)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetNameIdMap)(windows_core::Interface::as_raw(self), pnamelist as _, pcelt as _).ok() }
     }
 }
 #[repr(C)]
@@ -2536,7 +2536,7 @@ impl IActiveScriptSiteDebug32 {
     where
         P0: windows_core::Param<IActiveScriptErrorDebug>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnScriptErrorDebug)(windows_core::Interface::as_raw(self), perrordebug.param().abi(), core::mem::transmute(pfenterdebugger), core::mem::transmute(pfcallonscripterrorwhencontinuing)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnScriptErrorDebug)(windows_core::Interface::as_raw(self), perrordebug.param().abi(), pfenterdebugger as _, pfcallonscripterrorwhencontinuing as _).ok() }
     }
 }
 #[repr(C)]
@@ -2635,7 +2635,7 @@ impl IActiveScriptSiteDebug64 {
     where
         P0: windows_core::Param<IActiveScriptErrorDebug>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnScriptErrorDebug)(windows_core::Interface::as_raw(self), perrordebug.param().abi(), core::mem::transmute(pfenterdebugger), core::mem::transmute(pfcallonscripterrorwhencontinuing)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnScriptErrorDebug)(windows_core::Interface::as_raw(self), perrordebug.param().abi(), pfenterdebugger as _, pfcallonscripterrorwhencontinuing as _).ok() }
     }
 }
 #[repr(C)]
@@ -2908,10 +2908,10 @@ windows_core::imp::define_interface!(IActiveScriptStats, IActiveScriptStats_Vtbl
 windows_core::imp::interface_hierarchy!(IActiveScriptStats, windows_core::IUnknown);
 impl IActiveScriptStats {
     pub unsafe fn GetStat(&self, stid: u32, pluhi: *mut u32, plulo: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetStat)(windows_core::Interface::as_raw(self), stid, core::mem::transmute(pluhi), core::mem::transmute(plulo)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetStat)(windows_core::Interface::as_raw(self), stid, pluhi as _, plulo as _).ok() }
     }
     pub unsafe fn GetStatEx(&self, guid: *const windows_core::GUID, pluhi: *mut u32, plulo: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetStatEx)(windows_core::Interface::as_raw(self), guid, core::mem::transmute(pluhi), core::mem::transmute(plulo)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetStatEx)(windows_core::Interface::as_raw(self), guid, pluhi as _, plulo as _).ok() }
     }
     pub unsafe fn ResetStats(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ResetStats)(windows_core::Interface::as_raw(self)).ok() }
@@ -3541,7 +3541,7 @@ impl IDebugApplication32 {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn GetBreakFlags(&self, pabf: *mut u32, pprdatsteppingthread: *mut Option<IRemoteDebugApplicationThread>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetBreakFlags)(windows_core::Interface::as_raw(self), core::mem::transmute(pabf), core::mem::transmute(pprdatsteppingthread)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetBreakFlags)(windows_core::Interface::as_raw(self), pabf as _, core::mem::transmute(pprdatsteppingthread)).ok() }
     }
     pub unsafe fn GetCurrentThread(&self) -> windows_core::Result<IDebugApplicationThread> {
         unsafe {
@@ -3596,7 +3596,7 @@ impl IDebugApplication32 {
         P0: windows_core::Param<IActiveScriptErrorDebug>,
         P1: windows_core::Param<IActiveScriptSite>,
     {
-        unsafe { (windows_core::Interface::vtable(self).HandleRuntimeError)(windows_core::Interface::as_raw(self), perrordebug.param().abi(), pscriptsite.param().abi(), core::mem::transmute(pbra), core::mem::transmute(perra), core::mem::transmute(pfcallonscripterror)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).HandleRuntimeError)(windows_core::Interface::as_raw(self), perrordebug.param().abi(), pscriptsite.param().abi(), pbra as _, perra as _, pfcallonscripterror as _).ok() }
     }
     pub unsafe fn FCanJitDebug(&self) -> super::super::super::super::Foundation::BOOL {
         unsafe { (windows_core::Interface::vtable(self).FCanJitDebug)(windows_core::Interface::as_raw(self)) }
@@ -3887,7 +3887,7 @@ impl IDebugApplication64 {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn GetBreakFlags(&self, pabf: *mut u32, pprdatsteppingthread: *mut Option<IRemoteDebugApplicationThread>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetBreakFlags)(windows_core::Interface::as_raw(self), core::mem::transmute(pabf), core::mem::transmute(pprdatsteppingthread)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetBreakFlags)(windows_core::Interface::as_raw(self), pabf as _, core::mem::transmute(pprdatsteppingthread)).ok() }
     }
     pub unsafe fn GetCurrentThread(&self) -> windows_core::Result<IDebugApplicationThread> {
         unsafe {
@@ -3942,7 +3942,7 @@ impl IDebugApplication64 {
         P0: windows_core::Param<IActiveScriptErrorDebug>,
         P1: windows_core::Param<IActiveScriptSite>,
     {
-        unsafe { (windows_core::Interface::vtable(self).HandleRuntimeError)(windows_core::Interface::as_raw(self), perrordebug.param().abi(), pscriptsite.param().abi(), core::mem::transmute(pbra), core::mem::transmute(perra), core::mem::transmute(pfcallonscripterror)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).HandleRuntimeError)(windows_core::Interface::as_raw(self), perrordebug.param().abi(), pscriptsite.param().abi(), pbra as _, perra as _, pfcallonscripterror as _).ok() }
     }
     pub unsafe fn FCanJitDebug(&self) -> super::super::super::super::Foundation::BOOL {
         unsafe { (windows_core::Interface::vtable(self).FCanJitDebug)(windows_core::Interface::as_raw(self)) }
@@ -4890,7 +4890,7 @@ impl IDebugAsyncOperation {
         unsafe { (windows_core::Interface::vtable(self).QueryIsComplete)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn GetResult(&self, phrresult: *mut windows_core::HRESULT, ppunkresult: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetResult)(windows_core::Interface::as_raw(self), core::mem::transmute(phrresult), core::mem::transmute(ppunkresult)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetResult)(windows_core::Interface::as_raw(self), phrresult as _, core::mem::transmute(ppunkresult)).ok() }
     }
 }
 #[repr(C)]
@@ -5238,7 +5238,7 @@ impl IDebugDocumentHelper32 {
         }
     }
     pub unsafe fn GetScriptBlockInfo(&self, dwsourcecontext: u32, ppasd: *mut Option<IActiveScript>, picharpos: *mut u32, pcchars: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetScriptBlockInfo)(windows_core::Interface::as_raw(self), dwsourcecontext, core::mem::transmute(ppasd), core::mem::transmute(picharpos), core::mem::transmute(pcchars)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetScriptBlockInfo)(windows_core::Interface::as_raw(self), dwsourcecontext, core::mem::transmute(ppasd), picharpos as _, pcchars as _).ok() }
     }
     pub unsafe fn CreateDebugDocumentContext(&self, icharpos: u32, cchars: u32) -> windows_core::Result<IDebugDocumentContext> {
         unsafe {
@@ -5531,7 +5531,7 @@ impl IDebugDocumentHelper64 {
         }
     }
     pub unsafe fn GetScriptBlockInfo(&self, dwsourcecontext: u64, ppasd: *mut Option<IActiveScript>, picharpos: *mut u32, pcchars: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetScriptBlockInfo)(windows_core::Interface::as_raw(self), dwsourcecontext, core::mem::transmute(ppasd), core::mem::transmute(picharpos), core::mem::transmute(pcchars)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetScriptBlockInfo)(windows_core::Interface::as_raw(self), dwsourcecontext, core::mem::transmute(ppasd), picharpos as _, pcchars as _).ok() }
     }
     pub unsafe fn CreateDebugDocumentContext(&self, icharpos: u32, cchars: u32) -> windows_core::Result<IDebugDocumentContext> {
         unsafe {
@@ -5750,14 +5750,14 @@ windows_core::imp::define_interface!(IDebugDocumentHost, IDebugDocumentHost_Vtbl
 windows_core::imp::interface_hierarchy!(IDebugDocumentHost, windows_core::IUnknown);
 impl IDebugDocumentHost {
     pub unsafe fn GetDeferredText(&self, dwtextstartcookie: u32, pchartext: windows_core::PWSTR, pstatextattr: *mut u16, pcnumchars: *mut u32, cmaxchars: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDeferredText)(windows_core::Interface::as_raw(self), dwtextstartcookie, core::mem::transmute(pchartext), core::mem::transmute(pstatextattr), core::mem::transmute(pcnumchars), cmaxchars).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetDeferredText)(windows_core::Interface::as_raw(self), dwtextstartcookie, core::mem::transmute(pchartext), pstatextattr as _, pcnumchars as _, cmaxchars).ok() }
     }
     pub unsafe fn GetScriptTextAttributes<P0, P2>(&self, pstrcode: P0, unumcodechars: u32, pstrdelimiter: P2, dwflags: u32, pattr: *mut u16) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetScriptTextAttributes)(windows_core::Interface::as_raw(self), pstrcode.param().abi(), unumcodechars, pstrdelimiter.param().abi(), dwflags, core::mem::transmute(pattr)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetScriptTextAttributes)(windows_core::Interface::as_raw(self), pstrcode.param().abi(), unumcodechars, pstrdelimiter.param().abi(), dwflags, pattr as _).ok() }
     }
     pub unsafe fn OnCreateDocumentContext(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
@@ -5766,7 +5766,7 @@ impl IDebugDocumentHost {
         }
     }
     pub unsafe fn GetPathName(&self, pbstrlongname: *mut windows_core::BSTR, pfisoriginalfile: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetPathName)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrlongname), core::mem::transmute(pfisoriginalfile)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetPathName)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrlongname), pfisoriginalfile as _).ok() }
     }
     pub unsafe fn GetFileName(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -5985,7 +5985,7 @@ impl IDebugDocumentText {
         }
     }
     pub unsafe fn GetSize(&self, pcnumlines: *mut u32, pcnumchars: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetSize)(windows_core::Interface::as_raw(self), core::mem::transmute(pcnumlines), core::mem::transmute(pcnumchars)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetSize)(windows_core::Interface::as_raw(self), pcnumlines as _, pcnumchars as _).ok() }
     }
     pub unsafe fn GetPositionOfLine(&self, clinenumber: u32) -> windows_core::Result<u32> {
         unsafe {
@@ -5994,16 +5994,16 @@ impl IDebugDocumentText {
         }
     }
     pub unsafe fn GetLineOfPosition(&self, ccharacterposition: u32, pclinenumber: *mut u32, pccharacteroffsetinline: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetLineOfPosition)(windows_core::Interface::as_raw(self), ccharacterposition, core::mem::transmute(pclinenumber), core::mem::transmute(pccharacteroffsetinline)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetLineOfPosition)(windows_core::Interface::as_raw(self), ccharacterposition, pclinenumber as _, pccharacteroffsetinline as _).ok() }
     }
     pub unsafe fn GetText(&self, ccharacterposition: u32, pchartext: windows_core::PWSTR, pstatextattr: Option<*mut u16>, pcnumchars: *mut u32, cmaxchars: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), ccharacterposition, core::mem::transmute(pchartext), core::mem::transmute(pstatextattr.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcnumchars), cmaxchars).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), ccharacterposition, core::mem::transmute(pchartext), pstatextattr.unwrap_or(core::mem::zeroed()) as _, pcnumchars as _, cmaxchars).ok() }
     }
     pub unsafe fn GetPositionOfContext<P0>(&self, psc: P0, pccharacterposition: *mut u32, cnumchars: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IDebugDocumentContext>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetPositionOfContext)(windows_core::Interface::as_raw(self), psc.param().abi(), core::mem::transmute(pccharacterposition), core::mem::transmute(cnumchars)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetPositionOfContext)(windows_core::Interface::as_raw(self), psc.param().abi(), pccharacterposition as _, cnumchars as _).ok() }
     }
     pub unsafe fn GetContextOfPosition(&self, ccharacterposition: u32, cnumchars: u32) -> windows_core::Result<IDebugDocumentContext> {
         unsafe {
@@ -6270,7 +6270,7 @@ windows_core::imp::define_interface!(IDebugDocumentTextExternalAuthor, IDebugDoc
 windows_core::imp::interface_hierarchy!(IDebugDocumentTextExternalAuthor, windows_core::IUnknown);
 impl IDebugDocumentTextExternalAuthor {
     pub unsafe fn GetPathName(&self, pbstrlongname: *mut windows_core::BSTR, pfisoriginalfile: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetPathName)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrlongname), core::mem::transmute(pfisoriginalfile)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetPathName)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrlongname), pfisoriginalfile as _).ok() }
     }
     pub unsafe fn GetFileName(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -6348,10 +6348,10 @@ impl IDebugExpression {
         unsafe { (windows_core::Interface::vtable(self).QueryIsComplete)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn GetResultAsString(&self, phrresult: *mut windows_core::HRESULT, pbstrresult: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetResultAsString)(windows_core::Interface::as_raw(self), core::mem::transmute(phrresult), core::mem::transmute(pbstrresult)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetResultAsString)(windows_core::Interface::as_raw(self), phrresult as _, core::mem::transmute(pbstrresult)).ok() }
     }
     pub unsafe fn GetResultAsDebugProperty(&self, phrresult: *mut windows_core::HRESULT, ppdp: *mut Option<super::IDebugProperty>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetResultAsDebugProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(phrresult), core::mem::transmute(ppdp)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetResultAsDebugProperty)(windows_core::Interface::as_raw(self), phrresult as _, core::mem::transmute(ppdp)).ok() }
     }
 }
 #[repr(C)]
@@ -6460,7 +6460,7 @@ impl IDebugExpressionContext {
         }
     }
     pub unsafe fn GetLanguageInfo(&self, pbstrlanguagename: *mut windows_core::BSTR, planguageid: *mut windows_core::GUID) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetLanguageInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrlanguagename), core::mem::transmute(planguageid)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetLanguageInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrlanguagename), planguageid as _).ok() }
     }
 }
 #[repr(C)]
@@ -7213,7 +7213,7 @@ windows_core::imp::define_interface!(IEnumDebugApplicationNodes, IEnumDebugAppli
 windows_core::imp::interface_hierarchy!(IEnumDebugApplicationNodes, windows_core::IUnknown);
 impl IEnumDebugApplicationNodes {
     pub unsafe fn Next(&self, celt: u32, pprddp: *mut Option<IDebugApplicationNode>, pceltfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(pprddp), core::mem::transmute(pceltfetched)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(pprddp), pceltfetched as _).ok() }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
@@ -7291,7 +7291,7 @@ windows_core::imp::define_interface!(IEnumDebugCodeContexts, IEnumDebugCodeConte
 windows_core::imp::interface_hierarchy!(IEnumDebugCodeContexts, windows_core::IUnknown);
 impl IEnumDebugCodeContexts {
     pub unsafe fn Next(&self, celt: u32, pscc: *mut Option<IDebugCodeContext>, pceltfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(pscc), core::mem::transmute(pceltfetched)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(pscc), pceltfetched as _).ok() }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
@@ -7369,7 +7369,7 @@ windows_core::imp::define_interface!(IEnumDebugExpressionContexts, IEnumDebugExp
 windows_core::imp::interface_hierarchy!(IEnumDebugExpressionContexts, windows_core::IUnknown);
 impl IEnumDebugExpressionContexts {
     pub unsafe fn Next(&self, celt: u32, ppdec: *mut Option<IDebugExpressionContext>, pceltfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(ppdec), core::mem::transmute(pceltfetched)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(ppdec), pceltfetched as _).ok() }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
@@ -7447,7 +7447,7 @@ windows_core::imp::define_interface!(IEnumDebugStackFrames, IEnumDebugStackFrame
 windows_core::imp::interface_hierarchy!(IEnumDebugStackFrames, windows_core::IUnknown);
 impl IEnumDebugStackFrames {
     pub unsafe fn Next(&self, celt: u32, prgdsfd: *mut DebugStackFrameDescriptor, pceltfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(prgdsfd), core::mem::transmute(pceltfetched)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(prgdsfd), pceltfetched as _).ok() }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
@@ -7531,7 +7531,7 @@ impl core::ops::Deref for IEnumDebugStackFrames64 {
 windows_core::imp::interface_hierarchy!(IEnumDebugStackFrames64, windows_core::IUnknown, IEnumDebugStackFrames);
 impl IEnumDebugStackFrames64 {
     pub unsafe fn Next64(&self, celt: u32, prgdsfd: *mut DebugStackFrameDescriptor64, pceltfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next64)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(prgdsfd), core::mem::transmute(pceltfetched)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next64)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(prgdsfd), pceltfetched as _).ok() }
     }
 }
 #[repr(C)]
@@ -7561,7 +7561,7 @@ windows_core::imp::define_interface!(IEnumJsStackFrames, IEnumJsStackFrames_Vtbl
 windows_core::imp::interface_hierarchy!(IEnumJsStackFrames, windows_core::IUnknown);
 impl IEnumJsStackFrames {
     pub unsafe fn Next(&self, pframes: &mut [JS_NATIVE_FRAME], pcfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), pframes.len().try_into().unwrap(), core::mem::transmute(pframes.as_ptr()), core::mem::transmute(pcfetched)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), pframes.len().try_into().unwrap(), core::mem::transmute(pframes.as_ptr()), pcfetched as _).ok() }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
@@ -7602,7 +7602,7 @@ windows_core::imp::define_interface!(IEnumRemoteDebugApplicationThreads, IEnumRe
 windows_core::imp::interface_hierarchy!(IEnumRemoteDebugApplicationThreads, windows_core::IUnknown);
 impl IEnumRemoteDebugApplicationThreads {
     pub unsafe fn Next(&self, celt: u32, pprdat: *mut Option<IRemoteDebugApplicationThread>, pceltfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(pprdat), core::mem::transmute(pceltfetched)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(pprdat), pceltfetched as _).ok() }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
@@ -7680,7 +7680,7 @@ windows_core::imp::define_interface!(IEnumRemoteDebugApplications, IEnumRemoteDe
 windows_core::imp::interface_hierarchy!(IEnumRemoteDebugApplications, windows_core::IUnknown);
 impl IEnumRemoteDebugApplications {
     pub unsafe fn Next(&self, celt: u32, ppda: *mut Option<IRemoteDebugApplication>, pceltfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(ppda), core::mem::transmute(pceltfetched)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(ppda), pceltfetched as _).ok() }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
@@ -7815,7 +7815,7 @@ impl IJsDebugBreakPoint {
         unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn GetDocumentPosition(&self, pdocumentid: *mut u64, pcharacteroffset: *mut u32, pstatementcharcount: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDocumentPosition)(windows_core::Interface::as_raw(self), core::mem::transmute(pdocumentid), core::mem::transmute(pcharacteroffset), core::mem::transmute(pstatementcharcount)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetDocumentPosition)(windows_core::Interface::as_raw(self), pdocumentid as _, pcharacteroffset as _, pstatementcharcount as _).ok() }
     }
 }
 #[repr(C)]
@@ -7890,7 +7890,7 @@ windows_core::imp::define_interface!(IJsDebugDataTarget, IJsDebugDataTarget_Vtbl
 windows_core::imp::interface_hierarchy!(IJsDebugDataTarget, windows_core::IUnknown);
 impl IJsDebugDataTarget {
     pub unsafe fn ReadMemory(&self, address: u64, flags: JsDebugReadMemoryFlags, pbuffer: &mut [u8], pbytesread: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ReadMemory)(windows_core::Interface::as_raw(self), address, flags, core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap(), core::mem::transmute(pbytesread)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ReadMemory)(windows_core::Interface::as_raw(self), address, flags, core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap(), pbytesread as _).ok() }
     }
     pub unsafe fn WriteMemory(&self, address: u64, pmemory: &[u8]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).WriteMemory)(windows_core::Interface::as_raw(self), address, core::mem::transmute(pmemory.as_ptr()), pmemory.len().try_into().unwrap()).ok() }
@@ -8064,7 +8064,7 @@ windows_core::imp::define_interface!(IJsDebugFrame, IJsDebugFrame_Vtbl, 0xc91966
 windows_core::imp::interface_hierarchy!(IJsDebugFrame, windows_core::IUnknown);
 impl IJsDebugFrame {
     pub unsafe fn GetStackRange(&self, pstart: *mut u64, pend: *mut u64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetStackRange)(windows_core::Interface::as_raw(self), core::mem::transmute(pstart), core::mem::transmute(pend)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetStackRange)(windows_core::Interface::as_raw(self), pstart as _, pend as _).ok() }
     }
     pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -8073,10 +8073,10 @@ impl IJsDebugFrame {
         }
     }
     pub unsafe fn GetDocumentPositionWithId(&self, pdocumentid: *mut u64, pcharacteroffset: *mut u32, pstatementcharcount: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDocumentPositionWithId)(windows_core::Interface::as_raw(self), core::mem::transmute(pdocumentid), core::mem::transmute(pcharacteroffset), core::mem::transmute(pstatementcharcount)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetDocumentPositionWithId)(windows_core::Interface::as_raw(self), pdocumentid as _, pcharacteroffset as _, pstatementcharcount as _).ok() }
     }
     pub unsafe fn GetDocumentPositionWithName(&self, pdocumentname: *mut windows_core::BSTR, pline: *mut u32, pcolumn: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDocumentPositionWithName)(windows_core::Interface::as_raw(self), core::mem::transmute(pdocumentname), core::mem::transmute(pline), core::mem::transmute(pcolumn)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetDocumentPositionWithName)(windows_core::Interface::as_raw(self), core::mem::transmute(pdocumentname), pline as _, pcolumn as _).ok() }
     }
     pub unsafe fn GetDebugProperty(&self) -> windows_core::Result<IJsDebugProperty> {
         unsafe {
@@ -8388,7 +8388,7 @@ windows_core::imp::define_interface!(IJsEnumDebugProperty, IJsEnumDebugProperty_
 windows_core::imp::interface_hierarchy!(IJsEnumDebugProperty, windows_core::IUnknown);
 impl IJsEnumDebugProperty {
     pub unsafe fn Next(&self, ppdebugproperty: &mut [Option<IJsDebugProperty>], pactualcount: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppdebugproperty.len().try_into().unwrap(), core::mem::transmute(ppdebugproperty.as_ptr()), core::mem::transmute(pactualcount)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppdebugproperty.len().try_into().unwrap(), core::mem::transmute(ppdebugproperty.as_ptr()), pactualcount as _).ok() }
     }
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -9582,7 +9582,7 @@ windows_core::imp::define_interface!(IRemoteDebugCriticalErrorEvent110, IRemoteD
 windows_core::imp::interface_hierarchy!(IRemoteDebugCriticalErrorEvent110, windows_core::IUnknown);
 impl IRemoteDebugCriticalErrorEvent110 {
     pub unsafe fn GetErrorInfo(&self, pbstrsource: *mut windows_core::BSTR, pmessageid: *mut i32, pbstrmessage: *mut windows_core::BSTR, pplocation: *mut Option<IDebugDocumentContext>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetErrorInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrsource), core::mem::transmute(pmessageid), core::mem::transmute(pbstrmessage), core::mem::transmute(pplocation)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetErrorInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrsource), pmessageid as _, core::mem::transmute(pbstrmessage), core::mem::transmute(pplocation)).ok() }
     }
 }
 #[repr(C)]
@@ -9612,7 +9612,7 @@ windows_core::imp::define_interface!(IRemoteDebugInfoEvent110, IRemoteDebugInfoE
 windows_core::imp::interface_hierarchy!(IRemoteDebugInfoEvent110, windows_core::IUnknown);
 impl IRemoteDebugInfoEvent110 {
     pub unsafe fn GetEventInfo(&self, pmessagetype: *mut DEBUG_EVENT_INFO_TYPE, pbstrmessage: *mut windows_core::BSTR, pbstrurl: *mut windows_core::BSTR, pplocation: *mut Option<IDebugDocumentContext>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetEventInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pmessagetype), core::mem::transmute(pbstrmessage), core::mem::transmute(pbstrurl), core::mem::transmute(pplocation)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetEventInfo)(windows_core::Interface::as_raw(self), pmessagetype as _, core::mem::transmute(pbstrmessage), core::mem::transmute(pbstrurl), core::mem::transmute(pplocation)).ok() }
     }
 }
 #[repr(C)]
@@ -9697,7 +9697,7 @@ impl IScriptEntry {
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSignature(&self, ppti: *mut Option<super::super::super::Com::ITypeInfo>, pimethod: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetSignature)(windows_core::Interface::as_raw(self), core::mem::transmute(ppti), core::mem::transmute(pimethod)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetSignature)(windows_core::Interface::as_raw(self), core::mem::transmute(ppti), pimethod as _).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSignature<P0>(&self, pti: P0, imethod: u32) -> windows_core::Result<()>
@@ -9707,7 +9707,7 @@ impl IScriptEntry {
         unsafe { (windows_core::Interface::vtable(self).SetSignature)(windows_core::Interface::as_raw(self), pti.param().abi(), imethod).ok() }
     }
     pub unsafe fn GetRange(&self, pichmin: *mut u32, pcch: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetRange)(windows_core::Interface::as_raw(self), core::mem::transmute(pichmin), core::mem::transmute(pcch)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetRange)(windows_core::Interface::as_raw(self), pichmin as _, pcch as _).ok() }
     }
 }
 #[repr(C)]
@@ -10320,7 +10320,7 @@ impl ISimpleConnectionPoint {
         }
     }
     pub unsafe fn DescribeEvents(&self, ievent: u32, cevents: u32, prgid: *mut i32, prgbstr: *mut windows_core::BSTR, pceventsfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DescribeEvents)(windows_core::Interface::as_raw(self), ievent, cevents, core::mem::transmute(prgid), core::mem::transmute(prgbstr), core::mem::transmute(pceventsfetched)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DescribeEvents)(windows_core::Interface::as_raw(self), ievent, cevents, prgid as _, core::mem::transmute(prgbstr), pceventsfetched as _).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Advise<P0>(&self, pdisp: P0) -> windows_core::Result<u32>

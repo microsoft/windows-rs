@@ -1414,10 +1414,10 @@ impl IComponent {
         }
     }
     pub unsafe fn GetResultViewType(&self, cookie: isize, ppviewtype: *mut windows_core::PWSTR, pviewoptions: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetResultViewType)(windows_core::Interface::as_raw(self), cookie, core::mem::transmute(ppviewtype), core::mem::transmute(pviewoptions)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetResultViewType)(windows_core::Interface::as_raw(self), cookie, ppviewtype as _, pviewoptions as _).ok() }
     }
     pub unsafe fn GetDisplayInfo(&self, presultdataitem: *mut RESULTDATAITEM) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDisplayInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(presultdataitem)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetDisplayInfo)(windows_core::Interface::as_raw(self), presultdataitem as _).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CompareObjects<P0, P1>(&self, lpdataobjecta: P0, lpdataobjectb: P1) -> windows_core::Result<()>
@@ -1638,7 +1638,7 @@ impl IComponentData {
         }
     }
     pub unsafe fn GetDisplayInfo(&self, pscopedataitem: *mut SCOPEDATAITEM) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDisplayInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pscopedataitem)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetDisplayInfo)(windows_core::Interface::as_raw(self), pscopedataitem as _).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CompareObjects<P0, P1>(&self, lpdataobjecta: P0, lpdataobjectb: P1) -> windows_core::Result<()>
@@ -2144,7 +2144,7 @@ windows_core::imp::define_interface!(IConsoleNameSpace, IConsoleNameSpace_Vtbl, 
 windows_core::imp::interface_hierarchy!(IConsoleNameSpace, windows_core::IUnknown);
 impl IConsoleNameSpace {
     pub unsafe fn InsertItem(&self, item: *mut SCOPEDATAITEM) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).InsertItem)(windows_core::Interface::as_raw(self), core::mem::transmute(item)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).InsertItem)(windows_core::Interface::as_raw(self), item as _).ok() }
     }
     pub unsafe fn DeleteItem(&self, hitem: isize, fdeletethis: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).DeleteItem)(windows_core::Interface::as_raw(self), hitem, fdeletethis).ok() }
@@ -2153,16 +2153,16 @@ impl IConsoleNameSpace {
         unsafe { (windows_core::Interface::vtable(self).SetItem)(windows_core::Interface::as_raw(self), item).ok() }
     }
     pub unsafe fn GetItem(&self, item: *mut SCOPEDATAITEM) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), core::mem::transmute(item)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), item as _).ok() }
     }
     pub unsafe fn GetChildItem(&self, item: isize, pitemchild: *mut isize, pcookie: *mut isize) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetChildItem)(windows_core::Interface::as_raw(self), item, core::mem::transmute(pitemchild), core::mem::transmute(pcookie)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetChildItem)(windows_core::Interface::as_raw(self), item, pitemchild as _, pcookie as _).ok() }
     }
     pub unsafe fn GetNextItem(&self, item: isize, pitemnext: *mut isize, pcookie: *mut isize) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetNextItem)(windows_core::Interface::as_raw(self), item, core::mem::transmute(pitemnext), core::mem::transmute(pcookie)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetNextItem)(windows_core::Interface::as_raw(self), item, pitemnext as _, pcookie as _).ok() }
     }
     pub unsafe fn GetParentItem(&self, item: isize, pitemparent: *mut isize, pcookie: *mut isize) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetParentItem)(windows_core::Interface::as_raw(self), item, core::mem::transmute(pitemparent), core::mem::transmute(pcookie)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetParentItem)(windows_core::Interface::as_raw(self), item, pitemparent as _, pcookie as _).ok() }
     }
 }
 #[repr(C)]
@@ -2737,7 +2737,7 @@ windows_core::imp::define_interface!(IEnumTASK, IEnumTASK_Vtbl, 0x338698b1_5a02_
 windows_core::imp::interface_hierarchy!(IEnumTASK, windows_core::IUnknown);
 impl IEnumTASK {
     pub unsafe fn Next(&self, rgelt: &mut [MMC_TASK], pceltfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), core::mem::transmute(pceltfetched)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched as _).ok() }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
@@ -2820,7 +2820,7 @@ impl IExtendContextMenu {
         P0: windows_core::Param<super::Com::IDataObject>,
         P1: windows_core::Param<IContextMenuCallback>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddMenuItems)(windows_core::Interface::as_raw(self), pidataobject.param().abi(), picallback.param().abi(), core::mem::transmute(pinsertionallowed)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddMenuItems)(windows_core::Interface::as_raw(self), pidataobject.param().abi(), picallback.param().abi(), pinsertionallowed as _).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Command<P1>(&self, lcommandid: i32, pidataobject: P1) -> windows_core::Result<()>
@@ -2999,7 +2999,7 @@ impl IExtendPropertySheet2 {
     where
         P0: windows_core::Param<super::Com::IDataObject>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetWatermarks)(windows_core::Interface::as_raw(self), lpidataobject.param().abi(), core::mem::transmute(lphwatermark), core::mem::transmute(lphheader), core::mem::transmute(lphpalette), core::mem::transmute(bstretch)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetWatermarks)(windows_core::Interface::as_raw(self), lpidataobject.param().abi(), lphwatermark as _, lphheader as _, lphpalette as _, bstretch as _).ok() }
     }
 }
 #[repr(C)]
@@ -3373,7 +3373,7 @@ impl IHeaderCtrl2 {
         unsafe { (windows_core::Interface::vtable(self).SetColumnFilter)(windows_core::Interface::as_raw(self), ncolumn, dwtype, pfilterdata).ok() }
     }
     pub unsafe fn GetColumnFilter(&self, ncolumn: u32, pdwtype: *mut u32, pfilterdata: *mut MMC_FILTERDATA) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetColumnFilter)(windows_core::Interface::as_raw(self), ncolumn, core::mem::transmute(pdwtype), core::mem::transmute(pfilterdata)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetColumnFilter)(windows_core::Interface::as_raw(self), ncolumn, pdwtype as _, pfilterdata as _).ok() }
     }
 }
 #[repr(C)]
@@ -3471,7 +3471,7 @@ windows_core::imp::define_interface!(IMMCVersionInfo, IMMCVersionInfo_Vtbl, 0xa8
 windows_core::imp::interface_hierarchy!(IMMCVersionInfo, windows_core::IUnknown);
 impl IMMCVersionInfo {
     pub unsafe fn GetMMCVersion(&self, pversionmajor: *mut i32, pversionminor: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetMMCVersion)(windows_core::Interface::as_raw(self), core::mem::transmute(pversionmajor), core::mem::transmute(pversionminor)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetMMCVersion)(windows_core::Interface::as_raw(self), pversionmajor as _, pversionminor as _).ok() }
     }
 }
 #[repr(C)]
@@ -3921,7 +3921,7 @@ windows_core::imp::define_interface!(IResultData, IResultData_Vtbl, 0x31da5fa0_e
 windows_core::imp::interface_hierarchy!(IResultData, windows_core::IUnknown);
 impl IResultData {
     pub unsafe fn InsertItem(&self, item: *mut RESULTDATAITEM) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).InsertItem)(windows_core::Interface::as_raw(self), core::mem::transmute(item)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).InsertItem)(windows_core::Interface::as_raw(self), item as _).ok() }
     }
     pub unsafe fn DeleteItem(&self, itemid: isize, ncol: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).DeleteItem)(windows_core::Interface::as_raw(self), itemid, ncol).ok() }
@@ -3939,10 +3939,10 @@ impl IResultData {
         unsafe { (windows_core::Interface::vtable(self).SetItem)(windows_core::Interface::as_raw(self), item).ok() }
     }
     pub unsafe fn GetItem(&self, item: *mut RESULTDATAITEM) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), core::mem::transmute(item)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), item as _).ok() }
     }
     pub unsafe fn GetNextItem(&self, item: *mut RESULTDATAITEM) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetNextItem)(windows_core::Interface::as_raw(self), core::mem::transmute(item)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetNextItem)(windows_core::Interface::as_raw(self), item as _).ok() }
     }
     pub unsafe fn ModifyItemState(&self, nindex: i32, itemid: isize, uadd: u32, uremove: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ModifyItemState)(windows_core::Interface::as_raw(self), nindex, itemid, uadd, uremove).ok() }
@@ -4179,7 +4179,7 @@ windows_core::imp::define_interface!(IResultDataCompare, IResultDataCompare_Vtbl
 windows_core::imp::interface_hierarchy!(IResultDataCompare, windows_core::IUnknown);
 impl IResultDataCompare {
     pub unsafe fn Compare(&self, luserparam: super::super::Foundation::LPARAM, cookiea: isize, cookieb: isize, pnresult: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Compare)(windows_core::Interface::as_raw(self), luserparam, cookiea, cookieb, core::mem::transmute(pnresult)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Compare)(windows_core::Interface::as_raw(self), luserparam, cookiea, cookieb, pnresult as _).ok() }
     }
 }
 #[repr(C)]
@@ -4340,7 +4340,7 @@ impl ISnapinAbout {
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetStaticFolderImage(&self, hsmallimage: *mut super::super::Graphics::Gdi::HBITMAP, hsmallimageopen: *mut super::super::Graphics::Gdi::HBITMAP, hlargeimage: *mut super::super::Graphics::Gdi::HBITMAP, cmask: *mut super::super::Foundation::COLORREF) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetStaticFolderImage)(windows_core::Interface::as_raw(self), core::mem::transmute(hsmallimage), core::mem::transmute(hsmallimageopen), core::mem::transmute(hlargeimage), core::mem::transmute(cmask)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetStaticFolderImage)(windows_core::Interface::as_raw(self), hsmallimage as _, hsmallimageopen as _, hlargeimage as _, cmask as _).ok() }
     }
 }
 #[repr(C)]
@@ -4642,7 +4642,7 @@ impl IStringTable {
         }
     }
     pub unsafe fn GetString(&self, stringid: u32, lpbuffer: &mut [u16], pcchout: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetString)(windows_core::Interface::as_raw(self), stringid, lpbuffer.len().try_into().unwrap(), core::mem::transmute(lpbuffer.as_ptr()), core::mem::transmute(pcchout)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetString)(windows_core::Interface::as_raw(self), stringid, lpbuffer.len().try_into().unwrap(), core::mem::transmute(lpbuffer.as_ptr()), pcchout as _).ok() }
     }
     pub unsafe fn GetStringLength(&self, stringid: u32) -> windows_core::Result<u32> {
         unsafe {

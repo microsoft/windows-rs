@@ -6,26 +6,7 @@ impl ITpmVirtualSmartCardManager {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P11: windows_core::Param<ITpmVirtualSmartCardManagerStatusCallback>,
     {
-        unsafe {
-            (windows_core::Interface::vtable(self).CreateVirtualSmartCard)(
-                windows_core::Interface::as_raw(self),
-                pszfriendlyname.param().abi(),
-                badminalgid,
-                core::mem::transmute(pbadminkey.as_ptr()),
-                pbadminkey.len().try_into().unwrap(),
-                core::mem::transmute(pbadminkcv.as_ptr()),
-                pbadminkcv.len().try_into().unwrap(),
-                core::mem::transmute(pbpuk.as_ptr()),
-                pbpuk.len().try_into().unwrap(),
-                core::mem::transmute(pbpin.as_ptr()),
-                pbpin.len().try_into().unwrap(),
-                fgenerate.into(),
-                pstatuscallback.param().abi(),
-                core::mem::transmute(ppszinstanceid),
-                core::mem::transmute(pfneedreboot),
-            )
-            .ok()
-        }
+        unsafe { (windows_core::Interface::vtable(self).CreateVirtualSmartCard)(windows_core::Interface::as_raw(self), pszfriendlyname.param().abi(), badminalgid, core::mem::transmute(pbadminkey.as_ptr()), pbadminkey.len().try_into().unwrap(), core::mem::transmute(pbadminkcv.as_ptr()), pbadminkcv.len().try_into().unwrap(), core::mem::transmute(pbpuk.as_ptr()), pbpuk.len().try_into().unwrap(), core::mem::transmute(pbpin.as_ptr()), pbpin.len().try_into().unwrap(), fgenerate.into(), pstatuscallback.param().abi(), ppszinstanceid as _, pfneedreboot as _).ok() }
     }
     pub unsafe fn DestroyVirtualSmartCard<P0, P1>(&self, pszinstanceid: P0, pstatuscallback: P1) -> windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -127,8 +108,8 @@ impl ITpmVirtualSmartCardManager2 {
                 pbpinpolicy.len().try_into().unwrap(),
                 fgenerate.into(),
                 pstatuscallback.param().abi(),
-                core::mem::transmute(ppszinstanceid),
-                core::mem::transmute(pfneedreboot),
+                ppszinstanceid as _,
+                pfneedreboot as _,
             )
             .ok()
         }

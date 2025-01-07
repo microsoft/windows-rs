@@ -6,17 +6,17 @@ pub unsafe fn DisableThreadProfiling(performancedatahandle: super::super::super:
 #[inline]
 pub unsafe fn EnableThreadProfiling(threadhandle: super::super::super::Foundation::HANDLE, flags: u32, hardwarecounters: u64, performancedatahandle: *mut super::super::super::Foundation::HANDLE) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn EnableThreadProfiling(threadhandle : super::super::super::Foundation:: HANDLE, flags : u32, hardwarecounters : u64, performancedatahandle : *mut super::super::super::Foundation:: HANDLE) -> u32);
-    unsafe { EnableThreadProfiling(threadhandle, flags, hardwarecounters, core::mem::transmute(performancedatahandle)) }
+    unsafe { EnableThreadProfiling(threadhandle, flags, hardwarecounters, performancedatahandle as _) }
 }
 #[inline]
 pub unsafe fn QueryThreadProfiling(threadhandle: super::super::super::Foundation::HANDLE, enabled: *mut bool) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn QueryThreadProfiling(threadhandle : super::super::super::Foundation:: HANDLE, enabled : *mut bool) -> u32);
-    unsafe { QueryThreadProfiling(threadhandle, core::mem::transmute(enabled)) }
+    unsafe { QueryThreadProfiling(threadhandle, enabled as _) }
 }
 #[inline]
 pub unsafe fn ReadThreadProfilingData(performancedatahandle: super::super::super::Foundation::HANDLE, flags: u32, performancedata: *mut PERFORMANCE_DATA) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn ReadThreadProfilingData(performancedatahandle : super::super::super::Foundation:: HANDLE, flags : u32, performancedata : *mut PERFORMANCE_DATA) -> u32);
-    unsafe { ReadThreadProfilingData(performancedatahandle, flags, core::mem::transmute(performancedata)) }
+    unsafe { ReadThreadProfilingData(performancedatahandle, flags, performancedata as _) }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]

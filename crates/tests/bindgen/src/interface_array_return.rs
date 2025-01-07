@@ -38,7 +38,7 @@ impl IDispatch {
                 rgsznames,
                 cnames,
                 lcid,
-                core::mem::transmute(rgdispid),
+                rgdispid as _,
             )
             .ok()
         }

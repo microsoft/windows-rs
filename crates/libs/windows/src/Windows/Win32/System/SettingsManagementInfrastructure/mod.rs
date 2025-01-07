@@ -100,7 +100,7 @@ impl ISettingsContext {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Deserialize)(windows_core::Interface::as_raw(self), pstream.param().abi(), ptarget.param().abi(), core::mem::transmute(pppresults), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).Deserialize)(windows_core::Interface::as_raw(self), pstream.param().abi(), ptarget.param().abi(), pppresults as _, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn SetUserData(&self, puserdata: *const core::ffi::c_void) -> windows_core::Result<()> {
@@ -334,7 +334,7 @@ impl ISettingsEngine {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ApplySettingsContext)(windows_core::Interface::as_raw(self), settingscontext.param().abi(), core::mem::transmute(pppwzidentities), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).ApplySettingsContext)(windows_core::Interface::as_raw(self), settingscontext.param().abi(), pppwzidentities as _, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn GetSettingsContext(&self) -> windows_core::Result<ISettingsContext> {
@@ -706,7 +706,7 @@ impl ISettingsItem {
     pub unsafe fn GetValueRaw(&self, data: *mut *mut u8) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetValueRaw)(windows_core::Interface::as_raw(self), core::mem::transmute(data), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetValueRaw)(windows_core::Interface::as_raw(self), data as _, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn SetValueRaw(&self, datatype: i32, data: &[u8]) -> windows_core::Result<()> {

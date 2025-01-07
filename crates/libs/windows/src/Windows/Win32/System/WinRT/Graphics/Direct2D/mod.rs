@@ -102,7 +102,7 @@ impl IGraphicsEffectD2D1Interop {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetNamedPropertyMapping)(windows_core::Interface::as_raw(self), name.param().abi(), core::mem::transmute(index), core::mem::transmute(mapping)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetNamedPropertyMapping)(windows_core::Interface::as_raw(self), name.param().abi(), index as _, mapping as _).ok() }
     }
     pub unsafe fn GetPropertyCount(&self) -> windows_core::Result<u32> {
         unsafe {

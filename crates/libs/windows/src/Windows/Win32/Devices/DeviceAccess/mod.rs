@@ -131,7 +131,7 @@ windows_core::imp::define_interface!(IDeviceIoControl, IDeviceIoControl_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(IDeviceIoControl, windows_core::IUnknown);
 impl IDeviceIoControl {
     pub unsafe fn DeviceIoControlSync(&self, iocontrolcode: u32, inputbuffer: Option<&[u8]>, outputbuffer: Option<&mut [u8]>, bytesreturned: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeviceIoControlSync)(windows_core::Interface::as_raw(self), iocontrolcode, core::mem::transmute(inputbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), inputbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(outputbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), outputbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(bytesreturned)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DeviceIoControlSync)(windows_core::Interface::as_raw(self), iocontrolcode, core::mem::transmute(inputbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), inputbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(outputbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), outputbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), bytesreturned as _).ok() }
     }
     pub unsafe fn DeviceIoControlAsync<P5>(&self, iocontrolcode: u32, inputbuffer: Option<&[u8]>, outputbuffer: Option<&mut [u8]>, requestcompletioncallback: P5, cancelcontext: Option<*mut usize>) -> windows_core::Result<()>
     where
@@ -146,7 +146,7 @@ impl IDeviceIoControl {
                 core::mem::transmute(outputbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
                 outputbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 requestcompletioncallback.param().abi(),
-                core::mem::transmute(cancelcontext.unwrap_or(core::mem::zeroed())),
+                cancelcontext.unwrap_or(core::mem::zeroed()) as _,
             )
             .ok()
         }

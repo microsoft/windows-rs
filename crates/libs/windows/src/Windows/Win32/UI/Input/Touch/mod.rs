@@ -11,7 +11,7 @@ pub unsafe fn CloseTouchInputHandle(htouchinput: HTOUCHINPUT) -> windows_core::R
 #[inline]
 pub unsafe fn GetGestureConfig(hwnd: super::super::super::Foundation::HWND, dwreserved: u32, dwflags: u32, pcids: *const u32, pgestureconfig: *mut GESTURECONFIG, cbsize: u32) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn GetGestureConfig(hwnd : super::super::super::Foundation:: HWND, dwreserved : u32, dwflags : u32, pcids : *const u32, pgestureconfig : *mut GESTURECONFIG, cbsize : u32) -> super::super::super::Foundation:: BOOL);
-    unsafe { GetGestureConfig(hwnd, dwreserved, dwflags, pcids, core::mem::transmute(pgestureconfig), cbsize).ok() }
+    unsafe { GetGestureConfig(hwnd, dwreserved, dwflags, pcids, pgestureconfig as _, cbsize).ok() }
 }
 #[inline]
 pub unsafe fn GetGestureExtraArgs(hgestureinfo: HGESTUREINFO, pextraargs: &mut [u8]) -> windows_core::Result<()> {
@@ -21,7 +21,7 @@ pub unsafe fn GetGestureExtraArgs(hgestureinfo: HGESTUREINFO, pextraargs: &mut [
 #[inline]
 pub unsafe fn GetGestureInfo(hgestureinfo: HGESTUREINFO, pgestureinfo: *mut GESTUREINFO) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn GetGestureInfo(hgestureinfo : HGESTUREINFO, pgestureinfo : *mut GESTUREINFO) -> super::super::super::Foundation:: BOOL);
-    unsafe { GetGestureInfo(hgestureinfo, core::mem::transmute(pgestureinfo)).ok() }
+    unsafe { GetGestureInfo(hgestureinfo, pgestureinfo as _).ok() }
 }
 #[inline]
 pub unsafe fn GetTouchInputInfo(htouchinput: HTOUCHINPUT, pinputs: &mut [TOUCHINPUT], cbsize: i32) -> windows_core::Result<()> {
@@ -31,7 +31,7 @@ pub unsafe fn GetTouchInputInfo(htouchinput: HTOUCHINPUT, pinputs: &mut [TOUCHIN
 #[inline]
 pub unsafe fn IsTouchWindow(hwnd: super::super::super::Foundation::HWND, pulflags: Option<*mut u32>) -> super::super::super::Foundation::BOOL {
     windows_targets::link!("user32.dll" "system" fn IsTouchWindow(hwnd : super::super::super::Foundation:: HWND, pulflags : *mut u32) -> super::super::super::Foundation:: BOOL);
-    unsafe { IsTouchWindow(hwnd, core::mem::transmute(pulflags.unwrap_or(core::mem::zeroed()))) }
+    unsafe { IsTouchWindow(hwnd, pulflags.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn RegisterTouchWindow(hwnd: super::super::super::Foundation::HWND, ulflags: REGISTER_TOUCH_WINDOW_FLAGS) -> windows_core::Result<()> {

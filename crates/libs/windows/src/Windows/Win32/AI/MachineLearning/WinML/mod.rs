@@ -30,7 +30,7 @@ impl IMLOperatorAttributes {
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetAttribute)(windows_core::Interface::as_raw(self), name.param().abi(), r#type, elementcount, elementbytesize, core::mem::transmute(value)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetAttribute)(windows_core::Interface::as_raw(self), name.param().abi(), r#type, elementcount, elementbytesize, value as _).ok() }
     }
     pub unsafe fn GetStringAttributeElementLength<P0>(&self, name: P0, elementindex: u32) -> windows_core::Result<u32>
     where
@@ -1141,7 +1141,7 @@ impl IWinMLModel {
         }
     }
     pub unsafe fn EnumerateMetadata(&self, index: u32, pkey: *mut windows_core::PCWSTR, pvalue: *mut windows_core::PCWSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EnumerateMetadata)(windows_core::Interface::as_raw(self), index, core::mem::transmute(pkey), core::mem::transmute(pvalue)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).EnumerateMetadata)(windows_core::Interface::as_raw(self), index, pkey as _, pvalue as _).ok() }
     }
     pub unsafe fn EnumerateModelInputs(&self, index: u32) -> windows_core::Result<*mut WINML_VARIABLE_DESC> {
         unsafe {

@@ -150,7 +150,7 @@ impl IDedupBackupSupport {
     where
         P2: windows_core::Param<IDedupReadFileCallback>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RestoreFiles)(windows_core::Interface::as_raw(self), numberoffiles, core::mem::transmute(filefullpaths), store.param().abi(), flags, core::mem::transmute(fileresults)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RestoreFiles)(windows_core::Interface::as_raw(self), numberoffiles, core::mem::transmute(filefullpaths), store.param().abi(), flags, fileresults as _).ok() }
     }
 }
 #[repr(C)]
@@ -265,7 +265,7 @@ windows_core::imp::define_interface!(IDedupDataPort, IDedupDataPort_Vtbl, 0x7963
 windows_core::imp::interface_hierarchy!(IDedupDataPort, windows_core::IUnknown);
 impl IDedupDataPort {
     pub unsafe fn GetStatus(&self, pstatus: *mut DedupDataPortVolumeStatus, pdataheadroommb: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(pstatus), core::mem::transmute(pdataheadroommb)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), pstatus as _, pdataheadroommb as _).ok() }
     }
     pub unsafe fn LookupChunks(&self, phashes: &[DedupHash]) -> windows_core::Result<windows_core::GUID> {
         unsafe {
@@ -312,7 +312,7 @@ impl IDedupDataPort {
         }
     }
     pub unsafe fn GetStreamsResults(&self, requestid: windows_core::GUID, maxwaitms: u32, streamentryindex: u32, pstreamcount: *mut u32, ppstreams: *mut *mut DedupStream, pentrycount: *mut u32, ppentries: *mut *mut DedupStreamEntry, pstatus: *mut DedupDataPortRequestStatus, ppitemresults: *mut *mut windows_core::HRESULT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetStreamsResults)(windows_core::Interface::as_raw(self), core::mem::transmute(requestid), maxwaitms, streamentryindex, core::mem::transmute(pstreamcount), core::mem::transmute(ppstreams), core::mem::transmute(pentrycount), core::mem::transmute(ppentries), core::mem::transmute(pstatus), core::mem::transmute(ppitemresults)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetStreamsResults)(windows_core::Interface::as_raw(self), core::mem::transmute(requestid), maxwaitms, streamentryindex, pstreamcount as _, ppstreams as _, pentrycount as _, ppentries as _, pstatus as _, ppitemresults as _).ok() }
     }
     pub unsafe fn GetChunks(&self, phashes: &[DedupHash]) -> windows_core::Result<windows_core::GUID> {
         unsafe {
@@ -321,7 +321,7 @@ impl IDedupDataPort {
         }
     }
     pub unsafe fn GetChunksResults(&self, requestid: windows_core::GUID, maxwaitms: u32, chunkindex: u32, pchunkcount: *mut u32, ppchunkmetadata: *mut *mut DedupChunk, pdatabytecount: *mut u32, ppchunkdata: *mut *mut u8, pstatus: *mut DedupDataPortRequestStatus, ppitemresults: *mut *mut windows_core::HRESULT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetChunksResults)(windows_core::Interface::as_raw(self), core::mem::transmute(requestid), maxwaitms, chunkindex, core::mem::transmute(pchunkcount), core::mem::transmute(ppchunkmetadata), core::mem::transmute(pdatabytecount), core::mem::transmute(ppchunkdata), core::mem::transmute(pstatus), core::mem::transmute(ppitemresults)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetChunksResults)(windows_core::Interface::as_raw(self), core::mem::transmute(requestid), maxwaitms, chunkindex, pchunkcount as _, ppchunkmetadata as _, pdatabytecount as _, ppchunkdata as _, pstatus as _, ppitemresults as _).ok() }
     }
     pub unsafe fn GetRequestStatus(&self, requestid: windows_core::GUID) -> windows_core::Result<DedupDataPortRequestStatus> {
         unsafe {
@@ -330,7 +330,7 @@ impl IDedupDataPort {
         }
     }
     pub unsafe fn GetRequestResults(&self, requestid: windows_core::GUID, maxwaitms: u32, pbatchresult: *mut windows_core::HRESULT, pbatchcount: *mut u32, pstatus: *mut DedupDataPortRequestStatus, ppitemresults: *mut *mut windows_core::HRESULT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetRequestResults)(windows_core::Interface::as_raw(self), core::mem::transmute(requestid), maxwaitms, core::mem::transmute(pbatchresult), core::mem::transmute(pbatchcount), core::mem::transmute(pstatus), core::mem::transmute(ppitemresults)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetRequestResults)(windows_core::Interface::as_raw(self), core::mem::transmute(requestid), maxwaitms, pbatchresult as _, pbatchcount as _, pstatus as _, ppitemresults as _).ok() }
     }
 }
 #[repr(C)]
@@ -519,7 +519,7 @@ windows_core::imp::define_interface!(IDedupDataPortManager, IDedupDataPortManage
 windows_core::imp::interface_hierarchy!(IDedupDataPortManager, windows_core::IUnknown);
 impl IDedupDataPortManager {
     pub unsafe fn GetConfiguration(&self, pminchunksize: *mut u32, pmaxchunksize: *mut u32, pchunkingalgorithm: *mut DedupChunkingAlgorithm, phashingalgorithm: *mut DedupHashingAlgorithm, pcompressionalgorithm: *mut DedupCompressionAlgorithm) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetConfiguration)(windows_core::Interface::as_raw(self), core::mem::transmute(pminchunksize), core::mem::transmute(pmaxchunksize), core::mem::transmute(pchunkingalgorithm), core::mem::transmute(phashingalgorithm), core::mem::transmute(pcompressionalgorithm)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetConfiguration)(windows_core::Interface::as_raw(self), pminchunksize as _, pmaxchunksize as _, pchunkingalgorithm as _, phashingalgorithm as _, pcompressionalgorithm as _).ok() }
     }
     pub unsafe fn GetVolumeStatus(&self, options: u32, path: &windows_core::BSTR) -> windows_core::Result<DedupDataPortVolumeStatus> {
         unsafe {
@@ -597,7 +597,7 @@ impl IDedupIterateChunksHash32 {
         unsafe { (windows_core::Interface::vtable(self).PushBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap()).ok() }
     }
     pub unsafe fn Next(&self, parrchunks: &mut [DEDUP_CHUNK_INFO_HASH32], pulfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), parrchunks.len().try_into().unwrap(), core::mem::transmute(parrchunks.as_ptr()), core::mem::transmute(pulfetched)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), parrchunks.len().try_into().unwrap(), core::mem::transmute(parrchunks.as_ptr()), pulfetched as _).ok() }
     }
     pub unsafe fn Drain(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Drain)(windows_core::Interface::as_raw(self)).ok() }
@@ -663,10 +663,10 @@ windows_core::imp::define_interface!(IDedupReadFileCallback, IDedupReadFileCallb
 windows_core::imp::interface_hierarchy!(IDedupReadFileCallback, windows_core::IUnknown);
 impl IDedupReadFileCallback {
     pub unsafe fn ReadBackupFile(&self, filefullpath: &windows_core::BSTR, fileoffset: i64, filebuffer: &mut [u8], returnedsize: *mut u32, flags: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ReadBackupFile)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filefullpath), fileoffset, filebuffer.len().try_into().unwrap(), core::mem::transmute(filebuffer.as_ptr()), core::mem::transmute(returnedsize), flags).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ReadBackupFile)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filefullpath), fileoffset, filebuffer.len().try_into().unwrap(), core::mem::transmute(filebuffer.as_ptr()), returnedsize as _, flags).ok() }
     }
     pub unsafe fn OrderContainersRestore(&self, containerpaths: &[windows_core::BSTR], readplanentries: *mut u32, readplan: *mut *mut DEDUP_CONTAINER_EXTENT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).OrderContainersRestore)(windows_core::Interface::as_raw(self), containerpaths.len().try_into().unwrap(), core::mem::transmute(containerpaths.as_ptr()), core::mem::transmute(readplanentries), core::mem::transmute(readplan)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OrderContainersRestore)(windows_core::Interface::as_raw(self), containerpaths.len().try_into().unwrap(), core::mem::transmute(containerpaths.as_ptr()), readplanentries as _, readplan as _).ok() }
     }
     pub unsafe fn PreviewContainerRead(&self, filefullpath: &windows_core::BSTR, readoffsets: &[DDP_FILE_EXTENT]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).PreviewContainerRead)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filefullpath), readoffsets.len().try_into().unwrap(), core::mem::transmute(readoffsets.as_ptr())).ok() }

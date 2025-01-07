@@ -30,8 +30,8 @@ impl IDynamicConceptProviderConcept {
                 contextobject.param().abi(),
                 conceptid,
                 core::mem::transmute(conceptinterface),
-                core::mem::transmute(conceptmetadata.unwrap_or(core::mem::zeroed())),
-                core::mem::transmute(hasconcept),
+                conceptmetadata.unwrap_or(core::mem::zeroed()) as _,
+                hasconcept as _,
             )
             .ok()
         }
@@ -276,8 +276,8 @@ impl IKeyStore {
             (windows_core::Interface::vtable(self).GetKey)(
                 windows_core::Interface::as_raw(self),
                 key.param().abi(),
-                core::mem::transmute(object.unwrap_or(core::mem::zeroed())),
-                core::mem::transmute(metadata.unwrap_or(core::mem::zeroed())),
+                object.unwrap_or(core::mem::zeroed()) as _,
+                metadata.unwrap_or(core::mem::zeroed()) as _,
             )
             .ok()
         }
@@ -316,8 +316,8 @@ impl IKeyStore {
             (windows_core::Interface::vtable(self).GetKeyValue)(
                 windows_core::Interface::as_raw(self),
                 key.param().abi(),
-                core::mem::transmute(object.unwrap_or(core::mem::zeroed())),
-                core::mem::transmute(metadata.unwrap_or(core::mem::zeroed())),
+                object.unwrap_or(core::mem::zeroed()) as _,
+                metadata.unwrap_or(core::mem::zeroed()) as _,
             )
             .ok()
         }
@@ -512,8 +512,8 @@ impl IModelObject {
             (windows_core::Interface::vtable(self).GetKeyValue)(
                 windows_core::Interface::as_raw(self),
                 key.param().abi(),
-                core::mem::transmute(object.unwrap_or(core::mem::zeroed())),
-                core::mem::transmute(metadata.unwrap_or(core::mem::zeroed())),
+                object.unwrap_or(core::mem::zeroed()) as _,
+                metadata.unwrap_or(core::mem::zeroed()) as _,
             )
             .ok()
         }
@@ -563,7 +563,7 @@ impl IModelObject {
                 windows_core::Interface::as_raw(self),
                 conceptid,
                 core::mem::transmute(conceptinterface),
-                core::mem::transmute(conceptmetadata.unwrap_or(core::mem::zeroed())),
+                conceptmetadata.unwrap_or(core::mem::zeroed()) as _,
             )
             .ok()
         }
@@ -639,8 +639,8 @@ impl IModelObject {
             (windows_core::Interface::vtable(self).GetKey)(
                 windows_core::Interface::as_raw(self),
                 key.param().abi(),
-                core::mem::transmute(object.unwrap_or(core::mem::zeroed())),
-                core::mem::transmute(metadata.unwrap_or(core::mem::zeroed())),
+                object.unwrap_or(core::mem::zeroed()) as _,
+                metadata.unwrap_or(core::mem::zeroed()) as _,
             )
             .ok()
         }
@@ -658,8 +658,8 @@ impl IModelObject {
             (windows_core::Interface::vtable(self).GetKeyReference)(
                 windows_core::Interface::as_raw(self),
                 key.param().abi(),
-                core::mem::transmute(objectreference.unwrap_or(core::mem::zeroed())),
-                core::mem::transmute(metadata.unwrap_or(core::mem::zeroed())),
+                objectreference.unwrap_or(core::mem::zeroed()) as _,
+                metadata.unwrap_or(core::mem::zeroed()) as _,
             )
             .ok()
         }
@@ -766,7 +766,7 @@ impl IModelObject {
             (windows_core::Interface::vtable(self).Compare)(
                 windows_core::Interface::as_raw(self),
                 other.param().abi(),
-                core::mem::transmute(ppresult.unwrap_or(core::mem::zeroed())),
+                ppresult.unwrap_or(core::mem::zeroed()) as _,
             )
             .ok()
         }

@@ -1,7 +1,7 @@
 #[inline]
 pub unsafe fn MI_Application_InitializeV1(flags: u32, applicationid: Option<*const u16>, extendederror: Option<*mut *mut MI_Instance>, application: *mut MI_Application) -> MI_Result {
     windows_targets::link!("mi.dll" "cdecl" fn MI_Application_InitializeV1(flags : u32, applicationid : *const u16, extendederror : *mut *mut MI_Instance, application : *mut MI_Application) -> MI_Result);
-    unsafe { MI_Application_InitializeV1(flags, core::mem::transmute(applicationid.unwrap_or(core::mem::zeroed())), core::mem::transmute(extendederror.unwrap_or(core::mem::zeroed())), core::mem::transmute(application)) }
+    unsafe { MI_Application_InitializeV1(flags, applicationid.unwrap_or(core::mem::zeroed()) as _, extendederror.unwrap_or(core::mem::zeroed()) as _, application as _) }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -32,7 +32,7 @@ impl IEnumWbemClassObject {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn Next(&self, ltimeout: i32, apobjects: &mut [Option<IWbemClassObject>], pureturned: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ltimeout, apobjects.len().try_into().unwrap(), core::mem::transmute(apobjects.as_ptr()), core::mem::transmute(pureturned)) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ltimeout, apobjects.len().try_into().unwrap(), core::mem::transmute(apobjects.as_ptr()), pureturned as _) }
     }
     pub unsafe fn NextAsync<P1>(&self, ucount: u32, psink: P1) -> windows_core::HRESULT
     where
@@ -129,7 +129,7 @@ impl IMofCompiler {
         P3: windows_core::Param<windows_core::PCWSTR>,
         P4: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CompileFile)(windows_core::Interface::as_raw(self), filename.param().abi(), serverandnamespace.param().abi(), user.param().abi(), authority.param().abi(), password.param().abi(), loptionflags, lclassflags, linstanceflags, core::mem::transmute(pinfo)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CompileFile)(windows_core::Interface::as_raw(self), filename.param().abi(), serverandnamespace.param().abi(), user.param().abi(), authority.param().abi(), password.param().abi(), loptionflags, lclassflags, linstanceflags, pinfo as _).ok() }
     }
     pub unsafe fn CompileBuffer<P2, P3, P4, P5>(&self, pbuffer: &[u8], serverandnamespace: P2, user: P3, authority: P4, password: P5, loptionflags: i32, lclassflags: i32, linstanceflags: i32, pinfo: *mut WBEM_COMPILE_STATUS_INFO) -> windows_core::Result<()>
     where
@@ -138,7 +138,7 @@ impl IMofCompiler {
         P4: windows_core::Param<windows_core::PCWSTR>,
         P5: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CompileBuffer)(windows_core::Interface::as_raw(self), pbuffer.len().try_into().unwrap(), core::mem::transmute(pbuffer.as_ptr()), serverandnamespace.param().abi(), user.param().abi(), authority.param().abi(), password.param().abi(), loptionflags, lclassflags, linstanceflags, core::mem::transmute(pinfo)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CompileBuffer)(windows_core::Interface::as_raw(self), pbuffer.len().try_into().unwrap(), core::mem::transmute(pbuffer.as_ptr()), serverandnamespace.param().abi(), user.param().abi(), authority.param().abi(), password.param().abi(), loptionflags, lclassflags, linstanceflags, pinfo as _).ok() }
     }
     pub unsafe fn CreateBMOF<P0, P1, P2>(&self, textfilename: P0, bmoffilename: P1, serverandnamespace: P2, loptionflags: i32, lclassflags: i32, linstanceflags: i32, pinfo: *mut WBEM_COMPILE_STATUS_INFO) -> windows_core::Result<()>
     where
@@ -146,7 +146,7 @@ impl IMofCompiler {
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateBMOF)(windows_core::Interface::as_raw(self), textfilename.param().abi(), bmoffilename.param().abi(), serverandnamespace.param().abi(), loptionflags, lclassflags, linstanceflags, core::mem::transmute(pinfo)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateBMOF)(windows_core::Interface::as_raw(self), textfilename.param().abi(), bmoffilename.param().abi(), serverandnamespace.param().abi(), loptionflags, lclassflags, linstanceflags, pinfo as _).ok() }
     }
 }
 #[repr(C)]
@@ -5043,7 +5043,7 @@ impl IWbemAddressResolution {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Resolve)(windows_core::Interface::as_raw(self), wsznamespacepath.param().abi(), core::mem::transmute(wszaddresstype), core::mem::transmute(pdwaddresslength), core::mem::transmute(pabbinaryaddress)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Resolve)(windows_core::Interface::as_raw(self), wsznamespacepath.param().abi(), core::mem::transmute(wszaddresstype), pdwaddresslength as _, pabbinaryaddress as _).ok() }
     }
 }
 #[repr(C)]
@@ -5282,7 +5282,7 @@ impl IWbemClassObject {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Get)(windows_core::Interface::as_raw(self), wszname.param().abi(), lflags, core::mem::transmute(pval), core::mem::transmute(ptype.unwrap_or(core::mem::zeroed())), core::mem::transmute(plflavor.unwrap_or(core::mem::zeroed()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Get)(windows_core::Interface::as_raw(self), wszname.param().abi(), lflags, core::mem::transmute(pval), ptype.unwrap_or(core::mem::zeroed()) as _, plflavor.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Put<P0>(&self, wszname: P0, lflags: i32, pval: *const super::Variant::VARIANT, r#type: i32) -> windows_core::Result<()>
@@ -5312,7 +5312,7 @@ impl IWbemClassObject {
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Next(&self, lflags: i32, strname: *mut windows_core::BSTR, pval: *mut super::Variant::VARIANT, ptype: *mut i32, plflavor: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute(strname), core::mem::transmute(pval), core::mem::transmute(ptype), core::mem::transmute(plflavor)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute(strname), core::mem::transmute(pval), ptype as _, plflavor as _).ok() }
     }
     pub unsafe fn EndEnumeration(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).EndEnumeration)(windows_core::Interface::as_raw(self)).ok() }
@@ -5847,7 +5847,7 @@ impl IWbemConfigureRefresher {
         P1: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<IWbemContext>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddObjectByPath)(windows_core::Interface::as_raw(self), pnamespace.param().abi(), wszpath.param().abi(), lflags, pcontext.param().abi(), core::mem::transmute(pprefreshable), core::mem::transmute(plid)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddObjectByPath)(windows_core::Interface::as_raw(self), pnamespace.param().abi(), wszpath.param().abi(), lflags, pcontext.param().abi(), core::mem::transmute(pprefreshable), plid as _).ok() }
     }
     pub unsafe fn AddObjectByTemplate<P0, P1, P3>(&self, pnamespace: P0, ptemplate: P1, lflags: i32, pcontext: P3, pprefreshable: *mut Option<IWbemClassObject>, plid: *mut i32) -> windows_core::Result<()>
     where
@@ -5855,13 +5855,13 @@ impl IWbemConfigureRefresher {
         P1: windows_core::Param<IWbemClassObject>,
         P3: windows_core::Param<IWbemContext>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddObjectByTemplate)(windows_core::Interface::as_raw(self), pnamespace.param().abi(), ptemplate.param().abi(), lflags, pcontext.param().abi(), core::mem::transmute(pprefreshable), core::mem::transmute(plid)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddObjectByTemplate)(windows_core::Interface::as_raw(self), pnamespace.param().abi(), ptemplate.param().abi(), lflags, pcontext.param().abi(), core::mem::transmute(pprefreshable), plid as _).ok() }
     }
     pub unsafe fn AddRefresher<P0>(&self, prefresher: P0, lflags: i32, plid: *mut i32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IWbemRefresher>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddRefresher)(windows_core::Interface::as_raw(self), prefresher.param().abi(), lflags, core::mem::transmute(plid)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddRefresher)(windows_core::Interface::as_raw(self), prefresher.param().abi(), lflags, plid as _).ok() }
     }
     pub unsafe fn Remove(&self, lid: i32, lflags: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), lid, lflags).ok() }
@@ -5872,7 +5872,7 @@ impl IWbemConfigureRefresher {
         P1: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<IWbemContext>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddEnum)(windows_core::Interface::as_raw(self), pnamespace.param().abi(), wszclassname.param().abi(), lflags, pcontext.param().abi(), core::mem::transmute(ppenum), core::mem::transmute(plid)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddEnum)(windows_core::Interface::as_raw(self), pnamespace.param().abi(), wszclassname.param().abi(), lflags, pcontext.param().abi(), core::mem::transmute(ppenum), plid as _).ok() }
     }
 }
 #[repr(C)]
@@ -6612,7 +6612,7 @@ impl IWbemHiPerfEnum {
         unsafe { (windows_core::Interface::vtable(self).RemoveObjects)(windows_core::Interface::as_raw(self), lflags, apids.len().try_into().unwrap(), core::mem::transmute(apids.as_ptr())).ok() }
     }
     pub unsafe fn GetObjects(&self, lflags: i32, apobj: &mut [Option<IWbemObjectAccess>], pureturned: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetObjects)(windows_core::Interface::as_raw(self), lflags, apobj.len().try_into().unwrap(), core::mem::transmute(apobj.as_ptr()), core::mem::transmute(pureturned)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetObjects)(windows_core::Interface::as_raw(self), lflags, apobj.len().try_into().unwrap(), core::mem::transmute(apobj.as_ptr()), pureturned as _).ok() }
     }
     pub unsafe fn RemoveAll(&self, lflags: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveAll)(windows_core::Interface::as_raw(self), lflags).ok() }
@@ -6699,7 +6699,7 @@ impl IWbemHiPerfProvider {
         P2: windows_core::Param<IWbemRefresher>,
         P4: windows_core::Param<IWbemContext>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateRefreshableObject)(windows_core::Interface::as_raw(self), pnamespace.param().abi(), ptemplate.param().abi(), prefresher.param().abi(), lflags, pcontext.param().abi(), core::mem::transmute(pprefreshable), core::mem::transmute(plid)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateRefreshableObject)(windows_core::Interface::as_raw(self), pnamespace.param().abi(), ptemplate.param().abi(), prefresher.param().abi(), lflags, pcontext.param().abi(), core::mem::transmute(pprefreshable), plid as _).ok() }
     }
     pub unsafe fn StopRefreshing<P0>(&self, prefresher: P0, lid: i32, lflags: i32) -> windows_core::Result<()>
     where
@@ -6987,13 +6987,13 @@ impl IWbemObjectAccess {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetPropertyHandle)(windows_core::Interface::as_raw(self), wszpropertyname.param().abi(), core::mem::transmute(ptype), core::mem::transmute(plhandle)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetPropertyHandle)(windows_core::Interface::as_raw(self), wszpropertyname.param().abi(), ptype as _, plhandle as _).ok() }
     }
     pub unsafe fn WritePropertyValue(&self, lhandle: i32, adata: &[u8]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).WritePropertyValue)(windows_core::Interface::as_raw(self), lhandle, adata.len().try_into().unwrap(), core::mem::transmute(adata.as_ptr())).ok() }
     }
     pub unsafe fn ReadPropertyValue(&self, lhandle: i32, plnumbytes: *mut i32, adata: &mut [u8]) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ReadPropertyValue)(windows_core::Interface::as_raw(self), lhandle, adata.len().try_into().unwrap(), core::mem::transmute(plnumbytes), core::mem::transmute(adata.as_ptr())).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ReadPropertyValue)(windows_core::Interface::as_raw(self), lhandle, adata.len().try_into().unwrap(), plnumbytes as _, core::mem::transmute(adata.as_ptr())).ok() }
     }
     pub unsafe fn ReadDWORD(&self, lhandle: i32) -> windows_core::Result<u32> {
         unsafe {
@@ -7014,7 +7014,7 @@ impl IWbemObjectAccess {
         unsafe { (windows_core::Interface::vtable(self).WriteQWORD)(windows_core::Interface::as_raw(self), lhandle, pw).ok() }
     }
     pub unsafe fn GetPropertyInfoByHandle(&self, lhandle: i32, pstrname: *mut windows_core::BSTR, ptype: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetPropertyInfoByHandle)(windows_core::Interface::as_raw(self), lhandle, core::mem::transmute(pstrname), core::mem::transmute(ptype)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetPropertyInfoByHandle)(windows_core::Interface::as_raw(self), lhandle, core::mem::transmute(pstrname), ptype as _).ok() }
     }
     pub unsafe fn Lock(&self, lflags: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Lock)(windows_core::Interface::as_raw(self), lflags).ok() }
@@ -7384,7 +7384,7 @@ impl IWbemPath {
         unsafe { (windows_core::Interface::vtable(self).SetText)(windows_core::Interface::as_raw(self), umode, pszpath.param().abi()).ok() }
     }
     pub unsafe fn GetText(&self, lflags: i32, pubufflength: *mut u32, psztext: windows_core::PWSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute(pubufflength), core::mem::transmute(psztext)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), lflags, pubufflength as _, core::mem::transmute(psztext)).ok() }
     }
     pub unsafe fn GetInfo(&self, urequestedinfo: u32) -> windows_core::Result<u64> {
         unsafe {
@@ -7399,7 +7399,7 @@ impl IWbemPath {
         unsafe { (windows_core::Interface::vtable(self).SetServer)(windows_core::Interface::as_raw(self), name.param().abi()).ok() }
     }
     pub unsafe fn GetServer(&self, punamebuflength: *mut u32, pname: windows_core::PWSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetServer)(windows_core::Interface::as_raw(self), core::mem::transmute(punamebuflength), core::mem::transmute(pname)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetServer)(windows_core::Interface::as_raw(self), punamebuflength as _, core::mem::transmute(pname)).ok() }
     }
     pub unsafe fn GetNamespaceCount(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -7414,7 +7414,7 @@ impl IWbemPath {
         unsafe { (windows_core::Interface::vtable(self).SetNamespaceAt)(windows_core::Interface::as_raw(self), uindex, pszname.param().abi()).ok() }
     }
     pub unsafe fn GetNamespaceAt(&self, uindex: u32, punamebuflength: *mut u32, pname: windows_core::PWSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetNamespaceAt)(windows_core::Interface::as_raw(self), uindex, core::mem::transmute(punamebuflength), core::mem::transmute(pname)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetNamespaceAt)(windows_core::Interface::as_raw(self), uindex, punamebuflength as _, core::mem::transmute(pname)).ok() }
     }
     pub unsafe fn RemoveNamespaceAt(&self, uindex: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveNamespaceAt)(windows_core::Interface::as_raw(self), uindex).ok() }
@@ -7441,10 +7441,10 @@ impl IWbemPath {
         unsafe { (windows_core::Interface::vtable(self).SetScopeFromText)(windows_core::Interface::as_raw(self), uindex, psztext.param().abi()).ok() }
     }
     pub unsafe fn GetScope(&self, uindex: u32, puclassnamebufsize: *mut u32, pszclass: windows_core::PWSTR, pkeylist: *mut Option<IWbemPathKeyList>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetScope)(windows_core::Interface::as_raw(self), uindex, core::mem::transmute(puclassnamebufsize), core::mem::transmute(pszclass), core::mem::transmute(pkeylist)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetScope)(windows_core::Interface::as_raw(self), uindex, puclassnamebufsize as _, core::mem::transmute(pszclass), core::mem::transmute(pkeylist)).ok() }
     }
     pub unsafe fn GetScopeAsText(&self, uindex: u32, putextbufsize: *mut u32, psztext: windows_core::PWSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetScopeAsText)(windows_core::Interface::as_raw(self), uindex, core::mem::transmute(putextbufsize), core::mem::transmute(psztext)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetScopeAsText)(windows_core::Interface::as_raw(self), uindex, putextbufsize as _, core::mem::transmute(psztext)).ok() }
     }
     pub unsafe fn RemoveScope(&self, uindex: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveScope)(windows_core::Interface::as_raw(self), uindex).ok() }
@@ -7459,7 +7459,7 @@ impl IWbemPath {
         unsafe { (windows_core::Interface::vtable(self).SetClassName)(windows_core::Interface::as_raw(self), name.param().abi()).ok() }
     }
     pub unsafe fn GetClassName(&self, pubufflength: *mut u32, pszname: Option<windows_core::PWSTR>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetClassName)(windows_core::Interface::as_raw(self), core::mem::transmute(pubufflength), core::mem::transmute(pszname.unwrap_or(core::mem::zeroed()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetClassName)(windows_core::Interface::as_raw(self), pubufflength as _, pszname.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn GetKeyList(&self) -> windows_core::Result<IWbemPathKeyList> {
         unsafe {
@@ -7801,11 +7801,11 @@ impl IWbemPathKeyList {
         unsafe { (windows_core::Interface::vtable(self).SetKey2)(windows_core::Interface::as_raw(self), wszname.param().abi(), uflags, ucimtype, core::mem::transmute(pkeyval)).ok() }
     }
     pub unsafe fn GetKey(&self, ukeyix: u32, uflags: u32, punamebufsize: *mut u32, pszkeyname: Option<windows_core::PWSTR>, pukeyvalbufsize: *mut u32, pkeyval: *mut core::ffi::c_void, puapparentcimtype: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetKey)(windows_core::Interface::as_raw(self), ukeyix, uflags, core::mem::transmute(punamebufsize), core::mem::transmute(pszkeyname.unwrap_or(core::mem::zeroed())), core::mem::transmute(pukeyvalbufsize), core::mem::transmute(pkeyval), core::mem::transmute(puapparentcimtype)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetKey)(windows_core::Interface::as_raw(self), ukeyix, uflags, punamebufsize as _, pszkeyname.unwrap_or(core::mem::zeroed()) as _, pukeyvalbufsize as _, pkeyval as _, puapparentcimtype as _).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetKey2(&self, ukeyix: u32, uflags: u32, punamebufsize: *mut u32, pszkeyname: Option<windows_core::PWSTR>, pkeyvalue: *mut super::Variant::VARIANT, puapparentcimtype: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetKey2)(windows_core::Interface::as_raw(self), ukeyix, uflags, core::mem::transmute(punamebufsize), core::mem::transmute(pszkeyname.unwrap_or(core::mem::zeroed())), core::mem::transmute(pkeyvalue), core::mem::transmute(puapparentcimtype)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetKey2)(windows_core::Interface::as_raw(self), ukeyix, uflags, punamebufsize as _, pszkeyname.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pkeyvalue), puapparentcimtype as _).ok() }
     }
     pub unsafe fn RemoveKey<P0>(&self, wszname: P0, uflags: u32) -> windows_core::Result<()>
     where
@@ -7826,7 +7826,7 @@ impl IWbemPathKeyList {
         }
     }
     pub unsafe fn GetText(&self, lflags: i32, pubufflength: *mut u32, psztext: windows_core::PWSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute(pubufflength), core::mem::transmute(psztext)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), lflags, pubufflength as _, core::mem::transmute(psztext)).ok() }
     }
 }
 #[repr(C)]
@@ -8131,7 +8131,7 @@ impl IWbemQualifierSet {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Get)(windows_core::Interface::as_raw(self), wszname.param().abi(), lflags, core::mem::transmute(pval), core::mem::transmute(plflavor)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Get)(windows_core::Interface::as_raw(self), wszname.param().abi(), lflags, core::mem::transmute(pval), plflavor as _).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Put<P0>(&self, wszname: P0, pval: *const super::Variant::VARIANT, lflavor: i32) -> windows_core::Result<()>
@@ -8158,7 +8158,7 @@ impl IWbemQualifierSet {
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Next(&self, lflags: i32, pstrname: *mut windows_core::BSTR, pval: *mut super::Variant::VARIANT, plflavor: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute(pstrname), core::mem::transmute(pval), core::mem::transmute(plflavor)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute(pstrname), core::mem::transmute(pval), plflavor as _).ok() }
     }
     pub unsafe fn EndEnumeration(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).EndEnumeration)(windows_core::Interface::as_raw(self)).ok() }
@@ -8275,7 +8275,7 @@ impl IWbemQuery {
         unsafe { (windows_core::Interface::vtable(self).SetLanguageFeatures)(windows_core::Interface::as_raw(self), uflags, uarraysize, pufeatures).ok() }
     }
     pub unsafe fn TestLanguageFeatures(&self, uflags: u32, uarraysize: *mut u32, pufeatures: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).TestLanguageFeatures)(windows_core::Interface::as_raw(self), uflags, core::mem::transmute(uarraysize), core::mem::transmute(pufeatures)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).TestLanguageFeatures)(windows_core::Interface::as_raw(self), uflags, uarraysize as _, pufeatures as _).ok() }
     }
     pub unsafe fn Parse<P0, P1>(&self, pszlang: P0, pszquery: P1, uflags: u32) -> windows_core::Result<()>
     where
@@ -8285,13 +8285,13 @@ impl IWbemQuery {
         unsafe { (windows_core::Interface::vtable(self).Parse)(windows_core::Interface::as_raw(self), pszlang.param().abi(), pszquery.param().abi(), uflags).ok() }
     }
     pub unsafe fn GetAnalysis(&self, uanalysistype: u32, uflags: u32, panalysis: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetAnalysis)(windows_core::Interface::as_raw(self), uanalysistype, uflags, core::mem::transmute(panalysis)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetAnalysis)(windows_core::Interface::as_raw(self), uanalysistype, uflags, panalysis as _).ok() }
     }
     pub unsafe fn FreeMemory(&self, pmem: *const core::ffi::c_void) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).FreeMemory)(windows_core::Interface::as_raw(self), pmem).ok() }
     }
     pub unsafe fn GetQueryInfo(&self, uanalysistype: u32, uinfoid: u32, ubufsize: u32, pdestbuf: *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetQueryInfo)(windows_core::Interface::as_raw(self), uanalysistype, uinfoid, ubufsize, core::mem::transmute(pdestbuf)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetQueryInfo)(windows_core::Interface::as_raw(self), uanalysistype, uinfoid, ubufsize, pdestbuf as _).ok() }
     }
 }
 #[repr(C)]
@@ -8411,7 +8411,7 @@ impl IWbemServices {
     where
         P2: windows_core::Param<IWbemContext>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OpenNamespace)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strnamespace), lflags, pctx.param().abi(), core::mem::transmute(ppworkingnamespace.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppresult.unwrap_or(core::mem::zeroed()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OpenNamespace)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strnamespace), lflags, pctx.param().abi(), ppworkingnamespace.unwrap_or(core::mem::zeroed()) as _, ppresult.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn CancelAsyncCall<P0>(&self, psink: P0) -> windows_core::Result<()>
     where
@@ -8429,7 +8429,7 @@ impl IWbemServices {
     where
         P2: windows_core::Param<IWbemContext>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetObject)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strobjectpath), lflags, pctx.param().abi(), core::mem::transmute(ppobject.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppcallresult.unwrap_or(core::mem::zeroed()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetObject)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strobjectpath), lflags, pctx.param().abi(), ppobject.unwrap_or(core::mem::zeroed()) as _, ppcallresult.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn GetObjectAsync<P2, P3>(&self, strobjectpath: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: P2, presponsehandler: P3) -> windows_core::Result<()>
     where
@@ -8443,7 +8443,7 @@ impl IWbemServices {
         P0: windows_core::Param<IWbemClassObject>,
         P2: windows_core::Param<IWbemContext>,
     {
-        unsafe { (windows_core::Interface::vtable(self).PutClass)(windows_core::Interface::as_raw(self), pobject.param().abi(), lflags, pctx.param().abi(), core::mem::transmute(ppcallresult.unwrap_or(core::mem::zeroed()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).PutClass)(windows_core::Interface::as_raw(self), pobject.param().abi(), lflags, pctx.param().abi(), ppcallresult.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn PutClassAsync<P0, P2, P3>(&self, pobject: P0, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: P2, presponsehandler: P3) -> windows_core::Result<()>
     where
@@ -8457,7 +8457,7 @@ impl IWbemServices {
     where
         P2: windows_core::Param<IWbemContext>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DeleteClass)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strclass), lflags, pctx.param().abi(), core::mem::transmute(ppcallresult.unwrap_or(core::mem::zeroed()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DeleteClass)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strclass), lflags, pctx.param().abi(), ppcallresult.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn DeleteClassAsync<P2, P3>(&self, strclass: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: P2, presponsehandler: P3) -> windows_core::Result<()>
     where
@@ -8487,7 +8487,7 @@ impl IWbemServices {
         P0: windows_core::Param<IWbemClassObject>,
         P2: windows_core::Param<IWbemContext>,
     {
-        unsafe { (windows_core::Interface::vtable(self).PutInstance)(windows_core::Interface::as_raw(self), pinst.param().abi(), lflags, pctx.param().abi(), core::mem::transmute(ppcallresult.unwrap_or(core::mem::zeroed()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).PutInstance)(windows_core::Interface::as_raw(self), pinst.param().abi(), lflags, pctx.param().abi(), ppcallresult.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn PutInstanceAsync<P0, P2, P3>(&self, pinst: P0, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: P2, presponsehandler: P3) -> windows_core::Result<()>
     where
@@ -8501,7 +8501,7 @@ impl IWbemServices {
     where
         P2: windows_core::Param<IWbemContext>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DeleteInstance)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strobjectpath), lflags, pctx.param().abi(), core::mem::transmute(ppcallresult.unwrap_or(core::mem::zeroed()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DeleteInstance)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strobjectpath), lflags, pctx.param().abi(), ppcallresult.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn DeleteInstanceAsync<P2, P3>(&self, strobjectpath: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: P2, presponsehandler: P3) -> windows_core::Result<()>
     where
@@ -8563,7 +8563,7 @@ impl IWbemServices {
         P3: windows_core::Param<IWbemContext>,
         P4: windows_core::Param<IWbemClassObject>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ExecMethod)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strobjectpath), core::mem::transmute_copy(strmethodname), lflags, pctx.param().abi(), pinparams.param().abi(), core::mem::transmute(ppoutparams.unwrap_or(core::mem::zeroed())), core::mem::transmute(ppcallresult.unwrap_or(core::mem::zeroed()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ExecMethod)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strobjectpath), core::mem::transmute_copy(strmethodname), lflags, pctx.param().abi(), pinparams.param().abi(), ppoutparams.unwrap_or(core::mem::zeroed()) as _, ppcallresult.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn ExecMethodAsync<P3, P4, P5>(&self, strobjectpath: &windows_core::BSTR, strmethodname: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: P3, pinparams: P4, presponsehandler: P5) -> windows_core::Result<()>
     where

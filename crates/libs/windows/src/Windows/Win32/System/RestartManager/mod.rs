@@ -5,7 +5,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("rstrtmgr.dll" "system" fn RmAddFilter(dwsessionhandle : u32, strmodulename : windows_core::PCWSTR, pprocess : *const RM_UNIQUE_PROCESS, strserviceshortname : windows_core::PCWSTR, filteraction : RM_FILTER_ACTION) -> super::super::Foundation:: WIN32_ERROR);
-    unsafe { RmAddFilter(dwsessionhandle, strmodulename.param().abi(), core::mem::transmute(pprocess.unwrap_or(core::mem::zeroed())), strserviceshortname.param().abi(), filteraction) }
+    unsafe { RmAddFilter(dwsessionhandle, strmodulename.param().abi(), pprocess.unwrap_or(core::mem::zeroed()) as _, strserviceshortname.param().abi(), filteraction) }
 }
 #[inline]
 pub unsafe fn RmCancelCurrentTask(dwsessionhandle: u32) -> super::super::Foundation::WIN32_ERROR {
@@ -20,12 +20,12 @@ pub unsafe fn RmEndSession(dwsessionhandle: u32) -> super::super::Foundation::WI
 #[inline]
 pub unsafe fn RmGetFilterList(dwsessionhandle: u32, pbfilterbuf: Option<&mut [u8]>, cbfilterbufneeded: *mut u32) -> super::super::Foundation::WIN32_ERROR {
     windows_targets::link!("rstrtmgr.dll" "system" fn RmGetFilterList(dwsessionhandle : u32, pbfilterbuf : *mut u8, cbfilterbuf : u32, cbfilterbufneeded : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
-    unsafe { RmGetFilterList(dwsessionhandle, core::mem::transmute(pbfilterbuf.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbfilterbuf.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(cbfilterbufneeded)) }
+    unsafe { RmGetFilterList(dwsessionhandle, core::mem::transmute(pbfilterbuf.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbfilterbuf.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), cbfilterbufneeded as _) }
 }
 #[inline]
 pub unsafe fn RmGetList(dwsessionhandle: u32, pnprocinfoneeded: *mut u32, pnprocinfo: *mut u32, rgaffectedapps: Option<*mut RM_PROCESS_INFO>, lpdwrebootreasons: *mut u32) -> super::super::Foundation::WIN32_ERROR {
     windows_targets::link!("rstrtmgr.dll" "system" fn RmGetList(dwsessionhandle : u32, pnprocinfoneeded : *mut u32, pnprocinfo : *mut u32, rgaffectedapps : *mut RM_PROCESS_INFO, lpdwrebootreasons : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
-    unsafe { RmGetList(dwsessionhandle, core::mem::transmute(pnprocinfoneeded), core::mem::transmute(pnprocinfo), core::mem::transmute(rgaffectedapps.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpdwrebootreasons)) }
+    unsafe { RmGetList(dwsessionhandle, pnprocinfoneeded as _, pnprocinfo as _, rgaffectedapps.unwrap_or(core::mem::zeroed()) as _, lpdwrebootreasons as _) }
 }
 #[inline]
 pub unsafe fn RmJoinSession<P1>(psessionhandle: *mut u32, strsessionkey: P1) -> super::super::Foundation::WIN32_ERROR
@@ -33,7 +33,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("rstrtmgr.dll" "system" fn RmJoinSession(psessionhandle : *mut u32, strsessionkey : windows_core::PCWSTR) -> super::super::Foundation:: WIN32_ERROR);
-    unsafe { RmJoinSession(core::mem::transmute(psessionhandle), strsessionkey.param().abi()) }
+    unsafe { RmJoinSession(psessionhandle as _, strsessionkey.param().abi()) }
 }
 #[inline]
 pub unsafe fn RmRegisterResources(dwsessionhandle: u32, rgsfilenames: Option<&[windows_core::PCWSTR]>, rgapplications: Option<&[RM_UNIQUE_PROCESS]>, rgsservicenames: Option<&[windows_core::PCWSTR]>) -> super::super::Foundation::WIN32_ERROR {
@@ -57,22 +57,22 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("rstrtmgr.dll" "system" fn RmRemoveFilter(dwsessionhandle : u32, strmodulename : windows_core::PCWSTR, pprocess : *const RM_UNIQUE_PROCESS, strserviceshortname : windows_core::PCWSTR) -> super::super::Foundation:: WIN32_ERROR);
-    unsafe { RmRemoveFilter(dwsessionhandle, strmodulename.param().abi(), core::mem::transmute(pprocess.unwrap_or(core::mem::zeroed())), strserviceshortname.param().abi()) }
+    unsafe { RmRemoveFilter(dwsessionhandle, strmodulename.param().abi(), pprocess.unwrap_or(core::mem::zeroed()) as _, strserviceshortname.param().abi()) }
 }
 #[inline]
 pub unsafe fn RmRestart(dwsessionhandle: u32, dwrestartflags: Option<u32>, fnstatus: Option<RM_WRITE_STATUS_CALLBACK>) -> super::super::Foundation::WIN32_ERROR {
     windows_targets::link!("rstrtmgr.dll" "system" fn RmRestart(dwsessionhandle : u32, dwrestartflags : u32, fnstatus : RM_WRITE_STATUS_CALLBACK) -> super::super::Foundation:: WIN32_ERROR);
-    unsafe { RmRestart(dwsessionhandle, core::mem::transmute(dwrestartflags.unwrap_or(core::mem::zeroed())), core::mem::transmute(fnstatus.unwrap_or(core::mem::zeroed()))) }
+    unsafe { RmRestart(dwsessionhandle, dwrestartflags.unwrap_or(core::mem::zeroed()) as _, fnstatus.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn RmShutdown(dwsessionhandle: u32, lactionflags: u32, fnstatus: Option<RM_WRITE_STATUS_CALLBACK>) -> super::super::Foundation::WIN32_ERROR {
     windows_targets::link!("rstrtmgr.dll" "system" fn RmShutdown(dwsessionhandle : u32, lactionflags : u32, fnstatus : RM_WRITE_STATUS_CALLBACK) -> super::super::Foundation:: WIN32_ERROR);
-    unsafe { RmShutdown(dwsessionhandle, lactionflags, core::mem::transmute(fnstatus.unwrap_or(core::mem::zeroed()))) }
+    unsafe { RmShutdown(dwsessionhandle, lactionflags, fnstatus.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn RmStartSession(psessionhandle: *mut u32, dwsessionflags: Option<u32>, strsessionkey: windows_core::PWSTR) -> super::super::Foundation::WIN32_ERROR {
     windows_targets::link!("rstrtmgr.dll" "system" fn RmStartSession(psessionhandle : *mut u32, dwsessionflags : u32, strsessionkey : windows_core::PWSTR) -> super::super::Foundation:: WIN32_ERROR);
-    unsafe { RmStartSession(core::mem::transmute(psessionhandle), core::mem::transmute(dwsessionflags.unwrap_or(core::mem::zeroed())), core::mem::transmute(strsessionkey)) }
+    unsafe { RmStartSession(psessionhandle as _, dwsessionflags.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(strsessionkey)) }
 }
 pub const CCH_RM_MAX_APP_NAME: u32 = 255u32;
 pub const CCH_RM_MAX_SVC_NAME: u32 = 63u32;

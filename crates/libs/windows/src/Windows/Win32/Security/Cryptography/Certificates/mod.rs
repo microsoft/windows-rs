@@ -1,32 +1,32 @@
 #[inline]
 pub unsafe fn CertSrvBackupClose(hbc: *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("certadm.dll" "system" fn CertSrvBackupClose(hbc : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CertSrvBackupClose(core::mem::transmute(hbc)).ok() }
+    unsafe { CertSrvBackupClose(hbc as _).ok() }
 }
 #[inline]
 pub unsafe fn CertSrvBackupEnd(hbc: *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("certadm.dll" "system" fn CertSrvBackupEnd(hbc : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CertSrvBackupEnd(core::mem::transmute(hbc)).ok() }
+    unsafe { CertSrvBackupEnd(hbc as _).ok() }
 }
 #[inline]
 pub unsafe fn CertSrvBackupFree(pv: *mut core::ffi::c_void) {
     windows_targets::link!("certadm.dll" "system" fn CertSrvBackupFree(pv : *mut core::ffi::c_void));
-    unsafe { CertSrvBackupFree(core::mem::transmute(pv)) }
+    unsafe { CertSrvBackupFree(pv as _) }
 }
 #[inline]
 pub unsafe fn CertSrvBackupGetBackupLogsW(hbc: *const core::ffi::c_void, ppwszzbackuplogfiles: *mut windows_core::PWSTR, pcbsize: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("certadm.dll" "system" fn CertSrvBackupGetBackupLogsW(hbc : *const core::ffi::c_void, ppwszzbackuplogfiles : *mut windows_core::PWSTR, pcbsize : *mut u32) -> windows_core::HRESULT);
-    unsafe { CertSrvBackupGetBackupLogsW(hbc, core::mem::transmute(ppwszzbackuplogfiles), core::mem::transmute(pcbsize)).ok() }
+    unsafe { CertSrvBackupGetBackupLogsW(hbc, ppwszzbackuplogfiles as _, pcbsize as _).ok() }
 }
 #[inline]
 pub unsafe fn CertSrvBackupGetDatabaseNamesW(hbc: *const core::ffi::c_void, ppwszzattachmentinformation: *mut windows_core::PWSTR, pcbsize: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("certadm.dll" "system" fn CertSrvBackupGetDatabaseNamesW(hbc : *const core::ffi::c_void, ppwszzattachmentinformation : *mut windows_core::PWSTR, pcbsize : *mut u32) -> windows_core::HRESULT);
-    unsafe { CertSrvBackupGetDatabaseNamesW(hbc, core::mem::transmute(ppwszzattachmentinformation), core::mem::transmute(pcbsize)).ok() }
+    unsafe { CertSrvBackupGetDatabaseNamesW(hbc, ppwszzattachmentinformation as _, pcbsize as _).ok() }
 }
 #[inline]
 pub unsafe fn CertSrvBackupGetDynamicFileListW(hbc: *const core::ffi::c_void, ppwszzfilelist: *mut windows_core::PWSTR, pcbsize: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("certadm.dll" "system" fn CertSrvBackupGetDynamicFileListW(hbc : *const core::ffi::c_void, ppwszzfilelist : *mut windows_core::PWSTR, pcbsize : *mut u32) -> windows_core::HRESULT);
-    unsafe { CertSrvBackupGetDynamicFileListW(hbc, core::mem::transmute(ppwszzfilelist), core::mem::transmute(pcbsize)).ok() }
+    unsafe { CertSrvBackupGetDynamicFileListW(hbc, ppwszzfilelist as _, pcbsize as _).ok() }
 }
 #[inline]
 pub unsafe fn CertSrvBackupOpenFileW<P1>(hbc: *mut core::ffi::c_void, pwszattachmentname: P1, cbreadhintsize: u32, plifilesize: *mut i64) -> windows_core::Result<()>
@@ -34,7 +34,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("certadm.dll" "system" fn CertSrvBackupOpenFileW(hbc : *mut core::ffi::c_void, pwszattachmentname : windows_core::PCWSTR, cbreadhintsize : u32, plifilesize : *mut i64) -> windows_core::HRESULT);
-    unsafe { CertSrvBackupOpenFileW(core::mem::transmute(hbc), pwszattachmentname.param().abi(), cbreadhintsize, core::mem::transmute(plifilesize)).ok() }
+    unsafe { CertSrvBackupOpenFileW(hbc as _, pwszattachmentname.param().abi(), cbreadhintsize, plifilesize as _).ok() }
 }
 #[inline]
 pub unsafe fn CertSrvBackupPrepareW<P0>(pwszservername: P0, grbitjet: u32, dwbackupflags: CSBACKUP_TYPE, phbc: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -42,17 +42,17 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("certadm.dll" "system" fn CertSrvBackupPrepareW(pwszservername : windows_core::PCWSTR, grbitjet : u32, dwbackupflags : CSBACKUP_TYPE, phbc : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CertSrvBackupPrepareW(pwszservername.param().abi(), grbitjet, dwbackupflags, core::mem::transmute(phbc)).ok() }
+    unsafe { CertSrvBackupPrepareW(pwszservername.param().abi(), grbitjet, dwbackupflags, phbc as _).ok() }
 }
 #[inline]
 pub unsafe fn CertSrvBackupRead(hbc: *mut core::ffi::c_void, pvbuffer: *mut core::ffi::c_void, cbbuffer: u32, pcbread: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("certadm.dll" "system" fn CertSrvBackupRead(hbc : *mut core::ffi::c_void, pvbuffer : *mut core::ffi::c_void, cbbuffer : u32, pcbread : *mut u32) -> windows_core::HRESULT);
-    unsafe { CertSrvBackupRead(core::mem::transmute(hbc), core::mem::transmute(pvbuffer), cbbuffer, core::mem::transmute(pcbread)).ok() }
+    unsafe { CertSrvBackupRead(hbc as _, pvbuffer as _, cbbuffer, pcbread as _).ok() }
 }
 #[inline]
 pub unsafe fn CertSrvBackupTruncateLogs(hbc: *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("certadm.dll" "system" fn CertSrvBackupTruncateLogs(hbc : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CertSrvBackupTruncateLogs(core::mem::transmute(hbc)).ok() }
+    unsafe { CertSrvBackupTruncateLogs(hbc as _).ok() }
 }
 #[inline]
 pub unsafe fn CertSrvIsServerOnlineW<P0>(pwszservername: P0, pfserveronline: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()>
@@ -60,17 +60,17 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("certadm.dll" "system" fn CertSrvIsServerOnlineW(pwszservername : windows_core::PCWSTR, pfserveronline : *mut super::super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    unsafe { CertSrvIsServerOnlineW(pwszservername.param().abi(), core::mem::transmute(pfserveronline)).ok() }
+    unsafe { CertSrvIsServerOnlineW(pwszservername.param().abi(), pfserveronline as _).ok() }
 }
 #[inline]
 pub unsafe fn CertSrvRestoreEnd(hbc: *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("certadm.dll" "system" fn CertSrvRestoreEnd(hbc : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CertSrvRestoreEnd(core::mem::transmute(hbc)).ok() }
+    unsafe { CertSrvRestoreEnd(hbc as _).ok() }
 }
 #[inline]
 pub unsafe fn CertSrvRestoreGetDatabaseLocationsW(hbc: *const core::ffi::c_void, ppwszzdatabaselocationlist: *mut windows_core::PWSTR, pcbsize: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("certadm.dll" "system" fn CertSrvRestoreGetDatabaseLocationsW(hbc : *const core::ffi::c_void, ppwszzdatabaselocationlist : *mut windows_core::PWSTR, pcbsize : *mut u32) -> windows_core::HRESULT);
-    unsafe { CertSrvRestoreGetDatabaseLocationsW(hbc, core::mem::transmute(ppwszzdatabaselocationlist), core::mem::transmute(pcbsize)).ok() }
+    unsafe { CertSrvRestoreGetDatabaseLocationsW(hbc, ppwszzdatabaselocationlist as _, pcbsize as _).ok() }
 }
 #[inline]
 pub unsafe fn CertSrvRestorePrepareW<P0>(pwszservername: P0, dwrestoreflags: u32, phbc: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -78,12 +78,12 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("certadm.dll" "system" fn CertSrvRestorePrepareW(pwszservername : windows_core::PCWSTR, dwrestoreflags : u32, phbc : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CertSrvRestorePrepareW(pwszservername.param().abi(), dwrestoreflags, core::mem::transmute(phbc)).ok() }
+    unsafe { CertSrvRestorePrepareW(pwszservername.param().abi(), dwrestoreflags, phbc as _).ok() }
 }
 #[inline]
 pub unsafe fn CertSrvRestoreRegisterComplete(hbc: *mut core::ffi::c_void, hrrestorestate: windows_core::HRESULT) -> windows_core::Result<()> {
     windows_targets::link!("certadm.dll" "system" fn CertSrvRestoreRegisterComplete(hbc : *mut core::ffi::c_void, hrrestorestate : windows_core::HRESULT) -> windows_core::HRESULT);
-    unsafe { CertSrvRestoreRegisterComplete(core::mem::transmute(hbc), hrrestorestate).ok() }
+    unsafe { CertSrvRestoreRegisterComplete(hbc as _, hrrestorestate).ok() }
 }
 #[inline]
 pub unsafe fn CertSrvRestoreRegisterThroughFile<P1, P2, P5>(hbc: *mut core::ffi::c_void, pwszcheckpointfilepath: P1, pwszlogpath: P2, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: P5, genlow: u32, genhigh: u32) -> windows_core::Result<()>
@@ -93,7 +93,7 @@ where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("certadm.dll" "system" fn CertSrvRestoreRegisterThroughFile(hbc : *mut core::ffi::c_void, pwszcheckpointfilepath : windows_core::PCWSTR, pwszlogpath : windows_core::PCWSTR, rgrstmap : *mut CSEDB_RSTMAPW, crstmap : i32, pwszbackuplogpath : windows_core::PCWSTR, genlow : u32, genhigh : u32) -> windows_core::HRESULT);
-    unsafe { CertSrvRestoreRegisterThroughFile(core::mem::transmute(hbc), pwszcheckpointfilepath.param().abi(), pwszlogpath.param().abi(), core::mem::transmute(rgrstmap), crstmap, pwszbackuplogpath.param().abi(), genlow, genhigh).ok() }
+    unsafe { CertSrvRestoreRegisterThroughFile(hbc as _, pwszcheckpointfilepath.param().abi(), pwszlogpath.param().abi(), rgrstmap as _, crstmap, pwszbackuplogpath.param().abi(), genlow, genhigh).ok() }
 }
 #[inline]
 pub unsafe fn CertSrvRestoreRegisterW<P1, P2, P5>(hbc: *mut core::ffi::c_void, pwszcheckpointfilepath: P1, pwszlogpath: P2, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: P5, genlow: u32, genhigh: u32) -> windows_core::Result<()>
@@ -103,7 +103,7 @@ where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("certadm.dll" "system" fn CertSrvRestoreRegisterW(hbc : *mut core::ffi::c_void, pwszcheckpointfilepath : windows_core::PCWSTR, pwszlogpath : windows_core::PCWSTR, rgrstmap : *mut CSEDB_RSTMAPW, crstmap : i32, pwszbackuplogpath : windows_core::PCWSTR, genlow : u32, genhigh : u32) -> windows_core::HRESULT);
-    unsafe { CertSrvRestoreRegisterW(core::mem::transmute(hbc), pwszcheckpointfilepath.param().abi(), pwszlogpath.param().abi(), core::mem::transmute(rgrstmap), crstmap, pwszbackuplogpath.param().abi(), genlow, genhigh).ok() }
+    unsafe { CertSrvRestoreRegisterW(hbc as _, pwszcheckpointfilepath.param().abi(), pwszlogpath.param().abi(), rgrstmap as _, crstmap, pwszbackuplogpath.param().abi(), genlow, genhigh).ok() }
 }
 #[inline]
 pub unsafe fn CertSrvServerControlW<P0>(pwszservername: P0, dwcontrolflags: u32, pcbout: *mut u32, ppbout: *mut *mut u8) -> windows_core::Result<()>
@@ -111,7 +111,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("certadm.dll" "system" fn CertSrvServerControlW(pwszservername : windows_core::PCWSTR, dwcontrolflags : u32, pcbout : *mut u32, ppbout : *mut *mut u8) -> windows_core::HRESULT);
-    unsafe { CertSrvServerControlW(pwszservername.param().abi(), dwcontrolflags, core::mem::transmute(pcbout), core::mem::transmute(ppbout)).ok() }
+    unsafe { CertSrvServerControlW(pwszservername.param().abi(), dwcontrolflags, pcbout as _, ppbout as _).ok() }
 }
 #[inline]
 pub unsafe fn PstAcquirePrivateKey(pcert: *const super::CERT_CONTEXT) -> super::super::super::Foundation::NTSTATUS {
@@ -122,40 +122,40 @@ pub unsafe fn PstAcquirePrivateKey(pcert: *const super::CERT_CONTEXT) -> super::
 #[inline]
 pub unsafe fn PstGetCertificateChain(pcert: *const super::CERT_CONTEXT, ptrustedissuers: *const super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx, ppcertchaincontext: *mut *mut super::CERT_CHAIN_CONTEXT) -> super::super::super::Foundation::NTSTATUS {
     windows_targets::link!("certpoleng.dll" "system" fn PstGetCertificateChain(pcert : *const super:: CERT_CONTEXT, ptrustedissuers : *const super::super::Authentication::Identity:: SecPkgContext_IssuerListInfoEx, ppcertchaincontext : *mut *mut super:: CERT_CHAIN_CONTEXT) -> super::super::super::Foundation:: NTSTATUS);
-    unsafe { PstGetCertificateChain(pcert, ptrustedissuers, core::mem::transmute(ppcertchaincontext)) }
+    unsafe { PstGetCertificateChain(pcert, ptrustedissuers, ppcertchaincontext as _) }
 }
 #[inline]
 pub unsafe fn PstGetCertificates(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, rgpcriteria: Option<&[super::CERT_SELECT_CRITERIA]>, bisclient: bool, pdwcertchaincontextcount: *mut u32, ppcertchaincontexts: *mut *mut *mut super::CERT_CHAIN_CONTEXT) -> super::super::super::Foundation::NTSTATUS {
     windows_targets::link!("certpoleng.dll" "system" fn PstGetCertificates(ptargetname : *const super::super::super::Foundation:: UNICODE_STRING, ccriteria : u32, rgpcriteria : *const super:: CERT_SELECT_CRITERIA, bisclient : super::super::super::Foundation:: BOOL, pdwcertchaincontextcount : *mut u32, ppcertchaincontexts : *mut *mut *mut super:: CERT_CHAIN_CONTEXT) -> super::super::super::Foundation:: NTSTATUS);
-    unsafe { PstGetCertificates(ptargetname, rgpcriteria.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpcriteria.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), bisclient.into(), core::mem::transmute(pdwcertchaincontextcount), core::mem::transmute(ppcertchaincontexts)) }
+    unsafe { PstGetCertificates(ptargetname, rgpcriteria.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpcriteria.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), bisclient.into(), pdwcertchaincontextcount as _, ppcertchaincontexts as _) }
 }
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
 #[inline]
 pub unsafe fn PstGetTrustAnchors(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, rgpcriteria: Option<&[super::CERT_SELECT_CRITERIA]>, pptrustedissuers: *mut *mut super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx) -> super::super::super::Foundation::NTSTATUS {
     windows_targets::link!("certpoleng.dll" "system" fn PstGetTrustAnchors(ptargetname : *const super::super::super::Foundation:: UNICODE_STRING, ccriteria : u32, rgpcriteria : *const super:: CERT_SELECT_CRITERIA, pptrustedissuers : *mut *mut super::super::Authentication::Identity:: SecPkgContext_IssuerListInfoEx) -> super::super::super::Foundation:: NTSTATUS);
-    unsafe { PstGetTrustAnchors(ptargetname, rgpcriteria.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpcriteria.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(pptrustedissuers)) }
+    unsafe { PstGetTrustAnchors(ptargetname, rgpcriteria.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpcriteria.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pptrustedissuers as _) }
 }
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
 #[inline]
 pub unsafe fn PstGetTrustAnchorsEx(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, rgpcriteria: Option<&[super::CERT_SELECT_CRITERIA]>, pcertcontext: Option<*const super::CERT_CONTEXT>, pptrustedissuers: *mut *mut super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx) -> super::super::super::Foundation::NTSTATUS {
     windows_targets::link!("certpoleng.dll" "system" fn PstGetTrustAnchorsEx(ptargetname : *const super::super::super::Foundation:: UNICODE_STRING, ccriteria : u32, rgpcriteria : *const super:: CERT_SELECT_CRITERIA, pcertcontext : *const super:: CERT_CONTEXT, pptrustedissuers : *mut *mut super::super::Authentication::Identity:: SecPkgContext_IssuerListInfoEx) -> super::super::super::Foundation:: NTSTATUS);
-    unsafe { PstGetTrustAnchorsEx(ptargetname, rgpcriteria.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpcriteria.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(pcertcontext.unwrap_or(core::mem::zeroed())), core::mem::transmute(pptrustedissuers)) }
+    unsafe { PstGetTrustAnchorsEx(ptargetname, rgpcriteria.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpcriteria.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcertcontext.unwrap_or(core::mem::zeroed()) as _, pptrustedissuers as _) }
 }
 #[inline]
 pub unsafe fn PstGetUserNameForCertificate(pcertcontext: *const super::CERT_CONTEXT, username: *mut super::super::super::Foundation::UNICODE_STRING) -> super::super::super::Foundation::NTSTATUS {
     windows_targets::link!("certpoleng.dll" "system" fn PstGetUserNameForCertificate(pcertcontext : *const super:: CERT_CONTEXT, username : *mut super::super::super::Foundation:: UNICODE_STRING) -> super::super::super::Foundation:: NTSTATUS);
-    unsafe { PstGetUserNameForCertificate(pcertcontext, core::mem::transmute(username)) }
+    unsafe { PstGetUserNameForCertificate(pcertcontext, username as _) }
 }
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
 #[inline]
 pub unsafe fn PstMapCertificate(pcert: *const super::CERT_CONTEXT, ptokeninformationtype: *mut super::super::Authentication::Identity::LSA_TOKEN_INFORMATION_TYPE, pptokeninformation: *mut *mut core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS {
     windows_targets::link!("certpoleng.dll" "system" fn PstMapCertificate(pcert : *const super:: CERT_CONTEXT, ptokeninformationtype : *mut super::super::Authentication::Identity:: LSA_TOKEN_INFORMATION_TYPE, pptokeninformation : *mut *mut core::ffi::c_void) -> super::super::super::Foundation:: NTSTATUS);
-    unsafe { PstMapCertificate(pcert, core::mem::transmute(ptokeninformationtype), core::mem::transmute(pptokeninformation)) }
+    unsafe { PstMapCertificate(pcert, ptokeninformationtype as _, pptokeninformation as _) }
 }
 #[inline]
 pub unsafe fn PstValidate(ptargetname: Option<*const super::super::super::Foundation::UNICODE_STRING>, bisclient: bool, prequestedissuancepolicy: Option<*const super::CERT_USAGE_MATCH>, phadditionalcertstore: Option<*const super::HCERTSTORE>, pcert: *const super::CERT_CONTEXT, pprovguid: Option<*mut windows_core::GUID>) -> super::super::super::Foundation::NTSTATUS {
     windows_targets::link!("certpoleng.dll" "system" fn PstValidate(ptargetname : *const super::super::super::Foundation:: UNICODE_STRING, bisclient : super::super::super::Foundation:: BOOL, prequestedissuancepolicy : *const super:: CERT_USAGE_MATCH, phadditionalcertstore : *const super:: HCERTSTORE, pcert : *const super:: CERT_CONTEXT, pprovguid : *mut windows_core::GUID) -> super::super::super::Foundation:: NTSTATUS);
-    unsafe { PstValidate(core::mem::transmute(ptargetname.unwrap_or(core::mem::zeroed())), bisclient.into(), core::mem::transmute(prequestedissuancepolicy.unwrap_or(core::mem::zeroed())), core::mem::transmute(phadditionalcertstore.unwrap_or(core::mem::zeroed())), pcert, core::mem::transmute(pprovguid.unwrap_or(core::mem::zeroed()))) }
+    unsafe { PstValidate(ptargetname.unwrap_or(core::mem::zeroed()) as _, bisclient.into(), prequestedissuancepolicy.unwrap_or(core::mem::zeroed()) as _, phadditionalcertstore.unwrap_or(core::mem::zeroed()) as _, pcert, pprovguid.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7602,7 +7602,7 @@ impl ICertRequestD {
         P1: windows_core::Param<windows_core::PCWSTR>,
         P4: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Request)(windows_core::Interface::as_raw(self), dwflags, pwszauthority.param().abi(), core::mem::transmute(pdwrequestid), core::mem::transmute(pdwdisposition), pwszattributes.param().abi(), pctbrequest, core::mem::transmute(pctbcertchain), core::mem::transmute(pctbencodedcert), core::mem::transmute(pctbdispositionmessage)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Request)(windows_core::Interface::as_raw(self), dwflags, pwszauthority.param().abi(), pdwrequestid as _, pdwdisposition as _, pwszattributes.param().abi(), pctbrequest, pctbcertchain as _, pctbencodedcert as _, pctbdispositionmessage as _).ok() }
     }
     pub unsafe fn GetCACert<P1>(&self, fchain: u32, pwszauthority: P1) -> windows_core::Result<CERTTRANSBLOB>
     where
@@ -7685,7 +7685,7 @@ impl ICertRequestD2 {
         P2: windows_core::Param<windows_core::PCWSTR>,
         P5: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Request2)(windows_core::Interface::as_raw(self), pwszauthority.param().abi(), dwflags, pwszserialnumber.param().abi(), core::mem::transmute(pdwrequestid), core::mem::transmute(pdwdisposition), pwszattributes.param().abi(), pctbrequest, core::mem::transmute(pctbfullresponse), core::mem::transmute(pctbencodedcert), core::mem::transmute(pctbdispositionmessage)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Request2)(windows_core::Interface::as_raw(self), pwszauthority.param().abi(), dwflags, pwszserialnumber.param().abi(), pdwrequestid as _, pdwdisposition as _, pwszattributes.param().abi(), pctbrequest, pctbfullresponse as _, pctbencodedcert as _, pctbdispositionmessage as _).ok() }
     }
     pub unsafe fn GetCAProperty<P0>(&self, pwszauthority: P0, propid: i32, propindex: i32, proptype: i32) -> windows_core::Result<CERTTRANSBLOB>
     where
@@ -7700,7 +7700,7 @@ impl ICertRequestD2 {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetCAPropertyInfo)(windows_core::Interface::as_raw(self), pwszauthority.param().abi(), core::mem::transmute(pcproperty), core::mem::transmute(pctbpropinfo)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetCAPropertyInfo)(windows_core::Interface::as_raw(self), pwszauthority.param().abi(), pcproperty as _, pctbpropinfo as _).ok() }
     }
     pub unsafe fn Ping2<P0>(&self, pwszauthority: P0) -> windows_core::Result<()>
     where
@@ -8331,10 +8331,10 @@ impl ICertView {
         }
     }
     pub unsafe fn GetColumnCount(&self, fresultcolumn: CVRC_COLUMN, pccolumn: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetColumnCount)(windows_core::Interface::as_raw(self), fresultcolumn, core::mem::transmute(pccolumn)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetColumnCount)(windows_core::Interface::as_raw(self), fresultcolumn, pccolumn as _).ok() }
     }
     pub unsafe fn GetColumnIndex(&self, fresultcolumn: CVRC_COLUMN, strcolumnname: &windows_core::BSTR, pcolumnindex: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetColumnIndex)(windows_core::Interface::as_raw(self), fresultcolumn, core::mem::transmute_copy(strcolumnname), core::mem::transmute(pcolumnindex)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetColumnIndex)(windows_core::Interface::as_raw(self), fresultcolumn, core::mem::transmute_copy(strcolumnname), pcolumnindex as _).ok() }
     }
     pub unsafe fn SetResultColumnCount(&self, cresultcolumn: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetResultColumnCount)(windows_core::Interface::as_raw(self), cresultcolumn).ok() }
@@ -10876,13 +10876,13 @@ impl IEnroll {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).createPKCS10WStr)(windows_core::Interface::as_raw(self), dnname.param().abi(), usage.param().abi(), core::mem::transmute(ppkcs10blob)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).createPKCS10WStr)(windows_core::Interface::as_raw(self), dnname.param().abi(), usage.param().abi(), ppkcs10blob as _).ok() }
     }
     pub unsafe fn acceptPKCS7Blob(&self, pblobpkcs7: *mut super::CRYPT_INTEGER_BLOB) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).acceptPKCS7Blob)(windows_core::Interface::as_raw(self), core::mem::transmute(pblobpkcs7)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).acceptPKCS7Blob)(windows_core::Interface::as_raw(self), pblobpkcs7 as _).ok() }
     }
     pub unsafe fn getCertContextFromPKCS7(&self, pblobpkcs7: *mut super::CRYPT_INTEGER_BLOB) -> *mut super::CERT_CONTEXT {
-        unsafe { (windows_core::Interface::vtable(self).getCertContextFromPKCS7)(windows_core::Interface::as_raw(self), core::mem::transmute(pblobpkcs7)) }
+        unsafe { (windows_core::Interface::vtable(self).getCertContextFromPKCS7)(windows_core::Interface::as_raw(self), pblobpkcs7 as _) }
     }
     pub unsafe fn getMyStore(&self) -> super::HCERTSTORE {
         unsafe { (windows_core::Interface::vtable(self).getMyStore)(windows_core::Interface::as_raw(self)) }
@@ -10894,16 +10894,16 @@ impl IEnroll {
         unsafe { (windows_core::Interface::vtable(self).getROOTHStore)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn enumProvidersWStr(&self, dwindex: i32, dwflags: i32, pbstrprovname: *mut windows_core::PWSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).enumProvidersWStr)(windows_core::Interface::as_raw(self), dwindex, dwflags, core::mem::transmute(pbstrprovname)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).enumProvidersWStr)(windows_core::Interface::as_raw(self), dwindex, dwflags, pbstrprovname as _).ok() }
     }
     pub unsafe fn enumContainersWStr(&self, dwindex: i32, pbstr: *mut windows_core::PWSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).enumContainersWStr)(windows_core::Interface::as_raw(self), dwindex, core::mem::transmute(pbstr)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).enumContainersWStr)(windows_core::Interface::as_raw(self), dwindex, pbstr as _).ok() }
     }
     pub unsafe fn freeRequestInfoBlob(&self, pkcs7orpkcs10: super::CRYPT_INTEGER_BLOB) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).freeRequestInfoBlob)(windows_core::Interface::as_raw(self), core::mem::transmute(pkcs7orpkcs10)).ok() }
     }
     pub unsafe fn MyStoreNameWStr(&self, szwname: *mut windows_core::PWSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).MyStoreNameWStr)(windows_core::Interface::as_raw(self), core::mem::transmute(szwname)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).MyStoreNameWStr)(windows_core::Interface::as_raw(self), szwname as _).ok() }
     }
     pub unsafe fn SetMyStoreNameWStr<P0>(&self, szwname: P0) -> windows_core::Result<()>
     where
@@ -10912,7 +10912,7 @@ impl IEnroll {
         unsafe { (windows_core::Interface::vtable(self).SetMyStoreNameWStr)(windows_core::Interface::as_raw(self), szwname.param().abi()).ok() }
     }
     pub unsafe fn MyStoreTypeWStr(&self, szwtype: *mut windows_core::PWSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).MyStoreTypeWStr)(windows_core::Interface::as_raw(self), core::mem::transmute(szwtype)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).MyStoreTypeWStr)(windows_core::Interface::as_raw(self), szwtype as _).ok() }
     }
     pub unsafe fn SetMyStoreTypeWStr<P0>(&self, szwtype: P0) -> windows_core::Result<()>
     where
@@ -10921,13 +10921,13 @@ impl IEnroll {
         unsafe { (windows_core::Interface::vtable(self).SetMyStoreTypeWStr)(windows_core::Interface::as_raw(self), szwtype.param().abi()).ok() }
     }
     pub unsafe fn MyStoreFlags(&self, pdwflags: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).MyStoreFlags)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwflags)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).MyStoreFlags)(windows_core::Interface::as_raw(self), pdwflags as _).ok() }
     }
     pub unsafe fn SetMyStoreFlags(&self, dwflags: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMyStoreFlags)(windows_core::Interface::as_raw(self), dwflags).ok() }
     }
     pub unsafe fn CAStoreNameWStr(&self, szwname: *mut windows_core::PWSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CAStoreNameWStr)(windows_core::Interface::as_raw(self), core::mem::transmute(szwname)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CAStoreNameWStr)(windows_core::Interface::as_raw(self), szwname as _).ok() }
     }
     pub unsafe fn SetCAStoreNameWStr<P0>(&self, szwname: P0) -> windows_core::Result<()>
     where
@@ -10936,7 +10936,7 @@ impl IEnroll {
         unsafe { (windows_core::Interface::vtable(self).SetCAStoreNameWStr)(windows_core::Interface::as_raw(self), szwname.param().abi()).ok() }
     }
     pub unsafe fn CAStoreTypeWStr(&self, szwtype: *mut windows_core::PWSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CAStoreTypeWStr)(windows_core::Interface::as_raw(self), core::mem::transmute(szwtype)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CAStoreTypeWStr)(windows_core::Interface::as_raw(self), szwtype as _).ok() }
     }
     pub unsafe fn SetCAStoreTypeWStr<P0>(&self, szwtype: P0) -> windows_core::Result<()>
     where
@@ -10945,13 +10945,13 @@ impl IEnroll {
         unsafe { (windows_core::Interface::vtable(self).SetCAStoreTypeWStr)(windows_core::Interface::as_raw(self), szwtype.param().abi()).ok() }
     }
     pub unsafe fn CAStoreFlags(&self, pdwflags: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CAStoreFlags)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwflags)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CAStoreFlags)(windows_core::Interface::as_raw(self), pdwflags as _).ok() }
     }
     pub unsafe fn SetCAStoreFlags(&self, dwflags: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetCAStoreFlags)(windows_core::Interface::as_raw(self), dwflags).ok() }
     }
     pub unsafe fn RootStoreNameWStr(&self, szwname: *mut windows_core::PWSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RootStoreNameWStr)(windows_core::Interface::as_raw(self), core::mem::transmute(szwname)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RootStoreNameWStr)(windows_core::Interface::as_raw(self), szwname as _).ok() }
     }
     pub unsafe fn SetRootStoreNameWStr<P0>(&self, szwname: P0) -> windows_core::Result<()>
     where
@@ -10960,7 +10960,7 @@ impl IEnroll {
         unsafe { (windows_core::Interface::vtable(self).SetRootStoreNameWStr)(windows_core::Interface::as_raw(self), szwname.param().abi()).ok() }
     }
     pub unsafe fn RootStoreTypeWStr(&self, szwtype: *mut windows_core::PWSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RootStoreTypeWStr)(windows_core::Interface::as_raw(self), core::mem::transmute(szwtype)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RootStoreTypeWStr)(windows_core::Interface::as_raw(self), szwtype as _).ok() }
     }
     pub unsafe fn SetRootStoreTypeWStr<P0>(&self, szwtype: P0) -> windows_core::Result<()>
     where
@@ -10969,13 +10969,13 @@ impl IEnroll {
         unsafe { (windows_core::Interface::vtable(self).SetRootStoreTypeWStr)(windows_core::Interface::as_raw(self), szwtype.param().abi()).ok() }
     }
     pub unsafe fn RootStoreFlags(&self, pdwflags: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RootStoreFlags)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwflags)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RootStoreFlags)(windows_core::Interface::as_raw(self), pdwflags as _).ok() }
     }
     pub unsafe fn SetRootStoreFlags(&self, dwflags: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetRootStoreFlags)(windows_core::Interface::as_raw(self), dwflags).ok() }
     }
     pub unsafe fn RequestStoreNameWStr(&self, szwname: *mut windows_core::PWSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RequestStoreNameWStr)(windows_core::Interface::as_raw(self), core::mem::transmute(szwname)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RequestStoreNameWStr)(windows_core::Interface::as_raw(self), szwname as _).ok() }
     }
     pub unsafe fn SetRequestStoreNameWStr<P0>(&self, szwname: P0) -> windows_core::Result<()>
     where
@@ -10984,7 +10984,7 @@ impl IEnroll {
         unsafe { (windows_core::Interface::vtable(self).SetRequestStoreNameWStr)(windows_core::Interface::as_raw(self), szwname.param().abi()).ok() }
     }
     pub unsafe fn RequestStoreTypeWStr(&self, szwtype: *mut windows_core::PWSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RequestStoreTypeWStr)(windows_core::Interface::as_raw(self), core::mem::transmute(szwtype)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RequestStoreTypeWStr)(windows_core::Interface::as_raw(self), szwtype as _).ok() }
     }
     pub unsafe fn SetRequestStoreTypeWStr<P0>(&self, szwtype: P0) -> windows_core::Result<()>
     where
@@ -10993,13 +10993,13 @@ impl IEnroll {
         unsafe { (windows_core::Interface::vtable(self).SetRequestStoreTypeWStr)(windows_core::Interface::as_raw(self), szwtype.param().abi()).ok() }
     }
     pub unsafe fn RequestStoreFlags(&self, pdwflags: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RequestStoreFlags)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwflags)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RequestStoreFlags)(windows_core::Interface::as_raw(self), pdwflags as _).ok() }
     }
     pub unsafe fn SetRequestStoreFlags(&self, dwflags: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetRequestStoreFlags)(windows_core::Interface::as_raw(self), dwflags).ok() }
     }
     pub unsafe fn ContainerNameWStr(&self, szwcontainer: *mut windows_core::PWSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ContainerNameWStr)(windows_core::Interface::as_raw(self), core::mem::transmute(szwcontainer)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ContainerNameWStr)(windows_core::Interface::as_raw(self), szwcontainer as _).ok() }
     }
     pub unsafe fn SetContainerNameWStr<P0>(&self, szwcontainer: P0) -> windows_core::Result<()>
     where
@@ -11008,7 +11008,7 @@ impl IEnroll {
         unsafe { (windows_core::Interface::vtable(self).SetContainerNameWStr)(windows_core::Interface::as_raw(self), szwcontainer.param().abi()).ok() }
     }
     pub unsafe fn ProviderNameWStr(&self, szwprovider: *mut windows_core::PWSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ProviderNameWStr)(windows_core::Interface::as_raw(self), core::mem::transmute(szwprovider)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ProviderNameWStr)(windows_core::Interface::as_raw(self), szwprovider as _).ok() }
     }
     pub unsafe fn SetProviderNameWStr<P0>(&self, szwprovider: P0) -> windows_core::Result<()>
     where
@@ -11017,61 +11017,61 @@ impl IEnroll {
         unsafe { (windows_core::Interface::vtable(self).SetProviderNameWStr)(windows_core::Interface::as_raw(self), szwprovider.param().abi()).ok() }
     }
     pub unsafe fn ProviderType(&self, pdwtype: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ProviderType)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwtype)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ProviderType)(windows_core::Interface::as_raw(self), pdwtype as _).ok() }
     }
     pub unsafe fn SetProviderType(&self, dwtype: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetProviderType)(windows_core::Interface::as_raw(self), dwtype).ok() }
     }
     pub unsafe fn KeySpec(&self, pdw: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).KeySpec)(windows_core::Interface::as_raw(self), core::mem::transmute(pdw)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).KeySpec)(windows_core::Interface::as_raw(self), pdw as _).ok() }
     }
     pub unsafe fn SetKeySpec(&self, dw: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetKeySpec)(windows_core::Interface::as_raw(self), dw).ok() }
     }
     pub unsafe fn ProviderFlags(&self, pdwflags: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ProviderFlags)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwflags)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ProviderFlags)(windows_core::Interface::as_raw(self), pdwflags as _).ok() }
     }
     pub unsafe fn SetProviderFlags(&self, dwflags: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetProviderFlags)(windows_core::Interface::as_raw(self), dwflags).ok() }
     }
     pub unsafe fn UseExistingKeySet(&self, fuseexistingkeys: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).UseExistingKeySet)(windows_core::Interface::as_raw(self), core::mem::transmute(fuseexistingkeys)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UseExistingKeySet)(windows_core::Interface::as_raw(self), fuseexistingkeys as _).ok() }
     }
     pub unsafe fn SetUseExistingKeySet(&self, fuseexistingkeys: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetUseExistingKeySet)(windows_core::Interface::as_raw(self), fuseexistingkeys.into()).ok() }
     }
     pub unsafe fn GenKeyFlags(&self, pdwflags: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GenKeyFlags)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwflags)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GenKeyFlags)(windows_core::Interface::as_raw(self), pdwflags as _).ok() }
     }
     pub unsafe fn SetGenKeyFlags(&self, dwflags: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetGenKeyFlags)(windows_core::Interface::as_raw(self), dwflags).ok() }
     }
     pub unsafe fn DeleteRequestCert(&self, fdelete: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteRequestCert)(windows_core::Interface::as_raw(self), core::mem::transmute(fdelete)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DeleteRequestCert)(windows_core::Interface::as_raw(self), fdelete as _).ok() }
     }
     pub unsafe fn SetDeleteRequestCert(&self, fdelete: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDeleteRequestCert)(windows_core::Interface::as_raw(self), fdelete.into()).ok() }
     }
     pub unsafe fn WriteCertToUserDS(&self, fbool: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).WriteCertToUserDS)(windows_core::Interface::as_raw(self), core::mem::transmute(fbool)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).WriteCertToUserDS)(windows_core::Interface::as_raw(self), fbool as _).ok() }
     }
     pub unsafe fn SetWriteCertToUserDS(&self, fbool: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetWriteCertToUserDS)(windows_core::Interface::as_raw(self), fbool.into()).ok() }
     }
     pub unsafe fn EnableT61DNEncoding(&self, fbool: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EnableT61DNEncoding)(windows_core::Interface::as_raw(self), core::mem::transmute(fbool)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).EnableT61DNEncoding)(windows_core::Interface::as_raw(self), fbool as _).ok() }
     }
     pub unsafe fn SetEnableT61DNEncoding(&self, fbool: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetEnableT61DNEncoding)(windows_core::Interface::as_raw(self), fbool.into()).ok() }
     }
     pub unsafe fn WriteCertToCSP(&self, fbool: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).WriteCertToCSP)(windows_core::Interface::as_raw(self), core::mem::transmute(fbool)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).WriteCertToCSP)(windows_core::Interface::as_raw(self), fbool as _).ok() }
     }
     pub unsafe fn SetWriteCertToCSP(&self, fbool: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetWriteCertToCSP)(windows_core::Interface::as_raw(self), fbool.into()).ok() }
     }
     pub unsafe fn SPCFileNameWStr(&self, szw: *mut windows_core::PWSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SPCFileNameWStr)(windows_core::Interface::as_raw(self), core::mem::transmute(szw)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SPCFileNameWStr)(windows_core::Interface::as_raw(self), szw as _).ok() }
     }
     pub unsafe fn SetSPCFileNameWStr<P0>(&self, szw: P0) -> windows_core::Result<()>
     where
@@ -11080,7 +11080,7 @@ impl IEnroll {
         unsafe { (windows_core::Interface::vtable(self).SetSPCFileNameWStr)(windows_core::Interface::as_raw(self), szw.param().abi()).ok() }
     }
     pub unsafe fn PVKFileNameWStr(&self, szw: *mut windows_core::PWSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).PVKFileNameWStr)(windows_core::Interface::as_raw(self), core::mem::transmute(szw)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).PVKFileNameWStr)(windows_core::Interface::as_raw(self), szw as _).ok() }
     }
     pub unsafe fn SetPVKFileNameWStr<P0>(&self, szw: P0) -> windows_core::Result<()>
     where
@@ -11089,7 +11089,7 @@ impl IEnroll {
         unsafe { (windows_core::Interface::vtable(self).SetPVKFileNameWStr)(windows_core::Interface::as_raw(self), szw.param().abi()).ok() }
     }
     pub unsafe fn HashAlgorithmWStr(&self, szw: *mut windows_core::PWSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).HashAlgorithmWStr)(windows_core::Interface::as_raw(self), core::mem::transmute(szw)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).HashAlgorithmWStr)(windows_core::Interface::as_raw(self), szw as _).ok() }
     }
     pub unsafe fn SetHashAlgorithmWStr<P0>(&self, szw: P0) -> windows_core::Result<()>
     where
@@ -11098,7 +11098,7 @@ impl IEnroll {
         unsafe { (windows_core::Interface::vtable(self).SetHashAlgorithmWStr)(windows_core::Interface::as_raw(self), szw.param().abi()).ok() }
     }
     pub unsafe fn RenewalCertificate(&self, ppcertcontext: *mut *mut super::CERT_CONTEXT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RenewalCertificate)(windows_core::Interface::as_raw(self), core::mem::transmute(ppcertcontext)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RenewalCertificate)(windows_core::Interface::as_raw(self), ppcertcontext as _).ok() }
     }
     pub unsafe fn SetRenewalCertificate(&self, pcertcontext: *const super::CERT_CONTEXT) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetRenewalCertificate)(windows_core::Interface::as_raw(self), pcertcontext).ok() }
@@ -11117,13 +11117,13 @@ impl IEnroll {
         unsafe { (windows_core::Interface::vtable(self).AddNameValuePairToSignatureWStr)(windows_core::Interface::as_raw(self), name.param().abi(), value.param().abi()).ok() }
     }
     pub unsafe fn AddExtensionsToRequest(&self, pcertextensions: *mut super::CERT_EXTENSIONS) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddExtensionsToRequest)(windows_core::Interface::as_raw(self), core::mem::transmute(pcertextensions)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddExtensionsToRequest)(windows_core::Interface::as_raw(self), pcertextensions as _).ok() }
     }
     pub unsafe fn AddAuthenticatedAttributesToPKCS7Request(&self, pattributes: *mut super::CRYPT_ATTRIBUTES) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddAuthenticatedAttributesToPKCS7Request)(windows_core::Interface::as_raw(self), core::mem::transmute(pattributes)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddAuthenticatedAttributesToPKCS7Request)(windows_core::Interface::as_raw(self), pattributes as _).ok() }
     }
     pub unsafe fn CreatePKCS7RequestFromRequest(&self, prequest: *mut super::CRYPT_INTEGER_BLOB, psigningcertcontext: *const super::CERT_CONTEXT, ppkcs7blob: *mut super::CRYPT_INTEGER_BLOB) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CreatePKCS7RequestFromRequest)(windows_core::Interface::as_raw(self), core::mem::transmute(prequest), psigningcertcontext, core::mem::transmute(ppkcs7blob)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreatePKCS7RequestFromRequest)(windows_core::Interface::as_raw(self), prequest as _, psigningcertcontext, ppkcs7blob as _).ok() }
     }
 }
 #[repr(C)]
@@ -11783,34 +11783,34 @@ impl core::ops::Deref for IEnroll2 {
 windows_core::imp::interface_hierarchy!(IEnroll2, windows_core::IUnknown, IEnroll);
 impl IEnroll2 {
     pub unsafe fn InstallPKCS7Blob(&self, pblobpkcs7: *mut super::CRYPT_INTEGER_BLOB) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).InstallPKCS7Blob)(windows_core::Interface::as_raw(self), core::mem::transmute(pblobpkcs7)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).InstallPKCS7Blob)(windows_core::Interface::as_raw(self), pblobpkcs7 as _).ok() }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn GetSupportedKeySpec(&self, pdwkeyspec: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetSupportedKeySpec)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwkeyspec)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetSupportedKeySpec)(windows_core::Interface::as_raw(self), pdwkeyspec as _).ok() }
     }
     pub unsafe fn GetKeyLen(&self, fmin: bool, fexchange: bool, pdwkeysize: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetKeyLen)(windows_core::Interface::as_raw(self), fmin.into(), fexchange.into(), core::mem::transmute(pdwkeysize)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetKeyLen)(windows_core::Interface::as_raw(self), fmin.into(), fexchange.into(), pdwkeysize as _).ok() }
     }
     pub unsafe fn EnumAlgs(&self, dwindex: i32, algclass: i32, pdwalgid: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EnumAlgs)(windows_core::Interface::as_raw(self), dwindex, algclass, core::mem::transmute(pdwalgid)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).EnumAlgs)(windows_core::Interface::as_raw(self), dwindex, algclass, pdwalgid as _).ok() }
     }
     pub unsafe fn GetAlgNameWStr(&self, algid: i32, ppwsz: *mut windows_core::PWSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetAlgNameWStr)(windows_core::Interface::as_raw(self), algid, core::mem::transmute(ppwsz)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetAlgNameWStr)(windows_core::Interface::as_raw(self), algid, ppwsz as _).ok() }
     }
     pub unsafe fn SetReuseHardwareKeyIfUnableToGenNew(&self, freusehardwarekeyifunabletogennew: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetReuseHardwareKeyIfUnableToGenNew)(windows_core::Interface::as_raw(self), freusehardwarekeyifunabletogennew.into()).ok() }
     }
     pub unsafe fn ReuseHardwareKeyIfUnableToGenNew(&self, freusehardwarekeyifunabletogennew: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ReuseHardwareKeyIfUnableToGenNew)(windows_core::Interface::as_raw(self), core::mem::transmute(freusehardwarekeyifunabletogennew)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ReuseHardwareKeyIfUnableToGenNew)(windows_core::Interface::as_raw(self), freusehardwarekeyifunabletogennew as _).ok() }
     }
     pub unsafe fn SetHashAlgID(&self, hashalgid: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetHashAlgID)(windows_core::Interface::as_raw(self), hashalgid).ok() }
     }
     pub unsafe fn HashAlgID(&self, hashalgid: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).HashAlgID)(windows_core::Interface::as_raw(self), core::mem::transmute(hashalgid)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).HashAlgID)(windows_core::Interface::as_raw(self), hashalgid as _).ok() }
     }
     pub unsafe fn SetHStoreMy(&self, hstore: super::HCERTSTORE) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetHStoreMy)(windows_core::Interface::as_raw(self), hstore).ok() }
@@ -11828,13 +11828,13 @@ impl IEnroll2 {
         unsafe { (windows_core::Interface::vtable(self).SetLimitExchangeKeyToEncipherment)(windows_core::Interface::as_raw(self), flimitexchangekeytoencipherment.into()).ok() }
     }
     pub unsafe fn LimitExchangeKeyToEncipherment(&self, flimitexchangekeytoencipherment: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).LimitExchangeKeyToEncipherment)(windows_core::Interface::as_raw(self), core::mem::transmute(flimitexchangekeytoencipherment)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).LimitExchangeKeyToEncipherment)(windows_core::Interface::as_raw(self), flimitexchangekeytoencipherment as _).ok() }
     }
     pub unsafe fn SetEnableSMIMECapabilities(&self, fenablesmimecapabilities: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetEnableSMIMECapabilities)(windows_core::Interface::as_raw(self), fenablesmimecapabilities.into()).ok() }
     }
     pub unsafe fn EnableSMIMECapabilities(&self, fenablesmimecapabilities: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EnableSMIMECapabilities)(windows_core::Interface::as_raw(self), core::mem::transmute(fenablesmimecapabilities)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).EnableSMIMECapabilities)(windows_core::Interface::as_raw(self), fenablesmimecapabilities as _).ok() }
     }
 }
 #[repr(C)]
@@ -12029,7 +12029,7 @@ impl IEnroll4 {
         unsafe { (windows_core::Interface::vtable(self).SetThumbPrintWStr)(windows_core::Interface::as_raw(self), core::mem::transmute(thumbprintblob)).ok() }
     }
     pub unsafe fn ThumbPrintWStr(&self, thumbprintblob: *mut super::CRYPT_INTEGER_BLOB) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ThumbPrintWStr)(windows_core::Interface::as_raw(self), core::mem::transmute(thumbprintblob)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ThumbPrintWStr)(windows_core::Interface::as_raw(self), thumbprintblob as _).ok() }
     }
     pub unsafe fn SetPrivateKeyArchiveCertificate(&self, pprivatekeyarchivecert: *const super::CERT_CONTEXT) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetPrivateKeyArchiveCertificate)(windows_core::Interface::as_raw(self), pprivatekeyarchivecert).ok() }
@@ -12038,25 +12038,25 @@ impl IEnroll4 {
         unsafe { (windows_core::Interface::vtable(self).GetPrivateKeyArchiveCertificate)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn binaryBlobToString(&self, flags: i32, pblobbinary: *mut super::CRYPT_INTEGER_BLOB, ppwszstring: *mut windows_core::PWSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).binaryBlobToString)(windows_core::Interface::as_raw(self), flags, core::mem::transmute(pblobbinary), core::mem::transmute(ppwszstring)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).binaryBlobToString)(windows_core::Interface::as_raw(self), flags, pblobbinary as _, ppwszstring as _).ok() }
     }
     pub unsafe fn stringToBinaryBlob<P1>(&self, flags: i32, pwszstring: P1, pblobbinary: *mut super::CRYPT_INTEGER_BLOB, pdwskip: *mut i32, pdwflags: *mut i32) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).stringToBinaryBlob)(windows_core::Interface::as_raw(self), flags, pwszstring.param().abi(), core::mem::transmute(pblobbinary), core::mem::transmute(pdwskip), core::mem::transmute(pdwflags)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).stringToBinaryBlob)(windows_core::Interface::as_raw(self), flags, pwszstring.param().abi(), pblobbinary as _, pdwskip as _, pdwflags as _).ok() }
     }
     pub unsafe fn addExtensionToRequestWStr<P1>(&self, flags: i32, pwszname: P1, pblobvalue: *mut super::CRYPT_INTEGER_BLOB) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).addExtensionToRequestWStr)(windows_core::Interface::as_raw(self), flags, pwszname.param().abi(), core::mem::transmute(pblobvalue)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).addExtensionToRequestWStr)(windows_core::Interface::as_raw(self), flags, pwszname.param().abi(), pblobvalue as _).ok() }
     }
     pub unsafe fn addAttributeToRequestWStr<P1>(&self, flags: i32, pwszname: P1, pblobvalue: *mut super::CRYPT_INTEGER_BLOB) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).addAttributeToRequestWStr)(windows_core::Interface::as_raw(self), flags, pwszname.param().abi(), core::mem::transmute(pblobvalue)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).addAttributeToRequestWStr)(windows_core::Interface::as_raw(self), flags, pwszname.param().abi(), pblobvalue as _).ok() }
     }
     pub unsafe fn addNameValuePairToRequestWStr<P1, P2>(&self, flags: i32, pwszname: P1, pwszvalue: P2) -> windows_core::Result<()>
     where
@@ -12076,7 +12076,7 @@ impl IEnroll4 {
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).createRequestWStr)(windows_core::Interface::as_raw(self), flags, pwszdnname.param().abi(), pwszusage.param().abi(), core::mem::transmute(pblobrequest)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).createRequestWStr)(windows_core::Interface::as_raw(self), flags, pwszdnname.param().abi(), pwszusage.param().abi(), pblobrequest as _).ok() }
     }
     pub unsafe fn createFileRequestWStr<P1, P2, P3>(&self, flags: CERT_CREATE_REQUEST_FLAGS, pwszdnname: P1, pwszusage: P2, pwszrequestfilename: P3) -> windows_core::Result<()>
     where
@@ -12087,7 +12087,7 @@ impl IEnroll4 {
         unsafe { (windows_core::Interface::vtable(self).createFileRequestWStr)(windows_core::Interface::as_raw(self), flags, pwszdnname.param().abi(), pwszusage.param().abi(), pwszrequestfilename.param().abi()).ok() }
     }
     pub unsafe fn acceptResponseBlob(&self, pblobresponse: *mut super::CRYPT_INTEGER_BLOB) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).acceptResponseBlob)(windows_core::Interface::as_raw(self), core::mem::transmute(pblobresponse)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).acceptResponseBlob)(windows_core::Interface::as_raw(self), pblobresponse as _).ok() }
     }
     pub unsafe fn acceptFileResponseWStr<P0>(&self, pwszresponsefilename: P0) -> windows_core::Result<()>
     where
@@ -12096,19 +12096,19 @@ impl IEnroll4 {
         unsafe { (windows_core::Interface::vtable(self).acceptFileResponseWStr)(windows_core::Interface::as_raw(self), pwszresponsefilename.param().abi()).ok() }
     }
     pub unsafe fn getCertContextFromResponseBlob(&self, pblobresponse: *mut super::CRYPT_INTEGER_BLOB, ppcertcontext: *mut *mut super::CERT_CONTEXT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).getCertContextFromResponseBlob)(windows_core::Interface::as_raw(self), core::mem::transmute(pblobresponse), core::mem::transmute(ppcertcontext)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).getCertContextFromResponseBlob)(windows_core::Interface::as_raw(self), pblobresponse as _, ppcertcontext as _).ok() }
     }
     pub unsafe fn getCertContextFromFileResponseWStr<P0>(&self, pwszresponsefilename: P0, ppcertcontext: *mut *mut super::CERT_CONTEXT) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).getCertContextFromFileResponseWStr)(windows_core::Interface::as_raw(self), pwszresponsefilename.param().abi(), core::mem::transmute(ppcertcontext)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).getCertContextFromFileResponseWStr)(windows_core::Interface::as_raw(self), pwszresponsefilename.param().abi(), ppcertcontext as _).ok() }
     }
     pub unsafe fn createPFXWStr<P0>(&self, pwszpassword: P0, pblobpfx: *mut super::CRYPT_INTEGER_BLOB) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).createPFXWStr)(windows_core::Interface::as_raw(self), pwszpassword.param().abi(), core::mem::transmute(pblobpfx)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).createPFXWStr)(windows_core::Interface::as_raw(self), pwszpassword.param().abi(), pblobpfx as _).ok() }
     }
     pub unsafe fn createFilePFXWStr<P0, P1>(&self, pwszpassword: P0, pwszpfxfilename: P1) -> windows_core::Result<()>
     where
@@ -12126,16 +12126,16 @@ impl IEnroll4 {
         unsafe { (windows_core::Interface::vtable(self).setPendingRequestInfoWStr)(windows_core::Interface::as_raw(self), lrequestid, pwszcadns.param().abi(), pwszcaname.param().abi(), pwszfriendlyname.param().abi()).ok() }
     }
     pub unsafe fn enumPendingRequestWStr(&self, lindex: i32, ldesiredproperty: PENDING_REQUEST_DESIRED_PROPERTY, ppproperty: *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).enumPendingRequestWStr)(windows_core::Interface::as_raw(self), lindex, ldesiredproperty, core::mem::transmute(ppproperty)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).enumPendingRequestWStr)(windows_core::Interface::as_raw(self), lindex, ldesiredproperty, ppproperty as _).ok() }
     }
     pub unsafe fn removePendingRequestWStr(&self, thumbprintblob: super::CRYPT_INTEGER_BLOB) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).removePendingRequestWStr)(windows_core::Interface::as_raw(self), core::mem::transmute(thumbprintblob)).ok() }
     }
     pub unsafe fn GetKeyLenEx(&self, lsizespec: XEKL_KEYSIZE, lkeyspec: XEKL_KEYSPEC, pdwkeysize: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetKeyLenEx)(windows_core::Interface::as_raw(self), lsizespec, lkeyspec, core::mem::transmute(pdwkeysize)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetKeyLenEx)(windows_core::Interface::as_raw(self), lsizespec, lkeyspec, pdwkeysize as _).ok() }
     }
     pub unsafe fn InstallPKCS7BlobEx(&self, pblobpkcs7: *mut super::CRYPT_INTEGER_BLOB, plcertinstalled: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).InstallPKCS7BlobEx)(windows_core::Interface::as_raw(self), core::mem::transmute(pblobpkcs7), core::mem::transmute(plcertinstalled)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).InstallPKCS7BlobEx)(windows_core::Interface::as_raw(self), pblobpkcs7 as _, plcertinstalled as _).ok() }
     }
     pub unsafe fn AddCertTypeToRequestWStrEx<P1>(&self, ltype: ADDED_CERT_TYPE, pwszoidorname: P1, lmajorversion: i32, fminorversion: bool, lminorversion: i32) -> windows_core::Result<()>
     where
@@ -12147,10 +12147,10 @@ impl IEnroll4 {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).getProviderTypeWStr)(windows_core::Interface::as_raw(self), pwszprovname.param().abi(), core::mem::transmute(plprovtype)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).getProviderTypeWStr)(windows_core::Interface::as_raw(self), pwszprovname.param().abi(), plprovtype as _).ok() }
     }
     pub unsafe fn addBlobPropertyToCertificateWStr(&self, lpropertyid: i32, lreserved: i32, pblobproperty: *mut super::CRYPT_INTEGER_BLOB) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).addBlobPropertyToCertificateWStr)(windows_core::Interface::as_raw(self), lpropertyid, lreserved, core::mem::transmute(pblobproperty)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).addBlobPropertyToCertificateWStr)(windows_core::Interface::as_raw(self), lpropertyid, lreserved, pblobproperty as _).ok() }
     }
     pub unsafe fn SetSignerCertificate(&self, psignercert: *const super::CERT_CONTEXT) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSignerCertificate)(windows_core::Interface::as_raw(self), psignercert).ok() }
@@ -12159,13 +12159,13 @@ impl IEnroll4 {
         unsafe { (windows_core::Interface::vtable(self).SetClientId)(windows_core::Interface::as_raw(self), lclientid).ok() }
     }
     pub unsafe fn ClientId(&self, plclientid: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ClientId)(windows_core::Interface::as_raw(self), core::mem::transmute(plclientid)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ClientId)(windows_core::Interface::as_raw(self), plclientid as _).ok() }
     }
     pub unsafe fn SetIncludeSubjectKeyID(&self, finclude: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetIncludeSubjectKeyID)(windows_core::Interface::as_raw(self), finclude.into()).ok() }
     }
     pub unsafe fn IncludeSubjectKeyID(&self, pfinclude: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).IncludeSubjectKeyID)(windows_core::Interface::as_raw(self), core::mem::transmute(pfinclude)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).IncludeSubjectKeyID)(windows_core::Interface::as_raw(self), pfinclude as _).ok() }
     }
 }
 #[repr(C)]
@@ -12487,7 +12487,7 @@ windows_core::imp::interface_hierarchy!(IEnumCERTVIEWATTRIBUTE, windows_core::IU
 #[cfg(feature = "Win32_System_Com")]
 impl IEnumCERTVIEWATTRIBUTE {
     pub unsafe fn Next(&self, pindex: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), core::mem::transmute(pindex)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), pindex as _).ok() }
     }
     pub unsafe fn GetName(&self, pstrout: *mut windows_core::BSTR) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), core::mem::transmute(pstrout)).ok() }
@@ -12603,7 +12603,7 @@ windows_core::imp::interface_hierarchy!(IEnumCERTVIEWCOLUMN, windows_core::IUnkn
 #[cfg(feature = "Win32_System_Com")]
 impl IEnumCERTVIEWCOLUMN {
     pub unsafe fn Next(&self, pindex: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), core::mem::transmute(pindex)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), pindex as _).ok() }
     }
     pub unsafe fn GetName(&self, pstrout: *mut windows_core::BSTR) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), core::mem::transmute(pstrout)).ok() }
@@ -12612,13 +12612,13 @@ impl IEnumCERTVIEWCOLUMN {
         unsafe { (windows_core::Interface::vtable(self).GetDisplayName)(windows_core::Interface::as_raw(self), core::mem::transmute(pstrout)).ok() }
     }
     pub unsafe fn GetType(&self, ptype: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetType)(windows_core::Interface::as_raw(self), core::mem::transmute(ptype)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetType)(windows_core::Interface::as_raw(self), ptype as _).ok() }
     }
     pub unsafe fn IsIndexed(&self, pindexed: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).IsIndexed)(windows_core::Interface::as_raw(self), core::mem::transmute(pindexed)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).IsIndexed)(windows_core::Interface::as_raw(self), pindexed as _).ok() }
     }
     pub unsafe fn GetMaxLength(&self, pmaxlength: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetMaxLength)(windows_core::Interface::as_raw(self), core::mem::transmute(pmaxlength)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetMaxLength)(windows_core::Interface::as_raw(self), pmaxlength as _).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetValue(&self, flags: ENUM_CERT_COLUMN_VALUE_FLAGS, pvarvalue: *mut super::super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
@@ -12771,13 +12771,13 @@ windows_core::imp::interface_hierarchy!(IEnumCERTVIEWEXTENSION, windows_core::IU
 #[cfg(feature = "Win32_System_Com")]
 impl IEnumCERTVIEWEXTENSION {
     pub unsafe fn Next(&self, pindex: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), core::mem::transmute(pindex)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), pindex as _).ok() }
     }
     pub unsafe fn GetName(&self, pstrout: *mut windows_core::BSTR) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), core::mem::transmute(pstrout)).ok() }
     }
     pub unsafe fn GetFlags(&self, pflags: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetFlags)(windows_core::Interface::as_raw(self), core::mem::transmute(pflags)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetFlags)(windows_core::Interface::as_raw(self), pflags as _).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetValue(&self, r#type: CERT_PROPERTY_TYPE, flags: ENUM_CERT_COLUMN_VALUE_FLAGS, pvarvalue: *mut super::super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
@@ -12903,7 +12903,7 @@ windows_core::imp::interface_hierarchy!(IEnumCERTVIEWROW, windows_core::IUnknown
 #[cfg(feature = "Win32_System_Com")]
 impl IEnumCERTVIEWROW {
     pub unsafe fn Next(&self, pindex: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), core::mem::transmute(pindex)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), pindex as _).ok() }
     }
     pub unsafe fn EnumCertViewColumn(&self) -> windows_core::Result<IEnumCERTVIEWCOLUMN> {
         unsafe {
@@ -12936,7 +12936,7 @@ impl IEnumCERTVIEWROW {
         }
     }
     pub unsafe fn GetMaxIndex(&self, pindex: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetMaxIndex)(windows_core::Interface::as_raw(self), core::mem::transmute(pindex)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetMaxIndex)(windows_core::Interface::as_raw(self), pindex as _).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13096,7 +13096,7 @@ impl INDESPolicy {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).VerifyRequest)(windows_core::Interface::as_raw(self), core::mem::transmute(pctbrequest), core::mem::transmute(pctbsigningcertencoded), pwsztemplate.param().abi(), pwsztransactionid.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).VerifyRequest)(windows_core::Interface::as_raw(self), pctbrequest as _, pctbsigningcertencoded as _, pwsztemplate.param().abi(), pwsztransactionid.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn Notify<P0, P1>(&self, pwszchallenge: P0, pwsztransactionid: P1, disposition: X509SCEPDisposition, lasthresult: i32, pctbissuedcertencoded: *mut CERTTRANSBLOB) -> windows_core::Result<()>
@@ -13104,7 +13104,7 @@ impl INDESPolicy {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Notify)(windows_core::Interface::as_raw(self), pwszchallenge.param().abi(), pwsztransactionid.param().abi(), disposition, lasthresult, core::mem::transmute(pctbissuedcertencoded)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Notify)(windows_core::Interface::as_raw(self), pwszchallenge.param().abi(), pwsztransactionid.param().abi(), disposition, lasthresult, pctbissuedcertencoded as _).ok() }
     }
 }
 #[repr(C)]
