@@ -11,7 +11,7 @@ pub unsafe fn CompareObjectHandles(hfirstobjecthandle: HANDLE, hsecondobjecthand
 #[inline]
 pub unsafe fn DuplicateHandle(hsourceprocesshandle: HANDLE, hsourcehandle: HANDLE, htargetprocesshandle: HANDLE, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: bool, dwoptions: DUPLICATE_HANDLE_OPTIONS) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn DuplicateHandle(hsourceprocesshandle : HANDLE, hsourcehandle : HANDLE, htargetprocesshandle : HANDLE, lptargethandle : *mut HANDLE, dwdesiredaccess : u32, binherithandle : BOOL, dwoptions : DUPLICATE_HANDLE_OPTIONS) -> BOOL);
-    unsafe { DuplicateHandle(hsourceprocesshandle, hsourcehandle, htargetprocesshandle, core::mem::transmute(lptargethandle), dwdesiredaccess, binherithandle.into(), dwoptions).ok() }
+    unsafe { DuplicateHandle(hsourceprocesshandle, hsourcehandle, htargetprocesshandle, lptargethandle as _, dwdesiredaccess, binherithandle.into(), dwoptions).ok() }
 }
 #[inline]
 pub unsafe fn FreeLibrary(hlibmodule: HMODULE) -> windows_core::Result<()> {
@@ -21,7 +21,7 @@ pub unsafe fn FreeLibrary(hlibmodule: HMODULE) -> windows_core::Result<()> {
 #[inline]
 pub unsafe fn GetHandleInformation(hobject: HANDLE, lpdwflags: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn GetHandleInformation(hobject : HANDLE, lpdwflags : *mut u32) -> BOOL);
-    unsafe { GetHandleInformation(hobject, core::mem::transmute(lpdwflags)).ok() }
+    unsafe { GetHandleInformation(hobject, lpdwflags as _).ok() }
 }
 #[inline]
 pub unsafe fn GetLastError() -> WIN32_ERROR {
@@ -31,13 +31,13 @@ pub unsafe fn GetLastError() -> WIN32_ERROR {
 #[inline]
 pub unsafe fn GlobalFree(hmem: Option<HGLOBAL>) -> windows_core::Result<HGLOBAL> {
     windows_targets::link!("kernel32.dll" "system" fn GlobalFree(hmem : HGLOBAL) -> HGLOBAL);
-    let result__ = unsafe { GlobalFree(core::mem::transmute(hmem.unwrap_or(core::mem::zeroed()))) };
+    let result__ = unsafe { GlobalFree(hmem.unwrap_or(core::mem::zeroed()) as _) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn LocalFree(hmem: Option<HLOCAL>) -> HLOCAL {
     windows_targets::link!("kernel32.dll" "system" fn LocalFree(hmem : HLOCAL) -> HLOCAL);
-    unsafe { LocalFree(core::mem::transmute(hmem.unwrap_or(core::mem::zeroed()))) }
+    unsafe { LocalFree(hmem.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn RtlNtStatusToDosError(status: NTSTATUS) -> u32 {

@@ -25,7 +25,7 @@ windows_core::imp::define_interface!(IAsynchronousDataRetriever, IAsynchronousDa
 windows_core::imp::interface_hierarchy!(IAsynchronousDataRetriever, windows_core::IUnknown);
 impl IAsynchronousDataRetriever {
     pub unsafe fn GetIdParameters(&self, pidparameters: *mut ID_PARAMETERS) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetIdParameters)(windows_core::Interface::as_raw(self), core::mem::transmute(pidparameters)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetIdParameters)(windows_core::Interface::as_raw(self), pidparameters as _).ok() }
     }
     pub unsafe fn RegisterCallback<P0>(&self, pdataretrievercallback: P0) -> windows_core::Result<()>
     where
@@ -127,7 +127,7 @@ impl IChangeConflict {
         }
     }
     pub unsafe fn GetResolveActionForChange(&self, presolveaction: *mut SYNC_RESOLVE_ACTION) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetResolveActionForChange)(windows_core::Interface::as_raw(self), core::mem::transmute(presolveaction)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetResolveActionForChange)(windows_core::Interface::as_raw(self), presolveaction as _).ok() }
     }
     pub unsafe fn SetResolveActionForChange(&self, resolveaction: SYNC_RESOLVE_ACTION) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetResolveActionForChange)(windows_core::Interface::as_raw(self), resolveaction).ok() }
@@ -136,7 +136,7 @@ impl IChangeConflict {
     where
         P0: windows_core::Param<ISyncChangeUnit>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetResolveActionForChangeUnit)(windows_core::Interface::as_raw(self), pchangeunit.param().abi(), core::mem::transmute(presolveaction)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetResolveActionForChangeUnit)(windows_core::Interface::as_raw(self), pchangeunit.param().abi(), presolveaction as _).ok() }
     }
     pub unsafe fn SetResolveActionForChangeUnit<P0>(&self, pchangeunit: P0, resolveaction: SYNC_RESOLVE_ACTION) -> windows_core::Result<()>
     where
@@ -262,13 +262,13 @@ windows_core::imp::define_interface!(IChangeUnitException, IChangeUnitException_
 windows_core::imp::interface_hierarchy!(IChangeUnitException, windows_core::IUnknown);
 impl IChangeUnitException {
     pub unsafe fn GetItemId(&self, pbitemid: *mut u8, pcbidsize: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetItemId)(windows_core::Interface::as_raw(self), core::mem::transmute(pbitemid), core::mem::transmute(pcbidsize)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetItemId)(windows_core::Interface::as_raw(self), pbitemid as _, pcbidsize as _).ok() }
     }
     pub unsafe fn GetChangeUnitId(&self, pbchangeunitid: *mut u8, pcbidsize: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetChangeUnitId)(windows_core::Interface::as_raw(self), core::mem::transmute(pbchangeunitid), core::mem::transmute(pcbidsize)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetChangeUnitId)(windows_core::Interface::as_raw(self), pbchangeunitid as _, pcbidsize as _).ok() }
     }
     pub unsafe fn GetClockVector(&self, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetClockVector)(windows_core::Interface::as_raw(self), riid, core::mem::transmute(ppunk)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetClockVector)(windows_core::Interface::as_raw(self), riid, ppunk as _).ok() }
     }
 }
 #[repr(C)]
@@ -328,10 +328,10 @@ impl IChangeUnitListFilterInfo {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), ppbchangeunitids, dwchangeunitcount).ok() }
     }
     pub unsafe fn GetChangeUnitIdCount(&self, pdwchangeunitidcount: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetChangeUnitIdCount)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwchangeunitidcount)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetChangeUnitIdCount)(windows_core::Interface::as_raw(self), pdwchangeunitidcount as _).ok() }
     }
     pub unsafe fn GetChangeUnitId(&self, dwchangeunitidindex: u32, pbchangeunitid: *mut u8, pcbidsize: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetChangeUnitId)(windows_core::Interface::as_raw(self), dwchangeunitidindex, core::mem::transmute(pbchangeunitid), core::mem::transmute(pcbidsize)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetChangeUnitId)(windows_core::Interface::as_raw(self), dwchangeunitidindex, pbchangeunitid as _, pcbidsize as _).ok() }
     }
 }
 #[repr(C)]
@@ -382,10 +382,10 @@ windows_core::imp::define_interface!(IClockVector, IClockVector_Vtbl, 0x14b2274a
 windows_core::imp::interface_hierarchy!(IClockVector, windows_core::IUnknown);
 impl IClockVector {
     pub unsafe fn GetClockVectorElements(&self, riid: *const windows_core::GUID, ppienumclockvector: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetClockVectorElements)(windows_core::Interface::as_raw(self), riid, core::mem::transmute(ppienumclockvector)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetClockVectorElements)(windows_core::Interface::as_raw(self), riid, ppienumclockvector as _).ok() }
     }
     pub unsafe fn GetClockVectorElementCount(&self, pdwcount: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetClockVectorElementCount)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwcount)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetClockVectorElementCount)(windows_core::Interface::as_raw(self), pdwcount as _).ok() }
     }
 }
 #[repr(C)]
@@ -427,10 +427,10 @@ windows_core::imp::define_interface!(IClockVectorElement, IClockVectorElement_Vt
 windows_core::imp::interface_hierarchy!(IClockVectorElement, windows_core::IUnknown);
 impl IClockVectorElement {
     pub unsafe fn GetReplicaKey(&self, pdwreplicakey: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetReplicaKey)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwreplicakey)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetReplicaKey)(windows_core::Interface::as_raw(self), pdwreplicakey as _).ok() }
     }
     pub unsafe fn GetTickCount(&self, pulltickcount: *mut u64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetTickCount)(windows_core::Interface::as_raw(self), core::mem::transmute(pulltickcount)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetTickCount)(windows_core::Interface::as_raw(self), pulltickcount as _).ok() }
     }
 }
 #[repr(C)]
@@ -478,7 +478,7 @@ impl core::ops::Deref for ICombinedFilterInfo {
 windows_core::imp::interface_hierarchy!(ICombinedFilterInfo, windows_core::IUnknown, ISyncFilterInfo);
 impl ICombinedFilterInfo {
     pub unsafe fn GetFilterCount(&self, pdwfiltercount: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetFilterCount)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwfiltercount)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetFilterCount)(windows_core::Interface::as_raw(self), pdwfiltercount as _).ok() }
     }
     pub unsafe fn GetFilterInfo(&self, dwfilterindex: u32) -> windows_core::Result<ISyncFilterInfo> {
         unsafe {
@@ -487,7 +487,7 @@ impl ICombinedFilterInfo {
         }
     }
     pub unsafe fn GetFilterCombinationType(&self, pfiltercombinationtype: *mut FILTER_COMBINATION_TYPE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetFilterCombinationType)(windows_core::Interface::as_raw(self), core::mem::transmute(pfiltercombinationtype)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetFilterCombinationType)(windows_core::Interface::as_raw(self), pfiltercombinationtype as _).ok() }
     }
 }
 #[repr(C)]
@@ -580,7 +580,7 @@ impl IConstraintConflict {
         }
     }
     pub unsafe fn GetConstraintResolveActionForChange(&self, pconstraintresolveaction: *mut SYNC_CONSTRAINT_RESOLVE_ACTION) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetConstraintResolveActionForChange)(windows_core::Interface::as_raw(self), core::mem::transmute(pconstraintresolveaction)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetConstraintResolveActionForChange)(windows_core::Interface::as_raw(self), pconstraintresolveaction as _).ok() }
     }
     pub unsafe fn SetConstraintResolveActionForChange(&self, constraintresolveaction: SYNC_CONSTRAINT_RESOLVE_ACTION) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetConstraintResolveActionForChange)(windows_core::Interface::as_raw(self), constraintresolveaction).ok() }
@@ -589,7 +589,7 @@ impl IConstraintConflict {
     where
         P0: windows_core::Param<ISyncChangeUnit>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetConstraintResolveActionForChangeUnit)(windows_core::Interface::as_raw(self), pchangeunit.param().abi(), core::mem::transmute(pconstraintresolveaction)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetConstraintResolveActionForChangeUnit)(windows_core::Interface::as_raw(self), pchangeunit.param().abi(), pconstraintresolveaction as _).ok() }
     }
     pub unsafe fn SetConstraintResolveActionForChangeUnit<P0>(&self, pchangeunit: P0, constraintresolveaction: SYNC_CONSTRAINT_RESOLVE_ACTION) -> windows_core::Result<()>
     where
@@ -598,7 +598,7 @@ impl IConstraintConflict {
         unsafe { (windows_core::Interface::vtable(self).SetConstraintResolveActionForChangeUnit)(windows_core::Interface::as_raw(self), pchangeunit.param().abi(), constraintresolveaction).ok() }
     }
     pub unsafe fn GetConstraintConflictReason(&self, pconstraintconflictreason: *mut CONSTRAINT_CONFLICT_REASON) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetConstraintConflictReason)(windows_core::Interface::as_raw(self), core::mem::transmute(pconstraintconflictreason)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetConstraintConflictReason)(windows_core::Interface::as_raw(self), pconstraintconflictreason as _).ok() }
     }
     pub unsafe fn IsTemporary(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).IsTemporary)(windows_core::Interface::as_raw(self)).ok() }
@@ -769,7 +769,7 @@ windows_core::imp::define_interface!(IConstructReplicaKeyMap, IConstructReplicaK
 windows_core::imp::interface_hierarchy!(IConstructReplicaKeyMap, windows_core::IUnknown);
 impl IConstructReplicaKeyMap {
     pub unsafe fn FindOrAddReplica(&self, pbreplicaid: *const u8, pdwreplicakey: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).FindOrAddReplica)(windows_core::Interface::as_raw(self), pbreplicaid, core::mem::transmute(pdwreplicakey)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).FindOrAddReplica)(windows_core::Interface::as_raw(self), pbreplicaid, pdwreplicakey as _).ok() }
     }
 }
 #[repr(C)]
@@ -799,19 +799,19 @@ windows_core::imp::define_interface!(ICoreFragment, ICoreFragment_Vtbl, 0x613b2a
 windows_core::imp::interface_hierarchy!(ICoreFragment, windows_core::IUnknown);
 impl ICoreFragment {
     pub unsafe fn NextColumn(&self, pchangeunitid: *mut u8, pchangeunitidsize: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).NextColumn)(windows_core::Interface::as_raw(self), core::mem::transmute(pchangeunitid), core::mem::transmute(pchangeunitidsize)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).NextColumn)(windows_core::Interface::as_raw(self), pchangeunitid as _, pchangeunitidsize as _).ok() }
     }
     pub unsafe fn NextRange(&self, pitemid: *mut u8, pitemidsize: *mut u32, piclockvector: *mut Option<IClockVector>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).NextRange)(windows_core::Interface::as_raw(self), core::mem::transmute(pitemid), core::mem::transmute(pitemidsize), core::mem::transmute(piclockvector)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).NextRange)(windows_core::Interface::as_raw(self), pitemid as _, pitemidsize as _, core::mem::transmute(piclockvector)).ok() }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn GetColumnCount(&self, pcolumncount: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetColumnCount)(windows_core::Interface::as_raw(self), core::mem::transmute(pcolumncount)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetColumnCount)(windows_core::Interface::as_raw(self), pcolumncount as _).ok() }
     }
     pub unsafe fn GetRangeCount(&self, prangecount: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetRangeCount)(windows_core::Interface::as_raw(self), core::mem::transmute(prangecount)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetRangeCount)(windows_core::Interface::as_raw(self), prangecount as _).ok() }
     }
 }
 #[repr(C)]
@@ -880,7 +880,7 @@ windows_core::imp::define_interface!(ICoreFragmentInspector, ICoreFragmentInspec
 windows_core::imp::interface_hierarchy!(ICoreFragmentInspector, windows_core::IUnknown);
 impl ICoreFragmentInspector {
     pub unsafe fn NextCoreFragments(&self, requestedcount: u32, ppicorefragments: *mut Option<ICoreFragment>, pfetchedcount: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).NextCoreFragments)(windows_core::Interface::as_raw(self), requestedcount, core::mem::transmute(ppicorefragments), core::mem::transmute(pfetchedcount)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).NextCoreFragments)(windows_core::Interface::as_raw(self), requestedcount, core::mem::transmute(ppicorefragments), pfetchedcount as _).ok() }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
@@ -1042,7 +1042,7 @@ windows_core::imp::define_interface!(IEnumChangeUnitExceptions, IEnumChangeUnitE
 windows_core::imp::interface_hierarchy!(IEnumChangeUnitExceptions, windows_core::IUnknown);
 impl IEnumChangeUnitExceptions {
     pub unsafe fn Next(&self, cexceptions: u32, ppchangeunitexception: *mut Option<IChangeUnitException>, pcfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), cexceptions, core::mem::transmute(ppchangeunitexception), core::mem::transmute(pcfetched)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), cexceptions, core::mem::transmute(ppchangeunitexception), pcfetched as _).ok() }
     }
     pub unsafe fn Skip(&self, cexceptions: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), cexceptions).ok() }
@@ -1120,7 +1120,7 @@ windows_core::imp::define_interface!(IEnumClockVector, IEnumClockVector_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(IEnumClockVector, windows_core::IUnknown);
 impl IEnumClockVector {
     pub unsafe fn Next(&self, cclockvectorelements: u32, ppiclockvectorelements: *mut Option<IClockVectorElement>, pcfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), cclockvectorelements, core::mem::transmute(ppiclockvectorelements), core::mem::transmute(pcfetched)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), cclockvectorelements, core::mem::transmute(ppiclockvectorelements), pcfetched as _).ok() }
     }
     pub unsafe fn Skip(&self, csyncversions: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), csyncversions).ok() }
@@ -1198,7 +1198,7 @@ windows_core::imp::define_interface!(IEnumFeedClockVector, IEnumFeedClockVector_
 windows_core::imp::interface_hierarchy!(IEnumFeedClockVector, windows_core::IUnknown);
 impl IEnumFeedClockVector {
     pub unsafe fn Next(&self, cclockvectorelements: u32, ppiclockvectorelements: *mut Option<IFeedClockVectorElement>, pcfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), cclockvectorelements, core::mem::transmute(ppiclockvectorelements), core::mem::transmute(pcfetched)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), cclockvectorelements, core::mem::transmute(ppiclockvectorelements), pcfetched as _).ok() }
     }
     pub unsafe fn Skip(&self, csyncversions: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), csyncversions).ok() }
@@ -1276,7 +1276,7 @@ windows_core::imp::define_interface!(IEnumItemIds, IEnumItemIds_Vtbl, 0x43aa3f61
 windows_core::imp::interface_hierarchy!(IEnumItemIds, windows_core::IUnknown);
 impl IEnumItemIds {
     pub unsafe fn Next(&self, pbitemid: *mut u8, pcbitemidsize: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), core::mem::transmute(pbitemid), core::mem::transmute(pcbitemidsize)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), pbitemid as _, pcbitemidsize as _).ok() }
     }
 }
 #[repr(C)]
@@ -1306,7 +1306,7 @@ windows_core::imp::define_interface!(IEnumRangeExceptions, IEnumRangeExceptions_
 windows_core::imp::interface_hierarchy!(IEnumRangeExceptions, windows_core::IUnknown);
 impl IEnumRangeExceptions {
     pub unsafe fn Next(&self, cexceptions: u32, pprangeexception: *mut Option<IRangeException>, pcfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), cexceptions, core::mem::transmute(pprangeexception), core::mem::transmute(pcfetched)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), cexceptions, core::mem::transmute(pprangeexception), pcfetched as _).ok() }
     }
     pub unsafe fn Skip(&self, cexceptions: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), cexceptions).ok() }
@@ -1384,7 +1384,7 @@ windows_core::imp::define_interface!(IEnumSingleItemExceptions, IEnumSingleItemE
 windows_core::imp::interface_hierarchy!(IEnumSingleItemExceptions, windows_core::IUnknown);
 impl IEnumSingleItemExceptions {
     pub unsafe fn Next(&self, cexceptions: u32, ppsingleitemexception: *mut Option<ISingleItemException>, pcfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), cexceptions, core::mem::transmute(ppsingleitemexception), core::mem::transmute(pcfetched)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), cexceptions, core::mem::transmute(ppsingleitemexception), pcfetched as _).ok() }
     }
     pub unsafe fn Skip(&self, cexceptions: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), cexceptions).ok() }
@@ -1462,7 +1462,7 @@ windows_core::imp::define_interface!(IEnumSyncChangeUnits, IEnumSyncChangeUnits_
 windows_core::imp::interface_hierarchy!(IEnumSyncChangeUnits, windows_core::IUnknown);
 impl IEnumSyncChangeUnits {
     pub unsafe fn Next(&self, cchanges: u32, ppchangeunit: *mut Option<ISyncChangeUnit>, pcfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), cchanges, core::mem::transmute(ppchangeunit), core::mem::transmute(pcfetched)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), cchanges, core::mem::transmute(ppchangeunit), pcfetched as _).ok() }
     }
     pub unsafe fn Skip(&self, cchanges: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), cchanges).ok() }
@@ -1540,7 +1540,7 @@ windows_core::imp::define_interface!(IEnumSyncChanges, IEnumSyncChanges_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(IEnumSyncChanges, windows_core::IUnknown);
 impl IEnumSyncChanges {
     pub unsafe fn Next(&self, cchanges: u32, ppchange: *mut Option<ISyncChange>, pcfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), cchanges, core::mem::transmute(ppchange), core::mem::transmute(pcfetched)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), cchanges, core::mem::transmute(ppchange), pcfetched as _).ok() }
     }
     pub unsafe fn Skip(&self, cchanges: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), cchanges).ok() }
@@ -1619,7 +1619,7 @@ windows_core::imp::interface_hierarchy!(IEnumSyncProviderConfigUIInfos, windows_
 impl IEnumSyncProviderConfigUIInfos {
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn Next(&self, ppsyncproviderconfiguiinfo: &mut [Option<ISyncProviderConfigUIInfo>], pcfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppsyncproviderconfiguiinfo.len().try_into().unwrap(), core::mem::transmute(ppsyncproviderconfiguiinfo.as_ptr()), core::mem::transmute(pcfetched)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppsyncproviderconfiguiinfo.len().try_into().unwrap(), core::mem::transmute(ppsyncproviderconfiguiinfo.as_ptr()), pcfetched as _).ok() }
     }
     pub unsafe fn Skip(&self, cfactories: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), cfactories).ok() }
@@ -1704,7 +1704,7 @@ windows_core::imp::interface_hierarchy!(IEnumSyncProviderInfos, windows_core::IU
 impl IEnumSyncProviderInfos {
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn Next(&self, ppsyncproviderinfo: &mut [Option<ISyncProviderInfo>], pcfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppsyncproviderinfo.len().try_into().unwrap(), core::mem::transmute(ppsyncproviderinfo.as_ptr()), core::mem::transmute(pcfetched)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppsyncproviderinfo.len().try_into().unwrap(), core::mem::transmute(ppsyncproviderinfo.as_ptr()), pcfetched as _).ok() }
     }
     pub unsafe fn Skip(&self, cinstances: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), cinstances).ok() }
@@ -1794,10 +1794,10 @@ impl core::ops::Deref for IFeedClockVector {
 windows_core::imp::interface_hierarchy!(IFeedClockVector, windows_core::IUnknown, IClockVector);
 impl IFeedClockVector {
     pub unsafe fn GetUpdateCount(&self, pdwupdatecount: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetUpdateCount)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwupdatecount)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetUpdateCount)(windows_core::Interface::as_raw(self), pdwupdatecount as _).ok() }
     }
     pub unsafe fn IsNoConflictsSpecified(&self, pfisnoconflictsspecified: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).IsNoConflictsSpecified)(windows_core::Interface::as_raw(self), core::mem::transmute(pfisnoconflictsspecified)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).IsNoConflictsSpecified)(windows_core::Interface::as_raw(self), pfisnoconflictsspecified as _).ok() }
     }
 }
 #[repr(C)]
@@ -1845,10 +1845,10 @@ impl core::ops::Deref for IFeedClockVectorElement {
 windows_core::imp::interface_hierarchy!(IFeedClockVectorElement, windows_core::IUnknown, IClockVectorElement);
 impl IFeedClockVectorElement {
     pub unsafe fn GetSyncTime(&self, psynctime: *mut SYNC_TIME) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetSyncTime)(windows_core::Interface::as_raw(self), core::mem::transmute(psynctime)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetSyncTime)(windows_core::Interface::as_raw(self), psynctime as _).ok() }
     }
     pub unsafe fn GetFlags(&self, pbflags: *mut u8) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetFlags)(windows_core::Interface::as_raw(self), core::mem::transmute(pbflags)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetFlags)(windows_core::Interface::as_raw(self), pbflags as _).ok() }
     }
 }
 #[repr(C)]
@@ -1890,13 +1890,13 @@ windows_core::imp::define_interface!(IFilterKeyMap, IFilterKeyMap_Vtbl, 0xca1696
 windows_core::imp::interface_hierarchy!(IFilterKeyMap, windows_core::IUnknown);
 impl IFilterKeyMap {
     pub unsafe fn GetCount(&self, pdwcount: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwcount)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), pdwcount as _).ok() }
     }
     pub unsafe fn AddFilter<P0>(&self, pisyncfilter: P0, pdwfilterkey: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ISyncFilter>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddFilter)(windows_core::Interface::as_raw(self), pisyncfilter.param().abi(), core::mem::transmute(pdwfilterkey)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddFilter)(windows_core::Interface::as_raw(self), pisyncfilter.param().abi(), pdwfilterkey as _).ok() }
     }
     pub unsafe fn GetFilter(&self, dwfilterkey: u32) -> windows_core::Result<ISyncFilter> {
         unsafe {
@@ -1905,7 +1905,7 @@ impl IFilterKeyMap {
         }
     }
     pub unsafe fn Serialize(&self, pbfilterkeymap: *mut u8, pcbfilterkeymap: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Serialize)(windows_core::Interface::as_raw(self), core::mem::transmute(pbfilterkeymap), core::mem::transmute(pcbfilterkeymap)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Serialize)(windows_core::Interface::as_raw(self), pbfilterkeymap as _, pcbfilterkeymap as _).ok() }
     }
 }
 #[repr(C)]
@@ -2184,7 +2184,7 @@ impl IKnowledgeSyncProvider {
         unsafe { (windows_core::Interface::vtable(self).BeginSession)(windows_core::Interface::as_raw(self), role, psessionstate.param().abi()).ok() }
     }
     pub unsafe fn GetSyncBatchParameters(&self, ppsyncknowledge: *mut Option<ISyncKnowledge>, pdwrequestedbatchsize: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetSyncBatchParameters)(windows_core::Interface::as_raw(self), core::mem::transmute(ppsyncknowledge), core::mem::transmute(pdwrequestedbatchsize)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetSyncBatchParameters)(windows_core::Interface::as_raw(self), core::mem::transmute(ppsyncknowledge), pdwrequestedbatchsize as _).ok() }
     }
     pub unsafe fn GetChangeBatch<P1>(&self, dwbatchsize: u32, psyncknowledge: P1, ppsyncchangebatch: *mut Option<ISyncChangeBatch>, ppunkdataretriever: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()>
     where
@@ -2204,7 +2204,7 @@ impl IKnowledgeSyncProvider {
         P2: windows_core::Param<windows_core::IUnknown>,
         P3: windows_core::Param<ISyncCallback>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ProcessChangeBatch)(windows_core::Interface::as_raw(self), resolutionpolicy, psourcechangebatch.param().abi(), punkdataretriever.param().abi(), pcallback.param().abi(), core::mem::transmute(psyncsessionstatistics)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ProcessChangeBatch)(windows_core::Interface::as_raw(self), resolutionpolicy, psourcechangebatch.param().abi(), punkdataretriever.param().abi(), pcallback.param().abi(), psyncsessionstatistics as _).ok() }
     }
     pub unsafe fn ProcessFullEnumerationChangeBatch<P1, P2, P3>(&self, resolutionpolicy: CONFLICT_RESOLUTION_POLICY, psourcechangebatch: P1, punkdataretriever: P2, pcallback: P3, psyncsessionstatistics: *mut SYNC_SESSION_STATISTICS) -> windows_core::Result<()>
     where
@@ -2212,7 +2212,7 @@ impl IKnowledgeSyncProvider {
         P2: windows_core::Param<windows_core::IUnknown>,
         P3: windows_core::Param<ISyncCallback>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ProcessFullEnumerationChangeBatch)(windows_core::Interface::as_raw(self), resolutionpolicy, psourcechangebatch.param().abi(), punkdataretriever.param().abi(), pcallback.param().abi(), core::mem::transmute(psyncsessionstatistics)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ProcessFullEnumerationChangeBatch)(windows_core::Interface::as_raw(self), resolutionpolicy, psourcechangebatch.param().abi(), punkdataretriever.param().abi(), pcallback.param().abi(), psyncsessionstatistics as _).ok() }
     }
     pub unsafe fn EndSession<P0>(&self, psessionstate: P0) -> windows_core::Result<()>
     where
@@ -2411,13 +2411,13 @@ windows_core::imp::define_interface!(IRangeException, IRangeException_Vtbl, 0x75
 windows_core::imp::interface_hierarchy!(IRangeException, windows_core::IUnknown);
 impl IRangeException {
     pub unsafe fn GetClosedRangeStart(&self, pbclosedrangestart: *mut u8, pcbidsize: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetClosedRangeStart)(windows_core::Interface::as_raw(self), core::mem::transmute(pbclosedrangestart), core::mem::transmute(pcbidsize)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetClosedRangeStart)(windows_core::Interface::as_raw(self), pbclosedrangestart as _, pcbidsize as _).ok() }
     }
     pub unsafe fn GetClosedRangeEnd(&self, pbclosedrangeend: *mut u8, pcbidsize: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetClosedRangeEnd)(windows_core::Interface::as_raw(self), core::mem::transmute(pbclosedrangeend), core::mem::transmute(pcbidsize)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetClosedRangeEnd)(windows_core::Interface::as_raw(self), pbclosedrangeend as _, pcbidsize as _).ok() }
     }
     pub unsafe fn GetClockVector(&self, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetClockVector)(windows_core::Interface::as_raw(self), riid, core::mem::transmute(ppunk)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetClockVector)(windows_core::Interface::as_raw(self), riid, ppunk as _).ok() }
     }
 }
 #[repr(C)]
@@ -2468,10 +2468,10 @@ windows_core::imp::define_interface!(IRecoverableError, IRecoverableError_Vtbl, 
 windows_core::imp::interface_hierarchy!(IRecoverableError, windows_core::IUnknown);
 impl IRecoverableError {
     pub unsafe fn GetStage(&self, pstage: *mut SYNC_PROGRESS_STAGE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetStage)(windows_core::Interface::as_raw(self), core::mem::transmute(pstage)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetStage)(windows_core::Interface::as_raw(self), pstage as _).ok() }
     }
     pub unsafe fn GetProvider(&self, pproviderrole: *mut SYNC_PROVIDER_ROLE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetProvider)(windows_core::Interface::as_raw(self), core::mem::transmute(pproviderrole)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetProvider)(windows_core::Interface::as_raw(self), pproviderrole as _).ok() }
     }
     pub unsafe fn GetChangeWithRecoverableError(&self) -> windows_core::Result<ISyncChange> {
         unsafe {
@@ -2480,13 +2480,13 @@ impl IRecoverableError {
         }
     }
     pub unsafe fn GetRecoverableErrorDataForChange(&self, phrerror: *mut windows_core::HRESULT, pperrordata: *mut Option<IRecoverableErrorData>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetRecoverableErrorDataForChange)(windows_core::Interface::as_raw(self), core::mem::transmute(phrerror), core::mem::transmute(pperrordata)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetRecoverableErrorDataForChange)(windows_core::Interface::as_raw(self), phrerror as _, core::mem::transmute(pperrordata)).ok() }
     }
     pub unsafe fn GetRecoverableErrorDataForChangeUnit<P0>(&self, pchangeunit: P0, phrerror: *mut windows_core::HRESULT, pperrordata: *mut Option<IRecoverableErrorData>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ISyncChangeUnit>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetRecoverableErrorDataForChangeUnit)(windows_core::Interface::as_raw(self), pchangeunit.param().abi(), core::mem::transmute(phrerror), core::mem::transmute(pperrordata)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetRecoverableErrorDataForChangeUnit)(windows_core::Interface::as_raw(self), pchangeunit.param().abi(), phrerror as _, core::mem::transmute(pperrordata)).ok() }
     }
 }
 #[repr(C)]
@@ -2571,13 +2571,13 @@ impl IRecoverableErrorData {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetItemDisplayName)(windows_core::Interface::as_raw(self), pszitemdisplayname.param().abi(), core::mem::transmute(pcchitemdisplayname)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetItemDisplayName)(windows_core::Interface::as_raw(self), pszitemdisplayname.param().abi(), pcchitemdisplayname as _).ok() }
     }
     pub unsafe fn GetErrorDescription<P0>(&self, pszerrordescription: P0, pccherrordescription: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetErrorDescription)(windows_core::Interface::as_raw(self), pszerrordescription.param().abi(), core::mem::transmute(pccherrordescription)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetErrorDescription)(windows_core::Interface::as_raw(self), pszerrordescription.param().abi(), pccherrordescription as _).ok() }
     }
 }
 #[repr(C)]
@@ -2704,13 +2704,13 @@ windows_core::imp::define_interface!(IReplicaKeyMap, IReplicaKeyMap_Vtbl, 0x2209
 windows_core::imp::interface_hierarchy!(IReplicaKeyMap, windows_core::IUnknown);
 impl IReplicaKeyMap {
     pub unsafe fn LookupReplicaKey(&self, pbreplicaid: *const u8, pdwreplicakey: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).LookupReplicaKey)(windows_core::Interface::as_raw(self), pbreplicaid, core::mem::transmute(pdwreplicakey)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).LookupReplicaKey)(windows_core::Interface::as_raw(self), pbreplicaid, pdwreplicakey as _).ok() }
     }
     pub unsafe fn LookupReplicaId(&self, dwreplicakey: u32, pbreplicaid: *mut u8, pcbidsize: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).LookupReplicaId)(windows_core::Interface::as_raw(self), dwreplicakey, core::mem::transmute(pbreplicaid), core::mem::transmute(pcbidsize)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).LookupReplicaId)(windows_core::Interface::as_raw(self), dwreplicakey, pbreplicaid as _, pcbidsize as _).ok() }
     }
     pub unsafe fn Serialize(&self, pbreplicakeymap: *mut u8, pcbreplicakeymap: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Serialize)(windows_core::Interface::as_raw(self), core::mem::transmute(pbreplicakeymap), core::mem::transmute(pcbreplicakeymap)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Serialize)(windows_core::Interface::as_raw(self), pbreplicakeymap as _, pcbreplicakeymap as _).ok() }
     }
 }
 #[repr(C)]
@@ -2794,10 +2794,10 @@ windows_core::imp::define_interface!(ISingleItemException, ISingleItemException_
 windows_core::imp::interface_hierarchy!(ISingleItemException, windows_core::IUnknown);
 impl ISingleItemException {
     pub unsafe fn GetItemId(&self, pbitemid: *mut u8, pcbidsize: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetItemId)(windows_core::Interface::as_raw(self), core::mem::transmute(pbitemid), core::mem::transmute(pcbidsize)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetItemId)(windows_core::Interface::as_raw(self), pbitemid as _, pcbidsize as _).ok() }
     }
     pub unsafe fn GetClockVector(&self, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetClockVector)(windows_core::Interface::as_raw(self), riid, core::mem::transmute(ppunk)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetClockVector)(windows_core::Interface::as_raw(self), riid, ppunk as _).ok() }
     }
 }
 #[repr(C)]
@@ -2872,10 +2872,10 @@ windows_core::imp::define_interface!(ISupportLastWriteTime, ISupportLastWriteTim
 windows_core::imp::interface_hierarchy!(ISupportLastWriteTime, windows_core::IUnknown);
 impl ISupportLastWriteTime {
     pub unsafe fn GetItemChangeTime(&self, pbitemid: *const u8, pulltimestamp: *mut u64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetItemChangeTime)(windows_core::Interface::as_raw(self), pbitemid, core::mem::transmute(pulltimestamp)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetItemChangeTime)(windows_core::Interface::as_raw(self), pbitemid, pulltimestamp as _).ok() }
     }
     pub unsafe fn GetChangeUnitChangeTime(&self, pbitemid: *const u8, pbchangeunitid: *const u8, pulltimestamp: *mut u64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetChangeUnitChangeTime)(windows_core::Interface::as_raw(self), pbitemid, pbchangeunitid, core::mem::transmute(pulltimestamp)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetChangeUnitChangeTime)(windows_core::Interface::as_raw(self), pbitemid, pbchangeunitid, pulltimestamp as _).ok() }
     }
 }
 #[repr(C)]
@@ -2932,7 +2932,7 @@ impl ISyncCallback {
         unsafe { (windows_core::Interface::vtable(self).OnConflict)(windows_core::Interface::as_raw(self), pconflict.param().abi()).ok() }
     }
     pub unsafe fn OnFullEnumerationNeeded(&self, pfullenumerationaction: *mut SYNC_FULL_ENUMERATION_ACTION) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).OnFullEnumerationNeeded)(windows_core::Interface::as_raw(self), core::mem::transmute(pfullenumerationaction)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnFullEnumerationNeeded)(windows_core::Interface::as_raw(self), pfullenumerationaction as _).ok() }
     }
     pub unsafe fn OnRecoverableError<P0>(&self, precoverableerror: P0) -> windows_core::Result<()>
     where
@@ -3058,22 +3058,22 @@ windows_core::imp::define_interface!(ISyncChange, ISyncChange_Vtbl, 0xa1952beb_0
 windows_core::imp::interface_hierarchy!(ISyncChange, windows_core::IUnknown);
 impl ISyncChange {
     pub unsafe fn GetOwnerReplicaId(&self, pbreplicaid: *mut u8, pcbidsize: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetOwnerReplicaId)(windows_core::Interface::as_raw(self), core::mem::transmute(pbreplicaid), core::mem::transmute(pcbidsize)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetOwnerReplicaId)(windows_core::Interface::as_raw(self), pbreplicaid as _, pcbidsize as _).ok() }
     }
     pub unsafe fn GetRootItemId(&self, pbrootitemid: *mut u8, pcbidsize: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetRootItemId)(windows_core::Interface::as_raw(self), core::mem::transmute(pbrootitemid), core::mem::transmute(pcbidsize)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetRootItemId)(windows_core::Interface::as_raw(self), pbrootitemid as _, pcbidsize as _).ok() }
     }
     pub unsafe fn GetChangeVersion(&self, pbcurrentreplicaid: *const u8, pversion: *mut SYNC_VERSION) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetChangeVersion)(windows_core::Interface::as_raw(self), pbcurrentreplicaid, core::mem::transmute(pversion)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetChangeVersion)(windows_core::Interface::as_raw(self), pbcurrentreplicaid, pversion as _).ok() }
     }
     pub unsafe fn GetCreationVersion(&self, pbcurrentreplicaid: *const u8, pversion: *mut SYNC_VERSION) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetCreationVersion)(windows_core::Interface::as_raw(self), pbcurrentreplicaid, core::mem::transmute(pversion)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetCreationVersion)(windows_core::Interface::as_raw(self), pbcurrentreplicaid, pversion as _).ok() }
     }
     pub unsafe fn GetFlags(&self, pdwflags: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetFlags)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwflags)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetFlags)(windows_core::Interface::as_raw(self), pdwflags as _).ok() }
     }
     pub unsafe fn GetWorkEstimate(&self, pdwwork: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetWorkEstimate)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwwork)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetWorkEstimate)(windows_core::Interface::as_raw(self), pdwwork as _).ok() }
     }
     pub unsafe fn GetChangeUnits(&self) -> windows_core::Result<IEnumSyncChangeUnits> {
         unsafe {
@@ -3388,10 +3388,10 @@ impl ISyncChangeBatchAdvanced {
         }
     }
     pub unsafe fn GetUpperBoundItemId(&self, pbitemid: *mut u8, pcbidsize: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetUpperBoundItemId)(windows_core::Interface::as_raw(self), core::mem::transmute(pbitemid), core::mem::transmute(pcbidsize)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetUpperBoundItemId)(windows_core::Interface::as_raw(self), pbitemid as _, pcbidsize as _).ok() }
     }
     pub unsafe fn GetBatchLevelKnowledgeShouldBeApplied(&self, pfbatchknowledgeshouldbeapplied: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetBatchLevelKnowledgeShouldBeApplied)(windows_core::Interface::as_raw(self), core::mem::transmute(pfbatchknowledgeshouldbeapplied)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetBatchLevelKnowledgeShouldBeApplied)(windows_core::Interface::as_raw(self), pfbatchknowledgeshouldbeapplied as _).ok() }
     }
 }
 #[repr(C)]
@@ -3469,13 +3469,13 @@ impl ISyncChangeBatchBase {
         }
     }
     pub unsafe fn GetIsLastBatch(&self, pflastbatch: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetIsLastBatch)(windows_core::Interface::as_raw(self), core::mem::transmute(pflastbatch)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetIsLastBatch)(windows_core::Interface::as_raw(self), pflastbatch as _).ok() }
     }
     pub unsafe fn GetWorkEstimateForBatch(&self, pdwworkforbatch: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetWorkEstimateForBatch)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwworkforbatch)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetWorkEstimateForBatch)(windows_core::Interface::as_raw(self), pdwworkforbatch as _).ok() }
     }
     pub unsafe fn GetRemainingWorkEstimateForSession(&self, pdwremainingworkforsession: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetRemainingWorkEstimateForSession)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwremainingworkforsession)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetRemainingWorkEstimateForSession)(windows_core::Interface::as_raw(self), pdwremainingworkforsession as _).ok() }
     }
     pub unsafe fn BeginOrderedGroup(&self, pblowerbound: *const u8) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).BeginOrderedGroup)(windows_core::Interface::as_raw(self), pblowerbound).ok() }
@@ -3520,7 +3520,7 @@ impl ISyncChangeBatchBase {
         unsafe { (windows_core::Interface::vtable(self).SetRemainingWorkEstimateForSession)(windows_core::Interface::as_raw(self), dwremainingworkforsession).ok() }
     }
     pub unsafe fn Serialize(&self, pbchangebatch: *mut u8, pcbchangebatch: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Serialize)(windows_core::Interface::as_raw(self), core::mem::transmute(pbchangebatch), core::mem::transmute(pcbchangebatch)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Serialize)(windows_core::Interface::as_raw(self), pbchangebatch as _, pcbchangebatch as _).ok() }
     }
 }
 #[repr(C)]
@@ -3706,7 +3706,7 @@ impl core::ops::Deref for ISyncChangeBatchBase2 {
 windows_core::imp::interface_hierarchy!(ISyncChangeBatchBase2, windows_core::IUnknown, ISyncChangeBatchBase);
 impl ISyncChangeBatchBase2 {
     pub unsafe fn SerializeWithOptions(&self, targetformatversion: SYNC_SERIALIZATION_VERSION, dwflags: u32, pbbuffer: *mut u8, pdwserializedsize: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SerializeWithOptions)(windows_core::Interface::as_raw(self), targetformatversion, dwflags, core::mem::transmute(pbbuffer), core::mem::transmute(pdwserializedsize)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SerializeWithOptions)(windows_core::Interface::as_raw(self), targetformatversion, dwflags, pbbuffer as _, pdwserializedsize as _).ok() }
     }
 }
 #[repr(C)]
@@ -4056,10 +4056,10 @@ impl ISyncChangeUnit {
         }
     }
     pub unsafe fn GetChangeUnitId(&self, pbchangeunitid: *mut u8, pcbidsize: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetChangeUnitId)(windows_core::Interface::as_raw(self), core::mem::transmute(pbchangeunitid), core::mem::transmute(pcbidsize)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetChangeUnitId)(windows_core::Interface::as_raw(self), pbchangeunitid as _, pcbidsize as _).ok() }
     }
     pub unsafe fn GetChangeUnitVersion(&self, pbcurrentreplicaid: *const u8, pversion: *mut SYNC_VERSION) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetChangeUnitVersion)(windows_core::Interface::as_raw(self), pbcurrentreplicaid, core::mem::transmute(pversion)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetChangeUnitVersion)(windows_core::Interface::as_raw(self), pbcurrentreplicaid, pversion as _).ok() }
     }
 }
 #[repr(C)]
@@ -4116,13 +4116,13 @@ windows_core::imp::define_interface!(ISyncChangeWithFilterKeyMap, ISyncChangeWit
 windows_core::imp::interface_hierarchy!(ISyncChangeWithFilterKeyMap, windows_core::IUnknown);
 impl ISyncChangeWithFilterKeyMap {
     pub unsafe fn GetFilterCount(&self, pdwfiltercount: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetFilterCount)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwfiltercount)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetFilterCount)(windows_core::Interface::as_raw(self), pdwfiltercount as _).ok() }
     }
     pub unsafe fn GetFilterChange(&self, dwfilterkey: u32, pfilterchange: *mut SYNC_FILTER_CHANGE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetFilterChange)(windows_core::Interface::as_raw(self), dwfilterkey, core::mem::transmute(pfilterchange)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetFilterChange)(windows_core::Interface::as_raw(self), dwfilterkey, pfilterchange as _).ok() }
     }
     pub unsafe fn GetAllChangeUnitsPresentFlag(&self, pfallchangeunitspresent: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetAllChangeUnitsPresentFlag)(windows_core::Interface::as_raw(self), core::mem::transmute(pfallchangeunitspresent)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetAllChangeUnitsPresentFlag)(windows_core::Interface::as_raw(self), pfallchangeunitspresent as _).ok() }
     }
     pub unsafe fn GetFilterForgottenKnowledge(&self, dwfilterkey: u32) -> windows_core::Result<ISyncKnowledge> {
         unsafe {
@@ -4545,7 +4545,7 @@ impl ISyncFilter {
         unsafe { (windows_core::Interface::vtable(self).IsIdentical)(windows_core::Interface::as_raw(self), psyncfilter.param().abi()).ok() }
     }
     pub unsafe fn Serialize(&self, pbsyncfilter: *mut u8, pcbsyncfilter: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Serialize)(windows_core::Interface::as_raw(self), core::mem::transmute(pbsyncfilter), core::mem::transmute(pcbsyncfilter)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Serialize)(windows_core::Interface::as_raw(self), pbsyncfilter as _, pcbsyncfilter as _).ok() }
     }
 }
 #[repr(C)]
@@ -4626,7 +4626,7 @@ windows_core::imp::define_interface!(ISyncFilterInfo, ISyncFilterInfo_Vtbl, 0x79
 windows_core::imp::interface_hierarchy!(ISyncFilterInfo, windows_core::IUnknown);
 impl ISyncFilterInfo {
     pub unsafe fn Serialize(&self, pbbuffer: *mut u8, pcbbuffer: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Serialize)(windows_core::Interface::as_raw(self), core::mem::transmute(pbbuffer), core::mem::transmute(pcbbuffer)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Serialize)(windows_core::Interface::as_raw(self), pbbuffer as _, pcbbuffer as _).ok() }
     }
 }
 #[repr(C)]
@@ -4662,7 +4662,7 @@ impl core::ops::Deref for ISyncFilterInfo2 {
 windows_core::imp::interface_hierarchy!(ISyncFilterInfo2, windows_core::IUnknown, ISyncFilterInfo);
 impl ISyncFilterInfo2 {
     pub unsafe fn GetFlags(&self, pdwflags: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetFlags)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwflags)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetFlags)(windows_core::Interface::as_raw(self), pdwflags as _).ok() }
     }
 }
 #[repr(C)]
@@ -4767,10 +4767,10 @@ impl ISyncFullEnumerationChangeBatch {
         }
     }
     pub unsafe fn GetClosedLowerBoundItemId(&self, pbclosedlowerbounditemid: *mut u8, pcbidsize: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetClosedLowerBoundItemId)(windows_core::Interface::as_raw(self), core::mem::transmute(pbclosedlowerbounditemid), core::mem::transmute(pcbidsize)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetClosedLowerBoundItemId)(windows_core::Interface::as_raw(self), pbclosedlowerbounditemid as _, pcbidsize as _).ok() }
     }
     pub unsafe fn GetClosedUpperBoundItemId(&self, pbclosedupperbounditemid: *mut u8, pcbidsize: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetClosedUpperBoundItemId)(windows_core::Interface::as_raw(self), core::mem::transmute(pbclosedupperbounditemid), core::mem::transmute(pcbidsize)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetClosedUpperBoundItemId)(windows_core::Interface::as_raw(self), pbclosedupperbounditemid as _, pcbidsize as _).ok() }
     }
 }
 #[repr(C)]
@@ -4875,10 +4875,10 @@ windows_core::imp::define_interface!(ISyncKnowledge, ISyncKnowledge_Vtbl, 0x615b
 windows_core::imp::interface_hierarchy!(ISyncKnowledge, windows_core::IUnknown);
 impl ISyncKnowledge {
     pub unsafe fn GetOwnerReplicaId(&self, pbreplicaid: *mut u8, pcbidsize: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetOwnerReplicaId)(windows_core::Interface::as_raw(self), core::mem::transmute(pbreplicaid), core::mem::transmute(pcbidsize)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetOwnerReplicaId)(windows_core::Interface::as_raw(self), pbreplicaid as _, pcbidsize as _).ok() }
     }
     pub unsafe fn Serialize(&self, fserializereplicakeymap: bool, pbknowledge: *mut u8, pcbknowledge: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Serialize)(windows_core::Interface::as_raw(self), fserializereplicakeymap.into(), core::mem::transmute(pbknowledge), core::mem::transmute(pcbknowledge)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Serialize)(windows_core::Interface::as_raw(self), fserializereplicakeymap.into(), pbknowledge as _, pcbknowledge as _).ok() }
     }
     pub unsafe fn SetLocalTickCount(&self, ulltickcount: u64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetLocalTickCount)(windows_core::Interface::as_raw(self), ulltickcount).ok() }
@@ -4890,7 +4890,7 @@ impl ISyncKnowledge {
         unsafe { (windows_core::Interface::vtable(self).ContainsChangeUnit)(windows_core::Interface::as_raw(self), pbversionownerreplicaid, pbitemid, pbchangeunitid, psyncversion).ok() }
     }
     pub unsafe fn GetScopeVector(&self, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetScopeVector)(windows_core::Interface::as_raw(self), riid, core::mem::transmute(ppunk)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetScopeVector)(windows_core::Interface::as_raw(self), riid, ppunk as _).ok() }
     }
     pub unsafe fn GetReplicaKeyMap(&self) -> windows_core::Result<IReplicaKeyMap> {
         unsafe {
@@ -4908,7 +4908,7 @@ impl ISyncKnowledge {
     where
         P0: windows_core::Param<ISyncKnowledge>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ConvertVersion)(windows_core::Interface::as_raw(self), pknowledgein.param().abi(), pbcurrentownerid, pversionin, core::mem::transmute(pbnewownerid), core::mem::transmute(pcbidsize), core::mem::transmute(pversionout)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ConvertVersion)(windows_core::Interface::as_raw(self), pknowledgein.param().abi(), pbcurrentownerid, pversionin, pbnewownerid as _, pcbidsize as _, pversionout as _).ok() }
     }
     pub unsafe fn MapRemoteToLocal<P0>(&self, premoteknowledge: P0) -> windows_core::Result<ISyncKnowledge>
     where
@@ -4956,25 +4956,25 @@ impl ISyncKnowledge {
         unsafe { (windows_core::Interface::vtable(self).ContainsKnowledge)(windows_core::Interface::as_raw(self), pknowledge.param().abi()).ok() }
     }
     pub unsafe fn FindMinTickCountForReplica(&self, pbreplicaid: *const u8, pullreplicatickcount: *mut u64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).FindMinTickCountForReplica)(windows_core::Interface::as_raw(self), pbreplicaid, core::mem::transmute(pullreplicatickcount)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).FindMinTickCountForReplica)(windows_core::Interface::as_raw(self), pbreplicaid, pullreplicatickcount as _).ok() }
     }
     pub unsafe fn GetRangeExceptions(&self, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetRangeExceptions)(windows_core::Interface::as_raw(self), riid, core::mem::transmute(ppunk)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetRangeExceptions)(windows_core::Interface::as_raw(self), riid, ppunk as _).ok() }
     }
     pub unsafe fn GetSingleItemExceptions(&self, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetSingleItemExceptions)(windows_core::Interface::as_raw(self), riid, core::mem::transmute(ppunk)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetSingleItemExceptions)(windows_core::Interface::as_raw(self), riid, ppunk as _).ok() }
     }
     pub unsafe fn GetChangeUnitExceptions(&self, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetChangeUnitExceptions)(windows_core::Interface::as_raw(self), riid, core::mem::transmute(ppunk)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetChangeUnitExceptions)(windows_core::Interface::as_raw(self), riid, ppunk as _).ok() }
     }
     pub unsafe fn FindClockVectorForItem(&self, pbitemid: *const u8, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).FindClockVectorForItem)(windows_core::Interface::as_raw(self), pbitemid, riid, core::mem::transmute(ppunk)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).FindClockVectorForItem)(windows_core::Interface::as_raw(self), pbitemid, riid, ppunk as _).ok() }
     }
     pub unsafe fn FindClockVectorForChangeUnit(&self, pbitemid: *const u8, pbchangeunitid: *const u8, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).FindClockVectorForChangeUnit)(windows_core::Interface::as_raw(self), pbitemid, pbchangeunitid, riid, core::mem::transmute(ppunk)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).FindClockVectorForChangeUnit)(windows_core::Interface::as_raw(self), pbitemid, pbchangeunitid, riid, ppunk as _).ok() }
     }
     pub unsafe fn GetVersion(&self, pdwversion: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetVersion)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwversion)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetVersion)(windows_core::Interface::as_raw(self), pdwversion as _).ok() }
     }
 }
 #[repr(C)]
@@ -5256,7 +5256,7 @@ impl core::ops::Deref for ISyncKnowledge2 {
 windows_core::imp::interface_hierarchy!(ISyncKnowledge2, windows_core::IUnknown, ISyncKnowledge);
 impl ISyncKnowledge2 {
     pub unsafe fn GetIdParameters(&self, pidparameters: *mut ID_PARAMETERS) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetIdParameters)(windows_core::Interface::as_raw(self), core::mem::transmute(pidparameters)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetIdParameters)(windows_core::Interface::as_raw(self), pidparameters as _).ok() }
     }
     pub unsafe fn ProjectOntoColumnSet(&self, ppcolumns: *const *const u8, count: u32) -> windows_core::Result<ISyncKnowledge2> {
         unsafe {
@@ -5265,22 +5265,22 @@ impl ISyncKnowledge2 {
         }
     }
     pub unsafe fn SerializeWithOptions(&self, targetformatversion: SYNC_SERIALIZATION_VERSION, dwflags: u32, pbbuffer: *mut u8, pdwserializedsize: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SerializeWithOptions)(windows_core::Interface::as_raw(self), targetformatversion, dwflags, core::mem::transmute(pbbuffer), core::mem::transmute(pdwserializedsize)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SerializeWithOptions)(windows_core::Interface::as_raw(self), targetformatversion, dwflags, pbbuffer as _, pdwserializedsize as _).ok() }
     }
     pub unsafe fn GetLowestUncontainedId<P0>(&self, pisyncknowledge: P0, pbitemid: *mut u8, pcbitemidsize: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ISyncKnowledge2>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetLowestUncontainedId)(windows_core::Interface::as_raw(self), pisyncknowledge.param().abi(), core::mem::transmute(pbitemid), core::mem::transmute(pcbitemidsize)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetLowestUncontainedId)(windows_core::Interface::as_raw(self), pisyncknowledge.param().abi(), pbitemid as _, pcbitemidsize as _).ok() }
     }
     pub unsafe fn GetInspector(&self, riid: *const windows_core::GUID, ppiinspector: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetInspector)(windows_core::Interface::as_raw(self), riid, core::mem::transmute(ppiinspector)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetInspector)(windows_core::Interface::as_raw(self), riid, ppiinspector as _).ok() }
     }
     pub unsafe fn GetMinimumSupportedVersion(&self, pversion: *mut SYNC_SERIALIZATION_VERSION) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetMinimumSupportedVersion)(windows_core::Interface::as_raw(self), core::mem::transmute(pversion)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetMinimumSupportedVersion)(windows_core::Interface::as_raw(self), pversion as _).ok() }
     }
     pub unsafe fn GetStatistics(&self, which: SYNC_STATISTICS, pvalue: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetStatistics)(windows_core::Interface::as_raw(self), which, core::mem::transmute(pvalue)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetStatistics)(windows_core::Interface::as_raw(self), which, pvalue as _).ok() }
     }
     pub unsafe fn ContainsKnowledgeForItem<P0>(&self, pknowledge: P0, pbitemid: *const u8) -> windows_core::Result<()>
     where
@@ -5329,7 +5329,7 @@ impl ISyncKnowledge2 {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CompareToKnowledgeCookie)(windows_core::Interface::as_raw(self), pknowledgecookie.param().abi(), core::mem::transmute(presult)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CompareToKnowledgeCookie)(windows_core::Interface::as_raw(self), pknowledgecookie.param().abi(), presult as _).ok() }
     }
 }
 #[repr(C)]
@@ -5503,7 +5503,7 @@ windows_core::imp::define_interface!(ISyncMergeTombstoneChange, ISyncMergeTombst
 windows_core::imp::interface_hierarchy!(ISyncMergeTombstoneChange, windows_core::IUnknown);
 impl ISyncMergeTombstoneChange {
     pub unsafe fn GetWinnerItemId(&self, pbwinneritemid: *mut u8, pcbidsize: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetWinnerItemId)(windows_core::Interface::as_raw(self), core::mem::transmute(pbwinneritemid), core::mem::transmute(pcbidsize)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetWinnerItemId)(windows_core::Interface::as_raw(self), pbwinneritemid as _, pcbidsize as _).ok() }
     }
 }
 #[repr(C)]
@@ -5533,7 +5533,7 @@ windows_core::imp::define_interface!(ISyncProvider, ISyncProvider_Vtbl, 0x8f6570
 windows_core::imp::interface_hierarchy!(ISyncProvider, windows_core::IUnknown);
 impl ISyncProvider {
     pub unsafe fn GetIdParameters(&self, pidparameters: *mut ID_PARAMETERS) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetIdParameters)(windows_core::Interface::as_raw(self), core::mem::transmute(pidparameters)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetIdParameters)(windows_core::Interface::as_raw(self), pidparameters as _).ok() }
     }
 }
 #[repr(C)]
@@ -5583,7 +5583,7 @@ impl ISyncProviderConfigUI {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateAndRegisterNewSyncProvider)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndparent.unwrap_or(core::mem::zeroed())), punkcontext.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateAndRegisterNewSyncProvider)(windows_core::Interface::as_raw(self), hwndparent.unwrap_or(core::mem::zeroed()) as _, punkcontext.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -5592,7 +5592,7 @@ impl ISyncProviderConfigUI {
         P1: windows_core::Param<windows_core::IUnknown>,
         P2: windows_core::Param<ISyncProviderInfo>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ModifySyncProvider)(windows_core::Interface::as_raw(self), core::mem::transmute(hwndparent.unwrap_or(core::mem::zeroed())), punkcontext.param().abi(), pproviderinfo.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ModifySyncProvider)(windows_core::Interface::as_raw(self), hwndparent.unwrap_or(core::mem::zeroed()) as _, punkcontext.param().abi(), pproviderinfo.param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -5803,7 +5803,7 @@ impl ISyncProviderRegistration {
     pub unsafe fn EnumerateSyncProviderConfigUIs(&self, pguidcontenttype: Option<*const windows_core::GUID>, dwsupportedarchitecture: u32) -> windows_core::Result<IEnumSyncProviderConfigUIInfos> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumerateSyncProviderConfigUIs)(windows_core::Interface::as_raw(self), core::mem::transmute(pguidcontenttype.unwrap_or(core::mem::zeroed())), dwsupportedarchitecture, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumerateSyncProviderConfigUIs)(windows_core::Interface::as_raw(self), pguidcontenttype.unwrap_or(core::mem::zeroed()) as _, dwsupportedarchitecture, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -5826,7 +5826,7 @@ impl ISyncProviderRegistration {
     pub unsafe fn EnumerateSyncProviders(&self, pguidcontenttype: Option<*const windows_core::GUID>, dwstateflagstofiltermask: u32, dwstateflagstofilter: u32, refproviderclsid: *const windows_core::GUID, dwsupportedarchitecture: u32) -> windows_core::Result<IEnumSyncProviderInfos> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumerateSyncProviders)(windows_core::Interface::as_raw(self), core::mem::transmute(pguidcontenttype.unwrap_or(core::mem::zeroed())), dwstateflagstofiltermask, dwstateflagstofilter, refproviderclsid, dwsupportedarchitecture, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumerateSyncProviders)(windows_core::Interface::as_raw(self), pguidcontenttype.unwrap_or(core::mem::zeroed()) as _, dwstateflagstofiltermask, dwstateflagstofilter, refproviderclsid, dwsupportedarchitecture, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -5865,7 +5865,7 @@ impl ISyncProviderRegistration {
         unsafe { (windows_core::Interface::vtable(self).SetSyncProviderState)(windows_core::Interface::as_raw(self), pguidinstanceid, dwstateflagsmask, dwstateflags).ok() }
     }
     pub unsafe fn RegisterForEvent(&self, phevent: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RegisterForEvent)(windows_core::Interface::as_raw(self), core::mem::transmute(phevent)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RegisterForEvent)(windows_core::Interface::as_raw(self), phevent as _).ok() }
     }
     pub unsafe fn RevokeEvent(&self, hevent: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RevokeEvent)(windows_core::Interface::as_raw(self), hevent).ok() }
@@ -6228,19 +6228,19 @@ windows_core::imp::define_interface!(ISyncSessionState, ISyncSessionState_Vtbl, 
 windows_core::imp::interface_hierarchy!(ISyncSessionState, windows_core::IUnknown);
 impl ISyncSessionState {
     pub unsafe fn IsCanceled(&self, pfiscanceled: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).IsCanceled)(windows_core::Interface::as_raw(self), core::mem::transmute(pfiscanceled)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).IsCanceled)(windows_core::Interface::as_raw(self), pfiscanceled as _).ok() }
     }
     pub unsafe fn GetInfoForChangeApplication(&self, pbchangeapplierinfo: *mut u8, pcbchangeapplierinfo: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetInfoForChangeApplication)(windows_core::Interface::as_raw(self), core::mem::transmute(pbchangeapplierinfo), core::mem::transmute(pcbchangeapplierinfo)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetInfoForChangeApplication)(windows_core::Interface::as_raw(self), pbchangeapplierinfo as _, pcbchangeapplierinfo as _).ok() }
     }
     pub unsafe fn LoadInfoFromChangeApplication(&self, pbchangeapplierinfo: *const u8, cbchangeapplierinfo: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).LoadInfoFromChangeApplication)(windows_core::Interface::as_raw(self), pbchangeapplierinfo, cbchangeapplierinfo).ok() }
     }
     pub unsafe fn GetForgottenKnowledgeRecoveryRangeStart(&self, pbrangestart: *mut u8, pcbrangestart: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetForgottenKnowledgeRecoveryRangeStart)(windows_core::Interface::as_raw(self), core::mem::transmute(pbrangestart), core::mem::transmute(pcbrangestart)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetForgottenKnowledgeRecoveryRangeStart)(windows_core::Interface::as_raw(self), pbrangestart as _, pcbrangestart as _).ok() }
     }
     pub unsafe fn GetForgottenKnowledgeRecoveryRangeEnd(&self, pbrangeend: *mut u8, pcbrangeend: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetForgottenKnowledgeRecoveryRangeEnd)(windows_core::Interface::as_raw(self), core::mem::transmute(pbrangeend), core::mem::transmute(pcbrangeend)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetForgottenKnowledgeRecoveryRangeEnd)(windows_core::Interface::as_raw(self), pbrangeend as _, pcbrangeend as _).ok() }
     }
     pub unsafe fn SetForgottenKnowledgeRecoveryRange(&self, prange: *const SYNC_RANGE) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetForgottenKnowledgeRecoveryRange)(windows_core::Interface::as_raw(self), prange).ok() }
@@ -6342,7 +6342,7 @@ impl ISyncSessionState2 {
         unsafe { (windows_core::Interface::vtable(self).SetProviderWithError)(windows_core::Interface::as_raw(self), fself.into()).ok() }
     }
     pub unsafe fn GetSessionErrorStatus(&self, phrsessionerror: *mut windows_core::HRESULT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetSessionErrorStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(phrsessionerror)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetSessionErrorStatus)(windows_core::Interface::as_raw(self), phrsessionerror as _).ok() }
     }
 }
 #[repr(C)]
@@ -6384,7 +6384,7 @@ windows_core::imp::define_interface!(ISynchronousDataRetriever, ISynchronousData
 windows_core::imp::interface_hierarchy!(ISynchronousDataRetriever, windows_core::IUnknown);
 impl ISynchronousDataRetriever {
     pub unsafe fn GetIdParameters(&self, pidparameters: *mut ID_PARAMETERS) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetIdParameters)(windows_core::Interface::as_raw(self), core::mem::transmute(pidparameters)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetIdParameters)(windows_core::Interface::as_raw(self), pidparameters as _).ok() }
     }
     pub unsafe fn LoadChangeData<P0>(&self, ploadchangecontext: P0) -> windows_core::Result<windows_core::IUnknown>
     where

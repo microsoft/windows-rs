@@ -6,32 +6,32 @@ pub unsafe fn McastApiCleanup() {
 #[inline]
 pub unsafe fn McastApiStartup(version: *mut u32) -> u32 {
     windows_targets::link!("dhcpcsvc.dll" "system" fn McastApiStartup(version : *mut u32) -> u32);
-    unsafe { McastApiStartup(core::mem::transmute(version)) }
+    unsafe { McastApiStartup(version as _) }
 }
 #[inline]
 pub unsafe fn McastEnumerateScopes(addrfamily: u16, requery: bool, pscopelist: *mut MCAST_SCOPE_ENTRY, pscopelen: *mut u32, pscopecount: *mut u32) -> u32 {
     windows_targets::link!("dhcpcsvc.dll" "system" fn McastEnumerateScopes(addrfamily : u16, requery : super::super::Foundation:: BOOL, pscopelist : *mut MCAST_SCOPE_ENTRY, pscopelen : *mut u32, pscopecount : *mut u32) -> u32);
-    unsafe { McastEnumerateScopes(addrfamily, requery.into(), core::mem::transmute(pscopelist), core::mem::transmute(pscopelen), core::mem::transmute(pscopecount)) }
+    unsafe { McastEnumerateScopes(addrfamily, requery.into(), pscopelist as _, pscopelen as _, pscopecount as _) }
 }
 #[inline]
 pub unsafe fn McastGenUID(prequestid: *mut MCAST_CLIENT_UID) -> u32 {
     windows_targets::link!("dhcpcsvc.dll" "system" fn McastGenUID(prequestid : *mut MCAST_CLIENT_UID) -> u32);
-    unsafe { McastGenUID(core::mem::transmute(prequestid)) }
+    unsafe { McastGenUID(prequestid as _) }
 }
 #[inline]
 pub unsafe fn McastReleaseAddress(addrfamily: u16, prequestid: *mut MCAST_CLIENT_UID, preleaserequest: *mut MCAST_LEASE_REQUEST) -> u32 {
     windows_targets::link!("dhcpcsvc.dll" "system" fn McastReleaseAddress(addrfamily : u16, prequestid : *mut MCAST_CLIENT_UID, preleaserequest : *mut MCAST_LEASE_REQUEST) -> u32);
-    unsafe { McastReleaseAddress(addrfamily, core::mem::transmute(prequestid), core::mem::transmute(preleaserequest)) }
+    unsafe { McastReleaseAddress(addrfamily, prequestid as _, preleaserequest as _) }
 }
 #[inline]
 pub unsafe fn McastRenewAddress(addrfamily: u16, prequestid: *mut MCAST_CLIENT_UID, prenewrequest: *mut MCAST_LEASE_REQUEST, prenewresponse: *mut MCAST_LEASE_RESPONSE) -> u32 {
     windows_targets::link!("dhcpcsvc.dll" "system" fn McastRenewAddress(addrfamily : u16, prequestid : *mut MCAST_CLIENT_UID, prenewrequest : *mut MCAST_LEASE_REQUEST, prenewresponse : *mut MCAST_LEASE_RESPONSE) -> u32);
-    unsafe { McastRenewAddress(addrfamily, core::mem::transmute(prequestid), core::mem::transmute(prenewrequest), core::mem::transmute(prenewresponse)) }
+    unsafe { McastRenewAddress(addrfamily, prequestid as _, prenewrequest as _, prenewresponse as _) }
 }
 #[inline]
 pub unsafe fn McastRequestAddress(addrfamily: u16, prequestid: *mut MCAST_CLIENT_UID, pscopectx: *mut MCAST_SCOPE_CTX, paddrrequest: *mut MCAST_LEASE_REQUEST, paddrresponse: *mut MCAST_LEASE_RESPONSE) -> u32 {
     windows_targets::link!("dhcpcsvc.dll" "system" fn McastRequestAddress(addrfamily : u16, prequestid : *mut MCAST_CLIENT_UID, pscopectx : *mut MCAST_SCOPE_CTX, paddrrequest : *mut MCAST_LEASE_REQUEST, paddrresponse : *mut MCAST_LEASE_RESPONSE) -> u32);
-    unsafe { McastRequestAddress(addrfamily, core::mem::transmute(prequestid), core::mem::transmute(pscopectx), core::mem::transmute(paddrrequest), core::mem::transmute(paddrresponse)) }
+    unsafe { McastRequestAddress(addrfamily, prequestid as _, pscopectx as _, paddrrequest as _, paddrresponse as _) }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]

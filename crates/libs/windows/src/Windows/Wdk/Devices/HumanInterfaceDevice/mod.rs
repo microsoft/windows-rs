@@ -6,7 +6,7 @@ pub unsafe fn VhfAsyncOperationComplete(vhfoperationhandle: *const core::ffi::c_
 #[inline]
 pub unsafe fn VhfCreate(vhfconfig: *const VHF_CONFIG, vhfhandle: *mut *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("vhfum.dll" "system" fn VhfCreate(vhfconfig : *const VHF_CONFIG, vhfhandle : *mut *mut core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { VhfCreate(vhfconfig, core::mem::transmute(vhfhandle)) }
+    unsafe { VhfCreate(vhfconfig, vhfhandle as _) }
 }
 #[inline]
 pub unsafe fn VhfDelete(vhfhandle: *const core::ffi::c_void, wait: bool) {

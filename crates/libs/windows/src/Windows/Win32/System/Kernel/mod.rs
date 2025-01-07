@@ -15,22 +15,22 @@ pub unsafe fn RtlInitializeSListHead() -> SLIST_HEADER {
 #[inline]
 pub unsafe fn RtlInterlockedFlushSList(listhead: *mut SLIST_HEADER) -> *mut SLIST_ENTRY {
     windows_targets::link!("ntdll.dll" "system" fn RtlInterlockedFlushSList(listhead : *mut SLIST_HEADER) -> *mut SLIST_ENTRY);
-    unsafe { RtlInterlockedFlushSList(core::mem::transmute(listhead)) }
+    unsafe { RtlInterlockedFlushSList(listhead as _) }
 }
 #[inline]
 pub unsafe fn RtlInterlockedPopEntrySList(listhead: *mut SLIST_HEADER) -> *mut SLIST_ENTRY {
     windows_targets::link!("ntdll.dll" "system" fn RtlInterlockedPopEntrySList(listhead : *mut SLIST_HEADER) -> *mut SLIST_ENTRY);
-    unsafe { RtlInterlockedPopEntrySList(core::mem::transmute(listhead)) }
+    unsafe { RtlInterlockedPopEntrySList(listhead as _) }
 }
 #[inline]
 pub unsafe fn RtlInterlockedPushEntrySList(listhead: *mut SLIST_HEADER, listentry: *mut SLIST_ENTRY) -> *mut SLIST_ENTRY {
     windows_targets::link!("ntdll.dll" "system" fn RtlInterlockedPushEntrySList(listhead : *mut SLIST_HEADER, listentry : *mut SLIST_ENTRY) -> *mut SLIST_ENTRY);
-    unsafe { RtlInterlockedPushEntrySList(core::mem::transmute(listhead), core::mem::transmute(listentry)) }
+    unsafe { RtlInterlockedPushEntrySList(listhead as _, listentry as _) }
 }
 #[inline]
 pub unsafe fn RtlInterlockedPushListSListEx(listhead: *mut SLIST_HEADER, list: *mut SLIST_ENTRY, listend: *mut SLIST_ENTRY, count: u32) -> *mut SLIST_ENTRY {
     windows_targets::link!("ntdll.dll" "system" fn RtlInterlockedPushListSListEx(listhead : *mut SLIST_HEADER, list : *mut SLIST_ENTRY, listend : *mut SLIST_ENTRY, count : u32) -> *mut SLIST_ENTRY);
-    unsafe { RtlInterlockedPushListSListEx(core::mem::transmute(listhead), core::mem::transmute(list), core::mem::transmute(listend), count) }
+    unsafe { RtlInterlockedPushListSListEx(listhead as _, list as _, listend as _, count) }
 }
 #[inline]
 pub unsafe fn RtlQueryDepthSList(listhead: *const SLIST_HEADER) -> u16 {

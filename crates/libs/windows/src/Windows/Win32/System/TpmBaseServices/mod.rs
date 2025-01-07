@@ -1,17 +1,17 @@
 #[inline]
 pub unsafe fn GetDeviceID(pbwindowsaik: Option<&mut [u8]>, pcbresult: *mut u32, pfprotectedbytpm: Option<*mut super::super::Foundation::BOOL>) -> windows_core::Result<()> {
     windows_targets::link!("tbs.dll" "system" fn GetDeviceID(pbwindowsaik : *mut u8, cbwindowsaik : u32, pcbresult : *mut u32, pfprotectedbytpm : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    unsafe { GetDeviceID(core::mem::transmute(pbwindowsaik.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbwindowsaik.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbresult), core::mem::transmute(pfprotectedbytpm.unwrap_or(core::mem::zeroed()))).ok() }
+    unsafe { GetDeviceID(core::mem::transmute(pbwindowsaik.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbwindowsaik.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbresult as _, pfprotectedbytpm.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn GetDeviceIDString(pszwindowsaik: Option<&mut [u16]>, pcchresult: *mut u32, pfprotectedbytpm: Option<*mut super::super::Foundation::BOOL>) -> windows_core::Result<()> {
     windows_targets::link!("tbs.dll" "system" fn GetDeviceIDString(pszwindowsaik : windows_core::PWSTR, cchwindowsaik : u32, pcchresult : *mut u32, pfprotectedbytpm : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    unsafe { GetDeviceIDString(core::mem::transmute(pszwindowsaik.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pszwindowsaik.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcchresult), core::mem::transmute(pfprotectedbytpm.unwrap_or(core::mem::zeroed()))).ok() }
+    unsafe { GetDeviceIDString(core::mem::transmute(pszwindowsaik.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pszwindowsaik.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcchresult as _, pfprotectedbytpm.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn Tbsi_Context_Create(pcontextparams: *const TBS_CONTEXT_PARAMS, phcontext: *mut *mut core::ffi::c_void) -> u32 {
     windows_targets::link!("tbs.dll" "system" fn Tbsi_Context_Create(pcontextparams : *const TBS_CONTEXT_PARAMS, phcontext : *mut *mut core::ffi::c_void) -> u32);
-    unsafe { Tbsi_Context_Create(pcontextparams, core::mem::transmute(phcontext)) }
+    unsafe { Tbsi_Context_Create(pcontextparams, phcontext as _) }
 }
 #[inline]
 pub unsafe fn Tbsi_Create_Windows_Key(keyhandle: u32) -> u32 {
@@ -21,22 +21,22 @@ pub unsafe fn Tbsi_Create_Windows_Key(keyhandle: u32) -> u32 {
 #[inline]
 pub unsafe fn Tbsi_GetDeviceInfo(size: u32, info: *mut core::ffi::c_void) -> u32 {
     windows_targets::link!("tbs.dll" "system" fn Tbsi_GetDeviceInfo(size : u32, info : *mut core::ffi::c_void) -> u32);
-    unsafe { Tbsi_GetDeviceInfo(size, core::mem::transmute(info)) }
+    unsafe { Tbsi_GetDeviceInfo(size, info as _) }
 }
 #[inline]
 pub unsafe fn Tbsi_Get_OwnerAuth(hcontext: *const core::ffi::c_void, ownerauthtype: u32, poutputbuf: Option<*mut u8>, poutputbuflen: *mut u32) -> u32 {
     windows_targets::link!("tbs.dll" "system" fn Tbsi_Get_OwnerAuth(hcontext : *const core::ffi::c_void, ownerauthtype : u32, poutputbuf : *mut u8, poutputbuflen : *mut u32) -> u32);
-    unsafe { Tbsi_Get_OwnerAuth(hcontext, ownerauthtype, core::mem::transmute(poutputbuf.unwrap_or(core::mem::zeroed())), core::mem::transmute(poutputbuflen)) }
+    unsafe { Tbsi_Get_OwnerAuth(hcontext, ownerauthtype, poutputbuf.unwrap_or(core::mem::zeroed()) as _, poutputbuflen as _) }
 }
 #[inline]
 pub unsafe fn Tbsi_Get_TCG_Log(hcontext: *const core::ffi::c_void, poutputbuf: Option<*mut u8>, poutputbuflen: *mut u32) -> u32 {
     windows_targets::link!("tbs.dll" "system" fn Tbsi_Get_TCG_Log(hcontext : *const core::ffi::c_void, poutputbuf : *mut u8, poutputbuflen : *mut u32) -> u32);
-    unsafe { Tbsi_Get_TCG_Log(hcontext, core::mem::transmute(poutputbuf.unwrap_or(core::mem::zeroed())), core::mem::transmute(poutputbuflen)) }
+    unsafe { Tbsi_Get_TCG_Log(hcontext, poutputbuf.unwrap_or(core::mem::zeroed()) as _, poutputbuflen as _) }
 }
 #[inline]
 pub unsafe fn Tbsi_Get_TCG_Log_Ex(logtype: u32, pboutput: Option<*mut u8>, pcboutput: *mut u32) -> u32 {
     windows_targets::link!("tbs.dll" "system" fn Tbsi_Get_TCG_Log_Ex(logtype : u32, pboutput : *mut u8, pcboutput : *mut u32) -> u32);
-    unsafe { Tbsi_Get_TCG_Log_Ex(logtype, core::mem::transmute(pboutput.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcboutput)) }
+    unsafe { Tbsi_Get_TCG_Log_Ex(logtype, pboutput.unwrap_or(core::mem::zeroed()) as _, pcboutput as _) }
 }
 #[inline]
 pub unsafe fn Tbsi_Is_Tpm_Present() -> super::super::Foundation::BOOL {
@@ -46,7 +46,7 @@ pub unsafe fn Tbsi_Is_Tpm_Present() -> super::super::Foundation::BOOL {
 #[inline]
 pub unsafe fn Tbsi_Physical_Presence_Command(hcontext: *const core::ffi::c_void, pabinput: &[u8], paboutput: *mut u8, pcboutput: *mut u32) -> u32 {
     windows_targets::link!("tbs.dll" "system" fn Tbsi_Physical_Presence_Command(hcontext : *const core::ffi::c_void, pabinput : *const u8, cbinput : u32, paboutput : *mut u8, pcboutput : *mut u32) -> u32);
-    unsafe { Tbsi_Physical_Presence_Command(hcontext, core::mem::transmute(pabinput.as_ptr()), pabinput.len().try_into().unwrap(), core::mem::transmute(paboutput), core::mem::transmute(pcboutput)) }
+    unsafe { Tbsi_Physical_Presence_Command(hcontext, core::mem::transmute(pabinput.as_ptr()), pabinput.len().try_into().unwrap(), paboutput as _, pcboutput as _) }
 }
 #[inline]
 pub unsafe fn Tbsi_Revoke_Attestation() -> u32 {
@@ -66,7 +66,7 @@ pub unsafe fn Tbsip_Context_Close(hcontext: *const core::ffi::c_void) -> u32 {
 #[inline]
 pub unsafe fn Tbsip_Submit_Command(hcontext: *const core::ffi::c_void, locality: TBS_COMMAND_LOCALITY, priority: TBS_COMMAND_PRIORITY, pabcommand: &[u8], pabresult: *mut u8, pcbresult: *mut u32) -> u32 {
     windows_targets::link!("tbs.dll" "system" fn Tbsip_Submit_Command(hcontext : *const core::ffi::c_void, locality : TBS_COMMAND_LOCALITY, priority : TBS_COMMAND_PRIORITY, pabcommand : *const u8, cbcommand : u32, pabresult : *mut u8, pcbresult : *mut u32) -> u32);
-    unsafe { Tbsip_Submit_Command(hcontext, locality, priority, core::mem::transmute(pabcommand.as_ptr()), pabcommand.len().try_into().unwrap(), core::mem::transmute(pabresult), core::mem::transmute(pcbresult)) }
+    unsafe { Tbsip_Submit_Command(hcontext, locality, priority, core::mem::transmute(pabcommand.as_ptr()), pabcommand.len().try_into().unwrap(), pabresult as _, pcbresult as _) }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

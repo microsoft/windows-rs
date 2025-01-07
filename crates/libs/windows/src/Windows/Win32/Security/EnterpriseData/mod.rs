@@ -10,7 +10,7 @@ where
 #[inline]
 pub unsafe fn SrpCloseThreadNetworkContext(threadnetworkcontext: *mut HTHREAD_NETWORK_CONTEXT) -> windows_core::Result<()> {
     windows_targets::link!("srpapi.dll" "system" fn SrpCloseThreadNetworkContext(threadnetworkcontext : *mut HTHREAD_NETWORK_CONTEXT) -> windows_core::HRESULT);
-    unsafe { SrpCloseThreadNetworkContext(core::mem::transmute(threadnetworkcontext)).ok() }
+    unsafe { SrpCloseThreadNetworkContext(threadnetworkcontext as _).ok() }
 }
 #[inline]
 pub unsafe fn SrpCreateThreadNetworkContext<P0>(enterpriseid: P0) -> windows_core::Result<HTHREAD_NETWORK_CONTEXT>
@@ -48,7 +48,7 @@ where
 #[inline]
 pub unsafe fn SrpGetEnterpriseIds(tokenhandle: super::super::Foundation::HANDLE, numberofbytes: Option<*mut u32>, enterpriseids: Option<*mut windows_core::PCWSTR>, enterpriseidcount: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("srpapi.dll" "system" fn SrpGetEnterpriseIds(tokenhandle : super::super::Foundation:: HANDLE, numberofbytes : *mut u32, enterpriseids : *mut windows_core::PCWSTR, enterpriseidcount : *mut u32) -> windows_core::HRESULT);
-    unsafe { SrpGetEnterpriseIds(tokenhandle, core::mem::transmute(numberofbytes.unwrap_or(core::mem::zeroed())), core::mem::transmute(enterpriseids.unwrap_or(core::mem::zeroed())), core::mem::transmute(enterpriseidcount)).ok() }
+    unsafe { SrpGetEnterpriseIds(tokenhandle, numberofbytes.unwrap_or(core::mem::zeroed()) as _, enterpriseids.unwrap_or(core::mem::zeroed()) as _, enterpriseidcount as _).ok() }
 }
 #[inline]
 pub unsafe fn SrpGetEnterprisePolicy(tokenhandle: super::super::Foundation::HANDLE) -> windows_core::Result<ENTERPRISE_DATA_POLICIES> {
@@ -71,7 +71,7 @@ pub unsafe fn SrpHostingTerminate(r#type: SRPHOSTING_TYPE) {
 #[inline]
 pub unsafe fn SrpIsTokenService(tokenhandle: super::super::Foundation::HANDLE, istokenservice: *mut u8) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("srpapi.dll" "system" fn SrpIsTokenService(tokenhandle : super::super::Foundation:: HANDLE, istokenservice : *mut u8) -> super::super::Foundation:: NTSTATUS);
-    unsafe { SrpIsTokenService(tokenhandle, core::mem::transmute(istokenservice)) }
+    unsafe { SrpIsTokenService(tokenhandle, istokenservice as _) }
 }
 #[inline]
 pub unsafe fn SrpSetTokenEnterpriseId<P1>(tokenhandle: super::super::Foundation::HANDLE, enterpriseid: P1) -> windows_core::Result<()>
@@ -87,7 +87,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("efswrt.dll" "system" fn UnprotectFile(fileorfolderpath : windows_core::PCWSTR, options : *const FILE_UNPROTECT_OPTIONS) -> windows_core::HRESULT);
-    unsafe { UnprotectFile(fileorfolderpath.param().abi(), core::mem::transmute(options.unwrap_or(core::mem::zeroed()))).ok() }
+    unsafe { UnprotectFile(fileorfolderpath.param().abi(), options.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

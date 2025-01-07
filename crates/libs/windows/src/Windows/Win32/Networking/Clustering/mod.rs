@@ -43,7 +43,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn AddClusterNode(hcluster : HCLUSTER, lpsznodename : windows_core::PCWSTR, pfnprogresscallback : PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg : *const core::ffi::c_void) -> HNODE);
-    unsafe { AddClusterNode(hcluster, lpsznodename.param().abi(), core::mem::transmute(pfnprogresscallback.unwrap_or(core::mem::zeroed())), core::mem::transmute(pvcallbackarg.unwrap_or(core::mem::zeroed()))) }
+    unsafe { AddClusterNode(hcluster, lpsznodename.param().abi(), pfnprogresscallback.unwrap_or(core::mem::zeroed()) as _, pvcallbackarg.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn AddClusterNodeEx<P1>(hcluster: HCLUSTER, lpsznodename: P1, dwflags: u32, pfnprogresscallback: Option<PCLUSTER_SETUP_PROGRESS_CALLBACK>, pvcallbackarg: Option<*const core::ffi::c_void>) -> HNODE
@@ -51,7 +51,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn AddClusterNodeEx(hcluster : HCLUSTER, lpsznodename : windows_core::PCWSTR, dwflags : u32, pfnprogresscallback : PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg : *const core::ffi::c_void) -> HNODE);
-    unsafe { AddClusterNodeEx(hcluster, lpsznodename.param().abi(), dwflags, core::mem::transmute(pfnprogresscallback.unwrap_or(core::mem::zeroed())), core::mem::transmute(pvcallbackarg.unwrap_or(core::mem::zeroed()))) }
+    unsafe { AddClusterNodeEx(hcluster, lpsznodename.param().abi(), dwflags, pfnprogresscallback.unwrap_or(core::mem::zeroed()) as _, pvcallbackarg.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn AddClusterResourceDependency(hresource: HRESOURCE, hdependson: HRESOURCE) -> u32 {
@@ -87,7 +87,7 @@ where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn AddClusterStorageNode(hcluster : HCLUSTER, lpsznodename : windows_core::PCWSTR, pfnprogresscallback : PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg : *const core::ffi::c_void, lpszclusterstoragenodedescription : windows_core::PCWSTR, lpszclusterstoragenodelocation : windows_core::PCWSTR) -> u32);
-    unsafe { AddClusterStorageNode(hcluster, lpsznodename.param().abi(), core::mem::transmute(pfnprogresscallback.unwrap_or(core::mem::zeroed())), core::mem::transmute(pvcallbackarg.unwrap_or(core::mem::zeroed())), lpszclusterstoragenodedescription.param().abi(), lpszclusterstoragenodelocation.param().abi()) }
+    unsafe { AddClusterStorageNode(hcluster, lpsznodename.param().abi(), pfnprogresscallback.unwrap_or(core::mem::zeroed()) as _, pvcallbackarg.unwrap_or(core::mem::zeroed()) as _, lpszclusterstoragenodedescription.param().abi(), lpszclusterstoragenodelocation.param().abi()) }
 }
 #[inline]
 pub unsafe fn AddCrossClusterGroupSetDependency<P1, P2>(hdependentgroupset: HGROUPSET, lpremoteclustername: P1, lpremotegroupsetname: P2) -> u32
@@ -192,7 +192,7 @@ pub unsafe fn ClusAddClusterHealthFault(hcluster: HCLUSTER, failure: *const CLUS
 #[inline]
 pub unsafe fn ClusGetClusterHealthFaults(hcluster: HCLUSTER, objects: *mut CLUSTER_HEALTH_FAULT_ARRAY, flags: u32) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ClusGetClusterHealthFaults(hcluster : HCLUSTER, objects : *mut CLUSTER_HEALTH_FAULT_ARRAY, flags : u32) -> u32);
-    unsafe { ClusGetClusterHealthFaults(hcluster, core::mem::transmute(objects), flags) }
+    unsafe { ClusGetClusterHealthFaults(hcluster, objects as _, flags) }
 }
 #[inline]
 pub unsafe fn ClusRemoveClusterHealthFault<P1>(hcluster: HCLUSTER, id: P1, flags: u32) -> u32
@@ -205,12 +205,12 @@ where
 #[inline]
 pub unsafe fn ClusWorkerCheckTerminate(lpworker: *mut CLUS_WORKER) -> super::super::Foundation::BOOL {
     windows_targets::link!("resutils.dll" "system" fn ClusWorkerCheckTerminate(lpworker : *mut CLUS_WORKER) -> super::super::Foundation:: BOOL);
-    unsafe { ClusWorkerCheckTerminate(core::mem::transmute(lpworker)) }
+    unsafe { ClusWorkerCheckTerminate(lpworker as _) }
 }
 #[inline]
 pub unsafe fn ClusWorkerCreate(lpworker: *mut CLUS_WORKER, lpstartaddress: PWORKER_START_ROUTINE, lpparameter: *mut core::ffi::c_void) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ClusWorkerCreate(lpworker : *mut CLUS_WORKER, lpstartaddress : PWORKER_START_ROUTINE, lpparameter : *mut core::ffi::c_void) -> u32);
-    unsafe { ClusWorkerCreate(core::mem::transmute(lpworker), lpstartaddress, core::mem::transmute(lpparameter)) }
+    unsafe { ClusWorkerCreate(lpworker as _, lpstartaddress, lpparameter as _) }
 }
 #[inline]
 pub unsafe fn ClusWorkerTerminate(lpworker: *const CLUS_WORKER) {
@@ -220,7 +220,7 @@ pub unsafe fn ClusWorkerTerminate(lpworker: *const CLUS_WORKER) {
 #[inline]
 pub unsafe fn ClusWorkerTerminateEx(clusworker: *mut CLUS_WORKER, timeoutinmilliseconds: u32, waitonly: bool) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ClusWorkerTerminateEx(clusworker : *mut CLUS_WORKER, timeoutinmilliseconds : u32, waitonly : super::super::Foundation:: BOOL) -> u32);
-    unsafe { ClusWorkerTerminateEx(core::mem::transmute(clusworker), timeoutinmilliseconds, waitonly.into()) }
+    unsafe { ClusWorkerTerminateEx(clusworker as _, timeoutinmilliseconds, waitonly.into()) }
 }
 #[inline]
 pub unsafe fn ClusWorkersTerminate(clusworkers: &mut [*mut CLUS_WORKER], timeoutinmilliseconds: u32, waitonly: bool) -> u32 {
@@ -264,7 +264,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterAffinityRuleControl(hcluster : HCLUSTER, affinityrulename : windows_core::PCWSTR, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, cbinbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, cboutbuffersize : u32, lpbytesreturned : *mut u32) -> u32);
-    unsafe { ClusterAffinityRuleControl(hcluster, affinityrulename.param().abi(), core::mem::transmute(hhostnode.unwrap_or(core::mem::zeroed())), dwcontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(core::mem::zeroed())), cbinbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::mem::zeroed())), cboutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(core::mem::zeroed()))) }
+    unsafe { ClusterAffinityRuleControl(hcluster, affinityrulename.param().abi(), hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, cbinbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, cboutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn ClusterClearBackupStateForSharedVolume<P0>(lpszvolumepathname: P0) -> u32
@@ -287,7 +287,7 @@ pub unsafe fn ClusterCloseEnumEx(hclusterenum: HCLUSENUMEX) -> u32 {
 #[inline]
 pub unsafe fn ClusterControl(hcluster: HCLUSTER, hhostnode: Option<HNODE>, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: Option<*mut u32>) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterControl(hcluster : HCLUSTER, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, noutbuffersize : u32, lpbytesreturned : *mut u32) -> u32);
-    unsafe { ClusterControl(hcluster, core::mem::transmute(hhostnode.unwrap_or(core::mem::zeroed())), dwcontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(core::mem::zeroed())), ninbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::mem::zeroed())), noutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(core::mem::zeroed()))) }
+    unsafe { ClusterControl(hcluster, hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, ninbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, noutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn ClusterControlEx<P8>(hcluster: HCLUSTER, hhostnode: Option<HNODE>, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: Option<*mut u32>, lpszreason: P8) -> u32
@@ -295,7 +295,7 @@ where
     P8: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterControlEx(hcluster : HCLUSTER, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, noutbuffersize : u32, lpbytesreturned : *mut u32, lpszreason : windows_core::PCWSTR) -> u32);
-    unsafe { ClusterControlEx(hcluster, core::mem::transmute(hhostnode.unwrap_or(core::mem::zeroed())), dwcontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(core::mem::zeroed())), ninbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::mem::zeroed())), noutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(core::mem::zeroed())), lpszreason.param().abi()) }
+    unsafe { ClusterControlEx(hcluster, hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, ninbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, noutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _, lpszreason.param().abi()) }
 }
 #[inline]
 pub unsafe fn ClusterCreateAffinityRule<P1>(hcluster: HCLUSTER, rulename: P1, ruletype: CLUS_AFFINITY_RULE_TYPE) -> u32
@@ -308,22 +308,22 @@ where
 #[inline]
 pub unsafe fn ClusterDecrypt(hcluscryptprovider: HCLUSCRYPTPROVIDER, pcryptinput: *const u8, cbcryptinput: u32, ppcryptoutput: *mut *mut u8, pcbcryptoutput: *mut u32) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ClusterDecrypt(hcluscryptprovider : HCLUSCRYPTPROVIDER, pcryptinput : *const u8, cbcryptinput : u32, ppcryptoutput : *mut *mut u8, pcbcryptoutput : *mut u32) -> u32);
-    unsafe { ClusterDecrypt(hcluscryptprovider, pcryptinput, cbcryptinput, core::mem::transmute(ppcryptoutput), core::mem::transmute(pcbcryptoutput)) }
+    unsafe { ClusterDecrypt(hcluscryptprovider, pcryptinput, cbcryptinput, ppcryptoutput as _, pcbcryptoutput as _) }
 }
 #[inline]
 pub unsafe fn ClusterEncrypt(hcluscryptprovider: HCLUSCRYPTPROVIDER, pdata: &[u8], ppdata: *mut *mut u8, pcbdata: *mut u32) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ClusterEncrypt(hcluscryptprovider : HCLUSCRYPTPROVIDER, pdata : *const u8, cbdata : u32, ppdata : *mut *mut u8, pcbdata : *mut u32) -> u32);
-    unsafe { ClusterEncrypt(hcluscryptprovider, core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap(), core::mem::transmute(ppdata), core::mem::transmute(pcbdata)) }
+    unsafe { ClusterEncrypt(hcluscryptprovider, core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap(), ppdata as _, pcbdata as _) }
 }
 #[inline]
 pub unsafe fn ClusterEnum(henum: HCLUSENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: windows_core::PWSTR, lpcchname: *mut u32) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterEnum(henum : HCLUSENUM, dwindex : u32, lpdwtype : *mut u32, lpszname : windows_core::PWSTR, lpcchname : *mut u32) -> u32);
-    unsafe { ClusterEnum(henum, dwindex, core::mem::transmute(lpdwtype), core::mem::transmute(lpszname), core::mem::transmute(lpcchname)) }
+    unsafe { ClusterEnum(henum, dwindex, lpdwtype as _, core::mem::transmute(lpszname), lpcchname as _) }
 }
 #[inline]
 pub unsafe fn ClusterEnumEx(hclusterenum: HCLUSENUMEX, dwindex: u32, pitem: *mut CLUSTER_ENUM_ITEM, cbitem: *mut u32) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterEnumEx(hclusterenum : HCLUSENUMEX, dwindex : u32, pitem : *mut CLUSTER_ENUM_ITEM, cbitem : *mut u32) -> u32);
-    unsafe { ClusterEnumEx(hclusterenum, dwindex, core::mem::transmute(pitem), core::mem::transmute(cbitem)) }
+    unsafe { ClusterEnumEx(hclusterenum, dwindex, pitem as _, cbitem as _) }
 }
 #[inline]
 pub unsafe fn ClusterGetEnumCount(henum: HCLUSENUM) -> u32 {
@@ -364,7 +364,7 @@ pub unsafe fn ClusterGroupCloseEnumEx(hgroupenumex: HGROUPENUMEX) -> u32 {
 #[inline]
 pub unsafe fn ClusterGroupControl(hgroup: HGROUP, hhostnode: Option<HNODE>, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: Option<*mut u32>) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterGroupControl(hgroup : HGROUP, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, noutbuffersize : u32, lpbytesreturned : *mut u32) -> u32);
-    unsafe { ClusterGroupControl(hgroup, core::mem::transmute(hhostnode.unwrap_or(core::mem::zeroed())), dwcontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(core::mem::zeroed())), ninbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::mem::zeroed())), noutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(core::mem::zeroed()))) }
+    unsafe { ClusterGroupControl(hgroup, hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, ninbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, noutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn ClusterGroupControlEx<P8>(hgroup: HGROUP, hhostnode: Option<HNODE>, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: Option<*mut u32>, lpszreason: P8) -> u32
@@ -372,17 +372,17 @@ where
     P8: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterGroupControlEx(hgroup : HGROUP, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, noutbuffersize : u32, lpbytesreturned : *mut u32, lpszreason : windows_core::PCWSTR) -> u32);
-    unsafe { ClusterGroupControlEx(hgroup, core::mem::transmute(hhostnode.unwrap_or(core::mem::zeroed())), dwcontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(core::mem::zeroed())), ninbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::mem::zeroed())), noutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(core::mem::zeroed())), lpszreason.param().abi()) }
+    unsafe { ClusterGroupControlEx(hgroup, hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, ninbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, noutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _, lpszreason.param().abi()) }
 }
 #[inline]
 pub unsafe fn ClusterGroupEnum(hgroupenum: HGROUPENUM, dwindex: u32, lpdwtype: *mut u32, lpszresourcename: windows_core::PWSTR, lpcchname: *mut u32) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterGroupEnum(hgroupenum : HGROUPENUM, dwindex : u32, lpdwtype : *mut u32, lpszresourcename : windows_core::PWSTR, lpcchname : *mut u32) -> u32);
-    unsafe { ClusterGroupEnum(hgroupenum, dwindex, core::mem::transmute(lpdwtype), core::mem::transmute(lpszresourcename), core::mem::transmute(lpcchname)) }
+    unsafe { ClusterGroupEnum(hgroupenum, dwindex, lpdwtype as _, core::mem::transmute(lpszresourcename), lpcchname as _) }
 }
 #[inline]
 pub unsafe fn ClusterGroupEnumEx(hgroupenumex: HGROUPENUMEX, dwindex: u32, pitem: *mut CLUSTER_GROUP_ENUM_ITEM, cbitem: *mut u32) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterGroupEnumEx(hgroupenumex : HGROUPENUMEX, dwindex : u32, pitem : *mut CLUSTER_GROUP_ENUM_ITEM, cbitem : *mut u32) -> u32);
-    unsafe { ClusterGroupEnumEx(hgroupenumex, dwindex, core::mem::transmute(pitem), core::mem::transmute(cbitem)) }
+    unsafe { ClusterGroupEnumEx(hgroupenumex, dwindex, pitem as _, cbitem as _) }
 }
 #[inline]
 pub unsafe fn ClusterGroupGetEnumCount(hgroupenum: HGROUPENUM) -> u32 {
@@ -416,7 +416,7 @@ pub unsafe fn ClusterGroupSetCloseEnum(hgroupsetenum: HGROUPSETENUM) -> u32 {
 #[inline]
 pub unsafe fn ClusterGroupSetControl(hgroupset: HGROUPSET, hhostnode: Option<HNODE>, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, cbinbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, cboutbuffersize: u32, lpbytesreturned: Option<*mut u32>) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterGroupSetControl(hgroupset : HGROUPSET, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, cbinbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, cboutbuffersize : u32, lpbytesreturned : *mut u32) -> u32);
-    unsafe { ClusterGroupSetControl(hgroupset, core::mem::transmute(hhostnode.unwrap_or(core::mem::zeroed())), dwcontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(core::mem::zeroed())), cbinbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::mem::zeroed())), cboutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(core::mem::zeroed()))) }
+    unsafe { ClusterGroupSetControl(hgroupset, hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, cbinbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, cboutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn ClusterGroupSetControlEx<P8>(hgroupset: HGROUPSET, hhostnode: Option<HNODE>, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, cbinbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, cboutbuffersize: u32, lpbytesreturned: Option<*mut u32>, lpszreason: P8) -> u32
@@ -424,12 +424,12 @@ where
     P8: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterGroupSetControlEx(hgroupset : HGROUPSET, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, cbinbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, cboutbuffersize : u32, lpbytesreturned : *mut u32, lpszreason : windows_core::PCWSTR) -> u32);
-    unsafe { ClusterGroupSetControlEx(hgroupset, core::mem::transmute(hhostnode.unwrap_or(core::mem::zeroed())), dwcontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(core::mem::zeroed())), cbinbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::mem::zeroed())), cboutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(core::mem::zeroed())), lpszreason.param().abi()) }
+    unsafe { ClusterGroupSetControlEx(hgroupset, hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, cbinbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, cboutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _, lpszreason.param().abi()) }
 }
 #[inline]
 pub unsafe fn ClusterGroupSetEnum(hgroupsetenum: HGROUPSETENUM, dwindex: u32, lpszname: windows_core::PWSTR, lpcchname: *mut u32) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterGroupSetEnum(hgroupsetenum : HGROUPSETENUM, dwindex : u32, lpszname : windows_core::PWSTR, lpcchname : *mut u32) -> u32);
-    unsafe { ClusterGroupSetEnum(hgroupsetenum, dwindex, core::mem::transmute(lpszname), core::mem::transmute(lpcchname)) }
+    unsafe { ClusterGroupSetEnum(hgroupsetenum, dwindex, core::mem::transmute(lpszname), lpcchname as _) }
 }
 #[inline]
 pub unsafe fn ClusterGroupSetGetEnumCount(hgroupsetenum: HGROUPSETENUM) -> u32 {
@@ -457,7 +457,7 @@ pub unsafe fn ClusterNetInterfaceCloseEnum(hnetinterfaceenum: HNETINTERFACEENUM)
 #[inline]
 pub unsafe fn ClusterNetInterfaceControl(hnetinterface: HNETINTERFACE, hhostnode: Option<HNODE>, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: Option<*mut u32>) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterNetInterfaceControl(hnetinterface : HNETINTERFACE, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, noutbuffersize : u32, lpbytesreturned : *mut u32) -> u32);
-    unsafe { ClusterNetInterfaceControl(hnetinterface, core::mem::transmute(hhostnode.unwrap_or(core::mem::zeroed())), dwcontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(core::mem::zeroed())), ninbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::mem::zeroed())), noutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(core::mem::zeroed()))) }
+    unsafe { ClusterNetInterfaceControl(hnetinterface, hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, ninbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, noutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn ClusterNetInterfaceControlEx<P8>(hnetinterface: HNETINTERFACE, hhostnode: Option<HNODE>, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: Option<*mut u32>, lpszreason: P8) -> u32
@@ -465,12 +465,12 @@ where
     P8: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterNetInterfaceControlEx(hnetinterface : HNETINTERFACE, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, noutbuffersize : u32, lpbytesreturned : *mut u32, lpszreason : windows_core::PCWSTR) -> u32);
-    unsafe { ClusterNetInterfaceControlEx(hnetinterface, core::mem::transmute(hhostnode.unwrap_or(core::mem::zeroed())), dwcontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(core::mem::zeroed())), ninbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::mem::zeroed())), noutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(core::mem::zeroed())), lpszreason.param().abi()) }
+    unsafe { ClusterNetInterfaceControlEx(hnetinterface, hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, ninbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, noutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _, lpszreason.param().abi()) }
 }
 #[inline]
 pub unsafe fn ClusterNetInterfaceEnum(hnetinterfaceenum: HNETINTERFACEENUM, dwindex: u32, lpszname: windows_core::PWSTR, lpcchname: *mut u32) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterNetInterfaceEnum(hnetinterfaceenum : HNETINTERFACEENUM, dwindex : u32, lpszname : windows_core::PWSTR, lpcchname : *mut u32) -> u32);
-    unsafe { ClusterNetInterfaceEnum(hnetinterfaceenum, dwindex, core::mem::transmute(lpszname), core::mem::transmute(lpcchname)) }
+    unsafe { ClusterNetInterfaceEnum(hnetinterfaceenum, dwindex, core::mem::transmute(lpszname), lpcchname as _) }
 }
 #[inline]
 pub unsafe fn ClusterNetInterfaceOpenEnum<P1, P2>(hcluster: HCLUSTER, lpsznodename: P1, lpsznetworkname: P2) -> HNETINTERFACEENUM
@@ -489,7 +489,7 @@ pub unsafe fn ClusterNetworkCloseEnum(hnetworkenum: HNETWORKENUM) -> u32 {
 #[inline]
 pub unsafe fn ClusterNetworkControl(hnetwork: HNETWORK, hhostnode: Option<HNODE>, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: Option<*mut u32>) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterNetworkControl(hnetwork : HNETWORK, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, noutbuffersize : u32, lpbytesreturned : *mut u32) -> u32);
-    unsafe { ClusterNetworkControl(hnetwork, core::mem::transmute(hhostnode.unwrap_or(core::mem::zeroed())), dwcontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(core::mem::zeroed())), ninbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::mem::zeroed())), noutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(core::mem::zeroed()))) }
+    unsafe { ClusterNetworkControl(hnetwork, hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, ninbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, noutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn ClusterNetworkControlEx<P8>(hnetwork: HNETWORK, hhostnode: Option<HNODE>, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: Option<*mut u32>, lpszreason: P8) -> u32
@@ -497,12 +497,12 @@ where
     P8: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterNetworkControlEx(hnetwork : HNETWORK, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, noutbuffersize : u32, lpbytesreturned : *mut u32, lpszreason : windows_core::PCWSTR) -> u32);
-    unsafe { ClusterNetworkControlEx(hnetwork, core::mem::transmute(hhostnode.unwrap_or(core::mem::zeroed())), dwcontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(core::mem::zeroed())), ninbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::mem::zeroed())), noutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(core::mem::zeroed())), lpszreason.param().abi()) }
+    unsafe { ClusterNetworkControlEx(hnetwork, hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, ninbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, noutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _, lpszreason.param().abi()) }
 }
 #[inline]
 pub unsafe fn ClusterNetworkEnum(hnetworkenum: HNETWORKENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: windows_core::PWSTR, lpcchname: *mut u32) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterNetworkEnum(hnetworkenum : HNETWORKENUM, dwindex : u32, lpdwtype : *mut u32, lpszname : windows_core::PWSTR, lpcchname : *mut u32) -> u32);
-    unsafe { ClusterNetworkEnum(hnetworkenum, dwindex, core::mem::transmute(lpdwtype), core::mem::transmute(lpszname), core::mem::transmute(lpcchname)) }
+    unsafe { ClusterNetworkEnum(hnetworkenum, dwindex, lpdwtype as _, core::mem::transmute(lpszname), lpcchname as _) }
 }
 #[inline]
 pub unsafe fn ClusterNetworkGetEnumCount(hnetworkenum: HNETWORKENUM) -> u32 {
@@ -527,7 +527,7 @@ pub unsafe fn ClusterNodeCloseEnumEx(hnodeenum: HNODEENUMEX) -> u32 {
 #[inline]
 pub unsafe fn ClusterNodeControl(hnode: HNODE, hhostnode: Option<HNODE>, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: Option<*mut u32>) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterNodeControl(hnode : HNODE, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, noutbuffersize : u32, lpbytesreturned : *mut u32) -> u32);
-    unsafe { ClusterNodeControl(hnode, core::mem::transmute(hhostnode.unwrap_or(core::mem::zeroed())), dwcontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(core::mem::zeroed())), ninbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::mem::zeroed())), noutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(core::mem::zeroed()))) }
+    unsafe { ClusterNodeControl(hnode, hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, ninbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, noutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn ClusterNodeControlEx<P8>(hnode: HNODE, hhostnode: Option<HNODE>, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: Option<*mut u32>, lpszreason: P8) -> u32
@@ -535,17 +535,17 @@ where
     P8: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterNodeControlEx(hnode : HNODE, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, noutbuffersize : u32, lpbytesreturned : *mut u32, lpszreason : windows_core::PCWSTR) -> u32);
-    unsafe { ClusterNodeControlEx(hnode, core::mem::transmute(hhostnode.unwrap_or(core::mem::zeroed())), dwcontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(core::mem::zeroed())), ninbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::mem::zeroed())), noutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(core::mem::zeroed())), lpszreason.param().abi()) }
+    unsafe { ClusterNodeControlEx(hnode, hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, ninbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, noutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _, lpszreason.param().abi()) }
 }
 #[inline]
 pub unsafe fn ClusterNodeEnum(hnodeenum: HNODEENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: windows_core::PWSTR, lpcchname: *mut u32) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterNodeEnum(hnodeenum : HNODEENUM, dwindex : u32, lpdwtype : *mut u32, lpszname : windows_core::PWSTR, lpcchname : *mut u32) -> u32);
-    unsafe { ClusterNodeEnum(hnodeenum, dwindex, core::mem::transmute(lpdwtype), core::mem::transmute(lpszname), core::mem::transmute(lpcchname)) }
+    unsafe { ClusterNodeEnum(hnodeenum, dwindex, lpdwtype as _, core::mem::transmute(lpszname), lpcchname as _) }
 }
 #[inline]
 pub unsafe fn ClusterNodeEnumEx(hnodeenum: HNODEENUMEX, dwindex: u32, pitem: *mut CLUSTER_ENUM_ITEM, cbitem: *mut u32) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterNodeEnumEx(hnodeenum : HNODEENUMEX, dwindex : u32, pitem : *mut CLUSTER_ENUM_ITEM, cbitem : *mut u32) -> u32);
-    unsafe { ClusterNodeEnumEx(hnodeenum, dwindex, core::mem::transmute(pitem), core::mem::transmute(cbitem)) }
+    unsafe { ClusterNodeEnumEx(hnodeenum, dwindex, pitem as _, cbitem as _) }
 }
 #[inline]
 pub unsafe fn ClusterNodeGetEnumCount(hnodeenum: HNODEENUM) -> u32 {
@@ -565,7 +565,7 @@ pub unsafe fn ClusterNodeOpenEnum(hnode: HNODE, dwtype: u32) -> HNODEENUM {
 #[inline]
 pub unsafe fn ClusterNodeOpenEnumEx(hnode: HNODE, dwtype: u32, poptions: Option<*const core::ffi::c_void>) -> HNODEENUMEX {
     windows_targets::link!("clusapi.dll" "system" fn ClusterNodeOpenEnumEx(hnode : HNODE, dwtype : u32, poptions : *const core::ffi::c_void) -> HNODEENUMEX);
-    unsafe { ClusterNodeOpenEnumEx(hnode, dwtype, core::mem::transmute(poptions.unwrap_or(core::mem::zeroed()))) }
+    unsafe { ClusterNodeOpenEnumEx(hnode, dwtype, poptions.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn ClusterNodeReplacement<P1, P2>(hcluster: HCLUSTER, lpsznodenamecurrent: P1, lpsznodenamenew: P2) -> u32
@@ -584,7 +584,7 @@ pub unsafe fn ClusterOpenEnum(hcluster: HCLUSTER, dwtype: u32) -> HCLUSENUM {
 #[inline]
 pub unsafe fn ClusterOpenEnumEx(hcluster: HCLUSTER, dwtype: u32, poptions: Option<*const core::ffi::c_void>) -> HCLUSENUMEX {
     windows_targets::link!("clusapi.dll" "system" fn ClusterOpenEnumEx(hcluster : HCLUSTER, dwtype : u32, poptions : *const core::ffi::c_void) -> HCLUSENUMEX);
-    unsafe { ClusterOpenEnumEx(hcluster, dwtype, core::mem::transmute(poptions.unwrap_or(core::mem::zeroed()))) }
+    unsafe { ClusterOpenEnumEx(hcluster, dwtype, poptions.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn ClusterPrepareSharedVolumeForBackup<P0>(lpszfilename: P0, lpszvolumepathname: windows_core::PWSTR, lpcchvolumepathname: *mut u32, lpszvolumename: windows_core::PWSTR, lpcchvolumename: *mut u32) -> u32
@@ -592,7 +592,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("resutils.dll" "system" fn ClusterPrepareSharedVolumeForBackup(lpszfilename : windows_core::PCWSTR, lpszvolumepathname : windows_core::PWSTR, lpcchvolumepathname : *mut u32, lpszvolumename : windows_core::PWSTR, lpcchvolumename : *mut u32) -> u32);
-    unsafe { ClusterPrepareSharedVolumeForBackup(lpszfilename.param().abi(), core::mem::transmute(lpszvolumepathname), core::mem::transmute(lpcchvolumepathname), core::mem::transmute(lpszvolumename), core::mem::transmute(lpcchvolumename)) }
+    unsafe { ClusterPrepareSharedVolumeForBackup(lpszfilename.param().abi(), core::mem::transmute(lpszvolumepathname), lpcchvolumepathname as _, core::mem::transmute(lpszvolumename), lpcchvolumename as _) }
 }
 #[inline]
 pub unsafe fn ClusterRegBatchAddCommand<P2>(hregbatch: HREGBATCH, dwcommand: CLUSTER_REG_COMMAND, wzname: P2, dwoptions: u32, lpdata: Option<*const core::ffi::c_void>, cbdata: u32) -> i32
@@ -600,7 +600,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterRegBatchAddCommand(hregbatch : HREGBATCH, dwcommand : CLUSTER_REG_COMMAND, wzname : windows_core::PCWSTR, dwoptions : u32, lpdata : *const core::ffi::c_void, cbdata : u32) -> i32);
-    unsafe { ClusterRegBatchAddCommand(hregbatch, dwcommand, wzname.param().abi(), dwoptions, core::mem::transmute(lpdata.unwrap_or(core::mem::zeroed())), cbdata) }
+    unsafe { ClusterRegBatchAddCommand(hregbatch, dwcommand, wzname.param().abi(), dwoptions, lpdata.unwrap_or(core::mem::zeroed()) as _, cbdata) }
 }
 #[inline]
 pub unsafe fn ClusterRegBatchCloseNotification(hbatchnotification: HREGBATCHNOTIFICATION) -> i32 {
@@ -610,17 +610,17 @@ pub unsafe fn ClusterRegBatchCloseNotification(hbatchnotification: HREGBATCHNOTI
 #[inline]
 pub unsafe fn ClusterRegBatchReadCommand(hbatchnotification: HREGBATCHNOTIFICATION, pbatchcommand: *mut CLUSTER_BATCH_COMMAND) -> i32 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterRegBatchReadCommand(hbatchnotification : HREGBATCHNOTIFICATION, pbatchcommand : *mut CLUSTER_BATCH_COMMAND) -> i32);
-    unsafe { ClusterRegBatchReadCommand(hbatchnotification, core::mem::transmute(pbatchcommand)) }
+    unsafe { ClusterRegBatchReadCommand(hbatchnotification, pbatchcommand as _) }
 }
 #[inline]
 pub unsafe fn ClusterRegCloseBatch(hregbatch: HREGBATCH, bcommit: bool, failedcommandnumber: Option<*mut i32>) -> i32 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterRegCloseBatch(hregbatch : HREGBATCH, bcommit : super::super::Foundation:: BOOL, failedcommandnumber : *mut i32) -> i32);
-    unsafe { ClusterRegCloseBatch(hregbatch, bcommit.into(), core::mem::transmute(failedcommandnumber.unwrap_or(core::mem::zeroed()))) }
+    unsafe { ClusterRegCloseBatch(hregbatch, bcommit.into(), failedcommandnumber.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn ClusterRegCloseBatchEx(hregbatch: HREGBATCH, flags: u32, failedcommandnumber: Option<*mut i32>) -> i32 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterRegCloseBatchEx(hregbatch : HREGBATCH, flags : u32, failedcommandnumber : *mut i32) -> i32);
-    unsafe { ClusterRegCloseBatchEx(hregbatch, flags, core::mem::transmute(failedcommandnumber.unwrap_or(core::mem::zeroed()))) }
+    unsafe { ClusterRegCloseBatchEx(hregbatch, flags, failedcommandnumber.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn ClusterRegCloseBatchNotifyPort(hbatchnotifyport: HREGBATCHPORT) -> i32 {
@@ -636,12 +636,12 @@ pub unsafe fn ClusterRegCloseKey(hkey: super::super::System::Registry::HKEY) -> 
 #[inline]
 pub unsafe fn ClusterRegCloseReadBatch(hregreadbatch: HREGREADBATCH, phregreadbatchreply: *mut HREGREADBATCHREPLY) -> i32 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterRegCloseReadBatch(hregreadbatch : HREGREADBATCH, phregreadbatchreply : *mut HREGREADBATCHREPLY) -> i32);
-    unsafe { ClusterRegCloseReadBatch(hregreadbatch, core::mem::transmute(phregreadbatchreply)) }
+    unsafe { ClusterRegCloseReadBatch(hregreadbatch, phregreadbatchreply as _) }
 }
 #[inline]
 pub unsafe fn ClusterRegCloseReadBatchEx(hregreadbatch: HREGREADBATCH, flags: u32, phregreadbatchreply: *mut HREGREADBATCHREPLY) -> i32 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterRegCloseReadBatchEx(hregreadbatch : HREGREADBATCH, flags : u32, phregreadbatchreply : *mut HREGREADBATCHREPLY) -> i32);
-    unsafe { ClusterRegCloseReadBatchEx(hregreadbatch, flags, core::mem::transmute(phregreadbatchreply)) }
+    unsafe { ClusterRegCloseReadBatchEx(hregreadbatch, flags, phregreadbatchreply as _) }
 }
 #[inline]
 pub unsafe fn ClusterRegCloseReadBatchReply(hregreadbatchreply: HREGREADBATCHREPLY) -> i32 {
@@ -652,13 +652,13 @@ pub unsafe fn ClusterRegCloseReadBatchReply(hregreadbatchreply: HREGREADBATCHREP
 #[inline]
 pub unsafe fn ClusterRegCreateBatch(hkey: Option<super::super::System::Registry::HKEY>, phregbatch: *mut HREGBATCH) -> i32 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterRegCreateBatch(hkey : super::super::System::Registry:: HKEY, phregbatch : *mut HREGBATCH) -> i32);
-    unsafe { ClusterRegCreateBatch(core::mem::transmute(hkey.unwrap_or(core::mem::zeroed())), core::mem::transmute(phregbatch)) }
+    unsafe { ClusterRegCreateBatch(hkey.unwrap_or(core::mem::zeroed()) as _, phregbatch as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ClusterRegCreateBatchNotifyPort(hkey: super::super::System::Registry::HKEY, phbatchnotifyport: *mut HREGBATCHPORT) -> i32 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterRegCreateBatchNotifyPort(hkey : super::super::System::Registry:: HKEY, phbatchnotifyport : *mut HREGBATCHPORT) -> i32);
-    unsafe { ClusterRegCreateBatchNotifyPort(hkey, core::mem::transmute(phbatchnotifyport)) }
+    unsafe { ClusterRegCreateBatchNotifyPort(hkey, phbatchnotifyport as _) }
 }
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
 #[inline]
@@ -667,7 +667,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterRegCreateKey(hkey : super::super::System::Registry:: HKEY, lpszsubkey : windows_core::PCWSTR, dwoptions : u32, samdesired : u32, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, phkresult : *mut super::super::System::Registry:: HKEY, lpdwdisposition : *mut u32) -> i32);
-    unsafe { ClusterRegCreateKey(hkey, lpszsubkey.param().abi(), dwoptions, samdesired, core::mem::transmute(lpsecurityattributes.unwrap_or(core::mem::zeroed())), core::mem::transmute(phkresult), core::mem::transmute(lpdwdisposition.unwrap_or(core::mem::zeroed()))) }
+    unsafe { ClusterRegCreateKey(hkey, lpszsubkey.param().abi(), dwoptions, samdesired, lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _, phkresult as _, lpdwdisposition.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
 #[inline]
@@ -677,13 +677,13 @@ where
     P7: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterRegCreateKeyEx(hkey : super::super::System::Registry:: HKEY, lpsubkey : windows_core::PCWSTR, dwoptions : u32, samdesired : u32, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, phkresult : *mut super::super::System::Registry:: HKEY, lpdwdisposition : *mut u32, lpszreason : windows_core::PCWSTR) -> i32);
-    unsafe { ClusterRegCreateKeyEx(hkey, lpsubkey.param().abi(), dwoptions, samdesired, core::mem::transmute(lpsecurityattributes.unwrap_or(core::mem::zeroed())), core::mem::transmute(phkresult), core::mem::transmute(lpdwdisposition.unwrap_or(core::mem::zeroed())), lpszreason.param().abi()) }
+    unsafe { ClusterRegCreateKeyEx(hkey, lpsubkey.param().abi(), dwoptions, samdesired, lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _, phkresult as _, lpdwdisposition.unwrap_or(core::mem::zeroed()) as _, lpszreason.param().abi()) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ClusterRegCreateReadBatch(hkey: super::super::System::Registry::HKEY, phregreadbatch: *mut HREGREADBATCH) -> i32 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterRegCreateReadBatch(hkey : super::super::System::Registry:: HKEY, phregreadbatch : *mut HREGREADBATCH) -> i32);
-    unsafe { ClusterRegCreateReadBatch(hkey, core::mem::transmute(phregreadbatch)) }
+    unsafe { ClusterRegCreateReadBatch(hkey, phregreadbatch as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -727,24 +727,24 @@ where
 #[inline]
 pub unsafe fn ClusterRegEnumKey(hkey: super::super::System::Registry::HKEY, dwindex: u32, lpszname: windows_core::PWSTR, lpcchname: *mut u32, lpftlastwritetime: Option<*mut super::super::Foundation::FILETIME>) -> i32 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterRegEnumKey(hkey : super::super::System::Registry:: HKEY, dwindex : u32, lpszname : windows_core::PWSTR, lpcchname : *mut u32, lpftlastwritetime : *mut super::super::Foundation:: FILETIME) -> i32);
-    unsafe { ClusterRegEnumKey(hkey, dwindex, core::mem::transmute(lpszname), core::mem::transmute(lpcchname), core::mem::transmute(lpftlastwritetime.unwrap_or(core::mem::zeroed()))) }
+    unsafe { ClusterRegEnumKey(hkey, dwindex, core::mem::transmute(lpszname), lpcchname as _, lpftlastwritetime.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ClusterRegEnumValue(hkey: super::super::System::Registry::HKEY, dwindex: u32, lpszvaluename: windows_core::PWSTR, lpcchvaluename: *mut u32, lpdwtype: Option<*mut u32>, lpdata: Option<*mut u8>, lpcbdata: Option<*mut u32>) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterRegEnumValue(hkey : super::super::System::Registry:: HKEY, dwindex : u32, lpszvaluename : windows_core::PWSTR, lpcchvaluename : *mut u32, lpdwtype : *mut u32, lpdata : *mut u8, lpcbdata : *mut u32) -> u32);
-    unsafe { ClusterRegEnumValue(hkey, dwindex, core::mem::transmute(lpszvaluename), core::mem::transmute(lpcchvaluename), core::mem::transmute(lpdwtype.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpdata.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpcbdata.unwrap_or(core::mem::zeroed()))) }
+    unsafe { ClusterRegEnumValue(hkey, dwindex, core::mem::transmute(lpszvaluename), lpcchvaluename as _, lpdwtype.unwrap_or(core::mem::zeroed()) as _, lpdata.unwrap_or(core::mem::zeroed()) as _, lpcbdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn ClusterRegGetBatchNotification(hbatchnotify: HREGBATCHPORT, phbatchnotification: *mut HREGBATCHNOTIFICATION) -> i32 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterRegGetBatchNotification(hbatchnotify : HREGBATCHPORT, phbatchnotification : *mut HREGBATCHNOTIFICATION) -> i32);
-    unsafe { ClusterRegGetBatchNotification(hbatchnotify, core::mem::transmute(phbatchnotification)) }
+    unsafe { ClusterRegGetBatchNotification(hbatchnotify, phbatchnotification as _) }
 }
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ClusterRegGetKeySecurity(hkey: super::super::System::Registry::HKEY, requestedinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> i32 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterRegGetKeySecurity(hkey : super::super::System::Registry:: HKEY, requestedinformation : u32, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor : *mut u32) -> i32);
-    unsafe { ClusterRegGetKeySecurity(hkey, requestedinformation, core::mem::transmute(psecuritydescriptor), core::mem::transmute(lpcbsecuritydescriptor)) }
+    unsafe { ClusterRegGetKeySecurity(hkey, requestedinformation, psecuritydescriptor as _, lpcbsecuritydescriptor as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -753,7 +753,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterRegOpenKey(hkey : super::super::System::Registry:: HKEY, lpszsubkey : windows_core::PCWSTR, samdesired : u32, phkresult : *mut super::super::System::Registry:: HKEY) -> i32);
-    unsafe { ClusterRegOpenKey(hkey, lpszsubkey.param().abi(), samdesired, core::mem::transmute(phkresult)) }
+    unsafe { ClusterRegOpenKey(hkey, lpszsubkey.param().abi(), samdesired, phkresult as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -768,7 +768,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterRegQueryValue(hkey : super::super::System::Registry:: HKEY, lpszvaluename : windows_core::PCWSTR, lpdwvaluetype : *mut u32, lpdata : *mut u8, lpcbdata : *mut u32) -> i32);
-    unsafe { ClusterRegQueryValue(hkey, lpszvaluename.param().abi(), core::mem::transmute(lpdwvaluetype.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpdata.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpcbdata.unwrap_or(core::mem::zeroed()))) }
+    unsafe { ClusterRegQueryValue(hkey, lpszvaluename.param().abi(), lpdwvaluetype.unwrap_or(core::mem::zeroed()) as _, lpdata.unwrap_or(core::mem::zeroed()) as _, lpcbdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn ClusterRegReadBatchAddCommand<P1, P2>(hregreadbatch: HREGREADBATCH, wzsubkeyname: P1, wzvaluename: P2) -> i32
@@ -782,7 +782,7 @@ where
 #[inline]
 pub unsafe fn ClusterRegReadBatchReplyNextCommand(hregreadbatchreply: HREGREADBATCHREPLY, pbatchcommand: *mut CLUSTER_READ_BATCH_COMMAND) -> i32 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterRegReadBatchReplyNextCommand(hregreadbatchreply : HREGREADBATCHREPLY, pbatchcommand : *mut CLUSTER_READ_BATCH_COMMAND) -> i32);
-    unsafe { ClusterRegReadBatchReplyNextCommand(hregreadbatchreply, core::mem::transmute(pbatchcommand)) }
+    unsafe { ClusterRegReadBatchReplyNextCommand(hregreadbatchreply, pbatchcommand as _) }
 }
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
 #[inline]
@@ -865,12 +865,12 @@ pub unsafe fn ClusterResourceCloseEnumEx(hresourceenumex: HRESENUMEX) -> u32 {
 #[inline]
 pub unsafe fn ClusterResourceControl(hresource: HRESOURCE, hhostnode: Option<HNODE>, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, cbinbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, cboutbuffersize: u32, lpbytesreturned: Option<*mut u32>) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterResourceControl(hresource : HRESOURCE, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, cbinbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, cboutbuffersize : u32, lpbytesreturned : *mut u32) -> u32);
-    unsafe { ClusterResourceControl(hresource, core::mem::transmute(hhostnode.unwrap_or(core::mem::zeroed())), dwcontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(core::mem::zeroed())), cbinbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::mem::zeroed())), cboutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(core::mem::zeroed()))) }
+    unsafe { ClusterResourceControl(hresource, hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, cbinbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, cboutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn ClusterResourceControlAsUser(hresource: HRESOURCE, hhostnode: Option<HNODE>, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, cbinbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, cboutbuffersize: u32, lpbytesreturned: Option<*mut u32>) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterResourceControlAsUser(hresource : HRESOURCE, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, cbinbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, cboutbuffersize : u32, lpbytesreturned : *mut u32) -> u32);
-    unsafe { ClusterResourceControlAsUser(hresource, core::mem::transmute(hhostnode.unwrap_or(core::mem::zeroed())), dwcontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(core::mem::zeroed())), cbinbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::mem::zeroed())), cboutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(core::mem::zeroed()))) }
+    unsafe { ClusterResourceControlAsUser(hresource, hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, cbinbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, cboutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn ClusterResourceControlAsUserEx<P8>(hresource: HRESOURCE, hhostnode: Option<HNODE>, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, cbinbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, cboutbuffersize: u32, lpbytesreturned: Option<*mut u32>, lpszreason: P8) -> u32
@@ -878,7 +878,7 @@ where
     P8: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterResourceControlAsUserEx(hresource : HRESOURCE, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, cbinbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, cboutbuffersize : u32, lpbytesreturned : *mut u32, lpszreason : windows_core::PCWSTR) -> u32);
-    unsafe { ClusterResourceControlAsUserEx(hresource, core::mem::transmute(hhostnode.unwrap_or(core::mem::zeroed())), dwcontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(core::mem::zeroed())), cbinbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::mem::zeroed())), cboutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(core::mem::zeroed())), lpszreason.param().abi()) }
+    unsafe { ClusterResourceControlAsUserEx(hresource, hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, cbinbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, cboutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _, lpszreason.param().abi()) }
 }
 #[inline]
 pub unsafe fn ClusterResourceControlEx<P8>(hresource: HRESOURCE, hhostnode: Option<HNODE>, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, cbinbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, cboutbuffersize: u32, lpbytesreturned: Option<*mut u32>, lpszreason: P8) -> u32
@@ -886,17 +886,17 @@ where
     P8: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterResourceControlEx(hresource : HRESOURCE, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, cbinbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, cboutbuffersize : u32, lpbytesreturned : *mut u32, lpszreason : windows_core::PCWSTR) -> u32);
-    unsafe { ClusterResourceControlEx(hresource, core::mem::transmute(hhostnode.unwrap_or(core::mem::zeroed())), dwcontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(core::mem::zeroed())), cbinbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::mem::zeroed())), cboutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(core::mem::zeroed())), lpszreason.param().abi()) }
+    unsafe { ClusterResourceControlEx(hresource, hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, cbinbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, cboutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _, lpszreason.param().abi()) }
 }
 #[inline]
 pub unsafe fn ClusterResourceEnum(hresenum: HRESENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: windows_core::PWSTR, lpcchname: *mut u32) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterResourceEnum(hresenum : HRESENUM, dwindex : u32, lpdwtype : *mut u32, lpszname : windows_core::PWSTR, lpcchname : *mut u32) -> u32);
-    unsafe { ClusterResourceEnum(hresenum, dwindex, core::mem::transmute(lpdwtype), core::mem::transmute(lpszname), core::mem::transmute(lpcchname)) }
+    unsafe { ClusterResourceEnum(hresenum, dwindex, lpdwtype as _, core::mem::transmute(lpszname), lpcchname as _) }
 }
 #[inline]
 pub unsafe fn ClusterResourceEnumEx(hresourceenumex: HRESENUMEX, dwindex: u32, pitem: *mut CLUSTER_RESOURCE_ENUM_ITEM, cbitem: *mut u32) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterResourceEnumEx(hresourceenumex : HRESENUMEX, dwindex : u32, pitem : *mut CLUSTER_RESOURCE_ENUM_ITEM, cbitem : *mut u32) -> u32);
-    unsafe { ClusterResourceEnumEx(hresourceenumex, dwindex, core::mem::transmute(pitem), core::mem::transmute(cbitem)) }
+    unsafe { ClusterResourceEnumEx(hresourceenumex, dwindex, pitem as _, cbitem as _) }
 }
 #[inline]
 pub unsafe fn ClusterResourceGetEnumCount(hresenum: HRESENUM) -> u32 {
@@ -933,7 +933,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterResourceTypeControl(hcluster : HCLUSTER, lpszresourcetypename : windows_core::PCWSTR, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, noutbuffersize : u32, lpbytesreturned : *mut u32) -> u32);
-    unsafe { ClusterResourceTypeControl(hcluster, lpszresourcetypename.param().abi(), core::mem::transmute(hhostnode.unwrap_or(core::mem::zeroed())), dwcontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(core::mem::zeroed())), ninbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::mem::zeroed())), noutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(core::mem::zeroed()))) }
+    unsafe { ClusterResourceTypeControl(hcluster, lpszresourcetypename.param().abi(), hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, ninbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, noutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn ClusterResourceTypeControlAsUser<P1>(hcluster: HCLUSTER, lpszresourcetypename: P1, hhostnode: Option<HNODE>, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: Option<*mut u32>) -> u32
@@ -941,7 +941,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterResourceTypeControlAsUser(hcluster : HCLUSTER, lpszresourcetypename : windows_core::PCWSTR, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, noutbuffersize : u32, lpbytesreturned : *mut u32) -> u32);
-    unsafe { ClusterResourceTypeControlAsUser(hcluster, lpszresourcetypename.param().abi(), core::mem::transmute(hhostnode.unwrap_or(core::mem::zeroed())), dwcontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(core::mem::zeroed())), ninbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::mem::zeroed())), noutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(core::mem::zeroed()))) }
+    unsafe { ClusterResourceTypeControlAsUser(hcluster, lpszresourcetypename.param().abi(), hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, ninbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, noutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn ClusterResourceTypeControlAsUserEx<P1, P9>(hcluster: HCLUSTER, lpszresourcetypename: P1, hhostnode: Option<HNODE>, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: Option<*mut u32>, lpszreason: P9) -> u32
@@ -950,7 +950,7 @@ where
     P9: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterResourceTypeControlAsUserEx(hcluster : HCLUSTER, lpszresourcetypename : windows_core::PCWSTR, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, noutbuffersize : u32, lpbytesreturned : *mut u32, lpszreason : windows_core::PCWSTR) -> u32);
-    unsafe { ClusterResourceTypeControlAsUserEx(hcluster, lpszresourcetypename.param().abi(), core::mem::transmute(hhostnode.unwrap_or(core::mem::zeroed())), dwcontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(core::mem::zeroed())), ninbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::mem::zeroed())), noutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(core::mem::zeroed())), lpszreason.param().abi()) }
+    unsafe { ClusterResourceTypeControlAsUserEx(hcluster, lpszresourcetypename.param().abi(), hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, ninbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, noutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _, lpszreason.param().abi()) }
 }
 #[inline]
 pub unsafe fn ClusterResourceTypeControlEx<P1, P9>(hcluster: HCLUSTER, lpszresourcetypename: P1, hhostnode: Option<HNODE>, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: Option<*mut u32>, lpszreason: P9) -> u32
@@ -959,12 +959,12 @@ where
     P9: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterResourceTypeControlEx(hcluster : HCLUSTER, lpszresourcetypename : windows_core::PCWSTR, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, noutbuffersize : u32, lpbytesreturned : *mut u32, lpszreason : windows_core::PCWSTR) -> u32);
-    unsafe { ClusterResourceTypeControlEx(hcluster, lpszresourcetypename.param().abi(), core::mem::transmute(hhostnode.unwrap_or(core::mem::zeroed())), dwcontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(core::mem::zeroed())), ninbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::mem::zeroed())), noutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(core::mem::zeroed())), lpszreason.param().abi()) }
+    unsafe { ClusterResourceTypeControlEx(hcluster, lpszresourcetypename.param().abi(), hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, ninbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, noutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _, lpszreason.param().abi()) }
 }
 #[inline]
 pub unsafe fn ClusterResourceTypeEnum(hrestypeenum: HRESTYPEENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: windows_core::PWSTR, lpcchname: *mut u32) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterResourceTypeEnum(hrestypeenum : HRESTYPEENUM, dwindex : u32, lpdwtype : *mut u32, lpszname : windows_core::PWSTR, lpcchname : *mut u32) -> u32);
-    unsafe { ClusterResourceTypeEnum(hrestypeenum, dwindex, core::mem::transmute(lpdwtype), core::mem::transmute(lpszname), core::mem::transmute(lpcchname)) }
+    unsafe { ClusterResourceTypeEnum(hrestypeenum, dwindex, lpdwtype as _, core::mem::transmute(lpszname), lpcchname as _) }
 }
 #[inline]
 pub unsafe fn ClusterResourceTypeGetEnumCount(hrestypeenum: HRESTYPEENUM) -> u32 {
@@ -998,12 +998,12 @@ where
 #[inline]
 pub unsafe fn ClusterUpgradeFunctionalLevel(hcluster: HCLUSTER, perform: bool, pfnprogresscallback: Option<PCLUSTER_UPGRADE_PROGRESS_CALLBACK>, pvcallbackarg: Option<*const core::ffi::c_void>) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterUpgradeFunctionalLevel(hcluster : HCLUSTER, perform : super::super::Foundation:: BOOL, pfnprogresscallback : PCLUSTER_UPGRADE_PROGRESS_CALLBACK, pvcallbackarg : *const core::ffi::c_void) -> u32);
-    unsafe { ClusterUpgradeFunctionalLevel(hcluster, perform.into(), core::mem::transmute(pfnprogresscallback.unwrap_or(core::mem::zeroed())), core::mem::transmute(pvcallbackarg.unwrap_or(core::mem::zeroed()))) }
+    unsafe { ClusterUpgradeFunctionalLevel(hcluster, perform.into(), pfnprogresscallback.unwrap_or(core::mem::zeroed()) as _, pvcallbackarg.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn CreateCluster(pconfig: *const CREATE_CLUSTER_CONFIG, pfnprogresscallback: Option<PCLUSTER_SETUP_PROGRESS_CALLBACK>, pvcallbackarg: Option<*const core::ffi::c_void>) -> HCLUSTER {
     windows_targets::link!("clusapi.dll" "system" fn CreateCluster(pconfig : *const CREATE_CLUSTER_CONFIG, pfnprogresscallback : PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg : *const core::ffi::c_void) -> HCLUSTER);
-    unsafe { CreateCluster(pconfig, core::mem::transmute(pfnprogresscallback.unwrap_or(core::mem::zeroed())), core::mem::transmute(pvcallbackarg.unwrap_or(core::mem::zeroed()))) }
+    unsafe { CreateCluster(pconfig, pfnprogresscallback.unwrap_or(core::mem::zeroed()) as _, pvcallbackarg.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn CreateClusterAvailabilitySet<P1>(hcluster: HCLUSTER, lpavailabilitysetname: P1, pavailabilitysetconfig: *const CLUSTER_AVAILABILITY_SET_CONFIG) -> HGROUPSET
@@ -1027,7 +1027,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn CreateClusterGroupEx(hcluster : HCLUSTER, lpszgroupname : windows_core::PCWSTR, pgroupinfo : *const CLUSTER_CREATE_GROUP_INFO) -> HGROUP);
-    unsafe { CreateClusterGroupEx(hcluster, lpszgroupname.param().abi(), core::mem::transmute(pgroupinfo.unwrap_or(core::mem::zeroed()))) }
+    unsafe { CreateClusterGroupEx(hcluster, lpszgroupname.param().abi(), pgroupinfo.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn CreateClusterGroupSet<P1>(hcluster: HCLUSTER, groupsetname: P1) -> HGROUPSET
@@ -1040,7 +1040,7 @@ where
 #[inline]
 pub unsafe fn CreateClusterNameAccount(hcluster: HCLUSTER, pconfig: *const CREATE_CLUSTER_NAME_ACCOUNT, pfnprogresscallback: Option<PCLUSTER_SETUP_PROGRESS_CALLBACK>, pvcallbackarg: Option<*const core::ffi::c_void>) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn CreateClusterNameAccount(hcluster : HCLUSTER, pconfig : *const CREATE_CLUSTER_NAME_ACCOUNT, pfnprogresscallback : PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg : *const core::ffi::c_void) -> u32);
-    unsafe { CreateClusterNameAccount(hcluster, pconfig, core::mem::transmute(pfnprogresscallback.unwrap_or(core::mem::zeroed())), core::mem::transmute(pvcallbackarg.unwrap_or(core::mem::zeroed()))) }
+    unsafe { CreateClusterNameAccount(hcluster, pconfig, pfnprogresscallback.unwrap_or(core::mem::zeroed()) as _, pvcallbackarg.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn CreateClusterNotifyPort(hchange: HCHANGE, hcluster: HCLUSTER, dwfilter: u32, dwnotifykey: usize) -> HCHANGE {
@@ -1151,7 +1151,7 @@ where
 #[inline]
 pub unsafe fn DestroyCluster(hcluster: HCLUSTER, pfnprogresscallback: Option<PCLUSTER_SETUP_PROGRESS_CALLBACK>, pvcallbackarg: Option<*const core::ffi::c_void>, fdeletevirtualcomputerobjects: bool) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn DestroyCluster(hcluster : HCLUSTER, pfnprogresscallback : PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg : *const core::ffi::c_void, fdeletevirtualcomputerobjects : super::super::Foundation:: BOOL) -> u32);
-    unsafe { DestroyCluster(hcluster, core::mem::transmute(pfnprogresscallback.unwrap_or(core::mem::zeroed())), core::mem::transmute(pvcallbackarg.unwrap_or(core::mem::zeroed())), fdeletevirtualcomputerobjects.into()) }
+    unsafe { DestroyCluster(hcluster, pfnprogresscallback.unwrap_or(core::mem::zeroed()) as _, pvcallbackarg.unwrap_or(core::mem::zeroed()) as _, fdeletevirtualcomputerobjects.into()) }
 }
 #[inline]
 pub unsafe fn DestroyClusterGroup(hgroup: HGROUP) -> u32 {
@@ -1169,22 +1169,22 @@ where
 #[inline]
 pub unsafe fn DetermineCNOResTypeFromCluster(hcluster: HCLUSTER, pcnorestype: *mut CLUSTER_MGMT_POINT_RESTYPE) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn DetermineCNOResTypeFromCluster(hcluster : HCLUSTER, pcnorestype : *mut CLUSTER_MGMT_POINT_RESTYPE) -> u32);
-    unsafe { DetermineCNOResTypeFromCluster(hcluster, core::mem::transmute(pcnorestype)) }
+    unsafe { DetermineCNOResTypeFromCluster(hcluster, pcnorestype as _) }
 }
 #[inline]
 pub unsafe fn DetermineCNOResTypeFromNodelist(cnodes: u32, ppsznodenames: *const windows_core::PCWSTR, pcnorestype: *mut CLUSTER_MGMT_POINT_RESTYPE) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn DetermineCNOResTypeFromNodelist(cnodes : u32, ppsznodenames : *const windows_core::PCWSTR, pcnorestype : *mut CLUSTER_MGMT_POINT_RESTYPE) -> u32);
-    unsafe { DetermineCNOResTypeFromNodelist(cnodes, ppsznodenames, core::mem::transmute(pcnorestype)) }
+    unsafe { DetermineCNOResTypeFromNodelist(cnodes, ppsznodenames, pcnorestype as _) }
 }
 #[inline]
 pub unsafe fn DetermineClusterCloudTypeFromCluster(hcluster: HCLUSTER, pcloudtype: *mut CLUSTER_CLOUD_TYPE) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn DetermineClusterCloudTypeFromCluster(hcluster : HCLUSTER, pcloudtype : *mut CLUSTER_CLOUD_TYPE) -> u32);
-    unsafe { DetermineClusterCloudTypeFromCluster(hcluster, core::mem::transmute(pcloudtype)) }
+    unsafe { DetermineClusterCloudTypeFromCluster(hcluster, pcloudtype as _) }
 }
 #[inline]
 pub unsafe fn DetermineClusterCloudTypeFromNodelist(cnodes: u32, ppsznodenames: *const windows_core::PCWSTR, pcloudtype: *mut CLUSTER_CLOUD_TYPE) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn DetermineClusterCloudTypeFromNodelist(cnodes : u32, ppsznodenames : *const windows_core::PCWSTR, pcloudtype : *mut CLUSTER_CLOUD_TYPE) -> u32);
-    unsafe { DetermineClusterCloudTypeFromNodelist(cnodes, ppsznodenames, core::mem::transmute(pcloudtype)) }
+    unsafe { DetermineClusterCloudTypeFromNodelist(cnodes, ppsznodenames, pcloudtype as _) }
 }
 #[inline]
 pub unsafe fn EvictClusterNode(hnode: HNODE) -> u32 {
@@ -1194,7 +1194,7 @@ pub unsafe fn EvictClusterNode(hnode: HNODE) -> u32 {
 #[inline]
 pub unsafe fn EvictClusterNodeEx(hnode: HNODE, dwtimeout: u32, phrcleanupstatus: *mut windows_core::HRESULT) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn EvictClusterNodeEx(hnode : HNODE, dwtimeout : u32, phrcleanupstatus : *mut windows_core::HRESULT) -> u32);
-    unsafe { EvictClusterNodeEx(hnode, dwtimeout, core::mem::transmute(phrcleanupstatus)) }
+    unsafe { EvictClusterNodeEx(hnode, dwtimeout, phrcleanupstatus as _) }
 }
 #[inline]
 pub unsafe fn EvictClusterNodeEx2<P3>(hnode: HNODE, dwtimeout: u32, phrcleanupstatus: *mut windows_core::HRESULT, lpszreason: P3) -> u32
@@ -1202,7 +1202,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn EvictClusterNodeEx2(hnode : HNODE, dwtimeout : u32, phrcleanupstatus : *mut windows_core::HRESULT, lpszreason : windows_core::PCWSTR) -> u32);
-    unsafe { EvictClusterNodeEx2(hnode, dwtimeout, core::mem::transmute(phrcleanupstatus), lpszreason.param().abi()) }
+    unsafe { EvictClusterNodeEx2(hnode, dwtimeout, phrcleanupstatus as _, lpszreason.param().abi()) }
 }
 #[inline]
 pub unsafe fn FailClusterResource(hresource: HRESOURCE) -> u32 {
@@ -1225,12 +1225,12 @@ pub unsafe fn FreeClusterCrypt(pcryptinfo: *const core::ffi::c_void) -> u32 {
 #[inline]
 pub unsafe fn FreeClusterHealthFault(clusterhealthfault: *mut CLUSTER_HEALTH_FAULT) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn FreeClusterHealthFault(clusterhealthfault : *mut CLUSTER_HEALTH_FAULT) -> u32);
-    unsafe { FreeClusterHealthFault(core::mem::transmute(clusterhealthfault)) }
+    unsafe { FreeClusterHealthFault(clusterhealthfault as _) }
 }
 #[inline]
 pub unsafe fn FreeClusterHealthFaultArray(clusterhealthfaultarray: *mut CLUSTER_HEALTH_FAULT_ARRAY) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn FreeClusterHealthFaultArray(clusterhealthfaultarray : *mut CLUSTER_HEALTH_FAULT_ARRAY) -> u32);
-    unsafe { FreeClusterHealthFaultArray(core::mem::transmute(clusterhealthfaultarray)) }
+    unsafe { FreeClusterHealthFaultArray(clusterhealthfaultarray as _) }
 }
 #[inline]
 pub unsafe fn GetClusterFromGroup(hgroup: HGROUP) -> HCLUSTER {
@@ -1267,12 +1267,12 @@ pub unsafe fn GetClusterGroupKey(hgroup: HGROUP, samdesired: u32) -> windows_cor
 #[inline]
 pub unsafe fn GetClusterGroupState(hgroup: HGROUP, lpsznodename: Option<windows_core::PWSTR>, lpcchnodename: Option<*mut u32>) -> CLUSTER_GROUP_STATE {
     windows_targets::link!("clusapi.dll" "system" fn GetClusterGroupState(hgroup : HGROUP, lpsznodename : windows_core::PWSTR, lpcchnodename : *mut u32) -> CLUSTER_GROUP_STATE);
-    unsafe { GetClusterGroupState(hgroup, core::mem::transmute(lpsznodename.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpcchnodename.unwrap_or(core::mem::zeroed()))) }
+    unsafe { GetClusterGroupState(hgroup, lpsznodename.unwrap_or(core::mem::zeroed()) as _, lpcchnodename.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn GetClusterInformation(hcluster: HCLUSTER, lpszclustername: windows_core::PWSTR, lpcchclustername: *mut u32, lpclusterinfo: Option<*mut CLUSTERVERSIONINFO>) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn GetClusterInformation(hcluster : HCLUSTER, lpszclustername : windows_core::PWSTR, lpcchclustername : *mut u32, lpclusterinfo : *mut CLUSTERVERSIONINFO) -> u32);
-    unsafe { GetClusterInformation(hcluster, core::mem::transmute(lpszclustername), core::mem::transmute(lpcchclustername), core::mem::transmute(lpclusterinfo.unwrap_or(core::mem::zeroed()))) }
+    unsafe { GetClusterInformation(hcluster, core::mem::transmute(lpszclustername), lpcchclustername as _, lpclusterinfo.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -1288,7 +1288,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn GetClusterNetInterface(hcluster : HCLUSTER, lpsznodename : windows_core::PCWSTR, lpsznetworkname : windows_core::PCWSTR, lpszinterfacename : windows_core::PWSTR, lpcchinterfacename : *mut u32) -> u32);
-    unsafe { GetClusterNetInterface(hcluster, lpsznodename.param().abi(), lpsznetworkname.param().abi(), core::mem::transmute(lpszinterfacename), core::mem::transmute(lpcchinterfacename)) }
+    unsafe { GetClusterNetInterface(hcluster, lpsznodename.param().abi(), lpsznetworkname.param().abi(), core::mem::transmute(lpszinterfacename), lpcchinterfacename as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -1305,7 +1305,7 @@ pub unsafe fn GetClusterNetInterfaceState(hnetinterface: HNETINTERFACE) -> CLUST
 #[inline]
 pub unsafe fn GetClusterNetworkId(hnetwork: HNETWORK, lpsznetworkid: windows_core::PWSTR, lpcchname: *mut u32) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn GetClusterNetworkId(hnetwork : HNETWORK, lpsznetworkid : windows_core::PWSTR, lpcchname : *mut u32) -> u32);
-    unsafe { GetClusterNetworkId(hnetwork, core::mem::transmute(lpsznetworkid), core::mem::transmute(lpcchname)) }
+    unsafe { GetClusterNetworkId(hnetwork, core::mem::transmute(lpsznetworkid), lpcchname as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -1322,7 +1322,7 @@ pub unsafe fn GetClusterNetworkState(hnetwork: HNETWORK) -> CLUSTER_NETWORK_STAT
 #[inline]
 pub unsafe fn GetClusterNodeId(hnode: Option<HNODE>, lpsznodeid: windows_core::PWSTR, lpcchname: *mut u32) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn GetClusterNodeId(hnode : HNODE, lpsznodeid : windows_core::PWSTR, lpcchname : *mut u32) -> u32);
-    unsafe { GetClusterNodeId(core::mem::transmute(hnode.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpsznodeid), core::mem::transmute(lpcchname)) }
+    unsafe { GetClusterNodeId(hnode.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lpsznodeid), lpcchname as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -1339,7 +1339,7 @@ pub unsafe fn GetClusterNodeState(hnode: HNODE) -> CLUSTER_NODE_STATE {
 #[inline]
 pub unsafe fn GetClusterNotify(hchange: HCHANGE, lpdwnotifykey: *mut usize, lpdwfiltertype: *mut u32, lpszname: windows_core::PWSTR, lpcchname: *mut u32, dwmilliseconds: u32) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn GetClusterNotify(hchange : HCHANGE, lpdwnotifykey : *mut usize, lpdwfiltertype : *mut u32, lpszname : windows_core::PWSTR, lpcchname : *mut u32, dwmilliseconds : u32) -> u32);
-    unsafe { GetClusterNotify(hchange, core::mem::transmute(lpdwnotifykey), core::mem::transmute(lpdwfiltertype), core::mem::transmute(lpszname), core::mem::transmute(lpcchname), dwmilliseconds) }
+    unsafe { GetClusterNotify(hchange, lpdwnotifykey as _, lpdwfiltertype as _, core::mem::transmute(lpszname), lpcchname as _, dwmilliseconds) }
 }
 #[inline]
 pub unsafe fn GetClusterNotifyV2(hchange: HCHANGE, lpdwnotifykey: *mut usize, pfilterandtype: Option<*mut NOTIFY_FILTER_AND_TYPE>, buffer: Option<*mut u8>, lpbbuffersize: Option<*mut u32>, lpszobjectid: Option<windows_core::PWSTR>, lpcchobjectid: Option<*mut u32>, lpszparentid: Option<windows_core::PWSTR>, lpcchparentid: Option<*mut u32>, lpszname: Option<windows_core::PWSTR>, lpcchname: Option<*mut u32>, lpsztype: Option<windows_core::PWSTR>, lpcchtype: Option<*mut u32>, dwmilliseconds: Option<u32>) -> u32 {
@@ -1347,31 +1347,31 @@ pub unsafe fn GetClusterNotifyV2(hchange: HCHANGE, lpdwnotifykey: *mut usize, pf
     unsafe {
         GetClusterNotifyV2(
             hchange,
-            core::mem::transmute(lpdwnotifykey),
-            core::mem::transmute(pfilterandtype.unwrap_or(core::mem::zeroed())),
-            core::mem::transmute(buffer.unwrap_or(core::mem::zeroed())),
-            core::mem::transmute(lpbbuffersize.unwrap_or(core::mem::zeroed())),
-            core::mem::transmute(lpszobjectid.unwrap_or(core::mem::zeroed())),
-            core::mem::transmute(lpcchobjectid.unwrap_or(core::mem::zeroed())),
-            core::mem::transmute(lpszparentid.unwrap_or(core::mem::zeroed())),
-            core::mem::transmute(lpcchparentid.unwrap_or(core::mem::zeroed())),
-            core::mem::transmute(lpszname.unwrap_or(core::mem::zeroed())),
-            core::mem::transmute(lpcchname.unwrap_or(core::mem::zeroed())),
-            core::mem::transmute(lpsztype.unwrap_or(core::mem::zeroed())),
-            core::mem::transmute(lpcchtype.unwrap_or(core::mem::zeroed())),
-            core::mem::transmute(dwmilliseconds.unwrap_or(core::mem::zeroed())),
+            lpdwnotifykey as _,
+            pfilterandtype.unwrap_or(core::mem::zeroed()) as _,
+            buffer.unwrap_or(core::mem::zeroed()) as _,
+            lpbbuffersize.unwrap_or(core::mem::zeroed()) as _,
+            lpszobjectid.unwrap_or(core::mem::zeroed()) as _,
+            lpcchobjectid.unwrap_or(core::mem::zeroed()) as _,
+            lpszparentid.unwrap_or(core::mem::zeroed()) as _,
+            lpcchparentid.unwrap_or(core::mem::zeroed()) as _,
+            lpszname.unwrap_or(core::mem::zeroed()) as _,
+            lpcchname.unwrap_or(core::mem::zeroed()) as _,
+            lpsztype.unwrap_or(core::mem::zeroed()) as _,
+            lpcchtype.unwrap_or(core::mem::zeroed()) as _,
+            dwmilliseconds.unwrap_or(core::mem::zeroed()) as _,
         )
     }
 }
 #[inline]
 pub unsafe fn GetClusterQuorumResource(hcluster: HCLUSTER, lpszresourcename: windows_core::PWSTR, lpcchresourcename: *mut u32, lpszdevicename: windows_core::PWSTR, lpcchdevicename: *mut u32, lpdwmaxquorumlogsize: *mut u32) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn GetClusterQuorumResource(hcluster : HCLUSTER, lpszresourcename : windows_core::PWSTR, lpcchresourcename : *mut u32, lpszdevicename : windows_core::PWSTR, lpcchdevicename : *mut u32, lpdwmaxquorumlogsize : *mut u32) -> u32);
-    unsafe { GetClusterQuorumResource(hcluster, core::mem::transmute(lpszresourcename), core::mem::transmute(lpcchresourcename), core::mem::transmute(lpszdevicename), core::mem::transmute(lpcchdevicename), core::mem::transmute(lpdwmaxquorumlogsize)) }
+    unsafe { GetClusterQuorumResource(hcluster, core::mem::transmute(lpszresourcename), lpcchresourcename as _, core::mem::transmute(lpszdevicename), lpcchdevicename as _, lpdwmaxquorumlogsize as _) }
 }
 #[inline]
 pub unsafe fn GetClusterResourceDependencyExpression(hresource: HRESOURCE, lpszdependencyexpression: Option<windows_core::PWSTR>, lpcchdependencyexpression: *mut u32) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn GetClusterResourceDependencyExpression(hresource : HRESOURCE, lpszdependencyexpression : windows_core::PWSTR, lpcchdependencyexpression : *mut u32) -> u32);
-    unsafe { GetClusterResourceDependencyExpression(hresource, core::mem::transmute(lpszdependencyexpression.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpcchdependencyexpression)) }
+    unsafe { GetClusterResourceDependencyExpression(hresource, lpszdependencyexpression.unwrap_or(core::mem::zeroed()) as _, lpcchdependencyexpression as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -1383,12 +1383,12 @@ pub unsafe fn GetClusterResourceKey(hresource: HRESOURCE, samdesired: u32) -> wi
 #[inline]
 pub unsafe fn GetClusterResourceNetworkName(hresource: HRESOURCE, lpbuffer: windows_core::PWSTR, nsize: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("clusapi.dll" "system" fn GetClusterResourceNetworkName(hresource : HRESOURCE, lpbuffer : windows_core::PWSTR, nsize : *mut u32) -> super::super::Foundation:: BOOL);
-    unsafe { GetClusterResourceNetworkName(hresource, core::mem::transmute(lpbuffer), core::mem::transmute(nsize)).ok() }
+    unsafe { GetClusterResourceNetworkName(hresource, core::mem::transmute(lpbuffer), nsize as _).ok() }
 }
 #[inline]
 pub unsafe fn GetClusterResourceState(hresource: HRESOURCE, lpsznodename: Option<windows_core::PWSTR>, lpcchnodename: Option<*mut u32>, lpszgroupname: Option<windows_core::PWSTR>, lpcchgroupname: Option<*mut u32>) -> CLUSTER_RESOURCE_STATE {
     windows_targets::link!("clusapi.dll" "system" fn GetClusterResourceState(hresource : HRESOURCE, lpsznodename : windows_core::PWSTR, lpcchnodename : *mut u32, lpszgroupname : windows_core::PWSTR, lpcchgroupname : *mut u32) -> CLUSTER_RESOURCE_STATE);
-    unsafe { GetClusterResourceState(hresource, core::mem::transmute(lpsznodename.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpcchnodename.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpszgroupname.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpcchgroupname.unwrap_or(core::mem::zeroed()))) }
+    unsafe { GetClusterResourceState(hresource, lpsznodename.unwrap_or(core::mem::zeroed()) as _, lpcchnodename.unwrap_or(core::mem::zeroed()) as _, lpszgroupname.unwrap_or(core::mem::zeroed()) as _, lpcchgroupname.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -1406,7 +1406,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn GetNodeCloudTypeDW(ppsznodename : windows_core::PCWSTR, nodecloudtype : *mut u32) -> u32);
-    unsafe { GetNodeCloudTypeDW(ppsznodename.param().abi(), core::mem::transmute(nodecloudtype)) }
+    unsafe { GetNodeCloudTypeDW(ppsznodename.param().abi(), nodecloudtype as _) }
 }
 #[inline]
 pub unsafe fn GetNodeClusterState<P0>(lpsznodename: P0, pdwclusterstate: *mut u32) -> u32
@@ -1414,22 +1414,22 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn GetNodeClusterState(lpsznodename : windows_core::PCWSTR, pdwclusterstate : *mut u32) -> u32);
-    unsafe { GetNodeClusterState(lpsznodename.param().abi(), core::mem::transmute(pdwclusterstate)) }
+    unsafe { GetNodeClusterState(lpsznodename.param().abi(), pdwclusterstate as _) }
 }
 #[inline]
 pub unsafe fn GetNotifyEventHandle(hchange: HCHANGE, lphtargetevent: *mut super::super::Foundation::HANDLE) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn GetNotifyEventHandle(hchange : HCHANGE, lphtargetevent : *mut super::super::Foundation:: HANDLE) -> u32);
-    unsafe { GetNotifyEventHandle(hchange, core::mem::transmute(lphtargetevent)) }
+    unsafe { GetNotifyEventHandle(hchange, lphtargetevent as _) }
 }
 #[inline]
 pub unsafe fn InitializeClusterHealthFault(clusterhealthfault: *mut CLUSTER_HEALTH_FAULT) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn InitializeClusterHealthFault(clusterhealthfault : *mut CLUSTER_HEALTH_FAULT) -> u32);
-    unsafe { InitializeClusterHealthFault(core::mem::transmute(clusterhealthfault)) }
+    unsafe { InitializeClusterHealthFault(clusterhealthfault as _) }
 }
 #[inline]
 pub unsafe fn InitializeClusterHealthFaultArray(clusterhealthfaultarray: *mut CLUSTER_HEALTH_FAULT_ARRAY) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn InitializeClusterHealthFaultArray(clusterhealthfaultarray : *mut CLUSTER_HEALTH_FAULT_ARRAY) -> u32);
-    unsafe { InitializeClusterHealthFaultArray(core::mem::transmute(clusterhealthfaultarray)) }
+    unsafe { InitializeClusterHealthFaultArray(clusterhealthfaultarray as _) }
 }
 #[inline]
 pub unsafe fn IsFileOnClusterSharedVolume<P0>(lpszpathname: P0, pbfileisonsharedvolume: *mut super::super::Foundation::BOOL) -> u32
@@ -1437,17 +1437,17 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn IsFileOnClusterSharedVolume(lpszpathname : windows_core::PCWSTR, pbfileisonsharedvolume : *mut super::super::Foundation:: BOOL) -> u32);
-    unsafe { IsFileOnClusterSharedVolume(lpszpathname.param().abi(), core::mem::transmute(pbfileisonsharedvolume)) }
+    unsafe { IsFileOnClusterSharedVolume(lpszpathname.param().abi(), pbfileisonsharedvolume as _) }
 }
 #[inline]
 pub unsafe fn MoveClusterGroup(hgroup: HGROUP, hdestinationnode: Option<HNODE>) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn MoveClusterGroup(hgroup : HGROUP, hdestinationnode : HNODE) -> u32);
-    unsafe { MoveClusterGroup(hgroup, core::mem::transmute(hdestinationnode.unwrap_or(core::mem::zeroed()))) }
+    unsafe { MoveClusterGroup(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn MoveClusterGroupEx(hgroup: HGROUP, hdestinationnode: Option<HNODE>, dwmoveflags: u32, lpinbuffer: Option<&[u8]>) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn MoveClusterGroupEx(hgroup : HGROUP, hdestinationnode : HNODE, dwmoveflags : u32, lpinbuffer : *const u8, cbinbuffersize : u32) -> u32);
-    unsafe { MoveClusterGroupEx(hgroup, core::mem::transmute(hdestinationnode.unwrap_or(core::mem::zeroed())), dwmoveflags, core::mem::transmute(lpinbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { MoveClusterGroupEx(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _, dwmoveflags, core::mem::transmute(lpinbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn MoveClusterGroupEx2<P5>(hgroup: HGROUP, hdestinationnode: Option<HNODE>, dwmoveflags: u32, lpinbuffer: Option<&[u8]>, lpszreason: P5) -> u32
@@ -1455,7 +1455,7 @@ where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn MoveClusterGroupEx2(hgroup : HGROUP, hdestinationnode : HNODE, dwmoveflags : u32, lpinbuffer : *const u8, cbinbuffersize : u32, lpszreason : windows_core::PCWSTR) -> u32);
-    unsafe { MoveClusterGroupEx2(hgroup, core::mem::transmute(hdestinationnode.unwrap_or(core::mem::zeroed())), dwmoveflags, core::mem::transmute(lpinbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpszreason.param().abi()) }
+    unsafe { MoveClusterGroupEx2(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _, dwmoveflags, core::mem::transmute(lpinbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpszreason.param().abi()) }
 }
 #[inline]
 pub unsafe fn OfflineClusterGroup(hgroup: HGROUP) -> u32 {
@@ -1473,7 +1473,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn OfflineClusterGroupEx2(hgroup : HGROUP, dwofflineflags : u32, lpinbuffer : *const u8, cbinbuffersize : u32, lpszreason : windows_core::PCWSTR) -> u32);
-    unsafe { OfflineClusterGroupEx2(hgroup, dwofflineflags, core::mem::transmute(lpinbuffer.unwrap_or(core::mem::zeroed())), cbinbuffersize, lpszreason.param().abi()) }
+    unsafe { OfflineClusterGroupEx2(hgroup, dwofflineflags, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, cbinbuffersize, lpszreason.param().abi()) }
 }
 #[inline]
 pub unsafe fn OfflineClusterResource(hresource: HRESOURCE) -> u32 {
@@ -1496,12 +1496,12 @@ where
 #[inline]
 pub unsafe fn OnlineClusterGroup(hgroup: HGROUP, hdestinationnode: Option<HNODE>) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn OnlineClusterGroup(hgroup : HGROUP, hdestinationnode : HNODE) -> u32);
-    unsafe { OnlineClusterGroup(hgroup, core::mem::transmute(hdestinationnode.unwrap_or(core::mem::zeroed()))) }
+    unsafe { OnlineClusterGroup(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn OnlineClusterGroupEx(hgroup: HGROUP, hdestinationnode: Option<HNODE>, dwonlineflags: u32, lpinbuffer: Option<&[u8]>) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn OnlineClusterGroupEx(hgroup : HGROUP, hdestinationnode : HNODE, dwonlineflags : u32, lpinbuffer : *const u8, cbinbuffersize : u32) -> u32);
-    unsafe { OnlineClusterGroupEx(hgroup, core::mem::transmute(hdestinationnode.unwrap_or(core::mem::zeroed())), dwonlineflags, core::mem::transmute(lpinbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { OnlineClusterGroupEx(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _, dwonlineflags, core::mem::transmute(lpinbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn OnlineClusterGroupEx2<P5>(hgroup: HGROUP, hdestinationnode: Option<HNODE>, dwonlineflags: u32, lpinbuffer: Option<&[u8]>, lpszreason: P5) -> u32
@@ -1509,7 +1509,7 @@ where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn OnlineClusterGroupEx2(hgroup : HGROUP, hdestinationnode : HNODE, dwonlineflags : u32, lpinbuffer : *const u8, cbinbuffersize : u32, lpszreason : windows_core::PCWSTR) -> u32);
-    unsafe { OnlineClusterGroupEx2(hgroup, core::mem::transmute(hdestinationnode.unwrap_or(core::mem::zeroed())), dwonlineflags, core::mem::transmute(lpinbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpszreason.param().abi()) }
+    unsafe { OnlineClusterGroupEx2(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _, dwonlineflags, core::mem::transmute(lpinbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpszreason.param().abi()) }
 }
 #[inline]
 pub unsafe fn OnlineClusterResource(hresource: HRESOURCE) -> u32 {
@@ -1560,7 +1560,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn OpenClusterEx(lpszclustername : windows_core::PCWSTR, desiredaccess : u32, grantedaccess : *mut u32) -> HCLUSTER);
-    unsafe { OpenClusterEx(lpszclustername.param().abi(), desiredaccess, core::mem::transmute(grantedaccess.unwrap_or(core::mem::zeroed()))) }
+    unsafe { OpenClusterEx(lpszclustername.param().abi(), desiredaccess, grantedaccess.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn OpenClusterGroup<P1>(hcluster: HCLUSTER, lpszgroupname: P1) -> HGROUP
@@ -1576,7 +1576,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn OpenClusterGroupEx(hcluster : HCLUSTER, lpszgroupname : windows_core::PCWSTR, dwdesiredaccess : u32, lpdwgrantedaccess : *mut u32) -> HGROUP);
-    unsafe { OpenClusterGroupEx(hcluster, lpszgroupname.param().abi(), dwdesiredaccess, core::mem::transmute(lpdwgrantedaccess.unwrap_or(core::mem::zeroed()))) }
+    unsafe { OpenClusterGroupEx(hcluster, lpszgroupname.param().abi(), dwdesiredaccess, lpdwgrantedaccess.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn OpenClusterGroupSet<P1>(hcluster: HCLUSTER, lpszgroupsetname: P1) -> HGROUPSET
@@ -1600,7 +1600,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn OpenClusterNetInterfaceEx(hcluster : HCLUSTER, lpszinterfacename : windows_core::PCWSTR, dwdesiredaccess : u32, lpdwgrantedaccess : *mut u32) -> HNETINTERFACE);
-    unsafe { OpenClusterNetInterfaceEx(hcluster, lpszinterfacename.param().abi(), dwdesiredaccess, core::mem::transmute(lpdwgrantedaccess.unwrap_or(core::mem::zeroed()))) }
+    unsafe { OpenClusterNetInterfaceEx(hcluster, lpszinterfacename.param().abi(), dwdesiredaccess, lpdwgrantedaccess.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn OpenClusterNetwork<P1>(hcluster: HCLUSTER, lpsznetworkname: P1) -> HNETWORK
@@ -1616,7 +1616,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn OpenClusterNetworkEx(hcluster : HCLUSTER, lpsznetworkname : windows_core::PCWSTR, dwdesiredaccess : u32, lpdwgrantedaccess : *mut u32) -> HNETWORK);
-    unsafe { OpenClusterNetworkEx(hcluster, lpsznetworkname.param().abi(), dwdesiredaccess, core::mem::transmute(lpdwgrantedaccess.unwrap_or(core::mem::zeroed()))) }
+    unsafe { OpenClusterNetworkEx(hcluster, lpsznetworkname.param().abi(), dwdesiredaccess, lpdwgrantedaccess.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn OpenClusterNode<P1>(hcluster: HCLUSTER, lpsznodename: P1) -> HNODE
@@ -1637,7 +1637,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn OpenClusterNodeEx(hcluster : HCLUSTER, lpsznodename : windows_core::PCWSTR, dwdesiredaccess : u32, lpdwgrantedaccess : *mut u32) -> HNODE);
-    unsafe { OpenClusterNodeEx(hcluster, lpsznodename.param().abi(), dwdesiredaccess, core::mem::transmute(lpdwgrantedaccess.unwrap_or(core::mem::zeroed()))) }
+    unsafe { OpenClusterNodeEx(hcluster, lpsznodename.param().abi(), dwdesiredaccess, lpdwgrantedaccess.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn OpenClusterResource<P1>(hcluster: HCLUSTER, lpszresourcename: P1) -> HRESOURCE
@@ -1653,7 +1653,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn OpenClusterResourceEx(hcluster : HCLUSTER, lpszresourcename : windows_core::PCWSTR, dwdesiredaccess : u32, lpdwgrantedaccess : *mut u32) -> HRESOURCE);
-    unsafe { OpenClusterResourceEx(hcluster, lpszresourcename.param().abi(), dwdesiredaccess, core::mem::transmute(lpdwgrantedaccess.unwrap_or(core::mem::zeroed()))) }
+    unsafe { OpenClusterResourceEx(hcluster, lpszresourcename.param().abi(), dwdesiredaccess, lpdwgrantedaccess.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn PauseClusterNode(hnode: HNODE) -> u32 {
@@ -1663,7 +1663,7 @@ pub unsafe fn PauseClusterNode(hnode: HNODE) -> u32 {
 #[inline]
 pub unsafe fn PauseClusterNodeEx(hnode: HNODE, bdrainnode: bool, dwpauseflags: u32, hnodedraintarget: Option<HNODE>) -> u32 {
     windows_targets::link!("clusapi.dll" "system" fn PauseClusterNodeEx(hnode : HNODE, bdrainnode : super::super::Foundation:: BOOL, dwpauseflags : u32, hnodedraintarget : HNODE) -> u32);
-    unsafe { PauseClusterNodeEx(hnode, bdrainnode.into(), dwpauseflags, core::mem::transmute(hnodedraintarget.unwrap_or(core::mem::zeroed()))) }
+    unsafe { PauseClusterNodeEx(hnode, bdrainnode.into(), dwpauseflags, hnodedraintarget.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn PauseClusterNodeEx2<P4>(hnode: HNODE, bdrainnode: bool, dwpauseflags: u32, hnodedraintarget: Option<HNODE>, lpszreason: P4) -> u32
@@ -1671,12 +1671,12 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn PauseClusterNodeEx2(hnode : HNODE, bdrainnode : super::super::Foundation:: BOOL, dwpauseflags : u32, hnodedraintarget : HNODE, lpszreason : windows_core::PCWSTR) -> u32);
-    unsafe { PauseClusterNodeEx2(hnode, bdrainnode.into(), dwpauseflags, core::mem::transmute(hnodedraintarget.unwrap_or(core::mem::zeroed())), lpszreason.param().abi()) }
+    unsafe { PauseClusterNodeEx2(hnode, bdrainnode.into(), dwpauseflags, hnodedraintarget.unwrap_or(core::mem::zeroed()) as _, lpszreason.param().abi()) }
 }
 #[inline]
 pub unsafe fn QueryAppInstanceVersion(appinstanceid: *const windows_core::GUID, instanceversionhigh: *mut u64, instanceversionlow: *mut u64, versionstatus: *mut super::super::Foundation::NTSTATUS) -> u32 {
     windows_targets::link!("ntlanman.dll" "system" fn QueryAppInstanceVersion(appinstanceid : *const windows_core::GUID, instanceversionhigh : *mut u64, instanceversionlow : *mut u64, versionstatus : *mut super::super::Foundation:: NTSTATUS) -> u32);
-    unsafe { QueryAppInstanceVersion(appinstanceid, core::mem::transmute(instanceversionhigh), core::mem::transmute(instanceversionlow), core::mem::transmute(versionstatus)) }
+    unsafe { QueryAppInstanceVersion(appinstanceid, instanceversionhigh as _, instanceversionlow as _, versionstatus as _) }
 }
 #[inline]
 pub unsafe fn RegisterAppInstance(processhandle: super::super::Foundation::HANDLE, appinstanceid: *const windows_core::GUID, childreninheritappinstance: bool) -> u32 {
@@ -1802,7 +1802,7 @@ pub unsafe fn RemoveResourceFromClusterSharedVolumes(hresource: HRESOURCE) -> u3
 #[inline]
 pub unsafe fn ResUtilAddUnknownProperties(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut core::ffi::c_void, pcboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilAddUnknownProperties(hkeyclusterkey : super::super::System::Registry:: HKEY, ppropertytable : *const RESUTIL_PROPERTY_ITEM, poutpropertylist : *mut core::ffi::c_void, pcboutpropertylistsize : u32, pcbbytesreturned : *mut u32, pcbrequired : *mut u32) -> u32);
-    unsafe { ResUtilAddUnknownProperties(hkeyclusterkey, ppropertytable, core::mem::transmute(poutpropertylist), pcboutpropertylistsize, core::mem::transmute(pcbbytesreturned), core::mem::transmute(pcbrequired)) }
+    unsafe { ResUtilAddUnknownProperties(hkeyclusterkey, ppropertytable, poutpropertylist as _, pcboutpropertylistsize, pcbbytesreturned as _, pcbrequired as _) }
 }
 #[inline]
 pub unsafe fn ResUtilCreateDirectoryTree<P0>(pszpath: P0) -> u32
@@ -1815,17 +1815,17 @@ where
 #[inline]
 pub unsafe fn ResUtilDupGroup(group: HGROUP, copy: *mut HGROUP) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilDupGroup(group : HGROUP, copy : *mut HGROUP) -> u32);
-    unsafe { ResUtilDupGroup(group, core::mem::transmute(copy)) }
+    unsafe { ResUtilDupGroup(group, copy as _) }
 }
 #[inline]
 pub unsafe fn ResUtilDupParameterBlock(poutparams: *mut u8, pinparams: *const u8, ppropertytable: *const RESUTIL_PROPERTY_ITEM) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilDupParameterBlock(poutparams : *mut u8, pinparams : *const u8, ppropertytable : *const RESUTIL_PROPERTY_ITEM) -> u32);
-    unsafe { ResUtilDupParameterBlock(core::mem::transmute(poutparams), pinparams, ppropertytable) }
+    unsafe { ResUtilDupParameterBlock(poutparams as _, pinparams, ppropertytable) }
 }
 #[inline]
 pub unsafe fn ResUtilDupResource(group: HRESOURCE, copy: *mut HRESOURCE) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilDupResource(group : HRESOURCE, copy : *mut HRESOURCE) -> u32);
-    unsafe { ResUtilDupResource(group, core::mem::transmute(copy)) }
+    unsafe { ResUtilDupResource(group, copy as _) }
 }
 #[inline]
 pub unsafe fn ResUtilDupString<P0>(pszinstring: P0) -> windows_core::PWSTR
@@ -1838,23 +1838,23 @@ where
 #[inline]
 pub unsafe fn ResUtilEnumGroups(hcluster: HCLUSTER, hself: HGROUP, prescallback: LPGROUP_CALLBACK_EX, pparameter: *mut core::ffi::c_void) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilEnumGroups(hcluster : HCLUSTER, hself : HGROUP, prescallback : LPGROUP_CALLBACK_EX, pparameter : *mut core::ffi::c_void) -> u32);
-    unsafe { ResUtilEnumGroups(hcluster, hself, prescallback, core::mem::transmute(pparameter)) }
+    unsafe { ResUtilEnumGroups(hcluster, hself, prescallback, pparameter as _) }
 }
 #[inline]
 pub unsafe fn ResUtilEnumGroupsEx(hcluster: HCLUSTER, hself: HGROUP, grouptype: CLUSGROUP_TYPE, prescallback: LPGROUP_CALLBACK_EX, pparameter: *mut core::ffi::c_void) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilEnumGroupsEx(hcluster : HCLUSTER, hself : HGROUP, grouptype : CLUSGROUP_TYPE, prescallback : LPGROUP_CALLBACK_EX, pparameter : *mut core::ffi::c_void) -> u32);
-    unsafe { ResUtilEnumGroupsEx(hcluster, hself, grouptype, prescallback, core::mem::transmute(pparameter)) }
+    unsafe { ResUtilEnumGroupsEx(hcluster, hself, grouptype, prescallback, pparameter as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ResUtilEnumPrivateProperties(hkeyclusterkey: super::super::System::Registry::HKEY, pszoutproperties: windows_core::PWSTR, cboutpropertiessize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilEnumPrivateProperties(hkeyclusterkey : super::super::System::Registry:: HKEY, pszoutproperties : windows_core::PWSTR, cboutpropertiessize : u32, pcbbytesreturned : *mut u32, pcbrequired : *mut u32) -> u32);
-    unsafe { ResUtilEnumPrivateProperties(hkeyclusterkey, core::mem::transmute(pszoutproperties), cboutpropertiessize, core::mem::transmute(pcbbytesreturned), core::mem::transmute(pcbrequired)) }
+    unsafe { ResUtilEnumPrivateProperties(hkeyclusterkey, core::mem::transmute(pszoutproperties), cboutpropertiessize, pcbbytesreturned as _, pcbrequired as _) }
 }
 #[inline]
 pub unsafe fn ResUtilEnumProperties(ppropertytable: *const RESUTIL_PROPERTY_ITEM, pszoutproperties: windows_core::PWSTR, cboutpropertiessize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilEnumProperties(ppropertytable : *const RESUTIL_PROPERTY_ITEM, pszoutproperties : windows_core::PWSTR, cboutpropertiessize : u32, pcbbytesreturned : *mut u32, pcbrequired : *mut u32) -> u32);
-    unsafe { ResUtilEnumProperties(ppropertytable, core::mem::transmute(pszoutproperties), cboutpropertiessize, core::mem::transmute(pcbbytesreturned), core::mem::transmute(pcbrequired)) }
+    unsafe { ResUtilEnumProperties(ppropertytable, core::mem::transmute(pszoutproperties), cboutpropertiessize, pcbbytesreturned as _, pcbrequired as _) }
 }
 #[inline]
 pub unsafe fn ResUtilEnumResources<P1>(hself: HRESOURCE, lpszrestypename: P1, prescallback: LPRESOURCE_CALLBACK, pparameter: *mut core::ffi::c_void) -> u32
@@ -1862,7 +1862,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilEnumResources(hself : HRESOURCE, lpszrestypename : windows_core::PCWSTR, prescallback : LPRESOURCE_CALLBACK, pparameter : *mut core::ffi::c_void) -> u32);
-    unsafe { ResUtilEnumResources(hself, lpszrestypename.param().abi(), prescallback, core::mem::transmute(pparameter)) }
+    unsafe { ResUtilEnumResources(hself, lpszrestypename.param().abi(), prescallback, pparameter as _) }
 }
 #[inline]
 pub unsafe fn ResUtilEnumResourcesEx<P2>(hcluster: HCLUSTER, hself: HRESOURCE, lpszrestypename: P2, prescallback: LPRESOURCE_CALLBACK_EX, pparameter: *mut core::ffi::c_void) -> u32
@@ -1870,7 +1870,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilEnumResourcesEx(hcluster : HCLUSTER, hself : HRESOURCE, lpszrestypename : windows_core::PCWSTR, prescallback : LPRESOURCE_CALLBACK_EX, pparameter : *mut core::ffi::c_void) -> u32);
-    unsafe { ResUtilEnumResourcesEx(hcluster, hself, lpszrestypename.param().abi(), prescallback, core::mem::transmute(pparameter)) }
+    unsafe { ResUtilEnumResourcesEx(hcluster, hself, lpszrestypename.param().abi(), prescallback, pparameter as _) }
 }
 #[inline]
 pub unsafe fn ResUtilEnumResourcesEx2<P2>(hcluster: HCLUSTER, hself: HRESOURCE, lpszrestypename: P2, prescallback: LPRESOURCE_CALLBACK_EX, pparameter: *mut core::ffi::c_void, dwdesiredaccess: u32) -> u32
@@ -1878,7 +1878,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilEnumResourcesEx2(hcluster : HCLUSTER, hself : HRESOURCE, lpszrestypename : windows_core::PCWSTR, prescallback : LPRESOURCE_CALLBACK_EX, pparameter : *mut core::ffi::c_void, dwdesiredaccess : u32) -> u32);
-    unsafe { ResUtilEnumResourcesEx2(hcluster, hself, lpszrestypename.param().abi(), prescallback, core::mem::transmute(pparameter), dwdesiredaccess) }
+    unsafe { ResUtilEnumResourcesEx2(hcluster, hself, lpszrestypename.param().abi(), prescallback, pparameter as _, dwdesiredaccess) }
 }
 #[inline]
 pub unsafe fn ResUtilExpandEnvironmentStrings<P0>(pszsrc: P0) -> windows_core::PWSTR
@@ -1894,12 +1894,12 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilFindBinaryProperty(ppropertylist : *const core::ffi::c_void, cbpropertylistsize : u32, pszpropertyname : windows_core::PCWSTR, pbpropertyvalue : *mut *mut u8, pcbpropertyvaluesize : *mut u32) -> u32);
-    unsafe { ResUtilFindBinaryProperty(ppropertylist, cbpropertylistsize, pszpropertyname.param().abi(), core::mem::transmute(pbpropertyvalue.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcbpropertyvaluesize.unwrap_or(core::mem::zeroed()))) }
+    unsafe { ResUtilFindBinaryProperty(ppropertylist, cbpropertylistsize, pszpropertyname.param().abi(), pbpropertyvalue.unwrap_or(core::mem::zeroed()) as _, pcbpropertyvaluesize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn ResUtilFindDependentDiskResourceDriveLetter(hcluster: HCLUSTER, hresource: HRESOURCE, pszdriveletter: windows_core::PWSTR, pcchdriveletter: *mut u32) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilFindDependentDiskResourceDriveLetter(hcluster : HCLUSTER, hresource : HRESOURCE, pszdriveletter : windows_core::PWSTR, pcchdriveletter : *mut u32) -> u32);
-    unsafe { ResUtilFindDependentDiskResourceDriveLetter(hcluster, hresource, core::mem::transmute(pszdriveletter), core::mem::transmute(pcchdriveletter)) }
+    unsafe { ResUtilFindDependentDiskResourceDriveLetter(hcluster, hresource, core::mem::transmute(pszdriveletter), pcchdriveletter as _) }
 }
 #[inline]
 pub unsafe fn ResUtilFindDwordProperty<P2>(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: P2, pdwpropertyvalue: *mut u32) -> u32
@@ -1907,7 +1907,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilFindDwordProperty(ppropertylist : *const core::ffi::c_void, cbpropertylistsize : u32, pszpropertyname : windows_core::PCWSTR, pdwpropertyvalue : *mut u32) -> u32);
-    unsafe { ResUtilFindDwordProperty(ppropertylist, cbpropertylistsize, pszpropertyname.param().abi(), core::mem::transmute(pdwpropertyvalue)) }
+    unsafe { ResUtilFindDwordProperty(ppropertylist, cbpropertylistsize, pszpropertyname.param().abi(), pdwpropertyvalue as _) }
 }
 #[inline]
 pub unsafe fn ResUtilFindExpandSzProperty<P2>(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: P2, pszpropertyvalue: Option<*mut windows_core::PWSTR>) -> u32
@@ -1915,7 +1915,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilFindExpandSzProperty(ppropertylist : *const core::ffi::c_void, cbpropertylistsize : u32, pszpropertyname : windows_core::PCWSTR, pszpropertyvalue : *mut windows_core::PWSTR) -> u32);
-    unsafe { ResUtilFindExpandSzProperty(ppropertylist, cbpropertylistsize, pszpropertyname.param().abi(), core::mem::transmute(pszpropertyvalue.unwrap_or(core::mem::zeroed()))) }
+    unsafe { ResUtilFindExpandSzProperty(ppropertylist, cbpropertylistsize, pszpropertyname.param().abi(), pszpropertyvalue.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn ResUtilFindExpandedSzProperty<P2>(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: P2, pszpropertyvalue: Option<*mut windows_core::PWSTR>) -> u32
@@ -1923,7 +1923,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilFindExpandedSzProperty(ppropertylist : *const core::ffi::c_void, cbpropertylistsize : u32, pszpropertyname : windows_core::PCWSTR, pszpropertyvalue : *mut windows_core::PWSTR) -> u32);
-    unsafe { ResUtilFindExpandedSzProperty(ppropertylist, cbpropertylistsize, pszpropertyname.param().abi(), core::mem::transmute(pszpropertyvalue.unwrap_or(core::mem::zeroed()))) }
+    unsafe { ResUtilFindExpandedSzProperty(ppropertylist, cbpropertylistsize, pszpropertyname.param().abi(), pszpropertyvalue.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn ResUtilFindFileTimeProperty<P2>(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: P2, pftpropertyvalue: *mut super::super::Foundation::FILETIME) -> u32
@@ -1931,7 +1931,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilFindFileTimeProperty(ppropertylist : *const core::ffi::c_void, cbpropertylistsize : u32, pszpropertyname : windows_core::PCWSTR, pftpropertyvalue : *mut super::super::Foundation:: FILETIME) -> u32);
-    unsafe { ResUtilFindFileTimeProperty(ppropertylist, cbpropertylistsize, pszpropertyname.param().abi(), core::mem::transmute(pftpropertyvalue)) }
+    unsafe { ResUtilFindFileTimeProperty(ppropertylist, cbpropertylistsize, pszpropertyname.param().abi(), pftpropertyvalue as _) }
 }
 #[inline]
 pub unsafe fn ResUtilFindLongProperty<P2>(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: P2, plpropertyvalue: *mut i32) -> u32
@@ -1939,7 +1939,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilFindLongProperty(ppropertylist : *const core::ffi::c_void, cbpropertylistsize : u32, pszpropertyname : windows_core::PCWSTR, plpropertyvalue : *mut i32) -> u32);
-    unsafe { ResUtilFindLongProperty(ppropertylist, cbpropertylistsize, pszpropertyname.param().abi(), core::mem::transmute(plpropertyvalue)) }
+    unsafe { ResUtilFindLongProperty(ppropertylist, cbpropertylistsize, pszpropertyname.param().abi(), plpropertyvalue as _) }
 }
 #[inline]
 pub unsafe fn ResUtilFindMultiSzProperty<P2>(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: P2, pszpropertyvalue: *mut windows_core::PWSTR, pcbpropertyvaluesize: *mut u32) -> u32
@@ -1947,7 +1947,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilFindMultiSzProperty(ppropertylist : *const core::ffi::c_void, cbpropertylistsize : u32, pszpropertyname : windows_core::PCWSTR, pszpropertyvalue : *mut windows_core::PWSTR, pcbpropertyvaluesize : *mut u32) -> u32);
-    unsafe { ResUtilFindMultiSzProperty(ppropertylist, cbpropertylistsize, pszpropertyname.param().abi(), core::mem::transmute(pszpropertyvalue), core::mem::transmute(pcbpropertyvaluesize)) }
+    unsafe { ResUtilFindMultiSzProperty(ppropertylist, cbpropertylistsize, pszpropertyname.param().abi(), pszpropertyvalue as _, pcbpropertyvaluesize as _) }
 }
 #[inline]
 pub unsafe fn ResUtilFindSzProperty<P2>(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: P2, pszpropertyvalue: Option<*mut windows_core::PWSTR>) -> u32
@@ -1955,7 +1955,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilFindSzProperty(ppropertylist : *const core::ffi::c_void, cbpropertylistsize : u32, pszpropertyname : windows_core::PCWSTR, pszpropertyvalue : *mut windows_core::PWSTR) -> u32);
-    unsafe { ResUtilFindSzProperty(ppropertylist, cbpropertylistsize, pszpropertyname.param().abi(), core::mem::transmute(pszpropertyvalue.unwrap_or(core::mem::zeroed()))) }
+    unsafe { ResUtilFindSzProperty(ppropertylist, cbpropertylistsize, pszpropertyname.param().abi(), pszpropertyvalue.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn ResUtilFindULargeIntegerProperty<P2>(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: P2, plpropertyvalue: *mut u64) -> u32
@@ -1963,28 +1963,28 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilFindULargeIntegerProperty(ppropertylist : *const core::ffi::c_void, cbpropertylistsize : u32, pszpropertyname : windows_core::PCWSTR, plpropertyvalue : *mut u64) -> u32);
-    unsafe { ResUtilFindULargeIntegerProperty(ppropertylist, cbpropertylistsize, pszpropertyname.param().abi(), core::mem::transmute(plpropertyvalue)) }
+    unsafe { ResUtilFindULargeIntegerProperty(ppropertylist, cbpropertylistsize, pszpropertyname.param().abi(), plpropertyvalue as _) }
 }
 #[inline]
 pub unsafe fn ResUtilFreeEnvironment(lpenvironment: *mut core::ffi::c_void) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilFreeEnvironment(lpenvironment : *mut core::ffi::c_void) -> u32);
-    unsafe { ResUtilFreeEnvironment(core::mem::transmute(lpenvironment)) }
+    unsafe { ResUtilFreeEnvironment(lpenvironment as _) }
 }
 #[inline]
 pub unsafe fn ResUtilFreeParameterBlock(poutparams: *mut u8, pinparams: *const u8, ppropertytable: *const RESUTIL_PROPERTY_ITEM) {
     windows_targets::link!("resutils.dll" "system" fn ResUtilFreeParameterBlock(poutparams : *mut u8, pinparams : *const u8, ppropertytable : *const RESUTIL_PROPERTY_ITEM));
-    unsafe { ResUtilFreeParameterBlock(core::mem::transmute(poutparams), pinparams, ppropertytable) }
+    unsafe { ResUtilFreeParameterBlock(poutparams as _, pinparams, ppropertytable) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ResUtilGetAllProperties(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut core::ffi::c_void, cboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilGetAllProperties(hkeyclusterkey : super::super::System::Registry:: HKEY, ppropertytable : *const RESUTIL_PROPERTY_ITEM, poutpropertylist : *mut core::ffi::c_void, cboutpropertylistsize : u32, pcbbytesreturned : *mut u32, pcbrequired : *mut u32) -> u32);
-    unsafe { ResUtilGetAllProperties(hkeyclusterkey, ppropertytable, core::mem::transmute(poutpropertylist), cboutpropertylistsize, core::mem::transmute(pcbbytesreturned), core::mem::transmute(pcbrequired)) }
+    unsafe { ResUtilGetAllProperties(hkeyclusterkey, ppropertytable, poutpropertylist as _, cboutpropertylistsize, pcbbytesreturned as _, pcbrequired as _) }
 }
 #[inline]
 pub unsafe fn ResUtilGetBinaryProperty(ppboutvalue: *mut *mut u8, pcboutvaluesize: *mut u32, pvaluestruct: *const CLUSPROP_BINARY, pboldvalue: Option<&[u8]>, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilGetBinaryProperty(ppboutvalue : *mut *mut u8, pcboutvaluesize : *mut u32, pvaluestruct : *const CLUSPROP_BINARY, pboldvalue : *const u8, cboldvaluesize : u32, pppropertylist : *mut *mut u8, pcbpropertylistsize : *mut u32) -> u32);
-    unsafe { ResUtilGetBinaryProperty(core::mem::transmute(ppboutvalue), core::mem::transmute(pcboutvaluesize), pvaluestruct, core::mem::transmute(pboldvalue.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pboldvalue.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pppropertylist), core::mem::transmute(pcbpropertylistsize)) }
+    unsafe { ResUtilGetBinaryProperty(ppboutvalue as _, pcboutvaluesize as _, pvaluestruct, core::mem::transmute(pboldvalue.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pboldvalue.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pppropertylist as _, pcbpropertylistsize as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -1993,17 +1993,17 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilGetBinaryValue(hkeyclusterkey : super::super::System::Registry:: HKEY, pszvaluename : windows_core::PCWSTR, ppboutvalue : *mut *mut u8, pcboutvaluesize : *mut u32) -> u32);
-    unsafe { ResUtilGetBinaryValue(hkeyclusterkey, pszvaluename.param().abi(), core::mem::transmute(ppboutvalue), core::mem::transmute(pcboutvaluesize)) }
+    unsafe { ResUtilGetBinaryValue(hkeyclusterkey, pszvaluename.param().abi(), ppboutvalue as _, pcboutvaluesize as _) }
 }
 #[inline]
 pub unsafe fn ResUtilGetClusterGroupType(hgroup: HGROUP, grouptype: *mut CLUSGROUP_TYPE) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilGetClusterGroupType(hgroup : HGROUP, grouptype : *mut CLUSGROUP_TYPE) -> u32);
-    unsafe { ResUtilGetClusterGroupType(hgroup, core::mem::transmute(grouptype)) }
+    unsafe { ResUtilGetClusterGroupType(hgroup, grouptype as _) }
 }
 #[inline]
 pub unsafe fn ResUtilGetClusterId(hcluster: HCLUSTER, guid: *mut windows_core::GUID) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilGetClusterId(hcluster : HCLUSTER, guid : *mut windows_core::GUID) -> u32);
-    unsafe { ResUtilGetClusterId(hcluster, core::mem::transmute(guid)) }
+    unsafe { ResUtilGetClusterId(hcluster, guid as _) }
 }
 #[inline]
 pub unsafe fn ResUtilGetClusterRoleState(hcluster: HCLUSTER, eclusterrole: CLUSTER_ROLE) -> CLUSTER_ROLE_STATE {
@@ -2013,12 +2013,12 @@ pub unsafe fn ResUtilGetClusterRoleState(hcluster: HCLUSTER, eclusterrole: CLUST
 #[inline]
 pub unsafe fn ResUtilGetCoreClusterResources(hcluster: HCLUSTER, phclusternameresource: *mut HRESOURCE, phclusteripaddressresource: *mut HRESOURCE, phclusterquorumresource: *mut HRESOURCE) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilGetCoreClusterResources(hcluster : HCLUSTER, phclusternameresource : *mut HRESOURCE, phclusteripaddressresource : *mut HRESOURCE, phclusterquorumresource : *mut HRESOURCE) -> u32);
-    unsafe { ResUtilGetCoreClusterResources(hcluster, core::mem::transmute(phclusternameresource), core::mem::transmute(phclusteripaddressresource), core::mem::transmute(phclusterquorumresource)) }
+    unsafe { ResUtilGetCoreClusterResources(hcluster, phclusternameresource as _, phclusteripaddressresource as _, phclusterquorumresource as _) }
 }
 #[inline]
 pub unsafe fn ResUtilGetCoreClusterResourcesEx(hclusterin: HCLUSTER, phclusternameresourceout: Option<*mut HRESOURCE>, phclusterquorumresourceout: Option<*mut HRESOURCE>, dwdesiredaccess: u32) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilGetCoreClusterResourcesEx(hclusterin : HCLUSTER, phclusternameresourceout : *mut HRESOURCE, phclusterquorumresourceout : *mut HRESOURCE, dwdesiredaccess : u32) -> u32);
-    unsafe { ResUtilGetCoreClusterResourcesEx(hclusterin, core::mem::transmute(phclusternameresourceout.unwrap_or(core::mem::zeroed())), core::mem::transmute(phclusterquorumresourceout.unwrap_or(core::mem::zeroed())), dwdesiredaccess) }
+    unsafe { ResUtilGetCoreClusterResourcesEx(hclusterin, phclusternameresourceout.unwrap_or(core::mem::zeroed()) as _, phclusterquorumresourceout.unwrap_or(core::mem::zeroed()) as _, dwdesiredaccess) }
 }
 #[inline]
 pub unsafe fn ResUtilGetCoreGroup(hcluster: HCLUSTER) -> HGROUP {
@@ -2028,7 +2028,7 @@ pub unsafe fn ResUtilGetCoreGroup(hcluster: HCLUSTER) -> HGROUP {
 #[inline]
 pub unsafe fn ResUtilGetDwordProperty(pdwoutvalue: *mut u32, pvaluestruct: *const CLUSPROP_DWORD, dwoldvalue: u32, dwminimum: u32, dwmaximum: u32, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilGetDwordProperty(pdwoutvalue : *mut u32, pvaluestruct : *const CLUSPROP_DWORD, dwoldvalue : u32, dwminimum : u32, dwmaximum : u32, pppropertylist : *mut *mut u8, pcbpropertylistsize : *mut u32) -> u32);
-    unsafe { ResUtilGetDwordProperty(core::mem::transmute(pdwoutvalue), pvaluestruct, dwoldvalue, dwminimum, dwmaximum, core::mem::transmute(pppropertylist), core::mem::transmute(pcbpropertylistsize)) }
+    unsafe { ResUtilGetDwordProperty(pdwoutvalue as _, pvaluestruct, dwoldvalue, dwminimum, dwmaximum, pppropertylist as _, pcbpropertylistsize as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -2037,7 +2037,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilGetDwordValue(hkeyclusterkey : super::super::System::Registry:: HKEY, pszvaluename : windows_core::PCWSTR, pdwoutvalue : *mut u32, dwdefaultvalue : u32) -> u32);
-    unsafe { ResUtilGetDwordValue(hkeyclusterkey, pszvaluename.param().abi(), core::mem::transmute(pdwoutvalue), dwdefaultvalue) }
+    unsafe { ResUtilGetDwordValue(hkeyclusterkey, pszvaluename.param().abi(), pdwoutvalue as _, dwdefaultvalue) }
 }
 #[inline]
 pub unsafe fn ResUtilGetEnvironmentWithNetName(hresource: HRESOURCE) -> *mut core::ffi::c_void {
@@ -2047,12 +2047,12 @@ pub unsafe fn ResUtilGetEnvironmentWithNetName(hresource: HRESOURCE) -> *mut cor
 #[inline]
 pub unsafe fn ResUtilGetFileTimeProperty(pftoutvalue: *mut super::super::Foundation::FILETIME, pvaluestruct: *const CLUSPROP_FILETIME, ftoldvalue: super::super::Foundation::FILETIME, ftminimum: super::super::Foundation::FILETIME, ftmaximum: super::super::Foundation::FILETIME, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilGetFileTimeProperty(pftoutvalue : *mut super::super::Foundation:: FILETIME, pvaluestruct : *const CLUSPROP_FILETIME, ftoldvalue : super::super::Foundation:: FILETIME, ftminimum : super::super::Foundation:: FILETIME, ftmaximum : super::super::Foundation:: FILETIME, pppropertylist : *mut *mut u8, pcbpropertylistsize : *mut u32) -> u32);
-    unsafe { ResUtilGetFileTimeProperty(core::mem::transmute(pftoutvalue), pvaluestruct, core::mem::transmute(ftoldvalue), core::mem::transmute(ftminimum), core::mem::transmute(ftmaximum), core::mem::transmute(pppropertylist), core::mem::transmute(pcbpropertylistsize)) }
+    unsafe { ResUtilGetFileTimeProperty(pftoutvalue as _, pvaluestruct, core::mem::transmute(ftoldvalue), core::mem::transmute(ftminimum), core::mem::transmute(ftmaximum), pppropertylist as _, pcbpropertylistsize as _) }
 }
 #[inline]
 pub unsafe fn ResUtilGetLongProperty(ploutvalue: *mut i32, pvaluestruct: *const CLUSPROP_LONG, loldvalue: i32, lminimum: i32, lmaximum: i32, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilGetLongProperty(ploutvalue : *mut i32, pvaluestruct : *const CLUSPROP_LONG, loldvalue : i32, lminimum : i32, lmaximum : i32, pppropertylist : *mut *mut u8, pcbpropertylistsize : *mut u32) -> u32);
-    unsafe { ResUtilGetLongProperty(core::mem::transmute(ploutvalue), pvaluestruct, loldvalue, lminimum, lmaximum, core::mem::transmute(pppropertylist), core::mem::transmute(pcbpropertylistsize)) }
+    unsafe { ResUtilGetLongProperty(ploutvalue as _, pvaluestruct, loldvalue, lminimum, lmaximum, pppropertylist as _, pcbpropertylistsize as _) }
 }
 #[inline]
 pub unsafe fn ResUtilGetMultiSzProperty<P3>(ppszoutvalue: *mut windows_core::PWSTR, pcboutvaluesize: *mut u32, pvaluestruct: *const CLUSPROP_SZ, pszoldvalue: P3, cboldvaluesize: u32, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32
@@ -2060,42 +2060,42 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilGetMultiSzProperty(ppszoutvalue : *mut windows_core::PWSTR, pcboutvaluesize : *mut u32, pvaluestruct : *const CLUSPROP_SZ, pszoldvalue : windows_core::PCWSTR, cboldvaluesize : u32, pppropertylist : *mut *mut u8, pcbpropertylistsize : *mut u32) -> u32);
-    unsafe { ResUtilGetMultiSzProperty(core::mem::transmute(ppszoutvalue), core::mem::transmute(pcboutvaluesize), pvaluestruct, pszoldvalue.param().abi(), cboldvaluesize, core::mem::transmute(pppropertylist), core::mem::transmute(pcbpropertylistsize)) }
+    unsafe { ResUtilGetMultiSzProperty(ppszoutvalue as _, pcboutvaluesize as _, pvaluestruct, pszoldvalue.param().abi(), cboldvaluesize, pppropertylist as _, pcbpropertylistsize as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ResUtilGetPrivateProperties(hkeyclusterkey: super::super::System::Registry::HKEY, poutpropertylist: *mut core::ffi::c_void, cboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilGetPrivateProperties(hkeyclusterkey : super::super::System::Registry:: HKEY, poutpropertylist : *mut core::ffi::c_void, cboutpropertylistsize : u32, pcbbytesreturned : *mut u32, pcbrequired : *mut u32) -> u32);
-    unsafe { ResUtilGetPrivateProperties(hkeyclusterkey, core::mem::transmute(poutpropertylist), cboutpropertylistsize, core::mem::transmute(pcbbytesreturned), core::mem::transmute(pcbrequired)) }
+    unsafe { ResUtilGetPrivateProperties(hkeyclusterkey, poutpropertylist as _, cboutpropertylistsize, pcbbytesreturned as _, pcbrequired as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ResUtilGetProperties(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut core::ffi::c_void, cboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilGetProperties(hkeyclusterkey : super::super::System::Registry:: HKEY, ppropertytable : *const RESUTIL_PROPERTY_ITEM, poutpropertylist : *mut core::ffi::c_void, cboutpropertylistsize : u32, pcbbytesreturned : *mut u32, pcbrequired : *mut u32) -> u32);
-    unsafe { ResUtilGetProperties(hkeyclusterkey, ppropertytable, core::mem::transmute(poutpropertylist), cboutpropertylistsize, core::mem::transmute(pcbbytesreturned), core::mem::transmute(pcbrequired)) }
+    unsafe { ResUtilGetProperties(hkeyclusterkey, ppropertytable, poutpropertylist as _, cboutpropertylistsize, pcbbytesreturned as _, pcbrequired as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ResUtilGetPropertiesToParameterBlock(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutparams: *mut u8, bcheckforrequiredproperties: bool, psznameofpropinerror: *mut windows_core::PWSTR) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilGetPropertiesToParameterBlock(hkeyclusterkey : super::super::System::Registry:: HKEY, ppropertytable : *const RESUTIL_PROPERTY_ITEM, poutparams : *mut u8, bcheckforrequiredproperties : super::super::Foundation:: BOOL, psznameofpropinerror : *mut windows_core::PWSTR) -> u32);
-    unsafe { ResUtilGetPropertiesToParameterBlock(hkeyclusterkey, ppropertytable, core::mem::transmute(poutparams), bcheckforrequiredproperties.into(), core::mem::transmute(psznameofpropinerror)) }
+    unsafe { ResUtilGetPropertiesToParameterBlock(hkeyclusterkey, ppropertytable, poutparams as _, bcheckforrequiredproperties.into(), psznameofpropinerror as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ResUtilGetProperty(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytableitem: *const RESUTIL_PROPERTY_ITEM, poutpropertyitem: *mut *mut core::ffi::c_void, pcboutpropertyitemsize: *mut u32) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilGetProperty(hkeyclusterkey : super::super::System::Registry:: HKEY, ppropertytableitem : *const RESUTIL_PROPERTY_ITEM, poutpropertyitem : *mut *mut core::ffi::c_void, pcboutpropertyitemsize : *mut u32) -> u32);
-    unsafe { ResUtilGetProperty(hkeyclusterkey, ppropertytableitem, core::mem::transmute(poutpropertyitem), core::mem::transmute(pcboutpropertyitemsize)) }
+    unsafe { ResUtilGetProperty(hkeyclusterkey, ppropertytableitem, poutpropertyitem as _, pcboutpropertyitemsize as _) }
 }
 #[inline]
 pub unsafe fn ResUtilGetPropertyFormats(ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertyformatlist: *mut core::ffi::c_void, cbpropertyformatlistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilGetPropertyFormats(ppropertytable : *const RESUTIL_PROPERTY_ITEM, poutpropertyformatlist : *mut core::ffi::c_void, cbpropertyformatlistsize : u32, pcbbytesreturned : *mut u32, pcbrequired : *mut u32) -> u32);
-    unsafe { ResUtilGetPropertyFormats(ppropertytable, core::mem::transmute(poutpropertyformatlist), cbpropertyformatlistsize, core::mem::transmute(pcbbytesreturned), core::mem::transmute(pcbrequired)) }
+    unsafe { ResUtilGetPropertyFormats(ppropertytable, poutpropertyformatlist as _, cbpropertyformatlistsize, pcbbytesreturned as _, pcbrequired as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ResUtilGetPropertySize(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytableitem: *const RESUTIL_PROPERTY_ITEM, pcboutpropertylistsize: *mut u32, pnpropertycount: *mut u32) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilGetPropertySize(hkeyclusterkey : super::super::System::Registry:: HKEY, ppropertytableitem : *const RESUTIL_PROPERTY_ITEM, pcboutpropertylistsize : *mut u32, pnpropertycount : *mut u32) -> u32);
-    unsafe { ResUtilGetPropertySize(hkeyclusterkey, ppropertytableitem, core::mem::transmute(pcboutpropertylistsize), core::mem::transmute(pnpropertycount)) }
+    unsafe { ResUtilGetPropertySize(hkeyclusterkey, ppropertytableitem, pcboutpropertylistsize as _, pnpropertycount as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -2104,7 +2104,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilGetQwordValue(hkeyclusterkey : super::super::System::Registry:: HKEY, pszvaluename : windows_core::PCWSTR, pqwoutvalue : *mut u64, qwdefaultvalue : u64) -> u32);
-    unsafe { ResUtilGetQwordValue(hkeyclusterkey, pszvaluename.param().abi(), core::mem::transmute(pqwoutvalue), qwdefaultvalue) }
+    unsafe { ResUtilGetQwordValue(hkeyclusterkey, pszvaluename.param().abi(), pqwoutvalue as _, qwdefaultvalue) }
 }
 #[inline]
 pub unsafe fn ResUtilGetResourceDependency<P1>(hself: super::super::Foundation::HANDLE, lpszresourcetype: P1) -> HRESOURCE
@@ -2117,12 +2117,12 @@ where
 #[inline]
 pub unsafe fn ResUtilGetResourceDependencyByClass(hcluster: HCLUSTER, hself: super::super::Foundation::HANDLE, prci: *mut CLUS_RESOURCE_CLASS_INFO, brecurse: bool) -> HRESOURCE {
     windows_targets::link!("resutils.dll" "system" fn ResUtilGetResourceDependencyByClass(hcluster : HCLUSTER, hself : super::super::Foundation:: HANDLE, prci : *mut CLUS_RESOURCE_CLASS_INFO, brecurse : super::super::Foundation:: BOOL) -> HRESOURCE);
-    unsafe { ResUtilGetResourceDependencyByClass(hcluster, hself, core::mem::transmute(prci), brecurse.into()) }
+    unsafe { ResUtilGetResourceDependencyByClass(hcluster, hself, prci as _, brecurse.into()) }
 }
 #[inline]
 pub unsafe fn ResUtilGetResourceDependencyByClassEx(hcluster: HCLUSTER, hself: super::super::Foundation::HANDLE, prci: *mut CLUS_RESOURCE_CLASS_INFO, brecurse: bool, dwdesiredaccess: u32) -> HRESOURCE {
     windows_targets::link!("resutils.dll" "system" fn ResUtilGetResourceDependencyByClassEx(hcluster : HCLUSTER, hself : super::super::Foundation:: HANDLE, prci : *mut CLUS_RESOURCE_CLASS_INFO, brecurse : super::super::Foundation:: BOOL, dwdesiredaccess : u32) -> HRESOURCE);
-    unsafe { ResUtilGetResourceDependencyByClassEx(hcluster, hself, core::mem::transmute(prci), brecurse.into(), dwdesiredaccess) }
+    unsafe { ResUtilGetResourceDependencyByClassEx(hcluster, hself, prci as _, brecurse.into(), dwdesiredaccess) }
 }
 #[inline]
 pub unsafe fn ResUtilGetResourceDependencyByName<P2>(hcluster: HCLUSTER, hself: super::super::Foundation::HANDLE, lpszresourcetype: P2, brecurse: bool) -> HRESOURCE
@@ -2151,12 +2151,12 @@ where
 #[inline]
 pub unsafe fn ResUtilGetResourceDependentIPAddressProps(hresource: HRESOURCE, pszaddress: windows_core::PWSTR, pcchaddress: *mut u32, pszsubnetmask: windows_core::PWSTR, pcchsubnetmask: *mut u32, psznetwork: windows_core::PWSTR, pcchnetwork: *mut u32) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilGetResourceDependentIPAddressProps(hresource : HRESOURCE, pszaddress : windows_core::PWSTR, pcchaddress : *mut u32, pszsubnetmask : windows_core::PWSTR, pcchsubnetmask : *mut u32, psznetwork : windows_core::PWSTR, pcchnetwork : *mut u32) -> u32);
-    unsafe { ResUtilGetResourceDependentIPAddressProps(hresource, core::mem::transmute(pszaddress), core::mem::transmute(pcchaddress), core::mem::transmute(pszsubnetmask), core::mem::transmute(pcchsubnetmask), core::mem::transmute(psznetwork), core::mem::transmute(pcchnetwork)) }
+    unsafe { ResUtilGetResourceDependentIPAddressProps(hresource, core::mem::transmute(pszaddress), pcchaddress as _, core::mem::transmute(pszsubnetmask), pcchsubnetmask as _, core::mem::transmute(psznetwork), pcchnetwork as _) }
 }
 #[inline]
 pub unsafe fn ResUtilGetResourceName(hresource: HRESOURCE, pszresourcename: windows_core::PWSTR, pcchresourcenameinout: *mut u32) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilGetResourceName(hresource : HRESOURCE, pszresourcename : windows_core::PWSTR, pcchresourcenameinout : *mut u32) -> u32);
-    unsafe { ResUtilGetResourceName(hresource, core::mem::transmute(pszresourcename), core::mem::transmute(pcchresourcenameinout)) }
+    unsafe { ResUtilGetResourceName(hresource, core::mem::transmute(pszresourcename), pcchresourcenameinout as _) }
 }
 #[inline]
 pub unsafe fn ResUtilGetResourceNameDependency<P0, P1>(lpszresourcename: P0, lpszresourcetype: P1) -> HRESOURCE
@@ -2182,7 +2182,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilGetSzProperty(ppszoutvalue : *mut windows_core::PWSTR, pvaluestruct : *const CLUSPROP_SZ, pszoldvalue : windows_core::PCWSTR, pppropertylist : *mut *mut u8, pcbpropertylistsize : *mut u32) -> u32);
-    unsafe { ResUtilGetSzProperty(core::mem::transmute(ppszoutvalue), pvaluestruct, pszoldvalue.param().abi(), core::mem::transmute(pppropertylist), core::mem::transmute(pcbpropertylistsize)) }
+    unsafe { ResUtilGetSzProperty(ppszoutvalue as _, pvaluestruct, pszoldvalue.param().abi(), pppropertylist as _, pcbpropertylistsize as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -2196,7 +2196,7 @@ where
 #[inline]
 pub unsafe fn ResUtilGroupsEqual(hself: HGROUP, hgroup: HGROUP, pequal: *mut super::super::Foundation::BOOL) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilGroupsEqual(hself : HGROUP, hgroup : HGROUP, pequal : *mut super::super::Foundation:: BOOL) -> u32);
-    unsafe { ResUtilGroupsEqual(hself, hgroup, core::mem::transmute(pequal)) }
+    unsafe { ResUtilGroupsEqual(hself, hgroup, pequal as _) }
 }
 #[inline]
 pub unsafe fn ResUtilIsPathValid<P0>(pszpath: P0) -> super::super::Foundation::BOOL
@@ -2209,7 +2209,7 @@ where
 #[inline]
 pub unsafe fn ResUtilIsResourceClassEqual(prci: *mut CLUS_RESOURCE_CLASS_INFO, hresource: HRESOURCE) -> super::super::Foundation::BOOL {
     windows_targets::link!("resutils.dll" "system" fn ResUtilIsResourceClassEqual(prci : *mut CLUS_RESOURCE_CLASS_INFO, hresource : HRESOURCE) -> super::super::Foundation:: BOOL);
-    unsafe { ResUtilIsResourceClassEqual(core::mem::transmute(prci), hresource) }
+    unsafe { ResUtilIsResourceClassEqual(prci as _, hresource) }
 }
 #[inline]
 pub unsafe fn ResUtilLeftPaxosIsLessThanRight(left: *const PaxosTagCStruct, right: *const PaxosTagCStruct) -> super::super::Foundation::BOOL {
@@ -2219,7 +2219,7 @@ pub unsafe fn ResUtilLeftPaxosIsLessThanRight(left: *const PaxosTagCStruct, righ
 #[inline]
 pub unsafe fn ResUtilNodeEnum(hcluster: HCLUSTER, pnodecallback: LPNODE_CALLBACK, pparameter: *mut core::ffi::c_void) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilNodeEnum(hcluster : HCLUSTER, pnodecallback : LPNODE_CALLBACK, pparameter : *mut core::ffi::c_void) -> u32);
-    unsafe { ResUtilNodeEnum(hcluster, pnodecallback, core::mem::transmute(pparameter)) }
+    unsafe { ResUtilNodeEnum(hcluster, pnodecallback, pparameter as _) }
 }
 #[inline]
 pub unsafe fn ResUtilPaxosComparer(left: *const PaxosTagCStruct, right: *const PaxosTagCStruct) -> super::super::Foundation::BOOL {
@@ -2229,7 +2229,7 @@ pub unsafe fn ResUtilPaxosComparer(left: *const PaxosTagCStruct, right: *const P
 #[inline]
 pub unsafe fn ResUtilPropertyListFromParameterBlock(ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: Option<*mut core::ffi::c_void>, pcboutpropertylistsize: *mut u32, pinparams: *const u8, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilPropertyListFromParameterBlock(ppropertytable : *const RESUTIL_PROPERTY_ITEM, poutpropertylist : *mut core::ffi::c_void, pcboutpropertylistsize : *mut u32, pinparams : *const u8, pcbbytesreturned : *mut u32, pcbrequired : *mut u32) -> u32);
-    unsafe { ResUtilPropertyListFromParameterBlock(ppropertytable, core::mem::transmute(poutpropertylist.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcboutpropertylistsize), pinparams, core::mem::transmute(pcbbytesreturned), core::mem::transmute(pcbrequired)) }
+    unsafe { ResUtilPropertyListFromParameterBlock(ppropertytable, poutpropertylist.unwrap_or(core::mem::zeroed()) as _, pcboutpropertylistsize as _, pinparams, pcbbytesreturned as _, pcbrequired as _) }
 }
 #[inline]
 pub unsafe fn ResUtilRemoveResourceServiceEnvironment<P0>(pszservicename: P0, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: isize) -> u32
@@ -2242,7 +2242,7 @@ where
 #[inline]
 pub unsafe fn ResUtilResourceDepEnum(hself: HRESOURCE, enumtype: u32, prescallback: LPRESOURCE_CALLBACK_EX, pparameter: *mut core::ffi::c_void) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilResourceDepEnum(hself : HRESOURCE, enumtype : u32, prescallback : LPRESOURCE_CALLBACK_EX, pparameter : *mut core::ffi::c_void) -> u32);
-    unsafe { ResUtilResourceDepEnum(hself, enumtype, prescallback, core::mem::transmute(pparameter)) }
+    unsafe { ResUtilResourceDepEnum(hself, enumtype, prescallback, pparameter as _) }
 }
 #[inline]
 pub unsafe fn ResUtilResourceTypesEqual<P0>(lpszresourcetypename: P0, hresource: HRESOURCE) -> super::super::Foundation::BOOL
@@ -2264,7 +2264,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilSetBinaryValue(hkeyclusterkey : super::super::System::Registry:: HKEY, pszvaluename : windows_core::PCWSTR, pbnewvalue : *const u8, cbnewvaluesize : u32, ppboutvalue : *mut *mut u8, pcboutvaluesize : *mut u32) -> u32);
-    unsafe { ResUtilSetBinaryValue(hkeyclusterkey, pszvaluename.param().abi(), core::mem::transmute(pbnewvalue.as_ptr()), pbnewvalue.len().try_into().unwrap(), core::mem::transmute(ppboutvalue.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcboutvaluesize)) }
+    unsafe { ResUtilSetBinaryValue(hkeyclusterkey, pszvaluename.param().abi(), core::mem::transmute(pbnewvalue.as_ptr()), pbnewvalue.len().try_into().unwrap(), ppboutvalue.unwrap_or(core::mem::zeroed()) as _, pcboutvaluesize as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -2273,7 +2273,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilSetDwordValue(hkeyclusterkey : super::super::System::Registry:: HKEY, pszvaluename : windows_core::PCWSTR, dwnewvalue : u32, pdwoutvalue : *mut u32) -> u32);
-    unsafe { ResUtilSetDwordValue(hkeyclusterkey, pszvaluename.param().abi(), dwnewvalue, core::mem::transmute(pdwoutvalue)) }
+    unsafe { ResUtilSetDwordValue(hkeyclusterkey, pszvaluename.param().abi(), dwnewvalue, pdwoutvalue as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -2283,7 +2283,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilSetExpandSzValue(hkeyclusterkey : super::super::System::Registry:: HKEY, pszvaluename : windows_core::PCWSTR, psznewvalue : windows_core::PCWSTR, ppszoutstring : *mut windows_core::PWSTR) -> u32);
-    unsafe { ResUtilSetExpandSzValue(hkeyclusterkey, pszvaluename.param().abi(), psznewvalue.param().abi(), core::mem::transmute(ppszoutstring.unwrap_or(core::mem::zeroed()))) }
+    unsafe { ResUtilSetExpandSzValue(hkeyclusterkey, pszvaluename.param().abi(), psznewvalue.param().abi(), ppszoutstring.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -2293,7 +2293,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilSetMultiSzValue(hkeyclusterkey : super::super::System::Registry:: HKEY, pszvaluename : windows_core::PCWSTR, psznewvalue : windows_core::PCWSTR, cbnewvaluesize : u32, ppszoutvalue : *mut windows_core::PWSTR, pcboutvaluesize : *mut u32) -> u32);
-    unsafe { ResUtilSetMultiSzValue(hkeyclusterkey, pszvaluename.param().abi(), psznewvalue.param().abi(), cbnewvaluesize, core::mem::transmute(ppszoutvalue.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcboutvaluesize.unwrap_or(core::mem::zeroed()))) }
+    unsafe { ResUtilSetMultiSzValue(hkeyclusterkey, pszvaluename.param().abi(), psznewvalue.param().abi(), cbnewvaluesize, ppszoutvalue.unwrap_or(core::mem::zeroed()) as _, pcboutvaluesize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -2305,25 +2305,25 @@ pub unsafe fn ResUtilSetPrivatePropertyList(hkeyclusterkey: super::super::System
 #[inline]
 pub unsafe fn ResUtilSetPropertyParameterBlock(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut core::ffi::c_void, pinparams: *const u8, pinpropertylist: *const core::ffi::c_void, cbinpropertylistsize: u32, poutparams: *mut u8) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilSetPropertyParameterBlock(hkeyclusterkey : super::super::System::Registry:: HKEY, ppropertytable : *const RESUTIL_PROPERTY_ITEM, reserved : *mut core::ffi::c_void, pinparams : *const u8, pinpropertylist : *const core::ffi::c_void, cbinpropertylistsize : u32, poutparams : *mut u8) -> u32);
-    unsafe { ResUtilSetPropertyParameterBlock(hkeyclusterkey, ppropertytable, core::mem::transmute(reserved), pinparams, pinpropertylist, cbinpropertylistsize, core::mem::transmute(poutparams)) }
+    unsafe { ResUtilSetPropertyParameterBlock(hkeyclusterkey, ppropertytable, reserved as _, pinparams, pinpropertylist, cbinpropertylistsize, poutparams as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ResUtilSetPropertyParameterBlockEx(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut core::ffi::c_void, pinparams: *const u8, pinpropertylist: *const core::ffi::c_void, cbinpropertylistsize: u32, bforcewrite: bool, poutparams: *mut u8) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilSetPropertyParameterBlockEx(hkeyclusterkey : super::super::System::Registry:: HKEY, ppropertytable : *const RESUTIL_PROPERTY_ITEM, reserved : *mut core::ffi::c_void, pinparams : *const u8, pinpropertylist : *const core::ffi::c_void, cbinpropertylistsize : u32, bforcewrite : super::super::Foundation:: BOOL, poutparams : *mut u8) -> u32);
-    unsafe { ResUtilSetPropertyParameterBlockEx(hkeyclusterkey, ppropertytable, core::mem::transmute(reserved), pinparams, pinpropertylist, cbinpropertylistsize, bforcewrite.into(), core::mem::transmute(poutparams)) }
+    unsafe { ResUtilSetPropertyParameterBlockEx(hkeyclusterkey, ppropertytable, reserved as _, pinparams, pinpropertylist, cbinpropertylistsize, bforcewrite.into(), poutparams as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ResUtilSetPropertyTable(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: Option<*const core::ffi::c_void>, ballowunknownproperties: bool, pinpropertylist: *const core::ffi::c_void, cbinpropertylistsize: u32, poutparams: Option<*mut u8>) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilSetPropertyTable(hkeyclusterkey : super::super::System::Registry:: HKEY, ppropertytable : *const RESUTIL_PROPERTY_ITEM, reserved : *const core::ffi::c_void, ballowunknownproperties : super::super::Foundation:: BOOL, pinpropertylist : *const core::ffi::c_void, cbinpropertylistsize : u32, poutparams : *mut u8) -> u32);
-    unsafe { ResUtilSetPropertyTable(hkeyclusterkey, ppropertytable, core::mem::transmute(reserved.unwrap_or(core::mem::zeroed())), ballowunknownproperties.into(), pinpropertylist, cbinpropertylistsize, core::mem::transmute(poutparams.unwrap_or(core::mem::zeroed()))) }
+    unsafe { ResUtilSetPropertyTable(hkeyclusterkey, ppropertytable, reserved.unwrap_or(core::mem::zeroed()) as _, ballowunknownproperties.into(), pinpropertylist, cbinpropertylistsize, poutparams.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ResUtilSetPropertyTableEx(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut core::ffi::c_void, ballowunknownproperties: bool, pinpropertylist: *const core::ffi::c_void, cbinpropertylistsize: u32, bforcewrite: bool, poutparams: *mut u8) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilSetPropertyTableEx(hkeyclusterkey : super::super::System::Registry:: HKEY, ppropertytable : *const RESUTIL_PROPERTY_ITEM, reserved : *mut core::ffi::c_void, ballowunknownproperties : super::super::Foundation:: BOOL, pinpropertylist : *const core::ffi::c_void, cbinpropertylistsize : u32, bforcewrite : super::super::Foundation:: BOOL, poutparams : *mut u8) -> u32);
-    unsafe { ResUtilSetPropertyTableEx(hkeyclusterkey, ppropertytable, core::mem::transmute(reserved), ballowunknownproperties.into(), pinpropertylist, cbinpropertylistsize, bforcewrite.into(), core::mem::transmute(poutparams)) }
+    unsafe { ResUtilSetPropertyTableEx(hkeyclusterkey, ppropertytable, reserved as _, ballowunknownproperties.into(), pinpropertylist, cbinpropertylistsize, bforcewrite.into(), poutparams as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -2332,7 +2332,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilSetQwordValue(hkeyclusterkey : super::super::System::Registry:: HKEY, pszvaluename : windows_core::PCWSTR, qwnewvalue : u64, pqwoutvalue : *mut u64) -> u32);
-    unsafe { ResUtilSetQwordValue(hkeyclusterkey, pszvaluename.param().abi(), qwnewvalue, core::mem::transmute(pqwoutvalue.unwrap_or(core::mem::zeroed()))) }
+    unsafe { ResUtilSetQwordValue(hkeyclusterkey, pszvaluename.param().abi(), qwnewvalue, pqwoutvalue.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn ResUtilSetResourceServiceEnvironment<P0>(pszservicename: P0, hresource: HRESOURCE, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: isize) -> u32
@@ -2349,7 +2349,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilSetResourceServiceStartParameters(pszservicename : windows_core::PCWSTR, schscmhandle : super::super::System::Services:: SC_HANDLE, phservice : *mut super::super::System::Services:: SC_HANDLE, pfnlogevent : PLOG_EVENT_ROUTINE, hresourcehandle : isize) -> u32);
-    unsafe { ResUtilSetResourceServiceStartParameters(pszservicename.param().abi(), schscmhandle, core::mem::transmute(phservice), pfnlogevent, hresourcehandle) }
+    unsafe { ResUtilSetResourceServiceStartParameters(pszservicename.param().abi(), schscmhandle, phservice as _, pfnlogevent, hresourcehandle) }
 }
 #[cfg(feature = "Win32_System_Services")]
 #[inline]
@@ -2358,7 +2358,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilSetResourceServiceStartParametersEx(pszservicename : windows_core::PCWSTR, schscmhandle : super::super::System::Services:: SC_HANDLE, phservice : *mut super::super::System::Services:: SC_HANDLE, dwdesiredaccess : u32, pfnlogevent : PLOG_EVENT_ROUTINE, hresourcehandle : isize) -> u32);
-    unsafe { ResUtilSetResourceServiceStartParametersEx(pszservicename.param().abi(), schscmhandle, core::mem::transmute(phservice), dwdesiredaccess, pfnlogevent, hresourcehandle) }
+    unsafe { ResUtilSetResourceServiceStartParametersEx(pszservicename.param().abi(), schscmhandle, phservice as _, dwdesiredaccess, pfnlogevent, hresourcehandle) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -2368,7 +2368,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilSetSzValue(hkeyclusterkey : super::super::System::Registry:: HKEY, pszvaluename : windows_core::PCWSTR, psznewvalue : windows_core::PCWSTR, ppszoutstring : *mut windows_core::PWSTR) -> u32);
-    unsafe { ResUtilSetSzValue(hkeyclusterkey, pszvaluename.param().abi(), psznewvalue.param().abi(), core::mem::transmute(ppszoutstring.unwrap_or(core::mem::zeroed()))) }
+    unsafe { ResUtilSetSzValue(hkeyclusterkey, pszvaluename.param().abi(), psznewvalue.param().abi(), ppszoutstring.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -2392,7 +2392,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilStartResourceService(pszservicename : windows_core::PCWSTR, phservicehandle : *mut super::super::System::Services:: SC_HANDLE) -> u32);
-    unsafe { ResUtilStartResourceService(pszservicename.param().abi(), core::mem::transmute(phservicehandle)) }
+    unsafe { ResUtilStartResourceService(pszservicename.param().abi(), phservicehandle as _) }
 }
 #[inline]
 pub unsafe fn ResUtilStopResourceService<P0>(pszservicename: P0) -> u32
@@ -2411,7 +2411,7 @@ pub unsafe fn ResUtilStopService(hservicehandle: super::super::System::Services:
 #[inline]
 pub unsafe fn ResUtilTerminateServiceProcessFromResDll(dwservicepid: u32, boffline: bool, pdwresourcestate: *mut u32, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: isize) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilTerminateServiceProcessFromResDll(dwservicepid : u32, boffline : super::super::Foundation:: BOOL, pdwresourcestate : *mut u32, pfnlogevent : PLOG_EVENT_ROUTINE, hresourcehandle : isize) -> u32);
-    unsafe { ResUtilTerminateServiceProcessFromResDll(dwservicepid, boffline.into(), core::mem::transmute(pdwresourcestate), pfnlogevent, hresourcehandle) }
+    unsafe { ResUtilTerminateServiceProcessFromResDll(dwservicepid, boffline.into(), pdwresourcestate as _, pfnlogevent, hresourcehandle) }
 }
 #[inline]
 pub unsafe fn ResUtilVerifyPrivatePropertyList(pinpropertylist: *const core::ffi::c_void, cbinpropertylistsize: u32) -> u32 {
@@ -2421,7 +2421,7 @@ pub unsafe fn ResUtilVerifyPrivatePropertyList(pinpropertylist: *const core::ffi
 #[inline]
 pub unsafe fn ResUtilVerifyPropertyTable(ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: Option<*const core::ffi::c_void>, ballowunknownproperties: bool, pinpropertylist: *const core::ffi::c_void, cbinpropertylistsize: u32, poutparams: Option<*mut u8>) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilVerifyPropertyTable(ppropertytable : *const RESUTIL_PROPERTY_ITEM, reserved : *const core::ffi::c_void, ballowunknownproperties : super::super::Foundation:: BOOL, pinpropertylist : *const core::ffi::c_void, cbinpropertylistsize : u32, poutparams : *mut u8) -> u32);
-    unsafe { ResUtilVerifyPropertyTable(ppropertytable, core::mem::transmute(reserved.unwrap_or(core::mem::zeroed())), ballowunknownproperties.into(), pinpropertylist, cbinpropertylistsize, core::mem::transmute(poutparams.unwrap_or(core::mem::zeroed()))) }
+    unsafe { ResUtilVerifyPropertyTable(ppropertytable, reserved.unwrap_or(core::mem::zeroed()) as _, ballowunknownproperties.into(), pinpropertylist, cbinpropertylistsize, poutparams.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn ResUtilVerifyResourceService<P0>(pszservicename: P0) -> u32
@@ -2440,7 +2440,7 @@ pub unsafe fn ResUtilVerifyService(hservicehandle: super::super::System::Service
 #[inline]
 pub unsafe fn ResUtilVerifyShutdownSafe(flags: u32, reason: u32, presult: *mut u32) -> u32 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilVerifyShutdownSafe(flags : u32, reason : u32, presult : *mut u32) -> u32);
-    unsafe { ResUtilVerifyShutdownSafe(flags, reason, core::mem::transmute(presult)) }
+    unsafe { ResUtilVerifyShutdownSafe(flags, reason, presult as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -2636,7 +2636,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn SetClusterServiceAccountPassword(lpszclustername : windows_core::PCWSTR, lpsznewpassword : windows_core::PCWSTR, dwflags : u32, lpreturnstatusbuffer : *mut CLUSTER_SET_PASSWORD_STATUS, lpcbreturnstatusbuffersize : *mut u32) -> u32);
-    unsafe { SetClusterServiceAccountPassword(lpszclustername.param().abi(), lpsznewpassword.param().abi(), dwflags, core::mem::transmute(lpreturnstatusbuffer.unwrap_or(core::mem::zeroed())), core::mem::transmute(lpcbreturnstatusbuffersize)) }
+    unsafe { SetClusterServiceAccountPassword(lpszclustername.param().abi(), lpsznewpassword.param().abi(), dwflags, lpreturnstatusbuffer.unwrap_or(core::mem::zeroed()) as _, lpcbreturnstatusbuffersize as _) }
 }
 #[inline]
 pub unsafe fn SetGroupDependencyExpression<P1>(hgroup: HGROUP, lpszdependencyexpression: P1) -> u32
@@ -5983,7 +5983,7 @@ windows_core::imp::define_interface!(IGetClusterDataInfo, IGetClusterDataInfo_Vt
 windows_core::imp::interface_hierarchy!(IGetClusterDataInfo, windows_core::IUnknown);
 impl IGetClusterDataInfo {
     pub unsafe fn GetClusterName(&self, lpszname: &windows_core::BSTR, pcchname: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetClusterName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(lpszname), core::mem::transmute(pcchname)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetClusterName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(lpszname), pcchname as _).ok() }
     }
     pub unsafe fn GetClusterHandle(&self) -> HCLUSTER {
         unsafe { (windows_core::Interface::vtable(self).GetClusterHandle)(windows_core::Interface::as_raw(self)) }
@@ -6160,7 +6160,7 @@ windows_core::imp::define_interface!(IGetClusterObjectInfo, IGetClusterObjectInf
 windows_core::imp::interface_hierarchy!(IGetClusterObjectInfo, windows_core::IUnknown);
 impl IGetClusterObjectInfo {
     pub unsafe fn GetObjectName(&self, lobjindex: i32, lpszname: &windows_core::BSTR, pcchname: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetObjectName)(windows_core::Interface::as_raw(self), lobjindex, core::mem::transmute_copy(lpszname), core::mem::transmute(pcchname)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetObjectName)(windows_core::Interface::as_raw(self), lobjindex, core::mem::transmute_copy(lpszname), pcchname as _).ok() }
     }
     pub unsafe fn GetObjectType(&self, lobjindex: i32) -> CLUADMEX_OBJECT_TYPE {
         unsafe { (windows_core::Interface::vtable(self).GetObjectType)(windows_core::Interface::as_raw(self), lobjindex) }
@@ -6208,10 +6208,10 @@ impl IGetClusterResourceInfo {
         unsafe { (windows_core::Interface::vtable(self).GetResourceHandle)(windows_core::Interface::as_raw(self), lobjindex) }
     }
     pub unsafe fn GetResourceTypeName(&self, lobjindex: i32, lpszrestypename: &windows_core::BSTR, pcchrestypename: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetResourceTypeName)(windows_core::Interface::as_raw(self), lobjindex, core::mem::transmute_copy(lpszrestypename), core::mem::transmute(pcchrestypename)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetResourceTypeName)(windows_core::Interface::as_raw(self), lobjindex, core::mem::transmute_copy(lpszrestypename), pcchrestypename as _).ok() }
     }
     pub unsafe fn GetResourceNetworkName(&self, lobjindex: i32, lpsznetname: &windows_core::BSTR, pcchnetname: *mut u32) -> super::super::Foundation::BOOL {
-        unsafe { (windows_core::Interface::vtable(self).GetResourceNetworkName)(windows_core::Interface::as_raw(self), lobjindex, core::mem::transmute_copy(lpsznetname), core::mem::transmute(pcchnetname)) }
+        unsafe { (windows_core::Interface::vtable(self).GetResourceNetworkName)(windows_core::Interface::as_raw(self), lobjindex, core::mem::transmute_copy(lpsznetname), pcchnetname as _) }
     }
 }
 #[repr(C)]
@@ -6262,7 +6262,7 @@ windows_core::imp::define_interface!(IGetClusterUIInfo, IGetClusterUIInfo_Vtbl, 
 windows_core::imp::interface_hierarchy!(IGetClusterUIInfo, windows_core::IUnknown);
 impl IGetClusterUIInfo {
     pub unsafe fn GetClusterName(&self, lpszname: &windows_core::BSTR, pcchname: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetClusterName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(lpszname), core::mem::transmute(pcchname)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetClusterName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(lpszname), pcchname as _).ok() }
     }
     pub unsafe fn GetLocale(&self) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetLocale)(windows_core::Interface::as_raw(self)) }

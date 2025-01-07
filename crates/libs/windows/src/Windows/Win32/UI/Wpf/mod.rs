@@ -755,7 +755,7 @@ impl IMILBitmapEffectImpl {
         }
     }
     pub unsafe fn GetInputSourceBounds(&self, uiindex: u32, prect: *mut MilRectD) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetInputSourceBounds)(windows_core::Interface::as_raw(self), uiindex, core::mem::transmute(prect)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetInputSourceBounds)(windows_core::Interface::as_raw(self), uiindex, prect as _).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Imaging")]
     pub unsafe fn GetInputBitmapSource<P1>(&self, uiindex: u32, prendercontext: P1, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<super::super::Graphics::Imaging::IWICBitmapSource>
@@ -764,7 +764,7 @@ impl IMILBitmapEffectImpl {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetInputBitmapSource)(windows_core::Interface::as_raw(self), uiindex, prendercontext.param().abi(), core::mem::transmute(pfmodifyinplace), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetInputBitmapSource)(windows_core::Interface::as_raw(self), uiindex, prendercontext.param().abi(), pfmodifyinplace as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_Graphics_Imaging")]
@@ -774,7 +774,7 @@ impl IMILBitmapEffectImpl {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOutputBitmapSource)(windows_core::Interface::as_raw(self), uiindex, prendercontext.param().abi(), core::mem::transmute(pfmodifyinplace), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetOutputBitmapSource)(windows_core::Interface::as_raw(self), uiindex, prendercontext.param().abi(), pfmodifyinplace as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn Initialize<P0>(&self, pinner: P0) -> windows_core::Result<()>
@@ -1171,20 +1171,20 @@ impl IMILBitmapEffectPrimitive {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOutput)(windows_core::Interface::as_raw(self), uiindex, pcontext.param().abi(), core::mem::transmute(pfmodifyinplace), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetOutput)(windows_core::Interface::as_raw(self), uiindex, pcontext.param().abi(), pfmodifyinplace as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn TransformPoint<P3>(&self, uiindex: u32, p: *mut MilPoint2D, fforwardtransform: super::super::Foundation::VARIANT_BOOL, pcontext: P3, pfpointtransformed: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
     where
         P3: windows_core::Param<IMILBitmapEffectRenderContext>,
     {
-        unsafe { (windows_core::Interface::vtable(self).TransformPoint)(windows_core::Interface::as_raw(self), uiindex, core::mem::transmute(p), fforwardtransform, pcontext.param().abi(), core::mem::transmute(pfpointtransformed)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).TransformPoint)(windows_core::Interface::as_raw(self), uiindex, p as _, fforwardtransform, pcontext.param().abi(), pfpointtransformed as _).ok() }
     }
     pub unsafe fn TransformRect<P3>(&self, uiindex: u32, p: *mut MilRectD, fforwardtransform: super::super::Foundation::VARIANT_BOOL, pcontext: P3) -> windows_core::Result<()>
     where
         P3: windows_core::Param<IMILBitmapEffectRenderContext>,
     {
-        unsafe { (windows_core::Interface::vtable(self).TransformRect)(windows_core::Interface::as_raw(self), uiindex, core::mem::transmute(p), fforwardtransform, pcontext.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).TransformRect)(windows_core::Interface::as_raw(self), uiindex, p as _, fforwardtransform, pcontext.param().abi()).ok() }
     }
     pub unsafe fn HasAffineTransform(&self, uiindex: u32) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
@@ -1200,7 +1200,7 @@ impl IMILBitmapEffectPrimitive {
     }
     #[cfg(feature = "Win32_Graphics_Dwm")]
     pub unsafe fn GetAffineMatrix(&self, uiindex: u32, pmatrix: *mut super::super::Graphics::Dwm::MilMatrix3x2D) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetAffineMatrix)(windows_core::Interface::as_raw(self), uiindex, core::mem::transmute(pmatrix)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetAffineMatrix)(windows_core::Interface::as_raw(self), uiindex, pmatrix as _).ok() }
     }
 }
 #[repr(C)]
@@ -1305,7 +1305,7 @@ windows_core::imp::define_interface!(IMILBitmapEffectPrimitiveImpl, IMILBitmapEf
 windows_core::imp::interface_hierarchy!(IMILBitmapEffectPrimitiveImpl, windows_core::IUnknown);
 impl IMILBitmapEffectPrimitiveImpl {
     pub unsafe fn IsDirty(&self, uioutputindex: u32, pfdirty: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).IsDirty)(windows_core::Interface::as_raw(self), uioutputindex, core::mem::transmute(pfdirty)) }
+        unsafe { (windows_core::Interface::vtable(self).IsDirty)(windows_core::Interface::as_raw(self), uioutputindex, pfdirty as _) }
     }
     pub unsafe fn IsVolatile(&self, uioutputindex: u32) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
@@ -1370,13 +1370,13 @@ impl IMILBitmapEffectRenderContext {
         unsafe { (windows_core::Interface::vtable(self).SetInitialTransform)(windows_core::Interface::as_raw(self), pmatrix).ok() }
     }
     pub unsafe fn GetFinalTransform(&self, pmatrix: *mut MILMatrixF) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetFinalTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(pmatrix)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetFinalTransform)(windows_core::Interface::as_raw(self), pmatrix as _).ok() }
     }
     pub unsafe fn SetOutputDPI(&self, dbldpix: f64, dbldpiy: f64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetOutputDPI)(windows_core::Interface::as_raw(self), dbldpix, dbldpiy).ok() }
     }
     pub unsafe fn GetOutputDPI(&self, pdbldpix: *mut f64, pdbldpiy: *mut f64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetOutputDPI)(windows_core::Interface::as_raw(self), core::mem::transmute(pdbldpix), core::mem::transmute(pdbldpiy)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetOutputDPI)(windows_core::Interface::as_raw(self), pdbldpix as _, pdbldpiy as _).ok() }
     }
     pub unsafe fn SetRegionOfInterest(&self, prect: *const MilRectD) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetRegionOfInterest)(windows_core::Interface::as_raw(self), prect).ok() }
@@ -1487,13 +1487,13 @@ impl IMILBitmapEffectRenderContextImpl {
         }
     }
     pub unsafe fn GetTransform(&self, pmatrix: *mut MILMatrixF) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(pmatrix)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetTransform)(windows_core::Interface::as_raw(self), pmatrix as _).ok() }
     }
     pub unsafe fn UpdateTransform(&self, pmatrix: *const MILMatrixF) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).UpdateTransform)(windows_core::Interface::as_raw(self), pmatrix).ok() }
     }
     pub unsafe fn GetOutputBounds(&self, prect: *mut MilRectD) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetOutputBounds)(windows_core::Interface::as_raw(self), core::mem::transmute(prect)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetOutputBounds)(windows_core::Interface::as_raw(self), prect as _).ok() }
     }
     pub unsafe fn UpdateOutputBounds(&self, prect: *const MilRectD) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).UpdateOutputBounds)(windows_core::Interface::as_raw(self), prect).ok() }

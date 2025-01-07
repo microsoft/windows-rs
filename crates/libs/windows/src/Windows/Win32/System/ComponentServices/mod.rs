@@ -4,7 +4,7 @@ where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
     windows_targets::link!("comsvcs.dll" "system" fn CoCreateActivity(piunknown : * mut core::ffi::c_void, riid : *const windows_core::GUID, ppobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CoCreateActivity(piunknown.param().abi(), riid, core::mem::transmute(ppobj)).ok() }
+    unsafe { CoCreateActivity(piunknown.param().abi(), riid, ppobj as _).ok() }
 }
 #[inline]
 pub unsafe fn CoEnterServiceDomain<P0>(pconfigobject: P0) -> windows_core::Result<()>
@@ -18,7 +18,7 @@ where
 #[inline]
 pub unsafe fn CoGetDefaultContext(apttype: super::Com::APTTYPE, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("ole32.dll" "system" fn CoGetDefaultContext(apttype : super::Com:: APTTYPE, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CoGetDefaultContext(apttype, riid, core::mem::transmute(ppv)).ok() }
+    unsafe { CoGetDefaultContext(apttype, riid, ppv as _).ok() }
 }
 #[inline]
 pub unsafe fn CoLeaveServiceDomain<P0>(punkstatus: P0)
@@ -39,12 +39,12 @@ pub unsafe fn GetDispenserManager() -> windows_core::Result<IDispenserManager> {
 #[inline]
 pub unsafe fn GetManagedExtensions(dwexts: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("comsvcs.dll" "system" fn GetManagedExtensions(dwexts : *mut u32) -> windows_core::HRESULT);
-    unsafe { GetManagedExtensions(core::mem::transmute(dwexts)).ok() }
+    unsafe { GetManagedExtensions(dwexts as _).ok() }
 }
 #[inline]
 pub unsafe fn MTSCreateActivity(riid: *const windows_core::GUID, ppobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("comsvcs.dll" "system" fn MTSCreateActivity(riid : *const windows_core::GUID, ppobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MTSCreateActivity(riid, core::mem::transmute(ppobj)).ok() }
+    unsafe { MTSCreateActivity(riid, ppobj as _).ok() }
 }
 #[inline]
 pub unsafe fn RecycleSurrogate(lreasoncode: i32) -> windows_core::Result<()> {
@@ -953,13 +953,13 @@ impl IAppDomainHelper {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), punkad.param().abi(), __midl__iappdomainhelper0000, core::mem::transmute(ppool)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), punkad.param().abi(), __midl__iappdomainhelper0000, ppool as _).ok() }
     }
     pub unsafe fn DoCallback<P0>(&self, punkad: P0, __midl__iappdomainhelper0001: isize, ppool: *mut core::ffi::c_void) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DoCallback)(windows_core::Interface::as_raw(self), punkad.param().abi(), __midl__iappdomainhelper0001, core::mem::transmute(ppool)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DoCallback)(windows_core::Interface::as_raw(self), punkad.param().abi(), __midl__iappdomainhelper0001, ppool as _).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1168,7 +1168,7 @@ impl ICOMAdminCatalog {
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetMultipleComponentsInfo(&self, bstrapplidorname: &windows_core::BSTR, ppsavarfilenames: *const *const super::Com::SAFEARRAY, ppsavarclsids: *mut *mut super::Com::SAFEARRAY, ppsavarclassnames: *mut *mut super::Com::SAFEARRAY, ppsavarfileflags: *mut *mut super::Com::SAFEARRAY, ppsavarcomponentflags: *mut *mut super::Com::SAFEARRAY) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetMultipleComponentsInfo)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplidorname), ppsavarfilenames, core::mem::transmute(ppsavarclsids), core::mem::transmute(ppsavarclassnames), core::mem::transmute(ppsavarfileflags), core::mem::transmute(ppsavarcomponentflags)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetMultipleComponentsInfo)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplidorname), ppsavarfilenames, ppsavarclsids as _, ppsavarclassnames as _, ppsavarfileflags as _, ppsavarcomponentflags as _).ok() }
     }
     pub unsafe fn RefreshComponents(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RefreshComponents)(windows_core::Interface::as_raw(self)).ok() }
@@ -1181,7 +1181,7 @@ impl ICOMAdminCatalog {
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueryApplicationFile(&self, bstrapplicationfile: &windows_core::BSTR, pbstrapplicationname: *mut windows_core::BSTR, pbstrapplicationdescription: *mut windows_core::BSTR, pbhasusers: *mut super::super::Foundation::VARIANT_BOOL, pbisproxy: *mut super::super::Foundation::VARIANT_BOOL, ppsavarfilenames: *mut *mut super::Com::SAFEARRAY) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).QueryApplicationFile)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationfile), core::mem::transmute(pbstrapplicationname), core::mem::transmute(pbstrapplicationdescription), core::mem::transmute(pbhasusers), core::mem::transmute(pbisproxy), core::mem::transmute(ppsavarfilenames)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).QueryApplicationFile)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationfile), core::mem::transmute(pbstrapplicationname), core::mem::transmute(pbstrapplicationdescription), pbhasusers as _, pbisproxy as _, ppsavarfilenames as _).ok() }
     }
     pub unsafe fn StartApplication(&self, bstrapplidorname: &windows_core::BSTR) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).StartApplication)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplidorname)).ok() }
@@ -1201,7 +1201,7 @@ impl ICOMAdminCatalog {
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetEventClassesForIID(&self, bstriid: &windows_core::BSTR, ppsavarclsids: *mut *mut super::Com::SAFEARRAY, ppsavarprogids: *mut *mut super::Com::SAFEARRAY, ppsavardescriptions: *mut *mut super::Com::SAFEARRAY) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetEventClassesForIID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstriid), core::mem::transmute(ppsavarclsids), core::mem::transmute(ppsavarprogids), core::mem::transmute(ppsavardescriptions)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetEventClassesForIID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstriid), ppsavarclsids as _, ppsavarprogids as _, ppsavardescriptions as _).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2098,10 +2098,10 @@ windows_core::imp::define_interface!(ICOMLBArguments, ICOMLBArguments_Vtbl, 0x3a
 windows_core::imp::interface_hierarchy!(ICOMLBArguments, windows_core::IUnknown);
 impl ICOMLBArguments {
     pub unsafe fn GetCLSID(&self, pclsid: *mut windows_core::GUID) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetCLSID)(windows_core::Interface::as_raw(self), core::mem::transmute(pclsid)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetCLSID)(windows_core::Interface::as_raw(self), pclsid as _).ok() }
     }
     pub unsafe fn SetCLSID(&self, pclsid: *mut windows_core::GUID) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetCLSID)(windows_core::Interface::as_raw(self), core::mem::transmute(pclsid)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetCLSID)(windows_core::Interface::as_raw(self), pclsid as _).ok() }
     }
     pub unsafe fn GetMachineName(&self, szservername: &mut [u16]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetMachineName)(windows_core::Interface::as_raw(self), szservername.len().try_into().unwrap(), core::mem::transmute(szservername.as_ptr())).ok() }
@@ -4810,7 +4810,7 @@ impl IComTrackingInfoCollection {
         }
     }
     pub unsafe fn Item(&self, ulindex: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), ulindex, riid, core::mem::transmute(ppv)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), ulindex, riid, ppv as _).ok() }
     }
 }
 #[repr(C)]
@@ -5193,7 +5193,7 @@ windows_core::imp::define_interface!(IContextProperties, IContextProperties_Vtbl
 windows_core::imp::interface_hierarchy!(IContextProperties, windows_core::IUnknown);
 impl IContextProperties {
     pub unsafe fn Count(&self, plcount: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), core::mem::transmute(plcount)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), plcount as _).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetProperty(&self, name: &windows_core::BSTR, pproperty: *mut super::Variant::VARIANT) -> windows_core::Result<()> {
@@ -5294,7 +5294,7 @@ windows_core::imp::define_interface!(IContextSecurityPerimeter, IContextSecurity
 windows_core::imp::interface_hierarchy!(IContextSecurityPerimeter, windows_core::IUnknown);
 impl IContextSecurityPerimeter {
     pub unsafe fn GetPerimeterFlag(&self, pflag: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetPerimeterFlag)(windows_core::Interface::as_raw(self), core::mem::transmute(pflag)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetPerimeterFlag)(windows_core::Interface::as_raw(self), pflag as _).ok() }
     }
     pub unsafe fn SetPerimeterFlag(&self, fflag: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetPerimeterFlag)(windows_core::Interface::as_raw(self), fflag.into()).ok() }
@@ -5342,13 +5342,13 @@ impl IContextState {
         unsafe { (windows_core::Interface::vtable(self).SetDeactivateOnReturn)(windows_core::Interface::as_raw(self), bdeactivate).ok() }
     }
     pub unsafe fn GetDeactivateOnReturn(&self, pbdeactivate: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDeactivateOnReturn)(windows_core::Interface::as_raw(self), core::mem::transmute(pbdeactivate)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetDeactivateOnReturn)(windows_core::Interface::as_raw(self), pbdeactivate as _).ok() }
     }
     pub unsafe fn SetMyTransactionVote(&self, txvote: TransactionVote) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMyTransactionVote)(windows_core::Interface::as_raw(self), txvote).ok() }
     }
     pub unsafe fn GetMyTransactionVote(&self, ptxvote: *mut TransactionVote) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetMyTransactionVote)(windows_core::Interface::as_raw(self), core::mem::transmute(ptxvote)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetMyTransactionVote)(windows_core::Interface::as_raw(self), ptxvote as _).ok() }
     }
 }
 #[repr(C)]
@@ -5411,7 +5411,7 @@ impl ICreateWithLocalTransaction {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateInstanceWithSysTx)(windows_core::Interface::as_raw(self), ptransaction.param().abi(), rclsid, riid, core::mem::transmute(pobject)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateInstanceWithSysTx)(windows_core::Interface::as_raw(self), ptransaction.param().abi(), rclsid, riid, pobject as _).ok() }
     }
 }
 #[repr(C)]
@@ -6451,7 +6451,7 @@ impl ICrmMonitorLogRecords {
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetLogRecord(&self, dwindex: u32, pcrmlogrec: *mut CrmLogRecordRead) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetLogRecord)(windows_core::Interface::as_raw(self), dwindex, core::mem::transmute(pcrmlogrec)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetLogRecord)(windows_core::Interface::as_raw(self), dwindex, pcrmlogrec as _).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetLogRecordVariants(&self, indexnumber: &super::Variant::VARIANT) -> windows_core::Result<super::Variant::VARIANT> {
@@ -6560,10 +6560,10 @@ windows_core::imp::define_interface!(IDispenserDriver, IDispenserDriver_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(IDispenserDriver, windows_core::IUnknown);
 impl IDispenserDriver {
     pub unsafe fn CreateResource(&self, restypid: usize, presid: *mut usize, psecsfreebeforedestroy: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CreateResource)(windows_core::Interface::as_raw(self), restypid, core::mem::transmute(presid), core::mem::transmute(psecsfreebeforedestroy)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateResource)(windows_core::Interface::as_raw(self), restypid, presid as _, psecsfreebeforedestroy as _).ok() }
     }
     pub unsafe fn RateResource(&self, restypid: usize, resid: usize, frequirestransactionenlistment: bool, prating: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RateResource)(windows_core::Interface::as_raw(self), restypid, resid, frequirestransactionenlistment.into(), core::mem::transmute(prating)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RateResource)(windows_core::Interface::as_raw(self), restypid, resid, frequirestransactionenlistment.into(), prating as _).ok() }
     }
     pub unsafe fn EnlistResource(&self, resid: usize, transid: usize) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).EnlistResource)(windows_core::Interface::as_raw(self), resid, transid).ok() }
@@ -6575,7 +6575,7 @@ impl IDispenserDriver {
         unsafe { (windows_core::Interface::vtable(self).DestroyResource)(windows_core::Interface::as_raw(self), resid).ok() }
     }
     pub unsafe fn DestroyResourceS(&self, resid: *mut u16) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DestroyResourceS)(windows_core::Interface::as_raw(self), core::mem::transmute(resid)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DestroyResourceS)(windows_core::Interface::as_raw(self), resid as _).ok() }
     }
 }
 #[repr(C)]
@@ -6663,7 +6663,7 @@ impl IDispenserManager {
         }
     }
     pub unsafe fn GetContext(&self, __midl__idispensermanager0002: *mut usize, __midl__idispensermanager0003: *mut usize) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetContext)(windows_core::Interface::as_raw(self), core::mem::transmute(__midl__idispensermanager0002), core::mem::transmute(__midl__idispensermanager0003)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetContext)(windows_core::Interface::as_raw(self), __midl__idispensermanager0002 as _, __midl__idispensermanager0003 as _).ok() }
     }
 }
 #[repr(C)]
@@ -6711,7 +6711,7 @@ windows_core::imp::define_interface!(IEnumNames, IEnumNames_Vtbl, 0x51372af2_cae
 windows_core::imp::interface_hierarchy!(IEnumNames, windows_core::IUnknown);
 impl IEnumNames {
     pub unsafe fn Next(&self, celt: u32, rgname: *mut windows_core::BSTR, pceltfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(rgname), core::mem::transmute(pceltfetched)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(rgname), pceltfetched as _).ok() }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
@@ -6805,7 +6805,7 @@ impl IEventServerTrace {
         unsafe { (windows_core::Interface::vtable(self).StopTraceGuid)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrguidevent), core::mem::transmute_copy(bstrguidfilter), lpidfilter).ok() }
     }
     pub unsafe fn EnumTraceGuid(&self, plcntguids: *mut i32, pbstrguidlist: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EnumTraceGuid)(windows_core::Interface::as_raw(self), core::mem::transmute(plcntguids), core::mem::transmute(pbstrguidlist)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).EnumTraceGuid)(windows_core::Interface::as_raw(self), plcntguids as _, core::mem::transmute(pbstrguidlist)).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6860,19 +6860,19 @@ windows_core::imp::define_interface!(IGetAppTrackerData, IGetAppTrackerData_Vtbl
 windows_core::imp::interface_hierarchy!(IGetAppTrackerData, windows_core::IUnknown);
 impl IGetAppTrackerData {
     pub unsafe fn GetApplicationProcesses(&self, partitionid: *const windows_core::GUID, applicationid: *const windows_core::GUID, flags: u32, numapplicationprocesses: *mut u32, applicationprocesses: *mut *mut ApplicationProcessSummary) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetApplicationProcesses)(windows_core::Interface::as_raw(self), partitionid, applicationid, flags, core::mem::transmute(numapplicationprocesses), core::mem::transmute(applicationprocesses)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetApplicationProcesses)(windows_core::Interface::as_raw(self), partitionid, applicationid, flags, numapplicationprocesses as _, applicationprocesses as _).ok() }
     }
     pub unsafe fn GetApplicationProcessDetails(&self, applicationinstanceid: *const windows_core::GUID, processid: u32, flags: u32, summary: Option<*mut ApplicationProcessSummary>, statistics: Option<*mut ApplicationProcessStatistics>, recycleinfo: Option<*mut ApplicationProcessRecycleInfo>, anycomponentshangmonitored: Option<*mut super::super::Foundation::BOOL>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetApplicationProcessDetails)(windows_core::Interface::as_raw(self), applicationinstanceid, processid, flags, core::mem::transmute(summary.unwrap_or(core::mem::zeroed())), core::mem::transmute(statistics.unwrap_or(core::mem::zeroed())), core::mem::transmute(recycleinfo.unwrap_or(core::mem::zeroed())), core::mem::transmute(anycomponentshangmonitored.unwrap_or(core::mem::zeroed()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetApplicationProcessDetails)(windows_core::Interface::as_raw(self), applicationinstanceid, processid, flags, summary.unwrap_or(core::mem::zeroed()) as _, statistics.unwrap_or(core::mem::zeroed()) as _, recycleinfo.unwrap_or(core::mem::zeroed()) as _, anycomponentshangmonitored.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn GetApplicationsInProcess(&self, applicationinstanceid: *const windows_core::GUID, processid: u32, partitionid: *const windows_core::GUID, flags: u32, numapplicationsinprocess: *mut u32, applications: *mut *mut ApplicationSummary) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetApplicationsInProcess)(windows_core::Interface::as_raw(self), applicationinstanceid, processid, partitionid, flags, core::mem::transmute(numapplicationsinprocess), core::mem::transmute(applications)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetApplicationsInProcess)(windows_core::Interface::as_raw(self), applicationinstanceid, processid, partitionid, flags, numapplicationsinprocess as _, applications as _).ok() }
     }
     pub unsafe fn GetComponentsInProcess(&self, applicationinstanceid: *const windows_core::GUID, processid: u32, partitionid: *const windows_core::GUID, applicationid: *const windows_core::GUID, flags: u32, numcomponentsinprocess: *mut u32, components: *mut *mut ComponentSummary) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetComponentsInProcess)(windows_core::Interface::as_raw(self), applicationinstanceid, processid, partitionid, applicationid, flags, core::mem::transmute(numcomponentsinprocess), core::mem::transmute(components)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetComponentsInProcess)(windows_core::Interface::as_raw(self), applicationinstanceid, processid, partitionid, applicationid, flags, numcomponentsinprocess as _, components as _).ok() }
     }
     pub unsafe fn GetComponentDetails(&self, applicationinstanceid: *const windows_core::GUID, processid: u32, clsid: *const windows_core::GUID, flags: u32, summary: Option<*mut ComponentSummary>, statistics: Option<*mut ComponentStatistics>, hangmonitorinfo: Option<*mut ComponentHangMonitorInfo>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetComponentDetails)(windows_core::Interface::as_raw(self), applicationinstanceid, processid, clsid, flags, core::mem::transmute(summary.unwrap_or(core::mem::zeroed())), core::mem::transmute(statistics.unwrap_or(core::mem::zeroed())), core::mem::transmute(hangmonitorinfo.unwrap_or(core::mem::zeroed()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetComponentDetails)(windows_core::Interface::as_raw(self), applicationinstanceid, processid, clsid, flags, summary.unwrap_or(core::mem::zeroed()) as _, statistics.unwrap_or(core::mem::zeroed()) as _, hangmonitorinfo.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn GetTrackerDataAsCollectionObject(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
@@ -6983,7 +6983,7 @@ windows_core::imp::define_interface!(IGetContextProperties, IGetContextPropertie
 windows_core::imp::interface_hierarchy!(IGetContextProperties, windows_core::IUnknown);
 impl IGetContextProperties {
     pub unsafe fn Count(&self, plcount: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), core::mem::transmute(plcount)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), plcount as _).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetProperty(&self, name: &windows_core::BSTR, pproperty: *mut super::Variant::VARIANT) -> windows_core::Result<()> {
@@ -7109,7 +7109,7 @@ windows_core::imp::define_interface!(IHolder, IHolder_Vtbl, 0xbf6a1850_2b45_11cf
 windows_core::imp::interface_hierarchy!(IHolder, windows_core::IUnknown);
 impl IHolder {
     pub unsafe fn AllocResource(&self, __midl__iholder0000: usize, __midl__iholder0001: *mut usize) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AllocResource)(windows_core::Interface::as_raw(self), __midl__iholder0000, core::mem::transmute(__midl__iholder0001)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AllocResource)(windows_core::Interface::as_raw(self), __midl__iholder0000, __midl__iholder0001 as _).ok() }
     }
     pub unsafe fn FreeResource(&self, __midl__iholder0002: usize) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).FreeResource)(windows_core::Interface::as_raw(self), __midl__iholder0002).ok() }
@@ -7118,13 +7118,13 @@ impl IHolder {
         unsafe { (windows_core::Interface::vtable(self).TrackResource)(windows_core::Interface::as_raw(self), __midl__iholder0003).ok() }
     }
     pub unsafe fn TrackResourceS(&self, __midl__iholder0004: *mut u16) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).TrackResourceS)(windows_core::Interface::as_raw(self), core::mem::transmute(__midl__iholder0004)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).TrackResourceS)(windows_core::Interface::as_raw(self), __midl__iholder0004 as _).ok() }
     }
     pub unsafe fn UntrackResource(&self, __midl__iholder0005: usize, __midl__iholder0006: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).UntrackResource)(windows_core::Interface::as_raw(self), __midl__iholder0005, __midl__iholder0006.into()).ok() }
     }
     pub unsafe fn UntrackResourceS(&self, __midl__iholder0007: *mut u16, __midl__iholder0008: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).UntrackResourceS)(windows_core::Interface::as_raw(self), core::mem::transmute(__midl__iholder0007), __midl__iholder0008.into()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UntrackResourceS)(windows_core::Interface::as_raw(self), __midl__iholder0007 as _, __midl__iholder0008.into()).ok() }
     }
     pub unsafe fn Close(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok() }
@@ -8376,7 +8376,7 @@ windows_core::imp::define_interface!(IObjectContext, IObjectContext_Vtbl, 0x5137
 windows_core::imp::interface_hierarchy!(IObjectContext, windows_core::IUnknown);
 impl IObjectContext {
     pub unsafe fn CreateInstance(&self, rclsid: *const windows_core::GUID, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CreateInstance)(windows_core::Interface::as_raw(self), rclsid, riid, core::mem::transmute(ppv)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateInstance)(windows_core::Interface::as_raw(self), rclsid, riid, ppv as _).ok() }
     }
     pub unsafe fn SetComplete(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetComplete)(windows_core::Interface::as_raw(self)).ok() }
@@ -8397,7 +8397,7 @@ impl IObjectContext {
         unsafe { (windows_core::Interface::vtable(self).IsSecurityEnabled)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn IsCallerInRole(&self, bstrrole: &windows_core::BSTR, pfisinrole: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).IsCallerInRole)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrrole), core::mem::transmute(pfisinrole)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).IsCallerInRole)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrrole), pfisinrole as _).ok() }
     }
 }
 #[repr(C)]
@@ -8493,7 +8493,7 @@ windows_core::imp::define_interface!(IObjectContextActivity, IObjectContextActiv
 windows_core::imp::interface_hierarchy!(IObjectContextActivity, windows_core::IUnknown);
 impl IObjectContextActivity {
     pub unsafe fn GetActivityId(&self, pguid: *mut windows_core::GUID) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetActivityId)(windows_core::Interface::as_raw(self), core::mem::transmute(pguid)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetActivityId)(windows_core::Interface::as_raw(self), pguid as _).ok() }
     }
 }
 #[repr(C)]
@@ -8532,13 +8532,13 @@ impl IObjectContextInfo {
         }
     }
     pub unsafe fn GetTransactionId(&self, pguid: *mut windows_core::GUID) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetTransactionId)(windows_core::Interface::as_raw(self), core::mem::transmute(pguid)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetTransactionId)(windows_core::Interface::as_raw(self), pguid as _).ok() }
     }
     pub unsafe fn GetActivityId(&self, pguid: *mut windows_core::GUID) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetActivityId)(windows_core::Interface::as_raw(self), core::mem::transmute(pguid)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetActivityId)(windows_core::Interface::as_raw(self), pguid as _).ok() }
     }
     pub unsafe fn GetContextId(&self, pguid: *mut windows_core::GUID) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetContextId)(windows_core::Interface::as_raw(self), core::mem::transmute(pguid)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetContextId)(windows_core::Interface::as_raw(self), pguid as _).ok() }
     }
 }
 #[repr(C)]
@@ -8619,13 +8619,13 @@ impl core::ops::Deref for IObjectContextInfo2 {
 windows_core::imp::interface_hierarchy!(IObjectContextInfo2, windows_core::IUnknown, IObjectContextInfo);
 impl IObjectContextInfo2 {
     pub unsafe fn GetPartitionId(&self, pguid: *mut windows_core::GUID) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetPartitionId)(windows_core::Interface::as_raw(self), core::mem::transmute(pguid)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetPartitionId)(windows_core::Interface::as_raw(self), pguid as _).ok() }
     }
     pub unsafe fn GetApplicationId(&self, pguid: *mut windows_core::GUID) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetApplicationId)(windows_core::Interface::as_raw(self), core::mem::transmute(pguid)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetApplicationId)(windows_core::Interface::as_raw(self), pguid as _).ok() }
     }
     pub unsafe fn GetApplicationInstanceId(&self, pguid: *mut windows_core::GUID) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetApplicationInstanceId)(windows_core::Interface::as_raw(self), core::mem::transmute(pguid)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetApplicationInstanceId)(windows_core::Interface::as_raw(self), pguid as _).ok() }
     }
 }
 #[repr(C)]
@@ -9266,19 +9266,19 @@ windows_core::imp::interface_hierarchy!(ISecurityProperty, windows_core::IUnknow
 impl ISecurityProperty {
     #[cfg(feature = "Win32_Security")]
     pub unsafe fn GetDirectCreatorSID(&self, psid: *mut super::super::Security::PSID) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDirectCreatorSID)(windows_core::Interface::as_raw(self), core::mem::transmute(psid)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetDirectCreatorSID)(windows_core::Interface::as_raw(self), psid as _).ok() }
     }
     #[cfg(feature = "Win32_Security")]
     pub unsafe fn GetOriginalCreatorSID(&self, psid: *mut super::super::Security::PSID) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetOriginalCreatorSID)(windows_core::Interface::as_raw(self), core::mem::transmute(psid)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetOriginalCreatorSID)(windows_core::Interface::as_raw(self), psid as _).ok() }
     }
     #[cfg(feature = "Win32_Security")]
     pub unsafe fn GetDirectCallerSID(&self, psid: *mut super::super::Security::PSID) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDirectCallerSID)(windows_core::Interface::as_raw(self), core::mem::transmute(psid)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetDirectCallerSID)(windows_core::Interface::as_raw(self), psid as _).ok() }
     }
     #[cfg(feature = "Win32_Security")]
     pub unsafe fn GetOriginalCallerSID(&self, psid: *mut super::super::Security::PSID) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetOriginalCallerSID)(windows_core::Interface::as_raw(self), core::mem::transmute(psid)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetOriginalCallerSID)(windows_core::Interface::as_raw(self), psid as _).ok() }
     }
     #[cfg(feature = "Win32_Security")]
     pub unsafe fn ReleaseSID(&self, psid: super::super::Security::PSID) -> windows_core::Result<()> {
@@ -9704,7 +9704,7 @@ impl IServicePool {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), ppoolconfig.param().abi()).ok() }
     }
     pub unsafe fn GetObject(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetObject)(windows_core::Interface::as_raw(self), riid, core::mem::transmute(ppv)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetObject)(windows_core::Interface::as_raw(self), riid, ppv as _).ok() }
     }
     pub unsafe fn Shutdown(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Shutdown)(windows_core::Interface::as_raw(self)).ok() }
@@ -9761,25 +9761,25 @@ impl IServicePoolConfig {
         unsafe { (windows_core::Interface::vtable(self).SetMaxPoolSize)(windows_core::Interface::as_raw(self), dwmaxpool).ok() }
     }
     pub unsafe fn MaxPoolSize(&self, pdwmaxpool: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).MaxPoolSize)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwmaxpool)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).MaxPoolSize)(windows_core::Interface::as_raw(self), pdwmaxpool as _).ok() }
     }
     pub unsafe fn SetMinPoolSize(&self, dwminpool: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMinPoolSize)(windows_core::Interface::as_raw(self), dwminpool).ok() }
     }
     pub unsafe fn MinPoolSize(&self, pdwminpool: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).MinPoolSize)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwminpool)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).MinPoolSize)(windows_core::Interface::as_raw(self), pdwminpool as _).ok() }
     }
     pub unsafe fn SetCreationTimeout(&self, dwcreationtimeout: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetCreationTimeout)(windows_core::Interface::as_raw(self), dwcreationtimeout).ok() }
     }
     pub unsafe fn CreationTimeout(&self, pdwcreationtimeout: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CreationTimeout)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwcreationtimeout)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreationTimeout)(windows_core::Interface::as_raw(self), pdwcreationtimeout as _).ok() }
     }
     pub unsafe fn SetTransactionAffinity(&self, ftxaffinity: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetTransactionAffinity)(windows_core::Interface::as_raw(self), ftxaffinity.into()).ok() }
     }
     pub unsafe fn TransactionAffinity(&self, pftxaffinity: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).TransactionAffinity)(windows_core::Interface::as_raw(self), core::mem::transmute(pftxaffinity)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).TransactionAffinity)(windows_core::Interface::as_raw(self), pftxaffinity as _).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetClassFactory<P0>(&self, pfactory: P0) -> windows_core::Result<()>
@@ -10351,7 +10351,7 @@ windows_core::imp::interface_hierarchy!(ISharedPropertyGroup, windows_core::IUnk
 #[cfg(feature = "Win32_System_Com")]
 impl ISharedPropertyGroup {
     pub unsafe fn CreatePropertyByPosition(&self, index: i32, fexists: *mut super::super::Foundation::VARIANT_BOOL, ppprop: *mut Option<ISharedProperty>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CreatePropertyByPosition)(windows_core::Interface::as_raw(self), index, core::mem::transmute(fexists), core::mem::transmute(ppprop)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreatePropertyByPosition)(windows_core::Interface::as_raw(self), index, fexists as _, core::mem::transmute(ppprop)).ok() }
     }
     pub unsafe fn get_PropertyByPosition(&self, index: i32) -> windows_core::Result<ISharedProperty> {
         unsafe {
@@ -10360,7 +10360,7 @@ impl ISharedPropertyGroup {
         }
     }
     pub unsafe fn CreateProperty(&self, name: &windows_core::BSTR, fexists: *mut super::super::Foundation::VARIANT_BOOL, ppprop: *mut Option<ISharedProperty>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CreateProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), core::mem::transmute(fexists), core::mem::transmute(ppprop)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), fexists as _, core::mem::transmute(ppprop)).ok() }
     }
     pub unsafe fn get_Property(&self, name: &windows_core::BSTR) -> windows_core::Result<ISharedProperty> {
         unsafe {
@@ -10452,7 +10452,7 @@ windows_core::imp::interface_hierarchy!(ISharedPropertyGroupManager, windows_cor
 #[cfg(feature = "Win32_System_Com")]
 impl ISharedPropertyGroupManager {
     pub unsafe fn CreatePropertyGroup(&self, name: &windows_core::BSTR, dwisomode: *mut i32, dwrelmode: *mut i32, fexists: *mut super::super::Foundation::VARIANT_BOOL, ppgroup: *mut Option<ISharedPropertyGroup>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CreatePropertyGroup)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), core::mem::transmute(dwisomode), core::mem::transmute(dwrelmode), core::mem::transmute(fexists), core::mem::transmute(ppgroup)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreatePropertyGroup)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), dwisomode as _, dwrelmode as _, fexists as _, core::mem::transmute(ppgroup)).ok() }
     }
     pub unsafe fn get_Group(&self, name: &windows_core::BSTR) -> windows_core::Result<ISharedPropertyGroup> {
         unsafe {
@@ -10576,25 +10576,25 @@ windows_core::imp::define_interface!(IThreadPoolKnobs, IThreadPoolKnobs_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(IThreadPoolKnobs, windows_core::IUnknown);
 impl IThreadPoolKnobs {
     pub unsafe fn GetMaxThreads(&self, plcmaxthreads: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetMaxThreads)(windows_core::Interface::as_raw(self), core::mem::transmute(plcmaxthreads)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetMaxThreads)(windows_core::Interface::as_raw(self), plcmaxthreads as _).ok() }
     }
     pub unsafe fn GetCurrentThreads(&self, plccurrentthreads: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetCurrentThreads)(windows_core::Interface::as_raw(self), core::mem::transmute(plccurrentthreads)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetCurrentThreads)(windows_core::Interface::as_raw(self), plccurrentthreads as _).ok() }
     }
     pub unsafe fn SetMaxThreads(&self, lcmaxthreads: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMaxThreads)(windows_core::Interface::as_raw(self), lcmaxthreads).ok() }
     }
     pub unsafe fn GetDeleteDelay(&self, pmsecdeletedelay: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDeleteDelay)(windows_core::Interface::as_raw(self), core::mem::transmute(pmsecdeletedelay)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetDeleteDelay)(windows_core::Interface::as_raw(self), pmsecdeletedelay as _).ok() }
     }
     pub unsafe fn SetDeleteDelay(&self, msecdeletedelay: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDeleteDelay)(windows_core::Interface::as_raw(self), msecdeletedelay).ok() }
     }
     pub unsafe fn GetMaxQueuedRequests(&self, plcmaxqueuedrequests: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetMaxQueuedRequests)(windows_core::Interface::as_raw(self), core::mem::transmute(plcmaxqueuedrequests)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetMaxQueuedRequests)(windows_core::Interface::as_raw(self), plcmaxqueuedrequests as _).ok() }
     }
     pub unsafe fn GetCurrentQueuedRequests(&self, plccurrentqueuedrequests: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetCurrentQueuedRequests)(windows_core::Interface::as_raw(self), core::mem::transmute(plccurrentqueuedrequests)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetCurrentQueuedRequests)(windows_core::Interface::as_raw(self), plccurrentqueuedrequests as _).ok() }
     }
     pub unsafe fn SetMaxQueuedRequests(&self, lcmaxqueuedrequests: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMaxQueuedRequests)(windows_core::Interface::as_raw(self), lcmaxqueuedrequests).ok() }
@@ -11131,13 +11131,13 @@ impl ITransactionProxy {
         }
     }
     pub unsafe fn GetIsolationLevel(&self, __midl__itransactionproxy0000: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetIsolationLevel)(windows_core::Interface::as_raw(self), core::mem::transmute(__midl__itransactionproxy0000)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetIsolationLevel)(windows_core::Interface::as_raw(self), __midl__itransactionproxy0000 as _).ok() }
     }
     pub unsafe fn GetIdentifier(&self, pbstridentifier: *mut windows_core::GUID) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetIdentifier)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstridentifier)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetIdentifier)(windows_core::Interface::as_raw(self), pbstridentifier as _).ok() }
     }
     pub unsafe fn IsReusable(&self, pfisreusable: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).IsReusable)(windows_core::Interface::as_raw(self), core::mem::transmute(pfisreusable)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).IsReusable)(windows_core::Interface::as_raw(self), pfisreusable as _).ok() }
     }
 }
 #[repr(C)]
@@ -11309,7 +11309,7 @@ impl ITransactionStatus {
         unsafe { (windows_core::Interface::vtable(self).SetTransactionStatus)(windows_core::Interface::as_raw(self), hrstatus).ok() }
     }
     pub unsafe fn GetTransactionStatus(&self, phrstatus: *mut windows_core::HRESULT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetTransactionStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(phrstatus)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetTransactionStatus)(windows_core::Interface::as_raw(self), phrstatus as _).ok() }
     }
 }
 #[repr(C)]
@@ -11351,7 +11351,7 @@ windows_core::imp::define_interface!(ITxProxyHolder, ITxProxyHolder_Vtbl, 0x13d8
 windows_core::imp::interface_hierarchy!(ITxProxyHolder, windows_core::IUnknown);
 impl ITxProxyHolder {
     pub unsafe fn GetIdentifier(&self, pguidltx: *mut windows_core::GUID) {
-        unsafe { (windows_core::Interface::vtable(self).GetIdentifier)(windows_core::Interface::as_raw(self), core::mem::transmute(pguidltx)) }
+        unsafe { (windows_core::Interface::vtable(self).GetIdentifier)(windows_core::Interface::as_raw(self), pguidltx as _) }
     }
 }
 #[repr(C)]
@@ -11676,7 +11676,7 @@ impl ObjectControl {
         unsafe { (windows_core::Interface::vtable(self).Deactivate)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn CanBePooled(&self, pbpoolable: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CanBePooled)(windows_core::Interface::as_raw(self), core::mem::transmute(pbpoolable)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CanBePooled)(windows_core::Interface::as_raw(self), pbpoolable as _).ok() }
     }
 }
 #[repr(C)]

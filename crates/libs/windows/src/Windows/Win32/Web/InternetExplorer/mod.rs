@@ -2,7 +2,7 @@
 #[inline]
 pub unsafe fn ComputeInvCMAP(prgbcolors: *const super::super::Graphics::Gdi::RGBQUAD, ncolors: u32, pinvtable: *mut u8, cbtable: u32) -> windows_core::Result<()> {
     windows_targets::link!("imgutil.dll" "system" fn ComputeInvCMAP(prgbcolors : *const super::super::Graphics::Gdi:: RGBQUAD, ncolors : u32, pinvtable : *mut u8, cbtable : u32) -> windows_core::HRESULT);
-    unsafe { ComputeInvCMAP(prgbcolors, ncolors, core::mem::transmute(pinvtable), cbtable).ok() }
+    unsafe { ComputeInvCMAP(prgbcolors, ncolors, pinvtable as _, cbtable).ok() }
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 #[inline]
@@ -48,12 +48,12 @@ where
 #[inline]
 pub unsafe fn DitherTo8(pdestbits: *mut u8, ndestpitch: i32, psrcbits: *mut u8, nsrcpitch: i32, bfidsrc: *const windows_core::GUID, prgbdestcolors: *mut super::super::Graphics::Gdi::RGBQUAD, prgbsrccolors: *mut super::super::Graphics::Gdi::RGBQUAD, pbdestinvmap: *mut u8, x: i32, y: i32, cx: i32, cy: i32, ldesttrans: i32, lsrctrans: i32) -> windows_core::Result<()> {
     windows_targets::link!("imgutil.dll" "system" fn DitherTo8(pdestbits : *mut u8, ndestpitch : i32, psrcbits : *mut u8, nsrcpitch : i32, bfidsrc : *const windows_core::GUID, prgbdestcolors : *mut super::super::Graphics::Gdi:: RGBQUAD, prgbsrccolors : *mut super::super::Graphics::Gdi:: RGBQUAD, pbdestinvmap : *mut u8, x : i32, y : i32, cx : i32, cy : i32, ldesttrans : i32, lsrctrans : i32) -> windows_core::HRESULT);
-    unsafe { DitherTo8(core::mem::transmute(pdestbits), ndestpitch, core::mem::transmute(psrcbits), nsrcpitch, bfidsrc, core::mem::transmute(prgbdestcolors), core::mem::transmute(prgbsrccolors), core::mem::transmute(pbdestinvmap), x, y, cx, cy, ldesttrans, lsrctrans).ok() }
+    unsafe { DitherTo8(pdestbits as _, ndestpitch, psrcbits as _, nsrcpitch, bfidsrc, prgbdestcolors as _, prgbsrccolors as _, pbdestinvmap as _, x, y, cx, cy, ldesttrans, lsrctrans).ok() }
 }
 #[inline]
 pub unsafe fn GetMaxMIMEIDBytes(pnmaxbytes: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("imgutil.dll" "system" fn GetMaxMIMEIDBytes(pnmaxbytes : *mut u32) -> windows_core::HRESULT);
-    unsafe { GetMaxMIMEIDBytes(core::mem::transmute(pnmaxbytes)).ok() }
+    unsafe { GetMaxMIMEIDBytes(pnmaxbytes as _).ok() }
 }
 #[inline]
 pub unsafe fn IEAssociateThreadWithTab(dwtabthreadid: u32, dwassociatedthreadid: u32) -> windows_core::Result<()> {
@@ -81,7 +81,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ieframe.dll" "system" fn IECreateFile(lpfilename : windows_core::PCWSTR, dwdesiredaccess : u32, dwsharemode : u32, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, dwcreationdisposition : u32, dwflagsandattributes : u32, htemplatefile : super::super::Foundation:: HANDLE) -> super::super::Foundation:: HANDLE);
-    unsafe { IECreateFile(lpfilename.param().abi(), dwdesiredaccess, dwsharemode, lpsecurityattributes, dwcreationdisposition, dwflagsandattributes, core::mem::transmute(htemplatefile.unwrap_or(core::mem::zeroed()))) }
+    unsafe { IECreateFile(lpfilename.param().abi(), dwdesiredaccess, dwsharemode, lpsecurityattributes, dwcreationdisposition, dwflagsandattributes, htemplatefile.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn IEDeleteFile<P0>(lpfilename: P0) -> super::super::Foundation::BOOL
@@ -121,7 +121,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ieframe.dll" "system" fn IEGetProtectedModeCookie(lpszurl : windows_core::PCWSTR, lpszcookiename : windows_core::PCWSTR, lpszcookiedata : windows_core::PWSTR, pcchcookiedata : *mut u32, dwflags : u32) -> windows_core::HRESULT);
-    unsafe { IEGetProtectedModeCookie(lpszurl.param().abi(), lpszcookiename.param().abi(), core::mem::transmute(lpszcookiedata), core::mem::transmute(pcchcookiedata), dwflags).ok() }
+    unsafe { IEGetProtectedModeCookie(lpszurl.param().abi(), lpszcookiename.param().abi(), core::mem::transmute(lpszcookiedata), pcchcookiedata as _, dwflags).ok() }
 }
 #[inline]
 pub unsafe fn IEGetWriteableFolderPath(clsidfolderid: *const windows_core::GUID) -> windows_core::Result<windows_core::PWSTR> {
@@ -173,7 +173,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ieframe.dll" "system" fn IELaunchURL(lpwstrurl : windows_core::PCWSTR, lpprocinfo : *mut super::super::System::Threading:: PROCESS_INFORMATION, lpinfo : *const core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { IELaunchURL(lpwstrurl.param().abi(), core::mem::transmute(lpprocinfo), core::mem::transmute(lpinfo.unwrap_or(core::mem::zeroed()))).ok() }
+    unsafe { IELaunchURL(lpwstrurl.param().abi(), lpprocinfo as _, lpinfo.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn IEMoveFileEx<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, dwflags: u32) -> super::super::Foundation::BOOL
@@ -197,7 +197,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ieframe.dll" "system" fn IERegCreateKeyEx(lpsubkey : windows_core::PCWSTR, reserved : u32, lpclass : windows_core::PCWSTR, dwoptions : u32, samdesired : u32, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, phkresult : *mut super::super::System::Registry:: HKEY, lpdwdisposition : *mut u32) -> windows_core::HRESULT);
-    unsafe { IERegCreateKeyEx(lpsubkey.param().abi(), reserved, lpclass.param().abi(), dwoptions, samdesired, core::mem::transmute(lpsecurityattributes.unwrap_or(core::mem::zeroed())), core::mem::transmute(phkresult), core::mem::transmute(lpdwdisposition)).ok() }
+    unsafe { IERegCreateKeyEx(lpsubkey.param().abi(), reserved, lpclass.param().abi(), dwoptions, samdesired, lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _, phkresult as _, lpdwdisposition as _).ok() }
 }
 #[inline]
 pub unsafe fn IERegSetValueEx<P0, P1>(lpsubkey: P0, lpvaluename: P1, reserved: u32, dwtype: u32, lpdata: &[u8]) -> windows_core::Result<()>
@@ -259,7 +259,7 @@ where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ieframe.dll" "system" fn IEShowOpenFileDialog(hwnd : super::super::Foundation:: HWND, lpwstrfilename : windows_core::PWSTR, cchmaxfilename : u32, lpwstrinitialdir : windows_core::PCWSTR, lpwstrfilter : windows_core::PCWSTR, lpwstrdefext : windows_core::PCWSTR, dwfilterindex : u32, dwflags : u32, phfile : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
-    unsafe { IEShowOpenFileDialog(hwnd, core::mem::transmute(lpwstrfilename.as_ptr()), lpwstrfilename.len().try_into().unwrap(), lpwstrinitialdir.param().abi(), lpwstrfilter.param().abi(), lpwstrdefext.param().abi(), dwfilterindex, dwflags, core::mem::transmute(phfile)).ok() }
+    unsafe { IEShowOpenFileDialog(hwnd, core::mem::transmute(lpwstrfilename.as_ptr()), lpwstrfilename.len().try_into().unwrap(), lpwstrinitialdir.param().abi(), lpwstrfilter.param().abi(), lpwstrdefext.param().abi(), dwfilterindex, dwflags, phfile as _).ok() }
 }
 #[inline]
 pub unsafe fn IEShowSaveFileDialog<P1, P2, P3, P4>(hwnd: super::super::Foundation::HWND, lpwstrinitialfilename: P1, lpwstrinitialdir: P2, lpwstrfilter: P3, lpwstrdefext: P4, dwfilterindex: u32, dwflags: u32, lppwstrdestinationfilepath: *mut windows_core::PWSTR, phstate: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()>
@@ -270,7 +270,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ieframe.dll" "system" fn IEShowSaveFileDialog(hwnd : super::super::Foundation:: HWND, lpwstrinitialfilename : windows_core::PCWSTR, lpwstrinitialdir : windows_core::PCWSTR, lpwstrfilter : windows_core::PCWSTR, lpwstrdefext : windows_core::PCWSTR, dwfilterindex : u32, dwflags : u32, lppwstrdestinationfilepath : *mut windows_core::PWSTR, phstate : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
-    unsafe { IEShowSaveFileDialog(hwnd, lpwstrinitialfilename.param().abi(), lpwstrinitialdir.param().abi(), lpwstrfilter.param().abi(), lpwstrdefext.param().abi(), dwfilterindex, dwflags, core::mem::transmute(lppwstrdestinationfilepath), core::mem::transmute(phstate)).ok() }
+    unsafe { IEShowSaveFileDialog(hwnd, lpwstrinitialfilename.param().abi(), lpwstrinitialdir.param().abi(), lpwstrfilter.param().abi(), lpwstrdefext.param().abi(), dwfilterindex, dwflags, lppwstrdestinationfilepath as _, phstate as _).ok() }
 }
 #[inline]
 pub unsafe fn IETrackingProtectionEnabled() -> super::super::Foundation::BOOL {
@@ -285,7 +285,7 @@ pub unsafe fn IEUnregisterWritableRegistry(guid: windows_core::GUID) -> windows_
 #[inline]
 pub unsafe fn IdentifyMIMEType(pbbytes: *const u8, nbytes: u32, pnformat: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("imgutil.dll" "system" fn IdentifyMIMEType(pbbytes : *const u8, nbytes : u32, pnformat : *mut u32) -> windows_core::HRESULT);
-    unsafe { IdentifyMIMEType(pbbytes, nbytes, core::mem::transmute(pnformat)).ok() }
+    unsafe { IdentifyMIMEType(pbbytes, nbytes, pnformat as _).ok() }
 }
 #[inline]
 pub unsafe fn RatingAccessDeniedDialog<P1, P2>(hdlg: super::super::Foundation::HWND, pszusername: P1, pszcontentdescription: P2, pratingdetails: *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -294,7 +294,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingAccessDeniedDialog(hdlg : super::super::Foundation:: HWND, pszusername : windows_core::PCSTR, pszcontentdescription : windows_core::PCSTR, pratingdetails : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { RatingAccessDeniedDialog(hdlg, pszusername.param().abi(), pszcontentdescription.param().abi(), core::mem::transmute(pratingdetails)).ok() }
+    unsafe { RatingAccessDeniedDialog(hdlg, pszusername.param().abi(), pszcontentdescription.param().abi(), pratingdetails as _).ok() }
 }
 #[inline]
 pub unsafe fn RatingAccessDeniedDialog2<P1>(hdlg: super::super::Foundation::HWND, pszusername: P1, pratingdetails: *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -302,7 +302,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingAccessDeniedDialog2(hdlg : super::super::Foundation:: HWND, pszusername : windows_core::PCSTR, pratingdetails : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { RatingAccessDeniedDialog2(hdlg, pszusername.param().abi(), core::mem::transmute(pratingdetails)).ok() }
+    unsafe { RatingAccessDeniedDialog2(hdlg, pszusername.param().abi(), pratingdetails as _).ok() }
 }
 #[inline]
 pub unsafe fn RatingAccessDeniedDialog2W<P1>(hdlg: super::super::Foundation::HWND, pszusername: P1, pratingdetails: *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -310,7 +310,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingAccessDeniedDialog2W(hdlg : super::super::Foundation:: HWND, pszusername : windows_core::PCWSTR, pratingdetails : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { RatingAccessDeniedDialog2W(hdlg, pszusername.param().abi(), core::mem::transmute(pratingdetails)).ok() }
+    unsafe { RatingAccessDeniedDialog2W(hdlg, pszusername.param().abi(), pratingdetails as _).ok() }
 }
 #[inline]
 pub unsafe fn RatingAccessDeniedDialogW<P1, P2>(hdlg: super::super::Foundation::HWND, pszusername: P1, pszcontentdescription: P2, pratingdetails: *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -319,7 +319,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingAccessDeniedDialogW(hdlg : super::super::Foundation:: HWND, pszusername : windows_core::PCWSTR, pszcontentdescription : windows_core::PCWSTR, pratingdetails : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { RatingAccessDeniedDialogW(hdlg, pszusername.param().abi(), pszcontentdescription.param().abi(), core::mem::transmute(pratingdetails)).ok() }
+    unsafe { RatingAccessDeniedDialogW(hdlg, pszusername.param().abi(), pszcontentdescription.param().abi(), pratingdetails as _).ok() }
 }
 #[inline]
 pub unsafe fn RatingAddToApprovedSites<P3>(hdlg: super::super::Foundation::HWND, pbpasswordblob: &mut [u8], lpszurl: P3, falwaysnever: bool, fsitepage: bool, fapprovedsitesenforced: bool) -> windows_core::Result<()>
@@ -337,7 +337,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingCheckUserAccess(pszusername : windows_core::PCSTR, pszurl : windows_core::PCSTR, pszratinginfo : windows_core::PCSTR, pdata : *const u8, cbdata : u32, ppratingdetails : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { RatingCheckUserAccess(pszusername.param().abi(), pszurl.param().abi(), pszratinginfo.param().abi(), core::mem::transmute(pdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppratingdetails.unwrap_or(core::mem::zeroed()))).ok() }
+    unsafe { RatingCheckUserAccess(pszusername.param().abi(), pszurl.param().abi(), pszratinginfo.param().abi(), core::mem::transmute(pdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ppratingdetails.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn RatingCheckUserAccessW<P0, P1, P2>(pszusername: P0, pszurl: P1, pszratinginfo: P2, pdata: Option<&[u8]>, ppratingdetails: Option<*mut *mut core::ffi::c_void>) -> windows_core::Result<()>
@@ -347,7 +347,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingCheckUserAccessW(pszusername : windows_core::PCWSTR, pszurl : windows_core::PCWSTR, pszratinginfo : windows_core::PCWSTR, pdata : *const u8, cbdata : u32, ppratingdetails : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { RatingCheckUserAccessW(pszusername.param().abi(), pszurl.param().abi(), pszratinginfo.param().abi(), core::mem::transmute(pdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppratingdetails.unwrap_or(core::mem::zeroed()))).ok() }
+    unsafe { RatingCheckUserAccessW(pszusername.param().abi(), pszurl.param().abi(), pszratinginfo.param().abi(), core::mem::transmute(pdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ppratingdetails.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn RatingClickedOnPRFInternal<P2>(hwndowner: super::super::Foundation::HWND, param1: super::super::Foundation::HINSTANCE, lpszfilename: P2, nshow: i32) -> windows_core::Result<()>
@@ -389,7 +389,7 @@ pub unsafe fn RatingEnabledQuery() -> windows_core::Result<()> {
 #[inline]
 pub unsafe fn RatingFreeDetails(pratingdetails: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("msrating.dll" "system" fn RatingFreeDetails(pratingdetails : *const core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { RatingFreeDetails(core::mem::transmute(pratingdetails.unwrap_or(core::mem::zeroed()))).ok() }
+    unsafe { RatingFreeDetails(pratingdetails.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn RatingInit() -> windows_core::Result<()> {
@@ -407,7 +407,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingObtainQuery(psztargeturl : windows_core::PCSTR, dwuserdata : u32, fcallback : isize, phratingobtainquery : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
-    unsafe { RatingObtainQuery(psztargeturl.param().abi(), dwuserdata, fcallback, core::mem::transmute(phratingobtainquery.unwrap_or(core::mem::zeroed()))).ok() }
+    unsafe { RatingObtainQuery(psztargeturl.param().abi(), dwuserdata, fcallback, phratingobtainquery.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn RatingObtainQueryW<P0>(psztargeturl: P0, dwuserdata: u32, fcallback: isize, phratingobtainquery: Option<*mut super::super::Foundation::HANDLE>) -> windows_core::Result<()>
@@ -415,7 +415,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingObtainQueryW(psztargeturl : windows_core::PCWSTR, dwuserdata : u32, fcallback : isize, phratingobtainquery : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
-    unsafe { RatingObtainQueryW(psztargeturl.param().abi(), dwuserdata, fcallback, core::mem::transmute(phratingobtainquery.unwrap_or(core::mem::zeroed()))).ok() }
+    unsafe { RatingObtainQueryW(psztargeturl.param().abi(), dwuserdata, fcallback, phratingobtainquery.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn RatingSetupUI<P1>(hdlg: super::super::Foundation::HWND, pszusername: P1) -> windows_core::Result<()>
@@ -440,7 +440,7 @@ where
     P0: windows_core::Param<super::super::System::Com::IStream>,
 {
     windows_targets::link!("imgutil.dll" "system" fn SniffStream(pinstream : * mut core::ffi::c_void, pnformat : *mut u32, ppoutstream : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { SniffStream(pinstream.param().abi(), core::mem::transmute(pnformat), core::mem::transmute(ppoutstream)).ok() }
+    unsafe { SniffStream(pinstream.param().abi(), pnformat as _, core::mem::transmute(ppoutstream)).ok() }
 }
 pub const ADDRESSBAND: u32 = 2u32;
 pub const ADDURL_ADDTOCACHE: ADDURL_FLAG = ADDURL_FLAG(1i32);
@@ -843,7 +843,7 @@ impl IActiveXUIHandlerSite3 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MessageBoxW)(windows_core::Interface::as_raw(self), core::mem::transmute(hwnd.unwrap_or(core::mem::zeroed())), text.param().abi(), caption.param().abi(), r#type, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).MessageBoxW)(windows_core::Interface::as_raw(self), hwnd.unwrap_or(core::mem::zeroed()) as _, text.param().abi(), caption.param().abi(), r#type, &mut result__).map(|| result__)
         }
     }
 }
@@ -996,7 +996,7 @@ windows_core::imp::define_interface!(ICaretPositionProvider, ICaretPositionProvi
 windows_core::imp::interface_hierarchy!(ICaretPositionProvider, windows_core::IUnknown);
 impl ICaretPositionProvider {
     pub unsafe fn GetCaretPosition(&self, pptcaret: *mut super::super::Foundation::POINT, pflheight: *mut f32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetCaretPosition)(windows_core::Interface::as_raw(self), core::mem::transmute(pptcaret), core::mem::transmute(pflheight)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetCaretPosition)(windows_core::Interface::as_raw(self), pptcaret as _, pflheight as _).ok() }
     }
 }
 #[repr(C)]
@@ -1394,7 +1394,7 @@ windows_core::imp::define_interface!(IEnumManagerFrames, IEnumManagerFrames_Vtbl
 windows_core::imp::interface_hierarchy!(IEnumManagerFrames, windows_core::IUnknown);
 impl IEnumManagerFrames {
     pub unsafe fn Next(&self, ppwindows: &mut [*mut super::super::Foundation::HWND], pceltfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppwindows.len().try_into().unwrap(), core::mem::transmute(ppwindows.as_ptr()), core::mem::transmute(pceltfetched)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppwindows.len().try_into().unwrap(), core::mem::transmute(ppwindows.as_ptr()), pceltfetched as _).ok() }
     }
     pub unsafe fn Count(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -1493,7 +1493,7 @@ windows_core::imp::define_interface!(IEnumOpenServiceActivity, IEnumOpenServiceA
 windows_core::imp::interface_hierarchy!(IEnumOpenServiceActivity, windows_core::IUnknown);
 impl IEnumOpenServiceActivity {
     pub unsafe fn Next(&self, rgelt: &mut [Option<IOpenServiceActivity>], pceltfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), core::mem::transmute(pceltfetched)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched as _).ok() }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
@@ -1571,7 +1571,7 @@ windows_core::imp::define_interface!(IEnumOpenServiceActivityCategory, IEnumOpen
 windows_core::imp::interface_hierarchy!(IEnumOpenServiceActivityCategory, windows_core::IUnknown);
 impl IEnumOpenServiceActivityCategory {
     pub unsafe fn Next(&self, rgelt: &mut [Option<IOpenServiceActivityCategory>], pceltfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), core::mem::transmute(pceltfetched)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched as _).ok() }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
@@ -1649,7 +1649,7 @@ windows_core::imp::define_interface!(IEnumSTATURL, IEnumSTATURL_Vtbl, 0x3c374a42
 windows_core::imp::interface_hierarchy!(IEnumSTATURL, windows_core::IUnknown);
 impl IEnumSTATURL {
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut STATURL, pceltfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(rgelt), core::mem::transmute(pceltfetched)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, rgelt as _, pceltfetched as _).ok() }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
@@ -2924,7 +2924,7 @@ impl IImageDecodeEventSink {
         }
     }
     pub unsafe fn OnBeginDecode(&self, pdwevents: *mut u32, pnformats: *mut u32, ppformats: *mut *mut windows_core::GUID) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).OnBeginDecode)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwevents), core::mem::transmute(pnformats), core::mem::transmute(ppformats)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnBeginDecode)(windows_core::Interface::as_raw(self), pdwevents as _, pnformats as _, ppformats as _).ok() }
     }
     pub unsafe fn OnBitsComplete(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).OnBitsComplete)(windows_core::Interface::as_raw(self)).ok() }
@@ -4899,7 +4899,7 @@ impl ISniffStream {
         unsafe { (windows_core::Interface::vtable(self).Init)(windows_core::Interface::as_raw(self), pstream.param().abi()).ok() }
     }
     pub unsafe fn Peek(&self, pbuffer: *mut core::ffi::c_void, nbytes: u32, pnbytesread: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Peek)(windows_core::Interface::as_raw(self), core::mem::transmute(pbuffer), nbytes, core::mem::transmute(pnbytesread)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Peek)(windows_core::Interface::as_raw(self), pbuffer as _, nbytes, pnbytesread as _).ok() }
     }
 }
 #[repr(C)]
@@ -4946,7 +4946,7 @@ impl ISurfacePresenterFlip {
         unsafe { (windows_core::Interface::vtable(self).Present)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn GetBuffer(&self, backbufferindex: u32, riid: *const windows_core::GUID, ppbuffer: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetBuffer)(windows_core::Interface::as_raw(self), backbufferindex, riid, core::mem::transmute(ppbuffer)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetBuffer)(windows_core::Interface::as_raw(self), backbufferindex, riid, ppbuffer as _).ok() }
     }
 }
 #[repr(C)]
@@ -5021,7 +5021,7 @@ windows_core::imp::define_interface!(ISurfacePresenterFlipBuffer, ISurfacePresen
 windows_core::imp::interface_hierarchy!(ISurfacePresenterFlipBuffer, windows_core::IUnknown);
 impl ISurfacePresenterFlipBuffer {
     pub unsafe fn BeginDraw(&self, riid: *const windows_core::GUID, ppbuffer: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).BeginDraw)(windows_core::Interface::as_raw(self), riid, core::mem::transmute(ppbuffer)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).BeginDraw)(windows_core::Interface::as_raw(self), riid, ppbuffer as _).ok() }
     }
     pub unsafe fn EndDraw(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).EndDraw)(windows_core::Interface::as_raw(self)).ok() }
@@ -5230,7 +5230,7 @@ impl ITargetFrame {
         unsafe { (windows_core::Interface::vtable(self).SetFrameMargins)(windows_core::Interface::as_raw(self), dwwidth, dwheight).ok() }
     }
     pub unsafe fn GetFrameMargins(&self, pdwwidth: *mut u32, pdwheight: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetFrameMargins)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwwidth), core::mem::transmute(pdwheight)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetFrameMargins)(windows_core::Interface::as_raw(self), pdwwidth as _, pdwheight as _).ok() }
     }
     pub unsafe fn RemoteNavigate(&self, puldata: &[u32]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoteNavigate)(windows_core::Interface::as_raw(self), puldata.len().try_into().unwrap(), core::mem::transmute(puldata.as_ptr())).ok() }
@@ -5486,7 +5486,7 @@ impl ITargetFrame2 {
         unsafe { (windows_core::Interface::vtable(self).SetFrameMargins)(windows_core::Interface::as_raw(self), dwwidth, dwheight).ok() }
     }
     pub unsafe fn GetFrameMargins(&self, pdwwidth: *mut u32, pdwheight: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetFrameMargins)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwwidth), core::mem::transmute(pdwheight)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetFrameMargins)(windows_core::Interface::as_raw(self), pdwwidth as _, pdwheight as _).ok() }
     }
     pub unsafe fn FindFrame<P0>(&self, psztargetname: P0, dwflags: u32) -> windows_core::Result<windows_core::IUnknown>
     where
@@ -6337,7 +6337,7 @@ impl IUrlHistoryStg {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).QueryUrl)(windows_core::Interface::as_raw(self), pocsurl.param().abi(), dwflags, core::mem::transmute(lpstaturl)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).QueryUrl)(windows_core::Interface::as_raw(self), pocsurl.param().abi(), dwflags, lpstaturl as _).ok() }
     }
     pub unsafe fn BindToObject<P0, T>(&self, pocsurl: P0) -> windows_core::Result<T>
     where
@@ -6607,7 +6607,7 @@ impl IViewObjectPresentFlipSite {
         }
     }
     pub unsafe fn GetMetrics(&self, ppos: *mut super::super::Foundation::POINT, psize: *mut super::super::Foundation::SIZE, pscalex: *mut f32, pscaley: *mut f32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetMetrics)(windows_core::Interface::as_raw(self), core::mem::transmute(ppos), core::mem::transmute(psize), core::mem::transmute(pscalex), core::mem::transmute(pscaley)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetMetrics)(windows_core::Interface::as_raw(self), ppos as _, psize as _, pscalex as _, pscaley as _).ok() }
     }
     pub unsafe fn GetFullScreenSize(&self) -> windows_core::Result<super::super::Foundation::SIZE> {
         unsafe {

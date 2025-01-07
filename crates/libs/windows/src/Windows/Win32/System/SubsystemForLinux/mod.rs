@@ -12,7 +12,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("api-ms-win-wsl-api-l1-1-0.dll" "system" fn WslGetDistributionConfiguration(distributionname : windows_core::PCWSTR, distributionversion : *mut u32, defaultuid : *mut u32, wsldistributionflags : *mut WSL_DISTRIBUTION_FLAGS, defaultenvironmentvariables : *mut *mut windows_core::PSTR, defaultenvironmentvariablecount : *mut u32) -> windows_core::HRESULT);
-    unsafe { WslGetDistributionConfiguration(distributionname.param().abi(), core::mem::transmute(distributionversion), core::mem::transmute(defaultuid), core::mem::transmute(wsldistributionflags), core::mem::transmute(defaultenvironmentvariables), core::mem::transmute(defaultenvironmentvariablecount)).ok() }
+    unsafe { WslGetDistributionConfiguration(distributionname.param().abi(), distributionversion as _, defaultuid as _, wsldistributionflags as _, defaultenvironmentvariables as _, defaultenvironmentvariablecount as _).ok() }
 }
 #[inline]
 pub unsafe fn WslIsDistributionRegistered<P0>(distributionname: P0) -> super::super::Foundation::BOOL

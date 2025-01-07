@@ -30,7 +30,7 @@ impl IAction {
         unsafe { (windows_core::Interface::vtable(self).SetId)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(id)).ok() }
     }
     pub unsafe fn Type(&self, ptype: *mut TASK_ACTION_TYPE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Type)(windows_core::Interface::as_raw(self), core::mem::transmute(ptype)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Type)(windows_core::Interface::as_raw(self), ptype as _).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -95,7 +95,7 @@ windows_core::imp::interface_hierarchy!(IActionCollection, windows_core::IUnknow
 #[cfg(feature = "Win32_System_Com")]
 impl IActionCollection {
     pub unsafe fn Count(&self, pcount: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), core::mem::transmute(pcount)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), pcount as _).ok() }
     }
     pub unsafe fn get_Item(&self, index: i32) -> windows_core::Result<IAction> {
         unsafe {
@@ -419,7 +419,7 @@ windows_core::imp::interface_hierarchy!(IDailyTrigger, windows_core::IUnknown, s
 #[cfg(feature = "Win32_System_Com")]
 impl IDailyTrigger {
     pub unsafe fn DaysInterval(&self, pdays: *mut i16) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DaysInterval)(windows_core::Interface::as_raw(self), core::mem::transmute(pdays)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DaysInterval)(windows_core::Interface::as_raw(self), pdays as _).ok() }
     }
     pub unsafe fn SetDaysInterval(&self, days: i16) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDaysInterval)(windows_core::Interface::as_raw(self), days).ok() }
@@ -563,11 +563,11 @@ impl IEmailAction {
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Attachments(&self, pattachements: *mut *mut super::Com::SAFEARRAY) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Attachments)(windows_core::Interface::as_raw(self), core::mem::transmute(pattachements)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Attachments)(windows_core::Interface::as_raw(self), pattachements as _).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetAttachments(&self, pattachements: *mut super::Com::SAFEARRAY) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetAttachments)(windows_core::Interface::as_raw(self), core::mem::transmute(pattachements)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetAttachments)(windows_core::Interface::as_raw(self), pattachements as _).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -787,7 +787,7 @@ windows_core::imp::define_interface!(IEnumWorkItems, IEnumWorkItems_Vtbl, 0x148b
 windows_core::imp::interface_hierarchy!(IEnumWorkItems, windows_core::IUnknown);
 impl IEnumWorkItems {
     pub unsafe fn Next(&self, celt: u32, rgpwsznames: *mut *mut windows_core::PWSTR, pceltfetched: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(rgpwsznames), core::mem::transmute(pceltfetched)) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, rgpwsznames as _, pceltfetched as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
@@ -1101,7 +1101,7 @@ windows_core::imp::interface_hierarchy!(IExecAction2, windows_core::IUnknown, su
 #[cfg(feature = "Win32_System_Com")]
 impl IExecAction2 {
     pub unsafe fn HideAppWindow(&self, phideappwindow: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).HideAppWindow)(windows_core::Interface::as_raw(self), core::mem::transmute(phideappwindow)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).HideAppWindow)(windows_core::Interface::as_raw(self), phideappwindow as _).ok() }
     }
     pub unsafe fn SetHideAppWindow(&self, hideappwindow: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetHideAppWindow)(windows_core::Interface::as_raw(self), hideappwindow).ok() }
@@ -1172,13 +1172,13 @@ impl IIdleSettings {
         unsafe { (windows_core::Interface::vtable(self).SetWaitTimeout)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(timeout)).ok() }
     }
     pub unsafe fn StopOnIdleEnd(&self, pstop: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).StopOnIdleEnd)(windows_core::Interface::as_raw(self), core::mem::transmute(pstop)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).StopOnIdleEnd)(windows_core::Interface::as_raw(self), pstop as _).ok() }
     }
     pub unsafe fn SetStopOnIdleEnd(&self, stop: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetStopOnIdleEnd)(windows_core::Interface::as_raw(self), stop).ok() }
     }
     pub unsafe fn RestartOnIdle(&self, prestart: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RestartOnIdle)(windows_core::Interface::as_raw(self), core::mem::transmute(prestart)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RestartOnIdle)(windows_core::Interface::as_raw(self), prestart as _).ok() }
     }
     pub unsafe fn SetRestartOnIdle(&self, restart: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetRestartOnIdle)(windows_core::Interface::as_raw(self), restart).ok() }
@@ -1418,7 +1418,7 @@ impl IMaintenanceSettings {
         unsafe { (windows_core::Interface::vtable(self).SetExclusive)(windows_core::Interface::as_raw(self), value).ok() }
     }
     pub unsafe fn Exclusive(&self, target: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Exclusive)(windows_core::Interface::as_raw(self), core::mem::transmute(target)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Exclusive)(windows_core::Interface::as_raw(self), target as _).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1510,25 +1510,25 @@ windows_core::imp::interface_hierarchy!(IMonthlyDOWTrigger, windows_core::IUnkno
 #[cfg(feature = "Win32_System_Com")]
 impl IMonthlyDOWTrigger {
     pub unsafe fn DaysOfWeek(&self, pdays: *mut i16) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DaysOfWeek)(windows_core::Interface::as_raw(self), core::mem::transmute(pdays)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DaysOfWeek)(windows_core::Interface::as_raw(self), pdays as _).ok() }
     }
     pub unsafe fn SetDaysOfWeek(&self, days: i16) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDaysOfWeek)(windows_core::Interface::as_raw(self), days).ok() }
     }
     pub unsafe fn WeeksOfMonth(&self, pweeks: *mut i16) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).WeeksOfMonth)(windows_core::Interface::as_raw(self), core::mem::transmute(pweeks)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).WeeksOfMonth)(windows_core::Interface::as_raw(self), pweeks as _).ok() }
     }
     pub unsafe fn SetWeeksOfMonth(&self, weeks: i16) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetWeeksOfMonth)(windows_core::Interface::as_raw(self), weeks).ok() }
     }
     pub unsafe fn MonthsOfYear(&self, pmonths: *mut i16) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).MonthsOfYear)(windows_core::Interface::as_raw(self), core::mem::transmute(pmonths)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).MonthsOfYear)(windows_core::Interface::as_raw(self), pmonths as _).ok() }
     }
     pub unsafe fn SetMonthsOfYear(&self, months: i16) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMonthsOfYear)(windows_core::Interface::as_raw(self), months).ok() }
     }
     pub unsafe fn RunOnLastWeekOfMonth(&self, plastweek: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RunOnLastWeekOfMonth)(windows_core::Interface::as_raw(self), core::mem::transmute(plastweek)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RunOnLastWeekOfMonth)(windows_core::Interface::as_raw(self), plastweek as _).ok() }
     }
     pub unsafe fn SetRunOnLastWeekOfMonth(&self, lastweek: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetRunOnLastWeekOfMonth)(windows_core::Interface::as_raw(self), lastweek).ok() }
@@ -1665,19 +1665,19 @@ windows_core::imp::interface_hierarchy!(IMonthlyTrigger, windows_core::IUnknown,
 #[cfg(feature = "Win32_System_Com")]
 impl IMonthlyTrigger {
     pub unsafe fn DaysOfMonth(&self, pdays: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DaysOfMonth)(windows_core::Interface::as_raw(self), core::mem::transmute(pdays)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DaysOfMonth)(windows_core::Interface::as_raw(self), pdays as _).ok() }
     }
     pub unsafe fn SetDaysOfMonth(&self, days: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDaysOfMonth)(windows_core::Interface::as_raw(self), days).ok() }
     }
     pub unsafe fn MonthsOfYear(&self, pmonths: *mut i16) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).MonthsOfYear)(windows_core::Interface::as_raw(self), core::mem::transmute(pmonths)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).MonthsOfYear)(windows_core::Interface::as_raw(self), pmonths as _).ok() }
     }
     pub unsafe fn SetMonthsOfYear(&self, months: i16) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMonthsOfYear)(windows_core::Interface::as_raw(self), months).ok() }
     }
     pub unsafe fn RunOnLastDayOfMonth(&self, plastday: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RunOnLastDayOfMonth)(windows_core::Interface::as_raw(self), core::mem::transmute(plastday)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RunOnLastDayOfMonth)(windows_core::Interface::as_raw(self), plastday as _).ok() }
     }
     pub unsafe fn SetRunOnLastDayOfMonth(&self, lastday: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetRunOnLastDayOfMonth)(windows_core::Interface::as_raw(self), lastday).ok() }
@@ -1897,7 +1897,7 @@ impl IPrincipal {
         unsafe { (windows_core::Interface::vtable(self).SetUserId)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(user)).ok() }
     }
     pub unsafe fn LogonType(&self, plogon: *mut TASK_LOGON_TYPE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).LogonType)(windows_core::Interface::as_raw(self), core::mem::transmute(plogon)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).LogonType)(windows_core::Interface::as_raw(self), plogon as _).ok() }
     }
     pub unsafe fn SetLogonType(&self, logon: TASK_LOGON_TYPE) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetLogonType)(windows_core::Interface::as_raw(self), logon).ok() }
@@ -1909,7 +1909,7 @@ impl IPrincipal {
         unsafe { (windows_core::Interface::vtable(self).SetGroupId)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(group)).ok() }
     }
     pub unsafe fn RunLevel(&self, prunlevel: *mut TASK_RUNLEVEL_TYPE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RunLevel)(windows_core::Interface::as_raw(self), core::mem::transmute(prunlevel)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RunLevel)(windows_core::Interface::as_raw(self), prunlevel as _).ok() }
     }
     pub unsafe fn SetRunLevel(&self, runlevel: TASK_RUNLEVEL_TYPE) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetRunLevel)(windows_core::Interface::as_raw(self), runlevel).ok() }
@@ -2058,13 +2058,13 @@ windows_core::imp::interface_hierarchy!(IPrincipal2, windows_core::IUnknown, sup
 #[cfg(feature = "Win32_System_Com")]
 impl IPrincipal2 {
     pub unsafe fn ProcessTokenSidType(&self, pprocesstokensidtype: *mut TASK_PROCESSTOKENSID_TYPE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ProcessTokenSidType)(windows_core::Interface::as_raw(self), core::mem::transmute(pprocesstokensidtype)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ProcessTokenSidType)(windows_core::Interface::as_raw(self), pprocesstokensidtype as _).ok() }
     }
     pub unsafe fn SetProcessTokenSidType(&self, processtokensidtype: TASK_PROCESSTOKENSID_TYPE) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetProcessTokenSidType)(windows_core::Interface::as_raw(self), processtokensidtype).ok() }
     }
     pub unsafe fn RequiredPrivilegeCount(&self, pcount: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RequiredPrivilegeCount)(windows_core::Interface::as_raw(self), core::mem::transmute(pcount)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RequiredPrivilegeCount)(windows_core::Interface::as_raw(self), pcount as _).ok() }
     }
     pub unsafe fn get_RequiredPrivilege(&self, index: i32, pprivilege: *mut windows_core::BSTR) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).get_RequiredPrivilege)(windows_core::Interface::as_raw(self), index, core::mem::transmute(pprivilege)).ok() }
@@ -2294,7 +2294,7 @@ impl IRegisteredTask {
         unsafe { (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self), flags).ok() }
     }
     pub unsafe fn GetRunTimes(&self, pststart: *const super::super::Foundation::SYSTEMTIME, pstend: *const super::super::Foundation::SYSTEMTIME, pcount: *mut u32, pruntimes: *mut *mut super::super::Foundation::SYSTEMTIME) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetRunTimes)(windows_core::Interface::as_raw(self), pststart, pstend, core::mem::transmute(pcount), core::mem::transmute(pruntimes)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetRunTimes)(windows_core::Interface::as_raw(self), pststart, pstend, pcount as _, pruntimes as _).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3012,7 +3012,7 @@ impl IRepetitionPattern {
         unsafe { (windows_core::Interface::vtable(self).SetDuration)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(duration)).ok() }
     }
     pub unsafe fn StopAtDurationEnd(&self, pstop: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).StopAtDurationEnd)(windows_core::Interface::as_raw(self), core::mem::transmute(pstop)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).StopAtDurationEnd)(windows_core::Interface::as_raw(self), pstop as _).ok() }
     }
     pub unsafe fn SetStopAtDurationEnd(&self, stop: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetStopAtDurationEnd)(windows_core::Interface::as_raw(self), stop).ok() }
@@ -3384,7 +3384,7 @@ windows_core::imp::define_interface!(IScheduledWorkItem, IScheduledWorkItem_Vtbl
 windows_core::imp::interface_hierarchy!(IScheduledWorkItem, windows_core::IUnknown);
 impl IScheduledWorkItem {
     pub unsafe fn CreateTrigger(&self, pinewtrigger: *mut u16, pptrigger: *mut Option<ITaskTrigger>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CreateTrigger)(windows_core::Interface::as_raw(self), core::mem::transmute(pinewtrigger), core::mem::transmute(pptrigger)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateTrigger)(windows_core::Interface::as_raw(self), pinewtrigger as _, core::mem::transmute(pptrigger)).ok() }
     }
     pub unsafe fn DeleteTrigger(&self, itrigger: u16) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).DeleteTrigger)(windows_core::Interface::as_raw(self), itrigger).ok() }
@@ -3408,16 +3408,16 @@ impl IScheduledWorkItem {
         }
     }
     pub unsafe fn GetRunTimes(&self, pstbegin: *const super::super::Foundation::SYSTEMTIME, pstend: *const super::super::Foundation::SYSTEMTIME, pcount: *mut u16, rgsttasktimes: *mut *mut super::super::Foundation::SYSTEMTIME) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetRunTimes)(windows_core::Interface::as_raw(self), pstbegin, pstend, core::mem::transmute(pcount), core::mem::transmute(rgsttasktimes)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetRunTimes)(windows_core::Interface::as_raw(self), pstbegin, pstend, pcount as _, rgsttasktimes as _).ok() }
     }
     pub unsafe fn GetNextRunTime(&self, pstnextrun: *mut super::super::Foundation::SYSTEMTIME) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetNextRunTime)(windows_core::Interface::as_raw(self), core::mem::transmute(pstnextrun)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetNextRunTime)(windows_core::Interface::as_raw(self), pstnextrun as _).ok() }
     }
     pub unsafe fn SetIdleWait(&self, widleminutes: u16, wdeadlineminutes: u16) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetIdleWait)(windows_core::Interface::as_raw(self), widleminutes, wdeadlineminutes).ok() }
     }
     pub unsafe fn GetIdleWait(&self, pwidleminutes: *mut u16, pwdeadlineminutes: *mut u16) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetIdleWait)(windows_core::Interface::as_raw(self), core::mem::transmute(pwidleminutes), core::mem::transmute(pwdeadlineminutes)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetIdleWait)(windows_core::Interface::as_raw(self), pwidleminutes as _, pwdeadlineminutes as _).ok() }
     }
     pub unsafe fn Run(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Run)(windows_core::Interface::as_raw(self)).ok() }
@@ -3474,7 +3474,7 @@ impl IScheduledWorkItem {
         unsafe { (windows_core::Interface::vtable(self).SetWorkItemData)(windows_core::Interface::as_raw(self), cbdata, rgbdata).ok() }
     }
     pub unsafe fn GetWorkItemData(&self, pcbdata: *mut u16, prgbdata: *mut *mut u8) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetWorkItemData)(windows_core::Interface::as_raw(self), core::mem::transmute(pcbdata), core::mem::transmute(prgbdata)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetWorkItemData)(windows_core::Interface::as_raw(self), pcbdata as _, prgbdata as _).ok() }
     }
     pub unsafe fn SetErrorRetryCount(&self, wretrycount: u16) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetErrorRetryCount)(windows_core::Interface::as_raw(self), wretrycount).ok() }
@@ -3893,7 +3893,7 @@ impl ISessionStateChangeTrigger {
         unsafe { (windows_core::Interface::vtable(self).SetUserId)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(user)).ok() }
     }
     pub unsafe fn StateChange(&self, ptype: *mut TASK_SESSION_STATE_CHANGE_TYPE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).StateChange)(windows_core::Interface::as_raw(self), core::mem::transmute(ptype)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).StateChange)(windows_core::Interface::as_raw(self), ptype as _).ok() }
     }
     pub unsafe fn SetStateChange(&self, r#type: TASK_SESSION_STATE_CHANGE_TYPE) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetStateChange)(windows_core::Interface::as_raw(self), r#type).ok() }
@@ -5092,7 +5092,7 @@ windows_core::imp::interface_hierarchy!(ITaskNamedValueCollection, windows_core:
 #[cfg(feature = "Win32_System_Com")]
 impl ITaskNamedValueCollection {
     pub unsafe fn Count(&self, pcount: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), core::mem::transmute(pcount)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), pcount as _).ok() }
     }
     pub unsafe fn get_Item(&self, index: i32) -> windows_core::Result<ITaskNamedValuePair> {
         unsafe {
@@ -5700,7 +5700,7 @@ windows_core::imp::interface_hierarchy!(ITaskSettings, windows_core::IUnknown, s
 #[cfg(feature = "Win32_System_Com")]
 impl ITaskSettings {
     pub unsafe fn AllowDemandStart(&self, pallowdemandstart: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AllowDemandStart)(windows_core::Interface::as_raw(self), core::mem::transmute(pallowdemandstart)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AllowDemandStart)(windows_core::Interface::as_raw(self), pallowdemandstart as _).ok() }
     }
     pub unsafe fn SetAllowDemandStart(&self, allowdemandstart: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAllowDemandStart)(windows_core::Interface::as_raw(self), allowdemandstart).ok() }
@@ -5712,37 +5712,37 @@ impl ITaskSettings {
         unsafe { (windows_core::Interface::vtable(self).SetRestartInterval)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(restartinterval)).ok() }
     }
     pub unsafe fn RestartCount(&self, prestartcount: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RestartCount)(windows_core::Interface::as_raw(self), core::mem::transmute(prestartcount)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RestartCount)(windows_core::Interface::as_raw(self), prestartcount as _).ok() }
     }
     pub unsafe fn SetRestartCount(&self, restartcount: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetRestartCount)(windows_core::Interface::as_raw(self), restartcount).ok() }
     }
     pub unsafe fn MultipleInstances(&self, ppolicy: *mut TASK_INSTANCES_POLICY) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).MultipleInstances)(windows_core::Interface::as_raw(self), core::mem::transmute(ppolicy)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).MultipleInstances)(windows_core::Interface::as_raw(self), ppolicy as _).ok() }
     }
     pub unsafe fn SetMultipleInstances(&self, policy: TASK_INSTANCES_POLICY) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMultipleInstances)(windows_core::Interface::as_raw(self), policy).ok() }
     }
     pub unsafe fn StopIfGoingOnBatteries(&self, pstopifonbatteries: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).StopIfGoingOnBatteries)(windows_core::Interface::as_raw(self), core::mem::transmute(pstopifonbatteries)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).StopIfGoingOnBatteries)(windows_core::Interface::as_raw(self), pstopifonbatteries as _).ok() }
     }
     pub unsafe fn SetStopIfGoingOnBatteries(&self, stopifonbatteries: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetStopIfGoingOnBatteries)(windows_core::Interface::as_raw(self), stopifonbatteries).ok() }
     }
     pub unsafe fn DisallowStartIfOnBatteries(&self, pdisallowstart: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DisallowStartIfOnBatteries)(windows_core::Interface::as_raw(self), core::mem::transmute(pdisallowstart)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DisallowStartIfOnBatteries)(windows_core::Interface::as_raw(self), pdisallowstart as _).ok() }
     }
     pub unsafe fn SetDisallowStartIfOnBatteries(&self, disallowstart: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDisallowStartIfOnBatteries)(windows_core::Interface::as_raw(self), disallowstart).ok() }
     }
     pub unsafe fn AllowHardTerminate(&self, pallowhardterminate: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AllowHardTerminate)(windows_core::Interface::as_raw(self), core::mem::transmute(pallowhardterminate)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AllowHardTerminate)(windows_core::Interface::as_raw(self), pallowhardterminate as _).ok() }
     }
     pub unsafe fn SetAllowHardTerminate(&self, allowhardterminate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAllowHardTerminate)(windows_core::Interface::as_raw(self), allowhardterminate).ok() }
     }
     pub unsafe fn StartWhenAvailable(&self, pstartwhenavailable: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).StartWhenAvailable)(windows_core::Interface::as_raw(self), core::mem::transmute(pstartwhenavailable)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).StartWhenAvailable)(windows_core::Interface::as_raw(self), pstartwhenavailable as _).ok() }
     }
     pub unsafe fn SetStartWhenAvailable(&self, startwhenavailable: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetStartWhenAvailable)(windows_core::Interface::as_raw(self), startwhenavailable).ok() }
@@ -5754,7 +5754,7 @@ impl ITaskSettings {
         unsafe { (windows_core::Interface::vtable(self).SetXmlText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(text)).ok() }
     }
     pub unsafe fn RunOnlyIfNetworkAvailable(&self, prunonlyifnetworkavailable: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RunOnlyIfNetworkAvailable)(windows_core::Interface::as_raw(self), core::mem::transmute(prunonlyifnetworkavailable)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RunOnlyIfNetworkAvailable)(windows_core::Interface::as_raw(self), prunonlyifnetworkavailable as _).ok() }
     }
     pub unsafe fn SetRunOnlyIfNetworkAvailable(&self, runonlyifnetworkavailable: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetRunOnlyIfNetworkAvailable)(windows_core::Interface::as_raw(self), runonlyifnetworkavailable).ok() }
@@ -5766,7 +5766,7 @@ impl ITaskSettings {
         unsafe { (windows_core::Interface::vtable(self).SetExecutionTimeLimit)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(executiontimelimit)).ok() }
     }
     pub unsafe fn Enabled(&self, penabled: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Enabled)(windows_core::Interface::as_raw(self), core::mem::transmute(penabled)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Enabled)(windows_core::Interface::as_raw(self), penabled as _).ok() }
     }
     pub unsafe fn SetEnabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), enabled).ok() }
@@ -5778,19 +5778,19 @@ impl ITaskSettings {
         unsafe { (windows_core::Interface::vtable(self).SetDeleteExpiredTaskAfter)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(expirationdelay)).ok() }
     }
     pub unsafe fn Priority(&self, ppriority: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Priority)(windows_core::Interface::as_raw(self), core::mem::transmute(ppriority)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Priority)(windows_core::Interface::as_raw(self), ppriority as _).ok() }
     }
     pub unsafe fn SetPriority(&self, priority: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetPriority)(windows_core::Interface::as_raw(self), priority).ok() }
     }
     pub unsafe fn Compatibility(&self, pcompatlevel: *mut TASK_COMPATIBILITY) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Compatibility)(windows_core::Interface::as_raw(self), core::mem::transmute(pcompatlevel)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Compatibility)(windows_core::Interface::as_raw(self), pcompatlevel as _).ok() }
     }
     pub unsafe fn SetCompatibility(&self, compatlevel: TASK_COMPATIBILITY) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetCompatibility)(windows_core::Interface::as_raw(self), compatlevel).ok() }
     }
     pub unsafe fn Hidden(&self, phidden: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Hidden)(windows_core::Interface::as_raw(self), core::mem::transmute(phidden)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Hidden)(windows_core::Interface::as_raw(self), phidden as _).ok() }
     }
     pub unsafe fn SetHidden(&self, hidden: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetHidden)(windows_core::Interface::as_raw(self), hidden).ok() }
@@ -5808,13 +5808,13 @@ impl ITaskSettings {
         unsafe { (windows_core::Interface::vtable(self).SetIdleSettings)(windows_core::Interface::as_raw(self), pidlesettings.param().abi()).ok() }
     }
     pub unsafe fn RunOnlyIfIdle(&self, prunonlyifidle: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RunOnlyIfIdle)(windows_core::Interface::as_raw(self), core::mem::transmute(prunonlyifidle)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RunOnlyIfIdle)(windows_core::Interface::as_raw(self), prunonlyifidle as _).ok() }
     }
     pub unsafe fn SetRunOnlyIfIdle(&self, runonlyifidle: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetRunOnlyIfIdle)(windows_core::Interface::as_raw(self), runonlyifidle).ok() }
     }
     pub unsafe fn WakeToRun(&self, pwake: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).WakeToRun)(windows_core::Interface::as_raw(self), core::mem::transmute(pwake)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).WakeToRun)(windows_core::Interface::as_raw(self), pwake as _).ok() }
     }
     pub unsafe fn SetWakeToRun(&self, wake: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetWakeToRun)(windows_core::Interface::as_raw(self), wake).ok() }
@@ -6239,13 +6239,13 @@ windows_core::imp::interface_hierarchy!(ITaskSettings2, windows_core::IUnknown, 
 #[cfg(feature = "Win32_System_Com")]
 impl ITaskSettings2 {
     pub unsafe fn DisallowStartOnRemoteAppSession(&self, pdisallowstart: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DisallowStartOnRemoteAppSession)(windows_core::Interface::as_raw(self), core::mem::transmute(pdisallowstart)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DisallowStartOnRemoteAppSession)(windows_core::Interface::as_raw(self), pdisallowstart as _).ok() }
     }
     pub unsafe fn SetDisallowStartOnRemoteAppSession(&self, disallowstart: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDisallowStartOnRemoteAppSession)(windows_core::Interface::as_raw(self), disallowstart).ok() }
     }
     pub unsafe fn UseUnifiedSchedulingEngine(&self, puseunifiedengine: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).UseUnifiedSchedulingEngine)(windows_core::Interface::as_raw(self), core::mem::transmute(puseunifiedengine)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UseUnifiedSchedulingEngine)(windows_core::Interface::as_raw(self), puseunifiedengine as _).ok() }
     }
     pub unsafe fn SetUseUnifiedSchedulingEngine(&self, useunifiedengine: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetUseUnifiedSchedulingEngine)(windows_core::Interface::as_raw(self), useunifiedengine).ok() }
@@ -6322,13 +6322,13 @@ windows_core::imp::interface_hierarchy!(ITaskSettings3, windows_core::IUnknown, 
 #[cfg(feature = "Win32_System_Com")]
 impl ITaskSettings3 {
     pub unsafe fn DisallowStartOnRemoteAppSession(&self, pdisallowstart: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DisallowStartOnRemoteAppSession)(windows_core::Interface::as_raw(self), core::mem::transmute(pdisallowstart)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DisallowStartOnRemoteAppSession)(windows_core::Interface::as_raw(self), pdisallowstart as _).ok() }
     }
     pub unsafe fn SetDisallowStartOnRemoteAppSession(&self, disallowstart: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDisallowStartOnRemoteAppSession)(windows_core::Interface::as_raw(self), disallowstart).ok() }
     }
     pub unsafe fn UseUnifiedSchedulingEngine(&self, puseunifiedengine: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).UseUnifiedSchedulingEngine)(windows_core::Interface::as_raw(self), core::mem::transmute(puseunifiedengine)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UseUnifiedSchedulingEngine)(windows_core::Interface::as_raw(self), puseunifiedengine as _).ok() }
     }
     pub unsafe fn SetUseUnifiedSchedulingEngine(&self, useunifiedengine: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetUseUnifiedSchedulingEngine)(windows_core::Interface::as_raw(self), useunifiedengine).ok() }
@@ -6352,7 +6352,7 @@ impl ITaskSettings3 {
         }
     }
     pub unsafe fn Volatile(&self, pvolatile: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Volatile)(windows_core::Interface::as_raw(self), core::mem::transmute(pvolatile)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Volatile)(windows_core::Interface::as_raw(self), pvolatile as _).ok() }
     }
     pub unsafe fn SetVolatile(&self, volatile: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetVolatile)(windows_core::Interface::as_raw(self), volatile).ok() }
@@ -6479,7 +6479,7 @@ impl ITaskTrigger {
         unsafe { (windows_core::Interface::vtable(self).SetTrigger)(windows_core::Interface::as_raw(self), ptrigger).ok() }
     }
     pub unsafe fn GetTrigger(&self, ptrigger: *mut TASK_TRIGGER) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetTrigger)(windows_core::Interface::as_raw(self), core::mem::transmute(ptrigger)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetTrigger)(windows_core::Interface::as_raw(self), ptrigger as _).ok() }
     }
     pub unsafe fn GetTriggerString(&self) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
@@ -6686,7 +6686,7 @@ windows_core::imp::interface_hierarchy!(ITrigger, windows_core::IUnknown, super:
 #[cfg(feature = "Win32_System_Com")]
 impl ITrigger {
     pub unsafe fn Type(&self, ptype: *mut TASK_TRIGGER_TYPE2) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Type)(windows_core::Interface::as_raw(self), core::mem::transmute(ptype)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Type)(windows_core::Interface::as_raw(self), ptype as _).ok() }
     }
     pub unsafe fn Id(&self, pid: *mut windows_core::BSTR) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Id)(windows_core::Interface::as_raw(self), core::mem::transmute(pid)).ok() }
@@ -6725,7 +6725,7 @@ impl ITrigger {
         unsafe { (windows_core::Interface::vtable(self).SetEndBoundary)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(end)).ok() }
     }
     pub unsafe fn Enabled(&self, penabled: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Enabled)(windows_core::Interface::as_raw(self), core::mem::transmute(penabled)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Enabled)(windows_core::Interface::as_raw(self), penabled as _).ok() }
     }
     pub unsafe fn SetEnabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), enabled).ok() }
@@ -6889,7 +6889,7 @@ windows_core::imp::interface_hierarchy!(ITriggerCollection, windows_core::IUnkno
 #[cfg(feature = "Win32_System_Com")]
 impl ITriggerCollection {
     pub unsafe fn Count(&self, pcount: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), core::mem::transmute(pcount)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), pcount as _).ok() }
     }
     pub unsafe fn get_Item(&self, index: i32) -> windows_core::Result<ITrigger> {
         unsafe {
@@ -7027,13 +7027,13 @@ windows_core::imp::interface_hierarchy!(IWeeklyTrigger, windows_core::IUnknown, 
 #[cfg(feature = "Win32_System_Com")]
 impl IWeeklyTrigger {
     pub unsafe fn DaysOfWeek(&self, pdays: *mut i16) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DaysOfWeek)(windows_core::Interface::as_raw(self), core::mem::transmute(pdays)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DaysOfWeek)(windows_core::Interface::as_raw(self), pdays as _).ok() }
     }
     pub unsafe fn SetDaysOfWeek(&self, days: i16) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDaysOfWeek)(windows_core::Interface::as_raw(self), days).ok() }
     }
     pub unsafe fn WeeksInterval(&self, pweeks: *mut i16) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).WeeksInterval)(windows_core::Interface::as_raw(self), core::mem::transmute(pweeks)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).WeeksInterval)(windows_core::Interface::as_raw(self), pweeks as _).ok() }
     }
     pub unsafe fn SetWeeksInterval(&self, weeks: i16) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetWeeksInterval)(windows_core::Interface::as_raw(self), weeks).ok() }

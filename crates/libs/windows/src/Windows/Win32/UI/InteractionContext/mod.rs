@@ -73,7 +73,7 @@ pub unsafe fn GetStateInteractionContext(interactioncontext: HINTERACTIONCONTEXT
     windows_targets::link!("ninput.dll" "system" fn GetStateInteractionContext(interactioncontext : HINTERACTIONCONTEXT, pointerinfo : *const super::Input::Pointer:: POINTER_INFO, state : *mut INTERACTION_STATE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        GetStateInteractionContext(interactioncontext, core::mem::transmute(pointerinfo.unwrap_or(core::mem::zeroed())), &mut result__).map(|| core::mem::transmute(result__))
+        GetStateInteractionContext(interactioncontext, pointerinfo.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[inline]
@@ -112,13 +112,13 @@ pub unsafe fn ProcessPointerFramesInteractionContext(interactioncontext: HINTERA
 #[inline]
 pub unsafe fn RegisterOutputCallbackInteractionContext(interactioncontext: HINTERACTIONCONTEXT, outputcallback: INTERACTION_CONTEXT_OUTPUT_CALLBACK, clientdata: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("ninput.dll" "system" fn RegisterOutputCallbackInteractionContext(interactioncontext : HINTERACTIONCONTEXT, outputcallback : INTERACTION_CONTEXT_OUTPUT_CALLBACK, clientdata : *const core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { RegisterOutputCallbackInteractionContext(interactioncontext, outputcallback, core::mem::transmute(clientdata.unwrap_or(core::mem::zeroed()))).ok() }
+    unsafe { RegisterOutputCallbackInteractionContext(interactioncontext, outputcallback, clientdata.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn RegisterOutputCallbackInteractionContext2(interactioncontext: HINTERACTIONCONTEXT, outputcallback: INTERACTION_CONTEXT_OUTPUT_CALLBACK2, clientdata: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("ninput.dll" "system" fn RegisterOutputCallbackInteractionContext2(interactioncontext : HINTERACTIONCONTEXT, outputcallback : INTERACTION_CONTEXT_OUTPUT_CALLBACK2, clientdata : *const core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { RegisterOutputCallbackInteractionContext2(interactioncontext, outputcallback, core::mem::transmute(clientdata.unwrap_or(core::mem::zeroed()))).ok() }
+    unsafe { RegisterOutputCallbackInteractionContext2(interactioncontext, outputcallback, clientdata.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn RemovePointerInteractionContext(interactioncontext: HINTERACTIONCONTEXT, pointerid: u32) -> windows_core::Result<()> {

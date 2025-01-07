@@ -50,7 +50,7 @@ impl IEffectivePermission {
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetEffectivePermission)(windows_core::Interface::as_raw(self), pguidobjecttype, pusersid, pszservername.param().abi(), psd, core::mem::transmute(ppobjecttypelist), core::mem::transmute(pcobjecttypelistlength), core::mem::transmute(ppgrantedaccesslist), core::mem::transmute(pcgrantedaccesslistlength)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetEffectivePermission)(windows_core::Interface::as_raw(self), pguidobjecttype, pusersid, pszservername.param().abi(), psd, ppobjecttypelist as _, pcobjecttypelistlength as _, ppgrantedaccesslist as _, pcgrantedaccesslistlength as _).ok() }
     }
 }
 #[repr(C)]
@@ -103,19 +103,19 @@ impl IEffectivePermission2 {
             (windows_core::Interface::vtable(self).ComputeEffectivePermissionWithSecondarySecurity)(
                 windows_core::Interface::as_raw(self),
                 psid,
-                core::mem::transmute(pdevicesid.unwrap_or(core::mem::zeroed())),
+                pdevicesid.unwrap_or(core::mem::zeroed()) as _,
                 pszservername.param().abi(),
-                core::mem::transmute(psecurityobjects),
+                psecurityobjects as _,
                 dwsecurityobjectcount,
-                core::mem::transmute(pusergroups.unwrap_or(core::mem::zeroed())),
-                core::mem::transmute(pauthzusergroupsoperations.unwrap_or(core::mem::zeroed())),
-                core::mem::transmute(pdevicegroups.unwrap_or(core::mem::zeroed())),
-                core::mem::transmute(pauthzdevicegroupsoperations.unwrap_or(core::mem::zeroed())),
-                core::mem::transmute(pauthzuserclaims.unwrap_or(core::mem::zeroed())),
-                core::mem::transmute(pauthzuserclaimsoperations.unwrap_or(core::mem::zeroed())),
-                core::mem::transmute(pauthzdeviceclaims.unwrap_or(core::mem::zeroed())),
-                core::mem::transmute(pauthzdeviceclaimsoperations.unwrap_or(core::mem::zeroed())),
-                core::mem::transmute(peffpermresultlists),
+                pusergroups.unwrap_or(core::mem::zeroed()) as _,
+                pauthzusergroupsoperations.unwrap_or(core::mem::zeroed()) as _,
+                pdevicegroups.unwrap_or(core::mem::zeroed()) as _,
+                pauthzdevicegroupsoperations.unwrap_or(core::mem::zeroed()) as _,
+                pauthzuserclaims.unwrap_or(core::mem::zeroed()) as _,
+                pauthzuserclaimsoperations.unwrap_or(core::mem::zeroed()) as _,
+                pauthzdeviceclaims.unwrap_or(core::mem::zeroed()) as _,
+                pauthzdeviceclaimsoperations.unwrap_or(core::mem::zeroed()) as _,
+                peffpermresultlists as _,
             )
             .ok()
         }
@@ -200,22 +200,22 @@ windows_core::imp::define_interface!(ISecurityInformation, ISecurityInformation_
 windows_core::imp::interface_hierarchy!(ISecurityInformation, windows_core::IUnknown);
 impl ISecurityInformation {
     pub unsafe fn GetObjectInformation(&self, pobjectinfo: *mut SI_OBJECT_INFO) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetObjectInformation)(windows_core::Interface::as_raw(self), core::mem::transmute(pobjectinfo)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetObjectInformation)(windows_core::Interface::as_raw(self), pobjectinfo as _).ok() }
     }
     pub unsafe fn GetSecurity(&self, requestedinformation: super::super::OBJECT_SECURITY_INFORMATION, ppsecuritydescriptor: *mut super::super::PSECURITY_DESCRIPTOR, fdefault: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetSecurity)(windows_core::Interface::as_raw(self), requestedinformation, core::mem::transmute(ppsecuritydescriptor), fdefault.into()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetSecurity)(windows_core::Interface::as_raw(self), requestedinformation, ppsecuritydescriptor as _, fdefault.into()).ok() }
     }
     pub unsafe fn SetSecurity(&self, securityinformation: super::super::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: super::super::PSECURITY_DESCRIPTOR) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSecurity)(windows_core::Interface::as_raw(self), securityinformation, psecuritydescriptor).ok() }
     }
     pub unsafe fn GetAccessRights(&self, pguidobjecttype: *const windows_core::GUID, dwflags: SECURITY_INFO_PAGE_FLAGS, ppaccess: *mut *mut SI_ACCESS, pcaccesses: *mut u32, pidefaultaccess: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetAccessRights)(windows_core::Interface::as_raw(self), pguidobjecttype, dwflags, core::mem::transmute(ppaccess), core::mem::transmute(pcaccesses), core::mem::transmute(pidefaultaccess)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetAccessRights)(windows_core::Interface::as_raw(self), pguidobjecttype, dwflags, ppaccess as _, pcaccesses as _, pidefaultaccess as _).ok() }
     }
     pub unsafe fn MapGeneric(&self, pguidobjecttype: *const windows_core::GUID, paceflags: *mut u8, pmask: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).MapGeneric)(windows_core::Interface::as_raw(self), pguidobjecttype, core::mem::transmute(paceflags), core::mem::transmute(pmask)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).MapGeneric)(windows_core::Interface::as_raw(self), pguidobjecttype, paceflags as _, pmask as _).ok() }
     }
     pub unsafe fn GetInheritTypes(&self, ppinherittypes: *mut *mut SI_INHERIT_TYPE, pcinherittypes: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetInheritTypes)(windows_core::Interface::as_raw(self), core::mem::transmute(ppinherittypes), core::mem::transmute(pcinherittypes)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetInheritTypes)(windows_core::Interface::as_raw(self), ppinherittypes as _, pcinherittypes as _).ok() }
     }
     #[cfg(feature = "Win32_UI_Controls")]
     pub unsafe fn PropertySheetPageCallback(&self, hwnd: super::super::super::Foundation::HWND, umsg: super::super::super::UI::Controls::PSPCB_MESSAGE, upage: SI_PAGE_TYPE) -> windows_core::Result<()> {
@@ -427,7 +427,7 @@ windows_core::imp::define_interface!(ISecurityInformation4, ISecurityInformation
 windows_core::imp::interface_hierarchy!(ISecurityInformation4, windows_core::IUnknown);
 impl ISecurityInformation4 {
     pub unsafe fn GetSecondarySecurity(&self, psecurityobjects: *mut *mut SECURITY_OBJECT, psecurityobjectcount: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetSecondarySecurity)(windows_core::Interface::as_raw(self), core::mem::transmute(psecurityobjects), core::mem::transmute(psecurityobjectcount)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetSecondarySecurity)(windows_core::Interface::as_raw(self), psecurityobjects as _, psecurityobjectcount as _).ok() }
     }
 }
 #[repr(C)]
@@ -457,7 +457,7 @@ windows_core::imp::define_interface!(ISecurityObjectTypeInfo, ISecurityObjectTyp
 windows_core::imp::interface_hierarchy!(ISecurityObjectTypeInfo, windows_core::IUnknown);
 impl ISecurityObjectTypeInfo {
     pub unsafe fn GetInheritSource(&self, si: u32, pacl: *mut super::super::ACL, ppinheritarray: *mut *mut super::INHERITED_FROMA) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetInheritSource)(windows_core::Interface::as_raw(self), si, core::mem::transmute(pacl), core::mem::transmute(ppinheritarray)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetInheritSource)(windows_core::Interface::as_raw(self), si, pacl as _, ppinheritarray as _).ok() }
     }
 }
 #[repr(C)]

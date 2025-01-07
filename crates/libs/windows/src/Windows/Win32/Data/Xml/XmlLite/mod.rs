@@ -5,7 +5,7 @@ where
     P2: windows_core::Param<super::super::super::System::Com::IMalloc>,
 {
     windows_targets::link!("xmllite.dll" "system" fn CreateXmlReader(riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void, pmalloc : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CreateXmlReader(riid, core::mem::transmute(ppvobject), pmalloc.param().abi()).ok() }
+    unsafe { CreateXmlReader(riid, ppvobject as _, pmalloc.param().abi()).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -43,7 +43,7 @@ where
     P2: windows_core::Param<super::super::super::System::Com::IMalloc>,
 {
     windows_targets::link!("xmllite.dll" "system" fn CreateXmlWriter(riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void, pmalloc : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CreateXmlWriter(riid, core::mem::transmute(ppvobject), pmalloc.param().abi()).ok() }
+    unsafe { CreateXmlWriter(riid, ppvobject as _, pmalloc.param().abi()).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -93,10 +93,10 @@ impl IXmlReader {
         }
     }
     pub unsafe fn SetProperty(&self, nproperty: u32, pvalue: Option<isize>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), nproperty, core::mem::transmute(pvalue.unwrap_or(core::mem::zeroed()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), nproperty, pvalue.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn Read(&self, pnodetype: Option<*mut XmlNodeType>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), core::mem::transmute(pnodetype.unwrap_or(core::mem::zeroed()))) }
+        unsafe { (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), pnodetype.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetNodeType(&self) -> windows_core::Result<XmlNodeType> {
         unsafe {
@@ -121,25 +121,25 @@ impl IXmlReader {
         unsafe { (windows_core::Interface::vtable(self).MoveToElement)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn GetQualifiedName(&self, ppwszqualifiedname: *mut windows_core::PCWSTR, pcwchqualifiedname: Option<*mut u32>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetQualifiedName)(windows_core::Interface::as_raw(self), core::mem::transmute(ppwszqualifiedname), core::mem::transmute(pcwchqualifiedname.unwrap_or(core::mem::zeroed()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetQualifiedName)(windows_core::Interface::as_raw(self), ppwszqualifiedname as _, pcwchqualifiedname.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn GetNamespaceUri(&self, ppwsznamespaceuri: *mut windows_core::PCWSTR, pcwchnamespaceuri: Option<*mut u32>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetNamespaceUri)(windows_core::Interface::as_raw(self), core::mem::transmute(ppwsznamespaceuri), core::mem::transmute(pcwchnamespaceuri.unwrap_or(core::mem::zeroed()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetNamespaceUri)(windows_core::Interface::as_raw(self), ppwsznamespaceuri as _, pcwchnamespaceuri.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn GetLocalName(&self, ppwszlocalname: *mut windows_core::PCWSTR, pcwchlocalname: Option<*mut u32>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetLocalName)(windows_core::Interface::as_raw(self), core::mem::transmute(ppwszlocalname), core::mem::transmute(pcwchlocalname.unwrap_or(core::mem::zeroed()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetLocalName)(windows_core::Interface::as_raw(self), ppwszlocalname as _, pcwchlocalname.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn GetPrefix(&self, ppwszprefix: *mut windows_core::PCWSTR, pcwchprefix: Option<*mut u32>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetPrefix)(windows_core::Interface::as_raw(self), core::mem::transmute(ppwszprefix), core::mem::transmute(pcwchprefix.unwrap_or(core::mem::zeroed()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetPrefix)(windows_core::Interface::as_raw(self), ppwszprefix as _, pcwchprefix.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn GetValue(&self, ppwszvalue: *mut windows_core::PCWSTR, pcwchvalue: Option<*mut u32>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), core::mem::transmute(ppwszvalue), core::mem::transmute(pcwchvalue.unwrap_or(core::mem::zeroed()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), ppwszvalue as _, pcwchvalue.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn ReadValueChunk(&self, pwchbuffer: &mut [u16], pcwchread: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ReadValueChunk)(windows_core::Interface::as_raw(self), core::mem::transmute(pwchbuffer.as_ptr()), pwchbuffer.len().try_into().unwrap(), core::mem::transmute(pcwchread)) }
+        unsafe { (windows_core::Interface::vtable(self).ReadValueChunk)(windows_core::Interface::as_raw(self), core::mem::transmute(pwchbuffer.as_ptr()), pwchbuffer.len().try_into().unwrap(), pcwchread as _) }
     }
     pub unsafe fn GetBaseUri(&self, ppwszbaseuri: *mut windows_core::PCWSTR, pcwchbaseuri: Option<*mut u32>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetBaseUri)(windows_core::Interface::as_raw(self), core::mem::transmute(ppwszbaseuri), core::mem::transmute(pcwchbaseuri.unwrap_or(core::mem::zeroed()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetBaseUri)(windows_core::Interface::as_raw(self), ppwszbaseuri as _, pcwchbaseuri.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn IsDefault(&self) -> super::super::super::Foundation::BOOL {
         unsafe { (windows_core::Interface::vtable(self).IsDefault)(windows_core::Interface::as_raw(self)) }
@@ -495,7 +495,7 @@ impl IXmlWriter {
         }
     }
     pub unsafe fn SetProperty(&self, nproperty: u32, pvalue: Option<isize>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), nproperty, core::mem::transmute(pvalue.unwrap_or(core::mem::zeroed()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), nproperty, pvalue.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn WriteAttributes<P0>(&self, preader: P0, fwritedefaultattributes: bool) -> windows_core::Result<()>
     where
@@ -940,7 +940,7 @@ impl IXmlWriterLite {
         }
     }
     pub unsafe fn SetProperty(&self, nproperty: u32, pvalue: Option<isize>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), nproperty, core::mem::transmute(pvalue.unwrap_or(core::mem::zeroed()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), nproperty, pvalue.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn WriteAttributes<P0>(&self, preader: P0, fwritedefaultattributes: bool) -> windows_core::Result<()>
     where

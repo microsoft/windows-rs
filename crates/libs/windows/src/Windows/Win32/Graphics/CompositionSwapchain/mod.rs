@@ -50,7 +50,7 @@ impl ICompositionFramePresentStatistics {
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetDisplayInstanceArray(&self, displayinstancearraycount: *mut u32, displayinstancearray: *mut *mut CompositionFrameDisplayInstance) {
-        unsafe { (windows_core::Interface::vtable(self).GetDisplayInstanceArray)(windows_core::Interface::as_raw(self), core::mem::transmute(displayinstancearraycount), core::mem::transmute(displayinstancearray)) }
+        unsafe { (windows_core::Interface::vtable(self).GetDisplayInstanceArray)(windows_core::Interface::as_raw(self), displayinstancearraycount as _, displayinstancearray as _) }
     }
 }
 #[repr(C)]

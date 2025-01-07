@@ -6,12 +6,12 @@ pub unsafe fn SRRemoveRestorePoint(dwrpnum: u32) -> u32 {
 #[inline]
 pub unsafe fn SRSetRestorePointA(prestoreptspec: *const RESTOREPOINTINFOA, psmgrstatus: *mut STATEMGRSTATUS) -> super::super::Foundation::BOOL {
     windows_targets::link!("sfc.dll" "system" fn SRSetRestorePointA(prestoreptspec : *const RESTOREPOINTINFOA, psmgrstatus : *mut STATEMGRSTATUS) -> super::super::Foundation:: BOOL);
-    unsafe { SRSetRestorePointA(prestoreptspec, core::mem::transmute(psmgrstatus)) }
+    unsafe { SRSetRestorePointA(prestoreptspec, psmgrstatus as _) }
 }
 #[inline]
 pub unsafe fn SRSetRestorePointW(prestoreptspec: *const RESTOREPOINTINFOW, psmgrstatus: *mut STATEMGRSTATUS) -> super::super::Foundation::BOOL {
     windows_targets::link!("sfc.dll" "system" fn SRSetRestorePointW(prestoreptspec : *const RESTOREPOINTINFOW, psmgrstatus : *mut STATEMGRSTATUS) -> super::super::Foundation:: BOOL);
-    unsafe { SRSetRestorePointW(prestoreptspec, core::mem::transmute(psmgrstatus)) }
+    unsafe { SRSetRestorePointW(prestoreptspec, psmgrstatus as _) }
 }
 pub const ACCESSIBILITY_SETTING: u32 = 3u32;
 pub const APPLICATION_INSTALL: RESTOREPOINTINFO_TYPE = RESTOREPOINTINFO_TYPE(0u32);

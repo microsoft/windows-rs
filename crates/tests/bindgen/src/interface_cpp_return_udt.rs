@@ -49,8 +49,8 @@ impl ID2D1Bitmap {
         unsafe {
             (windows_core::Interface::vtable(self).GetDpi)(
                 windows_core::Interface::as_raw(self),
-                core::mem::transmute(dpix),
-                core::mem::transmute(dpiy),
+                dpix as _,
+                dpiy as _,
             )
         }
     }
