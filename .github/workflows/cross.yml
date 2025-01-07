@@ -30,7 +30,7 @@ jobs:
         # https://github.com/rust-lang/rust/issues/79577
         # https://sourceforge.net/p/mingw-w64/wiki2/Exception%20Handling
         #
-        image: [macos-latest, ubuntu-22.04]
+        image: [macos-14, ubuntu-22.04]
         target: [x86_64-pc-windows-gnu, aarch64-pc-windows-gnullvm, x86_64-pc-windows-gnullvm, i686-pc-windows-gnullvm]
     runs-on: ${{ matrix.image }}
 
