@@ -682,14 +682,14 @@ impl CppMethod {
                             quote! { #name.param().abi(), }
                         }
                         ParamHint::Optional => {
-                            quote! { core::mem::transmute(#name.unwrap_or(core::mem::zeroed())), }
+                            quote! { #name.unwrap_or(core::mem::zeroed()) as _, }
                         }
                         ParamHint::Bool => {
                             quote! { #name.into(), }
                         }
                         ParamHint::ValueType => {
                             if flags.contains(ParamAttributes::Out) {
-                                quote! { core::mem::transmute(#name), }
+                                quote! { #name as _, }
                             } else {
                                 quote! { #name, }
                             }
