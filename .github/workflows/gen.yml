@@ -15,7 +15,7 @@ on:
 jobs:
   check:
     name: tool_${{ matrix.tool }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     strategy:
       matrix:
         tool: [bindgen, bindings, yml, license, standalone]

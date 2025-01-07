@@ -17,7 +17,7 @@ jobs:
     strategy:
       matrix:
         rust: [1.74.0, stable, nightly]
-    runs-on: windows-latest
+    runs-on: windows-2022
     steps:
       - name: Checkout
         uses: actions/checkout@v4
