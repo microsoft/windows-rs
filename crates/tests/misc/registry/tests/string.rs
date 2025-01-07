@@ -36,7 +36,10 @@ fn string() -> Result<()> {
     assert_eq!(key.get_multi_string("expand_string")?, ["value"]);
 
     key.set_expand_string("expand_string_different_types".to_string(), "value")?;
-    assert_eq!(key.get_type("expand_string_different_types")?, Type::ExpandString);
+    assert_eq!(
+        key.get_type("expand_string_different_types")?, 
+        Type::ExpandString
+    );
     assert_eq!(key.get_string("expand_string_different_types")?, "value");
     assert_eq!(key.get_hstring("expand_string_different_types")?, "value");
     assert_eq!(
