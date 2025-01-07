@@ -43,7 +43,7 @@ impl IThumbnailExtractor {
     where
         P0: windows_core::Param<super::StructuredStorage::IStorage>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ExtractThumbnail)(windows_core::Interface::as_raw(self), pstg.param().abi(), ullength, ulheight, core::mem::transmute(puloutputlength), core::mem::transmute(puloutputheight), core::mem::transmute(phoutputbitmap)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ExtractThumbnail)(windows_core::Interface::as_raw(self), pstg.param().abi(), ullength, ulheight, puloutputlength as _, puloutputheight as _, phoutputbitmap as _).ok() }
     }
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn OnFileUpdated<P0>(&self, pstg: P0) -> windows_core::Result<()>

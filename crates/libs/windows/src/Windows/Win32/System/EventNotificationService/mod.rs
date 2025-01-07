@@ -4,7 +4,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("sensapi.dll" "system" fn IsDestinationReachableA(lpszdestination : windows_core::PCSTR, lpqocinfo : *mut QOCINFO) -> super::super::Foundation:: BOOL);
-    unsafe { IsDestinationReachableA(lpszdestination.param().abi(), core::mem::transmute(lpqocinfo)).ok() }
+    unsafe { IsDestinationReachableA(lpszdestination.param().abi(), lpqocinfo as _).ok() }
 }
 #[inline]
 pub unsafe fn IsDestinationReachableW<P0>(lpszdestination: P0, lpqocinfo: *mut QOCINFO) -> windows_core::Result<()>
@@ -12,12 +12,12 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("sensapi.dll" "system" fn IsDestinationReachableW(lpszdestination : windows_core::PCWSTR, lpqocinfo : *mut QOCINFO) -> super::super::Foundation:: BOOL);
-    unsafe { IsDestinationReachableW(lpszdestination.param().abi(), core::mem::transmute(lpqocinfo)).ok() }
+    unsafe { IsDestinationReachableW(lpszdestination.param().abi(), lpqocinfo as _).ok() }
 }
 #[inline]
 pub unsafe fn IsNetworkAlive(lpdwflags: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("sensapi.dll" "system" fn IsNetworkAlive(lpdwflags : *mut u32) -> super::super::Foundation:: BOOL);
-    unsafe { IsNetworkAlive(core::mem::transmute(lpdwflags)).ok() }
+    unsafe { IsNetworkAlive(lpdwflags as _).ok() }
 }
 pub const CONNECTION_AOL: u32 = 4u32;
 pub const CONNECTION_LAN: SENS_CONNECTION_TYPE = SENS_CONNECTION_TYPE(0u32);

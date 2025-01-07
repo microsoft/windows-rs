@@ -157,7 +157,7 @@ windows_core::imp::define_interface!(ITensorNative, ITensorNative_Vtbl, 0x52f547
 windows_core::imp::interface_hierarchy!(ITensorNative, windows_core::IUnknown);
 impl ITensorNative {
     pub unsafe fn GetBuffer(&self, value: *mut *mut u8, capacity: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute(value), core::mem::transmute(capacity)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetBuffer)(windows_core::Interface::as_raw(self), value as _, capacity as _).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetD3D12Resource(&self) -> windows_core::Result<super::super::super::Graphics::Direct3D12::ID3D12Resource> {
@@ -222,7 +222,7 @@ impl ITensorStaticsNative {
     where
         P0: windows_core::Param<super::super::super::Graphics::Direct3D12::ID3D12Resource>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateFromD3D12Resource)(windows_core::Interface::as_raw(self), value.param().abi(), core::mem::transmute(shape), shapecount, core::mem::transmute(result)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateFromD3D12Resource)(windows_core::Interface::as_raw(self), value.param().abi(), shape as _, shapecount, core::mem::transmute(result)).ok() }
     }
 }
 #[repr(C)]

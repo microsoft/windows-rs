@@ -37,12 +37,12 @@ pub unsafe fn timeEndPeriod(uperiod: u32) -> u32 {
 #[inline]
 pub unsafe fn timeGetDevCaps(ptc: *mut TIMECAPS, cbtc: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn timeGetDevCaps(ptc : *mut TIMECAPS, cbtc : u32) -> u32);
-    unsafe { timeGetDevCaps(core::mem::transmute(ptc), cbtc) }
+    unsafe { timeGetDevCaps(ptc as _, cbtc) }
 }
 #[inline]
 pub unsafe fn timeGetSystemTime(pmmt: *mut MMTIME, cbmmt: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn timeGetSystemTime(pmmt : *mut MMTIME, cbmmt : u32) -> u32);
-    unsafe { timeGetSystemTime(core::mem::transmute(pmmt), cbmmt) }
+    unsafe { timeGetSystemTime(pmmt as _, cbmmt) }
 }
 #[inline]
 pub unsafe fn timeGetTime() -> u32 {

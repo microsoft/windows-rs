@@ -8,13 +8,13 @@ pub unsafe fn ChoosePixelFormat(hdc: super::Gdi::HDC, ppfd: *const PIXELFORMATDE
 #[inline]
 pub unsafe fn DescribePixelFormat(hdc: super::Gdi::HDC, ipixelformat: i32, nbytes: u32, ppfd: Option<*mut PIXELFORMATDESCRIPTOR>) -> i32 {
     windows_targets::link!("gdi32.dll" "system" fn DescribePixelFormat(hdc : super::Gdi:: HDC, ipixelformat : i32, nbytes : u32, ppfd : *mut PIXELFORMATDESCRIPTOR) -> i32);
-    unsafe { DescribePixelFormat(hdc, ipixelformat, nbytes, core::mem::transmute(ppfd.unwrap_or(core::mem::zeroed()))) }
+    unsafe { DescribePixelFormat(hdc, ipixelformat, nbytes, ppfd.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetEnhMetaFilePixelFormat(hemf: super::Gdi::HENHMETAFILE, cbbuffer: u32, ppfd: Option<*mut PIXELFORMATDESCRIPTOR>) -> u32 {
     windows_targets::link!("gdi32.dll" "system" fn GetEnhMetaFilePixelFormat(hemf : super::Gdi:: HENHMETAFILE, cbbuffer : u32, ppfd : *mut PIXELFORMATDESCRIPTOR) -> u32);
-    unsafe { GetEnhMetaFilePixelFormat(hemf, cbbuffer, core::mem::transmute(ppfd.unwrap_or(core::mem::zeroed()))) }
+    unsafe { GetEnhMetaFilePixelFormat(hemf, cbbuffer, ppfd.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -47,7 +47,7 @@ pub unsafe fn glAlphaFunc(func: u32, r#ref: f32) {
 #[inline]
 pub unsafe fn glAreTexturesResident(n: i32, textures: *const u32, residences: *mut u8) -> u8 {
     windows_targets::link!("opengl32.dll" "system" fn glAreTexturesResident(n : i32, textures : *const u32, residences : *mut u8) -> u8);
-    unsafe { glAreTexturesResident(n, textures, core::mem::transmute(residences)) }
+    unsafe { glAreTexturesResident(n, textures, residences as _) }
 }
 #[inline]
 pub unsafe fn glArrayElement(i: i32) {
@@ -477,7 +477,7 @@ pub unsafe fn glEvalPoint2(i: i32, j: i32) {
 #[inline]
 pub unsafe fn glFeedbackBuffer(size: i32, r#type: u32, buffer: *mut f32) {
     windows_targets::link!("opengl32.dll" "system" fn glFeedbackBuffer(size : i32, r#type : u32, buffer : *mut f32));
-    unsafe { glFeedbackBuffer(size, r#type, core::mem::transmute(buffer)) }
+    unsafe { glFeedbackBuffer(size, r#type, buffer as _) }
 }
 #[inline]
 pub unsafe fn glFinish() {
@@ -527,22 +527,22 @@ pub unsafe fn glGenLists(range: i32) -> u32 {
 #[inline]
 pub unsafe fn glGenTextures(n: i32, textures: *mut u32) {
     windows_targets::link!("opengl32.dll" "system" fn glGenTextures(n : i32, textures : *mut u32));
-    unsafe { glGenTextures(n, core::mem::transmute(textures)) }
+    unsafe { glGenTextures(n, textures as _) }
 }
 #[inline]
 pub unsafe fn glGetBooleanv(pname: u32, params: *mut u8) {
     windows_targets::link!("opengl32.dll" "system" fn glGetBooleanv(pname : u32, params : *mut u8));
-    unsafe { glGetBooleanv(pname, core::mem::transmute(params)) }
+    unsafe { glGetBooleanv(pname, params as _) }
 }
 #[inline]
 pub unsafe fn glGetClipPlane(plane: u32, equation: *mut f64) {
     windows_targets::link!("opengl32.dll" "system" fn glGetClipPlane(plane : u32, equation : *mut f64));
-    unsafe { glGetClipPlane(plane, core::mem::transmute(equation)) }
+    unsafe { glGetClipPlane(plane, equation as _) }
 }
 #[inline]
 pub unsafe fn glGetDoublev(pname: u32, params: *mut f64) {
     windows_targets::link!("opengl32.dll" "system" fn glGetDoublev(pname : u32, params : *mut f64));
-    unsafe { glGetDoublev(pname, core::mem::transmute(params)) }
+    unsafe { glGetDoublev(pname, params as _) }
 }
 #[inline]
 pub unsafe fn glGetError() -> u32 {
@@ -552,72 +552,72 @@ pub unsafe fn glGetError() -> u32 {
 #[inline]
 pub unsafe fn glGetFloatv(pname: u32, params: *mut f32) {
     windows_targets::link!("opengl32.dll" "system" fn glGetFloatv(pname : u32, params : *mut f32));
-    unsafe { glGetFloatv(pname, core::mem::transmute(params)) }
+    unsafe { glGetFloatv(pname, params as _) }
 }
 #[inline]
 pub unsafe fn glGetIntegerv(pname: u32, params: *mut i32) {
     windows_targets::link!("opengl32.dll" "system" fn glGetIntegerv(pname : u32, params : *mut i32));
-    unsafe { glGetIntegerv(pname, core::mem::transmute(params)) }
+    unsafe { glGetIntegerv(pname, params as _) }
 }
 #[inline]
 pub unsafe fn glGetLightfv(light: u32, pname: u32, params: *mut f32) {
     windows_targets::link!("opengl32.dll" "system" fn glGetLightfv(light : u32, pname : u32, params : *mut f32));
-    unsafe { glGetLightfv(light, pname, core::mem::transmute(params)) }
+    unsafe { glGetLightfv(light, pname, params as _) }
 }
 #[inline]
 pub unsafe fn glGetLightiv(light: u32, pname: u32, params: *mut i32) {
     windows_targets::link!("opengl32.dll" "system" fn glGetLightiv(light : u32, pname : u32, params : *mut i32));
-    unsafe { glGetLightiv(light, pname, core::mem::transmute(params)) }
+    unsafe { glGetLightiv(light, pname, params as _) }
 }
 #[inline]
 pub unsafe fn glGetMapdv(target: u32, query: u32, v: *mut f64) {
     windows_targets::link!("opengl32.dll" "system" fn glGetMapdv(target : u32, query : u32, v : *mut f64));
-    unsafe { glGetMapdv(target, query, core::mem::transmute(v)) }
+    unsafe { glGetMapdv(target, query, v as _) }
 }
 #[inline]
 pub unsafe fn glGetMapfv(target: u32, query: u32, v: *mut f32) {
     windows_targets::link!("opengl32.dll" "system" fn glGetMapfv(target : u32, query : u32, v : *mut f32));
-    unsafe { glGetMapfv(target, query, core::mem::transmute(v)) }
+    unsafe { glGetMapfv(target, query, v as _) }
 }
 #[inline]
 pub unsafe fn glGetMapiv(target: u32, query: u32, v: *mut i32) {
     windows_targets::link!("opengl32.dll" "system" fn glGetMapiv(target : u32, query : u32, v : *mut i32));
-    unsafe { glGetMapiv(target, query, core::mem::transmute(v)) }
+    unsafe { glGetMapiv(target, query, v as _) }
 }
 #[inline]
 pub unsafe fn glGetMaterialfv(face: u32, pname: u32, params: *mut f32) {
     windows_targets::link!("opengl32.dll" "system" fn glGetMaterialfv(face : u32, pname : u32, params : *mut f32));
-    unsafe { glGetMaterialfv(face, pname, core::mem::transmute(params)) }
+    unsafe { glGetMaterialfv(face, pname, params as _) }
 }
 #[inline]
 pub unsafe fn glGetMaterialiv(face: u32, pname: u32, params: *mut i32) {
     windows_targets::link!("opengl32.dll" "system" fn glGetMaterialiv(face : u32, pname : u32, params : *mut i32));
-    unsafe { glGetMaterialiv(face, pname, core::mem::transmute(params)) }
+    unsafe { glGetMaterialiv(face, pname, params as _) }
 }
 #[inline]
 pub unsafe fn glGetPixelMapfv(map: u32, values: *mut f32) {
     windows_targets::link!("opengl32.dll" "system" fn glGetPixelMapfv(map : u32, values : *mut f32));
-    unsafe { glGetPixelMapfv(map, core::mem::transmute(values)) }
+    unsafe { glGetPixelMapfv(map, values as _) }
 }
 #[inline]
 pub unsafe fn glGetPixelMapuiv(map: u32, values: *mut u32) {
     windows_targets::link!("opengl32.dll" "system" fn glGetPixelMapuiv(map : u32, values : *mut u32));
-    unsafe { glGetPixelMapuiv(map, core::mem::transmute(values)) }
+    unsafe { glGetPixelMapuiv(map, values as _) }
 }
 #[inline]
 pub unsafe fn glGetPixelMapusv(map: u32, values: *mut u16) {
     windows_targets::link!("opengl32.dll" "system" fn glGetPixelMapusv(map : u32, values : *mut u16));
-    unsafe { glGetPixelMapusv(map, core::mem::transmute(values)) }
+    unsafe { glGetPixelMapusv(map, values as _) }
 }
 #[inline]
 pub unsafe fn glGetPointerv(pname: u32, params: *mut *mut core::ffi::c_void) {
     windows_targets::link!("opengl32.dll" "system" fn glGetPointerv(pname : u32, params : *mut *mut core::ffi::c_void));
-    unsafe { glGetPointerv(pname, core::mem::transmute(params)) }
+    unsafe { glGetPointerv(pname, params as _) }
 }
 #[inline]
 pub unsafe fn glGetPolygonStipple(mask: *mut u8) {
     windows_targets::link!("opengl32.dll" "system" fn glGetPolygonStipple(mask : *mut u8));
-    unsafe { glGetPolygonStipple(core::mem::transmute(mask)) }
+    unsafe { glGetPolygonStipple(mask as _) }
 }
 #[inline]
 pub unsafe fn glGetString(name: u32) -> *mut u8 {
@@ -627,52 +627,52 @@ pub unsafe fn glGetString(name: u32) -> *mut u8 {
 #[inline]
 pub unsafe fn glGetTexEnvfv(target: u32, pname: u32, params: *mut f32) {
     windows_targets::link!("opengl32.dll" "system" fn glGetTexEnvfv(target : u32, pname : u32, params : *mut f32));
-    unsafe { glGetTexEnvfv(target, pname, core::mem::transmute(params)) }
+    unsafe { glGetTexEnvfv(target, pname, params as _) }
 }
 #[inline]
 pub unsafe fn glGetTexEnviv(target: u32, pname: u32, params: *mut i32) {
     windows_targets::link!("opengl32.dll" "system" fn glGetTexEnviv(target : u32, pname : u32, params : *mut i32));
-    unsafe { glGetTexEnviv(target, pname, core::mem::transmute(params)) }
+    unsafe { glGetTexEnviv(target, pname, params as _) }
 }
 #[inline]
 pub unsafe fn glGetTexGendv(coord: u32, pname: u32, params: *mut f64) {
     windows_targets::link!("opengl32.dll" "system" fn glGetTexGendv(coord : u32, pname : u32, params : *mut f64));
-    unsafe { glGetTexGendv(coord, pname, core::mem::transmute(params)) }
+    unsafe { glGetTexGendv(coord, pname, params as _) }
 }
 #[inline]
 pub unsafe fn glGetTexGenfv(coord: u32, pname: u32, params: *mut f32) {
     windows_targets::link!("opengl32.dll" "system" fn glGetTexGenfv(coord : u32, pname : u32, params : *mut f32));
-    unsafe { glGetTexGenfv(coord, pname, core::mem::transmute(params)) }
+    unsafe { glGetTexGenfv(coord, pname, params as _) }
 }
 #[inline]
 pub unsafe fn glGetTexGeniv(coord: u32, pname: u32, params: *mut i32) {
     windows_targets::link!("opengl32.dll" "system" fn glGetTexGeniv(coord : u32, pname : u32, params : *mut i32));
-    unsafe { glGetTexGeniv(coord, pname, core::mem::transmute(params)) }
+    unsafe { glGetTexGeniv(coord, pname, params as _) }
 }
 #[inline]
 pub unsafe fn glGetTexImage(target: u32, level: i32, format: u32, r#type: u32, pixels: *mut core::ffi::c_void) {
     windows_targets::link!("opengl32.dll" "system" fn glGetTexImage(target : u32, level : i32, format : u32, r#type : u32, pixels : *mut core::ffi::c_void));
-    unsafe { glGetTexImage(target, level, format, r#type, core::mem::transmute(pixels)) }
+    unsafe { glGetTexImage(target, level, format, r#type, pixels as _) }
 }
 #[inline]
 pub unsafe fn glGetTexLevelParameterfv(target: u32, level: i32, pname: u32, params: *mut f32) {
     windows_targets::link!("opengl32.dll" "system" fn glGetTexLevelParameterfv(target : u32, level : i32, pname : u32, params : *mut f32));
-    unsafe { glGetTexLevelParameterfv(target, level, pname, core::mem::transmute(params)) }
+    unsafe { glGetTexLevelParameterfv(target, level, pname, params as _) }
 }
 #[inline]
 pub unsafe fn glGetTexLevelParameteriv(target: u32, level: i32, pname: u32, params: *mut i32) {
     windows_targets::link!("opengl32.dll" "system" fn glGetTexLevelParameteriv(target : u32, level : i32, pname : u32, params : *mut i32));
-    unsafe { glGetTexLevelParameteriv(target, level, pname, core::mem::transmute(params)) }
+    unsafe { glGetTexLevelParameteriv(target, level, pname, params as _) }
 }
 #[inline]
 pub unsafe fn glGetTexParameterfv(target: u32, pname: u32, params: *mut f32) {
     windows_targets::link!("opengl32.dll" "system" fn glGetTexParameterfv(target : u32, pname : u32, params : *mut f32));
-    unsafe { glGetTexParameterfv(target, pname, core::mem::transmute(params)) }
+    unsafe { glGetTexParameterfv(target, pname, params as _) }
 }
 #[inline]
 pub unsafe fn glGetTexParameteriv(target: u32, pname: u32, params: *mut i32) {
     windows_targets::link!("opengl32.dll" "system" fn glGetTexParameteriv(target : u32, pname : u32, params : *mut i32));
-    unsafe { glGetTexParameteriv(target, pname, core::mem::transmute(params)) }
+    unsafe { glGetTexParameteriv(target, pname, params as _) }
 }
 #[inline]
 pub unsafe fn glHint(target: u32, mode: u32) {
@@ -1222,7 +1222,7 @@ pub unsafe fn glReadBuffer(mode: u32) {
 #[inline]
 pub unsafe fn glReadPixels(x: i32, y: i32, width: i32, height: i32, format: u32, r#type: u32, pixels: *mut core::ffi::c_void) {
     windows_targets::link!("opengl32.dll" "system" fn glReadPixels(x : i32, y : i32, width : i32, height : i32, format : u32, r#type : u32, pixels : *mut core::ffi::c_void));
-    unsafe { glReadPixels(x, y, width, height, format, r#type, core::mem::transmute(pixels)) }
+    unsafe { glReadPixels(x, y, width, height, format, r#type, pixels as _) }
 }
 #[inline]
 pub unsafe fn glRectd(x1: f64, y1: f64, x2: f64, y2: f64) {
@@ -1297,7 +1297,7 @@ pub unsafe fn glScissor(x: i32, y: i32, width: i32, height: i32) {
 #[inline]
 pub unsafe fn glSelectBuffer(size: i32, buffer: *mut u32) {
     windows_targets::link!("opengl32.dll" "system" fn glSelectBuffer(size : i32, buffer : *mut u32));
-    unsafe { glSelectBuffer(size, core::mem::transmute(buffer)) }
+    unsafe { glSelectBuffer(size, buffer as _) }
 }
 #[inline]
 pub unsafe fn glShadeModel(mode: u32) {
@@ -1717,22 +1717,22 @@ pub unsafe fn glViewport(x: i32, y: i32, width: i32, height: i32) {
 #[inline]
 pub unsafe fn gluBeginCurve(nobj: *mut GLUnurbs) {
     windows_targets::link!("glu32.dll" "system" fn gluBeginCurve(nobj : *mut GLUnurbs));
-    unsafe { gluBeginCurve(core::mem::transmute(nobj)) }
+    unsafe { gluBeginCurve(nobj as _) }
 }
 #[inline]
 pub unsafe fn gluBeginPolygon(tess: *mut GLUtesselator) {
     windows_targets::link!("glu32.dll" "system" fn gluBeginPolygon(tess : *mut GLUtesselator));
-    unsafe { gluBeginPolygon(core::mem::transmute(tess)) }
+    unsafe { gluBeginPolygon(tess as _) }
 }
 #[inline]
 pub unsafe fn gluBeginSurface(nobj: *mut GLUnurbs) {
     windows_targets::link!("glu32.dll" "system" fn gluBeginSurface(nobj : *mut GLUnurbs));
-    unsafe { gluBeginSurface(core::mem::transmute(nobj)) }
+    unsafe { gluBeginSurface(nobj as _) }
 }
 #[inline]
 pub unsafe fn gluBeginTrim(nobj: *mut GLUnurbs) {
     windows_targets::link!("glu32.dll" "system" fn gluBeginTrim(nobj : *mut GLUnurbs));
-    unsafe { gluBeginTrim(core::mem::transmute(nobj)) }
+    unsafe { gluBeginTrim(nobj as _) }
 }
 #[inline]
 pub unsafe fn gluBuild1DMipmaps(target: u32, components: i32, width: i32, format: u32, r#type: u32, data: *const core::ffi::c_void) -> i32 {
@@ -1747,47 +1747,47 @@ pub unsafe fn gluBuild2DMipmaps(target: u32, components: i32, width: i32, height
 #[inline]
 pub unsafe fn gluCylinder(qobj: *mut GLUquadric, baseradius: f64, topradius: f64, height: f64, slices: i32, stacks: i32) {
     windows_targets::link!("glu32.dll" "system" fn gluCylinder(qobj : *mut GLUquadric, baseradius : f64, topradius : f64, height : f64, slices : i32, stacks : i32));
-    unsafe { gluCylinder(core::mem::transmute(qobj), baseradius, topradius, height, slices, stacks) }
+    unsafe { gluCylinder(qobj as _, baseradius, topradius, height, slices, stacks) }
 }
 #[inline]
 pub unsafe fn gluDeleteNurbsRenderer(nobj: *mut GLUnurbs) {
     windows_targets::link!("glu32.dll" "system" fn gluDeleteNurbsRenderer(nobj : *mut GLUnurbs));
-    unsafe { gluDeleteNurbsRenderer(core::mem::transmute(nobj)) }
+    unsafe { gluDeleteNurbsRenderer(nobj as _) }
 }
 #[inline]
 pub unsafe fn gluDeleteQuadric(state: *mut GLUquadric) {
     windows_targets::link!("glu32.dll" "system" fn gluDeleteQuadric(state : *mut GLUquadric));
-    unsafe { gluDeleteQuadric(core::mem::transmute(state)) }
+    unsafe { gluDeleteQuadric(state as _) }
 }
 #[inline]
 pub unsafe fn gluDeleteTess(tess: *mut GLUtesselator) {
     windows_targets::link!("glu32.dll" "system" fn gluDeleteTess(tess : *mut GLUtesselator));
-    unsafe { gluDeleteTess(core::mem::transmute(tess)) }
+    unsafe { gluDeleteTess(tess as _) }
 }
 #[inline]
 pub unsafe fn gluDisk(qobj: *mut GLUquadric, innerradius: f64, outerradius: f64, slices: i32, loops: i32) {
     windows_targets::link!("glu32.dll" "system" fn gluDisk(qobj : *mut GLUquadric, innerradius : f64, outerradius : f64, slices : i32, loops : i32));
-    unsafe { gluDisk(core::mem::transmute(qobj), innerradius, outerradius, slices, loops) }
+    unsafe { gluDisk(qobj as _, innerradius, outerradius, slices, loops) }
 }
 #[inline]
 pub unsafe fn gluEndCurve(nobj: *mut GLUnurbs) {
     windows_targets::link!("glu32.dll" "system" fn gluEndCurve(nobj : *mut GLUnurbs));
-    unsafe { gluEndCurve(core::mem::transmute(nobj)) }
+    unsafe { gluEndCurve(nobj as _) }
 }
 #[inline]
 pub unsafe fn gluEndPolygon(tess: *mut GLUtesselator) {
     windows_targets::link!("glu32.dll" "system" fn gluEndPolygon(tess : *mut GLUtesselator));
-    unsafe { gluEndPolygon(core::mem::transmute(tess)) }
+    unsafe { gluEndPolygon(tess as _) }
 }
 #[inline]
 pub unsafe fn gluEndSurface(nobj: *mut GLUnurbs) {
     windows_targets::link!("glu32.dll" "system" fn gluEndSurface(nobj : *mut GLUnurbs));
-    unsafe { gluEndSurface(core::mem::transmute(nobj)) }
+    unsafe { gluEndSurface(nobj as _) }
 }
 #[inline]
 pub unsafe fn gluEndTrim(nobj: *mut GLUnurbs) {
     windows_targets::link!("glu32.dll" "system" fn gluEndTrim(nobj : *mut GLUnurbs));
-    unsafe { gluEndTrim(core::mem::transmute(nobj)) }
+    unsafe { gluEndTrim(nobj as _) }
 }
 #[inline]
 pub unsafe fn gluErrorString(errcode: u32) -> *mut u8 {
@@ -1802,7 +1802,7 @@ pub unsafe fn gluErrorUnicodeStringEXT(errcode: u32) -> windows_core::PCWSTR {
 #[inline]
 pub unsafe fn gluGetNurbsProperty(nobj: *mut GLUnurbs, property: u32, value: *mut f32) {
     windows_targets::link!("glu32.dll" "system" fn gluGetNurbsProperty(nobj : *mut GLUnurbs, property : u32, value : *mut f32));
-    unsafe { gluGetNurbsProperty(core::mem::transmute(nobj), property, core::mem::transmute(value)) }
+    unsafe { gluGetNurbsProperty(nobj as _, property, value as _) }
 }
 #[inline]
 pub unsafe fn gluGetString(name: u32) -> *mut u8 {
@@ -1812,12 +1812,12 @@ pub unsafe fn gluGetString(name: u32) -> *mut u8 {
 #[inline]
 pub unsafe fn gluGetTessProperty(tess: *mut GLUtesselator, which: u32, value: *mut f64) {
     windows_targets::link!("glu32.dll" "system" fn gluGetTessProperty(tess : *mut GLUtesselator, which : u32, value : *mut f64));
-    unsafe { gluGetTessProperty(core::mem::transmute(tess), which, core::mem::transmute(value)) }
+    unsafe { gluGetTessProperty(tess as _, which, value as _) }
 }
 #[inline]
 pub unsafe fn gluLoadSamplingMatrices(nobj: *mut GLUnurbs, modelmatrix: *const f32, projmatrix: *const f32, viewport: *const i32) {
     windows_targets::link!("glu32.dll" "system" fn gluLoadSamplingMatrices(nobj : *mut GLUnurbs, modelmatrix : *const f32, projmatrix : *const f32, viewport : *const i32));
-    unsafe { gluLoadSamplingMatrices(core::mem::transmute(nobj), modelmatrix, projmatrix, viewport) }
+    unsafe { gluLoadSamplingMatrices(nobj as _, modelmatrix, projmatrix, viewport) }
 }
 #[inline]
 pub unsafe fn gluLookAt(eyex: f64, eyey: f64, eyez: f64, centerx: f64, centery: f64, centerz: f64, upx: f64, upy: f64, upz: f64) {
@@ -1842,27 +1842,27 @@ pub unsafe fn gluNewTess() -> *mut GLUtesselator {
 #[inline]
 pub unsafe fn gluNextContour(tess: *mut GLUtesselator, r#type: u32) {
     windows_targets::link!("glu32.dll" "system" fn gluNextContour(tess : *mut GLUtesselator, r#type : u32));
-    unsafe { gluNextContour(core::mem::transmute(tess), r#type) }
+    unsafe { gluNextContour(tess as _, r#type) }
 }
 #[inline]
 pub unsafe fn gluNurbsCallback(nobj: *mut GLUnurbs, which: u32, r#fn: isize) {
     windows_targets::link!("glu32.dll" "system" fn gluNurbsCallback(nobj : *mut GLUnurbs, which : u32, r#fn : isize));
-    unsafe { gluNurbsCallback(core::mem::transmute(nobj), which, r#fn) }
+    unsafe { gluNurbsCallback(nobj as _, which, r#fn) }
 }
 #[inline]
 pub unsafe fn gluNurbsCurve(nobj: *mut GLUnurbs, nknots: i32, knot: *mut f32, stride: i32, ctlarray: *mut f32, order: i32, r#type: u32) {
     windows_targets::link!("glu32.dll" "system" fn gluNurbsCurve(nobj : *mut GLUnurbs, nknots : i32, knot : *mut f32, stride : i32, ctlarray : *mut f32, order : i32, r#type : u32));
-    unsafe { gluNurbsCurve(core::mem::transmute(nobj), nknots, core::mem::transmute(knot), stride, core::mem::transmute(ctlarray), order, r#type) }
+    unsafe { gluNurbsCurve(nobj as _, nknots, knot as _, stride, ctlarray as _, order, r#type) }
 }
 #[inline]
 pub unsafe fn gluNurbsProperty(nobj: *mut GLUnurbs, property: u32, value: f32) {
     windows_targets::link!("glu32.dll" "system" fn gluNurbsProperty(nobj : *mut GLUnurbs, property : u32, value : f32));
-    unsafe { gluNurbsProperty(core::mem::transmute(nobj), property, value) }
+    unsafe { gluNurbsProperty(nobj as _, property, value) }
 }
 #[inline]
 pub unsafe fn gluNurbsSurface(nobj: *mut GLUnurbs, sknot_count: i32, sknot: *mut f32, tknot_count: i32, tknot: *mut f32, s_stride: i32, t_stride: i32, ctlarray: *mut f32, sorder: i32, torder: i32, r#type: u32) {
     windows_targets::link!("glu32.dll" "system" fn gluNurbsSurface(nobj : *mut GLUnurbs, sknot_count : i32, sknot : *mut f32, tknot_count : i32, tknot : *mut f32, s_stride : i32, t_stride : i32, ctlarray : *mut f32, sorder : i32, torder : i32, r#type : u32));
-    unsafe { gluNurbsSurface(core::mem::transmute(nobj), sknot_count, core::mem::transmute(sknot), tknot_count, core::mem::transmute(tknot), s_stride, t_stride, core::mem::transmute(ctlarray), sorder, torder, r#type) }
+    unsafe { gluNurbsSurface(nobj as _, sknot_count, sknot as _, tknot_count, tknot as _, s_stride, t_stride, ctlarray as _, sorder, torder, r#type) }
 }
 #[inline]
 pub unsafe fn gluOrtho2D(left: f64, right: f64, bottom: f64, top: f64) {
@@ -1872,7 +1872,7 @@ pub unsafe fn gluOrtho2D(left: f64, right: f64, bottom: f64, top: f64) {
 #[inline]
 pub unsafe fn gluPartialDisk(qobj: *mut GLUquadric, innerradius: f64, outerradius: f64, slices: i32, loops: i32, startangle: f64, sweepangle: f64) {
     windows_targets::link!("glu32.dll" "system" fn gluPartialDisk(qobj : *mut GLUquadric, innerradius : f64, outerradius : f64, slices : i32, loops : i32, startangle : f64, sweepangle : f64));
-    unsafe { gluPartialDisk(core::mem::transmute(qobj), innerradius, outerradius, slices, loops, startangle, sweepangle) }
+    unsafe { gluPartialDisk(qobj as _, innerradius, outerradius, slices, loops, startangle, sweepangle) }
 }
 #[inline]
 pub unsafe fn gluPerspective(fovy: f64, aspect: f64, znear: f64, zfar: f64) {
@@ -1882,97 +1882,97 @@ pub unsafe fn gluPerspective(fovy: f64, aspect: f64, znear: f64, zfar: f64) {
 #[inline]
 pub unsafe fn gluPickMatrix(x: f64, y: f64, width: f64, height: f64, viewport: *mut i32) {
     windows_targets::link!("glu32.dll" "system" fn gluPickMatrix(x : f64, y : f64, width : f64, height : f64, viewport : *mut i32));
-    unsafe { gluPickMatrix(x, y, width, height, core::mem::transmute(viewport)) }
+    unsafe { gluPickMatrix(x, y, width, height, viewport as _) }
 }
 #[inline]
 pub unsafe fn gluProject(objx: f64, objy: f64, objz: f64, modelmatrix: *const f64, projmatrix: *const f64, viewport: *const i32, winx: *mut f64, winy: *mut f64, winz: *mut f64) -> i32 {
     windows_targets::link!("glu32.dll" "system" fn gluProject(objx : f64, objy : f64, objz : f64, modelmatrix : *const f64, projmatrix : *const f64, viewport : *const i32, winx : *mut f64, winy : *mut f64, winz : *mut f64) -> i32);
-    unsafe { gluProject(objx, objy, objz, modelmatrix, projmatrix, viewport, core::mem::transmute(winx), core::mem::transmute(winy), core::mem::transmute(winz)) }
+    unsafe { gluProject(objx, objy, objz, modelmatrix, projmatrix, viewport, winx as _, winy as _, winz as _) }
 }
 #[inline]
 pub unsafe fn gluPwlCurve(nobj: *mut GLUnurbs, count: i32, array: *mut f32, stride: i32, r#type: u32) {
     windows_targets::link!("glu32.dll" "system" fn gluPwlCurve(nobj : *mut GLUnurbs, count : i32, array : *mut f32, stride : i32, r#type : u32));
-    unsafe { gluPwlCurve(core::mem::transmute(nobj), count, core::mem::transmute(array), stride, r#type) }
+    unsafe { gluPwlCurve(nobj as _, count, array as _, stride, r#type) }
 }
 #[inline]
 pub unsafe fn gluQuadricCallback(qobj: *mut GLUquadric, which: u32, r#fn: isize) {
     windows_targets::link!("glu32.dll" "system" fn gluQuadricCallback(qobj : *mut GLUquadric, which : u32, r#fn : isize));
-    unsafe { gluQuadricCallback(core::mem::transmute(qobj), which, r#fn) }
+    unsafe { gluQuadricCallback(qobj as _, which, r#fn) }
 }
 #[inline]
 pub unsafe fn gluQuadricDrawStyle(quadobject: *mut GLUquadric, drawstyle: u32) {
     windows_targets::link!("glu32.dll" "system" fn gluQuadricDrawStyle(quadobject : *mut GLUquadric, drawstyle : u32));
-    unsafe { gluQuadricDrawStyle(core::mem::transmute(quadobject), drawstyle) }
+    unsafe { gluQuadricDrawStyle(quadobject as _, drawstyle) }
 }
 #[inline]
 pub unsafe fn gluQuadricNormals(quadobject: *mut GLUquadric, normals: u32) {
     windows_targets::link!("glu32.dll" "system" fn gluQuadricNormals(quadobject : *mut GLUquadric, normals : u32));
-    unsafe { gluQuadricNormals(core::mem::transmute(quadobject), normals) }
+    unsafe { gluQuadricNormals(quadobject as _, normals) }
 }
 #[inline]
 pub unsafe fn gluQuadricOrientation(quadobject: *mut GLUquadric, orientation: u32) {
     windows_targets::link!("glu32.dll" "system" fn gluQuadricOrientation(quadobject : *mut GLUquadric, orientation : u32));
-    unsafe { gluQuadricOrientation(core::mem::transmute(quadobject), orientation) }
+    unsafe { gluQuadricOrientation(quadobject as _, orientation) }
 }
 #[inline]
 pub unsafe fn gluQuadricTexture(quadobject: *mut GLUquadric, texturecoords: u8) {
     windows_targets::link!("glu32.dll" "system" fn gluQuadricTexture(quadobject : *mut GLUquadric, texturecoords : u8));
-    unsafe { gluQuadricTexture(core::mem::transmute(quadobject), texturecoords) }
+    unsafe { gluQuadricTexture(quadobject as _, texturecoords) }
 }
 #[inline]
 pub unsafe fn gluScaleImage(format: u32, widthin: i32, heightin: i32, typein: u32, datain: *const core::ffi::c_void, widthout: i32, heightout: i32, typeout: u32, dataout: *mut core::ffi::c_void) -> i32 {
     windows_targets::link!("glu32.dll" "system" fn gluScaleImage(format : u32, widthin : i32, heightin : i32, typein : u32, datain : *const core::ffi::c_void, widthout : i32, heightout : i32, typeout : u32, dataout : *mut core::ffi::c_void) -> i32);
-    unsafe { gluScaleImage(format, widthin, heightin, typein, datain, widthout, heightout, typeout, core::mem::transmute(dataout)) }
+    unsafe { gluScaleImage(format, widthin, heightin, typein, datain, widthout, heightout, typeout, dataout as _) }
 }
 #[inline]
 pub unsafe fn gluSphere(qobj: *mut GLUquadric, radius: f64, slices: i32, stacks: i32) {
     windows_targets::link!("glu32.dll" "system" fn gluSphere(qobj : *mut GLUquadric, radius : f64, slices : i32, stacks : i32));
-    unsafe { gluSphere(core::mem::transmute(qobj), radius, slices, stacks) }
+    unsafe { gluSphere(qobj as _, radius, slices, stacks) }
 }
 #[inline]
 pub unsafe fn gluTessBeginContour(tess: *mut GLUtesselator) {
     windows_targets::link!("glu32.dll" "system" fn gluTessBeginContour(tess : *mut GLUtesselator));
-    unsafe { gluTessBeginContour(core::mem::transmute(tess)) }
+    unsafe { gluTessBeginContour(tess as _) }
 }
 #[inline]
 pub unsafe fn gluTessBeginPolygon(tess: *mut GLUtesselator, polygon_data: *mut core::ffi::c_void) {
     windows_targets::link!("glu32.dll" "system" fn gluTessBeginPolygon(tess : *mut GLUtesselator, polygon_data : *mut core::ffi::c_void));
-    unsafe { gluTessBeginPolygon(core::mem::transmute(tess), core::mem::transmute(polygon_data)) }
+    unsafe { gluTessBeginPolygon(tess as _, polygon_data as _) }
 }
 #[inline]
 pub unsafe fn gluTessCallback(tess: *mut GLUtesselator, which: u32, r#fn: isize) {
     windows_targets::link!("glu32.dll" "system" fn gluTessCallback(tess : *mut GLUtesselator, which : u32, r#fn : isize));
-    unsafe { gluTessCallback(core::mem::transmute(tess), which, r#fn) }
+    unsafe { gluTessCallback(tess as _, which, r#fn) }
 }
 #[inline]
 pub unsafe fn gluTessEndContour(tess: *mut GLUtesselator) {
     windows_targets::link!("glu32.dll" "system" fn gluTessEndContour(tess : *mut GLUtesselator));
-    unsafe { gluTessEndContour(core::mem::transmute(tess)) }
+    unsafe { gluTessEndContour(tess as _) }
 }
 #[inline]
 pub unsafe fn gluTessEndPolygon(tess: *mut GLUtesselator) {
     windows_targets::link!("glu32.dll" "system" fn gluTessEndPolygon(tess : *mut GLUtesselator));
-    unsafe { gluTessEndPolygon(core::mem::transmute(tess)) }
+    unsafe { gluTessEndPolygon(tess as _) }
 }
 #[inline]
 pub unsafe fn gluTessNormal(tess: *mut GLUtesselator, x: f64, y: f64, z: f64) {
     windows_targets::link!("glu32.dll" "system" fn gluTessNormal(tess : *mut GLUtesselator, x : f64, y : f64, z : f64));
-    unsafe { gluTessNormal(core::mem::transmute(tess), x, y, z) }
+    unsafe { gluTessNormal(tess as _, x, y, z) }
 }
 #[inline]
 pub unsafe fn gluTessProperty(tess: *mut GLUtesselator, which: u32, value: f64) {
     windows_targets::link!("glu32.dll" "system" fn gluTessProperty(tess : *mut GLUtesselator, which : u32, value : f64));
-    unsafe { gluTessProperty(core::mem::transmute(tess), which, value) }
+    unsafe { gluTessProperty(tess as _, which, value) }
 }
 #[inline]
 pub unsafe fn gluTessVertex(tess: *mut GLUtesselator, coords: *mut f64, data: *mut core::ffi::c_void) {
     windows_targets::link!("glu32.dll" "system" fn gluTessVertex(tess : *mut GLUtesselator, coords : *mut f64, data : *mut core::ffi::c_void));
-    unsafe { gluTessVertex(core::mem::transmute(tess), core::mem::transmute(coords), core::mem::transmute(data)) }
+    unsafe { gluTessVertex(tess as _, coords as _, data as _) }
 }
 #[inline]
 pub unsafe fn gluUnProject(winx: f64, winy: f64, winz: f64, modelmatrix: *const f64, projmatrix: *const f64, viewport: *const i32, objx: *mut f64, objy: *mut f64, objz: *mut f64) -> i32 {
     windows_targets::link!("glu32.dll" "system" fn gluUnProject(winx : f64, winy : f64, winz : f64, modelmatrix : *const f64, projmatrix : *const f64, viewport : *const i32, objx : *mut f64, objy : *mut f64, objz : *mut f64) -> i32);
-    unsafe { gluUnProject(winx, winy, winz, modelmatrix, projmatrix, viewport, core::mem::transmute(objx), core::mem::transmute(objy), core::mem::transmute(objz)) }
+    unsafe { gluUnProject(winx, winy, winz, modelmatrix, projmatrix, viewport, objx as _, objy as _, objz as _) }
 }
 #[inline]
 pub unsafe fn wglCopyContext(param0: HGLRC, param1: HGLRC, param2: u32) -> windows_core::Result<()> {
@@ -2002,7 +2002,7 @@ pub unsafe fn wglDeleteContext(param0: HGLRC) -> windows_core::Result<()> {
 #[inline]
 pub unsafe fn wglDescribeLayerPlane(param0: super::Gdi::HDC, param1: i32, param2: i32, param3: u32, param4: *mut LAYERPLANEDESCRIPTOR) -> super::super::Foundation::BOOL {
     windows_targets::link!("opengl32.dll" "system" fn wglDescribeLayerPlane(param0 : super::Gdi:: HDC, param1 : i32, param2 : i32, param3 : u32, param4 : *mut LAYERPLANEDESCRIPTOR) -> super::super::Foundation:: BOOL);
-    unsafe { wglDescribeLayerPlane(param0, param1, param2, param3, core::mem::transmute(param4)) }
+    unsafe { wglDescribeLayerPlane(param0, param1, param2, param3, param4 as _) }
 }
 #[inline]
 pub unsafe fn wglGetCurrentContext() -> HGLRC {
@@ -2019,7 +2019,7 @@ pub unsafe fn wglGetCurrentDC() -> super::Gdi::HDC {
 #[inline]
 pub unsafe fn wglGetLayerPaletteEntries(param0: super::Gdi::HDC, param1: i32, param2: i32, param3: i32, param4: *mut super::super::Foundation::COLORREF) -> i32 {
     windows_targets::link!("opengl32.dll" "system" fn wglGetLayerPaletteEntries(param0 : super::Gdi:: HDC, param1 : i32, param2 : i32, param3 : i32, param4 : *mut super::super::Foundation:: COLORREF) -> i32);
-    unsafe { wglGetLayerPaletteEntries(param0, param1, param2, param3, core::mem::transmute(param4)) }
+    unsafe { wglGetLayerPaletteEntries(param0, param1, param2, param3, param4 as _) }
 }
 #[inline]
 pub unsafe fn wglGetProcAddress<P0>(param0: P0) -> super::super::Foundation::PROC
@@ -2074,13 +2074,13 @@ pub unsafe fn wglUseFontBitmapsW(param0: super::Gdi::HDC, param1: u32, param2: u
 #[inline]
 pub unsafe fn wglUseFontOutlinesA(param0: super::Gdi::HDC, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> windows_core::Result<()> {
     windows_targets::link!("opengl32.dll" "system" fn wglUseFontOutlinesA(param0 : super::Gdi:: HDC, param1 : u32, param2 : u32, param3 : u32, param4 : f32, param5 : f32, param6 : i32, param7 : *mut GLYPHMETRICSFLOAT) -> super::super::Foundation:: BOOL);
-    unsafe { wglUseFontOutlinesA(param0, param1, param2, param3, param4, param5, param6, core::mem::transmute(param7)).ok() }
+    unsafe { wglUseFontOutlinesA(param0, param1, param2, param3, param4, param5, param6, param7 as _).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn wglUseFontOutlinesW(param0: super::Gdi::HDC, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> windows_core::Result<()> {
     windows_targets::link!("opengl32.dll" "system" fn wglUseFontOutlinesW(param0 : super::Gdi:: HDC, param1 : u32, param2 : u32, param3 : u32, param4 : f32, param5 : f32, param6 : i32, param7 : *mut GLYPHMETRICSFLOAT) -> super::super::Foundation:: BOOL);
-    unsafe { wglUseFontOutlinesW(param0, param1, param2, param3, param4, param5, param6, core::mem::transmute(param7)).ok() }
+    unsafe { wglUseFontOutlinesW(param0, param1, param2, param3, param4, param5, param6, param7 as _).ok() }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]

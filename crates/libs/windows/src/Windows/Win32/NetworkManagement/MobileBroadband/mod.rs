@@ -58,7 +58,7 @@ impl IMbnConnection {
         }
     }
     pub unsafe fn GetConnectionState(&self, connectionstate: *mut MBN_ACTIVATION_STATE, profilename: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetConnectionState)(windows_core::Interface::as_raw(self), core::mem::transmute(connectionstate), core::mem::transmute(profilename)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetConnectionState)(windows_core::Interface::as_raw(self), connectionstate as _, core::mem::transmute(profilename)).ok() }
     }
     pub unsafe fn GetVoiceCallState(&self) -> windows_core::Result<MBN_VOICE_CALL_STATE> {
         unsafe {
@@ -1492,7 +1492,7 @@ impl IMbnInterface {
     pub unsafe fn GetVisibleProviders(&self, age: *mut u32) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetVisibleProviders)(windows_core::Interface::as_raw(self), core::mem::transmute(age), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetVisibleProviders)(windows_core::Interface::as_raw(self), age as _, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn ScanNetwork(&self) -> windows_core::Result<u32> {
@@ -1981,7 +1981,7 @@ impl IMbnMultiCarrier {
     pub unsafe fn GetVisibleProviders(&self, age: *mut u32) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetVisibleProviders)(windows_core::Interface::as_raw(self), core::mem::transmute(age), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetVisibleProviders)(windows_core::Interface::as_raw(self), age as _, &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Win32_System_Com")]

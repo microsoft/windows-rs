@@ -5,8 +5,6 @@ use windows::{
     Win32::UI::WindowsAndMessaging::*,
 };
 
-use std::mem::transmute;
-
 trait DXSample {
     fn new(command_line: &SampleCommandLine) -> Result<Self>
     where
@@ -151,7 +149,7 @@ extern "system" fn wndproc<S: DXSample>(
     match message {
         WM_CREATE => {
             unsafe {
-                let create_struct: &CREATESTRUCTA = transmute(lparam);
+                let create_struct: &CREATESTRUCTA = &*(lparam.0 as *const CREATESTRUCTA);
                 SetWindowLongPtrA(window, GWLP_USERDATA, create_struct.lpCreateParams as _);
             }
             LRESULT::default()

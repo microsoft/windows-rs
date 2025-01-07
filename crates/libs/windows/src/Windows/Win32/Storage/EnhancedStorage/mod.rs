@@ -245,7 +245,7 @@ impl IEnhancedStorageACT {
         }
     }
     pub unsafe fn GetSilos(&self, pppienhancedstoragesilos: *mut *mut Option<IEnhancedStorageSilo>, pcenhancedstoragesilos: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetSilos)(windows_core::Interface::as_raw(self), core::mem::transmute(pppienhancedstoragesilos), core::mem::transmute(pcenhancedstoragesilos)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetSilos)(windows_core::Interface::as_raw(self), pppienhancedstoragesilos as _, pcenhancedstoragesilos as _).ok() }
     }
 }
 #[repr(C)]
@@ -497,10 +497,10 @@ impl IEnhancedStorageSilo {
         }
     }
     pub unsafe fn GetActions(&self, pppienhancedstoragesiloactions: *mut *mut Option<IEnhancedStorageSiloAction>, pcenhancedstoragesiloactions: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetActions)(windows_core::Interface::as_raw(self), core::mem::transmute(pppienhancedstoragesiloactions), core::mem::transmute(pcenhancedstoragesiloactions)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetActions)(windows_core::Interface::as_raw(self), pppienhancedstoragesiloactions as _, pcenhancedstoragesiloactions as _).ok() }
     }
     pub unsafe fn SendCommand(&self, command: u8, pbcommandbuffer: &[u8], pbresponsebuffer: *mut u8, pcbresponsebuffer: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SendCommand)(windows_core::Interface::as_raw(self), command, core::mem::transmute(pbcommandbuffer.as_ptr()), pbcommandbuffer.len().try_into().unwrap(), core::mem::transmute(pbresponsebuffer), core::mem::transmute(pcbresponsebuffer)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SendCommand)(windows_core::Interface::as_raw(self), command, core::mem::transmute(pbcommandbuffer.as_ptr()), pbcommandbuffer.len().try_into().unwrap(), pbresponsebuffer as _, pcbresponsebuffer as _).ok() }
     }
     #[cfg(feature = "Win32_Devices_PortableDevices")]
     pub unsafe fn GetPortableDevice(&self) -> windows_core::Result<super::super::Devices::PortableDevices::IPortableDevice> {
@@ -681,7 +681,7 @@ windows_core::imp::define_interface!(IEnumEnhancedStorageACT, IEnumEnhancedStora
 windows_core::imp::interface_hierarchy!(IEnumEnhancedStorageACT, windows_core::IUnknown);
 impl IEnumEnhancedStorageACT {
     pub unsafe fn GetACTs(&self, pppienhancedstorageacts: *mut *mut Option<IEnhancedStorageACT>, pcenhancedstorageacts: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetACTs)(windows_core::Interface::as_raw(self), core::mem::transmute(pppienhancedstorageacts), core::mem::transmute(pcenhancedstorageacts)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetACTs)(windows_core::Interface::as_raw(self), pppienhancedstorageacts as _, pcenhancedstorageacts as _).ok() }
     }
     pub unsafe fn GetMatchingACT<P0>(&self, szvolume: P0) -> windows_core::Result<IEnhancedStorageACT>
     where

@@ -874,7 +874,7 @@ impl IRDPSRAPIAudioStream {
         unsafe { (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn GetBuffer(&self, ppbdata: *mut *mut u8, pcbdata: *mut u32, ptimestamp: *mut u64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute(ppbdata), core::mem::transmute(pcbdata), core::mem::transmute(ptimestamp)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetBuffer)(windows_core::Interface::as_raw(self), ppbdata as _, pcbdata as _, ptimestamp as _).ok() }
     }
     pub unsafe fn FreeBuffer(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).FreeBuffer)(windows_core::Interface::as_raw(self)).ok() }
@@ -1677,7 +1677,7 @@ impl IRDPSRAPISharingSession {
         unsafe { (windows_core::Interface::vtable(self).SetDesktopSharedRect)(windows_core::Interface::as_raw(self), left, top, right, bottom).ok() }
     }
     pub unsafe fn GetDesktopSharedRect(&self, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDesktopSharedRect)(windows_core::Interface::as_raw(self), core::mem::transmute(pleft), core::mem::transmute(ptop), core::mem::transmute(pright), core::mem::transmute(pbottom)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetDesktopSharedRect)(windows_core::Interface::as_raw(self), pleft as _, ptop as _, pright as _, pbottom as _).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]

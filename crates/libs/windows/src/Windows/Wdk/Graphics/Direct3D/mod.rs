@@ -1,12 +1,12 @@
 #[inline]
 pub unsafe fn D3DKMTAcquireKeyedMutex(param0: *mut D3DKMT_ACQUIREKEYEDMUTEX) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTAcquireKeyedMutex(param0 : *mut D3DKMT_ACQUIREKEYEDMUTEX) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTAcquireKeyedMutex(core::mem::transmute(param0)) }
+    unsafe { D3DKMTAcquireKeyedMutex(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTAcquireKeyedMutex2(param0: *mut D3DKMT_ACQUIREKEYEDMUTEX2) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTAcquireKeyedMutex2(param0 : *mut D3DKMT_ACQUIREKEYEDMUTEX2) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTAcquireKeyedMutex2(core::mem::transmute(param0)) }
+    unsafe { D3DKMTAcquireKeyedMutex2(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTAdjustFullscreenGamma(param0: *const D3DKMT_ADJUSTFULLSCREENGAMMA) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -42,17 +42,17 @@ pub unsafe fn D3DKMTCheckMonitorPowerState(param0: *const D3DKMT_CHECKMONITORPOW
 #[inline]
 pub unsafe fn D3DKMTCheckMultiPlaneOverlaySupport(param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCheckMultiPlaneOverlaySupport(param0 : *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTCheckMultiPlaneOverlaySupport(core::mem::transmute(param0)) }
+    unsafe { D3DKMTCheckMultiPlaneOverlaySupport(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTCheckMultiPlaneOverlaySupport2(param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCheckMultiPlaneOverlaySupport2(param0 : *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTCheckMultiPlaneOverlaySupport2(core::mem::transmute(param0)) }
+    unsafe { D3DKMTCheckMultiPlaneOverlaySupport2(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTCheckMultiPlaneOverlaySupport3(param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCheckMultiPlaneOverlaySupport3(param0 : *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTCheckMultiPlaneOverlaySupport3(core::mem::transmute(param0)) }
+    unsafe { D3DKMTCheckMultiPlaneOverlaySupport3(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTCheckOcclusion(param0: *const D3DKMT_CHECKOCCLUSION) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -82,17 +82,17 @@ pub unsafe fn D3DKMTConfigureSharedResource(param0: *const D3DKMT_CONFIGURESHARE
 #[inline]
 pub unsafe fn D3DKMTCreateAllocation(param0: *mut D3DKMT_CREATEALLOCATION) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateAllocation(param0 : *mut D3DKMT_CREATEALLOCATION) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTCreateAllocation(core::mem::transmute(param0)) }
+    unsafe { D3DKMTCreateAllocation(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTCreateAllocation2(param0: *mut D3DKMT_CREATEALLOCATION) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateAllocation2(param0 : *mut D3DKMT_CREATEALLOCATION) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTCreateAllocation2(core::mem::transmute(param0)) }
+    unsafe { D3DKMTCreateAllocation2(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTCreateContext(param0: *mut D3DKMT_CREATECONTEXT) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateContext(param0 : *mut D3DKMT_CREATECONTEXT) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTCreateContext(core::mem::transmute(param0)) }
+    unsafe { D3DKMTCreateContext(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTCreateContextVirtual(param0: *const D3DKMT_CREATECONTEXTVIRTUAL) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -103,32 +103,32 @@ pub unsafe fn D3DKMTCreateContextVirtual(param0: *const D3DKMT_CREATECONTEXTVIRT
 #[inline]
 pub unsafe fn D3DKMTCreateDCFromMemory(param0: *mut D3DKMT_CREATEDCFROMMEMORY) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateDCFromMemory(param0 : *mut D3DKMT_CREATEDCFROMMEMORY) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTCreateDCFromMemory(core::mem::transmute(param0)) }
+    unsafe { D3DKMTCreateDCFromMemory(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTCreateDevice(param0: *mut D3DKMT_CREATEDEVICE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateDevice(param0 : *mut D3DKMT_CREATEDEVICE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTCreateDevice(core::mem::transmute(param0)) }
+    unsafe { D3DKMTCreateDevice(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTCreateHwContext(param0: *mut D3DKMT_CREATEHWCONTEXT) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateHwContext(param0 : *mut D3DKMT_CREATEHWCONTEXT) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTCreateHwContext(core::mem::transmute(param0)) }
+    unsafe { D3DKMTCreateHwContext(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTCreateHwQueue(param0: *mut D3DKMT_CREATEHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateHwQueue(param0 : *mut D3DKMT_CREATEHWQUEUE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTCreateHwQueue(core::mem::transmute(param0)) }
+    unsafe { D3DKMTCreateHwQueue(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTCreateKeyedMutex(param0: *mut D3DKMT_CREATEKEYEDMUTEX) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateKeyedMutex(param0 : *mut D3DKMT_CREATEKEYEDMUTEX) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTCreateKeyedMutex(core::mem::transmute(param0)) }
+    unsafe { D3DKMTCreateKeyedMutex(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTCreateKeyedMutex2(param0: *mut D3DKMT_CREATEKEYEDMUTEX2) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateKeyedMutex2(param0 : *mut D3DKMT_CREATEKEYEDMUTEX2) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTCreateKeyedMutex2(core::mem::transmute(param0)) }
+    unsafe { D3DKMTCreateKeyedMutex2(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTCreateOutputDupl(param0: *const D3DKMT_CREATE_OUTPUTDUPL) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -138,27 +138,27 @@ pub unsafe fn D3DKMTCreateOutputDupl(param0: *const D3DKMT_CREATE_OUTPUTDUPL) ->
 #[inline]
 pub unsafe fn D3DKMTCreateOverlay(param0: *mut D3DKMT_CREATEOVERLAY) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateOverlay(param0 : *mut D3DKMT_CREATEOVERLAY) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTCreateOverlay(core::mem::transmute(param0)) }
+    unsafe { D3DKMTCreateOverlay(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTCreatePagingQueue(param0: *mut D3DKMT_CREATEPAGINGQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreatePagingQueue(param0 : *mut D3DKMT_CREATEPAGINGQUEUE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTCreatePagingQueue(core::mem::transmute(param0)) }
+    unsafe { D3DKMTCreatePagingQueue(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTCreateProtectedSession(param0: *mut D3DKMT_CREATEPROTECTEDSESSION) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateProtectedSession(param0 : *mut D3DKMT_CREATEPROTECTEDSESSION) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTCreateProtectedSession(core::mem::transmute(param0)) }
+    unsafe { D3DKMTCreateProtectedSession(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTCreateSynchronizationObject(param0: *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateSynchronizationObject(param0 : *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTCreateSynchronizationObject(core::mem::transmute(param0)) }
+    unsafe { D3DKMTCreateSynchronizationObject(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTCreateSynchronizationObject2(param0: *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT2) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateSynchronizationObject2(param0 : *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT2) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTCreateSynchronizationObject2(core::mem::transmute(param0)) }
+    unsafe { D3DKMTCreateSynchronizationObject2(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTDestroyAllocation(param0: *const D3DKMT_DESTROYALLOCATION) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -214,12 +214,12 @@ pub unsafe fn D3DKMTDestroyOverlay(param0: *const D3DKMT_DESTROYOVERLAY) -> supe
 #[inline]
 pub unsafe fn D3DKMTDestroyPagingQueue(param0: *mut D3DDDI_DESTROYPAGINGQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTDestroyPagingQueue(param0 : *mut D3DDDI_DESTROYPAGINGQUEUE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTDestroyPagingQueue(core::mem::transmute(param0)) }
+    unsafe { D3DKMTDestroyPagingQueue(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTDestroyProtectedSession(param0: *mut D3DKMT_DESTROYPROTECTEDSESSION) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTDestroyProtectedSession(param0 : *mut D3DKMT_DESTROYPROTECTEDSESSION) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTDestroyProtectedSession(core::mem::transmute(param0)) }
+    unsafe { D3DKMTDestroyProtectedSession(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTDestroySynchronizationObject(param0: *const D3DKMT_DESTROYSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -229,17 +229,17 @@ pub unsafe fn D3DKMTDestroySynchronizationObject(param0: *const D3DKMT_DESTROYSY
 #[inline]
 pub unsafe fn D3DKMTEnumAdapters(param0: *mut D3DKMT_ENUMADAPTERS) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTEnumAdapters(param0 : *mut D3DKMT_ENUMADAPTERS) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTEnumAdapters(core::mem::transmute(param0)) }
+    unsafe { D3DKMTEnumAdapters(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTEnumAdapters2(param0: *mut D3DKMT_ENUMADAPTERS2) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTEnumAdapters2(param0 : *mut D3DKMT_ENUMADAPTERS2) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTEnumAdapters2(core::mem::transmute(param0)) }
+    unsafe { D3DKMTEnumAdapters2(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTEnumAdapters3(param0: *mut D3DKMT_ENUMADAPTERS3) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("api-ms-win-dx-d3dkmt-l1-1-6.dll" "system" fn D3DKMTEnumAdapters3(param0 : *mut D3DKMT_ENUMADAPTERS3) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTEnumAdapters3(core::mem::transmute(param0)) }
+    unsafe { D3DKMTEnumAdapters3(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTEscape(param0: *const D3DKMT_ESCAPE) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -249,7 +249,7 @@ pub unsafe fn D3DKMTEscape(param0: *const D3DKMT_ESCAPE) -> super::super::super:
 #[inline]
 pub unsafe fn D3DKMTEvict(param0: *mut D3DKMT_EVICT) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTEvict(param0 : *mut D3DKMT_EVICT) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTEvict(core::mem::transmute(param0)) }
+    unsafe { D3DKMTEvict(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTFlipOverlay(param0: *const D3DKMT_FLIPOVERLAY) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -274,12 +274,12 @@ pub unsafe fn D3DKMTGetAllocationPriority(param0: *const D3DKMT_GETALLOCATIONPRI
 #[inline]
 pub unsafe fn D3DKMTGetContextInProcessSchedulingPriority(param0: *mut D3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetContextInProcessSchedulingPriority(param0 : *mut D3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTGetContextInProcessSchedulingPriority(core::mem::transmute(param0)) }
+    unsafe { D3DKMTGetContextInProcessSchedulingPriority(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTGetContextSchedulingPriority(param0: *mut D3DKMT_GETCONTEXTSCHEDULINGPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetContextSchedulingPriority(param0 : *mut D3DKMT_GETCONTEXTSCHEDULINGPRIORITY) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTGetContextSchedulingPriority(core::mem::transmute(param0)) }
+    unsafe { D3DKMTGetContextSchedulingPriority(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTGetDWMVerticalBlankEvent(param0: *const D3DKMT_GETVERTICALBLANKEVENT) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -289,77 +289,77 @@ pub unsafe fn D3DKMTGetDWMVerticalBlankEvent(param0: *const D3DKMT_GETVERTICALBL
 #[inline]
 pub unsafe fn D3DKMTGetDeviceState(param0: *mut D3DKMT_GETDEVICESTATE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetDeviceState(param0 : *mut D3DKMT_GETDEVICESTATE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTGetDeviceState(core::mem::transmute(param0)) }
+    unsafe { D3DKMTGetDeviceState(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTGetDisplayModeList(param0: *mut D3DKMT_GETDISPLAYMODELIST) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetDisplayModeList(param0 : *mut D3DKMT_GETDISPLAYMODELIST) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTGetDisplayModeList(core::mem::transmute(param0)) }
+    unsafe { D3DKMTGetDisplayModeList(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTGetMultiPlaneOverlayCaps(param0: *mut D3DKMT_GET_MULTIPLANE_OVERLAY_CAPS) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetMultiPlaneOverlayCaps(param0 : *mut D3DKMT_GET_MULTIPLANE_OVERLAY_CAPS) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTGetMultiPlaneOverlayCaps(core::mem::transmute(param0)) }
+    unsafe { D3DKMTGetMultiPlaneOverlayCaps(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTGetMultisampleMethodList(param0: *mut D3DKMT_GETMULTISAMPLEMETHODLIST) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetMultisampleMethodList(param0 : *mut D3DKMT_GETMULTISAMPLEMETHODLIST) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTGetMultisampleMethodList(core::mem::transmute(param0)) }
+    unsafe { D3DKMTGetMultisampleMethodList(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTGetOverlayState(param0: *mut D3DKMT_GETOVERLAYSTATE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetOverlayState(param0 : *mut D3DKMT_GETOVERLAYSTATE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTGetOverlayState(core::mem::transmute(param0)) }
+    unsafe { D3DKMTGetOverlayState(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTGetPostCompositionCaps(param0: *mut D3DKMT_GET_POST_COMPOSITION_CAPS) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetPostCompositionCaps(param0 : *mut D3DKMT_GET_POST_COMPOSITION_CAPS) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTGetPostCompositionCaps(core::mem::transmute(param0)) }
+    unsafe { D3DKMTGetPostCompositionCaps(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTGetPresentHistory(param0: *mut D3DKMT_GETPRESENTHISTORY) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetPresentHistory(param0 : *mut D3DKMT_GETPRESENTHISTORY) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTGetPresentHistory(core::mem::transmute(param0)) }
+    unsafe { D3DKMTGetPresentHistory(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTGetPresentQueueEvent(hadapter: u32, param1: *mut super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetPresentQueueEvent(hadapter : u32, param1 : *mut super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTGetPresentQueueEvent(hadapter, core::mem::transmute(param1)) }
+    unsafe { D3DKMTGetPresentQueueEvent(hadapter, param1 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTGetProcessDeviceRemovalSupport(param0: *mut D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetProcessDeviceRemovalSupport(param0 : *mut D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTGetProcessDeviceRemovalSupport(core::mem::transmute(param0)) }
+    unsafe { D3DKMTGetProcessDeviceRemovalSupport(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTGetProcessSchedulingPriorityClass(param0: super::super::super::Win32::Foundation::HANDLE, param1: *mut D3DKMT_SCHEDULINGPRIORITYCLASS) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetProcessSchedulingPriorityClass(param0 : super::super::super::Win32::Foundation:: HANDLE, param1 : *mut D3DKMT_SCHEDULINGPRIORITYCLASS) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTGetProcessSchedulingPriorityClass(param0, core::mem::transmute(param1)) }
+    unsafe { D3DKMTGetProcessSchedulingPriorityClass(param0, param1 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTGetResourcePresentPrivateDriverData(param0: *mut D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetResourcePresentPrivateDriverData(param0 : *mut D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTGetResourcePresentPrivateDriverData(core::mem::transmute(param0)) }
+    unsafe { D3DKMTGetResourcePresentPrivateDriverData(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTGetRuntimeData(param0: *mut D3DKMT_GETRUNTIMEDATA) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetRuntimeData(param0 : *mut D3DKMT_GETRUNTIMEDATA) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTGetRuntimeData(core::mem::transmute(param0)) }
+    unsafe { D3DKMTGetRuntimeData(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTGetScanLine(param0: *mut D3DKMT_GETSCANLINE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetScanLine(param0 : *mut D3DKMT_GETSCANLINE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTGetScanLine(core::mem::transmute(param0)) }
+    unsafe { D3DKMTGetScanLine(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTGetSharedPrimaryHandle(param0: *mut D3DKMT_GETSHAREDPRIMARYHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetSharedPrimaryHandle(param0 : *mut D3DKMT_GETSHAREDPRIMARYHANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTGetSharedPrimaryHandle(core::mem::transmute(param0)) }
+    unsafe { D3DKMTGetSharedPrimaryHandle(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTGetSharedResourceAdapterLuid(param0: *mut D3DKMT_GETSHAREDRESOURCEADAPTERLUID) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetSharedResourceAdapterLuid(param0 : *mut D3DKMT_GETSHAREDRESOURCEADAPTERLUID) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTGetSharedResourceAdapterLuid(core::mem::transmute(param0)) }
+    unsafe { D3DKMTGetSharedResourceAdapterLuid(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTInvalidateActiveVidPn(param0: *const D3DKMT_INVALIDATEACTIVEVIDPN) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -374,22 +374,22 @@ pub unsafe fn D3DKMTInvalidateCache(param0: *const D3DKMT_INVALIDATECACHE) -> su
 #[inline]
 pub unsafe fn D3DKMTLock(param0: *mut D3DKMT_LOCK) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTLock(param0 : *mut D3DKMT_LOCK) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTLock(core::mem::transmute(param0)) }
+    unsafe { D3DKMTLock(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTLock2(param0: *mut D3DKMT_LOCK2) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTLock2(param0 : *mut D3DKMT_LOCK2) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTLock2(core::mem::transmute(param0)) }
+    unsafe { D3DKMTLock2(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTMakeResident(param0: *mut D3DDDI_MAKERESIDENT) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTMakeResident(param0 : *mut D3DDDI_MAKERESIDENT) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTMakeResident(core::mem::transmute(param0)) }
+    unsafe { D3DKMTMakeResident(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTMapGpuVirtualAddress(param0: *mut D3DDDI_MAPGPUVIRTUALADDRESS) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTMapGpuVirtualAddress(param0 : *mut D3DDDI_MAPGPUVIRTUALADDRESS) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTMapGpuVirtualAddress(core::mem::transmute(param0)) }
+    unsafe { D3DKMTMapGpuVirtualAddress(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTMarkDeviceAsError(param0: *const D3DKMT_MARKDEVICEASERROR) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -404,100 +404,100 @@ pub unsafe fn D3DKMTOfferAllocations(param0: *const D3DKMT_OFFERALLOCATIONS) -> 
 #[inline]
 pub unsafe fn D3DKMTOpenAdapterFromDeviceName(param0: *mut D3DKMT_OPENADAPTERFROMDEVICENAME) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenAdapterFromDeviceName(param0 : *mut D3DKMT_OPENADAPTERFROMDEVICENAME) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTOpenAdapterFromDeviceName(core::mem::transmute(param0)) }
+    unsafe { D3DKMTOpenAdapterFromDeviceName(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTOpenAdapterFromGdiDisplayName(param0: *mut D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenAdapterFromGdiDisplayName(param0 : *mut D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTOpenAdapterFromGdiDisplayName(core::mem::transmute(param0)) }
+    unsafe { D3DKMTOpenAdapterFromGdiDisplayName(param0 as _) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn D3DKMTOpenAdapterFromHdc(param0: *mut D3DKMT_OPENADAPTERFROMHDC) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenAdapterFromHdc(param0 : *mut D3DKMT_OPENADAPTERFROMHDC) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTOpenAdapterFromHdc(core::mem::transmute(param0)) }
+    unsafe { D3DKMTOpenAdapterFromHdc(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTOpenAdapterFromLuid(param0: *mut D3DKMT_OPENADAPTERFROMLUID) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenAdapterFromLuid(param0 : *mut D3DKMT_OPENADAPTERFROMLUID) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTOpenAdapterFromLuid(core::mem::transmute(param0)) }
+    unsafe { D3DKMTOpenAdapterFromLuid(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTOpenKeyedMutex(param0: *mut D3DKMT_OPENKEYEDMUTEX) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenKeyedMutex(param0 : *mut D3DKMT_OPENKEYEDMUTEX) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTOpenKeyedMutex(core::mem::transmute(param0)) }
+    unsafe { D3DKMTOpenKeyedMutex(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTOpenKeyedMutex2(param0: *mut D3DKMT_OPENKEYEDMUTEX2) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenKeyedMutex2(param0 : *mut D3DKMT_OPENKEYEDMUTEX2) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTOpenKeyedMutex2(core::mem::transmute(param0)) }
+    unsafe { D3DKMTOpenKeyedMutex2(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTOpenKeyedMutexFromNtHandle(param0: *mut D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenKeyedMutexFromNtHandle(param0 : *mut D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTOpenKeyedMutexFromNtHandle(core::mem::transmute(param0)) }
+    unsafe { D3DKMTOpenKeyedMutexFromNtHandle(param0 as _) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn D3DKMTOpenNtHandleFromName(param0: *mut D3DKMT_OPENNTHANDLEFROMNAME) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenNtHandleFromName(param0 : *mut D3DKMT_OPENNTHANDLEFROMNAME) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTOpenNtHandleFromName(core::mem::transmute(param0)) }
+    unsafe { D3DKMTOpenNtHandleFromName(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTOpenProtectedSessionFromNtHandle(param0: *mut D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenProtectedSessionFromNtHandle(param0 : *mut D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTOpenProtectedSessionFromNtHandle(core::mem::transmute(param0)) }
+    unsafe { D3DKMTOpenProtectedSessionFromNtHandle(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTOpenResource(param0: *mut D3DKMT_OPENRESOURCE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenResource(param0 : *mut D3DKMT_OPENRESOURCE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTOpenResource(core::mem::transmute(param0)) }
+    unsafe { D3DKMTOpenResource(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTOpenResource2(param0: *mut D3DKMT_OPENRESOURCE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenResource2(param0 : *mut D3DKMT_OPENRESOURCE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTOpenResource2(core::mem::transmute(param0)) }
+    unsafe { D3DKMTOpenResource2(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTOpenResourceFromNtHandle(param0: *mut D3DKMT_OPENRESOURCEFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenResourceFromNtHandle(param0 : *mut D3DKMT_OPENRESOURCEFROMNTHANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTOpenResourceFromNtHandle(core::mem::transmute(param0)) }
+    unsafe { D3DKMTOpenResourceFromNtHandle(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTOpenSyncObjectFromNtHandle(param0: *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenSyncObjectFromNtHandle(param0 : *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTOpenSyncObjectFromNtHandle(core::mem::transmute(param0)) }
+    unsafe { D3DKMTOpenSyncObjectFromNtHandle(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTOpenSyncObjectFromNtHandle2(param0: *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenSyncObjectFromNtHandle2(param0 : *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTOpenSyncObjectFromNtHandle2(core::mem::transmute(param0)) }
+    unsafe { D3DKMTOpenSyncObjectFromNtHandle2(param0 as _) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn D3DKMTOpenSyncObjectNtHandleFromName(param0: *mut D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenSyncObjectNtHandleFromName(param0 : *mut D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTOpenSyncObjectNtHandleFromName(core::mem::transmute(param0)) }
+    unsafe { D3DKMTOpenSyncObjectNtHandleFromName(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTOpenSynchronizationObject(param0: *mut D3DKMT_OPENSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenSynchronizationObject(param0 : *mut D3DKMT_OPENSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTOpenSynchronizationObject(core::mem::transmute(param0)) }
+    unsafe { D3DKMTOpenSynchronizationObject(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTOutputDuplGetFrameInfo(param0: *mut D3DKMT_OUTPUTDUPL_GET_FRAMEINFO) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOutputDuplGetFrameInfo(param0 : *mut D3DKMT_OUTPUTDUPL_GET_FRAMEINFO) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTOutputDuplGetFrameInfo(core::mem::transmute(param0)) }
+    unsafe { D3DKMTOutputDuplGetFrameInfo(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTOutputDuplGetMetaData(param0: *mut D3DKMT_OUTPUTDUPL_METADATA) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOutputDuplGetMetaData(param0 : *mut D3DKMT_OUTPUTDUPL_METADATA) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTOutputDuplGetMetaData(core::mem::transmute(param0)) }
+    unsafe { D3DKMTOutputDuplGetMetaData(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTOutputDuplGetPointerShapeData(param0: *mut D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOutputDuplGetPointerShapeData(param0 : *mut D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTOutputDuplGetPointerShapeData(core::mem::transmute(param0)) }
+    unsafe { D3DKMTOutputDuplGetPointerShapeData(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTOutputDuplPresent(param0: *const D3DKMT_OUTPUTDUPLPRESENT) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -512,7 +512,7 @@ pub unsafe fn D3DKMTOutputDuplPresentToHwQueue(param0: *const D3DKMT_OUTPUTDUPLP
 #[inline]
 pub unsafe fn D3DKMTOutputDuplReleaseFrame(param0: *mut D3DKMT_OUTPUTDUPL_RELEASE_FRAME) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOutputDuplReleaseFrame(param0 : *mut D3DKMT_OUTPUTDUPL_RELEASE_FRAME) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTOutputDuplReleaseFrame(core::mem::transmute(param0)) }
+    unsafe { D3DKMTOutputDuplReleaseFrame(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTPollDisplayChildren(param0: *const D3DKMT_POLLDISPLAYCHILDREN) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -522,7 +522,7 @@ pub unsafe fn D3DKMTPollDisplayChildren(param0: *const D3DKMT_POLLDISPLAYCHILDRE
 #[inline]
 pub unsafe fn D3DKMTPresent(param0: *mut D3DKMT_PRESENT) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTPresent(param0 : *mut D3DKMT_PRESENT) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTPresent(core::mem::transmute(param0)) }
+    unsafe { D3DKMTPresent(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTPresentMultiPlaneOverlay(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -547,7 +547,7 @@ pub unsafe fn D3DKMTPresentRedirected(param0: *const D3DKMT_PRESENT_REDIRECTED) 
 #[inline]
 pub unsafe fn D3DKMTQueryAdapterInfo(param0: *mut D3DKMT_QUERYADAPTERINFO) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTQueryAdapterInfo(param0 : *mut D3DKMT_QUERYADAPTERINFO) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTQueryAdapterInfo(core::mem::transmute(param0)) }
+    unsafe { D3DKMTQueryAdapterInfo(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTQueryAllocationResidency(param0: *const D3DKMT_QUERYALLOCATIONRESIDENCY) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -557,42 +557,42 @@ pub unsafe fn D3DKMTQueryAllocationResidency(param0: *const D3DKMT_QUERYALLOCATI
 #[inline]
 pub unsafe fn D3DKMTQueryClockCalibration(param0: *mut D3DKMT_QUERYCLOCKCALIBRATION) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTQueryClockCalibration(param0 : *mut D3DKMT_QUERYCLOCKCALIBRATION) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTQueryClockCalibration(core::mem::transmute(param0)) }
+    unsafe { D3DKMTQueryClockCalibration(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTQueryFSEBlock(param0: *mut D3DKMT_QUERYFSEBLOCK) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTQueryFSEBlock(param0 : *mut D3DKMT_QUERYFSEBLOCK) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTQueryFSEBlock(core::mem::transmute(param0)) }
+    unsafe { D3DKMTQueryFSEBlock(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTQueryProcessOfferInfo(param0: *mut D3DKMT_QUERYPROCESSOFFERINFO) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTQueryProcessOfferInfo(param0 : *mut D3DKMT_QUERYPROCESSOFFERINFO) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTQueryProcessOfferInfo(core::mem::transmute(param0)) }
+    unsafe { D3DKMTQueryProcessOfferInfo(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTQueryProtectedSessionInfoFromNtHandle(param0: *mut D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTQueryProtectedSessionInfoFromNtHandle(param0 : *mut D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTQueryProtectedSessionInfoFromNtHandle(core::mem::transmute(param0)) }
+    unsafe { D3DKMTQueryProtectedSessionInfoFromNtHandle(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTQueryProtectedSessionStatus(param0: *mut D3DKMT_QUERYPROTECTEDSESSIONSTATUS) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTQueryProtectedSessionStatus(param0 : *mut D3DKMT_QUERYPROTECTEDSESSIONSTATUS) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTQueryProtectedSessionStatus(core::mem::transmute(param0)) }
+    unsafe { D3DKMTQueryProtectedSessionStatus(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTQueryRemoteVidPnSourceFromGdiDisplayName(param0: *mut D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTQueryRemoteVidPnSourceFromGdiDisplayName(param0 : *mut D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTQueryRemoteVidPnSourceFromGdiDisplayName(core::mem::transmute(param0)) }
+    unsafe { D3DKMTQueryRemoteVidPnSourceFromGdiDisplayName(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTQueryResourceInfo(param0: *mut D3DKMT_QUERYRESOURCEINFO) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTQueryResourceInfo(param0 : *mut D3DKMT_QUERYRESOURCEINFO) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTQueryResourceInfo(core::mem::transmute(param0)) }
+    unsafe { D3DKMTQueryResourceInfo(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTQueryResourceInfoFromNtHandle(param0: *mut D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTQueryResourceInfoFromNtHandle(param0 : *mut D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTQueryResourceInfoFromNtHandle(core::mem::transmute(param0)) }
+    unsafe { D3DKMTQueryResourceInfoFromNtHandle(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTQueryStatistics(param0: *const D3DKMT_QUERYSTATISTICS) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -602,27 +602,27 @@ pub unsafe fn D3DKMTQueryStatistics(param0: *const D3DKMT_QUERYSTATISTICS) -> su
 #[inline]
 pub unsafe fn D3DKMTQueryVidPnExclusiveOwnership(param0: *mut D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTQueryVidPnExclusiveOwnership(param0 : *mut D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTQueryVidPnExclusiveOwnership(core::mem::transmute(param0)) }
+    unsafe { D3DKMTQueryVidPnExclusiveOwnership(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTQueryVideoMemoryInfo(param0: *mut D3DKMT_QUERYVIDEOMEMORYINFO) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTQueryVideoMemoryInfo(param0 : *mut D3DKMT_QUERYVIDEOMEMORYINFO) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTQueryVideoMemoryInfo(core::mem::transmute(param0)) }
+    unsafe { D3DKMTQueryVideoMemoryInfo(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTReclaimAllocations(param0: *mut D3DKMT_RECLAIMALLOCATIONS) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTReclaimAllocations(param0 : *mut D3DKMT_RECLAIMALLOCATIONS) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTReclaimAllocations(core::mem::transmute(param0)) }
+    unsafe { D3DKMTReclaimAllocations(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTReclaimAllocations2(param0: *mut D3DKMT_RECLAIMALLOCATIONS2) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTReclaimAllocations2(param0 : *mut D3DKMT_RECLAIMALLOCATIONS2) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTReclaimAllocations2(core::mem::transmute(param0)) }
+    unsafe { D3DKMTReclaimAllocations2(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTRegisterTrimNotification(param0: *mut D3DKMT_REGISTERTRIMNOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTRegisterTrimNotification(param0 : *mut D3DKMT_REGISTERTRIMNOTIFICATION) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTRegisterTrimNotification(core::mem::transmute(param0)) }
+    unsafe { D3DKMTRegisterTrimNotification(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTRegisterVailProcess(param0: *const windows_core::GUID) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -632,12 +632,12 @@ pub unsafe fn D3DKMTRegisterVailProcess(param0: *const windows_core::GUID) -> su
 #[inline]
 pub unsafe fn D3DKMTReleaseKeyedMutex(param0: *mut D3DKMT_RELEASEKEYEDMUTEX) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTReleaseKeyedMutex(param0 : *mut D3DKMT_RELEASEKEYEDMUTEX) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTReleaseKeyedMutex(core::mem::transmute(param0)) }
+    unsafe { D3DKMTReleaseKeyedMutex(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTReleaseKeyedMutex2(param0: *mut D3DKMT_RELEASEKEYEDMUTEX2) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTReleaseKeyedMutex2(param0 : *mut D3DKMT_RELEASEKEYEDMUTEX2) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTReleaseKeyedMutex2(core::mem::transmute(param0)) }
+    unsafe { D3DKMTReleaseKeyedMutex2(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTReleaseProcessVidPnSourceOwners(param0: super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -647,12 +647,12 @@ pub unsafe fn D3DKMTReleaseProcessVidPnSourceOwners(param0: super::super::super:
 #[inline]
 pub unsafe fn D3DKMTRender(param0: *mut D3DKMT_RENDER) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTRender(param0 : *mut D3DKMT_RENDER) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTRender(core::mem::transmute(param0)) }
+    unsafe { D3DKMTRender(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTReserveGpuVirtualAddress(param0: *mut D3DDDI_RESERVEGPUVIRTUALADDRESS) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTReserveGpuVirtualAddress(param0 : *mut D3DDDI_RESERVEGPUVIRTUALADDRESS) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTReserveGpuVirtualAddress(core::mem::transmute(param0)) }
+    unsafe { D3DKMTReserveGpuVirtualAddress(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTSetAllocationPriority(param0: *const D3DKMT_SETALLOCATIONPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -672,7 +672,7 @@ pub unsafe fn D3DKMTSetContextSchedulingPriority(param0: *const D3DKMT_SETCONTEX
 #[inline]
 pub unsafe fn D3DKMTSetDisplayMode(param0: *mut D3DKMT_SETDISPLAYMODE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTSetDisplayMode(param0 : *mut D3DKMT_SETDISPLAYMODE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTSetDisplayMode(core::mem::transmute(param0)) }
+    unsafe { D3DKMTSetDisplayMode(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTSetDisplayPrivateDriverFormat(param0: *const D3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -743,7 +743,7 @@ pub unsafe fn D3DKMTSetVidPnSourceOwner2(param0: *const D3DKMT_SETVIDPNSOURCEOWN
 #[inline]
 pub unsafe fn D3DKMTShareObjects(hobjects: &[u32], pobjectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES, dwdesiredaccess: u32, phsharednthandle: *mut super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTShareObjects(cobjects : u32, hobjects : *const u32, pobjectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, dwdesiredaccess : u32, phsharednthandle : *mut super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTShareObjects(hobjects.len().try_into().unwrap(), core::mem::transmute(hobjects.as_ptr()), pobjectattributes, dwdesiredaccess, core::mem::transmute(phsharednthandle)) }
+    unsafe { D3DKMTShareObjects(hobjects.len().try_into().unwrap(), core::mem::transmute(hobjects.as_ptr()), pobjectattributes, dwdesiredaccess, phsharednthandle as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTSharedPrimaryLockNotification(param0: *const D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -798,7 +798,7 @@ pub unsafe fn D3DKMTSubmitPresentBltToHwQueue(param0: *const D3DKMT_SUBMITPRESEN
 #[inline]
 pub unsafe fn D3DKMTSubmitPresentToHwQueue(param0: *mut D3DKMT_SUBMITPRESENTTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("api-ms-win-dx-d3dkmt-l1-1-4.dll" "system" fn D3DKMTSubmitPresentToHwQueue(param0 : *mut D3DKMT_SUBMITPRESENTTOHWQUEUE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTSubmitPresentToHwQueue(core::mem::transmute(param0)) }
+    unsafe { D3DKMTSubmitPresentToHwQueue(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTSubmitSignalSyncObjectsToHwQueue(param0: *const D3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -813,7 +813,7 @@ pub unsafe fn D3DKMTSubmitWaitForSyncObjectsToHwQueue(param0: *const D3DKMT_SUBM
 #[inline]
 pub unsafe fn D3DKMTTrimProcessCommitment(param0: *mut D3DKMT_TRIMPROCESSCOMMITMENT) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTTrimProcessCommitment(param0 : *mut D3DKMT_TRIMPROCESSCOMMITMENT) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTTrimProcessCommitment(core::mem::transmute(param0)) }
+    unsafe { D3DKMTTrimProcessCommitment(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTUnlock(param0: *const D3DKMT_UNLOCK) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -828,12 +828,12 @@ pub unsafe fn D3DKMTUnlock2(param0: *const D3DKMT_UNLOCK2) -> super::super::supe
 #[inline]
 pub unsafe fn D3DKMTUnregisterTrimNotification(param0: *mut D3DKMT_UNREGISTERTRIMNOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTUnregisterTrimNotification(param0 : *mut D3DKMT_UNREGISTERTRIMNOTIFICATION) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTUnregisterTrimNotification(core::mem::transmute(param0)) }
+    unsafe { D3DKMTUnregisterTrimNotification(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTUpdateAllocationProperty(param0: *mut D3DDDI_UPDATEALLOCPROPERTY) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTUpdateAllocationProperty(param0 : *mut D3DDDI_UPDATEALLOCPROPERTY) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { D3DKMTUpdateAllocationProperty(core::mem::transmute(param0)) }
+    unsafe { D3DKMTUpdateAllocationProperty(param0 as _) }
 }
 #[inline]
 pub unsafe fn D3DKMTUpdateGpuVirtualAddress(param0: *const D3DKMT_UPDATEGPUVIRTUALADDRESS) -> super::super::super::Win32::Foundation::NTSTATUS {

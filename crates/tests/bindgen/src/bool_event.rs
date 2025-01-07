@@ -19,7 +19,7 @@ where
     windows_targets::link!("kernel32.dll" "system" fn CreateEventW(lpeventattributes : *const windows::Win32::Security:: SECURITY_ATTRIBUTES, bmanualreset : windows::Win32::Foundation:: BOOL, binitialstate : windows::Win32::Foundation:: BOOL, lpname : windows_core::PCWSTR) -> windows::Win32::Foundation:: HANDLE);
     let result__ = unsafe {
         CreateEventW(
-            core::mem::transmute(lpeventattributes.unwrap_or(core::mem::zeroed())),
+            lpeventattributes.unwrap_or(core::mem::zeroed()) as _,
             bmanualreset.into(),
             binitialstate.into(),
             lpname.param().abi(),
@@ -36,7 +36,7 @@ pub unsafe fn NtWaitForSingleObject(
     timeout: *mut i64,
 ) -> windows::Win32::Foundation::NTSTATUS {
     windows_targets::link!("ntdll.dll" "system" fn NtWaitForSingleObject(handle : windows::Win32::Foundation:: HANDLE, alertable : bool, timeout : *mut i64) -> windows::Win32::Foundation:: NTSTATUS);
-    unsafe { NtWaitForSingleObject(handle, alertable, core::mem::transmute(timeout)) }
+    unsafe { NtWaitForSingleObject(handle, alertable, timeout as _) }
 }
 #[inline]
 pub unsafe fn SetEvent(hevent: windows::Win32::Foundation::HANDLE) -> windows_core::Result<()> {
