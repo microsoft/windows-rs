@@ -25,7 +25,7 @@ jobs:
           - target: x86_64-pc-windows-gnu
           - target: i686-pc-windows-gnu
         runs-on:
-          - windows-latest
+          - windows-2022
     runs-on: ${{ matrix.runs-on }}
     steps:
       - name: Checkout
