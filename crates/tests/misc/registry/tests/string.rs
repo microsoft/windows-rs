@@ -37,7 +37,7 @@ fn string() -> Result<()> {
 
     key.set_expand_string("expand_string_different_types".to_string(), "value")?;
     assert_eq!(
-        key.get_type("expand_string_different_types")?, 
+        key.get_type("expand_string_different_types")?,
         Type::ExpandString
     );
     assert_eq!(key.get_string("expand_string_different_types")?, "value");
