@@ -24,8 +24,8 @@ fn link_name() {
 
 #[test]
 fn doc() {
-    windows_targets::link!("kernel32.dll" "system" "SetLastError" #[doc = "SetLastError"] fn SetLastError(code: u32) -> ());
-    windows_targets::link!("kernel32.dll" "system" #[doc = "GetLastError"] fn GetLastError() -> u32);
+    windows_targets::link!("kernel32.dll" "system" "SetLastError" fn SetLastError(code: u32) -> ());
+    windows_targets::link!("kernel32.dll" "system" fn GetLastError() -> u32);
 
     unsafe {
         SetLastError(1234);
