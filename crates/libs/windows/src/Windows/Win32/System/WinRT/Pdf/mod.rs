@@ -19,7 +19,7 @@ impl IPdfRendererNative {
         P0: windows_core::Param<windows_core::IUnknown>,
         P1: windows_core::Param<super::super::super::Graphics::Dxgi::IDXGISurface>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RenderPageToSurface)(windows_core::Interface::as_raw(self), pdfpage.param().abi(), psurface.param().abi(), core::mem::transmute(offset), core::mem::transmute(prenderparams.unwrap_or(core::mem::zeroed()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RenderPageToSurface)(windows_core::Interface::as_raw(self), pdfpage.param().abi(), psurface.param().abi(), core::mem::transmute(offset), prenderparams.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn RenderPageToDeviceContext<P0, P1>(&self, pdfpage: P0, pd2ddevicecontext: P1, prenderparams: Option<*const PDF_RENDER_PARAMS>) -> windows_core::Result<()>
@@ -27,7 +27,7 @@ impl IPdfRendererNative {
         P0: windows_core::Param<windows_core::IUnknown>,
         P1: windows_core::Param<super::super::super::Graphics::Direct2D::ID2D1DeviceContext>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RenderPageToDeviceContext)(windows_core::Interface::as_raw(self), pdfpage.param().abi(), pd2ddevicecontext.param().abi(), core::mem::transmute(prenderparams.unwrap_or(core::mem::zeroed()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RenderPageToDeviceContext)(windows_core::Interface::as_raw(self), pdfpage.param().abi(), pd2ddevicecontext.param().abi(), prenderparams.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[repr(C)]

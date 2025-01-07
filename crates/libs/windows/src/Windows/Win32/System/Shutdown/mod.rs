@@ -17,7 +17,7 @@ where
 #[inline]
 pub unsafe fn CheckForHiberboot(phiberboot: *mut bool, bclearflag: bool) -> u32 {
     windows_targets::link!("advapi32.dll" "system" fn CheckForHiberboot(phiberboot : *mut bool, bclearflag : bool) -> u32);
-    unsafe { CheckForHiberboot(core::mem::transmute(phiberboot), bclearflag) }
+    unsafe { CheckForHiberboot(phiberboot as _, bclearflag) }
 }
 #[inline]
 pub unsafe fn ExitWindowsEx(uflags: EXIT_WINDOWS_FLAGS, dwreason: SHUTDOWN_REASON) -> windows_core::Result<()> {
@@ -99,7 +99,7 @@ pub unsafe fn ShutdownBlockReasonDestroy(hwnd: super::super::Foundation::HWND) -
 #[inline]
 pub unsafe fn ShutdownBlockReasonQuery(hwnd: super::super::Foundation::HWND, pwszbuff: Option<windows_core::PWSTR>, pcchbuff: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn ShutdownBlockReasonQuery(hwnd : super::super::Foundation:: HWND, pwszbuff : windows_core::PWSTR, pcchbuff : *mut u32) -> super::super::Foundation:: BOOL);
-    unsafe { ShutdownBlockReasonQuery(hwnd, core::mem::transmute(pwszbuff.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcchbuff)).ok() }
+    unsafe { ShutdownBlockReasonQuery(hwnd, pwszbuff.unwrap_or(core::mem::zeroed()) as _, pcchbuff as _).ok() }
 }
 pub const EWX_ARSO: EXIT_WINDOWS_FLAGS = EXIT_WINDOWS_FLAGS(67108864u32);
 pub const EWX_BOOTOPTIONS: EXIT_WINDOWS_FLAGS = EXIT_WINDOWS_FLAGS(16777216u32);

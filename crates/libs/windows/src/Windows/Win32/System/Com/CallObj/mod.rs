@@ -4,7 +4,7 @@ where
     P1: windows_core::Param<windows_core::IUnknown>,
 {
     windows_targets::link!("ole32.dll" "system" fn CoGetInterceptor(iidintercepted : *const windows_core::GUID, punkouter : * mut core::ffi::c_void, iid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CoGetInterceptor(iidintercepted, punkouter.param().abi(), iid, core::mem::transmute(ppv)).ok() }
+    unsafe { CoGetInterceptor(iidintercepted, punkouter.param().abi(), iid, ppv as _).ok() }
 }
 #[inline]
 pub unsafe fn CoGetInterceptorFromTypeInfo<P1, P2>(iidintercepted: *const windows_core::GUID, punkouter: P1, typeinfo: P2, iid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -13,7 +13,7 @@ where
     P2: windows_core::Param<super::ITypeInfo>,
 {
     windows_targets::link!("ole32.dll" "system" fn CoGetInterceptorFromTypeInfo(iidintercepted : *const windows_core::GUID, punkouter : * mut core::ffi::c_void, typeinfo : * mut core::ffi::c_void, iid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CoGetInterceptorFromTypeInfo(iidintercepted, punkouter.param().abi(), typeinfo.param().abi(), iid, core::mem::transmute(ppv)).ok() }
+    unsafe { CoGetInterceptorFromTypeInfo(iidintercepted, punkouter.param().abi(), typeinfo.param().abi(), iid, ppv as _).ok() }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -95,13 +95,13 @@ windows_core::imp::define_interface!(ICallFrame, ICallFrame_Vtbl, 0xd573b4b0_894
 windows_core::imp::interface_hierarchy!(ICallFrame, windows_core::IUnknown);
 impl ICallFrame {
     pub unsafe fn GetInfo(&self, pinfo: *mut CALLFRAMEINFO) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pinfo)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetInfo)(windows_core::Interface::as_raw(self), pinfo as _).ok() }
     }
     pub unsafe fn GetIIDAndMethod(&self, piid: *mut windows_core::GUID, pimethod: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetIIDAndMethod)(windows_core::Interface::as_raw(self), core::mem::transmute(piid), core::mem::transmute(pimethod)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetIIDAndMethod)(windows_core::Interface::as_raw(self), piid as _, pimethod as _).ok() }
     }
     pub unsafe fn GetNames(&self, pwszinterface: *mut windows_core::PWSTR, pwszmethod: *mut windows_core::PWSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetNames)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszinterface), core::mem::transmute(pwszmethod)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetNames)(windows_core::Interface::as_raw(self), pwszinterface as _, pwszmethod as _).ok() }
     }
     pub unsafe fn GetStackLocation(&self) -> *mut core::ffi::c_void {
         unsafe { (windows_core::Interface::vtable(self).GetStackLocation)(windows_core::Interface::as_raw(self)) }
@@ -169,7 +169,7 @@ impl ICallFrame {
         }
     }
     pub unsafe fn Marshal(&self, pmshlcontext: *const CALLFRAME_MARSHALCONTEXT, mshlflags: super::MSHLFLAGS, pbuffer: &[u8], pcbbufferused: *mut u32, pdatarep: *mut u32, prpcflags: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Marshal)(windows_core::Interface::as_raw(self), core::mem::transmute(pmshlcontext), mshlflags, core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap(), core::mem::transmute(pcbbufferused), core::mem::transmute(pdatarep), core::mem::transmute(prpcflags)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Marshal)(windows_core::Interface::as_raw(self), core::mem::transmute(pmshlcontext), mshlflags, core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap(), pcbbufferused as _, pdatarep as _, prpcflags as _).ok() }
     }
     pub unsafe fn Unmarshal(&self, pbuffer: &[u8], datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT) -> windows_core::Result<u32> {
         unsafe {
@@ -478,10 +478,10 @@ windows_core::imp::define_interface!(ICallIndirect, ICallIndirect_Vtbl, 0xd573b4
 windows_core::imp::interface_hierarchy!(ICallIndirect, windows_core::IUnknown);
 impl ICallIndirect {
     pub unsafe fn CallIndirect(&self, phrreturn: *mut windows_core::HRESULT, imethod: u32, pvargs: *const core::ffi::c_void, cbargs: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CallIndirect)(windows_core::Interface::as_raw(self), core::mem::transmute(phrreturn), imethod, pvargs, core::mem::transmute(cbargs)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CallIndirect)(windows_core::Interface::as_raw(self), phrreturn as _, imethod, pvargs, cbargs as _).ok() }
     }
     pub unsafe fn GetMethodInfo(&self, imethod: u32, pinfo: *mut CALLFRAMEINFO, pwszmethod: *mut windows_core::PWSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetMethodInfo)(windows_core::Interface::as_raw(self), imethod, core::mem::transmute(pinfo), core::mem::transmute(pwszmethod)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetMethodInfo)(windows_core::Interface::as_raw(self), imethod, pinfo as _, pwszmethod as _).ok() }
     }
     pub unsafe fn GetStackSize(&self, imethod: u32) -> windows_core::Result<u32> {
         unsafe {
@@ -490,7 +490,7 @@ impl ICallIndirect {
         }
     }
     pub unsafe fn GetIID(&self, piid: Option<*mut windows_core::GUID>, pfderivesfromidispatch: Option<*mut super::super::super::Foundation::BOOL>, pcmethod: Option<*mut u32>, pwszinterface: *mut windows_core::PWSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetIID)(windows_core::Interface::as_raw(self), core::mem::transmute(piid.unwrap_or(core::mem::zeroed())), core::mem::transmute(pfderivesfromidispatch.unwrap_or(core::mem::zeroed())), core::mem::transmute(pcmethod.unwrap_or(core::mem::zeroed())), core::mem::transmute(pwszinterface)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetIID)(windows_core::Interface::as_raw(self), piid.unwrap_or(core::mem::zeroed()) as _, pfderivesfromidispatch.unwrap_or(core::mem::zeroed()) as _, pcmethod.unwrap_or(core::mem::zeroed()) as _, pwszinterface as _).ok() }
     }
 }
 #[repr(C)]
@@ -619,7 +619,7 @@ windows_core::imp::define_interface!(ICallUnmarshal, ICallUnmarshal_Vtbl, 0x5333
 windows_core::imp::interface_hierarchy!(ICallUnmarshal, windows_core::IUnknown);
 impl ICallUnmarshal {
     pub unsafe fn Unmarshal(&self, imethod: u32, pbuffer: &[u8], fforcebuffercopy: bool, datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT, pcbunmarshalled: *mut u32, ppframe: *mut Option<ICallFrame>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Unmarshal)(windows_core::Interface::as_raw(self), imethod, core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap(), fforcebuffercopy.into(), datarep, core::mem::transmute(pcontext), core::mem::transmute(pcbunmarshalled), core::mem::transmute(ppframe)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Unmarshal)(windows_core::Interface::as_raw(self), imethod, core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap(), fforcebuffercopy.into(), datarep, core::mem::transmute(pcontext), pcbunmarshalled as _, core::mem::transmute(ppframe)).ok() }
     }
     pub unsafe fn ReleaseMarshalData(&self, imethod: u32, pbuffer: &[u8], ibfirstrelease: u32, datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReleaseMarshalData)(windows_core::Interface::as_raw(self), imethod, core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap(), ibfirstrelease, datarep, core::mem::transmute(pcontext)).ok() }

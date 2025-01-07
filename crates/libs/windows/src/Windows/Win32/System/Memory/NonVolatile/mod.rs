@@ -8,7 +8,7 @@ pub unsafe fn RtlDrainNonVolatileFlush(nvtoken: *const core::ffi::c_void) -> u32
 #[inline]
 pub unsafe fn RtlFillNonVolatileMemory(nvtoken: *const core::ffi::c_void, nvdestination: *mut core::ffi::c_void, size: usize, value: u8, flags: u32) -> u32 {
     windows_targets::link!("ntdll.dll" "system" fn RtlFillNonVolatileMemory(nvtoken : *const core::ffi::c_void, nvdestination : *mut core::ffi::c_void, size : usize, value : u8, flags : u32) -> u32);
-    unsafe { RtlFillNonVolatileMemory(nvtoken, core::mem::transmute(nvdestination), size, value, flags) }
+    unsafe { RtlFillNonVolatileMemory(nvtoken, nvdestination as _, size, value, flags) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
@@ -32,13 +32,13 @@ pub unsafe fn RtlFreeNonVolatileToken(nvtoken: *const core::ffi::c_void) -> u32 
 #[inline]
 pub unsafe fn RtlGetNonVolatileToken(nvbuffer: *const core::ffi::c_void, size: usize, nvtoken: *mut *mut core::ffi::c_void) -> u32 {
     windows_targets::link!("ntdll.dll" "system" fn RtlGetNonVolatileToken(nvbuffer : *const core::ffi::c_void, size : usize, nvtoken : *mut *mut core::ffi::c_void) -> u32);
-    unsafe { RtlGetNonVolatileToken(nvbuffer, size, core::mem::transmute(nvtoken)) }
+    unsafe { RtlGetNonVolatileToken(nvbuffer, size, nvtoken as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn RtlWriteNonVolatileMemory(nvtoken: *const core::ffi::c_void, nvdestination: *mut core::ffi::c_void, source: *const core::ffi::c_void, size: usize, flags: u32) -> u32 {
     windows_targets::link!("ntdll.dll" "system" fn RtlWriteNonVolatileMemory(nvtoken : *const core::ffi::c_void, nvdestination : *mut core::ffi::c_void, source : *const core::ffi::c_void, size : usize, flags : u32) -> u32);
-    unsafe { RtlWriteNonVolatileMemory(nvtoken, core::mem::transmute(nvdestination), source, size, flags) }
+    unsafe { RtlWriteNonVolatileMemory(nvtoken, nvdestination as _, source, size, flags) }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]

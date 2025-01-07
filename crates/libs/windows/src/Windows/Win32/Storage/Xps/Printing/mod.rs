@@ -73,7 +73,7 @@ windows_core::imp::define_interface!(IPrintDocumentPackageTarget, IPrintDocument
 windows_core::imp::interface_hierarchy!(IPrintDocumentPackageTarget, windows_core::IUnknown);
 impl IPrintDocumentPackageTarget {
     pub unsafe fn GetPackageTargetTypes(&self, targetcount: *mut u32, targettypes: *mut *mut windows_core::GUID) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetPackageTargetTypes)(windows_core::Interface::as_raw(self), core::mem::transmute(targetcount), core::mem::transmute(targettypes)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetPackageTargetTypes)(windows_core::Interface::as_raw(self), targetcount as _, targettypes as _).ok() }
     }
     pub unsafe fn GetPackageTarget<T>(&self, guidtargettype: *const windows_core::GUID) -> windows_core::Result<T>
     where
@@ -250,7 +250,7 @@ impl IXpsPrintJob {
         unsafe { (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn GetJobStatus(&self, jobstatus: *mut XPS_JOB_STATUS) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetJobStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(jobstatus)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetJobStatus)(windows_core::Interface::as_raw(self), jobstatus as _).ok() }
     }
 }
 #[repr(C)]
