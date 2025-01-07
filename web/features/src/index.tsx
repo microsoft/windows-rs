@@ -1,7 +1,8 @@
+import { FluentProvider, createDarkTheme, createLightTheme } from '@fluentui/react-components';
+import '@fontsource/fira-sans';
+import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
 import { RouterProvider, createHashRouter } from 'react-router-dom';
-import { FluentProvider, createLightTheme } from '@fluentui/react-components';
-import '@fontsource/fira-sans';
 import App from './app';
 
 const rustVariants = {
@@ -33,20 +34,34 @@ const lightTheme = {
     ...coreTheme,
 };
 
+const darkTheme = {
+    ...createDarkTheme(rustVariants),
+    ...coreTheme,
+};
+
 const router = createHashRouter([
     {
         path: '/:branch?',
-        element: <App />
+        element: <App />,
+        children: [
+            {
+                path: 'search/:query',
+                element: <App />,
+            },
+        ]
     }
 ]);
+const savedTheme = localStorage.getItem('theme') ?? 'light';
+document.documentElement.style.backgroundColor =
+    savedTheme == 'dark' ? darkTheme.colorNeutralBackground1 : lightTheme.colorNeutralBackground1;
+
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 );
 root.render(
-    // https://github.com/microsoft/fluentui/issues/30450
-    //<StrictMode>
-    <FluentProvider theme={lightTheme}>
-        <RouterProvider router={router} />
-    </FluentProvider>
-    //</StrictMode>
+    <StrictMode>
+        <FluentProvider theme={savedTheme === 'dark' ? darkTheme : lightTheme}>
+            <RouterProvider router={router} />
+        </FluentProvider>
+    </StrictMode>
 );
