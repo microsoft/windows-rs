@@ -18,8 +18,8 @@ jobs:
       matrix:
         rust: [1.74.0, stable, nightly]
         runs-on:
-          - windows-latest
-          - ubuntu-latest
+          - windows-2022
+          - ubuntu-22.04
     runs-on: ${{ matrix.runs-on }}
     steps:
       - name: Checkout
