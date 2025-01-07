@@ -16,6 +16,7 @@ impl TypeMap {
         Self(HashMap::new())
     }
 
+    #[track_caller]
     pub fn filter(reader: &'static Reader, filter: &Filter, references: &References) -> Self {
         let mut dependencies = Self::new();
 
