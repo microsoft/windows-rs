@@ -28,7 +28,7 @@ impl std::ops::Deref for Reader {
 }
 
 impl Reader {
-    pub fn new(files: Vec<File>) -> &'static Self {
+    pub fn init(files: Vec<File>) {
         let reader = Box::leak(Box::new(Self(HashMap::new())));
 
         for file in files {
@@ -180,7 +180,6 @@ impl Reader {
         }
 
         READER.store(reader, Ordering::Relaxed);
-        reader
     }
 
     #[track_caller]

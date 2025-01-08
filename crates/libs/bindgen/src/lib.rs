@@ -159,11 +159,11 @@ where
         panic!("at least one `--filter` required");
     }
 
-    let reader = Reader::new(expand_input(&input));
-    let filter = Filter::new(reader, &include, &exclude);
-    let references = References::new(reader, references);
-    let types = TypeMap::filter(reader, &filter, &references);
-    let derive = Derive::new(reader, &types, &derive);
+    Reader::init(expand_input(&input));
+    let filter = Filter::new(&include, &exclude);
+    let references = References::new(references);
+    let types = TypeMap::filter(&filter, &references);
+    let derive = Derive::new(&types, &derive);
 
     let config = Box::leak(Box::new(Config {
         types,
