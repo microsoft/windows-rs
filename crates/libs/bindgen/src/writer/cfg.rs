@@ -27,11 +27,12 @@ impl Writer {
                         }
                     }
                 }
-                "DeprecatedAttribute" => {
-                    features.insert("deprecated".to_string());
-                }
                 _ => {}
             }
+        }
+
+        if dependencies.is_deprecated() {
+            features.insert("deprecated".to_string());
         }
 
         let mut tokens = quote! {};

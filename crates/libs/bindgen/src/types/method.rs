@@ -14,6 +14,7 @@ impl Method {
 
         let mut dependencies = TypeMap::new();
         signature.dependencies(&mut dependencies);
+        dependencies.deprecated(def);
 
         Self {
             def,

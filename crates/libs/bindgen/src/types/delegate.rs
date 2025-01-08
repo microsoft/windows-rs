@@ -199,6 +199,7 @@ impl Delegate {
     }
 
     pub fn dependencies(&self, dependencies: &mut TypeMap) {
+        dependencies.deprecated(self.def);
         dependencies.combine(&self.method().dependencies);
 
         for ty in &self.generics {

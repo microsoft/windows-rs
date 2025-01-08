@@ -90,7 +90,16 @@ impl Class {
                 } else {
                         let method_name = to_ident(interface.def.name());
                         let interface_type = interface.write_name(writer);
-                        let cfg = quote! {};
+                        let mut difference = TypeMap::new();
+
+                        if writer.config.package {
+                            let mut interface_dependendencies = TypeMap::new();
+                            interface.dependencies(&mut interface_dependendencies);
+
+                            difference = interface_dependendencies.difference(&dependencies);
+                        }
+
+                        let cfg = writer.write_cfg(self.def, type_name.namespace(), &difference, false);
 
                         Some(quote! {
                             #cfg
@@ -245,8 +254,15 @@ impl Class {
     }
 
     pub fn dependencies(&self, dependencies: &mut TypeMap) {
+        dependencies.deprecated(self.def);
+
         for interface in self.required_interfaces() {
-            Type::Interface(interface).dependencies(dependencies);
+            if !matches!(
+                interface.kind,
+                InterfaceKind::Static | InterfaceKind::Composable
+            ) {
+                Type::Interface(interface).dependencies(dependencies);
+            }
         }
     }
 

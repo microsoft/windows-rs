@@ -548,6 +548,7 @@ impl Interface {
     }
 
     pub fn dependencies(&self, dependencies: &mut TypeMap) {
+        dependencies.deprecated(self.def);
         Type::Object.dependencies(dependencies);
 
         for interface in self.required_interfaces() {

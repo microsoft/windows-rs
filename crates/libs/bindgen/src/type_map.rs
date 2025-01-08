@@ -1,19 +1,26 @@
 use super::*;
 
 #[derive(Clone, Debug, PartialEq, Eq)]
-pub struct TypeMap(HashMap<TypeName, HashSet<Type>>);
+pub struct TypeMap {
+    types: HashMap<TypeName, HashSet<Type>>,
+    deprecated: bool,
+    // TODO: add arches
+}
 
 impl std::ops::Deref for TypeMap {
     type Target = HashMap<TypeName, HashSet<Type>>;
 
     fn deref(&self) -> &Self::Target {
-        &self.0
+        &self.types
     }
 }
 
 impl TypeMap {
     pub fn new() -> Self {
-        Self(HashMap::new())
+        Self {
+            types: HashMap::new(),
+            deprecated: false,
+        }
     }
 
     #[track_caller]
@@ -48,13 +55,13 @@ impl TypeMap {
     }
 
     pub fn insert(&mut self, ty: Type) -> bool {
-        self.0.entry(ty.type_name()).or_default().insert(ty)
+        self.types.entry(ty.type_name()).or_default().insert(ty)
     }
 
     fn combine_references(&mut self, other: &Self, references: &References) {
-        for (tn, types) in &other.0 {
+        for (tn, types) in &other.types {
             if references.contains(*tn).is_none() {
-                let set = self.0.entry(*tn).or_default();
+                let set = self.types.entry(*tn).or_default();
                 types.iter().for_each(|ty| {
                     set.insert(ty.clone());
                 });
@@ -63,26 +70,38 @@ impl TypeMap {
     }
 
     pub fn combine(&mut self, other: &Self) {
-        for (name, types) in &other.0 {
-            let set = self.0.entry(*name).or_default();
+        for (name, types) in &other.types {
+            let set = self.types.entry(*name).or_default();
             types.iter().for_each(|ty| {
                 set.insert(ty.clone());
             });
         }
     }
 
+    pub fn is_deprecated(&self) -> bool {
+        self.deprecated
+    }
+
+    pub fn deprecated<R: HasAttributes>(&mut self, row: R) {
+        if row.has_attribute("DeprecatedAttribute") {
+            self.deprecated = true;
+        }
+    }
+
     pub fn difference(&self, other: &Self) -> Self {
-        Self(
-            self.0
+        Self {
+            types: self
+                .types
                 .iter()
-                .filter(|(tn, _)| !other.0.contains_key(tn))
+                .filter(|(tn, _)| !other.types.contains_key(tn))
                 .map(|(tn, ty)| (*tn, ty.clone()))
                 .collect(),
-        )
+            deprecated: self.deprecated && !other.deprecated,
+        }
     }
 
     pub fn included(&self, config: &Config) -> bool {
-        self.0.iter().all(|(tn, _)| {
+        self.types.iter().all(|(tn, _)| {
             // An empty namespace covers core types like `HRESULT`. This way we don't exclude methods
             // that depend on core types that aren't explicitly included in the filter.
             if tn.namespace().is_empty() {
@@ -102,6 +121,8 @@ impl TypeMap {
     }
 
     fn excluded(&self, filter: &Filter) -> bool {
-        self.0.iter().any(|(tn, _)| filter.excludes_type_name(*tn))
+        self.types
+            .iter()
+            .any(|(tn, _)| filter.excludes_type_name(*tn))
     }
 }

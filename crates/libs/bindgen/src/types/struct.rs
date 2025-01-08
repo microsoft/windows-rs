@@ -84,6 +84,8 @@ impl Struct {
     }
 
     pub fn dependencies(&self, dependencies: &mut TypeMap) {
+        dependencies.deprecated(self.def);
+
         for field in self.def.fields() {
             field.ty(None).dependencies(dependencies);
         }
