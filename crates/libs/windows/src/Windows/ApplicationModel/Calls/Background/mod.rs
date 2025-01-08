@@ -19,14 +19,8 @@ impl windows_core::RuntimeType for IPhoneCallOriginDataRequestTriggerDetails {
 #[repr(C)]
 pub struct IPhoneCallOriginDataRequestTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
     pub RequestId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    RequestId: usize,
-    #[cfg(feature = "deprecated")]
     pub PhoneNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    PhoneNumber: usize,
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IPhoneIncomingCallDismissedTriggerDetails, IPhoneIncomingCallDismissedTriggerDetails_Vtbl, 0xbad30276_83b6_5732_9c38_0c206546196a);
@@ -38,30 +32,12 @@ impl windows_core::RuntimeType for IPhoneIncomingCallDismissedTriggerDetails {
 #[repr(C)]
 pub struct IPhoneIncomingCallDismissedTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
     pub LineId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    LineId: usize,
-    #[cfg(feature = "deprecated")]
     pub PhoneNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    PhoneNumber: usize,
-    #[cfg(feature = "deprecated")]
     pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    DisplayName: usize,
-    #[cfg(feature = "deprecated")]
     pub DismissalTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::DateTime) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    DismissalTime: usize,
-    #[cfg(feature = "deprecated")]
     pub TextReplyMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    TextReplyMessage: usize,
-    #[cfg(feature = "deprecated")]
     pub Reason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PhoneIncomingCallDismissedReason) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Reason: usize,
 }
 windows_core::imp::define_interface!(IPhoneIncomingCallNotificationTriggerDetails, IPhoneIncomingCallNotificationTriggerDetails_Vtbl, 0x2b0e6044_9b32_5d42_8222_d2812e39fb21);
 impl windows_core::RuntimeType for IPhoneIncomingCallNotificationTriggerDetails {
@@ -156,7 +132,6 @@ pub struct PhoneCallOriginDataRequestTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhoneCallOriginDataRequestTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl PhoneCallOriginDataRequestTriggerDetails {
-    #[cfg(feature = "deprecated")]
     pub fn RequestId(&self) -> windows_core::Result<windows_core::GUID> {
         let this = self;
         unsafe {
@@ -164,7 +139,6 @@ impl PhoneCallOriginDataRequestTriggerDetails {
             (windows_core::Interface::vtable(this).RequestId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn PhoneNumber(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
@@ -213,7 +187,6 @@ pub struct PhoneIncomingCallDismissedTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhoneIncomingCallDismissedTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl PhoneIncomingCallDismissedTriggerDetails {
-    #[cfg(feature = "deprecated")]
     pub fn LineId(&self) -> windows_core::Result<windows_core::GUID> {
         let this = self;
         unsafe {
@@ -221,7 +194,6 @@ impl PhoneIncomingCallDismissedTriggerDetails {
             (windows_core::Interface::vtable(this).LineId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn PhoneNumber(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
@@ -229,7 +201,6 @@ impl PhoneIncomingCallDismissedTriggerDetails {
             (windows_core::Interface::vtable(this).PhoneNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
@@ -237,7 +208,6 @@ impl PhoneIncomingCallDismissedTriggerDetails {
             (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn DismissalTime(&self) -> windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -245,7 +215,6 @@ impl PhoneIncomingCallDismissedTriggerDetails {
             (windows_core::Interface::vtable(this).DismissalTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn TextReplyMessage(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
@@ -253,7 +222,6 @@ impl PhoneIncomingCallDismissedTriggerDetails {
             (windows_core::Interface::vtable(this).TextReplyMessage)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn Reason(&self) -> windows_core::Result<PhoneIncomingCallDismissedReason> {
         let this = self;
         unsafe {

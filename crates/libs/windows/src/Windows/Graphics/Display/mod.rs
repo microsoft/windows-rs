@@ -870,32 +870,27 @@ impl core::ops::Not for DisplayOrientations {
 pub struct DisplayProperties;
 #[cfg(feature = "deprecated")]
 impl DisplayProperties {
-    #[cfg(feature = "deprecated")]
     pub fn CurrentOrientation() -> windows_core::Result<DisplayOrientations> {
         Self::IDisplayPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CurrentOrientation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn NativeOrientation() -> windows_core::Result<DisplayOrientations> {
         Self::IDisplayPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NativeOrientation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn AutoRotationPreferences() -> windows_core::Result<DisplayOrientations> {
         Self::IDisplayPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AutoRotationPreferences)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn SetAutoRotationPreferences(value: DisplayOrientations) -> windows_core::Result<()> {
         Self::IDisplayPropertiesStatics(|this| unsafe { (windows_core::Interface::vtable(this).SetAutoRotationPreferences)(windows_core::Interface::as_raw(this), value).ok() })
     }
-    #[cfg(feature = "deprecated")]
     pub fn OrientationChanged<P0>(handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<DisplayPropertiesEventHandler>,
@@ -905,25 +900,21 @@ impl DisplayProperties {
             (windows_core::Interface::vtable(this).OrientationChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn RemoveOrientationChanged(token: i64) -> windows_core::Result<()> {
         Self::IDisplayPropertiesStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveOrientationChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[cfg(feature = "deprecated")]
     pub fn ResolutionScale() -> windows_core::Result<ResolutionScale> {
         Self::IDisplayPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ResolutionScale)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn LogicalDpi() -> windows_core::Result<f32> {
         Self::IDisplayPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LogicalDpi)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn LogicalDpiChanged<P0>(handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<DisplayPropertiesEventHandler>,
@@ -933,18 +924,15 @@ impl DisplayProperties {
             (windows_core::Interface::vtable(this).LogicalDpiChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn RemoveLogicalDpiChanged(token: i64) -> windows_core::Result<()> {
         Self::IDisplayPropertiesStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveLogicalDpiChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[cfg(feature = "deprecated")]
     pub fn StereoEnabled() -> windows_core::Result<bool> {
         Self::IDisplayPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StereoEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn StereoEnabledChanged<P0>(handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<DisplayPropertiesEventHandler>,
@@ -954,18 +942,16 @@ impl DisplayProperties {
             (windows_core::Interface::vtable(this).StereoEnabledChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn RemoveStereoEnabledChanged(token: i64) -> windows_core::Result<()> {
         Self::IDisplayPropertiesStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveStereoEnabledChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    #[cfg(feature = "Storage_Streams")]
     pub fn GetColorProfileAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>> {
         Self::IDisplayPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetColorProfileAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn ColorProfileChanged<P0>(handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<DisplayPropertiesEventHandler>,
@@ -975,11 +961,9 @@ impl DisplayProperties {
             (windows_core::Interface::vtable(this).ColorProfileChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn RemoveColorProfileChanged(token: i64) -> windows_core::Result<()> {
         Self::IDisplayPropertiesStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveColorProfileChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[cfg(feature = "deprecated")]
     pub fn DisplayContentsInvalidated<P0>(handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<DisplayPropertiesEventHandler>,
@@ -989,7 +973,6 @@ impl DisplayProperties {
             (windows_core::Interface::vtable(this).DisplayContentsInvalidated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn RemoveDisplayContentsInvalidated(token: i64) -> windows_core::Result<()> {
         Self::IDisplayPropertiesStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveDisplayContentsInvalidated)(windows_core::Interface::as_raw(this), token).ok() })
     }
@@ -1352,78 +1335,27 @@ impl windows_core::RuntimeType for IDisplayPropertiesStatics {
 #[repr(C)]
 pub struct IDisplayPropertiesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
     pub CurrentOrientation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DisplayOrientations) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    CurrentOrientation: usize,
-    #[cfg(feature = "deprecated")]
     pub NativeOrientation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DisplayOrientations) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    NativeOrientation: usize,
-    #[cfg(feature = "deprecated")]
     pub AutoRotationPreferences: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DisplayOrientations) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    AutoRotationPreferences: usize,
-    #[cfg(feature = "deprecated")]
     pub SetAutoRotationPreferences: unsafe extern "system" fn(*mut core::ffi::c_void, DisplayOrientations) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SetAutoRotationPreferences: usize,
-    #[cfg(feature = "deprecated")]
     pub OrientationChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    OrientationChanged: usize,
-    #[cfg(feature = "deprecated")]
     pub RemoveOrientationChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    RemoveOrientationChanged: usize,
-    #[cfg(feature = "deprecated")]
     pub ResolutionScale: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ResolutionScale) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    ResolutionScale: usize,
-    #[cfg(feature = "deprecated")]
     pub LogicalDpi: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    LogicalDpi: usize,
-    #[cfg(feature = "deprecated")]
     pub LogicalDpiChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    LogicalDpiChanged: usize,
-    #[cfg(feature = "deprecated")]
     pub RemoveLogicalDpiChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    RemoveLogicalDpiChanged: usize,
-    #[cfg(feature = "deprecated")]
     pub StereoEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    StereoEnabled: usize,
-    #[cfg(feature = "deprecated")]
     pub StereoEnabledChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    StereoEnabledChanged: usize,
-    #[cfg(feature = "deprecated")]
     pub RemoveStereoEnabledChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    RemoveStereoEnabledChanged: usize,
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    #[cfg(feature = "Storage_Streams")]
     pub GetColorProfileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Storage_Streams", feature = "deprecated")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     GetColorProfileAsync: usize,
-    #[cfg(feature = "deprecated")]
     pub ColorProfileChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    ColorProfileChanged: usize,
-    #[cfg(feature = "deprecated")]
     pub RemoveColorProfileChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    RemoveColorProfileChanged: usize,
-    #[cfg(feature = "deprecated")]
     pub DisplayContentsInvalidated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    DisplayContentsInvalidated: usize,
-    #[cfg(feature = "deprecated")]
     pub RemoveDisplayContentsInvalidated: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    RemoveDisplayContentsInvalidated: usize,
 }
 windows_core::imp::define_interface!(IDisplayServices, IDisplayServices_Vtbl, 0x1b54f32b_890d_5747_bd26_fdbdeb0c8a71);
 impl windows_core::RuntimeType for IDisplayServices {

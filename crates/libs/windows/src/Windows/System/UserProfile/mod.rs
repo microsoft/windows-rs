@@ -638,66 +638,36 @@ impl windows_core::RuntimeType for IUserInformationStatics {
 #[repr(C)]
 pub struct IUserInformationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
     pub AccountPictureChangeEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    AccountPictureChangeEnabled: usize,
-    #[cfg(feature = "deprecated")]
     pub NameAccessAllowed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    NameAccessAllowed: usize,
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    #[cfg(feature = "Storage_Streams")]
     pub GetAccountPicture: unsafe extern "system" fn(*mut core::ffi::c_void, AccountPictureKind, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Storage_Streams", feature = "deprecated")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     GetAccountPicture: usize,
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    #[cfg(feature = "Storage_Streams")]
     pub SetAccountPictureAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Storage_Streams", feature = "deprecated")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     SetAccountPictureAsync: usize,
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    #[cfg(feature = "Storage_Streams")]
     pub SetAccountPicturesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Storage_Streams", feature = "deprecated")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     SetAccountPicturesAsync: usize,
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    #[cfg(feature = "Storage_Streams")]
     pub SetAccountPictureFromStreamAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Storage_Streams", feature = "deprecated")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     SetAccountPictureFromStreamAsync: usize,
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    #[cfg(feature = "Storage_Streams")]
     pub SetAccountPicturesFromStreamsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Storage_Streams", feature = "deprecated")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     SetAccountPicturesFromStreamsAsync: usize,
-    #[cfg(feature = "deprecated")]
     pub AccountPictureChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    AccountPictureChanged: usize,
-    #[cfg(feature = "deprecated")]
     pub RemoveAccountPictureChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    RemoveAccountPictureChanged: usize,
-    #[cfg(feature = "deprecated")]
     pub GetDisplayNameAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    GetDisplayNameAsync: usize,
-    #[cfg(feature = "deprecated")]
     pub GetFirstNameAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    GetFirstNameAsync: usize,
-    #[cfg(feature = "deprecated")]
     pub GetLastNameAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    GetLastNameAsync: usize,
-    #[cfg(feature = "deprecated")]
     pub GetPrincipalNameAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    GetPrincipalNameAsync: usize,
-    #[cfg(feature = "deprecated")]
     pub GetSessionInitiationProtocolUriAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    GetSessionInitiationProtocolUriAsync: usize,
-    #[cfg(feature = "deprecated")]
     pub GetDomainNameAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    GetDomainNameAsync: usize,
 }
 windows_core::imp::define_interface!(IUserProfilePersonalizationSettings, IUserProfilePersonalizationSettings_Vtbl, 0x8ceddab4_7998_46d5_8dd3_184f1c5f9ab9);
 impl windows_core::RuntimeType for IUserProfilePersonalizationSettings {
@@ -822,28 +792,26 @@ impl windows_core::RuntimeType for SetImageFeedResult {
 pub struct UserInformation;
 #[cfg(feature = "deprecated")]
 impl UserInformation {
-    #[cfg(feature = "deprecated")]
     pub fn AccountPictureChangeEnabled() -> windows_core::Result<bool> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AccountPictureChangeEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn NameAccessAllowed() -> windows_core::Result<bool> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NameAccessAllowed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    #[cfg(feature = "Storage_Streams")]
     pub fn GetAccountPicture(kind: AccountPictureKind) -> windows_core::Result<super::super::Storage::IStorageFile> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAccountPicture)(windows_core::Interface::as_raw(this), kind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    #[cfg(feature = "Storage_Streams")]
     pub fn SetAccountPictureAsync<P0>(image: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
@@ -853,7 +821,7 @@ impl UserInformation {
             (windows_core::Interface::vtable(this).SetAccountPictureAsync)(windows_core::Interface::as_raw(this), image.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    #[cfg(feature = "Storage_Streams")]
     pub fn SetAccountPicturesAsync<P0, P1, P2>(smallimage: P0, largeimage: P1, video: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
@@ -865,7 +833,7 @@ impl UserInformation {
             (windows_core::Interface::vtable(this).SetAccountPicturesAsync)(windows_core::Interface::as_raw(this), smallimage.param().abi(), largeimage.param().abi(), video.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    #[cfg(feature = "Storage_Streams")]
     pub fn SetAccountPictureFromStreamAsync<P0>(image: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
@@ -875,7 +843,7 @@ impl UserInformation {
             (windows_core::Interface::vtable(this).SetAccountPictureFromStreamAsync)(windows_core::Interface::as_raw(this), image.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    #[cfg(feature = "Storage_Streams")]
     pub fn SetAccountPicturesFromStreamsAsync<P0, P1, P2>(smallimage: P0, largeimage: P1, video: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
@@ -887,7 +855,6 @@ impl UserInformation {
             (windows_core::Interface::vtable(this).SetAccountPicturesFromStreamsAsync)(windows_core::Interface::as_raw(this), smallimage.param().abi(), largeimage.param().abi(), video.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn AccountPictureChanged<P0>(changehandler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
@@ -897,46 +864,39 @@ impl UserInformation {
             (windows_core::Interface::vtable(this).AccountPictureChanged)(windows_core::Interface::as_raw(this), changehandler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn RemoveAccountPictureChanged(token: i64) -> windows_core::Result<()> {
         Self::IUserInformationStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveAccountPictureChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[cfg(feature = "deprecated")]
     pub fn GetDisplayNameAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDisplayNameAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn GetFirstNameAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetFirstNameAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn GetLastNameAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetLastNameAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn GetPrincipalNameAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPrincipalNameAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn GetSessionInitiationProtocolUriAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Uri>> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSessionInitiationProtocolUriAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn GetDomainNameAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();

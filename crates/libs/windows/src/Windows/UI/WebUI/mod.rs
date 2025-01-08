@@ -3245,7 +3245,7 @@ windows_core::imp::interface_hierarchy!(WebUIFileOpenPickerContinuationEventArgs
 windows_core::imp::required_hierarchy!(WebUIFileOpenPickerContinuationEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs);
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl WebUIFileOpenPickerContinuationEventArgs {
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
@@ -3253,7 +3253,7 @@ impl WebUIFileOpenPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
@@ -3261,7 +3261,7 @@ impl WebUIFileOpenPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
@@ -3269,7 +3269,6 @@ impl WebUIFileOpenPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
@@ -3277,7 +3276,7 @@ impl WebUIFileOpenPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "System", feature = "deprecated"))]
+    #[cfg(feature = "System")]
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -3285,7 +3284,7 @@ impl WebUIFileOpenPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn ContinuationData(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs>(self)?;
         unsafe {
@@ -3293,7 +3292,7 @@ impl WebUIFileOpenPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).ContinuationData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated"))]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn Files(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>> {
         let this = self;
         unsafe {
@@ -3410,7 +3409,7 @@ windows_core::imp::interface_hierarchy!(WebUIFileSavePickerContinuationEventArgs
 windows_core::imp::required_hierarchy!(WebUIFileSavePickerContinuationEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs);
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl WebUIFileSavePickerContinuationEventArgs {
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
@@ -3418,7 +3417,7 @@ impl WebUIFileSavePickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
@@ -3426,7 +3425,7 @@ impl WebUIFileSavePickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
@@ -3434,7 +3433,6 @@ impl WebUIFileSavePickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
@@ -3442,7 +3440,7 @@ impl WebUIFileSavePickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "System", feature = "deprecated"))]
+    #[cfg(feature = "System")]
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -3450,7 +3448,7 @@ impl WebUIFileSavePickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn ContinuationData(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs>(self)?;
         unsafe {
@@ -3458,7 +3456,7 @@ impl WebUIFileSavePickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).ContinuationData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    #[cfg(feature = "Storage_Streams")]
     pub fn File(&self) -> windows_core::Result<super::super::Storage::StorageFile> {
         let this = self;
         unsafe {
@@ -3490,7 +3488,7 @@ windows_core::imp::interface_hierarchy!(WebUIFolderPickerContinuationEventArgs, 
 windows_core::imp::required_hierarchy!(WebUIFolderPickerContinuationEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs);
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl WebUIFolderPickerContinuationEventArgs {
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
@@ -3498,7 +3496,7 @@ impl WebUIFolderPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
@@ -3506,7 +3504,7 @@ impl WebUIFolderPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
@@ -3514,7 +3512,6 @@ impl WebUIFolderPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
@@ -3522,7 +3519,7 @@ impl WebUIFolderPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "System", feature = "deprecated"))]
+    #[cfg(feature = "System")]
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -3530,7 +3527,7 @@ impl WebUIFolderPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn ContinuationData(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs>(self)?;
         unsafe {
@@ -3538,7 +3535,7 @@ impl WebUIFolderPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).ContinuationData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Storage_Search", feature = "deprecated"))]
+    #[cfg(feature = "Storage_Search")]
     pub fn Folder(&self) -> windows_core::Result<super::super::Storage::StorageFolder> {
         let this = self;
         unsafe {
@@ -5411,7 +5408,7 @@ windows_core::imp::interface_hierarchy!(WebUIWalletActionActivatedEventArgs, win
 windows_core::imp::required_hierarchy!(WebUIWalletActionActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl WebUIWalletActionActivatedEventArgs {
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
@@ -5419,7 +5416,7 @@ impl WebUIWalletActionActivatedEventArgs {
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
@@ -5427,7 +5424,7 @@ impl WebUIWalletActionActivatedEventArgs {
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
@@ -5435,7 +5432,6 @@ impl WebUIWalletActionActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
@@ -5443,7 +5439,6 @@ impl WebUIWalletActionActivatedEventArgs {
             (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn ItemId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
@@ -5451,7 +5446,7 @@ impl WebUIWalletActionActivatedEventArgs {
             (windows_core::Interface::vtable(this).ItemId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Wallet", feature = "deprecated"))]
+    #[cfg(feature = "ApplicationModel_Wallet")]
     pub fn ActionKind(&self) -> windows_core::Result<super::super::ApplicationModel::Wallet::WalletActionKind> {
         let this = self;
         unsafe {
@@ -5459,7 +5454,6 @@ impl WebUIWalletActionActivatedEventArgs {
             (windows_core::Interface::vtable(this).ActionKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn ActionId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {

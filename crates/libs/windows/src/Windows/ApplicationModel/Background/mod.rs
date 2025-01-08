@@ -1678,7 +1678,6 @@ windows_core::imp::interface_hierarchy!(DeviceManufacturerNotificationTrigger, w
 windows_core::imp::required_hierarchy!(DeviceManufacturerNotificationTrigger, IBackgroundTrigger);
 #[cfg(feature = "deprecated")]
 impl DeviceManufacturerNotificationTrigger {
-    #[cfg(feature = "deprecated")]
     pub fn TriggerQualifier(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
@@ -1686,7 +1685,6 @@ impl DeviceManufacturerNotificationTrigger {
             (windows_core::Interface::vtable(this).TriggerQualifier)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn OneShot(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
@@ -1694,7 +1692,6 @@ impl DeviceManufacturerNotificationTrigger {
             (windows_core::Interface::vtable(this).OneShot)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn Create(triggerqualifier: &windows_core::HSTRING, oneshot: bool) -> windows_core::Result<DeviceManufacturerNotificationTrigger> {
         Self::IDeviceManufacturerNotificationTriggerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3450,14 +3447,8 @@ impl windows_core::RuntimeType for IDeviceManufacturerNotificationTrigger {
 #[repr(C)]
 pub struct IDeviceManufacturerNotificationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
     pub TriggerQualifier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    TriggerQualifier: usize,
-    #[cfg(feature = "deprecated")]
     pub OneShot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    OneShot: usize,
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IDeviceManufacturerNotificationTriggerFactory, IDeviceManufacturerNotificationTriggerFactory_Vtbl, 0x7955de75_25bb_4153_a1a2_3029fcabb652);
@@ -3469,10 +3460,7 @@ impl windows_core::RuntimeType for IDeviceManufacturerNotificationTriggerFactory
 #[repr(C)]
 pub struct IDeviceManufacturerNotificationTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Create: usize,
 }
 windows_core::imp::define_interface!(IDeviceServicingTrigger, IDeviceServicingTrigger_Vtbl, 0x1ab217ad_6e34_49d3_9e6f_17f1b6dfa881);
 impl windows_core::RuntimeType for IDeviceServicingTrigger {

@@ -209,14 +209,14 @@ impl windows_core::RuntimeType for AudioEffectType {
 }
 pub struct AudioEffectsManager;
 impl AudioEffectsManager {
-    #[cfg(feature = "Media_Render")]
+    #[cfg(all(feature = "Media_Render", feature = "deprecated"))]
     pub fn CreateAudioRenderEffectsManager(deviceid: &windows_core::HSTRING, category: super::Render::AudioRenderCategory) -> windows_core::Result<AudioRenderEffectsManager> {
         Self::IAudioEffectsManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateAudioRenderEffectsManager)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), category, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Media_Render")]
+    #[cfg(all(feature = "Media_Render", feature = "deprecated"))]
     pub fn CreateAudioRenderEffectsManagerWithMode(deviceid: &windows_core::HSTRING, category: super::Render::AudioRenderCategory, mode: super::AudioProcessing) -> windows_core::Result<AudioRenderEffectsManager> {
         Self::IAudioEffectsManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -245,10 +245,13 @@ impl AudioEffectsManager {
 impl windows_core::RuntimeName for AudioEffectsManager {
     const NAME: &'static str = "Windows.Media.Effects.AudioEffectsManager";
 }
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AudioRenderEffectsManager(windows_core::IUnknown);
+#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(AudioRenderEffectsManager, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
 impl AudioRenderEffectsManager {
     pub fn AudioRenderEffectsChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
@@ -292,17 +295,22 @@ impl AudioRenderEffectsManager {
         unsafe { (windows_core::Interface::vtable(this).ShowSettingsUI)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for AudioRenderEffectsManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioRenderEffectsManager>();
 }
+#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for AudioRenderEffectsManager {
     type Vtable = <IAudioRenderEffectsManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAudioRenderEffectsManager as windows_core::Interface>::IID;
 }
+#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for AudioRenderEffectsManager {
     const NAME: &'static str = "Windows.Media.Effects.AudioRenderEffectsManager";
 }
+#[cfg(feature = "deprecated")]
 unsafe impl Send for AudioRenderEffectsManager {}
+#[cfg(feature = "deprecated")]
 unsafe impl Sync for AudioRenderEffectsManager {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -498,13 +506,13 @@ impl windows_core::RuntimeType for IAudioEffectsManagerStatics {
 #[repr(C)]
 pub struct IAudioEffectsManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Media_Render")]
+    #[cfg(all(feature = "Media_Render", feature = "deprecated"))]
     pub CreateAudioRenderEffectsManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::Render::AudioRenderCategory, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Media_Render"))]
+    #[cfg(not(all(feature = "Media_Render", feature = "deprecated")))]
     CreateAudioRenderEffectsManager: usize,
-    #[cfg(feature = "Media_Render")]
+    #[cfg(all(feature = "Media_Render", feature = "deprecated"))]
     pub CreateAudioRenderEffectsManagerWithMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::Render::AudioRenderCategory, super::AudioProcessing, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Media_Render"))]
+    #[cfg(not(all(feature = "Media_Render", feature = "deprecated")))]
     CreateAudioRenderEffectsManagerWithMode: usize,
     #[cfg(feature = "Media_Capture")]
     pub CreateAudioCaptureEffectsManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::Capture::MediaCategory, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -522,7 +530,10 @@ impl windows_core::RuntimeType for IAudioRenderEffectsManager {
 #[repr(C)]
 pub struct IAudioRenderEffectsManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "deprecated")]
     pub AudioRenderEffectsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    AudioRenderEffectsChanged: usize,
     pub RemoveAudioRenderEffectsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub GetAudioRenderEffects: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -539,18 +550,12 @@ impl windows_core::RuntimeType for IAudioRenderEffectsManager2 {
 #[repr(C)]
 pub struct IAudioRenderEffectsManager2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    #[cfg(feature = "Storage_Streams")]
     pub EffectsProviderThumbnail: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Storage_Streams", feature = "deprecated")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     EffectsProviderThumbnail: usize,
-    #[cfg(feature = "deprecated")]
     pub EffectsProviderSettingsLabel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    EffectsProviderSettingsLabel: usize,
-    #[cfg(feature = "deprecated")]
     pub ShowSettingsUI: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    ShowSettingsUI: usize,
 }
 windows_core::imp::define_interface!(IBasicAudioEffect, IBasicAudioEffect_Vtbl, 0x8c062c53_6bc0_48b8_a99a_4b41550f1359);
 impl windows_core::RuntimeType for IBasicAudioEffect {
