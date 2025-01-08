@@ -12,22 +12,19 @@ impl Writer {
         let mut arches = BTreeSet::new();
 
         for attribute in row.attributes() {
-            match attribute.name() {
-                "SupportedArchitectureAttribute" => {
-                    if let Some((_, Value::I32(value))) = attribute.args().first() {
-                        if value & 1 == 1 {
-                            arches.insert("x86");
-                        }
-                        if value & 2 == 2 {
-                            arches.insert("x86_64");
-                            arches.insert("arm64ec");
-                        }
-                        if value & 4 == 4 {
-                            arches.insert("aarch64");
-                        }
+            if attribute.name() == "SupportedArchitectureAttribute" {
+                if let Some((_, Value::I32(value))) = attribute.args().first() {
+                    if value & 1 == 1 {
+                        arches.insert("x86");
+                    }
+                    if value & 2 == 2 {
+                        arches.insert("x86_64");
+                        arches.insert("arm64ec");
+                    }
+                    if value & 4 == 4 {
+                        arches.insert("aarch64");
                     }
                 }
-                _ => {}
             }
         }
 
