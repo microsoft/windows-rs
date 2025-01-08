@@ -91,7 +91,7 @@ impl Key {
     }
 
     /// Sets the name and value in the registry key.
-    pub fn set_string<T: AsRef<str>>(&self, name: T, value: T) -> Result<()> {
+    pub fn set_string<T: AsRef<str>, U: AsRef<str>>(&self, name: T, value: U) -> Result<()> {
         self.set_bytes(name, Type::String, pcwstr(value).as_bytes())
     }
 
@@ -105,7 +105,7 @@ impl Key {
     }
 
     /// Sets the name and value in the registry key.
-    pub fn set_expand_string<T: AsRef<str>>(&self, name: T, value: T) -> Result<()> {
+    pub fn set_expand_string<T: AsRef<str>, U: AsRef<str>>(&self, name: T, value: U) -> Result<()> {
         self.set_bytes(name, Type::ExpandString, pcwstr(value).as_bytes())
     }
 
