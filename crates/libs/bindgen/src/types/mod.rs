@@ -201,6 +201,7 @@ impl Type {
         }
     }
 
+    #[track_caller]
     pub fn from_ref(code: TypeDefOrRef, enclosing: Option<&CppStruct>, generics: &[Self]) -> Self {
         if let TypeDefOrRef::TypeSpec(def) = code {
             let mut blob = def.blob(0);
@@ -227,6 +228,7 @@ impl Type {
             .unwrap_full_name(code_name.namespace(), code_name.name())
     }
 
+    #[track_caller]
     pub fn from_blob(blob: &mut Blob, enclosing: Option<&CppStruct>, generics: &[Self]) -> Self {
         // Used by WinRT to indicate that a struct input parameter is passed by reference rather than by value on the ABI.
         let is_const = blob.read_modifiers().iter().any(|def| {
@@ -267,6 +269,7 @@ impl Type {
         }
     }
 
+    #[track_caller]
     fn from_blob_impl(blob: &mut Blob, enclosing: Option<&CppStruct>, generics: &[Self]) -> Self {
         let code = blob.read_usize();
 
@@ -600,6 +603,7 @@ impl Type {
         }
     }
 
+    #[track_caller]
     pub fn dependencies(&self, dependencies: &mut TypeMap) {
         let ty = self.decay();
 

@@ -423,6 +423,7 @@ impl CppInterface {
         quote! { #namespace #name }
     }
 
+    #[track_caller]
     pub fn dependencies(&self, dependencies: &mut TypeMap) {
         let base_interfaces = self.base_interfaces();
 

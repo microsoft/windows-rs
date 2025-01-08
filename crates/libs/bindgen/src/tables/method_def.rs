@@ -29,6 +29,7 @@ impl MethodDef {
         self.impl_map().map_or("", |map| map.scope().name())
     }
 
+    #[track_caller]
     pub fn signature(&self, namespace: &str, generics: &[Type]) -> Signature {
         let mut blob = self.blob(4);
         let call_flags = MethodCallAttributes(blob.read_usize() as u8);
@@ -36,42 +37,40 @@ impl MethodDef {
         let mut return_type = Type::from_blob(&mut blob, None, generics);
         let mut return_param = None;
 
-        let params = self
-            .params()
-            .filter_map(|param| {
-                if param.sequence() == 0 {
-                    if param.has_attribute("ConstAttribute") {
-                        return_type = return_type.to_const_type();
-                    }
+        let mut params = vec![];
 
-                    return_param = Some(param);
-                    None
-                } else {
-                    let param_is_const = param.has_attribute("ConstAttribute");
-                    let param_is_output = param.flags().contains(ParamAttributes::Out);
-                    let mut ty = Type::from_blob(&mut blob, None, generics);
+        for param in self.params() {
+            if param.sequence() == 0 {
+                if param.has_attribute("ConstAttribute") {
+                    return_type = return_type.to_const_type();
+                }
 
-                    if param_is_const || !param_is_output {
-                        ty = ty.to_const_type();
-                    }
-                    if !param_is_output {
-                        ty = ty.to_const_ptr();
-                    }
+                return_param = Some(param);
+            } else {
+                let param_is_const = param.has_attribute("ConstAttribute");
+                let param_is_output = param.flags().contains(ParamAttributes::Out);
+                let mut ty = Type::from_blob(&mut blob, None, generics);
 
-                    if !param_is_output {
-                        if let Some(attribute) = param.find_attribute("AssociatedEnumAttribute") {
-                            if let Some((_, Value::Str(name))) = attribute.args().first() {
-                                let overload = param.reader().unwrap_full_name(namespace, name);
+                if param_is_const || !param_is_output {
+                    ty = ty.to_const_type();
+                }
+                if !param_is_output {
+                    ty = ty.to_const_ptr();
+                }
 
-                                ty = Type::PrimitiveOrEnum(Box::new(ty), Box::new(overload));
-                            }
+                if !param_is_output {
+                    if let Some(attribute) = param.find_attribute("AssociatedEnumAttribute") {
+                        if let Some((_, Value::Str(name))) = attribute.args().first() {
+                            let overload = param.reader().unwrap_full_name(namespace, name);
+
+                            ty = Type::PrimitiveOrEnum(Box::new(ty), Box::new(overload));
                         }
                     }
-
-                    Some((ty, param))
                 }
-            })
-            .collect();
+
+                params.push((ty, param));
+            }
+        }
 
         Signature {
             call_flags,
