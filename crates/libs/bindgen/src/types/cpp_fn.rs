@@ -62,12 +62,12 @@ impl CppFn {
 
         let return_sig = writer.write_return_sig(self.method, &signature, underlying_types);
 
-        let vararg =
-            if writer.config.sys && signature.call_flags.contains(MethodCallAttributes::VARARG) {
-                quote! { , ... }
-            } else {
-                quote! {}
-            };
+        let vararg = if config().sys && signature.call_flags.contains(MethodCallAttributes::VARARG)
+        {
+            quote! { , ... }
+        } else {
+            quote! {}
+        };
 
         link_fmt(quote! {
             windows_targets::link!(#library #abi #symbol fn #name(#(#params),* #vararg) #return_sig);
@@ -79,14 +79,14 @@ impl CppFn {
         let signature = self.method.signature(self.namespace, &[]);
         let mut dependencies = TypeMap::new();
 
-        if writer.config.package {
+        if config().package {
             self.dependencies(&mut dependencies);
         }
 
         let link = self.write_link(writer, false);
         let cfg = writer.write_cfg(self.method, self.namespace, &dependencies, false);
         let window_long = self.write_window_long();
-        if writer.config.sys {
+        if config().sys {
             return quote! {
                 #cfg
                 #link

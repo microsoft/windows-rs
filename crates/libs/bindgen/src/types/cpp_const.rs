@@ -38,7 +38,7 @@ impl CppConst {
 
         let mut dependencies = TypeMap::new();
 
-        if writer.config.package {
+        if config().package {
             self.dependencies(&mut dependencies);
         }
 
@@ -52,7 +52,7 @@ impl CppConst {
                     let crate_name = writer.write_core();
                     let value = constant.value().write();
 
-                    // TODO: if writer.config.no_core then write these literals out as byte strings?
+                    // TODO: if config().no_core then write these literals out as byte strings?
                     if is_ansi_encoding(self.field) {
                         quote! {
                             #cfg
@@ -94,7 +94,7 @@ impl CppConst {
                     value = quote! { #value as _ };
                 }
 
-                if writer.config.sys || field_ty == Type::Bool {
+                if config().sys || field_ty == Type::Bool {
                     quote! {
                         #cfg
                         pub const #name: #ty = #value;

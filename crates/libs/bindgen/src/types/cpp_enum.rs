@@ -30,17 +30,17 @@ impl CppEnum {
         let tn = self.def.type_name();
         let is_scoped = self.def.has_attribute("ScopedEnumAttribute");
 
-        if !is_scoped && writer.config.sys {
+        if !is_scoped && config().sys {
             return writer.write_cpp_handle(self.def);
         }
 
         let name = to_ident(tn.name());
         let underlying_type = self.def.underlying_type().write_name(writer);
 
-        let mut derive = DeriveWriter::new(writer, tn);
+        let mut derive = DeriveWriter::new(tn);
         derive.extend(["Copy", "Clone"]);
 
-        if !writer.config.sys {
+        if !config().sys {
             derive.extend(["Default", "Debug", "PartialEq", "Eq"]);
         }
 
@@ -67,7 +67,7 @@ impl CppEnum {
             quote! {}
         };
 
-        let flags = if writer.config.sys || !self.def.has_attribute("FlagsAttribute") {
+        let flags = if config().sys || !self.def.has_attribute("FlagsAttribute") {
             quote! {}
         } else {
             quote! {

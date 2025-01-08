@@ -25,14 +25,14 @@ impl Struct {
 
         let is_copyable = fields.iter().all(|(_, ty)| ty.is_copyable());
 
-        let mut derive = DeriveWriter::new(writer, self.type_name());
+        let mut derive = DeriveWriter::new(self.type_name());
         derive.extend(["Clone"]);
 
         if is_copyable {
             derive.extend(["Copy"]);
         }
 
-        if !writer.config.sys {
+        if !config().sys {
             derive.extend(["Default", "Debug", "PartialEq"]);
         }
 
@@ -42,7 +42,7 @@ impl Struct {
             quote! { pub #name: #ty, }
         });
 
-        let win_traits = if writer.config.sys {
+        let win_traits = if config().sys {
             quote! {}
         } else {
             let type_kind = if is_copyable {

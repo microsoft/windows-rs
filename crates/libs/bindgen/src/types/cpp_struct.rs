@@ -59,7 +59,7 @@ impl CppStruct {
 
         let mut dependencies = TypeMap::new();
 
-        if writer.config.package {
+        if config().package {
             self.dependencies(&mut dependencies);
         }
 
@@ -87,10 +87,10 @@ impl CppStruct {
             let fields = fields.iter().map(|(name, ty)| {
                 let name = to_ident(name);
 
-                let ty = if !writer.config.sys && is_union && !ty.is_copyable() {
+                let ty = if !config().sys && is_union && !ty.is_copyable() {
                     let ty = ty.write_default(writer);
                     quote! { core::mem::ManuallyDrop<#ty> }
-                } else if !writer.config.sys && ty.is_dropped() {
+                } else if !config().sys && ty.is_dropped() {
                     if let Type::ArrayFixed(ty, len) = ty {
                         let ty = ty.write_default(writer);
                         let len = Literal::usize_unsuffixed(*len);
@@ -119,10 +119,10 @@ impl CppStruct {
             }
         };
 
-        let mut derive = DeriveWriter::new(writer, self.type_name());
+        let mut derive = DeriveWriter::new(self.type_name());
         let mut manual_clone = None;
 
-        if writer.config.sys || is_copyable {
+        if config().sys || is_copyable {
             derive.extend(["Clone", "Copy"]);
         } else if !matches!(
             TypeName(self.def.namespace(), self.def.name()),
@@ -142,11 +142,11 @@ impl CppStruct {
             }
         }
 
-        if !writer.config.sys && !has_explicit_layout && !has_packing {
+        if !config().sys && !has_explicit_layout && !has_packing {
             derive.extend(["Debug", "PartialEq"]);
         }
 
-        let default = if writer.config.sys {
+        let default = if config().sys {
             quote! {}
         } else {
             quote! {

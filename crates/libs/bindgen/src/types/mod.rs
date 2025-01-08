@@ -380,7 +380,7 @@ impl Type {
                 quote! { #name BSTR }
             }
             Self::IUnknown => {
-                if writer.config.sys {
+                if config().sys {
                     quote! { *mut core::ffi::c_void }
                 } else {
                     let name = writer.write_core();
@@ -400,7 +400,7 @@ impl Type {
                 quote! { #name HSTRING }
             }
             Self::Object => {
-                if writer.config.sys {
+                if config().sys {
                     quote! { *mut core::ffi::c_void }
                 } else {
                     let name = writer.write_core();
@@ -454,7 +454,7 @@ impl Type {
             Self::ArrayRef(ty) => ty.write_name(writer),
             Self::ConstRef(ty) => ty.write_name(writer),
             Self::PrimitiveOrEnum(primitive, ty) => {
-                if writer.config.sys {
+                if config().sys {
                     primitive.write_name(writer)
                 } else {
                     ty.write_name(writer)
@@ -472,7 +472,7 @@ impl Type {
 
             if matches!(self, Self::Param(_)) {
                 quote! { <#tokens as windows_core::Type<#tokens>>::Default }
-            } else if self.is_interface() && !writer.config.sys {
+            } else if self.is_interface() && !config().sys {
                 quote! { Option<#tokens> }
             } else {
                 tokens
@@ -493,7 +493,7 @@ impl Type {
     }
 
     pub fn write_abi(&self, writer: &Writer) -> TokenStream {
-        if writer.config.sys {
+        if config().sys {
             return self.write_default(writer);
         }
 
@@ -837,8 +837,8 @@ impl Type {
 }
 
 impl Type {
-    fn write_no_deps(&self, writer: &Writer) -> TokenStream {
-        if !writer.config.no_core {
+    fn write_no_deps(&self) -> TokenStream {
+        if !config().no_core {
             return quote! {};
         }
 
@@ -906,7 +906,7 @@ impl Type {
             Self::Class(ty) => ty.write(writer),
             Self::CppInterface(ty) => ty.write(writer),
 
-            _ => self.write_no_deps(writer),
+            _ => self.write_no_deps(),
         }
     }
 

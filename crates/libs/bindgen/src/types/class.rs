@@ -17,7 +17,7 @@ impl Class {
         let name = to_ident(type_name.name());
         let mut dependencies = TypeMap::new();
 
-        if writer.config.package {
+        if config().package {
             self.dependencies(&mut dependencies);
         }
 
@@ -38,7 +38,7 @@ impl Class {
             let mut virtual_names = MethodNames::new();
 
             for method in interface
-                .get_methods(writer)
+                .get_methods()
                 .iter()
                 .filter_map(|method| match &method {
                     MethodOrName::Method(method) => Some(method),
@@ -47,7 +47,7 @@ impl Class {
             {
                 let mut difference = TypeMap::new();
 
-                if writer.config.package {
+                if config().package {
                     difference = method.dependencies.difference(&dependencies);
                 }
 
