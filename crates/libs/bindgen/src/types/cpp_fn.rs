@@ -278,8 +278,7 @@ impl CppFn {
         };
 
         if let Some(dependency) = dependency {
-            self.method
-                .reader()
+            reader()
                 .unwrap_full_name(self.namespace, dependency)
                 .dependencies(dependencies);
         }

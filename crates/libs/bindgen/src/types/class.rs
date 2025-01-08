@@ -253,7 +253,7 @@ impl Class {
     fn bases(&self) -> Vec<Self> {
         let mut bases = Vec::new();
         let mut def = self.def;
-        let reader = def.reader();
+        let reader = reader();
 
         loop {
             let extends = def.extends().unwrap();
@@ -309,6 +309,8 @@ impl Class {
             walk(base.def, &[], true, &mut set);
         }
 
+        let reader = reader();
+
         for attribute in self.def.attributes() {
             let kind = match attribute.name() {
                 "StaticAttribute" | "ActivatableAttribute" => InterfaceKind::Static,
@@ -318,10 +320,8 @@ impl Class {
 
             for (_, arg) in attribute.args() {
                 if let Value::TypeName(tn) = arg {
-                    let Type::Interface(mut interface) = self
-                        .def
-                        .reader()
-                        .unwrap_full_name(tn.namespace(), tn.name())
+                    let Type::Interface(mut interface) =
+                        reader.unwrap_full_name(tn.namespace(), tn.name())
                     else {
                         panic!("type not found: {tn}");
                     };

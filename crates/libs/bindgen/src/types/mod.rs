@@ -224,8 +224,7 @@ impl Type {
             }
         }
 
-        code.reader()
-            .unwrap_full_name(code_name.namespace(), code_name.name())
+        reader().unwrap_full_name(code_name.namespace(), code_name.name())
     }
 
     #[track_caller]
@@ -298,9 +297,7 @@ impl Type {
                 let code = blob.decode::<TypeDefOrRef>();
                 let code_name = code.type_name();
 
-                let mut ty = blob
-                    .reader()
-                    .unwrap_full_name(code_name.namespace(), code_name.name());
+                let mut ty = reader().unwrap_full_name(code_name.namespace(), code_name.name());
 
                 let mut item_generics = vec![];
 
@@ -573,17 +570,11 @@ impl Type {
     pub fn split_generic(&self) -> (Type, Vec<Type>) {
         match self {
             Self::Interface(ty) if !ty.generics.is_empty() => {
-                let base = ty
-                    .def
-                    .reader()
-                    .unwrap_full_name(ty.def.namespace(), ty.def.name());
+                let base = reader().unwrap_full_name(ty.def.namespace(), ty.def.name());
                 (base, ty.generics.clone())
             }
             Self::Delegate(ty) if !ty.generics.is_empty() => {
-                let base = ty
-                    .def
-                    .reader()
-                    .unwrap_full_name(ty.def.namespace(), ty.def.name());
+                let base = reader().unwrap_full_name(ty.def.namespace(), ty.def.name());
                 (base, ty.generics.clone())
             }
             _ => (self.clone(), vec![]),
@@ -630,16 +621,8 @@ impl Type {
         }
 
         if let Some(multi) = match &ty {
-            Self::CppStruct(ty) => Some(
-                ty.def
-                    .reader()
-                    .with_full_name(ty.def.namespace(), ty.def.name()),
-            ),
-            Self::CppFn(ty) => Some(
-                ty.method
-                    .reader()
-                    .with_full_name(ty.namespace, ty.method.name()),
-            ),
+            Self::CppStruct(ty) => Some(reader().with_full_name(ty.def.namespace(), ty.def.name())),
+            Self::CppFn(ty) => Some(reader().with_full_name(ty.namespace, ty.method.name())),
             _ => None,
         } {
             multi.for_each(|multi| {

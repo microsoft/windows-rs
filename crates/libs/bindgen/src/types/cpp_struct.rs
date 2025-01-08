@@ -228,8 +228,7 @@ impl CppStruct {
 
         if let Some(attribute) = self.def.find_attribute("AlsoUsableForAttribute") {
             if let Some((_, Value::Str(type_name))) = attribute.args().first() {
-                self.def
-                    .reader()
+                reader()
                     .unwrap_full_name(self.def.namespace(), type_name)
                     .dependencies(dependencies);
             }
