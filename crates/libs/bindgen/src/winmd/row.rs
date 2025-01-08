@@ -21,11 +21,6 @@ pub trait AsRow: Copy {
         self.to_row().file
     }
 
-    fn reader(&self) -> &'static Reader {
-        // Safety: At this point the File is already pointing to a valid Reader.
-        unsafe { &*self.file().reader }
-    }
-
     fn index(&self) -> usize {
         self.to_row().index
     }

@@ -9,18 +9,10 @@ pub enum CallingConvention {
 // Returns the libraries and their function and stack sizes used by the gnu and msvc tools to build the umbrella libs.
 #[doc(hidden)]
 pub fn libraries() -> BTreeMap<String, BTreeMap<String, CallingConvention>> {
-    let mut libraries = BTreeMap::new();
+    Reader::init(expand_input(&["default"]));
+    let mut result = BTreeMap::<String, BTreeMap<String, CallingConvention>>::new();
 
-    let reader = Reader::new(expand_input(&["default"]));
-    combine_libraries(reader, &mut libraries);
-    libraries
-}
-
-fn combine_libraries(
-    reader: &Reader,
-    libraries: &mut BTreeMap<String, BTreeMap<String, CallingConvention>>,
-) {
-    for types in reader.values() {
+    for types in reader().values() {
         for ty in types.values() {
             let Some(ty) = cpp_fn(ty) else {
                 continue;
@@ -40,12 +32,12 @@ fn combine_libraries(
                     0
                 };
 
-                libraries
+                result
                     .entry(library)
                     .or_default()
                     .insert(name, CallingConvention::Stdcall(params));
             } else if flags.contains(PInvokeAttributes::CallConvCdecl) {
-                libraries
+                result
                     .entry(library)
                     .or_default()
                     .insert(name, CallingConvention::Cdecl);
@@ -54,6 +46,8 @@ fn combine_libraries(
             }
         }
     }
+
+    result
 }
 
 fn cpp_fn(types: &[Type]) -> Option<CppFn> {

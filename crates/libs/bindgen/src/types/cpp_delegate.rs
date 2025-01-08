@@ -49,7 +49,7 @@ impl CppDelegate {
 
         let mut dependencies = TypeMap::new();
 
-        if writer.config.package {
+        if config().package {
             self.dependencies(&mut dependencies);
         }
 

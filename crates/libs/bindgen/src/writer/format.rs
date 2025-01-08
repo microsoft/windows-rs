@@ -3,7 +3,7 @@ use std::io::Write;
 
 impl Writer {
     pub fn format(&self, tokens: &str) -> String {
-        let preamble = if self.config.no_comment {
+        let preamble = if config().no_comment {
             String::new()
         } else {
             let version = std::env!("CARGO_PKG_VERSION");
@@ -16,7 +16,7 @@ impl Writer {
             )
         };
 
-        let allow = if self.config.no_allow {
+        let allow = if config().no_allow {
             ""
         } else {
             "#![allow(non_snake_case, non_upper_case_globals, non_camel_case_types, dead_code, clippy::all)]\n\n"
@@ -28,9 +28,9 @@ impl Writer {
         cmd.stdout(std::process::Stdio::piped());
         cmd.stderr(std::process::Stdio::null());
 
-        if !self.config.rustfmt.is_empty() {
+        if !config().rustfmt.is_empty() {
             cmd.arg("--config");
-            cmd.arg(&self.config.rustfmt);
+            cmd.arg(&config().rustfmt);
         }
 
         let Ok(mut child) = cmd.spawn() else {

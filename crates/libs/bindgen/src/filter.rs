@@ -4,15 +4,15 @@ use super::*;
 pub struct Filter(Vec<(String, bool)>);
 
 impl Filter {
-    pub fn new(reader: &Reader, include: &[&str], exclude: &[&str]) -> Self {
+    pub fn new(include: &[&str], exclude: &[&str]) -> Self {
         let mut rules = vec![];
 
         for filter in include {
-            push_filter(reader, &mut rules, filter, true);
+            push_filter(&mut rules, filter, true);
         }
 
         for filter in exclude {
-            push_filter(reader, &mut rules, filter, false)
+            push_filter(&mut rules, filter, false)
         }
 
         debug_assert!(!rules.is_empty());
@@ -68,7 +68,9 @@ impl Filter {
     }
 }
 
-fn push_filter(reader: &Reader, rules: &mut Vec<(String, bool)>, filter: &str, include: bool) {
+fn push_filter(rules: &mut Vec<(String, bool)>, filter: &str, include: bool) {
+    let reader = reader();
+
     if reader.contains_key(filter) {
         rules.push((filter.to_string(), include));
         return;

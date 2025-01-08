@@ -29,7 +29,7 @@ impl Attribute {
         let ret_type = sig.read_usize();
         std::debug_assert_eq!(ret_type, 1);
         let mut args = Vec::with_capacity(fixed_arg_count);
-        let reader = self.reader();
+        let reader = reader();
 
         for _ in 0..fixed_arg_count {
             let arg = match Type::from_blob(&mut sig, None, &[]) {

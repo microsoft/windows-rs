@@ -17,8 +17,9 @@ impl TypeMap {
     }
 
     #[track_caller]
-    pub fn filter(reader: &'static Reader, filter: &Filter, references: &References) -> Self {
+    pub fn filter(filter: &Filter, references: &References) -> Self {
         let mut dependencies = Self::new();
+        let reader = reader();
 
         for namespace in reader.keys() {
             if filter.includes_namespace(namespace) {
@@ -81,7 +82,7 @@ impl TypeMap {
         )
     }
 
-    pub fn included(&self, config: &Config) -> bool {
+    pub fn included(&self) -> bool {
         self.0.iter().all(|(tn, _)| {
             // An empty namespace covers core types like `HRESULT`. This way we don't exclude methods
             // that depend on core types that aren't explicitly included in the filter.
@@ -89,11 +90,11 @@ impl TypeMap {
                 return true;
             }
 
-            if config.types.contains_key(tn) {
+            if config().types.contains_key(tn) {
                 return true;
             }
 
-            if config.references.contains(*tn).is_some() {
+            if config().references.contains(*tn).is_some() {
                 return true;
             }
 
