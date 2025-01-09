@@ -9,10 +9,10 @@ pub struct TypeTree {
 }
 
 impl TypeTree {
-    pub fn new() -> Self {
+    pub fn new(dependencies: &TypeMap) -> Self {
         let mut tree = Self::with_namespace("");
 
-        for (tn, types) in config().types.iter() {
+        for (tn, types) in dependencies.iter() {
             let tree = tree.insert_namespace(tn.namespace());
             types.iter().for_each(|ty| {
                 tree.types.insert(ty.clone());

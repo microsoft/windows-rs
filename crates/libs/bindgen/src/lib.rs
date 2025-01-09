@@ -6,7 +6,6 @@
     clippy::needless_doctest_main
 )]
 
-mod config;
 mod derive;
 mod derive_writer;
 mod filter;
@@ -25,7 +24,6 @@ mod value;
 mod winmd;
 mod writer;
 
-use config::*;
 use derive::*;
 use derive_writer::*;
 use filter::*;
@@ -48,6 +46,22 @@ use winmd::*;
 use writer::*;
 mod method_names;
 use method_names::*;
+
+struct Config {
+    pub types: TypeMap,
+    pub references: References,
+    pub output: String,
+    pub flat: bool,
+    pub no_allow: bool,
+    pub no_comment: bool,
+    pub no_core: bool,
+    pub no_toml: bool,
+    pub package: bool,
+    pub rustfmt: String,
+    pub sys: bool,
+    pub implement: bool,
+    pub derive: Derive,
+}
 
 /// The Windows code generator.
 #[track_caller]
@@ -145,13 +159,13 @@ where
         panic!("at least one `--filter` required");
     }
 
-    Reader::init(expand_input(&input));
-    let filter = Filter::new(&include, &exclude);
-    let references = References::new(references);
-    let types = TypeMap::filter(&filter, &references);
-    let derive = Derive::new(&types, &derive);
+    let reader = Reader::new(expand_input(&input));
+    let filter = Filter::new(reader, &include, &exclude);
+    let references = References::new(reader, references);
+    let types = TypeMap::filter(reader, &filter, &references);
+    let derive = Derive::new(reader, &types, &derive);
 
-    Config::init(Config {
+    let config = Box::leak(Box::new(Config {
         types,
         flat,
         references,
@@ -165,11 +179,16 @@ where
         output,
         sys,
         implement,
-    });
+    }));
 
-    let writer = Writer { namespace: "" };
+    let tree = TypeTree::new(&config.types);
 
-    writer.write(TypeTree::new())
+    let writer = Writer {
+        config,
+        namespace: "",
+    };
+
+    writer.write(tree)
 }
 
 enum ArgKind {

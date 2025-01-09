@@ -25,7 +25,7 @@ impl Delegate {
 
         let mut dependencies = TypeMap::new();
 
-        if config().package {
+        if writer.config.package {
             self.dependencies(&mut dependencies);
         }
 

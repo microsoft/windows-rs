@@ -83,4 +83,12 @@ impl TypeDefOrRef {
             rest => panic!("{rest:?}"),
         }
     }
+
+    pub fn reader(&self) -> &'static Reader {
+        match self {
+            Self::TypeDef(row) => row.reader(),
+            Self::TypeRef(row) => row.reader(),
+            Self::TypeSpec(row) => row.reader(),
+        }
+    }
 }

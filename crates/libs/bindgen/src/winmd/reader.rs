@@ -1,17 +1,4 @@
 use super::*;
-use std::sync::atomic::{AtomicPtr, Ordering};
-
-static READER: AtomicPtr<Reader> = AtomicPtr::new(std::ptr::null_mut());
-
-pub fn reader() -> &'static Reader {
-    let ptr = READER.load(Ordering::Relaxed);
-
-    if ptr.is_null() {
-        panic!();
-    } else {
-        unsafe { &*ptr }
-    }
-}
 
 fn insert(types: &mut HashMap<&'static str, Vec<Type>>, name: &'static str, ty: Type) {
     types.entry(name).or_default().push(ty);
@@ -28,10 +15,11 @@ impl std::ops::Deref for Reader {
 }
 
 impl Reader {
-    pub fn init(files: Vec<File>) {
+    pub fn new(files: Vec<File>) -> &'static Self {
         let reader = Box::leak(Box::new(Self(HashMap::new())));
 
-        for file in files {
+        for mut file in files {
+            file.reader = reader;
             let file = Box::leak(Box::new(file));
             let mut nested = HashMap::<TypeDef, Vec<TypeDef>>::new();
 
@@ -179,7 +167,7 @@ impl Reader {
             }
         }
 
-        READER.store(reader, Ordering::Relaxed);
+        reader
     }
 
     #[track_caller]

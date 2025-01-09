@@ -81,7 +81,7 @@ impl TypeDef {
         if let Some(attribute) = self.find_attribute("RAIIFreeAttribute") {
             if let Some((_, Value::Str(name))) = attribute.args().first() {
                 if let Some(Type::CppFn(ty)) =
-                    reader().with_full_name(self.namespace(), name).next()
+                    self.reader().with_full_name(self.namespace(), name).next()
                 {
                     return Some(ty);
                 }

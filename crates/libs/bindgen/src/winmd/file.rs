@@ -1,6 +1,7 @@
 use super::*;
 
 pub struct File {
+    pub(crate) reader: *const Reader,
     bytes: Vec<u8>,
     strings: usize,
     blobs: usize,
@@ -45,6 +46,7 @@ impl File {
     pub fn new(bytes: Vec<u8>) -> Option<Self> {
         let mut result = File {
             bytes,
+            reader: std::ptr::null(),
             strings: 0,
             blobs: 0,
             tables: Default::default(),
@@ -652,6 +654,11 @@ impl File {
 
     pub(crate) fn table<R: AsRow>(&'static self) -> RowIterator<R> {
         RowIterator::new(self, 0..self.tables[R::TABLE].len)
+    }
+
+    pub(crate) fn reader(&self) -> &'static Reader {
+        // Safety: At this point the File is already pointing to a valid Reader.
+        unsafe { &*self.reader }
     }
 }
 
