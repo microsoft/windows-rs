@@ -224,7 +224,8 @@ impl Type {
             }
         }
 
-        reader().unwrap_full_name(code_name.namespace(), code_name.name())
+        code.reader()
+            .unwrap_full_name(code_name.namespace(), code_name.name())
     }
 
     #[track_caller]
@@ -297,7 +298,9 @@ impl Type {
                 let code = blob.decode::<TypeDefOrRef>();
                 let code_name = code.type_name();
 
-                let mut ty = reader().unwrap_full_name(code_name.namespace(), code_name.name());
+                let mut ty = blob
+                    .reader()
+                    .unwrap_full_name(code_name.namespace(), code_name.name());
 
                 let mut item_generics = vec![];
 
@@ -380,7 +383,7 @@ impl Type {
                 quote! { #name BSTR }
             }
             Self::IUnknown => {
-                if config().sys {
+                if writer.config.sys {
                     quote! { *mut core::ffi::c_void }
                 } else {
                     let name = writer.write_core();
@@ -400,7 +403,7 @@ impl Type {
                 quote! { #name HSTRING }
             }
             Self::Object => {
-                if config().sys {
+                if writer.config.sys {
                     quote! { *mut core::ffi::c_void }
                 } else {
                     let name = writer.write_core();
@@ -454,7 +457,7 @@ impl Type {
             Self::ArrayRef(ty) => ty.write_name(writer),
             Self::ConstRef(ty) => ty.write_name(writer),
             Self::PrimitiveOrEnum(primitive, ty) => {
-                if config().sys {
+                if writer.config.sys {
                     primitive.write_name(writer)
                 } else {
                     ty.write_name(writer)
@@ -472,7 +475,7 @@ impl Type {
 
             if matches!(self, Self::Param(_)) {
                 quote! { <#tokens as windows_core::Type<#tokens>>::Default }
-            } else if self.is_interface() && !config().sys {
+            } else if self.is_interface() && !writer.config.sys {
                 quote! { Option<#tokens> }
             } else {
                 tokens
@@ -493,7 +496,7 @@ impl Type {
     }
 
     pub fn write_abi(&self, writer: &Writer) -> TokenStream {
-        if config().sys {
+        if writer.config.sys {
             return self.write_default(writer);
         }
 
@@ -570,11 +573,17 @@ impl Type {
     pub fn split_generic(&self) -> (Type, Vec<Type>) {
         match self {
             Self::Interface(ty) if !ty.generics.is_empty() => {
-                let base = reader().unwrap_full_name(ty.def.namespace(), ty.def.name());
+                let base = ty
+                    .def
+                    .reader()
+                    .unwrap_full_name(ty.def.namespace(), ty.def.name());
                 (base, ty.generics.clone())
             }
             Self::Delegate(ty) if !ty.generics.is_empty() => {
-                let base = reader().unwrap_full_name(ty.def.namespace(), ty.def.name());
+                let base = ty
+                    .def
+                    .reader()
+                    .unwrap_full_name(ty.def.namespace(), ty.def.name());
                 (base, ty.generics.clone())
             }
             _ => (self.clone(), vec![]),
@@ -621,8 +630,16 @@ impl Type {
         }
 
         if let Some(multi) = match &ty {
-            Self::CppStruct(ty) => Some(reader().with_full_name(ty.def.namespace(), ty.def.name())),
-            Self::CppFn(ty) => Some(reader().with_full_name(ty.namespace, ty.method.name())),
+            Self::CppStruct(ty) => Some(
+                ty.def
+                    .reader()
+                    .with_full_name(ty.def.namespace(), ty.def.name()),
+            ),
+            Self::CppFn(ty) => Some(
+                ty.method
+                    .reader()
+                    .with_full_name(ty.namespace, ty.method.name()),
+            ),
             _ => None,
         } {
             multi.for_each(|multi| {
@@ -837,8 +854,8 @@ impl Type {
 }
 
 impl Type {
-    fn write_no_deps(&self) -> TokenStream {
-        if !config().no_core {
+    fn write_no_deps(&self, writer: &Writer) -> TokenStream {
+        if !writer.config.no_core {
             return quote! {};
         }
 
@@ -906,7 +923,7 @@ impl Type {
             Self::Class(ty) => ty.write(writer),
             Self::CppInterface(ty) => ty.write(writer),
 
-            _ => self.write_no_deps(),
+            _ => self.write_no_deps(writer),
         }
     }
 

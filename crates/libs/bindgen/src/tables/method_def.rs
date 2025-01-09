@@ -36,7 +36,6 @@ impl MethodDef {
         let _param_count = blob.read_usize();
         let mut return_type = Type::from_blob(&mut blob, None, generics);
         let mut return_param = None;
-        let reader = reader();
 
         let mut params = vec![];
 
@@ -62,7 +61,7 @@ impl MethodDef {
                 if !param_is_output {
                     if let Some(attribute) = param.find_attribute("AssociatedEnumAttribute") {
                         if let Some((_, Value::Str(name))) = attribute.args().first() {
-                            let overload = reader.unwrap_full_name(namespace, name);
+                            let overload = param.reader().unwrap_full_name(namespace, name);
 
                             ty = Type::PrimitiveOrEnum(Box::new(ty), Box::new(overload));
                         }

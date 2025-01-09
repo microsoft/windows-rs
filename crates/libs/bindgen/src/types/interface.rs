@@ -53,12 +53,12 @@ impl Interface {
         self.def.type_name()
     }
 
-    pub fn get_methods(&self) -> Vec<MethodOrName> {
+    pub fn get_methods(&self, writer: &Writer) -> Vec<MethodOrName> {
         self.def
             .methods()
             .map(|def| {
                 let method = Method::new(def, &self.generics);
-                if method.dependencies.included() {
+                if method.dependencies.included(writer.config) {
                     MethodOrName::Method(method)
                 } else {
                     MethodOrName::Name(method.def.name())
@@ -69,7 +69,7 @@ impl Interface {
 
     pub fn write(&self, writer: &Writer) -> TokenStream {
         let type_name = self.def.type_name();
-        let methods = self.get_methods();
+        let methods = self.get_methods(writer);
 
         let mut required_interfaces = self.required_interfaces();
         required_interfaces.sort();
@@ -84,7 +84,7 @@ impl Interface {
 
         let mut dependencies = TypeMap::new();
 
-        if config().package {
+        if writer.config.package {
             self.dependencies(&mut dependencies);
         }
 
@@ -98,7 +98,7 @@ impl Interface {
                 MethodOrName::Method(method) => {
                     let mut difference = TypeMap::new();
 
-                    if config().package {
+                    if writer.config.package {
                         difference = method.dependencies.difference(&dependencies);
                     }
 
@@ -139,10 +139,10 @@ impl Interface {
             }
         };
 
-        if config().sys {
+        if writer.config.sys {
             let mut result = quote! {};
 
-            if !config().package {
+            if !writer.config.package {
                 if let Some(guid) = self.def.guid_attribute() {
                     let name: TokenStream = format!("IID_{}", self.def.name()).into();
                     result.combine(writer.write_cpp_const_guid(name, &guid));
@@ -232,7 +232,7 @@ impl Interface {
                 }) {
                     let mut difference = TypeMap::new();
 
-                    if config().package {
+                    if writer.config.package {
                         difference = method.dependencies.difference(&dependencies);
                     }
 
@@ -257,7 +257,7 @@ impl Interface {
 
                     for method in
                         interface
-                            .get_methods()
+                            .get_methods(writer)
                             .iter()
                             .filter_map(|method| match &method {
                                 MethodOrName::Method(method) => Some(method),
@@ -266,7 +266,7 @@ impl Interface {
                     {
                         let mut difference = TypeMap::new();
 
-                        if config().package {
+                        if writer.config.package {
                             difference = method.dependencies.difference(&dependencies);
                         }
 
@@ -340,7 +340,7 @@ impl Interface {
                 }
             }
 
-            if config().implement || !is_exclusive {
+            if writer.config.implement || !is_exclusive {
                 let impl_name: TokenStream = format!("{}_Impl", self.def.name()).into();
 
                 let generics: Vec<_> = self
@@ -351,19 +351,19 @@ impl Interface {
 
                 let runtime_name = format!("{type_name}");
 
-                if config().package {
-                    fn collect(interface: &Interface, dependencies: &mut TypeMap) {
-                        for method in interface.get_methods().iter() {
+                if writer.config.package {
+                    fn collect(interface: &Interface, dependencies: &mut TypeMap, writer: &Writer) {
+                        for method in interface.get_methods(writer).iter() {
                             if let MethodOrName::Method(method) = method {
                                 dependencies.combine(&method.dependencies);
                             }
                         }
                     }
 
-                    collect(self, &mut dependencies);
+                    collect(self, &mut dependencies, writer);
                     required_interfaces
                         .iter()
-                        .for_each(|interface| collect(interface, &mut dependencies));
+                        .for_each(|interface| collect(interface, &mut dependencies, writer));
                 }
 
                 let cfg = writer.write_cfg(self.def, self.def.namespace(), &dependencies, false);
@@ -509,7 +509,7 @@ impl Interface {
     }
 
     pub fn write_name(&self, writer: &Writer) -> TokenStream {
-        if config().sys {
+        if writer.config.sys {
             quote! { *mut core::ffi::c_void }
         } else {
             self.type_name().write(writer, &self.generics)

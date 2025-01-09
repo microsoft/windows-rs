@@ -7,7 +7,7 @@ impl Writer {
         let ty = def.underlying_type();
         let ty_name = ty.write_name(self);
 
-        if config().sys {
+        if self.config.sys {
             quote! {
                 pub type #name = #ty_name;
             }
@@ -111,7 +111,7 @@ impl Writer {
 
             if let Some(attribute) = def.find_attribute("AlsoUsableForAttribute") {
                 if let Some((_, Value::Str(type_name))) = attribute.args().first() {
-                    let ty = reader().unwrap_full_name(def.namespace(), type_name);
+                    let ty = def.reader().unwrap_full_name(def.namespace(), type_name);
 
                     let ty = ty.write_name(self);
 

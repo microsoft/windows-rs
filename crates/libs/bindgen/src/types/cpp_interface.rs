@@ -28,14 +28,14 @@ impl CppInterface {
         self.def.type_name()
     }
 
-    pub fn get_methods(&self) -> Vec<CppMethodOrName> {
+    pub fn get_methods(&self, writer: &Writer) -> Vec<CppMethodOrName> {
         let namespace = self.def.namespace();
 
         self.def
             .methods()
             .map(|def| {
                 let method = CppMethod::new(def, namespace);
-                if method.dependencies.included() {
+                if method.dependencies.included(writer.config) {
                     CppMethodOrName::Method(method)
                 } else {
                     CppMethodOrName::Name(method.def.name())
@@ -45,14 +45,14 @@ impl CppInterface {
     }
 
     pub fn write(&self, writer: &Writer) -> TokenStream {
-        let methods = self.get_methods();
+        let methods = self.get_methods(writer);
 
         let base_interfaces = self.base_interfaces();
         let has_unknown_base = matches!(base_interfaces.first(), Some(Type::IUnknown));
 
         let mut dependencies = TypeMap::new();
 
-        if config().package {
+        if writer.config.package {
             self.dependencies(&mut dependencies);
         }
 
@@ -82,7 +82,7 @@ impl CppInterface {
                 CppMethodOrName::Method(method) => {
                     let mut difference = TypeMap::new();
 
-                    if config().package {
+                    if writer.config.package {
                         difference = method.dependencies.difference(&dependencies);
                     }
 
@@ -122,10 +122,10 @@ impl CppInterface {
             }
         };
 
-        if config().sys {
+        if writer.config.sys {
             let mut result = quote! {};
 
-            if !config().package {
+            if !writer.config.package {
                 if has_unknown_base {
                     if let Some(guid) = self.def.guid_attribute() {
                         let name: TokenStream = format!("IID_{}", self.def.name()).into();
@@ -193,7 +193,7 @@ impl CppInterface {
             }) {
                 let mut difference = TypeMap::new();
 
-                if config().package {
+                if writer.config.package {
                     difference = method.dependencies.difference(&dependencies);
                 }
 
@@ -220,19 +220,19 @@ impl CppInterface {
 
             let impl_name: TokenStream = format!("{}_Impl", self.def.name()).into();
 
-            if config().package {
-                fn collect(interface: &CppInterface, dependencies: &mut TypeMap) {
-                    for method in interface.get_methods().iter() {
+            if writer.config.package {
+                fn collect(interface: &CppInterface, dependencies: &mut TypeMap, writer: &Writer) {
+                    for method in interface.get_methods(writer).iter() {
                         if let CppMethodOrName::Method(method) = method {
                             dependencies.combine(&method.dependencies);
                         }
                     }
                 }
 
-                collect(self, &mut dependencies);
+                collect(self, &mut dependencies, writer);
                 base_interfaces.iter().for_each(|interface| {
                     if let Type::CppInterface(ty) = interface {
-                        collect(ty, &mut dependencies);
+                        collect(ty, &mut dependencies, writer);
                     }
                 });
             }
@@ -404,7 +404,7 @@ impl CppInterface {
     }
 
     pub fn write_name(&self, writer: &Writer) -> TokenStream {
-        if config().sys {
+        if writer.config.sys {
             quote! { *mut core::ffi::c_void }
         } else {
             self.type_name().write(writer, &[])

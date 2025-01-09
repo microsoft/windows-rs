@@ -18,10 +18,10 @@ impl Enum {
         let name = to_ident(self.def.name());
         let underlying_type = self.def.underlying_type();
 
-        let mut derive = DeriveWriter::new(self.type_name());
+        let mut derive = DeriveWriter::new(writer, self.type_name());
         derive.extend(["Copy", "Clone"]);
 
-        if !config().sys {
+        if !writer.config.sys {
             derive.extend(["Default", "Debug", "PartialEq", "Eq"]);
         }
 
@@ -38,7 +38,7 @@ impl Enum {
                 }
             });
 
-        let flags = if config().sys || underlying_type != Type::U32 {
+        let flags = if writer.config.sys || underlying_type != Type::U32 {
             quote! {}
         } else {
             quote! {
@@ -81,7 +81,7 @@ impl Enum {
 
         let underlying_type = underlying_type.write_name(writer);
 
-        let win_traits = if config().sys {
+        let win_traits = if writer.config.sys {
             quote! {}
         } else {
             let signature = Literal::byte_string(&self.runtime_signature());

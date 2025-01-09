@@ -9,6 +9,7 @@ use rayon::prelude::*;
 
 #[derive(Clone)]
 pub struct Writer {
+    pub config: &'static Config,
     pub namespace: &'static str,
 }
 
@@ -21,7 +22,7 @@ impl Writer {
 
     #[track_caller]
     pub fn write(&self, tree: TypeTree) {
-        if config().package {
+        if self.config.package {
             self.write_package(&tree);
         } else {
             self.write_file(tree);
@@ -30,13 +31,13 @@ impl Writer {
 
     #[track_caller]
     fn write_file(&self, tree: TypeTree) {
-        let tokens = if config().flat {
+        let tokens = if self.config.flat {
             self.write_flat(tree)
         } else {
             self.write_modules(&tree)
         };
 
-        write_to_file(&config().output, self.format(&tokens.into_string()));
+        write_to_file(&self.config.output, self.format(&tokens.into_string()));
     }
 
     fn write_flat(&self, tree: TypeTree) -> TokenStream {
@@ -67,7 +68,7 @@ impl Writer {
 
     fn write_package(&self, tree: &TypeTree) {
         for name in tree.nested.keys() {
-            _ = std::fs::remove_dir_all(format!("{}/src/{name}", &config().output));
+            _ = std::fs::remove_dir_all(format!("{}/src/{name}", &self.config.output));
         }
 
         let trees = tree.flatten_trees();
@@ -75,7 +76,7 @@ impl Writer {
         trees.par_iter().for_each(|tree| {
             let directory = format!(
                 "{}/src/{}",
-                &config().output,
+                &self.config.output,
                 tree.namespace.replace('.', "/")
             );
 
@@ -101,11 +102,11 @@ impl Writer {
             write_to_file(&output, self.format(&tokens.into_string()));
         });
 
-        if config().no_toml {
+        if self.config.no_toml {
             return;
         }
 
-        let toml_path = format!("{}/Cargo.toml", &config().output);
+        let toml_path = format!("{}/Cargo.toml", &self.config.output);
         let mut toml = String::new();
 
         for line in read_file_lines(&toml_path) {

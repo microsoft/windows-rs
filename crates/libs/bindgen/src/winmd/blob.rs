@@ -18,6 +18,10 @@ impl Blob {
         Self { file, slice }
     }
 
+    pub fn reader(&self) -> &'static Reader {
+        self.file.reader()
+    }
+
     fn peek(&self) -> (usize, usize) {
         if self[0] & 0x80 == 0 {
             (self[0] as usize, 1)

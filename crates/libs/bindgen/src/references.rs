@@ -68,13 +68,13 @@ pub struct Reference {
 pub struct References(Vec<Reference>);
 
 impl References {
-    pub fn new(stage: Vec<ReferenceStage>) -> Self {
+    pub fn new(reader: &'static Reader, stage: Vec<ReferenceStage>) -> Self {
         Self(
             stage
                 .into_iter()
                 .map(|stage| {
-                    let filter = Filter::new(&[&stage.path], &[]);
-                    let types = TypeMap::filter(&filter, &References::default());
+                    let filter = Filter::new(reader, &[&stage.path], &[]);
+                    let types = TypeMap::filter(reader, &filter, &References::default());
 
                     Reference {
                         name: stage.name,
