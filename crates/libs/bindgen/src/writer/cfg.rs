@@ -1,5 +1,36 @@
 use super::*;
 
+pub fn write_arches<R: HasAttributes>(row: R) -> TokenStream {
+    let mut tokens = quote! {};
+
+    if let Some(attribute) = row.find_attribute("SupportedArchitectureAttribute") {
+        if let Some((_, Value::I32(value))) = attribute.args().first() {
+            let mut arches = BTreeSet::new();
+
+            if value & 1 == 1 {
+                arches.insert("x86");
+            }
+
+            if value & 2 == 2 {
+                arches.insert("x86_64");
+                arches.insert("arm64ec");
+            }
+
+            if value & 4 == 4 {
+                arches.insert("aarch64");
+            }
+
+            match arches.len() {
+                0 => {}
+                1 => tokens.combine(quote! { #[cfg(#(target_arch = #arches),*)] }),
+                _ => tokens.combine(quote! { #[cfg(any(#(target_arch = #arches),*))] }),
+            }
+        }
+    }
+
+    tokens
+}
+
 impl Writer {
     pub fn write_cfg<R: HasAttributes>(
         &self,
@@ -9,37 +40,9 @@ impl Writer {
         not: bool,
     ) -> TokenStream {
         let mut features = BTreeSet::new();
-        let mut arches = BTreeSet::new();
 
-        for attribute in row.attributes() {
-            match attribute.name() {
-                "SupportedArchitectureAttribute" => {
-                    if let Some((_, Value::I32(value))) = attribute.args().first() {
-                        if value & 1 == 1 {
-                            arches.insert("x86");
-                        }
-                        if value & 2 == 2 {
-                            arches.insert("x86_64");
-                            arches.insert("arm64ec");
-                        }
-                        if value & 4 == 4 {
-                            arches.insert("aarch64");
-                        }
-                    }
-                }
-                "DeprecatedAttribute" => {
-                    features.insert("deprecated".to_string());
-                }
-                _ => {}
-            }
-        }
-
-        let mut tokens = quote! {};
-
-        match arches.len() {
-            0 => {}
-            1 => tokens.combine(quote! { #[cfg(#(target_arch = #arches),*)] }),
-            _ => tokens.combine(quote! { #[cfg(any(#(target_arch = #arches),*))] }),
+        if row.has_attribute("DeprecatedAttribute") {
+            features.insert("deprecated".to_string());
         }
 
         let mut compact: Vec<&'static str> = dependencies.keys().map(|tn| tn.namespace()).collect();
@@ -75,6 +78,8 @@ impl Writer {
             feature.truncate(feature.len() - 1);
             features.insert(feature);
         }
+
+        let mut tokens = quote! {};
 
         match features.len() {
             0 => {}
