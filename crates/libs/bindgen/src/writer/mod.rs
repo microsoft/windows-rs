@@ -5,6 +5,7 @@ mod names;
 mod value;
 
 use super::*;
+pub use cfg::*;
 use rayon::prelude::*;
 
 #[derive(Clone)]

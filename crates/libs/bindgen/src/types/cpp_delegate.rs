@@ -53,9 +53,11 @@ impl CppDelegate {
             self.dependencies(&mut dependencies);
         }
 
+        let arches = write_arches(self.def);
         let cfg = writer.write_cfg(self.def, type_name.namespace(), &dependencies, false);
 
         quote! {
+            #arches
             #cfg
             pub type #name = Option<unsafe extern "system" fn(#(#params),*) #return_sig>;
         }

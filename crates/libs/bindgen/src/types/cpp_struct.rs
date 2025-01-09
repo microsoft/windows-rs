@@ -63,8 +63,9 @@ impl CppStruct {
             self.dependencies(&mut dependencies);
         }
 
+        let arches = write_arches(self.def);
         let cfg = writer.write_cfg(self.def, self.def.namespace(), &dependencies, false);
-        self.write_with_cfg(writer, &cfg)
+        self.write_with_cfg(writer, &quote! { #arches #cfg })
     }
 
     fn write_with_cfg(&self, writer: &Writer, cfg: &TokenStream) -> TokenStream {

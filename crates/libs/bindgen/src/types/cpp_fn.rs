@@ -84,8 +84,11 @@ impl CppFn {
         }
 
         let link = self.write_link(writer, false);
+        let arches = write_arches(self.method);
         let cfg = writer.write_cfg(self.method, self.namespace, &dependencies, false);
+        let cfg = quote! { #arches #cfg };
         let window_long = self.write_window_long();
+
         if writer.config.sys {
             return quote! {
                 #cfg
