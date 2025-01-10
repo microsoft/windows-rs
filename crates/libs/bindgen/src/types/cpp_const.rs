@@ -27,6 +27,16 @@ impl CppConst {
         self.type_name().write(writer, &[])
     }
 
+    pub fn write_cfg(&self, writer: &Writer) -> TokenStream {
+        if !writer.config.package {
+            return quote! {};
+        }
+
+        let mut dependencies = TypeMap::new();
+        self.dependencies(&mut dependencies);
+        Cfg::new(self.field, &dependencies).write(writer, false)
+    }
+
     pub fn write(&self, writer: &Writer) -> TokenStream {
         let name = to_ident(self.field.name());
 
@@ -35,14 +45,7 @@ impl CppConst {
         }
 
         let field_ty = self.field.ty(None).to_const_type();
-
-        let mut dependencies = TypeMap::new();
-
-        if writer.config.package {
-            self.dependencies(&mut dependencies);
-        }
-
-        let cfg = writer.write_cfg(self.field, self.namespace, &dependencies, false);
+        let cfg = self.write_cfg(writer);
 
         if let Some(constant) = self.field.constant() {
             let constant_ty = constant.ty();

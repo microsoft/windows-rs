@@ -778,7 +778,7 @@ impl IFunctionInstance {
             (windows_core::Interface::vtable(self).GetProviderInstanceID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
+    #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn OpenPropertyStore(&self, dwstgaccess: super::super::System::Com::STGM) -> windows_core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -795,9 +795,9 @@ pub struct IFunctionInstance_Vtbl {
     pub base__: super::super::System::Com::IServiceProvider_Vtbl,
     pub GetID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u16) -> windows_core::HRESULT,
     pub GetProviderInstanceID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u16) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
+    #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub OpenPropertyStore: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Com::STGM, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem")))]
+    #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     OpenPropertyStore: usize,
     pub GetCategory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u16, *mut *mut u16) -> windows_core::HRESULT,
 }

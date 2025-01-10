@@ -1052,7 +1052,7 @@ impl HttpMultipartContent {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Web_Http_Headers"))]
+    #[cfg(feature = "Web_Http_Headers")]
     pub fn Headers(&self) -> windows_core::Result<Headers::HttpContentHeaderCollection> {
         let this = self;
         unsafe {
@@ -1200,7 +1200,7 @@ impl HttpMultipartFormDataContent {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Web_Http_Headers"))]
+    #[cfg(feature = "Web_Http_Headers")]
     pub fn Headers(&self) -> windows_core::Result<Headers::HttpContentHeaderCollection> {
         let this = self;
         unsafe {

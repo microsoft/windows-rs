@@ -9545,23 +9545,18 @@ impl core::ops::Deref for ID2D1GeometrySink {
 windows_core::imp::interface_hierarchy!(ID2D1GeometrySink, windows_core::IUnknown, Common::ID2D1SimplifiedGeometrySink);
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ID2D1GeometrySink {
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn AddLine(&self, point: Common::D2D_POINT_2F) {
         unsafe { (windows_core::Interface::vtable(self).AddLine)(windows_core::Interface::as_raw(self), core::mem::transmute(point)) }
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn AddBezier(&self, bezier: *const Common::D2D1_BEZIER_SEGMENT) {
         unsafe { (windows_core::Interface::vtable(self).AddBezier)(windows_core::Interface::as_raw(self), bezier) }
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn AddQuadraticBezier(&self, bezier: *const D2D1_QUADRATIC_BEZIER_SEGMENT) {
         unsafe { (windows_core::Interface::vtable(self).AddQuadraticBezier)(windows_core::Interface::as_raw(self), bezier) }
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn AddQuadraticBeziers(&self, beziers: &[D2D1_QUADRATIC_BEZIER_SEGMENT]) {
         unsafe { (windows_core::Interface::vtable(self).AddQuadraticBeziers)(windows_core::Interface::as_raw(self), core::mem::transmute(beziers.as_ptr()), beziers.len().try_into().unwrap()) }
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn AddArc(&self, arc: *const D2D1_ARC_SEGMENT) {
         unsafe { (windows_core::Interface::vtable(self).AddArc)(windows_core::Interface::as_raw(self), arc) }
     }
@@ -9570,26 +9565,11 @@ impl ID2D1GeometrySink {
 #[repr(C)]
 pub struct ID2D1GeometrySink_Vtbl {
     pub base__: Common::ID2D1SimplifiedGeometrySink_Vtbl,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub AddLine: unsafe extern "system" fn(*mut core::ffi::c_void, Common::D2D_POINT_2F),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
-    AddLine: usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub AddBezier: unsafe extern "system" fn(*mut core::ffi::c_void, *const Common::D2D1_BEZIER_SEGMENT),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
-    AddBezier: usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub AddQuadraticBezier: unsafe extern "system" fn(*mut core::ffi::c_void, *const D2D1_QUADRATIC_BEZIER_SEGMENT),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
-    AddQuadraticBezier: usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub AddQuadraticBeziers: unsafe extern "system" fn(*mut core::ffi::c_void, *const D2D1_QUADRATIC_BEZIER_SEGMENT, u32),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
-    AddQuadraticBeziers: usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub AddArc: unsafe extern "system" fn(*mut core::ffi::c_void, *const D2D1_ARC_SEGMENT),
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
-    AddArc: usize,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub trait ID2D1GeometrySink_Impl: Common::ID2D1SimplifiedGeometrySink_Impl {

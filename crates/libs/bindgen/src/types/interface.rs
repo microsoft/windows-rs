@@ -67,6 +67,18 @@ impl Interface {
             .collect()
     }
 
+    fn write_cfg(&self, writer: &Writer) -> (Cfg, TokenStream) {
+        if !writer.config.package {
+            return (Cfg::default(), quote! {});
+        }
+
+        let mut dependencies = TypeMap::new();
+        self.dependencies(&mut dependencies);
+        let cfg = Cfg::new(self.def, &dependencies);
+        let tokens = cfg.write(writer, false);
+        (cfg, tokens)
+    }
+
     pub fn write(&self, writer: &Writer) -> TokenStream {
         let type_name = self.def.type_name();
         let methods = self.get_methods(writer);
@@ -81,14 +93,7 @@ impl Interface {
         let constraints = writer.write_generic_constraints(&self.generics);
         let phantoms = writer.write_generic_phantoms(&self.generics);
         let named_phantoms = writer.write_generic_named_phantoms(&self.generics);
-
-        let mut dependencies = TypeMap::new();
-
-        if writer.config.package {
-            self.dependencies(&mut dependencies);
-        }
-
-        let cfg = writer.write_cfg(self.def, self.def.namespace(), &dependencies, false);
+        let (class_cfg, cfg) = self.write_cfg(writer);
 
         let vtbl = {
             let virtual_names = &mut MethodNames::new();
@@ -96,28 +101,23 @@ impl Interface {
 
             let vtbl_methods = methods.iter().map(|method| match method {
                 MethodOrName::Method(method) => {
-                    let mut difference = TypeMap::new();
-
-                    if writer.config.package {
-                        difference = method.dependencies.difference(&dependencies);
-                    }
-
                     let name = virtual_names.add(method.def);
                     let vtbl = method.write_abi(writer, false);
-                    let cfg = writer.write_cfg(self.def, self.def.namespace(), &difference, false);
 
-                    if cfg.is_empty() {
+                    let method_cfg = class_cfg.difference(method.def, &method.dependencies);
+                    let yes = method_cfg.write(writer, false);
+
+                    if yes.is_empty() {
                         quote! {
                             pub #name: unsafe extern "system" fn(#vtbl) -> #core HRESULT,
                         }
                     } else {
-                        let cfg_not =
-                            writer.write_cfg(self.def, self.def.namespace(), &difference, true);
+                        let no = method_cfg.write(writer, true);
 
                         quote! {
-                            #cfg
+                            #yes
                             pub #name: unsafe extern "system" fn(#vtbl) -> #core HRESULT,
-                            #cfg_not
+                            #no
                             #name: usize,
                         }
                     }
@@ -230,13 +230,7 @@ impl Interface {
                     MethodOrName::Method(method) => Some(method),
                     _ => None,
                 }) {
-                    let mut difference = TypeMap::new();
-
-                    if writer.config.package {
-                        difference = method.dependencies.difference(&dependencies);
-                    }
-
-                    let cfg = writer.write_cfg(self.def, self.def.namespace(), &difference, false);
+                    let cfg = method.write_cfg(writer, &class_cfg, false);
 
                     let method = method.write(
                         writer,
@@ -264,14 +258,7 @@ impl Interface {
                                 _ => None,
                             })
                     {
-                        let mut difference = TypeMap::new();
-
-                        if writer.config.package {
-                            difference = method.dependencies.difference(&dependencies);
-                        }
-
-                        let cfg =
-                            writer.write_cfg(self.def, self.def.namespace(), &difference, false);
+                        let cfg = method.write_cfg(writer, &class_cfg, false);
 
                         let method = method.write(
                             writer,
@@ -351,7 +338,7 @@ impl Interface {
 
                 let runtime_name = format!("{type_name}");
 
-                if writer.config.package {
+                let cfg = if writer.config.package {
                     fn collect(interface: &Interface, dependencies: &mut TypeMap, writer: &Writer) {
                         for method in interface.get_methods(writer).iter() {
                             if let MethodOrName::Method(method) = method {
@@ -360,13 +347,17 @@ impl Interface {
                         }
                     }
 
+                    let mut dependencies = TypeMap::new();
+                    self.dependencies(&mut dependencies);
                     collect(self, &mut dependencies, writer);
                     required_interfaces
                         .iter()
                         .for_each(|interface| collect(interface, &mut dependencies, writer));
-                }
 
-                let cfg = writer.write_cfg(self.def, self.def.namespace(), &dependencies, false);
+                    Cfg::new(self.def, &dependencies).write(writer, false)
+                } else {
+                    quote! {}
+                };
 
                 result.combine(quote! {
                     #cfg

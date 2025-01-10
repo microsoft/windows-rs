@@ -11,6 +11,16 @@ impl Delegate {
         self.def.type_name()
     }
 
+    pub fn write_cfg(&self, writer: &Writer) -> TokenStream {
+        if !writer.config.package {
+            return quote! {};
+        }
+
+        let mut dependencies = TypeMap::new();
+        self.dependencies(&mut dependencies);
+        Cfg::new(self.def, &dependencies).write(writer, false)
+    }
+
     pub fn write(&self, writer: &Writer) -> TokenStream {
         let name = self.write_name(writer);
         //let vtbl_name = self.write_vtbl_name(writer);
@@ -22,14 +32,7 @@ impl Delegate {
         let constraints = writer.write_generic_constraints(&self.generics);
         let named_phantoms = writer.write_generic_named_phantoms(&self.generics);
         let method = self.method();
-
-        let mut dependencies = TypeMap::new();
-
-        if writer.config.package {
-            self.dependencies(&mut dependencies);
-        }
-
-        let cfg = writer.write_cfg(self.def, self.def.namespace(), &dependencies, false);
+        let cfg = self.write_cfg(writer);
 
         let invoke = method.write(
             writer,

@@ -1478,7 +1478,6 @@ impl LearningModelBinding {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Bind)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn BindWithProperties<P1, P2>(&self, name: &windows_core::HSTRING, value: P1, props: P2) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::IInspectable>,

@@ -4159,7 +4159,6 @@ impl WebSocketKeepAlive {
         static SHARED: windows_core::imp::FactoryCache<WebSocketKeepAlive, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[cfg(feature = "ApplicationModel_Background")]
     pub fn Run<P0>(&self, taskinstance: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::ApplicationModel::Background::IBackgroundTaskInstance>,

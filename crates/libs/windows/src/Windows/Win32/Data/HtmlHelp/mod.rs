@@ -639,7 +639,6 @@ impl IITPropList {
     pub unsafe fn GetDataSize(&self, lpvheader: *mut core::ffi::c_void, dwhdrsize: u32, dwdatasize: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetDataSize)(windows_core::Interface::as_raw(self), lpvheader as _, dwhdrsize, dwdatasize as _).ok() }
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SaveDataToStream<P2>(&self, lpvheader: *mut core::ffi::c_void, dwhdrsize: u32, pstream: P2) -> windows_core::Result<()>
     where
         P2: windows_core::Param<super::super::System::Com::IStream>,
@@ -672,10 +671,7 @@ pub struct IITPropList_Vtbl {
     pub SaveData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetHeaderSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetDataSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub SaveDataToStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    SaveDataToStream: usize,
     pub LoadFromMem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub SaveToMem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }

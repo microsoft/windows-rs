@@ -5384,14 +5384,12 @@ impl core::ops::Deref for IWICPersistStream {
 windows_core::imp::interface_hierarchy!(IWICPersistStream, windows_core::IUnknown, super::super::System::Com::IPersist, super::super::System::Com::IPersistStream);
 #[cfg(feature = "Win32_System_Com")]
 impl IWICPersistStream {
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LoadEx<P0>(&self, pistream: P0, pguidpreferredvendor: *const windows_core::GUID, dwpersistoptions: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::System::Com::IStream>,
     {
         unsafe { (windows_core::Interface::vtable(self).LoadEx)(windows_core::Interface::as_raw(self), pistream.param().abi(), pguidpreferredvendor, dwpersistoptions).ok() }
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SaveEx<P0>(&self, pistream: P0, dwpersistoptions: u32, fcleardirty: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::System::Com::IStream>,
@@ -5403,14 +5401,8 @@ impl IWICPersistStream {
 #[repr(C)]
 pub struct IWICPersistStream_Vtbl {
     pub base__: super::super::System::Com::IPersistStream_Vtbl,
-    #[cfg(feature = "Win32_System_Com")]
     pub LoadEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    LoadEx: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub SaveEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    SaveEx: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWICPersistStream_Impl: super::super::System::Com::IPersistStream_Impl {

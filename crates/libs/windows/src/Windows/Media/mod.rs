@@ -327,138 +327,39 @@ impl windows_core::RuntimeType for IMediaControl {
 #[repr(C)]
 pub struct IMediaControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
     pub SoundLevelChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SoundLevelChanged: usize,
-    #[cfg(feature = "deprecated")]
     pub RemoveSoundLevelChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    RemoveSoundLevelChanged: usize,
-    #[cfg(feature = "deprecated")]
     pub PlayPressed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    PlayPressed: usize,
-    #[cfg(feature = "deprecated")]
     pub RemovePlayPressed: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    RemovePlayPressed: usize,
-    #[cfg(feature = "deprecated")]
     pub PausePressed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    PausePressed: usize,
-    #[cfg(feature = "deprecated")]
     pub RemovePausePressed: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    RemovePausePressed: usize,
-    #[cfg(feature = "deprecated")]
     pub StopPressed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    StopPressed: usize,
-    #[cfg(feature = "deprecated")]
     pub RemoveStopPressed: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    RemoveStopPressed: usize,
-    #[cfg(feature = "deprecated")]
     pub PlayPauseTogglePressed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    PlayPauseTogglePressed: usize,
-    #[cfg(feature = "deprecated")]
     pub RemovePlayPauseTogglePressed: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    RemovePlayPauseTogglePressed: usize,
-    #[cfg(feature = "deprecated")]
     pub RecordPressed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    RecordPressed: usize,
-    #[cfg(feature = "deprecated")]
     pub RemoveRecordPressed: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    RemoveRecordPressed: usize,
-    #[cfg(feature = "deprecated")]
     pub NextTrackPressed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    NextTrackPressed: usize,
-    #[cfg(feature = "deprecated")]
     pub RemoveNextTrackPressed: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    RemoveNextTrackPressed: usize,
-    #[cfg(feature = "deprecated")]
     pub PreviousTrackPressed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    PreviousTrackPressed: usize,
-    #[cfg(feature = "deprecated")]
     pub RemovePreviousTrackPressed: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    RemovePreviousTrackPressed: usize,
-    #[cfg(feature = "deprecated")]
     pub FastForwardPressed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    FastForwardPressed: usize,
-    #[cfg(feature = "deprecated")]
     pub RemoveFastForwardPressed: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    RemoveFastForwardPressed: usize,
-    #[cfg(feature = "deprecated")]
     pub RewindPressed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    RewindPressed: usize,
-    #[cfg(feature = "deprecated")]
     pub RemoveRewindPressed: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    RemoveRewindPressed: usize,
-    #[cfg(feature = "deprecated")]
     pub ChannelUpPressed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    ChannelUpPressed: usize,
-    #[cfg(feature = "deprecated")]
     pub RemoveChannelUpPressed: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    RemoveChannelUpPressed: usize,
-    #[cfg(feature = "deprecated")]
     pub ChannelDownPressed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    ChannelDownPressed: usize,
-    #[cfg(feature = "deprecated")]
     pub RemoveChannelDownPressed: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    RemoveChannelDownPressed: usize,
-    #[cfg(feature = "deprecated")]
     pub SoundLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SoundLevel) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SoundLevel: usize,
-    #[cfg(feature = "deprecated")]
     pub SetTrackName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SetTrackName: usize,
-    #[cfg(feature = "deprecated")]
     pub TrackName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    TrackName: usize,
-    #[cfg(feature = "deprecated")]
     pub SetArtistName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SetArtistName: usize,
-    #[cfg(feature = "deprecated")]
     pub ArtistName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    ArtistName: usize,
-    #[cfg(feature = "deprecated")]
     pub SetIsPlaying: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SetIsPlaying: usize,
-    #[cfg(feature = "deprecated")]
     pub IsPlaying: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    IsPlaying: usize,
-    #[cfg(feature = "deprecated")]
     pub SetAlbumArt: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SetAlbumArt: usize,
-    #[cfg(feature = "deprecated")]
     pub AlbumArt: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    AlbumArt: usize,
 }
 windows_core::imp::define_interface!(IMediaExtension, IMediaExtension_Vtbl, 0x07915118_45df_442b_8a3f_f7826a6370ab);
 impl windows_core::RuntimeType for IMediaExtension {
@@ -1375,7 +1276,6 @@ unsafe impl Sync for ImageDisplayProperties {}
 pub struct MediaControl;
 #[cfg(feature = "deprecated")]
 impl MediaControl {
-    #[cfg(feature = "deprecated")]
     pub fn SoundLevelChanged<P0>(handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::Foundation::EventHandler<windows_core::IInspectable>>,
@@ -1385,11 +1285,9 @@ impl MediaControl {
             (windows_core::Interface::vtable(this).SoundLevelChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn RemoveSoundLevelChanged(cookie: i64) -> windows_core::Result<()> {
         Self::IMediaControl(|this| unsafe { (windows_core::Interface::vtable(this).RemoveSoundLevelChanged)(windows_core::Interface::as_raw(this), cookie).ok() })
     }
-    #[cfg(feature = "deprecated")]
     pub fn PlayPressed<P0>(handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::Foundation::EventHandler<windows_core::IInspectable>>,
@@ -1399,11 +1297,9 @@ impl MediaControl {
             (windows_core::Interface::vtable(this).PlayPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn RemovePlayPressed(cookie: i64) -> windows_core::Result<()> {
         Self::IMediaControl(|this| unsafe { (windows_core::Interface::vtable(this).RemovePlayPressed)(windows_core::Interface::as_raw(this), cookie).ok() })
     }
-    #[cfg(feature = "deprecated")]
     pub fn PausePressed<P0>(handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::Foundation::EventHandler<windows_core::IInspectable>>,
@@ -1413,11 +1309,9 @@ impl MediaControl {
             (windows_core::Interface::vtable(this).PausePressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn RemovePausePressed(cookie: i64) -> windows_core::Result<()> {
         Self::IMediaControl(|this| unsafe { (windows_core::Interface::vtable(this).RemovePausePressed)(windows_core::Interface::as_raw(this), cookie).ok() })
     }
-    #[cfg(feature = "deprecated")]
     pub fn StopPressed<P0>(handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::Foundation::EventHandler<windows_core::IInspectable>>,
@@ -1427,11 +1321,9 @@ impl MediaControl {
             (windows_core::Interface::vtable(this).StopPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn RemoveStopPressed(cookie: i64) -> windows_core::Result<()> {
         Self::IMediaControl(|this| unsafe { (windows_core::Interface::vtable(this).RemoveStopPressed)(windows_core::Interface::as_raw(this), cookie).ok() })
     }
-    #[cfg(feature = "deprecated")]
     pub fn PlayPauseTogglePressed<P0>(handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::Foundation::EventHandler<windows_core::IInspectable>>,
@@ -1441,11 +1333,9 @@ impl MediaControl {
             (windows_core::Interface::vtable(this).PlayPauseTogglePressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn RemovePlayPauseTogglePressed(cookie: i64) -> windows_core::Result<()> {
         Self::IMediaControl(|this| unsafe { (windows_core::Interface::vtable(this).RemovePlayPauseTogglePressed)(windows_core::Interface::as_raw(this), cookie).ok() })
     }
-    #[cfg(feature = "deprecated")]
     pub fn RecordPressed<P0>(handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::Foundation::EventHandler<windows_core::IInspectable>>,
@@ -1455,11 +1345,9 @@ impl MediaControl {
             (windows_core::Interface::vtable(this).RecordPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn RemoveRecordPressed(cookie: i64) -> windows_core::Result<()> {
         Self::IMediaControl(|this| unsafe { (windows_core::Interface::vtable(this).RemoveRecordPressed)(windows_core::Interface::as_raw(this), cookie).ok() })
     }
-    #[cfg(feature = "deprecated")]
     pub fn NextTrackPressed<P0>(handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::Foundation::EventHandler<windows_core::IInspectable>>,
@@ -1469,11 +1357,9 @@ impl MediaControl {
             (windows_core::Interface::vtable(this).NextTrackPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn RemoveNextTrackPressed(cookie: i64) -> windows_core::Result<()> {
         Self::IMediaControl(|this| unsafe { (windows_core::Interface::vtable(this).RemoveNextTrackPressed)(windows_core::Interface::as_raw(this), cookie).ok() })
     }
-    #[cfg(feature = "deprecated")]
     pub fn PreviousTrackPressed<P0>(handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::Foundation::EventHandler<windows_core::IInspectable>>,
@@ -1483,11 +1369,9 @@ impl MediaControl {
             (windows_core::Interface::vtable(this).PreviousTrackPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn RemovePreviousTrackPressed(cookie: i64) -> windows_core::Result<()> {
         Self::IMediaControl(|this| unsafe { (windows_core::Interface::vtable(this).RemovePreviousTrackPressed)(windows_core::Interface::as_raw(this), cookie).ok() })
     }
-    #[cfg(feature = "deprecated")]
     pub fn FastForwardPressed<P0>(handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::Foundation::EventHandler<windows_core::IInspectable>>,
@@ -1497,11 +1381,9 @@ impl MediaControl {
             (windows_core::Interface::vtable(this).FastForwardPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn RemoveFastForwardPressed(cookie: i64) -> windows_core::Result<()> {
         Self::IMediaControl(|this| unsafe { (windows_core::Interface::vtable(this).RemoveFastForwardPressed)(windows_core::Interface::as_raw(this), cookie).ok() })
     }
-    #[cfg(feature = "deprecated")]
     pub fn RewindPressed<P0>(handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::Foundation::EventHandler<windows_core::IInspectable>>,
@@ -1511,11 +1393,9 @@ impl MediaControl {
             (windows_core::Interface::vtable(this).RewindPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn RemoveRewindPressed(cookie: i64) -> windows_core::Result<()> {
         Self::IMediaControl(|this| unsafe { (windows_core::Interface::vtable(this).RemoveRewindPressed)(windows_core::Interface::as_raw(this), cookie).ok() })
     }
-    #[cfg(feature = "deprecated")]
     pub fn ChannelUpPressed<P0>(handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::Foundation::EventHandler<windows_core::IInspectable>>,
@@ -1525,11 +1405,9 @@ impl MediaControl {
             (windows_core::Interface::vtable(this).ChannelUpPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn RemoveChannelUpPressed(cookie: i64) -> windows_core::Result<()> {
         Self::IMediaControl(|this| unsafe { (windows_core::Interface::vtable(this).RemoveChannelUpPressed)(windows_core::Interface::as_raw(this), cookie).ok() })
     }
-    #[cfg(feature = "deprecated")]
     pub fn ChannelDownPressed<P0>(handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::Foundation::EventHandler<windows_core::IInspectable>>,
@@ -1539,58 +1417,48 @@ impl MediaControl {
             (windows_core::Interface::vtable(this).ChannelDownPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn RemoveChannelDownPressed(cookie: i64) -> windows_core::Result<()> {
         Self::IMediaControl(|this| unsafe { (windows_core::Interface::vtable(this).RemoveChannelDownPressed)(windows_core::Interface::as_raw(this), cookie).ok() })
     }
-    #[cfg(feature = "deprecated")]
     pub fn SoundLevel() -> windows_core::Result<SoundLevel> {
         Self::IMediaControl(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SoundLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn SetTrackName(value: &windows_core::HSTRING) -> windows_core::Result<()> {
         Self::IMediaControl(|this| unsafe { (windows_core::Interface::vtable(this).SetTrackName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() })
     }
-    #[cfg(feature = "deprecated")]
     pub fn TrackName() -> windows_core::Result<windows_core::HSTRING> {
         Self::IMediaControl(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TrackName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn SetArtistName(value: &windows_core::HSTRING) -> windows_core::Result<()> {
         Self::IMediaControl(|this| unsafe { (windows_core::Interface::vtable(this).SetArtistName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() })
     }
-    #[cfg(feature = "deprecated")]
     pub fn ArtistName() -> windows_core::Result<windows_core::HSTRING> {
         Self::IMediaControl(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ArtistName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn SetIsPlaying(value: bool) -> windows_core::Result<()> {
         Self::IMediaControl(|this| unsafe { (windows_core::Interface::vtable(this).SetIsPlaying)(windows_core::Interface::as_raw(this), value).ok() })
     }
-    #[cfg(feature = "deprecated")]
     pub fn IsPlaying() -> windows_core::Result<bool> {
         Self::IMediaControl(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsPlaying)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn SetAlbumArt<P0>(value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::Foundation::Uri>,
     {
         Self::IMediaControl(|this| unsafe { (windows_core::Interface::vtable(this).SetAlbumArt)(windows_core::Interface::as_raw(this), value.param().abi()).ok() })
     }
-    #[cfg(feature = "deprecated")]
     pub fn AlbumArt() -> windows_core::Result<super::Foundation::Uri> {
         Self::IMediaControl(|this| unsafe {
             let mut result__ = core::mem::zeroed();

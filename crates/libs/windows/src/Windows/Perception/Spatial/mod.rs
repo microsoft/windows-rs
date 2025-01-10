@@ -120,18 +120,15 @@ impl windows_core::RuntimeType for ISpatialAnchorTransferManagerStatics {
 #[repr(C)]
 pub struct ISpatialAnchorTransferManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated"))]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub TryImportAnchorsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated")))]
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
     TryImportAnchorsAsync: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated"))]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub TryExportAnchorsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated")))]
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
     TryExportAnchorsAsync: usize,
-    #[cfg(feature = "deprecated")]
     pub RequestAccessAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    RequestAccessAsync: usize,
 }
 windows_core::imp::define_interface!(ISpatialBoundingVolume, ISpatialBoundingVolume_Vtbl, 0xfb2065da_68c3_33df_b7af_4c787207999c);
 impl windows_core::RuntimeType for ISpatialBoundingVolume {
@@ -297,13 +294,13 @@ pub struct ISpatialLocation_Vtbl {
     pub AbsoluteLinearAcceleration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     AbsoluteLinearAcceleration: usize,
-    #[cfg(feature = "Foundation_Numerics")]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "deprecated"))]
     pub AbsoluteAngularVelocity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Quaternion) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "deprecated")))]
     AbsoluteAngularVelocity: usize,
-    #[cfg(feature = "Foundation_Numerics")]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "deprecated"))]
     pub AbsoluteAngularAcceleration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Quaternion) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "deprecated")))]
     AbsoluteAngularAcceleration: usize,
 }
 windows_core::imp::define_interface!(ISpatialLocation2, ISpatialLocation2_Vtbl, 0x117f2416_38a7_4a18_b404_ab8fabe1d78b);
@@ -729,7 +726,7 @@ unsafe impl Sync for SpatialAnchorStore {}
 pub struct SpatialAnchorTransferManager;
 #[cfg(feature = "deprecated")]
 impl SpatialAnchorTransferManager {
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated"))]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn TryImportAnchorsAsync<P0>(stream: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, SpatialAnchor>>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IInputStream>,
@@ -739,7 +736,7 @@ impl SpatialAnchorTransferManager {
             (windows_core::Interface::vtable(this).TryImportAnchorsAsync)(windows_core::Interface::as_raw(this), stream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated"))]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn TryExportAnchorsAsync<P0, P1>(anchors: P0, stream: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, SpatialAnchor>>>,
@@ -750,7 +747,6 @@ impl SpatialAnchorTransferManager {
             (windows_core::Interface::vtable(this).TryExportAnchorsAsync)(windows_core::Interface::as_raw(this), anchors.param().abi(), stream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn RequestAccessAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<SpatialPerceptionAccessStatus>> {
         Self::ISpatialAnchorTransferManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1273,7 +1269,7 @@ impl SpatialLocation {
             (windows_core::Interface::vtable(this).AbsoluteLinearAcceleration)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "deprecated"))]
     pub fn AbsoluteAngularVelocity(&self) -> windows_core::Result<super::super::Foundation::Numerics::Quaternion> {
         let this = self;
         unsafe {
@@ -1281,7 +1277,7 @@ impl SpatialLocation {
             (windows_core::Interface::vtable(this).AbsoluteAngularVelocity)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "deprecated"))]
     pub fn AbsoluteAngularAcceleration(&self) -> windows_core::Result<super::super::Foundation::Numerics::Quaternion> {
         let this = self;
         unsafe {

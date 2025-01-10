@@ -1854,6 +1854,7 @@ impl HumanPresenceFeatures {
             (windows_core::Interface::vtable(this).IsLockOnLeaveSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+    #[cfg(feature = "deprecated")]
     pub fn IsAttentionAwareDimmingSupported(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
@@ -2280,6 +2281,7 @@ impl HumanPresenceSettings {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetLockOnLeaveTimeout)(windows_core::Interface::as_raw(this), value).ok() }
     }
+    #[cfg(feature = "deprecated")]
     pub fn IsAttentionAwareDimmingEnabled(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
@@ -2287,6 +2289,7 @@ impl HumanPresenceSettings {
             (windows_core::Interface::vtable(this).IsAttentionAwareDimmingEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+    #[cfg(feature = "deprecated")]
     pub fn SetIsAttentionAwareDimmingEnabled(&self, value: bool) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIsAttentionAwareDimmingEnabled)(windows_core::Interface::as_raw(this), value).ok() }
@@ -3162,7 +3165,10 @@ pub struct IHumanPresenceFeatures_Vtbl {
     SupportedWakeOrLockDistancesInMillimeters: usize,
     pub IsWakeOnApproachSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub IsLockOnLeaveSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(feature = "deprecated")]
     pub IsAttentionAwareDimmingSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    IsAttentionAwareDimmingSupported: usize,
 }
 windows_core::imp::define_interface!(IHumanPresenceFeatures2, IHumanPresenceFeatures2_Vtbl, 0x08a9cdda_d929_5ec2_81e2_940bafa089cf);
 impl windows_core::RuntimeType for IHumanPresenceFeatures2 {
@@ -3445,8 +3451,14 @@ pub struct IHumanPresenceSettings_Vtbl {
     pub SetLockOnLeaveDistanceInMillimeters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub LockOnLeaveTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
     pub SetLockOnLeaveTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    #[cfg(feature = "deprecated")]
     pub IsAttentionAwareDimmingEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    IsAttentionAwareDimmingEnabled: usize,
+    #[cfg(feature = "deprecated")]
     pub SetIsAttentionAwareDimmingEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    SetIsAttentionAwareDimmingEnabled: usize,
 }
 windows_core::imp::define_interface!(IHumanPresenceSettings2, IHumanPresenceSettings2_Vtbl, 0xa26f705e_8696_5eb4_b9e1_26a508de1cd4);
 impl windows_core::RuntimeType for IHumanPresenceSettings2 {

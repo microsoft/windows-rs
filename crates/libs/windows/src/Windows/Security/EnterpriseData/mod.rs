@@ -383,7 +383,7 @@ impl windows_core::RuntimeType for FileProtectionStatus {
 pub struct FileRevocationManager;
 #[cfg(feature = "deprecated")]
 impl FileRevocationManager {
-    #[cfg(all(feature = "Storage", feature = "deprecated"))]
+    #[cfg(feature = "Storage")]
     pub fn ProtectAsync<P0>(storageitem: P0, enterpriseidentity: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<FileProtectionStatus>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageItem>,
@@ -393,7 +393,7 @@ impl FileRevocationManager {
             (windows_core::Interface::vtable(this).ProtectAsync)(windows_core::Interface::as_raw(this), storageitem.param().abi(), core::mem::transmute_copy(enterpriseidentity), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(all(feature = "Storage", feature = "deprecated"))]
+    #[cfg(feature = "Storage")]
     pub fn CopyProtectionAsync<P0, P1>(sourcestorageitem: P0, targetstorageitem: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageItem>,
@@ -404,11 +404,10 @@ impl FileRevocationManager {
             (windows_core::Interface::vtable(this).CopyProtectionAsync)(windows_core::Interface::as_raw(this), sourcestorageitem.param().abi(), targetstorageitem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn Revoke(enterpriseidentity: &windows_core::HSTRING) -> windows_core::Result<()> {
         Self::IFileRevocationManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).Revoke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(enterpriseidentity)).ok() })
     }
-    #[cfg(all(feature = "Storage", feature = "deprecated"))]
+    #[cfg(feature = "Storage")]
     pub fn GetStatusAsync<P0>(storageitem: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<FileProtectionStatus>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageItem>,
@@ -623,21 +622,18 @@ impl windows_core::RuntimeType for IFileRevocationManagerStatics {
 #[repr(C)]
 pub struct IFileRevocationManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Storage", feature = "deprecated"))]
+    #[cfg(feature = "Storage")]
     pub ProtectAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Storage", feature = "deprecated")))]
+    #[cfg(not(feature = "Storage"))]
     ProtectAsync: usize,
-    #[cfg(all(feature = "Storage", feature = "deprecated"))]
+    #[cfg(feature = "Storage")]
     pub CopyProtectionAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Storage", feature = "deprecated")))]
+    #[cfg(not(feature = "Storage"))]
     CopyProtectionAsync: usize,
-    #[cfg(feature = "deprecated")]
     pub Revoke: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Revoke: usize,
-    #[cfg(all(feature = "Storage", feature = "deprecated"))]
+    #[cfg(feature = "Storage")]
     pub GetStatusAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Storage", feature = "deprecated")))]
+    #[cfg(not(feature = "Storage"))]
     GetStatusAsync: usize,
 }
 windows_core::imp::define_interface!(IFileUnprotectOptions, IFileUnprotectOptions_Vtbl, 0x7d1312f1_3b0d_4dd8_a1f8_1ec53822e2f3);

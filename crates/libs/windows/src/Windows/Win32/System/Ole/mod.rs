@@ -5799,7 +5799,7 @@ impl IDispatchEx {
             (windows_core::Interface::vtable(self).GetDispID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname), grfdex, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+    #[cfg(feature = "Win32_System_Variant")]
     pub unsafe fn InvokeEx<P6>(&self, id: i32, lcid: u32, wflags: u16, pdp: *const super::Com::DISPPARAMS, pvarres: Option<*mut super::Variant::VARIANT>, pei: Option<*mut super::Com::EXCEPINFO>, pspcaller: P6) -> windows_core::Result<()>
     where
         P6: windows_core::Param<super::Com::IServiceProvider>,
@@ -5842,9 +5842,9 @@ impl IDispatchEx {
 pub struct IDispatchEx_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub GetDispID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+    #[cfg(feature = "Win32_System_Variant")]
     pub InvokeEx: unsafe extern "system" fn(*mut core::ffi::c_void, i32, u32, u16, *const super::Com::DISPPARAMS, *mut super::Variant::VARIANT, *mut super::Com::EXCEPINFO, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Variant")))]
+    #[cfg(not(feature = "Win32_System_Variant"))]
     InvokeEx: usize,
     pub DeleteMemberByName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub DeleteMemberByDispID: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,

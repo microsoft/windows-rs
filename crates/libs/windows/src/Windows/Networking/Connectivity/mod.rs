@@ -270,6 +270,7 @@ impl ConnectionProfile {
             (windows_core::Interface::vtable(this).NetworkAdapter)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+    #[cfg(feature = "deprecated")]
     pub fn GetLocalUsage(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime) -> windows_core::Result<DataUsage> {
         let this = self;
         unsafe {
@@ -277,6 +278,7 @@ impl ConnectionProfile {
             (windows_core::Interface::vtable(this).GetLocalUsage)(windows_core::Interface::as_raw(this), starttime, endtime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+    #[cfg(feature = "deprecated")]
     pub fn GetLocalUsagePerRoamingStates(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: RoamingStates) -> windows_core::Result<DataUsage> {
         let this = self;
         unsafe {
@@ -761,7 +763,6 @@ pub struct DataUsage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DataUsage, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl DataUsage {
-    #[cfg(feature = "deprecated")]
     pub fn BytesSent(&self) -> windows_core::Result<u64> {
         let this = self;
         unsafe {
@@ -769,7 +770,6 @@ impl DataUsage {
             (windows_core::Interface::vtable(this).BytesSent)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn BytesReceived(&self) -> windows_core::Result<u64> {
         let this = self;
         unsafe {
@@ -921,8 +921,14 @@ pub struct IConnectionProfile_Vtbl {
     pub GetConnectionCost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDataPlanStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub NetworkAdapter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "deprecated")]
     pub GetLocalUsage: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime, super::super::Foundation::DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    GetLocalUsage: usize,
+    #[cfg(feature = "deprecated")]
     pub GetLocalUsagePerRoamingStates: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime, super::super::Foundation::DateTime, RoamingStates, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    GetLocalUsagePerRoamingStates: usize,
     pub NetworkSecuritySettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IConnectionProfile2, IConnectionProfile2_Vtbl, 0xe2045145_4c9f_400c_9150_7ec7d6e2888a);
@@ -1101,14 +1107,8 @@ impl windows_core::RuntimeType for IDataUsage {
 #[repr(C)]
 pub struct IDataUsage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
     pub BytesSent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    BytesSent: usize,
-    #[cfg(feature = "deprecated")]
     pub BytesReceived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    BytesReceived: usize,
 }
 windows_core::imp::define_interface!(IIPInformation, IIPInformation_Vtbl, 0xd85145e0_138f_47d7_9b3a_36bb488cef33);
 impl windows_core::RuntimeType for IIPInformation {
