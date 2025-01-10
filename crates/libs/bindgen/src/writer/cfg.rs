@@ -31,23 +31,44 @@ pub fn write_arches<R: HasAttributes>(row: R) -> TokenStream {
     tokens
 }
 
-impl Writer {
-    pub fn write_cfg<R: HasAttributes>(
-        &self,
-        row: R,
-        namespace: &str,
-        dependencies: &TypeMap,
-        not: bool,
-    ) -> TokenStream {
-        let mut features = BTreeSet::new();
+#[derive(Default)]
+pub struct Cfg {
+    features: Vec<&'static str>,
+    deprecated: bool,
+}
 
-        if row.has_attribute("DeprecatedAttribute") {
-            features.insert("deprecated".to_string());
+impl Cfg {
+    pub fn new<R: HasAttributes>(row: R, dependencies: &TypeMap) -> Self {
+        let mut features: Vec<&'static str> =
+            dependencies.keys().map(|tn| tn.namespace()).collect();
+        features.sort();
+        features.dedup();
+
+        Self {
+            features,
+            deprecated: row.has_attribute("DeprecatedAttribute"),
+        }
+    }
+
+    pub fn difference<R: HasAttributes>(&self, row: R, dependencies: &TypeMap) -> Self {
+        let mut difference = Self::new(row, dependencies);
+
+        for feature in &self.features {
+            if let Ok(index) = difference.features.binary_search(feature) {
+                difference.features.remove(index);
+            }
         }
 
-        let mut compact: Vec<&'static str> = dependencies.keys().map(|tn| tn.namespace()).collect();
-        compact.sort();
-        compact.dedup();
+        difference.deprecated = !self.deprecated && difference.deprecated;
+        difference
+    }
+
+    pub fn write(&self, writer: &Writer, not: bool) -> TokenStream {
+        if !writer.config.package {
+            return quote! {};
+        }
+
+        let mut compact = self.features.clone();
 
         for pos in 0..compact.len() {
             match (compact.get(pos), compact.get(pos + 1)) {
@@ -59,9 +80,15 @@ impl Writer {
             }
         }
 
+        let mut features = BTreeSet::new();
+
+        if self.deprecated {
+            features.insert("deprecated".to_string());
+        }
+
         for dependency in compact {
             if dependency.is_empty()
-                || namespace_starts_with(namespace, dependency)
+                || namespace_starts_with(writer.namespace, dependency)
                 || dependency == "Windows.Foundation"
                 || dependency == "Windows.Win32.Foundation"
             {

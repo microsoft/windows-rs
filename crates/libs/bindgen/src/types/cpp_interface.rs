@@ -44,19 +44,24 @@ impl CppInterface {
             .collect()
     }
 
+    fn write_cfg(&self, writer: &Writer) -> (Cfg, TokenStream) {
+        if !writer.config.package {
+            return (Cfg::default(), quote! {});
+        }
+
+        let mut dependencies = TypeMap::new();
+        self.dependencies(&mut dependencies);
+        let cfg = Cfg::new(self.def, &dependencies);
+        let tokens = cfg.write(writer, false);
+        (cfg, tokens)
+    }
+
     pub fn write(&self, writer: &Writer) -> TokenStream {
         let methods = self.get_methods(writer);
 
         let base_interfaces = self.base_interfaces();
         let has_unknown_base = matches!(base_interfaces.first(), Some(Type::IUnknown));
-
-        let mut dependencies = TypeMap::new();
-
-        if writer.config.package {
-            self.dependencies(&mut dependencies);
-        }
-
-        let cfg = writer.write_cfg(self.def, self.def.namespace(), &dependencies, false);
+        let (class_cfg, cfg) = self.write_cfg(writer);
         let vtbl_name = self.write_vtbl_name(writer);
 
         let vtbl = {
@@ -80,28 +85,23 @@ impl CppInterface {
 
             let methods = methods.iter().map(|method| match method {
                 CppMethodOrName::Method(method) => {
-                    let mut difference = TypeMap::new();
-
-                    if writer.config.package {
-                        difference = method.dependencies.difference(&dependencies);
-                    }
+                    let method_cfg = class_cfg.difference(method.def, &method.dependencies);
+                    let yes = method_cfg.write(writer, false);
 
                     let name = names.add(method.def);
                     let abi = method.write_abi(writer, false);
-                    let cfg = writer.write_cfg(self.def, self.def.namespace(), &difference, false);
 
-                    if cfg.is_empty() {
+                    if yes.is_empty() {
                         quote! {
                             pub #name: unsafe extern "system" fn #abi,
                         }
                     } else {
-                        let cfg_not =
-                            writer.write_cfg(self.def, self.def.namespace(), &difference, true);
+                        let no = method_cfg.write(writer, true);
 
                         quote! {
-                            #cfg
+                            #yes
                             pub #name: unsafe extern "system" fn #abi,
-                            #cfg_not
+                            #no
                             #name: usize,
                         }
                     }
@@ -191,14 +191,7 @@ impl CppInterface {
                 CppMethodOrName::Method(method) => Some(method),
                 _ => None,
             }) {
-                let mut difference = TypeMap::new();
-
-                if writer.config.package {
-                    difference = method.dependencies.difference(&dependencies);
-                }
-
-                let cfg = writer.write_cfg(self.def, self.def.namespace(), &difference, false);
-
+                let cfg = method.write_cfg(writer, &class_cfg, false);
                 let method = method.write(writer, method_names, virtual_names);
 
                 methods_tokens.combine(quote! {
@@ -220,7 +213,7 @@ impl CppInterface {
 
             let impl_name: TokenStream = format!("{}_Impl", self.def.name()).into();
 
-            if writer.config.package {
+            let cfg = if writer.config.package {
                 fn collect(interface: &CppInterface, dependencies: &mut TypeMap, writer: &Writer) {
                     for method in interface.get_methods(writer).iter() {
                         if let CppMethodOrName::Method(method) = method {
@@ -229,15 +222,20 @@ impl CppInterface {
                     }
                 }
 
+                let mut dependencies = TypeMap::new();
+                self.dependencies(&mut dependencies);
+
                 collect(self, &mut dependencies, writer);
                 base_interfaces.iter().for_each(|interface| {
                     if let Type::CppInterface(ty) = interface {
                         collect(ty, &mut dependencies, writer);
                     }
                 });
-            }
 
-            let cfg = writer.write_cfg(self.def, self.def.namespace(), &dependencies, false);
+                Cfg::new(self.def, &dependencies).write(writer, false)
+            } else {
+                quote! {}
+            };
 
             let mut names = MethodNames::new();
 

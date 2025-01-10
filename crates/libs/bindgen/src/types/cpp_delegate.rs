@@ -33,6 +33,16 @@ impl CppDelegate {
             .unwrap()
     }
 
+    pub fn write_cfg(&self, writer: &Writer) -> TokenStream {
+        if !writer.config.package {
+            return quote! {};
+        }
+
+        let mut dependencies = TypeMap::new();
+        self.dependencies(&mut dependencies);
+        Cfg::new(self.def, &dependencies).write(writer, false)
+    }
+
     pub fn write(&self, writer: &Writer) -> TokenStream {
         let type_name = self.def.type_name();
         let name = to_ident(type_name.name());
@@ -46,15 +56,8 @@ impl CppDelegate {
         });
 
         let return_sig = writer.write_return_sig(method, &signature, false);
-
-        let mut dependencies = TypeMap::new();
-
-        if writer.config.package {
-            self.dependencies(&mut dependencies);
-        }
-
         let arches = write_arches(self.def);
-        let cfg = writer.write_cfg(self.def, type_name.namespace(), &dependencies, false);
+        let cfg = self.write_cfg(writer);
 
         quote! {
             #arches

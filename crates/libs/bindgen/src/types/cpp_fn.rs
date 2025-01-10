@@ -74,6 +74,16 @@ impl CppFn {
         })
     }
 
+    pub fn write_cfg(&self, writer: &Writer) -> TokenStream {
+        if !writer.config.package {
+            return quote! {};
+        }
+
+        let mut dependencies = TypeMap::new();
+        self.dependencies(&mut dependencies);
+        Cfg::new(self.method, &dependencies).write(writer, false)
+    }
+
     pub fn write(&self, writer: &Writer) -> TokenStream {
         let name = to_ident(self.method.name());
         let signature = self.method.signature(self.namespace, &[]);
@@ -85,7 +95,7 @@ impl CppFn {
 
         let link = self.write_link(writer, false);
         let arches = write_arches(self.method);
-        let cfg = writer.write_cfg(self.method, self.namespace, &dependencies, false);
+        let cfg = self.write_cfg(writer);
         let cfg = quote! { #arches #cfg };
         let window_long = self.write_window_long();
 

@@ -71,16 +71,6 @@ impl TypeMap {
         }
     }
 
-    pub fn difference(&self, other: &Self) -> Self {
-        Self(
-            self.0
-                .iter()
-                .filter(|(tn, _)| !other.0.contains_key(tn))
-                .map(|(tn, ty)| (*tn, ty.clone()))
-                .collect(),
-        )
-    }
-
     pub fn included(&self, config: &Config) -> bool {
         self.0.iter().all(|(tn, _)| {
             // An empty namespace covers core types like `HRESULT`. This way we don't exclude methods

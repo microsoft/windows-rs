@@ -10,18 +10,24 @@ impl Class {
         self.def.type_name()
     }
 
+    fn write_cfg(&self, writer: &Writer) -> (Cfg, TokenStream) {
+        if !writer.config.package {
+            return (Cfg::default(), quote! {});
+        }
+
+        let mut dependencies = TypeMap::new();
+        self.dependencies(&mut dependencies);
+        let cfg = Cfg::new(self.def, &dependencies);
+        let tokens = cfg.write(writer, false);
+        (cfg, tokens)
+    }
+
     pub fn write(&self, writer: &Writer) -> TokenStream {
         let mut required_interfaces = self.required_interfaces();
         required_interfaces.sort();
         let type_name = self.def.type_name();
         let name = to_ident(type_name.name());
-        let mut dependencies = TypeMap::new();
-
-        if writer.config.package {
-            self.dependencies(&mut dependencies);
-        }
-
-        let cfg = writer.write_cfg(self.def, type_name.namespace(), &dependencies, false);
+        let (class_cfg, cfg) = self.write_cfg(writer);
         let runtime_name = format!("{type_name}");
 
         let runtime_name = quote! {
@@ -45,13 +51,7 @@ impl Class {
                     _ => None,
                 })
             {
-                let mut difference = TypeMap::new();
-
-                if writer.config.package {
-                    difference = method.dependencies.difference(&dependencies);
-                }
-
-                let cfg = writer.write_cfg(self.def, type_name.namespace(), &difference, false);
+                let cfg = method.write_cfg(writer, &class_cfg, false);
 
                 let method = method.write(
                     writer,
@@ -90,7 +90,15 @@ impl Class {
                 } else {
                         let method_name = to_ident(interface.def.name());
                         let interface_type = interface.write_name(writer);
-                        let cfg = quote! {};
+
+                        let cfg = if writer.config.package {
+                            let mut dependencies = TypeMap::new();
+                            interface.dependencies(&mut dependencies);
+
+                            class_cfg.difference(interface.def, &dependencies).write(writer, false)
+                        } else {
+                            quote! {}
+                        };
 
                         Some(quote! {
                             #cfg

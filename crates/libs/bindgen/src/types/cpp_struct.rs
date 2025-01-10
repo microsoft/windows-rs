@@ -46,6 +46,16 @@ impl CppStruct {
         self.def.has_attribute("NativeTypedefAttribute")
     }
 
+    pub fn write_cfg(&self, writer: &Writer) -> TokenStream {
+        if !writer.config.package {
+            return quote! {};
+        }
+
+        let mut dependencies = TypeMap::new();
+        self.dependencies(&mut dependencies);
+        Cfg::new(self.def, &dependencies).write(writer, false)
+    }
+
     pub fn write(&self, writer: &Writer) -> TokenStream {
         if self.is_handle() {
             return writer.write_cpp_handle(self.def);
@@ -57,14 +67,8 @@ impl CppStruct {
             }
         }
 
-        let mut dependencies = TypeMap::new();
-
-        if writer.config.package {
-            self.dependencies(&mut dependencies);
-        }
-
         let arches = write_arches(self.def);
-        let cfg = writer.write_cfg(self.def, self.def.namespace(), &dependencies, false);
+        let cfg = self.write_cfg(writer);
         self.write_with_cfg(writer, &quote! { #arches #cfg })
     }
 
