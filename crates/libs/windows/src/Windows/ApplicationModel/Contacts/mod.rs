@@ -5778,30 +5778,12 @@ impl windows_core::RuntimeType for IKnownContactFieldStatics {
 #[repr(C)]
 pub struct IKnownContactFieldStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
     pub Email: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Email: usize,
-    #[cfg(feature = "deprecated")]
     pub PhoneNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    PhoneNumber: usize,
-    #[cfg(feature = "deprecated")]
     pub Location: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Location: usize,
-    #[cfg(feature = "deprecated")]
     pub InstantMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    InstantMessage: usize,
-    #[cfg(feature = "deprecated")]
     pub ConvertNameToType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut ContactFieldType) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    ConvertNameToType: usize,
-    #[cfg(feature = "deprecated")]
     pub ConvertTypeToName: unsafe extern "system" fn(*mut core::ffi::c_void, ContactFieldType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    ConvertTypeToName: usize,
 }
 windows_core::imp::define_interface!(IPinnedContactIdsQueryResult, IPinnedContactIdsQueryResult_Vtbl, 0x7d9b2552_1579_4ddc_871f_a30a3aea9ba1);
 impl windows_core::RuntimeType for IPinnedContactIdsQueryResult {
@@ -5855,42 +5837,36 @@ pub struct IPinnedContactManagerStatics_Vtbl {
 pub struct KnownContactField;
 #[cfg(feature = "deprecated")]
 impl KnownContactField {
-    #[cfg(feature = "deprecated")]
     pub fn Email() -> windows_core::Result<windows_core::HSTRING> {
         Self::IKnownContactFieldStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Email)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn PhoneNumber() -> windows_core::Result<windows_core::HSTRING> {
         Self::IKnownContactFieldStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PhoneNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn Location() -> windows_core::Result<windows_core::HSTRING> {
         Self::IKnownContactFieldStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Location)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn InstantMessage() -> windows_core::Result<windows_core::HSTRING> {
         Self::IKnownContactFieldStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InstantMessage)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn ConvertNameToType(name: &windows_core::HSTRING) -> windows_core::Result<ContactFieldType> {
         Self::IKnownContactFieldStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ConvertNameToType)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).map(|| result__)
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn ConvertTypeToName(r#type: ContactFieldType) -> windows_core::Result<windows_core::HSTRING> {
         Self::IKnownContactFieldStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();

@@ -31,7 +31,6 @@ impl FileExtensionVector {
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn GetView(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
         let this = self;
         unsafe {
@@ -195,7 +194,7 @@ impl FileOpenPicker {
             (windows_core::Interface::vtable(this).PickMultipleFilesAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn ContinuationData(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &windows_core::Interface::cast::<IFileOpenPicker2>(self)?;
         unsafe {
@@ -203,10 +202,12 @@ impl FileOpenPicker {
             (windows_core::Interface::vtable(this).ContinuationData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+    #[cfg(feature = "deprecated")]
     pub fn PickSingleFileAndContinue(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IFileOpenPicker2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PickSingleFileAndContinue)(windows_core::Interface::as_raw(this)).ok() }
     }
+    #[cfg(feature = "deprecated")]
     pub fn PickMultipleFilesAndContinue(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IFileOpenPicker2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PickMultipleFilesAndContinue)(windows_core::Interface::as_raw(this)).ok() }
@@ -219,7 +220,7 @@ impl FileOpenPicker {
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Storage_Streams")]
+    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
     pub fn ResumePickSingleFileAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>> {
         Self::IFileOpenPickerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -303,7 +304,6 @@ impl FilePickerFileTypesOrderedMap {
             (windows_core::Interface::vtable(this).HasKey)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn GetView(&self) -> windows_core::Result<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, super::super::Foundation::Collections::IVector<windows_core::HSTRING>>> {
         let this = self;
         unsafe {
@@ -552,6 +552,7 @@ impl FileSavePicker {
             (windows_core::Interface::vtable(this).ContinuationData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+    #[cfg(feature = "deprecated")]
     pub fn PickSaveFileAndContinue(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IFileSavePicker2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PickSaveFileAndContinue)(windows_core::Interface::as_raw(this)).ok() }
@@ -682,6 +683,7 @@ impl FolderPicker {
             (windows_core::Interface::vtable(this).ContinuationData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+    #[cfg(feature = "deprecated")]
     pub fn PickFolderAndContinue(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IFolderPicker2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PickFolderAndContinue)(windows_core::Interface::as_raw(this)).ok() }
@@ -756,12 +758,18 @@ impl windows_core::RuntimeType for IFileOpenPicker2 {
 #[repr(C)]
 pub struct IFileOpenPicker2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub ContinuationData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
     ContinuationData: usize,
+    #[cfg(feature = "deprecated")]
     pub PickSingleFileAndContinue: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    PickSingleFileAndContinue: usize,
+    #[cfg(feature = "deprecated")]
     pub PickMultipleFilesAndContinue: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    PickMultipleFilesAndContinue: usize,
 }
 windows_core::imp::define_interface!(IFileOpenPicker3, IFileOpenPicker3_Vtbl, 0xd9a5c5b3_c5dc_5b98_bd80_a8d0ca0584d8);
 impl windows_core::RuntimeType for IFileOpenPicker3 {
@@ -782,9 +790,9 @@ impl windows_core::RuntimeType for IFileOpenPickerStatics {
 #[repr(C)]
 pub struct IFileOpenPickerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Storage_Streams")]
+    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
     pub ResumePickSingleFileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
+    #[cfg(not(all(feature = "Storage_Streams", feature = "deprecated")))]
     ResumePickSingleFileAsync: usize,
 }
 windows_core::imp::define_interface!(IFileOpenPickerStatics2, IFileOpenPickerStatics2_Vtbl, 0xe8917415_eddd_5c98_b6f3_366fdfcad392);
@@ -856,7 +864,10 @@ pub struct IFileSavePicker2_Vtbl {
     pub ContinuationData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     ContinuationData: usize,
+    #[cfg(feature = "deprecated")]
     pub PickSaveFileAndContinue: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    PickSaveFileAndContinue: usize,
 }
 windows_core::imp::define_interface!(IFileSavePicker3, IFileSavePicker3_Vtbl, 0x698aec69_ba3c_4e51_bd90_4abcbbf4cfaf);
 impl windows_core::RuntimeType for IFileSavePicker3 {
@@ -927,7 +938,10 @@ pub struct IFolderPicker2_Vtbl {
     pub ContinuationData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     ContinuationData: usize,
+    #[cfg(feature = "deprecated")]
     pub PickFolderAndContinue: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    PickFolderAndContinue: usize,
 }
 windows_core::imp::define_interface!(IFolderPicker3, IFolderPicker3_Vtbl, 0x673b1e29_d326_53c0_bd24_a25c714cee36);
 impl windows_core::RuntimeType for IFolderPicker3 {

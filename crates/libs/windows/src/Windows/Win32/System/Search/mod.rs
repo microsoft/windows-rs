@@ -17007,14 +17007,12 @@ impl core::ops::Deref for ITransactionLocal {
 windows_core::imp::interface_hierarchy!(ITransactionLocal, windows_core::IUnknown, super::DistributedTransactionCoordinator::ITransaction);
 #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
 impl ITransactionLocal {
-    #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
     pub unsafe fn GetOptionsObject(&self) -> windows_core::Result<super::DistributedTransactionCoordinator::ITransactionOptions> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetOptionsObject)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
     pub unsafe fn StartTransaction<P2>(&self, isolevel: i32, isoflags: u32, potheroptions: P2, pultransactionlevel: Option<*mut u32>) -> windows_core::Result<()>
     where
         P2: windows_core::Param<super::DistributedTransactionCoordinator::ITransactionOptions>,
@@ -17026,14 +17024,8 @@ impl ITransactionLocal {
 #[repr(C)]
 pub struct ITransactionLocal_Vtbl {
     pub base__: super::DistributedTransactionCoordinator::ITransaction_Vtbl,
-    #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
     pub GetOptionsObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_DistributedTransactionCoordinator"))]
-    GetOptionsObject: usize,
-    #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
     pub StartTransaction: unsafe extern "system" fn(*mut core::ffi::c_void, i32, u32, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_DistributedTransactionCoordinator"))]
-    StartTransaction: usize,
 }
 #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
 pub trait ITransactionLocal_Impl: super::DistributedTransactionCoordinator::ITransaction_Impl {

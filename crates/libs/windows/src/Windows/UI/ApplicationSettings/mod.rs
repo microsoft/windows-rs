@@ -456,14 +456,8 @@ impl windows_core::RuntimeType for ISettingsPane {
 #[repr(C)]
 pub struct ISettingsPane_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
     pub CommandsRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    CommandsRequested: usize,
-    #[cfg(feature = "deprecated")]
     pub RemoveCommandsRequested: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    RemoveCommandsRequested: usize,
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(ISettingsPaneCommandsRequest, ISettingsPaneCommandsRequest_Vtbl, 0x44df23ae_5d6e_4068_a168_f47643182114);
@@ -475,9 +469,9 @@ impl windows_core::RuntimeType for ISettingsPaneCommandsRequest {
 #[repr(C)]
 pub struct ISettingsPaneCommandsRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Popups", feature = "deprecated"))]
+    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Popups"))]
     pub ApplicationCommands: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Popups", feature = "deprecated")))]
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Popups")))]
     ApplicationCommands: usize,
 }
 #[cfg(feature = "deprecated")]
@@ -490,10 +484,7 @@ impl windows_core::RuntimeType for ISettingsPaneCommandsRequestedEventArgs {
 #[repr(C)]
 pub struct ISettingsPaneCommandsRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Request: usize,
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(ISettingsPaneStatics, ISettingsPaneStatics_Vtbl, 0x1c6a52c5_ff19_471b_ba6b_f8f35694ad9a);
@@ -505,18 +496,9 @@ impl windows_core::RuntimeType for ISettingsPaneStatics {
 #[repr(C)]
 pub struct ISettingsPaneStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
     pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    GetForCurrentView: usize,
-    #[cfg(feature = "deprecated")]
     pub Show: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Show: usize,
-    #[cfg(feature = "deprecated")]
     pub Edge: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SettingsEdgeLocation) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Edge: usize,
 }
 windows_core::imp::define_interface!(IWebAccountCommand, IWebAccountCommand_Vtbl, 0xcaa39398_9cfa_4246_b0c4_a913a3896541);
 impl windows_core::RuntimeType for IWebAccountCommand {
@@ -586,7 +568,6 @@ pub struct SettingsCommand(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SettingsCommand, windows_core::IUnknown, windows_core::IInspectable, super::Popups::IUICommand);
 #[cfg(feature = "UI_Popups")]
 impl SettingsCommand {
-    #[cfg(feature = "UI_Popups")]
     pub fn CreateSettingsCommand<P0, P2>(settingscommandid: P0, label: &windows_core::HSTRING, handler: P2) -> windows_core::Result<SettingsCommand>
     where
         P0: windows_core::Param<windows_core::IInspectable>,
@@ -614,7 +595,6 @@ impl SettingsCommand {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetLabel)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "UI_Popups")]
     pub fn Invoked(&self) -> windows_core::Result<super::Popups::UICommandInvokedHandler> {
         let this = self;
         unsafe {
@@ -622,7 +602,6 @@ impl SettingsCommand {
             (windows_core::Interface::vtable(this).Invoked)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "UI_Popups")]
     pub fn SetInvoked<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::Popups::UICommandInvokedHandler>,
@@ -687,7 +666,6 @@ pub struct SettingsPane(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SettingsPane, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl SettingsPane {
-    #[cfg(feature = "deprecated")]
     pub fn CommandsRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SettingsPane, SettingsPaneCommandsRequestedEventArgs>>,
@@ -698,23 +676,19 @@ impl SettingsPane {
             (windows_core::Interface::vtable(this).CommandsRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn RemoveCommandsRequested(&self, cookie: i64) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveCommandsRequested)(windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[cfg(feature = "deprecated")]
     pub fn GetForCurrentView() -> windows_core::Result<SettingsPane> {
         Self::ISettingsPaneStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn Show() -> windows_core::Result<()> {
         Self::ISettingsPaneStatics(|this| unsafe { (windows_core::Interface::vtable(this).Show)(windows_core::Interface::as_raw(this)).ok() })
     }
-    #[cfg(feature = "deprecated")]
     pub fn Edge() -> windows_core::Result<SettingsEdgeLocation> {
         Self::ISettingsPaneStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -747,7 +721,7 @@ pub struct SettingsPaneCommandsRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SettingsPaneCommandsRequest, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl SettingsPaneCommandsRequest {
-    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Popups", feature = "deprecated"))]
+    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Popups"))]
     pub fn ApplicationCommands(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<SettingsCommand>> {
         let this = self;
         unsafe {
@@ -777,7 +751,6 @@ pub struct SettingsPaneCommandsRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SettingsPaneCommandsRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl SettingsPaneCommandsRequestedEventArgs {
-    #[cfg(feature = "deprecated")]
     pub fn Request(&self) -> windows_core::Result<SettingsPaneCommandsRequest> {
         let this = self;
         unsafe {

@@ -1533,7 +1533,6 @@ windows_core::imp::interface_hierarchy!(FileOpenPickerContinuationEventArgs, win
 windows_core::imp::required_hierarchy!(FileOpenPickerContinuationEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IContinuationActivatedEventArgs);
 #[cfg(feature = "deprecated")]
 impl FileOpenPickerContinuationEventArgs {
-    #[cfg(feature = "deprecated")]
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -1541,7 +1540,6 @@ impl FileOpenPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -1549,7 +1547,6 @@ impl FileOpenPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -1557,7 +1554,7 @@ impl FileOpenPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "System", feature = "deprecated"))]
+    #[cfg(feature = "System")]
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -1565,7 +1562,7 @@ impl FileOpenPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn ContinuationData(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &windows_core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
         unsafe {
@@ -1573,7 +1570,7 @@ impl FileOpenPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).ContinuationData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated"))]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn Files(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>> {
         let this = self;
         unsafe {
@@ -1679,7 +1676,6 @@ windows_core::imp::interface_hierarchy!(FileSavePickerContinuationEventArgs, win
 windows_core::imp::required_hierarchy!(FileSavePickerContinuationEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IContinuationActivatedEventArgs);
 #[cfg(feature = "deprecated")]
 impl FileSavePickerContinuationEventArgs {
-    #[cfg(feature = "deprecated")]
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -1687,7 +1683,6 @@ impl FileSavePickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -1695,7 +1690,6 @@ impl FileSavePickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -1703,7 +1697,7 @@ impl FileSavePickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "System", feature = "deprecated"))]
+    #[cfg(feature = "System")]
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -1711,7 +1705,7 @@ impl FileSavePickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn ContinuationData(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &windows_core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
         unsafe {
@@ -1719,7 +1713,7 @@ impl FileSavePickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).ContinuationData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    #[cfg(feature = "Storage_Streams")]
     pub fn File(&self) -> windows_core::Result<super::super::Storage::StorageFile> {
         let this = self;
         unsafe {
@@ -1755,7 +1749,6 @@ windows_core::imp::interface_hierarchy!(FolderPickerContinuationEventArgs, windo
 windows_core::imp::required_hierarchy!(FolderPickerContinuationEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IContinuationActivatedEventArgs);
 #[cfg(feature = "deprecated")]
 impl FolderPickerContinuationEventArgs {
-    #[cfg(feature = "deprecated")]
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -1763,7 +1756,6 @@ impl FolderPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -1771,7 +1763,6 @@ impl FolderPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -1779,7 +1770,7 @@ impl FolderPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "System", feature = "deprecated"))]
+    #[cfg(feature = "System")]
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -1787,7 +1778,7 @@ impl FolderPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn ContinuationData(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &windows_core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
         unsafe {
@@ -1795,7 +1786,7 @@ impl FolderPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).ContinuationData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Storage_Search", feature = "deprecated"))]
+    #[cfg(feature = "Storage_Search")]
     pub fn Folder(&self) -> windows_core::Result<super::super::Storage::StorageFolder> {
         let this = self;
         unsafe {
@@ -4654,7 +4645,7 @@ windows_core::imp::interface_hierarchy!(IFileOpenPickerContinuationEventArgs, wi
 windows_core::imp::required_hierarchy!(IFileOpenPickerContinuationEventArgs, IActivatedEventArgs, IContinuationActivatedEventArgs);
 #[cfg(feature = "deprecated")]
 impl IFileOpenPickerContinuationEventArgs {
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated"))]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn Files(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>> {
         let this = self;
         unsafe {
@@ -4662,7 +4653,6 @@ impl IFileOpenPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).Files)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -4670,7 +4660,6 @@ impl IFileOpenPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -4678,7 +4667,6 @@ impl IFileOpenPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -4686,7 +4674,7 @@ impl IFileOpenPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn ContinuationData(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &windows_core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
         unsafe {
@@ -4729,9 +4717,9 @@ impl IFileOpenPickerContinuationEventArgs_Vtbl {
 #[repr(C)]
 pub struct IFileOpenPickerContinuationEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated"))]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub Files: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated")))]
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
     Files: usize,
 }
 windows_core::imp::define_interface!(IFileSavePickerActivatedEventArgs, IFileSavePickerActivatedEventArgs_Vtbl, 0x81c19cf1_74e6_4387_82eb_bb8fd64b4346);
@@ -4896,7 +4884,7 @@ windows_core::imp::interface_hierarchy!(IFileSavePickerContinuationEventArgs, wi
 windows_core::imp::required_hierarchy!(IFileSavePickerContinuationEventArgs, IActivatedEventArgs, IContinuationActivatedEventArgs);
 #[cfg(feature = "deprecated")]
 impl IFileSavePickerContinuationEventArgs {
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    #[cfg(feature = "Storage_Streams")]
     pub fn File(&self) -> windows_core::Result<super::super::Storage::StorageFile> {
         let this = self;
         unsafe {
@@ -4904,7 +4892,6 @@ impl IFileSavePickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).File)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -4912,7 +4899,6 @@ impl IFileSavePickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -4920,7 +4906,6 @@ impl IFileSavePickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -4928,7 +4913,7 @@ impl IFileSavePickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn ContinuationData(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &windows_core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
         unsafe {
@@ -4971,9 +4956,9 @@ impl IFileSavePickerContinuationEventArgs_Vtbl {
 #[repr(C)]
 pub struct IFileSavePickerContinuationEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    #[cfg(feature = "Storage_Streams")]
     pub File: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Storage_Streams", feature = "deprecated")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     File: usize,
 }
 #[cfg(feature = "deprecated")]
@@ -4988,7 +4973,7 @@ windows_core::imp::interface_hierarchy!(IFolderPickerContinuationEventArgs, wind
 windows_core::imp::required_hierarchy!(IFolderPickerContinuationEventArgs, IActivatedEventArgs, IContinuationActivatedEventArgs);
 #[cfg(feature = "deprecated")]
 impl IFolderPickerContinuationEventArgs {
-    #[cfg(all(feature = "Storage_Search", feature = "deprecated"))]
+    #[cfg(feature = "Storage_Search")]
     pub fn Folder(&self) -> windows_core::Result<super::super::Storage::StorageFolder> {
         let this = self;
         unsafe {
@@ -4996,7 +4981,6 @@ impl IFolderPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).Folder)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -5004,7 +4988,6 @@ impl IFolderPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -5012,7 +4995,6 @@ impl IFolderPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -5020,7 +5002,7 @@ impl IFolderPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn ContinuationData(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &windows_core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
         unsafe {
@@ -5063,9 +5045,9 @@ impl IFolderPickerContinuationEventArgs_Vtbl {
 #[repr(C)]
 pub struct IFolderPickerContinuationEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Storage_Search", feature = "deprecated"))]
+    #[cfg(feature = "Storage_Search")]
     pub Folder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Storage_Search", feature = "deprecated")))]
+    #[cfg(not(feature = "Storage_Search"))]
     Folder: usize,
 }
 windows_core::imp::define_interface!(ILaunchActivatedEventArgs, ILaunchActivatedEventArgs_Vtbl, 0xfbc93e26_a14a_4b4f_82b0_33bed920af52);
@@ -6743,7 +6725,6 @@ windows_core::imp::interface_hierarchy!(IWalletActionActivatedEventArgs, windows
 windows_core::imp::required_hierarchy!(IWalletActionActivatedEventArgs, IActivatedEventArgs);
 #[cfg(feature = "deprecated")]
 impl IWalletActionActivatedEventArgs {
-    #[cfg(feature = "deprecated")]
     pub fn ItemId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
@@ -6751,7 +6732,7 @@ impl IWalletActionActivatedEventArgs {
             (windows_core::Interface::vtable(this).ItemId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Wallet", feature = "deprecated"))]
+    #[cfg(feature = "ApplicationModel_Wallet")]
     pub fn ActionKind(&self) -> windows_core::Result<super::Wallet::WalletActionKind> {
         let this = self;
         unsafe {
@@ -6759,7 +6740,6 @@ impl IWalletActionActivatedEventArgs {
             (windows_core::Interface::vtable(this).ActionKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn ActionId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
@@ -6767,7 +6747,6 @@ impl IWalletActionActivatedEventArgs {
             (windows_core::Interface::vtable(this).ActionId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -6775,7 +6754,6 @@ impl IWalletActionActivatedEventArgs {
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -6783,7 +6761,6 @@ impl IWalletActionActivatedEventArgs {
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -6858,18 +6835,12 @@ impl IWalletActionActivatedEventArgs_Vtbl {
 #[repr(C)]
 pub struct IWalletActionActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
     pub ItemId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    ItemId: usize,
-    #[cfg(all(feature = "ApplicationModel_Wallet", feature = "deprecated"))]
+    #[cfg(feature = "ApplicationModel_Wallet")]
     pub ActionKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Wallet::WalletActionKind) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel_Wallet", feature = "deprecated")))]
+    #[cfg(not(feature = "ApplicationModel_Wallet"))]
     ActionKind: usize,
-    #[cfg(feature = "deprecated")]
     pub ActionId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    ActionId: usize,
 }
 windows_core::imp::define_interface!(IWebAccountProviderActivatedEventArgs, IWebAccountProviderActivatedEventArgs_Vtbl, 0x72b71774_98ea_4ccf_9752_46d9051004f1);
 impl windows_core::RuntimeType for IWebAccountProviderActivatedEventArgs {
@@ -8171,7 +8142,6 @@ windows_core::imp::interface_hierarchy!(WalletActionActivatedEventArgs, windows_
 windows_core::imp::required_hierarchy!(WalletActionActivatedEventArgs, IActivatedEventArgs);
 #[cfg(feature = "deprecated")]
 impl WalletActionActivatedEventArgs {
-    #[cfg(feature = "deprecated")]
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -8179,7 +8149,6 @@ impl WalletActionActivatedEventArgs {
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -8187,7 +8156,6 @@ impl WalletActionActivatedEventArgs {
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn SplashScreen(&self) -> windows_core::Result<SplashScreen> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -8195,7 +8163,6 @@ impl WalletActionActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn ItemId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
@@ -8203,7 +8170,7 @@ impl WalletActionActivatedEventArgs {
             (windows_core::Interface::vtable(this).ItemId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Wallet", feature = "deprecated"))]
+    #[cfg(feature = "ApplicationModel_Wallet")]
     pub fn ActionKind(&self) -> windows_core::Result<super::Wallet::WalletActionKind> {
         let this = self;
         unsafe {
@@ -8211,7 +8178,6 @@ impl WalletActionActivatedEventArgs {
             (windows_core::Interface::vtable(this).ActionKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn ActionId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {

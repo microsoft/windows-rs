@@ -243,7 +243,7 @@ impl IProvideWinSATResultsInfo {
             (windows_core::Interface::vtable(self).AssessmentState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn AssessmentDateTime(&self) -> windows_core::Result<super::Variant::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -269,9 +269,9 @@ pub struct IProvideWinSATResultsInfo_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub GetAssessmentInfo: unsafe extern "system" fn(*mut core::ffi::c_void, WINSAT_ASSESSMENT_TYPE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AssessmentState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WINSAT_ASSESSMENT_STATE) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub AssessmentDateTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Variant::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     AssessmentDateTime: usize,
     pub SystemRating: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub RatingStateDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

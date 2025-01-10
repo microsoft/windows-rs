@@ -118,6 +118,7 @@ impl ApplicationView {
             (windows_core::Interface::vtable(this).AdjacentToRightDisplayEdge)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+    #[cfg(feature = "deprecated")]
     pub fn IsFullScreen(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
@@ -175,6 +176,7 @@ impl ApplicationView {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveConsolidated)(windows_core::Interface::as_raw(this), token).ok() }
     }
+    #[cfg(feature = "deprecated")]
     pub fn SuppressSystemOverlays(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<IApplicationView2>(self)?;
         unsafe {
@@ -182,6 +184,7 @@ impl ApplicationView {
             (windows_core::Interface::vtable(this).SuppressSystemOverlays)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+    #[cfg(feature = "deprecated")]
     pub fn SetSuppressSystemOverlays(&self, value: bool) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IApplicationView2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetSuppressSystemOverlays)(windows_core::Interface::as_raw(this), value).ok() }
@@ -337,6 +340,7 @@ impl ApplicationView {
             (windows_core::Interface::vtable(this).GetDisplayRegions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+    #[cfg(feature = "deprecated")]
     pub fn TryUnsnapToFullscreen() -> windows_core::Result<bool> {
         Self::IApplicationViewFullscreenStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -353,12 +357,14 @@ impl ApplicationView {
             (windows_core::Interface::vtable(this).GetApplicationViewIdForWindow)(windows_core::Interface::as_raw(this), window.param().abi(), &mut result__).map(|| result__)
         })
     }
+    #[cfg(feature = "deprecated")]
     pub fn Value() -> windows_core::Result<ApplicationViewState> {
         Self::IApplicationViewStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
+    #[cfg(feature = "deprecated")]
     pub fn TryUnsnap() -> windows_core::Result<bool> {
         Self::IApplicationViewStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -411,6 +417,7 @@ impl ApplicationView {
             (windows_core::Interface::vtable(this).UIContext)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+    #[cfg(feature = "deprecated")]
     fn IApplicationViewFullscreenStatics<R, F: FnOnce(&IApplicationViewFullscreenStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ApplicationView, IApplicationViewFullscreenStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
@@ -419,6 +426,7 @@ impl ApplicationView {
         static SHARED: windows_core::imp::FactoryCache<ApplicationView, IApplicationViewInteropStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+    #[cfg(feature = "deprecated")]
     fn IApplicationViewStatics<R, F: FnOnce(&IApplicationViewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ApplicationView, IApplicationViewStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
@@ -999,7 +1007,10 @@ pub struct IApplicationView_Vtbl {
     pub Orientation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ApplicationViewOrientation) -> windows_core::HRESULT,
     pub AdjacentToLeftDisplayEdge: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub AdjacentToRightDisplayEdge: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(feature = "deprecated")]
     pub IsFullScreen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    IsFullScreen: usize,
     pub IsOnLockScreen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub IsScreenCaptureEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetIsScreenCaptureEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
@@ -1016,8 +1027,14 @@ impl windows_core::RuntimeType for IApplicationView2 {
 #[repr(C)]
 pub struct IApplicationView2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "deprecated")]
     pub SuppressSystemOverlays: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    SuppressSystemOverlays: usize,
+    #[cfg(feature = "deprecated")]
     pub SetSuppressSystemOverlays: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    SetSuppressSystemOverlays: usize,
     pub VisibleBounds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Rect) -> windows_core::HRESULT,
     pub VisibleBoundsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveVisibleBoundsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
@@ -1108,10 +1125,7 @@ impl windows_core::RuntimeType for IApplicationViewFullscreenStatics {
 #[repr(C)]
 pub struct IApplicationViewFullscreenStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
     pub TryUnsnapToFullscreen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    TryUnsnapToFullscreen: usize,
 }
 windows_core::imp::define_interface!(IApplicationViewInteropStatics, IApplicationViewInteropStatics_Vtbl, 0xc446fb5d_4793_4896_a8e2_be57a8bb0f50);
 impl windows_core::RuntimeType for IApplicationViewInteropStatics {
@@ -1153,14 +1167,8 @@ impl windows_core::RuntimeType for IApplicationViewStatics {
 #[repr(C)]
 pub struct IApplicationViewStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ApplicationViewState) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Value: usize,
-    #[cfg(feature = "deprecated")]
     pub TryUnsnap: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    TryUnsnap: usize,
 }
 windows_core::imp::define_interface!(IApplicationViewStatics2, IApplicationViewStatics2_Vtbl, 0xaf338ae5_cf64_423c_85e5_f3e72448fb23);
 impl windows_core::RuntimeType for IApplicationViewStatics2 {

@@ -340,7 +340,6 @@ impl JsonArray {
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn GetObjectAt(&self, index: u32) -> windows_core::Result<JsonObject> {
         let this = self;
         unsafe {
@@ -430,7 +429,6 @@ impl JsonArray {
             (windows_core::Interface::vtable(this).GetArray)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn GetObject(&self) -> windows_core::Result<JsonObject> {
         let this = &windows_core::Interface::cast::<IJsonValue>(self)?;
         unsafe {
@@ -459,7 +457,6 @@ impl JsonArray {
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn GetView(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<IJsonValue>> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IVector<IJsonValue>>(self)?;
         unsafe {
@@ -636,7 +633,6 @@ impl JsonObject {
             (windows_core::Interface::vtable(this).GetNamedObject)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn GetNamedArray(&self, name: &windows_core::HSTRING) -> windows_core::Result<JsonArray> {
         let this = self;
         unsafe {
@@ -704,7 +700,6 @@ impl JsonObject {
             (windows_core::Interface::vtable(this).GetNamedStringOrDefault)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), core::mem::transmute_copy(defaultvalue), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn GetNamedArrayOrDefault<P1>(&self, name: &windows_core::HSTRING, defaultvalue: P1) -> windows_core::Result<JsonArray>
     where
         P1: windows_core::Param<JsonArray>,
@@ -764,7 +759,6 @@ impl JsonObject {
             (windows_core::Interface::vtable(this).GetBoolean)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn GetArray(&self) -> windows_core::Result<JsonArray> {
         let this = &windows_core::Interface::cast::<IJsonValue>(self)?;
         unsafe {
@@ -800,7 +794,6 @@ impl JsonObject {
             (windows_core::Interface::vtable(this).HasKey)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn GetView(&self) -> windows_core::Result<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, IJsonValue>> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IMap<windows_core::HSTRING, IJsonValue>>(self)?;
         unsafe {

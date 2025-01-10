@@ -518,7 +518,6 @@ impl WiFiDirectConnectionParameters {
         let this = &windows_core::Interface::cast::<IWiFiDirectConnectionParameters2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetPreferredPairingProcedure)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Devices_Enumeration")]
     pub fn GetDevicePairingKinds(configurationmethod: WiFiDirectConfigurationMethod) -> windows_core::Result<super::Enumeration::DevicePairingKinds> {
         Self::IWiFiDirectConnectionParametersStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
