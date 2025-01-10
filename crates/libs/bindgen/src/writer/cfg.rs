@@ -33,16 +33,14 @@ pub fn write_arches<R: HasAttributes>(row: R) -> TokenStream {
 
 #[derive(Default)]
 pub struct Cfg {
-    features: Vec<&'static str>,
+    features: BTreeSet<&'static str>,
     deprecated: bool,
 }
 
 impl Cfg {
     pub fn new<R: HasAttributes>(row: R, dependencies: &TypeMap) -> Self {
-        let mut features: Vec<&'static str> =
+        let features: BTreeSet<&'static str> =
             dependencies.keys().map(|tn| tn.namespace()).collect();
-        features.sort();
-        features.dedup();
 
         Self {
             features,
@@ -54,9 +52,7 @@ impl Cfg {
         let mut difference = Self::new(row, dependencies);
 
         for feature in &self.features {
-            if let Ok(index) = difference.features.binary_search(feature) {
-                difference.features.remove(index);
-            }
+            difference.features.remove(feature);
         }
 
         difference.deprecated = !self.deprecated && difference.deprecated;
@@ -68,15 +64,20 @@ impl Cfg {
             return quote! {};
         }
 
-        let mut compact = self.features.clone();
+        let mut compact = BTreeSet::<&'static str>::new();
 
-        for pos in 0..compact.len() {
-            match (compact.get(pos), compact.get(pos + 1)) {
-                (Some(first), Some(second)) if namespace_starts_with(second, first) => {
-                    compact.remove(pos);
+        for feature in self.features.iter().rev() {
+            let mut keep = true;
+
+            for compact in &compact {
+                if namespace_starts_with(compact, feature) {
+                    keep = false;
+                    break;
                 }
-                (_, None) => break,
-                _ => continue,
+            }
+
+            if keep {
+                compact.insert(feature);
             }
         }
 
