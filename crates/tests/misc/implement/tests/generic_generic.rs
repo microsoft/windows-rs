@@ -24,7 +24,7 @@ where
         panic!();
     }
 
-    fn IndexOf(&self, _value: &T::Default, _index: &mut u32) -> Result<bool> {
+    fn IndexOf(&self, _value: T::Ref, _index: &mut u32) -> Result<bool> {
         panic!();
     }
 

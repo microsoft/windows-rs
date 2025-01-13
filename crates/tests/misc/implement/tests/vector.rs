@@ -48,9 +48,12 @@ where
         let reader = self.0.read().unwrap();
         Ok(reader.len() as u32)
     }
-    fn IndexOf(&self, value: &T::Default, result: &mut u32) -> Result<bool> {
+    fn IndexOf(&self, value: T::Ref, result: &mut u32) -> Result<bool> {
         let reader = self.0.read().unwrap();
-        match reader.iter().position(|element| element == value) {
+        match reader
+            .iter()
+            .position(|element| element == T::deref(&value))
+        {
             Some(index) => {
                 *result = index as u32;
                 Ok(true)
@@ -77,16 +80,16 @@ where
     fn GetView(&self) -> Result<windows::Foundation::Collections::IVectorView<T>> {
         unsafe { self.cast() }
     }
-    fn IndexOf(&self, value: &T::Default, result: &mut u32) -> Result<bool> {
+    fn IndexOf(&self, value: T::Ref, result: &mut u32) -> Result<bool> {
         self.IndexOf(value, result)
     }
-    fn SetAt(&self, index: u32, value: &T::Default) -> Result<()> {
+    fn SetAt(&self, index: u32, value: T::Ref) -> Result<()> {
         let mut writer = self.0.write().unwrap();
         let item = writer.get_mut(index as usize).ok_or_else(err_bounds)?;
-        *item = value.clone();
+        *item = T::deref(&value).clone();
         Ok(())
     }
-    fn InsertAt(&self, index: u32, value: &T::Default) -> Result<()> {
+    fn InsertAt(&self, index: u32, value: T::Ref) -> Result<()> {
         let mut writer = self.0.write().unwrap();
         let index = index as usize;
         if index > writer.len() {
@@ -94,7 +97,7 @@ where
         } else {
             let len = writer.len();
             writer.try_reserve(len + 1).map_err(|_| err_memory())?;
-            writer.insert(index, value.clone());
+            writer.insert(index, T::deref(&value).clone());
             Ok(())
         }
     }
@@ -108,11 +111,11 @@ where
             Err(err_bounds())
         }
     }
-    fn Append(&self, value: &T::Default) -> Result<()> {
+    fn Append(&self, value: T::Ref) -> Result<()> {
         let mut writer = self.0.write().unwrap();
         let len = writer.len();
         writer.try_reserve(len + 1).map_err(|_| err_memory())?;
-        writer.insert(len, value.clone());
+        writer.insert(len, T::deref(&value).clone());
         Ok(())
     }
     fn RemoveAtEnd(&self) -> Result<()> {
@@ -154,7 +157,7 @@ where
     fn Size(&self) -> Result<u32> {
         self.Size()
     }
-    fn IndexOf(&self, value: &T::Default, result: &mut u32) -> Result<bool> {
+    fn IndexOf(&self, value: T::Ref, result: &mut u32) -> Result<bool> {
         self.IndexOf(value, result)
     }
     fn GetMany(&self, startindex: u32, items: &mut [T::Default]) -> Result<u32> {
