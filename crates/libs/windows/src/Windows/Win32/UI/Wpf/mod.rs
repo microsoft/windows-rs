@@ -46,9 +46,9 @@ pub struct IMILBitmapEffect_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Imaging")]
 pub trait IMILBitmapEffect_Impl: windows_core::IUnknownImpl {
-    fn GetOutput(&self, uiindex: u32, pcontext: windows_core::Ref<'_, IMILBitmapEffectRenderContext>) -> windows_core::Result<super::super::Graphics::Imaging::IWICBitmapSource>;
+    fn GetOutput(&self, uiindex: u32, pcontext: windows_core::Ref<IMILBitmapEffectRenderContext>) -> windows_core::Result<super::super::Graphics::Imaging::IWICBitmapSource>;
     fn GetParentEffect(&self) -> windows_core::Result<IMILBitmapEffectGroup>;
-    fn SetInputSource(&self, uiindex: u32, pbitmapsource: windows_core::Ref<'_, super::super::Graphics::Imaging::IWICBitmapSource>) -> windows_core::Result<()>;
+    fn SetInputSource(&self, uiindex: u32, pbitmapsource: windows_core::Ref<super::super::Graphics::Imaging::IWICBitmapSource>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Imaging")]
 impl IMILBitmapEffect_Vtbl {
@@ -461,8 +461,8 @@ pub struct IMILBitmapEffectEvents_Vtbl {
     pub DirtyRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const MilRectD) -> windows_core::HRESULT,
 }
 pub trait IMILBitmapEffectEvents_Impl: windows_core::IUnknownImpl {
-    fn PropertyChange(&self, peffect: windows_core::Ref<'_, IMILBitmapEffect>, bstrpropertyname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn DirtyRegion(&self, peffect: windows_core::Ref<'_, IMILBitmapEffect>, prect: *const MilRectD) -> windows_core::Result<()>;
+    fn PropertyChange(&self, peffect: windows_core::Ref<IMILBitmapEffect>, bstrpropertyname: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn DirtyRegion(&self, peffect: windows_core::Ref<IMILBitmapEffect>, prect: *const MilRectD) -> windows_core::Result<()>;
 }
 impl IMILBitmapEffectEvents_Vtbl {
     pub const fn new<Identity: IMILBitmapEffectEvents_Impl, const OFFSET: isize>() -> Self {
@@ -605,7 +605,7 @@ pub struct IMILBitmapEffectGroup_Vtbl {
 pub trait IMILBitmapEffectGroup_Impl: windows_core::IUnknownImpl {
     fn GetInteriorInputConnector(&self, uiindex: u32) -> windows_core::Result<IMILBitmapEffectOutputConnector>;
     fn GetInteriorOutputConnector(&self, uiindex: u32) -> windows_core::Result<IMILBitmapEffectInputConnector>;
-    fn Add(&self, peffect: windows_core::Ref<'_, IMILBitmapEffect>) -> windows_core::Result<()>;
+    fn Add(&self, peffect: windows_core::Ref<IMILBitmapEffect>) -> windows_core::Result<()>;
 }
 impl IMILBitmapEffectGroup_Vtbl {
     pub const fn new<Identity: IMILBitmapEffectGroup_Impl, const OFFSET: isize>() -> Self {
@@ -681,7 +681,7 @@ pub struct IMILBitmapEffectGroupImpl_Vtbl {
     pub GetChildren: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMILBitmapEffectGroupImpl_Impl: windows_core::IUnknownImpl {
-    fn Preprocess(&self, pcontext: windows_core::Ref<'_, IMILBitmapEffectRenderContext>) -> windows_core::Result<()>;
+    fn Preprocess(&self, pcontext: windows_core::Ref<IMILBitmapEffectRenderContext>) -> windows_core::Result<()>;
     fn GetNumberChildren(&self) -> windows_core::Result<u32>;
     fn GetChildren(&self) -> windows_core::Result<IMILBitmapEffects>;
 }
@@ -806,13 +806,13 @@ pub struct IMILBitmapEffectImpl_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Imaging")]
 pub trait IMILBitmapEffectImpl_Impl: windows_core::IUnknownImpl {
-    fn IsInPlaceModificationAllowed(&self, poutputconnector: windows_core::Ref<'_, IMILBitmapEffectOutputConnector>) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetParentEffect(&self, pparenteffect: windows_core::Ref<'_, IMILBitmapEffectGroup>) -> windows_core::Result<()>;
+    fn IsInPlaceModificationAllowed(&self, poutputconnector: windows_core::Ref<IMILBitmapEffectOutputConnector>) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetParentEffect(&self, pparenteffect: windows_core::Ref<IMILBitmapEffectGroup>) -> windows_core::Result<()>;
     fn GetInputSource(&self, uiindex: u32) -> windows_core::Result<super::super::Graphics::Imaging::IWICBitmapSource>;
     fn GetInputSourceBounds(&self, uiindex: u32, prect: *mut MilRectD) -> windows_core::Result<()>;
-    fn GetInputBitmapSource(&self, uiindex: u32, prendercontext: windows_core::Ref<'_, IMILBitmapEffectRenderContext>, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<super::super::Graphics::Imaging::IWICBitmapSource>;
-    fn GetOutputBitmapSource(&self, uiindex: u32, prendercontext: windows_core::Ref<'_, IMILBitmapEffectRenderContext>, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<super::super::Graphics::Imaging::IWICBitmapSource>;
-    fn Initialize(&self, pinner: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetInputBitmapSource(&self, uiindex: u32, prendercontext: windows_core::Ref<IMILBitmapEffectRenderContext>, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<super::super::Graphics::Imaging::IWICBitmapSource>;
+    fn GetOutputBitmapSource(&self, uiindex: u32, prendercontext: windows_core::Ref<IMILBitmapEffectRenderContext>, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<super::super::Graphics::Imaging::IWICBitmapSource>;
+    fn Initialize(&self, pinner: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Imaging")]
 impl IMILBitmapEffectImpl_Vtbl {
@@ -929,7 +929,7 @@ pub struct IMILBitmapEffectInputConnector_Vtbl {
     pub GetConnection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMILBitmapEffectInputConnector_Impl: IMILBitmapEffectConnector_Impl {
-    fn ConnectTo(&self, pconnector: windows_core::Ref<'_, IMILBitmapEffectOutputConnector>) -> windows_core::Result<()>;
+    fn ConnectTo(&self, pconnector: windows_core::Ref<IMILBitmapEffectOutputConnector>) -> windows_core::Result<()>;
     fn GetConnection(&self) -> windows_core::Result<IMILBitmapEffectOutputConnector>;
 }
 impl IMILBitmapEffectInputConnector_Vtbl {
@@ -1133,8 +1133,8 @@ pub struct IMILBitmapEffectOutputConnectorImpl_Vtbl {
     pub RemoveBackLink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMILBitmapEffectOutputConnectorImpl_Impl: windows_core::IUnknownImpl {
-    fn AddBackLink(&self, pconnection: windows_core::Ref<'_, IMILBitmapEffectInputConnector>) -> windows_core::Result<()>;
-    fn RemoveBackLink(&self, pconnection: windows_core::Ref<'_, IMILBitmapEffectInputConnector>) -> windows_core::Result<()>;
+    fn AddBackLink(&self, pconnection: windows_core::Ref<IMILBitmapEffectInputConnector>) -> windows_core::Result<()>;
+    fn RemoveBackLink(&self, pconnection: windows_core::Ref<IMILBitmapEffectInputConnector>) -> windows_core::Result<()>;
 }
 impl IMILBitmapEffectOutputConnectorImpl_Vtbl {
     pub const fn new<Identity: IMILBitmapEffectOutputConnectorImpl_Impl, const OFFSET: isize>() -> Self {
@@ -1221,9 +1221,9 @@ pub struct IMILBitmapEffectPrimitive_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dwm", feature = "Win32_Graphics_Imaging"))]
 pub trait IMILBitmapEffectPrimitive_Impl: windows_core::IUnknownImpl {
-    fn GetOutput(&self, uiindex: u32, pcontext: windows_core::Ref<'_, IMILBitmapEffectRenderContext>, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<super::super::Graphics::Imaging::IWICBitmapSource>;
-    fn TransformPoint(&self, uiindex: u32, p: *mut MilPoint2D, fforwardtransform: super::super::Foundation::VARIANT_BOOL, pcontext: windows_core::Ref<'_, IMILBitmapEffectRenderContext>, pfpointtransformed: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn TransformRect(&self, uiindex: u32, p: *mut MilRectD, fforwardtransform: super::super::Foundation::VARIANT_BOOL, pcontext: windows_core::Ref<'_, IMILBitmapEffectRenderContext>) -> windows_core::Result<()>;
+    fn GetOutput(&self, uiindex: u32, pcontext: windows_core::Ref<IMILBitmapEffectRenderContext>, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<super::super::Graphics::Imaging::IWICBitmapSource>;
+    fn TransformPoint(&self, uiindex: u32, p: *mut MilPoint2D, fforwardtransform: super::super::Foundation::VARIANT_BOOL, pcontext: windows_core::Ref<IMILBitmapEffectRenderContext>, pfpointtransformed: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn TransformRect(&self, uiindex: u32, p: *mut MilRectD, fforwardtransform: super::super::Foundation::VARIANT_BOOL, pcontext: windows_core::Ref<IMILBitmapEffectRenderContext>) -> windows_core::Result<()>;
     fn HasAffineTransform(&self, uiindex: u32) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn HasInverseTransform(&self, uiindex: u32) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn GetAffineMatrix(&self, uiindex: u32, pmatrix: *mut super::super::Graphics::Dwm::MilMatrix3x2D) -> windows_core::Result<()>;

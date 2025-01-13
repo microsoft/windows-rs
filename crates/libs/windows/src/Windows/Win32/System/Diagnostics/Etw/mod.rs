@@ -2294,9 +2294,9 @@ pub struct ITraceEventCallback_Vtbl {
     pub OnEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITraceEventCallback_Impl: windows_core::IUnknownImpl {
-    fn OnBeginProcessTrace(&self, headerevent: windows_core::Ref<'_, ITraceEvent>, relogger: windows_core::Ref<'_, ITraceRelogger>) -> windows_core::Result<()>;
-    fn OnFinalizeProcessTrace(&self, relogger: windows_core::Ref<'_, ITraceRelogger>) -> windows_core::Result<()>;
-    fn OnEvent(&self, event: windows_core::Ref<'_, ITraceEvent>, relogger: windows_core::Ref<'_, ITraceRelogger>) -> windows_core::Result<()>;
+    fn OnBeginProcessTrace(&self, headerevent: windows_core::Ref<ITraceEvent>, relogger: windows_core::Ref<ITraceRelogger>) -> windows_core::Result<()>;
+    fn OnFinalizeProcessTrace(&self, relogger: windows_core::Ref<ITraceRelogger>) -> windows_core::Result<()>;
+    fn OnEvent(&self, event: windows_core::Ref<ITraceEvent>, relogger: windows_core::Ref<ITraceRelogger>) -> windows_core::Result<()>;
 }
 impl ITraceEventCallback_Vtbl {
     pub const fn new<Identity: ITraceEventCallback_Impl, const OFFSET: isize>() -> Self {
@@ -2392,8 +2392,8 @@ pub struct ITraceRelogger_Vtbl {
 pub trait ITraceRelogger_Impl: windows_core::IUnknownImpl {
     fn AddLogfileTraceStream(&self, logfilename: &windows_core::BSTR, usercontext: *const core::ffi::c_void) -> windows_core::Result<RELOGSTREAM_HANDLE>;
     fn AddRealtimeTraceStream(&self, loggername: &windows_core::BSTR, usercontext: *const core::ffi::c_void) -> windows_core::Result<RELOGSTREAM_HANDLE>;
-    fn RegisterCallback(&self, callback: windows_core::Ref<'_, ITraceEventCallback>) -> windows_core::Result<()>;
-    fn Inject(&self, event: windows_core::Ref<'_, ITraceEvent>) -> windows_core::Result<()>;
+    fn RegisterCallback(&self, callback: windows_core::Ref<ITraceEventCallback>) -> windows_core::Result<()>;
+    fn Inject(&self, event: windows_core::Ref<ITraceEvent>) -> windows_core::Result<()>;
     fn CreateEventInstance(&self, tracehandle: &RELOGSTREAM_HANDLE, flags: u32) -> windows_core::Result<ITraceEvent>;
     fn ProcessTrace(&self) -> windows_core::Result<()>;
     fn SetOutputFilename(&self, logfilename: &windows_core::BSTR) -> windows_core::Result<()>;

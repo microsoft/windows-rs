@@ -8370,7 +8370,7 @@ pub struct IMLangLineBreakConsole_Vtbl {
     pub BreakLineA: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCSTR, i32, i32, *mut i32, *mut i32) -> windows_core::HRESULT,
 }
 pub trait IMLangLineBreakConsole_Impl: windows_core::IUnknownImpl {
-    fn BreakLineML(&self, psrcmlstr: windows_core::Ref<'_, IMLangString>, lsrcpos: i32, lsrclen: i32, cmincolumns: i32, cmaxcolumns: i32, pllinelen: *mut i32, plskiplen: *mut i32) -> windows_core::Result<()>;
+    fn BreakLineML(&self, psrcmlstr: windows_core::Ref<IMLangString>, lsrcpos: i32, lsrclen: i32, cmincolumns: i32, cmaxcolumns: i32, pllinelen: *mut i32, plskiplen: *mut i32) -> windows_core::Result<()>;
     fn BreakLineW(&self, locale: u32, pszsrc: &windows_core::PCWSTR, cchsrc: i32, cmaxcolumns: i32, pcchline: *mut i32, pcchskip: *mut i32) -> windows_core::Result<()>;
     fn BreakLineA(&self, locale: u32, ucodepage: u32, pszsrc: &windows_core::PCSTR, cchsrc: i32, cmaxcolumns: i32, pcchline: *mut i32, pcchskip: *mut i32) -> windows_core::Result<()>;
 }
@@ -8439,8 +8439,8 @@ pub struct IMLangString_Vtbl {
 pub trait IMLangString_Impl: windows_core::IUnknownImpl {
     fn Sync(&self, fnoaccess: super::Foundation::BOOL) -> windows_core::Result<()>;
     fn GetLength(&self, pllen: *mut i32) -> windows_core::Result<()>;
-    fn SetMLStr(&self, ldestpos: i32, ldestlen: i32, psrcmlstr: windows_core::Ref<'_, windows_core::IUnknown>, lsrcpos: i32, lsrclen: i32) -> windows_core::Result<()>;
-    fn GetMLStr(&self, lsrcpos: i32, lsrclen: i32, punkouter: windows_core::Ref<'_, windows_core::IUnknown>, dwclscontext: u32, piid: *const windows_core::GUID, ppdestmlstr: windows_core::OutRef<'_, windows_core::IUnknown>, pldestpos: *mut i32, pldestlen: *mut i32) -> windows_core::Result<()>;
+    fn SetMLStr(&self, ldestpos: i32, ldestlen: i32, psrcmlstr: windows_core::Ref<windows_core::IUnknown>, lsrcpos: i32, lsrclen: i32) -> windows_core::Result<()>;
+    fn GetMLStr(&self, lsrcpos: i32, lsrclen: i32, punkouter: windows_core::Ref<windows_core::IUnknown>, dwclscontext: u32, piid: *const windows_core::GUID, ppdestmlstr: windows_core::OutRef<'_, windows_core::IUnknown>, pldestpos: *mut i32, pldestlen: *mut i32) -> windows_core::Result<()>;
 }
 impl IMLangString_Vtbl {
     pub const fn new<Identity: IMLangString_Impl, const OFFSET: isize>() -> Self {
@@ -8532,7 +8532,7 @@ pub struct IMLangStringAStr_Vtbl {
 }
 pub trait IMLangStringAStr_Impl: IMLangString_Impl {
     fn SetAStr(&self, ldestpos: i32, ldestlen: i32, ucodepage: u32, pszsrc: &windows_core::PCSTR, cchsrc: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::Result<()>;
-    fn SetStrBufA(&self, ldestpos: i32, ldestlen: i32, ucodepage: u32, psrcbuf: windows_core::Ref<'_, IMLangStringBufA>, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::Result<()>;
+    fn SetStrBufA(&self, ldestpos: i32, ldestlen: i32, ucodepage: u32, psrcbuf: windows_core::Ref<IMLangStringBufA>, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::Result<()>;
     fn GetAStr(&self, lsrcpos: i32, lsrclen: i32, ucodepagein: u32, pucodepageout: *const u32, pszdest: windows_core::PSTR, cchdest: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::Result<()>;
     fn GetStrBufA(&self, lsrcpos: i32, lsrcmaxlen: i32, pudestcodepage: *mut u32, ppdestbuf: windows_core::OutRef<'_, IMLangStringBufA>, pldestlen: *mut i32) -> windows_core::Result<()>;
     fn LockAStr(&self, lsrcpos: i32, lsrclen: i32, lflags: i32, ucodepagein: u32, cchrequest: i32, pucodepageout: *mut u32, ppszdest: *mut windows_core::PSTR, pcchdest: *mut i32, pldestlen: *mut i32) -> windows_core::Result<()>;
@@ -8826,7 +8826,7 @@ pub struct IMLangStringWStr_Vtbl {
 }
 pub trait IMLangStringWStr_Impl: IMLangString_Impl {
     fn SetWStr(&self, ldestpos: i32, ldestlen: i32, pszsrc: &windows_core::PCWSTR, cchsrc: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::Result<()>;
-    fn SetStrBufW(&self, ldestpos: i32, ldestlen: i32, psrcbuf: windows_core::Ref<'_, IMLangStringBufW>, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::Result<()>;
+    fn SetStrBufW(&self, ldestpos: i32, ldestlen: i32, psrcbuf: windows_core::Ref<IMLangStringBufW>, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::Result<()>;
     fn GetWStr(&self, lsrcpos: i32, lsrclen: i32, pszdest: windows_core::PWSTR, cchdest: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::Result<()>;
     fn GetStrBufW(&self, lsrcpos: i32, lsrcmaxlen: i32, ppdestbuf: windows_core::OutRef<'_, IMLangStringBufW>, pldestlen: *mut i32) -> windows_core::Result<()>;
     fn LockWStr(&self, lsrcpos: i32, lsrclen: i32, lflags: i32, cchrequest: i32, ppszdest: *mut windows_core::PWSTR, pcchdest: *mut i32, pldestlen: *mut i32) -> windows_core::Result<()>;
@@ -9352,10 +9352,10 @@ pub trait IMultiLanguage2_Impl: windows_core::IUnknownImpl {
     fn EnumRfc1766(&self, langid: u16) -> windows_core::Result<IEnumRfc1766>;
     fn GetRfc1766Info(&self, locale: u32, langid: u16, prfc1766info: *mut RFC1766INFO) -> windows_core::Result<()>;
     fn CreateConvertCharset(&self, uisrccodepage: u32, uidstcodepage: u32, dwproperty: u32) -> windows_core::Result<IMLangConvertCharset>;
-    fn ConvertStringInIStream(&self, pdwmode: *mut u32, dwflag: u32, lpfallback: &windows_core::PCWSTR, dwsrcencoding: u32, dwdstencoding: u32, pstmin: windows_core::Ref<'_, super::System::Com::IStream>, pstmout: windows_core::Ref<'_, super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn ConvertStringInIStream(&self, pdwmode: *mut u32, dwflag: u32, lpfallback: &windows_core::PCWSTR, dwsrcencoding: u32, dwdstencoding: u32, pstmin: windows_core::Ref<super::System::Com::IStream>, pstmout: windows_core::Ref<super::System::Com::IStream>) -> windows_core::Result<()>;
     fn ConvertStringToUnicodeEx(&self, pdwmode: *mut u32, dwencoding: u32, psrcstr: &windows_core::PCSTR, pcsrcsize: *mut u32, pdststr: windows_core::PWSTR, pcdstsize: *mut u32, dwflag: u32, lpfallback: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn ConvertStringFromUnicodeEx(&self, pdwmode: *mut u32, dwencoding: u32, psrcstr: &windows_core::PCWSTR, pcsrcsize: *mut u32, pdststr: windows_core::PSTR, pcdstsize: *mut u32, dwflag: u32, lpfallback: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn DetectCodepageInIStream(&self, dwflag: u32, dwprefwincodepage: u32, pstmin: windows_core::Ref<'_, super::System::Com::IStream>, lpencoding: *mut DetectEncodingInfo, pnscores: *mut i32) -> windows_core::Result<()>;
+    fn DetectCodepageInIStream(&self, dwflag: u32, dwprefwincodepage: u32, pstmin: windows_core::Ref<super::System::Com::IStream>, lpencoding: *mut DetectEncodingInfo, pnscores: *mut i32) -> windows_core::Result<()>;
     fn DetectInputCodepage(&self, dwflag: u32, dwprefwincodepage: u32, psrcstr: &windows_core::PCSTR, pcsrcsize: *mut i32, lpencoding: *mut DetectEncodingInfo, pnscores: *mut i32) -> windows_core::Result<()>;
     fn ValidateCodePage(&self, uicodepage: u32, hwnd: super::Foundation::HWND) -> windows_core::Result<()>;
     fn GetCodePageDescription(&self, uicodepage: u32, lcid: u32, lpwidecharstr: windows_core::PWSTR, cchwidechar: i32) -> windows_core::Result<()>;
@@ -9651,7 +9651,7 @@ pub struct IMultiLanguage3_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMultiLanguage3_Impl: IMultiLanguage2_Impl {
     fn DetectOutboundCodePage(&self, dwflags: u32, lpwidecharstr: &windows_core::PCWSTR, cchwidechar: u32, puipreferredcodepages: *const u32, npreferredcodepages: u32, puidetectedcodepages: *mut u32, pndetectedcodepages: *mut u32, lpspecialchar: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn DetectOutboundCodePageInIStream(&self, dwflags: u32, pstrin: windows_core::Ref<'_, super::System::Com::IStream>, puipreferredcodepages: *const u32, npreferredcodepages: u32, puidetectedcodepages: *mut u32, pndetectedcodepages: *mut u32, lpspecialchar: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn DetectOutboundCodePageInIStream(&self, dwflags: u32, pstrin: windows_core::Ref<super::System::Com::IStream>, puipreferredcodepages: *const u32, npreferredcodepages: u32, puidetectedcodepages: *mut u32, pndetectedcodepages: *mut u32, lpspecialchar: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IMultiLanguage3_Vtbl {
@@ -9959,7 +9959,7 @@ pub trait ISpellCheckProvider_Impl: windows_core::IUnknownImpl {
     fn Id(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn LocalizedName(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetOptionDescription(&self, optionid: &windows_core::PCWSTR) -> windows_core::Result<IOptionDescription>;
-    fn InitializeWordlist(&self, wordlisttype: WORDLIST_TYPE, words: windows_core::Ref<'_, super::System::Com::IEnumString>) -> windows_core::Result<()>;
+    fn InitializeWordlist(&self, wordlisttype: WORDLIST_TYPE, words: windows_core::Ref<super::System::Com::IEnumString>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ISpellCheckProvider_Vtbl {
@@ -10331,7 +10331,7 @@ pub trait ISpellChecker_Impl: windows_core::IUnknownImpl {
     fn OptionIds(&self) -> windows_core::Result<super::System::Com::IEnumString>;
     fn Id(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn LocalizedName(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn add_SpellCheckerChanged(&self, handler: windows_core::Ref<'_, ISpellCheckerChangedEventHandler>) -> windows_core::Result<u32>;
+    fn add_SpellCheckerChanged(&self, handler: windows_core::Ref<ISpellCheckerChangedEventHandler>) -> windows_core::Result<u32>;
     fn remove_SpellCheckerChanged(&self, eventcookie: u32) -> windows_core::Result<()>;
     fn GetOptionDescription(&self, optionid: &windows_core::PCWSTR) -> windows_core::Result<IOptionDescription>;
     fn ComprehensiveCheck(&self, text: &windows_core::PCWSTR) -> windows_core::Result<IEnumSpellingError>;
@@ -10565,7 +10565,7 @@ pub struct ISpellCheckerChangedEventHandler_Vtbl {
     pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ISpellCheckerChangedEventHandler_Impl: windows_core::IUnknownImpl {
-    fn Invoke(&self, sender: windows_core::Ref<'_, ISpellChecker>) -> windows_core::Result<()>;
+    fn Invoke(&self, sender: windows_core::Ref<ISpellChecker>) -> windows_core::Result<()>;
 }
 impl ISpellCheckerChangedEventHandler_Vtbl {
     pub const fn new<Identity: ISpellCheckerChangedEventHandler_Impl, const OFFSET: isize>() -> Self {

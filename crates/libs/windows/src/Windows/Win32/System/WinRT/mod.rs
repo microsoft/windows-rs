@@ -893,10 +893,10 @@ pub struct ICastingController_Vtbl {
     pub UnAdvise: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait ICastingController_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, castingengine: windows_core::Ref<'_, windows_core::IUnknown>, castingsource: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Initialize(&self, castingengine: windows_core::Ref<windows_core::IUnknown>, castingsource: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn Connect(&self) -> windows_core::Result<()>;
     fn Disconnect(&self) -> windows_core::Result<()>;
-    fn Advise(&self, eventhandler: windows_core::Ref<'_, ICastingEventHandler>) -> windows_core::Result<u32>;
+    fn Advise(&self, eventhandler: windows_core::Ref<ICastingEventHandler>) -> windows_core::Result<u32>;
     fn UnAdvise(&self, cookie: u32) -> windows_core::Result<()>;
 }
 impl ICastingController_Vtbl {
@@ -1089,7 +1089,7 @@ pub struct ICoreInputInterop_Vtbl {
     pub SetMessageHandled: unsafe extern "system" fn(*mut core::ffi::c_void, u8) -> windows_core::HRESULT,
 }
 pub trait ICoreInputInterop_Impl: windows_core::IUnknownImpl {
-    fn SetInputSource(&self, value: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetInputSource(&self, value: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn SetMessageHandled(&self, value: u8) -> windows_core::Result<()>;
 }
 impl ICoreInputInterop_Vtbl {
@@ -1243,7 +1243,7 @@ pub trait ICoreWindowAdapterInterop_Impl: windows_core::IUnknownImpl {
     fn PositionerClientAdapter(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn SystemNavigationClientAdapter(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn TitleBarClientAdapter(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn SetWindowClientAdapter(&self, value: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetWindowClientAdapter(&self, value: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl ICoreWindowAdapterInterop_Vtbl {
     pub const fn new<Identity: ICoreWindowAdapterInterop_Impl, const OFFSET: isize>() -> Self {
@@ -1377,7 +1377,7 @@ pub struct ICoreWindowComponentInterop_Vtbl {
     pub GetViewInstanceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait ICoreWindowComponentInterop_Impl: windows_core::IUnknownImpl {
-    fn ConfigureComponentInput(&self, hostviewinstanceid: u32, hwndhost: super::super::Foundation::HWND, inputsourcevisual: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn ConfigureComponentInput(&self, hostviewinstanceid: u32, hwndhost: super::super::Foundation::HWND, inputsourcevisual: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetViewInstanceId(&self) -> windows_core::Result<u32>;
 }
 impl ICoreWindowComponentInterop_Vtbl {
@@ -1760,7 +1760,7 @@ pub struct ILanguageExceptionErrorInfo2_Vtbl {
 }
 pub trait ILanguageExceptionErrorInfo2_Impl: ILanguageExceptionErrorInfo_Impl {
     fn GetPreviousLanguageExceptionErrorInfo(&self) -> windows_core::Result<ILanguageExceptionErrorInfo2>;
-    fn CapturePropagationContext(&self, languageexception: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CapturePropagationContext(&self, languageexception: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetPropagationContextHead(&self) -> windows_core::Result<ILanguageExceptionErrorInfo2>;
 }
 impl ILanguageExceptionErrorInfo2_Vtbl {
@@ -2470,8 +2470,8 @@ pub struct IWebAuthenticationCoreManagerInterop_Vtbl {
     pub RequestTokenWithWebAccountForWindowAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, *mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWebAuthenticationCoreManagerInterop_Impl: windows_core::IUnknownImpl {
-    fn RequestTokenForWindowAsync(&self, appwindow: super::super::Foundation::HWND, request: windows_core::Ref<'_, windows_core::IInspectable>, riid: *const windows_core::GUID, asyncinfo: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn RequestTokenWithWebAccountForWindowAsync(&self, appwindow: super::super::Foundation::HWND, request: windows_core::Ref<'_, windows_core::IInspectable>, webaccount: windows_core::Ref<'_, windows_core::IInspectable>, riid: *const windows_core::GUID, asyncinfo: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn RequestTokenForWindowAsync(&self, appwindow: super::super::Foundation::HWND, request: windows_core::Ref<windows_core::IInspectable>, riid: *const windows_core::GUID, asyncinfo: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn RequestTokenWithWebAccountForWindowAsync(&self, appwindow: super::super::Foundation::HWND, request: windows_core::Ref<windows_core::IInspectable>, webaccount: windows_core::Ref<windows_core::IInspectable>, riid: *const windows_core::GUID, asyncinfo: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 impl IWebAuthenticationCoreManagerInterop_Vtbl {
     pub const fn new<Identity: IWebAuthenticationCoreManagerInterop_Impl, const OFFSET: isize>() -> Self {

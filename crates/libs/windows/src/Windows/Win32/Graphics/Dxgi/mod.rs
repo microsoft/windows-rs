@@ -2816,7 +2816,7 @@ pub trait IDXGIFactory_Impl: IDXGIObject_Impl {
     fn EnumAdapters(&self, adapter: u32) -> windows_core::Result<IDXGIAdapter>;
     fn MakeWindowAssociation(&self, windowhandle: super::super::Foundation::HWND, flags: DXGI_MWA_FLAGS) -> windows_core::Result<()>;
     fn GetWindowAssociation(&self) -> windows_core::Result<super::super::Foundation::HWND>;
-    fn CreateSwapChain(&self, pdevice: windows_core::Ref<'_, windows_core::IUnknown>, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: windows_core::OutRef<'_, IDXGISwapChain>) -> windows_core::HRESULT;
+    fn CreateSwapChain(&self, pdevice: windows_core::Ref<windows_core::IUnknown>, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: windows_core::OutRef<'_, IDXGISwapChain>) -> windows_core::HRESULT;
     fn CreateSoftwareAdapter(&self, module: super::super::Foundation::HMODULE) -> windows_core::Result<IDXGIAdapter>;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -3062,8 +3062,8 @@ pub struct IDXGIFactory2_Vtbl {
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IDXGIFactory2_Impl: IDXGIFactory1_Impl {
     fn IsWindowedStereoEnabled(&self) -> super::super::Foundation::BOOL;
-    fn CreateSwapChainForHwnd(&self, pdevice: windows_core::Ref<'_, windows_core::IUnknown>, hwnd: super::super::Foundation::HWND, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, prestricttooutput: windows_core::Ref<'_, IDXGIOutput>) -> windows_core::Result<IDXGISwapChain1>;
-    fn CreateSwapChainForCoreWindow(&self, pdevice: windows_core::Ref<'_, windows_core::IUnknown>, pwindow: windows_core::Ref<'_, windows_core::IUnknown>, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: windows_core::Ref<'_, IDXGIOutput>) -> windows_core::Result<IDXGISwapChain1>;
+    fn CreateSwapChainForHwnd(&self, pdevice: windows_core::Ref<windows_core::IUnknown>, hwnd: super::super::Foundation::HWND, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, prestricttooutput: windows_core::Ref<IDXGIOutput>) -> windows_core::Result<IDXGISwapChain1>;
+    fn CreateSwapChainForCoreWindow(&self, pdevice: windows_core::Ref<windows_core::IUnknown>, pwindow: windows_core::Ref<windows_core::IUnknown>, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: windows_core::Ref<IDXGIOutput>) -> windows_core::Result<IDXGISwapChain1>;
     fn GetSharedResourceAdapterLuid(&self, hresource: super::super::Foundation::HANDLE) -> windows_core::Result<super::super::Foundation::LUID>;
     fn RegisterStereoStatusWindow(&self, windowhandle: super::super::Foundation::HWND, wmsg: u32) -> windows_core::Result<u32>;
     fn RegisterStereoStatusEvent(&self, hevent: super::super::Foundation::HANDLE) -> windows_core::Result<u32>;
@@ -3071,7 +3071,7 @@ pub trait IDXGIFactory2_Impl: IDXGIFactory1_Impl {
     fn RegisterOcclusionStatusWindow(&self, windowhandle: super::super::Foundation::HWND, wmsg: u32) -> windows_core::Result<u32>;
     fn RegisterOcclusionStatusEvent(&self, hevent: super::super::Foundation::HANDLE) -> windows_core::Result<u32>;
     fn UnregisterOcclusionStatus(&self, dwcookie: u32);
-    fn CreateSwapChainForComposition(&self, pdevice: windows_core::Ref<'_, windows_core::IUnknown>, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: windows_core::Ref<'_, IDXGIOutput>) -> windows_core::Result<IDXGISwapChain1>;
+    fn CreateSwapChainForComposition(&self, pdevice: windows_core::Ref<windows_core::IUnknown>, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: windows_core::Ref<IDXGIOutput>) -> windows_core::Result<IDXGISwapChain1>;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl IDXGIFactory2_Vtbl {
@@ -3518,8 +3518,8 @@ pub struct IDXGIFactoryMedia_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IDXGIFactoryMedia_Impl: windows_core::IUnknownImpl {
-    fn CreateSwapChainForCompositionSurfaceHandle(&self, pdevice: windows_core::Ref<'_, windows_core::IUnknown>, hsurface: super::super::Foundation::HANDLE, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: windows_core::Ref<'_, IDXGIOutput>) -> windows_core::Result<IDXGISwapChain1>;
-    fn CreateDecodeSwapChainForCompositionSurfaceHandle(&self, pdevice: windows_core::Ref<'_, windows_core::IUnknown>, hsurface: super::super::Foundation::HANDLE, pdesc: *const DXGI_DECODE_SWAP_CHAIN_DESC, pyuvdecodebuffers: windows_core::Ref<'_, IDXGIResource>, prestricttooutput: windows_core::Ref<'_, IDXGIOutput>) -> windows_core::Result<IDXGIDecodeSwapChain>;
+    fn CreateSwapChainForCompositionSurfaceHandle(&self, pdevice: windows_core::Ref<windows_core::IUnknown>, hsurface: super::super::Foundation::HANDLE, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: windows_core::Ref<IDXGIOutput>) -> windows_core::Result<IDXGISwapChain1>;
+    fn CreateDecodeSwapChainForCompositionSurfaceHandle(&self, pdevice: windows_core::Ref<windows_core::IUnknown>, hsurface: super::super::Foundation::HANDLE, pdesc: *const DXGI_DECODE_SWAP_CHAIN_DESC, pyuvdecodebuffers: windows_core::Ref<IDXGIResource>, prestricttooutput: windows_core::Ref<IDXGIOutput>) -> windows_core::Result<IDXGIDecodeSwapChain>;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl IDXGIFactoryMedia_Vtbl {
@@ -4123,7 +4123,7 @@ pub struct IDXGIObject_Vtbl {
 }
 pub trait IDXGIObject_Impl: windows_core::IUnknownImpl {
     fn SetPrivateData(&self, name: *const windows_core::GUID, datasize: u32, pdata: *const core::ffi::c_void) -> windows_core::Result<()>;
-    fn SetPrivateDataInterface(&self, name: *const windows_core::GUID, punknown: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetPrivateDataInterface(&self, name: *const windows_core::GUID, punknown: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetPrivateData(&self, name: *const windows_core::GUID, pdatasize: *mut u32, pdata: *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetParent(&self, riid: *const windows_core::GUID, ppparent: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
@@ -4273,15 +4273,15 @@ pub struct IDXGIOutput_Vtbl {
 pub trait IDXGIOutput_Impl: IDXGIObject_Impl {
     fn GetDesc(&self) -> windows_core::Result<DXGI_OUTPUT_DESC>;
     fn GetDisplayModeList(&self, enumformat: Common::DXGI_FORMAT, flags: DXGI_ENUM_MODES, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> windows_core::Result<()>;
-    fn FindClosestMatchingMode(&self, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn FindClosestMatchingMode(&self, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn WaitForVBlank(&self) -> windows_core::Result<()>;
-    fn TakeOwnership(&self, pdevice: windows_core::Ref<'_, windows_core::IUnknown>, exclusive: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn TakeOwnership(&self, pdevice: windows_core::Ref<windows_core::IUnknown>, exclusive: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn ReleaseOwnership(&self);
     fn GetGammaControlCapabilities(&self, pgammacaps: *mut Common::DXGI_GAMMA_CONTROL_CAPABILITIES) -> windows_core::Result<()>;
     fn SetGammaControl(&self, parray: *const Common::DXGI_GAMMA_CONTROL) -> windows_core::Result<()>;
     fn GetGammaControl(&self, parray: *mut Common::DXGI_GAMMA_CONTROL) -> windows_core::Result<()>;
-    fn SetDisplaySurface(&self, pscanoutsurface: windows_core::Ref<'_, IDXGISurface>) -> windows_core::Result<()>;
-    fn GetDisplaySurfaceData(&self, pdestination: windows_core::Ref<'_, IDXGISurface>) -> windows_core::Result<()>;
+    fn SetDisplaySurface(&self, pscanoutsurface: windows_core::Ref<IDXGISurface>) -> windows_core::Result<()>;
+    fn GetDisplaySurfaceData(&self, pdestination: windows_core::Ref<IDXGISurface>) -> windows_core::Result<()>;
     fn GetFrameStatistics(&self, pstats: *mut DXGI_FRAME_STATISTICS) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
@@ -4444,9 +4444,9 @@ pub struct IDXGIOutput1_Vtbl {
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 pub trait IDXGIOutput1_Impl: IDXGIOutput_Impl {
     fn GetDisplayModeList1(&self, enumformat: Common::DXGI_FORMAT, flags: DXGI_ENUM_MODES, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> windows_core::Result<()>;
-    fn FindClosestMatchingMode1(&self, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn GetDisplaySurfaceData1(&self, pdestination: windows_core::Ref<'_, IDXGIResource>) -> windows_core::Result<()>;
-    fn DuplicateOutput(&self, pdevice: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<IDXGIOutputDuplication>;
+    fn FindClosestMatchingMode1(&self, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetDisplaySurfaceData1(&self, pdestination: windows_core::Ref<IDXGIResource>) -> windows_core::Result<()>;
+    fn DuplicateOutput(&self, pdevice: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<IDXGIOutputDuplication>;
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl IDXGIOutput1_Vtbl {
@@ -4572,7 +4572,7 @@ pub struct IDXGIOutput3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 pub trait IDXGIOutput3_Impl: IDXGIOutput2_Impl {
-    fn CheckOverlaySupport(&self, enumformat: Common::DXGI_FORMAT, pconcerneddevice: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<u32>;
+    fn CheckOverlaySupport(&self, enumformat: Common::DXGI_FORMAT, pconcerneddevice: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl IDXGIOutput3_Vtbl {
@@ -4631,7 +4631,7 @@ pub struct IDXGIOutput4_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 pub trait IDXGIOutput4_Impl: IDXGIOutput3_Impl {
-    fn CheckOverlayColorSpaceSupport(&self, format: Common::DXGI_FORMAT, colorspace: Common::DXGI_COLOR_SPACE_TYPE, pconcerneddevice: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<u32>;
+    fn CheckOverlayColorSpaceSupport(&self, format: Common::DXGI_FORMAT, colorspace: Common::DXGI_COLOR_SPACE_TYPE, pconcerneddevice: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl IDXGIOutput4_Vtbl {
@@ -4690,7 +4690,7 @@ pub struct IDXGIOutput5_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 pub trait IDXGIOutput5_Impl: IDXGIOutput4_Impl {
-    fn DuplicateOutput1(&self, pdevice: windows_core::Ref<'_, windows_core::IUnknown>, flags: u32, supportedformatscount: u32, psupportedformats: *const Common::DXGI_FORMAT) -> windows_core::Result<IDXGIOutputDuplication>;
+    fn DuplicateOutput1(&self, pdevice: windows_core::Ref<windows_core::IUnknown>, flags: u32, supportedformatscount: u32, psupportedformats: *const Common::DXGI_FORMAT) -> windows_core::Result<IDXGIOutputDuplication>;
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl IDXGIOutput5_Vtbl {
@@ -5416,7 +5416,7 @@ pub struct IDXGISwapChain_Vtbl {
 pub trait IDXGISwapChain_Impl: IDXGIDeviceSubObject_Impl {
     fn Present(&self, syncinterval: u32, flags: DXGI_PRESENT) -> windows_core::HRESULT;
     fn GetBuffer(&self, buffer: u32, riid: *const windows_core::GUID, ppsurface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn SetFullscreenState(&self, fullscreen: super::super::Foundation::BOOL, ptarget: windows_core::Ref<'_, IDXGIOutput>) -> windows_core::Result<()>;
+    fn SetFullscreenState(&self, fullscreen: super::super::Foundation::BOOL, ptarget: windows_core::Ref<IDXGIOutput>) -> windows_core::Result<()>;
     fn GetFullscreenState(&self, pfullscreen: *mut super::super::Foundation::BOOL, pptarget: windows_core::OutRef<'_, IDXGIOutput>) -> windows_core::Result<()>;
     fn GetDesc(&self) -> windows_core::Result<DXGI_SWAP_CHAIN_DESC>;
     fn ResizeBuffers(&self, buffercount: u32, width: u32, height: u32, newformat: Common::DXGI_FORMAT, swapchainflags: &DXGI_SWAP_CHAIN_FLAG) -> windows_core::Result<()>;

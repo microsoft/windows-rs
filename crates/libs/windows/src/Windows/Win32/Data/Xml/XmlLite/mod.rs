@@ -203,7 +203,7 @@ pub struct IXmlReader_Vtbl {
     pub IsEOF: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::super::Foundation::BOOL,
 }
 pub trait IXmlReader_Impl: windows_core::IUnknownImpl {
-    fn SetInput(&self, pinput: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetInput(&self, pinput: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetProperty(&self, nproperty: u32) -> windows_core::Result<isize>;
     fn SetProperty(&self, nproperty: u32, pvalue: isize) -> windows_core::Result<()>;
     fn Read(&self, pnodetype: *mut XmlNodeType) -> windows_core::HRESULT;
@@ -674,10 +674,10 @@ pub struct IXmlWriter_Vtbl {
     pub Flush: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IXmlWriter_Impl: windows_core::IUnknownImpl {
-    fn SetOutput(&self, poutput: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetOutput(&self, poutput: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetProperty(&self, nproperty: u32) -> windows_core::Result<isize>;
     fn SetProperty(&self, nproperty: u32, pvalue: isize) -> windows_core::Result<()>;
-    fn WriteAttributes(&self, preader: windows_core::Ref<'_, IXmlReader>, fwritedefaultattributes: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn WriteAttributes(&self, preader: windows_core::Ref<IXmlReader>, fwritedefaultattributes: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn WriteAttributeString(&self, pwszprefix: &windows_core::PCWSTR, pwszlocalname: &windows_core::PCWSTR, pwsznamespaceuri: &windows_core::PCWSTR, pwszvalue: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn WriteCData(&self, pwsztext: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn WriteCharEntity(&self, wch: u16) -> windows_core::Result<()>;
@@ -691,8 +691,8 @@ pub trait IXmlWriter_Impl: windows_core::IUnknownImpl {
     fn WriteFullEndElement(&self) -> windows_core::Result<()>;
     fn WriteName(&self, pwszname: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn WriteNmToken(&self, pwsznmtoken: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn WriteNode(&self, preader: windows_core::Ref<'_, IXmlReader>, fwritedefaultattributes: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn WriteNodeShallow(&self, preader: windows_core::Ref<'_, IXmlReader>, fwritedefaultattributes: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn WriteNode(&self, preader: windows_core::Ref<IXmlReader>, fwritedefaultattributes: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn WriteNodeShallow(&self, preader: windows_core::Ref<IXmlReader>, fwritedefaultattributes: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn WriteProcessingInstruction(&self, pwszname: &windows_core::PCWSTR, pwsztext: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn WriteQualifiedName(&self, pwszlocalname: &windows_core::PCWSTR, pwsznamespaceuri: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn WriteRaw(&self, pwszdata: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -1097,10 +1097,10 @@ pub struct IXmlWriterLite_Vtbl {
     pub Flush: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IXmlWriterLite_Impl: windows_core::IUnknownImpl {
-    fn SetOutput(&self, poutput: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetOutput(&self, poutput: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetProperty(&self, nproperty: u32) -> windows_core::Result<isize>;
     fn SetProperty(&self, nproperty: u32, pvalue: isize) -> windows_core::Result<()>;
-    fn WriteAttributes(&self, preader: windows_core::Ref<'_, IXmlReader>, fwritedefaultattributes: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn WriteAttributes(&self, preader: windows_core::Ref<IXmlReader>, fwritedefaultattributes: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn WriteAttributeString(&self, pwszqname: &windows_core::PCWSTR, cwszqname: u32, pwszvalue: &windows_core::PCWSTR, cwszvalue: u32) -> windows_core::Result<()>;
     fn WriteCData(&self, pwsztext: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn WriteCharEntity(&self, wch: u16) -> windows_core::Result<()>;
@@ -1114,8 +1114,8 @@ pub trait IXmlWriterLite_Impl: windows_core::IUnknownImpl {
     fn WriteFullEndElement(&self, pwszqname: &windows_core::PCWSTR, cwszqname: u32) -> windows_core::Result<()>;
     fn WriteName(&self, pwszname: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn WriteNmToken(&self, pwsznmtoken: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn WriteNode(&self, preader: windows_core::Ref<'_, IXmlReader>, fwritedefaultattributes: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn WriteNodeShallow(&self, preader: windows_core::Ref<'_, IXmlReader>, fwritedefaultattributes: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn WriteNode(&self, preader: windows_core::Ref<IXmlReader>, fwritedefaultattributes: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn WriteNodeShallow(&self, preader: windows_core::Ref<IXmlReader>, fwritedefaultattributes: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn WriteProcessingInstruction(&self, pwszname: &windows_core::PCWSTR, pwsztext: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn WriteRaw(&self, pwszdata: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn WriteRawChars(&self, pwch: &windows_core::PCWSTR, cwch: u32) -> windows_core::Result<()>;

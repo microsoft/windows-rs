@@ -62,7 +62,7 @@ pub struct IEnumWbemClassObject_Vtbl {
 pub trait IEnumWbemClassObject_Impl: windows_core::IUnknownImpl {
     fn Reset(&self) -> windows_core::Result<()>;
     fn Next(&self, ltimeout: i32, ucount: u32, apobjects: windows_core::OutRef<'_, IWbemClassObject>, pureturned: *mut u32) -> windows_core::HRESULT;
-    fn NextAsync(&self, ucount: u32, psink: windows_core::Ref<'_, IWbemObjectSink>) -> windows_core::HRESULT;
+    fn NextAsync(&self, ucount: u32, psink: windows_core::Ref<IWbemObjectSink>) -> windows_core::HRESULT;
     fn Clone(&self) -> windows_core::Result<IEnumWbemClassObject>;
     fn Skip(&self, ltimeout: i32, ncount: u32) -> windows_core::HRESULT;
 }
@@ -1032,7 +1032,7 @@ pub struct ISWbemLocator_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISWbemLocator_Impl: super::Com::IDispatch_Impl {
-    fn ConnectServer(&self, strserver: &windows_core::BSTR, strnamespace: &windows_core::BSTR, struser: &windows_core::BSTR, strpassword: &windows_core::BSTR, strlocale: &windows_core::BSTR, strauthority: &windows_core::BSTR, isecurityflags: i32, objwbemnamedvalueset: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<ISWbemServices>;
+    fn ConnectServer(&self, strserver: &windows_core::BSTR, strnamespace: &windows_core::BSTR, struser: &windows_core::BSTR, strpassword: &windows_core::BSTR, strlocale: &windows_core::BSTR, strauthority: &windows_core::BSTR, isecurityflags: i32, objwbemnamedvalueset: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<ISWbemServices>;
     fn Security_(&self) -> windows_core::Result<ISWbemSecurity>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1814,25 +1814,25 @@ pub struct ISWbemObject_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISWbemObject_Impl: super::Com::IDispatch_Impl {
-    fn Put_(&self, iflags: i32, objwbemnamedvalueset: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<ISWbemObjectPath>;
-    fn PutAsync_(&self, objwbemsink: windows_core::Ref<'_, super::Com::IDispatch>, iflags: i32, objwbemnamedvalueset: windows_core::Ref<'_, super::Com::IDispatch>, objwbemasynccontext: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<()>;
-    fn Delete_(&self, iflags: i32, objwbemnamedvalueset: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<()>;
-    fn DeleteAsync_(&self, objwbemsink: windows_core::Ref<'_, super::Com::IDispatch>, iflags: i32, objwbemnamedvalueset: windows_core::Ref<'_, super::Com::IDispatch>, objwbemasynccontext: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<()>;
-    fn Instances_(&self, iflags: i32, objwbemnamedvalueset: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<ISWbemObjectSet>;
-    fn InstancesAsync_(&self, objwbemsink: windows_core::Ref<'_, super::Com::IDispatch>, iflags: i32, objwbemnamedvalueset: windows_core::Ref<'_, super::Com::IDispatch>, objwbemasynccontext: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<()>;
-    fn Subclasses_(&self, iflags: i32, objwbemnamedvalueset: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<ISWbemObjectSet>;
-    fn SubclassesAsync_(&self, objwbemsink: windows_core::Ref<'_, super::Com::IDispatch>, iflags: i32, objwbemnamedvalueset: windows_core::Ref<'_, super::Com::IDispatch>, objwbemasynccontext: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<()>;
-    fn Associators_(&self, strassocclass: &windows_core::BSTR, strresultclass: &windows_core::BSTR, strresultrole: &windows_core::BSTR, strrole: &windows_core::BSTR, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredassocqualifier: &windows_core::BSTR, strrequiredqualifier: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<ISWbemObjectSet>;
-    fn AssociatorsAsync_(&self, objwbemsink: windows_core::Ref<'_, super::Com::IDispatch>, strassocclass: &windows_core::BSTR, strresultclass: &windows_core::BSTR, strresultrole: &windows_core::BSTR, strrole: &windows_core::BSTR, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredassocqualifier: &windows_core::BSTR, strrequiredqualifier: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<'_, super::Com::IDispatch>, objwbemasynccontext: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<()>;
-    fn References_(&self, strresultclass: &windows_core::BSTR, strrole: &windows_core::BSTR, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredqualifier: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<ISWbemObjectSet>;
-    fn ReferencesAsync_(&self, objwbemsink: windows_core::Ref<'_, super::Com::IDispatch>, strresultclass: &windows_core::BSTR, strrole: &windows_core::BSTR, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredqualifier: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<'_, super::Com::IDispatch>, objwbemasynccontext: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<()>;
-    fn ExecMethod_(&self, strmethodname: &windows_core::BSTR, objwbeminparameters: windows_core::Ref<'_, super::Com::IDispatch>, iflags: i32, objwbemnamedvalueset: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<ISWbemObject>;
-    fn ExecMethodAsync_(&self, objwbemsink: windows_core::Ref<'_, super::Com::IDispatch>, strmethodname: &windows_core::BSTR, objwbeminparameters: windows_core::Ref<'_, super::Com::IDispatch>, iflags: i32, objwbemnamedvalueset: windows_core::Ref<'_, super::Com::IDispatch>, objwbemasynccontext: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn Put_(&self, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<ISWbemObjectPath>;
+    fn PutAsync_(&self, objwbemsink: windows_core::Ref<super::Com::IDispatch>, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::Com::IDispatch>, objwbemasynccontext: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn Delete_(&self, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn DeleteAsync_(&self, objwbemsink: windows_core::Ref<super::Com::IDispatch>, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::Com::IDispatch>, objwbemasynccontext: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn Instances_(&self, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<ISWbemObjectSet>;
+    fn InstancesAsync_(&self, objwbemsink: windows_core::Ref<super::Com::IDispatch>, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::Com::IDispatch>, objwbemasynccontext: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn Subclasses_(&self, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<ISWbemObjectSet>;
+    fn SubclassesAsync_(&self, objwbemsink: windows_core::Ref<super::Com::IDispatch>, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::Com::IDispatch>, objwbemasynccontext: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn Associators_(&self, strassocclass: &windows_core::BSTR, strresultclass: &windows_core::BSTR, strresultrole: &windows_core::BSTR, strrole: &windows_core::BSTR, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredassocqualifier: &windows_core::BSTR, strrequiredqualifier: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<ISWbemObjectSet>;
+    fn AssociatorsAsync_(&self, objwbemsink: windows_core::Ref<super::Com::IDispatch>, strassocclass: &windows_core::BSTR, strresultclass: &windows_core::BSTR, strresultrole: &windows_core::BSTR, strrole: &windows_core::BSTR, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredassocqualifier: &windows_core::BSTR, strrequiredqualifier: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::Com::IDispatch>, objwbemasynccontext: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn References_(&self, strresultclass: &windows_core::BSTR, strrole: &windows_core::BSTR, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredqualifier: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<ISWbemObjectSet>;
+    fn ReferencesAsync_(&self, objwbemsink: windows_core::Ref<super::Com::IDispatch>, strresultclass: &windows_core::BSTR, strrole: &windows_core::BSTR, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredqualifier: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::Com::IDispatch>, objwbemasynccontext: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn ExecMethod_(&self, strmethodname: &windows_core::BSTR, objwbeminparameters: windows_core::Ref<super::Com::IDispatch>, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<ISWbemObject>;
+    fn ExecMethodAsync_(&self, objwbemsink: windows_core::Ref<super::Com::IDispatch>, strmethodname: &windows_core::BSTR, objwbeminparameters: windows_core::Ref<super::Com::IDispatch>, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::Com::IDispatch>, objwbemasynccontext: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<()>;
     fn Clone_(&self) -> windows_core::Result<ISWbemObject>;
     fn GetObjectText_(&self, iflags: i32) -> windows_core::Result<windows_core::BSTR>;
     fn SpawnDerivedClass_(&self, iflags: i32) -> windows_core::Result<ISWbemObject>;
     fn SpawnInstance_(&self, iflags: i32) -> windows_core::Result<ISWbemObject>;
-    fn CompareTo_(&self, objwbemobject: windows_core::Ref<'_, super::Com::IDispatch>, iflags: i32) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn CompareTo_(&self, objwbemobject: windows_core::Ref<super::Com::IDispatch>, iflags: i32) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn Qualifiers_(&self) -> windows_core::Result<ISWbemQualifierSet>;
     fn Properties_(&self) -> windows_core::Result<ISWbemPropertySet>;
     fn Methods_(&self) -> windows_core::Result<ISWbemMethodSet>;
@@ -2197,10 +2197,10 @@ pub struct ISWbemObjectEx_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISWbemObjectEx_Impl: ISWbemObject_Impl {
-    fn Refresh_(&self, iflags: i32, objwbemnamedvalueset: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn Refresh_(&self, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<()>;
     fn SystemProperties_(&self) -> windows_core::Result<ISWbemPropertySet>;
-    fn GetText_(&self, iobjecttextformat: WbemObjectTextFormatEnum, iflags: i32, objwbemnamedvalueset: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<windows_core::BSTR>;
-    fn SetFromText_(&self, bstext: &windows_core::BSTR, iobjecttextformat: WbemObjectTextFormatEnum, iflags: i32, objwbemnamedvalueset: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn GetText_(&self, iobjecttextformat: WbemObjectTextFormatEnum, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<windows_core::BSTR>;
+    fn SetFromText_(&self, bstext: &windows_core::BSTR, iobjecttextformat: WbemObjectTextFormatEnum, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISWbemObjectEx_Vtbl {
@@ -4066,8 +4066,8 @@ pub trait ISWbemRefresher_Impl: super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Item(&self, iindex: i32) -> windows_core::Result<ISWbemRefreshableItem>;
     fn Count(&self) -> windows_core::Result<i32>;
-    fn Add(&self, objwbemservices: windows_core::Ref<'_, ISWbemServicesEx>, bsinstancepath: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<ISWbemRefreshableItem>;
-    fn AddEnum(&self, objwbemservices: windows_core::Ref<'_, ISWbemServicesEx>, bsclassname: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<ISWbemRefreshableItem>;
+    fn Add(&self, objwbemservices: windows_core::Ref<ISWbemServicesEx>, bsinstancepath: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<ISWbemRefreshableItem>;
+    fn AddEnum(&self, objwbemservices: windows_core::Ref<ISWbemServicesEx>, bsclassname: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<ISWbemRefreshableItem>;
     fn Remove(&self, iindex: i32, iflags: i32) -> windows_core::Result<()>;
     fn Refresh(&self, iflags: i32) -> windows_core::Result<()>;
     fn AutoReconnect(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -4513,24 +4513,24 @@ pub struct ISWbemServices_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISWbemServices_Impl: super::Com::IDispatch_Impl {
-    fn Get(&self, strobjectpath: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<ISWbemObject>;
-    fn GetAsync(&self, objwbemsink: windows_core::Ref<'_, super::Com::IDispatch>, strobjectpath: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<'_, super::Com::IDispatch>, objwbemasynccontext: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<()>;
-    fn Delete(&self, strobjectpath: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<()>;
-    fn DeleteAsync(&self, objwbemsink: windows_core::Ref<'_, super::Com::IDispatch>, strobjectpath: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<'_, super::Com::IDispatch>, objwbemasynccontext: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<()>;
-    fn InstancesOf(&self, strclass: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<ISWbemObjectSet>;
-    fn InstancesOfAsync(&self, objwbemsink: windows_core::Ref<'_, super::Com::IDispatch>, strclass: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<'_, super::Com::IDispatch>, objwbemasynccontext: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<()>;
-    fn SubclassesOf(&self, strsuperclass: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<ISWbemObjectSet>;
-    fn SubclassesOfAsync(&self, objwbemsink: windows_core::Ref<'_, super::Com::IDispatch>, strsuperclass: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<'_, super::Com::IDispatch>, objwbemasynccontext: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<()>;
-    fn ExecQuery(&self, strquery: &windows_core::BSTR, strquerylanguage: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<ISWbemObjectSet>;
-    fn ExecQueryAsync(&self, objwbemsink: windows_core::Ref<'_, super::Com::IDispatch>, strquery: &windows_core::BSTR, strquerylanguage: &windows_core::BSTR, lflags: i32, objwbemnamedvalueset: windows_core::Ref<'_, super::Com::IDispatch>, objwbemasynccontext: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<()>;
-    fn AssociatorsOf(&self, strobjectpath: &windows_core::BSTR, strassocclass: &windows_core::BSTR, strresultclass: &windows_core::BSTR, strresultrole: &windows_core::BSTR, strrole: &windows_core::BSTR, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredassocqualifier: &windows_core::BSTR, strrequiredqualifier: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<ISWbemObjectSet>;
-    fn AssociatorsOfAsync(&self, objwbemsink: windows_core::Ref<'_, super::Com::IDispatch>, strobjectpath: &windows_core::BSTR, strassocclass: &windows_core::BSTR, strresultclass: &windows_core::BSTR, strresultrole: &windows_core::BSTR, strrole: &windows_core::BSTR, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredassocqualifier: &windows_core::BSTR, strrequiredqualifier: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<'_, super::Com::IDispatch>, objwbemasynccontext: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<()>;
-    fn ReferencesTo(&self, strobjectpath: &windows_core::BSTR, strresultclass: &windows_core::BSTR, strrole: &windows_core::BSTR, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredqualifier: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<ISWbemObjectSet>;
-    fn ReferencesToAsync(&self, objwbemsink: windows_core::Ref<'_, super::Com::IDispatch>, strobjectpath: &windows_core::BSTR, strresultclass: &windows_core::BSTR, strrole: &windows_core::BSTR, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredqualifier: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<'_, super::Com::IDispatch>, objwbemasynccontext: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<()>;
-    fn ExecNotificationQuery(&self, strquery: &windows_core::BSTR, strquerylanguage: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<ISWbemEventSource>;
-    fn ExecNotificationQueryAsync(&self, objwbemsink: windows_core::Ref<'_, super::Com::IDispatch>, strquery: &windows_core::BSTR, strquerylanguage: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<'_, super::Com::IDispatch>, objwbemasynccontext: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<()>;
-    fn ExecMethod(&self, strobjectpath: &windows_core::BSTR, strmethodname: &windows_core::BSTR, objwbeminparameters: windows_core::Ref<'_, super::Com::IDispatch>, iflags: i32, objwbemnamedvalueset: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<ISWbemObject>;
-    fn ExecMethodAsync(&self, objwbemsink: windows_core::Ref<'_, super::Com::IDispatch>, strobjectpath: &windows_core::BSTR, strmethodname: &windows_core::BSTR, objwbeminparameters: windows_core::Ref<'_, super::Com::IDispatch>, iflags: i32, objwbemnamedvalueset: windows_core::Ref<'_, super::Com::IDispatch>, objwbemasynccontext: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn Get(&self, strobjectpath: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<ISWbemObject>;
+    fn GetAsync(&self, objwbemsink: windows_core::Ref<super::Com::IDispatch>, strobjectpath: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::Com::IDispatch>, objwbemasynccontext: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn Delete(&self, strobjectpath: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn DeleteAsync(&self, objwbemsink: windows_core::Ref<super::Com::IDispatch>, strobjectpath: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::Com::IDispatch>, objwbemasynccontext: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn InstancesOf(&self, strclass: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<ISWbemObjectSet>;
+    fn InstancesOfAsync(&self, objwbemsink: windows_core::Ref<super::Com::IDispatch>, strclass: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::Com::IDispatch>, objwbemasynccontext: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn SubclassesOf(&self, strsuperclass: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<ISWbemObjectSet>;
+    fn SubclassesOfAsync(&self, objwbemsink: windows_core::Ref<super::Com::IDispatch>, strsuperclass: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::Com::IDispatch>, objwbemasynccontext: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn ExecQuery(&self, strquery: &windows_core::BSTR, strquerylanguage: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<ISWbemObjectSet>;
+    fn ExecQueryAsync(&self, objwbemsink: windows_core::Ref<super::Com::IDispatch>, strquery: &windows_core::BSTR, strquerylanguage: &windows_core::BSTR, lflags: i32, objwbemnamedvalueset: windows_core::Ref<super::Com::IDispatch>, objwbemasynccontext: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn AssociatorsOf(&self, strobjectpath: &windows_core::BSTR, strassocclass: &windows_core::BSTR, strresultclass: &windows_core::BSTR, strresultrole: &windows_core::BSTR, strrole: &windows_core::BSTR, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredassocqualifier: &windows_core::BSTR, strrequiredqualifier: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<ISWbemObjectSet>;
+    fn AssociatorsOfAsync(&self, objwbemsink: windows_core::Ref<super::Com::IDispatch>, strobjectpath: &windows_core::BSTR, strassocclass: &windows_core::BSTR, strresultclass: &windows_core::BSTR, strresultrole: &windows_core::BSTR, strrole: &windows_core::BSTR, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredassocqualifier: &windows_core::BSTR, strrequiredqualifier: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::Com::IDispatch>, objwbemasynccontext: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn ReferencesTo(&self, strobjectpath: &windows_core::BSTR, strresultclass: &windows_core::BSTR, strrole: &windows_core::BSTR, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredqualifier: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<ISWbemObjectSet>;
+    fn ReferencesToAsync(&self, objwbemsink: windows_core::Ref<super::Com::IDispatch>, strobjectpath: &windows_core::BSTR, strresultclass: &windows_core::BSTR, strrole: &windows_core::BSTR, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredqualifier: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::Com::IDispatch>, objwbemasynccontext: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn ExecNotificationQuery(&self, strquery: &windows_core::BSTR, strquerylanguage: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<ISWbemEventSource>;
+    fn ExecNotificationQueryAsync(&self, objwbemsink: windows_core::Ref<super::Com::IDispatch>, strquery: &windows_core::BSTR, strquerylanguage: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::Com::IDispatch>, objwbemasynccontext: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn ExecMethod(&self, strobjectpath: &windows_core::BSTR, strmethodname: &windows_core::BSTR, objwbeminparameters: windows_core::Ref<super::Com::IDispatch>, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<ISWbemObject>;
+    fn ExecMethodAsync(&self, objwbemsink: windows_core::Ref<super::Com::IDispatch>, strobjectpath: &windows_core::BSTR, strmethodname: &windows_core::BSTR, objwbeminparameters: windows_core::Ref<super::Com::IDispatch>, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::Com::IDispatch>, objwbemasynccontext: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<()>;
     fn Security_(&self) -> windows_core::Result<ISWbemSecurity>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -4791,8 +4791,8 @@ pub struct ISWbemServicesEx_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISWbemServicesEx_Impl: ISWbemServices_Impl {
-    fn Put(&self, objwbemobject: windows_core::Ref<'_, ISWbemObjectEx>, iflags: i32, objwbemnamedvalueset: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<ISWbemObjectPath>;
-    fn PutAsync(&self, objwbemsink: windows_core::Ref<'_, ISWbemSink>, objwbemobject: windows_core::Ref<'_, ISWbemObjectEx>, iflags: i32, objwbemnamedvalueset: windows_core::Ref<'_, super::Com::IDispatch>, objwbemasynccontext: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn Put(&self, objwbemobject: windows_core::Ref<ISWbemObjectEx>, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<ISWbemObjectPath>;
+    fn PutAsync(&self, objwbemsink: windows_core::Ref<ISWbemSink>, objwbemobject: windows_core::Ref<ISWbemObjectEx>, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::Com::IDispatch>, objwbemasynccontext: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISWbemServicesEx_Vtbl {
@@ -4915,7 +4915,7 @@ pub struct IUnsecuredApartment_Vtbl {
     pub CreateObjectStub: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUnsecuredApartment_Impl: windows_core::IUnknownImpl {
-    fn CreateObjectStub(&self, pobject: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<windows_core::IUnknown>;
+    fn CreateObjectStub(&self, pobject: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<windows_core::IUnknown>;
 }
 impl IUnsecuredApartment_Vtbl {
     pub const fn new<Identity: IUnsecuredApartment_Impl, const OFFSET: isize>() -> Self {
@@ -5474,11 +5474,11 @@ pub trait IWbemClassObject_Impl: windows_core::IUnknownImpl {
     fn GetObjectText(&self, lflags: i32) -> windows_core::Result<windows_core::BSTR>;
     fn SpawnDerivedClass(&self, lflags: i32) -> windows_core::Result<IWbemClassObject>;
     fn SpawnInstance(&self, lflags: i32) -> windows_core::Result<IWbemClassObject>;
-    fn CompareTo(&self, lflags: WBEM_COMPARISON_FLAG, pcompareto: windows_core::Ref<'_, IWbemClassObject>) -> windows_core::Result<()>;
+    fn CompareTo(&self, lflags: WBEM_COMPARISON_FLAG, pcompareto: windows_core::Ref<IWbemClassObject>) -> windows_core::Result<()>;
     fn GetPropertyOrigin(&self, wszname: &windows_core::PCWSTR) -> windows_core::Result<windows_core::BSTR>;
     fn InheritsFrom(&self, strancestor: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetMethod(&self, wszname: &windows_core::PCWSTR, lflags: i32, ppinsignature: windows_core::OutRef<'_, IWbemClassObject>, ppoutsignature: windows_core::OutRef<'_, IWbemClassObject>) -> windows_core::Result<()>;
-    fn PutMethod(&self, wszname: &windows_core::PCWSTR, lflags: i32, pinsignature: windows_core::Ref<'_, IWbemClassObject>, poutsignature: windows_core::Ref<'_, IWbemClassObject>) -> windows_core::Result<()>;
+    fn PutMethod(&self, wszname: &windows_core::PCWSTR, lflags: i32, pinsignature: windows_core::Ref<IWbemClassObject>, poutsignature: windows_core::Ref<IWbemClassObject>) -> windows_core::Result<()>;
     fn DeleteMethod(&self, wszname: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn BeginMethodEnumeration(&self, lenumflags: i32) -> windows_core::Result<()>;
     fn NextMethod(&self, lflags: i32, pstrname: *mut windows_core::BSTR, ppinsignature: windows_core::OutRef<'_, IWbemClassObject>, ppoutsignature: windows_core::OutRef<'_, IWbemClassObject>) -> windows_core::Result<()>;
@@ -5760,9 +5760,9 @@ pub struct IWbemClientConnectionTransport_Vtbl {
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWbemClientConnectionTransport_Impl: windows_core::IUnknownImpl {
-    fn Open(&self, straddresstype: &windows_core::BSTR, dwbinaryaddresslength: u32, abbinaryaddress: *const u8, strobject: &windows_core::BSTR, struser: &windows_core::BSTR, strpassword: &windows_core::BSTR, strlocale: &windows_core::BSTR, lflags: i32, pctx: windows_core::Ref<'_, IWbemContext>, riid: *const windows_core::GUID, pinterface: *mut *mut core::ffi::c_void, pcallres: windows_core::OutRef<'_, IWbemCallResult>) -> windows_core::Result<()>;
-    fn OpenAsync(&self, straddresstype: &windows_core::BSTR, dwbinaryaddresslength: u32, abbinaryaddress: *const u8, strobject: &windows_core::BSTR, struser: &windows_core::BSTR, strpassword: &windows_core::BSTR, strlocale: &windows_core::BSTR, lflags: i32, pctx: windows_core::Ref<'_, IWbemContext>, riid: *const windows_core::GUID, presponsehandler: windows_core::Ref<'_, IWbemObjectSink>) -> windows_core::Result<()>;
-    fn Cancel(&self, lflags: i32, phandler: windows_core::Ref<'_, IWbemObjectSink>) -> windows_core::Result<()>;
+    fn Open(&self, straddresstype: &windows_core::BSTR, dwbinaryaddresslength: u32, abbinaryaddress: *const u8, strobject: &windows_core::BSTR, struser: &windows_core::BSTR, strpassword: &windows_core::BSTR, strlocale: &windows_core::BSTR, lflags: i32, pctx: windows_core::Ref<IWbemContext>, riid: *const windows_core::GUID, pinterface: *mut *mut core::ffi::c_void, pcallres: windows_core::OutRef<'_, IWbemCallResult>) -> windows_core::Result<()>;
+    fn OpenAsync(&self, straddresstype: &windows_core::BSTR, dwbinaryaddresslength: u32, abbinaryaddress: *const u8, strobject: &windows_core::BSTR, struser: &windows_core::BSTR, strpassword: &windows_core::BSTR, strlocale: &windows_core::BSTR, lflags: i32, pctx: windows_core::Ref<IWbemContext>, riid: *const windows_core::GUID, presponsehandler: windows_core::Ref<IWbemObjectSink>) -> windows_core::Result<()>;
+    fn Cancel(&self, lflags: i32, phandler: windows_core::Ref<IWbemObjectSink>) -> windows_core::Result<()>;
 }
 impl IWbemClientConnectionTransport_Vtbl {
     pub const fn new<Identity: IWbemClientConnectionTransport_Impl, const OFFSET: isize>() -> Self {
@@ -5815,7 +5815,7 @@ pub struct IWbemClientTransport_Vtbl {
     pub ConnectServer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const u8, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWbemClientTransport_Impl: windows_core::IUnknownImpl {
-    fn ConnectServer(&self, straddresstype: &windows_core::BSTR, dwbinaryaddresslength: u32, abbinaryaddress: *const u8, strnetworkresource: &windows_core::BSTR, struser: &windows_core::BSTR, strpassword: &windows_core::BSTR, strlocale: &windows_core::BSTR, lsecurityflags: i32, strauthority: &windows_core::BSTR, pctx: windows_core::Ref<'_, IWbemContext>) -> windows_core::Result<IWbemServices>;
+    fn ConnectServer(&self, straddresstype: &windows_core::BSTR, dwbinaryaddresslength: u32, abbinaryaddress: *const u8, strnetworkresource: &windows_core::BSTR, struser: &windows_core::BSTR, strpassword: &windows_core::BSTR, strlocale: &windows_core::BSTR, lsecurityflags: i32, strauthority: &windows_core::BSTR, pctx: windows_core::Ref<IWbemContext>) -> windows_core::Result<IWbemServices>;
 }
 impl IWbemClientTransport_Vtbl {
     pub const fn new<Identity: IWbemClientTransport_Impl, const OFFSET: isize>() -> Self {
@@ -5885,11 +5885,11 @@ pub struct IWbemConfigureRefresher_Vtbl {
     pub AddEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, i32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 pub trait IWbemConfigureRefresher_Impl: windows_core::IUnknownImpl {
-    fn AddObjectByPath(&self, pnamespace: windows_core::Ref<'_, IWbemServices>, wszpath: &windows_core::PCWSTR, lflags: i32, pcontext: windows_core::Ref<'_, IWbemContext>, pprefreshable: windows_core::OutRef<'_, IWbemClassObject>, plid: *mut i32) -> windows_core::Result<()>;
-    fn AddObjectByTemplate(&self, pnamespace: windows_core::Ref<'_, IWbemServices>, ptemplate: windows_core::Ref<'_, IWbemClassObject>, lflags: i32, pcontext: windows_core::Ref<'_, IWbemContext>, pprefreshable: windows_core::OutRef<'_, IWbemClassObject>, plid: *mut i32) -> windows_core::Result<()>;
-    fn AddRefresher(&self, prefresher: windows_core::Ref<'_, IWbemRefresher>, lflags: i32, plid: *mut i32) -> windows_core::Result<()>;
+    fn AddObjectByPath(&self, pnamespace: windows_core::Ref<IWbemServices>, wszpath: &windows_core::PCWSTR, lflags: i32, pcontext: windows_core::Ref<IWbemContext>, pprefreshable: windows_core::OutRef<'_, IWbemClassObject>, plid: *mut i32) -> windows_core::Result<()>;
+    fn AddObjectByTemplate(&self, pnamespace: windows_core::Ref<IWbemServices>, ptemplate: windows_core::Ref<IWbemClassObject>, lflags: i32, pcontext: windows_core::Ref<IWbemContext>, pprefreshable: windows_core::OutRef<'_, IWbemClassObject>, plid: *mut i32) -> windows_core::Result<()>;
+    fn AddRefresher(&self, prefresher: windows_core::Ref<IWbemRefresher>, lflags: i32, plid: *mut i32) -> windows_core::Result<()>;
     fn Remove(&self, lid: i32, lflags: i32) -> windows_core::Result<()>;
-    fn AddEnum(&self, pnamespace: windows_core::Ref<'_, IWbemServices>, wszclassname: &windows_core::PCWSTR, lflags: i32, pcontext: windows_core::Ref<'_, IWbemContext>, ppenum: windows_core::OutRef<'_, IWbemHiPerfEnum>, plid: *mut i32) -> windows_core::Result<()>;
+    fn AddEnum(&self, pnamespace: windows_core::Ref<IWbemServices>, wszclassname: &windows_core::PCWSTR, lflags: i32, pcontext: windows_core::Ref<IWbemContext>, ppenum: windows_core::OutRef<'_, IWbemHiPerfEnum>, plid: *mut i32) -> windows_core::Result<()>;
 }
 impl IWbemConfigureRefresher_Vtbl {
     pub const fn new<Identity: IWbemConfigureRefresher_Impl, const OFFSET: isize>() -> Self {
@@ -5957,7 +5957,7 @@ pub struct IWbemConnectorLogin_Vtbl {
     pub ConnectorLogin: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, i32, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWbemConnectorLogin_Impl: windows_core::IUnknownImpl {
-    fn ConnectorLogin(&self, wsznetworkresource: &windows_core::PCWSTR, wszpreferredlocale: &windows_core::PCWSTR, lflags: i32, pctx: windows_core::Ref<'_, IWbemContext>, riid: *const windows_core::GUID, pinterface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn ConnectorLogin(&self, wsznetworkresource: &windows_core::PCWSTR, wszpreferredlocale: &windows_core::PCWSTR, lflags: i32, pctx: windows_core::Ref<IWbemContext>, riid: *const windows_core::GUID, pinterface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 impl IWbemConnectorLogin_Vtbl {
     pub const fn new<Identity: IWbemConnectorLogin_Impl, const OFFSET: isize>() -> Self {
@@ -6272,8 +6272,8 @@ pub struct IWbemDecoupledBasicEventProvider_Vtbl {
     pub GetService: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWbemDecoupledBasicEventProvider_Impl: IWbemDecoupledRegistrar_Impl {
-    fn GetSink(&self, a_flags: i32, a_context: windows_core::Ref<'_, IWbemContext>) -> windows_core::Result<IWbemObjectSink>;
-    fn GetService(&self, a_flags: i32, a_context: windows_core::Ref<'_, IWbemContext>) -> windows_core::Result<IWbemServices>;
+    fn GetSink(&self, a_flags: i32, a_context: windows_core::Ref<IWbemContext>) -> windows_core::Result<IWbemObjectSink>;
+    fn GetService(&self, a_flags: i32, a_context: windows_core::Ref<IWbemContext>) -> windows_core::Result<IWbemServices>;
 }
 impl IWbemDecoupledBasicEventProvider_Vtbl {
     pub const fn new<Identity: IWbemDecoupledBasicEventProvider_Impl, const OFFSET: isize>() -> Self {
@@ -6337,7 +6337,7 @@ pub struct IWbemDecoupledRegistrar_Vtbl {
     pub UnRegister: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWbemDecoupledRegistrar_Impl: windows_core::IUnknownImpl {
-    fn Register(&self, a_flags: i32, a_context: windows_core::Ref<'_, IWbemContext>, a_user: &windows_core::PCWSTR, a_locale: &windows_core::PCWSTR, a_scope: &windows_core::PCWSTR, a_registration: &windows_core::PCWSTR, piunknown: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Register(&self, a_flags: i32, a_context: windows_core::Ref<IWbemContext>, a_user: &windows_core::PCWSTR, a_locale: &windows_core::PCWSTR, a_scope: &windows_core::PCWSTR, a_registration: &windows_core::PCWSTR, piunknown: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn UnRegister(&self) -> windows_core::Result<()>;
 }
 impl IWbemDecoupledRegistrar_Vtbl {
@@ -6384,7 +6384,7 @@ pub struct IWbemEventConsumerProvider_Vtbl {
     pub FindConsumer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWbemEventConsumerProvider_Impl: windows_core::IUnknownImpl {
-    fn FindConsumer(&self, plogicalconsumer: windows_core::Ref<'_, IWbemClassObject>) -> windows_core::Result<IWbemUnboundObjectSink>;
+    fn FindConsumer(&self, plogicalconsumer: windows_core::Ref<IWbemClassObject>) -> windows_core::Result<IWbemUnboundObjectSink>;
 }
 impl IWbemEventConsumerProvider_Vtbl {
     pub const fn new<Identity: IWbemEventConsumerProvider_Impl, const OFFSET: isize>() -> Self {
@@ -6423,7 +6423,7 @@ pub struct IWbemEventProvider_Vtbl {
     pub ProvideEvents: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 pub trait IWbemEventProvider_Impl: windows_core::IUnknownImpl {
-    fn ProvideEvents(&self, psink: windows_core::Ref<'_, IWbemObjectSink>, lflags: i32) -> windows_core::Result<()>;
+    fn ProvideEvents(&self, psink: windows_core::Ref<IWbemObjectSink>, lflags: i32) -> windows_core::Result<()>;
 }
 impl IWbemEventProvider_Vtbl {
     pub const fn new<Identity: IWbemEventProvider_Impl, const OFFSET: isize>() -> Self {
@@ -6554,7 +6554,7 @@ pub struct IWbemEventSink_Vtbl {
 pub trait IWbemEventSink_Impl: IWbemObjectSink_Impl {
     fn SetSinkSecurity(&self, lsdlength: i32, psd: *const u8) -> windows_core::Result<()>;
     fn IsActive(&self) -> windows_core::Result<()>;
-    fn GetRestrictedSink(&self, lnumqueries: i32, awszqueries: *const windows_core::PCWSTR, pcallback: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<IWbemEventSink>;
+    fn GetRestrictedSink(&self, lnumqueries: i32, awszqueries: *const windows_core::PCWSTR, pcallback: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<IWbemEventSink>;
     fn SetBatchingParameters(&self, lflags: i32, dwmaxbuffersize: u32, dwmaxsendlatency: u32) -> windows_core::Result<()>;
 }
 impl IWbemEventSink_Vtbl {
@@ -6739,12 +6739,12 @@ pub struct IWbemHiPerfProvider_Vtbl {
     pub GetObjects: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWbemHiPerfProvider_Impl: windows_core::IUnknownImpl {
-    fn QueryInstances(&self, pnamespace: windows_core::Ref<'_, IWbemServices>, wszclass: &windows_core::PCWSTR, lflags: i32, pctx: windows_core::Ref<'_, IWbemContext>, psink: windows_core::Ref<'_, IWbemObjectSink>) -> windows_core::Result<()>;
-    fn CreateRefresher(&self, pnamespace: windows_core::Ref<'_, IWbemServices>, lflags: i32) -> windows_core::Result<IWbemRefresher>;
-    fn CreateRefreshableObject(&self, pnamespace: windows_core::Ref<'_, IWbemServices>, ptemplate: windows_core::Ref<'_, IWbemObjectAccess>, prefresher: windows_core::Ref<'_, IWbemRefresher>, lflags: i32, pcontext: windows_core::Ref<'_, IWbemContext>, pprefreshable: windows_core::OutRef<'_, IWbemObjectAccess>, plid: *mut i32) -> windows_core::Result<()>;
-    fn StopRefreshing(&self, prefresher: windows_core::Ref<'_, IWbemRefresher>, lid: i32, lflags: i32) -> windows_core::Result<()>;
-    fn CreateRefreshableEnum(&self, pnamespace: windows_core::Ref<'_, IWbemServices>, wszclass: &windows_core::PCWSTR, prefresher: windows_core::Ref<'_, IWbemRefresher>, lflags: i32, pcontext: windows_core::Ref<'_, IWbemContext>, phiperfenum: windows_core::Ref<'_, IWbemHiPerfEnum>) -> windows_core::Result<i32>;
-    fn GetObjects(&self, pnamespace: windows_core::Ref<'_, IWbemServices>, lnumobjects: i32, apobj: windows_core::OutRef<'_, IWbemObjectAccess>, lflags: i32, pcontext: windows_core::Ref<'_, IWbemContext>) -> windows_core::Result<()>;
+    fn QueryInstances(&self, pnamespace: windows_core::Ref<IWbemServices>, wszclass: &windows_core::PCWSTR, lflags: i32, pctx: windows_core::Ref<IWbemContext>, psink: windows_core::Ref<IWbemObjectSink>) -> windows_core::Result<()>;
+    fn CreateRefresher(&self, pnamespace: windows_core::Ref<IWbemServices>, lflags: i32) -> windows_core::Result<IWbemRefresher>;
+    fn CreateRefreshableObject(&self, pnamespace: windows_core::Ref<IWbemServices>, ptemplate: windows_core::Ref<IWbemObjectAccess>, prefresher: windows_core::Ref<IWbemRefresher>, lflags: i32, pcontext: windows_core::Ref<IWbemContext>, pprefreshable: windows_core::OutRef<'_, IWbemObjectAccess>, plid: *mut i32) -> windows_core::Result<()>;
+    fn StopRefreshing(&self, prefresher: windows_core::Ref<IWbemRefresher>, lid: i32, lflags: i32) -> windows_core::Result<()>;
+    fn CreateRefreshableEnum(&self, pnamespace: windows_core::Ref<IWbemServices>, wszclass: &windows_core::PCWSTR, prefresher: windows_core::Ref<IWbemRefresher>, lflags: i32, pcontext: windows_core::Ref<IWbemContext>, phiperfenum: windows_core::Ref<IWbemHiPerfEnum>) -> windows_core::Result<i32>;
+    fn GetObjects(&self, pnamespace: windows_core::Ref<IWbemServices>, lnumobjects: i32, apobj: windows_core::OutRef<'_, IWbemObjectAccess>, lflags: i32, pcontext: windows_core::Ref<IWbemContext>) -> windows_core::Result<()>;
 }
 impl IWbemHiPerfProvider_Vtbl {
     pub const fn new<Identity: IWbemHiPerfProvider_Impl, const OFFSET: isize>() -> Self {
@@ -6866,8 +6866,8 @@ pub struct IWbemLevel1Login_Vtbl {
 pub trait IWbemLevel1Login_Impl: windows_core::IUnknownImpl {
     fn EstablishPosition(&self, wszlocalelist: &windows_core::PCWSTR, dwnumlocales: u32) -> windows_core::Result<u32>;
     fn RequestChallenge(&self, wsznetworkresource: &windows_core::PCWSTR, wszuser: &windows_core::PCWSTR) -> windows_core::Result<u8>;
-    fn WBEMLogin(&self, wszpreferredlocale: &windows_core::PCWSTR, accesstoken: *const u8, lflags: i32, pctx: windows_core::Ref<'_, IWbemContext>) -> windows_core::Result<IWbemServices>;
-    fn NTLMLogin(&self, wsznetworkresource: &windows_core::PCWSTR, wszpreferredlocale: &windows_core::PCWSTR, lflags: i32, pctx: windows_core::Ref<'_, IWbemContext>) -> windows_core::Result<IWbemServices>;
+    fn WBEMLogin(&self, wszpreferredlocale: &windows_core::PCWSTR, accesstoken: *const u8, lflags: i32, pctx: windows_core::Ref<IWbemContext>) -> windows_core::Result<IWbemServices>;
+    fn NTLMLogin(&self, wsznetworkresource: &windows_core::PCWSTR, wszpreferredlocale: &windows_core::PCWSTR, lflags: i32, pctx: windows_core::Ref<IWbemContext>) -> windows_core::Result<IWbemServices>;
 }
 impl IWbemLevel1Login_Vtbl {
     pub const fn new<Identity: IWbemLevel1Login_Impl, const OFFSET: isize>() -> Self {
@@ -6951,7 +6951,7 @@ pub struct IWbemLocator_Vtbl {
     pub ConnectServer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWbemLocator_Impl: windows_core::IUnknownImpl {
-    fn ConnectServer(&self, strnetworkresource: &windows_core::BSTR, struser: &windows_core::BSTR, strpassword: &windows_core::BSTR, strlocale: &windows_core::BSTR, lsecurityflags: i32, strauthority: &windows_core::BSTR, pctx: windows_core::Ref<'_, IWbemContext>) -> windows_core::Result<IWbemServices>;
+    fn ConnectServer(&self, strnetworkresource: &windows_core::BSTR, struser: &windows_core::BSTR, strpassword: &windows_core::BSTR, strlocale: &windows_core::BSTR, lsecurityflags: i32, strauthority: &windows_core::BSTR, pctx: windows_core::Ref<IWbemContext>) -> windows_core::Result<IWbemServices>;
 }
 impl IWbemLocator_Vtbl {
     pub const fn new<Identity: IWbemLocator_Impl, const OFFSET: isize>() -> Self {
@@ -7166,7 +7166,7 @@ pub struct IWbemObjectSink_Vtbl {
 }
 pub trait IWbemObjectSink_Impl: windows_core::IUnknownImpl {
     fn Indicate(&self, lobjectcount: i32, apobjarray: *const Option<IWbemClassObject>) -> windows_core::Result<()>;
-    fn SetStatus(&self, lflags: i32, hresult: windows_core::HRESULT, strparam: &windows_core::BSTR, pobjparam: windows_core::Ref<'_, IWbemClassObject>) -> windows_core::Result<()>;
+    fn SetStatus(&self, lflags: i32, hresult: windows_core::HRESULT, strparam: &windows_core::BSTR, pobjparam: windows_core::Ref<IWbemClassObject>) -> windows_core::Result<()>;
 }
 impl IWbemObjectSink_Vtbl {
     pub const fn new<Identity: IWbemObjectSink_Impl, const OFFSET: isize>() -> Self {
@@ -7239,7 +7239,7 @@ pub struct IWbemObjectSinkEx_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWbemObjectSinkEx_Impl: IWbemObjectSink_Impl {
     fn WriteMessage(&self, uchannel: u32, strmessage: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn WriteError(&self, pobjerror: windows_core::Ref<'_, IWbemClassObject>) -> windows_core::Result<u8>;
+    fn WriteError(&self, pobjerror: windows_core::Ref<IWbemClassObject>) -> windows_core::Result<u8>;
     fn PromptUser(&self, strmessage: &windows_core::BSTR, uprompttype: u8) -> windows_core::Result<u8>;
     fn WriteProgress(&self, stractivity: &windows_core::BSTR, strcurrentoperation: &windows_core::BSTR, strstatusdescription: &windows_core::BSTR, upercentcomplete: u32, usecondsremaining: u32) -> windows_core::Result<()>;
     fn WriteStreamParameter(&self, strname: &windows_core::BSTR, vtvalue: *const super::Variant::VARIANT, ultype: u32, ulflags: u32) -> windows_core::Result<()>;
@@ -7334,8 +7334,8 @@ pub struct IWbemObjectTextSrc_Vtbl {
     pub CreateFromText: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWbemObjectTextSrc_Impl: windows_core::IUnknownImpl {
-    fn GetText(&self, lflags: i32, pobj: windows_core::Ref<'_, IWbemClassObject>, uobjtextformat: u32, pctx: windows_core::Ref<'_, IWbemContext>) -> windows_core::Result<windows_core::BSTR>;
-    fn CreateFromText(&self, lflags: i32, strtext: &windows_core::BSTR, uobjtextformat: u32, pctx: windows_core::Ref<'_, IWbemContext>) -> windows_core::Result<IWbemClassObject>;
+    fn GetText(&self, lflags: i32, pobj: windows_core::Ref<IWbemClassObject>, uobjtextformat: u32, pctx: windows_core::Ref<IWbemContext>) -> windows_core::Result<windows_core::BSTR>;
+    fn CreateFromText(&self, lflags: i32, strtext: &windows_core::BSTR, uobjtextformat: u32, pctx: windows_core::Ref<IWbemContext>) -> windows_core::Result<IWbemClassObject>;
 }
 impl IWbemObjectTextSrc_Vtbl {
     pub const fn new<Identity: IWbemObjectTextSrc_Impl, const OFFSET: isize>() -> Self {
@@ -8038,7 +8038,7 @@ pub struct IWbemProviderIdentity_Vtbl {
     pub SetRegistrationObject: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWbemProviderIdentity_Impl: windows_core::IUnknownImpl {
-    fn SetRegistrationObject(&self, lflags: i32, pprovreg: windows_core::Ref<'_, IWbemClassObject>) -> windows_core::Result<()>;
+    fn SetRegistrationObject(&self, lflags: i32, pprovreg: windows_core::Ref<IWbemClassObject>) -> windows_core::Result<()>;
 }
 impl IWbemProviderIdentity_Vtbl {
     pub const fn new<Identity: IWbemProviderIdentity_Impl, const OFFSET: isize>() -> Self {
@@ -8076,7 +8076,7 @@ pub struct IWbemProviderInit_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32, windows_core::PCWSTR, windows_core::PCWSTR, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWbemProviderInit_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, wszuser: &windows_core::PCWSTR, lflags: i32, wsznamespace: &windows_core::PCWSTR, wszlocale: &windows_core::PCWSTR, pnamespace: windows_core::Ref<'_, IWbemServices>, pctx: windows_core::Ref<'_, IWbemContext>, pinitsink: windows_core::Ref<'_, IWbemProviderInitSink>) -> windows_core::Result<()>;
+    fn Initialize(&self, wszuser: &windows_core::PCWSTR, lflags: i32, wsznamespace: &windows_core::PCWSTR, wszlocale: &windows_core::PCWSTR, pnamespace: windows_core::Ref<IWbemServices>, pctx: windows_core::Ref<IWbemContext>, pinitsink: windows_core::Ref<IWbemProviderInitSink>) -> windows_core::Result<()>;
 }
 impl IWbemProviderInit_Vtbl {
     pub const fn new<Identity: IWbemProviderInit_Impl, const OFFSET: isize>() -> Self {
@@ -8602,29 +8602,29 @@ pub struct IWbemServices_Vtbl {
     pub ExecMethodAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, WBEM_GENERIC_FLAG_TYPE, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWbemServices_Impl: windows_core::IUnknownImpl {
-    fn OpenNamespace(&self, strnamespace: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<'_, IWbemContext>, ppworkingnamespace: windows_core::OutRef<'_, IWbemServices>, ppresult: windows_core::OutRef<'_, IWbemCallResult>) -> windows_core::Result<()>;
-    fn CancelAsyncCall(&self, psink: windows_core::Ref<'_, IWbemObjectSink>) -> windows_core::Result<()>;
+    fn OpenNamespace(&self, strnamespace: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<IWbemContext>, ppworkingnamespace: windows_core::OutRef<'_, IWbemServices>, ppresult: windows_core::OutRef<'_, IWbemCallResult>) -> windows_core::Result<()>;
+    fn CancelAsyncCall(&self, psink: windows_core::Ref<IWbemObjectSink>) -> windows_core::Result<()>;
     fn QueryObjectSink(&self, lflags: WBEM_GENERIC_FLAG_TYPE) -> windows_core::Result<IWbemObjectSink>;
-    fn GetObject(&self, strobjectpath: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<'_, IWbemContext>, ppobject: windows_core::OutRef<'_, IWbemClassObject>, ppcallresult: windows_core::OutRef<'_, IWbemCallResult>) -> windows_core::Result<()>;
-    fn GetObjectAsync(&self, strobjectpath: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<'_, IWbemContext>, presponsehandler: windows_core::Ref<'_, IWbemObjectSink>) -> windows_core::Result<()>;
-    fn PutClass(&self, pobject: windows_core::Ref<'_, IWbemClassObject>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<'_, IWbemContext>, ppcallresult: windows_core::OutRef<'_, IWbemCallResult>) -> windows_core::Result<()>;
-    fn PutClassAsync(&self, pobject: windows_core::Ref<'_, IWbemClassObject>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<'_, IWbemContext>, presponsehandler: windows_core::Ref<'_, IWbemObjectSink>) -> windows_core::Result<()>;
-    fn DeleteClass(&self, strclass: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<'_, IWbemContext>, ppcallresult: windows_core::OutRef<'_, IWbemCallResult>) -> windows_core::Result<()>;
-    fn DeleteClassAsync(&self, strclass: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<'_, IWbemContext>, presponsehandler: windows_core::Ref<'_, IWbemObjectSink>) -> windows_core::Result<()>;
-    fn CreateClassEnum(&self, strsuperclass: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<'_, IWbemContext>) -> windows_core::Result<IEnumWbemClassObject>;
-    fn CreateClassEnumAsync(&self, strsuperclass: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<'_, IWbemContext>, presponsehandler: windows_core::Ref<'_, IWbemObjectSink>) -> windows_core::Result<()>;
-    fn PutInstance(&self, pinst: windows_core::Ref<'_, IWbemClassObject>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<'_, IWbemContext>, ppcallresult: windows_core::OutRef<'_, IWbemCallResult>) -> windows_core::Result<()>;
-    fn PutInstanceAsync(&self, pinst: windows_core::Ref<'_, IWbemClassObject>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<'_, IWbemContext>, presponsehandler: windows_core::Ref<'_, IWbemObjectSink>) -> windows_core::Result<()>;
-    fn DeleteInstance(&self, strobjectpath: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<'_, IWbemContext>, ppcallresult: windows_core::OutRef<'_, IWbemCallResult>) -> windows_core::Result<()>;
-    fn DeleteInstanceAsync(&self, strobjectpath: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<'_, IWbemContext>, presponsehandler: windows_core::Ref<'_, IWbemObjectSink>) -> windows_core::Result<()>;
-    fn CreateInstanceEnum(&self, strfilter: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<'_, IWbemContext>) -> windows_core::Result<IEnumWbemClassObject>;
-    fn CreateInstanceEnumAsync(&self, strfilter: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<'_, IWbemContext>, presponsehandler: windows_core::Ref<'_, IWbemObjectSink>) -> windows_core::Result<()>;
-    fn ExecQuery(&self, strquerylanguage: &windows_core::BSTR, strquery: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<'_, IWbemContext>) -> windows_core::Result<IEnumWbemClassObject>;
-    fn ExecQueryAsync(&self, strquerylanguage: &windows_core::BSTR, strquery: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<'_, IWbemContext>, presponsehandler: windows_core::Ref<'_, IWbemObjectSink>) -> windows_core::Result<()>;
-    fn ExecNotificationQuery(&self, strquerylanguage: &windows_core::BSTR, strquery: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<'_, IWbemContext>) -> windows_core::Result<IEnumWbemClassObject>;
-    fn ExecNotificationQueryAsync(&self, strquerylanguage: &windows_core::BSTR, strquery: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<'_, IWbemContext>, presponsehandler: windows_core::Ref<'_, IWbemObjectSink>) -> windows_core::Result<()>;
-    fn ExecMethod(&self, strobjectpath: &windows_core::BSTR, strmethodname: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<'_, IWbemContext>, pinparams: windows_core::Ref<'_, IWbemClassObject>, ppoutparams: windows_core::OutRef<'_, IWbemClassObject>, ppcallresult: windows_core::OutRef<'_, IWbemCallResult>) -> windows_core::Result<()>;
-    fn ExecMethodAsync(&self, strobjectpath: &windows_core::BSTR, strmethodname: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<'_, IWbemContext>, pinparams: windows_core::Ref<'_, IWbemClassObject>, presponsehandler: windows_core::Ref<'_, IWbemObjectSink>) -> windows_core::Result<()>;
+    fn GetObject(&self, strobjectpath: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<IWbemContext>, ppobject: windows_core::OutRef<'_, IWbemClassObject>, ppcallresult: windows_core::OutRef<'_, IWbemCallResult>) -> windows_core::Result<()>;
+    fn GetObjectAsync(&self, strobjectpath: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<IWbemContext>, presponsehandler: windows_core::Ref<IWbemObjectSink>) -> windows_core::Result<()>;
+    fn PutClass(&self, pobject: windows_core::Ref<IWbemClassObject>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<IWbemContext>, ppcallresult: windows_core::OutRef<'_, IWbemCallResult>) -> windows_core::Result<()>;
+    fn PutClassAsync(&self, pobject: windows_core::Ref<IWbemClassObject>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<IWbemContext>, presponsehandler: windows_core::Ref<IWbemObjectSink>) -> windows_core::Result<()>;
+    fn DeleteClass(&self, strclass: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<IWbemContext>, ppcallresult: windows_core::OutRef<'_, IWbemCallResult>) -> windows_core::Result<()>;
+    fn DeleteClassAsync(&self, strclass: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<IWbemContext>, presponsehandler: windows_core::Ref<IWbemObjectSink>) -> windows_core::Result<()>;
+    fn CreateClassEnum(&self, strsuperclass: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<IWbemContext>) -> windows_core::Result<IEnumWbemClassObject>;
+    fn CreateClassEnumAsync(&self, strsuperclass: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<IWbemContext>, presponsehandler: windows_core::Ref<IWbemObjectSink>) -> windows_core::Result<()>;
+    fn PutInstance(&self, pinst: windows_core::Ref<IWbemClassObject>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<IWbemContext>, ppcallresult: windows_core::OutRef<'_, IWbemCallResult>) -> windows_core::Result<()>;
+    fn PutInstanceAsync(&self, pinst: windows_core::Ref<IWbemClassObject>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<IWbemContext>, presponsehandler: windows_core::Ref<IWbemObjectSink>) -> windows_core::Result<()>;
+    fn DeleteInstance(&self, strobjectpath: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<IWbemContext>, ppcallresult: windows_core::OutRef<'_, IWbemCallResult>) -> windows_core::Result<()>;
+    fn DeleteInstanceAsync(&self, strobjectpath: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<IWbemContext>, presponsehandler: windows_core::Ref<IWbemObjectSink>) -> windows_core::Result<()>;
+    fn CreateInstanceEnum(&self, strfilter: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<IWbemContext>) -> windows_core::Result<IEnumWbemClassObject>;
+    fn CreateInstanceEnumAsync(&self, strfilter: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<IWbemContext>, presponsehandler: windows_core::Ref<IWbemObjectSink>) -> windows_core::Result<()>;
+    fn ExecQuery(&self, strquerylanguage: &windows_core::BSTR, strquery: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<IWbemContext>) -> windows_core::Result<IEnumWbemClassObject>;
+    fn ExecQueryAsync(&self, strquerylanguage: &windows_core::BSTR, strquery: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<IWbemContext>, presponsehandler: windows_core::Ref<IWbemObjectSink>) -> windows_core::Result<()>;
+    fn ExecNotificationQuery(&self, strquerylanguage: &windows_core::BSTR, strquery: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<IWbemContext>) -> windows_core::Result<IEnumWbemClassObject>;
+    fn ExecNotificationQueryAsync(&self, strquerylanguage: &windows_core::BSTR, strquery: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<IWbemContext>, presponsehandler: windows_core::Ref<IWbemObjectSink>) -> windows_core::Result<()>;
+    fn ExecMethod(&self, strobjectpath: &windows_core::BSTR, strmethodname: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<IWbemContext>, pinparams: windows_core::Ref<IWbemClassObject>, ppoutparams: windows_core::OutRef<'_, IWbemClassObject>, ppcallresult: windows_core::OutRef<'_, IWbemCallResult>) -> windows_core::Result<()>;
+    fn ExecMethodAsync(&self, strobjectpath: &windows_core::BSTR, strmethodname: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: windows_core::Ref<IWbemContext>, pinparams: windows_core::Ref<IWbemClassObject>, presponsehandler: windows_core::Ref<IWbemObjectSink>) -> windows_core::Result<()>;
 }
 impl IWbemServices_Vtbl {
     pub const fn new<Identity: IWbemServices_Impl, const OFFSET: isize>() -> Self {
@@ -8844,7 +8844,7 @@ pub struct IWbemShutdown_Vtbl {
     pub Shutdown: unsafe extern "system" fn(*mut core::ffi::c_void, i32, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWbemShutdown_Impl: windows_core::IUnknownImpl {
-    fn Shutdown(&self, ureason: i32, umaxmilliseconds: u32, pctx: windows_core::Ref<'_, IWbemContext>) -> windows_core::Result<()>;
+    fn Shutdown(&self, ureason: i32, umaxmilliseconds: u32, pctx: windows_core::Ref<IWbemContext>) -> windows_core::Result<()>;
 }
 impl IWbemShutdown_Vtbl {
     pub const fn new<Identity: IWbemShutdown_Impl, const OFFSET: isize>() -> Self {
@@ -8970,7 +8970,7 @@ pub struct IWbemUnboundObjectSink_Vtbl {
     pub IndicateToConsumer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *const *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWbemUnboundObjectSink_Impl: windows_core::IUnknownImpl {
-    fn IndicateToConsumer(&self, plogicalconsumer: windows_core::Ref<'_, IWbemClassObject>, lnumobjects: i32, apobjects: *const Option<IWbemClassObject>) -> windows_core::Result<()>;
+    fn IndicateToConsumer(&self, plogicalconsumer: windows_core::Ref<IWbemClassObject>, lnumobjects: i32, apobjects: *const Option<IWbemClassObject>) -> windows_core::Result<()>;
 }
 impl IWbemUnboundObjectSink_Vtbl {
     pub const fn new<Identity: IWbemUnboundObjectSink_Impl, const OFFSET: isize>() -> Self {
@@ -9013,7 +9013,7 @@ pub struct IWbemUnsecuredApartment_Vtbl {
     pub CreateSinkStub: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWbemUnsecuredApartment_Impl: IUnsecuredApartment_Impl {
-    fn CreateSinkStub(&self, psink: windows_core::Ref<'_, IWbemObjectSink>, dwflags: u32, wszreserved: &windows_core::PCWSTR) -> windows_core::Result<IWbemObjectSink>;
+    fn CreateSinkStub(&self, psink: windows_core::Ref<IWbemObjectSink>, dwflags: u32, wszreserved: &windows_core::PCWSTR) -> windows_core::Result<IWbemObjectSink>;
 }
 impl IWbemUnsecuredApartment_Vtbl {
     pub const fn new<Identity: IWbemUnsecuredApartment_Impl, const OFFSET: isize>() -> Self {

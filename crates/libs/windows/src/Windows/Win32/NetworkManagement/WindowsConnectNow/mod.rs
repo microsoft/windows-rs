@@ -119,7 +119,7 @@ pub struct IWCNDevice_Vtbl {
 }
 pub trait IWCNDevice_Impl: windows_core::IUnknownImpl {
     fn SetPassword(&self, r#type: WCN_PASSWORD_TYPE, dwpasswordlength: u32, pbpassword: *const u8) -> windows_core::Result<()>;
-    fn Connect(&self, pnotify: windows_core::Ref<'_, IWCNConnectNotify>) -> windows_core::Result<()>;
+    fn Connect(&self, pnotify: windows_core::Ref<IWCNConnectNotify>) -> windows_core::Result<()>;
     fn GetAttribute(&self, attributetype: WCN_ATTRIBUTE_TYPE, dwmaxbuffersize: u32, pbbuffer: *mut u8, pdwbufferused: *mut u32) -> windows_core::Result<()>;
     fn GetIntegerAttribute(&self, attributetype: WCN_ATTRIBUTE_TYPE) -> windows_core::Result<u32>;
     fn GetStringAttribute(&self, attributetype: WCN_ATTRIBUTE_TYPE, cchmaxstring: u32, wszstring: windows_core::PWSTR) -> windows_core::Result<()>;

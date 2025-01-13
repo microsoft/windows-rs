@@ -805,12 +805,12 @@ impl windows_core::RuntimeName for IInteractionTrackerOwner {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTrackerOwner";
 }
 pub trait IInteractionTrackerOwner_Impl: windows_core::IUnknownImpl {
-    fn CustomAnimationStateEntered(&self, sender: windows_core::Ref<'_, InteractionTracker>, args: windows_core::Ref<'_, InteractionTrackerCustomAnimationStateEnteredArgs>) -> windows_core::Result<()>;
-    fn IdleStateEntered(&self, sender: windows_core::Ref<'_, InteractionTracker>, args: windows_core::Ref<'_, InteractionTrackerIdleStateEnteredArgs>) -> windows_core::Result<()>;
-    fn InertiaStateEntered(&self, sender: windows_core::Ref<'_, InteractionTracker>, args: windows_core::Ref<'_, InteractionTrackerInertiaStateEnteredArgs>) -> windows_core::Result<()>;
-    fn InteractingStateEntered(&self, sender: windows_core::Ref<'_, InteractionTracker>, args: windows_core::Ref<'_, InteractionTrackerInteractingStateEnteredArgs>) -> windows_core::Result<()>;
-    fn RequestIgnored(&self, sender: windows_core::Ref<'_, InteractionTracker>, args: windows_core::Ref<'_, InteractionTrackerRequestIgnoredArgs>) -> windows_core::Result<()>;
-    fn ValuesChanged(&self, sender: windows_core::Ref<'_, InteractionTracker>, args: windows_core::Ref<'_, InteractionTrackerValuesChangedArgs>) -> windows_core::Result<()>;
+    fn CustomAnimationStateEntered(&self, sender: windows_core::Ref<InteractionTracker>, args: windows_core::Ref<InteractionTrackerCustomAnimationStateEnteredArgs>) -> windows_core::Result<()>;
+    fn IdleStateEntered(&self, sender: windows_core::Ref<InteractionTracker>, args: windows_core::Ref<InteractionTrackerIdleStateEnteredArgs>) -> windows_core::Result<()>;
+    fn InertiaStateEntered(&self, sender: windows_core::Ref<InteractionTracker>, args: windows_core::Ref<InteractionTrackerInertiaStateEnteredArgs>) -> windows_core::Result<()>;
+    fn InteractingStateEntered(&self, sender: windows_core::Ref<InteractionTracker>, args: windows_core::Ref<InteractionTrackerInteractingStateEnteredArgs>) -> windows_core::Result<()>;
+    fn RequestIgnored(&self, sender: windows_core::Ref<InteractionTracker>, args: windows_core::Ref<InteractionTrackerRequestIgnoredArgs>) -> windows_core::Result<()>;
+    fn ValuesChanged(&self, sender: windows_core::Ref<InteractionTracker>, args: windows_core::Ref<InteractionTrackerValuesChangedArgs>) -> windows_core::Result<()>;
 }
 impl IInteractionTrackerOwner_Vtbl {
     pub const fn new<Identity: IInteractionTrackerOwner_Impl, const OFFSET: isize>() -> Self {

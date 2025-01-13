@@ -2201,7 +2201,7 @@ pub struct IRtwqAsyncCallback_Vtbl {
 }
 pub trait IRtwqAsyncCallback_Impl: windows_core::IUnknownImpl {
     fn GetParameters(&self, pdwflags: *mut u32, pdwqueue: *mut u32) -> windows_core::Result<()>;
-    fn Invoke(&self, pasyncresult: windows_core::Ref<'_, IRtwqAsyncResult>) -> windows_core::Result<()>;
+    fn Invoke(&self, pasyncresult: windows_core::Ref<IRtwqAsyncResult>) -> windows_core::Result<()>;
 }
 impl IRtwqAsyncCallback_Vtbl {
     pub const fn new<Identity: IRtwqAsyncCallback_Impl, const OFFSET: isize>() -> Self {

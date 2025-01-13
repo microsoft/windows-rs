@@ -740,7 +740,7 @@ pub struct IActiveXUIHandlerSite_Vtbl {
 }
 pub trait IActiveXUIHandlerSite_Impl: windows_core::IUnknownImpl {
     fn CreateScrollableContextMenu(&self) -> windows_core::Result<IScrollableContextMenu>;
-    fn PickFileAndGetResult(&self, filepicker: windows_core::Ref<'_, windows_core::IUnknown>, allowmultipleselections: super::super::Foundation::BOOL) -> windows_core::Result<windows_core::IUnknown>;
+    fn PickFileAndGetResult(&self, filepicker: windows_core::Ref<windows_core::IUnknown>, allowmultipleselections: super::super::Foundation::BOOL) -> windows_core::Result<windows_core::IUnknown>;
 }
 impl IActiveXUIHandlerSite_Vtbl {
     pub const fn new<Identity: IActiveXUIHandlerSite_Impl, const OFFSET: isize>() -> Self {
@@ -1077,7 +1077,7 @@ pub struct IDithererImpl_Vtbl {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IDithererImpl_Impl: windows_core::IUnknownImpl {
     fn SetDestColorTable(&self, ncolors: u32, prgbcolors: *const super::super::Graphics::Gdi::RGBQUAD) -> windows_core::Result<()>;
-    fn SetEventSink(&self, peventsink: windows_core::Ref<'_, IImageDecodeEventSink>) -> windows_core::Result<()>;
+    fn SetEventSink(&self, peventsink: windows_core::Ref<IImageDecodeEventSink>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl IDithererImpl_Vtbl {
@@ -1169,7 +1169,7 @@ pub struct IDocObjectService_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDocObjectService_Impl: windows_core::IUnknownImpl {
-    fn FireBeforeNavigate2(&self, pdispatch: windows_core::Ref<'_, super::super::System::Com::IDispatch>, lpszurl: &windows_core::PCWSTR, dwflags: u32, lpszframename: &windows_core::PCWSTR, ppostdata: *const u8, cbpostdata: u32, lpszheaders: &windows_core::PCWSTR, fplaynavsound: super::super::Foundation::BOOL) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn FireBeforeNavigate2(&self, pdispatch: windows_core::Ref<super::super::System::Com::IDispatch>, lpszurl: &windows_core::PCWSTR, dwflags: u32, lpszframename: &windows_core::PCWSTR, ppostdata: *const u8, cbpostdata: u32, lpszheaders: &windows_core::PCWSTR, fplaynavsound: super::super::Foundation::BOOL) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn FireDownloadBegin(&self) -> windows_core::Result<()>;
     fn FireDownloadComplete(&self) -> windows_core::Result<()>;
     fn GetPendingUrl(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -1287,7 +1287,7 @@ pub struct IDownloadBehavior_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDownloadBehavior_Impl: super::super::System::Com::IDispatch_Impl {
-    fn startDownload(&self, bstrurl: &windows_core::BSTR, pdispcallback: windows_core::Ref<'_, super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
+    fn startDownload(&self, bstrurl: &windows_core::BSTR, pdispcallback: windows_core::Ref<super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDownloadBehavior_Vtbl {
@@ -1330,7 +1330,7 @@ pub struct IDownloadManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IDownloadManager_Impl: windows_core::IUnknownImpl {
-    fn Download(&self, pmk: windows_core::Ref<'_, super::super::System::Com::IMoniker>, pbc: windows_core::Ref<'_, super::super::System::Com::IBindCtx>, dwbindverb: u32, grfbindf: i32, pbindinfo: *const super::super::System::Com::BINDINFO, pszheaders: &windows_core::PCWSTR, pszredir: &windows_core::PCWSTR, uicp: u32) -> windows_core::Result<()>;
+    fn Download(&self, pmk: windows_core::Ref<super::super::System::Com::IMoniker>, pbc: windows_core::Ref<super::super::System::Com::IBindCtx>, dwbindverb: u32, grfbindf: i32, pbindinfo: *const super::super::System::Com::BINDINFO, pszheaders: &windows_core::PCWSTR, pszredir: &windows_core::PCWSTR, uicp: u32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 impl IDownloadManager_Vtbl {
@@ -1814,8 +1814,8 @@ pub struct IHTMLPersistData_Vtbl {
     pub queryType: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 pub trait IHTMLPersistData_Impl: windows_core::IUnknownImpl {
-    fn save(&self, punk: windows_core::Ref<'_, windows_core::IUnknown>, ltype: i32) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn load(&self, punk: windows_core::Ref<'_, windows_core::IUnknown>, ltype: i32) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn save(&self, punk: windows_core::Ref<windows_core::IUnknown>, ltype: i32) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn load(&self, punk: windows_core::Ref<windows_core::IUnknown>, ltype: i32) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn queryType(&self, ltype: i32) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
 impl IHTMLPersistData_Vtbl {
@@ -2871,8 +2871,8 @@ pub struct IIEWebDriverSite_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IIEWebDriverSite_Impl: super::super::System::Com::IDispatch_Impl {
     fn WindowOperation(&self, operationcode: u32, hwnd: u32) -> windows_core::Result<()>;
-    fn DetachWebdriver(&self, punkwd: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn GetCapabilityValue(&self, punkwd: windows_core::Ref<'_, windows_core::IUnknown>, capname: &windows_core::PCWSTR) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn DetachWebdriver(&self, punkwd: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetCapabilityValue(&self, punkwd: windows_core::Ref<windows_core::IUnknown>, capname: &windows_core::PCWSTR) -> windows_core::Result<super::super::System::Variant::VARIANT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IIEWebDriverSite_Vtbl {
@@ -3093,8 +3093,8 @@ pub struct IImageDecodeFilter_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IImageDecodeFilter_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, peventsink: windows_core::Ref<'_, IImageDecodeEventSink>) -> windows_core::Result<()>;
-    fn Process(&self, pstream: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn Initialize(&self, peventsink: windows_core::Ref<IImageDecodeEventSink>) -> windows_core::Result<()>;
+    fn Process(&self, pstream: windows_core::Ref<super::super::System::Com::IStream>) -> windows_core::Result<()>;
     fn Terminate(&self, hrstatus: windows_core::HRESULT) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3375,7 +3375,7 @@ pub trait ILayoutRect_Impl: super::super::System::Com::IDispatch_Impl {
     fn honorPageBreaks(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SethonorPageRules(&self, v: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn honorPageRules(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetnextRectElement(&self, pelem: windows_core::Ref<'_, super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
+    fn SetnextRectElement(&self, pelem: windows_core::Ref<super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
     fn nextRectElement(&self) -> windows_core::Result<super::super::System::Com::IDispatch>;
     fn contentDocument(&self) -> windows_core::Result<super::super::System::Com::IDispatch>;
 }
@@ -3858,13 +3858,13 @@ pub struct IOpenServiceActivity_Vtbl {
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub trait IOpenServiceActivity_Impl: IOpenService_Impl {
-    fn Execute(&self, pinput: windows_core::Ref<'_, IOpenServiceActivityInput>, poutput: windows_core::Ref<'_, IOpenServiceActivityOutputContext>) -> windows_core::Result<()>;
-    fn CanExecute(&self, pinput: windows_core::Ref<'_, IOpenServiceActivityInput>, poutput: windows_core::Ref<'_, IOpenServiceActivityOutputContext>) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn Execute(&self, pinput: windows_core::Ref<IOpenServiceActivityInput>, poutput: windows_core::Ref<IOpenServiceActivityOutputContext>) -> windows_core::Result<()>;
+    fn CanExecute(&self, pinput: windows_core::Ref<IOpenServiceActivityInput>, poutput: windows_core::Ref<IOpenServiceActivityOutputContext>) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn CanExecuteType(&self, r#type: OpenServiceActivityContentType) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn Preview(&self, pinput: windows_core::Ref<'_, IOpenServiceActivityInput>, poutput: windows_core::Ref<'_, IOpenServiceActivityOutputContext>) -> windows_core::Result<()>;
-    fn CanPreview(&self, pinput: windows_core::Ref<'_, IOpenServiceActivityInput>, poutput: windows_core::Ref<'_, IOpenServiceActivityOutputContext>) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn Preview(&self, pinput: windows_core::Ref<IOpenServiceActivityInput>, poutput: windows_core::Ref<IOpenServiceActivityOutputContext>) -> windows_core::Result<()>;
+    fn CanPreview(&self, pinput: windows_core::Ref<IOpenServiceActivityInput>, poutput: windows_core::Ref<IOpenServiceActivityOutputContext>) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn CanPreviewType(&self, r#type: OpenServiceActivityContentType) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn GetStatusText(&self, pinput: windows_core::Ref<'_, IOpenServiceActivityInput>) -> windows_core::Result<windows_core::BSTR>;
+    fn GetStatusText(&self, pinput: windows_core::Ref<IOpenServiceActivityInput>) -> windows_core::Result<windows_core::BSTR>;
     fn GetHomepageUrl(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetDisplayName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetDescription(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -4156,9 +4156,9 @@ pub struct IOpenServiceActivityCategory_Vtbl {
 pub trait IOpenServiceActivityCategory_Impl: windows_core::IUnknownImpl {
     fn HasDefaultActivity(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn GetDefaultActivity(&self) -> windows_core::Result<IOpenServiceActivity>;
-    fn SetDefaultActivity(&self, pactivity: windows_core::Ref<'_, IOpenServiceActivity>, hwnd: super::super::Foundation::HWND) -> windows_core::Result<()>;
+    fn SetDefaultActivity(&self, pactivity: windows_core::Ref<IOpenServiceActivity>, hwnd: super::super::Foundation::HWND) -> windows_core::Result<()>;
     fn GetName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn GetActivityEnumerator(&self, pinput: windows_core::Ref<'_, IOpenServiceActivityInput>, poutput: windows_core::Ref<'_, IOpenServiceActivityOutputContext>) -> windows_core::Result<IEnumOpenServiceActivity>;
+    fn GetActivityEnumerator(&self, pinput: windows_core::Ref<IOpenServiceActivityInput>, poutput: windows_core::Ref<IOpenServiceActivityOutputContext>) -> windows_core::Result<IEnumOpenServiceActivity>;
 }
 impl IOpenServiceActivityCategory_Vtbl {
     pub const fn new<Identity: IOpenServiceActivityCategory_Impl, const OFFSET: isize>() -> Self {
@@ -4475,8 +4475,8 @@ pub struct IOpenServiceActivityOutputContext_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IOpenServiceActivityOutputContext_Impl: windows_core::IUnknownImpl {
-    fn Navigate(&self, pwzuri: &windows_core::PCWSTR, pwzmethod: &windows_core::PCWSTR, pwzheaders: &windows_core::PCWSTR, ppostdata: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<()>;
-    fn CanNavigate(&self, pwzuri: &windows_core::PCWSTR, pwzmethod: &windows_core::PCWSTR, pwzheaders: &windows_core::PCWSTR, ppostdata: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn Navigate(&self, pwzuri: &windows_core::PCWSTR, pwzmethod: &windows_core::PCWSTR, pwzheaders: &windows_core::PCWSTR, ppostdata: windows_core::Ref<super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn CanNavigate(&self, pwzuri: &windows_core::PCWSTR, pwzmethod: &windows_core::PCWSTR, pwzheaders: &windows_core::PCWSTR, ppostdata: windows_core::Ref<super::super::System::Com::IStream>) -> windows_core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IOpenServiceActivityOutputContext_Vtbl {
@@ -4548,7 +4548,7 @@ pub struct IOpenServiceManager_Vtbl {
 }
 pub trait IOpenServiceManager_Impl: windows_core::IUnknownImpl {
     fn InstallService(&self, pwzserviceurl: &windows_core::PCWSTR) -> windows_core::Result<IOpenService>;
-    fn UninstallService(&self, pservice: windows_core::Ref<'_, IOpenService>) -> windows_core::Result<()>;
+    fn UninstallService(&self, pservice: windows_core::Ref<IOpenService>) -> windows_core::Result<()>;
     fn GetServiceByID(&self, pwzid: &windows_core::PCWSTR) -> windows_core::Result<IOpenService>;
 }
 impl IOpenServiceManager_Vtbl {
@@ -4658,8 +4658,8 @@ pub struct IPersistHistory_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPersistHistory_Impl: super::super::System::Com::IPersist_Impl {
-    fn LoadHistory(&self, pstream: windows_core::Ref<'_, super::super::System::Com::IStream>, pbc: windows_core::Ref<'_, super::super::System::Com::IBindCtx>) -> windows_core::Result<()>;
-    fn SaveHistory(&self, pstream: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn LoadHistory(&self, pstream: windows_core::Ref<super::super::System::Com::IStream>, pbc: windows_core::Ref<super::super::System::Com::IBindCtx>) -> windows_core::Result<()>;
+    fn SaveHistory(&self, pstream: windows_core::Ref<super::super::System::Com::IStream>) -> windows_core::Result<()>;
     fn SetPositionCookie(&self, dwpositioncookie: u32) -> windows_core::Result<()>;
     fn GetPositionCookie(&self) -> windows_core::Result<u32>;
 }
@@ -4726,7 +4726,7 @@ pub struct IPrintTaskRequestFactory_Vtbl {
     pub CreatePrintTaskRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IPrintTaskRequestFactory_Impl: windows_core::IUnknownImpl {
-    fn CreatePrintTaskRequest(&self, pprinttaskrequesthandler: windows_core::Ref<'_, IPrintTaskRequestHandler>) -> windows_core::Result<()>;
+    fn CreatePrintTaskRequest(&self, pprinttaskrequesthandler: windows_core::Ref<IPrintTaskRequestHandler>) -> windows_core::Result<()>;
 }
 impl IPrintTaskRequestFactory_Vtbl {
     pub const fn new<Identity: IPrintTaskRequestFactory_Impl, const OFFSET: isize>() -> Self {
@@ -4759,7 +4759,7 @@ pub struct IPrintTaskRequestHandler_Vtbl {
     pub HandlePrintTaskRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IPrintTaskRequestHandler_Impl: windows_core::IUnknownImpl {
-    fn HandlePrintTaskRequest(&self, pprinttaskrequest: windows_core::Ref<'_, windows_core::IInspectable>) -> windows_core::Result<()>;
+    fn HandlePrintTaskRequest(&self, pprinttaskrequest: windows_core::Ref<windows_core::IInspectable>) -> windows_core::Result<()>;
 }
 impl IPrintTaskRequestHandler_Vtbl {
     pub const fn new<Identity: IPrintTaskRequestHandler_Impl, const OFFSET: isize>() -> Self {
@@ -4905,7 +4905,7 @@ pub struct ISniffStream_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISniffStream_Impl: windows_core::IUnknownImpl {
-    fn Init(&self, pstream: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn Init(&self, pstream: windows_core::Ref<super::super::System::Com::IStream>) -> windows_core::Result<()>;
     fn Peek(&self, pbuffer: *mut core::ffi::c_void, nbytes: u32, pnbytesread: *mut u32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5266,7 +5266,7 @@ pub trait ITargetFrame_Impl: windows_core::IUnknownImpl {
     fn SetFrameName(&self, pszframename: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetFrameName(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetParentFrame(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn FindFrame(&self, psztargetname: &windows_core::PCWSTR, ppunkcontextframe: windows_core::Ref<'_, windows_core::IUnknown>, dwflags: u32) -> windows_core::Result<windows_core::IUnknown>;
+    fn FindFrame(&self, psztargetname: &windows_core::PCWSTR, ppunkcontextframe: windows_core::Ref<windows_core::IUnknown>, dwflags: u32) -> windows_core::Result<windows_core::IUnknown>;
     fn SetFrameSrc(&self, pszframesrc: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetFrameSrc(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetFramesContainer(&self) -> windows_core::Result<super::super::System::Ole::IOleContainer>;
@@ -5275,8 +5275,8 @@ pub trait ITargetFrame_Impl: windows_core::IUnknownImpl {
     fn SetFrameMargins(&self, dwwidth: u32, dwheight: u32) -> windows_core::Result<()>;
     fn GetFrameMargins(&self, pdwwidth: *mut u32, pdwheight: *mut u32) -> windows_core::Result<()>;
     fn RemoteNavigate(&self, clength: u32, puldata: *const u32) -> windows_core::Result<()>;
-    fn OnChildFrameActivate(&self, punkchildframe: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn OnChildFrameDeactivate(&self, punkchildframe: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn OnChildFrameActivate(&self, punkchildframe: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn OnChildFrameDeactivate(&self, punkchildframe: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Ole")]
 impl ITargetFrame_Vtbl {
@@ -5740,10 +5740,10 @@ pub struct ITargetFramePriv_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITargetFramePriv_Impl: windows_core::IUnknownImpl {
     fn FindFrameDownwards(&self, psztargetname: &windows_core::PCWSTR, dwflags: u32) -> windows_core::Result<windows_core::IUnknown>;
-    fn FindFrameInContext(&self, psztargetname: &windows_core::PCWSTR, punkcontextframe: windows_core::Ref<'_, windows_core::IUnknown>, dwflags: u32) -> windows_core::Result<windows_core::IUnknown>;
-    fn OnChildFrameActivate(&self, punkchildframe: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn OnChildFrameDeactivate(&self, punkchildframe: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn NavigateHack(&self, grfhlnf: u32, pbc: windows_core::Ref<'_, super::super::System::Com::IBindCtx>, pibsc: windows_core::Ref<'_, super::super::System::Com::IBindStatusCallback>, psztargetname: &windows_core::PCWSTR, pszurl: &windows_core::PCWSTR, pszlocation: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn FindFrameInContext(&self, psztargetname: &windows_core::PCWSTR, punkcontextframe: windows_core::Ref<windows_core::IUnknown>, dwflags: u32) -> windows_core::Result<windows_core::IUnknown>;
+    fn OnChildFrameActivate(&self, punkchildframe: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn OnChildFrameDeactivate(&self, punkchildframe: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn NavigateHack(&self, grfhlnf: u32, pbc: windows_core::Ref<super::super::System::Com::IBindCtx>, pibsc: windows_core::Ref<super::super::System::Com::IBindStatusCallback>, psztargetname: &windows_core::PCWSTR, pszurl: &windows_core::PCWSTR, pszlocation: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn FindBrowserByIndex(&self, dwid: u32) -> windows_core::Result<windows_core::IUnknown>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5850,7 +5850,7 @@ pub struct ITargetFramePriv2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITargetFramePriv2_Impl: ITargetFramePriv_Impl {
-    fn AggregatedNavigation2(&self, grfhlnf: u32, pbc: windows_core::Ref<'_, super::super::System::Com::IBindCtx>, pibsc: windows_core::Ref<'_, super::super::System::Com::IBindStatusCallback>, psztargetname: &windows_core::PCWSTR, puri: windows_core::Ref<'_, super::super::System::Com::IUri>, pszlocation: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn AggregatedNavigation2(&self, grfhlnf: u32, pbc: windows_core::Ref<super::super::System::Com::IBindCtx>, pibsc: windows_core::Ref<super::super::System::Com::IBindStatusCallback>, psztargetname: &windows_core::PCWSTR, puri: windows_core::Ref<super::super::System::Com::IUri>, pszlocation: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ITargetFramePriv2_Vtbl {
@@ -5892,8 +5892,8 @@ pub struct ITargetNotify_Vtbl {
     pub OnReuse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITargetNotify_Impl: windows_core::IUnknownImpl {
-    fn OnCreate(&self, punkdestination: windows_core::Ref<'_, windows_core::IUnknown>, cbcookie: u32) -> windows_core::Result<()>;
-    fn OnReuse(&self, punkdestination: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn OnCreate(&self, punkdestination: windows_core::Ref<windows_core::IUnknown>, cbcookie: u32) -> windows_core::Result<()>;
+    fn OnReuse(&self, punkdestination: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl ITargetNotify_Vtbl {
     pub const fn new<Identity: ITargetNotify_Impl, const OFFSET: isize>() -> Self {
@@ -5995,7 +5995,7 @@ pub struct ITimer_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITimer_Impl: windows_core::IUnknownImpl {
-    fn Advise(&self, vtimemin: &super::super::System::Variant::VARIANT, vtimemax: &super::super::System::Variant::VARIANT, vtimeinterval: &super::super::System::Variant::VARIANT, dwflags: u32, ptimersink: windows_core::Ref<'_, ITimerSink>) -> windows_core::Result<u32>;
+    fn Advise(&self, vtimemin: &super::super::System::Variant::VARIANT, vtimemax: &super::super::System::Variant::VARIANT, vtimeinterval: &super::super::System::Variant::VARIANT, dwflags: u32, ptimersink: windows_core::Ref<ITimerSink>) -> windows_core::Result<u32>;
     fn Unadvise(&self, dwcookie: u32) -> windows_core::Result<()>;
     fn Freeze(&self, ffreeze: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn GetTime(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
@@ -6125,9 +6125,9 @@ pub struct ITimerService_Vtbl {
     pub SetNamedTimerReference: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITimerService_Impl: windows_core::IUnknownImpl {
-    fn CreateTimer(&self, preferencetimer: windows_core::Ref<'_, ITimer>) -> windows_core::Result<ITimer>;
+    fn CreateTimer(&self, preferencetimer: windows_core::Ref<ITimer>) -> windows_core::Result<ITimer>;
     fn GetNamedTimer(&self, rguidname: *const windows_core::GUID) -> windows_core::Result<ITimer>;
-    fn SetNamedTimerReference(&self, rguidname: *const windows_core::GUID, preferencetimer: windows_core::Ref<'_, ITimer>) -> windows_core::Result<()>;
+    fn SetNamedTimerReference(&self, rguidname: *const windows_core::GUID, preferencetimer: windows_core::Ref<ITimer>) -> windows_core::Result<()>;
 }
 impl ITimerService_Vtbl {
     pub const fn new<Identity: ITimerService_Impl, const OFFSET: isize>() -> Self {
@@ -6448,7 +6448,7 @@ pub struct IUrlHistoryStg2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Ole")]
 pub trait IUrlHistoryStg2_Impl: IUrlHistoryStg_Impl {
-    fn AddUrlAndNotify(&self, pocsurl: &windows_core::PCWSTR, pocstitle: &windows_core::PCWSTR, dwflags: u32, fwritehistory: super::super::Foundation::BOOL, poctnotify: windows_core::Ref<'_, super::super::System::Ole::IOleCommandTarget>, punkisfolder: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn AddUrlAndNotify(&self, pocsurl: &windows_core::PCWSTR, pocstitle: &windows_core::PCWSTR, dwflags: u32, fwritehistory: super::super::Foundation::BOOL, poctnotify: windows_core::Ref<super::super::System::Ole::IOleCommandTarget>, punkisfolder: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn ClearHistory(&self) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Ole")]
@@ -6506,8 +6506,8 @@ pub struct IViewObjectPresentFlip_Vtbl {
 }
 pub trait IViewObjectPresentFlip_Impl: windows_core::IUnknownImpl {
     fn NotifyRender(&self, frecreatepresenter: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn RenderObjectToBitmap(&self, pbitmap: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn RenderObjectToSharedBuffer(&self, pbuffer: windows_core::Ref<'_, ISurfacePresenterFlipBuffer>) -> windows_core::Result<()>;
+    fn RenderObjectToBitmap(&self, pbitmap: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn RenderObjectToSharedBuffer(&self, pbuffer: windows_core::Ref<ISurfacePresenterFlipBuffer>) -> windows_core::Result<()>;
 }
 impl IViewObjectPresentFlip_Vtbl {
     pub const fn new<Identity: IViewObjectPresentFlip_Impl, const OFFSET: isize>() -> Self {
@@ -6935,7 +6935,7 @@ pub struct Iwfolders_Vtbl {
 pub trait Iwfolders_Impl: super::super::System::Com::IDispatch_Impl {
     fn navigate(&self, bstrurl: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
     fn navigateFrame(&self, bstrurl: &windows_core::BSTR, bstrtargetframe: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
-    fn navigateNoSite(&self, bstrurl: &windows_core::BSTR, bstrtargetframe: &windows_core::BSTR, dwhwnd: u32, pwb: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn navigateNoSite(&self, bstrurl: &windows_core::BSTR, bstrtargetframe: &windows_core::BSTR, dwhwnd: u32, pwb: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Iwfolders_Vtbl {

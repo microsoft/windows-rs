@@ -215,7 +215,7 @@ pub struct IPrintDocumentPackageTargetFactory_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrintDocumentPackageTargetFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateDocumentPackageTargetForPrintJob(&self, printername: &windows_core::PCWSTR, jobname: &windows_core::PCWSTR, joboutputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, jobprintticketstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>) -> windows_core::Result<IPrintDocumentPackageTarget>;
+    fn CreateDocumentPackageTargetForPrintJob(&self, printername: &windows_core::PCWSTR, jobname: &windows_core::PCWSTR, joboutputstream: windows_core::Ref<super::super::super::System::Com::IStream>, jobprintticketstream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<IPrintDocumentPackageTarget>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IPrintDocumentPackageTargetFactory_Vtbl {

@@ -164,7 +164,7 @@ pub struct IDeviceIoControl_Vtbl {
 }
 pub trait IDeviceIoControl_Impl: windows_core::IUnknownImpl {
     fn DeviceIoControlSync(&self, iocontrolcode: u32, inputbuffer: *const u8, inputbuffersize: u32, outputbuffer: *mut u8, outputbuffersize: u32, bytesreturned: *mut u32) -> windows_core::Result<()>;
-    fn DeviceIoControlAsync(&self, iocontrolcode: u32, inputbuffer: *const u8, inputbuffersize: u32, outputbuffer: *mut u8, outputbuffersize: u32, requestcompletioncallback: windows_core::Ref<'_, IDeviceRequestCompletionCallback>, cancelcontext: *mut usize) -> windows_core::Result<()>;
+    fn DeviceIoControlAsync(&self, iocontrolcode: u32, inputbuffer: *const u8, inputbuffersize: u32, outputbuffer: *mut u8, outputbuffersize: u32, requestcompletioncallback: windows_core::Ref<IDeviceRequestCompletionCallback>, cancelcontext: *mut usize) -> windows_core::Result<()>;
     fn CancelOperation(&self, cancelcontext: usize) -> windows_core::Result<()>;
 }
 impl IDeviceIoControl_Vtbl {

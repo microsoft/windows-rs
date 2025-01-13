@@ -9655,7 +9655,7 @@ pub struct IAdvancedMediaCaptureInitializationSettings_Vtbl {
     pub SetDirectxDeviceManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IAdvancedMediaCaptureInitializationSettings_Impl: windows_core::IUnknownImpl {
-    fn SetDirectxDeviceManager(&self, value: windows_core::Ref<'_, IMFDXGIDeviceManager>) -> windows_core::Result<()>;
+    fn SetDirectxDeviceManager(&self, value: windows_core::Ref<IMFDXGIDeviceManager>) -> windows_core::Result<()>;
 }
 impl IAdvancedMediaCaptureInitializationSettings_Vtbl {
     pub const fn new<Identity: IAdvancedMediaCaptureInitializationSettings_Impl, const OFFSET: isize>() -> Self {
@@ -9765,7 +9765,7 @@ pub struct IClusterDetector_Vtbl {
 }
 pub trait IClusterDetector_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self, wbaseentrylevel: u16, wclusterentrylevel: u16) -> windows_core::Result<()>;
-    fn Detect(&self, dwmaxnumclusters: u32, fminclusterduration: f32, fmaxclusterduration: f32, psrctoc: windows_core::Ref<'_, IToc>) -> windows_core::Result<IToc>;
+    fn Detect(&self, dwmaxnumclusters: u32, fminclusterduration: f32, fmaxclusterduration: f32, psrctoc: windows_core::Ref<IToc>) -> windows_core::Result<IToc>;
 }
 impl IClusterDetector_Vtbl {
     pub const fn new<Identity: IClusterDetector_Impl, const OFFSET: isize>() -> Self {
@@ -9927,9 +9927,9 @@ pub trait ICodecAPI_Impl: windows_core::IUnknownImpl {
     fn SetAllDefaults(&self) -> windows_core::Result<()>;
     fn SetValueWithNotify(&self, api: *const windows_core::GUID, value: *const super::super::System::Variant::VARIANT, changedparam: *mut *mut windows_core::GUID, changedparamcount: *mut u32) -> windows_core::Result<()>;
     fn SetAllDefaultsWithNotify(&self, changedparam: *mut *mut windows_core::GUID, changedparamcount: *mut u32) -> windows_core::Result<()>;
-    fn GetAllSettings(&self, __midl__icodecapi0000: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<()>;
-    fn SetAllSettings(&self, __midl__icodecapi0001: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<()>;
-    fn SetAllSettingsWithNotify(&self, __midl__icodecapi0002: windows_core::Ref<'_, super::super::System::Com::IStream>, changedparam: *mut *mut windows_core::GUID, changedparamcount: *mut u32) -> windows_core::Result<()>;
+    fn GetAllSettings(&self, __midl__icodecapi0000: windows_core::Ref<super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn SetAllSettings(&self, __midl__icodecapi0001: windows_core::Ref<super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn SetAllSettingsWithNotify(&self, __midl__icodecapi0002: windows_core::Ref<super::super::System::Com::IStream>, changedparam: *mut *mut windows_core::GUID, changedparamcount: *mut u32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICodecAPI_Vtbl {
@@ -10165,18 +10165,18 @@ pub struct ID3D12VideoDecodeCommandList_Vtbl {
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12VideoDecodeCommandList_Impl: super::super::Graphics::Direct3D12::ID3D12CommandList_Impl {
     fn Close(&self) -> windows_core::Result<()>;
-    fn Reset(&self, pallocator: windows_core::Ref<'_, super::super::Graphics::Direct3D12::ID3D12CommandAllocator>) -> windows_core::Result<()>;
+    fn Reset(&self, pallocator: windows_core::Ref<super::super::Graphics::Direct3D12::ID3D12CommandAllocator>) -> windows_core::Result<()>;
     fn ClearState(&self);
     fn ResourceBarrier(&self, numbarriers: u32, pbarriers: *const super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER);
-    fn DiscardResource(&self, presource: windows_core::Ref<'_, super::super::Graphics::Direct3D12::ID3D12Resource>, pregion: *const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION);
-    fn BeginQuery(&self, pqueryheap: windows_core::Ref<'_, super::super::Graphics::Direct3D12::ID3D12QueryHeap>, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32);
-    fn EndQuery(&self, pqueryheap: windows_core::Ref<'_, super::super::Graphics::Direct3D12::ID3D12QueryHeap>, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32);
-    fn ResolveQueryData(&self, pqueryheap: windows_core::Ref<'_, super::super::Graphics::Direct3D12::ID3D12QueryHeap>, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: windows_core::Ref<'_, super::super::Graphics::Direct3D12::ID3D12Resource>, aligneddestinationbufferoffset: u64);
-    fn SetPredication(&self, pbuffer: windows_core::Ref<'_, super::super::Graphics::Direct3D12::ID3D12Resource>, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP);
+    fn DiscardResource(&self, presource: windows_core::Ref<super::super::Graphics::Direct3D12::ID3D12Resource>, pregion: *const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION);
+    fn BeginQuery(&self, pqueryheap: windows_core::Ref<super::super::Graphics::Direct3D12::ID3D12QueryHeap>, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32);
+    fn EndQuery(&self, pqueryheap: windows_core::Ref<super::super::Graphics::Direct3D12::ID3D12QueryHeap>, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32);
+    fn ResolveQueryData(&self, pqueryheap: windows_core::Ref<super::super::Graphics::Direct3D12::ID3D12QueryHeap>, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: windows_core::Ref<super::super::Graphics::Direct3D12::ID3D12Resource>, aligneddestinationbufferoffset: u64);
+    fn SetPredication(&self, pbuffer: windows_core::Ref<super::super::Graphics::Direct3D12::ID3D12Resource>, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP);
     fn SetMarker(&self, metadata: u32, pdata: *const core::ffi::c_void, size: u32);
     fn BeginEvent(&self, metadata: u32, pdata: *const core::ffi::c_void, size: u32);
     fn EndEvent(&self);
-    fn DecodeFrame(&self, pdecoder: windows_core::Ref<'_, ID3D12VideoDecoder>, poutputarguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS, pinputarguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS);
+    fn DecodeFrame(&self, pdecoder: windows_core::Ref<ID3D12VideoDecoder>, poutputarguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS, pinputarguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS);
     fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE);
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -10326,7 +10326,7 @@ pub struct ID3D12VideoDecodeCommandList1_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12VideoDecodeCommandList1_Impl: ID3D12VideoDecodeCommandList_Impl {
-    fn DecodeFrame1(&self, pdecoder: windows_core::Ref<'_, ID3D12VideoDecoder>, poutputarguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1, pinputarguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS);
+    fn DecodeFrame1(&self, pdecoder: windows_core::Ref<ID3D12VideoDecoder>, poutputarguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1, pinputarguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS);
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D12VideoDecodeCommandList1_Vtbl {
@@ -10391,9 +10391,9 @@ pub struct ID3D12VideoDecodeCommandList2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12VideoDecodeCommandList2_Impl: ID3D12VideoDecodeCommandList1_Impl {
-    fn SetProtectedResourceSession(&self, pprotectedresourcesession: windows_core::Ref<'_, super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>);
-    fn InitializeExtensionCommand(&self, pextensioncommand: windows_core::Ref<'_, ID3D12VideoExtensionCommand>, pinitializationparameters: *const core::ffi::c_void, initializationparameterssizeinbytes: usize);
-    fn ExecuteExtensionCommand(&self, pextensioncommand: windows_core::Ref<'_, ID3D12VideoExtensionCommand>, pexecutionparameters: *const core::ffi::c_void, executionparameterssizeinbytes: usize);
+    fn SetProtectedResourceSession(&self, pprotectedresourcesession: windows_core::Ref<super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>);
+    fn InitializeExtensionCommand(&self, pextensioncommand: windows_core::Ref<ID3D12VideoExtensionCommand>, pinitializationparameters: *const core::ffi::c_void, initializationparameterssizeinbytes: usize);
+    fn ExecuteExtensionCommand(&self, pextensioncommand: windows_core::Ref<ID3D12VideoExtensionCommand>, pexecutionparameters: *const core::ffi::c_void, executionparameterssizeinbytes: usize);
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D12VideoDecodeCommandList2_Vtbl {
@@ -10829,8 +10829,8 @@ pub struct ID3D12VideoDevice1_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12VideoDevice1_Impl: ID3D12VideoDevice_Impl {
-    fn CreateVideoMotionEstimator(&self, pdesc: *const D3D12_VIDEO_MOTION_ESTIMATOR_DESC, pprotectedresourcesession: windows_core::Ref<'_, super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>, riid: *const windows_core::GUID, ppvideomotionestimator: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn CreateVideoMotionVectorHeap(&self, pdesc: *const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC, pprotectedresourcesession: windows_core::Ref<'_, super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>, riid: *const windows_core::GUID, ppvideomotionvectorheap: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateVideoMotionEstimator(&self, pdesc: *const D3D12_VIDEO_MOTION_ESTIMATOR_DESC, pprotectedresourcesession: windows_core::Ref<super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>, riid: *const windows_core::GUID, ppvideomotionestimator: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateVideoMotionVectorHeap(&self, pdesc: *const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC, pprotectedresourcesession: windows_core::Ref<super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>, riid: *const windows_core::GUID, ppvideomotionvectorheap: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D12VideoDevice1_Vtbl {
@@ -10942,11 +10942,11 @@ pub struct ID3D12VideoDevice2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12VideoDevice2_Impl: ID3D12VideoDevice1_Impl {
-    fn CreateVideoDecoder1(&self, pdesc: *const D3D12_VIDEO_DECODER_DESC, pprotectedresourcesession: windows_core::Ref<'_, super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>, riid: *const windows_core::GUID, ppvideodecoder: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn CreateVideoDecoderHeap1(&self, pvideodecoderheapdesc: *const D3D12_VIDEO_DECODER_HEAP_DESC, pprotectedresourcesession: windows_core::Ref<'_, super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>, riid: *const windows_core::GUID, ppvideodecoderheap: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn CreateVideoProcessor1(&self, nodemask: u32, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, numinputstreamdescs: u32, pinputstreamdescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, pprotectedresourcesession: windows_core::Ref<'_, super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>, riid: *const windows_core::GUID, ppvideoprocessor: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn CreateVideoExtensionCommand(&self, pdesc: *const D3D12_VIDEO_EXTENSION_COMMAND_DESC, pcreationparameters: *const core::ffi::c_void, creationparametersdatasizeinbytes: usize, pprotectedresourcesession: windows_core::Ref<'_, super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>, riid: *const windows_core::GUID, ppvideoextensioncommand: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn ExecuteExtensionCommand(&self, pextensioncommand: windows_core::Ref<'_, ID3D12VideoExtensionCommand>, pexecutionparameters: *const core::ffi::c_void, executionparameterssizeinbytes: usize, poutputdata: *mut core::ffi::c_void, outputdatasizeinbytes: usize) -> windows_core::Result<()>;
+    fn CreateVideoDecoder1(&self, pdesc: *const D3D12_VIDEO_DECODER_DESC, pprotectedresourcesession: windows_core::Ref<super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>, riid: *const windows_core::GUID, ppvideodecoder: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateVideoDecoderHeap1(&self, pvideodecoderheapdesc: *const D3D12_VIDEO_DECODER_HEAP_DESC, pprotectedresourcesession: windows_core::Ref<super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>, riid: *const windows_core::GUID, ppvideodecoderheap: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateVideoProcessor1(&self, nodemask: u32, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, numinputstreamdescs: u32, pinputstreamdescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, pprotectedresourcesession: windows_core::Ref<super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>, riid: *const windows_core::GUID, ppvideoprocessor: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateVideoExtensionCommand(&self, pdesc: *const D3D12_VIDEO_EXTENSION_COMMAND_DESC, pcreationparameters: *const core::ffi::c_void, creationparametersdatasizeinbytes: usize, pprotectedresourcesession: windows_core::Ref<super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>, riid: *const windows_core::GUID, ppvideoextensioncommand: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn ExecuteExtensionCommand(&self, pextensioncommand: windows_core::Ref<ID3D12VideoExtensionCommand>, pexecutionparameters: *const core::ffi::c_void, executionparameterssizeinbytes: usize, poutputdata: *mut core::ffi::c_void, outputdatasizeinbytes: usize) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D12VideoDevice2_Vtbl {
@@ -11181,21 +11181,21 @@ pub struct ID3D12VideoEncodeCommandList_Vtbl {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait ID3D12VideoEncodeCommandList_Impl: super::super::Graphics::Direct3D12::ID3D12CommandList_Impl {
     fn Close(&self) -> windows_core::Result<()>;
-    fn Reset(&self, pallocator: windows_core::Ref<'_, super::super::Graphics::Direct3D12::ID3D12CommandAllocator>) -> windows_core::Result<()>;
+    fn Reset(&self, pallocator: windows_core::Ref<super::super::Graphics::Direct3D12::ID3D12CommandAllocator>) -> windows_core::Result<()>;
     fn ClearState(&self);
     fn ResourceBarrier(&self, numbarriers: u32, pbarriers: *const super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER);
-    fn DiscardResource(&self, presource: windows_core::Ref<'_, super::super::Graphics::Direct3D12::ID3D12Resource>, pregion: *const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION);
-    fn BeginQuery(&self, pqueryheap: windows_core::Ref<'_, super::super::Graphics::Direct3D12::ID3D12QueryHeap>, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32);
-    fn EndQuery(&self, pqueryheap: windows_core::Ref<'_, super::super::Graphics::Direct3D12::ID3D12QueryHeap>, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32);
-    fn ResolveQueryData(&self, pqueryheap: windows_core::Ref<'_, super::super::Graphics::Direct3D12::ID3D12QueryHeap>, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: windows_core::Ref<'_, super::super::Graphics::Direct3D12::ID3D12Resource>, aligneddestinationbufferoffset: u64);
-    fn SetPredication(&self, pbuffer: windows_core::Ref<'_, super::super::Graphics::Direct3D12::ID3D12Resource>, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP);
+    fn DiscardResource(&self, presource: windows_core::Ref<super::super::Graphics::Direct3D12::ID3D12Resource>, pregion: *const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION);
+    fn BeginQuery(&self, pqueryheap: windows_core::Ref<super::super::Graphics::Direct3D12::ID3D12QueryHeap>, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32);
+    fn EndQuery(&self, pqueryheap: windows_core::Ref<super::super::Graphics::Direct3D12::ID3D12QueryHeap>, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32);
+    fn ResolveQueryData(&self, pqueryheap: windows_core::Ref<super::super::Graphics::Direct3D12::ID3D12QueryHeap>, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: windows_core::Ref<super::super::Graphics::Direct3D12::ID3D12Resource>, aligneddestinationbufferoffset: u64);
+    fn SetPredication(&self, pbuffer: windows_core::Ref<super::super::Graphics::Direct3D12::ID3D12Resource>, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP);
     fn SetMarker(&self, metadata: u32, pdata: *const core::ffi::c_void, size: u32);
     fn BeginEvent(&self, metadata: u32, pdata: *const core::ffi::c_void, size: u32);
     fn EndEvent(&self);
-    fn EstimateMotion(&self, pmotionestimator: windows_core::Ref<'_, ID3D12VideoMotionEstimator>, poutputarguments: *const D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT, pinputarguments: *const D3D12_VIDEO_MOTION_ESTIMATOR_INPUT);
+    fn EstimateMotion(&self, pmotionestimator: windows_core::Ref<ID3D12VideoMotionEstimator>, poutputarguments: *const D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT, pinputarguments: *const D3D12_VIDEO_MOTION_ESTIMATOR_INPUT);
     fn ResolveMotionVectorHeap(&self, poutputarguments: *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT, pinputarguments: *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT);
     fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE);
-    fn SetProtectedResourceSession(&self, pprotectedresourcesession: windows_core::Ref<'_, super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>);
+    fn SetProtectedResourceSession(&self, pprotectedresourcesession: windows_core::Ref<super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>);
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoEncodeCommandList_Vtbl {
@@ -11361,8 +11361,8 @@ pub struct ID3D12VideoEncodeCommandList1_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait ID3D12VideoEncodeCommandList1_Impl: ID3D12VideoEncodeCommandList_Impl {
-    fn InitializeExtensionCommand(&self, pextensioncommand: windows_core::Ref<'_, ID3D12VideoExtensionCommand>, pinitializationparameters: *const core::ffi::c_void, initializationparameterssizeinbytes: usize);
-    fn ExecuteExtensionCommand(&self, pextensioncommand: windows_core::Ref<'_, ID3D12VideoExtensionCommand>, pexecutionparameters: *const core::ffi::c_void, executionparameterssizeinbytes: usize);
+    fn InitializeExtensionCommand(&self, pextensioncommand: windows_core::Ref<ID3D12VideoExtensionCommand>, pinitializationparameters: *const core::ffi::c_void, initializationparameterssizeinbytes: usize);
+    fn ExecuteExtensionCommand(&self, pextensioncommand: windows_core::Ref<ID3D12VideoExtensionCommand>, pexecutionparameters: *const core::ffi::c_void, executionparameterssizeinbytes: usize);
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoEncodeCommandList1_Vtbl {
@@ -11436,7 +11436,7 @@ pub struct ID3D12VideoEncodeCommandList2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12VideoEncodeCommandList2_Impl: ID3D12VideoEncodeCommandList1_Impl {
-    fn EncodeFrame(&self, pencoder: windows_core::Ref<'_, ID3D12VideoEncoder>, pheap: windows_core::Ref<'_, ID3D12VideoEncoderHeap>, pinputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS);
+    fn EncodeFrame(&self, pencoder: windows_core::Ref<ID3D12VideoEncoder>, pheap: windows_core::Ref<ID3D12VideoEncoderHeap>, pinputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS);
     fn ResolveEncoderOutputMetadata(&self, pinputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS);
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -12086,18 +12086,18 @@ pub struct ID3D12VideoProcessCommandList_Vtbl {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait ID3D12VideoProcessCommandList_Impl: super::super::Graphics::Direct3D12::ID3D12CommandList_Impl {
     fn Close(&self) -> windows_core::Result<()>;
-    fn Reset(&self, pallocator: windows_core::Ref<'_, super::super::Graphics::Direct3D12::ID3D12CommandAllocator>) -> windows_core::Result<()>;
+    fn Reset(&self, pallocator: windows_core::Ref<super::super::Graphics::Direct3D12::ID3D12CommandAllocator>) -> windows_core::Result<()>;
     fn ClearState(&self);
     fn ResourceBarrier(&self, numbarriers: u32, pbarriers: *const super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER);
-    fn DiscardResource(&self, presource: windows_core::Ref<'_, super::super::Graphics::Direct3D12::ID3D12Resource>, pregion: *const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION);
-    fn BeginQuery(&self, pqueryheap: windows_core::Ref<'_, super::super::Graphics::Direct3D12::ID3D12QueryHeap>, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32);
-    fn EndQuery(&self, pqueryheap: windows_core::Ref<'_, super::super::Graphics::Direct3D12::ID3D12QueryHeap>, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32);
-    fn ResolveQueryData(&self, pqueryheap: windows_core::Ref<'_, super::super::Graphics::Direct3D12::ID3D12QueryHeap>, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: windows_core::Ref<'_, super::super::Graphics::Direct3D12::ID3D12Resource>, aligneddestinationbufferoffset: u64);
-    fn SetPredication(&self, pbuffer: windows_core::Ref<'_, super::super::Graphics::Direct3D12::ID3D12Resource>, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP);
+    fn DiscardResource(&self, presource: windows_core::Ref<super::super::Graphics::Direct3D12::ID3D12Resource>, pregion: *const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION);
+    fn BeginQuery(&self, pqueryheap: windows_core::Ref<super::super::Graphics::Direct3D12::ID3D12QueryHeap>, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32);
+    fn EndQuery(&self, pqueryheap: windows_core::Ref<super::super::Graphics::Direct3D12::ID3D12QueryHeap>, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32);
+    fn ResolveQueryData(&self, pqueryheap: windows_core::Ref<super::super::Graphics::Direct3D12::ID3D12QueryHeap>, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: windows_core::Ref<super::super::Graphics::Direct3D12::ID3D12Resource>, aligneddestinationbufferoffset: u64);
+    fn SetPredication(&self, pbuffer: windows_core::Ref<super::super::Graphics::Direct3D12::ID3D12Resource>, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP);
     fn SetMarker(&self, metadata: u32, pdata: *const core::ffi::c_void, size: u32);
     fn BeginEvent(&self, metadata: u32, pdata: *const core::ffi::c_void, size: u32);
     fn EndEvent(&self);
-    fn ProcessFrames(&self, pvideoprocessor: windows_core::Ref<'_, ID3D12VideoProcessor>, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, numinputstreams: u32, pinputarguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS);
+    fn ProcessFrames(&self, pvideoprocessor: windows_core::Ref<ID3D12VideoProcessor>, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, numinputstreams: u32, pinputarguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS);
     fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE);
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -12243,7 +12243,7 @@ pub struct ID3D12VideoProcessCommandList1_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait ID3D12VideoProcessCommandList1_Impl: ID3D12VideoProcessCommandList_Impl {
-    fn ProcessFrames1(&self, pvideoprocessor: windows_core::Ref<'_, ID3D12VideoProcessor>, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, numinputstreams: u32, pinputarguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1);
+    fn ProcessFrames1(&self, pvideoprocessor: windows_core::Ref<ID3D12VideoProcessor>, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, numinputstreams: u32, pinputarguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1);
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoProcessCommandList1_Vtbl {
@@ -12308,9 +12308,9 @@ pub struct ID3D12VideoProcessCommandList2_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait ID3D12VideoProcessCommandList2_Impl: ID3D12VideoProcessCommandList1_Impl {
-    fn SetProtectedResourceSession(&self, pprotectedresourcesession: windows_core::Ref<'_, super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>);
-    fn InitializeExtensionCommand(&self, pextensioncommand: windows_core::Ref<'_, ID3D12VideoExtensionCommand>, pinitializationparameters: *const core::ffi::c_void, initializationparameterssizeinbytes: usize);
-    fn ExecuteExtensionCommand(&self, pextensioncommand: windows_core::Ref<'_, ID3D12VideoExtensionCommand>, pexecutionparameters: *const core::ffi::c_void, executionparameterssizeinbytes: usize);
+    fn SetProtectedResourceSession(&self, pprotectedresourcesession: windows_core::Ref<super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>);
+    fn InitializeExtensionCommand(&self, pextensioncommand: windows_core::Ref<ID3D12VideoExtensionCommand>, pinitializationparameters: *const core::ffi::c_void, initializationparameterssizeinbytes: usize);
+    fn ExecuteExtensionCommand(&self, pextensioncommand: windows_core::Ref<ID3D12VideoExtensionCommand>, pexecutionparameters: *const core::ffi::c_void, executionparameterssizeinbytes: usize);
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoProcessCommandList2_Vtbl {
@@ -12743,7 +12743,7 @@ pub trait IDXVAHD_VideoProcessor_Impl: windows_core::IUnknownImpl {
     fn GetVideoProcessBltState(&self, state: DXVAHD_BLT_STATE, datasize: u32, pdata: *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn SetVideoProcessStreamState(&self, streamnumber: u32, state: DXVAHD_STREAM_STATE, datasize: u32, pdata: *const core::ffi::c_void) -> windows_core::Result<()>;
     fn GetVideoProcessStreamState(&self, streamnumber: u32, state: DXVAHD_STREAM_STATE, datasize: u32, pdata: *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn VideoProcessBltHD(&self, poutputsurface: windows_core::Ref<'_, super::super::Graphics::Direct3D9::IDirect3DSurface9>, outputframe: u32, streamcount: u32, pstreams: *const DXVAHD_STREAM_DATA) -> windows_core::Result<()>;
+    fn VideoProcessBltHD(&self, poutputsurface: windows_core::Ref<super::super::Graphics::Direct3D9::IDirect3DSurface9>, outputframe: u32, streamcount: u32, pstreams: *const DXVAHD_STREAM_DATA) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl IDXVAHD_VideoProcessor_Vtbl {
@@ -12990,9 +12990,9 @@ pub trait IDirect3DCryptoSession9_Impl: windows_core::IUnknownImpl {
     fn GetCertificateSize(&self, pcertificatesize: *mut u32) -> windows_core::Result<()>;
     fn GetCertificate(&self, certifactesize: u32, ppcertificate: *mut u8) -> windows_core::Result<()>;
     fn NegotiateKeyExchange(&self, datasize: u32, pdata: *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn EncryptionBlt(&self, psrcsurface: windows_core::Ref<'_, super::super::Graphics::Direct3D9::IDirect3DSurface9>, pdstsurface: windows_core::Ref<'_, super::super::Graphics::Direct3D9::IDirect3DSurface9>, dstsurfacesize: u32, piv: *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn DecryptionBlt(&self, psrcsurface: windows_core::Ref<'_, super::super::Graphics::Direct3D9::IDirect3DSurface9>, pdstsurface: windows_core::Ref<'_, super::super::Graphics::Direct3D9::IDirect3DSurface9>, srcsurfacesize: u32, pencryptedblockinfo: *mut super::super::Graphics::Direct3D9::D3DENCRYPTED_BLOCK_INFO, pcontentkey: *mut core::ffi::c_void, piv: *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetSurfacePitch(&self, psrcsurface: windows_core::Ref<'_, super::super::Graphics::Direct3D9::IDirect3DSurface9>, psurfacepitch: *mut u32) -> windows_core::Result<()>;
+    fn EncryptionBlt(&self, psrcsurface: windows_core::Ref<super::super::Graphics::Direct3D9::IDirect3DSurface9>, pdstsurface: windows_core::Ref<super::super::Graphics::Direct3D9::IDirect3DSurface9>, dstsurfacesize: u32, piv: *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn DecryptionBlt(&self, psrcsurface: windows_core::Ref<super::super::Graphics::Direct3D9::IDirect3DSurface9>, pdstsurface: windows_core::Ref<super::super::Graphics::Direct3D9::IDirect3DSurface9>, srcsurfacesize: u32, pencryptedblockinfo: *mut super::super::Graphics::Direct3D9::D3DENCRYPTED_BLOCK_INFO, pcontentkey: *mut core::ffi::c_void, piv: *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetSurfacePitch(&self, psrcsurface: windows_core::Ref<super::super::Graphics::Direct3D9::IDirect3DSurface9>, psurfacepitch: *mut u32) -> windows_core::Result<()>;
     fn StartSessionKeyRefresh(&self, prandomnumber: *mut core::ffi::c_void, randomnumbersize: u32) -> windows_core::Result<()>;
     fn FinishSessionKeyRefresh(&self) -> windows_core::Result<()>;
     fn GetEncryptionBltKey(&self, preadbackkey: *mut core::ffi::c_void, keysize: u32) -> windows_core::Result<()>;
@@ -13189,7 +13189,7 @@ pub struct IDirect3DDeviceManager9_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub trait IDirect3DDeviceManager9_Impl: windows_core::IUnknownImpl {
-    fn ResetDevice(&self, pdevice: windows_core::Ref<'_, super::super::Graphics::Direct3D9::IDirect3DDevice9>, resettoken: u32) -> windows_core::Result<()>;
+    fn ResetDevice(&self, pdevice: windows_core::Ref<super::super::Graphics::Direct3D9::IDirect3DDevice9>, resettoken: u32) -> windows_core::Result<()>;
     fn OpenDeviceHandle(&self) -> windows_core::Result<super::super::Foundation::HANDLE>;
     fn CloseDeviceHandle(&self, hdevice: super::super::Foundation::HANDLE) -> windows_core::Result<()>;
     fn TestDevice(&self, hdevice: super::super::Foundation::HANDLE) -> windows_core::Result<()>;
@@ -13358,7 +13358,7 @@ pub trait IDirectXVideoDecoder_Impl: windows_core::IUnknownImpl {
     fn GetCreationParameters(&self, pdeviceguid: *mut windows_core::GUID, pvideodesc: *mut DXVA2_VideoDesc, pconfig: *mut DXVA2_ConfigPictureDecode, pdecoderrendertargets: *mut *mut Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>, pnumsurfaces: *mut u32) -> windows_core::Result<()>;
     fn GetBuffer(&self, buffertype: &DXVA2_BufferfType, ppbuffer: *mut *mut core::ffi::c_void, pbuffersize: *mut u32) -> windows_core::Result<()>;
     fn ReleaseBuffer(&self, buffertype: u32) -> windows_core::Result<()>;
-    fn BeginFrame(&self, prendertarget: windows_core::Ref<'_, super::super::Graphics::Direct3D9::IDirect3DSurface9>, pvpvpdata: *const core::ffi::c_void) -> windows_core::Result<()>;
+    fn BeginFrame(&self, prendertarget: windows_core::Ref<super::super::Graphics::Direct3D9::IDirect3DSurface9>, pvpvpdata: *const core::ffi::c_void) -> windows_core::Result<()>;
     fn EndFrame(&self, phandlecomplete: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()>;
     fn Execute(&self, pexecuteparams: *const DXVA2_DecodeExecuteParams) -> windows_core::Result<()>;
 }
@@ -13646,7 +13646,7 @@ pub trait IDirectXVideoProcessor_Impl: windows_core::IUnknownImpl {
     fn GetVideoProcessorCaps(&self, pcaps: *mut DXVA2_VideoProcessorCaps) -> windows_core::Result<()>;
     fn GetProcAmpRange(&self, procampcap: u32) -> windows_core::Result<DXVA2_ValueRange>;
     fn GetFilterPropertyRange(&self, filtersetting: u32) -> windows_core::Result<DXVA2_ValueRange>;
-    fn VideoProcessBlt(&self, prendertarget: windows_core::Ref<'_, super::super::Graphics::Direct3D9::IDirect3DSurface9>, pbltparams: *const DXVA2_VideoProcessBltParams, psamples: *const DXVA2_VideoSample, numsamples: u32, phandlecomplete: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()>;
+    fn VideoProcessBlt(&self, prendertarget: windows_core::Ref<super::super::Graphics::Direct3D9::IDirect3DSurface9>, pbltparams: *const DXVA2_VideoProcessBltParams, psamples: *const DXVA2_VideoSample, numsamples: u32, phandlecomplete: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl IDirectXVideoProcessor_Vtbl {
@@ -14185,8 +14185,8 @@ pub struct IFileClient_Vtbl {
 }
 pub trait IFileClient_Impl: windows_core::IUnknownImpl {
     fn GetObjectDiskSize(&self, pqwsize: *mut u64) -> windows_core::Result<()>;
-    fn Write(&self, pfio: windows_core::Ref<'_, IFileIo>) -> windows_core::Result<()>;
-    fn Read(&self, pfio: windows_core::Ref<'_, IFileIo>) -> windows_core::Result<()>;
+    fn Write(&self, pfio: windows_core::Ref<IFileIo>) -> windows_core::Result<()>;
+    fn Read(&self, pfio: windows_core::Ref<IFileIo>) -> windows_core::Result<()>;
 }
 impl IFileClient_Vtbl {
     pub const fn new<Identity: IFileClient_Impl, const OFFSET: isize>() -> Self {
@@ -14514,7 +14514,7 @@ pub struct IMF2DBuffer2_Vtbl {
 }
 pub trait IMF2DBuffer2_Impl: IMF2DBuffer_Impl {
     fn Lock2DSize(&self, lockflags: MF2DBuffer_LockFlags, ppbscanline0: *mut *mut u8, plpitch: *mut i32, ppbbufferstart: *mut *mut u8, pcbbufferlength: *mut u32) -> windows_core::Result<()>;
-    fn Copy2DTo(&self, pdestbuffer: windows_core::Ref<'_, IMF2DBuffer2>) -> windows_core::Result<()>;
+    fn Copy2DTo(&self, pdestbuffer: windows_core::Ref<IMF2DBuffer2>) -> windows_core::Result<()>;
 }
 impl IMF2DBuffer2_Vtbl {
     pub const fn new<Identity: IMF2DBuffer2_Impl, const OFFSET: isize>() -> Self {
@@ -14606,11 +14606,11 @@ pub struct IMFASFContentInfo_Vtbl {
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IMFASFContentInfo_Impl: windows_core::IUnknownImpl {
-    fn GetHeaderSize(&self, pistartofcontent: windows_core::Ref<'_, IMFMediaBuffer>) -> windows_core::Result<u64>;
-    fn ParseHeader(&self, piheaderbuffer: windows_core::Ref<'_, IMFMediaBuffer>, cboffsetwithinheader: u64) -> windows_core::Result<()>;
-    fn GenerateHeader(&self, piheader: windows_core::Ref<'_, IMFMediaBuffer>) -> windows_core::Result<u32>;
+    fn GetHeaderSize(&self, pistartofcontent: windows_core::Ref<IMFMediaBuffer>) -> windows_core::Result<u64>;
+    fn ParseHeader(&self, piheaderbuffer: windows_core::Ref<IMFMediaBuffer>, cboffsetwithinheader: u64) -> windows_core::Result<()>;
+    fn GenerateHeader(&self, piheader: windows_core::Ref<IMFMediaBuffer>) -> windows_core::Result<u32>;
     fn GetProfile(&self) -> windows_core::Result<IMFASFProfile>;
-    fn SetProfile(&self, piprofile: windows_core::Ref<'_, IMFASFProfile>) -> windows_core::Result<()>;
+    fn SetProfile(&self, piprofile: windows_core::Ref<IMFASFProfile>) -> windows_core::Result<()>;
     fn GeneratePresentationDescriptor(&self) -> windows_core::Result<IMFPresentationDescriptor>;
     fn GetEncodingConfigurationPropertyStore(&self, wstreamnumber: u16) -> windows_core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
 }
@@ -14801,17 +14801,17 @@ pub struct IMFASFIndexer_Vtbl {
 pub trait IMFASFIndexer_Impl: windows_core::IUnknownImpl {
     fn SetFlags(&self, dwflags: u32) -> windows_core::Result<()>;
     fn GetFlags(&self) -> windows_core::Result<u32>;
-    fn Initialize(&self, picontentinfo: windows_core::Ref<'_, IMFASFContentInfo>) -> windows_core::Result<()>;
-    fn GetIndexPosition(&self, picontentinfo: windows_core::Ref<'_, IMFASFContentInfo>) -> windows_core::Result<u64>;
+    fn Initialize(&self, picontentinfo: windows_core::Ref<IMFASFContentInfo>) -> windows_core::Result<()>;
+    fn GetIndexPosition(&self, picontentinfo: windows_core::Ref<IMFASFContentInfo>) -> windows_core::Result<u64>;
     fn SetIndexByteStreams(&self, ppibytestreams: *const Option<IMFByteStream>, cbytestreams: u32) -> windows_core::Result<()>;
     fn GetIndexByteStreamCount(&self) -> windows_core::Result<u32>;
     fn GetIndexStatus(&self, pindexidentifier: *const ASF_INDEX_IDENTIFIER, pfisindexed: *mut super::super::Foundation::BOOL, pbindexdescriptor: *mut u8, pcbindexdescriptor: *mut u32) -> windows_core::Result<()>;
     fn SetIndexStatus(&self, pbindexdescriptor: *const u8, cbindexdescriptor: u32, fgenerateindex: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn GetSeekPositionForValue(&self, pvarvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pindexidentifier: *const ASF_INDEX_IDENTIFIER, pcboffsetwithindata: *mut u64, phnsapproxtime: *mut i64, pdwpayloadnumberofstreamwithinpacket: *mut u32) -> windows_core::Result<()>;
-    fn GenerateIndexEntries(&self, piasfpacketsample: windows_core::Ref<'_, IMFSample>) -> windows_core::Result<()>;
-    fn CommitIndex(&self, picontentinfo: windows_core::Ref<'_, IMFASFContentInfo>) -> windows_core::Result<()>;
+    fn GenerateIndexEntries(&self, piasfpacketsample: windows_core::Ref<IMFSample>) -> windows_core::Result<()>;
+    fn CommitIndex(&self, picontentinfo: windows_core::Ref<IMFASFContentInfo>) -> windows_core::Result<()>;
     fn GetIndexWriteSpace(&self) -> windows_core::Result<u64>;
-    fn GetCompletedIndex(&self, piindexbuffer: windows_core::Ref<'_, IMFMediaBuffer>, cboffsetwithinindex: u64) -> windows_core::Result<()>;
+    fn GetCompletedIndex(&self, piindexbuffer: windows_core::Ref<IMFMediaBuffer>, cboffsetwithinindex: u64) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFASFIndexer_Vtbl {
@@ -15001,13 +15001,13 @@ pub struct IMFASFMultiplexer_Vtbl {
     pub SetSyncTolerance: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait IMFASFMultiplexer_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, picontentinfo: windows_core::Ref<'_, IMFASFContentInfo>) -> windows_core::Result<()>;
+    fn Initialize(&self, picontentinfo: windows_core::Ref<IMFASFContentInfo>) -> windows_core::Result<()>;
     fn SetFlags(&self, dwflags: u32) -> windows_core::Result<()>;
     fn GetFlags(&self) -> windows_core::Result<u32>;
-    fn ProcessSample(&self, wstreamnumber: u16, pisample: windows_core::Ref<'_, IMFSample>, hnstimestampadjust: i64) -> windows_core::Result<()>;
+    fn ProcessSample(&self, wstreamnumber: u16, pisample: windows_core::Ref<IMFSample>, hnstimestampadjust: i64) -> windows_core::Result<()>;
     fn GetNextPacket(&self, pdwstatusflags: *mut u32, ppipacket: windows_core::OutRef<'_, IMFSample>) -> windows_core::Result<()>;
     fn Flush(&self) -> windows_core::Result<()>;
-    fn End(&self, picontentinfo: windows_core::Ref<'_, IMFASFContentInfo>) -> windows_core::Result<()>;
+    fn End(&self, picontentinfo: windows_core::Ref<IMFASFContentInfo>) -> windows_core::Result<()>;
     fn GetStatistics(&self, wstreamnumber: u16) -> windows_core::Result<ASF_MUX_STATISTICS>;
     fn SetSyncTolerance(&self, mssynctolerance: u32) -> windows_core::Result<()>;
 }
@@ -15384,16 +15384,16 @@ pub trait IMFASFProfile_Impl: IMFAttributes_Impl {
     fn GetStreamCount(&self) -> windows_core::Result<u32>;
     fn GetStream(&self, dwstreamindex: u32, pwstreamnumber: *mut u16, ppistream: windows_core::OutRef<'_, IMFASFStreamConfig>) -> windows_core::Result<()>;
     fn GetStreamByNumber(&self, wstreamnumber: u16) -> windows_core::Result<IMFASFStreamConfig>;
-    fn SetStream(&self, pistream: windows_core::Ref<'_, IMFASFStreamConfig>) -> windows_core::Result<()>;
+    fn SetStream(&self, pistream: windows_core::Ref<IMFASFStreamConfig>) -> windows_core::Result<()>;
     fn RemoveStream(&self, wstreamnumber: u16) -> windows_core::Result<()>;
-    fn CreateStream(&self, pimediatype: windows_core::Ref<'_, IMFMediaType>) -> windows_core::Result<IMFASFStreamConfig>;
+    fn CreateStream(&self, pimediatype: windows_core::Ref<IMFMediaType>) -> windows_core::Result<IMFASFStreamConfig>;
     fn GetMutualExclusionCount(&self) -> windows_core::Result<u32>;
     fn GetMutualExclusion(&self, dwmutexindex: u32) -> windows_core::Result<IMFASFMutualExclusion>;
-    fn AddMutualExclusion(&self, pimutex: windows_core::Ref<'_, IMFASFMutualExclusion>) -> windows_core::Result<()>;
+    fn AddMutualExclusion(&self, pimutex: windows_core::Ref<IMFASFMutualExclusion>) -> windows_core::Result<()>;
     fn RemoveMutualExclusion(&self, dwmutexindex: u32) -> windows_core::Result<()>;
     fn CreateMutualExclusion(&self) -> windows_core::Result<IMFASFMutualExclusion>;
     fn GetStreamPrioritization(&self) -> windows_core::Result<IMFASFStreamPrioritization>;
-    fn AddStreamPrioritization(&self, pistreamprioritization: windows_core::Ref<'_, IMFASFStreamPrioritization>) -> windows_core::Result<()>;
+    fn AddStreamPrioritization(&self, pistreamprioritization: windows_core::Ref<IMFASFStreamPrioritization>) -> windows_core::Result<()>;
     fn RemoveStreamPrioritization(&self) -> windows_core::Result<()>;
     fn CreateStreamPrioritization(&self) -> windows_core::Result<IMFASFStreamPrioritization>;
     fn Clone(&self) -> windows_core::Result<IMFASFProfile>;
@@ -15634,12 +15634,12 @@ pub struct IMFASFSplitter_Vtbl {
     pub GetLastSendTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IMFASFSplitter_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, picontentinfo: windows_core::Ref<'_, IMFASFContentInfo>) -> windows_core::Result<()>;
+    fn Initialize(&self, picontentinfo: windows_core::Ref<IMFASFContentInfo>) -> windows_core::Result<()>;
     fn SetFlags(&self, dwflags: u32) -> windows_core::Result<()>;
     fn GetFlags(&self) -> windows_core::Result<u32>;
     fn SelectStreams(&self, pwstreamnumbers: *const u16, wnumstreams: u16) -> windows_core::Result<()>;
     fn GetSelectedStreams(&self, pwstreamnumbers: *mut u16, pwnumstreams: *mut u16) -> windows_core::Result<()>;
-    fn ParseData(&self, pibuffer: windows_core::Ref<'_, IMFMediaBuffer>, cbbufferoffset: u32, cblength: u32) -> windows_core::Result<()>;
+    fn ParseData(&self, pibuffer: windows_core::Ref<IMFMediaBuffer>, cbbufferoffset: u32, cblength: u32) -> windows_core::Result<()>;
     fn GetNextSample(&self, pdwstatusflags: *mut ASF_STATUSFLAGS, pwstreamnumber: *mut u16, ppisample: windows_core::OutRef<'_, IMFSample>) -> windows_core::Result<()>;
     fn Flush(&self) -> windows_core::Result<()>;
     fn GetLastSendTime(&self) -> windows_core::Result<u32>;
@@ -15805,7 +15805,7 @@ pub trait IMFASFStreamConfig_Impl: IMFAttributes_Impl {
     fn GetStreamNumber(&self) -> u16;
     fn SetStreamNumber(&self, wstreamnum: u16) -> windows_core::Result<()>;
     fn GetMediaType(&self) -> windows_core::Result<IMFMediaType>;
-    fn SetMediaType(&self, pimediatype: windows_core::Ref<'_, IMFMediaType>) -> windows_core::Result<()>;
+    fn SetMediaType(&self, pimediatype: windows_core::Ref<IMFMediaType>) -> windows_core::Result<()>;
     fn GetPayloadExtensionCount(&self) -> windows_core::Result<u16>;
     fn GetPayloadExtension(&self, wpayloadextensionnumber: u16, pguidextensionsystemid: *mut windows_core::GUID, pcbextensiondatasize: *mut u16, pbextensionsysteminfo: *mut u8, pcbextensionsysteminfo: *mut u32) -> windows_core::Result<()>;
     fn AddPayloadExtension(&self, guidextensionsystemid: &windows_core::GUID, cbextensiondatasize: u16, pbextensionsysteminfo: *const u8, cbextensionsysteminfo: u32) -> windows_core::Result<()>;
@@ -16388,7 +16388,7 @@ pub struct IMFAsyncCallback_Vtbl {
 }
 pub trait IMFAsyncCallback_Impl: windows_core::IUnknownImpl {
     fn GetParameters(&self, pdwflags: *mut u32, pdwqueue: *mut u32) -> windows_core::Result<()>;
-    fn Invoke(&self, pasyncresult: windows_core::Ref<'_, IMFAsyncResult>) -> windows_core::Result<()>;
+    fn Invoke(&self, pasyncresult: windows_core::Ref<IMFAsyncResult>) -> windows_core::Result<()>;
 }
 impl IMFAsyncCallback_Vtbl {
     pub const fn new<Identity: IMFAsyncCallback_Impl, const OFFSET: isize>() -> Self {
@@ -16760,7 +16760,7 @@ pub trait IMFAttributes_Impl: windows_core::IUnknownImpl {
     fn GetItem(&self, guidkey: *const windows_core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
     fn GetItemType(&self, guidkey: *const windows_core::GUID) -> windows_core::Result<MF_ATTRIBUTE_TYPE>;
     fn CompareItem(&self, guidkey: *const windows_core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn Compare(&self, ptheirs: windows_core::Ref<'_, IMFAttributes>, matchtype: MF_ATTRIBUTES_MATCH_TYPE) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn Compare(&self, ptheirs: windows_core::Ref<IMFAttributes>, matchtype: MF_ATTRIBUTES_MATCH_TYPE) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn GetUINT32(&self, guidkey: *const windows_core::GUID) -> windows_core::Result<u32>;
     fn GetUINT64(&self, guidkey: *const windows_core::GUID) -> windows_core::Result<u64>;
     fn GetDouble(&self, guidkey: *const windows_core::GUID) -> windows_core::Result<f64>;
@@ -16781,12 +16781,12 @@ pub trait IMFAttributes_Impl: windows_core::IUnknownImpl {
     fn SetGUID(&self, guidkey: *const windows_core::GUID, guidvalue: *const windows_core::GUID) -> windows_core::Result<()>;
     fn SetString(&self, guidkey: *const windows_core::GUID, wszvalue: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SetBlob(&self, guidkey: *const windows_core::GUID, pbuf: *const u8, cbbufsize: u32) -> windows_core::Result<()>;
-    fn SetUnknown(&self, guidkey: *const windows_core::GUID, punknown: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetUnknown(&self, guidkey: *const windows_core::GUID, punknown: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn LockStore(&self) -> windows_core::Result<()>;
     fn UnlockStore(&self) -> windows_core::Result<()>;
     fn GetCount(&self) -> windows_core::Result<u32>;
     fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut windows_core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
-    fn CopyAllItems(&self, pdest: windows_core::Ref<'_, IMFAttributes>) -> windows_core::Result<()>;
+    fn CopyAllItems(&self, pdest: windows_core::Ref<IMFAttributes>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFAttributes_Vtbl {
@@ -17498,11 +17498,11 @@ pub trait IMFByteStream_Impl: windows_core::IUnknownImpl {
     fn SetCurrentPosition(&self, qwposition: u64) -> windows_core::Result<()>;
     fn IsEndOfStream(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn Read(&self, pb: *mut u8, cb: u32, pcbread: *mut u32) -> windows_core::Result<()>;
-    fn BeginRead(&self, pb: *mut u8, cb: u32, pcallback: windows_core::Ref<'_, IMFAsyncCallback>, punkstate: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn EndRead(&self, presult: windows_core::Ref<'_, IMFAsyncResult>) -> windows_core::Result<u32>;
+    fn BeginRead(&self, pb: *mut u8, cb: u32, pcallback: windows_core::Ref<IMFAsyncCallback>, punkstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn EndRead(&self, presult: windows_core::Ref<IMFAsyncResult>) -> windows_core::Result<u32>;
     fn Write(&self, pb: *const u8, cb: u32) -> windows_core::Result<u32>;
-    fn BeginWrite(&self, pb: *const u8, cb: u32, pcallback: windows_core::Ref<'_, IMFAsyncCallback>, punkstate: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn EndWrite(&self, presult: windows_core::Ref<'_, IMFAsyncResult>) -> windows_core::Result<u32>;
+    fn BeginWrite(&self, pb: *const u8, cb: u32, pcallback: windows_core::Ref<IMFAsyncCallback>, punkstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn EndWrite(&self, presult: windows_core::Ref<IMFAsyncResult>) -> windows_core::Result<u32>;
     fn Seek(&self, seekorigin: MFBYTESTREAM_SEEK_ORIGIN, llseekoffset: i64, dwseekflags: u32) -> windows_core::Result<u64>;
     fn Flush(&self) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
@@ -17876,9 +17876,9 @@ pub struct IMFByteStreamHandler_Vtbl {
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IMFByteStreamHandler_Impl: windows_core::IUnknownImpl {
-    fn BeginCreateObject(&self, pbytestream: windows_core::Ref<'_, IMFByteStream>, pwszurl: &windows_core::PCWSTR, dwflags: u32, pprops: windows_core::Ref<'_, super::super::UI::Shell::PropertiesSystem::IPropertyStore>, ppiunknowncancelcookie: windows_core::OutRef<'_, windows_core::IUnknown>, pcallback: windows_core::Ref<'_, IMFAsyncCallback>, punkstate: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn EndCreateObject(&self, presult: windows_core::Ref<'_, IMFAsyncResult>, pobjecttype: *mut MF_OBJECT_TYPE, ppobject: windows_core::OutRef<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn CancelObjectCreation(&self, piunknowncancelcookie: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn BeginCreateObject(&self, pbytestream: windows_core::Ref<IMFByteStream>, pwszurl: &windows_core::PCWSTR, dwflags: u32, pprops: windows_core::Ref<super::super::UI::Shell::PropertiesSystem::IPropertyStore>, ppiunknowncancelcookie: windows_core::OutRef<'_, windows_core::IUnknown>, pcallback: windows_core::Ref<IMFAsyncCallback>, punkstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn EndCreateObject(&self, presult: windows_core::Ref<IMFAsyncResult>, pobjecttype: *mut MF_OBJECT_TYPE, ppobject: windows_core::OutRef<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CancelObjectCreation(&self, piunknowncancelcookie: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetMaxNumberOfBytesRequiredForResolution(&self) -> windows_core::Result<u64>;
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -17947,7 +17947,7 @@ pub struct IMFByteStreamProxyClassFactory_Vtbl {
     pub CreateByteStreamProxy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFByteStreamProxyClassFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateByteStreamProxy(&self, pbytestream: windows_core::Ref<'_, IMFByteStream>, pattributes: windows_core::Ref<'_, IMFAttributes>, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateByteStreamProxy(&self, pbytestream: windows_core::Ref<IMFByteStream>, pattributes: windows_core::Ref<IMFAttributes>, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 impl IMFByteStreamProxyClassFactory_Vtbl {
     pub const fn new<Identity: IMFByteStreamProxyClassFactory_Impl, const OFFSET: isize>() -> Self {
@@ -18060,8 +18060,8 @@ pub struct IMFCameraConfigurationManager_Vtbl {
     pub Shutdown: unsafe extern "system" fn(*mut core::ffi::c_void),
 }
 pub trait IMFCameraConfigurationManager_Impl: windows_core::IUnknownImpl {
-    fn LoadDefaults(&self, cameraattributes: windows_core::Ref<'_, IMFAttributes>) -> windows_core::Result<IMFCameraControlDefaultsCollection>;
-    fn SaveDefaults(&self, configurations: windows_core::Ref<'_, IMFCameraControlDefaultsCollection>) -> windows_core::Result<()>;
+    fn LoadDefaults(&self, cameraattributes: windows_core::Ref<IMFAttributes>) -> windows_core::Result<IMFCameraControlDefaultsCollection>;
+    fn SaveDefaults(&self, configurations: windows_core::Ref<IMFCameraControlDefaultsCollection>) -> windows_core::Result<()>;
     fn Shutdown(&self);
 }
 impl IMFCameraConfigurationManager_Vtbl {
@@ -18543,7 +18543,7 @@ pub struct IMFCameraOcclusionStateReportCallback_Vtbl {
     pub OnOcclusionStateReport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFCameraOcclusionStateReportCallback_Impl: windows_core::IUnknownImpl {
-    fn OnOcclusionStateReport(&self, occlusionstatereport: windows_core::Ref<'_, IMFCameraOcclusionStateReport>) -> windows_core::Result<()>;
+    fn OnOcclusionStateReport(&self, occlusionstatereport: windows_core::Ref<IMFCameraOcclusionStateReport>) -> windows_core::Result<()>;
 }
 impl IMFCameraOcclusionStateReportCallback_Vtbl {
     pub const fn new<Identity: IMFCameraOcclusionStateReportCallback_Impl, const OFFSET: isize>() -> Self {
@@ -18658,7 +18658,7 @@ pub struct IMFCaptureEngine_Vtbl {
     pub GetSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFCaptureEngine_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, peventcallback: windows_core::Ref<'_, IMFCaptureEngineOnEventCallback>, pattributes: windows_core::Ref<'_, IMFAttributes>, paudiosource: windows_core::Ref<'_, windows_core::IUnknown>, pvideosource: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Initialize(&self, peventcallback: windows_core::Ref<IMFCaptureEngineOnEventCallback>, pattributes: windows_core::Ref<IMFAttributes>, paudiosource: windows_core::Ref<windows_core::IUnknown>, pvideosource: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn StartPreview(&self) -> windows_core::Result<()>;
     fn StopPreview(&self) -> windows_core::Result<()>;
     fn StartRecord(&self) -> windows_core::Result<()>;
@@ -18796,7 +18796,7 @@ pub struct IMFCaptureEngineOnEventCallback_Vtbl {
     pub OnEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFCaptureEngineOnEventCallback_Impl: windows_core::IUnknownImpl {
-    fn OnEvent(&self, pevent: windows_core::Ref<'_, IMFMediaEvent>) -> windows_core::Result<()>;
+    fn OnEvent(&self, pevent: windows_core::Ref<IMFMediaEvent>) -> windows_core::Result<()>;
 }
 impl IMFCaptureEngineOnEventCallback_Vtbl {
     pub const fn new<Identity: IMFCaptureEngineOnEventCallback_Impl, const OFFSET: isize>() -> Self {
@@ -18829,7 +18829,7 @@ pub struct IMFCaptureEngineOnSampleCallback_Vtbl {
     pub OnSample: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFCaptureEngineOnSampleCallback_Impl: windows_core::IUnknownImpl {
-    fn OnSample(&self, psample: windows_core::Ref<'_, IMFSample>) -> windows_core::Result<()>;
+    fn OnSample(&self, psample: windows_core::Ref<IMFSample>) -> windows_core::Result<()>;
 }
 impl IMFCaptureEngineOnSampleCallback_Vtbl {
     pub const fn new<Identity: IMFCaptureEngineOnSampleCallback_Impl, const OFFSET: isize>() -> Self {
@@ -18868,7 +18868,7 @@ pub struct IMFCaptureEngineOnSampleCallback2_Vtbl {
     pub OnSynchronizedEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFCaptureEngineOnSampleCallback2_Impl: IMFCaptureEngineOnSampleCallback_Impl {
-    fn OnSynchronizedEvent(&self, pevent: windows_core::Ref<'_, IMFMediaEvent>) -> windows_core::Result<()>;
+    fn OnSynchronizedEvent(&self, pevent: windows_core::Ref<IMFMediaEvent>) -> windows_core::Result<()>;
 }
 impl IMFCaptureEngineOnSampleCallback2_Vtbl {
     pub const fn new<Identity: IMFCaptureEngineOnSampleCallback2_Impl, const OFFSET: isize>() -> Self {
@@ -18912,7 +18912,7 @@ pub struct IMFCapturePhotoConfirmation_Vtbl {
     pub GetPixelFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 pub trait IMFCapturePhotoConfirmation_Impl: windows_core::IUnknownImpl {
-    fn SetPhotoConfirmationCallback(&self, pnotificationcallback: windows_core::Ref<'_, IMFAsyncCallback>) -> windows_core::Result<()>;
+    fn SetPhotoConfirmationCallback(&self, pnotificationcallback: windows_core::Ref<IMFAsyncCallback>) -> windows_core::Result<()>;
     fn SetPixelFormat(&self, subtype: &windows_core::GUID) -> windows_core::Result<()>;
     fn GetPixelFormat(&self) -> windows_core::Result<windows_core::GUID>;
 }
@@ -18991,8 +18991,8 @@ pub struct IMFCapturePhotoSink_Vtbl {
 }
 pub trait IMFCapturePhotoSink_Impl: IMFCaptureSink_Impl {
     fn SetOutputFileName(&self, filename: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn SetSampleCallback(&self, pcallback: windows_core::Ref<'_, IMFCaptureEngineOnSampleCallback>) -> windows_core::Result<()>;
-    fn SetOutputByteStream(&self, pbytestream: windows_core::Ref<'_, IMFByteStream>) -> windows_core::Result<()>;
+    fn SetSampleCallback(&self, pcallback: windows_core::Ref<IMFCaptureEngineOnSampleCallback>) -> windows_core::Result<()>;
+    fn SetOutputByteStream(&self, pbytestream: windows_core::Ref<IMFByteStream>) -> windows_core::Result<()>;
 }
 impl IMFCapturePhotoSink_Vtbl {
     pub const fn new<Identity: IMFCapturePhotoSink_Impl, const OFFSET: isize>() -> Self {
@@ -19093,14 +19093,14 @@ pub struct IMFCapturePreviewSink_Vtbl {
 }
 pub trait IMFCapturePreviewSink_Impl: IMFCaptureSink_Impl {
     fn SetRenderHandle(&self, handle: super::super::Foundation::HANDLE) -> windows_core::Result<()>;
-    fn SetRenderSurface(&self, psurface: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetRenderSurface(&self, psurface: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn UpdateVideo(&self, psrc: *const MFVideoNormalizedRect, pdst: *const super::super::Foundation::RECT, pborderclr: *const super::super::Foundation::COLORREF) -> windows_core::Result<()>;
-    fn SetSampleCallback(&self, dwstreamsinkindex: u32, pcallback: windows_core::Ref<'_, IMFCaptureEngineOnSampleCallback>) -> windows_core::Result<()>;
+    fn SetSampleCallback(&self, dwstreamsinkindex: u32, pcallback: windows_core::Ref<IMFCaptureEngineOnSampleCallback>) -> windows_core::Result<()>;
     fn GetMirrorState(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn SetMirrorState(&self, fmirrorstate: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn GetRotation(&self, dwstreamindex: u32) -> windows_core::Result<u32>;
     fn SetRotation(&self, dwstreamindex: u32, dwrotationvalue: u32) -> windows_core::Result<()>;
-    fn SetCustomSink(&self, pmediasink: windows_core::Ref<'_, IMFMediaSink>) -> windows_core::Result<()>;
+    fn SetCustomSink(&self, pmediasink: windows_core::Ref<IMFMediaSink>) -> windows_core::Result<()>;
 }
 impl IMFCapturePreviewSink_Vtbl {
     pub const fn new<Identity: IMFCapturePreviewSink_Impl, const OFFSET: isize>() -> Self {
@@ -19242,10 +19242,10 @@ pub struct IMFCaptureRecordSink_Vtbl {
     pub SetRotation: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
 pub trait IMFCaptureRecordSink_Impl: IMFCaptureSink_Impl {
-    fn SetOutputByteStream(&self, pbytestream: windows_core::Ref<'_, IMFByteStream>, guidcontainertype: *const windows_core::GUID) -> windows_core::Result<()>;
+    fn SetOutputByteStream(&self, pbytestream: windows_core::Ref<IMFByteStream>, guidcontainertype: *const windows_core::GUID) -> windows_core::Result<()>;
     fn SetOutputFileName(&self, filename: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn SetSampleCallback(&self, dwstreamsinkindex: u32, pcallback: windows_core::Ref<'_, IMFCaptureEngineOnSampleCallback>) -> windows_core::Result<()>;
-    fn SetCustomSink(&self, pmediasink: windows_core::Ref<'_, IMFMediaSink>) -> windows_core::Result<()>;
+    fn SetSampleCallback(&self, dwstreamsinkindex: u32, pcallback: windows_core::Ref<IMFCaptureEngineOnSampleCallback>) -> windows_core::Result<()>;
+    fn SetCustomSink(&self, pmediasink: windows_core::Ref<IMFMediaSink>) -> windows_core::Result<()>;
     fn GetRotation(&self, dwstreamindex: u32) -> windows_core::Result<u32>;
     fn SetRotation(&self, dwstreamindex: u32, dwrotationvalue: u32) -> windows_core::Result<()>;
 }
@@ -19343,7 +19343,7 @@ pub struct IMFCaptureSink_Vtbl {
 pub trait IMFCaptureSink_Impl: windows_core::IUnknownImpl {
     fn GetOutputMediaType(&self, dwsinkstreamindex: u32, ppmediatype: windows_core::OutRef<'_, IMFMediaType>) -> windows_core::Result<()>;
     fn GetService(&self, dwsinkstreamindex: u32, rguidservice: *const windows_core::GUID, riid: *const windows_core::GUID, ppunknown: windows_core::OutRef<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn AddStream(&self, dwsourcestreamindex: u32, pmediatype: windows_core::Ref<'_, IMFMediaType>, pattributes: windows_core::Ref<'_, IMFAttributes>, pdwsinkstreamindex: *mut u32) -> windows_core::Result<()>;
+    fn AddStream(&self, dwsourcestreamindex: u32, pmediatype: windows_core::Ref<IMFMediaType>, pattributes: windows_core::Ref<IMFAttributes>, pdwsinkstreamindex: *mut u32) -> windows_core::Result<()>;
     fn Prepare(&self) -> windows_core::Result<()>;
     fn RemoveAllStreams(&self) -> windows_core::Result<()>;
 }
@@ -19416,7 +19416,7 @@ pub struct IMFCaptureSink2_Vtbl {
     pub SetOutputMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFCaptureSink2_Impl: IMFCaptureSink_Impl {
-    fn SetOutputMediaType(&self, dwstreamindex: u32, pmediatype: windows_core::Ref<'_, IMFMediaType>, pencodingattributes: windows_core::Ref<'_, IMFAttributes>) -> windows_core::Result<()>;
+    fn SetOutputMediaType(&self, dwstreamindex: u32, pmediatype: windows_core::Ref<IMFMediaType>, pencodingattributes: windows_core::Ref<IMFAttributes>) -> windows_core::Result<()>;
 }
 impl IMFCaptureSink2_Vtbl {
     pub const fn new<Identity: IMFCaptureSink2_Impl, const OFFSET: isize>() -> Self {
@@ -19525,11 +19525,11 @@ pub trait IMFCaptureSource_Impl: windows_core::IUnknownImpl {
     fn GetCaptureDeviceSource(&self, mfcaptureenginedevicetype: MF_CAPTURE_ENGINE_DEVICE_TYPE, ppmediasource: windows_core::OutRef<'_, IMFMediaSource>) -> windows_core::Result<()>;
     fn GetCaptureDeviceActivate(&self, mfcaptureenginedevicetype: MF_CAPTURE_ENGINE_DEVICE_TYPE, ppactivate: windows_core::OutRef<'_, IMFActivate>) -> windows_core::Result<()>;
     fn GetService(&self, rguidservice: *const windows_core::GUID, riid: *const windows_core::GUID, ppunknown: windows_core::OutRef<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn AddEffect(&self, dwsourcestreamindex: u32, punknown: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn RemoveEffect(&self, dwsourcestreamindex: u32, punknown: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn AddEffect(&self, dwsourcestreamindex: u32, punknown: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn RemoveEffect(&self, dwsourcestreamindex: u32, punknown: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn RemoveAllEffects(&self, dwsourcestreamindex: u32) -> windows_core::Result<()>;
     fn GetAvailableDeviceMediaType(&self, dwsourcestreamindex: u32, dwmediatypeindex: u32, ppmediatype: windows_core::OutRef<'_, IMFMediaType>) -> windows_core::Result<()>;
-    fn SetCurrentDeviceMediaType(&self, dwsourcestreamindex: u32, pmediatype: windows_core::Ref<'_, IMFMediaType>) -> windows_core::Result<()>;
+    fn SetCurrentDeviceMediaType(&self, dwsourcestreamindex: u32, pmediatype: windows_core::Ref<IMFMediaType>) -> windows_core::Result<()>;
     fn GetCurrentDeviceMediaType(&self, dwsourcestreamindex: u32) -> windows_core::Result<IMFMediaType>;
     fn GetDeviceStreamCount(&self) -> windows_core::Result<u32>;
     fn GetDeviceStreamCategory(&self, dwsourcestreamindex: u32) -> windows_core::Result<MF_CAPTURE_ENGINE_STREAM_CATEGORY>;
@@ -19848,7 +19848,7 @@ pub struct IMFClockConsumer_Vtbl {
     pub GetPresentationClock: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFClockConsumer_Impl: windows_core::IUnknownImpl {
-    fn SetPresentationClock(&self, ppresentationclock: windows_core::Ref<'_, IMFPresentationClock>) -> windows_core::Result<()>;
+    fn SetPresentationClock(&self, ppresentationclock: windows_core::Ref<IMFPresentationClock>) -> windows_core::Result<()>;
     fn GetPresentationClock(&self) -> windows_core::Result<IMFPresentationClock>;
 }
 impl IMFClockConsumer_Vtbl {
@@ -20013,9 +20013,9 @@ pub struct IMFCollection_Vtbl {
 pub trait IMFCollection_Impl: windows_core::IUnknownImpl {
     fn GetElementCount(&self) -> windows_core::Result<u32>;
     fn GetElement(&self, dwelementindex: u32) -> windows_core::Result<windows_core::IUnknown>;
-    fn AddElement(&self, punkelement: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn AddElement(&self, punkelement: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn RemoveElement(&self, dwelementindex: u32) -> windows_core::Result<windows_core::IUnknown>;
-    fn InsertElementAt(&self, dwindex: u32, punknown: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn InsertElementAt(&self, dwindex: u32, punknown: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn RemoveAllElements(&self) -> windows_core::Result<()>;
 }
 impl IMFCollection_Vtbl {
@@ -20145,10 +20145,10 @@ pub struct IMFContentDecryptionModule_Vtbl {
     pub GetProtectionSystemIds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut windows_core::GUID, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IMFContentDecryptionModule_Impl: windows_core::IUnknownImpl {
-    fn SetContentEnabler(&self, contentenabler: windows_core::Ref<'_, IMFContentEnabler>, result: windows_core::Ref<'_, IMFAsyncResult>) -> windows_core::Result<()>;
+    fn SetContentEnabler(&self, contentenabler: windows_core::Ref<IMFContentEnabler>, result: windows_core::Ref<IMFAsyncResult>) -> windows_core::Result<()>;
     fn GetSuspendNotify(&self) -> windows_core::Result<IMFCdmSuspendNotify>;
-    fn SetPMPHostApp(&self, pmphostapp: windows_core::Ref<'_, IMFPMPHostApp>) -> windows_core::Result<()>;
-    fn CreateSession(&self, sessiontype: MF_MEDIAKEYSESSION_TYPE, callbacks: windows_core::Ref<'_, IMFContentDecryptionModuleSessionCallbacks>) -> windows_core::Result<IMFContentDecryptionModuleSession>;
+    fn SetPMPHostApp(&self, pmphostapp: windows_core::Ref<IMFPMPHostApp>) -> windows_core::Result<()>;
+    fn CreateSession(&self, sessiontype: MF_MEDIAKEYSESSION_TYPE, callbacks: windows_core::Ref<IMFContentDecryptionModuleSessionCallbacks>) -> windows_core::Result<IMFContentDecryptionModuleSession>;
     fn SetServerCertificate(&self, certificate: *const u8, certificatesize: u32) -> windows_core::Result<()>;
     fn CreateTrustedInput(&self, contentinitdata: *const u8, contentinitdatasize: u32) -> windows_core::Result<IMFTrustedInput>;
     fn GetProtectionSystemIds(&self, systemids: *mut *mut windows_core::GUID, count: *mut u32) -> windows_core::Result<()>;
@@ -20273,7 +20273,7 @@ pub struct IMFContentDecryptionModuleAccess_Vtbl {
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IMFContentDecryptionModuleAccess_Impl: windows_core::IUnknownImpl {
-    fn CreateContentDecryptionModule(&self, contentdecryptionmoduleproperties: windows_core::Ref<'_, super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> windows_core::Result<IMFContentDecryptionModule>;
+    fn CreateContentDecryptionModule(&self, contentdecryptionmoduleproperties: windows_core::Ref<super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> windows_core::Result<IMFContentDecryptionModule>;
     fn GetConfiguration(&self) -> windows_core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
     fn GetKeySystem(&self) -> windows_core::Result<windows_core::PWSTR>;
 }
@@ -20828,8 +20828,8 @@ pub struct IMFContentProtectionManager_Vtbl {
     pub EndEnableContent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFContentProtectionManager_Impl: windows_core::IUnknownImpl {
-    fn BeginEnableContent(&self, penableractivate: windows_core::Ref<'_, IMFActivate>, ptopo: windows_core::Ref<'_, IMFTopology>, pcallback: windows_core::Ref<'_, IMFAsyncCallback>, punkstate: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn EndEnableContent(&self, presult: windows_core::Ref<'_, IMFAsyncResult>) -> windows_core::Result<()>;
+    fn BeginEnableContent(&self, penableractivate: windows_core::Ref<IMFActivate>, ptopo: windows_core::Ref<IMFTopology>, pcallback: windows_core::Ref<IMFAsyncCallback>, punkstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn EndEnableContent(&self, presult: windows_core::Ref<IMFAsyncResult>) -> windows_core::Result<()>;
 }
 impl IMFContentProtectionManager_Vtbl {
     pub const fn new<Identity: IMFContentProtectionManager_Impl, const OFFSET: isize>() -> Self {
@@ -20948,10 +20948,10 @@ pub struct IMFD3D12SynchronizationObjectCommands_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait IMFD3D12SynchronizationObjectCommands_Impl: windows_core::IUnknownImpl {
-    fn EnqueueResourceReady(&self, pproducercommandqueue: windows_core::Ref<'_, super::super::Graphics::Direct3D12::ID3D12CommandQueue>) -> windows_core::Result<()>;
-    fn EnqueueResourceReadyWait(&self, pconsumercommandqueue: windows_core::Ref<'_, super::super::Graphics::Direct3D12::ID3D12CommandQueue>) -> windows_core::Result<()>;
+    fn EnqueueResourceReady(&self, pproducercommandqueue: windows_core::Ref<super::super::Graphics::Direct3D12::ID3D12CommandQueue>) -> windows_core::Result<()>;
+    fn EnqueueResourceReadyWait(&self, pconsumercommandqueue: windows_core::Ref<super::super::Graphics::Direct3D12::ID3D12CommandQueue>) -> windows_core::Result<()>;
     fn SignalEventOnResourceReady(&self, hevent: super::super::Foundation::HANDLE) -> windows_core::Result<()>;
-    fn EnqueueResourceRelease(&self, pconsumercommandqueue: windows_core::Ref<'_, super::super::Graphics::Direct3D12::ID3D12CommandQueue>) -> windows_core::Result<()>;
+    fn EnqueueResourceRelease(&self, pconsumercommandqueue: windows_core::Ref<super::super::Graphics::Direct3D12::ID3D12CommandQueue>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl IMFD3D12SynchronizationObjectCommands_Vtbl {
@@ -21010,7 +21010,7 @@ pub struct IMFDLNASinkInit_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 pub trait IMFDLNASinkInit_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, pbytestream: windows_core::Ref<'_, IMFByteStream>, fpal: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn Initialize(&self, pbytestream: windows_core::Ref<IMFByteStream>, fpal: super::super::Foundation::BOOL) -> windows_core::Result<()>;
 }
 impl IMFDLNASinkInit_Vtbl {
     pub const fn new<Identity: IMFDLNASinkInit_Impl, const OFFSET: isize>() -> Self {
@@ -21106,7 +21106,7 @@ pub trait IMFDXGIBuffer_Impl: windows_core::IUnknownImpl {
     fn GetResource(&self, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetSubresourceIndex(&self) -> windows_core::Result<u32>;
     fn GetUnknown(&self, guid: *const windows_core::GUID, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn SetUnknown(&self, guid: *const windows_core::GUID, punkdata: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetUnknown(&self, guid: *const windows_core::GUID, punkdata: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl IMFDXGIBuffer_Vtbl {
     pub const fn new<Identity: IMFDXGIBuffer_Impl, const OFFSET: isize>() -> Self {
@@ -21200,7 +21200,7 @@ pub trait IMFDXGIDeviceManager_Impl: windows_core::IUnknownImpl {
     fn GetVideoService(&self, hdevice: super::super::Foundation::HANDLE, riid: *const windows_core::GUID, ppservice: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn LockDevice(&self, hdevice: super::super::Foundation::HANDLE, riid: *const windows_core::GUID, ppunkdevice: *mut *mut core::ffi::c_void, fblock: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn OpenDeviceHandle(&self) -> windows_core::Result<super::super::Foundation::HANDLE>;
-    fn ResetDevice(&self, punkdevice: windows_core::Ref<'_, windows_core::IUnknown>, resettoken: u32) -> windows_core::Result<()>;
+    fn ResetDevice(&self, punkdevice: windows_core::Ref<windows_core::IUnknown>, resettoken: u32) -> windows_core::Result<()>;
     fn TestDevice(&self, hdevice: super::super::Foundation::HANDLE) -> windows_core::Result<()>;
     fn UnlockDevice(&self, hdevice: super::super::Foundation::HANDLE, fsavestate: super::super::Foundation::BOOL) -> windows_core::Result<()>;
 }
@@ -21494,7 +21494,7 @@ pub struct IMFDeviceTransform_Vtbl {
     pub FlushOutputStream: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
 pub trait IMFDeviceTransform_Impl: windows_core::IUnknownImpl {
-    fn InitializeTransform(&self, pattributes: windows_core::Ref<'_, IMFAttributes>) -> windows_core::Result<()>;
+    fn InitializeTransform(&self, pattributes: windows_core::Ref<IMFAttributes>) -> windows_core::Result<()>;
     fn GetInputAvailableType(&self, dwinputstreamid: u32, dwtypeindex: u32) -> windows_core::Result<IMFMediaType>;
     fn GetInputCurrentType(&self, dwinputstreamid: u32) -> windows_core::Result<IMFMediaType>;
     fn GetInputStreamAttributes(&self, dwinputstreamid: u32) -> windows_core::Result<IMFAttributes>;
@@ -21503,13 +21503,13 @@ pub trait IMFDeviceTransform_Impl: windows_core::IUnknownImpl {
     fn GetOutputStreamAttributes(&self, dwoutputstreamid: u32) -> windows_core::Result<IMFAttributes>;
     fn GetStreamCount(&self, pcinputstreams: *mut u32, pcoutputstreams: *mut u32) -> windows_core::Result<()>;
     fn GetStreamIDs(&self, dwinputidarraysize: u32, pdwinputstreamids: *mut u32, dwoutputidarraysize: u32, pdwoutputstreamids: *mut u32) -> windows_core::Result<()>;
-    fn ProcessEvent(&self, dwinputstreamid: u32, pevent: windows_core::Ref<'_, IMFMediaEvent>) -> windows_core::Result<()>;
-    fn ProcessInput(&self, dwinputstreamid: u32, psample: windows_core::Ref<'_, IMFSample>, dwflags: u32) -> windows_core::Result<()>;
+    fn ProcessEvent(&self, dwinputstreamid: u32, pevent: windows_core::Ref<IMFMediaEvent>) -> windows_core::Result<()>;
+    fn ProcessInput(&self, dwinputstreamid: u32, psample: windows_core::Ref<IMFSample>, dwflags: u32) -> windows_core::Result<()>;
     fn ProcessMessage(&self, emessage: MFT_MESSAGE_TYPE, ulparam: usize) -> windows_core::Result<()>;
     fn ProcessOutput(&self, dwflags: u32, coutputbuffercount: u32, poutputsample: *mut MFT_OUTPUT_DATA_BUFFER, pdwstatus: *mut u32) -> windows_core::Result<()>;
-    fn SetInputStreamState(&self, dwstreamid: u32, pmediatype: windows_core::Ref<'_, IMFMediaType>, value: DeviceStreamState, dwflags: u32) -> windows_core::Result<()>;
+    fn SetInputStreamState(&self, dwstreamid: u32, pmediatype: windows_core::Ref<IMFMediaType>, value: DeviceStreamState, dwflags: u32) -> windows_core::Result<()>;
     fn GetInputStreamState(&self, dwstreamid: u32) -> windows_core::Result<DeviceStreamState>;
-    fn SetOutputStreamState(&self, dwstreamid: u32, pmediatype: windows_core::Ref<'_, IMFMediaType>, value: DeviceStreamState, dwflags: u32) -> windows_core::Result<()>;
+    fn SetOutputStreamState(&self, dwstreamid: u32, pmediatype: windows_core::Ref<IMFMediaType>, value: DeviceStreamState, dwflags: u32) -> windows_core::Result<()>;
     fn GetOutputStreamState(&self, dwstreamid: u32) -> windows_core::Result<DeviceStreamState>;
     fn GetInputStreamPreferredState(&self, dwstreamid: u32, value: *mut DeviceStreamState, ppmediatype: windows_core::OutRef<'_, IMFMediaType>) -> windows_core::Result<()>;
     fn FlushInputStream(&self, dwstreamindex: u32, dwflags: u32) -> windows_core::Result<()>;
@@ -21730,7 +21730,7 @@ pub struct IMFDeviceTransformCallback_Vtbl {
     pub OnBufferSent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait IMFDeviceTransformCallback_Impl: windows_core::IUnknownImpl {
-    fn OnBufferSent(&self, pcallbackattributes: windows_core::Ref<'_, IMFAttributes>, pinid: u32) -> windows_core::Result<()>;
+    fn OnBufferSent(&self, pcallbackattributes: windows_core::Ref<IMFAttributes>, pinid: u32) -> windows_core::Result<()>;
 }
 impl IMFDeviceTransformCallback_Vtbl {
     pub const fn new<Identity: IMFDeviceTransformCallback_Impl, const OFFSET: isize>() -> Self {
@@ -21995,7 +21995,7 @@ pub trait IMFExtendedCameraIntrinsics_Impl: windows_core::IUnknownImpl {
     fn SerializeToBuffer(&self, pbbuffer: *mut u8, pdwbuffersize: *mut u32) -> windows_core::Result<()>;
     fn GetIntrinsicModelCount(&self) -> windows_core::Result<u32>;
     fn GetIntrinsicModelByIndex(&self, dwindex: u32) -> windows_core::Result<IMFExtendedCameraIntrinsicModel>;
-    fn AddIntrinsicModel(&self, pintrinsicmodel: windows_core::Ref<'_, IMFExtendedCameraIntrinsicModel>) -> windows_core::Result<()>;
+    fn AddIntrinsicModel(&self, pintrinsicmodel: windows_core::Ref<IMFExtendedCameraIntrinsicModel>) -> windows_core::Result<()>;
 }
 impl IMFExtendedCameraIntrinsics_Vtbl {
     pub const fn new<Identity: IMFExtendedCameraIntrinsics_Impl, const OFFSET: isize>() -> Self {
@@ -22213,7 +22213,7 @@ pub struct IMFFieldOfUseMFTUnlock_Vtbl {
     pub Unlock: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFFieldOfUseMFTUnlock_Impl: windows_core::IUnknownImpl {
-    fn Unlock(&self, punkmft: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Unlock(&self, punkmft: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl IMFFieldOfUseMFTUnlock_Vtbl {
     pub const fn new<Identity: IMFFieldOfUseMFTUnlock_Impl, const OFFSET: isize>() -> Self {
@@ -22260,8 +22260,8 @@ pub struct IMFFinalizableMediaSink_Vtbl {
     pub EndFinalize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFFinalizableMediaSink_Impl: IMFMediaSink_Impl {
-    fn BeginFinalize(&self, pcallback: windows_core::Ref<'_, IMFAsyncCallback>, punkstate: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn EndFinalize(&self, presult: windows_core::Ref<'_, IMFAsyncResult>) -> windows_core::Result<()>;
+    fn BeginFinalize(&self, pcallback: windows_core::Ref<IMFAsyncCallback>, punkstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn EndFinalize(&self, presult: windows_core::Ref<IMFAsyncResult>) -> windows_core::Result<()>;
 }
 impl IMFFinalizableMediaSink_Vtbl {
     pub const fn new<Identity: IMFFinalizableMediaSink_Impl, const OFFSET: isize>() -> Self {
@@ -22485,12 +22485,12 @@ pub struct IMFHttpDownloadRequest_Vtbl {
 }
 pub trait IMFHttpDownloadRequest_Impl: windows_core::IUnknownImpl {
     fn AddHeader(&self, szheader: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn BeginSendRequest(&self, pbpayload: *const u8, cbpayload: u32, pcallback: windows_core::Ref<'_, IMFAsyncCallback>, punkstate: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn EndSendRequest(&self, presult: windows_core::Ref<'_, IMFAsyncResult>) -> windows_core::Result<()>;
-    fn BeginReceiveResponse(&self, pcallback: windows_core::Ref<'_, IMFAsyncCallback>, punkstate: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn EndReceiveResponse(&self, presult: windows_core::Ref<'_, IMFAsyncResult>) -> windows_core::Result<()>;
-    fn BeginReadPayload(&self, pb: *mut u8, cb: u32, pcallback: windows_core::Ref<'_, IMFAsyncCallback>, punkstate: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn EndReadPayload(&self, presult: windows_core::Ref<'_, IMFAsyncResult>, pqwoffset: *mut u64, pcbread: *mut u32) -> windows_core::Result<()>;
+    fn BeginSendRequest(&self, pbpayload: *const u8, cbpayload: u32, pcallback: windows_core::Ref<IMFAsyncCallback>, punkstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn EndSendRequest(&self, presult: windows_core::Ref<IMFAsyncResult>) -> windows_core::Result<()>;
+    fn BeginReceiveResponse(&self, pcallback: windows_core::Ref<IMFAsyncCallback>, punkstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn EndReceiveResponse(&self, presult: windows_core::Ref<IMFAsyncResult>) -> windows_core::Result<()>;
+    fn BeginReadPayload(&self, pb: *mut u8, cb: u32, pcallback: windows_core::Ref<IMFAsyncCallback>, punkstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn EndReadPayload(&self, presult: windows_core::Ref<IMFAsyncResult>, pqwoffset: *mut u64, pcbread: *mut u32) -> windows_core::Result<()>;
     fn QueryHeader(&self, szheadername: &windows_core::PCWSTR, dwindex: u32) -> windows_core::Result<windows_core::PWSTR>;
     fn GetURL(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn HasNullSourceOrigin(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
@@ -22806,7 +22806,7 @@ pub struct IMFImageSharingEngine_Vtbl {
     pub Shutdown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFImageSharingEngine_Impl: windows_core::IUnknownImpl {
-    fn SetSource(&self, pstream: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetSource(&self, pstream: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetDevice(&self, pdevice: *mut DEVICE_INFO) -> windows_core::Result<()>;
     fn Shutdown(&self) -> windows_core::Result<()>;
 }
@@ -23327,7 +23327,7 @@ pub struct IMFMediaEngine_Vtbl {
 pub trait IMFMediaEngine_Impl: windows_core::IUnknownImpl {
     fn GetError(&self) -> windows_core::Result<IMFMediaError>;
     fn SetErrorCode(&self, error: MF_MEDIA_ENGINE_ERR) -> windows_core::Result<()>;
-    fn SetSourceElements(&self, psrcelements: windows_core::Ref<'_, IMFMediaEngineSrcElements>) -> windows_core::Result<()>;
+    fn SetSourceElements(&self, psrcelements: windows_core::Ref<IMFMediaEngineSrcElements>) -> windows_core::Result<()>;
     fn SetSource(&self, purl: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetCurrentSource(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetNetworkState(&self) -> u16;
@@ -23365,7 +23365,7 @@ pub trait IMFMediaEngine_Impl: windows_core::IUnknownImpl {
     fn GetNativeVideoSize(&self, cx: *mut u32, cy: *mut u32) -> windows_core::Result<()>;
     fn GetVideoAspectRatio(&self, cx: *mut u32, cy: *mut u32) -> windows_core::Result<()>;
     fn Shutdown(&self) -> windows_core::Result<()>;
-    fn TransferVideoFrame(&self, pdstsurf: windows_core::Ref<'_, windows_core::IUnknown>, psrc: *const MFVideoNormalizedRect, pdst: *const super::super::Foundation::RECT, pborderclr: *const MFARGB) -> windows_core::Result<()>;
+    fn TransferVideoFrame(&self, pdstsurf: windows_core::Ref<windows_core::IUnknown>, psrc: *const MFVideoNormalizedRect, pdst: *const super::super::Foundation::RECT, pborderclr: *const MFARGB) -> windows_core::Result<()>;
     fn OnVideoStreamTick(&self) -> windows_core::Result<i64>;
 }
 impl IMFMediaEngine_Vtbl {
@@ -23805,7 +23805,7 @@ pub struct IMFMediaEngineClassFactory_Vtbl {
     pub CreateError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFMediaEngineClassFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateInstance(&self, dwflags: u32, pattr: windows_core::Ref<'_, IMFAttributes>) -> windows_core::Result<IMFMediaEngine>;
+    fn CreateInstance(&self, dwflags: u32, pattr: windows_core::Ref<IMFAttributes>) -> windows_core::Result<IMFMediaEngine>;
     fn CreateTimeRange(&self) -> windows_core::Result<IMFMediaTimeRange>;
     fn CreateError(&self) -> windows_core::Result<IMFMediaError>;
 }
@@ -24019,7 +24019,7 @@ pub struct IMFMediaEngineClassFactoryEx_Vtbl {
     pub IsTypeSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 pub trait IMFMediaEngineClassFactoryEx_Impl: IMFMediaEngineClassFactory_Impl {
-    fn CreateMediaSourceExtension(&self, dwflags: u32, pattr: windows_core::Ref<'_, IMFAttributes>) -> windows_core::Result<IMFMediaSourceExtension>;
+    fn CreateMediaSourceExtension(&self, dwflags: u32, pattr: windows_core::Ref<IMFAttributes>) -> windows_core::Result<IMFMediaSourceExtension>;
     fn CreateMediaKeys(&self, keysystem: &windows_core::BSTR, cdmstorepath: &windows_core::BSTR) -> windows_core::Result<IMFMediaKeys>;
     fn IsTypeSupported(&self, r#type: &windows_core::BSTR, keysystem: &windows_core::BSTR) -> windows_core::Result<super::super::Foundation::BOOL>;
 }
@@ -24097,7 +24097,7 @@ pub struct IMFMediaEngineEME_Vtbl {
 }
 pub trait IMFMediaEngineEME_Impl: windows_core::IUnknownImpl {
     fn Keys(&self) -> windows_core::Result<IMFMediaKeys>;
-    fn SetMediaKeys(&self, keys: windows_core::Ref<'_, IMFMediaKeys>) -> windows_core::Result<()>;
+    fn SetMediaKeys(&self, keys: windows_core::Ref<IMFMediaKeys>) -> windows_core::Result<()>;
 }
 impl IMFMediaEngineEME_Vtbl {
     pub const fn new<Identity: IMFMediaEngineEME_Impl, const OFFSET: isize>() -> Self {
@@ -24398,7 +24398,7 @@ pub struct IMFMediaEngineEx_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFMediaEngineEx_Impl: IMFMediaEngine_Impl {
-    fn SetSourceFromByteStream(&self, pbytestream: windows_core::Ref<'_, IMFByteStream>, purl: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetSourceFromByteStream(&self, pbytestream: windows_core::Ref<IMFByteStream>, purl: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetStatistics(&self, statisticid: MF_MEDIA_ENGINE_STATISTIC) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
     fn UpdateVideoStream(&self, psrc: *const MFVideoNormalizedRect, pdst: *const super::super::Foundation::RECT, pborderclr: *const MFARGB) -> windows_core::Result<()>;
     fn GetBalance(&self) -> f64;
@@ -24413,8 +24413,8 @@ pub trait IMFMediaEngineEx_Impl: IMFMediaEngine_Impl {
     fn SetStreamSelection(&self, dwstreamindex: u32, enabled: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn ApplyStreamSelections(&self) -> windows_core::Result<()>;
     fn IsProtected(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn InsertVideoEffect(&self, peffect: windows_core::Ref<'_, windows_core::IUnknown>, foptional: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn InsertAudioEffect(&self, peffect: windows_core::Ref<'_, windows_core::IUnknown>, foptional: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn InsertVideoEffect(&self, peffect: windows_core::Ref<windows_core::IUnknown>, foptional: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn InsertAudioEffect(&self, peffect: windows_core::Ref<windows_core::IUnknown>, foptional: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn RemoveAllEffects(&self) -> windows_core::Result<()>;
     fn SetTimelineMarkerTimer(&self, timetofire: f64) -> windows_core::Result<()>;
     fn GetTimelineMarkerTimer(&self) -> windows_core::Result<f64>;
@@ -24835,9 +24835,9 @@ pub struct IMFMediaEngineExtension_Vtbl {
 }
 pub trait IMFMediaEngineExtension_Impl: windows_core::IUnknownImpl {
     fn CanPlayType(&self, audioonly: super::super::Foundation::BOOL, mimetype: &windows_core::BSTR) -> windows_core::Result<MF_MEDIA_ENGINE_CANPLAY>;
-    fn BeginCreateObject(&self, bstrurl: &windows_core::BSTR, pbytestream: windows_core::Ref<'_, IMFByteStream>, r#type: MF_OBJECT_TYPE, ppiunknowncancelcookie: windows_core::OutRef<'_, windows_core::IUnknown>, pcallback: windows_core::Ref<'_, IMFAsyncCallback>, punkstate: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn CancelObjectCreation(&self, piunknowncancelcookie: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn EndCreateObject(&self, presult: windows_core::Ref<'_, IMFAsyncResult>) -> windows_core::Result<windows_core::IUnknown>;
+    fn BeginCreateObject(&self, bstrurl: &windows_core::BSTR, pbytestream: windows_core::Ref<IMFByteStream>, r#type: MF_OBJECT_TYPE, ppiunknowncancelcookie: windows_core::OutRef<'_, windows_core::IUnknown>, pcallback: windows_core::Ref<IMFAsyncCallback>, punkstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CancelObjectCreation(&self, piunknowncancelcookie: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn EndCreateObject(&self, presult: windows_core::Ref<IMFAsyncResult>) -> windows_core::Result<windows_core::IUnknown>;
 }
 impl IMFMediaEngineExtension_Vtbl {
     pub const fn new<Identity: IMFMediaEngineExtension_Impl, const OFFSET: isize>() -> Self {
@@ -25028,11 +25028,11 @@ pub struct IMFMediaEngineProtectedContent_Vtbl {
     pub SetApplicationCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32) -> windows_core::HRESULT,
 }
 pub trait IMFMediaEngineProtectedContent_Impl: windows_core::IUnknownImpl {
-    fn ShareResources(&self, punkdevicecontext: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn ShareResources(&self, punkdevicecontext: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetRequiredProtections(&self) -> windows_core::Result<u32>;
     fn SetOPMWindow(&self, hwnd: super::super::Foundation::HWND) -> windows_core::Result<()>;
-    fn TransferVideoFrame(&self, pdstsurf: windows_core::Ref<'_, windows_core::IUnknown>, psrc: *const MFVideoNormalizedRect, pdst: *const super::super::Foundation::RECT, pborderclr: *const MFARGB) -> windows_core::Result<u32>;
-    fn SetContentProtectionManager(&self, pcpm: windows_core::Ref<'_, IMFContentProtectionManager>) -> windows_core::Result<()>;
+    fn TransferVideoFrame(&self, pdstsurf: windows_core::Ref<windows_core::IUnknown>, psrc: *const MFVideoNormalizedRect, pdst: *const super::super::Foundation::RECT, pborderclr: *const MFARGB) -> windows_core::Result<u32>;
+    fn SetContentProtectionManager(&self, pcpm: windows_core::Ref<IMFContentProtectionManager>) -> windows_core::Result<()>;
     fn SetApplicationCertificate(&self, pbblob: *const u8, cbblob: u32) -> windows_core::Result<()>;
 }
 impl IMFMediaEngineProtectedContent_Vtbl {
@@ -25311,7 +25311,7 @@ pub struct IMFMediaEngineSupportsSourceTransfer_Vtbl {
 pub trait IMFMediaEngineSupportsSourceTransfer_Impl: windows_core::IUnknownImpl {
     fn ShouldTransferSource(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn DetachMediaSource(&self, ppbytestream: windows_core::OutRef<'_, IMFByteStream>, ppmediasource: windows_core::OutRef<'_, IMFMediaSource>, ppmse: windows_core::OutRef<'_, IMFMediaSourceExtension>) -> windows_core::Result<()>;
-    fn AttachMediaSource(&self, pbytestream: windows_core::Ref<'_, IMFByteStream>, pmediasource: windows_core::Ref<'_, IMFMediaSource>, pmse: windows_core::Ref<'_, IMFMediaSourceExtension>) -> windows_core::Result<()>;
+    fn AttachMediaSource(&self, pbytestream: windows_core::Ref<IMFByteStream>, pmediasource: windows_core::Ref<IMFMediaSource>, pmse: windows_core::Ref<IMFMediaSourceExtension>) -> windows_core::Result<()>;
 }
 impl IMFMediaEngineSupportsSourceTransfer_Vtbl {
     pub const fn new<Identity: IMFMediaEngineSupportsSourceTransfer_Impl, const OFFSET: isize>() -> Self {
@@ -25367,7 +25367,7 @@ pub struct IMFMediaEngineTransferSource_Vtbl {
     pub TransferSourceToMediaEngine: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFMediaEngineTransferSource_Impl: windows_core::IUnknownImpl {
-    fn TransferSourceToMediaEngine(&self, destination: windows_core::Ref<'_, IMFMediaEngine>) -> windows_core::Result<()>;
+    fn TransferSourceToMediaEngine(&self, destination: windows_core::Ref<IMFMediaEngine>) -> windows_core::Result<()>;
 }
 impl IMFMediaEngineTransferSource_Vtbl {
     pub const fn new<Identity: IMFMediaEngineTransferSource_Impl, const OFFSET: isize>() -> Self {
@@ -25681,8 +25681,8 @@ pub struct IMFMediaEventGenerator_Vtbl {
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFMediaEventGenerator_Impl: windows_core::IUnknownImpl {
     fn GetEvent(&self, dwflags: MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS) -> windows_core::Result<IMFMediaEvent>;
-    fn BeginGetEvent(&self, pcallback: windows_core::Ref<'_, IMFAsyncCallback>, punkstate: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn EndGetEvent(&self, presult: windows_core::Ref<'_, IMFAsyncResult>) -> windows_core::Result<IMFMediaEvent>;
+    fn BeginGetEvent(&self, pcallback: windows_core::Ref<IMFAsyncCallback>, punkstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn EndGetEvent(&self, presult: windows_core::Ref<IMFAsyncResult>) -> windows_core::Result<IMFMediaEvent>;
     fn QueueEvent(&self, met: u32, guidextendedtype: *const windows_core::GUID, hrstatus: windows_core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -25800,11 +25800,11 @@ pub struct IMFMediaEventQueue_Vtbl {
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFMediaEventQueue_Impl: windows_core::IUnknownImpl {
     fn GetEvent(&self, dwflags: u32) -> windows_core::Result<IMFMediaEvent>;
-    fn BeginGetEvent(&self, pcallback: windows_core::Ref<'_, IMFAsyncCallback>, punkstate: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn EndGetEvent(&self, presult: windows_core::Ref<'_, IMFAsyncResult>) -> windows_core::Result<IMFMediaEvent>;
-    fn QueueEvent(&self, pevent: windows_core::Ref<'_, IMFMediaEvent>) -> windows_core::Result<()>;
+    fn BeginGetEvent(&self, pcallback: windows_core::Ref<IMFAsyncCallback>, punkstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn EndGetEvent(&self, presult: windows_core::Ref<IMFAsyncResult>) -> windows_core::Result<IMFMediaEvent>;
+    fn QueueEvent(&self, pevent: windows_core::Ref<IMFMediaEvent>) -> windows_core::Result<()>;
     fn QueueEventParamVar(&self, met: u32, guidextendedtype: *const windows_core::GUID, hrstatus: windows_core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
-    fn QueueEventParamUnk(&self, met: u32, guidextendedtype: *const windows_core::GUID, hrstatus: windows_core::HRESULT, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn QueueEventParamUnk(&self, met: u32, guidextendedtype: *const windows_core::GUID, hrstatus: windows_core::HRESULT, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn Shutdown(&self) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -26247,7 +26247,7 @@ pub struct IMFMediaKeySystemAccess_Vtbl {
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IMFMediaKeySystemAccess_Impl: windows_core::IUnknownImpl {
-    fn CreateMediaKeys(&self, pcdmcustomconfig: windows_core::Ref<'_, super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> windows_core::Result<IMFMediaKeys2>;
+    fn CreateMediaKeys(&self, pcdmcustomconfig: windows_core::Ref<super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> windows_core::Result<IMFMediaKeys2>;
     fn SupportedConfiguration(&self) -> windows_core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
     fn KeySystem(&self) -> windows_core::Result<windows_core::BSTR>;
 }
@@ -26340,7 +26340,7 @@ pub struct IMFMediaKeys_Vtbl {
     pub GetSuspendNotify: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFMediaKeys_Impl: windows_core::IUnknownImpl {
-    fn CreateSession(&self, mimetype: &windows_core::BSTR, initdata: *const u8, cb: u32, customdata: *const u8, cbcustomdata: u32, notify: windows_core::Ref<'_, IMFMediaKeySessionNotify>) -> windows_core::Result<IMFMediaKeySession>;
+    fn CreateSession(&self, mimetype: &windows_core::BSTR, initdata: *const u8, cb: u32, customdata: *const u8, cbcustomdata: u32, notify: windows_core::Ref<IMFMediaKeySessionNotify>) -> windows_core::Result<IMFMediaKeySession>;
     fn KeySystem(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Shutdown(&self) -> windows_core::Result<()>;
     fn GetSuspendNotify(&self) -> windows_core::Result<IMFCdmSuspendNotify>;
@@ -26438,7 +26438,7 @@ pub struct IMFMediaKeys2_Vtbl {
     pub GetDOMException: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
 pub trait IMFMediaKeys2_Impl: IMFMediaKeys_Impl {
-    fn CreateSession2(&self, esessiontype: MF_MEDIAKEYSESSION_TYPE, pmfmediakeysessionnotify2: windows_core::Ref<'_, IMFMediaKeySessionNotify2>) -> windows_core::Result<IMFMediaKeySession2>;
+    fn CreateSession2(&self, esessiontype: MF_MEDIAKEYSESSION_TYPE, pmfmediakeysessionnotify2: windows_core::Ref<IMFMediaKeySessionNotify2>) -> windows_core::Result<IMFMediaKeySession2>;
     fn SetServerCertificate(&self, pbservercertificate: *const u8, cb: u32) -> windows_core::Result<()>;
     fn GetDOMException(&self, systemcode: windows_core::HRESULT) -> windows_core::Result<windows_core::HRESULT>;
 }
@@ -26558,7 +26558,7 @@ pub struct IMFMediaSession_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFMediaSession_Impl: IMFMediaEventGenerator_Impl {
-    fn SetTopology(&self, dwsettopologyflags: u32, ptopology: windows_core::Ref<'_, IMFTopology>) -> windows_core::Result<()>;
+    fn SetTopology(&self, dwsettopologyflags: u32, ptopology: windows_core::Ref<IMFTopology>) -> windows_core::Result<()>;
     fn ClearTopologies(&self) -> windows_core::Result<()>;
     fn Start(&self, pguidtimeformat: *const windows_core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
     fn Pause(&self) -> windows_core::Result<()>;
@@ -26725,7 +26725,7 @@ pub struct IMFMediaSharingEngineClassFactory_Vtbl {
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFMediaSharingEngineClassFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateInstance(&self, dwflags: u32, pattr: windows_core::Ref<'_, IMFAttributes>) -> windows_core::Result<IMFMediaSharingEngine>;
+    fn CreateInstance(&self, dwflags: u32, pattr: windows_core::Ref<IMFAttributes>) -> windows_core::Result<IMFMediaSharingEngine>;
 }
 impl IMFMediaSharingEngineClassFactory_Vtbl {
     pub const fn new<Identity: IMFMediaSharingEngineClassFactory_Impl, const OFFSET: isize>() -> Self {
@@ -26818,12 +26818,12 @@ pub struct IMFMediaSink_Vtbl {
 }
 pub trait IMFMediaSink_Impl: windows_core::IUnknownImpl {
     fn GetCharacteristics(&self) -> windows_core::Result<u32>;
-    fn AddStreamSink(&self, dwstreamsinkidentifier: u32, pmediatype: windows_core::Ref<'_, IMFMediaType>) -> windows_core::Result<IMFStreamSink>;
+    fn AddStreamSink(&self, dwstreamsinkidentifier: u32, pmediatype: windows_core::Ref<IMFMediaType>) -> windows_core::Result<IMFStreamSink>;
     fn RemoveStreamSink(&self, dwstreamsinkidentifier: u32) -> windows_core::Result<()>;
     fn GetStreamSinkCount(&self) -> windows_core::Result<u32>;
     fn GetStreamSinkByIndex(&self, dwindex: u32) -> windows_core::Result<IMFStreamSink>;
     fn GetStreamSinkById(&self, dwstreamsinkidentifier: u32) -> windows_core::Result<IMFStreamSink>;
-    fn SetPresentationClock(&self, ppresentationclock: windows_core::Ref<'_, IMFPresentationClock>) -> windows_core::Result<()>;
+    fn SetPresentationClock(&self, ppresentationclock: windows_core::Ref<IMFPresentationClock>) -> windows_core::Result<()>;
     fn GetPresentationClock(&self) -> windows_core::Result<IMFPresentationClock>;
     fn Shutdown(&self) -> windows_core::Result<()>;
 }
@@ -27022,7 +27022,7 @@ pub struct IMFMediaSource_Vtbl {
 pub trait IMFMediaSource_Impl: IMFMediaEventGenerator_Impl {
     fn GetCharacteristics(&self) -> windows_core::Result<u32>;
     fn CreatePresentationDescriptor(&self) -> windows_core::Result<IMFPresentationDescriptor>;
-    fn Start(&self, ppresentationdescriptor: windows_core::Ref<'_, IMFPresentationDescriptor>, pguidtimeformat: *const windows_core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
+    fn Start(&self, ppresentationdescriptor: windows_core::Ref<IMFPresentationDescriptor>, pguidtimeformat: *const windows_core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
     fn Stop(&self) -> windows_core::Result<()>;
     fn Pause(&self) -> windows_core::Result<()>;
     fn Shutdown(&self) -> windows_core::Result<()>;
@@ -27117,7 +27117,7 @@ pub struct IMFMediaSource2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFMediaSource2_Impl: IMFMediaSourceEx_Impl {
-    fn SetMediaType(&self, dwstreamid: u32, pmediatype: windows_core::Ref<'_, IMFMediaType>) -> windows_core::Result<()>;
+    fn SetMediaType(&self, dwstreamid: u32, pmediatype: windows_core::Ref<IMFMediaType>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFMediaSource2_Vtbl {
@@ -27175,7 +27175,7 @@ pub struct IMFMediaSourceEx_Vtbl {
 pub trait IMFMediaSourceEx_Impl: IMFMediaSource_Impl {
     fn GetSourceAttributes(&self) -> windows_core::Result<IMFAttributes>;
     fn GetStreamAttributes(&self, dwstreamidentifier: u32) -> windows_core::Result<IMFAttributes>;
-    fn SetD3DManager(&self, pmanager: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetD3DManager(&self, pmanager: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFMediaSourceEx_Vtbl {
@@ -27286,8 +27286,8 @@ pub trait IMFMediaSourceExtension_Impl: windows_core::IUnknownImpl {
     fn GetReadyState(&self) -> MF_MSE_READY;
     fn GetDuration(&self) -> f64;
     fn SetDuration(&self, duration: f64) -> windows_core::Result<()>;
-    fn AddSourceBuffer(&self, r#type: &windows_core::BSTR, pnotify: windows_core::Ref<'_, IMFSourceBufferNotify>) -> windows_core::Result<IMFSourceBuffer>;
-    fn RemoveSourceBuffer(&self, psourcebuffer: windows_core::Ref<'_, IMFSourceBuffer>) -> windows_core::Result<()>;
+    fn AddSourceBuffer(&self, r#type: &windows_core::BSTR, pnotify: windows_core::Ref<IMFSourceBufferNotify>) -> windows_core::Result<IMFSourceBuffer>;
+    fn RemoveSourceBuffer(&self, psourcebuffer: windows_core::Ref<IMFSourceBuffer>) -> windows_core::Result<()>;
     fn SetEndOfStream(&self, error: MF_MSE_ERROR) -> windows_core::Result<()>;
     fn IsTypeSupported(&self, r#type: &windows_core::BSTR) -> super::super::Foundation::BOOL;
     fn GetSourceBuffer(&self, dwstreamindex: u32) -> Option<IMFSourceBuffer>;
@@ -27497,7 +27497,7 @@ pub struct IMFMediaSourcePresentationProvider_Vtbl {
     pub ForceEndOfPresentation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFMediaSourcePresentationProvider_Impl: windows_core::IUnknownImpl {
-    fn ForceEndOfPresentation(&self, ppresentationdescriptor: windows_core::Ref<'_, IMFPresentationDescriptor>) -> windows_core::Result<()>;
+    fn ForceEndOfPresentation(&self, ppresentationdescriptor: windows_core::Ref<IMFPresentationDescriptor>) -> windows_core::Result<()>;
 }
 impl IMFMediaSourcePresentationProvider_Vtbl {
     pub const fn new<Identity: IMFMediaSourcePresentationProvider_Impl, const OFFSET: isize>() -> Self {
@@ -27533,7 +27533,7 @@ pub struct IMFMediaSourceTopologyProvider_Vtbl {
     pub GetMediaSourceTopology: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFMediaSourceTopologyProvider_Impl: windows_core::IUnknownImpl {
-    fn GetMediaSourceTopology(&self, ppresentationdescriptor: windows_core::Ref<'_, IMFPresentationDescriptor>) -> windows_core::Result<IMFTopology>;
+    fn GetMediaSourceTopology(&self, ppresentationdescriptor: windows_core::Ref<IMFPresentationDescriptor>) -> windows_core::Result<IMFTopology>;
 }
 impl IMFMediaSourceTopologyProvider_Vtbl {
     pub const fn new<Identity: IMFMediaSourceTopologyProvider_Impl, const OFFSET: isize>() -> Self {
@@ -27595,7 +27595,7 @@ pub struct IMFMediaStream_Vtbl {
 pub trait IMFMediaStream_Impl: IMFMediaEventGenerator_Impl {
     fn GetMediaSource(&self) -> windows_core::Result<IMFMediaSource>;
     fn GetStreamDescriptor(&self) -> windows_core::Result<IMFStreamDescriptor>;
-    fn RequestSample(&self, ptoken: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn RequestSample(&self, ptoken: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFMediaStream_Vtbl {
@@ -27722,7 +27722,7 @@ pub struct IMFMediaStreamSourceSampleRequest_Vtbl {
     pub SetSample: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFMediaStreamSourceSampleRequest_Impl: windows_core::IUnknownImpl {
-    fn SetSample(&self, value: windows_core::Ref<'_, IMFSample>) -> windows_core::Result<()>;
+    fn SetSample(&self, value: windows_core::Ref<IMFSample>) -> windows_core::Result<()>;
 }
 impl IMFMediaStreamSourceSampleRequest_Vtbl {
     pub const fn new<Identity: IMFMediaStreamSourceSampleRequest_Impl, const OFFSET: isize>() -> Self {
@@ -27900,7 +27900,7 @@ pub struct IMFMediaType_Vtbl {
 pub trait IMFMediaType_Impl: IMFAttributes_Impl {
     fn GetMajorType(&self) -> windows_core::Result<windows_core::GUID>;
     fn IsCompressedFormat(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn IsEqual(&self, pimediatype: windows_core::Ref<'_, IMFMediaType>) -> windows_core::Result<u32>;
+    fn IsEqual(&self, pimediatype: windows_core::Ref<IMFMediaType>) -> windows_core::Result<u32>;
     fn GetRepresentation(&self, guidrepresentation: &windows_core::GUID, ppvrepresentation: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn FreeRepresentation(&self, guidrepresentation: &windows_core::GUID, pvrepresentation: *const core::ffi::c_void) -> windows_core::Result<()>;
 }
@@ -28021,10 +28021,10 @@ pub struct IMFMediaTypeHandler_Vtbl {
     pub GetMajorType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 pub trait IMFMediaTypeHandler_Impl: windows_core::IUnknownImpl {
-    fn IsMediaTypeSupported(&self, pmediatype: windows_core::Ref<'_, IMFMediaType>, ppmediatype: windows_core::OutRef<'_, IMFMediaType>) -> windows_core::Result<()>;
+    fn IsMediaTypeSupported(&self, pmediatype: windows_core::Ref<IMFMediaType>, ppmediatype: windows_core::OutRef<'_, IMFMediaType>) -> windows_core::Result<()>;
     fn GetMediaTypeCount(&self) -> windows_core::Result<u32>;
     fn GetMediaTypeByIndex(&self, dwindex: u32) -> windows_core::Result<IMFMediaType>;
-    fn SetCurrentMediaType(&self, pmediatype: windows_core::Ref<'_, IMFMediaType>) -> windows_core::Result<()>;
+    fn SetCurrentMediaType(&self, pmediatype: windows_core::Ref<IMFMediaType>) -> windows_core::Result<()>;
     fn GetCurrentMediaType(&self) -> windows_core::Result<IMFMediaType>;
     fn GetMajorType(&self) -> windows_core::Result<windows_core::GUID>;
 }
@@ -28296,7 +28296,7 @@ pub struct IMFMetadataProvider_Vtbl {
     pub GetMFMetadata: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFMetadataProvider_Impl: windows_core::IUnknownImpl {
-    fn GetMFMetadata(&self, ppresentationdescriptor: windows_core::Ref<'_, IMFPresentationDescriptor>, dwstreamidentifier: u32, dwflags: u32) -> windows_core::Result<IMFMetadata>;
+    fn GetMFMetadata(&self, ppresentationdescriptor: windows_core::Ref<IMFPresentationDescriptor>, dwstreamidentifier: u32, dwflags: u32) -> windows_core::Result<IMFMetadata>;
 }
 impl IMFMetadataProvider_Vtbl {
     pub const fn new<Identity: IMFMetadataProvider_Impl, const OFFSET: isize>() -> Self {
@@ -28708,8 +28708,8 @@ pub struct IMFNetCredentialCache_Vtbl {
 }
 pub trait IMFNetCredentialCache_Impl: windows_core::IUnknownImpl {
     fn GetCredential(&self, pszurl: &windows_core::PCWSTR, pszrealm: &windows_core::PCWSTR, dwauthenticationflags: u32, ppcred: windows_core::OutRef<'_, IMFNetCredential>, pdwrequirementsflags: *mut u32) -> windows_core::Result<()>;
-    fn SetGood(&self, pcred: windows_core::Ref<'_, IMFNetCredential>, fgood: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn SetUserOptions(&self, pcred: windows_core::Ref<'_, IMFNetCredential>, dwoptionsflags: u32) -> windows_core::Result<()>;
+    fn SetGood(&self, pcred: windows_core::Ref<IMFNetCredential>, fgood: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn SetUserOptions(&self, pcred: windows_core::Ref<IMFNetCredential>, dwoptionsflags: u32) -> windows_core::Result<()>;
 }
 impl IMFNetCredentialCache_Vtbl {
     pub const fn new<Identity: IMFNetCredentialCache_Impl, const OFFSET: isize>() -> Self {
@@ -28777,9 +28777,9 @@ pub struct IMFNetCredentialManager_Vtbl {
     pub SetGood: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 pub trait IMFNetCredentialManager_Impl: windows_core::IUnknownImpl {
-    fn BeginGetCredentials(&self, pparam: *const MFNetCredentialManagerGetParam, pcallback: windows_core::Ref<'_, IMFAsyncCallback>, pstate: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn EndGetCredentials(&self, presult: windows_core::Ref<'_, IMFAsyncResult>) -> windows_core::Result<IMFNetCredential>;
-    fn SetGood(&self, pcred: windows_core::Ref<'_, IMFNetCredential>, fgood: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn BeginGetCredentials(&self, pparam: *const MFNetCredentialManagerGetParam, pcallback: windows_core::Ref<IMFAsyncCallback>, pstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn EndGetCredentials(&self, presult: windows_core::Ref<IMFAsyncResult>) -> windows_core::Result<IMFNetCredential>;
+    fn SetGood(&self, pcred: windows_core::Ref<IMFNetCredential>, fgood: super::super::Foundation::BOOL) -> windows_core::Result<()>;
 }
 impl IMFNetCredentialManager_Vtbl {
     pub const fn new<Identity: IMFNetCredentialManager_Impl, const OFFSET: isize>() -> Self {
@@ -29197,7 +29197,7 @@ pub struct IMFObjectReferenceStream_Vtbl {
     pub LoadReference: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFObjectReferenceStream_Impl: windows_core::IUnknownImpl {
-    fn SaveReference(&self, riid: *const windows_core::GUID, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SaveReference(&self, riid: *const windows_core::GUID, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn LoadReference(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 impl IMFObjectReferenceStream_Vtbl {
@@ -29481,7 +29481,7 @@ pub struct IMFPMPClient_Vtbl {
     pub SetPMPHost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFPMPClient_Impl: windows_core::IUnknownImpl {
-    fn SetPMPHost(&self, ppmphost: windows_core::Ref<'_, IMFPMPHost>) -> windows_core::Result<()>;
+    fn SetPMPHost(&self, ppmphost: windows_core::Ref<IMFPMPHost>) -> windows_core::Result<()>;
 }
 impl IMFPMPClient_Vtbl {
     pub const fn new<Identity: IMFPMPClient_Impl, const OFFSET: isize>() -> Self {
@@ -29514,7 +29514,7 @@ pub struct IMFPMPClientApp_Vtbl {
     pub SetPMPHost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFPMPClientApp_Impl: windows_core::IUnknownImpl {
-    fn SetPMPHost(&self, ppmphost: windows_core::Ref<'_, IMFPMPHostApp>) -> windows_core::Result<()>;
+    fn SetPMPHost(&self, ppmphost: windows_core::Ref<IMFPMPHostApp>) -> windows_core::Result<()>;
 }
 impl IMFPMPClientApp_Vtbl {
     pub const fn new<Identity: IMFPMPClientApp_Impl, const OFFSET: isize>() -> Self {
@@ -29564,7 +29564,7 @@ pub struct IMFPMPHost_Vtbl {
 pub trait IMFPMPHost_Impl: windows_core::IUnknownImpl {
     fn LockProcess(&self) -> windows_core::Result<()>;
     fn UnlockProcess(&self) -> windows_core::Result<()>;
-    fn CreateObjectByCLSID(&self, clsid: *const windows_core::GUID, pstream: windows_core::Ref<'_, super::super::System::Com::IStream>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateObjectByCLSID(&self, clsid: *const windows_core::GUID, pstream: windows_core::Ref<super::super::System::Com::IStream>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IMFPMPHost_Vtbl {
@@ -29634,7 +29634,7 @@ pub struct IMFPMPHostApp_Vtbl {
 pub trait IMFPMPHostApp_Impl: windows_core::IUnknownImpl {
     fn LockProcess(&self) -> windows_core::Result<()>;
     fn UnlockProcess(&self) -> windows_core::Result<()>;
-    fn ActivateClassById(&self, id: &windows_core::PCWSTR, pstream: windows_core::Ref<'_, super::super::System::Com::IStream>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn ActivateClassById(&self, id: &windows_core::PCWSTR, pstream: windows_core::Ref<super::super::System::Com::IStream>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IMFPMPHostApp_Vtbl {
@@ -29897,7 +29897,7 @@ pub trait IMFPMediaItem_Impl: windows_core::IUnknownImpl {
     fn GetStreamAttribute(&self, dwstreamindex: u32, guidmfattribute: *const windows_core::GUID) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
     fn GetPresentationAttribute(&self, guidmfattribute: *const windows_core::GUID) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
     fn GetCharacteristics(&self) -> windows_core::Result<u32>;
-    fn SetStreamSink(&self, dwstreamindex: u32, pmediasink: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetStreamSink(&self, dwstreamindex: u32, pmediasink: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetMetadata(&self) -> windows_core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -30347,8 +30347,8 @@ pub trait IMFPMediaPlayer_Impl: windows_core::IUnknownImpl {
     fn GetSupportedRates(&self, fforwarddirection: super::super::Foundation::BOOL, pflslowestrate: *mut f32, pflfastestrate: *mut f32) -> windows_core::Result<()>;
     fn GetState(&self) -> windows_core::Result<MFP_MEDIAPLAYER_STATE>;
     fn CreateMediaItemFromURL(&self, pwszurl: &windows_core::PCWSTR, fsync: super::super::Foundation::BOOL, dwuserdata: usize, ppmediaitem: windows_core::OutRef<'_, IMFPMediaItem>) -> windows_core::Result<()>;
-    fn CreateMediaItemFromObject(&self, piunknownobj: windows_core::Ref<'_, windows_core::IUnknown>, fsync: super::super::Foundation::BOOL, dwuserdata: usize, ppmediaitem: windows_core::OutRef<'_, IMFPMediaItem>) -> windows_core::Result<()>;
-    fn SetMediaItem(&self, pimfpmediaitem: windows_core::Ref<'_, IMFPMediaItem>) -> windows_core::Result<()>;
+    fn CreateMediaItemFromObject(&self, piunknownobj: windows_core::Ref<windows_core::IUnknown>, fsync: super::super::Foundation::BOOL, dwuserdata: usize, ppmediaitem: windows_core::OutRef<'_, IMFPMediaItem>) -> windows_core::Result<()>;
+    fn SetMediaItem(&self, pimfpmediaitem: windows_core::Ref<IMFPMediaItem>) -> windows_core::Result<()>;
     fn ClearMediaItem(&self) -> windows_core::Result<()>;
     fn GetMediaItem(&self) -> windows_core::Result<IMFPMediaItem>;
     fn GetVolume(&self) -> windows_core::Result<f32>;
@@ -30367,8 +30367,8 @@ pub trait IMFPMediaPlayer_Impl: windows_core::IUnknownImpl {
     fn UpdateVideo(&self) -> windows_core::Result<()>;
     fn SetBorderColor(&self, clr: super::super::Foundation::COLORREF) -> windows_core::Result<()>;
     fn GetBorderColor(&self) -> windows_core::Result<super::super::Foundation::COLORREF>;
-    fn InsertEffect(&self, peffect: windows_core::Ref<'_, windows_core::IUnknown>, foptional: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn RemoveEffect(&self, peffect: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn InsertEffect(&self, peffect: windows_core::Ref<windows_core::IUnknown>, foptional: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn RemoveEffect(&self, peffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn RemoveAllEffects(&self) -> windows_core::Result<()>;
     fn Shutdown(&self) -> windows_core::Result<()>;
 }
@@ -30961,11 +30961,11 @@ pub struct IMFPresentationClock_Vtbl {
     pub Pause: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFPresentationClock_Impl: IMFClock_Impl {
-    fn SetTimeSource(&self, ptimesource: windows_core::Ref<'_, IMFPresentationTimeSource>) -> windows_core::Result<()>;
+    fn SetTimeSource(&self, ptimesource: windows_core::Ref<IMFPresentationTimeSource>) -> windows_core::Result<()>;
     fn GetTimeSource(&self) -> windows_core::Result<IMFPresentationTimeSource>;
     fn GetTime(&self) -> windows_core::Result<i64>;
-    fn AddClockStateSink(&self, pstatesink: windows_core::Ref<'_, IMFClockStateSink>) -> windows_core::Result<()>;
-    fn RemoveClockStateSink(&self, pstatesink: windows_core::Ref<'_, IMFClockStateSink>) -> windows_core::Result<()>;
+    fn AddClockStateSink(&self, pstatesink: windows_core::Ref<IMFClockStateSink>) -> windows_core::Result<()>;
+    fn RemoveClockStateSink(&self, pstatesink: windows_core::Ref<IMFClockStateSink>) -> windows_core::Result<()>;
     fn Start(&self, llclockstartoffset: i64) -> windows_core::Result<()>;
     fn Stop(&self) -> windows_core::Result<()>;
     fn Pause(&self) -> windows_core::Result<()>;
@@ -31367,7 +31367,7 @@ pub struct IMFQualityAdvise2_Vtbl {
     pub NotifyQualityEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IMFQualityAdvise2_Impl: IMFQualityAdvise_Impl {
-    fn NotifyQualityEvent(&self, pevent: windows_core::Ref<'_, IMFMediaEvent>) -> windows_core::Result<u32>;
+    fn NotifyQualityEvent(&self, pevent: windows_core::Ref<IMFMediaEvent>) -> windows_core::Result<u32>;
 }
 impl IMFQualityAdvise2_Vtbl {
     pub const fn new<Identity: IMFQualityAdvise2_Impl, const OFFSET: isize>() -> Self {
@@ -31504,11 +31504,11 @@ pub struct IMFQualityManager_Vtbl {
     pub Shutdown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFQualityManager_Impl: windows_core::IUnknownImpl {
-    fn NotifyTopology(&self, ptopology: windows_core::Ref<'_, IMFTopology>) -> windows_core::Result<()>;
-    fn NotifyPresentationClock(&self, pclock: windows_core::Ref<'_, IMFPresentationClock>) -> windows_core::Result<()>;
-    fn NotifyProcessInput(&self, pnode: windows_core::Ref<'_, IMFTopologyNode>, linputindex: i32, psample: windows_core::Ref<'_, IMFSample>) -> windows_core::Result<()>;
-    fn NotifyProcessOutput(&self, pnode: windows_core::Ref<'_, IMFTopologyNode>, loutputindex: i32, psample: windows_core::Ref<'_, IMFSample>) -> windows_core::Result<()>;
-    fn NotifyQualityEvent(&self, pobject: windows_core::Ref<'_, windows_core::IUnknown>, pevent: windows_core::Ref<'_, IMFMediaEvent>) -> windows_core::Result<()>;
+    fn NotifyTopology(&self, ptopology: windows_core::Ref<IMFTopology>) -> windows_core::Result<()>;
+    fn NotifyPresentationClock(&self, pclock: windows_core::Ref<IMFPresentationClock>) -> windows_core::Result<()>;
+    fn NotifyProcessInput(&self, pnode: windows_core::Ref<IMFTopologyNode>, linputindex: i32, psample: windows_core::Ref<IMFSample>) -> windows_core::Result<()>;
+    fn NotifyProcessOutput(&self, pnode: windows_core::Ref<IMFTopologyNode>, loutputindex: i32, psample: windows_core::Ref<IMFSample>) -> windows_core::Result<()>;
+    fn NotifyQualityEvent(&self, pobject: windows_core::Ref<windows_core::IUnknown>, pevent: windows_core::Ref<IMFMediaEvent>) -> windows_core::Result<()>;
     fn Shutdown(&self) -> windows_core::Result<()>;
 }
 impl IMFQualityManager_Vtbl {
@@ -31709,8 +31709,8 @@ pub struct IMFReadWriteClassFactory_Vtbl {
     pub CreateInstanceFromObject: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFReadWriteClassFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateInstanceFromURL(&self, clsid: *const windows_core::GUID, pwszurl: &windows_core::PCWSTR, pattributes: windows_core::Ref<'_, IMFAttributes>, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn CreateInstanceFromObject(&self, clsid: *const windows_core::GUID, punkobject: windows_core::Ref<'_, windows_core::IUnknown>, pattributes: windows_core::Ref<'_, IMFAttributes>, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateInstanceFromURL(&self, clsid: *const windows_core::GUID, pwszurl: &windows_core::PCWSTR, pattributes: windows_core::Ref<IMFAttributes>, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateInstanceFromObject(&self, clsid: *const windows_core::GUID, punkobject: windows_core::Ref<windows_core::IUnknown>, pattributes: windows_core::Ref<IMFAttributes>, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 impl IMFReadWriteClassFactory_Vtbl {
     pub const fn new<Identity: IMFReadWriteClassFactory_Impl, const OFFSET: isize>() -> Self {
@@ -31936,8 +31936,8 @@ pub struct IMFRelativePanelWatcher_Vtbl {
     pub GetReport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFRelativePanelWatcher_Impl: IMFShutdown_Impl {
-    fn BeginGetReport(&self, pcallback: windows_core::Ref<'_, IMFAsyncCallback>, pstate: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn EndGetReport(&self, presult: windows_core::Ref<'_, IMFAsyncResult>) -> windows_core::Result<IMFRelativePanelReport>;
+    fn BeginGetReport(&self, pcallback: windows_core::Ref<IMFAsyncCallback>, pstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn EndGetReport(&self, presult: windows_core::Ref<IMFAsyncResult>) -> windows_core::Result<IMFRelativePanelReport>;
     fn GetReport(&self) -> windows_core::Result<IMFRelativePanelReport>;
 }
 impl IMFRelativePanelWatcher_Vtbl {
@@ -32000,7 +32000,7 @@ pub struct IMFRemoteAsyncCallback_Vtbl {
     pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFRemoteAsyncCallback_Impl: windows_core::IUnknownImpl {
-    fn Invoke(&self, hr: windows_core::HRESULT, premoteresult: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Invoke(&self, hr: windows_core::HRESULT, premoteresult: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl IMFRemoteAsyncCallback_Vtbl {
     pub const fn new<Identity: IMFRemoteAsyncCallback_Impl, const OFFSET: isize>() -> Self {
@@ -32033,7 +32033,7 @@ pub struct IMFRemoteDesktopPlugin_Vtbl {
     pub UpdateTopology: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFRemoteDesktopPlugin_Impl: windows_core::IUnknownImpl {
-    fn UpdateTopology(&self, ptopology: windows_core::Ref<'_, IMFTopology>) -> windows_core::Result<()>;
+    fn UpdateTopology(&self, ptopology: windows_core::Ref<IMFTopology>) -> windows_core::Result<()>;
 }
 impl IMFRemoteDesktopPlugin_Vtbl {
     pub const fn new<Identity: IMFRemoteDesktopPlugin_Impl, const OFFSET: isize>() -> Self {
@@ -32251,8 +32251,8 @@ pub struct IMFSSLCertificateManager_Vtbl {
 }
 pub trait IMFSSLCertificateManager_Impl: windows_core::IUnknownImpl {
     fn GetClientCertificate(&self, pszurl: &windows_core::PCWSTR, ppbdata: *mut *mut u8, pcbdata: *mut u32) -> windows_core::Result<()>;
-    fn BeginGetClientCertificate(&self, pszurl: &windows_core::PCWSTR, pcallback: windows_core::Ref<'_, IMFAsyncCallback>, pstate: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn EndGetClientCertificate(&self, presult: windows_core::Ref<'_, IMFAsyncResult>, ppbdata: *mut *mut u8, pcbdata: *mut u32) -> windows_core::Result<()>;
+    fn BeginGetClientCertificate(&self, pszurl: &windows_core::PCWSTR, pcallback: windows_core::Ref<IMFAsyncCallback>, pstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn EndGetClientCertificate(&self, presult: windows_core::Ref<IMFAsyncResult>, ppbdata: *mut *mut u8, pcbdata: *mut u32) -> windows_core::Result<()>;
     fn GetCertificatePolicy(&self, pszurl: &windows_core::PCWSTR, pfoverrideautomaticcheck: *mut super::super::Foundation::BOOL, pfclientcertificateavailable: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn OnServerCertificate(&self, pszurl: &windows_core::PCWSTR, pbdata: *const u8, cbdata: u32) -> windows_core::Result<super::super::Foundation::BOOL>;
 }
@@ -32416,11 +32416,11 @@ pub trait IMFSample_Impl: IMFAttributes_Impl {
     fn GetBufferCount(&self) -> windows_core::Result<u32>;
     fn GetBufferByIndex(&self, dwindex: u32) -> windows_core::Result<IMFMediaBuffer>;
     fn ConvertToContiguousBuffer(&self) -> windows_core::Result<IMFMediaBuffer>;
-    fn AddBuffer(&self, pbuffer: windows_core::Ref<'_, IMFMediaBuffer>) -> windows_core::Result<()>;
+    fn AddBuffer(&self, pbuffer: windows_core::Ref<IMFMediaBuffer>) -> windows_core::Result<()>;
     fn RemoveBufferByIndex(&self, dwindex: u32) -> windows_core::Result<()>;
     fn RemoveAllBuffers(&self) -> windows_core::Result<()>;
     fn GetTotalLength(&self) -> windows_core::Result<u32>;
-    fn CopyToBuffer(&self, pbuffer: windows_core::Ref<'_, IMFMediaBuffer>) -> windows_core::Result<()>;
+    fn CopyToBuffer(&self, pbuffer: windows_core::Ref<IMFMediaBuffer>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFSample_Vtbl {
@@ -32595,7 +32595,7 @@ pub struct IMFSampleAllocatorControl_Vtbl {
     pub GetAllocatorUsage: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, *mut MFSampleAllocatorUsage) -> windows_core::HRESULT,
 }
 pub trait IMFSampleAllocatorControl_Impl: windows_core::IUnknownImpl {
-    fn SetDefaultAllocator(&self, dwoutputstreamid: u32, pallocator: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetDefaultAllocator(&self, dwoutputstreamid: u32, pallocator: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetAllocatorUsage(&self, dwoutputstreamid: u32, pdwinputstreamid: *mut u32, peusage: *mut MFSampleAllocatorUsage) -> windows_core::Result<()>;
 }
 impl IMFSampleAllocatorControl_Vtbl {
@@ -32653,7 +32653,7 @@ pub struct IMFSampleGrabberSinkCallback_Vtbl {
     pub OnShutdown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFSampleGrabberSinkCallback_Impl: IMFClockStateSink_Impl {
-    fn OnSetPresentationClock(&self, ppresentationclock: windows_core::Ref<'_, IMFPresentationClock>) -> windows_core::Result<()>;
+    fn OnSetPresentationClock(&self, ppresentationclock: windows_core::Ref<IMFPresentationClock>) -> windows_core::Result<()>;
     fn OnProcessSample(&self, guidmajormediatype: *const windows_core::GUID, dwsampleflags: u32, llsampletime: i64, llsampleduration: i64, psamplebuffer: *const u8, dwsamplesize: u32) -> windows_core::Result<()>;
     fn OnShutdown(&self) -> windows_core::Result<()>;
 }
@@ -32711,7 +32711,7 @@ pub struct IMFSampleGrabberSinkCallback2_Vtbl {
     pub OnProcessSampleEx: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, i64, i64, *const u8, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFSampleGrabberSinkCallback2_Impl: IMFSampleGrabberSinkCallback_Impl {
-    fn OnProcessSampleEx(&self, guidmajormediatype: *const windows_core::GUID, dwsampleflags: u32, llsampletime: i64, llsampleduration: i64, psamplebuffer: *const u8, dwsamplesize: u32, pattributes: windows_core::Ref<'_, IMFAttributes>) -> windows_core::Result<()>;
+    fn OnProcessSampleEx(&self, guidmajormediatype: *const windows_core::GUID, dwsampleflags: u32, llsampletime: i64, llsampleduration: i64, psamplebuffer: *const u8, dwsamplesize: u32, pattributes: windows_core::Ref<IMFAttributes>) -> windows_core::Result<()>;
 }
 impl IMFSampleGrabberSinkCallback2_Vtbl {
     pub const fn new<Identity: IMFSampleGrabberSinkCallback2_Impl, const OFFSET: isize>() -> Self {
@@ -32757,8 +32757,8 @@ pub struct IMFSampleOutputStream_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFSampleOutputStream_Impl: windows_core::IUnknownImpl {
-    fn BeginWriteSample(&self, psample: windows_core::Ref<'_, IMFSample>, pcallback: windows_core::Ref<'_, IMFAsyncCallback>, punkstate: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn EndWriteSample(&self, presult: windows_core::Ref<'_, IMFAsyncResult>) -> windows_core::Result<()>;
+    fn BeginWriteSample(&self, psample: windows_core::Ref<IMFSample>, pcallback: windows_core::Ref<IMFAsyncCallback>, punkstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn EndWriteSample(&self, presult: windows_core::Ref<IMFAsyncResult>) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
 }
 impl IMFSampleOutputStream_Vtbl {
@@ -32928,8 +32928,8 @@ pub struct IMFSaveJob_Vtbl {
     pub GetProgress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IMFSaveJob_Impl: windows_core::IUnknownImpl {
-    fn BeginSave(&self, pstream: windows_core::Ref<'_, IMFByteStream>, pcallback: windows_core::Ref<'_, IMFAsyncCallback>, pstate: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn EndSave(&self, presult: windows_core::Ref<'_, IMFAsyncResult>) -> windows_core::Result<()>;
+    fn BeginSave(&self, pstream: windows_core::Ref<IMFByteStream>, pcallback: windows_core::Ref<IMFAsyncCallback>, pstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn EndSave(&self, presult: windows_core::Ref<IMFAsyncResult>) -> windows_core::Result<()>;
     fn CancelSave(&self) -> windows_core::Result<()>;
     fn GetProgress(&self) -> windows_core::Result<u32>;
 }
@@ -33016,9 +33016,9 @@ pub struct IMFSchemeHandler_Vtbl {
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IMFSchemeHandler_Impl: windows_core::IUnknownImpl {
-    fn BeginCreateObject(&self, pwszurl: &windows_core::PCWSTR, dwflags: u32, pprops: windows_core::Ref<'_, super::super::UI::Shell::PropertiesSystem::IPropertyStore>, ppiunknowncancelcookie: windows_core::OutRef<'_, windows_core::IUnknown>, pcallback: windows_core::Ref<'_, IMFAsyncCallback>, punkstate: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn EndCreateObject(&self, presult: windows_core::Ref<'_, IMFAsyncResult>, pobjecttype: *mut MF_OBJECT_TYPE, ppobject: windows_core::OutRef<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn CancelObjectCreation(&self, piunknowncancelcookie: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn BeginCreateObject(&self, pwszurl: &windows_core::PCWSTR, dwflags: u32, pprops: windows_core::Ref<super::super::UI::Shell::PropertiesSystem::IPropertyStore>, ppiunknowncancelcookie: windows_core::OutRef<'_, windows_core::IUnknown>, pcallback: windows_core::Ref<IMFAsyncCallback>, punkstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn EndCreateObject(&self, presult: windows_core::Ref<IMFAsyncResult>, pobjecttype: *mut MF_OBJECT_TYPE, ppobject: windows_core::OutRef<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CancelObjectCreation(&self, piunknowncancelcookie: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl IMFSchemeHandler_Vtbl {
@@ -33278,7 +33278,7 @@ pub struct IMFSensorActivitiesReportCallback_Vtbl {
     pub OnActivitiesReport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFSensorActivitiesReportCallback_Impl: windows_core::IUnknownImpl {
-    fn OnActivitiesReport(&self, sensoractivitiesreport: windows_core::Ref<'_, IMFSensorActivitiesReport>) -> windows_core::Result<()>;
+    fn OnActivitiesReport(&self, sensoractivitiesreport: windows_core::Ref<IMFSensorActivitiesReport>) -> windows_core::Result<()>;
 }
 impl IMFSensorActivitiesReportCallback_Vtbl {
     pub const fn new<Identity: IMFSensorActivitiesReportCallback_Impl, const OFFSET: isize>() -> Self {
@@ -33930,7 +33930,7 @@ pub struct IMFSensorProfile_Vtbl {
 pub trait IMFSensorProfile_Impl: windows_core::IUnknownImpl {
     fn GetProfileId(&self, pid: *mut SENSORPROFILEID) -> windows_core::Result<()>;
     fn AddProfileFilter(&self, streamid: u32, wzfiltersetstring: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn IsMediaTypeSupported(&self, streamid: u32, pmediatype: windows_core::Ref<'_, IMFMediaType>) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn IsMediaTypeSupported(&self, streamid: u32, pmediatype: windows_core::Ref<IMFMediaType>) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn AddBlockedControl(&self, wzblockedcontrol: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 impl IMFSensorProfile_Vtbl {
@@ -34022,7 +34022,7 @@ pub struct IMFSensorProfileCollection_Vtbl {
 pub trait IMFSensorProfileCollection_Impl: windows_core::IUnknownImpl {
     fn GetProfileCount(&self) -> u32;
     fn GetProfile(&self, index: u32) -> windows_core::Result<IMFSensorProfile>;
-    fn AddProfile(&self, pprofile: windows_core::Ref<'_, IMFSensorProfile>) -> windows_core::Result<()>;
+    fn AddProfile(&self, pprofile: windows_core::Ref<IMFSensorProfile>) -> windows_core::Result<()>;
     fn FindProfile(&self, profileid: *const SENSORPROFILEID) -> windows_core::Result<IMFSensorProfile>;
     fn RemoveProfileByIndex(&self, index: u32);
     fn RemoveProfile(&self, profileid: *const SENSORPROFILEID);
@@ -34231,10 +34231,10 @@ pub struct IMFSensorTransformFactory_Vtbl {
 }
 pub trait IMFSensorTransformFactory_Impl: windows_core::IUnknownImpl {
     fn GetFactoryAttributes(&self) -> windows_core::Result<IMFAttributes>;
-    fn InitializeFactory(&self, dwmaxtransformcount: u32, psensordevices: windows_core::Ref<'_, IMFCollection>, pattributes: windows_core::Ref<'_, IMFAttributes>) -> windows_core::Result<()>;
+    fn InitializeFactory(&self, dwmaxtransformcount: u32, psensordevices: windows_core::Ref<IMFCollection>, pattributes: windows_core::Ref<IMFAttributes>) -> windows_core::Result<()>;
     fn GetTransformCount(&self) -> windows_core::Result<u32>;
     fn GetTransformInformation(&self, transformindex: u32, pguidtransformid: *mut windows_core::GUID, ppattributes: windows_core::OutRef<'_, IMFAttributes>, ppstreaminformation: windows_core::OutRef<'_, IMFCollection>) -> windows_core::Result<()>;
-    fn CreateTransform(&self, guidsensortransformid: *const windows_core::GUID, pattributes: windows_core::Ref<'_, IMFAttributes>) -> windows_core::Result<IMFDeviceTransform>;
+    fn CreateTransform(&self, guidsensortransformid: *const windows_core::GUID, pattributes: windows_core::Ref<IMFAttributes>) -> windows_core::Result<IMFDeviceTransform>;
 }
 impl IMFSensorTransformFactory_Vtbl {
     pub const fn new<Identity: IMFSensorTransformFactory_Impl, const OFFSET: isize>() -> Self {
@@ -34341,10 +34341,10 @@ pub struct IMFSequencerSource_Vtbl {
     pub UpdateTopologyFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
 pub trait IMFSequencerSource_Impl: windows_core::IUnknownImpl {
-    fn AppendTopology(&self, ptopology: windows_core::Ref<'_, IMFTopology>, dwflags: u32) -> windows_core::Result<u32>;
+    fn AppendTopology(&self, ptopology: windows_core::Ref<IMFTopology>, dwflags: u32) -> windows_core::Result<u32>;
     fn DeleteTopology(&self, dwid: u32) -> windows_core::Result<()>;
-    fn GetPresentationContext(&self, ppd: windows_core::Ref<'_, IMFPresentationDescriptor>, pid: *mut u32, pptopology: windows_core::OutRef<'_, IMFTopology>) -> windows_core::Result<()>;
-    fn UpdateTopology(&self, dwid: u32, ptopology: windows_core::Ref<'_, IMFTopology>) -> windows_core::Result<()>;
+    fn GetPresentationContext(&self, ppd: windows_core::Ref<IMFPresentationDescriptor>, pid: *mut u32, pptopology: windows_core::OutRef<'_, IMFTopology>) -> windows_core::Result<()>;
+    fn UpdateTopology(&self, dwid: u32, ptopology: windows_core::Ref<IMFTopology>) -> windows_core::Result<()>;
     fn UpdateTopologyFlags(&self, dwid: u32, dwflags: u32) -> windows_core::Result<()>;
 }
 impl IMFSequencerSource_Vtbl {
@@ -34418,7 +34418,7 @@ pub struct IMFSharingEngineClassFactory_Vtbl {
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFSharingEngineClassFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateInstance(&self, dwflags: u32, pattr: windows_core::Ref<'_, IMFAttributes>) -> windows_core::Result<windows_core::IUnknown>;
+    fn CreateInstance(&self, dwflags: u32, pattr: windows_core::Ref<IMFAttributes>) -> windows_core::Result<windows_core::IUnknown>;
 }
 impl IMFSharingEngineClassFactory_Vtbl {
     pub const fn new<Identity: IMFSharingEngineClassFactory_Impl, const OFFSET: isize>() -> Self {
@@ -34681,10 +34681,10 @@ pub struct IMFSinkWriter_Vtbl {
     pub GetStatistics: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut MF_SINK_WRITER_STATISTICS) -> windows_core::HRESULT,
 }
 pub trait IMFSinkWriter_Impl: windows_core::IUnknownImpl {
-    fn AddStream(&self, ptargetmediatype: windows_core::Ref<'_, IMFMediaType>) -> windows_core::Result<u32>;
-    fn SetInputMediaType(&self, dwstreamindex: u32, pinputmediatype: windows_core::Ref<'_, IMFMediaType>, pencodingparameters: windows_core::Ref<'_, IMFAttributes>) -> windows_core::Result<()>;
+    fn AddStream(&self, ptargetmediatype: windows_core::Ref<IMFMediaType>) -> windows_core::Result<u32>;
+    fn SetInputMediaType(&self, dwstreamindex: u32, pinputmediatype: windows_core::Ref<IMFMediaType>, pencodingparameters: windows_core::Ref<IMFAttributes>) -> windows_core::Result<()>;
     fn BeginWriting(&self) -> windows_core::Result<()>;
-    fn WriteSample(&self, dwstreamindex: u32, psample: windows_core::Ref<'_, IMFSample>) -> windows_core::Result<()>;
+    fn WriteSample(&self, dwstreamindex: u32, psample: windows_core::Ref<IMFSample>) -> windows_core::Result<()>;
     fn SendStreamTick(&self, dwstreamindex: u32, lltimestamp: i64) -> windows_core::Result<()>;
     fn PlaceMarker(&self, dwstreamindex: u32, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()>;
     fn NotifyEndOfSegment(&self, dwstreamindex: u32) -> windows_core::Result<()>;
@@ -34907,8 +34907,8 @@ pub struct IMFSinkWriterEncoderConfig_Vtbl {
     pub PlaceEncodingParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFSinkWriterEncoderConfig_Impl: windows_core::IUnknownImpl {
-    fn SetTargetMediaType(&self, dwstreamindex: u32, ptargetmediatype: windows_core::Ref<'_, IMFMediaType>, pencodingparameters: windows_core::Ref<'_, IMFAttributes>) -> windows_core::Result<()>;
-    fn PlaceEncodingParameters(&self, dwstreamindex: u32, pencodingparameters: windows_core::Ref<'_, IMFAttributes>) -> windows_core::Result<()>;
+    fn SetTargetMediaType(&self, dwstreamindex: u32, ptargetmediatype: windows_core::Ref<IMFMediaType>, pencodingparameters: windows_core::Ref<IMFAttributes>) -> windows_core::Result<()>;
+    fn PlaceEncodingParameters(&self, dwstreamindex: u32, pencodingparameters: windows_core::Ref<IMFAttributes>) -> windows_core::Result<()>;
 }
 impl IMFSinkWriterEncoderConfig_Vtbl {
     pub const fn new<Identity: IMFSinkWriterEncoderConfig_Impl, const OFFSET: isize>() -> Self {
@@ -35043,7 +35043,7 @@ pub trait IMFSourceBuffer_Impl: windows_core::IUnknownImpl {
     fn GetAppendWindowEnd(&self) -> f64;
     fn SetAppendWindowEnd(&self, time: f64) -> windows_core::Result<()>;
     fn Append(&self, pdata: *const u8, len: u32) -> windows_core::Result<()>;
-    fn AppendByteStream(&self, pstream: windows_core::Ref<'_, IMFByteStream>, pmaxlen: *const u64) -> windows_core::Result<()>;
+    fn AppendByteStream(&self, pstream: windows_core::Ref<IMFByteStream>, pmaxlen: *const u64) -> windows_core::Result<()>;
     fn Abort(&self) -> windows_core::Result<()>;
     fn Remove(&self, start: f64, end: f64) -> windows_core::Result<()>;
 }
@@ -35335,7 +35335,7 @@ pub struct IMFSourceOpenMonitor_Vtbl {
     pub OnSourceEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFSourceOpenMonitor_Impl: windows_core::IUnknownImpl {
-    fn OnSourceEvent(&self, pevent: windows_core::Ref<'_, IMFMediaEvent>) -> windows_core::Result<()>;
+    fn OnSourceEvent(&self, pevent: windows_core::Ref<IMFMediaEvent>) -> windows_core::Result<()>;
 }
 impl IMFSourceOpenMonitor_Vtbl {
     pub const fn new<Identity: IMFSourceOpenMonitor_Impl, const OFFSET: isize>() -> Self {
@@ -35429,7 +35429,7 @@ pub trait IMFSourceReader_Impl: windows_core::IUnknownImpl {
     fn SetStreamSelection(&self, dwstreamindex: u32, fselected: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn GetNativeMediaType(&self, dwstreamindex: u32, dwmediatypeindex: u32) -> windows_core::Result<IMFMediaType>;
     fn GetCurrentMediaType(&self, dwstreamindex: u32) -> windows_core::Result<IMFMediaType>;
-    fn SetCurrentMediaType(&self, dwstreamindex: u32, pdwreserved: *const u32, pmediatype: windows_core::Ref<'_, IMFMediaType>) -> windows_core::Result<()>;
+    fn SetCurrentMediaType(&self, dwstreamindex: u32, pdwreserved: *const u32, pmediatype: windows_core::Ref<IMFMediaType>) -> windows_core::Result<()>;
     fn SetCurrentPosition(&self, guidtimeformat: *const windows_core::GUID, varposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
     fn ReadSample(&self, dwstreamindex: u32, dwcontrolflags: u32, pdwactualstreamindex: *mut u32, pdwstreamflags: *mut u32, plltimestamp: *mut i64, ppsample: windows_core::OutRef<'_, IMFSample>) -> windows_core::Result<()>;
     fn Flush(&self, dwstreamindex: u32) -> windows_core::Result<()>;
@@ -35570,9 +35570,9 @@ pub struct IMFSourceReaderCallback_Vtbl {
     pub OnEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFSourceReaderCallback_Impl: windows_core::IUnknownImpl {
-    fn OnReadSample(&self, hrstatus: windows_core::HRESULT, dwstreamindex: u32, dwstreamflags: u32, lltimestamp: i64, psample: windows_core::Ref<'_, IMFSample>) -> windows_core::Result<()>;
+    fn OnReadSample(&self, hrstatus: windows_core::HRESULT, dwstreamindex: u32, dwstreamflags: u32, lltimestamp: i64, psample: windows_core::Ref<IMFSample>) -> windows_core::Result<()>;
     fn OnFlush(&self, dwstreamindex: u32) -> windows_core::Result<()>;
-    fn OnEvent(&self, dwstreamindex: u32, pevent: windows_core::Ref<'_, IMFMediaEvent>) -> windows_core::Result<()>;
+    fn OnEvent(&self, dwstreamindex: u32, pevent: windows_core::Ref<IMFMediaEvent>) -> windows_core::Result<()>;
 }
 impl IMFSourceReaderCallback_Vtbl {
     pub const fn new<Identity: IMFSourceReaderCallback_Impl, const OFFSET: isize>() -> Self {
@@ -35698,8 +35698,8 @@ pub struct IMFSourceReaderEx_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFSourceReaderEx_Impl: IMFSourceReader_Impl {
-    fn SetNativeMediaType(&self, dwstreamindex: u32, pmediatype: windows_core::Ref<'_, IMFMediaType>) -> windows_core::Result<u32>;
-    fn AddTransformForStream(&self, dwstreamindex: u32, ptransformoractivate: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetNativeMediaType(&self, dwstreamindex: u32, pmediatype: windows_core::Ref<IMFMediaType>) -> windows_core::Result<u32>;
+    fn AddTransformForStream(&self, dwstreamindex: u32, ptransformoractivate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn RemoveAllTransformsForStream(&self, dwstreamindex: u32) -> windows_core::Result<()>;
     fn GetTransformForStream(&self, dwstreamindex: u32, dwtransformindex: u32, pguidcategory: *mut windows_core::GUID, pptransform: windows_core::OutRef<'_, IMFTransform>) -> windows_core::Result<()>;
 }
@@ -35835,13 +35835,13 @@ pub struct IMFSourceResolver_Vtbl {
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IMFSourceResolver_Impl: windows_core::IUnknownImpl {
-    fn CreateObjectFromURL(&self, pwszurl: &windows_core::PCWSTR, dwflags: u32, pprops: windows_core::Ref<'_, super::super::UI::Shell::PropertiesSystem::IPropertyStore>, pobjecttype: *mut MF_OBJECT_TYPE, ppobject: windows_core::OutRef<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn CreateObjectFromByteStream(&self, pbytestream: windows_core::Ref<'_, IMFByteStream>, pwszurl: &windows_core::PCWSTR, dwflags: u32, pprops: windows_core::Ref<'_, super::super::UI::Shell::PropertiesSystem::IPropertyStore>, pobjecttype: *mut MF_OBJECT_TYPE, ppobject: windows_core::OutRef<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn BeginCreateObjectFromURL(&self, pwszurl: &windows_core::PCWSTR, dwflags: u32, pprops: windows_core::Ref<'_, super::super::UI::Shell::PropertiesSystem::IPropertyStore>, ppiunknowncancelcookie: windows_core::OutRef<'_, windows_core::IUnknown>, pcallback: windows_core::Ref<'_, IMFAsyncCallback>, punkstate: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn EndCreateObjectFromURL(&self, presult: windows_core::Ref<'_, IMFAsyncResult>, pobjecttype: *mut MF_OBJECT_TYPE, ppobject: windows_core::OutRef<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn BeginCreateObjectFromByteStream(&self, pbytestream: windows_core::Ref<'_, IMFByteStream>, pwszurl: &windows_core::PCWSTR, dwflags: u32, pprops: windows_core::Ref<'_, super::super::UI::Shell::PropertiesSystem::IPropertyStore>, ppiunknowncancelcookie: windows_core::OutRef<'_, windows_core::IUnknown>, pcallback: windows_core::Ref<'_, IMFAsyncCallback>, punkstate: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn EndCreateObjectFromByteStream(&self, presult: windows_core::Ref<'_, IMFAsyncResult>, pobjecttype: *mut MF_OBJECT_TYPE, ppobject: windows_core::OutRef<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn CancelObjectCreation(&self, piunknowncancelcookie: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreateObjectFromURL(&self, pwszurl: &windows_core::PCWSTR, dwflags: u32, pprops: windows_core::Ref<super::super::UI::Shell::PropertiesSystem::IPropertyStore>, pobjecttype: *mut MF_OBJECT_TYPE, ppobject: windows_core::OutRef<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreateObjectFromByteStream(&self, pbytestream: windows_core::Ref<IMFByteStream>, pwszurl: &windows_core::PCWSTR, dwflags: u32, pprops: windows_core::Ref<super::super::UI::Shell::PropertiesSystem::IPropertyStore>, pobjecttype: *mut MF_OBJECT_TYPE, ppobject: windows_core::OutRef<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn BeginCreateObjectFromURL(&self, pwszurl: &windows_core::PCWSTR, dwflags: u32, pprops: windows_core::Ref<super::super::UI::Shell::PropertiesSystem::IPropertyStore>, ppiunknowncancelcookie: windows_core::OutRef<'_, windows_core::IUnknown>, pcallback: windows_core::Ref<IMFAsyncCallback>, punkstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn EndCreateObjectFromURL(&self, presult: windows_core::Ref<IMFAsyncResult>, pobjecttype: *mut MF_OBJECT_TYPE, ppobject: windows_core::OutRef<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn BeginCreateObjectFromByteStream(&self, pbytestream: windows_core::Ref<IMFByteStream>, pwszurl: &windows_core::PCWSTR, dwflags: u32, pprops: windows_core::Ref<super::super::UI::Shell::PropertiesSystem::IPropertyStore>, ppiunknowncancelcookie: windows_core::OutRef<'_, windows_core::IUnknown>, pcallback: windows_core::Ref<IMFAsyncCallback>, punkstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn EndCreateObjectFromByteStream(&self, presult: windows_core::Ref<IMFAsyncResult>, pobjecttype: *mut MF_OBJECT_TYPE, ppobject: windows_core::OutRef<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CancelObjectCreation(&self, piunknowncancelcookie: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl IMFSourceResolver_Vtbl {
@@ -36072,7 +36072,7 @@ pub struct IMFSpatialAudioSample_Vtbl {
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFSpatialAudioSample_Impl: IMFSample_Impl {
     fn GetObjectCount(&self) -> windows_core::Result<u32>;
-    fn AddSpatialAudioObject(&self, paudioobjbuffer: windows_core::Ref<'_, IMFSpatialAudioObjectBuffer>) -> windows_core::Result<()>;
+    fn AddSpatialAudioObject(&self, paudioobjbuffer: windows_core::Ref<IMFSpatialAudioObjectBuffer>) -> windows_core::Result<()>;
     fn GetSpatialAudioObjectByIndex(&self, dwindex: u32) -> windows_core::Result<IMFSpatialAudioObjectBuffer>;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -36252,7 +36252,7 @@ pub trait IMFStreamSink_Impl: IMFMediaEventGenerator_Impl {
     fn GetMediaSink(&self) -> windows_core::Result<IMFMediaSink>;
     fn GetIdentifier(&self) -> windows_core::Result<u32>;
     fn GetMediaTypeHandler(&self) -> windows_core::Result<IMFMediaTypeHandler>;
-    fn ProcessSample(&self, psample: windows_core::Ref<'_, IMFSample>) -> windows_core::Result<()>;
+    fn ProcessSample(&self, psample: windows_core::Ref<IMFSample>) -> windows_core::Result<()>;
     fn PlaceMarker(&self, emarkertype: MFSTREAMSINK_MARKER_TYPE, pvarmarkervalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarcontextvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
     fn Flush(&self) -> windows_core::Result<()>;
 }
@@ -36454,10 +36454,10 @@ pub struct IMFTimecodeTranslate_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFTimecodeTranslate_Impl: windows_core::IUnknownImpl {
-    fn BeginConvertTimecodeToHNS(&self, ppropvartimecode: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pcallback: windows_core::Ref<'_, IMFAsyncCallback>, punkstate: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn EndConvertTimecodeToHNS(&self, presult: windows_core::Ref<'_, IMFAsyncResult>) -> windows_core::Result<i64>;
-    fn BeginConvertHNSToTimecode(&self, hnstime: i64, pcallback: windows_core::Ref<'_, IMFAsyncCallback>, punkstate: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn EndConvertHNSToTimecode(&self, presult: windows_core::Ref<'_, IMFAsyncResult>) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
+    fn BeginConvertTimecodeToHNS(&self, ppropvartimecode: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pcallback: windows_core::Ref<IMFAsyncCallback>, punkstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn EndConvertTimecodeToHNS(&self, presult: windows_core::Ref<IMFAsyncResult>) -> windows_core::Result<i64>;
+    fn BeginConvertHNSToTimecode(&self, hnstime: i64, pcallback: windows_core::Ref<IMFAsyncCallback>, punkstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn EndConvertHNSToTimecode(&self, presult: windows_core::Ref<IMFAsyncResult>) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFTimecodeTranslate_Vtbl {
@@ -36621,12 +36621,12 @@ pub struct IMFTimedText_Vtbl {
     pub IsInBandEnabled: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
 }
 pub trait IMFTimedText_Impl: windows_core::IUnknownImpl {
-    fn RegisterNotifications(&self, notify: windows_core::Ref<'_, IMFTimedTextNotify>) -> windows_core::Result<()>;
+    fn RegisterNotifications(&self, notify: windows_core::Ref<IMFTimedTextNotify>) -> windows_core::Result<()>;
     fn SelectTrack(&self, trackid: u32, selected: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn AddDataSource(&self, bytestream: windows_core::Ref<'_, IMFByteStream>, label: &windows_core::PCWSTR, language: &windows_core::PCWSTR, kind: MF_TIMED_TEXT_TRACK_KIND, isdefault: super::super::Foundation::BOOL) -> windows_core::Result<u32>;
+    fn AddDataSource(&self, bytestream: windows_core::Ref<IMFByteStream>, label: &windows_core::PCWSTR, language: &windows_core::PCWSTR, kind: MF_TIMED_TEXT_TRACK_KIND, isdefault: super::super::Foundation::BOOL) -> windows_core::Result<u32>;
     fn AddDataSourceFromUrl(&self, url: &windows_core::PCWSTR, label: &windows_core::PCWSTR, language: &windows_core::PCWSTR, kind: MF_TIMED_TEXT_TRACK_KIND, isdefault: super::super::Foundation::BOOL) -> windows_core::Result<u32>;
     fn AddTrack(&self, label: &windows_core::PCWSTR, language: &windows_core::PCWSTR, kind: MF_TIMED_TEXT_TRACK_KIND) -> windows_core::Result<IMFTimedTextTrack>;
-    fn RemoveTrack(&self, track: windows_core::Ref<'_, IMFTimedTextTrack>) -> windows_core::Result<()>;
+    fn RemoveTrack(&self, track: windows_core::Ref<IMFTimedTextTrack>) -> windows_core::Result<()>;
     fn GetCueTimeOffset(&self) -> windows_core::Result<f64>;
     fn SetCueTimeOffset(&self, offset: f64) -> windows_core::Result<()>;
     fn GetTracks(&self) -> windows_core::Result<IMFTimedTextTrackList>;
@@ -37166,7 +37166,7 @@ pub trait IMFTimedTextCueList_Impl: windows_core::IUnknownImpl {
     fn GetCueByOriginalId(&self, originalid: &windows_core::PCWSTR) -> windows_core::Result<IMFTimedTextCue>;
     fn AddTextCue(&self, start: f64, duration: f64, text: &windows_core::PCWSTR, cue: windows_core::OutRef<'_, IMFTimedTextCue>) -> windows_core::Result<()>;
     fn AddDataCue(&self, start: f64, duration: f64, data: *const u8, datasize: u32, cue: windows_core::OutRef<'_, IMFTimedTextCue>) -> windows_core::Result<()>;
-    fn RemoveCue(&self, cue: windows_core::Ref<'_, IMFTimedTextCue>) -> windows_core::Result<()>;
+    fn RemoveCue(&self, cue: windows_core::Ref<IMFTimedTextCue>) -> windows_core::Result<()>;
 }
 impl IMFTimedTextCueList_Vtbl {
     pub const fn new<Identity: IMFTimedTextCueList_Impl, const OFFSET: isize>() -> Self {
@@ -37357,7 +37357,7 @@ pub trait IMFTimedTextNotify_Impl: windows_core::IUnknownImpl {
     fn TrackSelected(&self, trackid: u32, selected: super::super::Foundation::BOOL);
     fn TrackReadyStateChanged(&self, trackid: u32);
     fn Error(&self, errorcode: MF_TIMED_TEXT_ERROR_CODE, extendederrorcode: windows_core::HRESULT, sourcetrackid: u32);
-    fn Cue(&self, cueevent: MF_TIMED_TEXT_CUE_EVENT, currenttime: f64, cue: windows_core::Ref<'_, IMFTimedTextCue>);
+    fn Cue(&self, cueevent: MF_TIMED_TEXT_CUE_EVENT, currenttime: f64, cue: windows_core::Ref<IMFTimedTextCue>);
     fn Reset(&self);
 }
 impl IMFTimedTextNotify_Vtbl {
@@ -38461,8 +38461,8 @@ pub struct IMFTimer_Vtbl {
     pub CancelTimer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFTimer_Impl: windows_core::IUnknownImpl {
-    fn SetTimer(&self, dwflags: u32, llclocktime: i64, pcallback: windows_core::Ref<'_, IMFAsyncCallback>, punkstate: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<windows_core::IUnknown>;
-    fn CancelTimer(&self, punkkey: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetTimer(&self, dwflags: u32, llclocktime: i64, pcallback: windows_core::Ref<IMFAsyncCallback>, punkstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<windows_core::IUnknown>;
+    fn CancelTimer(&self, punkkey: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl IMFTimer_Vtbl {
     pub const fn new<Identity: IMFTimer_Impl, const OFFSET: isize>() -> Self {
@@ -38512,7 +38512,7 @@ pub struct IMFTopoLoader_Vtbl {
     pub Load: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFTopoLoader_Impl: windows_core::IUnknownImpl {
-    fn Load(&self, pinputtopo: windows_core::Ref<'_, IMFTopology>, ppoutputtopo: windows_core::OutRef<'_, IMFTopology>, pcurrenttopo: windows_core::Ref<'_, IMFTopology>) -> windows_core::Result<()>;
+    fn Load(&self, pinputtopo: windows_core::Ref<IMFTopology>, ppoutputtopo: windows_core::OutRef<'_, IMFTopology>, pcurrenttopo: windows_core::Ref<IMFTopology>) -> windows_core::Result<()>;
 }
 impl IMFTopoLoader_Vtbl {
     pub const fn new<Identity: IMFTopoLoader_Impl, const OFFSET: isize>() -> Self {
@@ -38613,12 +38613,12 @@ pub struct IMFTopology_Vtbl {
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFTopology_Impl: IMFAttributes_Impl {
     fn GetTopologyID(&self) -> windows_core::Result<u64>;
-    fn AddNode(&self, pnode: windows_core::Ref<'_, IMFTopologyNode>) -> windows_core::Result<()>;
-    fn RemoveNode(&self, pnode: windows_core::Ref<'_, IMFTopologyNode>) -> windows_core::Result<()>;
+    fn AddNode(&self, pnode: windows_core::Ref<IMFTopologyNode>) -> windows_core::Result<()>;
+    fn RemoveNode(&self, pnode: windows_core::Ref<IMFTopologyNode>) -> windows_core::Result<()>;
     fn GetNodeCount(&self) -> windows_core::Result<u16>;
     fn GetNode(&self, windex: u16) -> windows_core::Result<IMFTopologyNode>;
     fn Clear(&self) -> windows_core::Result<()>;
-    fn CloneFrom(&self, ptopology: windows_core::Ref<'_, IMFTopology>) -> windows_core::Result<()>;
+    fn CloneFrom(&self, ptopology: windows_core::Ref<IMFTopology>) -> windows_core::Result<()>;
     fn GetNodeByID(&self, qwtoponodeid: u64) -> windows_core::Result<IMFTopologyNode>;
     fn GetSourceNodeCollection(&self) -> windows_core::Result<IMFCollection>;
     fn GetOutputNodeCollection(&self) -> windows_core::Result<IMFCollection>;
@@ -38858,22 +38858,22 @@ pub struct IMFTopologyNode_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFTopologyNode_Impl: IMFAttributes_Impl {
-    fn SetObject(&self, pobject: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetObject(&self, pobject: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetObject(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn GetNodeType(&self) -> windows_core::Result<MF_TOPOLOGY_TYPE>;
     fn GetTopoNodeID(&self) -> windows_core::Result<u64>;
     fn SetTopoNodeID(&self, ulltopoid: u64) -> windows_core::Result<()>;
     fn GetInputCount(&self) -> windows_core::Result<u32>;
     fn GetOutputCount(&self) -> windows_core::Result<u32>;
-    fn ConnectOutput(&self, dwoutputindex: u32, pdownstreamnode: windows_core::Ref<'_, IMFTopologyNode>, dwinputindexondownstreamnode: u32) -> windows_core::Result<()>;
+    fn ConnectOutput(&self, dwoutputindex: u32, pdownstreamnode: windows_core::Ref<IMFTopologyNode>, dwinputindexondownstreamnode: u32) -> windows_core::Result<()>;
     fn DisconnectOutput(&self, dwoutputindex: u32) -> windows_core::Result<()>;
     fn GetInput(&self, dwinputindex: u32, ppupstreamnode: windows_core::OutRef<'_, IMFTopologyNode>, pdwoutputindexonupstreamnode: *mut u32) -> windows_core::Result<()>;
     fn GetOutput(&self, dwoutputindex: u32, ppdownstreamnode: windows_core::OutRef<'_, IMFTopologyNode>, pdwinputindexondownstreamnode: *mut u32) -> windows_core::Result<()>;
-    fn SetOutputPrefType(&self, dwoutputindex: u32, ptype: windows_core::Ref<'_, IMFMediaType>) -> windows_core::Result<()>;
+    fn SetOutputPrefType(&self, dwoutputindex: u32, ptype: windows_core::Ref<IMFMediaType>) -> windows_core::Result<()>;
     fn GetOutputPrefType(&self, dwoutputindex: u32) -> windows_core::Result<IMFMediaType>;
-    fn SetInputPrefType(&self, dwinputindex: u32, ptype: windows_core::Ref<'_, IMFMediaType>) -> windows_core::Result<()>;
+    fn SetInputPrefType(&self, dwinputindex: u32, ptype: windows_core::Ref<IMFMediaType>) -> windows_core::Result<()>;
     fn GetInputPrefType(&self, dwinputindex: u32) -> windows_core::Result<IMFMediaType>;
-    fn CloneFrom(&self, pnode: windows_core::Ref<'_, IMFTopologyNode>) -> windows_core::Result<()>;
+    fn CloneFrom(&self, pnode: windows_core::Ref<IMFTopologyNode>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFTopologyNode_Vtbl {
@@ -39122,7 +39122,7 @@ pub struct IMFTopologyServiceLookupClient_Vtbl {
     pub ReleaseServicePointers: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFTopologyServiceLookupClient_Impl: windows_core::IUnknownImpl {
-    fn InitServicePointers(&self, plookup: windows_core::Ref<'_, IMFTopologyServiceLookup>) -> windows_core::Result<()>;
+    fn InitServicePointers(&self, plookup: windows_core::Ref<IMFTopologyServiceLookup>) -> windows_core::Result<()>;
     fn ReleaseServicePointers(&self) -> windows_core::Result<()>;
 }
 impl IMFTopologyServiceLookupClient_Vtbl {
@@ -39167,7 +39167,7 @@ pub struct IMFTrackedSample_Vtbl {
     pub SetAllocator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFTrackedSample_Impl: windows_core::IUnknownImpl {
-    fn SetAllocator(&self, psampleallocator: windows_core::Ref<'_, IMFAsyncCallback>, punkstate: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetAllocator(&self, psampleallocator: windows_core::Ref<IMFAsyncCallback>, punkstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl IMFTrackedSample_Vtbl {
     pub const fn new<Identity: IMFTrackedSample_Impl, const OFFSET: isize>() -> Self {
@@ -39235,11 +39235,11 @@ pub struct IMFTranscodeProfile_Vtbl {
     pub GetContainerAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFTranscodeProfile_Impl: windows_core::IUnknownImpl {
-    fn SetAudioAttributes(&self, pattrs: windows_core::Ref<'_, IMFAttributes>) -> windows_core::Result<()>;
+    fn SetAudioAttributes(&self, pattrs: windows_core::Ref<IMFAttributes>) -> windows_core::Result<()>;
     fn GetAudioAttributes(&self) -> windows_core::Result<IMFAttributes>;
-    fn SetVideoAttributes(&self, pattrs: windows_core::Ref<'_, IMFAttributes>) -> windows_core::Result<()>;
+    fn SetVideoAttributes(&self, pattrs: windows_core::Ref<IMFAttributes>) -> windows_core::Result<()>;
     fn GetVideoAttributes(&self) -> windows_core::Result<IMFAttributes>;
-    fn SetContainerAttributes(&self, pattrs: windows_core::Ref<'_, IMFAttributes>) -> windows_core::Result<()>;
+    fn SetContainerAttributes(&self, pattrs: windows_core::Ref<IMFAttributes>) -> windows_core::Result<()>;
     fn GetContainerAttributes(&self) -> windows_core::Result<IMFAttributes>;
 }
 impl IMFTranscodeProfile_Vtbl {
@@ -39351,8 +39351,8 @@ pub struct IMFTranscodeSinkInfoProvider_Vtbl {
 }
 pub trait IMFTranscodeSinkInfoProvider_Impl: windows_core::IUnknownImpl {
     fn SetOutputFile(&self, pwszfilename: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn SetOutputByteStream(&self, pbytestreamactivate: windows_core::Ref<'_, IMFActivate>) -> windows_core::Result<()>;
-    fn SetProfile(&self, pprofile: windows_core::Ref<'_, IMFTranscodeProfile>) -> windows_core::Result<()>;
+    fn SetOutputByteStream(&self, pbytestreamactivate: windows_core::Ref<IMFActivate>) -> windows_core::Result<()>;
+    fn SetProfile(&self, pprofile: windows_core::Ref<IMFTranscodeProfile>) -> windows_core::Result<()>;
     fn GetSinkInfo(&self) -> windows_core::Result<MF_TRANSCODE_SINK_INFO>;
 }
 impl IMFTranscodeSinkInfoProvider_Vtbl {
@@ -39555,16 +39555,16 @@ pub trait IMFTransform_Impl: windows_core::IUnknownImpl {
     fn AddInputStreams(&self, cstreams: u32, adwstreamids: *const u32) -> windows_core::Result<()>;
     fn GetInputAvailableType(&self, dwinputstreamid: u32, dwtypeindex: u32) -> windows_core::Result<IMFMediaType>;
     fn GetOutputAvailableType(&self, dwoutputstreamid: u32, dwtypeindex: u32) -> windows_core::Result<IMFMediaType>;
-    fn SetInputType(&self, dwinputstreamid: u32, ptype: windows_core::Ref<'_, IMFMediaType>, dwflags: u32) -> windows_core::Result<()>;
-    fn SetOutputType(&self, dwoutputstreamid: u32, ptype: windows_core::Ref<'_, IMFMediaType>, dwflags: u32) -> windows_core::Result<()>;
+    fn SetInputType(&self, dwinputstreamid: u32, ptype: windows_core::Ref<IMFMediaType>, dwflags: u32) -> windows_core::Result<()>;
+    fn SetOutputType(&self, dwoutputstreamid: u32, ptype: windows_core::Ref<IMFMediaType>, dwflags: u32) -> windows_core::Result<()>;
     fn GetInputCurrentType(&self, dwinputstreamid: u32) -> windows_core::Result<IMFMediaType>;
     fn GetOutputCurrentType(&self, dwoutputstreamid: u32) -> windows_core::Result<IMFMediaType>;
     fn GetInputStatus(&self, dwinputstreamid: u32) -> windows_core::Result<u32>;
     fn GetOutputStatus(&self) -> windows_core::Result<u32>;
     fn SetOutputBounds(&self, hnslowerbound: i64, hnsupperbound: i64) -> windows_core::Result<()>;
-    fn ProcessEvent(&self, dwinputstreamid: u32, pevent: windows_core::Ref<'_, IMFMediaEvent>) -> windows_core::Result<()>;
+    fn ProcessEvent(&self, dwinputstreamid: u32, pevent: windows_core::Ref<IMFMediaEvent>) -> windows_core::Result<()>;
     fn ProcessMessage(&self, emessage: MFT_MESSAGE_TYPE, ulparam: usize) -> windows_core::Result<()>;
-    fn ProcessInput(&self, dwinputstreamid: u32, psample: windows_core::Ref<'_, IMFSample>, dwflags: u32) -> windows_core::Result<()>;
+    fn ProcessInput(&self, dwinputstreamid: u32, psample: windows_core::Ref<IMFSample>, dwflags: u32) -> windows_core::Result<()>;
     fn ProcessOutput(&self, dwflags: u32, coutputbuffercount: u32, poutputsamples: *mut MFT_OUTPUT_DATA_BUFFER, pdwstatus: *mut u32) -> windows_core::Result<()>;
 }
 impl IMFTransform_Vtbl {
@@ -39945,7 +39945,7 @@ pub struct IMFVideoCaptureSampleAllocator_Vtbl {
     pub InitializeCaptureSampleAllocator: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFVideoCaptureSampleAllocator_Impl: IMFVideoSampleAllocator_Impl {
-    fn InitializeCaptureSampleAllocator(&self, cbsamplesize: u32, cbcapturemetadatasize: u32, cbalignment: u32, cminimumsamples: u32, pattributes: windows_core::Ref<'_, IMFAttributes>, pmediatype: windows_core::Ref<'_, IMFMediaType>) -> windows_core::Result<()>;
+    fn InitializeCaptureSampleAllocator(&self, cbsamplesize: u32, cbcapturemetadatasize: u32, cbalignment: u32, cminimumsamples: u32, pattributes: windows_core::Ref<IMFAttributes>, pmediatype: windows_core::Ref<IMFMediaType>) -> windows_core::Result<()>;
 }
 impl IMFVideoCaptureSampleAllocator_Vtbl {
     pub const fn new<Identity: IMFVideoCaptureSampleAllocator_Impl, const OFFSET: isize>() -> Self {
@@ -41070,7 +41070,7 @@ pub trait IMFVideoProcessorControl3_Impl: IMFVideoProcessorControl2_Impl {
     fn GetNaturalOutputType(&self) -> windows_core::Result<IMFMediaType>;
     fn EnableSphericalVideoProcessing(&self, fenable: super::super::Foundation::BOOL, eformat: MFVideoSphericalFormat, eprojectionmode: MFVideoSphericalProjectionMode) -> windows_core::Result<()>;
     fn SetSphericalVideoProperties(&self, x: f32, y: f32, z: f32, w: f32, fieldofview: f32) -> windows_core::Result<()>;
-    fn SetOutputDevice(&self, poutputdevice: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetOutputDevice(&self, poutputdevice: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl IMFVideoProcessorControl3_Vtbl {
     pub const fn new<Identity: IMFVideoProcessorControl3_Impl, const OFFSET: isize>() -> Self {
@@ -41134,7 +41134,7 @@ pub struct IMFVideoRenderer_Vtbl {
     pub InitializeRenderer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFVideoRenderer_Impl: windows_core::IUnknownImpl {
-    fn InitializeRenderer(&self, pvideomixer: windows_core::Ref<'_, IMFTransform>, pvideopresenter: windows_core::Ref<'_, IMFVideoPresenter>) -> windows_core::Result<()>;
+    fn InitializeRenderer(&self, pvideomixer: windows_core::Ref<IMFTransform>, pvideopresenter: windows_core::Ref<IMFVideoPresenter>) -> windows_core::Result<()>;
 }
 impl IMFVideoRenderer_Vtbl {
     pub const fn new<Identity: IMFVideoRenderer_Impl, const OFFSET: isize>() -> Self {
@@ -41167,7 +41167,7 @@ pub struct IMFVideoRendererEffectControl_Vtbl {
     pub OnAppServiceConnectionEstablished: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFVideoRendererEffectControl_Impl: windows_core::IUnknownImpl {
-    fn OnAppServiceConnectionEstablished(&self, pappserviceconnection: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn OnAppServiceConnectionEstablished(&self, pappserviceconnection: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl IMFVideoRendererEffectControl_Vtbl {
     pub const fn new<Identity: IMFVideoRendererEffectControl_Impl, const OFFSET: isize>() -> Self {
@@ -41221,9 +41221,9 @@ pub struct IMFVideoSampleAllocator_Vtbl {
     pub AllocateSample: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFVideoSampleAllocator_Impl: windows_core::IUnknownImpl {
-    fn SetDirectXManager(&self, pmanager: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetDirectXManager(&self, pmanager: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn UninitializeSampleAllocator(&self) -> windows_core::Result<()>;
-    fn InitializeSampleAllocator(&self, crequestedframes: u32, pmediatype: windows_core::Ref<'_, IMFMediaType>) -> windows_core::Result<()>;
+    fn InitializeSampleAllocator(&self, crequestedframes: u32, pmediatype: windows_core::Ref<IMFMediaType>) -> windows_core::Result<()>;
     fn AllocateSample(&self) -> windows_core::Result<IMFSample>;
 }
 impl IMFVideoSampleAllocator_Vtbl {
@@ -41294,7 +41294,7 @@ pub struct IMFVideoSampleAllocatorCallback_Vtbl {
     pub GetFreeSampleCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 pub trait IMFVideoSampleAllocatorCallback_Impl: windows_core::IUnknownImpl {
-    fn SetCallback(&self, pnotify: windows_core::Ref<'_, IMFVideoSampleAllocatorNotify>) -> windows_core::Result<()>;
+    fn SetCallback(&self, pnotify: windows_core::Ref<IMFVideoSampleAllocatorNotify>) -> windows_core::Result<()>;
     fn GetFreeSampleCount(&self) -> windows_core::Result<i32>;
 }
 impl IMFVideoSampleAllocatorCallback_Vtbl {
@@ -41351,7 +41351,7 @@ pub struct IMFVideoSampleAllocatorEx_Vtbl {
     pub InitializeSampleAllocatorEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFVideoSampleAllocatorEx_Impl: IMFVideoSampleAllocator_Impl {
-    fn InitializeSampleAllocatorEx(&self, cinitialsamples: u32, cmaximumsamples: u32, pattributes: windows_core::Ref<'_, IMFAttributes>, pmediatype: windows_core::Ref<'_, IMFMediaType>) -> windows_core::Result<()>;
+    fn InitializeSampleAllocatorEx(&self, cinitialsamples: u32, cmaximumsamples: u32, pattributes: windows_core::Ref<IMFAttributes>, pmediatype: windows_core::Ref<IMFMediaType>) -> windows_core::Result<()>;
 }
 impl IMFVideoSampleAllocatorEx_Vtbl {
     pub const fn new<Identity: IMFVideoSampleAllocatorEx_Impl, const OFFSET: isize>() -> Self {
@@ -41420,7 +41420,7 @@ pub struct IMFVideoSampleAllocatorNotifyEx_Vtbl {
     pub NotifyPrune: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMFVideoSampleAllocatorNotifyEx_Impl: IMFVideoSampleAllocatorNotify_Impl {
-    fn NotifyPrune(&self, __midl__imfvideosampleallocatornotifyex0000: windows_core::Ref<'_, IMFSample>) -> windows_core::Result<()>;
+    fn NotifyPrune(&self, __midl__imfvideosampleallocatornotifyex0000: windows_core::Ref<IMFSample>) -> windows_core::Result<()>;
 }
 impl IMFVideoSampleAllocatorNotifyEx_Vtbl {
     pub const fn new<Identity: IMFVideoSampleAllocatorNotifyEx_Impl, const OFFSET: isize>() -> Self {
@@ -41523,7 +41523,7 @@ pub trait IMFVirtualCamera_Impl: IMFAttributes_Impl {
     fn AddDeviceSourceInfo(&self, devicesourceinfo: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn AddProperty(&self, pkey: *const super::super::Foundation::DEVPROPKEY, r#type: super::super::Devices::Properties::DEVPROPTYPE, pbdata: *const u8, cbdata: u32) -> windows_core::Result<()>;
     fn AddRegistryEntry(&self, entryname: &windows_core::PCWSTR, subkeypath: &windows_core::PCWSTR, dwregtype: u32, pbdata: *const u8, cbdata: u32) -> windows_core::Result<()>;
-    fn Start(&self, pcallback: windows_core::Ref<'_, IMFAsyncCallback>) -> windows_core::Result<()>;
+    fn Start(&self, pcallback: windows_core::Ref<IMFAsyncCallback>) -> windows_core::Result<()>;
     fn Stop(&self) -> windows_core::Result<()>;
     fn Remove(&self) -> windows_core::Result<()>;
     fn GetMediaSource(&self) -> windows_core::Result<IMFMediaSource>;
@@ -41735,16 +41735,16 @@ pub struct IMFWorkQueueServices_Vtbl {
     pub GetPlatformWorkQueueMMCSSTaskId: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IMFWorkQueueServices_Impl: windows_core::IUnknownImpl {
-    fn BeginRegisterTopologyWorkQueuesWithMMCSS(&self, pcallback: windows_core::Ref<'_, IMFAsyncCallback>, pstate: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn EndRegisterTopologyWorkQueuesWithMMCSS(&self, presult: windows_core::Ref<'_, IMFAsyncResult>) -> windows_core::Result<()>;
-    fn BeginUnregisterTopologyWorkQueuesWithMMCSS(&self, pcallback: windows_core::Ref<'_, IMFAsyncCallback>, pstate: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn EndUnregisterTopologyWorkQueuesWithMMCSS(&self, presult: windows_core::Ref<'_, IMFAsyncResult>) -> windows_core::Result<()>;
+    fn BeginRegisterTopologyWorkQueuesWithMMCSS(&self, pcallback: windows_core::Ref<IMFAsyncCallback>, pstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn EndRegisterTopologyWorkQueuesWithMMCSS(&self, presult: windows_core::Ref<IMFAsyncResult>) -> windows_core::Result<()>;
+    fn BeginUnregisterTopologyWorkQueuesWithMMCSS(&self, pcallback: windows_core::Ref<IMFAsyncCallback>, pstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn EndUnregisterTopologyWorkQueuesWithMMCSS(&self, presult: windows_core::Ref<IMFAsyncResult>) -> windows_core::Result<()>;
     fn GetTopologyWorkQueueMMCSSClass(&self, dwtopologyworkqueueid: u32, pwszclass: windows_core::PWSTR, pcchclass: *mut u32) -> windows_core::Result<()>;
     fn GetTopologyWorkQueueMMCSSTaskId(&self, dwtopologyworkqueueid: u32) -> windows_core::Result<u32>;
-    fn BeginRegisterPlatformWorkQueueWithMMCSS(&self, dwplatformworkqueue: u32, wszclass: &windows_core::PCWSTR, dwtaskid: u32, pcallback: windows_core::Ref<'_, IMFAsyncCallback>, pstate: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn EndRegisterPlatformWorkQueueWithMMCSS(&self, presult: windows_core::Ref<'_, IMFAsyncResult>) -> windows_core::Result<u32>;
-    fn BeginUnregisterPlatformWorkQueueWithMMCSS(&self, dwplatformworkqueue: u32, pcallback: windows_core::Ref<'_, IMFAsyncCallback>, pstate: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn EndUnregisterPlatformWorkQueueWithMMCSS(&self, presult: windows_core::Ref<'_, IMFAsyncResult>) -> windows_core::Result<()>;
+    fn BeginRegisterPlatformWorkQueueWithMMCSS(&self, dwplatformworkqueue: u32, wszclass: &windows_core::PCWSTR, dwtaskid: u32, pcallback: windows_core::Ref<IMFAsyncCallback>, pstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn EndRegisterPlatformWorkQueueWithMMCSS(&self, presult: windows_core::Ref<IMFAsyncResult>) -> windows_core::Result<u32>;
+    fn BeginUnregisterPlatformWorkQueueWithMMCSS(&self, dwplatformworkqueue: u32, pcallback: windows_core::Ref<IMFAsyncCallback>, pstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn EndUnregisterPlatformWorkQueueWithMMCSS(&self, presult: windows_core::Ref<IMFAsyncResult>) -> windows_core::Result<()>;
     fn GetPlaftormWorkQueueMMCSSClass(&self, dwplatformworkqueueid: u32, pwszclass: windows_core::PWSTR, pcchclass: *mut u32) -> windows_core::Result<()>;
     fn GetPlatformWorkQueueMMCSSTaskId(&self, dwplatformworkqueueid: u32) -> windows_core::Result<u32>;
 }
@@ -41900,7 +41900,7 @@ pub struct IMFWorkQueueServicesEx_Vtbl {
 }
 pub trait IMFWorkQueueServicesEx_Impl: IMFWorkQueueServices_Impl {
     fn GetTopologyWorkQueueMMCSSPriority(&self, dwtopologyworkqueueid: u32) -> windows_core::Result<i32>;
-    fn BeginRegisterPlatformWorkQueueWithMMCSSEx(&self, dwplatformworkqueue: u32, wszclass: &windows_core::PCWSTR, dwtaskid: u32, lpriority: i32, pcallback: windows_core::Ref<'_, IMFAsyncCallback>, pstate: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn BeginRegisterPlatformWorkQueueWithMMCSSEx(&self, dwplatformworkqueue: u32, wszclass: &windows_core::PCWSTR, dwtaskid: u32, lpriority: i32, pcallback: windows_core::Ref<IMFAsyncCallback>, pstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetPlatformWorkQueueMMCSSPriority(&self, dwplatformworkqueueid: u32) -> windows_core::Result<i32>;
 }
 impl IMFWorkQueueServicesEx_Vtbl {
@@ -42048,7 +42048,7 @@ pub struct IPlayToControl_Vtbl {
     pub Disconnect: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IPlayToControl_Impl: windows_core::IUnknownImpl {
-    fn Connect(&self, pfactory: windows_core::Ref<'_, IMFSharingEngineClassFactory>) -> windows_core::Result<()>;
+    fn Connect(&self, pfactory: windows_core::Ref<IMFSharingEngineClassFactory>) -> windows_core::Result<()>;
     fn Disconnect(&self) -> windows_core::Result<()>;
 }
 impl IPlayToControl_Vtbl {
@@ -42136,7 +42136,7 @@ pub struct IPlayToSourceClassFactory_Vtbl {
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IPlayToSourceClassFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateInstance(&self, dwflags: u32, pcontrol: windows_core::Ref<'_, IPlayToControl>) -> windows_core::Result<windows_core::IInspectable>;
+    fn CreateInstance(&self, dwflags: u32, pcontrol: windows_core::Ref<IPlayToControl>) -> windows_core::Result<windows_core::IInspectable>;
 }
 impl IPlayToSourceClassFactory_Vtbl {
     pub const fn new<Identity: IPlayToSourceClassFactory_Impl, const OFFSET: isize>() -> Self {
@@ -42232,8 +42232,8 @@ pub trait IToc_Impl: windows_core::IUnknownImpl {
     fn GetContext(&self, pdwcontextsize: *mut u32, pbtcontext: *mut u8) -> windows_core::Result<()>;
     fn GetEntryListCount(&self, pwcount: *mut u16) -> windows_core::Result<()>;
     fn GetEntryListByIndex(&self, wentrylistindex: u16) -> windows_core::Result<ITocEntryList>;
-    fn AddEntryList(&self, pentrylist: windows_core::Ref<'_, ITocEntryList>, pwentrylistindex: *mut u16) -> windows_core::Result<()>;
-    fn AddEntryListByIndex(&self, wentrylistindex: u16, pentrylist: windows_core::Ref<'_, ITocEntryList>) -> windows_core::Result<()>;
+    fn AddEntryList(&self, pentrylist: windows_core::Ref<ITocEntryList>, pwentrylistindex: *mut u16) -> windows_core::Result<()>;
+    fn AddEntryListByIndex(&self, wentrylistindex: u16, pentrylist: windows_core::Ref<ITocEntryList>) -> windows_core::Result<()>;
     fn RemoveEntryListByIndex(&self, wentrylistindex: u16) -> windows_core::Result<()>;
 }
 impl IToc_Vtbl {
@@ -42370,8 +42370,8 @@ pub struct ITocCollection_Vtbl {
 pub trait ITocCollection_Impl: windows_core::IUnknownImpl {
     fn GetEntryCount(&self, pdwentrycount: *mut u32) -> windows_core::Result<()>;
     fn GetEntryByIndex(&self, dwentryindex: u32) -> windows_core::Result<IToc>;
-    fn AddEntry(&self, ptoc: windows_core::Ref<'_, IToc>, pdwentryindex: *mut u32) -> windows_core::Result<()>;
-    fn AddEntryByIndex(&self, dwentryindex: u32, ptoc: windows_core::Ref<'_, IToc>) -> windows_core::Result<()>;
+    fn AddEntry(&self, ptoc: windows_core::Ref<IToc>, pdwentryindex: *mut u32) -> windows_core::Result<()>;
+    fn AddEntryByIndex(&self, dwentryindex: u32, ptoc: windows_core::Ref<IToc>) -> windows_core::Result<()>;
     fn RemoveEntryByIndex(&self, dwentryindex: u32) -> windows_core::Result<()>;
 }
 impl ITocCollection_Vtbl {
@@ -42586,8 +42586,8 @@ pub struct ITocEntryList_Vtbl {
 pub trait ITocEntryList_Impl: windows_core::IUnknownImpl {
     fn GetEntryCount(&self, pdwentrycount: *mut u32) -> windows_core::Result<()>;
     fn GetEntryByIndex(&self, dwentryindex: u32) -> windows_core::Result<ITocEntry>;
-    fn AddEntry(&self, pentry: windows_core::Ref<'_, ITocEntry>, pdwentryindex: *mut u32) -> windows_core::Result<()>;
-    fn AddEntryByIndex(&self, dwentryindex: u32, pentry: windows_core::Ref<'_, ITocEntry>) -> windows_core::Result<()>;
+    fn AddEntry(&self, pentry: windows_core::Ref<ITocEntry>, pdwentryindex: *mut u32) -> windows_core::Result<()>;
+    fn AddEntryByIndex(&self, dwentryindex: u32, pentry: windows_core::Ref<ITocEntry>) -> windows_core::Result<()>;
     fn RemoveEntryByIndex(&self, dwentryindex: u32) -> windows_core::Result<()>;
 }
 impl ITocEntryList_Vtbl {
@@ -42699,7 +42699,7 @@ pub trait ITocParser_Impl: windows_core::IUnknownImpl {
     fn GetTocCount(&self, enumtocpostype: TOC_POS_TYPE, pdwtoccount: *mut u32) -> windows_core::Result<()>;
     fn GetTocByIndex(&self, enumtocpostype: TOC_POS_TYPE, dwtocindex: u32) -> windows_core::Result<IToc>;
     fn GetTocByType(&self, enumtocpostype: TOC_POS_TYPE, guidtoctype: &windows_core::GUID) -> windows_core::Result<ITocCollection>;
-    fn AddToc(&self, enumtocpostype: TOC_POS_TYPE, ptoc: windows_core::Ref<'_, IToc>, pdwtocindex: *mut u32) -> windows_core::Result<()>;
+    fn AddToc(&self, enumtocpostype: TOC_POS_TYPE, ptoc: windows_core::Ref<IToc>, pdwtocindex: *mut u32) -> windows_core::Result<()>;
     fn RemoveTocByIndex(&self, enumtocpostype: TOC_POS_TYPE, dwtocindex: u32) -> windows_core::Result<()>;
     fn RemoveTocByType(&self, enumtocpostype: TOC_POS_TYPE, guidtoctype: &windows_core::GUID) -> windows_core::Result<()>;
     fn Commit(&self) -> windows_core::Result<()>;
@@ -43547,8 +43547,8 @@ pub struct IWMVideoDecoderReconBuffer_Vtbl {
 #[cfg(feature = "Win32_Media_DxMediaObjects")]
 pub trait IWMVideoDecoderReconBuffer_Impl: windows_core::IUnknownImpl {
     fn GetReconstructedVideoFrameSize(&self, pdwsize: *mut u32) -> windows_core::Result<()>;
-    fn GetReconstructedVideoFrame(&self, pbuf: windows_core::Ref<'_, super::DxMediaObjects::IMediaBuffer>) -> windows_core::Result<()>;
-    fn SetReconstructedVideoFrame(&self, pbuf: windows_core::Ref<'_, super::DxMediaObjects::IMediaBuffer>) -> windows_core::Result<()>;
+    fn GetReconstructedVideoFrame(&self, pbuf: windows_core::Ref<super::DxMediaObjects::IMediaBuffer>) -> windows_core::Result<()>;
+    fn SetReconstructedVideoFrame(&self, pbuf: windows_core::Ref<super::DxMediaObjects::IMediaBuffer>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Media_DxMediaObjects")]
 impl IWMVideoDecoderReconBuffer_Vtbl {

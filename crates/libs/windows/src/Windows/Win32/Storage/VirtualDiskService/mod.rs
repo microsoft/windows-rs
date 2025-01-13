@@ -3660,7 +3660,7 @@ pub struct IVdsProviderPrivate_Vtbl {
 }
 pub trait IVdsProviderPrivate_Impl: windows_core::IUnknownImpl {
     fn GetObject(&self, objectid: &windows_core::GUID, r#type: VDS_OBJECT_TYPE) -> windows_core::Result<windows_core::IUnknown>;
-    fn OnLoad(&self, pwszmachinename: &windows_core::PCWSTR, pcallbackobject: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn OnLoad(&self, pwszmachinename: &windows_core::PCWSTR, pcallbackobject: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn OnUnload(&self, bforceunload: super::super::Foundation::BOOL) -> windows_core::Result<()>;
 }
 impl IVdsProviderPrivate_Vtbl {
@@ -3891,7 +3891,7 @@ pub trait IVdsService_Impl: windows_core::IUnknownImpl {
     fn Reenumerate(&self) -> windows_core::Result<()>;
     fn Refresh(&self) -> windows_core::Result<()>;
     fn CleanupObsoleteMountPoints(&self) -> windows_core::Result<()>;
-    fn Advise(&self, psink: windows_core::Ref<'_, IVdsAdviseSink>) -> windows_core::Result<u32>;
+    fn Advise(&self, psink: windows_core::Ref<IVdsAdviseSink>) -> windows_core::Result<u32>;
     fn Unadvise(&self, dwcookie: u32) -> windows_core::Result<()>;
     fn Reboot(&self) -> windows_core::Result<()>;
     fn SetFlags(&self, ulflags: u32) -> windows_core::Result<()>;
@@ -5362,8 +5362,8 @@ pub trait IVdsVdProvider_Impl: windows_core::IUnknownImpl {
     fn QueryVDisks(&self) -> windows_core::Result<IEnumVdsObject>;
     fn CreateVDisk(&self, virtualdevicetype: *const super::Vhd::VIRTUAL_STORAGE_TYPE, ppath: &windows_core::PCWSTR, pstringsecuritydescriptor: &windows_core::PCWSTR, flags: super::Vhd::CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: u32, reserved: u32, pcreatediskparameters: *const VDS_CREATE_VDISK_PARAMETERS, ppasync: windows_core::OutRef<'_, IVdsAsync>) -> windows_core::Result<()>;
     fn AddVDisk(&self, virtualdevicetype: *const super::Vhd::VIRTUAL_STORAGE_TYPE, ppath: &windows_core::PCWSTR, ppvdisk: windows_core::OutRef<'_, IVdsVDisk>) -> windows_core::Result<()>;
-    fn GetDiskFromVDisk(&self, pvdisk: windows_core::Ref<'_, IVdsVDisk>) -> windows_core::Result<IVdsDisk>;
-    fn GetVDiskFromDisk(&self, pdisk: windows_core::Ref<'_, IVdsDisk>) -> windows_core::Result<IVdsVDisk>;
+    fn GetDiskFromVDisk(&self, pvdisk: windows_core::Ref<IVdsVDisk>) -> windows_core::Result<IVdsDisk>;
+    fn GetVDiskFromDisk(&self, pdisk: windows_core::Ref<IVdsDisk>) -> windows_core::Result<IVdsVDisk>;
 }
 #[cfg(feature = "Win32_Storage_Vhd")]
 impl IVdsVdProvider_Vtbl {

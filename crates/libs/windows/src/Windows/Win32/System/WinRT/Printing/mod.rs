@@ -34,8 +34,8 @@ pub struct IPrintDocumentPageSource_Vtbl {
 }
 #[cfg(feature = "Win32_Storage_Xps_Printing")]
 pub trait IPrintDocumentPageSource_Impl: windows_core::IUnknownImpl {
-    fn GetPreviewPageCollection(&self, docpackagetarget: windows_core::Ref<'_, super::super::super::Storage::Xps::Printing::IPrintDocumentPackageTarget>) -> windows_core::Result<IPrintPreviewPageCollection>;
-    fn MakeDocument(&self, printtaskoptions: windows_core::Ref<'_, windows_core::IInspectable>, docpackagetarget: windows_core::Ref<'_, super::super::super::Storage::Xps::Printing::IPrintDocumentPackageTarget>) -> windows_core::Result<()>;
+    fn GetPreviewPageCollection(&self, docpackagetarget: windows_core::Ref<super::super::super::Storage::Xps::Printing::IPrintDocumentPackageTarget>) -> windows_core::Result<IPrintPreviewPageCollection>;
+    fn MakeDocument(&self, printtaskoptions: windows_core::Ref<windows_core::IInspectable>, docpackagetarget: windows_core::Ref<super::super::super::Storage::Xps::Printing::IPrintDocumentPackageTarget>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Storage_Xps_Printing")]
 impl IPrintDocumentPageSource_Vtbl {
@@ -143,7 +143,7 @@ pub struct IPrintPreviewPageCollection_Vtbl {
     pub MakePage: unsafe extern "system" fn(*mut core::ffi::c_void, u32, f32, f32) -> windows_core::HRESULT,
 }
 pub trait IPrintPreviewPageCollection_Impl: windows_core::IUnknownImpl {
-    fn Paginate(&self, currentjobpage: u32, printtaskoptions: windows_core::Ref<'_, windows_core::IInspectable>) -> windows_core::Result<()>;
+    fn Paginate(&self, currentjobpage: u32, printtaskoptions: windows_core::Ref<windows_core::IInspectable>) -> windows_core::Result<()>;
     fn MakePage(&self, desiredjobpage: u32, width: f32, height: f32) -> windows_core::Result<()>;
 }
 impl IPrintPreviewPageCollection_Vtbl {
@@ -294,7 +294,7 @@ pub struct IPrintWorkflowObjectModelSourceFileContentNative_Vtbl {
 }
 #[cfg(feature = "Win32_Storage_Xps")]
 pub trait IPrintWorkflowObjectModelSourceFileContentNative_Impl: windows_core::IUnknownImpl {
-    fn StartXpsOMGeneration(&self, receiver: windows_core::Ref<'_, IPrintWorkflowXpsReceiver>) -> windows_core::Result<()>;
+    fn StartXpsOMGeneration(&self, receiver: windows_core::Ref<IPrintWorkflowXpsReceiver>) -> windows_core::Result<()>;
     fn ObjectFactory(&self) -> windows_core::Result<super::super::super::Storage::Xps::IXpsOMObjectFactory1>;
 }
 #[cfg(feature = "Win32_Storage_Xps")]
@@ -432,10 +432,10 @@ pub struct IPrintWorkflowXpsReceiver_Vtbl {
 }
 #[cfg(all(feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
 pub trait IPrintWorkflowXpsReceiver_Impl: windows_core::IUnknownImpl {
-    fn SetDocumentSequencePrintTicket(&self, documentsequenceprintticket: windows_core::Ref<'_, super::super::Com::IStream>) -> windows_core::Result<()>;
+    fn SetDocumentSequencePrintTicket(&self, documentsequenceprintticket: windows_core::Ref<super::super::Com::IStream>) -> windows_core::Result<()>;
     fn SetDocumentSequenceUri(&self, documentsequenceuri: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn AddDocumentData(&self, documentid: u32, documentprintticket: windows_core::Ref<'_, super::super::Com::IStream>, documenturi: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn AddPage(&self, documentid: u32, pageid: u32, pagereference: windows_core::Ref<'_, super::super::super::Storage::Xps::IXpsOMPageReference>, pageuri: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn AddDocumentData(&self, documentid: u32, documentprintticket: windows_core::Ref<super::super::Com::IStream>, documenturi: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn AddPage(&self, documentid: u32, pageid: u32, pagereference: windows_core::Ref<super::super::super::Storage::Xps::IXpsOMPageReference>, pageuri: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]

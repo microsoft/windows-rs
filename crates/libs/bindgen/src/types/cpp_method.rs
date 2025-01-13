@@ -763,7 +763,7 @@ fn write_produce_type(writer: &Writer, ty: &Type, param: Param) -> TokenStream {
 
     if !param.flags().contains(ParamAttributes::Out) && ty.is_interface() {
         let type_name = ty.write_name(writer);
-        quote! { #name: windows_core::Ref<'_, #type_name>, }
+        quote! { #name: windows_core::Ref<#type_name>, }
     } else if param.flags().contains(ParamAttributes::Out) && ty.deref().is_interface() {
         let type_name = ty.deref().write_name(writer);
         quote! { #name: windows_core::OutRef<'_, #type_name>, }

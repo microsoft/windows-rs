@@ -493,7 +493,7 @@ pub trait IKsAllocatorEx_Impl: IKsAllocator_Impl {
     fn KsGetProperties(&self) -> *mut ALLOCATOR_PROPERTIES_EX;
     fn KsSetProperties(&self, param0: *const ALLOCATOR_PROPERTIES_EX);
     fn KsSetAllocatorHandle(&self, allocatorhandle: super::super::Foundation::HANDLE);
-    fn KsCreateAllocatorAndGetHandle(&self, kspin: windows_core::Ref<'_, IKsPin>) -> super::super::Foundation::HANDLE;
+    fn KsCreateAllocatorAndGetHandle(&self, kspin: windows_core::Ref<IKsPin>) -> super::super::Foundation::HANDLE;
 }
 impl IKsAllocatorEx_Vtbl {
     pub const fn new<Identity: IKsAllocatorEx_Impl, const OFFSET: isize>() -> Self {
@@ -874,9 +874,9 @@ pub struct IKsDataTypeHandler_Vtbl {
 }
 #[cfg(all(feature = "Win32_Media_DirectShow", feature = "Win32_Media_MediaFoundation"))]
 pub trait IKsDataTypeHandler_Impl: windows_core::IUnknownImpl {
-    fn KsCompleteIoOperation(&self, sample: windows_core::Ref<'_, super::DirectShow::IMediaSample>, streamheader: *mut core::ffi::c_void, iooperation: KSIOOPERATION, cancelled: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn KsCompleteIoOperation(&self, sample: windows_core::Ref<super::DirectShow::IMediaSample>, streamheader: *mut core::ffi::c_void, iooperation: KSIOOPERATION, cancelled: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn KsIsMediaTypeInRanges(&self, dataranges: *const core::ffi::c_void) -> windows_core::Result<()>;
-    fn KsPrepareIoOperation(&self, sample: windows_core::Ref<'_, super::DirectShow::IMediaSample>, streamheader: *mut core::ffi::c_void, iooperation: KSIOOPERATION) -> windows_core::Result<()>;
+    fn KsPrepareIoOperation(&self, sample: windows_core::Ref<super::DirectShow::IMediaSample>, streamheader: *mut core::ffi::c_void, iooperation: KSIOOPERATION) -> windows_core::Result<()>;
     fn KsQueryExtendedSize(&self) -> windows_core::Result<u32>;
     fn KsSetMediaType(&self, ammediatype: *const super::MediaFoundation::AM_MEDIA_TYPE) -> windows_core::Result<()>;
 }
@@ -1020,8 +1020,8 @@ pub struct IKsInterfaceHandler_Vtbl {
 }
 #[cfg(feature = "Win32_Media_DirectShow")]
 pub trait IKsInterfaceHandler_Impl: windows_core::IUnknownImpl {
-    fn KsSetPin(&self, kspin: windows_core::Ref<'_, IKsPin>) -> windows_core::Result<()>;
-    fn KsProcessMediaSamples(&self, ksdatatypehandler: windows_core::Ref<'_, IKsDataTypeHandler>, samplelist: *const Option<super::DirectShow::IMediaSample>, samplecount: *mut i32, iooperation: KSIOOPERATION, streamsegment: *mut *mut KSSTREAM_SEGMENT) -> windows_core::Result<()>;
+    fn KsSetPin(&self, kspin: windows_core::Ref<IKsPin>) -> windows_core::Result<()>;
+    fn KsProcessMediaSamples(&self, ksdatatypehandler: windows_core::Ref<IKsDataTypeHandler>, samplelist: *const Option<super::DirectShow::IMediaSample>, samplecount: *mut i32, iooperation: KSIOOPERATION, streamsegment: *mut *mut KSSTREAM_SEGMENT) -> windows_core::Result<()>;
     fn KsCompleteIo(&self, streamsegment: *mut KSSTREAM_SEGMENT) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Media_DirectShow")]
@@ -1503,10 +1503,10 @@ pub trait IKsPin_Impl: windows_core::IUnknownImpl {
     fn KsCreateSinkPinHandle(&self, interface: *const KSIDENTIFIER, medium: *const KSIDENTIFIER) -> windows_core::Result<()>;
     fn KsGetCurrentCommunication(&self, communication: *mut KSPIN_COMMUNICATION, interface: *mut KSIDENTIFIER, medium: *mut KSIDENTIFIER) -> windows_core::Result<()>;
     fn KsPropagateAcquire(&self) -> windows_core::Result<()>;
-    fn KsDeliver(&self, sample: windows_core::Ref<'_, super::DirectShow::IMediaSample>, flags: u32) -> windows_core::Result<()>;
+    fn KsDeliver(&self, sample: windows_core::Ref<super::DirectShow::IMediaSample>, flags: u32) -> windows_core::Result<()>;
     fn KsMediaSamplesCompleted(&self, streamsegment: *const KSSTREAM_SEGMENT) -> windows_core::Result<()>;
     fn KsPeekAllocator(&self, operation: KSPEEKOPERATION) -> Option<super::DirectShow::IMemAllocator>;
-    fn KsReceiveAllocator(&self, memallocator: windows_core::Ref<'_, super::DirectShow::IMemAllocator>) -> windows_core::Result<()>;
+    fn KsReceiveAllocator(&self, memallocator: windows_core::Ref<super::DirectShow::IMemAllocator>) -> windows_core::Result<()>;
     fn KsRenegotiateAllocator(&self) -> windows_core::Result<()>;
     fn KsIncrementPendingIoCount(&self) -> i32;
     fn KsDecrementPendingIoCount(&self) -> i32;
@@ -1655,7 +1655,7 @@ pub struct IKsPinEx_Vtbl {
 }
 #[cfg(feature = "Win32_Media_DirectShow")]
 pub trait IKsPinEx_Impl: IKsPin_Impl {
-    fn KsNotifyError(&self, sample: windows_core::Ref<'_, super::DirectShow::IMediaSample>, hr: windows_core::HRESULT);
+    fn KsNotifyError(&self, sample: windows_core::Ref<super::DirectShow::IMediaSample>, hr: windows_core::HRESULT);
 }
 #[cfg(feature = "Win32_Media_DirectShow")]
 impl IKsPinEx_Vtbl {
@@ -1782,7 +1782,7 @@ pub trait IKsPinPipe_Impl: windows_core::IUnknownImpl {
     fn KsSetPinFramingCache(&self, framingex: *const KSALLOCATOR_FRAMING_EX, framingprop: *const FRAMING_PROP, option: FRAMING_CACHE_OPS) -> windows_core::Result<()>;
     fn KsGetConnectedPin(&self) -> Option<super::DirectShow::IPin>;
     fn KsGetPipe(&self, operation: KSPEEKOPERATION) -> Option<IKsAllocatorEx>;
-    fn KsSetPipe(&self, ksallocator: windows_core::Ref<'_, IKsAllocatorEx>) -> windows_core::Result<()>;
+    fn KsSetPipe(&self, ksallocator: windows_core::Ref<IKsAllocatorEx>) -> windows_core::Result<()>;
     fn KsGetPipeAllocatorFlag(&self) -> u32;
     fn KsSetPipeAllocatorFlag(&self, flag: u32) -> windows_core::Result<()>;
     fn KsGetPinBusCache(&self) -> windows_core::GUID;
@@ -1968,7 +1968,7 @@ pub struct IKsQualityForwarder_Vtbl {
     pub KsFlushClient: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
 }
 pub trait IKsQualityForwarder_Impl: IKsObject_Impl {
-    fn KsFlushClient(&self, pin: windows_core::Ref<'_, IKsPin>);
+    fn KsFlushClient(&self, pin: windows_core::Ref<IKsPin>);
 }
 impl IKsQualityForwarder_Vtbl {
     pub const fn new<Identity: IKsQualityForwarder_Impl, const OFFSET: isize>() -> Self {
@@ -2001,7 +2001,7 @@ pub struct IKsTopology_Vtbl {
     pub CreateNodeInstance: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IKsTopology_Impl: windows_core::IUnknownImpl {
-    fn CreateNodeInstance(&self, nodeid: u32, flags: u32, desiredaccess: u32, unkouter: windows_core::Ref<'_, windows_core::IUnknown>, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateNodeInstance(&self, nodeid: u32, flags: u32, desiredaccess: u32, unkouter: windows_core::Ref<windows_core::IUnknown>, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 impl IKsTopology_Vtbl {
     pub const fn new<Identity: IKsTopology_Impl, const OFFSET: isize>() -> Self {

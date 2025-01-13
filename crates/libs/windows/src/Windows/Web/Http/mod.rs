@@ -2228,7 +2228,7 @@ pub trait IHttpContent_Impl: super::super::Foundation::IClosable_Impl {
     fn ReadAsInputStreamAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>>;
     fn ReadAsStringAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<windows_core::HSTRING, u64>>;
     fn TryComputeLength(&self, length: &mut u64) -> windows_core::Result<bool>;
-    fn WriteToStreamAsync(&self, outputStream: windows_core::Ref<'_, super::super::Storage::Streams::IOutputStream>) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>;
+    fn WriteToStreamAsync(&self, outputStream: windows_core::Ref<super::super::Storage::Streams::IOutputStream>) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "Web_Http_Headers"))]
 impl IHttpContent_Vtbl {

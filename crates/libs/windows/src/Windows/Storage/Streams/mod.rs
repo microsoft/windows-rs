@@ -1640,8 +1640,8 @@ pub trait IDataWriter_Impl: windows_core::IUnknownImpl {
     fn SetByteOrder(&self, value: ByteOrder) -> windows_core::Result<()>;
     fn WriteByte(&self, value: u8) -> windows_core::Result<()>;
     fn WriteBytes(&self, value: &[u8]) -> windows_core::Result<()>;
-    fn WriteBuffer(&self, buffer: windows_core::Ref<'_, IBuffer>) -> windows_core::Result<()>;
-    fn WriteBufferRange(&self, buffer: windows_core::Ref<'_, IBuffer>, start: u32, count: u32) -> windows_core::Result<()>;
+    fn WriteBuffer(&self, buffer: windows_core::Ref<IBuffer>) -> windows_core::Result<()>;
+    fn WriteBufferRange(&self, buffer: windows_core::Ref<IBuffer>, start: u32, count: u32) -> windows_core::Result<()>;
     fn WriteBoolean(&self, value: bool) -> windows_core::Result<()>;
     fn WriteGuid(&self, value: &windows_core::GUID) -> windows_core::Result<()>;
     fn WriteInt16(&self, value: i16) -> windows_core::Result<()>;
@@ -2012,7 +2012,7 @@ impl windows_core::RuntimeName for IInputStream {
     const NAME: &'static str = "Windows.Storage.Streams.IInputStream";
 }
 pub trait IInputStream_Impl: super::super::Foundation::IClosable_Impl {
-    fn ReadAsync(&self, buffer: windows_core::Ref<'_, IBuffer>, count: u32, options: InputStreamOptions) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>;
+    fn ReadAsync(&self, buffer: windows_core::Ref<IBuffer>, count: u32, options: InputStreamOptions) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>;
 }
 impl IInputStream_Vtbl {
     pub const fn new<Identity: IInputStream_Impl, const OFFSET: isize>() -> Self {
@@ -2122,7 +2122,7 @@ impl windows_core::RuntimeName for IOutputStream {
     const NAME: &'static str = "Windows.Storage.Streams.IOutputStream";
 }
 pub trait IOutputStream_Impl: super::super::Foundation::IClosable_Impl {
-    fn WriteAsync(&self, buffer: windows_core::Ref<'_, IBuffer>) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>;
+    fn WriteAsync(&self, buffer: windows_core::Ref<IBuffer>) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>;
     fn FlushAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
 impl IOutputStream_Vtbl {
@@ -2202,8 +2202,8 @@ impl windows_core::RuntimeName for IPropertySetSerializer {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IPropertySetSerializer_Impl: windows_core::IUnknownImpl {
-    fn Serialize(&self, propertySet: windows_core::Ref<'_, super::super::Foundation::Collections::IPropertySet>) -> windows_core::Result<IBuffer>;
-    fn Deserialize(&self, propertySet: windows_core::Ref<'_, super::super::Foundation::Collections::IPropertySet>, buffer: windows_core::Ref<'_, IBuffer>) -> windows_core::Result<()>;
+    fn Serialize(&self, propertySet: windows_core::Ref<super::super::Foundation::Collections::IPropertySet>) -> windows_core::Result<IBuffer>;
+    fn Deserialize(&self, propertySet: windows_core::Ref<super::super::Foundation::Collections::IPropertySet>, buffer: windows_core::Ref<IBuffer>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl IPropertySetSerializer_Vtbl {

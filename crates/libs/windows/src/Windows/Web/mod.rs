@@ -30,7 +30,7 @@ impl windows_core::RuntimeName for IUriToStreamResolver {
 }
 #[cfg(feature = "Storage_Streams")]
 pub trait IUriToStreamResolver_Impl: windows_core::IUnknownImpl {
-    fn UriToStreamAsync(&self, uri: windows_core::Ref<'_, super::Foundation::Uri>) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Storage::Streams::IInputStream>>;
+    fn UriToStreamAsync(&self, uri: windows_core::Ref<super::Foundation::Uri>) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Storage::Streams::IInputStream>>;
 }
 #[cfg(feature = "Storage_Streams")]
 impl IUriToStreamResolver_Vtbl {

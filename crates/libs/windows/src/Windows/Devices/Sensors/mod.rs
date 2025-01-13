@@ -3266,8 +3266,8 @@ impl windows_core::RuntimeName for IHumanPresenceSensorExtension {
 pub trait IHumanPresenceSensorExtension_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self, deviceInterface: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn Start(&self) -> windows_core::Result<()>;
-    fn ProcessReading(&self, reading: windows_core::Ref<'_, HumanPresenceSensorReading>) -> windows_core::Result<HumanPresenceSensorReadingUpdate>;
-    fn ProcessReadingTimeoutExpired(&self, reading: windows_core::Ref<'_, HumanPresenceSensorReading>) -> windows_core::Result<()>;
+    fn ProcessReading(&self, reading: windows_core::Ref<HumanPresenceSensorReading>) -> windows_core::Result<HumanPresenceSensorReadingUpdate>;
+    fn ProcessReadingTimeoutExpired(&self, reading: windows_core::Ref<HumanPresenceSensorReading>) -> windows_core::Result<()>;
     fn Stop(&self) -> windows_core::Result<()>;
     fn Uninitialize(&self) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;

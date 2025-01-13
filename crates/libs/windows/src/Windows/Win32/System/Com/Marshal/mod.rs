@@ -711,9 +711,9 @@ pub struct IMarshal_Vtbl {
 pub trait IMarshal_Impl: windows_core::IUnknownImpl {
     fn GetUnmarshalClass(&self, riid: *const windows_core::GUID, pv: *const core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const core::ffi::c_void, mshlflags: u32) -> windows_core::Result<windows_core::GUID>;
     fn GetMarshalSizeMax(&self, riid: *const windows_core::GUID, pv: *const core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const core::ffi::c_void, mshlflags: u32) -> windows_core::Result<u32>;
-    fn MarshalInterface(&self, pstm: windows_core::Ref<'_, super::IStream>, riid: *const windows_core::GUID, pv: *const core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const core::ffi::c_void, mshlflags: u32) -> windows_core::Result<()>;
-    fn UnmarshalInterface(&self, pstm: windows_core::Ref<'_, super::IStream>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn ReleaseMarshalData(&self, pstm: windows_core::Ref<'_, super::IStream>) -> windows_core::Result<()>;
+    fn MarshalInterface(&self, pstm: windows_core::Ref<super::IStream>, riid: *const windows_core::GUID, pv: *const core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const core::ffi::c_void, mshlflags: u32) -> windows_core::Result<()>;
+    fn UnmarshalInterface(&self, pstm: windows_core::Ref<super::IStream>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn ReleaseMarshalData(&self, pstm: windows_core::Ref<super::IStream>) -> windows_core::Result<()>;
     fn DisconnectObject(&self, dwreserved: u32) -> windows_core::Result<()>;
 }
 impl IMarshal_Vtbl {

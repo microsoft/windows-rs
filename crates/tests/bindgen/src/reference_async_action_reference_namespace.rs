@@ -113,7 +113,7 @@ impl windows_core::RuntimeName for IAsyncAction {
 pub trait IAsyncAction_Impl: windows::Foundation::IAsyncInfo_Impl {
     fn SetCompleted(
         &self,
-        handler: windows_core::Ref<'_, windows::Foundation::AsyncActionCompletedHandler>,
+        handler: windows_core::Ref<windows::Foundation::AsyncActionCompletedHandler>,
     ) -> windows_core::Result<()>;
     fn Completed(&self) -> windows_core::Result<windows::Foundation::AsyncActionCompletedHandler>;
     fn GetResults(&self) -> windows_core::Result<()>;

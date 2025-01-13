@@ -9945,7 +9945,7 @@ pub trait ISClusResDependencies_Impl: super::super::System::Com::IDispatch_Impl 
     fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusResource>;
     fn CreateItem(&self, bstrresourcename: &windows_core::BSTR, bstrresourcetype: &windows_core::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> windows_core::Result<ISClusResource>;
     fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn AddItem(&self, presource: windows_core::Ref<'_, ISClusResource>) -> windows_core::Result<()>;
+    fn AddItem(&self, presource: windows_core::Ref<ISClusResource>) -> windows_core::Result<()>;
     fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -10127,7 +10127,7 @@ pub trait ISClusResDependents_Impl: super::super::System::Com::IDispatch_Impl {
     fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusResource>;
     fn CreateItem(&self, bstrresourcename: &windows_core::BSTR, bstrresourcetype: &windows_core::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> windows_core::Result<ISClusResource>;
     fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn AddItem(&self, presource: windows_core::Ref<'_, ISClusResource>) -> windows_core::Result<()>;
+    fn AddItem(&self, presource: windows_core::Ref<ISClusResource>) -> windows_core::Result<()>;
     fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -10679,11 +10679,11 @@ pub trait ISClusResGroupPreferredOwnerNodes_Impl: super::super::System::Com::IDi
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Refresh(&self) -> windows_core::Result<()>;
     fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusNode>;
-    fn InsertItem(&self, pnode: windows_core::Ref<'_, ISClusNode>, nposition: i32) -> windows_core::Result<()>;
+    fn InsertItem(&self, pnode: windows_core::Ref<ISClusNode>, nposition: i32) -> windows_core::Result<()>;
     fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn Modified(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn SaveChanges(&self) -> windows_core::Result<()>;
-    fn AddItem(&self, pnode: windows_core::Ref<'_, ISClusNode>) -> windows_core::Result<()>;
+    fn AddItem(&self, pnode: windows_core::Ref<ISClusNode>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusResGroupPreferredOwnerNodes_Vtbl {
@@ -11167,7 +11167,7 @@ pub trait ISClusResPossibleOwnerNodes_Impl: super::super::System::Com::IDispatch
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Refresh(&self) -> windows_core::Result<()>;
     fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusNode>;
-    fn AddItem(&self, pnode: windows_core::Ref<'_, ISClusNode>) -> windows_core::Result<()>;
+    fn AddItem(&self, pnode: windows_core::Ref<ISClusNode>) -> windows_core::Result<()>;
     fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn Modified(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
 }
@@ -12168,10 +12168,10 @@ pub trait ISClusResource_Impl: super::super::System::Com::IDispatch_Impl {
     fn Fail(&self) -> windows_core::Result<()>;
     fn Online(&self, ntimeout: i32) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn Offline(&self, ntimeout: i32) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn ChangeResourceGroup(&self, presourcegroup: windows_core::Ref<'_, ISClusResGroup>) -> windows_core::Result<()>;
-    fn AddResourceNode(&self, pnode: windows_core::Ref<'_, ISClusNode>) -> windows_core::Result<()>;
-    fn RemoveResourceNode(&self, pnode: windows_core::Ref<'_, ISClusNode>) -> windows_core::Result<()>;
-    fn CanResourceBeDependent(&self, presource: windows_core::Ref<'_, ISClusResource>) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn ChangeResourceGroup(&self, presourcegroup: windows_core::Ref<ISClusResGroup>) -> windows_core::Result<()>;
+    fn AddResourceNode(&self, pnode: windows_core::Ref<ISClusNode>) -> windows_core::Result<()>;
+    fn RemoveResourceNode(&self, pnode: windows_core::Ref<ISClusNode>) -> windows_core::Result<()>;
+    fn CanResourceBeDependent(&self, presource: windows_core::Ref<ISClusResource>) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn PossibleOwnerNodes(&self) -> windows_core::Result<ISClusResPossibleOwnerNodes>;
     fn Dependencies(&self) -> windows_core::Result<ISClusResDependencies>;
     fn Dependents(&self) -> windows_core::Result<ISClusResDependents>;
@@ -13268,7 +13268,7 @@ pub trait ISCluster_Impl: super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetName(&self, bstrclustername: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Version(&self) -> windows_core::Result<ISClusVersion>;
-    fn SetQuorumResource(&self, pclusterresource: windows_core::Ref<'_, ISClusResource>) -> windows_core::Result<()>;
+    fn SetQuorumResource(&self, pclusterresource: windows_core::Ref<ISClusResource>) -> windows_core::Result<()>;
     fn QuorumResource(&self) -> windows_core::Result<ISClusResource>;
     fn QuorumLogSize(&self) -> windows_core::Result<i32>;
     fn SetQuorumLogSize(&self, nlogsize: i32) -> windows_core::Result<()>;
@@ -13953,7 +13953,7 @@ pub struct IWEExtendContextMenu_Vtbl {
     pub AddContextMenuItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWEExtendContextMenu_Impl: windows_core::IUnknownImpl {
-    fn AddContextMenuItems(&self, pidata: windows_core::Ref<'_, windows_core::IUnknown>, picallback: windows_core::Ref<'_, IWCContextMenuCallback>) -> windows_core::Result<()>;
+    fn AddContextMenuItems(&self, pidata: windows_core::Ref<windows_core::IUnknown>, picallback: windows_core::Ref<IWCContextMenuCallback>) -> windows_core::Result<()>;
 }
 impl IWEExtendContextMenu_Vtbl {
     pub const fn new<Identity: IWEExtendContextMenu_Impl, const OFFSET: isize>() -> Self {
@@ -13987,7 +13987,7 @@ pub struct IWEExtendPropertySheet_Vtbl {
     pub CreatePropertySheetPages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWEExtendPropertySheet_Impl: windows_core::IUnknownImpl {
-    fn CreatePropertySheetPages(&self, pidata: windows_core::Ref<'_, windows_core::IUnknown>, picallback: windows_core::Ref<'_, IWCPropertySheetCallback>) -> windows_core::Result<()>;
+    fn CreatePropertySheetPages(&self, pidata: windows_core::Ref<windows_core::IUnknown>, picallback: windows_core::Ref<IWCPropertySheetCallback>) -> windows_core::Result<()>;
 }
 impl IWEExtendPropertySheet_Vtbl {
     pub const fn new<Identity: IWEExtendPropertySheet_Impl, const OFFSET: isize>() -> Self {
@@ -14021,7 +14021,7 @@ pub struct IWEExtendWizard_Vtbl {
     pub CreateWizardPages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWEExtendWizard_Impl: windows_core::IUnknownImpl {
-    fn CreateWizardPages(&self, pidata: windows_core::Ref<'_, windows_core::IUnknown>, picallback: windows_core::Ref<'_, IWCWizardCallback>) -> windows_core::Result<()>;
+    fn CreateWizardPages(&self, pidata: windows_core::Ref<windows_core::IUnknown>, picallback: windows_core::Ref<IWCWizardCallback>) -> windows_core::Result<()>;
 }
 impl IWEExtendWizard_Vtbl {
     pub const fn new<Identity: IWEExtendWizard_Impl, const OFFSET: isize>() -> Self {
@@ -14055,7 +14055,7 @@ pub struct IWEExtendWizard97_Vtbl {
     pub CreateWizard97Pages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWEExtendWizard97_Impl: windows_core::IUnknownImpl {
-    fn CreateWizard97Pages(&self, pidata: windows_core::Ref<'_, windows_core::IUnknown>, picallback: windows_core::Ref<'_, IWCWizard97Callback>) -> windows_core::Result<()>;
+    fn CreateWizard97Pages(&self, pidata: windows_core::Ref<windows_core::IUnknown>, picallback: windows_core::Ref<IWCWizard97Callback>) -> windows_core::Result<()>;
 }
 impl IWEExtendWizard97_Vtbl {
     pub const fn new<Identity: IWEExtendWizard97_Impl, const OFFSET: isize>() -> Self {
@@ -14088,7 +14088,7 @@ pub struct IWEInvokeCommand_Vtbl {
     pub InvokeCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWEInvokeCommand_Impl: windows_core::IUnknownImpl {
-    fn InvokeCommand(&self, ncommandid: u32, pidata: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn InvokeCommand(&self, ncommandid: u32, pidata: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl IWEInvokeCommand_Vtbl {
     pub const fn new<Identity: IWEInvokeCommand_Impl, const OFFSET: isize>() -> Self {
