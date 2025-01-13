@@ -172,7 +172,7 @@ impl windows_core::RuntimeName for IWebAccountProviderBaseReportOperation {
 #[cfg(feature = "Security_Authentication_Web_Core")]
 pub trait IWebAccountProviderBaseReportOperation_Impl: windows_core::IUnknownImpl {
     fn ReportCompleted(&self) -> windows_core::Result<()>;
-    fn ReportError(&self, value: windows_core::Ref<'_, super::Core::WebProviderError>) -> windows_core::Result<()>;
+    fn ReportError(&self, value: windows_core::Ref<super::Core::WebProviderError>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Security_Authentication_Web_Core")]
 impl IWebAccountProviderBaseReportOperation_Vtbl {
@@ -347,7 +347,7 @@ impl windows_core::RuntimeName for IWebAccountProviderSilentReportOperation {
 #[cfg(feature = "Security_Authentication_Web_Core")]
 pub trait IWebAccountProviderSilentReportOperation_Impl: IWebAccountProviderBaseReportOperation_Impl {
     fn ReportUserInteractionRequired(&self) -> windows_core::Result<()>;
-    fn ReportUserInteractionRequiredWithError(&self, value: windows_core::Ref<'_, super::Core::WebProviderError>) -> windows_core::Result<()>;
+    fn ReportUserInteractionRequiredWithError(&self, value: windows_core::Ref<super::Core::WebProviderError>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Security_Authentication_Web_Core")]
 impl IWebAccountProviderSilentReportOperation_Vtbl {

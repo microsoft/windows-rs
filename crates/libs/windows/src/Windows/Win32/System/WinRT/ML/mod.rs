@@ -22,7 +22,7 @@ pub struct ILearningModelDeviceFactoryNative_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait ILearningModelDeviceFactoryNative_Impl: windows_core::IUnknownImpl {
-    fn CreateFromD3D12CommandQueue(&self, value: windows_core::Ref<'_, super::super::super::Graphics::Direct3D12::ID3D12CommandQueue>) -> windows_core::Result<windows_core::IUnknown>;
+    fn CreateFromD3D12CommandQueue(&self, value: windows_core::Ref<super::super::super::Graphics::Direct3D12::ID3D12CommandQueue>) -> windows_core::Result<windows_core::IUnknown>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ILearningModelDeviceFactoryNative_Vtbl {
@@ -235,7 +235,7 @@ pub struct ITensorStaticsNative_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait ITensorStaticsNative_Impl: windows_core::IUnknownImpl {
-    fn CreateFromD3D12Resource(&self, value: windows_core::Ref<'_, super::super::super::Graphics::Direct3D12::ID3D12Resource>, shape: *mut i64, shapecount: i32, result: windows_core::OutRef<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreateFromD3D12Resource(&self, value: windows_core::Ref<super::super::super::Graphics::Direct3D12::ID3D12Resource>, shape: *mut i64, shapecount: i32, result: windows_core::OutRef<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ITensorStaticsNative_Vtbl {

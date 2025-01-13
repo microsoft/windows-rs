@@ -41,11 +41,11 @@ pub struct AsyncIBackgroundCopyCallback_Vtbl {
     pub Finish_JobModification: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait AsyncIBackgroundCopyCallback_Impl: windows_core::IUnknownImpl {
-    fn Begin_JobTransferred(&self, pjob: windows_core::Ref<'_, IBackgroundCopyJob>) -> windows_core::Result<()>;
+    fn Begin_JobTransferred(&self, pjob: windows_core::Ref<IBackgroundCopyJob>) -> windows_core::Result<()>;
     fn Finish_JobTransferred(&self) -> windows_core::Result<()>;
-    fn Begin_JobError(&self, pjob: windows_core::Ref<'_, IBackgroundCopyJob>, perror: windows_core::Ref<'_, IBackgroundCopyError>) -> windows_core::Result<()>;
+    fn Begin_JobError(&self, pjob: windows_core::Ref<IBackgroundCopyJob>, perror: windows_core::Ref<IBackgroundCopyError>) -> windows_core::Result<()>;
     fn Finish_JobError(&self) -> windows_core::Result<()>;
-    fn Begin_JobModification(&self, pjob: windows_core::Ref<'_, IBackgroundCopyJob>, dwreserved: u32) -> windows_core::Result<()>;
+    fn Begin_JobModification(&self, pjob: windows_core::Ref<IBackgroundCopyJob>, dwreserved: u32) -> windows_core::Result<()>;
     fn Finish_JobModification(&self) -> windows_core::Result<()>;
 }
 impl AsyncIBackgroundCopyCallback_Vtbl {
@@ -731,9 +731,9 @@ pub struct IBackgroundCopyCallback_Vtbl {
     pub JobModification: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait IBackgroundCopyCallback_Impl: windows_core::IUnknownImpl {
-    fn JobTransferred(&self, pjob: windows_core::Ref<'_, IBackgroundCopyJob>) -> windows_core::Result<()>;
-    fn JobError(&self, pjob: windows_core::Ref<'_, IBackgroundCopyJob>, perror: windows_core::Ref<'_, IBackgroundCopyError>) -> windows_core::Result<()>;
-    fn JobModification(&self, pjob: windows_core::Ref<'_, IBackgroundCopyJob>, dwreserved: u32) -> windows_core::Result<()>;
+    fn JobTransferred(&self, pjob: windows_core::Ref<IBackgroundCopyJob>) -> windows_core::Result<()>;
+    fn JobError(&self, pjob: windows_core::Ref<IBackgroundCopyJob>, perror: windows_core::Ref<IBackgroundCopyError>) -> windows_core::Result<()>;
+    fn JobModification(&self, pjob: windows_core::Ref<IBackgroundCopyJob>, dwreserved: u32) -> windows_core::Result<()>;
 }
 impl IBackgroundCopyCallback_Vtbl {
     pub const fn new<Identity: IBackgroundCopyCallback_Impl, const OFFSET: isize>() -> Self {
@@ -800,9 +800,9 @@ pub struct IBackgroundCopyCallback1_Vtbl {
     pub OnProgressEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, u32, *const u8) -> windows_core::HRESULT,
 }
 pub trait IBackgroundCopyCallback1_Impl: windows_core::IUnknownImpl {
-    fn OnStatus(&self, pgroup: windows_core::Ref<'_, IBackgroundCopyGroup>, pjob: windows_core::Ref<'_, IBackgroundCopyJob1>, dwfileindex: u32, dwstatus: u32, dwnumofretries: u32, dwwin32result: u32, dwtransportresult: u32) -> windows_core::Result<()>;
-    fn OnProgress(&self, progresstype: u32, pgroup: windows_core::Ref<'_, IBackgroundCopyGroup>, pjob: windows_core::Ref<'_, IBackgroundCopyJob1>, dwfileindex: u32, dwprogressvalue: u32) -> windows_core::Result<()>;
-    fn OnProgressEx(&self, progresstype: u32, pgroup: windows_core::Ref<'_, IBackgroundCopyGroup>, pjob: windows_core::Ref<'_, IBackgroundCopyJob1>, dwfileindex: u32, dwprogressvalue: u32, dwbytearraysize: u32, pbyte: *const u8) -> windows_core::Result<()>;
+    fn OnStatus(&self, pgroup: windows_core::Ref<IBackgroundCopyGroup>, pjob: windows_core::Ref<IBackgroundCopyJob1>, dwfileindex: u32, dwstatus: u32, dwnumofretries: u32, dwwin32result: u32, dwtransportresult: u32) -> windows_core::Result<()>;
+    fn OnProgress(&self, progresstype: u32, pgroup: windows_core::Ref<IBackgroundCopyGroup>, pjob: windows_core::Ref<IBackgroundCopyJob1>, dwfileindex: u32, dwprogressvalue: u32) -> windows_core::Result<()>;
+    fn OnProgressEx(&self, progresstype: u32, pgroup: windows_core::Ref<IBackgroundCopyGroup>, pjob: windows_core::Ref<IBackgroundCopyJob1>, dwfileindex: u32, dwprogressvalue: u32, dwbytearraysize: u32, pbyte: *const u8) -> windows_core::Result<()>;
 }
 impl IBackgroundCopyCallback1_Vtbl {
     pub const fn new<Identity: IBackgroundCopyCallback1_Impl, const OFFSET: isize>() -> Self {
@@ -859,7 +859,7 @@ pub struct IBackgroundCopyCallback2_Vtbl {
     pub FileTransferred: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IBackgroundCopyCallback2_Impl: IBackgroundCopyCallback_Impl {
-    fn FileTransferred(&self, pjob: windows_core::Ref<'_, IBackgroundCopyJob>, pfile: windows_core::Ref<'_, IBackgroundCopyFile>) -> windows_core::Result<()>;
+    fn FileTransferred(&self, pjob: windows_core::Ref<IBackgroundCopyJob>, pfile: windows_core::Ref<IBackgroundCopyFile>) -> windows_core::Result<()>;
 }
 impl IBackgroundCopyCallback2_Vtbl {
     pub const fn new<Identity: IBackgroundCopyCallback2_Impl, const OFFSET: isize>() -> Self {
@@ -899,7 +899,7 @@ pub struct IBackgroundCopyCallback3_Vtbl {
     pub FileRangesTransferred: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const BG_FILE_RANGE) -> windows_core::HRESULT,
 }
 pub trait IBackgroundCopyCallback3_Impl: IBackgroundCopyCallback2_Impl {
-    fn FileRangesTransferred(&self, job: windows_core::Ref<'_, IBackgroundCopyJob>, file: windows_core::Ref<'_, IBackgroundCopyFile>, rangecount: u32, ranges: *const BG_FILE_RANGE) -> windows_core::Result<()>;
+    fn FileRangesTransferred(&self, job: windows_core::Ref<IBackgroundCopyJob>, file: windows_core::Ref<IBackgroundCopyFile>, rangecount: u32, ranges: *const BG_FILE_RANGE) -> windows_core::Result<()>;
 }
 impl IBackgroundCopyCallback3_Vtbl {
     pub const fn new<Identity: IBackgroundCopyCallback3_Impl, const OFFSET: isize>() -> Self {
@@ -1542,7 +1542,7 @@ pub trait IBackgroundCopyGroup_Impl: windows_core::IUnknownImpl {
     fn EnumJobs(&self, dwflags: u32) -> windows_core::Result<IEnumBackgroundCopyJobs1>;
     fn SwitchToForeground(&self) -> windows_core::Result<()>;
     fn QueryNewJobInterface(&self, iid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>;
-    fn SetNotificationPointer(&self, iid: *const windows_core::GUID, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetNotificationPointer(&self, iid: *const windows_core::GUID, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IBackgroundCopyGroup_Vtbl {
@@ -1928,7 +1928,7 @@ pub trait IBackgroundCopyJob_Impl: windows_core::IUnknownImpl {
     fn GetPriority(&self) -> windows_core::Result<BG_JOB_PRIORITY>;
     fn SetNotifyFlags(&self, val: u32) -> windows_core::Result<()>;
     fn GetNotifyFlags(&self) -> windows_core::Result<u32>;
-    fn SetNotifyInterface(&self, val: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetNotifyInterface(&self, val: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetNotifyInterface(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn SetMinimumRetryDelay(&self, seconds: u32) -> windows_core::Result<()>;
     fn GetMinimumRetryDelay(&self) -> windows_core::Result<u32>;
@@ -3071,7 +3071,7 @@ pub struct IBackgroundCopyJobHttpOptions3_Vtbl {
     pub MakeCustomHeadersWriteOnly: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IBackgroundCopyJobHttpOptions3_Impl: IBackgroundCopyJobHttpOptions2_Impl {
-    fn SetServerCertificateValidationInterface(&self, certvalidationcallback: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetServerCertificateValidationInterface(&self, certvalidationcallback: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn MakeCustomHeadersWriteOnly(&self) -> windows_core::Result<()>;
 }
 impl IBackgroundCopyJobHttpOptions3_Vtbl {
@@ -3299,7 +3299,7 @@ pub struct IBackgroundCopyServerCertificateValidationCallback_Vtbl {
     pub ValidateServerCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const u8, u32, u32, *const u8) -> windows_core::HRESULT,
 }
 pub trait IBackgroundCopyServerCertificateValidationCallback_Impl: windows_core::IUnknownImpl {
-    fn ValidateServerCertificate(&self, job: windows_core::Ref<'_, IBackgroundCopyJob>, file: windows_core::Ref<'_, IBackgroundCopyFile>, certlength: u32, certdata: *const u8, certencodingtype: u32, certstorelength: u32, certstoredata: *const u8) -> windows_core::Result<()>;
+    fn ValidateServerCertificate(&self, job: windows_core::Ref<IBackgroundCopyJob>, file: windows_core::Ref<IBackgroundCopyFile>, certlength: u32, certdata: *const u8, certencodingtype: u32, certstorelength: u32, certstoredata: *const u8) -> windows_core::Result<()>;
 }
 impl IBackgroundCopyServerCertificateValidationCallback_Vtbl {
     pub const fn new<Identity: IBackgroundCopyServerCertificateValidationCallback_Impl, const OFFSET: isize>() -> Self {

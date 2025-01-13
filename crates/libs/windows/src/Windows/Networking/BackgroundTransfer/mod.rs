@@ -1378,9 +1378,9 @@ impl windows_core::RuntimeName for IBackgroundTransferBase {
 pub trait IBackgroundTransferBase_Impl: windows_core::IUnknownImpl {
     fn SetRequestHeader(&self, headerName: &windows_core::HSTRING, headerValue: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn ServerCredential(&self) -> windows_core::Result<super::super::Security::Credentials::PasswordCredential>;
-    fn SetServerCredential(&self, credential: windows_core::Ref<'_, super::super::Security::Credentials::PasswordCredential>) -> windows_core::Result<()>;
+    fn SetServerCredential(&self, credential: windows_core::Ref<super::super::Security::Credentials::PasswordCredential>) -> windows_core::Result<()>;
     fn ProxyCredential(&self) -> windows_core::Result<super::super::Security::Credentials::PasswordCredential>;
-    fn SetProxyCredential(&self, credential: windows_core::Ref<'_, super::super::Security::Credentials::PasswordCredential>) -> windows_core::Result<()>;
+    fn SetProxyCredential(&self, credential: windows_core::Ref<super::super::Security::Credentials::PasswordCredential>) -> windows_core::Result<()>;
     fn Method(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn SetMethod(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn Group(&self) -> windows_core::Result<windows_core::HSTRING>;

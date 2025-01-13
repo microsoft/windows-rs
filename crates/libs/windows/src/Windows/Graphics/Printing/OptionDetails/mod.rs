@@ -602,7 +602,7 @@ pub trait IPrintOptionDetails_Impl: windows_core::IUnknownImpl {
     fn SetState(&self, value: PrintOptionStates) -> windows_core::Result<()>;
     fn State(&self) -> windows_core::Result<PrintOptionStates>;
     fn Value(&self) -> windows_core::Result<windows_core::IInspectable>;
-    fn TrySetValue(&self, value: windows_core::Ref<'_, windows_core::IInspectable>) -> windows_core::Result<bool>;
+    fn TrySetValue(&self, value: windows_core::Ref<windows_core::IInspectable>) -> windows_core::Result<bool>;
 }
 impl IPrintOptionDetails_Vtbl {
     pub const fn new<Identity: IPrintOptionDetails_Impl, const OFFSET: isize>() -> Self {

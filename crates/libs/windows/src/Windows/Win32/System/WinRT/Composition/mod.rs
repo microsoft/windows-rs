@@ -166,7 +166,7 @@ pub struct ICompositionDrawingSurfaceInterop2_Vtbl {
     pub CopySurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, i32, *const super::super::super::Foundation::RECT) -> windows_core::HRESULT,
 }
 pub trait ICompositionDrawingSurfaceInterop2_Impl: ICompositionDrawingSurfaceInterop_Impl {
-    fn CopySurface(&self, destinationresource: windows_core::Ref<'_, windows_core::IUnknown>, destinationoffsetx: i32, destinationoffsety: i32, sourcerectangle: *const super::super::super::Foundation::RECT) -> windows_core::Result<()>;
+    fn CopySurface(&self, destinationresource: windows_core::Ref<windows_core::IUnknown>, destinationoffsetx: i32, destinationoffsety: i32, sourcerectangle: *const super::super::super::Foundation::RECT) -> windows_core::Result<()>;
 }
 impl ICompositionDrawingSurfaceInterop2_Vtbl {
     pub const fn new<Identity: ICompositionDrawingSurfaceInterop2_Impl, const OFFSET: isize>() -> Self {
@@ -207,7 +207,7 @@ pub struct ICompositionGraphicsDeviceInterop_Vtbl {
 }
 pub trait ICompositionGraphicsDeviceInterop_Impl: windows_core::IUnknownImpl {
     fn GetRenderingDevice(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn SetRenderingDevice(&self, value: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetRenderingDevice(&self, value: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl ICompositionGraphicsDeviceInterop_Vtbl {
     pub const fn new<Identity: ICompositionGraphicsDeviceInterop_Impl, const OFFSET: isize>() -> Self {
@@ -381,8 +381,8 @@ pub struct ICompositorInterop_Vtbl {
 #[cfg(feature = "UI_Composition")]
 pub trait ICompositorInterop_Impl: windows_core::IUnknownImpl {
     fn CreateCompositionSurfaceForHandle(&self, swapchain: super::super::super::Foundation::HANDLE) -> windows_core::Result<super::super::super::super::UI::Composition::ICompositionSurface>;
-    fn CreateCompositionSurfaceForSwapChain(&self, swapchain: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<super::super::super::super::UI::Composition::ICompositionSurface>;
-    fn CreateGraphicsDevice(&self, renderingdevice: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<super::super::super::super::UI::Composition::CompositionGraphicsDevice>;
+    fn CreateCompositionSurfaceForSwapChain(&self, swapchain: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<super::super::super::super::UI::Composition::ICompositionSurface>;
+    fn CreateGraphicsDevice(&self, renderingdevice: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<super::super::super::super::UI::Composition::CompositionGraphicsDevice>;
 }
 #[cfg(feature = "UI_Composition")]
 impl ICompositorInterop_Vtbl {
@@ -470,8 +470,8 @@ pub struct ICompositorInterop2_Vtbl {
 }
 #[cfg(feature = "UI_Composition")]
 pub trait ICompositorInterop2_Impl: windows_core::IUnknownImpl {
-    fn CheckCompositionTextureSupport(&self, renderingdevice: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn CreateCompositionTexture(&self, d3dtexture: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<super::super::super::super::UI::Composition::CompositionTexture>;
+    fn CheckCompositionTextureSupport(&self, renderingdevice: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn CreateCompositionTexture(&self, d3dtexture: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<super::super::super::super::UI::Composition::CompositionTexture>;
 }
 #[cfg(feature = "UI_Composition")]
 impl ICompositorInterop2_Vtbl {

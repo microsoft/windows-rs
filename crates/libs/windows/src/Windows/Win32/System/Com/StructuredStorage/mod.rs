@@ -1718,7 +1718,7 @@ pub trait ILayoutStorage_Impl: windows_core::IUnknownImpl {
     fn BeginMonitor(&self) -> windows_core::Result<()>;
     fn EndMonitor(&self) -> windows_core::Result<()>;
     fn ReLayoutDocfile(&self, pwcsnewdfname: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn ReLayoutDocfileOnILockBytes(&self, pilockbytes: windows_core::Ref<'_, ILockBytes>) -> windows_core::Result<()>;
+    fn ReLayoutDocfileOnILockBytes(&self, pilockbytes: windows_core::Ref<ILockBytes>) -> windows_core::Result<()>;
 }
 impl ILayoutStorage_Vtbl {
     pub const fn new<Identity: ILayoutStorage_Impl, const OFFSET: isize>() -> Self {
@@ -1971,10 +1971,10 @@ pub struct IPersistStorage_Vtbl {
 }
 pub trait IPersistStorage_Impl: super::IPersist_Impl {
     fn IsDirty(&self) -> windows_core::HRESULT;
-    fn InitNew(&self, pstg: windows_core::Ref<'_, IStorage>) -> windows_core::Result<()>;
-    fn Load(&self, pstg: windows_core::Ref<'_, IStorage>) -> windows_core::Result<()>;
-    fn Save(&self, pstgsave: windows_core::Ref<'_, IStorage>, fsameasload: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn SaveCompleted(&self, pstgnew: windows_core::Ref<'_, IStorage>) -> windows_core::Result<()>;
+    fn InitNew(&self, pstg: windows_core::Ref<IStorage>) -> windows_core::Result<()>;
+    fn Load(&self, pstg: windows_core::Ref<IStorage>) -> windows_core::Result<()>;
+    fn Save(&self, pstgsave: windows_core::Ref<IStorage>, fsameasload: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn SaveCompleted(&self, pstgnew: windows_core::Ref<IStorage>) -> windows_core::Result<()>;
     fn HandsOffStorage(&self) -> windows_core::Result<()>;
 }
 impl IPersistStorage_Vtbl {
@@ -2063,7 +2063,7 @@ pub struct IPropertyBag_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IPropertyBag_Impl: windows_core::IUnknownImpl {
-    fn Read(&self, pszpropname: &windows_core::PCWSTR, pvar: *mut super::super::Variant::VARIANT, perrorlog: windows_core::Ref<'_, super::IErrorLog>) -> windows_core::Result<()>;
+    fn Read(&self, pszpropname: &windows_core::PCWSTR, pvar: *mut super::super::Variant::VARIANT, perrorlog: windows_core::Ref<super::IErrorLog>) -> windows_core::Result<()>;
     fn Write(&self, pszpropname: &windows_core::PCWSTR, pvar: *const super::super::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2142,11 +2142,11 @@ pub struct IPropertyBag2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IPropertyBag2_Impl: windows_core::IUnknownImpl {
-    fn Read(&self, cproperties: u32, ppropbag: *const PROPBAG2, perrlog: windows_core::Ref<'_, super::IErrorLog>, pvarvalue: *mut super::super::Variant::VARIANT, phrerror: *mut windows_core::HRESULT) -> windows_core::Result<()>;
+    fn Read(&self, cproperties: u32, ppropbag: *const PROPBAG2, perrlog: windows_core::Ref<super::IErrorLog>, pvarvalue: *mut super::super::Variant::VARIANT, phrerror: *mut windows_core::HRESULT) -> windows_core::Result<()>;
     fn Write(&self, cproperties: u32, ppropbag: *const PROPBAG2, pvarvalue: *const super::super::Variant::VARIANT) -> windows_core::Result<()>;
     fn CountProperties(&self) -> windows_core::Result<u32>;
     fn GetPropertyInfo(&self, iproperty: u32, cproperties: u32, ppropbag: *mut PROPBAG2, pcproperties: *mut u32) -> windows_core::Result<()>;
-    fn LoadObject(&self, pstrname: &windows_core::PCWSTR, dwhint: u32, punkobject: windows_core::Ref<'_, windows_core::IUnknown>, perrlog: windows_core::Ref<'_, super::IErrorLog>) -> windows_core::Result<()>;
+    fn LoadObject(&self, pstrname: &windows_core::PCWSTR, dwhint: u32, punkobject: windows_core::Ref<windows_core::IUnknown>, perrlog: windows_core::Ref<super::IErrorLog>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IPropertyBag2_Vtbl {
@@ -2634,9 +2634,9 @@ pub trait IStorage_Impl: windows_core::IUnknownImpl {
     fn CreateStream(&self, pwcsname: &windows_core::PCWSTR, grfmode: super::STGM, reserved1: u32, reserved2: u32) -> windows_core::Result<super::IStream>;
     fn OpenStream(&self, pwcsname: &windows_core::PCWSTR, reserved1: *const core::ffi::c_void, grfmode: super::STGM, reserved2: u32) -> windows_core::Result<super::IStream>;
     fn CreateStorage(&self, pwcsname: &windows_core::PCWSTR, grfmode: super::STGM, reserved1: u32, reserved2: u32) -> windows_core::Result<IStorage>;
-    fn OpenStorage(&self, pwcsname: &windows_core::PCWSTR, pstgpriority: windows_core::Ref<'_, IStorage>, grfmode: super::STGM, snbexclude: *const *const u16, reserved: u32) -> windows_core::Result<IStorage>;
-    fn CopyTo(&self, ciidexclude: u32, rgiidexclude: *const windows_core::GUID, snbexclude: *const *const u16, pstgdest: windows_core::Ref<'_, IStorage>) -> windows_core::Result<()>;
-    fn MoveElementTo(&self, pwcsname: &windows_core::PCWSTR, pstgdest: windows_core::Ref<'_, IStorage>, pwcsnewname: &windows_core::PCWSTR, grfflags: &STGMOVE) -> windows_core::Result<()>;
+    fn OpenStorage(&self, pwcsname: &windows_core::PCWSTR, pstgpriority: windows_core::Ref<IStorage>, grfmode: super::STGM, snbexclude: *const *const u16, reserved: u32) -> windows_core::Result<IStorage>;
+    fn CopyTo(&self, ciidexclude: u32, rgiidexclude: *const windows_core::GUID, snbexclude: *const *const u16, pstgdest: windows_core::Ref<IStorage>) -> windows_core::Result<()>;
+    fn MoveElementTo(&self, pwcsname: &windows_core::PCWSTR, pstgdest: windows_core::Ref<IStorage>, pwcsnewname: &windows_core::PCWSTR, grfflags: &STGMOVE) -> windows_core::Result<()>;
     fn Commit(&self, grfcommitflags: u32) -> windows_core::Result<()>;
     fn Revert(&self) -> windows_core::Result<()>;
     fn EnumElements(&self, reserved1: u32, reserved2: *const core::ffi::c_void, reserved3: u32) -> windows_core::Result<IEnumSTATSTG>;

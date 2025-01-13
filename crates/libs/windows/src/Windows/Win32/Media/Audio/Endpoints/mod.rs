@@ -404,8 +404,8 @@ pub struct IAudioEndpointVolume_Vtbl {
     pub GetVolumeRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32, *mut f32, *mut f32) -> windows_core::HRESULT,
 }
 pub trait IAudioEndpointVolume_Impl: windows_core::IUnknownImpl {
-    fn RegisterControlChangeNotify(&self, pnotify: windows_core::Ref<'_, IAudioEndpointVolumeCallback>) -> windows_core::Result<()>;
-    fn UnregisterControlChangeNotify(&self, pnotify: windows_core::Ref<'_, IAudioEndpointVolumeCallback>) -> windows_core::Result<()>;
+    fn RegisterControlChangeNotify(&self, pnotify: windows_core::Ref<IAudioEndpointVolumeCallback>) -> windows_core::Result<()>;
+    fn UnregisterControlChangeNotify(&self, pnotify: windows_core::Ref<IAudioEndpointVolumeCallback>) -> windows_core::Result<()>;
     fn GetChannelCount(&self) -> windows_core::Result<u32>;
     fn SetMasterVolumeLevel(&self, fleveldb: f32, pguideventcontext: *const windows_core::GUID) -> windows_core::Result<()>;
     fn SetMasterVolumeLevelScalar(&self, flevel: f32, pguideventcontext: *const windows_core::GUID) -> windows_core::Result<()>;
@@ -869,10 +869,10 @@ pub struct IHardwareAudioEngineBase_Vtbl {
 }
 pub trait IHardwareAudioEngineBase_Impl: windows_core::IUnknownImpl {
     fn GetAvailableOffloadConnectorCount(&self, _pwstrdeviceid: &windows_core::PCWSTR, _uconnectorid: u32) -> windows_core::Result<u32>;
-    fn GetEngineFormat(&self, pdevice: windows_core::Ref<'_, super::IMMDevice>, _brequestdeviceformat: super::super::super::Foundation::BOOL, _ppwfxformat: *mut *mut super::WAVEFORMATEX) -> windows_core::Result<()>;
-    fn SetEngineDeviceFormat(&self, pdevice: windows_core::Ref<'_, super::IMMDevice>, _pwfxformat: *mut super::WAVEFORMATEX) -> windows_core::Result<()>;
-    fn SetGfxState(&self, pdevice: windows_core::Ref<'_, super::IMMDevice>, _benable: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn GetGfxState(&self, pdevice: windows_core::Ref<'_, super::IMMDevice>) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn GetEngineFormat(&self, pdevice: windows_core::Ref<super::IMMDevice>, _brequestdeviceformat: super::super::super::Foundation::BOOL, _ppwfxformat: *mut *mut super::WAVEFORMATEX) -> windows_core::Result<()>;
+    fn SetEngineDeviceFormat(&self, pdevice: windows_core::Ref<super::IMMDevice>, _pwfxformat: *mut super::WAVEFORMATEX) -> windows_core::Result<()>;
+    fn SetGfxState(&self, pdevice: windows_core::Ref<super::IMMDevice>, _benable: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn GetGfxState(&self, pdevice: windows_core::Ref<super::IMMDevice>) -> windows_core::Result<super::super::super::Foundation::BOOL>;
 }
 impl IHardwareAudioEngineBase_Vtbl {
     pub const fn new<Identity: IHardwareAudioEngineBase_Impl, const OFFSET: isize>() -> Self {

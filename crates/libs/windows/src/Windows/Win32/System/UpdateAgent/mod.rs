@@ -1038,7 +1038,7 @@ pub struct IDownloadCompletedCallback_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDownloadCompletedCallback_Impl: windows_core::IUnknownImpl {
-    fn Invoke(&self, downloadjob: windows_core::Ref<'_, IDownloadJob>, callbackargs: windows_core::Ref<'_, IDownloadCompletedCallbackArgs>) -> windows_core::Result<()>;
+    fn Invoke(&self, downloadjob: windows_core::Ref<IDownloadJob>, callbackargs: windows_core::Ref<IDownloadCompletedCallbackArgs>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IDownloadCompletedCallback_Vtbl {
@@ -1479,7 +1479,7 @@ pub struct IDownloadProgressChangedCallback_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDownloadProgressChangedCallback_Impl: windows_core::IUnknownImpl {
-    fn Invoke(&self, downloadjob: windows_core::Ref<'_, IDownloadJob>, callbackargs: windows_core::Ref<'_, IDownloadProgressChangedCallbackArgs>) -> windows_core::Result<()>;
+    fn Invoke(&self, downloadjob: windows_core::Ref<IDownloadJob>, callbackargs: windows_core::Ref<IDownloadProgressChangedCallbackArgs>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IDownloadProgressChangedCallback_Vtbl {
@@ -1796,7 +1796,7 @@ pub struct IInstallationAgent_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInstallationAgent_Impl: super::Com::IDispatch_Impl {
-    fn RecordInstallationResult(&self, installationresultcookie: &windows_core::BSTR, hresult: i32, extendedreportingdata: windows_core::Ref<'_, IStringCollection>) -> windows_core::Result<()>;
+    fn RecordInstallationResult(&self, installationresultcookie: &windows_core::BSTR, hresult: i32, extendedreportingdata: windows_core::Ref<IStringCollection>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInstallationAgent_Vtbl {
@@ -1956,7 +1956,7 @@ pub struct IInstallationCompletedCallback_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IInstallationCompletedCallback_Impl: windows_core::IUnknownImpl {
-    fn Invoke(&self, installationjob: windows_core::Ref<'_, IInstallationJob>, callbackargs: windows_core::Ref<'_, IInstallationCompletedCallbackArgs>) -> windows_core::Result<()>;
+    fn Invoke(&self, installationjob: windows_core::Ref<IInstallationJob>, callbackargs: windows_core::Ref<IInstallationCompletedCallbackArgs>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IInstallationCompletedCallback_Vtbl {
@@ -2292,7 +2292,7 @@ pub struct IInstallationProgressChangedCallback_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IInstallationProgressChangedCallback_Impl: windows_core::IUnknownImpl {
-    fn Invoke(&self, installationjob: windows_core::Ref<'_, IInstallationJob>, callbackargs: windows_core::Ref<'_, IInstallationProgressChangedCallbackArgs>) -> windows_core::Result<()>;
+    fn Invoke(&self, installationjob: windows_core::Ref<IInstallationJob>, callbackargs: windows_core::Ref<IInstallationProgressChangedCallbackArgs>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IInstallationProgressChangedCallback_Vtbl {
@@ -2558,7 +2558,7 @@ pub struct ISearchCompletedCallback_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISearchCompletedCallback_Impl: windows_core::IUnknownImpl {
-    fn Invoke(&self, searchjob: windows_core::Ref<'_, ISearchJob>, callbackargs: windows_core::Ref<'_, ISearchCompletedCallbackArgs>) -> windows_core::Result<()>;
+    fn Invoke(&self, searchjob: windows_core::Ref<ISearchJob>, callbackargs: windows_core::Ref<ISearchCompletedCallbackArgs>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ISearchCompletedCallback_Vtbl {
@@ -4125,7 +4125,7 @@ pub trait IUpdate2_Impl: IUpdate_Impl {
     fn RebootRequired(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn IsPresent(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn CveIDs(&self) -> windows_core::Result<IStringCollection>;
-    fn CopyToCache(&self, pfiles: windows_core::Ref<'_, IStringCollection>) -> windows_core::Result<()>;
+    fn CopyToCache(&self, pfiles: windows_core::Ref<IStringCollection>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdate2_Vtbl {
@@ -4458,14 +4458,14 @@ pub struct IUpdateCollection_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateCollection_Impl: super::Com::IDispatch_Impl {
     fn get_Item(&self, index: i32) -> windows_core::Result<IUpdate>;
-    fn put_Item(&self, index: i32, value: windows_core::Ref<'_, IUpdate>) -> windows_core::Result<()>;
+    fn put_Item(&self, index: i32, value: windows_core::Ref<IUpdate>) -> windows_core::Result<()>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Count(&self) -> windows_core::Result<i32>;
     fn ReadOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn Add(&self, value: windows_core::Ref<'_, IUpdate>) -> windows_core::Result<i32>;
+    fn Add(&self, value: windows_core::Ref<IUpdate>) -> windows_core::Result<i32>;
     fn Clear(&self) -> windows_core::Result<()>;
     fn Copy(&self) -> windows_core::Result<IUpdateCollection>;
-    fn Insert(&self, index: i32, value: windows_core::Ref<'_, IUpdate>) -> windows_core::Result<()>;
+    fn Insert(&self, index: i32, value: windows_core::Ref<IUpdate>) -> windows_core::Result<()>;
     fn RemoveAt(&self, index: i32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -4971,10 +4971,10 @@ pub trait IUpdateDownloader_Impl: super::Com::IDispatch_Impl {
     fn Priority(&self) -> windows_core::Result<DownloadPriority>;
     fn SetPriority(&self, value: DownloadPriority) -> windows_core::Result<()>;
     fn Updates(&self) -> windows_core::Result<IUpdateCollection>;
-    fn SetUpdates(&self, value: windows_core::Ref<'_, IUpdateCollection>) -> windows_core::Result<()>;
-    fn BeginDownload(&self, onprogresschanged: windows_core::Ref<'_, windows_core::IUnknown>, oncompleted: windows_core::Ref<'_, windows_core::IUnknown>, state: &super::Variant::VARIANT) -> windows_core::Result<IDownloadJob>;
+    fn SetUpdates(&self, value: windows_core::Ref<IUpdateCollection>) -> windows_core::Result<()>;
+    fn BeginDownload(&self, onprogresschanged: windows_core::Ref<windows_core::IUnknown>, oncompleted: windows_core::Ref<windows_core::IUnknown>, state: &super::Variant::VARIANT) -> windows_core::Result<IDownloadJob>;
     fn Download(&self) -> windows_core::Result<IDownloadResult>;
-    fn EndDownload(&self, value: windows_core::Ref<'_, IDownloadJob>) -> windows_core::Result<IDownloadResult>;
+    fn EndDownload(&self, value: windows_core::Ref<IDownloadJob>) -> windows_core::Result<IDownloadResult>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateDownloader_Vtbl {
@@ -6143,14 +6143,14 @@ pub trait IUpdateInstaller_Impl: super::Com::IDispatch_Impl {
     fn SetIsForced(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn ParentHwnd(&self) -> windows_core::Result<super::super::Foundation::HWND>;
     fn SetParentHwnd(&self, value: super::super::Foundation::HWND) -> windows_core::Result<()>;
-    fn SetParentWindow(&self, value: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetParentWindow(&self, value: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn ParentWindow(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Updates(&self) -> windows_core::Result<IUpdateCollection>;
-    fn SetUpdates(&self, value: windows_core::Ref<'_, IUpdateCollection>) -> windows_core::Result<()>;
-    fn BeginInstall(&self, onprogresschanged: windows_core::Ref<'_, windows_core::IUnknown>, oncompleted: windows_core::Ref<'_, windows_core::IUnknown>, state: &super::Variant::VARIANT) -> windows_core::Result<IInstallationJob>;
-    fn BeginUninstall(&self, onprogresschanged: windows_core::Ref<'_, windows_core::IUnknown>, oncompleted: windows_core::Ref<'_, windows_core::IUnknown>, state: &super::Variant::VARIANT) -> windows_core::Result<IInstallationJob>;
-    fn EndInstall(&self, value: windows_core::Ref<'_, IInstallationJob>) -> windows_core::Result<IInstallationResult>;
-    fn EndUninstall(&self, value: windows_core::Ref<'_, IInstallationJob>) -> windows_core::Result<IInstallationResult>;
+    fn SetUpdates(&self, value: windows_core::Ref<IUpdateCollection>) -> windows_core::Result<()>;
+    fn BeginInstall(&self, onprogresschanged: windows_core::Ref<windows_core::IUnknown>, oncompleted: windows_core::Ref<windows_core::IUnknown>, state: &super::Variant::VARIANT) -> windows_core::Result<IInstallationJob>;
+    fn BeginUninstall(&self, onprogresschanged: windows_core::Ref<windows_core::IUnknown>, oncompleted: windows_core::Ref<windows_core::IUnknown>, state: &super::Variant::VARIANT) -> windows_core::Result<IInstallationJob>;
+    fn EndInstall(&self, value: windows_core::Ref<IInstallationJob>) -> windows_core::Result<IInstallationResult>;
+    fn EndUninstall(&self, value: windows_core::Ref<IInstallationJob>) -> windows_core::Result<IInstallationResult>;
     fn Install(&self) -> windows_core::Result<IInstallationResult>;
     fn RunWizard(&self, dialogtitle: &windows_core::BSTR) -> windows_core::Result<IInstallationResult>;
     fn IsBusy(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -6766,8 +6766,8 @@ pub trait IUpdateSearcher_Impl: super::Com::IDispatch_Impl {
     fn SetIncludePotentiallySupersededUpdates(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn ServerSelection(&self) -> windows_core::Result<ServerSelection>;
     fn SetServerSelection(&self, value: ServerSelection) -> windows_core::Result<()>;
-    fn BeginSearch(&self, criteria: &windows_core::BSTR, oncompleted: windows_core::Ref<'_, windows_core::IUnknown>, state: &super::Variant::VARIANT) -> windows_core::Result<ISearchJob>;
-    fn EndSearch(&self, searchjob: windows_core::Ref<'_, ISearchJob>) -> windows_core::Result<ISearchResult>;
+    fn BeginSearch(&self, criteria: &windows_core::BSTR, oncompleted: windows_core::Ref<windows_core::IUnknown>, state: &super::Variant::VARIANT) -> windows_core::Result<ISearchJob>;
+    fn EndSearch(&self, searchjob: windows_core::Ref<ISearchJob>) -> windows_core::Result<ISearchResult>;
     fn EscapeString(&self, unescaped: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
     fn QueryHistory(&self, startindex: i32, count: i32) -> windows_core::Result<IUpdateHistoryEntryCollection>;
     fn Search(&self, criteria: &windows_core::BSTR) -> windows_core::Result<ISearchResult>;
@@ -8044,7 +8044,7 @@ pub trait IUpdateSession_Impl: super::Com::IDispatch_Impl {
     fn SetClientApplicationID(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
     fn ReadOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn WebProxy(&self) -> windows_core::Result<IWebProxy>;
-    fn SetWebProxy(&self, value: windows_core::Ref<'_, IWebProxy>) -> windows_core::Result<()>;
+    fn SetWebProxy(&self, value: windows_core::Ref<IWebProxy>) -> windows_core::Result<()>;
     fn CreateUpdateSearcher(&self) -> windows_core::Result<IUpdateSearcher>;
     fn CreateUpdateDownloader(&self) -> windows_core::Result<IUpdateDownloader>;
     fn CreateUpdateInstaller(&self) -> windows_core::Result<IUpdateInstaller>;
@@ -8403,14 +8403,14 @@ pub trait IWebProxy_Impl: super::Com::IDispatch_Impl {
     fn Address(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetAddress(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
     fn BypassList(&self) -> windows_core::Result<IStringCollection>;
-    fn SetBypassList(&self, value: windows_core::Ref<'_, IStringCollection>) -> windows_core::Result<()>;
+    fn SetBypassList(&self, value: windows_core::Ref<IStringCollection>) -> windows_core::Result<()>;
     fn BypassProxyOnLocal(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetBypassProxyOnLocal(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn ReadOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn UserName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetUserName(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
     fn SetPassword(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn PromptForCredentials(&self, parentwindow: windows_core::Ref<'_, windows_core::IUnknown>, title: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn PromptForCredentials(&self, parentwindow: windows_core::Ref<windows_core::IUnknown>, title: &windows_core::BSTR) -> windows_core::Result<()>;
     fn PromptForCredentialsFromHwnd(&self, parentwindow: super::super::Foundation::HWND, title: &windows_core::BSTR) -> windows_core::Result<()>;
     fn AutoDetect(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetAutoDetect(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
@@ -8817,7 +8817,7 @@ pub trait IWindowsDriverUpdate2_Impl: IWindowsDriverUpdate_Impl {
     fn RebootRequired(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn IsPresent(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn CveIDs(&self) -> windows_core::Result<IStringCollection>;
-    fn CopyToCache(&self, pfiles: windows_core::Ref<'_, IStringCollection>) -> windows_core::Result<()>;
+    fn CopyToCache(&self, pfiles: windows_core::Ref<IStringCollection>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWindowsDriverUpdate2_Vtbl {

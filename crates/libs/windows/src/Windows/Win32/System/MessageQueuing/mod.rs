@@ -1143,7 +1143,7 @@ pub trait IMSMQDestination_Impl: super::Com::IDispatch_Impl {
     fn Close(&self) -> windows_core::Result<()>;
     fn IsOpen(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn IADs(&self) -> windows_core::Result<super::Com::IDispatch>;
-    fn putref_IADs(&self, piads: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn putref_IADs(&self, piads: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<()>;
     fn ADsPath(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetADsPath(&self, bstradspath: &windows_core::BSTR) -> windows_core::Result<()>;
     fn PathName(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -1151,7 +1151,7 @@ pub trait IMSMQDestination_Impl: super::Com::IDispatch_Impl {
     fn FormatName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetFormatName(&self, bstrformatname: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Destinations(&self) -> windows_core::Result<super::Com::IDispatch>;
-    fn putref_Destinations(&self, pdestinations: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn putref_Destinations(&self, pdestinations: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<()>;
     fn Properties(&self) -> windows_core::Result<super::Com::IDispatch>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2010,7 +2010,7 @@ pub trait IMSMQMessage_Impl: super::Com::IDispatch_Impl {
     fn Journal(&self) -> windows_core::Result<i32>;
     fn SetJournal(&self, ljournal: i32) -> windows_core::Result<()>;
     fn ResponseQueueInfo(&self) -> windows_core::Result<IMSMQQueueInfo>;
-    fn putref_ResponseQueueInfo(&self, pqinforesponse: windows_core::Ref<'_, IMSMQQueueInfo>) -> windows_core::Result<()>;
+    fn putref_ResponseQueueInfo(&self, pqinforesponse: windows_core::Ref<IMSMQQueueInfo>) -> windows_core::Result<()>;
     fn AppSpecific(&self) -> windows_core::Result<i32>;
     fn SetAppSpecific(&self, lappspecific: i32) -> windows_core::Result<()>;
     fn SourceMachineGuid(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -2018,7 +2018,7 @@ pub trait IMSMQMessage_Impl: super::Com::IDispatch_Impl {
     fn Body(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn SetBody(&self, varbody: &super::Variant::VARIANT) -> windows_core::Result<()>;
     fn AdminQueueInfo(&self) -> windows_core::Result<IMSMQQueueInfo>;
-    fn putref_AdminQueueInfo(&self, pqinfoadmin: windows_core::Ref<'_, IMSMQQueueInfo>) -> windows_core::Result<()>;
+    fn putref_AdminQueueInfo(&self, pqinfoadmin: windows_core::Ref<IMSMQQueueInfo>) -> windows_core::Result<()>;
     fn Id(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn CorrelationId(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn SetCorrelationId(&self, varmsgid: &super::Variant::VARIANT) -> windows_core::Result<()>;
@@ -2042,7 +2042,7 @@ pub trait IMSMQMessage_Impl: super::Com::IDispatch_Impl {
     fn SenderId(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn SenderIdType(&self) -> windows_core::Result<i32>;
     fn SetSenderIdType(&self, lsenderidtype: i32) -> windows_core::Result<()>;
-    fn Send(&self, destinationqueue: windows_core::Ref<'_, IMSMQQueue>, transaction: *const super::Variant::VARIANT) -> windows_core::Result<()>;
+    fn Send(&self, destinationqueue: windows_core::Ref<IMSMQQueue>, transaction: *const super::Variant::VARIANT) -> windows_core::Result<()>;
     fn AttachCurrentSecurityContext(&self) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3128,7 +3128,7 @@ pub trait IMSMQMessage2_Impl: super::Com::IDispatch_Impl {
     fn Journal(&self) -> windows_core::Result<i32>;
     fn SetJournal(&self, ljournal: i32) -> windows_core::Result<()>;
     fn ResponseQueueInfo_v1(&self) -> windows_core::Result<IMSMQQueueInfo>;
-    fn putref_ResponseQueueInfo_v1(&self, pqinforesponse: windows_core::Ref<'_, IMSMQQueueInfo>) -> windows_core::Result<()>;
+    fn putref_ResponseQueueInfo_v1(&self, pqinforesponse: windows_core::Ref<IMSMQQueueInfo>) -> windows_core::Result<()>;
     fn AppSpecific(&self) -> windows_core::Result<i32>;
     fn SetAppSpecific(&self, lappspecific: i32) -> windows_core::Result<()>;
     fn SourceMachineGuid(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -3136,7 +3136,7 @@ pub trait IMSMQMessage2_Impl: super::Com::IDispatch_Impl {
     fn Body(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn SetBody(&self, varbody: &super::Variant::VARIANT) -> windows_core::Result<()>;
     fn AdminQueueInfo_v1(&self) -> windows_core::Result<IMSMQQueueInfo>;
-    fn putref_AdminQueueInfo_v1(&self, pqinfoadmin: windows_core::Ref<'_, IMSMQQueueInfo>) -> windows_core::Result<()>;
+    fn putref_AdminQueueInfo_v1(&self, pqinfoadmin: windows_core::Ref<IMSMQQueueInfo>) -> windows_core::Result<()>;
     fn Id(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn CorrelationId(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn SetCorrelationId(&self, varmsgid: &super::Variant::VARIANT) -> windows_core::Result<()>;
@@ -3160,7 +3160,7 @@ pub trait IMSMQMessage2_Impl: super::Com::IDispatch_Impl {
     fn SenderId(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn SenderIdType(&self) -> windows_core::Result<i32>;
     fn SetSenderIdType(&self, lsenderidtype: i32) -> windows_core::Result<()>;
-    fn Send(&self, destinationqueue: windows_core::Ref<'_, IMSMQQueue2>, transaction: *const super::Variant::VARIANT) -> windows_core::Result<()>;
+    fn Send(&self, destinationqueue: windows_core::Ref<IMSMQQueue2>, transaction: *const super::Variant::VARIANT) -> windows_core::Result<()>;
     fn AttachCurrentSecurityContext(&self) -> windows_core::Result<()>;
     fn SenderVersion(&self) -> windows_core::Result<i32>;
     fn Extension(&self) -> windows_core::Result<super::Variant::VARIANT>;
@@ -3184,9 +3184,9 @@ pub trait IMSMQMessage2_Impl: super::Com::IDispatch_Impl {
     fn IsFirstInTransaction(&self) -> windows_core::Result<i16>;
     fn IsLastInTransaction(&self) -> windows_core::Result<i16>;
     fn ResponseQueueInfo(&self) -> windows_core::Result<IMSMQQueueInfo2>;
-    fn putref_ResponseQueueInfo(&self, pqinforesponse: windows_core::Ref<'_, IMSMQQueueInfo2>) -> windows_core::Result<()>;
+    fn putref_ResponseQueueInfo(&self, pqinforesponse: windows_core::Ref<IMSMQQueueInfo2>) -> windows_core::Result<()>;
     fn AdminQueueInfo(&self) -> windows_core::Result<IMSMQQueueInfo2>;
-    fn putref_AdminQueueInfo(&self, pqinfoadmin: windows_core::Ref<'_, IMSMQQueueInfo2>) -> windows_core::Result<()>;
+    fn putref_AdminQueueInfo(&self, pqinfoadmin: windows_core::Ref<IMSMQQueueInfo2>) -> windows_core::Result<()>;
     fn ReceivedAuthenticationLevel(&self) -> windows_core::Result<i16>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -4661,7 +4661,7 @@ pub trait IMSMQMessage3_Impl: super::Com::IDispatch_Impl {
     fn Journal(&self) -> windows_core::Result<i32>;
     fn SetJournal(&self, ljournal: i32) -> windows_core::Result<()>;
     fn ResponseQueueInfo_v1(&self) -> windows_core::Result<IMSMQQueueInfo>;
-    fn putref_ResponseQueueInfo_v1(&self, pqinforesponse: windows_core::Ref<'_, IMSMQQueueInfo>) -> windows_core::Result<()>;
+    fn putref_ResponseQueueInfo_v1(&self, pqinforesponse: windows_core::Ref<IMSMQQueueInfo>) -> windows_core::Result<()>;
     fn AppSpecific(&self) -> windows_core::Result<i32>;
     fn SetAppSpecific(&self, lappspecific: i32) -> windows_core::Result<()>;
     fn SourceMachineGuid(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -4669,7 +4669,7 @@ pub trait IMSMQMessage3_Impl: super::Com::IDispatch_Impl {
     fn Body(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn SetBody(&self, varbody: &super::Variant::VARIANT) -> windows_core::Result<()>;
     fn AdminQueueInfo_v1(&self) -> windows_core::Result<IMSMQQueueInfo>;
-    fn putref_AdminQueueInfo_v1(&self, pqinfoadmin: windows_core::Ref<'_, IMSMQQueueInfo>) -> windows_core::Result<()>;
+    fn putref_AdminQueueInfo_v1(&self, pqinfoadmin: windows_core::Ref<IMSMQQueueInfo>) -> windows_core::Result<()>;
     fn Id(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn CorrelationId(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn SetCorrelationId(&self, varmsgid: &super::Variant::VARIANT) -> windows_core::Result<()>;
@@ -4693,7 +4693,7 @@ pub trait IMSMQMessage3_Impl: super::Com::IDispatch_Impl {
     fn SenderId(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn SenderIdType(&self) -> windows_core::Result<i32>;
     fn SetSenderIdType(&self, lsenderidtype: i32) -> windows_core::Result<()>;
-    fn Send(&self, destinationqueue: windows_core::Ref<'_, super::Com::IDispatch>, transaction: *const super::Variant::VARIANT) -> windows_core::Result<()>;
+    fn Send(&self, destinationqueue: windows_core::Ref<super::Com::IDispatch>, transaction: *const super::Variant::VARIANT) -> windows_core::Result<()>;
     fn AttachCurrentSecurityContext(&self) -> windows_core::Result<()>;
     fn SenderVersion(&self) -> windows_core::Result<i32>;
     fn Extension(&self) -> windows_core::Result<super::Variant::VARIANT>;
@@ -4717,16 +4717,16 @@ pub trait IMSMQMessage3_Impl: super::Com::IDispatch_Impl {
     fn IsFirstInTransaction(&self) -> windows_core::Result<i16>;
     fn IsLastInTransaction(&self) -> windows_core::Result<i16>;
     fn ResponseQueueInfo_v2(&self) -> windows_core::Result<IMSMQQueueInfo2>;
-    fn putref_ResponseQueueInfo_v2(&self, pqinforesponse: windows_core::Ref<'_, IMSMQQueueInfo2>) -> windows_core::Result<()>;
+    fn putref_ResponseQueueInfo_v2(&self, pqinforesponse: windows_core::Ref<IMSMQQueueInfo2>) -> windows_core::Result<()>;
     fn AdminQueueInfo_v2(&self) -> windows_core::Result<IMSMQQueueInfo2>;
-    fn putref_AdminQueueInfo_v2(&self, pqinfoadmin: windows_core::Ref<'_, IMSMQQueueInfo2>) -> windows_core::Result<()>;
+    fn putref_AdminQueueInfo_v2(&self, pqinfoadmin: windows_core::Ref<IMSMQQueueInfo2>) -> windows_core::Result<()>;
     fn ReceivedAuthenticationLevel(&self) -> windows_core::Result<i16>;
     fn ResponseQueueInfo(&self) -> windows_core::Result<IMSMQQueueInfo3>;
-    fn putref_ResponseQueueInfo(&self, pqinforesponse: windows_core::Ref<'_, IMSMQQueueInfo3>) -> windows_core::Result<()>;
+    fn putref_ResponseQueueInfo(&self, pqinforesponse: windows_core::Ref<IMSMQQueueInfo3>) -> windows_core::Result<()>;
     fn AdminQueueInfo(&self) -> windows_core::Result<IMSMQQueueInfo3>;
-    fn putref_AdminQueueInfo(&self, pqinfoadmin: windows_core::Ref<'_, IMSMQQueueInfo3>) -> windows_core::Result<()>;
+    fn putref_AdminQueueInfo(&self, pqinfoadmin: windows_core::Ref<IMSMQQueueInfo3>) -> windows_core::Result<()>;
     fn ResponseDestination(&self) -> windows_core::Result<super::Com::IDispatch>;
-    fn putref_ResponseDestination(&self, pdestresponse: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn putref_ResponseDestination(&self, pdestresponse: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<()>;
     fn Destination(&self) -> windows_core::Result<super::Com::IDispatch>;
     fn LookupId(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn IsAuthenticated2(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -6382,7 +6382,7 @@ pub trait IMSMQMessage4_Impl: super::Com::IDispatch_Impl {
     fn Journal(&self) -> windows_core::Result<i32>;
     fn SetJournal(&self, ljournal: i32) -> windows_core::Result<()>;
     fn ResponseQueueInfo_v1(&self) -> windows_core::Result<IMSMQQueueInfo>;
-    fn putref_ResponseQueueInfo_v1(&self, pqinforesponse: windows_core::Ref<'_, IMSMQQueueInfo>) -> windows_core::Result<()>;
+    fn putref_ResponseQueueInfo_v1(&self, pqinforesponse: windows_core::Ref<IMSMQQueueInfo>) -> windows_core::Result<()>;
     fn AppSpecific(&self) -> windows_core::Result<i32>;
     fn SetAppSpecific(&self, lappspecific: i32) -> windows_core::Result<()>;
     fn SourceMachineGuid(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -6390,7 +6390,7 @@ pub trait IMSMQMessage4_Impl: super::Com::IDispatch_Impl {
     fn Body(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn SetBody(&self, varbody: &super::Variant::VARIANT) -> windows_core::Result<()>;
     fn AdminQueueInfo_v1(&self) -> windows_core::Result<IMSMQQueueInfo>;
-    fn putref_AdminQueueInfo_v1(&self, pqinfoadmin: windows_core::Ref<'_, IMSMQQueueInfo>) -> windows_core::Result<()>;
+    fn putref_AdminQueueInfo_v1(&self, pqinfoadmin: windows_core::Ref<IMSMQQueueInfo>) -> windows_core::Result<()>;
     fn Id(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn CorrelationId(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn SetCorrelationId(&self, varmsgid: &super::Variant::VARIANT) -> windows_core::Result<()>;
@@ -6414,7 +6414,7 @@ pub trait IMSMQMessage4_Impl: super::Com::IDispatch_Impl {
     fn SenderId(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn SenderIdType(&self) -> windows_core::Result<i32>;
     fn SetSenderIdType(&self, lsenderidtype: i32) -> windows_core::Result<()>;
-    fn Send(&self, destinationqueue: windows_core::Ref<'_, super::Com::IDispatch>, transaction: *const super::Variant::VARIANT) -> windows_core::Result<()>;
+    fn Send(&self, destinationqueue: windows_core::Ref<super::Com::IDispatch>, transaction: *const super::Variant::VARIANT) -> windows_core::Result<()>;
     fn AttachCurrentSecurityContext(&self) -> windows_core::Result<()>;
     fn SenderVersion(&self) -> windows_core::Result<i32>;
     fn Extension(&self) -> windows_core::Result<super::Variant::VARIANT>;
@@ -6438,16 +6438,16 @@ pub trait IMSMQMessage4_Impl: super::Com::IDispatch_Impl {
     fn IsFirstInTransaction(&self) -> windows_core::Result<i16>;
     fn IsLastInTransaction(&self) -> windows_core::Result<i16>;
     fn ResponseQueueInfo_v2(&self) -> windows_core::Result<IMSMQQueueInfo2>;
-    fn putref_ResponseQueueInfo_v2(&self, pqinforesponse: windows_core::Ref<'_, IMSMQQueueInfo2>) -> windows_core::Result<()>;
+    fn putref_ResponseQueueInfo_v2(&self, pqinforesponse: windows_core::Ref<IMSMQQueueInfo2>) -> windows_core::Result<()>;
     fn AdminQueueInfo_v2(&self) -> windows_core::Result<IMSMQQueueInfo2>;
-    fn putref_AdminQueueInfo_v2(&self, pqinfoadmin: windows_core::Ref<'_, IMSMQQueueInfo2>) -> windows_core::Result<()>;
+    fn putref_AdminQueueInfo_v2(&self, pqinfoadmin: windows_core::Ref<IMSMQQueueInfo2>) -> windows_core::Result<()>;
     fn ReceivedAuthenticationLevel(&self) -> windows_core::Result<i16>;
     fn ResponseQueueInfo(&self) -> windows_core::Result<IMSMQQueueInfo4>;
-    fn putref_ResponseQueueInfo(&self, pqinforesponse: windows_core::Ref<'_, IMSMQQueueInfo4>) -> windows_core::Result<()>;
+    fn putref_ResponseQueueInfo(&self, pqinforesponse: windows_core::Ref<IMSMQQueueInfo4>) -> windows_core::Result<()>;
     fn AdminQueueInfo(&self) -> windows_core::Result<IMSMQQueueInfo4>;
-    fn putref_AdminQueueInfo(&self, pqinfoadmin: windows_core::Ref<'_, IMSMQQueueInfo4>) -> windows_core::Result<()>;
+    fn putref_AdminQueueInfo(&self, pqinfoadmin: windows_core::Ref<IMSMQQueueInfo4>) -> windows_core::Result<()>;
     fn ResponseDestination(&self) -> windows_core::Result<super::Com::IDispatch>;
-    fn putref_ResponseDestination(&self, pdestresponse: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn putref_ResponseDestination(&self, pdestresponse: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<()>;
     fn Destination(&self) -> windows_core::Result<super::Com::IDispatch>;
     fn LookupId(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn IsAuthenticated2(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -7686,8 +7686,8 @@ pub struct IMSMQPrivateEvent_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQPrivateEvent_Impl: super::Com::IDispatch_Impl {
     fn Hwnd(&self) -> windows_core::Result<i32>;
-    fn FireArrivedEvent(&self, pq: windows_core::Ref<'_, IMSMQQueue>, msgcursor: i32) -> windows_core::Result<()>;
-    fn FireArrivedErrorEvent(&self, pq: windows_core::Ref<'_, IMSMQQueue>, hrstatus: windows_core::HRESULT, msgcursor: i32) -> windows_core::Result<()>;
+    fn FireArrivedEvent(&self, pq: windows_core::Ref<IMSMQQueue>, msgcursor: i32) -> windows_core::Result<()>;
+    fn FireArrivedErrorEvent(&self, pq: windows_core::Ref<IMSMQQueue>, hrstatus: windows_core::HRESULT, msgcursor: i32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQPrivateEvent_Vtbl {
@@ -8217,7 +8217,7 @@ pub trait IMSMQQueue_Impl: super::Com::IDispatch_Impl {
     fn Close(&self) -> windows_core::Result<()>;
     fn Receive(&self, transaction: *const super::Variant::VARIANT, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage>;
     fn Peek(&self, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage>;
-    fn EnableNotification(&self, event: windows_core::Ref<'_, IMSMQEvent>, cursor: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<()>;
+    fn EnableNotification(&self, event: windows_core::Ref<IMSMQEvent>, cursor: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn ReceiveCurrent(&self, transaction: *const super::Variant::VARIANT, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage>;
     fn PeekNext(&self, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage>;
@@ -8587,7 +8587,7 @@ pub trait IMSMQQueue2_Impl: super::Com::IDispatch_Impl {
     fn Close(&self) -> windows_core::Result<()>;
     fn Receive_v1(&self, transaction: *const super::Variant::VARIANT, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage>;
     fn Peek_v1(&self, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage>;
-    fn EnableNotification(&self, event: windows_core::Ref<'_, IMSMQEvent2>, cursor: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<()>;
+    fn EnableNotification(&self, event: windows_core::Ref<IMSMQEvent2>, cursor: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn ReceiveCurrent_v1(&self, transaction: *const super::Variant::VARIANT, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage>;
     fn PeekNext_v1(&self, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage>;
@@ -9173,7 +9173,7 @@ pub trait IMSMQQueue3_Impl: super::Com::IDispatch_Impl {
     fn Close(&self) -> windows_core::Result<()>;
     fn Receive_v1(&self, transaction: *const super::Variant::VARIANT, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage>;
     fn Peek_v1(&self, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage>;
-    fn EnableNotification(&self, event: windows_core::Ref<'_, IMSMQEvent3>, cursor: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<()>;
+    fn EnableNotification(&self, event: windows_core::Ref<IMSMQEvent3>, cursor: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn ReceiveCurrent_v1(&self, transaction: *const super::Variant::VARIANT, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage>;
     fn PeekNext_v1(&self, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage>;
@@ -9946,7 +9946,7 @@ pub trait IMSMQQueue4_Impl: super::Com::IDispatch_Impl {
     fn Close(&self) -> windows_core::Result<()>;
     fn Receive_v1(&self, transaction: *const super::Variant::VARIANT, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage>;
     fn Peek_v1(&self, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage>;
-    fn EnableNotification(&self, event: windows_core::Ref<'_, IMSMQEvent3>, cursor: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<()>;
+    fn EnableNotification(&self, event: windows_core::Ref<IMSMQEvent3>, cursor: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn ReceiveCurrent_v1(&self, transaction: *const super::Variant::VARIANT, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage>;
     fn PeekNext_v1(&self, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage>;

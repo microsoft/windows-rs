@@ -2676,7 +2676,7 @@ pub struct IDataCollector_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDataCollector_Impl: super::Com::IDispatch_Impl {
     fn DataCollectorSet(&self) -> windows_core::Result<IDataCollectorSet>;
-    fn SetDataCollectorSet(&self, group: windows_core::Ref<'_, IDataCollectorSet>) -> windows_core::Result<()>;
+    fn SetDataCollectorSet(&self, group: windows_core::Ref<IDataCollectorSet>) -> windows_core::Result<()>;
     fn DataCollectorType(&self) -> windows_core::Result<DataCollectorType>;
     fn FileName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetFileName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -3065,10 +3065,10 @@ pub trait IDataCollectorCollection_Impl: super::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn get_Item(&self, index: &super::Variant::VARIANT) -> windows_core::Result<IDataCollector>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Add(&self, collector: windows_core::Ref<'_, IDataCollector>) -> windows_core::Result<()>;
+    fn Add(&self, collector: windows_core::Ref<IDataCollector>) -> windows_core::Result<()>;
     fn Remove(&self, collector: &super::Variant::VARIANT) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
-    fn AddRange(&self, collectors: windows_core::Ref<'_, IDataCollectorCollection>) -> windows_core::Result<()>;
+    fn AddRange(&self, collectors: windows_core::Ref<IDataCollectorCollection>) -> windows_core::Result<()>;
     fn CreateDataCollectorFromXml(&self, bstrxml: &windows_core::BSTR, pvalidation: windows_core::OutRef<'_, IValueMap>, pcollector: windows_core::OutRef<'_, IDataCollector>) -> windows_core::Result<()>;
     fn CreateDataCollector(&self, r#type: DataCollectorType) -> windows_core::Result<IDataCollector>;
 }
@@ -4312,10 +4312,10 @@ pub trait IDataCollectorSetCollection_Impl: super::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn get_Item(&self, index: &super::Variant::VARIANT) -> windows_core::Result<IDataCollectorSet>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Add(&self, set: windows_core::Ref<'_, IDataCollectorSet>) -> windows_core::Result<()>;
+    fn Add(&self, set: windows_core::Ref<IDataCollectorSet>) -> windows_core::Result<()>;
     fn Remove(&self, set: &super::Variant::VARIANT) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
-    fn AddRange(&self, sets: windows_core::Ref<'_, IDataCollectorSetCollection>) -> windows_core::Result<()>;
+    fn AddRange(&self, sets: windows_core::Ref<IDataCollectorSetCollection>) -> windows_core::Result<()>;
     fn GetDataCollectorSets(&self, server: &windows_core::BSTR, filter: &windows_core::BSTR) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -5106,10 +5106,10 @@ pub trait IFolderActionCollection_Impl: super::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<u32>;
     fn get_Item(&self, index: &super::Variant::VARIANT) -> windows_core::Result<IFolderAction>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Add(&self, action: windows_core::Ref<'_, IFolderAction>) -> windows_core::Result<()>;
+    fn Add(&self, action: windows_core::Ref<IFolderAction>) -> windows_core::Result<()>;
     fn Remove(&self, index: &super::Variant::VARIANT) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
-    fn AddRange(&self, actions: windows_core::Ref<'_, IFolderActionCollection>) -> windows_core::Result<()>;
+    fn AddRange(&self, actions: windows_core::Ref<IFolderActionCollection>) -> windows_core::Result<()>;
     fn CreateFolderAction(&self) -> windows_core::Result<IFolderAction>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -5856,10 +5856,10 @@ pub trait IScheduleCollection_Impl: super::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn get_Item(&self, index: &super::Variant::VARIANT) -> windows_core::Result<ISchedule>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Add(&self, pschedule: windows_core::Ref<'_, ISchedule>) -> windows_core::Result<()>;
+    fn Add(&self, pschedule: windows_core::Ref<ISchedule>) -> windows_core::Result<()>;
     fn Remove(&self, vschedule: &super::Variant::VARIANT) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
-    fn AddRange(&self, pschedules: windows_core::Ref<'_, IScheduleCollection>) -> windows_core::Result<()>;
+    fn AddRange(&self, pschedules: windows_core::Ref<IScheduleCollection>) -> windows_core::Result<()>;
     fn CreateSchedule(&self) -> windows_core::Result<ISchedule>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -6408,7 +6408,7 @@ pub trait ISystemMonitor_Impl: windows_core::IUnknownImpl {
     fn ForeColor(&self) -> windows_core::Result<u32>;
     fn SetForeColor(&self, color: u32) -> windows_core::Result<()>;
     fn Font(&self) -> windows_core::Result<super::Ole::IFontDisp>;
-    fn putref_Font(&self, pfont: windows_core::Ref<'_, super::Ole::IFontDisp>) -> windows_core::Result<()>;
+    fn putref_Font(&self, pfont: windows_core::Ref<super::Ole::IFontDisp>) -> windows_core::Result<()>;
     fn Counters(&self) -> windows_core::Result<ICounters>;
     fn SetShowVerticalGrid(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn ShowVerticalGrid(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -6440,7 +6440,7 @@ pub trait ISystemMonitor_Impl: windows_core::IUnknownImpl {
     fn DisplayProperties(&self) -> windows_core::Result<()>;
     fn Counter(&self, iindex: i32) -> windows_core::Result<ICounterItem>;
     fn AddCounter(&self, bspath: &windows_core::BSTR) -> windows_core::Result<ICounterItem>;
-    fn DeleteCounter(&self, pctr: windows_core::Ref<'_, ICounterItem>) -> windows_core::Result<()>;
+    fn DeleteCounter(&self, pctr: windows_core::Ref<ICounterItem>) -> windows_core::Result<()>;
     fn BackColorCtl(&self) -> windows_core::Result<u32>;
     fn SetBackColorCtl(&self, color: u32) -> windows_core::Result<()>;
     fn SetLogFileName(&self, bsfilename: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -8503,7 +8503,7 @@ pub trait ITraceDataProvider_Impl: super::Com::IDispatch_Impl {
     fn FilterData(&self) -> windows_core::Result<*mut super::Com::SAFEARRAY>;
     fn SetFilterData(&self, pdata: *const super::Com::SAFEARRAY) -> windows_core::Result<()>;
     fn Query(&self, bstrname: &windows_core::BSTR, bstrserver: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Resolve(&self, pfrom: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn Resolve(&self, pfrom: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<()>;
     fn SetSecurity(&self, sddl: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetSecurity(&self, securityinfo: u32) -> windows_core::Result<windows_core::BSTR>;
     fn GetRegisteredProcesses(&self) -> windows_core::Result<IValueMap>;
@@ -8810,10 +8810,10 @@ pub trait ITraceDataProviderCollection_Impl: super::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn get_Item(&self, index: &super::Variant::VARIANT) -> windows_core::Result<ITraceDataProvider>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Add(&self, pprovider: windows_core::Ref<'_, ITraceDataProvider>) -> windows_core::Result<()>;
+    fn Add(&self, pprovider: windows_core::Ref<ITraceDataProvider>) -> windows_core::Result<()>;
     fn Remove(&self, vprovider: &super::Variant::VARIANT) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
-    fn AddRange(&self, providers: windows_core::Ref<'_, ITraceDataProviderCollection>) -> windows_core::Result<()>;
+    fn AddRange(&self, providers: windows_core::Ref<ITraceDataProviderCollection>) -> windows_core::Result<()>;
     fn CreateTraceDataProvider(&self) -> windows_core::Result<ITraceDataProvider>;
     fn GetTraceDataProviders(&self, server: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetTraceDataProvidersByProcess(&self, server: &windows_core::BSTR, pid: u32) -> windows_core::Result<()>;
@@ -9058,7 +9058,7 @@ pub trait IValueMap_Impl: super::Com::IDispatch_Impl {
     fn Add(&self, value: &super::Variant::VARIANT) -> windows_core::Result<()>;
     fn Remove(&self, value: &super::Variant::VARIANT) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
-    fn AddRange(&self, map: windows_core::Ref<'_, IValueMap>) -> windows_core::Result<()>;
+    fn AddRange(&self, map: windows_core::Ref<IValueMap>) -> windows_core::Result<()>;
     fn CreateValueMapItem(&self) -> windows_core::Result<IValueMapItem>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -11498,7 +11498,7 @@ pub trait _ISystemMonitorUnion_Impl: windows_core::IUnknownImpl {
     fn ForeColor(&self) -> windows_core::Result<u32>;
     fn SetForeColor(&self, color: u32) -> windows_core::Result<()>;
     fn Font(&self) -> windows_core::Result<super::Ole::IFontDisp>;
-    fn putref_Font(&self, pfont: windows_core::Ref<'_, super::Ole::IFontDisp>) -> windows_core::Result<()>;
+    fn putref_Font(&self, pfont: windows_core::Ref<super::Ole::IFontDisp>) -> windows_core::Result<()>;
     fn Counters(&self) -> windows_core::Result<ICounters>;
     fn SetShowVerticalGrid(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn ShowVerticalGrid(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -11530,7 +11530,7 @@ pub trait _ISystemMonitorUnion_Impl: windows_core::IUnknownImpl {
     fn DisplayProperties(&self) -> windows_core::Result<()>;
     fn Counter(&self, iindex: i32) -> windows_core::Result<ICounterItem>;
     fn AddCounter(&self, bspath: &windows_core::BSTR) -> windows_core::Result<ICounterItem>;
-    fn DeleteCounter(&self, pctr: windows_core::Ref<'_, ICounterItem>) -> windows_core::Result<()>;
+    fn DeleteCounter(&self, pctr: windows_core::Ref<ICounterItem>) -> windows_core::Result<()>;
     fn BackColorCtl(&self) -> windows_core::Result<u32>;
     fn SetBackColorCtl(&self, color: u32) -> windows_core::Result<()>;
     fn SetLogFileName(&self, bsfilename: &windows_core::BSTR) -> windows_core::Result<()>;

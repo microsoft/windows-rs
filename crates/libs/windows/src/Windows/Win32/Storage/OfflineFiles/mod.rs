@@ -310,20 +310,20 @@ pub struct IOfflineFilesCache_Vtbl {
     pub IsPathCacheable: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut super::super::Foundation::BOOL, *mut OFFLINEFILES_CACHING_MODE) -> windows_core::HRESULT,
 }
 pub trait IOfflineFilesCache_Impl: windows_core::IUnknownImpl {
-    fn Synchronize(&self, hwndparent: super::super::Foundation::HWND, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, basync: super::super::Foundation::BOOL, dwsynccontrol: u32, pisyncconflicthandler: windows_core::Ref<'_, IOfflineFilesSyncConflictHandler>, piprogress: windows_core::Ref<'_, IOfflineFilesSyncProgress>, psyncid: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn DeleteItems(&self, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, dwflags: u32, basync: super::super::Foundation::BOOL, piprogress: windows_core::Ref<'_, IOfflineFilesSimpleProgress>) -> windows_core::Result<()>;
-    fn DeleteItemsForUser(&self, pszuser: &windows_core::PCWSTR, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, dwflags: u32, basync: super::super::Foundation::BOOL, piprogress: windows_core::Ref<'_, IOfflineFilesSimpleProgress>) -> windows_core::Result<()>;
-    fn Pin(&self, hwndparent: super::super::Foundation::HWND, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, bdeep: super::super::Foundation::BOOL, basync: super::super::Foundation::BOOL, dwpincontrolflags: u32, piprogress: windows_core::Ref<'_, IOfflineFilesSyncProgress>) -> windows_core::Result<()>;
-    fn Unpin(&self, hwndparent: super::super::Foundation::HWND, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, bdeep: super::super::Foundation::BOOL, basync: super::super::Foundation::BOOL, dwpincontrolflags: u32, piprogress: windows_core::Ref<'_, IOfflineFilesSyncProgress>) -> windows_core::Result<()>;
+    fn Synchronize(&self, hwndparent: super::super::Foundation::HWND, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, basync: super::super::Foundation::BOOL, dwsynccontrol: u32, pisyncconflicthandler: windows_core::Ref<IOfflineFilesSyncConflictHandler>, piprogress: windows_core::Ref<IOfflineFilesSyncProgress>, psyncid: *const windows_core::GUID) -> windows_core::Result<()>;
+    fn DeleteItems(&self, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, dwflags: u32, basync: super::super::Foundation::BOOL, piprogress: windows_core::Ref<IOfflineFilesSimpleProgress>) -> windows_core::Result<()>;
+    fn DeleteItemsForUser(&self, pszuser: &windows_core::PCWSTR, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, dwflags: u32, basync: super::super::Foundation::BOOL, piprogress: windows_core::Ref<IOfflineFilesSimpleProgress>) -> windows_core::Result<()>;
+    fn Pin(&self, hwndparent: super::super::Foundation::HWND, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, bdeep: super::super::Foundation::BOOL, basync: super::super::Foundation::BOOL, dwpincontrolflags: u32, piprogress: windows_core::Ref<IOfflineFilesSyncProgress>) -> windows_core::Result<()>;
+    fn Unpin(&self, hwndparent: super::super::Foundation::HWND, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, bdeep: super::super::Foundation::BOOL, basync: super::super::Foundation::BOOL, dwpincontrolflags: u32, piprogress: windows_core::Ref<IOfflineFilesSyncProgress>) -> windows_core::Result<()>;
     fn GetEncryptionStatus(&self, pbencrypted: *mut super::super::Foundation::BOOL, pbpartial: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn Encrypt(&self, hwndparent: super::super::Foundation::HWND, bencrypt: super::super::Foundation::BOOL, dwencryptioncontrolflags: u32, basync: super::super::Foundation::BOOL, piprogress: windows_core::Ref<'_, IOfflineFilesSyncProgress>) -> windows_core::Result<()>;
+    fn Encrypt(&self, hwndparent: super::super::Foundation::HWND, bencrypt: super::super::Foundation::BOOL, dwencryptioncontrolflags: u32, basync: super::super::Foundation::BOOL, piprogress: windows_core::Ref<IOfflineFilesSyncProgress>) -> windows_core::Result<()>;
     fn FindItem(&self, pszpath: &windows_core::PCWSTR, dwqueryflags: u32) -> windows_core::Result<IOfflineFilesItem>;
-    fn FindItemEx(&self, pszpath: &windows_core::PCWSTR, pincludefilefilter: windows_core::Ref<'_, IOfflineFilesItemFilter>, pincludedirfilter: windows_core::Ref<'_, IOfflineFilesItemFilter>, pexcludefilefilter: windows_core::Ref<'_, IOfflineFilesItemFilter>, pexcludedirfilter: windows_core::Ref<'_, IOfflineFilesItemFilter>, dwqueryflags: u32) -> windows_core::Result<IOfflineFilesItem>;
+    fn FindItemEx(&self, pszpath: &windows_core::PCWSTR, pincludefilefilter: windows_core::Ref<IOfflineFilesItemFilter>, pincludedirfilter: windows_core::Ref<IOfflineFilesItemFilter>, pexcludefilefilter: windows_core::Ref<IOfflineFilesItemFilter>, pexcludedirfilter: windows_core::Ref<IOfflineFilesItemFilter>, dwqueryflags: u32) -> windows_core::Result<IOfflineFilesItem>;
     fn RenameItem(&self, pszpathoriginal: &windows_core::PCWSTR, pszpathnew: &windows_core::PCWSTR, breplaceifexists: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn GetLocation(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetDiskSpaceInformation(&self, pcbvolumetotal: *mut u64, pcblimit: *mut u64, pcbused: *mut u64, pcbunpinnedlimit: *mut u64, pcbunpinnedused: *mut u64) -> windows_core::Result<()>;
     fn SetDiskSpaceLimits(&self, cblimit: u64, cbunpinnedlimit: u64) -> windows_core::Result<()>;
-    fn ProcessAdminPinPolicy(&self, ppinprogress: windows_core::Ref<'_, IOfflineFilesSyncProgress>, punpinprogress: windows_core::Ref<'_, IOfflineFilesSyncProgress>) -> windows_core::Result<()>;
+    fn ProcessAdminPinPolicy(&self, ppinprogress: windows_core::Ref<IOfflineFilesSyncProgress>, punpinprogress: windows_core::Ref<IOfflineFilesSyncProgress>) -> windows_core::Result<()>;
     fn GetSettingObject(&self, pszsettingname: &windows_core::PCWSTR) -> windows_core::Result<IOfflineFilesSetting>;
     fn EnumSettingObjects(&self) -> windows_core::Result<IEnumOfflineFilesSettings>;
     fn IsPathCacheable(&self, pszpath: &windows_core::PCWSTR, pbcacheable: *mut super::super::Foundation::BOOL, psharecachingmode: *mut OFFLINEFILES_CACHING_MODE) -> windows_core::Result<()>;
@@ -1909,7 +1909,7 @@ pub struct IOfflineFilesItemContainer_Vtbl {
 }
 pub trait IOfflineFilesItemContainer_Impl: windows_core::IUnknownImpl {
     fn EnumItems(&self, dwqueryflags: u32) -> windows_core::Result<IEnumOfflineFilesItems>;
-    fn EnumItemsEx(&self, pincludefilefilter: windows_core::Ref<'_, IOfflineFilesItemFilter>, pincludedirfilter: windows_core::Ref<'_, IOfflineFilesItemFilter>, pexcludefilefilter: windows_core::Ref<'_, IOfflineFilesItemFilter>, pexcludedirfilter: windows_core::Ref<'_, IOfflineFilesItemFilter>, dwenumflags: u32, dwqueryflags: u32) -> windows_core::Result<IEnumOfflineFilesItems>;
+    fn EnumItemsEx(&self, pincludefilefilter: windows_core::Ref<IOfflineFilesItemFilter>, pincludedirfilter: windows_core::Ref<IOfflineFilesItemFilter>, pexcludefilefilter: windows_core::Ref<IOfflineFilesItemFilter>, pexcludedirfilter: windows_core::Ref<IOfflineFilesItemFilter>, dwenumflags: u32, dwqueryflags: u32) -> windows_core::Result<IEnumOfflineFilesItems>;
 }
 impl IOfflineFilesItemContainer_Vtbl {
     pub const fn new<Identity: IOfflineFilesItemContainer_Impl, const OFFSET: isize>() -> Self {
@@ -2966,7 +2966,7 @@ pub struct IOfflineFilesSyncProgress_Vtbl {
 }
 pub trait IOfflineFilesSyncProgress_Impl: IOfflineFilesProgress_Impl {
     fn SyncItemBegin(&self, pszfile: &windows_core::PCWSTR) -> windows_core::Result<OFFLINEFILES_OP_RESPONSE>;
-    fn SyncItemResult(&self, pszfile: &windows_core::PCWSTR, hrresult: windows_core::HRESULT, perrorinfo: windows_core::Ref<'_, IOfflineFilesSyncErrorInfo>) -> windows_core::Result<OFFLINEFILES_OP_RESPONSE>;
+    fn SyncItemResult(&self, pszfile: &windows_core::PCWSTR, hrresult: windows_core::HRESULT, perrorinfo: windows_core::Ref<IOfflineFilesSyncErrorInfo>) -> windows_core::Result<OFFLINEFILES_OP_RESPONSE>;
 }
 impl IOfflineFilesSyncProgress_Vtbl {
     pub const fn new<Identity: IOfflineFilesSyncProgress_Impl, const OFFSET: isize>() -> Self {

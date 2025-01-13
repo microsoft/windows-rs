@@ -1314,7 +1314,7 @@ pub trait IDeviceModelPlugIn_Impl: windows_core::IUnknownImpl {
     fn DeviceToColorimetricColors(&self, ccolors: u32, cchannels: u32, pdevicevalues: *const f32, pxyzcolors: *mut XYZColorF) -> windows_core::Result<()>;
     fn ColorimetricToDeviceColors(&self, ccolors: u32, cchannels: u32, pxyzcolors: *const XYZColorF) -> windows_core::Result<f32>;
     fn ColorimetricToDeviceColorsWithBlack(&self, ccolors: u32, cchannels: u32, pxyzcolors: *const XYZColorF, pblackinformation: *const BlackInformation) -> windows_core::Result<f32>;
-    fn SetTransformDeviceModelInfo(&self, imodelposition: u32, pidevicemodelother: windows_core::Ref<'_, IDeviceModelPlugIn>) -> windows_core::Result<()>;
+    fn SetTransformDeviceModelInfo(&self, imodelposition: u32, pidevicemodelother: windows_core::Ref<IDeviceModelPlugIn>) -> windows_core::Result<()>;
     fn GetPrimarySamples(&self, pprimarycolor: *mut PrimaryXYZColors) -> windows_core::Result<()>;
     fn GetGamutBoundaryMeshSize(&self, pnumvertices: *mut u32, pnumtriangles: *mut u32) -> windows_core::Result<()>;
     fn GetGamutBoundaryMesh(&self, cchannels: u32, cvertices: u32, ctriangles: u32, pvertices: *mut f32, ptriangles: *mut GamutShellTriangle) -> windows_core::Result<()>;
@@ -1454,7 +1454,7 @@ pub struct IGamutMapModelPlugIn_Vtbl {
     pub SourceToDestinationAppearanceColors: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const JChColorF, *mut JChColorF) -> windows_core::HRESULT,
 }
 pub trait IGamutMapModelPlugIn_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, bstrxml: &windows_core::BSTR, psrcplugin: windows_core::Ref<'_, IDeviceModelPlugIn>, pdestplugin: windows_core::Ref<'_, IDeviceModelPlugIn>, psrcgbd: *const GamutBoundaryDescription, pdestgbd: *const GamutBoundaryDescription) -> windows_core::Result<()>;
+    fn Initialize(&self, bstrxml: &windows_core::BSTR, psrcplugin: windows_core::Ref<IDeviceModelPlugIn>, pdestplugin: windows_core::Ref<IDeviceModelPlugIn>, psrcgbd: *const GamutBoundaryDescription, pdestgbd: *const GamutBoundaryDescription) -> windows_core::Result<()>;
     fn SourceToDestinationAppearanceColors(&self, ccolors: u32, pinputcolors: *const JChColorF, poutputcolors: *mut JChColorF) -> windows_core::Result<()>;
 }
 impl IGamutMapModelPlugIn_Vtbl {

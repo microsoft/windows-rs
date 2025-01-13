@@ -63,13 +63,13 @@ pub struct AsyncIDebugApplicationNodeEvents_Vtbl {
     pub Finish_onAttach: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait AsyncIDebugApplicationNodeEvents_Impl: windows_core::IUnknownImpl {
-    fn Begin_onAddChild(&self, prddpchild: windows_core::Ref<'_, IDebugApplicationNode>) -> windows_core::Result<()>;
+    fn Begin_onAddChild(&self, prddpchild: windows_core::Ref<IDebugApplicationNode>) -> windows_core::Result<()>;
     fn Finish_onAddChild(&self) -> windows_core::Result<()>;
-    fn Begin_onRemoveChild(&self, prddpchild: windows_core::Ref<'_, IDebugApplicationNode>) -> windows_core::Result<()>;
+    fn Begin_onRemoveChild(&self, prddpchild: windows_core::Ref<IDebugApplicationNode>) -> windows_core::Result<()>;
     fn Finish_onRemoveChild(&self) -> windows_core::Result<()>;
     fn Begin_onDetach(&self) -> windows_core::Result<()>;
     fn Finish_onDetach(&self) -> windows_core::Result<()>;
-    fn Begin_onAttach(&self, prddpparent: windows_core::Ref<'_, IDebugApplicationNode>) -> windows_core::Result<()>;
+    fn Begin_onAttach(&self, prddpparent: windows_core::Ref<IDebugApplicationNode>) -> windows_core::Result<()>;
     fn Finish_onAttach(&self) -> windows_core::Result<()>;
 }
 impl AsyncIDebugApplicationNodeEvents_Vtbl {
@@ -355,7 +355,7 @@ pub struct IActiveScript_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IActiveScript_Impl: windows_core::IUnknownImpl {
-    fn SetScriptSite(&self, pass: windows_core::Ref<'_, IActiveScriptSite>) -> windows_core::Result<()>;
+    fn SetScriptSite(&self, pass: windows_core::Ref<IActiveScriptSite>) -> windows_core::Result<()>;
     fn GetScriptSite(&self, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn SetScriptState(&self, ss: SCRIPTSTATE) -> windows_core::Result<()>;
     fn GetScriptState(&self) -> windows_core::Result<SCRIPTSTATE>;
@@ -635,14 +635,14 @@ pub struct IActiveScriptAuthor_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IActiveScriptAuthor_Impl: windows_core::IUnknownImpl {
-    fn AddNamedItem(&self, pszname: &windows_core::PCWSTR, dwflags: u32, pdisp: windows_core::Ref<'_, super::super::super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn AddNamedItem(&self, pszname: &windows_core::PCWSTR, dwflags: u32, pdisp: windows_core::Ref<super::super::super::Com::IDispatch>) -> windows_core::Result<()>;
     fn AddScriptlet(&self, pszdefaultname: &windows_core::PCWSTR, pszcode: &windows_core::PCWSTR, pszitemname: &windows_core::PCWSTR, pszsubitemname: &windows_core::PCWSTR, pszeventname: &windows_core::PCWSTR, pszdelimiter: &windows_core::PCWSTR, dwcookie: u32, dwflags: u32) -> windows_core::Result<()>;
     fn ParseScriptText(&self, pszcode: &windows_core::PCWSTR, pszitemname: &windows_core::PCWSTR, pszdelimiter: &windows_core::PCWSTR, dwcookie: u32, dwflags: u32) -> windows_core::Result<()>;
     fn GetScriptTextAttributes(&self, pszcode: &windows_core::PCWSTR, cch: u32, pszdelimiter: &windows_core::PCWSTR, dwflags: u32, pattr: *mut u16) -> windows_core::Result<()>;
     fn GetScriptletTextAttributes(&self, pszcode: &windows_core::PCWSTR, cch: u32, pszdelimiter: &windows_core::PCWSTR, dwflags: u32, pattr: *mut u16) -> windows_core::Result<()>;
     fn GetRoot(&self) -> windows_core::Result<IScriptNode>;
     fn GetLanguageFlags(&self) -> windows_core::Result<u32>;
-    fn GetEventHandler(&self, pdisp: windows_core::Ref<'_, super::super::super::Com::IDispatch>, pszitem: &windows_core::PCWSTR, pszsubitem: &windows_core::PCWSTR, pszevent: &windows_core::PCWSTR) -> windows_core::Result<IScriptEntry>;
+    fn GetEventHandler(&self, pdisp: windows_core::Ref<super::super::super::Com::IDispatch>, pszitem: &windows_core::PCWSTR, pszsubitem: &windows_core::PCWSTR, pszevent: &windows_core::PCWSTR) -> windows_core::Result<IScriptEntry>;
     fn RemoveNamedItem(&self, pszname: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn AddTypeLib(&self, rguidtypelib: *const windows_core::GUID, dwmajor: u32, dwminor: u32, dwflags: u32) -> windows_core::Result<()>;
     fn RemoveTypeLib(&self, rguidtypelib: *const windows_core::GUID, dwmajor: u32, dwminor: u32) -> windows_core::Result<()>;
@@ -817,7 +817,7 @@ pub struct IActiveScriptAuthorProcedure_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IActiveScriptAuthorProcedure_Impl: windows_core::IUnknownImpl {
-    fn ParseProcedureText(&self, pszcode: &windows_core::PCWSTR, pszformalparams: &windows_core::PCWSTR, pszprocedurename: &windows_core::PCWSTR, pszitemname: &windows_core::PCWSTR, pszdelimiter: &windows_core::PCWSTR, dwcookie: u32, dwflags: u32, pdispfor: windows_core::Ref<'_, super::super::super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn ParseProcedureText(&self, pszcode: &windows_core::PCWSTR, pszformalparams: &windows_core::PCWSTR, pszprocedurename: &windows_core::PCWSTR, pszitemname: &windows_core::PCWSTR, pszdelimiter: &windows_core::PCWSTR, dwcookie: u32, dwflags: u32, pdispfor: windows_core::Ref<super::super::super::Com::IDispatch>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IActiveScriptAuthorProcedure_Vtbl {
@@ -1376,7 +1376,7 @@ pub struct IActiveScriptParse32_Vtbl {
 pub trait IActiveScriptParse32_Impl: windows_core::IUnknownImpl {
     fn InitNew(&self) -> windows_core::Result<()>;
     fn AddScriptlet(&self, pstrdefaultname: &windows_core::PCWSTR, pstrcode: &windows_core::PCWSTR, pstritemname: &windows_core::PCWSTR, pstrsubitemname: &windows_core::PCWSTR, pstreventname: &windows_core::PCWSTR, pstrdelimiter: &windows_core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pbstrname: *mut windows_core::BSTR, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> windows_core::Result<()>;
-    fn ParseScriptText(&self, pstrcode: &windows_core::PCWSTR, pstritemname: &windows_core::PCWSTR, punkcontext: windows_core::Ref<'_, windows_core::IUnknown>, pstrdelimiter: &windows_core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut super::super::super::Variant::VARIANT, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> windows_core::Result<()>;
+    fn ParseScriptText(&self, pstrcode: &windows_core::PCWSTR, pstritemname: &windows_core::PCWSTR, punkcontext: windows_core::Ref<windows_core::IUnknown>, pstrdelimiter: &windows_core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut super::super::super::Variant::VARIANT, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IActiveScriptParse32_Vtbl {
@@ -1458,7 +1458,7 @@ pub struct IActiveScriptParse64_Vtbl {
 pub trait IActiveScriptParse64_Impl: windows_core::IUnknownImpl {
     fn InitNew(&self) -> windows_core::Result<()>;
     fn AddScriptlet(&self, pstrdefaultname: &windows_core::PCWSTR, pstrcode: &windows_core::PCWSTR, pstritemname: &windows_core::PCWSTR, pstrsubitemname: &windows_core::PCWSTR, pstreventname: &windows_core::PCWSTR, pstrdelimiter: &windows_core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pbstrname: *mut windows_core::BSTR, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> windows_core::Result<()>;
-    fn ParseScriptText(&self, pstrcode: &windows_core::PCWSTR, pstritemname: &windows_core::PCWSTR, punkcontext: windows_core::Ref<'_, windows_core::IUnknown>, pstrdelimiter: &windows_core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut super::super::super::Variant::VARIANT, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> windows_core::Result<()>;
+    fn ParseScriptText(&self, pstrcode: &windows_core::PCWSTR, pstritemname: &windows_core::PCWSTR, punkcontext: windows_core::Ref<windows_core::IUnknown>, pstrdelimiter: &windows_core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut super::super::super::Variant::VARIANT, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IActiveScriptParse64_Vtbl {
@@ -1573,7 +1573,7 @@ pub struct IActiveScriptParseProcedure32_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IActiveScriptParseProcedure32_Impl: windows_core::IUnknownImpl {
-    fn ParseProcedureText(&self, pstrcode: &windows_core::PCWSTR, pstrformalparams: &windows_core::PCWSTR, pstrprocedurename: &windows_core::PCWSTR, pstritemname: &windows_core::PCWSTR, punkcontext: windows_core::Ref<'_, windows_core::IUnknown>, pstrdelimiter: &windows_core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32) -> windows_core::Result<super::super::super::Com::IDispatch>;
+    fn ParseProcedureText(&self, pstrcode: &windows_core::PCWSTR, pstrformalparams: &windows_core::PCWSTR, pstrprocedurename: &windows_core::PCWSTR, pstritemname: &windows_core::PCWSTR, punkcontext: windows_core::Ref<windows_core::IUnknown>, pstrdelimiter: &windows_core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32) -> windows_core::Result<super::super::super::Com::IDispatch>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IActiveScriptParseProcedure32_Vtbl {
@@ -1627,7 +1627,7 @@ pub struct IActiveScriptParseProcedure64_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IActiveScriptParseProcedure64_Impl: windows_core::IUnknownImpl {
-    fn ParseProcedureText(&self, pstrcode: &windows_core::PCWSTR, pstrformalparams: &windows_core::PCWSTR, pstrprocedurename: &windows_core::PCWSTR, pstritemname: &windows_core::PCWSTR, punkcontext: windows_core::Ref<'_, windows_core::IUnknown>, pstrdelimiter: &windows_core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32) -> windows_core::Result<super::super::super::Com::IDispatch>;
+    fn ParseProcedureText(&self, pstrcode: &windows_core::PCWSTR, pstrformalparams: &windows_core::PCWSTR, pstrprocedurename: &windows_core::PCWSTR, pstritemname: &windows_core::PCWSTR, punkcontext: windows_core::Ref<windows_core::IUnknown>, pstrdelimiter: &windows_core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32) -> windows_core::Result<super::super::super::Com::IDispatch>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IActiveScriptParseProcedure64_Vtbl {
@@ -1680,7 +1680,7 @@ pub struct IActiveScriptParseProcedureOld32_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IActiveScriptParseProcedureOld32_Impl: windows_core::IUnknownImpl {
-    fn ParseProcedureText(&self, pstrcode: &windows_core::PCWSTR, pstrformalparams: &windows_core::PCWSTR, pstritemname: &windows_core::PCWSTR, punkcontext: windows_core::Ref<'_, windows_core::IUnknown>, pstrdelimiter: &windows_core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32) -> windows_core::Result<super::super::super::Com::IDispatch>;
+    fn ParseProcedureText(&self, pstrcode: &windows_core::PCWSTR, pstrformalparams: &windows_core::PCWSTR, pstritemname: &windows_core::PCWSTR, punkcontext: windows_core::Ref<windows_core::IUnknown>, pstrdelimiter: &windows_core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32) -> windows_core::Result<super::super::super::Com::IDispatch>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IActiveScriptParseProcedureOld32_Vtbl {
@@ -1733,7 +1733,7 @@ pub struct IActiveScriptParseProcedureOld64_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IActiveScriptParseProcedureOld64_Impl: windows_core::IUnknownImpl {
-    fn ParseProcedureText(&self, pstrcode: &windows_core::PCWSTR, pstrformalparams: &windows_core::PCWSTR, pstritemname: &windows_core::PCWSTR, punkcontext: windows_core::Ref<'_, windows_core::IUnknown>, pstrdelimiter: &windows_core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32) -> windows_core::Result<super::super::super::Com::IDispatch>;
+    fn ParseProcedureText(&self, pstrcode: &windows_core::PCWSTR, pstrformalparams: &windows_core::PCWSTR, pstritemname: &windows_core::PCWSTR, punkcontext: windows_core::Ref<windows_core::IUnknown>, pstrdelimiter: &windows_core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32) -> windows_core::Result<super::super::super::Com::IDispatch>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IActiveScriptParseProcedureOld64_Vtbl {
@@ -1801,8 +1801,8 @@ pub struct IActiveScriptProfilerCallback_Vtbl {
 pub trait IActiveScriptProfilerCallback_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self, dwcontext: u32) -> windows_core::Result<()>;
     fn Shutdown(&self, hrreason: windows_core::HRESULT) -> windows_core::Result<()>;
-    fn ScriptCompiled(&self, scriptid: i32, r#type: PROFILER_SCRIPT_TYPE, pidebugdocumentcontext: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn FunctionCompiled(&self, functionid: i32, scriptid: i32, pwszfunctionname: &windows_core::PCWSTR, pwszfunctionnamehint: &windows_core::PCWSTR, pidebugdocumentcontext: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn ScriptCompiled(&self, scriptid: i32, r#type: PROFILER_SCRIPT_TYPE, pidebugdocumentcontext: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn FunctionCompiled(&self, functionid: i32, scriptid: i32, pwszfunctionname: &windows_core::PCWSTR, pwszfunctionnamehint: &windows_core::PCWSTR, pidebugdocumentcontext: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn OnFunctionEnter(&self, scriptid: i32, functionid: i32) -> windows_core::Result<()>;
     fn OnFunctionExit(&self, scriptid: i32, functionid: i32) -> windows_core::Result<()>;
 }
@@ -2426,7 +2426,7 @@ pub trait IActiveScriptSite_Impl: windows_core::IUnknownImpl {
     fn GetDocVersionString(&self) -> windows_core::Result<windows_core::BSTR>;
     fn OnScriptTerminate(&self, pvarresult: *const super::super::super::Variant::VARIANT, pexcepinfo: *const super::super::super::Com::EXCEPINFO) -> windows_core::Result<()>;
     fn OnStateChange(&self, ssscriptstate: SCRIPTSTATE) -> windows_core::Result<()>;
-    fn OnScriptError(&self, pscripterror: windows_core::Ref<'_, IActiveScriptError>) -> windows_core::Result<()>;
+    fn OnScriptError(&self, pscripterror: windows_core::Ref<IActiveScriptError>) -> windows_core::Result<()>;
     fn OnEnterScript(&self) -> windows_core::Result<()>;
     fn OnLeaveScript(&self) -> windows_core::Result<()>;
 }
@@ -2551,7 +2551,7 @@ pub trait IActiveScriptSiteDebug32_Impl: windows_core::IUnknownImpl {
     fn GetDocumentContextFromPosition(&self, dwsourcecontext: u32, ucharacteroffset: u32, unumchars: u32) -> windows_core::Result<IDebugDocumentContext>;
     fn GetApplication(&self) -> windows_core::Result<IDebugApplication32>;
     fn GetRootApplicationNode(&self) -> windows_core::Result<IDebugApplicationNode>;
-    fn OnScriptErrorDebug(&self, perrordebug: windows_core::Ref<'_, IActiveScriptErrorDebug>, pfenterdebugger: *mut super::super::super::super::Foundation::BOOL, pfcallonscripterrorwhencontinuing: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn OnScriptErrorDebug(&self, perrordebug: windows_core::Ref<IActiveScriptErrorDebug>, pfenterdebugger: *mut super::super::super::super::Foundation::BOOL, pfcallonscripterrorwhencontinuing: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
 }
 impl IActiveScriptSiteDebug32_Vtbl {
     pub const fn new<Identity: IActiveScriptSiteDebug32_Impl, const OFFSET: isize>() -> Self {
@@ -2650,7 +2650,7 @@ pub trait IActiveScriptSiteDebug64_Impl: windows_core::IUnknownImpl {
     fn GetDocumentContextFromPosition(&self, dwsourcecontext: u64, ucharacteroffset: u32, unumchars: u32) -> windows_core::Result<IDebugDocumentContext>;
     fn GetApplication(&self) -> windows_core::Result<IDebugApplication64>;
     fn GetRootApplicationNode(&self) -> windows_core::Result<IDebugApplicationNode>;
-    fn OnScriptErrorDebug(&self, perrordebug: windows_core::Ref<'_, IActiveScriptErrorDebug>, pfenterdebugger: *mut super::super::super::super::Foundation::BOOL, pfcallonscripterrorwhencontinuing: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn OnScriptErrorDebug(&self, perrordebug: windows_core::Ref<IActiveScriptErrorDebug>, pfenterdebugger: *mut super::super::super::super::Foundation::BOOL, pfcallonscripterrorwhencontinuing: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
 }
 impl IActiveScriptSiteDebug64_Vtbl {
     pub const fn new<Identity: IActiveScriptSiteDebug64_Impl, const OFFSET: isize>() -> Self {
@@ -2728,7 +2728,7 @@ pub struct IActiveScriptSiteDebugEx_Vtbl {
     pub OnCanNotJITScriptErrorDebug: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 pub trait IActiveScriptSiteDebugEx_Impl: windows_core::IUnknownImpl {
-    fn OnCanNotJITScriptErrorDebug(&self, perrordebug: windows_core::Ref<'_, IActiveScriptErrorDebug>) -> windows_core::Result<super::super::super::super::Foundation::BOOL>;
+    fn OnCanNotJITScriptErrorDebug(&self, perrordebug: windows_core::Ref<IActiveScriptErrorDebug>) -> windows_core::Result<super::super::super::super::Foundation::BOOL>;
 }
 impl IActiveScriptSiteDebugEx_Vtbl {
     pub const fn new<Identity: IActiveScriptSiteDebugEx_Impl, const OFFSET: isize>() -> Self {
@@ -3020,7 +3020,7 @@ pub struct IActiveScriptTraceInfo_Vtbl {
     pub StopScriptTracing: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IActiveScriptTraceInfo_Impl: windows_core::IUnknownImpl {
-    fn StartScriptTracing(&self, psitetraceinfo: windows_core::Ref<'_, IActiveScriptSiteTraceInfo>, guidcontextid: &windows_core::GUID) -> windows_core::Result<()>;
+    fn StartScriptTracing(&self, psitetraceinfo: windows_core::Ref<IActiveScriptSiteTraceInfo>, guidcontextid: &windows_core::GUID) -> windows_core::Result<()>;
     fn StopScriptTracing(&self) -> windows_core::Result<()>;
 }
 impl IActiveScriptTraceInfo_Vtbl {
@@ -3191,11 +3191,11 @@ pub struct IApplicationDebugger_Vtbl {
 }
 pub trait IApplicationDebugger_Impl: windows_core::IUnknownImpl {
     fn QueryAlive(&self) -> windows_core::Result<()>;
-    fn CreateInstanceAtDebugger(&self, rclsid: *const windows_core::GUID, punkouter: windows_core::Ref<'_, windows_core::IUnknown>, dwclscontext: u32, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>;
+    fn CreateInstanceAtDebugger(&self, rclsid: *const windows_core::GUID, punkouter: windows_core::Ref<windows_core::IUnknown>, dwclscontext: u32, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>;
     fn onDebugOutput(&self, pstr: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn onHandleBreakPoint(&self, prpt: windows_core::Ref<'_, IRemoteDebugApplicationThread>, br: BREAKREASON, perror: windows_core::Ref<'_, IActiveScriptErrorDebug>) -> windows_core::Result<()>;
+    fn onHandleBreakPoint(&self, prpt: windows_core::Ref<IRemoteDebugApplicationThread>, br: BREAKREASON, perror: windows_core::Ref<IActiveScriptErrorDebug>) -> windows_core::Result<()>;
     fn onClose(&self) -> windows_core::Result<()>;
-    fn onDebuggerEvent(&self, riid: *const windows_core::GUID, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn onDebuggerEvent(&self, riid: *const windows_core::GUID, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl IApplicationDebugger_Vtbl {
     pub const fn new<Identity: IApplicationDebugger_Impl, const OFFSET: isize>() -> Self {
@@ -3279,8 +3279,8 @@ pub struct IApplicationDebuggerUI_Vtbl {
     pub BringDocumentContextToTop: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IApplicationDebuggerUI_Impl: windows_core::IUnknownImpl {
-    fn BringDocumentToTop(&self, pddt: windows_core::Ref<'_, IDebugDocumentText>) -> windows_core::Result<()>;
-    fn BringDocumentContextToTop(&self, pddc: windows_core::Ref<'_, IDebugDocumentContext>) -> windows_core::Result<()>;
+    fn BringDocumentToTop(&self, pddt: windows_core::Ref<IDebugDocumentText>) -> windows_core::Result<()>;
+    fn BringDocumentContextToTop(&self, pddc: windows_core::Ref<IDebugDocumentContext>) -> windows_core::Result<()>;
 }
 impl IApplicationDebuggerUI_Vtbl {
     pub const fn new<Identity: IApplicationDebuggerUI_Impl, const OFFSET: isize>() -> Self {
@@ -3329,7 +3329,7 @@ pub struct IBindEventHandler_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IBindEventHandler_Impl: windows_core::IUnknownImpl {
-    fn BindHandler(&self, pstrevent: &windows_core::PCWSTR, pdisp: windows_core::Ref<'_, super::super::super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn BindHandler(&self, pstrevent: &windows_core::PCWSTR, pdisp: windows_core::Ref<super::super::super::Com::IDispatch>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IBindEventHandler_Vtbl {
@@ -3384,8 +3384,8 @@ pub struct IDebugApplication11032_Vtbl {
     pub CallableWaitForHandles: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::super::super::super::Foundation::HANDLE, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IDebugApplication11032_Impl: IRemoteDebugApplication110_Impl {
-    fn SynchronousCallInMainThread(&self, pptc: windows_core::Ref<'_, IDebugThreadCall32>, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> windows_core::Result<()>;
-    fn AsynchronousCallInMainThread(&self, pptc: windows_core::Ref<'_, IDebugThreadCall32>, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> windows_core::Result<()>;
+    fn SynchronousCallInMainThread(&self, pptc: windows_core::Ref<IDebugThreadCall32>, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> windows_core::Result<()>;
+    fn AsynchronousCallInMainThread(&self, pptc: windows_core::Ref<IDebugThreadCall32>, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> windows_core::Result<()>;
     fn CallableWaitForHandles(&self, handlecount: u32, phandles: *const super::super::super::super::Foundation::HANDLE) -> windows_core::Result<u32>;
 }
 impl IDebugApplication11032_Vtbl {
@@ -3462,8 +3462,8 @@ pub struct IDebugApplication11064_Vtbl {
     pub CallableWaitForHandles: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::super::super::super::Foundation::HANDLE, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IDebugApplication11064_Impl: IRemoteDebugApplication110_Impl {
-    fn SynchronousCallInMainThread(&self, pptc: windows_core::Ref<'_, IDebugThreadCall64>, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> windows_core::Result<()>;
-    fn AsynchronousCallInMainThread(&self, pptc: windows_core::Ref<'_, IDebugThreadCall64>, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> windows_core::Result<()>;
+    fn SynchronousCallInMainThread(&self, pptc: windows_core::Ref<IDebugThreadCall64>, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> windows_core::Result<()>;
+    fn AsynchronousCallInMainThread(&self, pptc: windows_core::Ref<IDebugThreadCall64>, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> windows_core::Result<()>;
     fn CallableWaitForHandles(&self, handlecount: u32, phandles: *const super::super::super::super::Foundation::HANDLE) -> windows_core::Result<u32>;
 }
 impl IDebugApplication11064_Vtbl {
@@ -3650,17 +3650,17 @@ pub trait IDebugApplication32_Impl: IRemoteDebugApplication_Impl {
     fn Close(&self) -> windows_core::Result<()>;
     fn GetBreakFlags(&self, pabf: *mut u32, pprdatsteppingthread: windows_core::OutRef<'_, IRemoteDebugApplicationThread>) -> windows_core::Result<()>;
     fn GetCurrentThread(&self) -> windows_core::Result<IDebugApplicationThread>;
-    fn CreateAsyncDebugOperation(&self, psdo: windows_core::Ref<'_, IDebugSyncOperation>) -> windows_core::Result<IDebugAsyncOperation>;
-    fn AddStackFrameSniffer(&self, pdsfs: windows_core::Ref<'_, IDebugStackFrameSniffer>) -> windows_core::Result<u32>;
+    fn CreateAsyncDebugOperation(&self, psdo: windows_core::Ref<IDebugSyncOperation>) -> windows_core::Result<IDebugAsyncOperation>;
+    fn AddStackFrameSniffer(&self, pdsfs: windows_core::Ref<IDebugStackFrameSniffer>) -> windows_core::Result<u32>;
     fn RemoveStackFrameSniffer(&self, dwcookie: u32) -> windows_core::Result<()>;
     fn QueryCurrentThreadIsDebuggerThread(&self) -> windows_core::Result<()>;
-    fn SynchronousCallInDebuggerThread(&self, pptc: windows_core::Ref<'_, IDebugThreadCall32>, dwparam1: u32, dwparam2: u32, dwparam3: u32) -> windows_core::Result<()>;
+    fn SynchronousCallInDebuggerThread(&self, pptc: windows_core::Ref<IDebugThreadCall32>, dwparam1: u32, dwparam2: u32, dwparam3: u32) -> windows_core::Result<()>;
     fn CreateApplicationNode(&self) -> windows_core::Result<IDebugApplicationNode>;
-    fn FireDebuggerEvent(&self, riid: *const windows_core::GUID, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn HandleRuntimeError(&self, perrordebug: windows_core::Ref<'_, IActiveScriptErrorDebug>, pscriptsite: windows_core::Ref<'_, IActiveScriptSite>, pbra: *mut BREAKRESUMEACTION, perra: *mut ERRORRESUMEACTION, pfcallonscripterror: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn FireDebuggerEvent(&self, riid: *const windows_core::GUID, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn HandleRuntimeError(&self, perrordebug: windows_core::Ref<IActiveScriptErrorDebug>, pscriptsite: windows_core::Ref<IActiveScriptSite>, pbra: *mut BREAKRESUMEACTION, perra: *mut ERRORRESUMEACTION, pfcallonscripterror: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn FCanJitDebug(&self) -> super::super::super::super::Foundation::BOOL;
     fn FIsAutoJitDebugEnabled(&self) -> super::super::super::super::Foundation::BOOL;
-    fn AddGlobalExpressionContextProvider(&self, pdsfs: windows_core::Ref<'_, IProvideExpressionContexts>) -> windows_core::Result<u32>;
+    fn AddGlobalExpressionContextProvider(&self, pdsfs: windows_core::Ref<IProvideExpressionContexts>) -> windows_core::Result<u32>;
     fn RemoveGlobalExpressionContextProvider(&self, dwcookie: u32) -> windows_core::Result<()>;
 }
 impl IDebugApplication32_Vtbl {
@@ -3996,17 +3996,17 @@ pub trait IDebugApplication64_Impl: IRemoteDebugApplication_Impl {
     fn Close(&self) -> windows_core::Result<()>;
     fn GetBreakFlags(&self, pabf: *mut u32, pprdatsteppingthread: windows_core::OutRef<'_, IRemoteDebugApplicationThread>) -> windows_core::Result<()>;
     fn GetCurrentThread(&self) -> windows_core::Result<IDebugApplicationThread>;
-    fn CreateAsyncDebugOperation(&self, psdo: windows_core::Ref<'_, IDebugSyncOperation>) -> windows_core::Result<IDebugAsyncOperation>;
-    fn AddStackFrameSniffer(&self, pdsfs: windows_core::Ref<'_, IDebugStackFrameSniffer>) -> windows_core::Result<u32>;
+    fn CreateAsyncDebugOperation(&self, psdo: windows_core::Ref<IDebugSyncOperation>) -> windows_core::Result<IDebugAsyncOperation>;
+    fn AddStackFrameSniffer(&self, pdsfs: windows_core::Ref<IDebugStackFrameSniffer>) -> windows_core::Result<u32>;
     fn RemoveStackFrameSniffer(&self, dwcookie: u32) -> windows_core::Result<()>;
     fn QueryCurrentThreadIsDebuggerThread(&self) -> windows_core::Result<()>;
-    fn SynchronousCallInDebuggerThread(&self, pptc: windows_core::Ref<'_, IDebugThreadCall64>, dwparam1: u64, dwparam2: u64, dwparam3: u64) -> windows_core::Result<()>;
+    fn SynchronousCallInDebuggerThread(&self, pptc: windows_core::Ref<IDebugThreadCall64>, dwparam1: u64, dwparam2: u64, dwparam3: u64) -> windows_core::Result<()>;
     fn CreateApplicationNode(&self) -> windows_core::Result<IDebugApplicationNode>;
-    fn FireDebuggerEvent(&self, riid: *const windows_core::GUID, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn HandleRuntimeError(&self, perrordebug: windows_core::Ref<'_, IActiveScriptErrorDebug>, pscriptsite: windows_core::Ref<'_, IActiveScriptSite>, pbra: *mut BREAKRESUMEACTION, perra: *mut ERRORRESUMEACTION, pfcallonscripterror: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn FireDebuggerEvent(&self, riid: *const windows_core::GUID, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn HandleRuntimeError(&self, perrordebug: windows_core::Ref<IActiveScriptErrorDebug>, pscriptsite: windows_core::Ref<IActiveScriptSite>, pbra: *mut BREAKRESUMEACTION, perra: *mut ERRORRESUMEACTION, pfcallonscripterror: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn FCanJitDebug(&self) -> super::super::super::super::Foundation::BOOL;
     fn FIsAutoJitDebugEnabled(&self) -> super::super::super::super::Foundation::BOOL;
-    fn AddGlobalExpressionContextProvider(&self, pdsfs: windows_core::Ref<'_, IProvideExpressionContexts>) -> windows_core::Result<u64>;
+    fn AddGlobalExpressionContextProvider(&self, pdsfs: windows_core::Ref<IProvideExpressionContexts>) -> windows_core::Result<u64>;
     fn RemoveGlobalExpressionContextProvider(&self, dwcookie: u64) -> windows_core::Result<()>;
 }
 impl IDebugApplication64_Vtbl {
@@ -4249,9 +4249,9 @@ pub struct IDebugApplicationNode_Vtbl {
 pub trait IDebugApplicationNode_Impl: IDebugDocumentProvider_Impl {
     fn EnumChildren(&self) -> windows_core::Result<IEnumDebugApplicationNodes>;
     fn GetParent(&self) -> windows_core::Result<IDebugApplicationNode>;
-    fn SetDocumentProvider(&self, pddp: windows_core::Ref<'_, IDebugDocumentProvider>) -> windows_core::Result<()>;
+    fn SetDocumentProvider(&self, pddp: windows_core::Ref<IDebugDocumentProvider>) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
-    fn Attach(&self, pdanparent: windows_core::Ref<'_, IDebugApplicationNode>) -> windows_core::Result<()>;
+    fn Attach(&self, pdanparent: windows_core::Ref<IDebugApplicationNode>) -> windows_core::Result<()>;
     fn Detach(&self) -> windows_core::Result<()>;
 }
 impl IDebugApplicationNode_Vtbl {
@@ -4348,7 +4348,7 @@ pub struct IDebugApplicationNode100_Vtbl {
 pub trait IDebugApplicationNode100_Impl: windows_core::IUnknownImpl {
     fn SetFilterForEventSink(&self, dwcookie: u32, filter: APPLICATION_NODE_EVENT_FILTER) -> windows_core::Result<()>;
     fn GetExcludedDocuments(&self, filter: APPLICATION_NODE_EVENT_FILTER) -> windows_core::Result<TEXT_DOCUMENT_ARRAY>;
-    fn QueryIsChildNode(&self, psearchkey: windows_core::Ref<'_, IDebugDocument>) -> windows_core::Result<()>;
+    fn QueryIsChildNode(&self, psearchkey: windows_core::Ref<IDebugDocument>) -> windows_core::Result<()>;
 }
 impl IDebugApplicationNode100_Vtbl {
     pub const fn new<Identity: IDebugApplicationNode100_Impl, const OFFSET: isize>() -> Self {
@@ -4422,10 +4422,10 @@ pub struct IDebugApplicationNodeEvents_Vtbl {
     pub onAttach: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDebugApplicationNodeEvents_Impl: windows_core::IUnknownImpl {
-    fn onAddChild(&self, prddpchild: windows_core::Ref<'_, IDebugApplicationNode>) -> windows_core::Result<()>;
-    fn onRemoveChild(&self, prddpchild: windows_core::Ref<'_, IDebugApplicationNode>) -> windows_core::Result<()>;
+    fn onAddChild(&self, prddpchild: windows_core::Ref<IDebugApplicationNode>) -> windows_core::Result<()>;
+    fn onRemoveChild(&self, prddpchild: windows_core::Ref<IDebugApplicationNode>) -> windows_core::Result<()>;
     fn onDetach(&self) -> windows_core::Result<()>;
-    fn onAttach(&self, prddpparent: windows_core::Ref<'_, IDebugApplicationNode>) -> windows_core::Result<()>;
+    fn onAttach(&self, prddpparent: windows_core::Ref<IDebugApplicationNode>) -> windows_core::Result<()>;
 }
 impl IDebugApplicationNodeEvents_Vtbl {
     pub const fn new<Identity: IDebugApplicationNodeEvents_Impl, const OFFSET: isize>() -> Self {
@@ -4510,7 +4510,7 @@ pub struct IDebugApplicationThread_Vtbl {
     pub SetStateString: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 pub trait IDebugApplicationThread_Impl: IRemoteDebugApplicationThread_Impl {
-    fn SynchronousCallIntoThread32(&self, pstcb: windows_core::Ref<'_, IDebugThreadCall32>, dwparam1: u32, dwparam2: u32, dwparam3: u32) -> windows_core::Result<()>;
+    fn SynchronousCallIntoThread32(&self, pstcb: windows_core::Ref<IDebugThreadCall32>, dwparam1: u32, dwparam2: u32, dwparam3: u32) -> windows_core::Result<()>;
     fn QueryIsCurrentThread(&self) -> windows_core::Result<()>;
     fn QueryIsDebuggerThread(&self) -> windows_core::Result<()>;
     fn SetDescription(&self, pstrdescription: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -4602,7 +4602,7 @@ pub trait IDebugApplicationThread11032_Impl: windows_core::IUnknownImpl {
     fn GetActiveThreadRequestCount(&self) -> windows_core::Result<u32>;
     fn IsSuspendedForBreakPoint(&self) -> windows_core::Result<super::super::super::super::Foundation::BOOL>;
     fn IsThreadCallable(&self) -> windows_core::Result<super::super::super::super::Foundation::BOOL>;
-    fn AsynchronousCallIntoThread(&self, pptc: windows_core::Ref<'_, IDebugThreadCall32>, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> windows_core::Result<()>;
+    fn AsynchronousCallIntoThread(&self, pptc: windows_core::Ref<IDebugThreadCall32>, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> windows_core::Result<()>;
 }
 impl IDebugApplicationThread11032_Vtbl {
     pub const fn new<Identity: IDebugApplicationThread11032_Impl, const OFFSET: isize>() -> Self {
@@ -4701,7 +4701,7 @@ pub trait IDebugApplicationThread11064_Impl: windows_core::IUnknownImpl {
     fn GetActiveThreadRequestCount(&self) -> windows_core::Result<u32>;
     fn IsSuspendedForBreakPoint(&self) -> windows_core::Result<super::super::super::super::Foundation::BOOL>;
     fn IsThreadCallable(&self) -> windows_core::Result<super::super::super::super::Foundation::BOOL>;
-    fn AsynchronousCallIntoThread(&self, pptc: windows_core::Ref<'_, IDebugThreadCall64>, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> windows_core::Result<()>;
+    fn AsynchronousCallIntoThread(&self, pptc: windows_core::Ref<IDebugThreadCall64>, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> windows_core::Result<()>;
 }
 impl IDebugApplicationThread11064_Vtbl {
     pub const fn new<Identity: IDebugApplicationThread11064_Impl, const OFFSET: isize>() -> Self {
@@ -4782,7 +4782,7 @@ pub struct IDebugApplicationThread64_Vtbl {
     pub SynchronousCallIntoThread64: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u64, u64, u64) -> windows_core::HRESULT,
 }
 pub trait IDebugApplicationThread64_Impl: IDebugApplicationThread_Impl {
-    fn SynchronousCallIntoThread64(&self, pstcb: windows_core::Ref<'_, IDebugThreadCall64>, dwparam1: u64, dwparam2: u64, dwparam3: u64) -> windows_core::Result<()>;
+    fn SynchronousCallIntoThread64(&self, pstcb: windows_core::Ref<IDebugThreadCall64>, dwparam1: u64, dwparam2: u64, dwparam3: u64) -> windows_core::Result<()>;
 }
 impl IDebugApplicationThread64_Vtbl {
     pub const fn new<Identity: IDebugApplicationThread64_Impl, const OFFSET: isize>() -> Self {
@@ -4904,7 +4904,7 @@ pub struct IDebugAsyncOperation_Vtbl {
 }
 pub trait IDebugAsyncOperation_Impl: windows_core::IUnknownImpl {
     fn GetSyncDebugOperation(&self) -> windows_core::Result<IDebugSyncOperation>;
-    fn Start(&self, padocb: windows_core::Ref<'_, IDebugAsyncOperationCallBack>) -> windows_core::Result<()>;
+    fn Start(&self, padocb: windows_core::Ref<IDebugAsyncOperationCallBack>) -> windows_core::Result<()>;
     fn Abort(&self) -> windows_core::Result<()>;
     fn QueryIsComplete(&self) -> windows_core::Result<()>;
     fn GetResult(&self, phrresult: *mut windows_core::HRESULT, ppunkresult: windows_core::OutRef<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
@@ -5279,14 +5279,14 @@ pub struct IDebugDocumentHelper32_Vtbl {
     pub BringDocumentContextToTop: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDebugDocumentHelper32_Impl: windows_core::IUnknownImpl {
-    fn Init(&self, pda: windows_core::Ref<'_, IDebugApplication32>, pszshortname: &windows_core::PCWSTR, pszlongname: &windows_core::PCWSTR, docattr: u32) -> windows_core::Result<()>;
-    fn Attach(&self, pddhparent: windows_core::Ref<'_, IDebugDocumentHelper32>) -> windows_core::Result<()>;
+    fn Init(&self, pda: windows_core::Ref<IDebugApplication32>, pszshortname: &windows_core::PCWSTR, pszlongname: &windows_core::PCWSTR, docattr: u32) -> windows_core::Result<()>;
+    fn Attach(&self, pddhparent: windows_core::Ref<IDebugDocumentHelper32>) -> windows_core::Result<()>;
     fn Detach(&self) -> windows_core::Result<()>;
     fn AddUnicodeText(&self, psztext: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn AddDBCSText(&self, psztext: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn SetDebugDocumentHost(&self, pddh: windows_core::Ref<'_, IDebugDocumentHost>) -> windows_core::Result<()>;
+    fn SetDebugDocumentHost(&self, pddh: windows_core::Ref<IDebugDocumentHost>) -> windows_core::Result<()>;
     fn AddDeferredText(&self, cchars: u32, dwtextstartcookie: u32) -> windows_core::Result<()>;
-    fn DefineScriptBlock(&self, ulcharoffset: u32, cchars: u32, pas: windows_core::Ref<'_, IActiveScript>, fscriptlet: super::super::super::super::Foundation::BOOL) -> windows_core::Result<u32>;
+    fn DefineScriptBlock(&self, ulcharoffset: u32, cchars: u32, pas: windows_core::Ref<IActiveScript>, fscriptlet: super::super::super::super::Foundation::BOOL) -> windows_core::Result<u32>;
     fn SetDefaultTextAttr(&self, statextattr: u16) -> windows_core::Result<()>;
     fn SetTextAttributes(&self, ulcharoffset: u32, cchars: u32, pstatextattr: *const u16) -> windows_core::Result<()>;
     fn SetLongName(&self, pszlongname: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -5296,7 +5296,7 @@ pub trait IDebugDocumentHelper32_Impl: windows_core::IUnknownImpl {
     fn GetScriptBlockInfo(&self, dwsourcecontext: u32, ppasd: windows_core::OutRef<'_, IActiveScript>, picharpos: *mut u32, pcchars: *mut u32) -> windows_core::Result<()>;
     fn CreateDebugDocumentContext(&self, icharpos: u32, cchars: u32) -> windows_core::Result<IDebugDocumentContext>;
     fn BringDocumentToTop(&self) -> windows_core::Result<()>;
-    fn BringDocumentContextToTop(&self, pddc: windows_core::Ref<'_, IDebugDocumentContext>) -> windows_core::Result<()>;
+    fn BringDocumentContextToTop(&self, pddc: windows_core::Ref<IDebugDocumentContext>) -> windows_core::Result<()>;
 }
 impl IDebugDocumentHelper32_Vtbl {
     pub const fn new<Identity: IDebugDocumentHelper32_Impl, const OFFSET: isize>() -> Self {
@@ -5572,14 +5572,14 @@ pub struct IDebugDocumentHelper64_Vtbl {
     pub BringDocumentContextToTop: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDebugDocumentHelper64_Impl: windows_core::IUnknownImpl {
-    fn Init(&self, pda: windows_core::Ref<'_, IDebugApplication64>, pszshortname: &windows_core::PCWSTR, pszlongname: &windows_core::PCWSTR, docattr: u32) -> windows_core::Result<()>;
-    fn Attach(&self, pddhparent: windows_core::Ref<'_, IDebugDocumentHelper64>) -> windows_core::Result<()>;
+    fn Init(&self, pda: windows_core::Ref<IDebugApplication64>, pszshortname: &windows_core::PCWSTR, pszlongname: &windows_core::PCWSTR, docattr: u32) -> windows_core::Result<()>;
+    fn Attach(&self, pddhparent: windows_core::Ref<IDebugDocumentHelper64>) -> windows_core::Result<()>;
     fn Detach(&self) -> windows_core::Result<()>;
     fn AddUnicodeText(&self, psztext: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn AddDBCSText(&self, psztext: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn SetDebugDocumentHost(&self, pddh: windows_core::Ref<'_, IDebugDocumentHost>) -> windows_core::Result<()>;
+    fn SetDebugDocumentHost(&self, pddh: windows_core::Ref<IDebugDocumentHost>) -> windows_core::Result<()>;
     fn AddDeferredText(&self, cchars: u32, dwtextstartcookie: u32) -> windows_core::Result<()>;
-    fn DefineScriptBlock(&self, ulcharoffset: u32, cchars: u32, pas: windows_core::Ref<'_, IActiveScript>, fscriptlet: super::super::super::super::Foundation::BOOL) -> windows_core::Result<u64>;
+    fn DefineScriptBlock(&self, ulcharoffset: u32, cchars: u32, pas: windows_core::Ref<IActiveScript>, fscriptlet: super::super::super::super::Foundation::BOOL) -> windows_core::Result<u64>;
     fn SetDefaultTextAttr(&self, statextattr: u16) -> windows_core::Result<()>;
     fn SetTextAttributes(&self, ulcharoffset: u32, cchars: u32, pstatextattr: *const u16) -> windows_core::Result<()>;
     fn SetLongName(&self, pszlongname: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -5589,7 +5589,7 @@ pub trait IDebugDocumentHelper64_Impl: windows_core::IUnknownImpl {
     fn GetScriptBlockInfo(&self, dwsourcecontext: u64, ppasd: windows_core::OutRef<'_, IActiveScript>, picharpos: *mut u32, pcchars: *mut u32) -> windows_core::Result<()>;
     fn CreateDebugDocumentContext(&self, icharpos: u32, cchars: u32) -> windows_core::Result<IDebugDocumentContext>;
     fn BringDocumentToTop(&self) -> windows_core::Result<()>;
-    fn BringDocumentContextToTop(&self, pddc: windows_core::Ref<'_, IDebugDocumentContext>) -> windows_core::Result<()>;
+    fn BringDocumentContextToTop(&self, pddc: windows_core::Ref<IDebugDocumentContext>) -> windows_core::Result<()>;
 }
 impl IDebugDocumentHelper64_Vtbl {
     pub const fn new<Identity: IDebugDocumentHelper64_Impl, const OFFSET: isize>() -> Self {
@@ -6029,7 +6029,7 @@ pub trait IDebugDocumentText_Impl: IDebugDocument_Impl {
     fn GetPositionOfLine(&self, clinenumber: u32) -> windows_core::Result<u32>;
     fn GetLineOfPosition(&self, ccharacterposition: u32, pclinenumber: *mut u32, pccharacteroffsetinline: *mut u32) -> windows_core::Result<()>;
     fn GetText(&self, ccharacterposition: u32, pchartext: windows_core::PWSTR, pstatextattr: *mut u16, pcnumchars: *mut u32, cmaxchars: u32) -> windows_core::Result<()>;
-    fn GetPositionOfContext(&self, psc: windows_core::Ref<'_, IDebugDocumentContext>, pccharacterposition: *mut u32, cnumchars: *mut u32) -> windows_core::Result<()>;
+    fn GetPositionOfContext(&self, psc: windows_core::Ref<IDebugDocumentContext>, pccharacterposition: *mut u32, cnumchars: *mut u32) -> windows_core::Result<()>;
     fn GetContextOfPosition(&self, ccharacterposition: u32, cnumchars: u32) -> windows_core::Result<IDebugDocumentContext>;
 }
 impl IDebugDocumentText_Vtbl {
@@ -6364,7 +6364,7 @@ pub struct IDebugExpression_Vtbl {
     pub GetResultAsDebugProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDebugExpression_Impl: windows_core::IUnknownImpl {
-    fn Start(&self, pdecb: windows_core::Ref<'_, IDebugExpressionCallBack>) -> windows_core::Result<()>;
+    fn Start(&self, pdecb: windows_core::Ref<IDebugExpressionCallBack>) -> windows_core::Result<()>;
     fn Abort(&self) -> windows_core::Result<()>;
     fn QueryIsComplete(&self) -> windows_core::Result<()>;
     fn GetResultAsString(&self, phrresult: *mut windows_core::HRESULT, pbstrresult: *mut windows_core::BSTR) -> windows_core::Result<()>;
@@ -6661,9 +6661,9 @@ pub struct IDebugHelper_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDebugHelper_Impl: windows_core::IUnknownImpl {
-    fn CreatePropertyBrowser(&self, pvar: *const super::super::super::Variant::VARIANT, bstrname: &windows_core::PCWSTR, pdat: windows_core::Ref<'_, IDebugApplicationThread>) -> windows_core::Result<super::IDebugProperty>;
-    fn CreatePropertyBrowserEx(&self, pvar: *const super::super::super::Variant::VARIANT, bstrname: &windows_core::PCWSTR, pdat: windows_core::Ref<'_, IDebugApplicationThread>, pdf: windows_core::Ref<'_, IDebugFormatter>) -> windows_core::Result<super::IDebugProperty>;
-    fn CreateSimpleConnectionPoint(&self, pdisp: windows_core::Ref<'_, super::super::super::Com::IDispatch>) -> windows_core::Result<ISimpleConnectionPoint>;
+    fn CreatePropertyBrowser(&self, pvar: *const super::super::super::Variant::VARIANT, bstrname: &windows_core::PCWSTR, pdat: windows_core::Ref<IDebugApplicationThread>) -> windows_core::Result<super::IDebugProperty>;
+    fn CreatePropertyBrowserEx(&self, pvar: *const super::super::super::Variant::VARIANT, bstrname: &windows_core::PCWSTR, pdat: windows_core::Ref<IDebugApplicationThread>, pdf: windows_core::Ref<IDebugFormatter>) -> windows_core::Result<super::IDebugProperty>;
+    fn CreateSimpleConnectionPoint(&self, pdisp: windows_core::Ref<super::super::super::Com::IDispatch>) -> windows_core::Result<ISimpleConnectionPoint>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDebugHelper_Vtbl {
@@ -6733,7 +6733,7 @@ pub struct IDebugSessionProvider_Vtbl {
     pub StartDebugSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDebugSessionProvider_Impl: windows_core::IUnknownImpl {
-    fn StartDebugSession(&self, pda: windows_core::Ref<'_, IRemoteDebugApplication>) -> windows_core::Result<()>;
+    fn StartDebugSession(&self, pda: windows_core::Ref<IRemoteDebugApplication>) -> windows_core::Result<()>;
 }
 impl IDebugSessionProvider_Vtbl {
     pub const fn new<Identity: IDebugSessionProvider_Impl, const OFFSET: isize>() -> Self {
@@ -7773,7 +7773,7 @@ pub struct IJsDebug_Vtbl {
     pub OpenVirtualProcess: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IJsDebug_Impl: windows_core::IUnknownImpl {
-    fn OpenVirtualProcess(&self, processid: u32, runtimejsbaseaddress: u64, pdatatarget: windows_core::Ref<'_, IJsDebugDataTarget>) -> windows_core::Result<IJsDebugProcess>;
+    fn OpenVirtualProcess(&self, processid: u32, runtimejsbaseaddress: u64, pdatatarget: windows_core::Ref<IJsDebugDataTarget>) -> windows_core::Result<IJsDebugProcess>;
 }
 impl IJsDebug_Vtbl {
     pub const fn new<Identity: IJsDebug_Impl, const OFFSET: isize>() -> Self {
@@ -8464,7 +8464,7 @@ pub struct IMachineDebugManager_Vtbl {
     pub EnumApplications: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMachineDebugManager_Impl: windows_core::IUnknownImpl {
-    fn AddApplication(&self, pda: windows_core::Ref<'_, IRemoteDebugApplication>) -> windows_core::Result<u32>;
+    fn AddApplication(&self, pda: windows_core::Ref<IRemoteDebugApplication>) -> windows_core::Result<u32>;
     fn RemoveApplication(&self, dwappcookie: u32) -> windows_core::Result<()>;
     fn EnumApplications(&self) -> windows_core::Result<IEnumRemoteDebugApplications>;
 }
@@ -8542,7 +8542,7 @@ pub struct IMachineDebugManagerCookie_Vtbl {
     pub EnumApplications: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMachineDebugManagerCookie_Impl: windows_core::IUnknownImpl {
-    fn AddApplication(&self, pda: windows_core::Ref<'_, IRemoteDebugApplication>, dwdebugappcookie: u32) -> windows_core::Result<u32>;
+    fn AddApplication(&self, pda: windows_core::Ref<IRemoteDebugApplication>, dwdebugappcookie: u32) -> windows_core::Result<u32>;
     fn RemoveApplication(&self, dwdebugappcookie: u32, dwappcookie: u32) -> windows_core::Result<()>;
     fn EnumApplications(&self) -> windows_core::Result<IEnumRemoteDebugApplications>;
 }
@@ -8613,8 +8613,8 @@ pub struct IMachineDebugManagerEvents_Vtbl {
     pub onRemoveApplication: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait IMachineDebugManagerEvents_Impl: windows_core::IUnknownImpl {
-    fn onAddApplication(&self, pda: windows_core::Ref<'_, IRemoteDebugApplication>, dwappcookie: u32) -> windows_core::Result<()>;
-    fn onRemoveApplication(&self, pda: windows_core::Ref<'_, IRemoteDebugApplication>, dwappcookie: u32) -> windows_core::Result<()>;
+    fn onAddApplication(&self, pda: windows_core::Ref<IRemoteDebugApplication>, dwappcookie: u32) -> windows_core::Result<()>;
+    fn onRemoveApplication(&self, pda: windows_core::Ref<IRemoteDebugApplication>, dwappcookie: u32) -> windows_core::Result<()>;
 }
 impl IMachineDebugManagerEvents_Vtbl {
     pub const fn new<Identity: IMachineDebugManagerEvents_Impl, const OFFSET: isize>() -> Self {
@@ -8690,9 +8690,9 @@ pub struct IProcessDebugManager32_Vtbl {
 pub trait IProcessDebugManager32_Impl: windows_core::IUnknownImpl {
     fn CreateApplication(&self) -> windows_core::Result<IDebugApplication32>;
     fn GetDefaultApplication(&self) -> windows_core::Result<IDebugApplication32>;
-    fn AddApplication(&self, pda: windows_core::Ref<'_, IDebugApplication32>) -> windows_core::Result<u32>;
+    fn AddApplication(&self, pda: windows_core::Ref<IDebugApplication32>) -> windows_core::Result<u32>;
     fn RemoveApplication(&self, dwappcookie: u32) -> windows_core::Result<()>;
-    fn CreateDebugDocumentHelper(&self, punkouter: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<IDebugDocumentHelper32>;
+    fn CreateDebugDocumentHelper(&self, punkouter: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<IDebugDocumentHelper32>;
 }
 impl IProcessDebugManager32_Vtbl {
     pub const fn new<Identity: IProcessDebugManager32_Impl, const OFFSET: isize>() -> Self {
@@ -8813,9 +8813,9 @@ pub struct IProcessDebugManager64_Vtbl {
 pub trait IProcessDebugManager64_Impl: windows_core::IUnknownImpl {
     fn CreateApplication(&self) -> windows_core::Result<IDebugApplication64>;
     fn GetDefaultApplication(&self) -> windows_core::Result<IDebugApplication64>;
-    fn AddApplication(&self, pda: windows_core::Ref<'_, IDebugApplication64>) -> windows_core::Result<u32>;
+    fn AddApplication(&self, pda: windows_core::Ref<IDebugApplication64>) -> windows_core::Result<u32>;
     fn RemoveApplication(&self, dwappcookie: u32) -> windows_core::Result<()>;
-    fn CreateDebugDocumentHelper(&self, punkouter: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<IDebugDocumentHelper64>;
+    fn CreateDebugDocumentHelper(&self, punkouter: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<IDebugDocumentHelper64>;
 }
 impl IProcessDebugManager64_Vtbl {
     pub const fn new<Identity: IProcessDebugManager64_Impl, const OFFSET: isize>() -> Self {
@@ -9006,12 +9006,12 @@ pub struct IRemoteDebugApplication_Vtbl {
     pub EnumGlobalExpressionContexts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRemoteDebugApplication_Impl: windows_core::IUnknownImpl {
-    fn ResumeFromBreakPoint(&self, prptfocus: windows_core::Ref<'_, IRemoteDebugApplicationThread>, bra: BREAKRESUMEACTION, era: ERRORRESUMEACTION) -> windows_core::Result<()>;
+    fn ResumeFromBreakPoint(&self, prptfocus: windows_core::Ref<IRemoteDebugApplicationThread>, bra: BREAKRESUMEACTION, era: ERRORRESUMEACTION) -> windows_core::Result<()>;
     fn CauseBreak(&self) -> windows_core::Result<()>;
-    fn ConnectDebugger(&self, pad: windows_core::Ref<'_, IApplicationDebugger>) -> windows_core::Result<()>;
+    fn ConnectDebugger(&self, pad: windows_core::Ref<IApplicationDebugger>) -> windows_core::Result<()>;
     fn DisconnectDebugger(&self) -> windows_core::Result<()>;
     fn GetDebugger(&self) -> windows_core::Result<IApplicationDebugger>;
-    fn CreateInstanceAtApplication(&self, rclsid: *const windows_core::GUID, punkouter: windows_core::Ref<'_, windows_core::IUnknown>, dwclscontext: u32, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>;
+    fn CreateInstanceAtApplication(&self, rclsid: *const windows_core::GUID, punkouter: windows_core::Ref<windows_core::IUnknown>, dwclscontext: u32, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>;
     fn QueryAlive(&self) -> windows_core::Result<()>;
     fn EnumThreads(&self) -> windows_core::Result<IEnumRemoteDebugApplicationThreads>;
     fn GetName(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -9290,16 +9290,16 @@ pub struct IRemoteDebugApplicationEvents_Vtbl {
     pub OnBreakFlagChange: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRemoteDebugApplicationEvents_Impl: windows_core::IUnknownImpl {
-    fn OnConnectDebugger(&self, pad: windows_core::Ref<'_, IApplicationDebugger>) -> windows_core::Result<()>;
+    fn OnConnectDebugger(&self, pad: windows_core::Ref<IApplicationDebugger>) -> windows_core::Result<()>;
     fn OnDisconnectDebugger(&self) -> windows_core::Result<()>;
     fn OnSetName(&self, pstrname: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn OnDebugOutput(&self, pstr: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn OnClose(&self) -> windows_core::Result<()>;
-    fn OnEnterBreakPoint(&self, prdat: windows_core::Ref<'_, IRemoteDebugApplicationThread>) -> windows_core::Result<()>;
-    fn OnLeaveBreakPoint(&self, prdat: windows_core::Ref<'_, IRemoteDebugApplicationThread>) -> windows_core::Result<()>;
-    fn OnCreateThread(&self, prdat: windows_core::Ref<'_, IRemoteDebugApplicationThread>) -> windows_core::Result<()>;
-    fn OnDestroyThread(&self, prdat: windows_core::Ref<'_, IRemoteDebugApplicationThread>) -> windows_core::Result<()>;
-    fn OnBreakFlagChange(&self, abf: u32, prdatsteppingthread: windows_core::Ref<'_, IRemoteDebugApplicationThread>) -> windows_core::Result<()>;
+    fn OnEnterBreakPoint(&self, prdat: windows_core::Ref<IRemoteDebugApplicationThread>) -> windows_core::Result<()>;
+    fn OnLeaveBreakPoint(&self, prdat: windows_core::Ref<IRemoteDebugApplicationThread>) -> windows_core::Result<()>;
+    fn OnCreateThread(&self, prdat: windows_core::Ref<IRemoteDebugApplicationThread>) -> windows_core::Result<()>;
+    fn OnDestroyThread(&self, prdat: windows_core::Ref<IRemoteDebugApplicationThread>) -> windows_core::Result<()>;
+    fn OnBreakFlagChange(&self, abf: u32, prdatsteppingthread: windows_core::Ref<IRemoteDebugApplicationThread>) -> windows_core::Result<()>;
 }
 impl IRemoteDebugApplicationEvents_Vtbl {
     pub const fn new<Identity: IRemoteDebugApplicationEvents_Impl, const OFFSET: isize>() -> Self {
@@ -9456,7 +9456,7 @@ pub trait IRemoteDebugApplicationThread_Impl: windows_core::IUnknownImpl {
     fn GetApplication(&self) -> windows_core::Result<IRemoteDebugApplication>;
     fn EnumStackFrames(&self) -> windows_core::Result<IEnumDebugStackFrames>;
     fn GetDescription(&self, pbstrdescription: *mut windows_core::BSTR, pbstrstate: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn SetNextStatement(&self, pstackframe: windows_core::Ref<'_, IDebugStackFrame>, pcodecontext: windows_core::Ref<'_, IDebugCodeContext>) -> windows_core::Result<()>;
+    fn SetNextStatement(&self, pstackframe: windows_core::Ref<IDebugStackFrame>, pcodecontext: windows_core::Ref<IDebugCodeContext>) -> windows_core::Result<()>;
     fn GetState(&self) -> windows_core::Result<u32>;
     fn Suspend(&self) -> windows_core::Result<u32>;
     fn Resume(&self) -> windows_core::Result<u32>;
@@ -9742,7 +9742,7 @@ pub trait IScriptEntry_Impl: IScriptNode_Impl {
     fn GetItemName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetItemName(&self, psz: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetSignature(&self, ppti: windows_core::OutRef<'_, super::super::super::Com::ITypeInfo>, pimethod: *mut u32) -> windows_core::Result<()>;
-    fn SetSignature(&self, pti: windows_core::Ref<'_, super::super::super::Com::ITypeInfo>, imethod: u32) -> windows_core::Result<()>;
+    fn SetSignature(&self, pti: windows_core::Ref<super::super::super::Com::ITypeInfo>, imethod: u32) -> windows_core::Result<()>;
     fn GetRange(&self, pichmin: *mut u32, pcch: *mut u32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10039,7 +10039,7 @@ pub trait IScriptNode_Impl: windows_core::IUnknownImpl {
     fn GetChild(&self, isn: u32) -> windows_core::Result<IScriptNode>;
     fn GetLanguage(&self) -> windows_core::Result<windows_core::BSTR>;
     fn CreateChildEntry(&self, isn: u32, dwcookie: u32, pszdelimiter: &windows_core::PCWSTR) -> windows_core::Result<IScriptEntry>;
-    fn CreateChildHandler(&self, pszdefaultname: &windows_core::PCWSTR, prgpsznames: *const windows_core::PCWSTR, cpsznames: u32, pszevent: &windows_core::PCWSTR, pszdelimiter: &windows_core::PCWSTR, ptisignature: windows_core::Ref<'_, super::super::super::Com::ITypeInfo>, imethodsignature: u32, isn: u32, dwcookie: u32) -> windows_core::Result<IScriptEntry>;
+    fn CreateChildHandler(&self, pszdefaultname: &windows_core::PCWSTR, prgpsznames: *const windows_core::PCWSTR, cpsznames: u32, pszevent: &windows_core::PCWSTR, pszdelimiter: &windows_core::PCWSTR, ptisignature: windows_core::Ref<super::super::super::Com::ITypeInfo>, imethodsignature: u32, isn: u32, dwcookie: u32) -> windows_core::Result<IScriptEntry>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IScriptNode_Vtbl {
@@ -10351,7 +10351,7 @@ pub struct ISimpleConnectionPoint_Vtbl {
 pub trait ISimpleConnectionPoint_Impl: windows_core::IUnknownImpl {
     fn GetEventCount(&self) -> windows_core::Result<u32>;
     fn DescribeEvents(&self, ievent: u32, cevents: u32, prgid: *mut i32, prgbstr: *mut windows_core::BSTR, pceventsfetched: *mut u32) -> windows_core::Result<()>;
-    fn Advise(&self, pdisp: windows_core::Ref<'_, super::super::super::Com::IDispatch>) -> windows_core::Result<u32>;
+    fn Advise(&self, pdisp: windows_core::Ref<super::super::super::Com::IDispatch>) -> windows_core::Result<u32>;
     fn Unadvise(&self, dwcookie: u32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10463,7 +10463,7 @@ pub struct IWebAppDiagnosticsObjectInitialization_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::super::Foundation::HANDLE_PTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWebAppDiagnosticsObjectInitialization_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, hpassedhandle: super::super::super::super::Foundation::HANDLE_PTR, pdebugapplication: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Initialize(&self, hpassedhandle: super::super::super::super::Foundation::HANDLE_PTR, pdebugapplication: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl IWebAppDiagnosticsObjectInitialization_Vtbl {
     pub const fn new<Identity: IWebAppDiagnosticsObjectInitialization_Impl, const OFFSET: isize>() -> Self {

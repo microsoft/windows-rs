@@ -151,13 +151,13 @@ pub struct ISettingsContext_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISettingsContext_Impl: windows_core::IUnknownImpl {
-    fn Serialize(&self, pstream: windows_core::Ref<'_, super::Com::IStream>, ptarget: windows_core::Ref<'_, ITargetInfo>) -> windows_core::Result<()>;
-    fn Deserialize(&self, pstream: windows_core::Ref<'_, super::Com::IStream>, ptarget: windows_core::Ref<'_, ITargetInfo>, pppresults: *mut *mut Option<ISettingsResult>) -> windows_core::Result<usize>;
+    fn Serialize(&self, pstream: windows_core::Ref<super::Com::IStream>, ptarget: windows_core::Ref<ITargetInfo>) -> windows_core::Result<()>;
+    fn Deserialize(&self, pstream: windows_core::Ref<super::Com::IStream>, ptarget: windows_core::Ref<ITargetInfo>, pppresults: *mut *mut Option<ISettingsResult>) -> windows_core::Result<usize>;
     fn SetUserData(&self, puserdata: *const core::ffi::c_void) -> windows_core::Result<()>;
     fn GetUserData(&self) -> windows_core::Result<*mut core::ffi::c_void>;
     fn GetNamespaces(&self) -> windows_core::Result<IItemEnumerator>;
-    fn GetStoredSettings(&self, pidentity: windows_core::Ref<'_, ISettingsIdentity>, ppaddedsettings: windows_core::OutRef<'_, IItemEnumerator>, ppmodifiedsettings: windows_core::OutRef<'_, IItemEnumerator>, ppdeletedsettings: windows_core::OutRef<'_, IItemEnumerator>) -> windows_core::Result<()>;
-    fn RevertSetting(&self, pidentity: windows_core::Ref<'_, ISettingsIdentity>, pwzsetting: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn GetStoredSettings(&self, pidentity: windows_core::Ref<ISettingsIdentity>, ppaddedsettings: windows_core::OutRef<'_, IItemEnumerator>, ppmodifiedsettings: windows_core::OutRef<'_, IItemEnumerator>, ppdeletedsettings: windows_core::OutRef<'_, IItemEnumerator>) -> windows_core::Result<()>;
+    fn RevertSetting(&self, pidentity: windows_core::Ref<ISettingsIdentity>, pwzsetting: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ISettingsContext_Vtbl {
@@ -370,20 +370,20 @@ pub struct ISettingsEngine_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISettingsEngine_Impl: windows_core::IUnknownImpl {
     fn GetNamespaces(&self, flags: WcmNamespaceEnumerationFlags, reserved: *const core::ffi::c_void) -> windows_core::Result<IItemEnumerator>;
-    fn GetNamespace(&self, settingsid: windows_core::Ref<'_, ISettingsIdentity>, access: WcmNamespaceAccess, reserved: *const core::ffi::c_void) -> windows_core::Result<ISettingsNamespace>;
+    fn GetNamespace(&self, settingsid: windows_core::Ref<ISettingsIdentity>, access: WcmNamespaceAccess, reserved: *const core::ffi::c_void) -> windows_core::Result<ISettingsNamespace>;
     fn GetErrorDescription(&self, hresult: i32) -> windows_core::Result<windows_core::BSTR>;
     fn CreateSettingsIdentity(&self) -> windows_core::Result<ISettingsIdentity>;
     fn GetStoreStatus(&self, reserved: *const core::ffi::c_void) -> windows_core::Result<WcmUserStatus>;
     fn LoadStore(&self, flags: u32) -> windows_core::Result<()>;
     fn UnloadStore(&self, reserved: *const core::ffi::c_void) -> windows_core::Result<()>;
-    fn RegisterNamespace(&self, settingsid: windows_core::Ref<'_, ISettingsIdentity>, stream: windows_core::Ref<'_, super::Com::IStream>, pushsettings: super::super::Foundation::BOOL) -> windows_core::Result<super::Variant::VARIANT>;
-    fn UnregisterNamespace(&self, settingsid: windows_core::Ref<'_, ISettingsIdentity>, removesettings: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn RegisterNamespace(&self, settingsid: windows_core::Ref<ISettingsIdentity>, stream: windows_core::Ref<super::Com::IStream>, pushsettings: super::super::Foundation::BOOL) -> windows_core::Result<super::Variant::VARIANT>;
+    fn UnregisterNamespace(&self, settingsid: windows_core::Ref<ISettingsIdentity>, removesettings: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn CreateTargetInfo(&self) -> windows_core::Result<ITargetInfo>;
     fn GetTargetInfo(&self) -> windows_core::Result<ITargetInfo>;
-    fn SetTargetInfo(&self, target: windows_core::Ref<'_, ITargetInfo>) -> windows_core::Result<()>;
+    fn SetTargetInfo(&self, target: windows_core::Ref<ITargetInfo>) -> windows_core::Result<()>;
     fn CreateSettingsContext(&self, flags: u32, reserved: *const core::ffi::c_void) -> windows_core::Result<ISettingsContext>;
-    fn SetSettingsContext(&self, settingscontext: windows_core::Ref<'_, ISettingsContext>) -> windows_core::Result<()>;
-    fn ApplySettingsContext(&self, settingscontext: windows_core::Ref<'_, ISettingsContext>, pppwzidentities: *mut *mut windows_core::PWSTR) -> windows_core::Result<usize>;
+    fn SetSettingsContext(&self, settingscontext: windows_core::Ref<ISettingsContext>) -> windows_core::Result<()>;
+    fn ApplySettingsContext(&self, settingscontext: windows_core::Ref<ISettingsContext>, pppwzidentities: *mut *mut windows_core::PWSTR) -> windows_core::Result<usize>;
     fn GetSettingsContext(&self) -> windows_core::Result<ISettingsContext>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]

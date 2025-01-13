@@ -5992,18 +5992,18 @@ pub trait IReceiptOrSlipJob_Impl: IPosPrinterJob_Impl {
     fn SetBarcodeRotation(&self, value: PosPrinterRotation) -> windows_core::Result<()>;
     fn SetPrintRotation(&self, value: PosPrinterRotation, includeBitmaps: bool) -> windows_core::Result<()>;
     fn SetPrintArea(&self, value: &super::super::Foundation::Rect) -> windows_core::Result<()>;
-    fn SetBitmap(&self, bitmapNumber: u32, bitmap: windows_core::Ref<'_, super::super::Graphics::Imaging::BitmapFrame>, alignment: PosPrinterAlignment) -> windows_core::Result<()>;
-    fn SetBitmapCustomWidthStandardAlign(&self, bitmapNumber: u32, bitmap: windows_core::Ref<'_, super::super::Graphics::Imaging::BitmapFrame>, alignment: PosPrinterAlignment, width: u32) -> windows_core::Result<()>;
-    fn SetCustomAlignedBitmap(&self, bitmapNumber: u32, bitmap: windows_core::Ref<'_, super::super::Graphics::Imaging::BitmapFrame>, alignmentDistance: u32) -> windows_core::Result<()>;
-    fn SetBitmapCustomWidthCustomAlign(&self, bitmapNumber: u32, bitmap: windows_core::Ref<'_, super::super::Graphics::Imaging::BitmapFrame>, alignmentDistance: u32, width: u32) -> windows_core::Result<()>;
+    fn SetBitmap(&self, bitmapNumber: u32, bitmap: windows_core::Ref<super::super::Graphics::Imaging::BitmapFrame>, alignment: PosPrinterAlignment) -> windows_core::Result<()>;
+    fn SetBitmapCustomWidthStandardAlign(&self, bitmapNumber: u32, bitmap: windows_core::Ref<super::super::Graphics::Imaging::BitmapFrame>, alignment: PosPrinterAlignment, width: u32) -> windows_core::Result<()>;
+    fn SetCustomAlignedBitmap(&self, bitmapNumber: u32, bitmap: windows_core::Ref<super::super::Graphics::Imaging::BitmapFrame>, alignmentDistance: u32) -> windows_core::Result<()>;
+    fn SetBitmapCustomWidthCustomAlign(&self, bitmapNumber: u32, bitmap: windows_core::Ref<super::super::Graphics::Imaging::BitmapFrame>, alignmentDistance: u32, width: u32) -> windows_core::Result<()>;
     fn PrintSavedBitmap(&self, bitmapNumber: u32) -> windows_core::Result<()>;
     fn DrawRuledLine(&self, positionList: &windows_core::HSTRING, lineDirection: PosPrinterLineDirection, lineWidth: u32, lineStyle: PosPrinterLineStyle, lineColor: u32) -> windows_core::Result<()>;
     fn PrintBarcode(&self, data: &windows_core::HSTRING, symbology: u32, height: u32, width: u32, textPosition: PosPrinterBarcodeTextPosition, alignment: PosPrinterAlignment) -> windows_core::Result<()>;
     fn PrintBarcodeCustomAlign(&self, data: &windows_core::HSTRING, symbology: u32, height: u32, width: u32, textPosition: PosPrinterBarcodeTextPosition, alignmentDistance: u32) -> windows_core::Result<()>;
-    fn PrintBitmap(&self, bitmap: windows_core::Ref<'_, super::super::Graphics::Imaging::BitmapFrame>, alignment: PosPrinterAlignment) -> windows_core::Result<()>;
-    fn PrintBitmapCustomWidthStandardAlign(&self, bitmap: windows_core::Ref<'_, super::super::Graphics::Imaging::BitmapFrame>, alignment: PosPrinterAlignment, width: u32) -> windows_core::Result<()>;
-    fn PrintCustomAlignedBitmap(&self, bitmap: windows_core::Ref<'_, super::super::Graphics::Imaging::BitmapFrame>, alignmentDistance: u32) -> windows_core::Result<()>;
-    fn PrintBitmapCustomWidthCustomAlign(&self, bitmap: windows_core::Ref<'_, super::super::Graphics::Imaging::BitmapFrame>, alignmentDistance: u32, width: u32) -> windows_core::Result<()>;
+    fn PrintBitmap(&self, bitmap: windows_core::Ref<super::super::Graphics::Imaging::BitmapFrame>, alignment: PosPrinterAlignment) -> windows_core::Result<()>;
+    fn PrintBitmapCustomWidthStandardAlign(&self, bitmap: windows_core::Ref<super::super::Graphics::Imaging::BitmapFrame>, alignment: PosPrinterAlignment, width: u32) -> windows_core::Result<()>;
+    fn PrintCustomAlignedBitmap(&self, bitmap: windows_core::Ref<super::super::Graphics::Imaging::BitmapFrame>, alignmentDistance: u32) -> windows_core::Result<()>;
+    fn PrintBitmapCustomWidthCustomAlign(&self, bitmap: windows_core::Ref<super::super::Graphics::Imaging::BitmapFrame>, alignmentDistance: u32, width: u32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Graphics_Imaging")]
 impl IReceiptOrSlipJob_Vtbl {

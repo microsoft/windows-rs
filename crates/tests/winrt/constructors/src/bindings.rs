@@ -306,13 +306,13 @@ impl windows_core::RuntimeName for IComposableFactory {
 pub trait IComposableFactory_Impl: windows_core::IUnknownImpl {
     fn CreateInstance(
         &self,
-        baseInterface: windows_core::Ref<'_, windows_core::IInspectable>,
+        baseInterface: windows_core::Ref<windows_core::IInspectable>,
         innerInterface: windows_core::OutRef<'_, windows_core::IInspectable>,
     ) -> windows_core::Result<Composable>;
     fn WithValue(
         &self,
         arg: i32,
-        baseInterface: windows_core::Ref<'_, windows_core::IInspectable>,
+        baseInterface: windows_core::Ref<windows_core::IInspectable>,
         innerInterface: windows_core::OutRef<'_, windows_core::IInspectable>,
     ) -> windows_core::Result<Composable>;
 }

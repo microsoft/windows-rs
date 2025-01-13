@@ -123,7 +123,7 @@ pub struct IDynamicConceptProviderConcept_Vtbl {
 pub trait IDynamicConceptProviderConcept_Impl: windows_core::IUnknownImpl {
     fn GetConcept(
         &self,
-        contextobject: windows_core::Ref<'_, IModelObject>,
+        contextobject: windows_core::Ref<IModelObject>,
         conceptid: *const windows_core::GUID,
         conceptinterface: windows_core::OutRef<'_, windows_core::IUnknown>,
         conceptmetadata: windows_core::OutRef<'_, IKeyStore>,
@@ -131,18 +131,18 @@ pub trait IDynamicConceptProviderConcept_Impl: windows_core::IUnknownImpl {
     ) -> windows_core::Result<()>;
     fn SetConcept(
         &self,
-        contextobject: windows_core::Ref<'_, IModelObject>,
+        contextobject: windows_core::Ref<IModelObject>,
         conceptid: *const windows_core::GUID,
-        conceptinterface: windows_core::Ref<'_, windows_core::IUnknown>,
-        conceptmetadata: windows_core::Ref<'_, IKeyStore>,
+        conceptinterface: windows_core::Ref<windows_core::IUnknown>,
+        conceptmetadata: windows_core::Ref<IKeyStore>,
     ) -> windows_core::Result<()>;
     fn NotifyParent(
         &self,
-        parentmodel: windows_core::Ref<'_, IModelObject>,
+        parentmodel: windows_core::Ref<IModelObject>,
     ) -> windows_core::Result<()>;
     fn NotifyParentChange(
         &self,
-        parentmodel: windows_core::Ref<'_, IModelObject>,
+        parentmodel: windows_core::Ref<IModelObject>,
     ) -> windows_core::Result<()>;
     fn NotifyDestruct(&self) -> windows_core::Result<()>;
 }
@@ -381,8 +381,8 @@ pub trait IKeyStore_Impl: windows_core::IUnknownImpl {
     fn SetKey(
         &self,
         key: &windows_core::PCWSTR,
-        object: windows_core::Ref<'_, IModelObject>,
-        metadata: windows_core::Ref<'_, IKeyStore>,
+        object: windows_core::Ref<IModelObject>,
+        metadata: windows_core::Ref<IKeyStore>,
     ) -> windows_core::Result<()>;
     fn GetKeyValue(
         &self,
@@ -393,7 +393,7 @@ pub trait IKeyStore_Impl: windows_core::IUnknownImpl {
     fn SetKeyValue(
         &self,
         key: &windows_core::PCWSTR,
-        object: windows_core::Ref<'_, IModelObject>,
+        object: windows_core::Ref<IModelObject>,
     ) -> windows_core::Result<()>;
     fn ClearKeys(&self) -> windows_core::Result<()>;
 }
@@ -903,7 +903,7 @@ pub trait IModelObject_Impl: windows_core::IUnknownImpl {
     fn SetKeyValue(
         &self,
         key: &windows_core::PCWSTR,
-        object: windows_core::Ref<'_, IModelObject>,
+        object: windows_core::Ref<IModelObject>,
     ) -> windows_core::Result<()>;
     fn Dereference(&self) -> windows_core::Result<IModelObject>;
     fn TryCastToRuntimeType(&self) -> windows_core::Result<IModelObject>;
@@ -922,14 +922,12 @@ pub trait IModelObject_Impl: windows_core::IUnknownImpl {
     ) -> windows_core::Result<()>;
     fn AddParentModel(
         &self,
-        model: windows_core::Ref<'_, IModelObject>,
-        contextobject: windows_core::Ref<'_, IModelObject>,
+        model: windows_core::Ref<IModelObject>,
+        contextobject: windows_core::Ref<IModelObject>,
         r#override: u8,
     ) -> windows_core::Result<()>;
-    fn RemoveParentModel(
-        &self,
-        model: windows_core::Ref<'_, IModelObject>,
-    ) -> windows_core::Result<()>;
+    fn RemoveParentModel(&self, model: windows_core::Ref<IModelObject>)
+        -> windows_core::Result<()>;
     fn GetKey(
         &self,
         key: &windows_core::PCWSTR,
@@ -945,32 +943,32 @@ pub trait IModelObject_Impl: windows_core::IUnknownImpl {
     fn SetKey(
         &self,
         key: &windows_core::PCWSTR,
-        object: windows_core::Ref<'_, IModelObject>,
-        metadata: windows_core::Ref<'_, IKeyStore>,
+        object: windows_core::Ref<IModelObject>,
+        metadata: windows_core::Ref<IKeyStore>,
     ) -> windows_core::Result<()>;
     fn ClearKeys(&self) -> windows_core::Result<()>;
     fn SetConcept(
         &self,
         conceptid: *const windows_core::GUID,
-        conceptinterface: windows_core::Ref<'_, windows_core::IUnknown>,
-        conceptmetadata: windows_core::Ref<'_, IKeyStore>,
+        conceptinterface: windows_core::Ref<windows_core::IUnknown>,
+        conceptmetadata: windows_core::Ref<IKeyStore>,
     ) -> windows_core::Result<()>;
     fn ClearConcepts(&self) -> windows_core::Result<()>;
     fn SetContextForDataModel(
         &self,
-        datamodelobject: windows_core::Ref<'_, IModelObject>,
-        context: windows_core::Ref<'_, windows_core::IUnknown>,
+        datamodelobject: windows_core::Ref<IModelObject>,
+        context: windows_core::Ref<windows_core::IUnknown>,
     ) -> windows_core::Result<()>;
     fn GetContextForDataModel(
         &self,
-        datamodelobject: windows_core::Ref<'_, IModelObject>,
+        datamodelobject: windows_core::Ref<IModelObject>,
     ) -> windows_core::Result<windows_core::IUnknown>;
     fn Compare(
         &self,
-        other: windows_core::Ref<'_, IModelObject>,
+        other: windows_core::Ref<IModelObject>,
         ppresult: windows_core::OutRef<'_, IModelObject>,
     ) -> windows_core::Result<()>;
-    fn IsEqualTo(&self, other: windows_core::Ref<'_, IModelObject>) -> windows_core::Result<bool>;
+    fn IsEqualTo(&self, other: windows_core::Ref<IModelObject>) -> windows_core::Result<bool>;
 }
 impl IModelObject_Vtbl {
     pub const fn new<Identity: IModelObject_Impl, const OFFSET: isize>() -> Self {

@@ -561,7 +561,7 @@ pub struct INetDiagHelperEx_Vtbl {
 }
 pub trait INetDiagHelperEx_Impl: windows_core::IUnknownImpl {
     fn ReconfirmLowHealth(&self, celt: u32, presults: *const HypothesisResult, ppwszupdateddescription: *mut windows_core::PWSTR, pupdatedstatus: *mut DIAGNOSIS_STATUS) -> windows_core::Result<()>;
-    fn SetUtilities(&self, putilities: windows_core::Ref<'_, INetDiagHelperUtilFactory>) -> windows_core::Result<()>;
+    fn SetUtilities(&self, putilities: windows_core::Ref<INetDiagHelperUtilFactory>) -> windows_core::Result<()>;
     fn ReproduceFailure(&self) -> windows_core::Result<()>;
 }
 impl INetDiagHelperEx_Vtbl {
