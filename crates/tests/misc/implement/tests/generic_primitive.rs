@@ -19,8 +19,8 @@ impl IVectorView_Impl<i32> for Thing_Impl {
         Ok(123)
     }
 
-    fn IndexOf(&self, value: &i32, index: &mut u32) -> Result<bool> {
-        *index = *value as u32;
+    fn IndexOf(&self, value: i32, index: &mut u32) -> Result<bool> {
+        *index = value as u32;
         Ok(true)
     }
 

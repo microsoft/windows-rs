@@ -29,8 +29,12 @@ where
         Ok(self.0.len() as u32)
     }
 
-    fn IndexOf(&self, value: &T::Default, result: &mut u32) -> Result<bool> {
-        match self.0.iter().position(|element| element == value) {
+    fn IndexOf(&self, value: T::Ref, result: &mut u32) -> Result<bool> {
+        match self
+            .0
+            .iter()
+            .position(|element| element == T::deref(&value))
+        {
             Some(index) => {
                 *result = index as u32;
                 Ok(true)

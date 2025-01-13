@@ -1,4 +1,4 @@
-use crate::Foundation::Collections::{IIterable, IIterable_Impl, IIterator, IIterator_Impl, IKeyValuePair, IKeyValuePair_Impl, IMapView, IMapView_Impl};
+use crate::Foundation::Collections::*;
 
 #[windows_core::implement(IMapView<K, V>, IIterable<IKeyValuePair<K, V>>)]
 struct StockMapView<K, V>
@@ -32,15 +32,15 @@ where
     K::Default: Clone + Ord,
     V::Default: Clone,
 {
-    fn Lookup(&self, key: &K::Default) -> windows_core::Result<V> {
-        let value = self.map.get(key).ok_or_else(|| windows_core::Error::from(windows_core::imp::E_BOUNDS))?;
+    fn Lookup(&self, key: K::Ref) -> windows_core::Result<V> {
+        let value = self.map.get(K::deref(&key)).ok_or_else(|| windows_core::Error::from(windows_core::imp::E_BOUNDS))?;
         V::from_default(value)
     }
     fn Size(&self) -> windows_core::Result<u32> {
         Ok(self.map.len().try_into()?)
     }
-    fn HasKey(&self, key: &K::Default) -> windows_core::Result<bool> {
-        Ok(self.map.contains_key(key))
+    fn HasKey(&self, key: K::Ref) -> windows_core::Result<bool> {
+        Ok(self.map.contains_key(K::deref(&key)))
     }
     fn Split(&self, first: windows_core::OutRef<'_, IMapView<K, V>>, second: windows_core::OutRef<'_, IMapView<K, V>>) -> windows_core::Result<()> {
         _ = first.write(None);

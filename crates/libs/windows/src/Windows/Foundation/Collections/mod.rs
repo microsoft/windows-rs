@@ -434,12 +434,12 @@ where
     K: windows_core::RuntimeType + 'static,
     V: windows_core::RuntimeType + 'static,
 {
-    fn Lookup(&self, key: &<K as windows_core::Type<K>>::Default) -> windows_core::Result<V>;
+    fn Lookup(&self, key: <K as windows_core::Type<K>>::Ref) -> windows_core::Result<V>;
     fn Size(&self) -> windows_core::Result<u32>;
-    fn HasKey(&self, key: &<K as windows_core::Type<K>>::Default) -> windows_core::Result<bool>;
+    fn HasKey(&self, key: <K as windows_core::Type<K>>::Ref) -> windows_core::Result<bool>;
     fn GetView(&self) -> windows_core::Result<IMapView<K, V>>;
-    fn Insert(&self, key: &<K as windows_core::Type<K>>::Default, value: &<V as windows_core::Type<V>>::Default) -> windows_core::Result<bool>;
-    fn Remove(&self, key: &<K as windows_core::Type<K>>::Default) -> windows_core::Result<()>;
+    fn Insert(&self, key: <K as windows_core::Type<K>>::Ref, value: <V as windows_core::Type<V>>::Ref) -> windows_core::Result<bool>;
+    fn Remove(&self, key: <K as windows_core::Type<K>>::Ref) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> IMap_Vtbl<K, V> {
@@ -447,7 +447,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         unsafe extern "system" fn Lookup<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, Identity: IMap_Impl<K, V>, const OFFSET: isize>(this: *mut core::ffi::c_void, key: windows_core::AbiType<K>, result__: *mut windows_core::AbiType<V>) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMap_Impl::Lookup(this, core::mem::transmute(&key)) {
+                match IMap_Impl::Lookup(this, core::mem::transmute_copy(&key)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -472,7 +472,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         unsafe extern "system" fn HasKey<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, Identity: IMap_Impl<K, V>, const OFFSET: isize>(this: *mut core::ffi::c_void, key: windows_core::AbiType<K>, result__: *mut bool) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMap_Impl::HasKey(this, core::mem::transmute(&key)) {
+                match IMap_Impl::HasKey(this, core::mem::transmute_copy(&key)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         windows_core::HRESULT(0)
@@ -497,7 +497,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         unsafe extern "system" fn Insert<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, Identity: IMap_Impl<K, V>, const OFFSET: isize>(this: *mut core::ffi::c_void, key: windows_core::AbiType<K>, value: windows_core::AbiType<V>, result__: *mut bool) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMap_Impl::Insert(this, core::mem::transmute(&key), core::mem::transmute(&value)) {
+                match IMap_Impl::Insert(this, core::mem::transmute_copy(&key), core::mem::transmute_copy(&value)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         windows_core::HRESULT(0)
@@ -509,7 +509,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         unsafe extern "system" fn Remove<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, Identity: IMap_Impl<K, V>, const OFFSET: isize>(this: *mut core::ffi::c_void, key: windows_core::AbiType<K>) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMap_Impl::Remove(this, core::mem::transmute(&key)).into()
+                IMap_Impl::Remove(this, core::mem::transmute_copy(&key)).into()
             }
         }
         unsafe extern "system" fn Clear<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, Identity: IMap_Impl<K, V>, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -720,9 +720,9 @@ where
     K: windows_core::RuntimeType + 'static,
     V: windows_core::RuntimeType + 'static,
 {
-    fn Lookup(&self, key: &<K as windows_core::Type<K>>::Default) -> windows_core::Result<V>;
+    fn Lookup(&self, key: <K as windows_core::Type<K>>::Ref) -> windows_core::Result<V>;
     fn Size(&self) -> windows_core::Result<u32>;
-    fn HasKey(&self, key: &<K as windows_core::Type<K>>::Default) -> windows_core::Result<bool>;
+    fn HasKey(&self, key: <K as windows_core::Type<K>>::Ref) -> windows_core::Result<bool>;
     fn Split(&self, first: windows_core::OutRef<'_, IMapView<K, V>>, second: windows_core::OutRef<'_, IMapView<K, V>>) -> windows_core::Result<()>;
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> IMapView_Vtbl<K, V> {
@@ -730,7 +730,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         unsafe extern "system" fn Lookup<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, Identity: IMapView_Impl<K, V>, const OFFSET: isize>(this: *mut core::ffi::c_void, key: windows_core::AbiType<K>, result__: *mut windows_core::AbiType<V>) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMapView_Impl::Lookup(this, core::mem::transmute(&key)) {
+                match IMapView_Impl::Lookup(this, core::mem::transmute_copy(&key)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -755,7 +755,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         unsafe extern "system" fn HasKey<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, Identity: IMapView_Impl<K, V>, const OFFSET: isize>(this: *mut core::ffi::c_void, key: windows_core::AbiType<K>, result__: *mut bool) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMapView_Impl::HasKey(this, core::mem::transmute(&key)) {
+                match IMapView_Impl::HasKey(this, core::mem::transmute_copy(&key)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         windows_core::HRESULT(0)
@@ -1380,11 +1380,11 @@ where
     fn GetAt(&self, index: u32) -> windows_core::Result<T>;
     fn Size(&self) -> windows_core::Result<u32>;
     fn GetView(&self) -> windows_core::Result<IVectorView<T>>;
-    fn IndexOf(&self, value: &<T as windows_core::Type<T>>::Default, index: &mut u32) -> windows_core::Result<bool>;
-    fn SetAt(&self, index: u32, value: &<T as windows_core::Type<T>>::Default) -> windows_core::Result<()>;
-    fn InsertAt(&self, index: u32, value: &<T as windows_core::Type<T>>::Default) -> windows_core::Result<()>;
+    fn IndexOf(&self, value: <T as windows_core::Type<T>>::Ref, index: &mut u32) -> windows_core::Result<bool>;
+    fn SetAt(&self, index: u32, value: <T as windows_core::Type<T>>::Ref) -> windows_core::Result<()>;
+    fn InsertAt(&self, index: u32, value: <T as windows_core::Type<T>>::Ref) -> windows_core::Result<()>;
     fn RemoveAt(&self, index: u32) -> windows_core::Result<()>;
-    fn Append(&self, value: &<T as windows_core::Type<T>>::Default) -> windows_core::Result<()>;
+    fn Append(&self, value: <T as windows_core::Type<T>>::Ref) -> windows_core::Result<()>;
     fn RemoveAtEnd(&self) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
     fn GetMany(&self, startIndex: u32, items: &mut [<T as windows_core::Type<T>>::Default]) -> windows_core::Result<u32>;
@@ -1433,7 +1433,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
         unsafe extern "system" fn IndexOf<T: windows_core::RuntimeType + 'static, Identity: IVector_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void, value: windows_core::AbiType<T>, index: *mut u32, result__: *mut bool) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVector_Impl::IndexOf(this, core::mem::transmute(&value), core::mem::transmute_copy(&index)) {
+                match IVector_Impl::IndexOf(this, core::mem::transmute_copy(&value), core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         windows_core::HRESULT(0)
@@ -1445,13 +1445,13 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
         unsafe extern "system" fn SetAt<T: windows_core::RuntimeType + 'static, Identity: IVector_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, value: windows_core::AbiType<T>) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVector_Impl::SetAt(this, index, core::mem::transmute(&value)).into()
+                IVector_Impl::SetAt(this, index, core::mem::transmute_copy(&value)).into()
             }
         }
         unsafe extern "system" fn InsertAt<T: windows_core::RuntimeType + 'static, Identity: IVector_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, value: windows_core::AbiType<T>) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVector_Impl::InsertAt(this, index, core::mem::transmute(&value)).into()
+                IVector_Impl::InsertAt(this, index, core::mem::transmute_copy(&value)).into()
             }
         }
         unsafe extern "system" fn RemoveAt<T: windows_core::RuntimeType + 'static, Identity: IVector_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32) -> windows_core::HRESULT {
@@ -1463,7 +1463,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
         unsafe extern "system" fn Append<T: windows_core::RuntimeType + 'static, Identity: IVector_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void, value: windows_core::AbiType<T>) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVector_Impl::Append(this, core::mem::transmute(&value)).into()
+                IVector_Impl::Append(this, core::mem::transmute_copy(&value)).into()
             }
         }
         unsafe extern "system" fn RemoveAtEnd<T: windows_core::RuntimeType + 'static, Identity: IVector_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1687,7 +1687,7 @@ where
 {
     fn GetAt(&self, index: u32) -> windows_core::Result<T>;
     fn Size(&self) -> windows_core::Result<u32>;
-    fn IndexOf(&self, value: &<T as windows_core::Type<T>>::Default, index: &mut u32) -> windows_core::Result<bool>;
+    fn IndexOf(&self, value: <T as windows_core::Type<T>>::Ref, index: &mut u32) -> windows_core::Result<bool>;
     fn GetMany(&self, startIndex: u32, items: &mut [<T as windows_core::Type<T>>::Default]) -> windows_core::Result<u32>;
 }
 impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
@@ -1720,7 +1720,7 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
         unsafe extern "system" fn IndexOf<T: windows_core::RuntimeType + 'static, Identity: IVectorView_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void, value: windows_core::AbiType<T>, index: *mut u32, result__: *mut bool) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVectorView_Impl::IndexOf(this, core::mem::transmute(&value), core::mem::transmute_copy(&index)) {
+                match IVectorView_Impl::IndexOf(this, core::mem::transmute_copy(&value), core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         windows_core::HRESULT(0)

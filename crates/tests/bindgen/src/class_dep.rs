@@ -464,7 +464,7 @@ where
     fn Size(&self) -> windows_core::Result<u32>;
     fn IndexOf(
         &self,
-        value: &<T as windows_core::Type<T>>::Default,
+        value: <T as windows_core::Type<T>>::Ref,
         index: &mut u32,
     ) -> windows_core::Result<bool>;
     fn GetMany(
@@ -532,7 +532,7 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVectorView_Impl::IndexOf(
                     this,
-                    core::mem::transmute(&value),
+                    core::mem::transmute_copy(&value),
                     core::mem::transmute_copy(&index),
                 ) {
                     Ok(ok__) => {

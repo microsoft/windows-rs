@@ -47,7 +47,7 @@ fn generic() -> windows::core::Result<()> {
         tx.send(true).unwrap();
 
         // TODO: ideally primitives would be passed by value
-        assert!(*port == 80);
+        assert!(port == 80);
         Ok(())
     });
 

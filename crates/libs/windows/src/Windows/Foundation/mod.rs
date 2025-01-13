@@ -87,7 +87,7 @@ impl<TProgress: windows_core::RuntimeType + 'static> windows_core::RuntimeType f
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({6d844858-0cff-4590-ae89-95a5a5c8b4b8}").push_slice(b";").push_other(TProgress::SIGNATURE).push_slice(b")");
 }
 impl<TProgress: windows_core::RuntimeType + 'static> AsyncActionProgressHandler<TProgress> {
-    pub fn new<F: FnMut(windows_core::Ref<IAsyncActionWithProgress<TProgress>>, &<TProgress as windows_core::Type<TProgress>>::Default) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(windows_core::Ref<IAsyncActionWithProgress<TProgress>>, <TProgress as windows_core::Type<TProgress>>::Ref) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = AsyncActionProgressHandlerBox { vtable: &AsyncActionProgressHandlerBox::<TProgress, F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -110,7 +110,7 @@ where
     TProgress: core::marker::PhantomData<TProgress>,
 }
 #[repr(C)]
-struct AsyncActionProgressHandlerBox<TProgress, F: FnMut(windows_core::Ref<IAsyncActionWithProgress<TProgress>>, &<TProgress as windows_core::Type<TProgress>>::Default) -> windows_core::Result<()> + Send + 'static>
+struct AsyncActionProgressHandlerBox<TProgress, F: FnMut(windows_core::Ref<IAsyncActionWithProgress<TProgress>>, <TProgress as windows_core::Type<TProgress>>::Ref) -> windows_core::Result<()> + Send + 'static>
 where
     TProgress: windows_core::RuntimeType + 'static,
 {
@@ -118,7 +118,7 @@ where
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<TProgress: windows_core::RuntimeType + 'static, F: FnMut(windows_core::Ref<IAsyncActionWithProgress<TProgress>>, &<TProgress as windows_core::Type<TProgress>>::Default) -> windows_core::Result<()> + Send + 'static> AsyncActionProgressHandlerBox<TProgress, F> {
+impl<TProgress: windows_core::RuntimeType + 'static, F: FnMut(windows_core::Ref<IAsyncActionWithProgress<TProgress>>, <TProgress as windows_core::Type<TProgress>>::Ref) -> windows_core::Result<()> + Send + 'static> AsyncActionProgressHandlerBox<TProgress, F> {
     const VTABLE: AsyncActionProgressHandler_Vtbl<TProgress> = AsyncActionProgressHandler_Vtbl::<TProgress> {
         base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
@@ -158,7 +158,7 @@ impl<TProgress: windows_core::RuntimeType + 'static, F: FnMut(windows_core::Ref<
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, asyncinfo: *mut core::ffi::c_void, progressinfo: windows_core::AbiType<TProgress>) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-            (this.invoke)(core::mem::transmute_copy(&asyncinfo), core::mem::transmute(&progressinfo)).into()
+            (this.invoke)(core::mem::transmute_copy(&asyncinfo), core::mem::transmute_copy(&progressinfo)).into()
         }
     }
 }
@@ -350,7 +350,7 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({55690902-0aab-421a-8778-f8ce5026d758}").push_slice(b";").push_other(TResult::SIGNATURE).push_slice(b";").push_other(TProgress::SIGNATURE).push_slice(b")");
 }
 impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> AsyncOperationProgressHandler<TResult, TProgress> {
-    pub fn new<F: FnMut(windows_core::Ref<IAsyncOperationWithProgress<TResult, TProgress>>, &<TProgress as windows_core::Type<TProgress>>::Default) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(windows_core::Ref<IAsyncOperationWithProgress<TResult, TProgress>>, <TProgress as windows_core::Type<TProgress>>::Ref) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = AsyncOperationProgressHandlerBox { vtable: &AsyncOperationProgressHandlerBox::<TResult, TProgress, F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -375,7 +375,7 @@ where
     TProgress: core::marker::PhantomData<TProgress>,
 }
 #[repr(C)]
-struct AsyncOperationProgressHandlerBox<TResult, TProgress, F: FnMut(windows_core::Ref<IAsyncOperationWithProgress<TResult, TProgress>>, &<TProgress as windows_core::Type<TProgress>>::Default) -> windows_core::Result<()> + Send + 'static>
+struct AsyncOperationProgressHandlerBox<TResult, TProgress, F: FnMut(windows_core::Ref<IAsyncOperationWithProgress<TResult, TProgress>>, <TProgress as windows_core::Type<TProgress>>::Ref) -> windows_core::Result<()> + Send + 'static>
 where
     TResult: windows_core::RuntimeType + 'static,
     TProgress: windows_core::RuntimeType + 'static,
@@ -384,7 +384,7 @@ where
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static, F: FnMut(windows_core::Ref<IAsyncOperationWithProgress<TResult, TProgress>>, &<TProgress as windows_core::Type<TProgress>>::Default) -> windows_core::Result<()> + Send + 'static> AsyncOperationProgressHandlerBox<TResult, TProgress, F> {
+impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static, F: FnMut(windows_core::Ref<IAsyncOperationWithProgress<TResult, TProgress>>, <TProgress as windows_core::Type<TProgress>>::Ref) -> windows_core::Result<()> + Send + 'static> AsyncOperationProgressHandlerBox<TResult, TProgress, F> {
     const VTABLE: AsyncOperationProgressHandler_Vtbl<TResult, TProgress> = AsyncOperationProgressHandler_Vtbl::<TResult, TProgress> {
         base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
@@ -425,7 +425,7 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, asyncinfo: *mut core::ffi::c_void, progressinfo: windows_core::AbiType<TProgress>) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-            (this.invoke)(core::mem::transmute_copy(&asyncinfo), core::mem::transmute(&progressinfo)).into()
+            (this.invoke)(core::mem::transmute_copy(&asyncinfo), core::mem::transmute_copy(&progressinfo)).into()
         }
     }
 }
@@ -665,7 +665,7 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for Event
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({9de1c535-6ae1-11e0-84e1-18a905bcc53f}").push_slice(b";").push_other(T::SIGNATURE).push_slice(b")");
 }
 impl<T: windows_core::RuntimeType + 'static> EventHandler<T> {
-    pub fn new<F: FnMut(windows_core::Ref<windows_core::IInspectable>, &<T as windows_core::Type<T>>::Default) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(windows_core::Ref<windows_core::IInspectable>, <T as windows_core::Type<T>>::Ref) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = EventHandlerBox { vtable: &EventHandlerBox::<T, F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -688,7 +688,7 @@ where
     T: core::marker::PhantomData<T>,
 }
 #[repr(C)]
-struct EventHandlerBox<T, F: FnMut(windows_core::Ref<windows_core::IInspectable>, &<T as windows_core::Type<T>>::Default) -> windows_core::Result<()> + Send + 'static>
+struct EventHandlerBox<T, F: FnMut(windows_core::Ref<windows_core::IInspectable>, <T as windows_core::Type<T>>::Ref) -> windows_core::Result<()> + Send + 'static>
 where
     T: windows_core::RuntimeType + 'static,
 {
@@ -696,7 +696,7 @@ where
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<T: windows_core::RuntimeType + 'static, F: FnMut(windows_core::Ref<windows_core::IInspectable>, &<T as windows_core::Type<T>>::Default) -> windows_core::Result<()> + Send + 'static> EventHandlerBox<T, F> {
+impl<T: windows_core::RuntimeType + 'static, F: FnMut(windows_core::Ref<windows_core::IInspectable>, <T as windows_core::Type<T>>::Ref) -> windows_core::Result<()> + Send + 'static> EventHandlerBox<T, F> {
     const VTABLE: EventHandler_Vtbl<T> = EventHandler_Vtbl::<T> {
         base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
@@ -736,7 +736,7 @@ impl<T: windows_core::RuntimeType + 'static, F: FnMut(windows_core::Ref<windows_
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: windows_core::AbiType<T>) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-            (this.invoke)(core::mem::transmute_copy(&sender), core::mem::transmute(&args)).into()
+            (this.invoke)(core::mem::transmute_copy(&sender), core::mem::transmute_copy(&args)).into()
         }
     }
 }
@@ -3685,7 +3685,7 @@ impl<TSender: windows_core::RuntimeType + 'static, TResult: windows_core::Runtim
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({9de1c534-6ae1-11e0-84e1-18a905bcc53f}").push_slice(b";").push_other(TSender::SIGNATURE).push_slice(b";").push_other(TResult::SIGNATURE).push_slice(b")");
 }
 impl<TSender: windows_core::RuntimeType + 'static, TResult: windows_core::RuntimeType + 'static> TypedEventHandler<TSender, TResult> {
-    pub fn new<F: FnMut(&<TSender as windows_core::Type<TSender>>::Default, &<TResult as windows_core::Type<TResult>>::Default) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(<TSender as windows_core::Type<TSender>>::Ref, <TResult as windows_core::Type<TResult>>::Ref) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = TypedEventHandlerBox { vtable: &TypedEventHandlerBox::<TSender, TResult, F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -3710,7 +3710,7 @@ where
     TResult: core::marker::PhantomData<TResult>,
 }
 #[repr(C)]
-struct TypedEventHandlerBox<TSender, TResult, F: FnMut(&<TSender as windows_core::Type<TSender>>::Default, &<TResult as windows_core::Type<TResult>>::Default) -> windows_core::Result<()> + Send + 'static>
+struct TypedEventHandlerBox<TSender, TResult, F: FnMut(<TSender as windows_core::Type<TSender>>::Ref, <TResult as windows_core::Type<TResult>>::Ref) -> windows_core::Result<()> + Send + 'static>
 where
     TSender: windows_core::RuntimeType + 'static,
     TResult: windows_core::RuntimeType + 'static,
@@ -3719,7 +3719,7 @@ where
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<TSender: windows_core::RuntimeType + 'static, TResult: windows_core::RuntimeType + 'static, F: FnMut(&<TSender as windows_core::Type<TSender>>::Default, &<TResult as windows_core::Type<TResult>>::Default) -> windows_core::Result<()> + Send + 'static> TypedEventHandlerBox<TSender, TResult, F> {
+impl<TSender: windows_core::RuntimeType + 'static, TResult: windows_core::RuntimeType + 'static, F: FnMut(<TSender as windows_core::Type<TSender>>::Ref, <TResult as windows_core::Type<TResult>>::Ref) -> windows_core::Result<()> + Send + 'static> TypedEventHandlerBox<TSender, TResult, F> {
     const VTABLE: TypedEventHandler_Vtbl<TSender, TResult> = TypedEventHandler_Vtbl::<TSender, TResult> {
         base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
@@ -3760,7 +3760,7 @@ impl<TSender: windows_core::RuntimeType + 'static, TResult: windows_core::Runtim
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: windows_core::AbiType<TSender>, args: windows_core::AbiType<TResult>) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-            (this.invoke)(core::mem::transmute(&sender), core::mem::transmute(&args)).into()
+            (this.invoke)(core::mem::transmute_copy(&sender), core::mem::transmute_copy(&args)).into()
         }
     }
 }
