@@ -35,7 +35,7 @@ windows_targets::link!("sensorsutilsv2.dll" "system" fn IsKeyPresentInPropertyLi
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 windows_targets::link!("sensorsutilsv2.dll" "system" fn IsSensorSubscribed(subscriptionlist : *const SENSOR_COLLECTION_LIST, currenttype : windows_sys::core::GUID) -> bool);
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-windows_targets::link!("sensorsutilsv2.dll" "system" fn PropKeyFindKeyGetBool(plist : *const SENSOR_COLLECTION_LIST, pkey : *const super::super::Foundation:: PROPERTYKEY, pretvalue : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: NTSTATUS);
+windows_targets::link!("sensorsutilsv2.dll" "system" fn PropKeyFindKeyGetBool(plist : *const SENSOR_COLLECTION_LIST, pkey : *const super::super::Foundation:: PROPERTYKEY, pretvalue : *mut windows_sys::core::BOOL) -> super::super::Foundation:: NTSTATUS);
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 windows_targets::link!("sensorsutilsv2.dll" "system" fn PropKeyFindKeyGetDouble(plist : *const SENSOR_COLLECTION_LIST, pkey : *const super::super::Foundation:: PROPERTYKEY, pretvalue : *mut f64) -> super::super::Foundation:: NTSTATUS);
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]

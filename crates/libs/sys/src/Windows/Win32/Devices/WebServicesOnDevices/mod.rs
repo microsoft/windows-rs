@@ -273,7 +273,7 @@ pub type WSD_CONFIG_PARAM_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_DATETIME {
-    pub isPositive: super::super::Foundation::BOOL,
+    pub isPositive: windows_sys::core::BOOL,
     pub year: u32,
     pub month: u8,
     pub day: u8,
@@ -281,8 +281,8 @@ pub struct WSD_DATETIME {
     pub minute: u8,
     pub second: u8,
     pub millisecond: u32,
-    pub TZIsLocal: super::super::Foundation::BOOL,
-    pub TZIsPositive: super::super::Foundation::BOOL,
+    pub TZIsLocal: windows_sys::core::BOOL,
+    pub TZIsPositive: windows_sys::core::BOOL,
     pub TZHour: u8,
     pub TZMinute: u8,
 }
@@ -292,7 +292,7 @@ pub const WSD_DEFAULT_SECURE_HOSTING_ADDRESS: windows_sys::core::PCWSTR = window
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_DURATION {
-    pub isPositive: super::super::Foundation::BOOL,
+    pub isPositive: windows_sys::core::BOOL,
     pub year: u32,
     pub month: u32,
     pub day: u32,

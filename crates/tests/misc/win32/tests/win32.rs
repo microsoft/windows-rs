@@ -1,6 +1,6 @@
 use windows::{
     core::*,
-    Win32::Foundation::{CloseHandle, BOOL, HANDLE, HWND, RECT},
+    Win32::Foundation::{CloseHandle, HANDLE, HWND, RECT},
     Win32::Gaming::HasExpandedResources,
     Win32::Graphics::Direct3D::Fxc::*,
     Win32::Graphics::{

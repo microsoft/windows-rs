@@ -106,8 +106,8 @@ pub unsafe fn InvokePattern_Invoke(hobj: HUIAPATTERNOBJECT) -> windows_core::Res
     unsafe { InvokePattern_Invoke(hobj).ok() }
 }
 #[inline]
-pub unsafe fn IsWinEventHookInstalled(event: u32) -> super::super::Foundation::BOOL {
-    windows_targets::link!("user32.dll" "system" fn IsWinEventHookInstalled(event : u32) -> super::super::Foundation:: BOOL);
+pub unsafe fn IsWinEventHookInstalled(event: u32) -> windows_core::BOOL {
+    windows_targets::link!("user32.dll" "system" fn IsWinEventHookInstalled(event : u32) -> windows_core::BOOL);
     unsafe { IsWinEventHookInstalled(event) }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -179,13 +179,13 @@ pub unsafe fn RangeValuePattern_SetValue(hobj: HUIAPATTERNOBJECT, val: f64) -> w
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn RegisterPointerInputTarget(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> windows_core::Result<()> {
-    windows_targets::link!("user32.dll" "system" fn RegisterPointerInputTarget(hwnd : super::super::Foundation:: HWND, pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("user32.dll" "system" fn RegisterPointerInputTarget(hwnd : super::super::Foundation:: HWND, pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE) -> windows_core::BOOL);
     unsafe { RegisterPointerInputTarget(hwnd, pointertype).ok() }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn RegisterPointerInputTargetEx(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE, fobserve: bool) -> super::super::Foundation::BOOL {
-    windows_targets::link!("user32.dll" "system" fn RegisterPointerInputTargetEx(hwnd : super::super::Foundation:: HWND, pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE, fobserve : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+pub unsafe fn RegisterPointerInputTargetEx(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE, fobserve: bool) -> windows_core::BOOL {
+    windows_targets::link!("user32.dll" "system" fn RegisterPointerInputTargetEx(hwnd : super::super::Foundation:: HWND, pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE, fobserve : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { RegisterPointerInputTargetEx(hwnd, pointertype, fobserve.into()) }
 }
 #[inline]
@@ -276,8 +276,8 @@ pub unsafe fn TextRange_Clone(hobj: HUIATEXTRANGE, pretval: *mut HUIATEXTRANGE) 
     unsafe { TextRange_Clone(hobj, pretval as _).ok() }
 }
 #[inline]
-pub unsafe fn TextRange_Compare(hobj: HUIATEXTRANGE, range: HUIATEXTRANGE, pretval: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
-    windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_Compare(hobj : HUIATEXTRANGE, range : HUIATEXTRANGE, pretval : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+pub unsafe fn TextRange_Compare(hobj: HUIATEXTRANGE, range: HUIATEXTRANGE, pretval: *mut windows_core::BOOL) -> windows_core::Result<()> {
+    windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_Compare(hobj : HUIATEXTRANGE, range : HUIATEXTRANGE, pretval : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { TextRange_Compare(hobj, range, pretval as _).ok() }
 }
 #[inline]
@@ -293,12 +293,12 @@ pub unsafe fn TextRange_ExpandToEnclosingUnit(hobj: HUIATEXTRANGE, unit: TextUni
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn TextRange_FindAttribute(hobj: HUIATEXTRANGE, attributeid: i32, val: &super::super::System::Variant::VARIANT, backward: bool, pretval: *mut HUIATEXTRANGE) -> windows_core::Result<()> {
-    windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_FindAttribute(hobj : HUIATEXTRANGE, attributeid : i32, val : super::super::System::Variant:: VARIANT, backward : super::super::Foundation:: BOOL, pretval : *mut HUIATEXTRANGE) -> windows_core::HRESULT);
+    windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_FindAttribute(hobj : HUIATEXTRANGE, attributeid : i32, val : super::super::System::Variant:: VARIANT, backward : windows_core::BOOL, pretval : *mut HUIATEXTRANGE) -> windows_core::HRESULT);
     unsafe { TextRange_FindAttribute(hobj, attributeid, core::mem::transmute_copy(val), backward.into(), pretval as _).ok() }
 }
 #[inline]
 pub unsafe fn TextRange_FindText(hobj: HUIATEXTRANGE, text: &windows_core::BSTR, backward: bool, ignorecase: bool, pretval: *mut HUIATEXTRANGE) -> windows_core::Result<()> {
-    windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_FindText(hobj : HUIATEXTRANGE, text : * mut core::ffi::c_void, backward : super::super::Foundation:: BOOL, ignorecase : super::super::Foundation:: BOOL, pretval : *mut HUIATEXTRANGE) -> windows_core::HRESULT);
+    windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_FindText(hobj : HUIATEXTRANGE, text : * mut core::ffi::c_void, backward : windows_core::BOOL, ignorecase : windows_core::BOOL, pretval : *mut HUIATEXTRANGE) -> windows_core::HRESULT);
     unsafe { TextRange_FindText(hobj, core::mem::transmute_copy(text), backward.into(), ignorecase.into(), pretval as _).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -351,7 +351,7 @@ pub unsafe fn TextRange_RemoveFromSelection(hobj: HUIATEXTRANGE) -> windows_core
 }
 #[inline]
 pub unsafe fn TextRange_ScrollIntoView(hobj: HUIATEXTRANGE, aligntotop: bool) -> windows_core::Result<()> {
-    windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_ScrollIntoView(hobj : HUIATEXTRANGE, aligntotop : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_ScrollIntoView(hobj : HUIATEXTRANGE, aligntotop : windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { TextRange_ScrollIntoView(hobj, aligntotop.into()).ok() }
 }
 #[inline]
@@ -386,8 +386,8 @@ pub unsafe fn UiaAddEvent(hnode: HUIANODE, eventid: i32, pcallback: *mut UiaEven
     unsafe { UiaAddEvent(hnode, eventid, pcallback as _, scope, pproperties as _, cproperties, prequest as _, phevent as _).ok() }
 }
 #[inline]
-pub unsafe fn UiaClientsAreListening() -> super::super::Foundation::BOOL {
-    windows_targets::link!("uiautomationcore.dll" "system" fn UiaClientsAreListening() -> super::super::Foundation:: BOOL);
+pub unsafe fn UiaClientsAreListening() -> windows_core::BOOL {
+    windows_targets::link!("uiautomationcore.dll" "system" fn UiaClientsAreListening() -> windows_core::BOOL);
     unsafe { UiaClientsAreListening() }
 }
 #[inline]
@@ -420,8 +420,8 @@ pub unsafe fn UiaFind(hnode: HUIANODE, pparams: *mut UiaFindParams, prequest: *m
     unsafe { UiaFind(hnode, pparams as _, prequest as _, pprequesteddata as _, ppoffsets as _, pptreestructures as _).ok() }
 }
 #[inline]
-pub unsafe fn UiaGetErrorDescription(pdescription: *mut windows_core::BSTR) -> super::super::Foundation::BOOL {
-    windows_targets::link!("uiautomationcore.dll" "system" fn UiaGetErrorDescription(pdescription : *mut * mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
+pub unsafe fn UiaGetErrorDescription(pdescription: *mut windows_core::BSTR) -> windows_core::BOOL {
+    windows_targets::link!("uiautomationcore.dll" "system" fn UiaGetErrorDescription(pdescription : *mut * mut core::ffi::c_void) -> windows_core::BOOL);
     unsafe { UiaGetErrorDescription(core::mem::transmute(pdescription)) }
 }
 #[inline]
@@ -487,8 +487,8 @@ pub unsafe fn UiaHUiaNodeFromVariant(pvar: *mut super::super::System::Variant::V
     unsafe { UiaHUiaNodeFromVariant(core::mem::transmute(pvar), phnode as _).ok() }
 }
 #[inline]
-pub unsafe fn UiaHasServerSideProvider(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL {
-    windows_targets::link!("uiautomationcore.dll" "system" fn UiaHasServerSideProvider(hwnd : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
+pub unsafe fn UiaHasServerSideProvider(hwnd: super::super::Foundation::HWND) -> windows_core::BOOL {
+    windows_targets::link!("uiautomationcore.dll" "system" fn UiaHasServerSideProvider(hwnd : super::super::Foundation:: HWND) -> windows_core::BOOL);
     unsafe { UiaHasServerSideProvider(hwnd) }
 }
 #[inline]
@@ -545,13 +545,13 @@ where
     unsafe { UiaNodeFromProvider(pprovider.param().abi(), phnode as _).ok() }
 }
 #[inline]
-pub unsafe fn UiaNodeRelease(hnode: HUIANODE) -> super::super::Foundation::BOOL {
-    windows_targets::link!("uiautomationcore.dll" "system" fn UiaNodeRelease(hnode : HUIANODE) -> super::super::Foundation:: BOOL);
+pub unsafe fn UiaNodeRelease(hnode: HUIANODE) -> windows_core::BOOL {
+    windows_targets::link!("uiautomationcore.dll" "system" fn UiaNodeRelease(hnode : HUIANODE) -> windows_core::BOOL);
     unsafe { UiaNodeRelease(hnode) }
 }
 #[inline]
-pub unsafe fn UiaPatternRelease(hobj: HUIAPATTERNOBJECT) -> super::super::Foundation::BOOL {
-    windows_targets::link!("uiautomationcore.dll" "system" fn UiaPatternRelease(hobj : HUIAPATTERNOBJECT) -> super::super::Foundation:: BOOL);
+pub unsafe fn UiaPatternRelease(hobj: HUIAPATTERNOBJECT) -> windows_core::BOOL {
+    windows_targets::link!("uiautomationcore.dll" "system" fn UiaPatternRelease(hobj : HUIAPATTERNOBJECT) -> windows_core::BOOL);
     unsafe { UiaPatternRelease(hobj) }
 }
 #[inline]
@@ -667,25 +667,25 @@ pub unsafe fn UiaSetFocus(hnode: HUIANODE) -> windows_core::Result<()> {
     unsafe { UiaSetFocus(hnode).ok() }
 }
 #[inline]
-pub unsafe fn UiaTextRangeRelease(hobj: HUIATEXTRANGE) -> super::super::Foundation::BOOL {
-    windows_targets::link!("uiautomationcore.dll" "system" fn UiaTextRangeRelease(hobj : HUIATEXTRANGE) -> super::super::Foundation:: BOOL);
+pub unsafe fn UiaTextRangeRelease(hobj: HUIATEXTRANGE) -> windows_core::BOOL {
+    windows_targets::link!("uiautomationcore.dll" "system" fn UiaTextRangeRelease(hobj : HUIATEXTRANGE) -> windows_core::BOOL);
     unsafe { UiaTextRangeRelease(hobj) }
 }
 #[inline]
-pub unsafe fn UnhookWinEvent(hwineventhook: HWINEVENTHOOK) -> super::super::Foundation::BOOL {
-    windows_targets::link!("user32.dll" "system" fn UnhookWinEvent(hwineventhook : HWINEVENTHOOK) -> super::super::Foundation:: BOOL);
+pub unsafe fn UnhookWinEvent(hwineventhook: HWINEVENTHOOK) -> windows_core::BOOL {
+    windows_targets::link!("user32.dll" "system" fn UnhookWinEvent(hwineventhook : HWINEVENTHOOK) -> windows_core::BOOL);
     unsafe { UnhookWinEvent(hwineventhook) }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn UnregisterPointerInputTarget(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> windows_core::Result<()> {
-    windows_targets::link!("user32.dll" "system" fn UnregisterPointerInputTarget(hwnd : super::super::Foundation:: HWND, pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("user32.dll" "system" fn UnregisterPointerInputTarget(hwnd : super::super::Foundation:: HWND, pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE) -> windows_core::BOOL);
     unsafe { UnregisterPointerInputTarget(hwnd, pointertype).ok() }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn UnregisterPointerInputTargetEx(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL {
-    windows_targets::link!("user32.dll" "system" fn UnregisterPointerInputTargetEx(hwnd : super::super::Foundation:: HWND, pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE) -> super::super::Foundation:: BOOL);
+pub unsafe fn UnregisterPointerInputTargetEx(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> windows_core::BOOL {
+    windows_targets::link!("user32.dll" "system" fn UnregisterPointerInputTargetEx(hwnd : super::super::Foundation:: HWND, pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE) -> windows_core::BOOL);
     unsafe { UnregisterPointerInputTargetEx(hwnd, pointertype) }
 }
 #[inline]
@@ -721,8 +721,8 @@ pub unsafe fn WindowPattern_SetWindowVisualState(hobj: HUIAPATTERNOBJECT, state:
     unsafe { WindowPattern_SetWindowVisualState(hobj, state).ok() }
 }
 #[inline]
-pub unsafe fn WindowPattern_WaitForInputIdle(hobj: HUIAPATTERNOBJECT, milliseconds: i32, presult: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
-    windows_targets::link!("uiautomationcore.dll" "system" fn WindowPattern_WaitForInputIdle(hobj : HUIAPATTERNOBJECT, milliseconds : i32, presult : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+pub unsafe fn WindowPattern_WaitForInputIdle(hobj: HUIAPATTERNOBJECT, milliseconds: i32, presult: *mut windows_core::BOOL) -> windows_core::Result<()> {
+    windows_targets::link!("uiautomationcore.dll" "system" fn WindowPattern_WaitForInputIdle(hobj : HUIAPATTERNOBJECT, milliseconds : i32, presult : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { WindowPattern_WaitForInputIdle(hobj, milliseconds, presult as _).ok() }
 }
 #[repr(C)]
@@ -1337,7 +1337,7 @@ windows_core::imp::define_interface!(IAccPropServer, IAccPropServer_Vtbl, 0x76c0
 windows_core::imp::interface_hierarchy!(IAccPropServer, windows_core::IUnknown);
 impl IAccPropServer {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetPropValue(&self, pidstring: &[u8], idprop: windows_core::GUID, pvarvalue: *mut super::super::System::Variant::VARIANT, pfhasprop: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn GetPropValue(&self, pidstring: &[u8], idprop: windows_core::GUID, pvarvalue: *mut super::super::System::Variant::VARIANT, pfhasprop: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetPropValue)(windows_core::Interface::as_raw(self), core::mem::transmute(pidstring.as_ptr()), pidstring.len().try_into().unwrap(), core::mem::transmute(idprop), core::mem::transmute(pvarvalue), pfhasprop as _).ok() }
     }
 }
@@ -1345,18 +1345,18 @@ impl IAccPropServer {
 pub struct IAccPropServer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetPropValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, windows_core::GUID, *mut super::super::System::Variant::VARIANT, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetPropValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, windows_core::GUID, *mut super::super::System::Variant::VARIANT, *mut windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetPropValue: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAccPropServer_Impl: windows_core::IUnknownImpl {
-    fn GetPropValue(&self, pidstring: *const u8, dwidstringlen: u32, idprop: &windows_core::GUID, pvarvalue: *mut super::super::System::Variant::VARIANT, pfhasprop: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn GetPropValue(&self, pidstring: *const u8, dwidstringlen: u32, idprop: &windows_core::GUID, pvarvalue: *mut super::super::System::Variant::VARIANT, pfhasprop: *mut windows_core::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAccPropServer_Vtbl {
     pub const fn new<Identity: IAccPropServer_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetPropValue<Identity: IAccPropServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidstring: *const u8, dwidstringlen: u32, idprop: windows_core::GUID, pvarvalue: *mut super::super::System::Variant::VARIANT, pfhasprop: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPropValue<Identity: IAccPropServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidstring: *const u8, dwidstringlen: u32, idprop: windows_core::GUID, pvarvalue: *mut super::super::System::Variant::VARIANT, pfhasprop: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAccPropServer_Impl::GetPropValue(this, core::mem::transmute_copy(&pidstring), core::mem::transmute_copy(&dwidstringlen), core::mem::transmute(&idprop), core::mem::transmute_copy(&pvarvalue), core::mem::transmute_copy(&pfhasprop)).into()
@@ -2695,7 +2695,7 @@ impl windows_core::RuntimeName for IDockProvider {}
 windows_core::imp::define_interface!(IDragProvider, IDragProvider_Vtbl, 0x6aa7bbbb_7ff9_497d_904f_d20b897929d8);
 windows_core::imp::interface_hierarchy!(IDragProvider, windows_core::IUnknown);
 impl IDragProvider {
-    pub unsafe fn IsGrabbed(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsGrabbed(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsGrabbed)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2725,7 +2725,7 @@ impl IDragProvider {
 #[repr(C)]
 pub struct IDragProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub IsGrabbed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsGrabbed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub DropEffect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub DropEffects: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT,
@@ -2738,7 +2738,7 @@ pub struct IDragProvider_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDragProvider_Impl: windows_core::IUnknownImpl {
-    fn IsGrabbed(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn IsGrabbed(&self) -> windows_core::Result<windows_core::BOOL>;
     fn DropEffect(&self) -> windows_core::Result<windows_core::BSTR>;
     fn DropEffects(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn GetGrabbedItems(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
@@ -2746,7 +2746,7 @@ pub trait IDragProvider_Impl: windows_core::IUnknownImpl {
 #[cfg(feature = "Win32_System_Com")]
 impl IDragProvider_Vtbl {
     pub const fn new<Identity: IDragProvider_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn IsGrabbed<Identity: IDragProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsGrabbed<Identity: IDragProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDragProvider_Impl::IsGrabbed(this) {
@@ -3801,7 +3801,7 @@ impl IRangeValueProvider {
             (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsReadOnly(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsReadOnly(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsReadOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3837,7 +3837,7 @@ pub struct IRangeValueProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub IsReadOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsReadOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub Maximum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub Minimum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub LargeChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
@@ -3846,7 +3846,7 @@ pub struct IRangeValueProvider_Vtbl {
 pub trait IRangeValueProvider_Impl: windows_core::IUnknownImpl {
     fn SetValue(&self, val: f64) -> windows_core::Result<()>;
     fn Value(&self) -> windows_core::Result<f64>;
-    fn IsReadOnly(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn IsReadOnly(&self) -> windows_core::Result<windows_core::BOOL>;
     fn Maximum(&self) -> windows_core::Result<f64>;
     fn Minimum(&self) -> windows_core::Result<f64>;
     fn LargeChange(&self) -> windows_core::Result<f64>;
@@ -3872,7 +3872,7 @@ impl IRangeValueProvider_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsReadOnly<Identity: IRangeValueProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsReadOnly<Identity: IRangeValueProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRangeValueProvider_Impl::IsReadOnly(this) {
@@ -4724,13 +4724,13 @@ impl IScrollProvider {
             (windows_core::Interface::vtable(self).VerticalViewSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn HorizontallyScrollable(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn HorizontallyScrollable(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).HorizontallyScrollable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn VerticallyScrollable(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn VerticallyScrollable(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).VerticallyScrollable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -4746,8 +4746,8 @@ pub struct IScrollProvider_Vtbl {
     pub VerticalScrollPercent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub HorizontalViewSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub VerticalViewSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub HorizontallyScrollable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub VerticallyScrollable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub HorizontallyScrollable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub VerticallyScrollable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IScrollProvider_Impl: windows_core::IUnknownImpl {
     fn Scroll(&self, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> windows_core::Result<()>;
@@ -4756,8 +4756,8 @@ pub trait IScrollProvider_Impl: windows_core::IUnknownImpl {
     fn VerticalScrollPercent(&self) -> windows_core::Result<f64>;
     fn HorizontalViewSize(&self) -> windows_core::Result<f64>;
     fn VerticalViewSize(&self) -> windows_core::Result<f64>;
-    fn HorizontallyScrollable(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn VerticallyScrollable(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn HorizontallyScrollable(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn VerticallyScrollable(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IScrollProvider_Vtbl {
     pub const fn new<Identity: IScrollProvider_Impl, const OFFSET: isize>() -> Self {
@@ -4821,7 +4821,7 @@ impl IScrollProvider_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn HorizontallyScrollable<Identity: IScrollProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn HorizontallyScrollable<Identity: IScrollProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IScrollProvider_Impl::HorizontallyScrollable(this) {
@@ -4833,7 +4833,7 @@ impl IScrollProvider_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn VerticallyScrollable<Identity: IScrollProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn VerticallyScrollable<Identity: IScrollProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IScrollProvider_Impl::VerticallyScrollable(this) {
@@ -4874,7 +4874,7 @@ impl ISelectionItemProvider {
     pub unsafe fn RemoveFromSelection(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveFromSelection)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn IsSelected(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsSelected(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsSelected)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -4893,14 +4893,14 @@ pub struct ISelectionItemProvider_Vtbl {
     pub Select: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddToSelection: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveFromSelection: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub IsSelected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsSelected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub SelectionContainer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ISelectionItemProvider_Impl: windows_core::IUnknownImpl {
     fn Select(&self) -> windows_core::Result<()>;
     fn AddToSelection(&self) -> windows_core::Result<()>;
     fn RemoveFromSelection(&self) -> windows_core::Result<()>;
-    fn IsSelected(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn IsSelected(&self) -> windows_core::Result<windows_core::BOOL>;
     fn SelectionContainer(&self) -> windows_core::Result<IRawElementProviderSimple>;
 }
 impl ISelectionItemProvider_Vtbl {
@@ -4923,7 +4923,7 @@ impl ISelectionItemProvider_Vtbl {
                 ISelectionItemProvider_Impl::RemoveFromSelection(this).into()
             }
         }
-        unsafe extern "system" fn IsSelected<Identity: ISelectionItemProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsSelected<Identity: ISelectionItemProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISelectionItemProvider_Impl::IsSelected(this) {
@@ -4971,13 +4971,13 @@ impl ISelectionProvider {
             (windows_core::Interface::vtable(self).GetSelection)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CanSelectMultiple(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CanSelectMultiple(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CanSelectMultiple)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsSelectionRequired(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsSelectionRequired(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsSelectionRequired)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -4991,14 +4991,14 @@ pub struct ISelectionProvider_Vtbl {
     pub GetSelection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetSelection: usize,
-    pub CanSelectMultiple: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub IsSelectionRequired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CanSelectMultiple: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub IsSelectionRequired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISelectionProvider_Impl: windows_core::IUnknownImpl {
     fn GetSelection(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn CanSelectMultiple(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn IsSelectionRequired(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn CanSelectMultiple(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn IsSelectionRequired(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ISelectionProvider_Vtbl {
@@ -5015,7 +5015,7 @@ impl ISelectionProvider_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CanSelectMultiple<Identity: ISelectionProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CanSelectMultiple<Identity: ISelectionProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISelectionProvider_Impl::CanSelectMultiple(this) {
@@ -5027,7 +5027,7 @@ impl ISelectionProvider_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsSelectionRequired<Identity: ISelectionProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsSelectionRequired<Identity: ISelectionProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISelectionProvider_Impl::IsSelectionRequired(this) {
@@ -5999,7 +5999,7 @@ impl ITextProvider2 {
             (windows_core::Interface::vtable(self).RangeFromAnnotation)(windows_core::Interface::as_raw(self), annotationelement.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetCaretRange(&self, isactive: *mut super::super::Foundation::BOOL) -> windows_core::Result<ITextRangeProvider> {
+    pub unsafe fn GetCaretRange(&self, isactive: *mut windows_core::BOOL) -> windows_core::Result<ITextRangeProvider> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCaretRange)(windows_core::Interface::as_raw(self), isactive as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -6010,12 +6010,12 @@ impl ITextProvider2 {
 pub struct ITextProvider2_Vtbl {
     pub base__: ITextProvider_Vtbl,
     pub RangeFromAnnotation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetCaretRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetCaretRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITextProvider2_Impl: ITextProvider_Impl {
     fn RangeFromAnnotation(&self, annotationelement: windows_core::Ref<IRawElementProviderSimple>) -> windows_core::Result<ITextRangeProvider>;
-    fn GetCaretRange(&self, isactive: *mut super::super::Foundation::BOOL) -> windows_core::Result<ITextRangeProvider>;
+    fn GetCaretRange(&self, isactive: *mut windows_core::BOOL) -> windows_core::Result<ITextRangeProvider>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ITextProvider2_Vtbl {
@@ -6032,7 +6032,7 @@ impl ITextProvider2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetCaretRange<Identity: ITextProvider2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isactive: *mut super::super::Foundation::BOOL, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCaretRange<Identity: ITextProvider2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isactive: *mut windows_core::BOOL, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextProvider2_Impl::GetCaretRange(this, core::mem::transmute_copy(&isactive)) {
@@ -6065,7 +6065,7 @@ impl ITextRangeProvider {
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Compare<P0>(&self, range: P0) -> windows_core::Result<super::super::Foundation::BOOL>
+    pub unsafe fn Compare<P0>(&self, range: P0) -> windows_core::Result<windows_core::BOOL>
     where
         P0: windows_core::Param<ITextRangeProvider>,
     {
@@ -6167,14 +6167,14 @@ impl ITextRangeProvider {
 pub struct ITextRangeProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Compare: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub Compare: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CompareEndpoints: unsafe extern "system" fn(*mut core::ffi::c_void, TextPatternRangeEndpoint, *mut core::ffi::c_void, TextPatternRangeEndpoint, *mut i32) -> windows_core::HRESULT,
     pub ExpandToEnclosingUnit: unsafe extern "system" fn(*mut core::ffi::c_void, TextUnit) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub FindAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, UIA_TEXTATTRIBUTE_ID, super::super::System::Variant::VARIANT, super::super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FindAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, UIA_TEXTATTRIBUTE_ID, super::super::System::Variant::VARIANT, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     FindAttribute: usize,
-    pub FindText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::BOOL, super::super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FindText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub GetAttributeValue: unsafe extern "system" fn(*mut core::ffi::c_void, UIA_TEXTATTRIBUTE_ID, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
@@ -6191,7 +6191,7 @@ pub struct ITextRangeProvider_Vtbl {
     pub Select: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddToSelection: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveFromSelection: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ScrollIntoView: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub ScrollIntoView: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetChildren: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -6200,11 +6200,11 @@ pub struct ITextRangeProvider_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITextRangeProvider_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<ITextRangeProvider>;
-    fn Compare(&self, range: windows_core::Ref<ITextRangeProvider>) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn Compare(&self, range: windows_core::Ref<ITextRangeProvider>) -> windows_core::Result<windows_core::BOOL>;
     fn CompareEndpoints(&self, endpoint: TextPatternRangeEndpoint, targetrange: windows_core::Ref<ITextRangeProvider>, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<i32>;
     fn ExpandToEnclosingUnit(&self, unit: TextUnit) -> windows_core::Result<()>;
-    fn FindAttribute(&self, attributeid: UIA_TEXTATTRIBUTE_ID, val: &super::super::System::Variant::VARIANT, backward: super::super::Foundation::BOOL) -> windows_core::Result<ITextRangeProvider>;
-    fn FindText(&self, text: &windows_core::BSTR, backward: super::super::Foundation::BOOL, ignorecase: super::super::Foundation::BOOL) -> windows_core::Result<ITextRangeProvider>;
+    fn FindAttribute(&self, attributeid: UIA_TEXTATTRIBUTE_ID, val: &super::super::System::Variant::VARIANT, backward: windows_core::BOOL) -> windows_core::Result<ITextRangeProvider>;
+    fn FindText(&self, text: &windows_core::BSTR, backward: windows_core::BOOL, ignorecase: windows_core::BOOL) -> windows_core::Result<ITextRangeProvider>;
     fn GetAttributeValue(&self, attributeid: UIA_TEXTATTRIBUTE_ID) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn GetBoundingRectangles(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn GetEnclosingElement(&self) -> windows_core::Result<IRawElementProviderSimple>;
@@ -6215,7 +6215,7 @@ pub trait ITextRangeProvider_Impl: windows_core::IUnknownImpl {
     fn Select(&self) -> windows_core::Result<()>;
     fn AddToSelection(&self) -> windows_core::Result<()>;
     fn RemoveFromSelection(&self) -> windows_core::Result<()>;
-    fn ScrollIntoView(&self, aligntotop: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn ScrollIntoView(&self, aligntotop: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetChildren(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -6233,7 +6233,7 @@ impl ITextRangeProvider_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Compare<Identity: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, range: *mut core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn Compare<Identity: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, range: *mut core::ffi::c_void, pretval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextRangeProvider_Impl::Compare(this, core::mem::transmute_copy(&range)) {
@@ -6263,7 +6263,7 @@ impl ITextRangeProvider_Vtbl {
                 ITextRangeProvider_Impl::ExpandToEnclosingUnit(this, core::mem::transmute_copy(&unit)).into()
             }
         }
-        unsafe extern "system" fn FindAttribute<Identity: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributeid: UIA_TEXTATTRIBUTE_ID, val: super::super::System::Variant::VARIANT, backward: super::super::Foundation::BOOL, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn FindAttribute<Identity: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributeid: UIA_TEXTATTRIBUTE_ID, val: super::super::System::Variant::VARIANT, backward: windows_core::BOOL, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextRangeProvider_Impl::FindAttribute(this, core::mem::transmute_copy(&attributeid), core::mem::transmute(&val), core::mem::transmute_copy(&backward)) {
@@ -6275,7 +6275,7 @@ impl ITextRangeProvider_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn FindText<Identity: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: *mut core::ffi::c_void, backward: super::super::Foundation::BOOL, ignorecase: super::super::Foundation::BOOL, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn FindText<Identity: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: *mut core::ffi::c_void, backward: windows_core::BOOL, ignorecase: windows_core::BOOL, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextRangeProvider_Impl::FindText(this, core::mem::transmute(&text), core::mem::transmute_copy(&backward), core::mem::transmute_copy(&ignorecase)) {
@@ -6383,7 +6383,7 @@ impl ITextRangeProvider_Vtbl {
                 ITextRangeProvider_Impl::RemoveFromSelection(this).into()
             }
         }
-        unsafe extern "system" fn ScrollIntoView<Identity: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, aligntotop: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn ScrollIntoView<Identity: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, aligntotop: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITextRangeProvider_Impl::ScrollIntoView(this, core::mem::transmute_copy(&aligntotop)).into()
@@ -6530,19 +6530,19 @@ impl ITransformProvider {
     pub unsafe fn Rotate(&self, degrees: f64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Rotate)(windows_core::Interface::as_raw(self), degrees).ok() }
     }
-    pub unsafe fn CanMove(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CanMove(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CanMove)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CanResize(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CanResize(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CanResize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CanRotate(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CanRotate(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CanRotate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -6555,17 +6555,17 @@ pub struct ITransformProvider_Vtbl {
     pub Move: unsafe extern "system" fn(*mut core::ffi::c_void, f64, f64) -> windows_core::HRESULT,
     pub Resize: unsafe extern "system" fn(*mut core::ffi::c_void, f64, f64) -> windows_core::HRESULT,
     pub Rotate: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
-    pub CanMove: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub CanResize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub CanRotate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CanMove: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub CanResize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub CanRotate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait ITransformProvider_Impl: windows_core::IUnknownImpl {
     fn Move(&self, x: f64, y: f64) -> windows_core::Result<()>;
     fn Resize(&self, width: f64, height: f64) -> windows_core::Result<()>;
     fn Rotate(&self, degrees: f64) -> windows_core::Result<()>;
-    fn CanMove(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn CanResize(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn CanRotate(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn CanMove(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn CanResize(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn CanRotate(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl ITransformProvider_Vtbl {
     pub const fn new<Identity: ITransformProvider_Impl, const OFFSET: isize>() -> Self {
@@ -6587,7 +6587,7 @@ impl ITransformProvider_Vtbl {
                 ITransformProvider_Impl::Rotate(this, core::mem::transmute_copy(&degrees)).into()
             }
         }
-        unsafe extern "system" fn CanMove<Identity: ITransformProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CanMove<Identity: ITransformProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITransformProvider_Impl::CanMove(this) {
@@ -6599,7 +6599,7 @@ impl ITransformProvider_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CanResize<Identity: ITransformProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CanResize<Identity: ITransformProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITransformProvider_Impl::CanResize(this) {
@@ -6611,7 +6611,7 @@ impl ITransformProvider_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CanRotate<Identity: ITransformProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CanRotate<Identity: ITransformProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITransformProvider_Impl::CanRotate(this) {
@@ -6650,7 +6650,7 @@ impl ITransformProvider2 {
     pub unsafe fn Zoom(&self, zoom: f64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Zoom)(windows_core::Interface::as_raw(self), zoom).ok() }
     }
-    pub unsafe fn CanZoom(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CanZoom(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CanZoom)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -6682,7 +6682,7 @@ impl ITransformProvider2 {
 pub struct ITransformProvider2_Vtbl {
     pub base__: ITransformProvider_Vtbl,
     pub Zoom: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
-    pub CanZoom: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CanZoom: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub ZoomLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub ZoomMinimum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub ZoomMaximum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
@@ -6690,7 +6690,7 @@ pub struct ITransformProvider2_Vtbl {
 }
 pub trait ITransformProvider2_Impl: ITransformProvider_Impl {
     fn Zoom(&self, zoom: f64) -> windows_core::Result<()>;
-    fn CanZoom(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn CanZoom(&self) -> windows_core::Result<windows_core::BOOL>;
     fn ZoomLevel(&self) -> windows_core::Result<f64>;
     fn ZoomMinimum(&self) -> windows_core::Result<f64>;
     fn ZoomMaximum(&self) -> windows_core::Result<f64>;
@@ -6704,7 +6704,7 @@ impl ITransformProvider2_Vtbl {
                 ITransformProvider2_Impl::Zoom(this, core::mem::transmute_copy(&zoom)).into()
             }
         }
-        unsafe extern "system" fn CanZoom<Identity: ITransformProvider2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CanZoom<Identity: ITransformProvider2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITransformProvider2_Impl::CanZoom(this) {
@@ -6776,7 +6776,7 @@ impl windows_core::RuntimeName for ITransformProvider2 {}
 windows_core::imp::define_interface!(IUIAutomation, IUIAutomation_Vtbl, 0x30cbe57d_d9d0_452a_ab13_7ac5ac4825ee);
 windows_core::imp::interface_hierarchy!(IUIAutomation, windows_core::IUnknown);
 impl IUIAutomation {
-    pub unsafe fn CompareElements<P0, P1>(&self, el1: P0, el2: P1) -> windows_core::Result<super::super::Foundation::BOOL>
+    pub unsafe fn CompareElements<P0, P1>(&self, el1: P0, el2: P1) -> windows_core::Result<windows_core::BOOL>
     where
         P0: windows_core::Param<IUIAutomationElement>,
         P1: windows_core::Param<IUIAutomationElement>,
@@ -6787,7 +6787,7 @@ impl IUIAutomation {
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CompareRuntimeIds(&self, runtimeid1: *const super::super::System::Com::SAFEARRAY, runtimeid2: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CompareRuntimeIds(&self, runtimeid1: *const super::super::System::Com::SAFEARRAY, runtimeid2: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CompareRuntimeIds)(windows_core::Interface::as_raw(self), runtimeid1, runtimeid2, &mut result__).map(|| result__)
@@ -7132,7 +7132,7 @@ impl IUIAutomation {
         unsafe { (windows_core::Interface::vtable(self).PollForPotentialSupportedProperties)(windows_core::Interface::as_raw(self), pelement.param().abi(), propertyids as _, propertynames as _).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CheckNotSupported(&self, value: &super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CheckNotSupported(&self, value: &super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CheckNotSupported)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value), &mut result__).map(|| result__)
@@ -7175,9 +7175,9 @@ impl IUIAutomation {
 #[repr(C)]
 pub struct IUIAutomation_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub CompareElements: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CompareElements: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub CompareRuntimeIds: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::System::Com::SAFEARRAY, *const super::super::System::Com::SAFEARRAY, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CompareRuntimeIds: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::System::Com::SAFEARRAY, *const super::super::System::Com::SAFEARRAY, *mut windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     CompareRuntimeIds: usize,
     pub GetRootElement: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7265,7 +7265,7 @@ pub struct IUIAutomation_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     PollForPotentialSupportedProperties: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub CheckNotSupported: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CheckNotSupported: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT, *mut windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     CheckNotSupported: usize,
     pub ReservedNotSupportedValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7281,8 +7281,8 @@ pub struct IUIAutomation_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomation_Impl: windows_core::IUnknownImpl {
-    fn CompareElements(&self, el1: windows_core::Ref<IUIAutomationElement>, el2: windows_core::Ref<IUIAutomationElement>) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn CompareRuntimeIds(&self, runtimeid1: *const super::super::System::Com::SAFEARRAY, runtimeid2: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn CompareElements(&self, el1: windows_core::Ref<IUIAutomationElement>, el2: windows_core::Ref<IUIAutomationElement>) -> windows_core::Result<windows_core::BOOL>;
+    fn CompareRuntimeIds(&self, runtimeid1: *const super::super::System::Com::SAFEARRAY, runtimeid2: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<windows_core::BOOL>;
     fn GetRootElement(&self) -> windows_core::Result<IUIAutomationElement>;
     fn ElementFromHandle(&self, hwnd: super::super::Foundation::HWND) -> windows_core::Result<IUIAutomationElement>;
     fn ElementFromPoint(&self, pt: &super::super::Foundation::POINT) -> windows_core::Result<IUIAutomationElement>;
@@ -7331,7 +7331,7 @@ pub trait IUIAutomation_Impl: windows_core::IUnknownImpl {
     fn GetPatternProgrammaticName(&self, pattern: UIA_PATTERN_ID) -> windows_core::Result<windows_core::BSTR>;
     fn PollForPotentialSupportedPatterns(&self, pelement: windows_core::Ref<IUIAutomationElement>, patternids: *mut *mut super::super::System::Com::SAFEARRAY, patternnames: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
     fn PollForPotentialSupportedProperties(&self, pelement: windows_core::Ref<IUIAutomationElement>, propertyids: *mut *mut super::super::System::Com::SAFEARRAY, propertynames: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn CheckNotSupported(&self, value: &super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn CheckNotSupported(&self, value: &super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BOOL>;
     fn ReservedNotSupportedValue(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn ReservedMixedAttributeValue(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn ElementFromIAccessible(&self, accessible: windows_core::Ref<IAccessible>, childid: i32) -> windows_core::Result<IUIAutomationElement>;
@@ -7340,7 +7340,7 @@ pub trait IUIAutomation_Impl: windows_core::IUnknownImpl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomation_Vtbl {
     pub const fn new<Identity: IUIAutomation_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CompareElements<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, el1: *mut core::ffi::c_void, el2: *mut core::ffi::c_void, aresame: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CompareElements<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, el1: *mut core::ffi::c_void, el2: *mut core::ffi::c_void, aresame: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomation_Impl::CompareElements(this, core::mem::transmute_copy(&el1), core::mem::transmute_copy(&el2)) {
@@ -7352,7 +7352,7 @@ impl IUIAutomation_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CompareRuntimeIds<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, runtimeid1: *const super::super::System::Com::SAFEARRAY, runtimeid2: *const super::super::System::Com::SAFEARRAY, aresame: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CompareRuntimeIds<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, runtimeid1: *const super::super::System::Com::SAFEARRAY, runtimeid2: *const super::super::System::Com::SAFEARRAY, aresame: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomation_Impl::CompareRuntimeIds(this, core::mem::transmute_copy(&runtimeid1), core::mem::transmute_copy(&runtimeid2)) {
@@ -7868,7 +7868,7 @@ impl IUIAutomation_Vtbl {
                 IUIAutomation_Impl::PollForPotentialSupportedProperties(this, core::mem::transmute_copy(&pelement), core::mem::transmute_copy(&propertyids), core::mem::transmute_copy(&propertynames)).into()
             }
         }
-        unsafe extern "system" fn CheckNotSupported<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::super::System::Variant::VARIANT, isnotsupported: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CheckNotSupported<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::super::System::Variant::VARIANT, isnotsupported: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomation_Impl::CheckNotSupported(this, core::mem::transmute(&value)) {
@@ -8002,7 +8002,7 @@ impl core::ops::Deref for IUIAutomation2 {
 }
 windows_core::imp::interface_hierarchy!(IUIAutomation2, windows_core::IUnknown, IUIAutomation);
 impl IUIAutomation2 {
-    pub unsafe fn AutoSetFocus(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn AutoSetFocus(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AutoSetFocus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -8033,8 +8033,8 @@ impl IUIAutomation2 {
 #[repr(C)]
 pub struct IUIAutomation2_Vtbl {
     pub base__: IUIAutomation_Vtbl,
-    pub AutoSetFocus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetAutoSetFocus: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub AutoSetFocus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetAutoSetFocus: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub ConnectionTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetConnectionTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub TransactionTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -8042,8 +8042,8 @@ pub struct IUIAutomation2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomation2_Impl: IUIAutomation_Impl {
-    fn AutoSetFocus(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn SetAutoSetFocus(&self, autosetfocus: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn AutoSetFocus(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn SetAutoSetFocus(&self, autosetfocus: windows_core::BOOL) -> windows_core::Result<()>;
     fn ConnectionTimeout(&self) -> windows_core::Result<u32>;
     fn SetConnectionTimeout(&self, timeout: u32) -> windows_core::Result<()>;
     fn TransactionTimeout(&self) -> windows_core::Result<u32>;
@@ -8052,7 +8052,7 @@ pub trait IUIAutomation2_Impl: IUIAutomation_Impl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomation2_Vtbl {
     pub const fn new<Identity: IUIAutomation2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn AutoSetFocus<Identity: IUIAutomation2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, autosetfocus: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn AutoSetFocus<Identity: IUIAutomation2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, autosetfocus: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomation2_Impl::AutoSetFocus(this) {
@@ -8064,7 +8064,7 @@ impl IUIAutomation2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetAutoSetFocus<Identity: IUIAutomation2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, autosetfocus: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAutoSetFocus<Identity: IUIAutomation2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, autosetfocus: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IUIAutomation2_Impl::SetAutoSetFocus(this, core::mem::transmute_copy(&autosetfocus)).into()
@@ -8858,7 +8858,7 @@ impl core::ops::Deref for IUIAutomationBoolCondition {
 }
 windows_core::imp::interface_hierarchy!(IUIAutomationBoolCondition, windows_core::IUnknown, IUIAutomationCondition);
 impl IUIAutomationBoolCondition {
-    pub unsafe fn BooleanValue(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn BooleanValue(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BooleanValue)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -8868,14 +8868,14 @@ impl IUIAutomationBoolCondition {
 #[repr(C)]
 pub struct IUIAutomationBoolCondition_Vtbl {
     pub base__: IUIAutomationCondition_Vtbl,
-    pub BooleanValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub BooleanValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationBoolCondition_Impl: IUIAutomationCondition_Impl {
-    fn BooleanValue(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn BooleanValue(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IUIAutomationBoolCondition_Vtbl {
     pub const fn new<Identity: IUIAutomationBoolCondition_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn BooleanValue<Identity: IUIAutomationBoolCondition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, boolval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn BooleanValue<Identity: IUIAutomationBoolCondition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, boolval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationBoolCondition_Impl::BooleanValue(this) {
@@ -9235,13 +9235,13 @@ impl windows_core::RuntimeName for IUIAutomationDockPattern {}
 windows_core::imp::define_interface!(IUIAutomationDragPattern, IUIAutomationDragPattern_Vtbl, 0x1dc7b570_1f54_4bad_bcda_d36a722fb7bd);
 windows_core::imp::interface_hierarchy!(IUIAutomationDragPattern, windows_core::IUnknown);
 impl IUIAutomationDragPattern {
-    pub unsafe fn CurrentIsGrabbed(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CurrentIsGrabbed(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentIsGrabbed)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedIsGrabbed(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CachedIsGrabbed(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedIsGrabbed)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -9289,8 +9289,8 @@ impl IUIAutomationDragPattern {
 #[repr(C)]
 pub struct IUIAutomationDragPattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub CurrentIsGrabbed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub CachedIsGrabbed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CurrentIsGrabbed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub CachedIsGrabbed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CurrentDropEffect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CachedDropEffect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -9306,8 +9306,8 @@ pub struct IUIAutomationDragPattern_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUIAutomationDragPattern_Impl: windows_core::IUnknownImpl {
-    fn CurrentIsGrabbed(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn CachedIsGrabbed(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn CurrentIsGrabbed(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn CachedIsGrabbed(&self) -> windows_core::Result<windows_core::BOOL>;
     fn CurrentDropEffect(&self) -> windows_core::Result<windows_core::BSTR>;
     fn CachedDropEffect(&self) -> windows_core::Result<windows_core::BSTR>;
     fn CurrentDropEffects(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
@@ -9318,7 +9318,7 @@ pub trait IUIAutomationDragPattern_Impl: windows_core::IUnknownImpl {
 #[cfg(feature = "Win32_System_Com")]
 impl IUIAutomationDragPattern_Vtbl {
     pub const fn new<Identity: IUIAutomationDragPattern_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CurrentIsGrabbed<Identity: IUIAutomationDragPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CurrentIsGrabbed<Identity: IUIAutomationDragPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationDragPattern_Impl::CurrentIsGrabbed(this) {
@@ -9330,7 +9330,7 @@ impl IUIAutomationDragPattern_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CachedIsGrabbed<Identity: IUIAutomationDragPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CachedIsGrabbed<Identity: IUIAutomationDragPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationDragPattern_Impl::CachedIsGrabbed(this) {
@@ -9710,19 +9710,19 @@ impl IUIAutomationElement {
             (windows_core::Interface::vtable(self).CurrentAccessKey)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CurrentHasKeyboardFocus(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CurrentHasKeyboardFocus(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentHasKeyboardFocus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentIsKeyboardFocusable(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CurrentIsKeyboardFocusable(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentIsKeyboardFocusable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentIsEnabled(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CurrentIsEnabled(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentIsEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -9752,19 +9752,19 @@ impl IUIAutomationElement {
             (windows_core::Interface::vtable(self).CurrentCulture)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentIsControlElement(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CurrentIsControlElement(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentIsControlElement)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentIsContentElement(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CurrentIsContentElement(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentIsContentElement)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentIsPassword(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CurrentIsPassword(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentIsPassword)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -9782,7 +9782,7 @@ impl IUIAutomationElement {
             (windows_core::Interface::vtable(self).CurrentItemType)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CurrentIsOffscreen(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CurrentIsOffscreen(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentIsOffscreen)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -9800,7 +9800,7 @@ impl IUIAutomationElement {
             (windows_core::Interface::vtable(self).CurrentFrameworkId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CurrentIsRequiredForForm(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CurrentIsRequiredForForm(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentIsRequiredForForm)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -9836,7 +9836,7 @@ impl IUIAutomationElement {
             (windows_core::Interface::vtable(self).CurrentAriaProperties)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CurrentIsDataValidForForm(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CurrentIsDataValidForForm(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentIsDataValidForForm)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -9902,19 +9902,19 @@ impl IUIAutomationElement {
             (windows_core::Interface::vtable(self).CachedAccessKey)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CachedHasKeyboardFocus(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CachedHasKeyboardFocus(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedHasKeyboardFocus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedIsKeyboardFocusable(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CachedIsKeyboardFocusable(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedIsKeyboardFocusable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedIsEnabled(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CachedIsEnabled(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedIsEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -9944,19 +9944,19 @@ impl IUIAutomationElement {
             (windows_core::Interface::vtable(self).CachedCulture)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedIsControlElement(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CachedIsControlElement(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedIsControlElement)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedIsContentElement(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CachedIsContentElement(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedIsContentElement)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedIsPassword(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CachedIsPassword(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedIsPassword)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -9974,7 +9974,7 @@ impl IUIAutomationElement {
             (windows_core::Interface::vtable(self).CachedItemType)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CachedIsOffscreen(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CachedIsOffscreen(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedIsOffscreen)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -9992,7 +9992,7 @@ impl IUIAutomationElement {
             (windows_core::Interface::vtable(self).CachedFrameworkId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CachedIsRequiredForForm(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CachedIsRequiredForForm(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedIsRequiredForForm)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -10028,7 +10028,7 @@ impl IUIAutomationElement {
             (windows_core::Interface::vtable(self).CachedAriaProperties)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CachedIsDataValidForForm(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CachedIsDataValidForForm(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedIsDataValidForForm)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -10058,7 +10058,7 @@ impl IUIAutomationElement {
             (windows_core::Interface::vtable(self).CachedProviderDescription)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetClickablePoint)(windows_core::Interface::as_raw(self), clickable as _, &mut result__).map(|| result__)
@@ -10083,7 +10083,7 @@ pub struct IUIAutomationElement_Vtbl {
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetCurrentPropertyValue: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetCurrentPropertyValueEx: unsafe extern "system" fn(*mut core::ffi::c_void, UIA_PROPERTY_ID, super::super::Foundation::BOOL, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
+    pub GetCurrentPropertyValueEx: unsafe extern "system" fn(*mut core::ffi::c_void, UIA_PROPERTY_ID, windows_core::BOOL, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetCurrentPropertyValueEx: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -10091,7 +10091,7 @@ pub struct IUIAutomationElement_Vtbl {
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetCachedPropertyValue: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetCachedPropertyValueEx: unsafe extern "system" fn(*mut core::ffi::c_void, UIA_PROPERTY_ID, super::super::Foundation::BOOL, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
+    pub GetCachedPropertyValueEx: unsafe extern "system" fn(*mut core::ffi::c_void, UIA_PROPERTY_ID, windows_core::BOOL, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetCachedPropertyValueEx: usize,
     pub GetCurrentPatternAs: unsafe extern "system" fn(*mut core::ffi::c_void, UIA_PATTERN_ID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -10106,28 +10106,28 @@ pub struct IUIAutomationElement_Vtbl {
     pub CurrentName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CurrentAcceleratorKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CurrentAccessKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CurrentHasKeyboardFocus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub CurrentIsKeyboardFocusable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub CurrentIsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CurrentHasKeyboardFocus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub CurrentIsKeyboardFocusable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub CurrentIsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CurrentAutomationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CurrentClassName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CurrentHelpText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CurrentCulture: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub CurrentIsControlElement: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub CurrentIsContentElement: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub CurrentIsPassword: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CurrentIsControlElement: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub CurrentIsContentElement: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub CurrentIsPassword: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CurrentNativeWindowHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::HWND) -> windows_core::HRESULT,
     pub CurrentItemType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CurrentIsOffscreen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CurrentIsOffscreen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CurrentOrientation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut OrientationType) -> windows_core::HRESULT,
     pub CurrentFrameworkId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CurrentIsRequiredForForm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CurrentIsRequiredForForm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CurrentItemStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CurrentBoundingRectangle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::RECT) -> windows_core::HRESULT,
     pub CurrentLabeledBy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CurrentAriaRole: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CurrentAriaProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CurrentIsDataValidForForm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CurrentIsDataValidForForm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CurrentControllerFor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CurrentDescribedBy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CurrentFlowsTo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -10138,33 +10138,33 @@ pub struct IUIAutomationElement_Vtbl {
     pub CachedName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CachedAcceleratorKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CachedAccessKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CachedHasKeyboardFocus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub CachedIsKeyboardFocusable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub CachedIsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CachedHasKeyboardFocus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub CachedIsKeyboardFocusable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub CachedIsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CachedAutomationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CachedClassName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CachedHelpText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CachedCulture: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub CachedIsControlElement: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub CachedIsContentElement: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub CachedIsPassword: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CachedIsControlElement: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub CachedIsContentElement: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub CachedIsPassword: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CachedNativeWindowHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::HWND) -> windows_core::HRESULT,
     pub CachedItemType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CachedIsOffscreen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CachedIsOffscreen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CachedOrientation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut OrientationType) -> windows_core::HRESULT,
     pub CachedFrameworkId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CachedIsRequiredForForm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CachedIsRequiredForForm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CachedItemStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CachedBoundingRectangle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::RECT) -> windows_core::HRESULT,
     pub CachedLabeledBy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CachedAriaRole: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CachedAriaProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CachedIsDataValidForForm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CachedIsDataValidForForm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CachedControllerFor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CachedDescribedBy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CachedFlowsTo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CachedProviderDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetClickablePoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::POINT, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetClickablePoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::POINT, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationElement_Impl: windows_core::IUnknownImpl {
@@ -10176,9 +10176,9 @@ pub trait IUIAutomationElement_Impl: windows_core::IUnknownImpl {
     fn FindAllBuildCache(&self, scope: TreeScope, condition: windows_core::Ref<IUIAutomationCondition>, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElementArray>;
     fn BuildUpdatedCache(&self, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
     fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn GetCurrentPropertyValueEx(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: super::super::Foundation::BOOL) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn GetCurrentPropertyValueEx(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: windows_core::BOOL) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn GetCachedPropertyValueEx(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: super::super::Foundation::BOOL) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn GetCachedPropertyValueEx(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: windows_core::BOOL) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn GetCurrentPatternAs(&self, patternid: UIA_PATTERN_ID, riid: *const windows_core::GUID, patternobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetCachedPatternAs(&self, patternid: UIA_PATTERN_ID, riid: *const windows_core::GUID, patternobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetCurrentPattern(&self, patternid: UIA_PATTERN_ID) -> windows_core::Result<windows_core::IUnknown>;
@@ -10191,28 +10191,28 @@ pub trait IUIAutomationElement_Impl: windows_core::IUnknownImpl {
     fn CurrentName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn CurrentAcceleratorKey(&self) -> windows_core::Result<windows_core::BSTR>;
     fn CurrentAccessKey(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CurrentHasKeyboardFocus(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn CurrentIsKeyboardFocusable(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn CurrentIsEnabled(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn CurrentHasKeyboardFocus(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn CurrentIsKeyboardFocusable(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn CurrentIsEnabled(&self) -> windows_core::Result<windows_core::BOOL>;
     fn CurrentAutomationId(&self) -> windows_core::Result<windows_core::BSTR>;
     fn CurrentClassName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn CurrentHelpText(&self) -> windows_core::Result<windows_core::BSTR>;
     fn CurrentCulture(&self) -> windows_core::Result<i32>;
-    fn CurrentIsControlElement(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn CurrentIsContentElement(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn CurrentIsPassword(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn CurrentIsControlElement(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn CurrentIsContentElement(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn CurrentIsPassword(&self) -> windows_core::Result<windows_core::BOOL>;
     fn CurrentNativeWindowHandle(&self) -> windows_core::Result<super::super::Foundation::HWND>;
     fn CurrentItemType(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CurrentIsOffscreen(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn CurrentIsOffscreen(&self) -> windows_core::Result<windows_core::BOOL>;
     fn CurrentOrientation(&self) -> windows_core::Result<OrientationType>;
     fn CurrentFrameworkId(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CurrentIsRequiredForForm(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn CurrentIsRequiredForForm(&self) -> windows_core::Result<windows_core::BOOL>;
     fn CurrentItemStatus(&self) -> windows_core::Result<windows_core::BSTR>;
     fn CurrentBoundingRectangle(&self) -> windows_core::Result<super::super::Foundation::RECT>;
     fn CurrentLabeledBy(&self) -> windows_core::Result<IUIAutomationElement>;
     fn CurrentAriaRole(&self) -> windows_core::Result<windows_core::BSTR>;
     fn CurrentAriaProperties(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CurrentIsDataValidForForm(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn CurrentIsDataValidForForm(&self) -> windows_core::Result<windows_core::BOOL>;
     fn CurrentControllerFor(&self) -> windows_core::Result<IUIAutomationElementArray>;
     fn CurrentDescribedBy(&self) -> windows_core::Result<IUIAutomationElementArray>;
     fn CurrentFlowsTo(&self) -> windows_core::Result<IUIAutomationElementArray>;
@@ -10223,33 +10223,33 @@ pub trait IUIAutomationElement_Impl: windows_core::IUnknownImpl {
     fn CachedName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn CachedAcceleratorKey(&self) -> windows_core::Result<windows_core::BSTR>;
     fn CachedAccessKey(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CachedHasKeyboardFocus(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn CachedIsKeyboardFocusable(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn CachedIsEnabled(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn CachedHasKeyboardFocus(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn CachedIsKeyboardFocusable(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn CachedIsEnabled(&self) -> windows_core::Result<windows_core::BOOL>;
     fn CachedAutomationId(&self) -> windows_core::Result<windows_core::BSTR>;
     fn CachedClassName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn CachedHelpText(&self) -> windows_core::Result<windows_core::BSTR>;
     fn CachedCulture(&self) -> windows_core::Result<i32>;
-    fn CachedIsControlElement(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn CachedIsContentElement(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn CachedIsPassword(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn CachedIsControlElement(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn CachedIsContentElement(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn CachedIsPassword(&self) -> windows_core::Result<windows_core::BOOL>;
     fn CachedNativeWindowHandle(&self) -> windows_core::Result<super::super::Foundation::HWND>;
     fn CachedItemType(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CachedIsOffscreen(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn CachedIsOffscreen(&self) -> windows_core::Result<windows_core::BOOL>;
     fn CachedOrientation(&self) -> windows_core::Result<OrientationType>;
     fn CachedFrameworkId(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CachedIsRequiredForForm(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn CachedIsRequiredForForm(&self) -> windows_core::Result<windows_core::BOOL>;
     fn CachedItemStatus(&self) -> windows_core::Result<windows_core::BSTR>;
     fn CachedBoundingRectangle(&self) -> windows_core::Result<super::super::Foundation::RECT>;
     fn CachedLabeledBy(&self) -> windows_core::Result<IUIAutomationElement>;
     fn CachedAriaRole(&self) -> windows_core::Result<windows_core::BSTR>;
     fn CachedAriaProperties(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CachedIsDataValidForForm(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn CachedIsDataValidForForm(&self) -> windows_core::Result<windows_core::BOOL>;
     fn CachedControllerFor(&self) -> windows_core::Result<IUIAutomationElementArray>;
     fn CachedDescribedBy(&self) -> windows_core::Result<IUIAutomationElementArray>;
     fn CachedFlowsTo(&self) -> windows_core::Result<IUIAutomationElementArray>;
     fn CachedProviderDescription(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT) -> windows_core::Result<windows_core::BOOL>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationElement_Vtbl {
@@ -10344,7 +10344,7 @@ impl IUIAutomationElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetCurrentPropertyValueEx<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: super::super::Foundation::BOOL, retval: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCurrentPropertyValueEx<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: windows_core::BOOL, retval: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::GetCurrentPropertyValueEx(this, core::mem::transmute_copy(&propertyid), core::mem::transmute_copy(&ignoredefaultvalue)) {
@@ -10368,7 +10368,7 @@ impl IUIAutomationElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetCachedPropertyValueEx<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: super::super::Foundation::BOOL, retval: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCachedPropertyValueEx<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: windows_core::BOOL, retval: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::GetCachedPropertyValueEx(this, core::mem::transmute_copy(&propertyid), core::mem::transmute_copy(&ignoredefaultvalue)) {
@@ -10512,7 +10512,7 @@ impl IUIAutomationElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CurrentHasKeyboardFocus<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CurrentHasKeyboardFocus<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CurrentHasKeyboardFocus(this) {
@@ -10524,7 +10524,7 @@ impl IUIAutomationElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CurrentIsKeyboardFocusable<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CurrentIsKeyboardFocusable<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CurrentIsKeyboardFocusable(this) {
@@ -10536,7 +10536,7 @@ impl IUIAutomationElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CurrentIsEnabled<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CurrentIsEnabled<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CurrentIsEnabled(this) {
@@ -10596,7 +10596,7 @@ impl IUIAutomationElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CurrentIsControlElement<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CurrentIsControlElement<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CurrentIsControlElement(this) {
@@ -10608,7 +10608,7 @@ impl IUIAutomationElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CurrentIsContentElement<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CurrentIsContentElement<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CurrentIsContentElement(this) {
@@ -10620,7 +10620,7 @@ impl IUIAutomationElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CurrentIsPassword<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CurrentIsPassword<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CurrentIsPassword(this) {
@@ -10656,7 +10656,7 @@ impl IUIAutomationElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CurrentIsOffscreen<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CurrentIsOffscreen<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CurrentIsOffscreen(this) {
@@ -10692,7 +10692,7 @@ impl IUIAutomationElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CurrentIsRequiredForForm<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CurrentIsRequiredForForm<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CurrentIsRequiredForForm(this) {
@@ -10764,7 +10764,7 @@ impl IUIAutomationElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CurrentIsDataValidForForm<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CurrentIsDataValidForForm<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CurrentIsDataValidForForm(this) {
@@ -10896,7 +10896,7 @@ impl IUIAutomationElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CachedHasKeyboardFocus<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CachedHasKeyboardFocus<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CachedHasKeyboardFocus(this) {
@@ -10908,7 +10908,7 @@ impl IUIAutomationElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CachedIsKeyboardFocusable<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CachedIsKeyboardFocusable<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CachedIsKeyboardFocusable(this) {
@@ -10920,7 +10920,7 @@ impl IUIAutomationElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CachedIsEnabled<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CachedIsEnabled<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CachedIsEnabled(this) {
@@ -10980,7 +10980,7 @@ impl IUIAutomationElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CachedIsControlElement<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CachedIsControlElement<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CachedIsControlElement(this) {
@@ -10992,7 +10992,7 @@ impl IUIAutomationElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CachedIsContentElement<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CachedIsContentElement<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CachedIsContentElement(this) {
@@ -11004,7 +11004,7 @@ impl IUIAutomationElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CachedIsPassword<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CachedIsPassword<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CachedIsPassword(this) {
@@ -11040,7 +11040,7 @@ impl IUIAutomationElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CachedIsOffscreen<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CachedIsOffscreen<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CachedIsOffscreen(this) {
@@ -11076,7 +11076,7 @@ impl IUIAutomationElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CachedIsRequiredForForm<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CachedIsRequiredForForm<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CachedIsRequiredForForm(this) {
@@ -11148,7 +11148,7 @@ impl IUIAutomationElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CachedIsDataValidForForm<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CachedIsDataValidForForm<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CachedIsDataValidForForm(this) {
@@ -11208,7 +11208,7 @@ impl IUIAutomationElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetClickablePoint<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetClickablePoint<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::GetClickablePoint(this, core::mem::transmute_copy(&clickable)) {
@@ -11321,13 +11321,13 @@ impl core::ops::Deref for IUIAutomationElement2 {
 }
 windows_core::imp::interface_hierarchy!(IUIAutomationElement2, windows_core::IUnknown, IUIAutomationElement);
 impl IUIAutomationElement2 {
-    pub unsafe fn CurrentOptimizeForVisualContent(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CurrentOptimizeForVisualContent(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentOptimizeForVisualContent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedOptimizeForVisualContent(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CachedOptimizeForVisualContent(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedOptimizeForVisualContent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -11361,8 +11361,8 @@ impl IUIAutomationElement2 {
 #[repr(C)]
 pub struct IUIAutomationElement2_Vtbl {
     pub base__: IUIAutomationElement_Vtbl,
-    pub CurrentOptimizeForVisualContent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub CachedOptimizeForVisualContent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CurrentOptimizeForVisualContent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub CachedOptimizeForVisualContent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CurrentLiveSetting: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LiveSetting) -> windows_core::HRESULT,
     pub CachedLiveSetting: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LiveSetting) -> windows_core::HRESULT,
     pub CurrentFlowsFrom: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -11370,8 +11370,8 @@ pub struct IUIAutomationElement2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationElement2_Impl: IUIAutomationElement_Impl {
-    fn CurrentOptimizeForVisualContent(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn CachedOptimizeForVisualContent(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn CurrentOptimizeForVisualContent(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn CachedOptimizeForVisualContent(&self) -> windows_core::Result<windows_core::BOOL>;
     fn CurrentLiveSetting(&self) -> windows_core::Result<LiveSetting>;
     fn CachedLiveSetting(&self) -> windows_core::Result<LiveSetting>;
     fn CurrentFlowsFrom(&self) -> windows_core::Result<IUIAutomationElementArray>;
@@ -11380,7 +11380,7 @@ pub trait IUIAutomationElement2_Impl: IUIAutomationElement_Impl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationElement2_Vtbl {
     pub const fn new<Identity: IUIAutomationElement2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CurrentOptimizeForVisualContent<Identity: IUIAutomationElement2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CurrentOptimizeForVisualContent<Identity: IUIAutomationElement2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement2_Impl::CurrentOptimizeForVisualContent(this) {
@@ -11392,7 +11392,7 @@ impl IUIAutomationElement2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CachedOptimizeForVisualContent<Identity: IUIAutomationElement2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CachedOptimizeForVisualContent<Identity: IUIAutomationElement2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement2_Impl::CachedOptimizeForVisualContent(this) {
@@ -11480,13 +11480,13 @@ impl IUIAutomationElement3 {
     pub unsafe fn ShowContextMenu(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ShowContextMenu)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn CurrentIsPeripheral(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CurrentIsPeripheral(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentIsPeripheral)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedIsPeripheral(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CachedIsPeripheral(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedIsPeripheral)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -11497,14 +11497,14 @@ impl IUIAutomationElement3 {
 pub struct IUIAutomationElement3_Vtbl {
     pub base__: IUIAutomationElement2_Vtbl,
     pub ShowContextMenu: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CurrentIsPeripheral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub CachedIsPeripheral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CurrentIsPeripheral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub CachedIsPeripheral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationElement3_Impl: IUIAutomationElement2_Impl {
     fn ShowContextMenu(&self) -> windows_core::Result<()>;
-    fn CurrentIsPeripheral(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn CachedIsPeripheral(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn CurrentIsPeripheral(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn CachedIsPeripheral(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationElement3_Vtbl {
@@ -11515,7 +11515,7 @@ impl IUIAutomationElement3_Vtbl {
                 IUIAutomationElement3_Impl::ShowContextMenu(this).into()
             }
         }
-        unsafe extern "system" fn CurrentIsPeripheral<Identity: IUIAutomationElement3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CurrentIsPeripheral<Identity: IUIAutomationElement3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement3_Impl::CurrentIsPeripheral(this) {
@@ -11527,7 +11527,7 @@ impl IUIAutomationElement3_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CachedIsPeripheral<Identity: IUIAutomationElement3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CachedIsPeripheral<Identity: IUIAutomationElement3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement3_Impl::CachedIsPeripheral(this) {
@@ -12224,13 +12224,13 @@ impl core::ops::Deref for IUIAutomationElement9 {
 }
 windows_core::imp::interface_hierarchy!(IUIAutomationElement9, windows_core::IUnknown, IUIAutomationElement, IUIAutomationElement2, IUIAutomationElement3, IUIAutomationElement4, IUIAutomationElement5, IUIAutomationElement6, IUIAutomationElement7, IUIAutomationElement8);
 impl IUIAutomationElement9 {
-    pub unsafe fn CurrentIsDialog(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CurrentIsDialog(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentIsDialog)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedIsDialog(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CachedIsDialog(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedIsDialog)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -12240,18 +12240,18 @@ impl IUIAutomationElement9 {
 #[repr(C)]
 pub struct IUIAutomationElement9_Vtbl {
     pub base__: IUIAutomationElement8_Vtbl,
-    pub CurrentIsDialog: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub CachedIsDialog: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CurrentIsDialog: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub CachedIsDialog: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationElement9_Impl: IUIAutomationElement8_Impl {
-    fn CurrentIsDialog(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn CachedIsDialog(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn CurrentIsDialog(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn CachedIsDialog(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationElement9_Vtbl {
     pub const fn new<Identity: IUIAutomationElement9_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CurrentIsDialog<Identity: IUIAutomationElement9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CurrentIsDialog<Identity: IUIAutomationElement9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement9_Impl::CurrentIsDialog(this) {
@@ -12263,7 +12263,7 @@ impl IUIAutomationElement9_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CachedIsDialog<Identity: IUIAutomationElement9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CachedIsDialog<Identity: IUIAutomationElement9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement9_Impl::CachedIsDialog(this) {
@@ -14003,16 +14003,16 @@ impl IUIAutomationPatternInstance {
 #[repr(C)]
 pub struct IUIAutomationPatternInstance_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::BOOL, UIAutomationType, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::BOOL, UIAutomationType, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CallMethod: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const UIAutomationParameter, u32) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationPatternInstance_Impl: windows_core::IUnknownImpl {
-    fn GetProperty(&self, index: u32, cached: super::super::Foundation::BOOL, r#type: UIAutomationType, pptr: *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetProperty(&self, index: u32, cached: windows_core::BOOL, r#type: UIAutomationType, pptr: *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn CallMethod(&self, index: u32, pparams: *const UIAutomationParameter, cparams: u32) -> windows_core::Result<()>;
 }
 impl IUIAutomationPatternInstance_Vtbl {
     pub const fn new<Identity: IUIAutomationPatternInstance_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetProperty<Identity: IUIAutomationPatternInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, cached: super::super::Foundation::BOOL, r#type: UIAutomationType, pptr: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetProperty<Identity: IUIAutomationPatternInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, cached: windows_core::BOOL, r#type: UIAutomationType, pptr: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IUIAutomationPatternInstance_Impl::GetProperty(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&cached), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pptr)).into()
@@ -14256,19 +14256,19 @@ impl IUIAutomationProxyFactoryEntry {
             (windows_core::Interface::vtable(self).ImageName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn AllowSubstringMatch(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn AllowSubstringMatch(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AllowSubstringMatch)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CanCheckBaseClass(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CanCheckBaseClass(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CanCheckBaseClass)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn NeedsAdviseEvents(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn NeedsAdviseEvents(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).NeedsAdviseEvents)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -14313,14 +14313,14 @@ pub struct IUIAutomationProxyFactoryEntry_Vtbl {
     pub ProxyFactory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ClassName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ImageName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AllowSubstringMatch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub CanCheckBaseClass: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub NeedsAdviseEvents: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub AllowSubstringMatch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub CanCheckBaseClass: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub NeedsAdviseEvents: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub SetClassName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub SetImageName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub SetAllowSubstringMatch: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetCanCheckBaseClass: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetNeedsAdviseEvents: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SetAllowSubstringMatch: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetCanCheckBaseClass: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetNeedsAdviseEvents: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub SetWinEventsForAutomationEvent: unsafe extern "system" fn(*mut core::ffi::c_void, UIA_EVENT_ID, UIA_PROPERTY_ID, *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -14335,14 +14335,14 @@ pub trait IUIAutomationProxyFactoryEntry_Impl: windows_core::IUnknownImpl {
     fn ProxyFactory(&self) -> windows_core::Result<IUIAutomationProxyFactory>;
     fn ClassName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn ImageName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn AllowSubstringMatch(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn CanCheckBaseClass(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn NeedsAdviseEvents(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn AllowSubstringMatch(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn CanCheckBaseClass(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn NeedsAdviseEvents(&self) -> windows_core::Result<windows_core::BOOL>;
     fn SetClassName(&self, classname: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SetImageName(&self, imagename: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn SetAllowSubstringMatch(&self, allowsubstringmatch: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn SetCanCheckBaseClass(&self, cancheckbaseclass: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn SetNeedsAdviseEvents(&self, adviseevents: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn SetAllowSubstringMatch(&self, allowsubstringmatch: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetCanCheckBaseClass(&self, cancheckbaseclass: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetNeedsAdviseEvents(&self, adviseevents: windows_core::BOOL) -> windows_core::Result<()>;
     fn SetWinEventsForAutomationEvent(&self, eventid: UIA_EVENT_ID, propertyid: UIA_PROPERTY_ID, winevents: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
     fn GetWinEventsForAutomationEvent(&self, eventid: UIA_EVENT_ID, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
@@ -14385,7 +14385,7 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn AllowSubstringMatch<Identity: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allowsubstringmatch: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn AllowSubstringMatch<Identity: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allowsubstringmatch: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationProxyFactoryEntry_Impl::AllowSubstringMatch(this) {
@@ -14397,7 +14397,7 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CanCheckBaseClass<Identity: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cancheckbaseclass: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CanCheckBaseClass<Identity: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cancheckbaseclass: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationProxyFactoryEntry_Impl::CanCheckBaseClass(this) {
@@ -14409,7 +14409,7 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn NeedsAdviseEvents<Identity: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adviseevents: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn NeedsAdviseEvents<Identity: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adviseevents: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationProxyFactoryEntry_Impl::NeedsAdviseEvents(this) {
@@ -14433,19 +14433,19 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
                 IUIAutomationProxyFactoryEntry_Impl::SetImageName(this, core::mem::transmute(&imagename)).into()
             }
         }
-        unsafe extern "system" fn SetAllowSubstringMatch<Identity: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allowsubstringmatch: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAllowSubstringMatch<Identity: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allowsubstringmatch: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IUIAutomationProxyFactoryEntry_Impl::SetAllowSubstringMatch(this, core::mem::transmute_copy(&allowsubstringmatch)).into()
             }
         }
-        unsafe extern "system" fn SetCanCheckBaseClass<Identity: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cancheckbaseclass: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCanCheckBaseClass<Identity: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cancheckbaseclass: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IUIAutomationProxyFactoryEntry_Impl::SetCanCheckBaseClass(this, core::mem::transmute_copy(&cancheckbaseclass)).into()
             }
         }
-        unsafe extern "system" fn SetNeedsAdviseEvents<Identity: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adviseevents: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetNeedsAdviseEvents<Identity: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adviseevents: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IUIAutomationProxyFactoryEntry_Impl::SetNeedsAdviseEvents(this, core::mem::transmute_copy(&adviseevents)).into()
@@ -14678,7 +14678,7 @@ impl IUIAutomationRangeValuePattern {
             (windows_core::Interface::vtable(self).CurrentValue)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentIsReadOnly(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CurrentIsReadOnly(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentIsReadOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -14714,7 +14714,7 @@ impl IUIAutomationRangeValuePattern {
             (windows_core::Interface::vtable(self).CachedValue)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedIsReadOnly(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CachedIsReadOnly(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedIsReadOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -14750,13 +14750,13 @@ pub struct IUIAutomationRangeValuePattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     pub CurrentValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub CurrentIsReadOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CurrentIsReadOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CurrentMaximum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub CurrentMinimum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub CurrentLargeChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub CurrentSmallChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub CachedValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub CachedIsReadOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CachedIsReadOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CachedMaximum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub CachedMinimum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub CachedLargeChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
@@ -14765,13 +14765,13 @@ pub struct IUIAutomationRangeValuePattern_Vtbl {
 pub trait IUIAutomationRangeValuePattern_Impl: windows_core::IUnknownImpl {
     fn SetValue(&self, val: f64) -> windows_core::Result<()>;
     fn CurrentValue(&self) -> windows_core::Result<f64>;
-    fn CurrentIsReadOnly(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn CurrentIsReadOnly(&self) -> windows_core::Result<windows_core::BOOL>;
     fn CurrentMaximum(&self) -> windows_core::Result<f64>;
     fn CurrentMinimum(&self) -> windows_core::Result<f64>;
     fn CurrentLargeChange(&self) -> windows_core::Result<f64>;
     fn CurrentSmallChange(&self) -> windows_core::Result<f64>;
     fn CachedValue(&self) -> windows_core::Result<f64>;
-    fn CachedIsReadOnly(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn CachedIsReadOnly(&self) -> windows_core::Result<windows_core::BOOL>;
     fn CachedMaximum(&self) -> windows_core::Result<f64>;
     fn CachedMinimum(&self) -> windows_core::Result<f64>;
     fn CachedLargeChange(&self) -> windows_core::Result<f64>;
@@ -14797,7 +14797,7 @@ impl IUIAutomationRangeValuePattern_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CurrentIsReadOnly<Identity: IUIAutomationRangeValuePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CurrentIsReadOnly<Identity: IUIAutomationRangeValuePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationRangeValuePattern_Impl::CurrentIsReadOnly(this) {
@@ -14869,7 +14869,7 @@ impl IUIAutomationRangeValuePattern_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CachedIsReadOnly<Identity: IUIAutomationRangeValuePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CachedIsReadOnly<Identity: IUIAutomationRangeValuePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationRangeValuePattern_Impl::CachedIsReadOnly(this) {
@@ -15089,13 +15089,13 @@ impl IUIAutomationScrollPattern {
             (windows_core::Interface::vtable(self).CurrentVerticalViewSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentHorizontallyScrollable(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CurrentHorizontallyScrollable(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentHorizontallyScrollable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentVerticallyScrollable(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CurrentVerticallyScrollable(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentVerticallyScrollable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -15125,13 +15125,13 @@ impl IUIAutomationScrollPattern {
             (windows_core::Interface::vtable(self).CachedVerticalViewSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedHorizontallyScrollable(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CachedHorizontallyScrollable(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedHorizontallyScrollable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedVerticallyScrollable(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CachedVerticallyScrollable(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedVerticallyScrollable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -15147,14 +15147,14 @@ pub struct IUIAutomationScrollPattern_Vtbl {
     pub CurrentVerticalScrollPercent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub CurrentHorizontalViewSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub CurrentVerticalViewSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub CurrentHorizontallyScrollable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub CurrentVerticallyScrollable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CurrentHorizontallyScrollable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub CurrentVerticallyScrollable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CachedHorizontalScrollPercent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub CachedVerticalScrollPercent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub CachedHorizontalViewSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub CachedVerticalViewSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub CachedHorizontallyScrollable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub CachedVerticallyScrollable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CachedHorizontallyScrollable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub CachedVerticallyScrollable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationScrollPattern_Impl: windows_core::IUnknownImpl {
     fn Scroll(&self, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> windows_core::Result<()>;
@@ -15163,14 +15163,14 @@ pub trait IUIAutomationScrollPattern_Impl: windows_core::IUnknownImpl {
     fn CurrentVerticalScrollPercent(&self) -> windows_core::Result<f64>;
     fn CurrentHorizontalViewSize(&self) -> windows_core::Result<f64>;
     fn CurrentVerticalViewSize(&self) -> windows_core::Result<f64>;
-    fn CurrentHorizontallyScrollable(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn CurrentVerticallyScrollable(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn CurrentHorizontallyScrollable(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn CurrentVerticallyScrollable(&self) -> windows_core::Result<windows_core::BOOL>;
     fn CachedHorizontalScrollPercent(&self) -> windows_core::Result<f64>;
     fn CachedVerticalScrollPercent(&self) -> windows_core::Result<f64>;
     fn CachedHorizontalViewSize(&self) -> windows_core::Result<f64>;
     fn CachedVerticalViewSize(&self) -> windows_core::Result<f64>;
-    fn CachedHorizontallyScrollable(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn CachedVerticallyScrollable(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn CachedHorizontallyScrollable(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn CachedVerticallyScrollable(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IUIAutomationScrollPattern_Vtbl {
     pub const fn new<Identity: IUIAutomationScrollPattern_Impl, const OFFSET: isize>() -> Self {
@@ -15234,7 +15234,7 @@ impl IUIAutomationScrollPattern_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CurrentHorizontallyScrollable<Identity: IUIAutomationScrollPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CurrentHorizontallyScrollable<Identity: IUIAutomationScrollPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationScrollPattern_Impl::CurrentHorizontallyScrollable(this) {
@@ -15246,7 +15246,7 @@ impl IUIAutomationScrollPattern_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CurrentVerticallyScrollable<Identity: IUIAutomationScrollPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CurrentVerticallyScrollable<Identity: IUIAutomationScrollPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationScrollPattern_Impl::CurrentVerticallyScrollable(this) {
@@ -15306,7 +15306,7 @@ impl IUIAutomationScrollPattern_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CachedHorizontallyScrollable<Identity: IUIAutomationScrollPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CachedHorizontallyScrollable<Identity: IUIAutomationScrollPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationScrollPattern_Impl::CachedHorizontallyScrollable(this) {
@@ -15318,7 +15318,7 @@ impl IUIAutomationScrollPattern_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CachedVerticallyScrollable<Identity: IUIAutomationScrollPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CachedVerticallyScrollable<Identity: IUIAutomationScrollPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationScrollPattern_Impl::CachedVerticallyScrollable(this) {
@@ -15365,7 +15365,7 @@ impl IUIAutomationSelectionItemPattern {
     pub unsafe fn RemoveFromSelection(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveFromSelection)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn CurrentIsSelected(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CurrentIsSelected(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentIsSelected)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -15377,7 +15377,7 @@ impl IUIAutomationSelectionItemPattern {
             (windows_core::Interface::vtable(self).CurrentSelectionContainer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CachedIsSelected(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CachedIsSelected(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedIsSelected)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -15396,18 +15396,18 @@ pub struct IUIAutomationSelectionItemPattern_Vtbl {
     pub Select: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddToSelection: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveFromSelection: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CurrentIsSelected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CurrentIsSelected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CurrentSelectionContainer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CachedIsSelected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CachedIsSelected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CachedSelectionContainer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationSelectionItemPattern_Impl: windows_core::IUnknownImpl {
     fn Select(&self) -> windows_core::Result<()>;
     fn AddToSelection(&self) -> windows_core::Result<()>;
     fn RemoveFromSelection(&self) -> windows_core::Result<()>;
-    fn CurrentIsSelected(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn CurrentIsSelected(&self) -> windows_core::Result<windows_core::BOOL>;
     fn CurrentSelectionContainer(&self) -> windows_core::Result<IUIAutomationElement>;
-    fn CachedIsSelected(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn CachedIsSelected(&self) -> windows_core::Result<windows_core::BOOL>;
     fn CachedSelectionContainer(&self) -> windows_core::Result<IUIAutomationElement>;
 }
 impl IUIAutomationSelectionItemPattern_Vtbl {
@@ -15430,7 +15430,7 @@ impl IUIAutomationSelectionItemPattern_Vtbl {
                 IUIAutomationSelectionItemPattern_Impl::RemoveFromSelection(this).into()
             }
         }
-        unsafe extern "system" fn CurrentIsSelected<Identity: IUIAutomationSelectionItemPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CurrentIsSelected<Identity: IUIAutomationSelectionItemPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationSelectionItemPattern_Impl::CurrentIsSelected(this) {
@@ -15454,7 +15454,7 @@ impl IUIAutomationSelectionItemPattern_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CachedIsSelected<Identity: IUIAutomationSelectionItemPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CachedIsSelected<Identity: IUIAutomationSelectionItemPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationSelectionItemPattern_Impl::CachedIsSelected(this) {
@@ -15503,13 +15503,13 @@ impl IUIAutomationSelectionPattern {
             (windows_core::Interface::vtable(self).GetCurrentSelection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CurrentCanSelectMultiple(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CurrentCanSelectMultiple(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentCanSelectMultiple)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentIsSelectionRequired(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CurrentIsSelectionRequired(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentIsSelectionRequired)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -15521,13 +15521,13 @@ impl IUIAutomationSelectionPattern {
             (windows_core::Interface::vtable(self).GetCachedSelection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CachedCanSelectMultiple(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CachedCanSelectMultiple(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedCanSelectMultiple)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedIsSelectionRequired(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CachedIsSelectionRequired(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedIsSelectionRequired)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -15538,19 +15538,19 @@ impl IUIAutomationSelectionPattern {
 pub struct IUIAutomationSelectionPattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrentSelection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CurrentCanSelectMultiple: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub CurrentIsSelectionRequired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CurrentCanSelectMultiple: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub CurrentIsSelectionRequired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetCachedSelection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CachedCanSelectMultiple: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub CachedIsSelectionRequired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CachedCanSelectMultiple: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub CachedIsSelectionRequired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationSelectionPattern_Impl: windows_core::IUnknownImpl {
     fn GetCurrentSelection(&self) -> windows_core::Result<IUIAutomationElementArray>;
-    fn CurrentCanSelectMultiple(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn CurrentIsSelectionRequired(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn CurrentCanSelectMultiple(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn CurrentIsSelectionRequired(&self) -> windows_core::Result<windows_core::BOOL>;
     fn GetCachedSelection(&self) -> windows_core::Result<IUIAutomationElementArray>;
-    fn CachedCanSelectMultiple(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn CachedIsSelectionRequired(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn CachedCanSelectMultiple(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn CachedIsSelectionRequired(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IUIAutomationSelectionPattern_Vtbl {
     pub const fn new<Identity: IUIAutomationSelectionPattern_Impl, const OFFSET: isize>() -> Self {
@@ -15566,7 +15566,7 @@ impl IUIAutomationSelectionPattern_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CurrentCanSelectMultiple<Identity: IUIAutomationSelectionPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CurrentCanSelectMultiple<Identity: IUIAutomationSelectionPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationSelectionPattern_Impl::CurrentCanSelectMultiple(this) {
@@ -15578,7 +15578,7 @@ impl IUIAutomationSelectionPattern_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CurrentIsSelectionRequired<Identity: IUIAutomationSelectionPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CurrentIsSelectionRequired<Identity: IUIAutomationSelectionPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationSelectionPattern_Impl::CurrentIsSelectionRequired(this) {
@@ -15602,7 +15602,7 @@ impl IUIAutomationSelectionPattern_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CachedCanSelectMultiple<Identity: IUIAutomationSelectionPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CachedCanSelectMultiple<Identity: IUIAutomationSelectionPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationSelectionPattern_Impl::CachedCanSelectMultiple(this) {
@@ -15614,7 +15614,7 @@ impl IUIAutomationSelectionPattern_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CachedIsSelectionRequired<Identity: IUIAutomationSelectionPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CachedIsSelectionRequired<Identity: IUIAutomationSelectionPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationSelectionPattern_Impl::CachedIsSelectionRequired(this) {
@@ -17052,7 +17052,7 @@ impl IUIAutomationTextPattern2 {
             (windows_core::Interface::vtable(self).RangeFromAnnotation)(windows_core::Interface::as_raw(self), annotation.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetCaretRange(&self, isactive: *mut super::super::Foundation::BOOL) -> windows_core::Result<IUIAutomationTextRange> {
+    pub unsafe fn GetCaretRange(&self, isactive: *mut windows_core::BOOL) -> windows_core::Result<IUIAutomationTextRange> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCaretRange)(windows_core::Interface::as_raw(self), isactive as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -17063,11 +17063,11 @@ impl IUIAutomationTextPattern2 {
 pub struct IUIAutomationTextPattern2_Vtbl {
     pub base__: IUIAutomationTextPattern_Vtbl,
     pub RangeFromAnnotation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetCaretRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetCaretRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationTextPattern2_Impl: IUIAutomationTextPattern_Impl {
     fn RangeFromAnnotation(&self, annotation: windows_core::Ref<IUIAutomationElement>) -> windows_core::Result<IUIAutomationTextRange>;
-    fn GetCaretRange(&self, isactive: *mut super::super::Foundation::BOOL) -> windows_core::Result<IUIAutomationTextRange>;
+    fn GetCaretRange(&self, isactive: *mut windows_core::BOOL) -> windows_core::Result<IUIAutomationTextRange>;
 }
 impl IUIAutomationTextPattern2_Vtbl {
     pub const fn new<Identity: IUIAutomationTextPattern2_Impl, const OFFSET: isize>() -> Self {
@@ -17083,7 +17083,7 @@ impl IUIAutomationTextPattern2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetCaretRange<Identity: IUIAutomationTextPattern2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isactive: *mut super::super::Foundation::BOOL, range: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCaretRange<Identity: IUIAutomationTextPattern2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isactive: *mut windows_core::BOOL, range: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationTextPattern2_Impl::GetCaretRange(this, core::mem::transmute_copy(&isactive)) {
@@ -17115,7 +17115,7 @@ impl IUIAutomationTextRange {
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Compare<P0>(&self, range: P0) -> windows_core::Result<super::super::Foundation::BOOL>
+    pub unsafe fn Compare<P0>(&self, range: P0) -> windows_core::Result<windows_core::BOOL>
     where
         P0: windows_core::Param<IUIAutomationTextRange>,
     {
@@ -17216,14 +17216,14 @@ impl IUIAutomationTextRange {
 pub struct IUIAutomationTextRange_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Compare: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub Compare: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CompareEndpoints: unsafe extern "system" fn(*mut core::ffi::c_void, TextPatternRangeEndpoint, *mut core::ffi::c_void, TextPatternRangeEndpoint, *mut i32) -> windows_core::HRESULT,
     pub ExpandToEnclosingUnit: unsafe extern "system" fn(*mut core::ffi::c_void, TextUnit) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub FindAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, UIA_TEXTATTRIBUTE_ID, super::super::System::Variant::VARIANT, super::super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FindAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, UIA_TEXTATTRIBUTE_ID, super::super::System::Variant::VARIANT, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     FindAttribute: usize,
-    pub FindText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::BOOL, super::super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FindText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub GetAttributeValue: unsafe extern "system" fn(*mut core::ffi::c_void, UIA_TEXTATTRIBUTE_ID, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
@@ -17240,17 +17240,17 @@ pub struct IUIAutomationTextRange_Vtbl {
     pub Select: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddToSelection: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveFromSelection: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ScrollIntoView: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub ScrollIntoView: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub GetChildren: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationTextRange_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IUIAutomationTextRange>;
-    fn Compare(&self, range: windows_core::Ref<IUIAutomationTextRange>) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn Compare(&self, range: windows_core::Ref<IUIAutomationTextRange>) -> windows_core::Result<windows_core::BOOL>;
     fn CompareEndpoints(&self, srcendpoint: TextPatternRangeEndpoint, range: windows_core::Ref<IUIAutomationTextRange>, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<i32>;
     fn ExpandToEnclosingUnit(&self, textunit: TextUnit) -> windows_core::Result<()>;
-    fn FindAttribute(&self, attr: UIA_TEXTATTRIBUTE_ID, val: &super::super::System::Variant::VARIANT, backward: super::super::Foundation::BOOL) -> windows_core::Result<IUIAutomationTextRange>;
-    fn FindText(&self, text: &windows_core::BSTR, backward: super::super::Foundation::BOOL, ignorecase: super::super::Foundation::BOOL) -> windows_core::Result<IUIAutomationTextRange>;
+    fn FindAttribute(&self, attr: UIA_TEXTATTRIBUTE_ID, val: &super::super::System::Variant::VARIANT, backward: windows_core::BOOL) -> windows_core::Result<IUIAutomationTextRange>;
+    fn FindText(&self, text: &windows_core::BSTR, backward: windows_core::BOOL, ignorecase: windows_core::BOOL) -> windows_core::Result<IUIAutomationTextRange>;
     fn GetAttributeValue(&self, attr: UIA_TEXTATTRIBUTE_ID) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn GetBoundingRectangles(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn GetEnclosingElement(&self) -> windows_core::Result<IUIAutomationElement>;
@@ -17261,7 +17261,7 @@ pub trait IUIAutomationTextRange_Impl: windows_core::IUnknownImpl {
     fn Select(&self) -> windows_core::Result<()>;
     fn AddToSelection(&self) -> windows_core::Result<()>;
     fn RemoveFromSelection(&self) -> windows_core::Result<()>;
-    fn ScrollIntoView(&self, aligntotop: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn ScrollIntoView(&self, aligntotop: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetChildren(&self) -> windows_core::Result<IUIAutomationElementArray>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -17279,7 +17279,7 @@ impl IUIAutomationTextRange_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Compare<Identity: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, range: *mut core::ffi::c_void, aresame: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn Compare<Identity: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, range: *mut core::ffi::c_void, aresame: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationTextRange_Impl::Compare(this, core::mem::transmute_copy(&range)) {
@@ -17309,7 +17309,7 @@ impl IUIAutomationTextRange_Vtbl {
                 IUIAutomationTextRange_Impl::ExpandToEnclosingUnit(this, core::mem::transmute_copy(&textunit)).into()
             }
         }
-        unsafe extern "system" fn FindAttribute<Identity: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attr: UIA_TEXTATTRIBUTE_ID, val: super::super::System::Variant::VARIANT, backward: super::super::Foundation::BOOL, found: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn FindAttribute<Identity: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attr: UIA_TEXTATTRIBUTE_ID, val: super::super::System::Variant::VARIANT, backward: windows_core::BOOL, found: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationTextRange_Impl::FindAttribute(this, core::mem::transmute_copy(&attr), core::mem::transmute(&val), core::mem::transmute_copy(&backward)) {
@@ -17321,7 +17321,7 @@ impl IUIAutomationTextRange_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn FindText<Identity: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: *mut core::ffi::c_void, backward: super::super::Foundation::BOOL, ignorecase: super::super::Foundation::BOOL, found: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn FindText<Identity: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: *mut core::ffi::c_void, backward: windows_core::BOOL, ignorecase: windows_core::BOOL, found: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationTextRange_Impl::FindText(this, core::mem::transmute(&text), core::mem::transmute_copy(&backward), core::mem::transmute_copy(&ignorecase)) {
@@ -17429,7 +17429,7 @@ impl IUIAutomationTextRange_Vtbl {
                 IUIAutomationTextRange_Impl::RemoveFromSelection(this).into()
             }
         }
-        unsafe extern "system" fn ScrollIntoView<Identity: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, aligntotop: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn ScrollIntoView<Identity: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, aligntotop: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IUIAutomationTextRange_Impl::ScrollIntoView(this, core::mem::transmute_copy(&aligntotop)).into()
@@ -17763,37 +17763,37 @@ impl IUIAutomationTransformPattern {
     pub unsafe fn Rotate(&self, degrees: f64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Rotate)(windows_core::Interface::as_raw(self), degrees).ok() }
     }
-    pub unsafe fn CurrentCanMove(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CurrentCanMove(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentCanMove)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentCanResize(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CurrentCanResize(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentCanResize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentCanRotate(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CurrentCanRotate(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentCanRotate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedCanMove(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CachedCanMove(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedCanMove)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedCanResize(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CachedCanResize(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedCanResize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedCanRotate(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CachedCanRotate(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedCanRotate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -17806,23 +17806,23 @@ pub struct IUIAutomationTransformPattern_Vtbl {
     pub Move: unsafe extern "system" fn(*mut core::ffi::c_void, f64, f64) -> windows_core::HRESULT,
     pub Resize: unsafe extern "system" fn(*mut core::ffi::c_void, f64, f64) -> windows_core::HRESULT,
     pub Rotate: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
-    pub CurrentCanMove: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub CurrentCanResize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub CurrentCanRotate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub CachedCanMove: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub CachedCanResize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub CachedCanRotate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CurrentCanMove: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub CurrentCanResize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub CurrentCanRotate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub CachedCanMove: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub CachedCanResize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub CachedCanRotate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationTransformPattern_Impl: windows_core::IUnknownImpl {
     fn Move(&self, x: f64, y: f64) -> windows_core::Result<()>;
     fn Resize(&self, width: f64, height: f64) -> windows_core::Result<()>;
     fn Rotate(&self, degrees: f64) -> windows_core::Result<()>;
-    fn CurrentCanMove(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn CurrentCanResize(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn CurrentCanRotate(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn CachedCanMove(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn CachedCanResize(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn CachedCanRotate(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn CurrentCanMove(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn CurrentCanResize(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn CurrentCanRotate(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn CachedCanMove(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn CachedCanResize(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn CachedCanRotate(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IUIAutomationTransformPattern_Vtbl {
     pub const fn new<Identity: IUIAutomationTransformPattern_Impl, const OFFSET: isize>() -> Self {
@@ -17844,7 +17844,7 @@ impl IUIAutomationTransformPattern_Vtbl {
                 IUIAutomationTransformPattern_Impl::Rotate(this, core::mem::transmute_copy(&degrees)).into()
             }
         }
-        unsafe extern "system" fn CurrentCanMove<Identity: IUIAutomationTransformPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CurrentCanMove<Identity: IUIAutomationTransformPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationTransformPattern_Impl::CurrentCanMove(this) {
@@ -17856,7 +17856,7 @@ impl IUIAutomationTransformPattern_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CurrentCanResize<Identity: IUIAutomationTransformPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CurrentCanResize<Identity: IUIAutomationTransformPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationTransformPattern_Impl::CurrentCanResize(this) {
@@ -17868,7 +17868,7 @@ impl IUIAutomationTransformPattern_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CurrentCanRotate<Identity: IUIAutomationTransformPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CurrentCanRotate<Identity: IUIAutomationTransformPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationTransformPattern_Impl::CurrentCanRotate(this) {
@@ -17880,7 +17880,7 @@ impl IUIAutomationTransformPattern_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CachedCanMove<Identity: IUIAutomationTransformPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CachedCanMove<Identity: IUIAutomationTransformPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationTransformPattern_Impl::CachedCanMove(this) {
@@ -17892,7 +17892,7 @@ impl IUIAutomationTransformPattern_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CachedCanResize<Identity: IUIAutomationTransformPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CachedCanResize<Identity: IUIAutomationTransformPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationTransformPattern_Impl::CachedCanResize(this) {
@@ -17904,7 +17904,7 @@ impl IUIAutomationTransformPattern_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CachedCanRotate<Identity: IUIAutomationTransformPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CachedCanRotate<Identity: IUIAutomationTransformPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationTransformPattern_Impl::CachedCanRotate(this) {
@@ -17949,13 +17949,13 @@ impl IUIAutomationTransformPattern2 {
     pub unsafe fn ZoomByUnit(&self, zoomunit: ZoomUnit) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ZoomByUnit)(windows_core::Interface::as_raw(self), zoomunit).ok() }
     }
-    pub unsafe fn CurrentCanZoom(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CurrentCanZoom(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentCanZoom)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedCanZoom(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CachedCanZoom(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedCanZoom)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -18003,8 +18003,8 @@ pub struct IUIAutomationTransformPattern2_Vtbl {
     pub base__: IUIAutomationTransformPattern_Vtbl,
     pub Zoom: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     pub ZoomByUnit: unsafe extern "system" fn(*mut core::ffi::c_void, ZoomUnit) -> windows_core::HRESULT,
-    pub CurrentCanZoom: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub CachedCanZoom: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CurrentCanZoom: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub CachedCanZoom: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CurrentZoomLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub CachedZoomLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub CurrentZoomMinimum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
@@ -18015,8 +18015,8 @@ pub struct IUIAutomationTransformPattern2_Vtbl {
 pub trait IUIAutomationTransformPattern2_Impl: IUIAutomationTransformPattern_Impl {
     fn Zoom(&self, zoomvalue: f64) -> windows_core::Result<()>;
     fn ZoomByUnit(&self, zoomunit: ZoomUnit) -> windows_core::Result<()>;
-    fn CurrentCanZoom(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn CachedCanZoom(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn CurrentCanZoom(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn CachedCanZoom(&self) -> windows_core::Result<windows_core::BOOL>;
     fn CurrentZoomLevel(&self) -> windows_core::Result<f64>;
     fn CachedZoomLevel(&self) -> windows_core::Result<f64>;
     fn CurrentZoomMinimum(&self) -> windows_core::Result<f64>;
@@ -18038,7 +18038,7 @@ impl IUIAutomationTransformPattern2_Vtbl {
                 IUIAutomationTransformPattern2_Impl::ZoomByUnit(this, core::mem::transmute_copy(&zoomunit)).into()
             }
         }
-        unsafe extern "system" fn CurrentCanZoom<Identity: IUIAutomationTransformPattern2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CurrentCanZoom<Identity: IUIAutomationTransformPattern2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationTransformPattern2_Impl::CurrentCanZoom(this) {
@@ -18050,7 +18050,7 @@ impl IUIAutomationTransformPattern2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CachedCanZoom<Identity: IUIAutomationTransformPattern2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CachedCanZoom<Identity: IUIAutomationTransformPattern2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationTransformPattern2_Impl::CachedCanZoom(this) {
@@ -18501,7 +18501,7 @@ impl IUIAutomationValuePattern {
             (windows_core::Interface::vtable(self).CurrentValue)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CurrentIsReadOnly(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CurrentIsReadOnly(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentIsReadOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -18513,7 +18513,7 @@ impl IUIAutomationValuePattern {
             (windows_core::Interface::vtable(self).CachedValue)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CachedIsReadOnly(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CachedIsReadOnly(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedIsReadOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -18525,16 +18525,16 @@ pub struct IUIAutomationValuePattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CurrentValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CurrentIsReadOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CurrentIsReadOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CachedValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CachedIsReadOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CachedIsReadOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationValuePattern_Impl: windows_core::IUnknownImpl {
     fn SetValue(&self, val: &windows_core::BSTR) -> windows_core::Result<()>;
     fn CurrentValue(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CurrentIsReadOnly(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn CurrentIsReadOnly(&self) -> windows_core::Result<windows_core::BOOL>;
     fn CachedValue(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CachedIsReadOnly(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn CachedIsReadOnly(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IUIAutomationValuePattern_Vtbl {
     pub const fn new<Identity: IUIAutomationValuePattern_Impl, const OFFSET: isize>() -> Self {
@@ -18556,7 +18556,7 @@ impl IUIAutomationValuePattern_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CurrentIsReadOnly<Identity: IUIAutomationValuePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CurrentIsReadOnly<Identity: IUIAutomationValuePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationValuePattern_Impl::CurrentIsReadOnly(this) {
@@ -18580,7 +18580,7 @@ impl IUIAutomationValuePattern_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CachedIsReadOnly<Identity: IUIAutomationValuePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CachedIsReadOnly<Identity: IUIAutomationValuePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationValuePattern_Impl::CachedIsReadOnly(this) {
@@ -18642,7 +18642,7 @@ impl IUIAutomationWindowPattern {
     pub unsafe fn Close(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn WaitForInputIdle(&self, milliseconds: i32) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn WaitForInputIdle(&self, milliseconds: i32) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).WaitForInputIdle)(windows_core::Interface::as_raw(self), milliseconds, &mut result__).map(|| result__)
@@ -18651,25 +18651,25 @@ impl IUIAutomationWindowPattern {
     pub unsafe fn SetWindowVisualState(&self, state: WindowVisualState) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetWindowVisualState)(windows_core::Interface::as_raw(self), state).ok() }
     }
-    pub unsafe fn CurrentCanMaximize(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CurrentCanMaximize(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentCanMaximize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentCanMinimize(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CurrentCanMinimize(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentCanMinimize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentIsModal(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CurrentIsModal(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentIsModal)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentIsTopmost(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CurrentIsTopmost(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentIsTopmost)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -18687,25 +18687,25 @@ impl IUIAutomationWindowPattern {
             (windows_core::Interface::vtable(self).CurrentWindowInteractionState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedCanMaximize(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CachedCanMaximize(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedCanMaximize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedCanMinimize(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CachedCanMinimize(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedCanMinimize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedIsModal(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CachedIsModal(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedIsModal)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedIsTopmost(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CachedIsTopmost(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedIsTopmost)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -18728,35 +18728,35 @@ impl IUIAutomationWindowPattern {
 pub struct IUIAutomationWindowPattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub WaitForInputIdle: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub WaitForInputIdle: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub SetWindowVisualState: unsafe extern "system" fn(*mut core::ffi::c_void, WindowVisualState) -> windows_core::HRESULT,
-    pub CurrentCanMaximize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub CurrentCanMinimize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub CurrentIsModal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub CurrentIsTopmost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CurrentCanMaximize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub CurrentCanMinimize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub CurrentIsModal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub CurrentIsTopmost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CurrentWindowVisualState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WindowVisualState) -> windows_core::HRESULT,
     pub CurrentWindowInteractionState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WindowInteractionState) -> windows_core::HRESULT,
-    pub CachedCanMaximize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub CachedCanMinimize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub CachedIsModal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub CachedIsTopmost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CachedCanMaximize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub CachedCanMinimize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub CachedIsModal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub CachedIsTopmost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CachedWindowVisualState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WindowVisualState) -> windows_core::HRESULT,
     pub CachedWindowInteractionState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WindowInteractionState) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationWindowPattern_Impl: windows_core::IUnknownImpl {
     fn Close(&self) -> windows_core::Result<()>;
-    fn WaitForInputIdle(&self, milliseconds: i32) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn WaitForInputIdle(&self, milliseconds: i32) -> windows_core::Result<windows_core::BOOL>;
     fn SetWindowVisualState(&self, state: WindowVisualState) -> windows_core::Result<()>;
-    fn CurrentCanMaximize(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn CurrentCanMinimize(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn CurrentIsModal(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn CurrentIsTopmost(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn CurrentCanMaximize(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn CurrentCanMinimize(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn CurrentIsModal(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn CurrentIsTopmost(&self) -> windows_core::Result<windows_core::BOOL>;
     fn CurrentWindowVisualState(&self) -> windows_core::Result<WindowVisualState>;
     fn CurrentWindowInteractionState(&self) -> windows_core::Result<WindowInteractionState>;
-    fn CachedCanMaximize(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn CachedCanMinimize(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn CachedIsModal(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn CachedIsTopmost(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn CachedCanMaximize(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn CachedCanMinimize(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn CachedIsModal(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn CachedIsTopmost(&self) -> windows_core::Result<windows_core::BOOL>;
     fn CachedWindowVisualState(&self) -> windows_core::Result<WindowVisualState>;
     fn CachedWindowInteractionState(&self) -> windows_core::Result<WindowInteractionState>;
 }
@@ -18768,7 +18768,7 @@ impl IUIAutomationWindowPattern_Vtbl {
                 IUIAutomationWindowPattern_Impl::Close(this).into()
             }
         }
-        unsafe extern "system" fn WaitForInputIdle<Identity: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, milliseconds: i32, success: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn WaitForInputIdle<Identity: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, milliseconds: i32, success: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationWindowPattern_Impl::WaitForInputIdle(this, core::mem::transmute_copy(&milliseconds)) {
@@ -18786,7 +18786,7 @@ impl IUIAutomationWindowPattern_Vtbl {
                 IUIAutomationWindowPattern_Impl::SetWindowVisualState(this, core::mem::transmute_copy(&state)).into()
             }
         }
-        unsafe extern "system" fn CurrentCanMaximize<Identity: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CurrentCanMaximize<Identity: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationWindowPattern_Impl::CurrentCanMaximize(this) {
@@ -18798,7 +18798,7 @@ impl IUIAutomationWindowPattern_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CurrentCanMinimize<Identity: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CurrentCanMinimize<Identity: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationWindowPattern_Impl::CurrentCanMinimize(this) {
@@ -18810,7 +18810,7 @@ impl IUIAutomationWindowPattern_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CurrentIsModal<Identity: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CurrentIsModal<Identity: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationWindowPattern_Impl::CurrentIsModal(this) {
@@ -18822,7 +18822,7 @@ impl IUIAutomationWindowPattern_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CurrentIsTopmost<Identity: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CurrentIsTopmost<Identity: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationWindowPattern_Impl::CurrentIsTopmost(this) {
@@ -18858,7 +18858,7 @@ impl IUIAutomationWindowPattern_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CachedCanMaximize<Identity: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CachedCanMaximize<Identity: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationWindowPattern_Impl::CachedCanMaximize(this) {
@@ -18870,7 +18870,7 @@ impl IUIAutomationWindowPattern_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CachedCanMinimize<Identity: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CachedCanMinimize<Identity: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationWindowPattern_Impl::CachedCanMinimize(this) {
@@ -18882,7 +18882,7 @@ impl IUIAutomationWindowPattern_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CachedIsModal<Identity: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CachedIsModal<Identity: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationWindowPattern_Impl::CachedIsModal(this) {
@@ -18894,7 +18894,7 @@ impl IUIAutomationWindowPattern_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CachedIsTopmost<Identity: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CachedIsTopmost<Identity: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationWindowPattern_Impl::CachedIsTopmost(this) {
@@ -18969,7 +18969,7 @@ impl IValueProvider {
             (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn IsReadOnly(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsReadOnly(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsReadOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -18981,12 +18981,12 @@ pub struct IValueProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub IsReadOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsReadOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IValueProvider_Impl: windows_core::IUnknownImpl {
     fn SetValue(&self, val: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Value(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn IsReadOnly(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn IsReadOnly(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IValueProvider_Vtbl {
     pub const fn new<Identity: IValueProvider_Impl, const OFFSET: isize>() -> Self {
@@ -19008,7 +19008,7 @@ impl IValueProvider_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsReadOnly<Identity: IValueProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsReadOnly<Identity: IValueProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IValueProvider_Impl::IsReadOnly(this) {
@@ -19071,25 +19071,25 @@ impl IWindowProvider {
     pub unsafe fn Close(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn WaitForInputIdle(&self, milliseconds: i32) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn WaitForInputIdle(&self, milliseconds: i32) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).WaitForInputIdle)(windows_core::Interface::as_raw(self), milliseconds, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CanMaximize(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CanMaximize(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CanMaximize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CanMinimize(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CanMinimize(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CanMinimize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsModal(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsModal(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsModal)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -19107,7 +19107,7 @@ impl IWindowProvider {
             (windows_core::Interface::vtable(self).WindowInteractionState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsTopmost(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsTopmost(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsTopmost)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -19119,24 +19119,24 @@ pub struct IWindowProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetVisualState: unsafe extern "system" fn(*mut core::ffi::c_void, WindowVisualState) -> windows_core::HRESULT,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub WaitForInputIdle: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub CanMaximize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub CanMinimize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub IsModal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub WaitForInputIdle: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub CanMaximize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub CanMinimize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub IsModal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub WindowVisualState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WindowVisualState) -> windows_core::HRESULT,
     pub WindowInteractionState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WindowInteractionState) -> windows_core::HRESULT,
-    pub IsTopmost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsTopmost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IWindowProvider_Impl: windows_core::IUnknownImpl {
     fn SetVisualState(&self, state: WindowVisualState) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
-    fn WaitForInputIdle(&self, milliseconds: i32) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn CanMaximize(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn CanMinimize(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn IsModal(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn WaitForInputIdle(&self, milliseconds: i32) -> windows_core::Result<windows_core::BOOL>;
+    fn CanMaximize(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn CanMinimize(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn IsModal(&self) -> windows_core::Result<windows_core::BOOL>;
     fn WindowVisualState(&self) -> windows_core::Result<WindowVisualState>;
     fn WindowInteractionState(&self) -> windows_core::Result<WindowInteractionState>;
-    fn IsTopmost(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn IsTopmost(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IWindowProvider_Vtbl {
     pub const fn new<Identity: IWindowProvider_Impl, const OFFSET: isize>() -> Self {
@@ -19152,7 +19152,7 @@ impl IWindowProvider_Vtbl {
                 IWindowProvider_Impl::Close(this).into()
             }
         }
-        unsafe extern "system" fn WaitForInputIdle<Identity: IWindowProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, milliseconds: i32, pretval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn WaitForInputIdle<Identity: IWindowProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, milliseconds: i32, pretval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWindowProvider_Impl::WaitForInputIdle(this, core::mem::transmute_copy(&milliseconds)) {
@@ -19164,7 +19164,7 @@ impl IWindowProvider_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CanMaximize<Identity: IWindowProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CanMaximize<Identity: IWindowProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWindowProvider_Impl::CanMaximize(this) {
@@ -19176,7 +19176,7 @@ impl IWindowProvider_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CanMinimize<Identity: IWindowProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CanMinimize<Identity: IWindowProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWindowProvider_Impl::CanMinimize(this) {
@@ -19188,7 +19188,7 @@ impl IWindowProvider_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsModal<Identity: IWindowProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsModal<Identity: IWindowProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWindowProvider_Impl::IsModal(this) {
@@ -19224,7 +19224,7 @@ impl IWindowProvider_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsTopmost<Identity: IWindowProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsTopmost<Identity: IWindowProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWindowProvider_Impl::IsTopmost(this) {
@@ -20610,7 +20610,7 @@ impl Default for UIAutomationEventInfo {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct UIAutomationMethodInfo {
     pub pProgrammaticName: windows_core::PCWSTR,
-    pub doSetFocus: super::super::Foundation::BOOL,
+    pub doSetFocus: windows_core::BOOL,
     pub cInParameters: u32,
     pub cOutParameters: u32,
     pub pParameterTypes: *mut UIAutomationType,
@@ -20833,8 +20833,8 @@ pub type UiaEventCallback = Option<unsafe extern "system" fn(pargs: *mut UiaEven
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct UiaFindParams {
     pub MaxDepth: i32,
-    pub FindFirst: super::super::Foundation::BOOL,
-    pub ExcludeRoot: super::super::Foundation::BOOL,
+    pub FindFirst: windows_core::BOOL,
+    pub ExcludeRoot: windows_core::BOOL,
     pub pFindCondition: *mut UiaCondition,
 }
 impl Default for UiaFindParams {

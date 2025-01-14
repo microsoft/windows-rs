@@ -100,19 +100,19 @@ pub unsafe fn CreateRenderAudioStateMonitorForCategoryAndDeviceRole(category: AU
     }
 }
 #[inline]
-pub unsafe fn PlaySoundA<P0>(pszsound: P0, hmod: Option<super::super::Foundation::HMODULE>, fdwsound: SND_FLAGS) -> super::super::Foundation::BOOL
+pub unsafe fn PlaySoundA<P0>(pszsound: P0, hmod: Option<super::super::Foundation::HMODULE>, fdwsound: SND_FLAGS) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("winmm.dll" "system" fn PlaySoundA(pszsound : windows_core::PCSTR, hmod : super::super::Foundation:: HMODULE, fdwsound : SND_FLAGS) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("winmm.dll" "system" fn PlaySoundA(pszsound : windows_core::PCSTR, hmod : super::super::Foundation:: HMODULE, fdwsound : SND_FLAGS) -> windows_core::BOOL);
     unsafe { PlaySoundA(pszsound.param().abi(), hmod.unwrap_or(core::mem::zeroed()) as _, fdwsound) }
 }
 #[inline]
-pub unsafe fn PlaySoundW<P0>(pszsound: P0, hmod: Option<super::super::Foundation::HMODULE>, fdwsound: SND_FLAGS) -> super::super::Foundation::BOOL
+pub unsafe fn PlaySoundW<P0>(pszsound: P0, hmod: Option<super::super::Foundation::HMODULE>, fdwsound: SND_FLAGS) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("winmm.dll" "system" fn PlaySoundW(pszsound : windows_core::PCWSTR, hmod : super::super::Foundation:: HMODULE, fdwsound : SND_FLAGS) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("winmm.dll" "system" fn PlaySoundW(pszsound : windows_core::PCWSTR, hmod : super::super::Foundation:: HMODULE, fdwsound : SND_FLAGS) -> windows_core::BOOL);
     unsafe { PlaySoundW(pszsound.param().abi(), hmod.unwrap_or(core::mem::zeroed()) as _, fdwsound) }
 }
 #[inline]
@@ -643,19 +643,19 @@ pub unsafe fn mixerSetControlDetails(hmxobj: Option<HMIXEROBJ>, pmxcd: *const MI
     unsafe { mixerSetControlDetails(hmxobj.unwrap_or(core::mem::zeroed()) as _, pmxcd, fdwdetails) }
 }
 #[inline]
-pub unsafe fn sndPlaySoundA<P0>(pszsound: P0, fusound: u32) -> super::super::Foundation::BOOL
+pub unsafe fn sndPlaySoundA<P0>(pszsound: P0, fusound: u32) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("winmm.dll" "system" fn sndPlaySoundA(pszsound : windows_core::PCSTR, fusound : u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("winmm.dll" "system" fn sndPlaySoundA(pszsound : windows_core::PCSTR, fusound : u32) -> windows_core::BOOL);
     unsafe { sndPlaySoundA(pszsound.param().abi(), fusound) }
 }
 #[inline]
-pub unsafe fn sndPlaySoundW<P0>(pszsound: P0, fusound: u32) -> super::super::Foundation::BOOL
+pub unsafe fn sndPlaySoundW<P0>(pszsound: P0, fusound: u32) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("winmm.dll" "system" fn sndPlaySoundW(pszsound : windows_core::PCWSTR, fusound : u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("winmm.dll" "system" fn sndPlaySoundW(pszsound : windows_core::PCWSTR, fusound : u32) -> windows_core::BOOL);
     unsafe { sndPlaySoundW(pszsound.param().abi(), fusound) }
 }
 #[inline]
@@ -940,7 +940,7 @@ pub const ACMDRIVERDETAILS_SUPPORTF_DISABLED: i32 = -2147483648i32;
 pub const ACMDRIVERDETAILS_SUPPORTF_FILTER: i32 = 4i32;
 pub const ACMDRIVERDETAILS_SUPPORTF_HARDWARE: i32 = 8i32;
 pub const ACMDRIVERDETAILS_SUPPORTF_LOCAL: i32 = 1073741824i32;
-pub type ACMDRIVERENUMCB = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
+pub type ACMDRIVERENUMCB = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, dwinstance: usize, fdwsupport: u32) -> windows_core::BOOL>;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct ACMDRVFORMATSUGGEST {
@@ -1150,8 +1150,8 @@ impl Default for ACMFILTERDETAILSW {
     }
 }
 pub const ACMFILTERDETAILS_FILTER_CHARS: u32 = 128u32;
-pub type ACMFILTERENUMCBA = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFILTERDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
-pub type ACMFILTERENUMCBW = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFILTERDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
+pub type ACMFILTERENUMCBA = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFILTERDETAILSA, dwinstance: usize, fdwsupport: u32) -> windows_core::BOOL>;
+pub type ACMFILTERENUMCBW = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFILTERDETAILSW, dwinstance: usize, fdwsupport: u32) -> windows_core::BOOL>;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct ACMFILTERTAGDETAILSA {
@@ -1185,8 +1185,8 @@ impl Default for ACMFILTERTAGDETAILSW {
     }
 }
 pub const ACMFILTERTAGDETAILS_FILTERTAG_CHARS: u32 = 48u32;
-pub type ACMFILTERTAGENUMCBA = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFILTERTAGDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
-pub type ACMFILTERTAGENUMCBW = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFILTERTAGDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
+pub type ACMFILTERTAGENUMCBA = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFILTERTAGDETAILSA, dwinstance: usize, fdwsupport: u32) -> windows_core::BOOL>;
+pub type ACMFILTERTAGENUMCBW = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFILTERTAGDETAILSW, dwinstance: usize, fdwsupport: u32) -> windows_core::BOOL>;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct ACMFORMATCHOOSEA {
@@ -1262,8 +1262,8 @@ impl Default for ACMFORMATDETAILSA {
     }
 }
 pub const ACMFORMATDETAILS_FORMAT_CHARS: u32 = 128u32;
-pub type ACMFORMATENUMCBA = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFORMATDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
-pub type ACMFORMATENUMCBW = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut tACMFORMATDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
+pub type ACMFORMATENUMCBA = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFORMATDETAILSA, dwinstance: usize, fdwsupport: u32) -> windows_core::BOOL>;
+pub type ACMFORMATENUMCBW = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut tACMFORMATDETAILSW, dwinstance: usize, fdwsupport: u32) -> windows_core::BOOL>;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct ACMFORMATTAGDETAILSA {
@@ -1297,8 +1297,8 @@ impl Default for ACMFORMATTAGDETAILSW {
     }
 }
 pub const ACMFORMATTAGDETAILS_FORMATTAG_CHARS: u32 = 48u32;
-pub type ACMFORMATTAGENUMCBA = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFORMATTAGDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
-pub type ACMFORMATTAGENUMCBW = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFORMATTAGDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
+pub type ACMFORMATTAGENUMCBA = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFORMATTAGDETAILSA, dwinstance: usize, fdwsupport: u32) -> windows_core::BOOL>;
+pub type ACMFORMATTAGENUMCBW = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFORMATTAGDETAILSW, dwinstance: usize, fdwsupport: u32) -> windows_core::BOOL>;
 pub const ACMHELPMSGCONTEXTHELP: windows_core::PCWSTR = windows_core::w!("acmchoose_contexthelp");
 pub const ACMHELPMSGCONTEXTHELPA: windows_core::PCSTR = windows_core::s!("acmchoose_contexthelp");
 pub const ACMHELPMSGCONTEXTHELPW: windows_core::PCWSTR = windows_core::w!("acmchoose_contexthelp");
@@ -1636,7 +1636,7 @@ pub const AUDIO_DUCKING_OPTIONS_DO_NOT_DUCK_OTHER_STREAMS: AUDIO_DUCKING_OPTIONS
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AUDIO_EFFECT {
     pub id: windows_core::GUID,
-    pub canSetState: super::super::Foundation::BOOL,
+    pub canSetState: windows_core::BOOL,
     pub state: AUDIO_EFFECT_STATE,
 }
 impl Default for AUDIO_EFFECT {
@@ -1663,7 +1663,7 @@ pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_VOLATILE: AUDIO_SYSTEMEFFECTS_P
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AUDIO_VOLUME_NOTIFICATION_DATA {
     pub guidEventContext: windows_core::GUID,
-    pub bMuted: super::super::Foundation::BOOL,
+    pub bMuted: windows_core::BOOL,
     pub fMasterVolume: f32,
     pub nChannels: u32,
     pub afChannelVolumes: [f32; 1],
@@ -1775,7 +1775,7 @@ impl Default for AudioClient3ActivationParams {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AudioClientProperties {
     pub cbSize: u32,
-    pub bIsOffload: super::super::Foundation::BOOL,
+    pub bIsOffload: windows_core::BOOL,
     pub eCategory: AUDIO_STREAM_CATEGORY,
     pub Options: AUDCLNT_STREAMOPTIONS,
 }
@@ -2330,7 +2330,7 @@ impl IAudioAmbisonicsControl {
     pub unsafe fn SetHeadTracking(&self, benableheadtracking: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetHeadTracking)(windows_core::Interface::as_raw(self), benableheadtracking.into()).ok() }
     }
-    pub unsafe fn GetHeadTracking(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn GetHeadTracking(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetHeadTracking)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2344,14 +2344,14 @@ impl IAudioAmbisonicsControl {
 pub struct IAudioAmbisonicsControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetData: unsafe extern "system" fn(*mut core::ffi::c_void, *const AMBISONICS_PARAMS, u32) -> windows_core::HRESULT,
-    pub SetHeadTracking: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub GetHeadTracking: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SetHeadTracking: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
+    pub GetHeadTracking: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub SetRotation: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, f32, f32) -> windows_core::HRESULT,
 }
 pub trait IAudioAmbisonicsControl_Impl: windows_core::IUnknownImpl {
     fn SetData(&self, pambisonicsparams: *const AMBISONICS_PARAMS, cbambisonicsparams: u32) -> windows_core::Result<()>;
-    fn SetHeadTracking(&self, benableheadtracking: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn GetHeadTracking(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn SetHeadTracking(&self, benableheadtracking: windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetHeadTracking(&self) -> windows_core::Result<windows_core::BOOL>;
     fn SetRotation(&self, x: f32, y: f32, z: f32, w: f32) -> windows_core::Result<()>;
 }
 impl IAudioAmbisonicsControl_Vtbl {
@@ -2362,13 +2362,13 @@ impl IAudioAmbisonicsControl_Vtbl {
                 IAudioAmbisonicsControl_Impl::SetData(this, core::mem::transmute_copy(&pambisonicsparams), core::mem::transmute_copy(&cbambisonicsparams)).into()
             }
         }
-        unsafe extern "system" fn SetHeadTracking<Identity: IAudioAmbisonicsControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, benableheadtracking: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetHeadTracking<Identity: IAudioAmbisonicsControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, benableheadtracking: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAudioAmbisonicsControl_Impl::SetHeadTracking(this, core::mem::transmute_copy(&benableheadtracking)).into()
             }
         }
-        unsafe extern "system" fn GetHeadTracking<Identity: IAudioAmbisonicsControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbenableheadtracking: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetHeadTracking<Identity: IAudioAmbisonicsControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbenableheadtracking: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioAmbisonicsControl_Impl::GetHeadTracking(this) {
@@ -2402,7 +2402,7 @@ impl windows_core::RuntimeName for IAudioAmbisonicsControl {}
 windows_core::imp::define_interface!(IAudioAutoGainControl, IAudioAutoGainControl_Vtbl, 0x85401fd4_6de4_4b9d_9869_2d6753a82f3c);
 windows_core::imp::interface_hierarchy!(IAudioAutoGainControl, windows_core::IUnknown);
 impl IAudioAutoGainControl {
-    pub unsafe fn GetEnabled(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn GetEnabled(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2415,16 +2415,16 @@ impl IAudioAutoGainControl {
 #[repr(C)]
 pub struct IAudioAutoGainControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL, *const windows_core::GUID) -> windows_core::HRESULT,
+    pub GetEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 pub trait IAudioAutoGainControl_Impl: windows_core::IUnknownImpl {
-    fn GetEnabled(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn SetEnabled(&self, benable: super::super::Foundation::BOOL, pguideventcontext: *const windows_core::GUID) -> windows_core::Result<()>;
+    fn GetEnabled(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn SetEnabled(&self, benable: windows_core::BOOL, pguideventcontext: *const windows_core::GUID) -> windows_core::Result<()>;
 }
 impl IAudioAutoGainControl_Vtbl {
     pub const fn new<Identity: IAudioAutoGainControl_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetEnabled<Identity: IAudioAutoGainControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbenabled: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetEnabled<Identity: IAudioAutoGainControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbenabled: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioAutoGainControl_Impl::GetEnabled(this) {
@@ -2436,7 +2436,7 @@ impl IAudioAutoGainControl_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetEnabled<Identity: IAudioAutoGainControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, benable: super::super::Foundation::BOOL, pguideventcontext: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetEnabled<Identity: IAudioAutoGainControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, benable: windows_core::BOOL, pguideventcontext: *const windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAudioAutoGainControl_Impl::SetEnabled(this, core::mem::transmute_copy(&benable), core::mem::transmute_copy(&pguideventcontext)).into()
@@ -2809,7 +2809,7 @@ impl core::ops::Deref for IAudioClient2 {
 }
 windows_core::imp::interface_hierarchy!(IAudioClient2, windows_core::IUnknown, IAudioClient);
 impl IAudioClient2 {
-    pub unsafe fn IsOffloadCapable(&self, category: AUDIO_STREAM_CATEGORY) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsOffloadCapable(&self, category: AUDIO_STREAM_CATEGORY) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsOffloadCapable)(windows_core::Interface::as_raw(self), category, &mut result__).map(|| result__)
@@ -2825,18 +2825,18 @@ impl IAudioClient2 {
 #[repr(C)]
 pub struct IAudioClient2_Vtbl {
     pub base__: IAudioClient_Vtbl,
-    pub IsOffloadCapable: unsafe extern "system" fn(*mut core::ffi::c_void, AUDIO_STREAM_CATEGORY, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsOffloadCapable: unsafe extern "system" fn(*mut core::ffi::c_void, AUDIO_STREAM_CATEGORY, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub SetClientProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *const AudioClientProperties) -> windows_core::HRESULT,
-    pub GetBufferSizeLimits: unsafe extern "system" fn(*mut core::ffi::c_void, *const WAVEFORMATEX, super::super::Foundation::BOOL, *mut i64, *mut i64) -> windows_core::HRESULT,
+    pub GetBufferSizeLimits: unsafe extern "system" fn(*mut core::ffi::c_void, *const WAVEFORMATEX, windows_core::BOOL, *mut i64, *mut i64) -> windows_core::HRESULT,
 }
 pub trait IAudioClient2_Impl: IAudioClient_Impl {
-    fn IsOffloadCapable(&self, category: AUDIO_STREAM_CATEGORY) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn IsOffloadCapable(&self, category: AUDIO_STREAM_CATEGORY) -> windows_core::Result<windows_core::BOOL>;
     fn SetClientProperties(&self, pproperties: *const AudioClientProperties) -> windows_core::Result<()>;
-    fn GetBufferSizeLimits(&self, pformat: *const WAVEFORMATEX, beventdriven: super::super::Foundation::BOOL, phnsminbufferduration: *mut i64, phnsmaxbufferduration: *mut i64) -> windows_core::Result<()>;
+    fn GetBufferSizeLimits(&self, pformat: *const WAVEFORMATEX, beventdriven: windows_core::BOOL, phnsminbufferduration: *mut i64, phnsmaxbufferduration: *mut i64) -> windows_core::Result<()>;
 }
 impl IAudioClient2_Vtbl {
     pub const fn new<Identity: IAudioClient2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn IsOffloadCapable<Identity: IAudioClient2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, category: AUDIO_STREAM_CATEGORY, pboffloadcapable: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsOffloadCapable<Identity: IAudioClient2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, category: AUDIO_STREAM_CATEGORY, pboffloadcapable: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioClient2_Impl::IsOffloadCapable(this, core::mem::transmute_copy(&category)) {
@@ -2854,7 +2854,7 @@ impl IAudioClient2_Vtbl {
                 IAudioClient2_Impl::SetClientProperties(this, core::mem::transmute_copy(&pproperties)).into()
             }
         }
-        unsafe extern "system" fn GetBufferSizeLimits<Identity: IAudioClient2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pformat: *const WAVEFORMATEX, beventdriven: super::super::Foundation::BOOL, phnsminbufferduration: *mut i64, phnsmaxbufferduration: *mut i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetBufferSizeLimits<Identity: IAudioClient2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pformat: *const WAVEFORMATEX, beventdriven: windows_core::BOOL, phnsminbufferduration: *mut i64, phnsmaxbufferduration: *mut i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAudioClient2_Impl::GetBufferSizeLimits(this, core::mem::transmute_copy(&pformat), core::mem::transmute_copy(&beventdriven), core::mem::transmute_copy(&phnsminbufferduration), core::mem::transmute_copy(&phnsmaxbufferduration)).into()
@@ -3324,7 +3324,7 @@ impl windows_core::RuntimeName for IAudioInputSelector {}
 windows_core::imp::define_interface!(IAudioLoudness, IAudioLoudness_Vtbl, 0x7d8b1437_dd53_4350_9c1b_1ee2890bd938);
 windows_core::imp::interface_hierarchy!(IAudioLoudness, windows_core::IUnknown);
 impl IAudioLoudness {
-    pub unsafe fn GetEnabled(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn GetEnabled(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3337,16 +3337,16 @@ impl IAudioLoudness {
 #[repr(C)]
 pub struct IAudioLoudness_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL, *const windows_core::GUID) -> windows_core::HRESULT,
+    pub GetEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 pub trait IAudioLoudness_Impl: windows_core::IUnknownImpl {
-    fn GetEnabled(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn SetEnabled(&self, benable: super::super::Foundation::BOOL, pguideventcontext: *const windows_core::GUID) -> windows_core::Result<()>;
+    fn GetEnabled(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn SetEnabled(&self, benable: windows_core::BOOL, pguideventcontext: *const windows_core::GUID) -> windows_core::Result<()>;
 }
 impl IAudioLoudness_Vtbl {
     pub const fn new<Identity: IAudioLoudness_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetEnabled<Identity: IAudioLoudness_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbenabled: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetEnabled<Identity: IAudioLoudness_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbenabled: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioLoudness_Impl::GetEnabled(this) {
@@ -3358,7 +3358,7 @@ impl IAudioLoudness_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetEnabled<Identity: IAudioLoudness_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, benable: super::super::Foundation::BOOL, pguideventcontext: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetEnabled<Identity: IAudioLoudness_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, benable: windows_core::BOOL, pguideventcontext: *const windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAudioLoudness_Impl::SetEnabled(this, core::mem::transmute_copy(&benable), core::mem::transmute_copy(&pguideventcontext)).into()
@@ -3403,7 +3403,7 @@ impl IAudioMute {
     pub unsafe fn SetMute(&self, bmuted: bool, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMute)(windows_core::Interface::as_raw(self), bmuted.into(), pguideventcontext.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn GetMute(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn GetMute(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMute)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3413,22 +3413,22 @@ impl IAudioMute {
 #[repr(C)]
 pub struct IAudioMute_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub SetMute: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL, *const windows_core::GUID) -> windows_core::HRESULT,
-    pub GetMute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SetMute: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, *const windows_core::GUID) -> windows_core::HRESULT,
+    pub GetMute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IAudioMute_Impl: windows_core::IUnknownImpl {
-    fn SetMute(&self, bmuted: super::super::Foundation::BOOL, pguideventcontext: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn GetMute(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn SetMute(&self, bmuted: windows_core::BOOL, pguideventcontext: *const windows_core::GUID) -> windows_core::Result<()>;
+    fn GetMute(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IAudioMute_Vtbl {
     pub const fn new<Identity: IAudioMute_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetMute<Identity: IAudioMute_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bmuted: super::super::Foundation::BOOL, pguideventcontext: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetMute<Identity: IAudioMute_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bmuted: windows_core::BOOL, pguideventcontext: *const windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAudioMute_Impl::SetMute(this, core::mem::transmute_copy(&bmuted), core::mem::transmute_copy(&pguideventcontext)).into()
             }
         }
-        unsafe extern "system" fn GetMute<Identity: IAudioMute_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbmuted: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMute<Identity: IAudioMute_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbmuted: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioMute_Impl::GetMute(this) {
@@ -3836,14 +3836,14 @@ pub struct IAudioSessionControl2_Vtbl {
     pub GetSessionInstanceIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub GetProcessId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub IsSystemSoundsSession: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetDuckingPreference: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SetDuckingPreference: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IAudioSessionControl2_Impl: IAudioSessionControl_Impl {
     fn GetSessionIdentifier(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetSessionInstanceIdentifier(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetProcessId(&self) -> windows_core::Result<u32>;
     fn IsSystemSoundsSession(&self) -> windows_core::HRESULT;
-    fn SetDuckingPreference(&self, optout: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn SetDuckingPreference(&self, optout: windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl IAudioSessionControl2_Vtbl {
     pub const fn new<Identity: IAudioSessionControl2_Impl, const OFFSET: isize>() -> Self {
@@ -3889,7 +3889,7 @@ impl IAudioSessionControl2_Vtbl {
                 IAudioSessionControl2_Impl::IsSystemSoundsSession(this)
             }
         }
-        unsafe extern "system" fn SetDuckingPreference<Identity: IAudioSessionControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, optout: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDuckingPreference<Identity: IAudioSessionControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, optout: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAudioSessionControl2_Impl::SetDuckingPreference(this, core::mem::transmute_copy(&optout)).into()
@@ -4008,7 +4008,7 @@ pub struct IAudioSessionEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnDisplayNameChanged: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const windows_core::GUID) -> windows_core::HRESULT,
     pub OnIconPathChanged: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const windows_core::GUID) -> windows_core::HRESULT,
-    pub OnSimpleVolumeChanged: unsafe extern "system" fn(*mut core::ffi::c_void, f32, super::super::Foundation::BOOL, *const windows_core::GUID) -> windows_core::HRESULT,
+    pub OnSimpleVolumeChanged: unsafe extern "system" fn(*mut core::ffi::c_void, f32, windows_core::BOOL, *const windows_core::GUID) -> windows_core::HRESULT,
     pub OnChannelVolumeChanged: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const f32, u32, *const windows_core::GUID) -> windows_core::HRESULT,
     pub OnGroupingParamChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID) -> windows_core::HRESULT,
     pub OnStateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, AudioSessionState) -> windows_core::HRESULT,
@@ -4017,7 +4017,7 @@ pub struct IAudioSessionEvents_Vtbl {
 pub trait IAudioSessionEvents_Impl: windows_core::IUnknownImpl {
     fn OnDisplayNameChanged(&self, newdisplayname: &windows_core::PCWSTR, eventcontext: *const windows_core::GUID) -> windows_core::Result<()>;
     fn OnIconPathChanged(&self, newiconpath: &windows_core::PCWSTR, eventcontext: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn OnSimpleVolumeChanged(&self, newvolume: f32, newmute: super::super::Foundation::BOOL, eventcontext: *const windows_core::GUID) -> windows_core::Result<()>;
+    fn OnSimpleVolumeChanged(&self, newvolume: f32, newmute: windows_core::BOOL, eventcontext: *const windows_core::GUID) -> windows_core::Result<()>;
     fn OnChannelVolumeChanged(&self, channelcount: u32, newchannelvolumearray: *const f32, changedchannel: u32, eventcontext: *const windows_core::GUID) -> windows_core::Result<()>;
     fn OnGroupingParamChanged(&self, newgroupingparam: *const windows_core::GUID, eventcontext: *const windows_core::GUID) -> windows_core::Result<()>;
     fn OnStateChanged(&self, newstate: AudioSessionState) -> windows_core::Result<()>;
@@ -4037,7 +4037,7 @@ impl IAudioSessionEvents_Vtbl {
                 IAudioSessionEvents_Impl::OnIconPathChanged(this, core::mem::transmute(&newiconpath), core::mem::transmute_copy(&eventcontext)).into()
             }
         }
-        unsafe extern "system" fn OnSimpleVolumeChanged<Identity: IAudioSessionEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newvolume: f32, newmute: super::super::Foundation::BOOL, eventcontext: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnSimpleVolumeChanged<Identity: IAudioSessionEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newvolume: f32, newmute: windows_core::BOOL, eventcontext: *const windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAudioSessionEvents_Impl::OnSimpleVolumeChanged(this, core::mem::transmute_copy(&newvolume), core::mem::transmute_copy(&newmute), core::mem::transmute_copy(&eventcontext)).into()
@@ -4884,7 +4884,7 @@ impl IConnector {
     pub unsafe fn Disconnect(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Disconnect)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn IsConnected(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsConnected(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsConnected)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -4916,7 +4916,7 @@ pub struct IConnector_Vtbl {
     pub GetDataFlow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DataFlow) -> windows_core::HRESULT,
     pub ConnectTo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Disconnect: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub IsConnected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsConnected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetConnectedTo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetConnectorIdConnectedTo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub GetDeviceIdConnectedTo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -4926,7 +4926,7 @@ pub trait IConnector_Impl: windows_core::IUnknownImpl {
     fn GetDataFlow(&self) -> windows_core::Result<DataFlow>;
     fn ConnectTo(&self, pconnectto: windows_core::Ref<IConnector>) -> windows_core::Result<()>;
     fn Disconnect(&self) -> windows_core::Result<()>;
-    fn IsConnected(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn IsConnected(&self) -> windows_core::Result<windows_core::BOOL>;
     fn GetConnectedTo(&self) -> windows_core::Result<IConnector>;
     fn GetConnectorIdConnectedTo(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetDeviceIdConnectedTo(&self) -> windows_core::Result<windows_core::PWSTR>;
@@ -4969,7 +4969,7 @@ impl IConnector_Vtbl {
                 IConnector_Impl::Disconnect(this).into()
             }
         }
-        unsafe extern "system" fn IsConnected<Identity: IConnector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbconnected: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsConnected<Identity: IConnector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbconnected: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IConnector_Impl::IsConnected(this) {
@@ -5260,7 +5260,7 @@ pub struct IDeviceTopology_Vtbl {
     pub GetSubunit: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetPartById: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub GetSignalPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetSignalPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDeviceTopology_Impl: windows_core::IUnknownImpl {
     fn GetConnectorCount(&self) -> windows_core::Result<u32>;
@@ -5269,7 +5269,7 @@ pub trait IDeviceTopology_Impl: windows_core::IUnknownImpl {
     fn GetSubunit(&self, nindex: u32) -> windows_core::Result<ISubunit>;
     fn GetPartById(&self, nid: u32) -> windows_core::Result<IPart>;
     fn GetDeviceId(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn GetSignalPath(&self, pipartfrom: windows_core::Ref<IPart>, pipartto: windows_core::Ref<IPart>, brejectmixedpaths: super::super::Foundation::BOOL) -> windows_core::Result<IPartsList>;
+    fn GetSignalPath(&self, pipartfrom: windows_core::Ref<IPart>, pipartto: windows_core::Ref<IPart>, brejectmixedpaths: windows_core::BOOL) -> windows_core::Result<IPartsList>;
 }
 impl IDeviceTopology_Vtbl {
     pub const fn new<Identity: IDeviceTopology_Impl, const OFFSET: isize>() -> Self {
@@ -5345,7 +5345,7 @@ impl IDeviceTopology_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetSignalPath<Identity: IDeviceTopology_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pipartfrom: *mut core::ffi::c_void, pipartto: *mut core::ffi::c_void, brejectmixedpaths: super::super::Foundation::BOOL, ppparts: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSignalPath<Identity: IDeviceTopology_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pipartfrom: *mut core::ffi::c_void, pipartto: *mut core::ffi::c_void, brejectmixedpaths: windows_core::BOOL, ppparts: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDeviceTopology_Impl::GetSignalPath(this, core::mem::transmute_copy(&pipartfrom), core::mem::transmute_copy(&pipartto), core::mem::transmute_copy(&brejectmixedpaths)) {
@@ -6357,7 +6357,7 @@ impl ISimpleAudioVolume {
     pub unsafe fn SetMute(&self, bmute: bool, eventcontext: *const windows_core::GUID) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMute)(windows_core::Interface::as_raw(self), bmute.into(), eventcontext).ok() }
     }
-    pub unsafe fn GetMute(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn GetMute(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMute)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -6369,14 +6369,14 @@ pub struct ISimpleAudioVolume_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetMasterVolume: unsafe extern "system" fn(*mut core::ffi::c_void, f32, *const windows_core::GUID) -> windows_core::HRESULT,
     pub GetMasterVolume: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SetMute: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL, *const windows_core::GUID) -> windows_core::HRESULT,
-    pub GetMute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SetMute: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, *const windows_core::GUID) -> windows_core::HRESULT,
+    pub GetMute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait ISimpleAudioVolume_Impl: windows_core::IUnknownImpl {
     fn SetMasterVolume(&self, flevel: f32, eventcontext: *const windows_core::GUID) -> windows_core::Result<()>;
     fn GetMasterVolume(&self) -> windows_core::Result<f32>;
-    fn SetMute(&self, bmute: super::super::Foundation::BOOL, eventcontext: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn GetMute(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn SetMute(&self, bmute: windows_core::BOOL, eventcontext: *const windows_core::GUID) -> windows_core::Result<()>;
+    fn GetMute(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl ISimpleAudioVolume_Vtbl {
     pub const fn new<Identity: ISimpleAudioVolume_Impl, const OFFSET: isize>() -> Self {
@@ -6398,13 +6398,13 @@ impl ISimpleAudioVolume_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetMute<Identity: ISimpleAudioVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bmute: super::super::Foundation::BOOL, eventcontext: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetMute<Identity: ISimpleAudioVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bmute: windows_core::BOOL, eventcontext: *const windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISimpleAudioVolume_Impl::SetMute(this, core::mem::transmute_copy(&bmute), core::mem::transmute_copy(&eventcontext)).into()
             }
         }
-        unsafe extern "system" fn GetMute<Identity: ISimpleAudioVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbmute: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMute<Identity: ISimpleAudioVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbmute: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISimpleAudioVolume_Impl::GetMute(this) {
@@ -6606,7 +6606,7 @@ impl core::ops::Deref for ISpatialAudioClient2 {
 }
 windows_core::imp::interface_hierarchy!(ISpatialAudioClient2, windows_core::IUnknown, ISpatialAudioClient);
 impl ISpatialAudioClient2 {
-    pub unsafe fn IsOffloadCapable(&self, category: AUDIO_STREAM_CATEGORY) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsOffloadCapable(&self, category: AUDIO_STREAM_CATEGORY) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsOffloadCapable)(windows_core::Interface::as_raw(self), category, &mut result__).map(|| result__)
@@ -6622,18 +6622,18 @@ impl ISpatialAudioClient2 {
 #[repr(C)]
 pub struct ISpatialAudioClient2_Vtbl {
     pub base__: ISpatialAudioClient_Vtbl,
-    pub IsOffloadCapable: unsafe extern "system" fn(*mut core::ffi::c_void, AUDIO_STREAM_CATEGORY, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub GetMaxFrameCountForCategory: unsafe extern "system" fn(*mut core::ffi::c_void, AUDIO_STREAM_CATEGORY, super::super::Foundation::BOOL, *const WAVEFORMATEX, *mut u32) -> windows_core::HRESULT,
+    pub IsOffloadCapable: unsafe extern "system" fn(*mut core::ffi::c_void, AUDIO_STREAM_CATEGORY, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub GetMaxFrameCountForCategory: unsafe extern "system" fn(*mut core::ffi::c_void, AUDIO_STREAM_CATEGORY, windows_core::BOOL, *const WAVEFORMATEX, *mut u32) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait ISpatialAudioClient2_Impl: ISpatialAudioClient_Impl {
-    fn IsOffloadCapable(&self, category: AUDIO_STREAM_CATEGORY) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn GetMaxFrameCountForCategory(&self, category: AUDIO_STREAM_CATEGORY, offloadenabled: super::super::Foundation::BOOL, objectformat: *const WAVEFORMATEX) -> windows_core::Result<u32>;
+    fn IsOffloadCapable(&self, category: AUDIO_STREAM_CATEGORY) -> windows_core::Result<windows_core::BOOL>;
+    fn GetMaxFrameCountForCategory(&self, category: AUDIO_STREAM_CATEGORY, offloadenabled: windows_core::BOOL, objectformat: *const WAVEFORMATEX) -> windows_core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ISpatialAudioClient2_Vtbl {
     pub const fn new<Identity: ISpatialAudioClient2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn IsOffloadCapable<Identity: ISpatialAudioClient2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, category: AUDIO_STREAM_CATEGORY, isoffloadcapable: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsOffloadCapable<Identity: ISpatialAudioClient2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, category: AUDIO_STREAM_CATEGORY, isoffloadcapable: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpatialAudioClient2_Impl::IsOffloadCapable(this, core::mem::transmute_copy(&category)) {
@@ -6645,7 +6645,7 @@ impl ISpatialAudioClient2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetMaxFrameCountForCategory<Identity: ISpatialAudioClient2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, category: AUDIO_STREAM_CATEGORY, offloadenabled: super::super::Foundation::BOOL, objectformat: *const WAVEFORMATEX, framecountperbuffer: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMaxFrameCountForCategory<Identity: ISpatialAudioClient2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, category: AUDIO_STREAM_CATEGORY, offloadenabled: windows_core::BOOL, objectformat: *const WAVEFORMATEX, framecountperbuffer: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpatialAudioClient2_Impl::GetMaxFrameCountForCategory(this, core::mem::transmute_copy(&category), core::mem::transmute_copy(&offloadenabled), core::mem::transmute_copy(&objectformat)) {
@@ -7245,7 +7245,7 @@ impl ISpatialAudioObjectBase {
     pub unsafe fn SetEndOfStream(&self, framecount: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetEndOfStream)(windows_core::Interface::as_raw(self), framecount).ok() }
     }
-    pub unsafe fn IsActive(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsActive(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsActive)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -7263,13 +7263,13 @@ pub struct ISpatialAudioObjectBase_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
     pub SetEndOfStream: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub IsActive: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsActive: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetAudioObjectType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AudioObjectType) -> windows_core::HRESULT,
 }
 pub trait ISpatialAudioObjectBase_Impl: windows_core::IUnknownImpl {
     fn GetBuffer(&self, buffer: *mut *mut u8, bufferlength: *mut u32) -> windows_core::Result<()>;
     fn SetEndOfStream(&self, framecount: u32) -> windows_core::Result<()>;
-    fn IsActive(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn IsActive(&self) -> windows_core::Result<windows_core::BOOL>;
     fn GetAudioObjectType(&self) -> windows_core::Result<AudioObjectType>;
 }
 impl ISpatialAudioObjectBase_Vtbl {
@@ -7286,7 +7286,7 @@ impl ISpatialAudioObjectBase_Vtbl {
                 ISpatialAudioObjectBase_Impl::SetEndOfStream(this, core::mem::transmute_copy(&framecount)).into()
             }
         }
-        unsafe extern "system" fn IsActive<Identity: ISpatialAudioObjectBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isactive: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsActive<Identity: ISpatialAudioObjectBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isactive: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpatialAudioObjectBase_Impl::IsActive(this) {

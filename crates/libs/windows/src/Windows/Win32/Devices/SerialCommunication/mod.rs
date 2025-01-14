@@ -4,8 +4,8 @@ pub unsafe fn ComDBClaimNextFreePort(hcomdb: HCOMDB, comnumber: *mut u32) -> i32
     unsafe { ComDBClaimNextFreePort(hcomdb, comnumber as _) }
 }
 #[inline]
-pub unsafe fn ComDBClaimPort(hcomdb: HCOMDB, comnumber: u32, forceclaim: bool, forced: Option<*mut super::super::Foundation::BOOL>) -> i32 {
-    windows_targets::link!("msports.dll" "system" fn ComDBClaimPort(hcomdb : HCOMDB, comnumber : u32, forceclaim : super::super::Foundation:: BOOL, forced : *mut super::super::Foundation:: BOOL) -> i32);
+pub unsafe fn ComDBClaimPort(hcomdb: HCOMDB, comnumber: u32, forceclaim: bool, forced: Option<*mut windows_core::BOOL>) -> i32 {
+    windows_targets::link!("msports.dll" "system" fn ComDBClaimPort(hcomdb : HCOMDB, comnumber : u32, forceclaim : windows_core::BOOL, forced : *mut windows_core::BOOL) -> i32);
     unsafe { ComDBClaimPort(hcomdb, comnumber, forceclaim.into(), forced.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]

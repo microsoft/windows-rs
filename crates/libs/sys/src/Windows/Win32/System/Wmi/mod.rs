@@ -1535,7 +1535,7 @@ pub struct SWbemAnalysisMatrix {
     pub m_uPropertyType: u32,
     pub m_uEntries: u32,
     pub m_pValues: *mut *mut core::ffi::c_void,
-    pub m_pbTruthTable: *mut super::super::Foundation::BOOL,
+    pub m_pbTruthTable: *mut windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1586,8 +1586,8 @@ pub struct SWbemQueryQualifiedName {
     pub m_uTokenType: u32,
     pub m_uNameListSize: u32,
     pub m_ppszNameList: *const windows_sys::core::PCWSTR,
-    pub m_bArraysUsed: super::super::Foundation::BOOL,
-    pub m_pbArrayElUsed: *mut super::super::Foundation::BOOL,
+    pub m_bArraysUsed: windows_sys::core::BOOL,
+    pub m_pbArrayElUsed: *mut windows_sys::core::BOOL,
     pub m_puArrayIndex: *mut u32,
 }
 pub const SWbemRefreshableItem: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8c6854bc_de4b_11d3_b390_00105a1f473a);
@@ -1596,7 +1596,7 @@ pub const SWbemRefresher: windows_sys::core::GUID = windows_sys::core::GUID::fro
 #[derive(Clone, Copy)]
 pub union SWbemRpnConst {
     pub m_pszStrVal: windows_sys::core::PCWSTR,
-    pub m_bBoolVal: super::super::Foundation::BOOL,
+    pub m_bBoolVal: windows_sys::core::BOOL,
     pub m_lLongVal: i32,
     pub m_uLongVal: u32,
     pub m_dblVal: f64,

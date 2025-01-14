@@ -1,12 +1,12 @@
-windows_targets::link!("tbs.dll" "system" fn GetDeviceID(pbwindowsaik : *mut u8, cbwindowsaik : u32, pcbresult : *mut u32, pfprotectedbytpm : *mut super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
-windows_targets::link!("tbs.dll" "system" fn GetDeviceIDString(pszwindowsaik : windows_sys::core::PWSTR, cchwindowsaik : u32, pcchresult : *mut u32, pfprotectedbytpm : *mut super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+windows_targets::link!("tbs.dll" "system" fn GetDeviceID(pbwindowsaik : *mut u8, cbwindowsaik : u32, pcbresult : *mut u32, pfprotectedbytpm : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
+windows_targets::link!("tbs.dll" "system" fn GetDeviceIDString(pszwindowsaik : windows_sys::core::PWSTR, cchwindowsaik : u32, pcchresult : *mut u32, pfprotectedbytpm : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 windows_targets::link!("tbs.dll" "system" fn Tbsi_Context_Create(pcontextparams : *const TBS_CONTEXT_PARAMS, phcontext : *mut *mut core::ffi::c_void) -> u32);
 windows_targets::link!("tbs.dll" "system" fn Tbsi_Create_Windows_Key(keyhandle : u32) -> u32);
 windows_targets::link!("tbs.dll" "system" fn Tbsi_GetDeviceInfo(size : u32, info : *mut core::ffi::c_void) -> u32);
 windows_targets::link!("tbs.dll" "system" fn Tbsi_Get_OwnerAuth(hcontext : *const core::ffi::c_void, ownerauthtype : u32, poutputbuf : *mut u8, poutputbuflen : *mut u32) -> u32);
 windows_targets::link!("tbs.dll" "system" fn Tbsi_Get_TCG_Log(hcontext : *const core::ffi::c_void, poutputbuf : *mut u8, poutputbuflen : *mut u32) -> u32);
 windows_targets::link!("tbs.dll" "system" fn Tbsi_Get_TCG_Log_Ex(logtype : u32, pboutput : *mut u8, pcboutput : *mut u32) -> u32);
-windows_targets::link!("tbs.dll" "system" fn Tbsi_Is_Tpm_Present() -> super::super::Foundation:: BOOL);
+windows_targets::link!("tbs.dll" "system" fn Tbsi_Is_Tpm_Present() -> windows_sys::core::BOOL);
 windows_targets::link!("tbs.dll" "system" fn Tbsi_Physical_Presence_Command(hcontext : *const core::ffi::c_void, pabinput : *const u8, cbinput : u32, paboutput : *mut u8, pcboutput : *mut u32) -> u32);
 windows_targets::link!("tbs.dll" "system" fn Tbsi_Revoke_Attestation() -> u32);
 windows_targets::link!("tbs.dll" "system" fn Tbsip_Cancel_Commands(hcontext : *const core::ffi::c_void) -> u32);

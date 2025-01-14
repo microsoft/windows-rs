@@ -91,14 +91,14 @@ pub union PSS_HANDLE_ENTRY_0 {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PSS_HANDLE_ENTRY_0_3 {
-    pub ManualReset: super::super::super::Foundation::BOOL,
-    pub Signaled: super::super::super::Foundation::BOOL,
+    pub ManualReset: windows_sys::core::BOOL,
+    pub Signaled: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PSS_HANDLE_ENTRY_0_2 {
     pub CurrentCount: i32,
-    pub Abandoned: super::super::super::Foundation::BOOL,
+    pub Abandoned: windows_sys::core::BOOL,
     pub OwnerProcessId: u32,
     pub OwnerThreadId: u32,
 }

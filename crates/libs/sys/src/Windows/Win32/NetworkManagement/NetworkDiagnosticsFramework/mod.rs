@@ -6,10 +6,10 @@ windows_targets::link!("ndfapi.dll" "system" fn NdfCreateDNSIncident(hostname : 
 windows_targets::link!("ndfapi.dll" "system" fn NdfCreateGroupingIncident(cloudname : windows_sys::core::PCWSTR, groupname : windows_sys::core::PCWSTR, identity : windows_sys::core::PCWSTR, invitation : windows_sys::core::PCWSTR, addresses : *const super::super::Networking::WinSock:: SOCKET_ADDRESS_LIST, appid : windows_sys::core::PCWSTR, handle : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("ndfapi.dll" "system" fn NdfCreateIncident(helperclassname : windows_sys::core::PCWSTR, celt : u32, attributes : *const HELPER_ATTRIBUTE, handle : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("ndfapi.dll" "system" fn NdfCreateNetConnectionIncident(handle : *mut *mut core::ffi::c_void, id : windows_sys::core::GUID) -> windows_sys::core::HRESULT);
-windows_targets::link!("ndfapi.dll" "system" fn NdfCreatePnrpIncident(cloudname : windows_sys::core::PCWSTR, peername : windows_sys::core::PCWSTR, diagnosepublish : super::super::Foundation:: BOOL, appid : windows_sys::core::PCWSTR, handle : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_targets::link!("ndfapi.dll" "system" fn NdfCreatePnrpIncident(cloudname : windows_sys::core::PCWSTR, peername : windows_sys::core::PCWSTR, diagnosepublish : windows_sys::core::BOOL, appid : windows_sys::core::PCWSTR, handle : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("ndfapi.dll" "system" fn NdfCreateSharingIncident(uncpath : windows_sys::core::PCWSTR, handle : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("ndfapi.dll" "system" fn NdfCreateWebIncident(url : windows_sys::core::PCWSTR, handle : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_targets::link!("ndfapi.dll" "system" fn NdfCreateWebIncidentEx(url : windows_sys::core::PCWSTR, usewinhttp : super::super::Foundation:: BOOL, modulename : windows_sys::core::PCWSTR, handle : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_targets::link!("ndfapi.dll" "system" fn NdfCreateWebIncidentEx(url : windows_sys::core::PCWSTR, usewinhttp : windows_sys::core::BOOL, modulename : windows_sys::core::PCWSTR, handle : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security"))]
 windows_targets::link!("ndfapi.dll" "system" fn NdfCreateWinSockIncident(sock : super::super::Networking::WinSock:: SOCKET, host : windows_sys::core::PCWSTR, port : u16, appid : windows_sys::core::PCWSTR, userid : *const super::super::Security:: SID, handle : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("ndfapi.dll" "system" fn NdfDiagnoseIncident(handle : *const core::ffi::c_void, rootcausecount : *mut u32, rootcauses : *mut *mut RootCauseInfo, dwwait : u32, dwflags : u32) -> windows_sys::core::HRESULT);
@@ -63,7 +63,7 @@ pub struct HELPER_ATTRIBUTE {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union HELPER_ATTRIBUTE_0 {
-    pub Boolean: super::super::Foundation::BOOL,
+    pub Boolean: windows_sys::core::BOOL,
     pub Char: u8,
     pub Byte: u8,
     pub Short: i16,

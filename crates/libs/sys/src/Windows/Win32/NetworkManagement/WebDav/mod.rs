@@ -1,5 +1,5 @@
 windows_targets::link!("netapi32.dll" "system" fn DavAddConnection(connectionhandle : *mut super::super::Foundation:: HANDLE, remotename : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR, password : windows_sys::core::PCWSTR, clientcert : *const u8, certsize : u32) -> u32);
-windows_targets::link!("davclnt.dll" "system" fn DavCancelConnectionsToServer(lpname : windows_sys::core::PCWSTR, fforce : super::super::Foundation:: BOOL) -> u32);
+windows_targets::link!("davclnt.dll" "system" fn DavCancelConnectionsToServer(lpname : windows_sys::core::PCWSTR, fforce : windows_sys::core::BOOL) -> u32);
 windows_targets::link!("netapi32.dll" "system" fn DavDeleteConnection(connectionhandle : super::super::Foundation:: HANDLE) -> u32);
 windows_targets::link!("netapi32.dll" "system" fn DavFlushFile(hfile : super::super::Foundation:: HANDLE) -> u32);
 windows_targets::link!("netapi32.dll" "system" fn DavGetExtendedError(hfile : super::super::Foundation:: HANDLE, exterror : *mut u32, exterrorstring : windows_sys::core::PWSTR, cchsize : *mut u32) -> u32);
@@ -38,8 +38,8 @@ pub struct DAV_CALLBACK_AUTH_UNP {
 pub struct DAV_CALLBACK_CRED {
     pub AuthBlob: DAV_CALLBACK_AUTH_BLOB,
     pub UNPBlob: DAV_CALLBACK_AUTH_UNP,
-    pub bAuthBlobValid: super::super::Foundation::BOOL,
-    pub bSave: super::super::Foundation::BOOL,
+    pub bAuthBlobValid: windows_sys::core::BOOL,
+    pub bSave: windows_sys::core::BOOL,
 }
 pub const DefaultBehavior: AUTHNEXTSTEP = 0i32;
 pub type PFNDAVAUTHCALLBACK = Option<unsafe extern "system" fn(lpwzservername: windows_sys::core::PCWSTR, lpwzremotename: windows_sys::core::PCWSTR, dwauthscheme: u32, dwflags: u32, pcallbackcred: *mut DAV_CALLBACK_CRED, nextstep: *mut AUTHNEXTSTEP, pfreecred: *mut PFNDAVAUTHCALLBACK_FREECRED) -> u32>;

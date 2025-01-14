@@ -27,7 +27,7 @@ pub struct CProperty {
     pub cbData: u32,
     pub dwType: u32,
     pub Anonymous: CProperty_0,
-    pub fPersist: super::super::Foundation::BOOL,
+    pub fPersist: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -221,13 +221,13 @@ pub const HHWIN_TB_MARGIN: u32 = 268435456u32;
 #[derive(Clone, Copy)]
 pub struct HH_AKLINK {
     pub cbStruct: i32,
-    pub fReserved: super::super::Foundation::BOOL,
+    pub fReserved: windows_sys::core::BOOL,
     pub pszKeywords: *mut i8,
     pub pszUrl: *mut i8,
     pub pszMsgText: *mut i8,
     pub pszMsgTitle: *mut i8,
     pub pszWindow: *mut i8,
-    pub fIndexOnFail: super::super::Foundation::BOOL,
+    pub fIndexOnFail: windows_sys::core::BOOL,
 }
 pub const HH_ALINK_LOOKUP: HTML_HELP_COMMAND = 19i32;
 pub const HH_CLOSE_ALL: HTML_HELP_COMMAND = 18i32;
@@ -260,12 +260,12 @@ pub const HH_FTS_DEFAULT_PROXIMITY: HTML_HELP_COMMAND = -1i32;
 #[derive(Clone, Copy)]
 pub struct HH_FTS_QUERY {
     pub cbStruct: i32,
-    pub fUniCodeStrings: super::super::Foundation::BOOL,
+    pub fUniCodeStrings: windows_sys::core::BOOL,
     pub pszSearchQuery: *mut i8,
     pub iProximity: i32,
-    pub fStemmedSearch: super::super::Foundation::BOOL,
-    pub fTitleOnly: super::super::Foundation::BOOL,
-    pub fExecute: super::super::Foundation::BOOL,
+    pub fStemmedSearch: windows_sys::core::BOOL,
+    pub fTitleOnly: windows_sys::core::BOOL,
+    pub fExecute: windows_sys::core::BOOL,
     pub pszWindow: *mut i8,
 }
 pub const HH_GET_LAST_ERROR: HTML_HELP_COMMAND = 20i32;
@@ -338,7 +338,7 @@ pub const HH_UNINITIALIZE: HTML_HELP_COMMAND = 29i32;
 #[derive(Clone, Copy)]
 pub struct HH_WINTYPE {
     pub cbStruct: i32,
-    pub fUniCodeStrings: super::super::Foundation::BOOL,
+    pub fUniCodeStrings: windows_sys::core::BOOL,
     pub pszType: *mut i8,
     pub fsValidMembers: u32,
     pub fsWinProperties: u32,
@@ -360,7 +360,7 @@ pub struct HH_WINTYPE {
     pub pszFile: *mut i8,
     pub pszHome: *mut i8,
     pub fsToolBarFlags: u32,
-    pub fNotExpanded: super::super::Foundation::BOOL,
+    pub fNotExpanded: windows_sys::core::BOOL,
     pub curNavType: i32,
     pub tabpos: i32,
     pub idNotify: i32,

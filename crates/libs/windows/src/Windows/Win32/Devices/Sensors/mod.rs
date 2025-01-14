@@ -122,8 +122,8 @@ pub unsafe fn IsSensorSubscribed(subscriptionlist: *const SENSOR_COLLECTION_LIST
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn PropKeyFindKeyGetBool(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::Foundation::PROPERTYKEY, pretvalue: *mut super::super::Foundation::BOOL) -> super::super::Foundation::NTSTATUS {
-    windows_targets::link!("sensorsutilsv2.dll" "system" fn PropKeyFindKeyGetBool(plist : *const SENSOR_COLLECTION_LIST, pkey : *const super::super::Foundation:: PROPERTYKEY, pretvalue : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: NTSTATUS);
+pub unsafe fn PropKeyFindKeyGetBool(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::Foundation::PROPERTYKEY, pretvalue: *mut windows_core::BOOL) -> super::super::Foundation::NTSTATUS {
+    windows_targets::link!("sensorsutilsv2.dll" "system" fn PropKeyFindKeyGetBool(plist : *const SENSOR_COLLECTION_LIST, pkey : *const super::super::Foundation:: PROPERTYKEY, pretvalue : *mut windows_core::BOOL) -> super::super::Foundation:: NTSTATUS);
     unsafe { PropKeyFindKeyGetBool(core::mem::transmute(plist), pkey, pretvalue as _) }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -318,7 +318,7 @@ pub const HumanPresenceDetectionType_VendorDefinedNonBiometric: HUMAN_PRESENCE_D
 windows_core::imp::define_interface!(ILocationPermissions, ILocationPermissions_Vtbl, 0xd5fb0a7f_e74e_44f5_8e02_4806863a274f);
 windows_core::imp::interface_hierarchy!(ILocationPermissions, windows_core::IUnknown);
 impl ILocationPermissions {
-    pub unsafe fn GetGlobalLocationPermission(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn GetGlobalLocationPermission(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetGlobalLocationPermission)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -331,16 +331,16 @@ impl ILocationPermissions {
 #[repr(C)]
 pub struct ILocationPermissions_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetGlobalLocationPermission: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetGlobalLocationPermission: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CheckLocationCapability: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait ILocationPermissions_Impl: windows_core::IUnknownImpl {
-    fn GetGlobalLocationPermission(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn GetGlobalLocationPermission(&self) -> windows_core::Result<windows_core::BOOL>;
     fn CheckLocationCapability(&self, dwclientthreadid: u32) -> windows_core::Result<()>;
 }
 impl ILocationPermissions_Vtbl {
     pub const fn new<Identity: ILocationPermissions_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetGlobalLocationPermission<Identity: ILocationPermissions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfenabled: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetGlobalLocationPermission<Identity: ILocationPermissions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfenabled: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILocationPermissions_Impl::GetGlobalLocationPermission(this) {
@@ -1049,14 +1049,14 @@ pub struct ISensorManager_Vtbl {
     pub GetSensorsByType: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSensorByID: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetEventSink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub RequestPermissions: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, *mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub RequestPermissions: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait ISensorManager_Impl: windows_core::IUnknownImpl {
     fn GetSensorsByCategory(&self, sensorcategory: *const windows_core::GUID) -> windows_core::Result<ISensorCollection>;
     fn GetSensorsByType(&self, sensortype: *const windows_core::GUID) -> windows_core::Result<ISensorCollection>;
     fn GetSensorByID(&self, sensorid: *const windows_core::GUID) -> windows_core::Result<ISensor>;
     fn SetEventSink(&self, pevents: windows_core::Ref<ISensorManagerEvents>) -> windows_core::Result<()>;
-    fn RequestPermissions(&self, hparent: super::super::Foundation::HWND, psensors: windows_core::Ref<ISensorCollection>, fmodal: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn RequestPermissions(&self, hparent: super::super::Foundation::HWND, psensors: windows_core::Ref<ISensorCollection>, fmodal: windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl ISensorManager_Vtbl {
     pub const fn new<Identity: ISensorManager_Impl, const OFFSET: isize>() -> Self {
@@ -1102,7 +1102,7 @@ impl ISensorManager_Vtbl {
                 ISensorManager_Impl::SetEventSink(this, core::mem::transmute_copy(&pevents)).into()
             }
         }
-        unsafe extern "system" fn RequestPermissions<Identity: ISensorManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hparent: super::super::Foundation::HWND, psensors: *mut core::ffi::c_void, fmodal: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn RequestPermissions<Identity: ISensorManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hparent: super::super::Foundation::HWND, psensors: *mut core::ffi::c_void, fmodal: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISensorManager_Impl::RequestPermissions(this, core::mem::transmute_copy(&hparent), core::mem::transmute_copy(&psensors), core::mem::transmute_copy(&fmodal)).into()

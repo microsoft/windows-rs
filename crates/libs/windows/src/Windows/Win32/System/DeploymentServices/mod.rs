@@ -29,8 +29,8 @@ pub unsafe fn PxeDhcpInitialize(precvpacket: *const core::ffi::c_void, urecvpack
     unsafe { PxeDhcpInitialize(precvpacket, urecvpacketlen, preplypacket as _, umaxreplypacketlen, pureplypacketlen as _) }
 }
 #[inline]
-pub unsafe fn PxeDhcpIsValid(ppacket: *const core::ffi::c_void, upacketlen: u32, brequestpacket: bool, pbpxeoptionpresent: Option<*mut super::super::Foundation::BOOL>) -> u32 {
-    windows_targets::link!("wdspxe.dll" "system" fn PxeDhcpIsValid(ppacket : *const core::ffi::c_void, upacketlen : u32, brequestpacket : super::super::Foundation:: BOOL, pbpxeoptionpresent : *mut super::super::Foundation:: BOOL) -> u32);
+pub unsafe fn PxeDhcpIsValid(ppacket: *const core::ffi::c_void, upacketlen: u32, brequestpacket: bool, pbpxeoptionpresent: Option<*mut windows_core::BOOL>) -> u32 {
+    windows_targets::link!("wdspxe.dll" "system" fn PxeDhcpIsValid(ppacket : *const core::ffi::c_void, upacketlen : u32, brequestpacket : windows_core::BOOL, pbpxeoptionpresent : *mut windows_core::BOOL) -> u32);
     unsafe { PxeDhcpIsValid(ppacket, upacketlen, brequestpacket.into(), pbpxeoptionpresent.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -64,8 +64,8 @@ pub unsafe fn PxeDhcpv6Initialize(prequest: *const core::ffi::c_void, cbrequest:
     unsafe { PxeDhcpv6Initialize(prequest, cbrequest, preply as _, cbreply, pcbreplyused as _) }
 }
 #[inline]
-pub unsafe fn PxeDhcpv6IsValid(ppacket: *const core::ffi::c_void, upacketlen: u32, brequestpacket: bool, pbpxeoptionpresent: Option<*mut super::super::Foundation::BOOL>) -> u32 {
-    windows_targets::link!("wdspxe.dll" "system" fn PxeDhcpv6IsValid(ppacket : *const core::ffi::c_void, upacketlen : u32, brequestpacket : super::super::Foundation:: BOOL, pbpxeoptionpresent : *mut super::super::Foundation:: BOOL) -> u32);
+pub unsafe fn PxeDhcpv6IsValid(ppacket: *const core::ffi::c_void, upacketlen: u32, brequestpacket: bool, pbpxeoptionpresent: Option<*mut windows_core::BOOL>) -> u32 {
+    windows_targets::link!("wdspxe.dll" "system" fn PxeDhcpv6IsValid(ppacket : *const core::ffi::c_void, upacketlen : u32, brequestpacket : windows_core::BOOL, pbpxeoptionpresent : *mut windows_core::BOOL) -> u32);
     unsafe { PxeDhcpv6IsValid(ppacket, upacketlen, brequestpacket.into(), pbpxeoptionpresent.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -128,7 +128,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("wdspxe.dll" "system" fn PxeProviderRegister(pszprovidername : windows_core::PCWSTR, pszmodulepath : windows_core::PCWSTR, index : u32, biscritical : super::super::Foundation:: BOOL, phproviderkey : *mut super::Registry:: HKEY) -> u32);
+    windows_targets::link!("wdspxe.dll" "system" fn PxeProviderRegister(pszprovidername : windows_core::PCWSTR, pszmodulepath : windows_core::PCWSTR, index : u32, biscritical : windows_core::BOOL, phproviderkey : *mut super::Registry:: HKEY) -> u32);
     unsafe { PxeProviderRegister(pszprovidername.param().abi(), pszmodulepath.param().abi(), index, biscritical.into(), phproviderkey.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -3932,7 +3932,7 @@ pub struct PXE_PROVIDER {
     pub uSizeOfStruct: u32,
     pub pwszName: windows_core::PWSTR,
     pub pwszFilePath: windows_core::PWSTR,
-    pub bIsCritical: super::super::Foundation::BOOL,
+    pub bIsCritical: windows_core::BOOL,
     pub uIndex: u32,
 }
 impl Default for PXE_PROVIDER {

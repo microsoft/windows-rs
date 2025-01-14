@@ -113,7 +113,7 @@ pub unsafe fn WlanGetInterfaceCapability(hclienthandle: super::super::Foundation
 }
 #[inline]
 pub unsafe fn WlanGetNetworkBssList(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const windows_core::GUID, pdot11ssid: Option<*const DOT11_SSID>, dot11bsstype: DOT11_BSS_TYPE, bsecurityenabled: bool, preserved: Option<*const core::ffi::c_void>, ppwlanbsslist: *mut *mut WLAN_BSS_LIST) -> u32 {
-    windows_targets::link!("wlanapi.dll" "system" fn WlanGetNetworkBssList(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const windows_core::GUID, pdot11ssid : *const DOT11_SSID, dot11bsstype : DOT11_BSS_TYPE, bsecurityenabled : super::super::Foundation:: BOOL, preserved : *const core::ffi::c_void, ppwlanbsslist : *mut *mut WLAN_BSS_LIST) -> u32);
+    windows_targets::link!("wlanapi.dll" "system" fn WlanGetNetworkBssList(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const windows_core::GUID, pdot11ssid : *const DOT11_SSID, dot11bsstype : DOT11_BSS_TYPE, bsecurityenabled : windows_core::BOOL, preserved : *const core::ffi::c_void, ppwlanbsslist : *mut *mut WLAN_BSS_LIST) -> u32);
     unsafe { WlanGetNetworkBssList(hclienthandle, pinterfaceguid, pdot11ssid.unwrap_or(core::mem::zeroed()) as _, dot11bsstype, bsecurityenabled.into(), preserved.unwrap_or(core::mem::zeroed()) as _, ppwlanbsslist as _) }
 }
 #[inline]
@@ -168,8 +168,8 @@ pub unsafe fn WlanHostedNetworkQueryProperty(hclienthandle: super::super::Founda
     unsafe { WlanHostedNetworkQueryProperty(hclienthandle, opcode, pdwdatasize as _, ppvdata as _, pwlanopcodevaluetype as _, pvreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn WlanHostedNetworkQuerySecondaryKey(hclienthandle: super::super::Foundation::HANDLE, pdwkeylength: *mut u32, ppuckeydata: *mut *mut u8, pbispassphrase: *mut super::super::Foundation::BOOL, pbpersistent: *mut super::super::Foundation::BOOL, pfailreason: Option<*mut WLAN_HOSTED_NETWORK_REASON>, pvreserved: Option<*const core::ffi::c_void>) -> u32 {
-    windows_targets::link!("wlanapi.dll" "system" fn WlanHostedNetworkQuerySecondaryKey(hclienthandle : super::super::Foundation:: HANDLE, pdwkeylength : *mut u32, ppuckeydata : *mut *mut u8, pbispassphrase : *mut super::super::Foundation:: BOOL, pbpersistent : *mut super::super::Foundation:: BOOL, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const core::ffi::c_void) -> u32);
+pub unsafe fn WlanHostedNetworkQuerySecondaryKey(hclienthandle: super::super::Foundation::HANDLE, pdwkeylength: *mut u32, ppuckeydata: *mut *mut u8, pbispassphrase: *mut windows_core::BOOL, pbpersistent: *mut windows_core::BOOL, pfailreason: Option<*mut WLAN_HOSTED_NETWORK_REASON>, pvreserved: Option<*const core::ffi::c_void>) -> u32 {
+    windows_targets::link!("wlanapi.dll" "system" fn WlanHostedNetworkQuerySecondaryKey(hclienthandle : super::super::Foundation:: HANDLE, pdwkeylength : *mut u32, ppuckeydata : *mut *mut u8, pbispassphrase : *mut windows_core::BOOL, pbpersistent : *mut windows_core::BOOL, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const core::ffi::c_void) -> u32);
     unsafe { WlanHostedNetworkQuerySecondaryKey(hclienthandle, pdwkeylength as _, ppuckeydata as _, pbispassphrase as _, pbpersistent as _, pfailreason.unwrap_or(core::mem::zeroed()) as _, pvreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -189,7 +189,7 @@ pub unsafe fn WlanHostedNetworkSetProperty(hclienthandle: super::super::Foundati
 }
 #[inline]
 pub unsafe fn WlanHostedNetworkSetSecondaryKey(hclienthandle: super::super::Foundation::HANDLE, puckeydata: &[u8], bispassphrase: bool, bpersistent: bool, pfailreason: Option<*mut WLAN_HOSTED_NETWORK_REASON>, pvreserved: Option<*const core::ffi::c_void>) -> u32 {
-    windows_targets::link!("wlanapi.dll" "system" fn WlanHostedNetworkSetSecondaryKey(hclienthandle : super::super::Foundation:: HANDLE, dwkeylength : u32, puckeydata : *const u8, bispassphrase : super::super::Foundation:: BOOL, bpersistent : super::super::Foundation:: BOOL, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const core::ffi::c_void) -> u32);
+    windows_targets::link!("wlanapi.dll" "system" fn WlanHostedNetworkSetSecondaryKey(hclienthandle : super::super::Foundation:: HANDLE, dwkeylength : u32, puckeydata : *const u8, bispassphrase : windows_core::BOOL, bpersistent : windows_core::BOOL, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const core::ffi::c_void) -> u32);
     unsafe { WlanHostedNetworkSetSecondaryKey(hclienthandle, puckeydata.len().try_into().unwrap(), core::mem::transmute(puckeydata.as_ptr()), bispassphrase.into(), bpersistent.into(), pfailreason.unwrap_or(core::mem::zeroed()) as _, pvreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -234,12 +234,12 @@ pub unsafe fn WlanRegisterDeviceServiceNotification(hclienthandle: super::super:
 }
 #[inline]
 pub unsafe fn WlanRegisterNotification(hclienthandle: super::super::Foundation::HANDLE, dwnotifsource: WLAN_NOTIFICATION_SOURCES, bignoreduplicate: bool, funccallback: Option<WLAN_NOTIFICATION_CALLBACK>, pcallbackcontext: Option<*const core::ffi::c_void>, preserved: Option<*const core::ffi::c_void>, pdwprevnotifsource: Option<*mut u32>) -> u32 {
-    windows_targets::link!("wlanapi.dll" "system" fn WlanRegisterNotification(hclienthandle : super::super::Foundation:: HANDLE, dwnotifsource : WLAN_NOTIFICATION_SOURCES, bignoreduplicate : super::super::Foundation:: BOOL, funccallback : WLAN_NOTIFICATION_CALLBACK, pcallbackcontext : *const core::ffi::c_void, preserved : *const core::ffi::c_void, pdwprevnotifsource : *mut u32) -> u32);
+    windows_targets::link!("wlanapi.dll" "system" fn WlanRegisterNotification(hclienthandle : super::super::Foundation:: HANDLE, dwnotifsource : WLAN_NOTIFICATION_SOURCES, bignoreduplicate : windows_core::BOOL, funccallback : WLAN_NOTIFICATION_CALLBACK, pcallbackcontext : *const core::ffi::c_void, preserved : *const core::ffi::c_void, pdwprevnotifsource : *mut u32) -> u32);
     unsafe { WlanRegisterNotification(hclienthandle, dwnotifsource, bignoreduplicate.into(), funccallback.unwrap_or(core::mem::zeroed()) as _, pcallbackcontext.unwrap_or(core::mem::zeroed()) as _, preserved.unwrap_or(core::mem::zeroed()) as _, pdwprevnotifsource.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn WlanRegisterVirtualStationNotification(hclienthandle: super::super::Foundation::HANDLE, bregister: bool, preserved: Option<*const core::ffi::c_void>) -> u32 {
-    windows_targets::link!("wlanapi.dll" "system" fn WlanRegisterVirtualStationNotification(hclienthandle : super::super::Foundation:: HANDLE, bregister : super::super::Foundation:: BOOL, preserved : *const core::ffi::c_void) -> u32);
+    windows_targets::link!("wlanapi.dll" "system" fn WlanRegisterVirtualStationNotification(hclienthandle : super::super::Foundation:: HANDLE, bregister : windows_core::BOOL, preserved : *const core::ffi::c_void) -> u32);
     unsafe { WlanRegisterVirtualStationNotification(hclienthandle, bregister.into(), preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -257,7 +257,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("wlanapi.dll" "system" fn WlanSaveTemporaryProfile(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const windows_core::GUID, strprofilename : windows_core::PCWSTR, stralluserprofilesecurity : windows_core::PCWSTR, dwflags : u32, boverwrite : super::super::Foundation:: BOOL, preserved : *const core::ffi::c_void) -> u32);
+    windows_targets::link!("wlanapi.dll" "system" fn WlanSaveTemporaryProfile(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const windows_core::GUID, strprofilename : windows_core::PCWSTR, stralluserprofilesecurity : windows_core::PCWSTR, dwflags : u32, boverwrite : windows_core::BOOL, preserved : *const core::ffi::c_void) -> u32);
     unsafe { WlanSaveTemporaryProfile(hclienthandle, pinterfaceguid, strprofilename.param().abi(), stralluserprofilesecurity.param().abi(), dwflags, boverwrite.into(), preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -286,7 +286,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("wlanapi.dll" "system" fn WlanSetProfile(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const windows_core::GUID, dwflags : u32, strprofilexml : windows_core::PCWSTR, stralluserprofilesecurity : windows_core::PCWSTR, boverwrite : super::super::Foundation:: BOOL, preserved : *const core::ffi::c_void, pdwreasoncode : *mut u32) -> u32);
+    windows_targets::link!("wlanapi.dll" "system" fn WlanSetProfile(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const windows_core::GUID, dwflags : u32, strprofilexml : windows_core::PCWSTR, stralluserprofilesecurity : windows_core::PCWSTR, boverwrite : windows_core::BOOL, preserved : *const core::ffi::c_void, pdwreasoncode : *mut u32) -> u32);
     unsafe { WlanSetProfile(hclienthandle, pinterfaceguid, dwflags, strprofilexml.param().abi(), stralluserprofilesecurity.param().abi(), boverwrite.into(), preserved.unwrap_or(core::mem::zeroed()) as _, pdwreasoncode as _) }
 }
 #[inline]
@@ -504,7 +504,7 @@ pub const DISCOVERY_FILTER_BITMASK_GO: u32 = 2u32;
 pub type DOT11EXTIHV_ADAPTER_RESET = Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE) -> u32>;
 pub type DOT11EXTIHV_CONTROL = Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, dwinbuffersize: u32, pinbuffer: *const u8, dwoutbuffersize: u32, poutbuffer: *mut u8, pdwbytesreturned: *mut u32) -> u32>;
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-pub type DOT11EXTIHV_CREATE_DISCOVERY_PROFILES = Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, binsecure: super::super::Foundation::BOOL, pihvprofileparams: *const DOT11EXT_IHV_PROFILE_PARAMS, pconnectablebssid: *const DOT11_BSS_LIST, pihvdiscoveryprofilelist: *mut DOT11EXT_IHV_DISCOVERY_PROFILE_LIST, pdwreasoncode: *mut u32) -> u32>;
+pub type DOT11EXTIHV_CREATE_DISCOVERY_PROFILES = Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, binsecure: windows_core::BOOL, pihvprofileparams: *const DOT11EXT_IHV_PROFILE_PARAMS, pconnectablebssid: *const DOT11_BSS_LIST, pihvdiscoveryprofilelist: *mut DOT11EXT_IHV_DISCOVERY_PROFILE_LIST, pdwreasoncode: *mut u32) -> u32>;
 pub type DOT11EXTIHV_DEINIT_ADAPTER = Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE)>;
 pub type DOT11EXTIHV_DEINIT_SERVICE = Option<unsafe extern "system" fn()>;
 pub type DOT11EXTIHV_GET_VERSION_INFO = Option<unsafe extern "system" fn(pdot11ihvversioninfo: *mut DOT11_IHV_VERSION_INFO) -> u32>;
@@ -512,7 +512,7 @@ pub type DOT11EXTIHV_INIT_ADAPTER = Option<unsafe extern "system" fn(pdot11adapt
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Security_ExtensibleAuthenticationProtocol", feature = "Win32_System_RemoteDesktop"))]
 pub type DOT11EXTIHV_INIT_SERVICE = Option<unsafe extern "system" fn(dwvernumused: u32, pdot11extapi: *const DOT11EXT_APIS, pvreserved: *const core::ffi::c_void, pdot11ihvhandlers: *mut DOT11EXT_IHV_HANDLERS) -> u32>;
 pub type DOT11EXTIHV_INIT_VIRTUAL_STATION = Option<unsafe extern "system" fn(pdot11extvsapi: *const DOT11EXT_VIRTUAL_STATION_APIS, pvreserved: *const core::ffi::c_void) -> u32>;
-pub type DOT11EXTIHV_IS_UI_REQUEST_PENDING = Option<unsafe extern "system" fn(guiduirequest: windows_core::GUID, pbisrequestpending: *mut super::super::Foundation::BOOL) -> u32>;
+pub type DOT11EXTIHV_IS_UI_REQUEST_PENDING = Option<unsafe extern "system" fn(guiduirequest: windows_core::GUID, pbisrequestpending: *mut windows_core::BOOL) -> u32>;
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
 pub type DOT11EXTIHV_ONEX_INDICATE_RESULT = Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, msonexresult: DOT11_MSONEX_RESULT, pdot11msonexresultparams: *const DOT11_MSONEX_RESULT_PARAMS) -> u32>;
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
@@ -668,7 +668,7 @@ impl Default for DOT11EXT_IHV_PROFILE_PARAMS {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11EXT_IHV_SECURITY_PROFILE {
     pub pszXmlFragmentIhvSecurity: windows_core::PWSTR,
-    pub bUseMSOnex: super::super::Foundation::BOOL,
+    pub bUseMSOnex: windows_core::BOOL,
 }
 impl Default for DOT11EXT_IHV_SECURITY_PROFILE {
     fn default() -> Self {
@@ -708,7 +708,7 @@ pub type DOT11EXT_POST_ASSOCIATE_COMPLETION = Option<unsafe extern "system" fn(h
 pub type DOT11EXT_PRE_ASSOCIATE_COMPLETION = Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, dwreasoncode: u32, dwwin32error: u32) -> u32>;
 pub type DOT11EXT_PROCESS_ONEX_PACKET = Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, dwinpacketsize: u32, pvinpacket: *const core::ffi::c_void) -> u32>;
 pub const DOT11EXT_PSK_MAX_LENGTH: u32 = 64u32;
-pub type DOT11EXT_QUERY_VIRTUAL_STATION_PROPERTIES = Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, pbisvirtualstation: *mut super::super::Foundation::BOOL, pgprimary: *mut windows_core::GUID, pvreserved: *const core::ffi::c_void) -> u32>;
+pub type DOT11EXT_QUERY_VIRTUAL_STATION_PROPERTIES = Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, pbisvirtualstation: *mut windows_core::BOOL, pgprimary: *mut windows_core::GUID, pvreserved: *const core::ffi::c_void) -> u32>;
 pub type DOT11EXT_RELEASE_VIRTUAL_STATION = Option<unsafe extern "system" fn(hdot11primaryhandle: super::super::Foundation::HANDLE, pvreserved: *const core::ffi::c_void) -> u32>;
 pub type DOT11EXT_REQUEST_VIRTUAL_STATION = Option<unsafe extern "system" fn(hdot11primaryhandle: super::super::Foundation::HANDLE, pvreserved: *const core::ffi::c_void) -> u32>;
 pub type DOT11EXT_SEND_NOTIFICATION = Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, pnotificationdata: *const L2_NOTIFICATION_DATA) -> u32>;
@@ -720,7 +720,7 @@ pub type DOT11EXT_SET_CURRENT_PROFILE = Option<unsafe extern "system" fn(hdot11s
 pub type DOT11EXT_SET_DEFAULT_KEY = Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, pkey: *const DOT11_CIPHER_DEFAULT_KEY_VALUE, dot11direction: DOT11_DIRECTION) -> u32>;
 pub type DOT11EXT_SET_DEFAULT_KEY_ID = Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, udefaultkeyid: u32) -> u32>;
 pub type DOT11EXT_SET_ETHERTYPE_HANDLING = Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, umaxbacklog: u32, unumofexemption: u32, pexemption: *const DOT11_PRIVACY_EXEMPTION, unumofregistration: u32, pusregistration: *const u16) -> u32>;
-pub type DOT11EXT_SET_EXCLUDE_UNENCRYPTED = Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, bexcludeunencrypted: super::super::Foundation::BOOL) -> u32>;
+pub type DOT11EXT_SET_EXCLUDE_UNENCRYPTED = Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, bexcludeunencrypted: windows_core::BOOL) -> u32>;
 pub type DOT11EXT_SET_KEY_MAPPING_KEY = Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, pkey: *const DOT11_CIPHER_KEY_MAPPING_KEY_VALUE) -> u32>;
 pub type DOT11EXT_SET_MULTICAST_CIPHER_ALGORITHM = Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, dwmulticastcipheralgo: u32) -> u32>;
 pub type DOT11EXT_SET_PROFILE_CUSTOM_USER_DATA = Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, dwsessionid: u32, dwdatasize: u32, pvdata: *const core::ffi::c_void) -> u32>;
@@ -745,7 +745,7 @@ pub struct DOT11EXT_VIRTUAL_STATION_AP_PROPERTY {
     pub dot11SSID: DOT11_SSID,
     pub dot11AuthAlgo: DOT11_AUTH_ALGORITHM,
     pub dot11CipherAlgo: DOT11_CIPHER_ALGORITHM,
-    pub bIsPassPhrase: super::super::Foundation::BOOL,
+    pub bIsPassPhrase: windows_core::BOOL,
     pub dwKeyLength: u32,
     pub ucKeyData: [u8; 64],
 }
@@ -2431,7 +2431,7 @@ pub const DOT11_MSONEX_SUCCESS: DOT11_MSONEX_RESULT = DOT11_MSONEX_RESULT(0i32);
 pub struct DOT11_MSSECURITY_SETTINGS {
     pub dot11AuthAlgorithm: DOT11_AUTH_ALGORITHM,
     pub dot11CipherAlgorithm: DOT11_CIPHER_ALGORITHM,
-    pub fOneXEnabled: super::super::Foundation::BOOL,
+    pub fOneXEnabled: windows_core::BOOL,
     pub eapMethodType: super::super::Security::ExtensibleAuthenticationProtocol::EAP_METHOD_TYPE,
     pub dwEapConnectionDataLen: u32,
     pub pEapConnectionData: *mut u8,
@@ -2912,8 +2912,8 @@ pub const DOT11_PMKID_LIST_REVISION_1: u32 = 1u32;
 pub struct DOT11_PORT_STATE {
     pub PeerMacAddress: [u8; 6],
     pub uSessionId: u32,
-    pub bPortControlled: super::super::Foundation::BOOL,
-    pub bPortAuthorized: super::super::Foundation::BOOL,
+    pub bPortControlled: windows_core::BOOL,
+    pub bPortAuthorized: windows_core::BOOL,
 }
 impl Default for DOT11_PORT_STATE {
     fn default() -> Self {
@@ -5772,7 +5772,7 @@ pub struct ONEX_AUTH_IDENTITY(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ONEX_AUTH_PARAMS {
-    pub fUpdatePending: super::super::Foundation::BOOL,
+    pub fUpdatePending: windows_core::BOOL,
     pub oneXConnProfile: ONEX_VARIABLE_BLOB,
     pub authIdentity: ONEX_AUTH_IDENTITY,
     pub dwQuarantineState: u32,
@@ -5845,7 +5845,7 @@ pub const ONEX_REASON_START: ONEX_REASON_CODE = ONEX_REASON_CODE(327680i32);
 pub struct ONEX_RESULT_UPDATE_DATA {
     pub oneXStatus: ONEX_STATUS,
     pub BackendSupport: ONEX_EAP_METHOD_BACKEND_SUPPORT,
-    pub fBackendEngaged: super::super::Foundation::BOOL,
+    pub fBackendEngaged: windows_core::BOOL,
     pub _bitfield: u32,
     pub authParams: ONEX_VARIABLE_BLOB,
     pub eapError: ONEX_VARIABLE_BLOB,
@@ -6021,13 +6021,13 @@ pub struct WLAN_AVAILABLE_NETWORK {
     pub dot11Ssid: DOT11_SSID,
     pub dot11BssType: DOT11_BSS_TYPE,
     pub uNumberOfBssids: u32,
-    pub bNetworkConnectable: super::super::Foundation::BOOL,
+    pub bNetworkConnectable: windows_core::BOOL,
     pub wlanNotConnectableReason: u32,
     pub uNumberOfPhyTypes: u32,
     pub dot11PhyTypes: [DOT11_PHY_TYPE; 8],
-    pub bMorePhyTypes: super::super::Foundation::BOOL,
+    pub bMorePhyTypes: windows_core::BOOL,
     pub wlanSignalQuality: u32,
-    pub bSecurityEnabled: super::super::Foundation::BOOL,
+    pub bSecurityEnabled: windows_core::BOOL,
     pub dot11DefaultAuthAlgorithm: DOT11_AUTH_ALGORITHM,
     pub dot11DefaultCipherAlgorithm: DOT11_CIPHER_ALGORITHM,
     pub dwFlags: u32,
@@ -6080,13 +6080,13 @@ pub struct WLAN_AVAILABLE_NETWORK_V2 {
     pub dot11Ssid: DOT11_SSID,
     pub dot11BssType: DOT11_BSS_TYPE,
     pub uNumberOfBssids: u32,
-    pub bNetworkConnectable: super::super::Foundation::BOOL,
+    pub bNetworkConnectable: windows_core::BOOL,
     pub wlanNotConnectableReason: u32,
     pub uNumberOfPhyTypes: u32,
     pub dot11PhyTypes: [DOT11_PHY_TYPE; 8],
-    pub bMorePhyTypes: super::super::Foundation::BOOL,
+    pub bMorePhyTypes: windows_core::BOOL,
     pub wlanSignalQuality: u32,
-    pub bSecurityEnabled: super::super::Foundation::BOOL,
+    pub bSecurityEnabled: windows_core::BOOL,
     pub dot11DefaultAuthAlgorithm: DOT11_AUTH_ALGORITHM,
     pub dot11DefaultCipherAlgorithm: DOT11_CIPHER_ALGORITHM,
     pub dwFlags: u32,
@@ -6167,7 +6167,7 @@ pub struct WLAN_CONNECTION_NOTIFICATION_DATA {
     pub strProfileName: [u16; 256],
     pub dot11Ssid: DOT11_SSID,
     pub dot11BssType: DOT11_BSS_TYPE,
-    pub bSecurityEnabled: super::super::Foundation::BOOL,
+    pub bSecurityEnabled: windows_core::BOOL,
     pub wlanReasonCode: u32,
     pub dwFlags: WLAN_CONNECTION_NOTIFICATION_FLAGS,
     pub strProfileXml: [u16; 1],
@@ -6364,7 +6364,7 @@ pub struct WLAN_IHV_CONTROL_TYPE(pub i32);
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLAN_INTERFACE_CAPABILITY {
     pub interfaceType: WLAN_INTERFACE_TYPE,
-    pub bDot11DSupported: super::super::Foundation::BOOL,
+    pub bDot11DSupported: windows_core::BOOL,
     pub dwMaxDesiredSsidListSize: u32,
     pub dwMaxDesiredBssidListSize: u32,
     pub dwNumberOfSupportedPhys: u32,
@@ -6440,9 +6440,9 @@ pub struct WLAN_MSM_NOTIFICATION_DATA {
     pub dot11Ssid: DOT11_SSID,
     pub dot11BssType: DOT11_BSS_TYPE,
     pub dot11MacAddr: [u8; 6],
-    pub bSecurityEnabled: super::super::Foundation::BOOL,
-    pub bFirstPeer: super::super::Foundation::BOOL,
-    pub bLastPeer: super::super::Foundation::BOOL,
+    pub bSecurityEnabled: windows_core::BOOL,
+    pub bFirstPeer: windows_core::BOOL,
+    pub bLastPeer: windows_core::BOOL,
     pub wlanReasonCode: u32,
 }
 impl Default for WLAN_MSM_NOTIFICATION_DATA {
@@ -6799,8 +6799,8 @@ pub const WLAN_SECURABLE_OBJECT_COUNT: WLAN_SECURABLE_OBJECT = WLAN_SECURABLE_OB
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLAN_SECURITY_ATTRIBUTES {
-    pub bSecurityEnabled: super::super::Foundation::BOOL,
-    pub bOneXEnabled: super::super::Foundation::BOOL,
+    pub bSecurityEnabled: windows_core::BOOL,
+    pub bOneXEnabled: windows_core::BOOL,
     pub dot11AuthAlgorithm: DOT11_AUTH_ALGORITHM,
     pub dot11CipherAlgorithm: DOT11_CIPHER_ALGORITHM,
 }

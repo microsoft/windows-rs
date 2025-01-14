@@ -1,11 +1,11 @@
-windows_targets::link!("api-ms-win-gaming-tcui-l1-1-1.dll" "system" fn CheckGamingPrivilegeSilently(privilegeid : u32, scope : windows_sys::core::HSTRING, policy : windows_sys::core::HSTRING, hasprivilege : *mut super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
-windows_targets::link!("api-ms-win-gaming-tcui-l1-1-2.dll" "system" fn CheckGamingPrivilegeSilentlyForUser(user : * mut core::ffi::c_void, privilegeid : u32, scope : windows_sys::core::HSTRING, policy : windows_sys::core::HSTRING, hasprivilege : *mut super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+windows_targets::link!("api-ms-win-gaming-tcui-l1-1-1.dll" "system" fn CheckGamingPrivilegeSilently(privilegeid : u32, scope : windows_sys::core::HSTRING, policy : windows_sys::core::HSTRING, hasprivilege : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
+windows_targets::link!("api-ms-win-gaming-tcui-l1-1-2.dll" "system" fn CheckGamingPrivilegeSilentlyForUser(user : * mut core::ffi::c_void, privilegeid : u32, scope : windows_sys::core::HSTRING, policy : windows_sys::core::HSTRING, hasprivilege : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 windows_targets::link!("api-ms-win-gaming-tcui-l1-1-1.dll" "system" fn CheckGamingPrivilegeWithUI(privilegeid : u32, scope : windows_sys::core::HSTRING, policy : windows_sys::core::HSTRING, friendlymessage : windows_sys::core::HSTRING, completionroutine : GameUICompletionRoutine, context : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("api-ms-win-gaming-tcui-l1-1-2.dll" "system" fn CheckGamingPrivilegeWithUIForUser(user : * mut core::ffi::c_void, privilegeid : u32, scope : windows_sys::core::HSTRING, policy : windows_sys::core::HSTRING, friendlymessage : windows_sys::core::HSTRING, completionroutine : GameUICompletionRoutine, context : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("api-ms-win-gaming-expandedresources-l1-1-0.dll" "system" fn GetExpandedResourceExclusiveCpuCount(exclusivecpucount : *mut u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("api-ms-win-gaming-deviceinformation-l1-1-0.dll" "system" fn GetGamingDeviceModelInformation(information : *mut GAMING_DEVICE_MODEL_INFORMATION) -> windows_sys::core::HRESULT);
-windows_targets::link!("api-ms-win-gaming-expandedresources-l1-1-0.dll" "system" fn HasExpandedResources(hasexpandedresources : *mut super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
-windows_targets::link!("api-ms-win-gaming-tcui-l1-1-0.dll" "system" fn ProcessPendingGameUI(waitforcompletion : super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+windows_targets::link!("api-ms-win-gaming-expandedresources-l1-1-0.dll" "system" fn HasExpandedResources(hasexpandedresources : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
+windows_targets::link!("api-ms-win-gaming-tcui-l1-1-0.dll" "system" fn ProcessPendingGameUI(waitforcompletion : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 windows_targets::link!("api-ms-win-gaming-expandedresources-l1-1-0.dll" "system" fn ReleaseExclusiveCpuSets() -> windows_sys::core::HRESULT);
 windows_targets::link!("api-ms-win-gaming-tcui-l1-1-0.dll" "system" fn ShowChangeFriendRelationshipUI(targetuserxuid : windows_sys::core::HSTRING, completionroutine : GameUICompletionRoutine, context : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("api-ms-win-gaming-tcui-l1-1-2.dll" "system" fn ShowChangeFriendRelationshipUIForUser(user : * mut core::ffi::c_void, targetuserxuid : windows_sys::core::HSTRING, completionroutine : GameUICompletionRoutine, context : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
@@ -27,7 +27,7 @@ windows_targets::link!("api-ms-win-gaming-tcui-l1-1-0.dll" "system" fn ShowTitle
 windows_targets::link!("api-ms-win-gaming-tcui-l1-1-2.dll" "system" fn ShowTitleAchievementsUIForUser(user : * mut core::ffi::c_void, titleid : u32, completionroutine : GameUICompletionRoutine, context : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("api-ms-win-gaming-tcui-l1-1-4.dll" "system" fn ShowUserSettingsUI(completionroutine : GameUICompletionRoutine, context : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("api-ms-win-gaming-tcui-l1-1-4.dll" "system" fn ShowUserSettingsUIForUser(user : * mut core::ffi::c_void, completionroutine : GameUICompletionRoutine, context : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_targets::link!("api-ms-win-gaming-tcui-l1-1-0.dll" "system" fn TryCancelPendingGameUI() -> super::Foundation:: BOOL);
+windows_targets::link!("api-ms-win-gaming-tcui-l1-1-0.dll" "system" fn TryCancelPendingGameUI() -> windows_sys::core::BOOL);
 pub const GAMESTATS_OPEN_CREATED: GAMESTATS_OPEN_RESULT = 0i32;
 pub const GAMESTATS_OPEN_OPENED: GAMESTATS_OPEN_RESULT = 1i32;
 pub const GAMESTATS_OPEN_OPENONLY: GAMESTATS_OPEN_TYPE = 1i32;

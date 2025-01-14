@@ -13,7 +13,7 @@ pub unsafe fn DavCancelConnectionsToServer<P0>(lpname: P0, fforce: bool) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("davclnt.dll" "system" fn DavCancelConnectionsToServer(lpname : windows_core::PCWSTR, fforce : super::super::Foundation:: BOOL) -> u32);
+    windows_targets::link!("davclnt.dll" "system" fn DavCancelConnectionsToServer(lpname : windows_core::PCWSTR, fforce : windows_core::BOOL) -> u32);
     unsafe { DavCancelConnectionsToServer(lpname.param().abi(), fforce.into()) }
 }
 #[inline]
@@ -114,8 +114,8 @@ impl Default for DAV_CALLBACK_AUTH_UNP {
 pub struct DAV_CALLBACK_CRED {
     pub AuthBlob: DAV_CALLBACK_AUTH_BLOB,
     pub UNPBlob: DAV_CALLBACK_AUTH_UNP,
-    pub bAuthBlobValid: super::super::Foundation::BOOL,
-    pub bSave: super::super::Foundation::BOOL,
+    pub bAuthBlobValid: windows_core::BOOL,
+    pub bSave: windows_core::BOOL,
 }
 impl Default for DAV_CALLBACK_CRED {
     fn default() -> Self {

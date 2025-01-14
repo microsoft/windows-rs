@@ -1070,7 +1070,7 @@ pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_1 {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0 {
-    pub InitialState: super::super::super::Win32::Foundation::BOOL,
+    pub InitialState: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1135,7 +1135,7 @@ pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_1 {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_0 {
-    pub InitialState: super::super::super::Win32::Foundation::BOOL,
+    pub InitialState: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2517,7 +2517,7 @@ pub struct D3DKMT_ACQUIREKEYEDMUTEX2 {
 #[derive(Clone, Copy)]
 pub struct D3DKMT_ACTIVATE_SPECIFIC_DIAG_ESCAPE {
     pub Type: D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE,
-    pub Activate: super::super::super::Win32::Foundation::BOOL,
+    pub Activate: windows_sys::core::BOOL,
 }
 pub type D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE = i32;
 pub const D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE_EXTRA_CCD_DATABASE_INFO: D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE = 0i32;
@@ -2535,7 +2535,7 @@ pub struct D3DKMT_ADAPTERINFO {
     pub hAdapter: u32,
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub NumOfSources: u32,
-    pub bPrecisePresentRegionsPreferred: super::super::super::Win32::Foundation::BOOL,
+    pub bPrecisePresentRegionsPreferred: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2770,7 +2770,7 @@ pub struct D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT {
     pub hDevice: u32,
     pub PlaneCount: u32,
     pub pOverlayPlanes: *mut D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE,
-    pub Supported: super::super::super::Win32::Foundation::BOOL,
+    pub Supported: windows_sys::core::BOOL,
     pub ReturnInfo: D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO,
 }
 #[repr(C)]
@@ -2780,7 +2780,7 @@ pub struct D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2 {
     pub hDevice: u32,
     pub PlaneCount: u32,
     pub pOverlayPlanes: *mut D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE2,
-    pub Supported: super::super::super::Win32::Foundation::BOOL,
+    pub Supported: windows_sys::core::BOOL,
     pub ReturnInfo: D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO,
 }
 #[repr(C)]
@@ -2792,7 +2792,7 @@ pub struct D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3 {
     pub ppOverlayPlanes: *mut *mut D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3,
     pub PostCompositionCount: u32,
     pub ppPostComposition: *mut *mut D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE,
-    pub Supported: super::super::super::Win32::Foundation::BOOL,
+    pub Supported: windows_sys::core::BOOL,
     pub ReturnInfo: D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO,
 }
 #[repr(C)]
@@ -3311,7 +3311,7 @@ pub struct D3DKMT_DESTROY_DOORBELL {
 pub struct D3DKMT_DESTROY_OUTPUTDUPL {
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
-    pub bDestroyAllContexts: super::super::super::Win32::Foundation::BOOL,
+    pub bDestroyAllContexts: windows_sys::core::BOOL,
 }
 pub const D3DKMT_DEVICEESCAPE_RESTOREGAMMA: D3DKMT_DEVICEESCAPE_TYPE = 1i32;
 pub type D3DKMT_DEVICEESCAPE_TYPE = i32;
@@ -3408,7 +3408,7 @@ pub struct D3DKMT_DEVICE_IDS {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_DIRECTFLIP_SUPPORT {
-    pub Supported: super::super::super::Win32::Foundation::BOOL,
+    pub Supported: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3490,7 +3490,7 @@ pub struct D3DKMT_DMM_ESCAPE {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_DOD_SET_DIRTYRECT_MODE {
-    pub bForceFullScreenDirty: super::super::super::Win32::Foundation::BOOL,
+    pub bForceFullScreenDirty: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3672,14 +3672,14 @@ pub struct D3DKMT_FLIPINFOFLAGS {
 pub struct D3DKMT_FLIPMANAGER_AUXILIARYPRESENTINFO {
     pub auxiliaryPresentInfo: D3DKMT_AUXILIARYPRESENTINFO,
     pub flipManagerTracingId: u32,
-    pub customDurationChanged: super::super::super::Win32::Foundation::BOOL,
+    pub customDurationChanged: windows_sys::core::BOOL,
     pub FlipAdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub VidPnSourceId: u32,
     pub independentFlipStage: D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE,
     pub FlipCompletedQpc: u64,
     pub HwPresentDurationQpc: u32,
-    pub WasCanceled: super::super::super::Win32::Foundation::BOOL,
-    pub ConvertedToNonIFlip: super::super::super::Win32::Foundation::BOOL,
+    pub WasCanceled: windows_sys::core::BOOL,
+    pub ConvertedToNonIFlip: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4036,25 +4036,25 @@ pub struct D3DKMT_HWDRM_SUPPORT {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_HYBRID_DLIST_DLL_SUPPORT {
-    pub Supported: super::super::super::Win32::Foundation::BOOL,
+    pub Supported: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_HYBRID_LIST {
     pub State: D3DKMT_GPU_PREFERENCE_QUERY_STATE,
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
-    pub bUserPreferenceQuery: super::super::super::Win32::Foundation::BOOL,
+    pub bUserPreferenceQuery: windows_sys::core::BOOL,
     pub QueryType: D3DKMT_GPU_PREFERENCE_QUERY_TYPE,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_INDEPENDENTFLIP_SECONDARY_SUPPORT {
-    pub Supported: super::super::super::Win32::Foundation::BOOL,
+    pub Supported: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_INDEPENDENTFLIP_SUPPORT {
-    pub Supported: super::super::super::Win32::Foundation::BOOL,
+    pub Supported: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4074,7 +4074,7 @@ pub struct D3DKMT_INVALIDATECACHE {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_ISBADDRIVERFORHWPROTECTIONDISABLED {
-    pub Disabled: super::super::super::Win32::Foundation::BOOL,
+    pub Disabled: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4179,49 +4179,49 @@ pub struct D3DKMT_MOVE_RECT {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_MPO3DDI_SUPPORT {
-    pub Supported: super::super::super::Win32::Foundation::BOOL,
+    pub Supported: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_MPOKERNELCAPS_SUPPORT {
-    pub Supported: super::super::super::Win32::Foundation::BOOL,
+    pub Supported: windows_sys::core::BOOL,
 }
 pub const D3DKMT_MULIIPLANE_OVERLAY_VIDEO_FRAME_FORMAT_PROGRESSIVE: D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT = 0i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_MULTIPLANEOVERLAY_DECODE_SUPPORT {
-    pub Supported: super::super::super::Win32::Foundation::BOOL,
+    pub Supported: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_MULTIPLANEOVERLAY_HUD_SUPPORT {
     pub VidPnSourceId: u32,
-    pub Update: super::super::super::Win32::Foundation::BOOL,
-    pub KernelSupported: super::super::super::Win32::Foundation::BOOL,
-    pub HudSupported: super::super::super::Win32::Foundation::BOOL,
+    pub Update: windows_sys::core::BOOL,
+    pub KernelSupported: windows_sys::core::BOOL,
+    pub HudSupported: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_MULTIPLANEOVERLAY_SECONDARY_SUPPORT {
-    pub Supported: super::super::super::Win32::Foundation::BOOL,
+    pub Supported: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_MULTIPLANEOVERLAY_STRETCH_SUPPORT {
     pub VidPnSourceId: u32,
-    pub Update: super::super::super::Win32::Foundation::BOOL,
-    pub Supported: super::super::super::Win32::Foundation::BOOL,
+    pub Update: windows_sys::core::BOOL,
+    pub Supported: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_MULTIPLANEOVERLAY_SUPPORT {
-    pub Supported: super::super::super::Win32::Foundation::BOOL,
+    pub Supported: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY {
     pub LayerIndex: u32,
-    pub Enabled: super::super::super::Win32::Foundation::BOOL,
+    pub Enabled: windows_sys::core::BOOL,
     pub hAllocation: u32,
     pub PlaneAttributes: D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES,
 }
@@ -4229,7 +4229,7 @@ pub struct D3DKMT_MULTIPLANE_OVERLAY {
 #[derive(Clone, Copy)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY2 {
     pub LayerIndex: u32,
-    pub Enabled: super::super::super::Win32::Foundation::BOOL,
+    pub Enabled: windows_sys::core::BOOL,
     pub hAllocation: u32,
     pub PlaneAttributes: D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2,
 }
@@ -4264,8 +4264,8 @@ pub struct D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES {
     pub VideoFrameFormat: D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT,
     pub YCbCrFlags: u32,
     pub StereoFormat: D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT,
-    pub StereoLeftViewFrame0: super::super::super::Win32::Foundation::BOOL,
-    pub StereoBaseViewFrame0: super::super::super::Win32::Foundation::BOOL,
+    pub StereoLeftViewFrame0: windows_sys::core::BOOL,
+    pub StereoBaseViewFrame0: windows_sys::core::BOOL,
     pub StereoFlipMode: DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE,
     pub StretchQuality: DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY,
 }
@@ -4283,8 +4283,8 @@ pub struct D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2 {
     pub VideoFrameFormat: D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT,
     pub ColorSpace: D3DDDI_COLOR_SPACE_TYPE,
     pub StereoFormat: D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT,
-    pub StereoLeftViewFrame0: super::super::super::Win32::Foundation::BOOL,
-    pub StereoBaseViewFrame0: super::super::super::Win32::Foundation::BOOL,
+    pub StereoLeftViewFrame0: windows_sys::core::BOOL,
+    pub StereoBaseViewFrame0: windows_sys::core::BOOL,
     pub StereoFlipMode: DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE,
     pub StretchQuality: DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY,
     pub Reserved1: u32,
@@ -4694,8 +4694,8 @@ pub struct D3DKMT_OUTPUTDUPL_FRAMEINFO {
     pub LastPresentTime: i64,
     pub LastMouseUpdateTime: i64,
     pub AccumulatedFrames: u32,
-    pub RectsCoalesced: super::super::super::Win32::Foundation::BOOL,
-    pub ProtectedContentMaskedOut: super::super::super::Win32::Foundation::BOOL,
+    pub RectsCoalesced: windows_sys::core::BOOL,
+    pub ProtectedContentMaskedOut: windows_sys::core::BOOL,
     pub PointerPosition: D3DKMT_OUTPUTDUPL_POINTER_POSITION,
     pub TotalMetadataBufferSize: u32,
     pub PointerShapeBufferSize: u32,
@@ -4739,7 +4739,7 @@ pub const D3DKMT_OUTPUTDUPL_METADATATYPE_MOVE_RECTS: D3DKMT_OUTPUTDUPL_METADATAT
 #[derive(Clone, Copy)]
 pub struct D3DKMT_OUTPUTDUPL_POINTER_POSITION {
     pub Position: super::super::super::Win32::Foundation::POINT,
-    pub Visible: super::super::super::Win32::Foundation::BOOL,
+    pub Visible: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4771,7 +4771,7 @@ pub struct D3DKMT_PAGE_TABLE_LEVEL_DESC {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_PANELFITTER_SUPPORT {
-    pub Supported: super::super::super::Win32::Foundation::BOOL,
+    pub Supported: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5778,7 +5778,7 @@ pub struct D3DKMT_RECLAIMALLOCATIONS {
     pub hDevice: u32,
     pub pResources: *mut u32,
     pub HandleList: *const u32,
-    pub pDiscarded: *mut super::super::super::Win32::Foundation::BOOL,
+    pub pDiscarded: *mut windows_sys::core::BOOL,
     pub NumAllocations: u32,
 }
 #[repr(C)]
@@ -5794,7 +5794,7 @@ pub struct D3DKMT_RECLAIMALLOCATIONS2 {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union D3DKMT_RECLAIMALLOCATIONS2_0 {
-    pub pDiscarded: *mut super::super::super::Win32::Foundation::BOOL,
+    pub pDiscarded: *mut windows_sys::core::BOOL,
     pub pResults: *mut D3DDDI_RECLAIM_RESULT,
 }
 #[repr(C)]
@@ -6003,7 +6003,7 @@ pub union D3DKMT_SETGAMMARAMP_0 {
 #[derive(Clone, Copy)]
 pub struct D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY {
     pub hAdapter: u32,
-    pub Recovered: super::super::super::Win32::Foundation::BOOL,
+    pub Recovered: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6028,7 +6028,7 @@ pub struct D3DKMT_SETQUEUEDLIMIT_0_0 {
 #[derive(Clone, Copy)]
 pub struct D3DKMT_SETSTABLEPOWERSTATE {
     pub hAdapter: u32,
-    pub Enabled: super::super::super::Win32::Foundation::BOOL,
+    pub Enabled: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6043,7 +6043,7 @@ pub struct D3DKMT_SETSYNCREFRESHCOUNTWAITTARGET {
 pub struct D3DKMT_SETVIDPNSOURCEHWPROTECTION {
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
-    pub HwProtected: super::super::super::Win32::Foundation::BOOL,
+    pub HwProtected: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6284,7 +6284,7 @@ pub union D3DKMT_TDRDBGCTRL_ESCAPE_0 {
 pub struct D3DKMT_TRACKEDWORKLOAD_SUPPORT {
     pub PhysicalAdapterIndex: u32,
     pub EngineType: DXGK_ENGINE_TYPE,
-    pub Support: super::super::super::Win32::Foundation::BOOL,
+    pub Support: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6570,7 +6570,7 @@ pub struct D3DKMT_VIDMM_ESCAPE_0_8 {
 #[derive(Clone, Copy)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_5 {
     pub hProcess: super::super::super::Win32::Foundation::HANDLE,
-    pub bAllowWakeOnSubmission: super::super::super::Win32::Foundation::BOOL,
+    pub bAllowWakeOnSubmission: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6580,7 +6580,7 @@ pub struct D3DKMT_VIDMM_ESCAPE_0_12 {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_9 {
-    pub bFlush: super::super::super::Win32::Foundation::BOOL,
+    pub bFlush: windows_sys::core::BOOL,
 }
 pub const D3DKMT_VIDPNSOURCEOWNER_EMULATED: D3DKMT_VIDPNSOURCEOWNER_TYPE = 4i32;
 pub const D3DKMT_VIDPNSOURCEOWNER_EXCLUSIVE: D3DKMT_VIDPNSOURCEOWNER_TYPE = 2i32;
@@ -6624,10 +6624,10 @@ pub struct D3DKMT_VIDSCH_ESCAPE {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union D3DKMT_VIDSCH_ESCAPE_0 {
-    pub PreemptionControl: super::super::super::Win32::Foundation::BOOL,
-    pub EnableContextDelay: super::super::super::Win32::Foundation::BOOL,
+    pub PreemptionControl: windows_sys::core::BOOL,
+    pub EnableContextDelay: windows_sys::core::BOOL,
     pub TdrControl2: D3DKMT_VIDSCH_ESCAPE_0_0,
-    pub SuspendScheduler: super::super::super::Win32::Foundation::BOOL,
+    pub SuspendScheduler: windows_sys::core::BOOL,
     pub TdrControl: u32,
     pub SuspendTime: u32,
     pub TdrLimit: D3DKMT_VIDSCH_ESCAPE_0_1,
@@ -6866,7 +6866,7 @@ pub const D3DKMT_WaitCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = 4
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_XBOX {
-    pub IsXBOX: super::super::super::Win32::Foundation::BOOL,
+    pub IsXBOX: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8981,7 +8981,7 @@ pub type PFND3DKMT_SETHYBRIDLISTVVALUE = Option<unsafe extern "system" fn(param0
 pub type PFND3DKMT_SETPROCESSSCHEDULINGPRIORITYCLASS = Option<unsafe extern "system" fn(param0: super::super::super::Win32::Foundation::HANDLE, param1: D3DKMT_SCHEDULINGPRIORITYCLASS) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_SETQUEUEDLIMIT = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETQUEUEDLIMIT) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_SETSTABLEPOWERSTATE = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETSTABLEPOWERSTATE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SETSTEREOENABLED = Option<unsafe extern "system" fn(param0: super::super::super::Win32::Foundation::BOOL) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SETSTEREOENABLED = Option<unsafe extern "system" fn(param0: windows_sys::core::BOOL) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_SETSYNCREFRESHCOUNTWAITTARGET = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETSYNCREFRESHCOUNTWAITTARGET) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_SETVIDPNSOURCEHWPROTECTION = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETVIDPNSOURCEHWPROTECTION) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_SETVIDPNSOURCEOWNER = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETVIDPNSOURCEOWNER) -> super::super::super::Win32::Foundation::NTSTATUS>;

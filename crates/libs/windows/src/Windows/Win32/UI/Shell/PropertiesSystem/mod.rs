@@ -105,7 +105,7 @@ pub unsafe fn PSGetItemPropertyHandler<P0>(punkitem: P0, freadwrite: bool, riid:
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_targets::link!("propsys.dll" "system" fn PSGetItemPropertyHandler(punkitem : * mut core::ffi::c_void, freadwrite : super::super::super::Foundation:: BOOL, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("propsys.dll" "system" fn PSGetItemPropertyHandler(punkitem : * mut core::ffi::c_void, freadwrite : windows_core::BOOL, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { PSGetItemPropertyHandler(punkitem.param().abi(), freadwrite.into(), riid, ppv as _).ok() }
 }
 #[inline]
@@ -114,7 +114,7 @@ where
     P0: windows_core::Param<windows_core::IUnknown>,
     P2: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_targets::link!("propsys.dll" "system" fn PSGetItemPropertyHandlerWithCreateObject(punkitem : * mut core::ffi::c_void, freadwrite : super::super::super::Foundation:: BOOL, punkcreateobject : * mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("propsys.dll" "system" fn PSGetItemPropertyHandlerWithCreateObject(punkitem : * mut core::ffi::c_void, freadwrite : windows_core::BOOL, punkcreateobject : * mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { PSGetItemPropertyHandlerWithCreateObject(punkitem.param().abi(), freadwrite.into(), punkcreateobject.param().abi(), riid, ppv as _).ok() }
 }
 #[inline]
@@ -216,12 +216,12 @@ where
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
-pub unsafe fn PSPropertyBag_ReadBOOL<P0, P1>(propbag: P0, propname: P1) -> windows_core::Result<super::super::super::Foundation::BOOL>
+pub unsafe fn PSPropertyBag_ReadBOOL<P0, P1>(propbag: P0, propname: P1) -> windows_core::Result<windows_core::BOOL>
 where
     P0: windows_core::Param<super::super::super::System::Com::StructuredStorage::IPropertyBag>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("propsys.dll" "system" fn PSPropertyBag_ReadBOOL(propbag : * mut core::ffi::c_void, propname : windows_core::PCWSTR, value : *mut super::super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    windows_targets::link!("propsys.dll" "system" fn PSPropertyBag_ReadBOOL(propbag : * mut core::ffi::c_void, propname : windows_core::PCWSTR, value : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         PSPropertyBag_ReadBOOL(propbag.param().abi(), propname.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
@@ -430,7 +430,7 @@ where
     P0: windows_core::Param<super::super::super::System::Com::StructuredStorage::IPropertyBag>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("propsys.dll" "system" fn PSPropertyBag_WriteBOOL(propbag : * mut core::ffi::c_void, propname : windows_core::PCWSTR, value : super::super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    windows_targets::link!("propsys.dll" "system" fn PSPropertyBag_WriteBOOL(propbag : * mut core::ffi::c_void, propname : windows_core::PCWSTR, value : windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { PSPropertyBag_WriteBOOL(propbag.param().abi(), propname.param().abi(), value.into()).ok() }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -1510,7 +1510,7 @@ pub struct IPropertyDescription_Vtbl {
     #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     GetRelativeDescription: usize,
     pub GetSortDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PROPDESC_SORTDESCRIPTION) -> windows_core::HRESULT,
-    pub GetSortDescriptionLabel: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL, *mut windows_core::PWSTR) -> windows_core::HRESULT,
+    pub GetSortDescriptionLabel: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub GetAggregationType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PROPDESC_AGGREGATION_TYPE) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Search_Common")]
     pub GetConditionType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PROPDESC_CONDITION_TYPE, *mut super::super::super::System::Search::Common::CONDITION_OPERATION) -> windows_core::HRESULT,
@@ -1546,7 +1546,7 @@ pub trait IPropertyDescription_Impl: windows_core::IUnknownImpl {
     fn GetRelativeDescriptionType(&self) -> windows_core::Result<PROPDESC_RELATIVEDESCRIPTION_TYPE>;
     fn GetRelativeDescription(&self, propvar1: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, propvar2: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ppszdesc1: *mut windows_core::PWSTR, ppszdesc2: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn GetSortDescription(&self) -> windows_core::Result<PROPDESC_SORTDESCRIPTION>;
-    fn GetSortDescriptionLabel(&self, fdescending: super::super::super::Foundation::BOOL) -> windows_core::Result<windows_core::PWSTR>;
+    fn GetSortDescriptionLabel(&self, fdescending: windows_core::BOOL) -> windows_core::Result<windows_core::PWSTR>;
     fn GetAggregationType(&self) -> windows_core::Result<PROPDESC_AGGREGATION_TYPE>;
     fn GetConditionType(&self, pcontype: *mut PROPDESC_CONDITION_TYPE, popdefault: *mut super::super::super::System::Search::Common::CONDITION_OPERATION) -> windows_core::Result<()>;
     fn GetEnumTypeList(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
@@ -1713,7 +1713,7 @@ impl IPropertyDescription_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetSortDescriptionLabel<Identity: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fdescending: super::super::super::Foundation::BOOL, ppszdescription: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSortDescriptionLabel<Identity: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fdescending: windows_core::BOOL, ppszdescription: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyDescription_Impl::GetSortDescriptionLabel(this, core::mem::transmute_copy(&fdescending)) {

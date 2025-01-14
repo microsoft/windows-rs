@@ -54,7 +54,7 @@ where
 }
 #[inline]
 pub unsafe fn GetAppContainerNamedObjectPath(token: Option<super::super::Foundation::HANDLE>, appcontainersid: Option<super::PSID>, objectpath: Option<&mut [u16]>, returnlength: *mut u32) -> windows_core::Result<()> {
-    windows_targets::link!("kernel32.dll" "system" fn GetAppContainerNamedObjectPath(token : super::super::Foundation:: HANDLE, appcontainersid : super:: PSID, objectpathlength : u32, objectpath : windows_core::PWSTR, returnlength : *mut u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetAppContainerNamedObjectPath(token : super::super::Foundation:: HANDLE, appcontainersid : super:: PSID, objectpathlength : u32, objectpath : windows_core::PWSTR, returnlength : *mut u32) -> windows_core::BOOL);
     unsafe { GetAppContainerNamedObjectPath(token.unwrap_or(core::mem::zeroed()) as _, appcontainersid.unwrap_or(core::mem::zeroed()) as _, objectpath.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(objectpath.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), returnlength as _).ok() }
 }
 #[cfg(feature = "Win32_System_Registry")]
@@ -67,32 +67,32 @@ pub unsafe fn GetAppContainerRegistryLocation(desiredaccess: u32) -> windows_cor
     }
 }
 #[inline]
-pub unsafe fn IsCrossIsolatedEnvironmentClipboardContent() -> windows_core::Result<super::super::Foundation::BOOL> {
-    windows_targets::link!("isolatedwindowsenvironmentutils.dll" "system" fn IsCrossIsolatedEnvironmentClipboardContent(iscrossisolatedenvironmentclipboardcontent : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+pub unsafe fn IsCrossIsolatedEnvironmentClipboardContent() -> windows_core::Result<windows_core::BOOL> {
+    windows_targets::link!("isolatedwindowsenvironmentutils.dll" "system" fn IsCrossIsolatedEnvironmentClipboardContent(iscrossisolatedenvironmentclipboardcontent : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         IsCrossIsolatedEnvironmentClipboardContent(&mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[inline]
-pub unsafe fn IsProcessInIsolatedContainer() -> windows_core::Result<super::super::Foundation::BOOL> {
-    windows_targets::link!("api-ms-win-security-isolatedcontainer-l1-1-0.dll" "system" fn IsProcessInIsolatedContainer(isprocessinisolatedcontainer : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+pub unsafe fn IsProcessInIsolatedContainer() -> windows_core::Result<windows_core::BOOL> {
+    windows_targets::link!("api-ms-win-security-isolatedcontainer-l1-1-0.dll" "system" fn IsProcessInIsolatedContainer(isprocessinisolatedcontainer : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         IsProcessInIsolatedContainer(&mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[inline]
-pub unsafe fn IsProcessInIsolatedWindowsEnvironment() -> windows_core::Result<super::super::Foundation::BOOL> {
-    windows_targets::link!("isolatedwindowsenvironmentutils.dll" "system" fn IsProcessInIsolatedWindowsEnvironment(isprocessinisolatedwindowsenvironment : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+pub unsafe fn IsProcessInIsolatedWindowsEnvironment() -> windows_core::Result<windows_core::BOOL> {
+    windows_targets::link!("isolatedwindowsenvironmentutils.dll" "system" fn IsProcessInIsolatedWindowsEnvironment(isprocessinisolatedwindowsenvironment : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         IsProcessInIsolatedWindowsEnvironment(&mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[inline]
-pub unsafe fn IsProcessInWDAGContainer(reserved: *const core::ffi::c_void) -> windows_core::Result<super::super::Foundation::BOOL> {
-    windows_targets::link!("api-ms-win-security-isolatedcontainer-l1-1-1.dll" "system" fn IsProcessInWDAGContainer(reserved : *const core::ffi::c_void, isprocessinwdagcontainer : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+pub unsafe fn IsProcessInWDAGContainer(reserved: *const core::ffi::c_void) -> windows_core::Result<windows_core::BOOL> {
+    windows_targets::link!("api-ms-win-security-isolatedcontainer-l1-1-1.dll" "system" fn IsProcessInWDAGContainer(reserved : *const core::ffi::c_void, isprocessinwdagcontainer : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         IsProcessInWDAGContainer(reserved, &mut result__).map(|| core::mem::transmute(result__))
@@ -159,7 +159,7 @@ impl IIsolatedProcessLauncher {
     pub unsafe fn AllowSetForegroundAccess(&self, pid: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AllowSetForegroundAccess)(windows_core::Interface::as_raw(self), pid).ok() }
     }
-    pub unsafe fn IsContainerRunning(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsContainerRunning(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsContainerRunning)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -170,17 +170,17 @@ impl IIsolatedProcessLauncher {
 pub struct IIsolatedProcessLauncher_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub LaunchProcess: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub ShareDirectory: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub ShareDirectory: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::BOOL) -> windows_core::HRESULT,
     pub GetContainerGuid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub AllowSetForegroundAccess: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub IsContainerRunning: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsContainerRunning: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IIsolatedProcessLauncher_Impl: windows_core::IUnknownImpl {
     fn LaunchProcess(&self, process: &windows_core::PCWSTR, arguments: &windows_core::PCWSTR, workingdirectory: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn ShareDirectory(&self, hostpath: &windows_core::PCWSTR, containerpath: &windows_core::PCWSTR, readonly: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn ShareDirectory(&self, hostpath: &windows_core::PCWSTR, containerpath: &windows_core::PCWSTR, readonly: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetContainerGuid(&self) -> windows_core::Result<windows_core::GUID>;
     fn AllowSetForegroundAccess(&self, pid: u32) -> windows_core::Result<()>;
-    fn IsContainerRunning(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn IsContainerRunning(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IIsolatedProcessLauncher_Vtbl {
     pub const fn new<Identity: IIsolatedProcessLauncher_Impl, const OFFSET: isize>() -> Self {
@@ -190,7 +190,7 @@ impl IIsolatedProcessLauncher_Vtbl {
                 IIsolatedProcessLauncher_Impl::LaunchProcess(this, core::mem::transmute(&process), core::mem::transmute(&arguments), core::mem::transmute(&workingdirectory)).into()
             }
         }
-        unsafe extern "system" fn ShareDirectory<Identity: IIsolatedProcessLauncher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hostpath: windows_core::PCWSTR, containerpath: windows_core::PCWSTR, readonly: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn ShareDirectory<Identity: IIsolatedProcessLauncher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hostpath: windows_core::PCWSTR, containerpath: windows_core::PCWSTR, readonly: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IIsolatedProcessLauncher_Impl::ShareDirectory(this, core::mem::transmute(&hostpath), core::mem::transmute(&containerpath), core::mem::transmute_copy(&readonly)).into()
@@ -214,7 +214,7 @@ impl IIsolatedProcessLauncher_Vtbl {
                 IIsolatedProcessLauncher_Impl::AllowSetForegroundAccess(this, core::mem::transmute_copy(&pid)).into()
             }
         }
-        unsafe extern "system" fn IsContainerRunning<Identity: IIsolatedProcessLauncher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, running: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsContainerRunning<Identity: IIsolatedProcessLauncher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, running: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsolatedProcessLauncher_Impl::IsContainerRunning(this) {
@@ -285,7 +285,7 @@ pub const IsolatedAppLauncher: windows_core::GUID = windows_core::GUID::from_u12
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IsolatedAppLauncherTelemetryParameters {
-    pub EnableForLaunch: super::super::Foundation::BOOL,
+    pub EnableForLaunch: windows_core::BOOL,
     pub CorrelationGUID: windows_core::GUID,
 }
 impl Default for IsolatedAppLauncherTelemetryParameters {

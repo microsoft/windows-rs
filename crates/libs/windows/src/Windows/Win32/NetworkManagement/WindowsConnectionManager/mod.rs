@@ -59,7 +59,7 @@ where
 }
 #[inline]
 pub unsafe fn WcmSetProfileList(pprofilelist: *const WCM_PROFILE_INFO_LIST, dwposition: u32, fignoreunknownprofiles: bool, preserved: Option<*const core::ffi::c_void>) -> u32 {
-    windows_targets::link!("wcmapi.dll" "system" fn WcmSetProfileList(pprofilelist : *const WCM_PROFILE_INFO_LIST, dwposition : u32, fignoreunknownprofiles : super::super::Foundation:: BOOL, preserved : *const core::ffi::c_void) -> u32);
+    windows_targets::link!("wcmapi.dll" "system" fn WcmSetProfileList(pprofilelist : *const WCM_PROFILE_INFO_LIST, dwposition : u32, fignoreunknownprofiles : windows_core::BOOL, preserved : *const core::ffi::c_void) -> u32);
     unsafe { WcmSetProfileList(pprofilelist, dwposition, fignoreunknownprofiles.into(), preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -103,7 +103,7 @@ pub const WCM_API_VERSION_1_0: u32 = 1u32;
 pub struct WCM_BILLING_CYCLE_INFO {
     pub StartDate: super::super::Foundation::FILETIME,
     pub Duration: WCM_TIME_INTERVAL,
-    pub Reset: super::super::Foundation::BOOL,
+    pub Reset: windows_core::BOOL,
 }
 impl Default for WCM_BILLING_CYCLE_INFO {
     fn default() -> Self {
@@ -162,8 +162,8 @@ pub struct WCM_MEDIA_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WCM_POLICY_VALUE {
-    pub fValue: super::super::Foundation::BOOL,
-    pub fIsGroupPolicy: super::super::Foundation::BOOL,
+    pub fValue: windows_core::BOOL,
+    pub fIsGroupPolicy: windows_core::BOOL,
 }
 impl Default for WCM_POLICY_VALUE {
     fn default() -> Self {

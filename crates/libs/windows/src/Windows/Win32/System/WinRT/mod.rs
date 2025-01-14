@@ -144,8 +144,8 @@ pub unsafe fn HSTRING_UserUnmarshal64(param0: *const u32, param1: *const u8, par
     unsafe { HSTRING_UserUnmarshal64(param0, param1, core::mem::transmute(param2)) }
 }
 #[inline]
-pub unsafe fn IsErrorPropagationEnabled() -> super::super::Foundation::BOOL {
-    windows_targets::link!("api-ms-win-core-winrt-error-l1-1-1.dll" "system" fn IsErrorPropagationEnabled() -> super::super::Foundation:: BOOL);
+pub unsafe fn IsErrorPropagationEnabled() -> windows_core::BOOL {
+    windows_targets::link!("api-ms-win-core-winrt-error-l1-1-1.dll" "system" fn IsErrorPropagationEnabled() -> windows_core::BOOL);
     unsafe { IsErrorPropagationEnabled() }
 }
 #[inline]
@@ -248,21 +248,21 @@ pub unsafe fn RoInspectThreadErrorInfo(targettebaddress: usize, machine: u16, re
     }
 }
 #[inline]
-pub unsafe fn RoOriginateError(error: windows_core::HRESULT, message: &windows_core::HSTRING) -> super::super::Foundation::BOOL {
-    windows_targets::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoOriginateError(error : windows_core::HRESULT, message : * mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
+pub unsafe fn RoOriginateError(error: windows_core::HRESULT, message: &windows_core::HSTRING) -> windows_core::BOOL {
+    windows_targets::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoOriginateError(error : windows_core::HRESULT, message : * mut core::ffi::c_void) -> windows_core::BOOL);
     unsafe { RoOriginateError(error, core::mem::transmute_copy(message)) }
 }
 #[inline]
-pub unsafe fn RoOriginateErrorW(error: windows_core::HRESULT, cchmax: u32, message: Option<&[u16; 512]>) -> super::super::Foundation::BOOL {
-    windows_targets::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoOriginateErrorW(error : windows_core::HRESULT, cchmax : u32, message : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
+pub unsafe fn RoOriginateErrorW(error: windows_core::HRESULT, cchmax: u32, message: Option<&[u16; 512]>) -> windows_core::BOOL {
+    windows_targets::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoOriginateErrorW(error : windows_core::HRESULT, cchmax : u32, message : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { RoOriginateErrorW(error, cchmax, core::mem::transmute(message.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
 }
 #[inline]
-pub unsafe fn RoOriginateLanguageException<P2>(error: windows_core::HRESULT, message: &windows_core::HSTRING, languageexception: P2) -> super::super::Foundation::BOOL
+pub unsafe fn RoOriginateLanguageException<P2>(error: windows_core::HRESULT, message: &windows_core::HSTRING, languageexception: P2) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_targets::link!("api-ms-win-core-winrt-error-l1-1-1.dll" "system" fn RoOriginateLanguageException(error : windows_core::HRESULT, message : * mut core::ffi::c_void, languageexception : * mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("api-ms-win-core-winrt-error-l1-1-1.dll" "system" fn RoOriginateLanguageException(error : windows_core::HRESULT, message : * mut core::ffi::c_void, languageexception : * mut core::ffi::c_void) -> windows_core::BOOL);
     unsafe { RoOriginateLanguageException(error, core::mem::transmute_copy(message), languageexception.param().abi()) }
 }
 #[inline]
@@ -320,13 +320,13 @@ pub unsafe fn RoSetErrorReportingFlags(flags: u32) -> windows_core::Result<()> {
     unsafe { RoSetErrorReportingFlags(flags).ok() }
 }
 #[inline]
-pub unsafe fn RoTransformError(olderror: windows_core::HRESULT, newerror: windows_core::HRESULT, message: &windows_core::HSTRING) -> super::super::Foundation::BOOL {
-    windows_targets::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoTransformError(olderror : windows_core::HRESULT, newerror : windows_core::HRESULT, message : * mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
+pub unsafe fn RoTransformError(olderror: windows_core::HRESULT, newerror: windows_core::HRESULT, message: &windows_core::HSTRING) -> windows_core::BOOL {
+    windows_targets::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoTransformError(olderror : windows_core::HRESULT, newerror : windows_core::HRESULT, message : * mut core::ffi::c_void) -> windows_core::BOOL);
     unsafe { RoTransformError(olderror, newerror, core::mem::transmute_copy(message)) }
 }
 #[inline]
-pub unsafe fn RoTransformErrorW(olderror: windows_core::HRESULT, newerror: windows_core::HRESULT, cchmax: u32, message: Option<&[u16; 512]>) -> super::super::Foundation::BOOL {
-    windows_targets::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoTransformErrorW(olderror : windows_core::HRESULT, newerror : windows_core::HRESULT, cchmax : u32, message : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
+pub unsafe fn RoTransformErrorW(olderror: windows_core::HRESULT, newerror: windows_core::HRESULT, cchmax: u32, message: Option<&[u16; 512]>) -> windows_core::BOOL {
+    windows_targets::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoTransformErrorW(olderror : windows_core::HRESULT, newerror : windows_core::HRESULT, cchmax : u32, message : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { RoTransformErrorW(olderror, newerror, cchmax, core::mem::transmute(message.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
 }
 #[inline]
@@ -418,8 +418,8 @@ pub unsafe fn WindowsInspectString2(targethstring: u64, machine: u16, callback: 
     unsafe { WindowsInspectString2(targethstring, machine, callback, context.unwrap_or(core::mem::zeroed()) as _, length as _, targetstringaddress as _).ok() }
 }
 #[inline]
-pub unsafe fn WindowsIsStringEmpty(string: &windows_core::HSTRING) -> super::super::Foundation::BOOL {
-    windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsIsStringEmpty(string : * mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
+pub unsafe fn WindowsIsStringEmpty(string: &windows_core::HSTRING) -> windows_core::BOOL {
+    windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsIsStringEmpty(string : * mut core::ffi::c_void) -> windows_core::BOOL);
     unsafe { WindowsIsStringEmpty(core::mem::transmute_copy(string)) }
 }
 #[inline]
@@ -444,8 +444,8 @@ pub unsafe fn WindowsReplaceString(string: &windows_core::HSTRING, stringreplace
     }
 }
 #[inline]
-pub unsafe fn WindowsStringHasEmbeddedNull(string: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::BOOL> {
-    windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsStringHasEmbeddedNull(string : * mut core::ffi::c_void, hasembednull : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+pub unsafe fn WindowsStringHasEmbeddedNull(string: &windows_core::HSTRING) -> windows_core::Result<windows_core::BOOL> {
+    windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsStringHasEmbeddedNull(string : * mut core::ffi::c_void, hasembednull : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WindowsStringHasEmbeddedNull(core::mem::transmute_copy(string), &mut result__).map(|| core::mem::transmute(result__))

@@ -23,7 +23,11 @@ pub struct IPersistFile_Vtbl {
     pub base__: IPersist_Vtbl,
     pub IsDirty: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_sys::core::HRESULT,
     Load: usize,
-    Save: usize,
+    pub Save: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_sys::core::PCWSTR,
+        windows_sys::core::BOOL,
+    ) -> windows_sys::core::HRESULT,
     pub SaveCompleted: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_sys::core::PCWSTR,

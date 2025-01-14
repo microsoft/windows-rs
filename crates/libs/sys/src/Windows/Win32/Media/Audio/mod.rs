@@ -9,8 +9,8 @@ windows_targets::link!("windows.media.mediacontrol.dll" "system" fn CreateRender
 windows_targets::link!("windows.media.mediacontrol.dll" "system" fn CreateRenderAudioStateMonitorForCategory(category : AUDIO_STREAM_CATEGORY, audiostatemonitor : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("windows.media.mediacontrol.dll" "system" fn CreateRenderAudioStateMonitorForCategoryAndDeviceId(category : AUDIO_STREAM_CATEGORY, deviceid : windows_sys::core::PCWSTR, audiostatemonitor : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("windows.media.mediacontrol.dll" "system" fn CreateRenderAudioStateMonitorForCategoryAndDeviceRole(category : AUDIO_STREAM_CATEGORY, role : ERole, audiostatemonitor : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_targets::link!("winmm.dll" "system" fn PlaySoundA(pszsound : windows_sys::core::PCSTR, hmod : super::super::Foundation:: HMODULE, fdwsound : SND_FLAGS) -> super::super::Foundation:: BOOL);
-windows_targets::link!("winmm.dll" "system" fn PlaySoundW(pszsound : windows_sys::core::PCWSTR, hmod : super::super::Foundation:: HMODULE, fdwsound : SND_FLAGS) -> super::super::Foundation:: BOOL);
+windows_targets::link!("winmm.dll" "system" fn PlaySoundA(pszsound : windows_sys::core::PCSTR, hmod : super::super::Foundation:: HMODULE, fdwsound : SND_FLAGS) -> windows_sys::core::BOOL);
+windows_targets::link!("winmm.dll" "system" fn PlaySoundW(pszsound : windows_sys::core::PCWSTR, hmod : super::super::Foundation:: HMODULE, fdwsound : SND_FLAGS) -> windows_sys::core::BOOL);
 windows_targets::link!("msacm32.dll" "system" fn acmDriverAddA(phadid : *mut HACMDRIVERID, hinstmodule : super::super::Foundation:: HINSTANCE, lparam : super::super::Foundation:: LPARAM, dwpriority : u32, fdwadd : u32) -> u32);
 windows_targets::link!("msacm32.dll" "system" fn acmDriverAddW(phadid : *mut HACMDRIVERID, hinstmodule : super::super::Foundation:: HINSTANCE, lparam : super::super::Foundation:: LPARAM, dwpriority : u32, fdwadd : u32) -> u32);
 windows_targets::link!("msacm32.dll" "system" fn acmDriverClose(had : HACMDRIVER, fdwclose : u32) -> u32);
@@ -118,8 +118,8 @@ windows_targets::link!("winmm.dll" "system" fn mixerGetNumDevs() -> u32);
 windows_targets::link!("winmm.dll" "system" fn mixerMessage(hmx : HMIXER, umsg : u32, dwparam1 : usize, dwparam2 : usize) -> u32);
 windows_targets::link!("winmm.dll" "system" fn mixerOpen(phmx : *mut HMIXER, umxid : u32, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> u32);
 windows_targets::link!("winmm.dll" "system" fn mixerSetControlDetails(hmxobj : HMIXEROBJ, pmxcd : *const MIXERCONTROLDETAILS, fdwdetails : u32) -> u32);
-windows_targets::link!("winmm.dll" "system" fn sndPlaySoundA(pszsound : windows_sys::core::PCSTR, fusound : u32) -> super::super::Foundation:: BOOL);
-windows_targets::link!("winmm.dll" "system" fn sndPlaySoundW(pszsound : windows_sys::core::PCWSTR, fusound : u32) -> super::super::Foundation:: BOOL);
+windows_targets::link!("winmm.dll" "system" fn sndPlaySoundA(pszsound : windows_sys::core::PCSTR, fusound : u32) -> windows_sys::core::BOOL);
+windows_targets::link!("winmm.dll" "system" fn sndPlaySoundW(pszsound : windows_sys::core::PCWSTR, fusound : u32) -> windows_sys::core::BOOL);
 windows_targets::link!("winmm.dll" "system" fn waveInAddBuffer(hwi : HWAVEIN, pwh : *mut WAVEHDR, cbwh : u32) -> u32);
 windows_targets::link!("winmm.dll" "system" fn waveInClose(hwi : HWAVEIN) -> u32);
 windows_targets::link!("winmm.dll" "system" fn waveInGetDevCapsA(udeviceid : usize, pwic : *mut WAVEINCAPSA, cbwic : u32) -> u32);
@@ -234,7 +234,7 @@ pub const ACMDRIVERDETAILS_SUPPORTF_DISABLED: i32 = -2147483648i32;
 pub const ACMDRIVERDETAILS_SUPPORTF_FILTER: i32 = 4i32;
 pub const ACMDRIVERDETAILS_SUPPORTF_HARDWARE: i32 = 8i32;
 pub const ACMDRIVERDETAILS_SUPPORTF_LOCAL: i32 = 1073741824i32;
-pub type ACMDRIVERENUMCB = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
+pub type ACMDRIVERENUMCB = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, dwinstance: usize, fdwsupport: u32) -> windows_sys::core::BOOL>;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct ACMDRVFORMATSUGGEST {
@@ -394,8 +394,8 @@ pub struct ACMFILTERDETAILSW {
     pub szFilter: [u16; 128],
 }
 pub const ACMFILTERDETAILS_FILTER_CHARS: u32 = 128u32;
-pub type ACMFILTERENUMCBA = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFILTERDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
-pub type ACMFILTERENUMCBW = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFILTERDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
+pub type ACMFILTERENUMCBA = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFILTERDETAILSA, dwinstance: usize, fdwsupport: u32) -> windows_sys::core::BOOL>;
+pub type ACMFILTERENUMCBW = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFILTERDETAILSW, dwinstance: usize, fdwsupport: u32) -> windows_sys::core::BOOL>;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct ACMFILTERTAGDETAILSA {
@@ -419,8 +419,8 @@ pub struct ACMFILTERTAGDETAILSW {
     pub szFilterTag: [u16; 48],
 }
 pub const ACMFILTERTAGDETAILS_FILTERTAG_CHARS: u32 = 48u32;
-pub type ACMFILTERTAGENUMCBA = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFILTERTAGDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
-pub type ACMFILTERTAGENUMCBW = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFILTERTAGDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
+pub type ACMFILTERTAGENUMCBA = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFILTERTAGDETAILSA, dwinstance: usize, fdwsupport: u32) -> windows_sys::core::BOOL>;
+pub type ACMFILTERTAGENUMCBW = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFILTERTAGDETAILSW, dwinstance: usize, fdwsupport: u32) -> windows_sys::core::BOOL>;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct ACMFORMATCHOOSEA {
@@ -481,8 +481,8 @@ pub struct ACMFORMATDETAILSA {
     pub szFormat: [i8; 128],
 }
 pub const ACMFORMATDETAILS_FORMAT_CHARS: u32 = 128u32;
-pub type ACMFORMATENUMCBA = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFORMATDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
-pub type ACMFORMATENUMCBW = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut tACMFORMATDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
+pub type ACMFORMATENUMCBA = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFORMATDETAILSA, dwinstance: usize, fdwsupport: u32) -> windows_sys::core::BOOL>;
+pub type ACMFORMATENUMCBW = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut tACMFORMATDETAILSW, dwinstance: usize, fdwsupport: u32) -> windows_sys::core::BOOL>;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct ACMFORMATTAGDETAILSA {
@@ -506,8 +506,8 @@ pub struct ACMFORMATTAGDETAILSW {
     pub szFormatTag: [u16; 48],
 }
 pub const ACMFORMATTAGDETAILS_FORMATTAG_CHARS: u32 = 48u32;
-pub type ACMFORMATTAGENUMCBA = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFORMATTAGDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
-pub type ACMFORMATTAGENUMCBW = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFORMATTAGDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
+pub type ACMFORMATTAGENUMCBA = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFORMATTAGDETAILSA, dwinstance: usize, fdwsupport: u32) -> windows_sys::core::BOOL>;
+pub type ACMFORMATTAGENUMCBW = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFORMATTAGDETAILSW, dwinstance: usize, fdwsupport: u32) -> windows_sys::core::BOOL>;
 pub const ACMHELPMSGCONTEXTHELP: windows_sys::core::PCWSTR = windows_sys::core::w!("acmchoose_contexthelp");
 pub const ACMHELPMSGCONTEXTHELPA: windows_sys::core::PCSTR = windows_sys::core::s!("acmchoose_contexthelp");
 pub const ACMHELPMSGCONTEXTHELPW: windows_sys::core::PCWSTR = windows_sys::core::w!("acmchoose_contexthelp");
@@ -733,7 +733,7 @@ pub const AUDIO_DUCKING_OPTIONS_DO_NOT_DUCK_OTHER_STREAMS: AUDIO_DUCKING_OPTIONS
 #[derive(Clone, Copy)]
 pub struct AUDIO_EFFECT {
     pub id: windows_sys::core::GUID,
-    pub canSetState: super::super::Foundation::BOOL,
+    pub canSetState: windows_sys::core::BOOL,
     pub state: AUDIO_EFFECT_STATE,
 }
 pub type AUDIO_EFFECT_STATE = i32;
@@ -749,7 +749,7 @@ pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_VOLATILE: AUDIO_SYSTEMEFFECTS_P
 #[derive(Clone, Copy)]
 pub struct AUDIO_VOLUME_NOTIFICATION_DATA {
     pub guidEventContext: windows_sys::core::GUID,
-    pub bMuted: super::super::Foundation::BOOL,
+    pub bMuted: windows_sys::core::BOOL,
     pub fMasterVolume: f32,
     pub nChannels: u32,
     pub afChannelVolumes: [f32; 1],
@@ -831,7 +831,7 @@ pub struct AudioClient3ActivationParams {
 #[derive(Clone, Copy)]
 pub struct AudioClientProperties {
     pub cbSize: u32,
-    pub bIsOffload: super::super::Foundation::BOOL,
+    pub bIsOffload: windows_sys::core::BOOL,
     pub eCategory: AUDIO_STREAM_CATEGORY,
     pub Options: AUDCLNT_STREAMOPTIONS,
 }

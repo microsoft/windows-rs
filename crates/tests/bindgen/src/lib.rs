@@ -2,6 +2,9 @@
 
 pub mod bool;
 pub mod bool_event;
+pub mod bool_event_sans_reference;
+pub mod bool_sys;
+pub mod bool_sys_no_core;
 pub mod class;
 pub mod class_dep;
 pub mod class_static;
@@ -17,6 +20,7 @@ pub mod core_win_flat;
 pub mod default_assumed;
 pub mod default_default;
 pub mod delegate;
+pub mod delegate_cpp;
 pub mod delegate_generic;
 pub mod deps;
 pub mod derive_cpp_enum;

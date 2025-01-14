@@ -31,7 +31,7 @@ windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqGetDiagnosticRep
 windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqGetDiagnosticReportStoreReportCount(hsession : HDIAGNOSTIC_DATA_QUERY_SESSION, reportstoretype : u32, reportcount : *mut u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqGetSessionAccessLevel(hsession : HDIAGNOSTIC_DATA_QUERY_SESSION, accesslevel : *mut DdqAccessLevel) -> windows_sys::core::HRESULT);
 windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqGetTranscriptConfiguration(hsession : HDIAGNOSTIC_DATA_QUERY_SESSION, currentconfig : *mut DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION) -> windows_sys::core::HRESULT);
-windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqIsDiagnosticRecordSampledIn(hsession : HDIAGNOSTIC_DATA_QUERY_SESSION, providergroup : *const windows_sys::core::GUID, providerid : *const windows_sys::core::GUID, providername : windows_sys::core::PCWSTR, eventid : *const u32, eventname : windows_sys::core::PCWSTR, eventversion : *const u32, eventkeywords : *const u64, issampledin : *mut super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqIsDiagnosticRecordSampledIn(hsession : HDIAGNOSTIC_DATA_QUERY_SESSION, providergroup : *const windows_sys::core::GUID, providerid : *const windows_sys::core::GUID, providername : windows_sys::core::PCWSTR, eventid : *const u32, eventname : windows_sys::core::PCWSTR, eventversion : *const u32, eventkeywords : *const u64, issampledin : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqSetTranscriptConfiguration(hsession : HDIAGNOSTIC_DATA_QUERY_SESSION, desiredconfig : *const DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION) -> windows_sys::core::HRESULT);
 pub const AllUserData: DdqAccessLevel = 2i32;
 pub const CurrentUserData: DdqAccessLevel = 1i32;
@@ -96,7 +96,7 @@ pub struct DIAGNOSTIC_DATA_RECORD {
     pub privacyTagCount: u32,
     pub categoryIds: *mut i32,
     pub categoryIdCount: u32,
-    pub isCoreData: super::super::Foundation::BOOL,
+    pub isCoreData: windows_sys::core::BOOL,
     pub extra1: windows_sys::core::PWSTR,
     pub extra2: windows_sys::core::PWSTR,
     pub extra3: windows_sys::core::PWSTR,
@@ -111,7 +111,7 @@ pub struct DIAGNOSTIC_DATA_SEARCH_CRITERIA {
     pub categoryIdCount: u32,
     pub privacyTags: *const i32,
     pub privacyTagCount: u32,
-    pub coreDataOnly: super::super::Foundation::BOOL,
+    pub coreDataOnly: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]

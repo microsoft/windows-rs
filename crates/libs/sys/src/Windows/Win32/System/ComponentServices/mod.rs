@@ -32,13 +32,13 @@ pub const AppDomainHelper: windows_sys::core::GUID = windows_sys::core::GUID::fr
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ApplicationProcessRecycleInfo {
-    pub IsRecyclable: super::super::Foundation::BOOL,
-    pub IsRecycled: super::super::Foundation::BOOL,
+    pub IsRecyclable: windows_sys::core::BOOL,
+    pub IsRecycled: windows_sys::core::BOOL,
     pub TimeRecycled: super::super::Foundation::FILETIME,
     pub TimeToTerminate: super::super::Foundation::FILETIME,
     pub RecycleReasonCode: i32,
-    pub IsPendingRecycle: super::super::Foundation::BOOL,
-    pub HasAutomaticLifetimeRecycling: super::super::Foundation::BOOL,
+    pub IsPendingRecycle: windows_sys::core::BOOL,
+    pub HasAutomaticLifetimeRecycling: windows_sys::core::BOOL,
     pub TimeForAutomaticRecycling: super::super::Foundation::FILETIME,
     pub MemoryLimitInKB: u32,
     pub MemoryUsageInKBLastCheck: u32,
@@ -68,9 +68,9 @@ pub struct ApplicationProcessSummary {
     pub ProcessId: u32,
     pub Type: COMPLUS_APPTYPE,
     pub ProcessExeName: windows_sys::core::PWSTR,
-    pub IsService: super::super::Foundation::BOOL,
-    pub IsPaused: super::super::Foundation::BOOL,
-    pub IsRecycled: super::super::Foundation::BOOL,
+    pub IsService: windows_sys::core::BOOL,
+    pub IsPaused: windows_sys::core::BOOL,
+    pub IsRecycled: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -436,8 +436,8 @@ pub const ComSystemAppEventData: windows_sys::core::GUID = windows_sys::core::GU
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ComponentHangMonitorInfo {
-    pub IsMonitored: super::super::Foundation::BOOL,
-    pub TerminateOnHang: super::super::Foundation::BOOL,
+    pub IsMonitored: windows_sys::core::BOOL,
+    pub TerminateOnHang: windows_sys::core::BOOL,
     pub AvgCallThresholdInMs: u32,
 }
 #[repr(C)]
@@ -495,8 +495,8 @@ pub const GetSecurityCallContextAppObject: windows_sys::core::GUID = windows_sys
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HANG_INFO {
-    pub fAppHangMonitorEnabled: super::super::Foundation::BOOL,
-    pub fTerminateOnHang: super::super::Foundation::BOOL,
+    pub fAppHangMonitorEnabled: windows_sys::core::BOOL,
+    pub fTerminateOnHang: windows_sys::core::BOOL,
     pub DumpType: DUMPTYPE,
     pub dwHangTimeout: u32,
     pub dwDumpCount: u32,

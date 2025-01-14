@@ -322,8 +322,8 @@ pub union GET_VIRTUAL_DISK_INFO_0 {
     pub ParentTimestamp: u32,
     pub VirtualStorageType: VIRTUAL_STORAGE_TYPE,
     pub ProviderSubtype: u32,
-    pub Is4kAligned: super::super::Foundation::BOOL,
-    pub IsLoaded: super::super::Foundation::BOOL,
+    pub Is4kAligned: windows_sys::core::BOOL,
+    pub IsLoaded: windows_sys::core::BOOL,
     pub PhysicalDisk: GET_VIRTUAL_DISK_INFO_0_2,
     pub VhdPhysicalSectorSize: u32,
     pub SmallestSafeVirtualSize: u64,
@@ -334,14 +334,14 @@ pub union GET_VIRTUAL_DISK_INFO_0 {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct GET_VIRTUAL_DISK_INFO_0_3 {
-    pub Enabled: super::super::Foundation::BOOL,
-    pub NewerChanges: super::super::Foundation::BOOL,
+    pub Enabled: windows_sys::core::BOOL,
+    pub NewerChanges: windows_sys::core::BOOL,
     pub MostRecentId: [u16; 1],
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct GET_VIRTUAL_DISK_INFO_0_1 {
-    pub ParentResolved: super::super::Foundation::BOOL,
+    pub ParentResolved: windows_sys::core::BOOL,
     pub ParentLocationBuffer: [u16; 1],
 }
 #[repr(C)]
@@ -349,7 +349,7 @@ pub struct GET_VIRTUAL_DISK_INFO_0_1 {
 pub struct GET_VIRTUAL_DISK_INFO_0_2 {
     pub LogicalSectorSize: u32,
     pub PhysicalSectorSize: u32,
-    pub IsRemote: super::super::Foundation::BOOL,
+    pub IsRemote: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -493,15 +493,15 @@ pub struct OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
-    pub GetInfoOnly: super::super::Foundation::BOOL,
-    pub ReadOnly: super::super::Foundation::BOOL,
+    pub GetInfoOnly: windows_sys::core::BOOL,
+    pub ReadOnly: windows_sys::core::BOOL,
     pub ResiliencyGuid: windows_sys::core::GUID,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
-    pub GetInfoOnly: super::super::Foundation::BOOL,
-    pub ReadOnly: super::super::Foundation::BOOL,
+    pub GetInfoOnly: windows_sys::core::BOOL,
+    pub ReadOnly: windows_sys::core::BOOL,
     pub ResiliencyGuid: windows_sys::core::GUID,
     pub SnapshotId: windows_sys::core::GUID,
 }
@@ -536,7 +536,7 @@ pub union RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
-    pub RSVDHandle: super::super::Foundation::BOOL,
+    pub RSVDHandle: windows_sys::core::BOOL,
     pub DataIn: u8,
     pub CdbLength: u8,
     pub SenseInfoLength: u8,
@@ -604,7 +604,7 @@ pub union SET_VIRTUAL_DISK_INFO_0 {
     pub ParentPathWithDepthInfo: SET_VIRTUAL_DISK_INFO_0_0,
     pub VhdPhysicalSectorSize: u32,
     pub VirtualDiskId: windows_sys::core::GUID,
-    pub ChangeTrackingEnabled: super::super::Foundation::BOOL,
+    pub ChangeTrackingEnabled: windows_sys::core::BOOL,
     pub ParentLocator: SET_VIRTUAL_DISK_INFO_0_1,
 }
 #[repr(C)]

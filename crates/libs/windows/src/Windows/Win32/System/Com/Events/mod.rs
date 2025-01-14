@@ -407,7 +407,7 @@ impl IEventClass2 {
     pub unsafe fn SetMultiInterfacePublisherFilterCLSID(&self, bstrpubfilclsid: &windows_core::BSTR) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMultiInterfacePublisherFilterCLSID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpubfilclsid)).ok() }
     }
-    pub unsafe fn AllowInprocActivation(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn AllowInprocActivation(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AllowInprocActivation)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -416,7 +416,7 @@ impl IEventClass2 {
     pub unsafe fn SetAllowInprocActivation(&self, fallowinprocactivation: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAllowInprocActivation)(windows_core::Interface::as_raw(self), fallowinprocactivation.into()).ok() }
     }
-    pub unsafe fn FireInParallel(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn FireInParallel(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FireInParallel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -433,10 +433,10 @@ pub struct IEventClass2_Vtbl {
     pub SetPublisherID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub MultiInterfacePublisherFilterCLSID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetMultiInterfacePublisherFilterCLSID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AllowInprocActivation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetAllowInprocActivation: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub FireInParallel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetFireInParallel: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub AllowInprocActivation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetAllowInprocActivation: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
+    pub FireInParallel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetFireInParallel: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEventClass2_Impl: IEventClass_Impl {
@@ -444,10 +444,10 @@ pub trait IEventClass2_Impl: IEventClass_Impl {
     fn SetPublisherID(&self, bstrpublisherid: &windows_core::BSTR) -> windows_core::Result<()>;
     fn MultiInterfacePublisherFilterCLSID(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetMultiInterfacePublisherFilterCLSID(&self, bstrpubfilclsid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn AllowInprocActivation(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn SetAllowInprocActivation(&self, fallowinprocactivation: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn FireInParallel(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn SetFireInParallel(&self, ffireinparallel: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn AllowInprocActivation(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn SetAllowInprocActivation(&self, fallowinprocactivation: windows_core::BOOL) -> windows_core::Result<()>;
+    fn FireInParallel(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn SetFireInParallel(&self, ffireinparallel: windows_core::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IEventClass2_Vtbl {
@@ -488,7 +488,7 @@ impl IEventClass2_Vtbl {
                 IEventClass2_Impl::SetMultiInterfacePublisherFilterCLSID(this, core::mem::transmute(&bstrpubfilclsid)).into()
             }
         }
-        unsafe extern "system" fn AllowInprocActivation<Identity: IEventClass2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfallowinprocactivation: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn AllowInprocActivation<Identity: IEventClass2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfallowinprocactivation: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEventClass2_Impl::AllowInprocActivation(this) {
@@ -500,13 +500,13 @@ impl IEventClass2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetAllowInprocActivation<Identity: IEventClass2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fallowinprocactivation: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAllowInprocActivation<Identity: IEventClass2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fallowinprocactivation: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEventClass2_Impl::SetAllowInprocActivation(this, core::mem::transmute_copy(&fallowinprocactivation)).into()
             }
         }
-        unsafe extern "system" fn FireInParallel<Identity: IEventClass2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pffireinparallel: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn FireInParallel<Identity: IEventClass2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pffireinparallel: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEventClass2_Impl::FireInParallel(this) {
@@ -518,7 +518,7 @@ impl IEventClass2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetFireInParallel<Identity: IEventClass2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ffireinparallel: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetFireInParallel<Identity: IEventClass2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ffireinparallel: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEventClass2_Impl::SetFireInParallel(this, core::mem::transmute_copy(&ffireinparallel)).into()
@@ -557,7 +557,7 @@ impl IEventControl {
     {
         unsafe { (windows_core::Interface::vtable(self).SetPublisherFilter)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(methodname), ppublisherfilter.param().abi()).ok() }
     }
-    pub unsafe fn AllowInprocActivation(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn AllowInprocActivation(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AllowInprocActivation)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -583,16 +583,16 @@ impl IEventControl {
 pub struct IEventControl_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub SetPublisherFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AllowInprocActivation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetAllowInprocActivation: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub AllowInprocActivation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetAllowInprocActivation: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub GetSubscriptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetDefaultQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEventControl_Impl: super::IDispatch_Impl {
     fn SetPublisherFilter(&self, methodname: &windows_core::BSTR, ppublisherfilter: windows_core::Ref<IPublisherFilter>) -> windows_core::Result<()>;
-    fn AllowInprocActivation(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn SetAllowInprocActivation(&self, fallowinprocactivation: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn AllowInprocActivation(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn SetAllowInprocActivation(&self, fallowinprocactivation: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetSubscriptions(&self, methodname: &windows_core::BSTR, optionalcriteria: &windows_core::BSTR, optionalerrorindex: *const i32) -> windows_core::Result<IEventObjectCollection>;
     fn SetDefaultQuery(&self, methodname: &windows_core::BSTR, criteria: &windows_core::BSTR) -> windows_core::Result<i32>;
 }
@@ -605,7 +605,7 @@ impl IEventControl_Vtbl {
                 IEventControl_Impl::SetPublisherFilter(this, core::mem::transmute(&methodname), core::mem::transmute_copy(&ppublisherfilter)).into()
             }
         }
-        unsafe extern "system" fn AllowInprocActivation<Identity: IEventControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfallowinprocactivation: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn AllowInprocActivation<Identity: IEventControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfallowinprocactivation: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEventControl_Impl::AllowInprocActivation(this) {
@@ -617,7 +617,7 @@ impl IEventControl_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetAllowInprocActivation<Identity: IEventControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fallowinprocactivation: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAllowInprocActivation<Identity: IEventControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fallowinprocactivation: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEventControl_Impl::SetAllowInprocActivation(this, core::mem::transmute_copy(&fallowinprocactivation)).into()
@@ -1358,7 +1358,7 @@ impl IEventSubscription {
     {
         unsafe { (windows_core::Interface::vtable(self).SetSubscriberInterface)(windows_core::Interface::as_raw(self), psubscriberinterface.param().abi()).ok() }
     }
-    pub unsafe fn PerUser(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn PerUser(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PerUser)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1376,7 +1376,7 @@ impl IEventSubscription {
     pub unsafe fn SetOwnerSID(&self, bstrownersid: &windows_core::BSTR) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetOwnerSID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrownersid)).ok() }
     }
-    pub unsafe fn Enabled(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn Enabled(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1470,12 +1470,12 @@ pub struct IEventSubscription_Vtbl {
     pub SetSubscriberCLSID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SubscriberInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetSubscriberInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub PerUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetPerUser: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub PerUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetPerUser: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub OwnerSID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetOwnerSID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Enabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub Enabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub MachineName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1519,12 +1519,12 @@ pub trait IEventSubscription_Impl: super::IDispatch_Impl {
     fn SetSubscriberCLSID(&self, bstrsubscriberclsid: &windows_core::BSTR) -> windows_core::Result<()>;
     fn SubscriberInterface(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn SetSubscriberInterface(&self, psubscriberinterface: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn PerUser(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn SetPerUser(&self, fperuser: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn PerUser(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn SetPerUser(&self, fperuser: windows_core::BOOL) -> windows_core::Result<()>;
     fn OwnerSID(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetOwnerSID(&self, bstrownersid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Enabled(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn SetEnabled(&self, fenabled: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn Enabled(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn SetEnabled(&self, fenabled: windows_core::BOOL) -> windows_core::Result<()>;
     fn Description(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetDescription(&self, bstrdescription: &windows_core::BSTR) -> windows_core::Result<()>;
     fn MachineName(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -1669,7 +1669,7 @@ impl IEventSubscription_Vtbl {
                 IEventSubscription_Impl::SetSubscriberInterface(this, core::mem::transmute_copy(&psubscriberinterface)).into()
             }
         }
-        unsafe extern "system" fn PerUser<Identity: IEventSubscription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfperuser: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn PerUser<Identity: IEventSubscription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfperuser: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEventSubscription_Impl::PerUser(this) {
@@ -1681,7 +1681,7 @@ impl IEventSubscription_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetPerUser<Identity: IEventSubscription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fperuser: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPerUser<Identity: IEventSubscription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fperuser: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEventSubscription_Impl::SetPerUser(this, core::mem::transmute_copy(&fperuser)).into()
@@ -1705,7 +1705,7 @@ impl IEventSubscription_Vtbl {
                 IEventSubscription_Impl::SetOwnerSID(this, core::mem::transmute(&bstrownersid)).into()
             }
         }
-        unsafe extern "system" fn Enabled<Identity: IEventSubscription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfenabled: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn Enabled<Identity: IEventSubscription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfenabled: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEventSubscription_Impl::Enabled(this) {
@@ -1717,7 +1717,7 @@ impl IEventSubscription_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetEnabled<Identity: IEventSubscription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fenabled: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetEnabled<Identity: IEventSubscription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fenabled: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEventSubscription_Impl::SetEnabled(this, core::mem::transmute_copy(&fenabled)).into()
@@ -2097,7 +2097,7 @@ impl IMultiInterfaceEventControl {
             (windows_core::Interface::vtable(self).SetDefaultQuery)(windows_core::Interface::as_raw(self), eventiid, core::mem::transmute_copy(bstrmethodname), core::mem::transmute_copy(bstrcriteria), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn AllowInprocActivation(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn AllowInprocActivation(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AllowInprocActivation)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2106,7 +2106,7 @@ impl IMultiInterfaceEventControl {
     pub unsafe fn SetAllowInprocActivation(&self, fallowinprocactivation: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAllowInprocActivation)(windows_core::Interface::as_raw(self), fallowinprocactivation.into()).ok() }
     }
-    pub unsafe fn FireInParallel(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn FireInParallel(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FireInParallel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2122,19 +2122,19 @@ pub struct IMultiInterfaceEventControl_Vtbl {
     pub SetMultiInterfacePublisherFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSubscriptions: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void, *mut core::ffi::c_void, *const i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetDefaultQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub AllowInprocActivation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetAllowInprocActivation: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub FireInParallel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetFireInParallel: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub AllowInprocActivation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetAllowInprocActivation: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
+    pub FireInParallel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetFireInParallel: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IMultiInterfaceEventControl_Impl: windows_core::IUnknownImpl {
     fn SetMultiInterfacePublisherFilter(&self, classfilter: windows_core::Ref<IMultiInterfacePublisherFilter>) -> windows_core::Result<()>;
     fn GetSubscriptions(&self, eventiid: *const windows_core::GUID, bstrmethodname: &windows_core::BSTR, optionalcriteria: &windows_core::BSTR, optionalerrorindex: *const i32) -> windows_core::Result<IEventObjectCollection>;
     fn SetDefaultQuery(&self, eventiid: *const windows_core::GUID, bstrmethodname: &windows_core::BSTR, bstrcriteria: &windows_core::BSTR) -> windows_core::Result<i32>;
-    fn AllowInprocActivation(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn SetAllowInprocActivation(&self, fallowinprocactivation: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn FireInParallel(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn SetFireInParallel(&self, ffireinparallel: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn AllowInprocActivation(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn SetAllowInprocActivation(&self, fallowinprocactivation: windows_core::BOOL) -> windows_core::Result<()>;
+    fn FireInParallel(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn SetFireInParallel(&self, ffireinparallel: windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl IMultiInterfaceEventControl_Vtbl {
     pub const fn new<Identity: IMultiInterfaceEventControl_Impl, const OFFSET: isize>() -> Self {
@@ -2168,7 +2168,7 @@ impl IMultiInterfaceEventControl_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn AllowInprocActivation<Identity: IMultiInterfaceEventControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfallowinprocactivation: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn AllowInprocActivation<Identity: IMultiInterfaceEventControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfallowinprocactivation: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMultiInterfaceEventControl_Impl::AllowInprocActivation(this) {
@@ -2180,13 +2180,13 @@ impl IMultiInterfaceEventControl_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetAllowInprocActivation<Identity: IMultiInterfaceEventControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fallowinprocactivation: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAllowInprocActivation<Identity: IMultiInterfaceEventControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fallowinprocactivation: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IMultiInterfaceEventControl_Impl::SetAllowInprocActivation(this, core::mem::transmute_copy(&fallowinprocactivation)).into()
             }
         }
-        unsafe extern "system" fn FireInParallel<Identity: IMultiInterfaceEventControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pffireinparallel: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn FireInParallel<Identity: IMultiInterfaceEventControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pffireinparallel: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMultiInterfaceEventControl_Impl::FireInParallel(this) {
@@ -2198,7 +2198,7 @@ impl IMultiInterfaceEventControl_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetFireInParallel<Identity: IMultiInterfaceEventControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ffireinparallel: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetFireInParallel<Identity: IMultiInterfaceEventControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ffireinparallel: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IMultiInterfaceEventControl_Impl::SetFireInParallel(this, core::mem::transmute_copy(&ffireinparallel)).into()

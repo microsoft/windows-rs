@@ -2,7 +2,6 @@
 
 use windows::core::*;
 use windows::Foundation::*;
-use windows::Win32::Foundation::*;
 use windows::Win32::System::Com::*;
 
 #[implement(IClosable, IStringable)]

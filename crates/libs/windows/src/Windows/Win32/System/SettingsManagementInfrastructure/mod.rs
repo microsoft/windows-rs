@@ -9,7 +9,7 @@ impl IItemEnumerator {
             (windows_core::Interface::vtable(self).Current)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -26,13 +26,13 @@ pub struct IItemEnumerator_Vtbl {
     pub Current: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Current: usize,
-    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IItemEnumerator_Impl: windows_core::IUnknownImpl {
     fn Current(&self) -> windows_core::Result<super::Variant::VARIANT>;
-    fn MoveNext(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL>;
     fn Reset(&self) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -50,7 +50,7 @@ impl IItemEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MoveNext<Identity: IItemEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, itemvalid: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MoveNext<Identity: IItemEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, itemvalid: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IItemEnumerator_Impl::MoveNext(this) {
@@ -355,10 +355,10 @@ pub struct ISettingsEngine_Vtbl {
     pub LoadStore: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub UnloadStore: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub RegisterNamespace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::BOOL, *mut super::Variant::VARIANT) -> windows_core::HRESULT,
+    pub RegisterNamespace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL, *mut super::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     RegisterNamespace: usize,
-    pub UnregisterNamespace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub UnregisterNamespace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub CreateTargetInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetTargetInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetTargetInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -376,8 +376,8 @@ pub trait ISettingsEngine_Impl: windows_core::IUnknownImpl {
     fn GetStoreStatus(&self, reserved: *const core::ffi::c_void) -> windows_core::Result<WcmUserStatus>;
     fn LoadStore(&self, flags: u32) -> windows_core::Result<()>;
     fn UnloadStore(&self, reserved: *const core::ffi::c_void) -> windows_core::Result<()>;
-    fn RegisterNamespace(&self, settingsid: windows_core::Ref<ISettingsIdentity>, stream: windows_core::Ref<super::Com::IStream>, pushsettings: super::super::Foundation::BOOL) -> windows_core::Result<super::Variant::VARIANT>;
-    fn UnregisterNamespace(&self, settingsid: windows_core::Ref<ISettingsIdentity>, removesettings: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn RegisterNamespace(&self, settingsid: windows_core::Ref<ISettingsIdentity>, stream: windows_core::Ref<super::Com::IStream>, pushsettings: windows_core::BOOL) -> windows_core::Result<super::Variant::VARIANT>;
+    fn UnregisterNamespace(&self, settingsid: windows_core::Ref<ISettingsIdentity>, removesettings: windows_core::BOOL) -> windows_core::Result<()>;
     fn CreateTargetInfo(&self) -> windows_core::Result<ITargetInfo>;
     fn GetTargetInfo(&self) -> windows_core::Result<ITargetInfo>;
     fn SetTargetInfo(&self, target: windows_core::Ref<ITargetInfo>) -> windows_core::Result<()>;
@@ -461,7 +461,7 @@ impl ISettingsEngine_Vtbl {
                 ISettingsEngine_Impl::UnloadStore(this, core::mem::transmute_copy(&reserved)).into()
             }
         }
-        unsafe extern "system" fn RegisterNamespace<Identity: ISettingsEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, settingsid: *mut core::ffi::c_void, stream: *mut core::ffi::c_void, pushsettings: super::super::Foundation::BOOL, results: *mut super::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn RegisterNamespace<Identity: ISettingsEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, settingsid: *mut core::ffi::c_void, stream: *mut core::ffi::c_void, pushsettings: windows_core::BOOL, results: *mut super::Variant::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISettingsEngine_Impl::RegisterNamespace(this, core::mem::transmute_copy(&settingsid), core::mem::transmute_copy(&stream), core::mem::transmute_copy(&pushsettings)) {
@@ -473,7 +473,7 @@ impl ISettingsEngine_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn UnregisterNamespace<Identity: ISettingsEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, settingsid: *mut core::ffi::c_void, removesettings: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn UnregisterNamespace<Identity: ISettingsEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, settingsid: *mut core::ffi::c_void, removesettings: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISettingsEngine_Impl::UnregisterNamespace(this, core::mem::transmute_copy(&settingsid), core::mem::transmute_copy(&removesettings)).into()
@@ -712,7 +712,7 @@ impl ISettingsItem {
     pub unsafe fn SetValueRaw(&self, datatype: i32, data: &[u8]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetValueRaw)(windows_core::Interface::as_raw(self), datatype, core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap()).ok() }
     }
-    pub unsafe fn HasChild(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn HasChild(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).HasChild)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -835,7 +835,7 @@ pub struct ISettingsItem_Vtbl {
     pub GetDataType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WcmDataType) -> windows_core::HRESULT,
     pub GetValueRaw: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
     pub SetValueRaw: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const u8, u32) -> windows_core::HRESULT,
-    pub HasChild: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub HasChild: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub Children: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetChild: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSettingByPath: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -872,7 +872,7 @@ pub trait ISettingsItem_Impl: windows_core::IUnknownImpl {
     fn GetDataType(&self) -> windows_core::Result<WcmDataType>;
     fn GetValueRaw(&self, data: *mut *mut u8) -> windows_core::Result<u32>;
     fn SetValueRaw(&self, datatype: i32, data: *const u8, datasize: u32) -> windows_core::Result<()>;
-    fn HasChild(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn HasChild(&self) -> windows_core::Result<windows_core::BOOL>;
     fn Children(&self) -> windows_core::Result<IItemEnumerator>;
     fn GetChild(&self, name: &windows_core::PCWSTR) -> windows_core::Result<ISettingsItem>;
     fn GetSettingByPath(&self, path: &windows_core::PCWSTR) -> windows_core::Result<ISettingsItem>;
@@ -963,7 +963,7 @@ impl ISettingsItem_Vtbl {
                 ISettingsItem_Impl::SetValueRaw(this, core::mem::transmute_copy(&datatype), core::mem::transmute_copy(&data), core::mem::transmute_copy(&datasize)).into()
             }
         }
-        unsafe extern "system" fn HasChild<Identity: ISettingsItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, itemhaschild: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn HasChild<Identity: ISettingsItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, itemhaschild: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISettingsItem_Impl::HasChild(this) {
@@ -1224,7 +1224,7 @@ pub struct ISettingsNamespace_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetIdentity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Settings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Save: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Save: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSettingByPath: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateSettingByPath: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveSettingByPath: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -1237,7 +1237,7 @@ pub struct ISettingsNamespace_Vtbl {
 pub trait ISettingsNamespace_Impl: windows_core::IUnknownImpl {
     fn GetIdentity(&self) -> windows_core::Result<ISettingsIdentity>;
     fn Settings(&self) -> windows_core::Result<IItemEnumerator>;
-    fn Save(&self, pushsettings: super::super::Foundation::BOOL) -> windows_core::Result<ISettingsResult>;
+    fn Save(&self, pushsettings: windows_core::BOOL) -> windows_core::Result<ISettingsResult>;
     fn GetSettingByPath(&self, path: &windows_core::PCWSTR) -> windows_core::Result<ISettingsItem>;
     fn CreateSettingByPath(&self, path: &windows_core::PCWSTR) -> windows_core::Result<ISettingsItem>;
     fn RemoveSettingByPath(&self, path: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -1270,7 +1270,7 @@ impl ISettingsNamespace_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Save<Identity: ISettingsNamespace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pushsettings: super::super::Foundation::BOOL, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Save<Identity: ISettingsNamespace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pushsettings: windows_core::BOOL, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISettingsNamespace_Impl::Save(this, core::mem::transmute_copy(&pushsettings)) {
@@ -1641,11 +1641,11 @@ pub struct ITargetInfo_Vtbl {
     pub SetTargetID: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
     pub GetTargetProcessorArchitecture: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetTargetProcessorArchitecture: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
+    pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetEnumerator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ExpandTarget: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ExpandTargetPath: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ExpandTarget: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ExpandTargetPath: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetModulePath: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub LoadModule: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut super::super::Foundation::HMODULE) -> windows_core::HRESULT,
     pub SetWow64Context: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const u8) -> windows_core::HRESULT,
@@ -1664,11 +1664,11 @@ pub trait ITargetInfo_Impl: windows_core::IUnknownImpl {
     fn SetTargetID(&self, targetid: &windows_core::GUID) -> windows_core::Result<()>;
     fn GetTargetProcessorArchitecture(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetTargetProcessorArchitecture(&self, processorarchitecture: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GetProperty(&self, offline: super::super::Foundation::BOOL, property: &windows_core::PCWSTR) -> windows_core::Result<windows_core::BSTR>;
-    fn SetProperty(&self, offline: super::super::Foundation::BOOL, property: &windows_core::PCWSTR, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn GetProperty(&self, offline: windows_core::BOOL, property: &windows_core::PCWSTR) -> windows_core::Result<windows_core::BSTR>;
+    fn SetProperty(&self, offline: windows_core::BOOL, property: &windows_core::PCWSTR, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetEnumerator(&self) -> windows_core::Result<IItemEnumerator>;
-    fn ExpandTarget(&self, offline: super::super::Foundation::BOOL, location: &windows_core::PCWSTR) -> windows_core::Result<windows_core::BSTR>;
-    fn ExpandTargetPath(&self, offline: super::super::Foundation::BOOL, location: &windows_core::PCWSTR) -> windows_core::Result<windows_core::BSTR>;
+    fn ExpandTarget(&self, offline: windows_core::BOOL, location: &windows_core::PCWSTR) -> windows_core::Result<windows_core::BSTR>;
+    fn ExpandTargetPath(&self, offline: windows_core::BOOL, location: &windows_core::PCWSTR) -> windows_core::Result<windows_core::BSTR>;
     fn SetModulePath(&self, module: &windows_core::PCWSTR, path: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn LoadModule(&self, module: &windows_core::PCWSTR) -> windows_core::Result<super::super::Foundation::HMODULE>;
     fn SetWow64Context(&self, installermodule: &windows_core::PCWSTR, wow64context: *const u8) -> windows_core::Result<()>;
@@ -1752,7 +1752,7 @@ impl ITargetInfo_Vtbl {
                 ITargetInfo_Impl::SetTargetProcessorArchitecture(this, core::mem::transmute(&processorarchitecture)).into()
             }
         }
-        unsafe extern "system" fn GetProperty<Identity: ITargetInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offline: super::super::Foundation::BOOL, property: windows_core::PCWSTR, value: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetProperty<Identity: ITargetInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offline: windows_core::BOOL, property: windows_core::PCWSTR, value: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITargetInfo_Impl::GetProperty(this, core::mem::transmute_copy(&offline), core::mem::transmute(&property)) {
@@ -1764,7 +1764,7 @@ impl ITargetInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetProperty<Identity: ITargetInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offline: super::super::Foundation::BOOL, property: windows_core::PCWSTR, value: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetProperty<Identity: ITargetInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offline: windows_core::BOOL, property: windows_core::PCWSTR, value: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITargetInfo_Impl::SetProperty(this, core::mem::transmute_copy(&offline), core::mem::transmute(&property), core::mem::transmute(&value)).into()
@@ -1782,7 +1782,7 @@ impl ITargetInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ExpandTarget<Identity: ITargetInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offline: super::super::Foundation::BOOL, location: windows_core::PCWSTR, expandedlocation: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExpandTarget<Identity: ITargetInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offline: windows_core::BOOL, location: windows_core::PCWSTR, expandedlocation: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITargetInfo_Impl::ExpandTarget(this, core::mem::transmute_copy(&offline), core::mem::transmute(&location)) {
@@ -1794,7 +1794,7 @@ impl ITargetInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ExpandTargetPath<Identity: ITargetInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offline: super::super::Foundation::BOOL, location: windows_core::PCWSTR, expandedlocation: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExpandTargetPath<Identity: ITargetInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offline: windows_core::BOOL, location: windows_core::PCWSTR, expandedlocation: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITargetInfo_Impl::ExpandTargetPath(this, core::mem::transmute_copy(&offline), core::mem::transmute(&location)) {

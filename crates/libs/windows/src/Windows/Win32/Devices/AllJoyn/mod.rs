@@ -5,7 +5,7 @@ pub unsafe fn AllJoynAcceptBusConnection(serverbushandle: super::super::Foundati
 }
 #[inline]
 pub unsafe fn AllJoynCloseBusHandle(bushandle: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
-    windows_targets::link!("msajapi.dll" "system" fn AllJoynCloseBusHandle(bushandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("msajapi.dll" "system" fn AllJoynCloseBusHandle(bushandle : super::super::Foundation:: HANDLE) -> windows_core::BOOL);
     unsafe { AllJoynCloseBusHandle(bushandle).ok() }
 }
 #[inline]
@@ -25,22 +25,22 @@ pub unsafe fn AllJoynCreateBus(outbuffersize: u32, inbuffersize: u32, lpsecurity
 }
 #[inline]
 pub unsafe fn AllJoynEnumEvents(connectedbushandle: super::super::Foundation::HANDLE, eventtoreset: Option<super::super::Foundation::HANDLE>, eventtypes: *mut u32) -> windows_core::Result<()> {
-    windows_targets::link!("msajapi.dll" "system" fn AllJoynEnumEvents(connectedbushandle : super::super::Foundation:: HANDLE, eventtoreset : super::super::Foundation:: HANDLE, eventtypes : *mut u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("msajapi.dll" "system" fn AllJoynEnumEvents(connectedbushandle : super::super::Foundation:: HANDLE, eventtoreset : super::super::Foundation:: HANDLE, eventtypes : *mut u32) -> windows_core::BOOL);
     unsafe { AllJoynEnumEvents(connectedbushandle, eventtoreset.unwrap_or(core::mem::zeroed()) as _, eventtypes as _).ok() }
 }
 #[inline]
 pub unsafe fn AllJoynEventSelect(connectedbushandle: super::super::Foundation::HANDLE, eventhandle: super::super::Foundation::HANDLE, eventtypes: u32) -> windows_core::Result<()> {
-    windows_targets::link!("msajapi.dll" "system" fn AllJoynEventSelect(connectedbushandle : super::super::Foundation:: HANDLE, eventhandle : super::super::Foundation:: HANDLE, eventtypes : u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("msajapi.dll" "system" fn AllJoynEventSelect(connectedbushandle : super::super::Foundation:: HANDLE, eventhandle : super::super::Foundation:: HANDLE, eventtypes : u32) -> windows_core::BOOL);
     unsafe { AllJoynEventSelect(connectedbushandle, eventhandle, eventtypes).ok() }
 }
 #[inline]
 pub unsafe fn AllJoynReceiveFromBus(connectedbushandle: super::super::Foundation::HANDLE, buffer: Option<*mut core::ffi::c_void>, bytestoread: u32, bytestransferred: Option<*mut u32>, reserved: *mut core::ffi::c_void) -> windows_core::Result<()> {
-    windows_targets::link!("msajapi.dll" "system" fn AllJoynReceiveFromBus(connectedbushandle : super::super::Foundation:: HANDLE, buffer : *mut core::ffi::c_void, bytestoread : u32, bytestransferred : *mut u32, reserved : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("msajapi.dll" "system" fn AllJoynReceiveFromBus(connectedbushandle : super::super::Foundation:: HANDLE, buffer : *mut core::ffi::c_void, bytestoread : u32, bytestransferred : *mut u32, reserved : *mut core::ffi::c_void) -> windows_core::BOOL);
     unsafe { AllJoynReceiveFromBus(connectedbushandle, buffer.unwrap_or(core::mem::zeroed()) as _, bytestoread, bytestransferred.unwrap_or(core::mem::zeroed()) as _, reserved as _).ok() }
 }
 #[inline]
 pub unsafe fn AllJoynSendToBus(connectedbushandle: super::super::Foundation::HANDLE, buffer: Option<*const core::ffi::c_void>, bytestowrite: u32, bytestransferred: Option<*mut u32>, reserved: *mut core::ffi::c_void) -> windows_core::Result<()> {
-    windows_targets::link!("msajapi.dll" "system" fn AllJoynSendToBus(connectedbushandle : super::super::Foundation:: HANDLE, buffer : *const core::ffi::c_void, bytestowrite : u32, bytestransferred : *mut u32, reserved : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("msajapi.dll" "system" fn AllJoynSendToBus(connectedbushandle : super::super::Foundation:: HANDLE, buffer : *const core::ffi::c_void, bytestowrite : u32, bytestransferred : *mut u32, reserved : *mut core::ffi::c_void) -> windows_core::BOOL);
     unsafe { AllJoynSendToBus(connectedbushandle, buffer.unwrap_or(core::mem::zeroed()) as _, bytestowrite, bytestransferred.unwrap_or(core::mem::zeroed()) as _, reserved as _).ok() }
 }
 #[inline]

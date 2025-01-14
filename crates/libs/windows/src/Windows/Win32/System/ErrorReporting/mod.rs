@@ -3,7 +3,7 @@ pub unsafe fn AddERExcludedApplicationA<P0>(szapplication: P0) -> windows_core::
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("faultrep.dll" "system" fn AddERExcludedApplicationA(szapplication : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("faultrep.dll" "system" fn AddERExcludedApplicationA(szapplication : windows_core::PCSTR) -> windows_core::BOOL);
     unsafe { AddERExcludedApplicationA(szapplication.param().abi()).ok() }
 }
 #[inline]
@@ -11,7 +11,7 @@ pub unsafe fn AddERExcludedApplicationW<P0>(wszapplication: P0) -> windows_core:
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("faultrep.dll" "system" fn AddERExcludedApplicationW(wszapplication : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("faultrep.dll" "system" fn AddERExcludedApplicationW(wszapplication : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { AddERExcludedApplicationW(wszapplication.param().abi()).ok() }
 }
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
@@ -25,7 +25,7 @@ pub unsafe fn WerAddExcludedApplication<P0>(pwzexename: P0, ballusers: bool) -> 
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("wer.dll" "system" fn WerAddExcludedApplication(pwzexename : windows_core::PCWSTR, ballusers : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    windows_targets::link!("wer.dll" "system" fn WerAddExcludedApplication(pwzexename : windows_core::PCWSTR, ballusers : windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { WerAddExcludedApplication(pwzexename.param().abi(), ballusers.into()).ok() }
 }
 #[inline]
@@ -97,7 +97,7 @@ pub unsafe fn WerRemoveExcludedApplication<P0>(pwzexename: P0, ballusers: bool) 
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("wer.dll" "system" fn WerRemoveExcludedApplication(pwzexename : windows_core::PCWSTR, ballusers : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    windows_targets::link!("wer.dll" "system" fn WerRemoveExcludedApplication(pwzexename : windows_core::PCWSTR, ballusers : windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { WerRemoveExcludedApplication(pwzexename.param().abi(), ballusers.into()).ok() }
 }
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
@@ -344,9 +344,9 @@ impl Default for HREPORTSTORE {
 }
 pub const PACKAGED_APPCRASH_EVENT: windows_core::PCWSTR = windows_core::w!("MoAppCrash");
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-pub type PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH = Option<unsafe extern "system" fn(pcontext: *const core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, pbiscustomdebugger: *mut super::super::Foundation::BOOL, pwszdebuggerlaunch: windows_core::PWSTR, pchdebuggerlaunch: *mut u32, pbisdebuggerautolaunch: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT>;
+pub type PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH = Option<unsafe extern "system" fn(pcontext: *const core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, pbiscustomdebugger: *mut windows_core::BOOL, pwszdebuggerlaunch: windows_core::PWSTR, pchdebuggerlaunch: *mut u32, pbisdebuggerautolaunch: *mut windows_core::BOOL) -> windows_core::HRESULT>;
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-pub type PFN_WER_RUNTIME_EXCEPTION_EVENT = Option<unsafe extern "system" fn(pcontext: *const core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, pbownershipclaimed: *mut super::super::Foundation::BOOL, pwszeventname: windows_core::PWSTR, pchsize: *mut u32, pdwsignaturecount: *mut u32) -> windows_core::HRESULT>;
+pub type PFN_WER_RUNTIME_EXCEPTION_EVENT = Option<unsafe extern "system" fn(pcontext: *const core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, pbownershipclaimed: *mut windows_core::BOOL, pwszeventname: windows_core::PWSTR, pchsize: *mut u32, pdwsignaturecount: *mut u32) -> windows_core::HRESULT>;
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type PFN_WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE = Option<unsafe extern "system" fn(pcontext: *const core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, dwindex: u32, pwszname: windows_core::PWSTR, pchname: *mut u32, pwszvalue: windows_core::PWSTR, pchvalue: *mut u32) -> windows_core::HRESULT>;
 #[repr(transparent)]
@@ -362,7 +362,7 @@ pub struct WER_DUMP_CUSTOM_OPTIONS {
     pub dwSize: u32,
     pub dwMask: u32,
     pub dwDumpFlags: u32,
-    pub bOnlyThisThread: super::super::Foundation::BOOL,
+    pub bOnlyThisThread: windows_core::BOOL,
     pub dwExceptionThreadFlags: u32,
     pub dwOtherThreadFlags: u32,
     pub dwExceptionThreadExFlags: u32,
@@ -382,7 +382,7 @@ pub struct WER_DUMP_CUSTOM_OPTIONS_V2 {
     pub dwSize: u32,
     pub dwMask: u32,
     pub dwDumpFlags: u32,
-    pub bOnlyThisThread: super::super::Foundation::BOOL,
+    pub bOnlyThisThread: windows_core::BOOL,
     pub dwExceptionThreadFlags: u32,
     pub dwOtherThreadFlags: u32,
     pub dwExceptionThreadExFlags: u32,
@@ -404,7 +404,7 @@ pub struct WER_DUMP_CUSTOM_OPTIONS_V3 {
     pub dwSize: u32,
     pub dwMask: u32,
     pub dwDumpFlags: u32,
-    pub bOnlyThisThread: super::super::Foundation::BOOL,
+    pub bOnlyThisThread: windows_core::BOOL,
     pub dwExceptionThreadFlags: u32,
     pub dwOtherThreadFlags: u32,
     pub dwExceptionThreadExFlags: u32,
@@ -433,7 +433,7 @@ pub struct WER_DUMP_TYPE(pub i32);
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WER_EXCEPTION_INFORMATION {
     pub pExceptionPointers: *mut super::Diagnostics::Debug::EXCEPTION_POINTERS,
-    pub bClientPointers: super::super::Foundation::BOOL,
+    pub bClientPointers: windows_core::BOOL,
 }
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl Default for WER_EXCEPTION_INFORMATION {
@@ -743,7 +743,7 @@ pub struct WER_RUNTIME_EXCEPTION_INFORMATION {
     pub exceptionRecord: super::Diagnostics::Debug::EXCEPTION_RECORD,
     pub context: super::Diagnostics::Debug::CONTEXT,
     pub pwszReportId: windows_core::PCWSTR,
-    pub bIsFatal: super::super::Foundation::BOOL,
+    pub bIsFatal: windows_core::BOOL,
     pub dwReserved: u32,
 }
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]

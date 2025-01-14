@@ -81,6 +81,19 @@ impl IPersistFile {
             (windows_core::Interface::vtable(self).IsDirty)(windows_core::Interface::as_raw(self))
         }
     }
+    pub unsafe fn Save<P0>(&self, pszfilename: P0, fremember: bool) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_core::PCWSTR>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).Save)(
+                windows_core::Interface::as_raw(self),
+                pszfilename.param().abi(),
+                fremember.into(),
+            )
+            .ok()
+        }
+    }
     pub unsafe fn SaveCompleted<P0>(&self, pszfilename: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -109,7 +122,11 @@ pub struct IPersistFile_Vtbl {
     pub base__: IPersist_Vtbl,
     pub IsDirty: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     Load: usize,
-    Save: usize,
+    pub Save: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::PCWSTR,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
     pub SaveCompleted: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
@@ -121,6 +138,11 @@ pub struct IPersistFile_Vtbl {
 }
 pub trait IPersistFile_Impl: IPersist_Impl {
     fn IsDirty(&self) -> windows_core::HRESULT;
+    fn Save(
+        &self,
+        pszfilename: &windows_core::PCWSTR,
+        fremember: windows_core::BOOL,
+    ) -> windows_core::Result<()>;
     fn SaveCompleted(&self, pszfilename: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetCurFile(&self) -> windows_core::Result<windows_core::PWSTR>;
 }
@@ -133,6 +155,22 @@ impl IPersistFile_Vtbl {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPersistFile_Impl::IsDirty(this)
+            }
+        }
+        unsafe extern "system" fn Save<Identity: IPersistFile_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            pszfilename: windows_core::PCWSTR,
+            fremember: windows_core::BOOL,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPersistFile_Impl::Save(
+                    this,
+                    core::mem::transmute(&pszfilename),
+                    core::mem::transmute_copy(&fremember),
+                )
+                .into()
             }
         }
         unsafe extern "system" fn SaveCompleted<
@@ -168,7 +206,7 @@ impl IPersistFile_Vtbl {
             base__: IPersist_Vtbl::new::<Identity, OFFSET>(),
             IsDirty: IsDirty::<Identity, OFFSET>,
             Load: 0,
-            Save: 0,
+            Save: Save::<Identity, OFFSET>,
             SaveCompleted: SaveCompleted::<Identity, OFFSET>,
             GetCurFile: GetCurFile::<Identity, OFFSET>,
         }

@@ -296,16 +296,16 @@ impl IWSDAddress {
 #[repr(C)]
 pub struct IWSDAddress_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Serialize: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, u32, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub Serialize: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, u32, windows_core::BOOL) -> windows_core::HRESULT,
     pub Deserialize: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 pub trait IWSDAddress_Impl: windows_core::IUnknownImpl {
-    fn Serialize(&self, pszbuffer: windows_core::PWSTR, cchlength: u32, fsafe: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn Serialize(&self, pszbuffer: windows_core::PWSTR, cchlength: u32, fsafe: windows_core::BOOL) -> windows_core::Result<()>;
     fn Deserialize(&self, pszbuffer: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 impl IWSDAddress_Vtbl {
     pub const fn new<Identity: IWSDAddress_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Serialize<Identity: IWSDAddress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszbuffer: windows_core::PWSTR, cchlength: u32, fsafe: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn Serialize<Identity: IWSDAddress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszbuffer: windows_core::PWSTR, cchlength: u32, fsafe: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWSDAddress_Impl::Serialize(this, core::mem::transmute_copy(&pszbuffer), core::mem::transmute_copy(&cchlength), core::mem::transmute_copy(&fsafe)).into()
@@ -586,7 +586,7 @@ pub struct IWSDDeviceHost_Vtbl {
     pub RetireService: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub AddDynamicService: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *const WSD_PORT_TYPE, *const WSDXML_NAME, *const WSDXML_ELEMENT, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveDynamicService: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub SetServiceDiscoverable: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SetServiceDiscoverable: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::BOOL) -> windows_core::HRESULT,
     pub SignalEvent: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const core::ffi::c_void, *const WSD_OPERATION) -> windows_core::HRESULT,
 }
 pub trait IWSDDeviceHost_Impl: windows_core::IUnknownImpl {
@@ -600,7 +600,7 @@ pub trait IWSDDeviceHost_Impl: windows_core::IUnknownImpl {
     fn RetireService(&self, pszserviceid: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn AddDynamicService(&self, pszserviceid: &windows_core::PCWSTR, pszendpointaddress: &windows_core::PCWSTR, pporttype: *const WSD_PORT_TYPE, pportname: *const WSDXML_NAME, pany: *const WSDXML_ELEMENT, pservice: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn RemoveDynamicService(&self, pszserviceid: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn SetServiceDiscoverable(&self, pszserviceid: &windows_core::PCWSTR, fdiscoverable: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn SetServiceDiscoverable(&self, pszserviceid: &windows_core::PCWSTR, fdiscoverable: windows_core::BOOL) -> windows_core::Result<()>;
     fn SignalEvent(&self, pszserviceid: &windows_core::PCWSTR, pbody: *const core::ffi::c_void, poperation: *const WSD_OPERATION) -> windows_core::Result<()>;
 }
 impl IWSDDeviceHost_Vtbl {
@@ -665,7 +665,7 @@ impl IWSDDeviceHost_Vtbl {
                 IWSDDeviceHost_Impl::RemoveDynamicService(this, core::mem::transmute(&pszserviceid)).into()
             }
         }
-        unsafe extern "system" fn SetServiceDiscoverable<Identity: IWSDDeviceHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszserviceid: windows_core::PCWSTR, fdiscoverable: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetServiceDiscoverable<Identity: IWSDDeviceHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszserviceid: windows_core::PCWSTR, fdiscoverable: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWSDDeviceHost_Impl::SetServiceDiscoverable(this, core::mem::transmute(&pszserviceid), core::mem::transmute_copy(&fdiscoverable)).into()
@@ -1203,13 +1203,13 @@ impl IWSDHttpAddress {
 pub struct IWSDHttpAddress_Vtbl {
     pub base__: IWSDTransportAddress_Vtbl,
     pub GetSecure: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetSecure: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SetSecure: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub GetPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PCWSTR) -> windows_core::HRESULT,
     pub SetPath: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 pub trait IWSDHttpAddress_Impl: IWSDTransportAddress_Impl {
     fn GetSecure(&self) -> windows_core::Result<()>;
-    fn SetSecure(&self, fsecure: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn SetSecure(&self, fsecure: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetPath(&self) -> windows_core::Result<windows_core::PCWSTR>;
     fn SetPath(&self, pszpath: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
@@ -1221,7 +1221,7 @@ impl IWSDHttpAddress_Vtbl {
                 IWSDHttpAddress_Impl::GetSecure(this).into()
             }
         }
-        unsafe extern "system" fn SetSecure<Identity: IWSDHttpAddress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fsecure: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSecure<Identity: IWSDHttpAddress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fsecure: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWSDHttpAddress_Impl::SetSecure(this, core::mem::transmute_copy(&fsecure)).into()
@@ -1855,7 +1855,7 @@ impl IWSDScopeMatchingRule {
             (windows_core::Interface::vtable(self).GetScopeRule)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MatchScopes<P0, P1>(&self, pszscope1: P0, pszscope2: P1) -> windows_core::Result<super::super::Foundation::BOOL>
+    pub unsafe fn MatchScopes<P0, P1>(&self, pszscope1: P0, pszscope2: P1) -> windows_core::Result<windows_core::BOOL>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -1870,11 +1870,11 @@ impl IWSDScopeMatchingRule {
 pub struct IWSDScopeMatchingRule_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetScopeRule: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub MatchScopes: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub MatchScopes: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IWSDScopeMatchingRule_Impl: windows_core::IUnknownImpl {
     fn GetScopeRule(&self) -> windows_core::Result<windows_core::PCWSTR>;
-    fn MatchScopes(&self, pszscope1: &windows_core::PCWSTR, pszscope2: &windows_core::PCWSTR) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn MatchScopes(&self, pszscope1: &windows_core::PCWSTR, pszscope2: &windows_core::PCWSTR) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IWSDScopeMatchingRule_Vtbl {
     pub const fn new<Identity: IWSDScopeMatchingRule_Impl, const OFFSET: isize>() -> Self {
@@ -1890,7 +1890,7 @@ impl IWSDScopeMatchingRule_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MatchScopes<Identity: IWSDScopeMatchingRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszscope1: windows_core::PCWSTR, pszscope2: windows_core::PCWSTR, pfmatch: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MatchScopes<Identity: IWSDScopeMatchingRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszscope1: windows_core::PCWSTR, pszscope2: windows_core::PCWSTR, pfmatch: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDScopeMatchingRule_Impl::MatchScopes(this, core::mem::transmute(&pszscope1), core::mem::transmute(&pszscope2)) {
@@ -2362,13 +2362,13 @@ impl windows_core::RuntimeName for IWSDServiceProxyEventing {}
 windows_core::imp::define_interface!(IWSDSignatureProperty, IWSDSignatureProperty_Vtbl, 0x03ce20aa_71c4_45e2_b32e_3766c61c790f);
 windows_core::imp::interface_hierarchy!(IWSDSignatureProperty, windows_core::IUnknown);
 impl IWSDSignatureProperty {
-    pub unsafe fn IsMessageSigned(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsMessageSigned(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsMessageSigned)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsMessageSignatureTrusted(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsMessageSignatureTrusted(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsMessageSignatureTrusted)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2387,22 +2387,22 @@ impl IWSDSignatureProperty {
 #[repr(C)]
 pub struct IWSDSignatureProperty_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub IsMessageSigned: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub IsMessageSignatureTrusted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsMessageSigned: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub IsMessageSignatureTrusted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetKeyInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut u32) -> windows_core::HRESULT,
     pub GetSignature: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut u32) -> windows_core::HRESULT,
     pub GetSignedInfoHash: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IWSDSignatureProperty_Impl: windows_core::IUnknownImpl {
-    fn IsMessageSigned(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn IsMessageSignatureTrusted(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn IsMessageSigned(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn IsMessageSignatureTrusted(&self) -> windows_core::Result<windows_core::BOOL>;
     fn GetKeyInfo(&self, pbkeyinfo: *mut u8, pdwkeyinfosize: *mut u32) -> windows_core::Result<()>;
     fn GetSignature(&self, pbsignature: *mut u8, pdwsignaturesize: *mut u32) -> windows_core::Result<()>;
     fn GetSignedInfoHash(&self, pbsignedinfohash: *mut u8, pdwhashsize: *mut u32) -> windows_core::Result<()>;
 }
 impl IWSDSignatureProperty_Vtbl {
     pub const fn new<Identity: IWSDSignatureProperty_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn IsMessageSigned<Identity: IWSDSignatureProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbsigned: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsMessageSigned<Identity: IWSDSignatureProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbsigned: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDSignatureProperty_Impl::IsMessageSigned(this) {
@@ -2414,7 +2414,7 @@ impl IWSDSignatureProperty_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsMessageSignatureTrusted<Identity: IWSDSignatureProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbsignaturetrusted: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsMessageSignatureTrusted<Identity: IWSDSignatureProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbsignaturetrusted: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDSignatureProperty_Impl::IsMessageSignatureTrusted(this) {
@@ -2501,14 +2501,14 @@ pub struct IWSDTransportAddress_Vtbl {
     pub GetPort: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub SetPort: unsafe extern "system" fn(*mut core::ffi::c_void, u16) -> windows_core::HRESULT,
     pub GetTransportAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub GetTransportAddressEx: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL, *mut windows_core::PCWSTR) -> windows_core::HRESULT,
+    pub GetTransportAddressEx: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, *mut windows_core::PCWSTR) -> windows_core::HRESULT,
     pub SetTransportAddress: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 pub trait IWSDTransportAddress_Impl: IWSDAddress_Impl {
     fn GetPort(&self) -> windows_core::Result<u16>;
     fn SetPort(&self, wport: u16) -> windows_core::Result<()>;
     fn GetTransportAddress(&self) -> windows_core::Result<windows_core::PCWSTR>;
-    fn GetTransportAddressEx(&self, fsafe: super::super::Foundation::BOOL) -> windows_core::Result<windows_core::PCWSTR>;
+    fn GetTransportAddressEx(&self, fsafe: windows_core::BOOL) -> windows_core::Result<windows_core::PCWSTR>;
     fn SetTransportAddress(&self, pszaddress: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 impl IWSDTransportAddress_Vtbl {
@@ -2543,7 +2543,7 @@ impl IWSDTransportAddress_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetTransportAddressEx<Identity: IWSDTransportAddress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fsafe: super::super::Foundation::BOOL, ppszaddress: *mut windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetTransportAddressEx<Identity: IWSDTransportAddress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fsafe: windows_core::BOOL, ppszaddress: *mut windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDTransportAddress_Impl::GetTransportAddressEx(this, core::mem::transmute_copy(&fsafe)) {
@@ -2637,7 +2637,7 @@ pub struct IWSDUdpAddress_Vtbl {
     pub GetSockaddr: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Networking::WinSock::SOCKADDR_STORAGE) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Networking_WinSock"))]
     GetSockaddr: usize,
-    pub SetExclusive: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SetExclusive: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub GetExclusive: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetMessageType: unsafe extern "system" fn(*mut core::ffi::c_void, WSDUdpMessageType) -> windows_core::HRESULT,
     pub GetMessageType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WSDUdpMessageType) -> windows_core::HRESULT,
@@ -2650,7 +2650,7 @@ pub struct IWSDUdpAddress_Vtbl {
 pub trait IWSDUdpAddress_Impl: IWSDTransportAddress_Impl {
     fn SetSockaddr(&self, psockaddr: *const super::super::Networking::WinSock::SOCKADDR_STORAGE) -> windows_core::Result<()>;
     fn GetSockaddr(&self, psockaddr: *mut super::super::Networking::WinSock::SOCKADDR_STORAGE) -> windows_core::Result<()>;
-    fn SetExclusive(&self, fexclusive: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn SetExclusive(&self, fexclusive: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetExclusive(&self) -> windows_core::Result<()>;
     fn SetMessageType(&self, messagetype: WSDUdpMessageType) -> windows_core::Result<()>;
     fn GetMessageType(&self) -> windows_core::Result<WSDUdpMessageType>;
@@ -2674,7 +2674,7 @@ impl IWSDUdpAddress_Vtbl {
                 IWSDUdpAddress_Impl::GetSockaddr(this, core::mem::transmute_copy(&psockaddr)).into()
             }
         }
-        unsafe extern "system" fn SetExclusive<Identity: IWSDUdpAddress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fexclusive: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetExclusive<Identity: IWSDUdpAddress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fexclusive: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWSDUdpAddress_Impl::SetExclusive(this, core::mem::transmute_copy(&fexclusive)).into()
@@ -4096,7 +4096,7 @@ pub struct WSD_CONFIG_PARAM_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSD_DATETIME {
-    pub isPositive: super::super::Foundation::BOOL,
+    pub isPositive: windows_core::BOOL,
     pub year: u32,
     pub month: u8,
     pub day: u8,
@@ -4104,8 +4104,8 @@ pub struct WSD_DATETIME {
     pub minute: u8,
     pub second: u8,
     pub millisecond: u32,
-    pub TZIsLocal: super::super::Foundation::BOOL,
-    pub TZIsPositive: super::super::Foundation::BOOL,
+    pub TZIsLocal: windows_core::BOOL,
+    pub TZIsPositive: windows_core::BOOL,
     pub TZHour: u8,
     pub TZMinute: u8,
 }
@@ -4120,7 +4120,7 @@ pub const WSD_DEFAULT_SECURE_HOSTING_ADDRESS: windows_core::PCWSTR = windows_cor
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSD_DURATION {
-    pub isPositive: super::super::Foundation::BOOL,
+    pub isPositive: windows_core::BOOL,
     pub year: u32,
     pub month: u32,
     pub day: u32,

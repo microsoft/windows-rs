@@ -56,7 +56,7 @@ impl IPhotoAcquire {
 pub struct IPhotoAcquire_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreatePhotoSource: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Acquire: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::BOOL, super::super::Foundation::HWND, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Acquire: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL, super::super::Foundation::HWND, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub EnumResults: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -65,7 +65,7 @@ pub struct IPhotoAcquire_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPhotoAcquire_Impl: windows_core::IUnknownImpl {
     fn CreatePhotoSource(&self, pszdevice: &windows_core::PCWSTR) -> windows_core::Result<IPhotoAcquireSource>;
-    fn Acquire(&self, pphotoacquiresource: windows_core::Ref<IPhotoAcquireSource>, fshowprogress: super::super::Foundation::BOOL, hwndparent: super::super::Foundation::HWND, pszapplicationname: &windows_core::PCWSTR, pphotoacquireprogresscb: windows_core::Ref<IPhotoAcquireProgressCB>) -> windows_core::Result<()>;
+    fn Acquire(&self, pphotoacquiresource: windows_core::Ref<IPhotoAcquireSource>, fshowprogress: windows_core::BOOL, hwndparent: super::super::Foundation::HWND, pszapplicationname: &windows_core::PCWSTR, pphotoacquireprogresscb: windows_core::Ref<IPhotoAcquireProgressCB>) -> windows_core::Result<()>;
     fn EnumResults(&self) -> windows_core::Result<super::super::System::Com::IEnumString>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -83,7 +83,7 @@ impl IPhotoAcquire_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Acquire<Identity: IPhotoAcquire_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pphotoacquiresource: *mut core::ffi::c_void, fshowprogress: super::super::Foundation::BOOL, hwndparent: super::super::Foundation::HWND, pszapplicationname: windows_core::PCWSTR, pphotoacquireprogresscb: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Acquire<Identity: IPhotoAcquire_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pphotoacquiresource: *mut core::ffi::c_void, fshowprogress: windows_core::BOOL, hwndparent: super::super::Foundation::HWND, pszapplicationname: windows_core::PCWSTR, pphotoacquireprogresscb: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPhotoAcquire_Impl::Acquire(this, core::mem::transmute_copy(&pphotoacquiresource), core::mem::transmute_copy(&fshowprogress), core::mem::transmute_copy(&hwndparent), core::mem::transmute(&pszapplicationname), core::mem::transmute_copy(&pphotoacquireprogresscb)).into()
@@ -211,7 +211,7 @@ impl IPhotoAcquireItem {
             (windows_core::Interface::vtable(self).GetStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CanDelete(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CanDelete(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CanDelete)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -253,7 +253,7 @@ pub struct IPhotoAcquireItem_Vtbl {
     pub GetStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetStream: usize,
-    pub CanDelete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CanDelete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSubItemCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetSubItemAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -265,7 +265,7 @@ pub trait IPhotoAcquireItem_Impl: windows_core::IUnknownImpl {
     fn GetProperty(&self, key: *const super::super::Foundation::PROPERTYKEY) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
     fn SetProperty(&self, key: *const super::super::Foundation::PROPERTYKEY, pv: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
     fn GetStream(&self) -> windows_core::Result<super::super::System::Com::IStream>;
-    fn CanDelete(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn CanDelete(&self) -> windows_core::Result<windows_core::BOOL>;
     fn Delete(&self) -> windows_core::Result<()>;
     fn GetSubItemCount(&self) -> windows_core::Result<u32>;
     fn GetSubItemAt(&self, nitemindex: u32) -> windows_core::Result<IPhotoAcquireItem>;
@@ -327,7 +327,7 @@ impl IPhotoAcquireItem_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CanDelete<Identity: IPhotoAcquireItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfcandelete: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CanDelete<Identity: IPhotoAcquireItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfcandelete: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPhotoAcquireItem_Impl::CanDelete(this) {
@@ -570,7 +570,7 @@ impl windows_core::RuntimeName for IPhotoAcquirePlugin {}
 windows_core::imp::define_interface!(IPhotoAcquireProgressCB, IPhotoAcquireProgressCB_Vtbl, 0x00f2ce1e_935e_4248_892c_130f32c45cb4);
 windows_core::imp::interface_hierarchy!(IPhotoAcquireProgressCB, windows_core::IUnknown);
 impl IPhotoAcquireProgressCB {
-    pub unsafe fn Cancelled(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn Cancelled(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Cancelled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -648,7 +648,7 @@ impl IPhotoAcquireProgressCB {
     pub unsafe fn EndSession(&self, hr: windows_core::HRESULT) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).EndSession)(windows_core::Interface::as_raw(self), hr).ok() }
     }
-    pub unsafe fn GetDeleteAfterAcquire(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn GetDeleteAfterAcquire(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDeleteAfterAcquire)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -674,14 +674,14 @@ impl IPhotoAcquireProgressCB {
 #[repr(C)]
 pub struct IPhotoAcquireProgressCB_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Cancelled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub Cancelled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub StartEnumeration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FoundItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EndEnumeration: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
     pub StartTransfer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StartItemTransfer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DirectoryCreated: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub UpdateTransferPercent: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL, u32) -> windows_core::HRESULT,
+    pub UpdateTransferPercent: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, u32) -> windows_core::HRESULT,
     pub EndItemTransfer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
     pub EndTransfer: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
     pub StartDelete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -690,7 +690,7 @@ pub struct IPhotoAcquireProgressCB_Vtbl {
     pub EndItemDelete: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
     pub EndDelete: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
     pub EndSession: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
-    pub GetDeleteAfterAcquire: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetDeleteAfterAcquire: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub ErrorAdvise: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, windows_core::PCWSTR, ERROR_ADVISE_MESSAGE_TYPE, *mut ERROR_ADVISE_RESULT) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub GetUserInput: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void, *mut super::super::System::Com::StructuredStorage::PROPVARIANT, *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::HRESULT,
@@ -699,14 +699,14 @@ pub struct IPhotoAcquireProgressCB_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IPhotoAcquireProgressCB_Impl: windows_core::IUnknownImpl {
-    fn Cancelled(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn Cancelled(&self) -> windows_core::Result<windows_core::BOOL>;
     fn StartEnumeration(&self, pphotoacquiresource: windows_core::Ref<IPhotoAcquireSource>) -> windows_core::Result<()>;
     fn FoundItem(&self, pphotoacquireitem: windows_core::Ref<IPhotoAcquireItem>) -> windows_core::Result<()>;
     fn EndEnumeration(&self, hr: windows_core::HRESULT) -> windows_core::Result<()>;
     fn StartTransfer(&self, pphotoacquiresource: windows_core::Ref<IPhotoAcquireSource>) -> windows_core::Result<()>;
     fn StartItemTransfer(&self, nitemindex: u32, pphotoacquireitem: windows_core::Ref<IPhotoAcquireItem>) -> windows_core::Result<()>;
     fn DirectoryCreated(&self, pszdirectory: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn UpdateTransferPercent(&self, foverall: super::super::Foundation::BOOL, npercent: u32) -> windows_core::Result<()>;
+    fn UpdateTransferPercent(&self, foverall: windows_core::BOOL, npercent: u32) -> windows_core::Result<()>;
     fn EndItemTransfer(&self, nitemindex: u32, pphotoacquireitem: windows_core::Ref<IPhotoAcquireItem>, hr: windows_core::HRESULT) -> windows_core::Result<()>;
     fn EndTransfer(&self, hr: windows_core::HRESULT) -> windows_core::Result<()>;
     fn StartDelete(&self, pphotoacquiresource: windows_core::Ref<IPhotoAcquireSource>) -> windows_core::Result<()>;
@@ -715,14 +715,14 @@ pub trait IPhotoAcquireProgressCB_Impl: windows_core::IUnknownImpl {
     fn EndItemDelete(&self, nitemindex: u32, pphotoacquireitem: windows_core::Ref<IPhotoAcquireItem>, hr: windows_core::HRESULT) -> windows_core::Result<()>;
     fn EndDelete(&self, hr: windows_core::HRESULT) -> windows_core::Result<()>;
     fn EndSession(&self, hr: windows_core::HRESULT) -> windows_core::Result<()>;
-    fn GetDeleteAfterAcquire(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn GetDeleteAfterAcquire(&self) -> windows_core::Result<windows_core::BOOL>;
     fn ErrorAdvise(&self, hr: windows_core::HRESULT, pszerrormessage: &windows_core::PCWSTR, nmessagetype: ERROR_ADVISE_MESSAGE_TYPE) -> windows_core::Result<ERROR_ADVISE_RESULT>;
     fn GetUserInput(&self, riidtype: *const windows_core::GUID, punknown: windows_core::Ref<windows_core::IUnknown>, ppropvarresult: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, ppropvardefault: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IPhotoAcquireProgressCB_Vtbl {
     pub const fn new<Identity: IPhotoAcquireProgressCB_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Cancelled<Identity: IPhotoAcquireProgressCB_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfcancelled: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn Cancelled<Identity: IPhotoAcquireProgressCB_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfcancelled: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPhotoAcquireProgressCB_Impl::Cancelled(this) {
@@ -770,7 +770,7 @@ impl IPhotoAcquireProgressCB_Vtbl {
                 IPhotoAcquireProgressCB_Impl::DirectoryCreated(this, core::mem::transmute(&pszdirectory)).into()
             }
         }
-        unsafe extern "system" fn UpdateTransferPercent<Identity: IPhotoAcquireProgressCB_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, foverall: super::super::Foundation::BOOL, npercent: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn UpdateTransferPercent<Identity: IPhotoAcquireProgressCB_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, foverall: windows_core::BOOL, npercent: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPhotoAcquireProgressCB_Impl::UpdateTransferPercent(this, core::mem::transmute_copy(&foverall), core::mem::transmute_copy(&npercent)).into()
@@ -824,7 +824,7 @@ impl IPhotoAcquireProgressCB_Vtbl {
                 IPhotoAcquireProgressCB_Impl::EndSession(this, core::mem::transmute_copy(&hr)).into()
             }
         }
-        unsafe extern "system" fn GetDeleteAfterAcquire<Identity: IPhotoAcquireProgressCB_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfdeleteafteracquire: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDeleteAfterAcquire<Identity: IPhotoAcquireProgressCB_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfdeleteafteracquire: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPhotoAcquireProgressCB_Impl::GetDeleteAfterAcquire(this) {
@@ -934,7 +934,7 @@ impl IPhotoAcquireSettings {
             (windows_core::Interface::vtable(self).GetSequencePaddingWidth)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetSequenceZeroPadding(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn GetSequenceZeroPadding(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSequenceZeroPadding)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -960,13 +960,13 @@ pub struct IPhotoAcquireSettings_Vtbl {
     pub SetFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub SetOutputFilenameTemplate: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub SetSequencePaddingWidth: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub SetSequenceZeroPadding: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SetSequenceZeroPadding: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub SetGroupTag: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub SetAcquisitionTime: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::FILETIME) -> windows_core::HRESULT,
     pub GetFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetOutputFilenameTemplate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSequencePaddingWidth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub GetSequenceZeroPadding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetSequenceZeroPadding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetGroupTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetAcquisitionTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::FILETIME) -> windows_core::HRESULT,
 }
@@ -975,13 +975,13 @@ pub trait IPhotoAcquireSettings_Impl: windows_core::IUnknownImpl {
     fn SetFlags(&self, dwphotoacquireflags: u32) -> windows_core::Result<()>;
     fn SetOutputFilenameTemplate(&self, psztemplate: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SetSequencePaddingWidth(&self, dwwidth: u32) -> windows_core::Result<()>;
-    fn SetSequenceZeroPadding(&self, fzeropad: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn SetSequenceZeroPadding(&self, fzeropad: windows_core::BOOL) -> windows_core::Result<()>;
     fn SetGroupTag(&self, pszgrouptag: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SetAcquisitionTime(&self, pftacquisitiontime: *const super::super::Foundation::FILETIME) -> windows_core::Result<()>;
     fn GetFlags(&self) -> windows_core::Result<u32>;
     fn GetOutputFilenameTemplate(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetSequencePaddingWidth(&self) -> windows_core::Result<u32>;
-    fn GetSequenceZeroPadding(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn GetSequenceZeroPadding(&self) -> windows_core::Result<windows_core::BOOL>;
     fn GetGroupTag(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetAcquisitionTime(&self) -> windows_core::Result<super::super::Foundation::FILETIME>;
 }
@@ -1011,7 +1011,7 @@ impl IPhotoAcquireSettings_Vtbl {
                 IPhotoAcquireSettings_Impl::SetSequencePaddingWidth(this, core::mem::transmute_copy(&dwwidth)).into()
             }
         }
-        unsafe extern "system" fn SetSequenceZeroPadding<Identity: IPhotoAcquireSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fzeropad: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSequenceZeroPadding<Identity: IPhotoAcquireSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fzeropad: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPhotoAcquireSettings_Impl::SetSequenceZeroPadding(this, core::mem::transmute_copy(&fzeropad)).into()
@@ -1065,7 +1065,7 @@ impl IPhotoAcquireSettings_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetSequenceZeroPadding<Identity: IPhotoAcquireSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfzeropad: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSequenceZeroPadding<Identity: IPhotoAcquireSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfzeropad: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPhotoAcquireSettings_Impl::GetSequenceZeroPadding(this) {
@@ -1178,7 +1178,7 @@ pub struct IPhotoAcquireSource_Vtbl {
     pub GetDeviceIcons: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::super::UI::WindowsAndMessaging::HICON, *mut super::super::UI::WindowsAndMessaging::HICON) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))]
     GetDeviceIcons: usize,
-    pub InitializeItemList: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub InitializeItemList: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetItemCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetItemAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetPhotoAcquireSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1189,7 +1189,7 @@ pub struct IPhotoAcquireSource_Vtbl {
 pub trait IPhotoAcquireSource_Impl: windows_core::IUnknownImpl {
     fn GetFriendlyName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetDeviceIcons(&self, nsize: u32, phlargeicon: *mut super::super::UI::WindowsAndMessaging::HICON, phsmallicon: *mut super::super::UI::WindowsAndMessaging::HICON) -> windows_core::Result<()>;
-    fn InitializeItemList(&self, fforceenumeration: super::super::Foundation::BOOL, pphotoacquireprogresscb: windows_core::Ref<IPhotoAcquireProgressCB>, pnitemcount: *mut u32) -> windows_core::Result<()>;
+    fn InitializeItemList(&self, fforceenumeration: windows_core::BOOL, pphotoacquireprogresscb: windows_core::Ref<IPhotoAcquireProgressCB>, pnitemcount: *mut u32) -> windows_core::Result<()>;
     fn GetItemCount(&self) -> windows_core::Result<u32>;
     fn GetItemAt(&self, nindex: u32) -> windows_core::Result<IPhotoAcquireItem>;
     fn GetPhotoAcquireSettings(&self) -> windows_core::Result<IPhotoAcquireSettings>;
@@ -1217,7 +1217,7 @@ impl IPhotoAcquireSource_Vtbl {
                 IPhotoAcquireSource_Impl::GetDeviceIcons(this, core::mem::transmute_copy(&nsize), core::mem::transmute_copy(&phlargeicon), core::mem::transmute_copy(&phsmallicon)).into()
             }
         }
-        unsafe extern "system" fn InitializeItemList<Identity: IPhotoAcquireSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fforceenumeration: super::super::Foundation::BOOL, pphotoacquireprogresscb: *mut core::ffi::c_void, pnitemcount: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn InitializeItemList<Identity: IPhotoAcquireSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fforceenumeration: windows_core::BOOL, pphotoacquireprogresscb: *mut core::ffi::c_void, pnitemcount: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPhotoAcquireSource_Impl::InitializeItemList(this, core::mem::transmute_copy(&fforceenumeration), core::mem::transmute_copy(&pphotoacquireprogresscb), core::mem::transmute_copy(&pnitemcount)).into()
@@ -1364,7 +1364,7 @@ impl IPhotoProgressDialog {
     {
         unsafe { (windows_core::Interface::vtable(self).SetCheckboxTooltip)(windows_core::Interface::as_raw(self), ncheckboxid, pszcheckboxtooltiptext.param().abi()).ok() }
     }
-    pub unsafe fn IsCheckboxChecked(&self, ncheckboxid: PROGRESS_DIALOG_CHECKBOX_ID) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsCheckboxChecked(&self, ncheckboxid: PROGRESS_DIALOG_CHECKBOX_ID) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsCheckboxChecked)(windows_core::Interface::as_raw(self), ncheckboxid, &mut result__).map(|| result__)
@@ -1404,7 +1404,7 @@ impl IPhotoProgressDialog {
     pub unsafe fn ShowActionLink(&self, fshow: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ShowActionLink)(windows_core::Interface::as_raw(self), fshow.into()).ok() }
     }
-    pub unsafe fn IsCancelled(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsCancelled(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsCancelled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1425,11 +1425,11 @@ pub struct IPhotoProgressDialog_Vtbl {
     pub GetWindow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::HWND) -> windows_core::HRESULT,
     pub Destroy: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetTitle: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub ShowCheckbox: unsafe extern "system" fn(*mut core::ffi::c_void, PROGRESS_DIALOG_CHECKBOX_ID, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub ShowCheckbox: unsafe extern "system" fn(*mut core::ffi::c_void, PROGRESS_DIALOG_CHECKBOX_ID, windows_core::BOOL) -> windows_core::HRESULT,
     pub SetCheckboxText: unsafe extern "system" fn(*mut core::ffi::c_void, PROGRESS_DIALOG_CHECKBOX_ID, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub SetCheckboxCheck: unsafe extern "system" fn(*mut core::ffi::c_void, PROGRESS_DIALOG_CHECKBOX_ID, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SetCheckboxCheck: unsafe extern "system" fn(*mut core::ffi::c_void, PROGRESS_DIALOG_CHECKBOX_ID, windows_core::BOOL) -> windows_core::HRESULT,
     pub SetCheckboxTooltip: unsafe extern "system" fn(*mut core::ffi::c_void, PROGRESS_DIALOG_CHECKBOX_ID, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub IsCheckboxChecked: unsafe extern "system" fn(*mut core::ffi::c_void, PROGRESS_DIALOG_CHECKBOX_ID, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsCheckboxChecked: unsafe extern "system" fn(*mut core::ffi::c_void, PROGRESS_DIALOG_CHECKBOX_ID, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub SetCaption: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
     pub SetImage: unsafe extern "system" fn(*mut core::ffi::c_void, PROGRESS_DIALOG_IMAGE_TYPE, super::super::UI::WindowsAndMessaging::HICON, super::super::Graphics::Gdi::HBITMAP) -> windows_core::HRESULT,
@@ -1439,8 +1439,8 @@ pub struct IPhotoProgressDialog_Vtbl {
     pub SetProgressText: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub SetActionLinkCallback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetActionLinkText: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub ShowActionLink: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub IsCancelled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub ShowActionLink: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
+    pub IsCancelled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub GetUserInput: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void, *mut super::super::System::Com::StructuredStorage::PROPVARIANT, *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
@@ -1452,19 +1452,19 @@ pub trait IPhotoProgressDialog_Impl: windows_core::IUnknownImpl {
     fn GetWindow(&self) -> windows_core::Result<super::super::Foundation::HWND>;
     fn Destroy(&self) -> windows_core::Result<()>;
     fn SetTitle(&self, psztitle: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn ShowCheckbox(&self, ncheckboxid: PROGRESS_DIALOG_CHECKBOX_ID, fshow: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn ShowCheckbox(&self, ncheckboxid: PROGRESS_DIALOG_CHECKBOX_ID, fshow: windows_core::BOOL) -> windows_core::Result<()>;
     fn SetCheckboxText(&self, ncheckboxid: PROGRESS_DIALOG_CHECKBOX_ID, pszcheckboxtext: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn SetCheckboxCheck(&self, ncheckboxid: PROGRESS_DIALOG_CHECKBOX_ID, fchecked: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn SetCheckboxCheck(&self, ncheckboxid: PROGRESS_DIALOG_CHECKBOX_ID, fchecked: windows_core::BOOL) -> windows_core::Result<()>;
     fn SetCheckboxTooltip(&self, ncheckboxid: PROGRESS_DIALOG_CHECKBOX_ID, pszcheckboxtooltiptext: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn IsCheckboxChecked(&self, ncheckboxid: PROGRESS_DIALOG_CHECKBOX_ID) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn IsCheckboxChecked(&self, ncheckboxid: PROGRESS_DIALOG_CHECKBOX_ID) -> windows_core::Result<windows_core::BOOL>;
     fn SetCaption(&self, psztitle: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SetImage(&self, nimagetype: PROGRESS_DIALOG_IMAGE_TYPE, hicon: super::super::UI::WindowsAndMessaging::HICON, hbitmap: super::super::Graphics::Gdi::HBITMAP) -> windows_core::Result<()>;
     fn SetPercentComplete(&self, npercent: i32) -> windows_core::Result<()>;
     fn SetProgressText(&self, pszprogresstext: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SetActionLinkCallback(&self, pphotoprogressactioncb: windows_core::Ref<IPhotoProgressActionCB>) -> windows_core::Result<()>;
     fn SetActionLinkText(&self, pszcaption: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn ShowActionLink(&self, fshow: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn IsCancelled(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn ShowActionLink(&self, fshow: windows_core::BOOL) -> windows_core::Result<()>;
+    fn IsCancelled(&self) -> windows_core::Result<windows_core::BOOL>;
     fn GetUserInput(&self, riidtype: *const windows_core::GUID, punknown: windows_core::Ref<windows_core::IUnknown>, ppropvarresult: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, ppropvardefault: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -1500,7 +1500,7 @@ impl IPhotoProgressDialog_Vtbl {
                 IPhotoProgressDialog_Impl::SetTitle(this, core::mem::transmute(&psztitle)).into()
             }
         }
-        unsafe extern "system" fn ShowCheckbox<Identity: IPhotoProgressDialog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ncheckboxid: PROGRESS_DIALOG_CHECKBOX_ID, fshow: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn ShowCheckbox<Identity: IPhotoProgressDialog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ncheckboxid: PROGRESS_DIALOG_CHECKBOX_ID, fshow: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPhotoProgressDialog_Impl::ShowCheckbox(this, core::mem::transmute_copy(&ncheckboxid), core::mem::transmute_copy(&fshow)).into()
@@ -1512,7 +1512,7 @@ impl IPhotoProgressDialog_Vtbl {
                 IPhotoProgressDialog_Impl::SetCheckboxText(this, core::mem::transmute_copy(&ncheckboxid), core::mem::transmute(&pszcheckboxtext)).into()
             }
         }
-        unsafe extern "system" fn SetCheckboxCheck<Identity: IPhotoProgressDialog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ncheckboxid: PROGRESS_DIALOG_CHECKBOX_ID, fchecked: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCheckboxCheck<Identity: IPhotoProgressDialog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ncheckboxid: PROGRESS_DIALOG_CHECKBOX_ID, fchecked: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPhotoProgressDialog_Impl::SetCheckboxCheck(this, core::mem::transmute_copy(&ncheckboxid), core::mem::transmute_copy(&fchecked)).into()
@@ -1524,7 +1524,7 @@ impl IPhotoProgressDialog_Vtbl {
                 IPhotoProgressDialog_Impl::SetCheckboxTooltip(this, core::mem::transmute_copy(&ncheckboxid), core::mem::transmute(&pszcheckboxtooltiptext)).into()
             }
         }
-        unsafe extern "system" fn IsCheckboxChecked<Identity: IPhotoProgressDialog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ncheckboxid: PROGRESS_DIALOG_CHECKBOX_ID, pfchecked: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsCheckboxChecked<Identity: IPhotoProgressDialog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ncheckboxid: PROGRESS_DIALOG_CHECKBOX_ID, pfchecked: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPhotoProgressDialog_Impl::IsCheckboxChecked(this, core::mem::transmute_copy(&ncheckboxid)) {
@@ -1572,13 +1572,13 @@ impl IPhotoProgressDialog_Vtbl {
                 IPhotoProgressDialog_Impl::SetActionLinkText(this, core::mem::transmute(&pszcaption)).into()
             }
         }
-        unsafe extern "system" fn ShowActionLink<Identity: IPhotoProgressDialog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fshow: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn ShowActionLink<Identity: IPhotoProgressDialog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fshow: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPhotoProgressDialog_Impl::ShowActionLink(this, core::mem::transmute_copy(&fshow)).into()
             }
         }
-        unsafe extern "system" fn IsCancelled<Identity: IPhotoProgressDialog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfcancelled: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsCancelled<Identity: IPhotoProgressDialog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfcancelled: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPhotoProgressDialog_Impl::IsCancelled(this) {

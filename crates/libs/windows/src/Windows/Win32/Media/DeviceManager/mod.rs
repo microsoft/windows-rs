@@ -3428,7 +3428,7 @@ impl windows_core::RuntimeName for IWMDMEnumStorage {}
 windows_core::imp::define_interface!(IWMDMLogger, IWMDMLogger_Vtbl, 0x110a3200_5a79_11d3_8d78_444553540000);
 windows_core::imp::interface_hierarchy!(IWMDMLogger, windows_core::IUnknown);
 impl IWMDMLogger {
-    pub unsafe fn IsEnabled(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsEnabled(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3473,8 +3473,8 @@ impl IWMDMLogger {
 #[repr(C)]
 pub struct IWMDMLogger_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub IsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub Enable: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub Enable: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub GetLogFileName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32) -> windows_core::HRESULT,
     pub SetLogFileName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR) -> windows_core::HRESULT,
     pub LogString: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, windows_core::PCSTR) -> windows_core::HRESULT,
@@ -3484,8 +3484,8 @@ pub struct IWMDMLogger_Vtbl {
     pub SetSizeParams: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
 pub trait IWMDMLogger_Impl: windows_core::IUnknownImpl {
-    fn IsEnabled(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn Enable(&self, fenable: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn IsEnabled(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn Enable(&self, fenable: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetLogFileName(&self, pszfilename: windows_core::PSTR, nmaxchars: u32) -> windows_core::Result<()>;
     fn SetLogFileName(&self, pszfilename: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn LogString(&self, dwflags: u32, pszsrcname: &windows_core::PCSTR, pszlog: &windows_core::PCSTR) -> windows_core::Result<()>;
@@ -3496,7 +3496,7 @@ pub trait IWMDMLogger_Impl: windows_core::IUnknownImpl {
 }
 impl IWMDMLogger_Vtbl {
     pub const fn new<Identity: IWMDMLogger_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn IsEnabled<Identity: IWMDMLogger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfenabled: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsEnabled<Identity: IWMDMLogger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfenabled: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMDMLogger_Impl::IsEnabled(this) {
@@ -3508,7 +3508,7 @@ impl IWMDMLogger_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Enable<Identity: IWMDMLogger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fenable: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn Enable<Identity: IWMDMLogger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fenable: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMDMLogger_Impl::Enable(this, core::mem::transmute_copy(&fenable)).into()
@@ -5301,7 +5301,7 @@ impl windows_core::RuntimeName for IWMDeviceManager3 {}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MACINFO {
-    pub fUsed: super::super::Foundation::BOOL,
+    pub fUsed: windows_core::BOOL,
     pub abMacState: [u8; 36],
 }
 impl Default for MACINFO {

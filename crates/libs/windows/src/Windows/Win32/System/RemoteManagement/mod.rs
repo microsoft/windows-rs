@@ -130,7 +130,7 @@ pub unsafe fn WSManPluginAuthzUserComplete<P6>(senderdetails: *const WSMAN_SENDE
 where
     P6: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("wsmsvc.dll" "system" fn WSManPluginAuthzUserComplete(senderdetails : *const WSMAN_SENDER_DETAILS, flags : u32, userauthorizationcontext : *const core::ffi::c_void, impersonationtoken : super::super::Foundation:: HANDLE, userisadministrator : super::super::Foundation:: BOOL, errorcode : u32, extendederrorinformation : windows_core::PCWSTR) -> u32);
+    windows_targets::link!("wsmsvc.dll" "system" fn WSManPluginAuthzUserComplete(senderdetails : *const WSMAN_SENDER_DETAILS, flags : u32, userauthorizationcontext : *const core::ffi::c_void, impersonationtoken : super::super::Foundation:: HANDLE, userisadministrator : windows_core::BOOL, errorcode : u32, extendederrorinformation : windows_core::PCWSTR) -> u32);
     unsafe { WSManPluginAuthzUserComplete(senderdetails, flags, userauthorizationcontext.unwrap_or(core::mem::zeroed()) as _, impersonationtoken.unwrap_or(core::mem::zeroed()) as _, userisadministrator.into(), errorcode, extendederrorinformation.param().abi()) }
 }
 #[inline]
@@ -224,7 +224,7 @@ pub unsafe fn WSManSendShellInput<P3>(shell: WSMAN_SHELL_HANDLE, command: Option
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("wsmsvc.dll" "system" fn WSManSendShellInput(shell : WSMAN_SHELL_HANDLE, command : WSMAN_COMMAND_HANDLE, flags : u32, streamid : windows_core::PCWSTR, streamdata : *const WSMAN_DATA, endofstream : super::super::Foundation:: BOOL, r#async : *const WSMAN_SHELL_ASYNC, sendoperation : *mut WSMAN_OPERATION_HANDLE));
+    windows_targets::link!("wsmsvc.dll" "system" fn WSManSendShellInput(shell : WSMAN_SHELL_HANDLE, command : WSMAN_COMMAND_HANDLE, flags : u32, streamid : windows_core::PCWSTR, streamdata : *const WSMAN_DATA, endofstream : windows_core::BOOL, r#async : *const WSMAN_SHELL_ASYNC, sendoperation : *mut WSMAN_OPERATION_HANDLE));
     unsafe {
         let mut result__ = core::mem::zeroed();
         WSManSendShellInput(shell, command.unwrap_or(core::mem::zeroed()) as _, flags, streamid.param().abi(), streamdata, endofstream.into(), r#async, &mut result__);
@@ -2126,7 +2126,7 @@ impl IWSManResourceLocator {
     pub unsafe fn SetMustUnderstandOptions(&self, mustunderstand: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMustUnderstandOptions)(windows_core::Interface::as_raw(self), mustunderstand.into()).ok() }
     }
-    pub unsafe fn MustUnderstandOptions(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn MustUnderstandOptions(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MustUnderstandOptions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2158,11 +2158,11 @@ pub struct IWSManResourceLocator_Vtbl {
     pub FragmentDialect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetFragmentDialect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddOption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::Variant::VARIANT, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub AddOption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::Variant::VARIANT, windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     AddOption: usize,
-    pub SetMustUnderstandOptions: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub MustUnderstandOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SetMustUnderstandOptions: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
+    pub MustUnderstandOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub ClearOptions: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Error: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -2176,9 +2176,9 @@ pub trait IWSManResourceLocator_Impl: super::Com::IDispatch_Impl {
     fn SetFragmentPath(&self, text: &windows_core::BSTR) -> windows_core::Result<()>;
     fn FragmentDialect(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetFragmentDialect(&self, text: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn AddOption(&self, optionname: &windows_core::BSTR, optionvalue: &super::Variant::VARIANT, mustcomply: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn SetMustUnderstandOptions(&self, mustunderstand: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn MustUnderstandOptions(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn AddOption(&self, optionname: &windows_core::BSTR, optionvalue: &super::Variant::VARIANT, mustcomply: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetMustUnderstandOptions(&self, mustunderstand: windows_core::BOOL) -> windows_core::Result<()>;
+    fn MustUnderstandOptions(&self) -> windows_core::Result<windows_core::BOOL>;
     fn ClearOptions(&self) -> windows_core::Result<()>;
     fn Error(&self) -> windows_core::Result<windows_core::BSTR>;
 }
@@ -2251,19 +2251,19 @@ impl IWSManResourceLocator_Vtbl {
                 IWSManResourceLocator_Impl::SetFragmentDialect(this, core::mem::transmute(&text)).into()
             }
         }
-        unsafe extern "system" fn AddOption<Identity: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, optionname: *mut core::ffi::c_void, optionvalue: super::Variant::VARIANT, mustcomply: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddOption<Identity: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, optionname: *mut core::ffi::c_void, optionvalue: super::Variant::VARIANT, mustcomply: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWSManResourceLocator_Impl::AddOption(this, core::mem::transmute(&optionname), core::mem::transmute(&optionvalue), core::mem::transmute_copy(&mustcomply)).into()
             }
         }
-        unsafe extern "system" fn SetMustUnderstandOptions<Identity: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mustunderstand: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetMustUnderstandOptions<Identity: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mustunderstand: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWSManResourceLocator_Impl::SetMustUnderstandOptions(this, core::mem::transmute_copy(&mustunderstand)).into()
             }
         }
-        unsafe extern "system" fn MustUnderstandOptions<Identity: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mustunderstand: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MustUnderstandOptions<Identity: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mustunderstand: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSManResourceLocator_Impl::MustUnderstandOptions(this) {
@@ -2893,7 +2893,7 @@ pub const WSMAN_OPERATION_INFOV2: u32 = 2864434397u32;
 pub struct WSMAN_OPTION {
     pub name: windows_core::PCWSTR,
     pub value: windows_core::PCWSTR,
-    pub mustComply: super::super::Foundation::BOOL,
+    pub mustComply: windows_core::BOOL,
 }
 impl Default for WSMAN_OPTION {
     fn default() -> Self {
@@ -2917,7 +2917,7 @@ pub const WSMAN_OPTION_REDIRECT_LOCATION: WSManSessionOption = WSManSessionOptio
 pub struct WSMAN_OPTION_SET {
     pub optionsCount: u32,
     pub options: *mut WSMAN_OPTION,
-    pub optionsMustUnderstand: super::super::Foundation::BOOL,
+    pub optionsMustUnderstand: windows_core::BOOL,
 }
 impl Default for WSMAN_OPTION_SET {
     fn default() -> Self {
@@ -2929,7 +2929,7 @@ impl Default for WSMAN_OPTION_SET {
 pub struct WSMAN_OPTION_SETEX {
     pub optionsCount: u32,
     pub options: *mut WSMAN_OPTION,
-    pub optionsMustUnderstand: super::super::Foundation::BOOL,
+    pub optionsMustUnderstand: windows_core::BOOL,
     pub optionTypes: *const windows_core::PCWSTR,
 }
 impl Default for WSMAN_OPTION_SETEX {
@@ -2979,7 +2979,7 @@ pub struct WSMAN_PLUGIN_REQUEST {
     pub locale: windows_core::PCWSTR,
     pub resourceUri: windows_core::PCWSTR,
     pub operationInfo: *mut WSMAN_OPERATION_INFO,
-    pub shutdownNotification: super::super::Foundation::BOOL,
+    pub shutdownNotification: windows_core::BOOL,
     pub shutdownNotificationHandle: super::super::Foundation::HANDLE,
     pub dataLocale: windows_core::PCWSTR,
 }

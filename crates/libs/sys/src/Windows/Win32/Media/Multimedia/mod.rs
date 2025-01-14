@@ -1,5 +1,5 @@
-windows_targets::link!("avifil32.dll" "system" fn AVIBuildFilterA(lpszfilter : windows_sys::core::PSTR, cbfilter : i32, fsaving : super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
-windows_targets::link!("avifil32.dll" "system" fn AVIBuildFilterW(lpszfilter : windows_sys::core::PWSTR, cbfilter : i32, fsaving : super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+windows_targets::link!("avifil32.dll" "system" fn AVIBuildFilterA(lpszfilter : windows_sys::core::PSTR, cbfilter : i32, fsaving : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
+windows_targets::link!("avifil32.dll" "system" fn AVIBuildFilterW(lpszfilter : windows_sys::core::PWSTR, cbfilter : i32, fsaving : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 windows_targets::link!("avifil32.dll" "system" fn AVIClearClipboard() -> windows_sys::core::HRESULT);
 windows_targets::link!("avifil32.dll" "system" fn AVIFileAddRef(pfile : * mut core::ffi::c_void) -> u32);
 windows_targets::link!("avifil32.dll" "system" fn AVIFileCreateStreamA(pfile : * mut core::ffi::c_void, ppavi : *mut * mut core::ffi::c_void, psi : *const AVISTREAMINFOA) -> windows_sys::core::HRESULT);
@@ -54,13 +54,13 @@ windows_targets::link!("winmm.dll" "system" fn CloseDriver(hdriver : HDRVR, lpar
 windows_targets::link!("avifil32.dll" "system" fn CreateEditableStream(ppseditable : *mut * mut core::ffi::c_void, pssource : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("winmm.dll" "system" fn DefDriverProc(dwdriveridentifier : usize, hdrvr : HDRVR, umsg : u32, lparam1 : super::super::Foundation:: LPARAM, lparam2 : super::super::Foundation:: LPARAM) -> super::super::Foundation:: LRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-windows_targets::link!("msvfw32.dll" "system" fn DrawDibBegin(hdd : isize, hdc : super::super::Graphics::Gdi:: HDC, dxdst : i32, dydst : i32, lpbi : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, dxsrc : i32, dysrc : i32, wflags : u32) -> super::super::Foundation:: BOOL);
+windows_targets::link!("msvfw32.dll" "system" fn DrawDibBegin(hdd : isize, hdc : super::super::Graphics::Gdi:: HDC, dxdst : i32, dydst : i32, lpbi : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, dxsrc : i32, dysrc : i32, wflags : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-windows_targets::link!("msvfw32.dll" "system" fn DrawDibChangePalette(hdd : isize, istart : i32, ilen : i32, lppe : *const super::super::Graphics::Gdi:: PALETTEENTRY) -> super::super::Foundation:: BOOL);
-windows_targets::link!("msvfw32.dll" "system" fn DrawDibClose(hdd : isize) -> super::super::Foundation:: BOOL);
+windows_targets::link!("msvfw32.dll" "system" fn DrawDibChangePalette(hdd : isize, istart : i32, ilen : i32, lppe : *const super::super::Graphics::Gdi:: PALETTEENTRY) -> windows_sys::core::BOOL);
+windows_targets::link!("msvfw32.dll" "system" fn DrawDibClose(hdd : isize) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-windows_targets::link!("msvfw32.dll" "system" fn DrawDibDraw(hdd : isize, hdc : super::super::Graphics::Gdi:: HDC, xdst : i32, ydst : i32, dxdst : i32, dydst : i32, lpbi : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpbits : *const core::ffi::c_void, xsrc : i32, ysrc : i32, dxsrc : i32, dysrc : i32, wflags : u32) -> super::super::Foundation:: BOOL);
-windows_targets::link!("msvfw32.dll" "system" fn DrawDibEnd(hdd : isize) -> super::super::Foundation:: BOOL);
+windows_targets::link!("msvfw32.dll" "system" fn DrawDibDraw(hdd : isize, hdc : super::super::Graphics::Gdi:: HDC, xdst : i32, ydst : i32, dxdst : i32, dydst : i32, lpbi : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpbits : *const core::ffi::c_void, xsrc : i32, ysrc : i32, dxsrc : i32, dysrc : i32, wflags : u32) -> windows_sys::core::BOOL);
+windows_targets::link!("msvfw32.dll" "system" fn DrawDibEnd(hdd : isize) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_targets::link!("msvfw32.dll" "system" fn DrawDibGetBuffer(hdd : isize, lpbi : *mut super::super::Graphics::Gdi:: BITMAPINFOHEADER, dwsize : u32, dwflags : u32) -> *mut core::ffi::c_void);
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -69,13 +69,13 @@ windows_targets::link!("msvfw32.dll" "system" fn DrawDibOpen() -> isize);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_targets::link!("msvfw32.dll" "system" fn DrawDibProfileDisplay(lpbi : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER) -> super::super::Foundation:: LRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-windows_targets::link!("msvfw32.dll" "system" fn DrawDibRealize(hdd : isize, hdc : super::super::Graphics::Gdi:: HDC, fbackground : super::super::Foundation:: BOOL) -> u32);
+windows_targets::link!("msvfw32.dll" "system" fn DrawDibRealize(hdd : isize, hdc : super::super::Graphics::Gdi:: HDC, fbackground : windows_sys::core::BOOL) -> u32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-windows_targets::link!("msvfw32.dll" "system" fn DrawDibSetPalette(hdd : isize, hpal : super::super::Graphics::Gdi:: HPALETTE) -> super::super::Foundation:: BOOL);
-windows_targets::link!("msvfw32.dll" "system" fn DrawDibStart(hdd : isize, rate : u32) -> super::super::Foundation:: BOOL);
-windows_targets::link!("msvfw32.dll" "system" fn DrawDibStop(hdd : isize) -> super::super::Foundation:: BOOL);
-windows_targets::link!("msvfw32.dll" "system" fn DrawDibTime(hdd : isize, lpddtime : *mut DRAWDIBTIME) -> super::super::Foundation:: BOOL);
-windows_targets::link!("winmm.dll" "system" fn DriverCallback(dwcallback : usize, dwflags : u32, hdevice : HDRVR, dwmsg : u32, dwuser : usize, dwparam1 : usize, dwparam2 : usize) -> super::super::Foundation:: BOOL);
+windows_targets::link!("msvfw32.dll" "system" fn DrawDibSetPalette(hdd : isize, hpal : super::super::Graphics::Gdi:: HPALETTE) -> windows_sys::core::BOOL);
+windows_targets::link!("msvfw32.dll" "system" fn DrawDibStart(hdd : isize, rate : u32) -> windows_sys::core::BOOL);
+windows_targets::link!("msvfw32.dll" "system" fn DrawDibStop(hdd : isize) -> windows_sys::core::BOOL);
+windows_targets::link!("msvfw32.dll" "system" fn DrawDibTime(hdd : isize, lpddtime : *mut DRAWDIBTIME) -> windows_sys::core::BOOL);
+windows_targets::link!("winmm.dll" "system" fn DriverCallback(dwcallback : usize, dwflags : u32, hdevice : HDRVR, dwmsg : u32, dwuser : usize, dwparam1 : usize, dwparam2 : usize) -> windows_sys::core::BOOL);
 windows_targets::link!("winmm.dll" "system" fn DrvGetModuleHandle(hdriver : HDRVR) -> super::super::Foundation:: HMODULE);
 windows_targets::link!("avifil32.dll" "system" fn EditStreamClone(pavi : * mut core::ffi::c_void, ppresult : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("avifil32.dll" "system" fn EditStreamCopy(pavi : * mut core::ffi::c_void, plstart : *mut i32, pllength : *mut i32, ppresult : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
@@ -87,18 +87,18 @@ windows_targets::link!("avifil32.dll" "system" fn EditStreamSetNameA(pavi : * mu
 windows_targets::link!("avifil32.dll" "system" fn EditStreamSetNameW(pavi : * mut core::ffi::c_void, lpszname : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_targets::link!("winmm.dll" "system" fn GetDriverModuleHandle(hdriver : HDRVR) -> super::super::Foundation:: HMODULE);
 #[cfg(feature = "Win32_UI_Controls_Dialogs")]
-windows_targets::link!("msvfw32.dll" "system" fn GetOpenFileNamePreviewA(lpofn : *mut super::super::UI::Controls::Dialogs:: OPENFILENAMEA) -> super::super::Foundation:: BOOL);
+windows_targets::link!("msvfw32.dll" "system" fn GetOpenFileNamePreviewA(lpofn : *mut super::super::UI::Controls::Dialogs:: OPENFILENAMEA) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_UI_Controls_Dialogs")]
-windows_targets::link!("msvfw32.dll" "system" fn GetOpenFileNamePreviewW(lpofn : *mut super::super::UI::Controls::Dialogs:: OPENFILENAMEW) -> super::super::Foundation:: BOOL);
+windows_targets::link!("msvfw32.dll" "system" fn GetOpenFileNamePreviewW(lpofn : *mut super::super::UI::Controls::Dialogs:: OPENFILENAMEW) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_UI_Controls_Dialogs")]
-windows_targets::link!("msvfw32.dll" "system" fn GetSaveFileNamePreviewA(lpofn : *mut super::super::UI::Controls::Dialogs:: OPENFILENAMEA) -> super::super::Foundation:: BOOL);
+windows_targets::link!("msvfw32.dll" "system" fn GetSaveFileNamePreviewA(lpofn : *mut super::super::UI::Controls::Dialogs:: OPENFILENAMEA) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_UI_Controls_Dialogs")]
-windows_targets::link!("msvfw32.dll" "system" fn GetSaveFileNamePreviewW(lpofn : *mut super::super::UI::Controls::Dialogs:: OPENFILENAMEW) -> super::super::Foundation:: BOOL);
+windows_targets::link!("msvfw32.dll" "system" fn GetSaveFileNamePreviewW(lpofn : *mut super::super::UI::Controls::Dialogs:: OPENFILENAMEW) -> windows_sys::core::BOOL);
 windows_targets::link!("msvfw32.dll" "system" fn ICClose(hic : HIC) -> super::super::Foundation:: LRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_targets::link!("msvfw32.dll" "cdecl" fn ICCompress(hic : HIC, dwflags : u32, lpbioutput : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpdata : *mut core::ffi::c_void, lpbiinput : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpbits : *const core::ffi::c_void, lpckid : *mut u32, lpdwflags : *mut u32, lframenum : i32, dwframesize : u32, dwquality : u32, lpbiprev : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpprev : *const core::ffi::c_void) -> u32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-windows_targets::link!("msvfw32.dll" "system" fn ICCompressorChoose(hwnd : super::super::Foundation:: HWND, uiflags : u32, pvin : *const core::ffi::c_void, lpdata : *const core::ffi::c_void, pc : *mut COMPVARS, lpsztitle : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+windows_targets::link!("msvfw32.dll" "system" fn ICCompressorChoose(hwnd : super::super::Foundation:: HWND, uiflags : u32, pvin : *const core::ffi::c_void, lpdata : *const core::ffi::c_void, pc : *mut COMPVARS, lpsztitle : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_targets::link!("msvfw32.dll" "system" fn ICCompressorFree(pc : *const COMPVARS));
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -113,30 +113,30 @@ windows_targets::link!("msvfw32.dll" "system" fn ICGetInfo(hic : HIC, picinfo : 
 windows_targets::link!("msvfw32.dll" "system" fn ICImageCompress(hic : HIC, uiflags : u32, lpbiin : *const super::super::Graphics::Gdi:: BITMAPINFO, lpbits : *const core::ffi::c_void, lpbiout : *const super::super::Graphics::Gdi:: BITMAPINFO, lquality : i32, plsize : *mut i32) -> super::super::Foundation:: HANDLE);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_targets::link!("msvfw32.dll" "system" fn ICImageDecompress(hic : HIC, uiflags : u32, lpbiin : *const super::super::Graphics::Gdi:: BITMAPINFO, lpbits : *const core::ffi::c_void, lpbiout : *const super::super::Graphics::Gdi:: BITMAPINFO) -> super::super::Foundation:: HANDLE);
-windows_targets::link!("msvfw32.dll" "system" fn ICInfo(fcctype : u32, fcchandler : u32, lpicinfo : *mut ICINFO) -> super::super::Foundation:: BOOL);
-windows_targets::link!("msvfw32.dll" "system" fn ICInstall(fcctype : u32, fcchandler : u32, lparam : super::super::Foundation:: LPARAM, szdesc : windows_sys::core::PCSTR, wflags : u32) -> super::super::Foundation:: BOOL);
+windows_targets::link!("msvfw32.dll" "system" fn ICInfo(fcctype : u32, fcchandler : u32, lpicinfo : *mut ICINFO) -> windows_sys::core::BOOL);
+windows_targets::link!("msvfw32.dll" "system" fn ICInstall(fcctype : u32, fcchandler : u32, lparam : super::super::Foundation:: LPARAM, szdesc : windows_sys::core::PCSTR, wflags : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_targets::link!("msvfw32.dll" "system" fn ICLocate(fcctype : u32, fcchandler : u32, lpbiin : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpbiout : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, wflags : u16) -> HIC);
 windows_targets::link!("msvfw32.dll" "system" fn ICOpen(fcctype : u32, fcchandler : u32, wmode : u32) -> HIC);
 windows_targets::link!("msvfw32.dll" "system" fn ICOpenFunction(fcctype : u32, fcchandler : u32, wmode : u32, lpfnhandler : super::super::Foundation:: FARPROC) -> HIC);
-windows_targets::link!("msvfw32.dll" "system" fn ICRemove(fcctype : u32, fcchandler : u32, wflags : u32) -> super::super::Foundation:: BOOL);
+windows_targets::link!("msvfw32.dll" "system" fn ICRemove(fcctype : u32, fcchandler : u32, wflags : u32) -> windows_sys::core::BOOL);
 windows_targets::link!("msvfw32.dll" "system" fn ICSendMessage(hic : HIC, msg : u32, dw1 : usize, dw2 : usize) -> super::super::Foundation:: LRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-windows_targets::link!("msvfw32.dll" "system" fn ICSeqCompressFrame(pc : *const COMPVARS, uiflags : u32, lpbits : *const core::ffi::c_void, pfkey : *mut super::super::Foundation:: BOOL, plsize : *mut i32) -> *mut core::ffi::c_void);
+windows_targets::link!("msvfw32.dll" "system" fn ICSeqCompressFrame(pc : *const COMPVARS, uiflags : u32, lpbits : *const core::ffi::c_void, pfkey : *mut windows_sys::core::BOOL, plsize : *mut i32) -> *mut core::ffi::c_void);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_targets::link!("msvfw32.dll" "system" fn ICSeqCompressFrameEnd(pc : *const COMPVARS));
 #[cfg(feature = "Win32_Graphics_Gdi")]
-windows_targets::link!("msvfw32.dll" "system" fn ICSeqCompressFrameStart(pc : *const COMPVARS, lpbiin : *const super::super::Graphics::Gdi:: BITMAPINFO) -> super::super::Foundation:: BOOL);
+windows_targets::link!("msvfw32.dll" "system" fn ICSeqCompressFrameStart(pc : *const COMPVARS, lpbiin : *const super::super::Graphics::Gdi:: BITMAPINFO) -> windows_sys::core::BOOL);
 windows_targets::link!("msvfw32.dll" "cdecl" fn MCIWndCreateA(hwndparent : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HINSTANCE, dwstyle : u32, szfile : windows_sys::core::PCSTR) -> super::super::Foundation:: HWND);
 windows_targets::link!("msvfw32.dll" "cdecl" fn MCIWndCreateW(hwndparent : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HINSTANCE, dwstyle : u32, szfile : windows_sys::core::PCWSTR) -> super::super::Foundation:: HWND);
-windows_targets::link!("msvfw32.dll" "cdecl" fn MCIWndRegisterClass() -> super::super::Foundation:: BOOL);
+windows_targets::link!("msvfw32.dll" "cdecl" fn MCIWndRegisterClass() -> windows_sys::core::BOOL);
 windows_targets::link!("winmm.dll" "system" fn OpenDriver(szdrivername : windows_sys::core::PCWSTR, szsectionname : windows_sys::core::PCWSTR, lparam2 : super::super::Foundation:: LPARAM) -> HDRVR);
 windows_targets::link!("winmm.dll" "system" fn SendDriverMessage(hdriver : HDRVR, message : u32, lparam1 : super::super::Foundation:: LPARAM, lparam2 : super::super::Foundation:: LPARAM) -> super::super::Foundation:: LRESULT);
 windows_targets::link!("msvfw32.dll" "system" fn VideoForWindowsVersion() -> u32);
 windows_targets::link!("avicap32.dll" "system" fn capCreateCaptureWindowA(lpszwindowname : windows_sys::core::PCSTR, dwstyle : u32, x : i32, y : i32, nwidth : i32, nheight : i32, hwndparent : super::super::Foundation:: HWND, nid : i32) -> super::super::Foundation:: HWND);
 windows_targets::link!("avicap32.dll" "system" fn capCreateCaptureWindowW(lpszwindowname : windows_sys::core::PCWSTR, dwstyle : u32, x : i32, y : i32, nwidth : i32, nheight : i32, hwndparent : super::super::Foundation:: HWND, nid : i32) -> super::super::Foundation:: HWND);
-windows_targets::link!("avicap32.dll" "system" fn capGetDriverDescriptionA(wdriverindex : u32, lpszname : windows_sys::core::PSTR, cbname : i32, lpszver : windows_sys::core::PSTR, cbver : i32) -> super::super::Foundation:: BOOL);
-windows_targets::link!("avicap32.dll" "system" fn capGetDriverDescriptionW(wdriverindex : u32, lpszname : windows_sys::core::PWSTR, cbname : i32, lpszver : windows_sys::core::PWSTR, cbver : i32) -> super::super::Foundation:: BOOL);
+windows_targets::link!("avicap32.dll" "system" fn capGetDriverDescriptionA(wdriverindex : u32, lpszname : windows_sys::core::PSTR, cbname : i32, lpszver : windows_sys::core::PSTR, cbver : i32) -> windows_sys::core::BOOL);
+windows_targets::link!("avicap32.dll" "system" fn capGetDriverDescriptionW(wdriverindex : u32, lpszname : windows_sys::core::PWSTR, cbname : i32, lpszver : windows_sys::core::PWSTR, cbver : i32) -> windows_sys::core::BOOL);
 windows_targets::link!("winmm.dll" "system" fn joyGetDevCapsA(ujoyid : usize, pjc : *mut JOYCAPSA, cbjc : u32) -> u32);
 windows_targets::link!("winmm.dll" "system" fn joyGetDevCapsW(ujoyid : usize, pjc : *mut JOYCAPSW, cbjc : u32) -> u32);
 windows_targets::link!("winmm.dll" "system" fn joyGetNumDevs() -> u32);
@@ -144,32 +144,32 @@ windows_targets::link!("winmm.dll" "system" fn joyGetPos(ujoyid : u32, pji : *mu
 windows_targets::link!("winmm.dll" "system" fn joyGetPosEx(ujoyid : u32, pji : *mut JOYINFOEX) -> u32);
 windows_targets::link!("winmm.dll" "system" fn joyGetThreshold(ujoyid : u32, puthreshold : *mut u32) -> u32);
 windows_targets::link!("winmm.dll" "system" fn joyReleaseCapture(ujoyid : u32) -> u32);
-windows_targets::link!("winmm.dll" "system" fn joySetCapture(hwnd : super::super::Foundation:: HWND, ujoyid : u32, uperiod : u32, fchanged : super::super::Foundation:: BOOL) -> u32);
+windows_targets::link!("winmm.dll" "system" fn joySetCapture(hwnd : super::super::Foundation:: HWND, ujoyid : u32, uperiod : u32, fchanged : windows_sys::core::BOOL) -> u32);
 windows_targets::link!("winmm.dll" "system" fn joySetThreshold(ujoyid : u32, uthreshold : u32) -> u32);
-windows_targets::link!("winmm.dll" "system" fn mciDriverNotify(hwndcallback : super::super::Foundation:: HANDLE, wdeviceid : u32, ustatus : u32) -> super::super::Foundation:: BOOL);
+windows_targets::link!("winmm.dll" "system" fn mciDriverNotify(hwndcallback : super::super::Foundation:: HANDLE, wdeviceid : u32, ustatus : u32) -> windows_sys::core::BOOL);
 windows_targets::link!("winmm.dll" "system" fn mciDriverYield(wdeviceid : u32) -> u32);
-windows_targets::link!("winmm.dll" "system" fn mciFreeCommandResource(wtable : u32) -> super::super::Foundation:: BOOL);
+windows_targets::link!("winmm.dll" "system" fn mciFreeCommandResource(wtable : u32) -> windows_sys::core::BOOL);
 windows_targets::link!("winmm.dll" "system" fn mciGetCreatorTask(mciid : u32) -> super:: HTASK);
 windows_targets::link!("winmm.dll" "system" fn mciGetDeviceIDA(pszdevice : windows_sys::core::PCSTR) -> u32);
 windows_targets::link!("winmm.dll" "system" fn mciGetDeviceIDFromElementIDA(dwelementid : u32, lpstrtype : windows_sys::core::PCSTR) -> u32);
 windows_targets::link!("winmm.dll" "system" fn mciGetDeviceIDFromElementIDW(dwelementid : u32, lpstrtype : windows_sys::core::PCWSTR) -> u32);
 windows_targets::link!("winmm.dll" "system" fn mciGetDeviceIDW(pszdevice : windows_sys::core::PCWSTR) -> u32);
 windows_targets::link!("winmm.dll" "system" fn mciGetDriverData(wdeviceid : u32) -> usize);
-windows_targets::link!("winmm.dll" "system" fn mciGetErrorStringA(mcierr : u32, psztext : windows_sys::core::PSTR, cchtext : u32) -> super::super::Foundation:: BOOL);
-windows_targets::link!("winmm.dll" "system" fn mciGetErrorStringW(mcierr : u32, psztext : windows_sys::core::PWSTR, cchtext : u32) -> super::super::Foundation:: BOOL);
+windows_targets::link!("winmm.dll" "system" fn mciGetErrorStringA(mcierr : u32, psztext : windows_sys::core::PSTR, cchtext : u32) -> windows_sys::core::BOOL);
+windows_targets::link!("winmm.dll" "system" fn mciGetErrorStringW(mcierr : u32, psztext : windows_sys::core::PWSTR, cchtext : u32) -> windows_sys::core::BOOL);
 windows_targets::link!("winmm.dll" "system" fn mciGetYieldProc(mciid : u32, pdwyielddata : *const u32) -> YIELDPROC);
 windows_targets::link!("winmm.dll" "system" fn mciLoadCommandResource(hinstance : super::super::Foundation:: HANDLE, lpresname : windows_sys::core::PCWSTR, wtype : u32) -> u32);
 windows_targets::link!("winmm.dll" "system" fn mciSendCommandA(mciid : u32, umsg : u32, dwparam1 : usize, dwparam2 : usize) -> u32);
 windows_targets::link!("winmm.dll" "system" fn mciSendCommandW(mciid : u32, umsg : u32, dwparam1 : usize, dwparam2 : usize) -> u32);
 windows_targets::link!("winmm.dll" "system" fn mciSendStringA(lpstrcommand : windows_sys::core::PCSTR, lpstrreturnstring : windows_sys::core::PSTR, ureturnlength : u32, hwndcallback : super::super::Foundation:: HWND) -> u32);
 windows_targets::link!("winmm.dll" "system" fn mciSendStringW(lpstrcommand : windows_sys::core::PCWSTR, lpstrreturnstring : windows_sys::core::PWSTR, ureturnlength : u32, hwndcallback : super::super::Foundation:: HWND) -> u32);
-windows_targets::link!("winmm.dll" "system" fn mciSetDriverData(wdeviceid : u32, dwdata : usize) -> super::super::Foundation:: BOOL);
-windows_targets::link!("winmm.dll" "system" fn mciSetYieldProc(mciid : u32, fpyieldproc : YIELDPROC, dwyielddata : u32) -> super::super::Foundation:: BOOL);
+windows_targets::link!("winmm.dll" "system" fn mciSetDriverData(wdeviceid : u32, dwdata : usize) -> windows_sys::core::BOOL);
+windows_targets::link!("winmm.dll" "system" fn mciSetYieldProc(mciid : u32, fpyieldproc : YIELDPROC, dwyielddata : u32) -> windows_sys::core::BOOL);
 windows_targets::link!("winmm.dll" "system" fn mmDrvInstall(hdriver : HDRVR, wszdrventry : windows_sys::core::PCWSTR, drvmessage : DRIVERMSGPROC, wflags : u32) -> u32);
 windows_targets::link!("winmm.dll" "system" fn mmGetCurrentTask() -> u32);
 windows_targets::link!("winmm.dll" "system" fn mmTaskBlock(h : u32));
 windows_targets::link!("winmm.dll" "system" fn mmTaskCreate(lpfn : LPTASKCALLBACK, lph : *mut super::super::Foundation:: HANDLE, dwinst : usize) -> u32);
-windows_targets::link!("winmm.dll" "system" fn mmTaskSignal(h : u32) -> super::super::Foundation:: BOOL);
+windows_targets::link!("winmm.dll" "system" fn mmTaskSignal(h : u32) -> windows_sys::core::BOOL);
 windows_targets::link!("winmm.dll" "system" fn mmTaskYield());
 windows_targets::link!("winmm.dll" "system" fn mmioAdvance(hmmio : HMMIO, pmmioinfo : *const MMIOINFO, fuadvance : u32) -> u32);
 windows_targets::link!("winmm.dll" "system" fn mmioAscend(hmmio : HMMIO, pmmcki : *const MMCKINFO, fuascend : u32) -> u32);
@@ -319,7 +319,7 @@ pub const AVIFILEINFO_WASCAPTUREFILE: u32 = 65536u32;
 pub const AVIGETFRAMEF_BESTDISPLAYFMT: u32 = 1u32;
 pub const AVIIF_CONTROLFRAME: i32 = 512i32;
 pub const AVIIF_TWOCC: i32 = 2i32;
-pub type AVISAVECALLBACK = Option<unsafe extern "system" fn(param0: i32) -> super::super::Foundation::BOOL>;
+pub type AVISAVECALLBACK = Option<unsafe extern "system" fn(param0: i32) -> windows_sys::core::BOOL>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct AVISTREAMINFOA {
@@ -375,12 +375,12 @@ pub type CAPCONTROLCALLBACK = Option<unsafe extern "system" fn(hwnd: super::supe
 #[derive(Clone, Copy)]
 pub struct CAPDRIVERCAPS {
     pub wDeviceIndex: u32,
-    pub fHasOverlay: super::super::Foundation::BOOL,
-    pub fHasDlgVideoSource: super::super::Foundation::BOOL,
-    pub fHasDlgVideoFormat: super::super::Foundation::BOOL,
-    pub fHasDlgVideoDisplay: super::super::Foundation::BOOL,
-    pub fCaptureInitialized: super::super::Foundation::BOOL,
-    pub fDriverSuppliesPalettes: super::super::Foundation::BOOL,
+    pub fHasOverlay: windows_sys::core::BOOL,
+    pub fHasDlgVideoSource: windows_sys::core::BOOL,
+    pub fHasDlgVideoFormat: windows_sys::core::BOOL,
+    pub fHasDlgVideoDisplay: windows_sys::core::BOOL,
+    pub fCaptureInitialized: windows_sys::core::BOOL,
+    pub fDriverSuppliesPalettes: windows_sys::core::BOOL,
     pub hVideoIn: super::super::Foundation::HANDLE,
     pub hVideoOut: super::super::Foundation::HANDLE,
     pub hVideoExtIn: super::super::Foundation::HANDLE,
@@ -401,19 +401,19 @@ pub struct CAPINFOCHUNK {
 pub struct CAPSTATUS {
     pub uiImageWidth: u32,
     pub uiImageHeight: u32,
-    pub fLiveWindow: super::super::Foundation::BOOL,
-    pub fOverlayWindow: super::super::Foundation::BOOL,
-    pub fScale: super::super::Foundation::BOOL,
+    pub fLiveWindow: windows_sys::core::BOOL,
+    pub fOverlayWindow: windows_sys::core::BOOL,
+    pub fScale: windows_sys::core::BOOL,
     pub ptScroll: super::super::Foundation::POINT,
-    pub fUsingDefaultPalette: super::super::Foundation::BOOL,
-    pub fAudioHardware: super::super::Foundation::BOOL,
-    pub fCapFileExists: super::super::Foundation::BOOL,
+    pub fUsingDefaultPalette: windows_sys::core::BOOL,
+    pub fAudioHardware: windows_sys::core::BOOL,
+    pub fCapFileExists: windows_sys::core::BOOL,
     pub dwCurrentVideoFrame: u32,
     pub dwCurrentVideoFramesDropped: u32,
     pub dwCurrentWaveSamples: u32,
     pub dwCurrentTimeElapsedMS: u32,
     pub hPalCurrent: super::super::Graphics::Gdi::HPALETTE,
-    pub fCapturingNow: super::super::Foundation::BOOL,
+    pub fCapturingNow: windows_sys::core::BOOL,
     pub dwReturn: u32,
     pub wNumVideoAllocated: u32,
     pub wNumAudioAllocated: u32,
@@ -424,28 +424,28 @@ pub type CAPSTATUSCALLBACKW = Option<unsafe extern "system" fn(hwnd: super::supe
 #[derive(Clone, Copy)]
 pub struct CAPTUREPARMS {
     pub dwRequestMicroSecPerFrame: u32,
-    pub fMakeUserHitOKToCapture: super::super::Foundation::BOOL,
+    pub fMakeUserHitOKToCapture: windows_sys::core::BOOL,
     pub wPercentDropForError: u32,
-    pub fYield: super::super::Foundation::BOOL,
+    pub fYield: windows_sys::core::BOOL,
     pub dwIndexSize: u32,
     pub wChunkGranularity: u32,
-    pub fUsingDOSMemory: super::super::Foundation::BOOL,
+    pub fUsingDOSMemory: windows_sys::core::BOOL,
     pub wNumVideoRequested: u32,
-    pub fCaptureAudio: super::super::Foundation::BOOL,
+    pub fCaptureAudio: windows_sys::core::BOOL,
     pub wNumAudioRequested: u32,
     pub vKeyAbort: u32,
-    pub fAbortLeftMouse: super::super::Foundation::BOOL,
-    pub fAbortRightMouse: super::super::Foundation::BOOL,
-    pub fLimitEnabled: super::super::Foundation::BOOL,
+    pub fAbortLeftMouse: windows_sys::core::BOOL,
+    pub fAbortRightMouse: windows_sys::core::BOOL,
+    pub fLimitEnabled: windows_sys::core::BOOL,
     pub wTimeLimit: u32,
-    pub fMCIControl: super::super::Foundation::BOOL,
-    pub fStepMCIDevice: super::super::Foundation::BOOL,
+    pub fMCIControl: windows_sys::core::BOOL,
+    pub fStepMCIDevice: windows_sys::core::BOOL,
     pub dwMCIStartTime: u32,
     pub dwMCIStopTime: u32,
-    pub fStepCaptureAt2x: super::super::Foundation::BOOL,
+    pub fStepCaptureAt2x: windows_sys::core::BOOL,
     pub wStepCaptureAverageFrames: u32,
     pub dwAudioBufferSize: u32,
-    pub fDisableWriteCache: super::super::Foundation::BOOL,
+    pub fDisableWriteCache: windows_sys::core::BOOL,
     pub AVStreamMaster: u32,
 }
 pub type CAPVIDEOCALLBACK = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, lpvhdr: *const VIDEOHDR) -> super::super::Foundation::LRESULT>;
@@ -1460,7 +1460,7 @@ pub const JPEG_Y: u32 = 1u32;
 pub const JPEG_YCbCr: u32 = 2u32;
 pub const KSDATAFORMAT_SUBTYPE_IEEE_FLOAT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000003_0000_0010_8000_00aa00389b71);
 #[cfg(feature = "Win32_System_IO")]
-pub type LPFNEXTDEVIO = Option<unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, dwflags: u32, dwiocontrolcode: u32, lpinbuffer: *mut core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL>;
+pub type LPFNEXTDEVIO = Option<unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, dwflags: u32, dwiocontrolcode: u32, lpinbuffer: *mut core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL>;
 pub type LPMMIOPROC = Option<unsafe extern "system" fn(lpmmioinfo: windows_sys::core::PCSTR, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
 pub type LPTASKCALLBACK = Option<unsafe extern "system" fn(dwinst: usize)>;
 pub const MCIERR_AVI_AUDIOERROR: u32 = 619u32;

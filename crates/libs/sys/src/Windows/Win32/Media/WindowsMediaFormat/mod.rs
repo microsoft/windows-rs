@@ -8,7 +8,7 @@ windows_targets::link!("wmvcore.dll" "system" fn WMCreateWriter(punkcert : * mut
 windows_targets::link!("wmvcore.dll" "system" fn WMCreateWriterFileSink(ppsink : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("wmvcore.dll" "system" fn WMCreateWriterNetworkSink(ppsink : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("wmvcore.dll" "system" fn WMCreateWriterPushSink(ppsink : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_targets::link!("wmvcore.dll" "system" fn WMIsContentProtected(pwszfilename : windows_sys::core::PCWSTR, pfisprotected : *mut super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+windows_targets::link!("wmvcore.dll" "system" fn WMIsContentProtected(pwszfilename : windows_sys::core::PCWSTR, pfisprotected : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 pub const AM_CONFIGASFWRITER_PARAM_AUTOINDEX: _AM_ASFWRITERCONFIG_PARAM = 1i32;
 pub const AM_CONFIGASFWRITER_PARAM_DONTCOMPRESS: _AM_ASFWRITERCONFIG_PARAM = 3i32;
 pub const AM_CONFIGASFWRITER_PARAM_MULTIPASS: _AM_ASFWRITERCONFIG_PARAM = 2i32;
@@ -407,7 +407,7 @@ pub struct WMT_VIDEOIMAGE_SAMPLE2 {
     pub fEffectPara2: f32,
     pub fEffectPara3: f32,
     pub fEffectPara4: f32,
-    pub bKeepPrevImage: super::super::Foundation::BOOL,
+    pub bKeepPrevImage: windows_sys::core::BOOL,
 }
 pub const WMT_VIDEOIMAGE_SAMPLE_ADV_BLENDING: u32 = 8u32;
 pub const WMT_VIDEOIMAGE_SAMPLE_BLENDING: u32 = 4u32;
@@ -551,8 +551,8 @@ pub const WM_MAX_VIDEO_STREAMS: u32 = 63u32;
 pub struct WM_MEDIA_TYPE {
     pub majortype: windows_sys::core::GUID,
     pub subtype: windows_sys::core::GUID,
-    pub bFixedSizeSamples: super::super::Foundation::BOOL,
-    pub bTemporalCompression: super::super::Foundation::BOOL,
+    pub bFixedSizeSamples: windows_sys::core::BOOL,
+    pub bTemporalCompression: windows_sys::core::BOOL,
     pub lSampleSize: u32,
     pub formattype: windows_sys::core::GUID,
     pub pUnk: *mut core::ffi::c_void,
@@ -612,7 +612,7 @@ pub type WM_SF_TYPE = i32;
 #[derive(Clone, Copy)]
 pub struct WM_STREAM_PRIORITY_RECORD {
     pub wStreamNumber: u16,
-    pub fMandatory: super::super::Foundation::BOOL,
+    pub fMandatory: windows_sys::core::BOOL,
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]

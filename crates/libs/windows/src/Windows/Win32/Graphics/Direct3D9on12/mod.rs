@@ -13,7 +13,7 @@ pub unsafe fn Direct3DCreate9On12Ex(sdkversion: u32, poverridelist: *mut D3D9ON1
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct D3D9ON12_ARGS {
-    pub Enable9On12: super::super::Foundation::BOOL,
+    pub Enable9On12: windows_core::BOOL,
     pub pD3D12Device: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub ppD3D12Queues: [core::mem::ManuallyDrop<Option<windows_core::IUnknown>>; 2],
     pub NumQueues: u32,

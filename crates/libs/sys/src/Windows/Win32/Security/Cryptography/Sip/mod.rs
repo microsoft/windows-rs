@@ -1,23 +1,23 @@
-windows_targets::link!("crypt32.dll" "system" fn CryptSIPAddProvider(psnewprov : *mut SIP_ADD_NEWPROVIDER) -> super::super::super::Foundation:: BOOL);
+windows_targets::link!("crypt32.dll" "system" fn CryptSIPAddProvider(psnewprov : *mut SIP_ADD_NEWPROVIDER) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-windows_targets::link!("wintrust.dll" "system" fn CryptSIPCreateIndirectData(psubjectinfo : *mut SIP_SUBJECTINFO, pcbindirectdata : *mut u32, pindirectdata : *mut SIP_INDIRECT_DATA) -> super::super::super::Foundation:: BOOL);
+windows_targets::link!("wintrust.dll" "system" fn CryptSIPCreateIndirectData(psubjectinfo : *mut SIP_SUBJECTINFO, pcbindirectdata : *mut u32, pindirectdata : *mut SIP_INDIRECT_DATA) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-windows_targets::link!("wintrust.dll" "system" fn CryptSIPGetCaps(psubjinfo : *const SIP_SUBJECTINFO, pcaps : *mut SIP_CAP_SET_V3) -> super::super::super::Foundation:: BOOL);
+windows_targets::link!("wintrust.dll" "system" fn CryptSIPGetCaps(psubjinfo : *const SIP_SUBJECTINFO, pcaps : *mut SIP_CAP_SET_V3) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-windows_targets::link!("wintrust.dll" "system" fn CryptSIPGetSealedDigest(psubjectinfo : *const SIP_SUBJECTINFO, psig : *const u8, dwsig : u32, pbdigest : *mut u8, pcbdigest : *mut u32) -> super::super::super::Foundation:: BOOL);
+windows_targets::link!("wintrust.dll" "system" fn CryptSIPGetSealedDigest(psubjectinfo : *const SIP_SUBJECTINFO, psig : *const u8, dwsig : u32, pbdigest : *mut u8, pcbdigest : *mut u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-windows_targets::link!("wintrust.dll" "system" fn CryptSIPGetSignedDataMsg(psubjectinfo : *mut SIP_SUBJECTINFO, pdwencodingtype : *mut super:: CERT_QUERY_ENCODING_TYPE, dwindex : u32, pcbsigneddatamsg : *mut u32, pbsigneddatamsg : *mut u8) -> super::super::super::Foundation:: BOOL);
+windows_targets::link!("wintrust.dll" "system" fn CryptSIPGetSignedDataMsg(psubjectinfo : *mut SIP_SUBJECTINFO, pdwencodingtype : *mut super:: CERT_QUERY_ENCODING_TYPE, dwindex : u32, pcbsigneddatamsg : *mut u32, pbsigneddatamsg : *mut u8) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-windows_targets::link!("crypt32.dll" "system" fn CryptSIPLoad(pgsubject : *const windows_sys::core::GUID, dwflags : u32, psipdispatch : *mut SIP_DISPATCH_INFO) -> super::super::super::Foundation:: BOOL);
+windows_targets::link!("crypt32.dll" "system" fn CryptSIPLoad(pgsubject : *const windows_sys::core::GUID, dwflags : u32, psipdispatch : *mut SIP_DISPATCH_INFO) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-windows_targets::link!("wintrust.dll" "system" fn CryptSIPPutSignedDataMsg(psubjectinfo : *mut SIP_SUBJECTINFO, dwencodingtype : super:: CERT_QUERY_ENCODING_TYPE, pdwindex : *mut u32, cbsigneddatamsg : u32, pbsigneddatamsg : *mut u8) -> super::super::super::Foundation:: BOOL);
-windows_targets::link!("crypt32.dll" "system" fn CryptSIPRemoveProvider(pgprov : *mut windows_sys::core::GUID) -> super::super::super::Foundation:: BOOL);
+windows_targets::link!("wintrust.dll" "system" fn CryptSIPPutSignedDataMsg(psubjectinfo : *mut SIP_SUBJECTINFO, dwencodingtype : super:: CERT_QUERY_ENCODING_TYPE, pdwindex : *mut u32, cbsigneddatamsg : u32, pbsigneddatamsg : *mut u8) -> windows_sys::core::BOOL);
+windows_targets::link!("crypt32.dll" "system" fn CryptSIPRemoveProvider(pgprov : *mut windows_sys::core::GUID) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-windows_targets::link!("wintrust.dll" "system" fn CryptSIPRemoveSignedDataMsg(psubjectinfo : *mut SIP_SUBJECTINFO, dwindex : u32) -> super::super::super::Foundation:: BOOL);
-windows_targets::link!("crypt32.dll" "system" fn CryptSIPRetrieveSubjectGuid(filename : windows_sys::core::PCWSTR, hfilein : super::super::super::Foundation:: HANDLE, pgsubject : *mut windows_sys::core::GUID) -> super::super::super::Foundation:: BOOL);
-windows_targets::link!("crypt32.dll" "system" fn CryptSIPRetrieveSubjectGuidForCatalogFile(filename : windows_sys::core::PCWSTR, hfilein : super::super::super::Foundation:: HANDLE, pgsubject : *mut windows_sys::core::GUID) -> super::super::super::Foundation:: BOOL);
+windows_targets::link!("wintrust.dll" "system" fn CryptSIPRemoveSignedDataMsg(psubjectinfo : *mut SIP_SUBJECTINFO, dwindex : u32) -> windows_sys::core::BOOL);
+windows_targets::link!("crypt32.dll" "system" fn CryptSIPRetrieveSubjectGuid(filename : windows_sys::core::PCWSTR, hfilein : super::super::super::Foundation:: HANDLE, pgsubject : *mut windows_sys::core::GUID) -> windows_sys::core::BOOL);
+windows_targets::link!("crypt32.dll" "system" fn CryptSIPRetrieveSubjectGuidForCatalogFile(filename : windows_sys::core::PCWSTR, hfilein : super::super::super::Foundation:: HANDLE, pgsubject : *mut windows_sys::core::GUID) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-windows_targets::link!("wintrust.dll" "system" fn CryptSIPVerifyIndirectData(psubjectinfo : *mut SIP_SUBJECTINFO, pindirectdata : *mut SIP_INDIRECT_DATA) -> super::super::super::Foundation:: BOOL);
+windows_targets::link!("wintrust.dll" "system" fn CryptSIPVerifyIndirectData(psubjectinfo : *mut SIP_SUBJECTINFO, pindirectdata : *mut SIP_INDIRECT_DATA) -> windows_sys::core::BOOL);
 pub const MSSIP_ADDINFO_BLOB: u32 = 3u32;
 pub const MSSIP_ADDINFO_CATMEMBER: u32 = 2u32;
 pub const MSSIP_ADDINFO_FLAT: u32 = 1u32;
@@ -64,7 +64,7 @@ pub const SIP_CAP_SET_CUR_VER: u32 = 3u32;
 pub struct SIP_CAP_SET_V2 {
     pub cbSize: u32,
     pub dwVersion: u32,
-    pub isMultiSign: super::super::super::Foundation::BOOL,
+    pub isMultiSign: windows_sys::core::BOOL,
     pub dwReserved: u32,
 }
 #[repr(C)]
@@ -72,7 +72,7 @@ pub struct SIP_CAP_SET_V2 {
 pub struct SIP_CAP_SET_V3 {
     pub cbSize: u32,
     pub dwVersion: u32,
-    pub isMultiSign: super::super::super::Foundation::BOOL,
+    pub isMultiSign: windows_sys::core::BOOL,
     pub Anonymous: SIP_CAP_SET_V3_0,
 }
 #[repr(C)]
@@ -138,18 +138,18 @@ pub const SPC_MARKER_CHECK_CURRENTLY_SUPPORTED_FLAGS: u32 = 1u32;
 pub const SPC_MARKER_CHECK_SKIP_SIP_INDIRECT_DATA_FLAG: u32 = 1u32;
 pub const SPC_RELAXED_PE_MARKER_CHECK: u32 = 2048u32;
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-pub type pCryptSIPCreateIndirectData = Option<unsafe extern "system" fn(psubjectinfo: *mut SIP_SUBJECTINFO, pcbindirectdata: *mut u32, pindirectdata: *mut SIP_INDIRECT_DATA) -> super::super::super::Foundation::BOOL>;
+pub type pCryptSIPCreateIndirectData = Option<unsafe extern "system" fn(psubjectinfo: *mut SIP_SUBJECTINFO, pcbindirectdata: *mut u32, pindirectdata: *mut SIP_INDIRECT_DATA) -> windows_sys::core::BOOL>;
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-pub type pCryptSIPGetCaps = Option<unsafe extern "system" fn(psubjinfo: *const SIP_SUBJECTINFO, pcaps: *mut SIP_CAP_SET_V3) -> super::super::super::Foundation::BOOL>;
+pub type pCryptSIPGetCaps = Option<unsafe extern "system" fn(psubjinfo: *const SIP_SUBJECTINFO, pcaps: *mut SIP_CAP_SET_V3) -> windows_sys::core::BOOL>;
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-pub type pCryptSIPGetSealedDigest = Option<unsafe extern "system" fn(psubjectinfo: *const SIP_SUBJECTINFO, psig: *const u8, dwsig: u32, pbdigest: *mut u8, pcbdigest: *mut u32) -> super::super::super::Foundation::BOOL>;
+pub type pCryptSIPGetSealedDigest = Option<unsafe extern "system" fn(psubjectinfo: *const SIP_SUBJECTINFO, psig: *const u8, dwsig: u32, pbdigest: *mut u8, pcbdigest: *mut u32) -> windows_sys::core::BOOL>;
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-pub type pCryptSIPGetSignedDataMsg = Option<unsafe extern "system" fn(psubjectinfo: *mut SIP_SUBJECTINFO, pdwencodingtype: *mut u32, dwindex: u32, pcbsigneddatamsg: *mut u32, pbsigneddatamsg: *mut u8) -> super::super::super::Foundation::BOOL>;
+pub type pCryptSIPGetSignedDataMsg = Option<unsafe extern "system" fn(psubjectinfo: *mut SIP_SUBJECTINFO, pdwencodingtype: *mut u32, dwindex: u32, pcbsigneddatamsg: *mut u32, pbsigneddatamsg: *mut u8) -> windows_sys::core::BOOL>;
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-pub type pCryptSIPPutSignedDataMsg = Option<unsafe extern "system" fn(psubjectinfo: *mut SIP_SUBJECTINFO, dwencodingtype: u32, pdwindex: *mut u32, cbsigneddatamsg: u32, pbsigneddatamsg: *mut u8) -> super::super::super::Foundation::BOOL>;
+pub type pCryptSIPPutSignedDataMsg = Option<unsafe extern "system" fn(psubjectinfo: *mut SIP_SUBJECTINFO, dwencodingtype: u32, pdwindex: *mut u32, cbsigneddatamsg: u32, pbsigneddatamsg: *mut u8) -> windows_sys::core::BOOL>;
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-pub type pCryptSIPRemoveSignedDataMsg = Option<unsafe extern "system" fn(psubjectinfo: *mut SIP_SUBJECTINFO, dwindex: u32) -> super::super::super::Foundation::BOOL>;
+pub type pCryptSIPRemoveSignedDataMsg = Option<unsafe extern "system" fn(psubjectinfo: *mut SIP_SUBJECTINFO, dwindex: u32) -> windows_sys::core::BOOL>;
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-pub type pCryptSIPVerifyIndirectData = Option<unsafe extern "system" fn(psubjectinfo: *mut SIP_SUBJECTINFO, pindirectdata: *mut SIP_INDIRECT_DATA) -> super::super::super::Foundation::BOOL>;
-pub type pfnIsFileSupported = Option<unsafe extern "system" fn(hfile: super::super::super::Foundation::HANDLE, pgsubject: *mut windows_sys::core::GUID) -> super::super::super::Foundation::BOOL>;
-pub type pfnIsFileSupportedName = Option<unsafe extern "system" fn(pwszfilename: windows_sys::core::PCWSTR, pgsubject: *mut windows_sys::core::GUID) -> super::super::super::Foundation::BOOL>;
+pub type pCryptSIPVerifyIndirectData = Option<unsafe extern "system" fn(psubjectinfo: *mut SIP_SUBJECTINFO, pindirectdata: *mut SIP_INDIRECT_DATA) -> windows_sys::core::BOOL>;
+pub type pfnIsFileSupported = Option<unsafe extern "system" fn(hfile: super::super::super::Foundation::HANDLE, pgsubject: *mut windows_sys::core::GUID) -> windows_sys::core::BOOL>;
+pub type pfnIsFileSupportedName = Option<unsafe extern "system" fn(pwszfilename: windows_sys::core::PCWSTR, pgsubject: *mut windows_sys::core::GUID) -> windows_sys::core::BOOL>;

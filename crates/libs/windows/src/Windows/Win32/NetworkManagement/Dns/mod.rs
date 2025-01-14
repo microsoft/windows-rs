@@ -164,21 +164,21 @@ pub unsafe fn DnsModifyRecordsInSet_W(paddrecords: Option<*const DNS_RECORDA>, p
     unsafe { DnsModifyRecordsInSet_W(paddrecords.unwrap_or(core::mem::zeroed()) as _, pdeleterecords.unwrap_or(core::mem::zeroed()) as _, options, hcredentials.unwrap_or(core::mem::zeroed()) as _, pextralist.unwrap_or(core::mem::zeroed()) as _, preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn DnsNameCompare_A<P0, P1>(pname1: P0, pname2: P1) -> super::super::Foundation::BOOL
+pub unsafe fn DnsNameCompare_A<P0, P1>(pname1: P0, pname2: P1) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("dnsapi.dll" "system" fn DnsNameCompare_A(pname1 : windows_core::PCSTR, pname2 : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("dnsapi.dll" "system" fn DnsNameCompare_A(pname1 : windows_core::PCSTR, pname2 : windows_core::PCSTR) -> windows_core::BOOL);
     unsafe { DnsNameCompare_A(pname1.param().abi(), pname2.param().abi()) }
 }
 #[inline]
-pub unsafe fn DnsNameCompare_W<P0, P1>(pname1: P0, pname2: P1) -> super::super::Foundation::BOOL
+pub unsafe fn DnsNameCompare_W<P0, P1>(pname1: P0, pname2: P1) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("dnsapi.dll" "system" fn DnsNameCompare_W(pname1 : windows_core::PCWSTR, pname2 : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("dnsapi.dll" "system" fn DnsNameCompare_W(pname1 : windows_core::PCWSTR, pname2 : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { DnsNameCompare_W(pname1.param().abi(), pname2.param().abi()) }
 }
 #[inline]
@@ -229,8 +229,8 @@ where
     unsafe { DnsQuery_W(pszname.param().abi(), wtype, options, pextra.unwrap_or(core::mem::zeroed()) as _, ppqueryresults as _, preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn DnsRecordCompare(precord1: *const DNS_RECORDA, precord2: *const DNS_RECORDA) -> super::super::Foundation::BOOL {
-    windows_targets::link!("dnsapi.dll" "system" fn DnsRecordCompare(precord1 : *const DNS_RECORDA, precord2 : *const DNS_RECORDA) -> super::super::Foundation:: BOOL);
+pub unsafe fn DnsRecordCompare(precord1: *const DNS_RECORDA, precord2: *const DNS_RECORDA) -> windows_core::BOOL {
+    windows_targets::link!("dnsapi.dll" "system" fn DnsRecordCompare(precord1 : *const DNS_RECORDA, precord2 : *const DNS_RECORDA) -> windows_core::BOOL);
     unsafe { DnsRecordCompare(precord1, precord2) }
 }
 #[inline]
@@ -239,8 +239,8 @@ pub unsafe fn DnsRecordCopyEx(precord: *const DNS_RECORDA, charsetin: DNS_CHARSE
     unsafe { DnsRecordCopyEx(precord, charsetin, charsetout) }
 }
 #[inline]
-pub unsafe fn DnsRecordSetCompare(prr1: *mut DNS_RECORDA, prr2: *mut DNS_RECORDA, ppdiff1: Option<*mut *mut DNS_RECORDA>, ppdiff2: Option<*mut *mut DNS_RECORDA>) -> super::super::Foundation::BOOL {
-    windows_targets::link!("dnsapi.dll" "system" fn DnsRecordSetCompare(prr1 : *mut DNS_RECORDA, prr2 : *mut DNS_RECORDA, ppdiff1 : *mut *mut DNS_RECORDA, ppdiff2 : *mut *mut DNS_RECORDA) -> super::super::Foundation:: BOOL);
+pub unsafe fn DnsRecordSetCompare(prr1: *mut DNS_RECORDA, prr2: *mut DNS_RECORDA, ppdiff1: Option<*mut *mut DNS_RECORDA>, ppdiff2: Option<*mut *mut DNS_RECORDA>) -> windows_core::BOOL {
+    windows_targets::link!("dnsapi.dll" "system" fn DnsRecordSetCompare(prr1 : *mut DNS_RECORDA, prr2 : *mut DNS_RECORDA, ppdiff1 : *mut *mut DNS_RECORDA, ppdiff2 : *mut *mut DNS_RECORDA) -> windows_core::BOOL);
     unsafe { DnsRecordSetCompare(prr1 as _, prr2 as _, ppdiff1.unwrap_or(core::mem::zeroed()) as _, ppdiff2.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -367,19 +367,19 @@ where
     unsafe { DnsValidateName_W(pszname.param().abi(), format) }
 }
 #[inline]
-pub unsafe fn DnsWriteQuestionToBuffer_UTF8<P2>(pdnsbuffer: *mut DNS_MESSAGE_BUFFER, pdwbuffersize: *mut u32, pszname: P2, wtype: u16, xid: u16, frecursiondesired: bool) -> super::super::Foundation::BOOL
+pub unsafe fn DnsWriteQuestionToBuffer_UTF8<P2>(pdnsbuffer: *mut DNS_MESSAGE_BUFFER, pdwbuffersize: *mut u32, pszname: P2, wtype: u16, xid: u16, frecursiondesired: bool) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("dnsapi.dll" "system" fn DnsWriteQuestionToBuffer_UTF8(pdnsbuffer : *mut DNS_MESSAGE_BUFFER, pdwbuffersize : *mut u32, pszname : windows_core::PCSTR, wtype : u16, xid : u16, frecursiondesired : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("dnsapi.dll" "system" fn DnsWriteQuestionToBuffer_UTF8(pdnsbuffer : *mut DNS_MESSAGE_BUFFER, pdwbuffersize : *mut u32, pszname : windows_core::PCSTR, wtype : u16, xid : u16, frecursiondesired : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { DnsWriteQuestionToBuffer_UTF8(pdnsbuffer as _, pdwbuffersize as _, pszname.param().abi(), wtype, xid, frecursiondesired.into()) }
 }
 #[inline]
-pub unsafe fn DnsWriteQuestionToBuffer_W<P2>(pdnsbuffer: *mut DNS_MESSAGE_BUFFER, pdwbuffersize: *mut u32, pszname: P2, wtype: u16, xid: u16, frecursiondesired: bool) -> super::super::Foundation::BOOL
+pub unsafe fn DnsWriteQuestionToBuffer_W<P2>(pdnsbuffer: *mut DNS_MESSAGE_BUFFER, pdwbuffersize: *mut u32, pszname: P2, wtype: u16, xid: u16, frecursiondesired: bool) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("dnsapi.dll" "system" fn DnsWriteQuestionToBuffer_W(pdnsbuffer : *mut DNS_MESSAGE_BUFFER, pdwbuffersize : *mut u32, pszname : windows_core::PCWSTR, wtype : u16, xid : u16, frecursiondesired : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("dnsapi.dll" "system" fn DnsWriteQuestionToBuffer_W(pdnsbuffer : *mut DNS_MESSAGE_BUFFER, pdwbuffersize : *mut u32, pszname : windows_core::PCWSTR, wtype : u16, xid : u16, frecursiondesired : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { DnsWriteQuestionToBuffer_W(pdnsbuffer as _, pdwbuffersize as _, pszname.param().abi(), wtype, xid, frecursiondesired.into()) }
 }
 pub const DDR_MAX_IP_HINTS: u32 = 4u32;
@@ -692,7 +692,7 @@ pub struct DNS_CONNECTION_PROXY_INFO_EX {
     pub ProxyInfo: DNS_CONNECTION_PROXY_INFO,
     pub dwInterfaceIndex: u32,
     pub pwszConnectionName: windows_core::PWSTR,
-    pub fDirectConfiguration: super::super::Foundation::BOOL,
+    pub fDirectConfiguration: windows_core::BOOL,
     pub hConnection: super::super::Foundation::HANDLE,
 }
 impl Default for DNS_CONNECTION_PROXY_INFO_EX {
@@ -1283,7 +1283,7 @@ pub struct DNS_QUERY_REQUEST3 {
     pub InterfaceIndex: u32,
     pub pQueryCompletionCallback: PDNS_QUERY_COMPLETION_ROUTINE,
     pub pQueryContext: *mut core::ffi::c_void,
-    pub IsNetworkQueryRequired: super::super::Foundation::BOOL,
+    pub IsNetworkQueryRequired: windows_core::BOOL,
     pub RequiredNetworkIndex: u32,
     pub cCustomServers: u32,
     pub pCustomServers: *mut DNS_CUSTOM_SERVER,
@@ -1785,7 +1785,7 @@ pub struct DNS_SERVICE_REGISTER_REQUEST {
     pub pRegisterCompletionCallback: PDNS_SERVICE_REGISTER_COMPLETE,
     pub pQueryContext: *mut core::ffi::c_void,
     pub hCredentials: super::super::Foundation::HANDLE,
-    pub unicastEnabled: super::super::Foundation::BOOL,
+    pub unicastEnabled: windows_core::BOOL,
 }
 impl Default for DNS_SERVICE_REGISTER_REQUEST {
     fn default() -> Self {
@@ -2028,7 +2028,7 @@ pub struct DNS_TKEY_DATAA {
     pub wKeyLength: u16,
     pub wOtherLength: u16,
     pub cAlgNameLength: u8,
-    pub bPacketPointers: super::super::Foundation::BOOL,
+    pub bPacketPointers: windows_core::BOOL,
 }
 impl Default for DNS_TKEY_DATAA {
     fn default() -> Self {
@@ -2049,7 +2049,7 @@ pub struct DNS_TKEY_DATAW {
     pub wKeyLength: u16,
     pub wOtherLength: u16,
     pub cAlgNameLength: u8,
-    pub bPacketPointers: super::super::Foundation::BOOL,
+    pub bPacketPointers: windows_core::BOOL,
 }
 impl Default for DNS_TKEY_DATAW {
     fn default() -> Self {
@@ -2089,7 +2089,7 @@ pub struct DNS_TSIG_DATAA {
     pub wSigLength: u16,
     pub wOtherLength: u16,
     pub cAlgNameLength: u8,
-    pub bPacketPointers: super::super::Foundation::BOOL,
+    pub bPacketPointers: windows_core::BOOL,
 }
 impl Default for DNS_TSIG_DATAA {
     fn default() -> Self {
@@ -2110,7 +2110,7 @@ pub struct DNS_TSIG_DATAW {
     pub wSigLength: u16,
     pub wOtherLength: u16,
     pub cAlgNameLength: u8,
-    pub bPacketPointers: super::super::Foundation::BOOL,
+    pub bPacketPointers: windows_core::BOOL,
 }
 impl Default for DNS_TSIG_DATAW {
     fn default() -> Self {
@@ -2434,7 +2434,7 @@ pub struct MDNS_QUERY_REQUEST {
     pub InterfaceIndex: u32,
     pub pQueryCallback: PMDNS_QUERY_CALLBACK,
     pub pQueryContext: *mut core::ffi::c_void,
-    pub fAnswerReceived: super::super::Foundation::BOOL,
+    pub fAnswerReceived: windows_core::BOOL,
     pub ulResendCount: u32,
 }
 impl Default for MDNS_QUERY_REQUEST {

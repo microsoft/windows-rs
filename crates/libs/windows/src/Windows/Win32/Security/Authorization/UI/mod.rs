@@ -13,7 +13,7 @@ pub unsafe fn EditSecurity<P1>(hwndowner: super::super::super::Foundation::HWND,
 where
     P1: windows_core::Param<ISecurityInformation>,
 {
-    windows_targets::link!("aclui.dll" "system" fn EditSecurity(hwndowner : super::super::super::Foundation:: HWND, psi : * mut core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("aclui.dll" "system" fn EditSecurity(hwndowner : super::super::super::Foundation:: HWND, psi : * mut core::ffi::c_void) -> windows_core::BOOL);
     unsafe { EditSecurity(hwndowner, psi.param().abi()).ok() }
 }
 #[inline]
@@ -226,7 +226,7 @@ impl ISecurityInformation {
 pub struct ISecurityInformation_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetObjectInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SI_OBJECT_INFO) -> windows_core::HRESULT,
-    pub GetSecurity: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::OBJECT_SECURITY_INFORMATION, *mut super::super::PSECURITY_DESCRIPTOR, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetSecurity: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::OBJECT_SECURITY_INFORMATION, *mut super::super::PSECURITY_DESCRIPTOR, windows_core::BOOL) -> windows_core::HRESULT,
     pub SetSecurity: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::OBJECT_SECURITY_INFORMATION, super::super::PSECURITY_DESCRIPTOR) -> windows_core::HRESULT,
     pub GetAccessRights: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, SECURITY_INFO_PAGE_FLAGS, *mut *mut SI_ACCESS, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub MapGeneric: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut u8, *mut u32) -> windows_core::HRESULT,
@@ -239,7 +239,7 @@ pub struct ISecurityInformation_Vtbl {
 #[cfg(feature = "Win32_UI_Controls")]
 pub trait ISecurityInformation_Impl: windows_core::IUnknownImpl {
     fn GetObjectInformation(&self, pobjectinfo: *mut SI_OBJECT_INFO) -> windows_core::Result<()>;
-    fn GetSecurity(&self, requestedinformation: super::super::OBJECT_SECURITY_INFORMATION, ppsecuritydescriptor: *mut super::super::PSECURITY_DESCRIPTOR, fdefault: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn GetSecurity(&self, requestedinformation: super::super::OBJECT_SECURITY_INFORMATION, ppsecuritydescriptor: *mut super::super::PSECURITY_DESCRIPTOR, fdefault: windows_core::BOOL) -> windows_core::Result<()>;
     fn SetSecurity(&self, securityinformation: super::super::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: super::super::PSECURITY_DESCRIPTOR) -> windows_core::Result<()>;
     fn GetAccessRights(&self, pguidobjecttype: *const windows_core::GUID, dwflags: SECURITY_INFO_PAGE_FLAGS, ppaccess: *mut *mut SI_ACCESS, pcaccesses: *mut u32, pidefaultaccess: *mut u32) -> windows_core::Result<()>;
     fn MapGeneric(&self, pguidobjecttype: *const windows_core::GUID, paceflags: *mut u8, pmask: *mut u32) -> windows_core::Result<()>;
@@ -255,7 +255,7 @@ impl ISecurityInformation_Vtbl {
                 ISecurityInformation_Impl::GetObjectInformation(this, core::mem::transmute_copy(&pobjectinfo)).into()
             }
         }
-        unsafe extern "system" fn GetSecurity<Identity: ISecurityInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, requestedinformation: super::super::OBJECT_SECURITY_INFORMATION, ppsecuritydescriptor: *mut super::super::PSECURITY_DESCRIPTOR, fdefault: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSecurity<Identity: ISecurityInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, requestedinformation: super::super::OBJECT_SECURITY_INFORMATION, ppsecuritydescriptor: *mut super::super::PSECURITY_DESCRIPTOR, fdefault: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISecurityInformation_Impl::GetSecurity(this, core::mem::transmute_copy(&requestedinformation), core::mem::transmute_copy(&ppsecuritydescriptor), core::mem::transmute_copy(&fdefault)).into()
@@ -311,7 +311,7 @@ impl windows_core::RuntimeName for ISecurityInformation {}
 windows_core::imp::define_interface!(ISecurityInformation2, ISecurityInformation2_Vtbl, 0xc3ccfdb4_6f88_11d2_a3ce_00c04fb1782a);
 windows_core::imp::interface_hierarchy!(ISecurityInformation2, windows_core::IUnknown);
 impl ISecurityInformation2 {
-    pub unsafe fn IsDaclCanonical(&self, pdacl: *const super::super::ACL) -> super::super::super::Foundation::BOOL {
+    pub unsafe fn IsDaclCanonical(&self, pdacl: *const super::super::ACL) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).IsDaclCanonical)(windows_core::Interface::as_raw(self), pdacl) }
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -325,7 +325,7 @@ impl ISecurityInformation2 {
 #[repr(C)]
 pub struct ISecurityInformation2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub IsDaclCanonical: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::ACL) -> super::super::super::Foundation::BOOL,
+    pub IsDaclCanonical: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::ACL) -> windows_core::BOOL,
     #[cfg(feature = "Win32_System_Com")]
     pub LookupSids: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::super::PSID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -333,13 +333,13 @@ pub struct ISecurityInformation2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISecurityInformation2_Impl: windows_core::IUnknownImpl {
-    fn IsDaclCanonical(&self, pdacl: *const super::super::ACL) -> super::super::super::Foundation::BOOL;
+    fn IsDaclCanonical(&self, pdacl: *const super::super::ACL) -> windows_core::BOOL;
     fn LookupSids(&self, csids: u32, rgpsids: *const super::super::PSID) -> windows_core::Result<super::super::super::System::Com::IDataObject>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ISecurityInformation2_Vtbl {
     pub const fn new<Identity: ISecurityInformation2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn IsDaclCanonical<Identity: ISecurityInformation2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdacl: *const super::super::ACL) -> super::super::super::Foundation::BOOL {
+        unsafe extern "system" fn IsDaclCanonical<Identity: ISecurityInformation2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdacl: *const super::super::ACL) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISecurityInformation2_Impl::IsDaclCanonical(this, core::mem::transmute_copy(&pdacl))

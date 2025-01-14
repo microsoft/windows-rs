@@ -1,13 +1,13 @@
 windows_core::imp::define_interface!(IOpcCertificateEnumerator, IOpcCertificateEnumerator_Vtbl, 0x85131937_8f24_421f_b439_59ab24d140b8);
 windows_core::imp::interface_hierarchy!(IOpcCertificateEnumerator, windows_core::IUnknown);
 impl IOpcCertificateEnumerator {
-    pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MovePrevious(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn MovePrevious(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MovePrevious)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -30,8 +30,8 @@ impl IOpcCertificateEnumerator {
 #[repr(C)]
 pub struct IOpcCertificateEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub MovePrevious: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub MovePrevious: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_Security_Cryptography")]
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::super::super::Security::Cryptography::CERT_CONTEXT) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Security_Cryptography"))]
@@ -40,15 +40,15 @@ pub struct IOpcCertificateEnumerator_Vtbl {
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub trait IOpcCertificateEnumerator_Impl: windows_core::IUnknownImpl {
-    fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn MovePrevious(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn MovePrevious(&self) -> windows_core::Result<windows_core::BOOL>;
     fn GetCurrent(&self) -> windows_core::Result<*mut super::super::super::Security::Cryptography::CERT_CONTEXT>;
     fn Clone(&self) -> windows_core::Result<IOpcCertificateEnumerator>;
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl IOpcCertificateEnumerator_Vtbl {
     pub const fn new<Identity: IOpcCertificateEnumerator_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn MoveNext<Identity: IOpcCertificateEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MoveNext<Identity: IOpcCertificateEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcCertificateEnumerator_Impl::MoveNext(this) {
@@ -60,7 +60,7 @@ impl IOpcCertificateEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MovePrevious<Identity: IOpcCertificateEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasprevious: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MovePrevious<Identity: IOpcCertificateEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasprevious: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcCertificateEnumerator_Impl::MovePrevious(this) {
@@ -506,13 +506,13 @@ impl windows_core::RuntimeName for IOpcDigitalSignature {}
 windows_core::imp::define_interface!(IOpcDigitalSignatureEnumerator, IOpcDigitalSignatureEnumerator_Vtbl, 0x967b6882_0ba3_4358_b9e7_b64c75063c5e);
 windows_core::imp::interface_hierarchy!(IOpcDigitalSignatureEnumerator, windows_core::IUnknown);
 impl IOpcDigitalSignatureEnumerator {
-    pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MovePrevious(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn MovePrevious(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MovePrevious)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -534,20 +534,20 @@ impl IOpcDigitalSignatureEnumerator {
 #[repr(C)]
 pub struct IOpcDigitalSignatureEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub MovePrevious: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub MovePrevious: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IOpcDigitalSignatureEnumerator_Impl: windows_core::IUnknownImpl {
-    fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn MovePrevious(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn MovePrevious(&self) -> windows_core::Result<windows_core::BOOL>;
     fn GetCurrent(&self) -> windows_core::Result<IOpcDigitalSignature>;
     fn Clone(&self) -> windows_core::Result<IOpcDigitalSignatureEnumerator>;
 }
 impl IOpcDigitalSignatureEnumerator_Vtbl {
     pub const fn new<Identity: IOpcDigitalSignatureEnumerator_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn MoveNext<Identity: IOpcDigitalSignatureEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MoveNext<Identity: IOpcDigitalSignatureEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcDigitalSignatureEnumerator_Impl::MoveNext(this) {
@@ -559,7 +559,7 @@ impl IOpcDigitalSignatureEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MovePrevious<Identity: IOpcDigitalSignatureEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasprevious: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MovePrevious<Identity: IOpcDigitalSignatureEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasprevious: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcDigitalSignatureEnumerator_Impl::MovePrevious(this) {
@@ -1222,13 +1222,13 @@ impl windows_core::RuntimeName for IOpcPart {}
 windows_core::imp::define_interface!(IOpcPartEnumerator, IOpcPartEnumerator_Vtbl, 0x42195949_3b79_4fc8_89c6_fc7fb979ee75);
 windows_core::imp::interface_hierarchy!(IOpcPartEnumerator, windows_core::IUnknown);
 impl IOpcPartEnumerator {
-    pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MovePrevious(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn MovePrevious(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MovePrevious)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1250,20 +1250,20 @@ impl IOpcPartEnumerator {
 #[repr(C)]
 pub struct IOpcPartEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub MovePrevious: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub MovePrevious: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IOpcPartEnumerator_Impl: windows_core::IUnknownImpl {
-    fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn MovePrevious(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn MovePrevious(&self) -> windows_core::Result<windows_core::BOOL>;
     fn GetCurrent(&self) -> windows_core::Result<IOpcPart>;
     fn Clone(&self) -> windows_core::Result<IOpcPartEnumerator>;
 }
 impl IOpcPartEnumerator_Vtbl {
     pub const fn new<Identity: IOpcPartEnumerator_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn MoveNext<Identity: IOpcPartEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MoveNext<Identity: IOpcPartEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcPartEnumerator_Impl::MoveNext(this) {
@@ -1275,7 +1275,7 @@ impl IOpcPartEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MovePrevious<Identity: IOpcPartEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasprevious: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MovePrevious<Identity: IOpcPartEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasprevious: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcPartEnumerator_Impl::MovePrevious(this) {
@@ -1356,7 +1356,7 @@ impl IOpcPartSet {
         unsafe { (windows_core::Interface::vtable(self).DeletePart)(windows_core::Interface::as_raw(self), name.param().abi()).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn PartExists<P0>(&self, name: P0) -> windows_core::Result<super::super::super::Foundation::BOOL>
+    pub unsafe fn PartExists<P0>(&self, name: P0) -> windows_core::Result<windows_core::BOOL>
     where
         P0: windows_core::Param<IOpcPartUri>,
     {
@@ -1388,7 +1388,7 @@ pub struct IOpcPartSet_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     DeletePart: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub PartExists: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub PartExists: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     PartExists: usize,
     pub GetEnumerator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1398,7 +1398,7 @@ pub trait IOpcPartSet_Impl: windows_core::IUnknownImpl {
     fn GetPart(&self, name: windows_core::Ref<IOpcPartUri>) -> windows_core::Result<IOpcPart>;
     fn CreatePart(&self, name: windows_core::Ref<IOpcPartUri>, contenttype: &windows_core::PCWSTR, compressionoptions: OPC_COMPRESSION_OPTIONS) -> windows_core::Result<IOpcPart>;
     fn DeletePart(&self, name: windows_core::Ref<IOpcPartUri>) -> windows_core::Result<()>;
-    fn PartExists(&self, name: windows_core::Ref<IOpcPartUri>) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn PartExists(&self, name: windows_core::Ref<IOpcPartUri>) -> windows_core::Result<windows_core::BOOL>;
     fn GetEnumerator(&self) -> windows_core::Result<IOpcPartEnumerator>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1434,7 +1434,7 @@ impl IOpcPartSet_Vtbl {
                 IOpcPartSet_Impl::DeletePart(this, core::mem::transmute_copy(&name)).into()
             }
         }
-        unsafe extern "system" fn PartExists<Identity: IOpcPartSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, partexists: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn PartExists<Identity: IOpcPartSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, partexists: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcPartSet_Impl::PartExists(this, core::mem::transmute_copy(&name)) {
@@ -1501,7 +1501,7 @@ impl IOpcPartUri {
             (windows_core::Interface::vtable(self).GetSourceUri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn IsRelationshipsPartUri(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn IsRelationshipsPartUri(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsRelationshipsPartUri)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1514,13 +1514,13 @@ pub struct IOpcPartUri_Vtbl {
     pub base__: IOpcUri_Vtbl,
     pub ComparePartUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub GetSourceUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub IsRelationshipsPartUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsRelationshipsPartUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IOpcPartUri_Impl: IOpcUri_Impl {
     fn ComparePartUri(&self, parturi: windows_core::Ref<IOpcPartUri>) -> windows_core::Result<i32>;
     fn GetSourceUri(&self) -> windows_core::Result<IOpcUri>;
-    fn IsRelationshipsPartUri(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn IsRelationshipsPartUri(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IOpcPartUri_Vtbl {
@@ -1549,7 +1549,7 @@ impl IOpcPartUri_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsRelationshipsPartUri<Identity: IOpcPartUri_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isrelationshipuri: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsRelationshipsPartUri<Identity: IOpcPartUri_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isrelationshipuri: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcPartUri_Impl::IsRelationshipsPartUri(this) {
@@ -1714,13 +1714,13 @@ impl windows_core::RuntimeName for IOpcRelationship {}
 windows_core::imp::define_interface!(IOpcRelationshipEnumerator, IOpcRelationshipEnumerator_Vtbl, 0x42195949_3b79_4fc8_89c6_fc7fb979ee76);
 windows_core::imp::interface_hierarchy!(IOpcRelationshipEnumerator, windows_core::IUnknown);
 impl IOpcRelationshipEnumerator {
-    pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MovePrevious(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn MovePrevious(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MovePrevious)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1742,20 +1742,20 @@ impl IOpcRelationshipEnumerator {
 #[repr(C)]
 pub struct IOpcRelationshipEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub MovePrevious: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub MovePrevious: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IOpcRelationshipEnumerator_Impl: windows_core::IUnknownImpl {
-    fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn MovePrevious(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn MovePrevious(&self) -> windows_core::Result<windows_core::BOOL>;
     fn GetCurrent(&self) -> windows_core::Result<IOpcRelationship>;
     fn Clone(&self) -> windows_core::Result<IOpcRelationshipEnumerator>;
 }
 impl IOpcRelationshipEnumerator_Vtbl {
     pub const fn new<Identity: IOpcRelationshipEnumerator_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn MoveNext<Identity: IOpcRelationshipEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MoveNext<Identity: IOpcRelationshipEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcRelationshipEnumerator_Impl::MoveNext(this) {
@@ -1767,7 +1767,7 @@ impl IOpcRelationshipEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MovePrevious<Identity: IOpcRelationshipEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasprevious: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MovePrevious<Identity: IOpcRelationshipEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasprevious: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcRelationshipEnumerator_Impl::MovePrevious(this) {
@@ -1882,13 +1882,13 @@ impl windows_core::RuntimeName for IOpcRelationshipSelector {}
 windows_core::imp::define_interface!(IOpcRelationshipSelectorEnumerator, IOpcRelationshipSelectorEnumerator_Vtbl, 0x5e50a181_a91b_48ac_88d2_bca3d8f8c0b1);
 windows_core::imp::interface_hierarchy!(IOpcRelationshipSelectorEnumerator, windows_core::IUnknown);
 impl IOpcRelationshipSelectorEnumerator {
-    pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MovePrevious(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn MovePrevious(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MovePrevious)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1910,20 +1910,20 @@ impl IOpcRelationshipSelectorEnumerator {
 #[repr(C)]
 pub struct IOpcRelationshipSelectorEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub MovePrevious: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub MovePrevious: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IOpcRelationshipSelectorEnumerator_Impl: windows_core::IUnknownImpl {
-    fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn MovePrevious(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn MovePrevious(&self) -> windows_core::Result<windows_core::BOOL>;
     fn GetCurrent(&self) -> windows_core::Result<IOpcRelationshipSelector>;
     fn Clone(&self) -> windows_core::Result<IOpcRelationshipSelectorEnumerator>;
 }
 impl IOpcRelationshipSelectorEnumerator_Vtbl {
     pub const fn new<Identity: IOpcRelationshipSelectorEnumerator_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn MoveNext<Identity: IOpcRelationshipSelectorEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MoveNext<Identity: IOpcRelationshipSelectorEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcRelationshipSelectorEnumerator_Impl::MoveNext(this) {
@@ -1935,7 +1935,7 @@ impl IOpcRelationshipSelectorEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MovePrevious<Identity: IOpcRelationshipSelectorEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasprevious: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MovePrevious<Identity: IOpcRelationshipSelectorEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasprevious: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcRelationshipSelectorEnumerator_Impl::MovePrevious(this) {
@@ -2095,7 +2095,7 @@ impl IOpcRelationshipSet {
     {
         unsafe { (windows_core::Interface::vtable(self).DeleteRelationship)(windows_core::Interface::as_raw(self), relationshipidentifier.param().abi()).ok() }
     }
-    pub unsafe fn RelationshipExists<P0>(&self, relationshipidentifier: P0) -> windows_core::Result<super::super::super::Foundation::BOOL>
+    pub unsafe fn RelationshipExists<P0>(&self, relationshipidentifier: P0) -> windows_core::Result<windows_core::BOOL>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -2136,7 +2136,7 @@ pub struct IOpcRelationshipSet_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateRelationship: usize,
     pub DeleteRelationship: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub RelationshipExists: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub RelationshipExists: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetEnumerator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetEnumeratorForType: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -2149,7 +2149,7 @@ pub trait IOpcRelationshipSet_Impl: windows_core::IUnknownImpl {
     fn GetRelationship(&self, relationshipidentifier: &windows_core::PCWSTR) -> windows_core::Result<IOpcRelationship>;
     fn CreateRelationship(&self, relationshipidentifier: &windows_core::PCWSTR, relationshiptype: &windows_core::PCWSTR, targeturi: windows_core::Ref<super::super::super::System::Com::IUri>, targetmode: OPC_URI_TARGET_MODE) -> windows_core::Result<IOpcRelationship>;
     fn DeleteRelationship(&self, relationshipidentifier: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn RelationshipExists(&self, relationshipidentifier: &windows_core::PCWSTR) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn RelationshipExists(&self, relationshipidentifier: &windows_core::PCWSTR) -> windows_core::Result<windows_core::BOOL>;
     fn GetEnumerator(&self) -> windows_core::Result<IOpcRelationshipEnumerator>;
     fn GetEnumeratorForType(&self, relationshiptype: &windows_core::PCWSTR) -> windows_core::Result<IOpcRelationshipEnumerator>;
     fn GetRelationshipsContentStream(&self) -> windows_core::Result<super::super::super::System::Com::IStream>;
@@ -2187,7 +2187,7 @@ impl IOpcRelationshipSet_Vtbl {
                 IOpcRelationshipSet_Impl::DeleteRelationship(this, core::mem::transmute(&relationshipidentifier)).into()
             }
         }
-        unsafe extern "system" fn RelationshipExists<Identity: IOpcRelationshipSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, relationshipidentifier: windows_core::PCWSTR, relationshipexists: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn RelationshipExists<Identity: IOpcRelationshipSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, relationshipidentifier: windows_core::PCWSTR, relationshipexists: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcRelationshipSet_Impl::RelationshipExists(this, core::mem::transmute(&relationshipidentifier)) {
@@ -2285,13 +2285,13 @@ impl windows_core::RuntimeName for IOpcSignatureCustomObject {}
 windows_core::imp::define_interface!(IOpcSignatureCustomObjectEnumerator, IOpcSignatureCustomObjectEnumerator_Vtbl, 0x5ee4fe1d_e1b0_4683_8079_7ea0fcf80b4c);
 windows_core::imp::interface_hierarchy!(IOpcSignatureCustomObjectEnumerator, windows_core::IUnknown);
 impl IOpcSignatureCustomObjectEnumerator {
-    pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MovePrevious(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn MovePrevious(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MovePrevious)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2313,20 +2313,20 @@ impl IOpcSignatureCustomObjectEnumerator {
 #[repr(C)]
 pub struct IOpcSignatureCustomObjectEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub MovePrevious: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub MovePrevious: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IOpcSignatureCustomObjectEnumerator_Impl: windows_core::IUnknownImpl {
-    fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn MovePrevious(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn MovePrevious(&self) -> windows_core::Result<windows_core::BOOL>;
     fn GetCurrent(&self) -> windows_core::Result<IOpcSignatureCustomObject>;
     fn Clone(&self) -> windows_core::Result<IOpcSignatureCustomObjectEnumerator>;
 }
 impl IOpcSignatureCustomObjectEnumerator_Vtbl {
     pub const fn new<Identity: IOpcSignatureCustomObjectEnumerator_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn MoveNext<Identity: IOpcSignatureCustomObjectEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MoveNext<Identity: IOpcSignatureCustomObjectEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcSignatureCustomObjectEnumerator_Impl::MoveNext(this) {
@@ -2338,7 +2338,7 @@ impl IOpcSignatureCustomObjectEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MovePrevious<Identity: IOpcSignatureCustomObjectEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasprevious: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MovePrevious<Identity: IOpcSignatureCustomObjectEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasprevious: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcSignatureCustomObjectEnumerator_Impl::MovePrevious(this) {
@@ -2592,13 +2592,13 @@ impl windows_core::RuntimeName for IOpcSignaturePartReference {}
 windows_core::imp::define_interface!(IOpcSignaturePartReferenceEnumerator, IOpcSignaturePartReferenceEnumerator_Vtbl, 0x80eb1561_8c77_49cf_8266_459b356ee99a);
 windows_core::imp::interface_hierarchy!(IOpcSignaturePartReferenceEnumerator, windows_core::IUnknown);
 impl IOpcSignaturePartReferenceEnumerator {
-    pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MovePrevious(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn MovePrevious(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MovePrevious)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2620,20 +2620,20 @@ impl IOpcSignaturePartReferenceEnumerator {
 #[repr(C)]
 pub struct IOpcSignaturePartReferenceEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub MovePrevious: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub MovePrevious: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IOpcSignaturePartReferenceEnumerator_Impl: windows_core::IUnknownImpl {
-    fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn MovePrevious(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn MovePrevious(&self) -> windows_core::Result<windows_core::BOOL>;
     fn GetCurrent(&self) -> windows_core::Result<IOpcSignaturePartReference>;
     fn Clone(&self) -> windows_core::Result<IOpcSignaturePartReferenceEnumerator>;
 }
 impl IOpcSignaturePartReferenceEnumerator_Vtbl {
     pub const fn new<Identity: IOpcSignaturePartReferenceEnumerator_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn MoveNext<Identity: IOpcSignaturePartReferenceEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MoveNext<Identity: IOpcSignaturePartReferenceEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcSignaturePartReferenceEnumerator_Impl::MoveNext(this) {
@@ -2645,7 +2645,7 @@ impl IOpcSignaturePartReferenceEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MovePrevious<Identity: IOpcSignaturePartReferenceEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasprevious: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MovePrevious<Identity: IOpcSignaturePartReferenceEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasprevious: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcSignaturePartReferenceEnumerator_Impl::MovePrevious(this) {
@@ -2931,13 +2931,13 @@ impl windows_core::RuntimeName for IOpcSignatureReference {}
 windows_core::imp::define_interface!(IOpcSignatureReferenceEnumerator, IOpcSignatureReferenceEnumerator_Vtbl, 0xcfa59a45_28b1_4868_969e_fa8097fdc12a);
 windows_core::imp::interface_hierarchy!(IOpcSignatureReferenceEnumerator, windows_core::IUnknown);
 impl IOpcSignatureReferenceEnumerator {
-    pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MovePrevious(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn MovePrevious(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MovePrevious)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2959,20 +2959,20 @@ impl IOpcSignatureReferenceEnumerator {
 #[repr(C)]
 pub struct IOpcSignatureReferenceEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub MovePrevious: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub MovePrevious: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IOpcSignatureReferenceEnumerator_Impl: windows_core::IUnknownImpl {
-    fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn MovePrevious(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn MovePrevious(&self) -> windows_core::Result<windows_core::BOOL>;
     fn GetCurrent(&self) -> windows_core::Result<IOpcSignatureReference>;
     fn Clone(&self) -> windows_core::Result<IOpcSignatureReferenceEnumerator>;
 }
 impl IOpcSignatureReferenceEnumerator_Vtbl {
     pub const fn new<Identity: IOpcSignatureReferenceEnumerator_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn MoveNext<Identity: IOpcSignatureReferenceEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MoveNext<Identity: IOpcSignatureReferenceEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcSignatureReferenceEnumerator_Impl::MoveNext(this) {
@@ -2984,7 +2984,7 @@ impl IOpcSignatureReferenceEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MovePrevious<Identity: IOpcSignatureReferenceEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasprevious: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MovePrevious<Identity: IOpcSignatureReferenceEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasprevious: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcSignatureReferenceEnumerator_Impl::MovePrevious(this) {
@@ -3272,13 +3272,13 @@ impl windows_core::RuntimeName for IOpcSignatureRelationshipReference {}
 windows_core::imp::define_interface!(IOpcSignatureRelationshipReferenceEnumerator, IOpcSignatureRelationshipReferenceEnumerator_Vtbl, 0x773ba3e4_f021_48e4_aa04_9816db5d3495);
 windows_core::imp::interface_hierarchy!(IOpcSignatureRelationshipReferenceEnumerator, windows_core::IUnknown);
 impl IOpcSignatureRelationshipReferenceEnumerator {
-    pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MovePrevious(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn MovePrevious(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MovePrevious)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3300,20 +3300,20 @@ impl IOpcSignatureRelationshipReferenceEnumerator {
 #[repr(C)]
 pub struct IOpcSignatureRelationshipReferenceEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub MovePrevious: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub MovePrevious: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IOpcSignatureRelationshipReferenceEnumerator_Impl: windows_core::IUnknownImpl {
-    fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn MovePrevious(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn MovePrevious(&self) -> windows_core::Result<windows_core::BOOL>;
     fn GetCurrent(&self) -> windows_core::Result<IOpcSignatureRelationshipReference>;
     fn Clone(&self) -> windows_core::Result<IOpcSignatureRelationshipReferenceEnumerator>;
 }
 impl IOpcSignatureRelationshipReferenceEnumerator_Vtbl {
     pub const fn new<Identity: IOpcSignatureRelationshipReferenceEnumerator_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn MoveNext<Identity: IOpcSignatureRelationshipReferenceEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MoveNext<Identity: IOpcSignatureRelationshipReferenceEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcSignatureRelationshipReferenceEnumerator_Impl::MoveNext(this) {
@@ -3325,7 +3325,7 @@ impl IOpcSignatureRelationshipReferenceEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MovePrevious<Identity: IOpcSignatureRelationshipReferenceEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasprevious: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MovePrevious<Identity: IOpcSignatureRelationshipReferenceEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasprevious: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcSignatureRelationshipReferenceEnumerator_Impl::MovePrevious(this) {

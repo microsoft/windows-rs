@@ -45,7 +45,7 @@ pub type BucketParameterIndex = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct BucketParameters {
-    pub fInited: super::super::Foundation::BOOL,
+    pub fInited: windows_sys::core::BOOL,
     pub pszEventTypeName: [u16; 255],
     pub pszParams: [u16; 2550],
 }

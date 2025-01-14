@@ -11,8 +11,8 @@ pub unsafe fn DosDateTimeToVariantTime(wdosdate: u16, wdostime: u16, pvtime: *mu
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn InitVariantFromBooleanArray(prgf: &[super::super::Foundation::BOOL]) -> windows_core::Result<VARIANT> {
-    windows_targets::link!("propsys.dll" "system" fn InitVariantFromBooleanArray(prgf : *const super::super::Foundation:: BOOL, celems : u32, pvar : *mut VARIANT) -> windows_core::HRESULT);
+pub unsafe fn InitVariantFromBooleanArray(prgf: &[windows_core::BOOL]) -> windows_core::Result<VARIANT> {
+    windows_targets::link!("propsys.dll" "system" fn InitVariantFromBooleanArray(prgf : *const windows_core::BOOL, celems : u32, pvar : *mut VARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         InitVariantFromBooleanArray(core::mem::transmute(prgf.as_ptr()), prgf.len().try_into().unwrap(), &mut result__).map(|| core::mem::transmute(result__))
@@ -235,8 +235,8 @@ pub unsafe fn VariantCopyInd(pvardest: *mut VARIANT, pvargsrc: *const VARIANT) -
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantGetBooleanElem(var: *const VARIANT, ielem: u32) -> windows_core::Result<super::super::Foundation::BOOL> {
-    windows_targets::link!("propsys.dll" "system" fn VariantGetBooleanElem(var : *const VARIANT, ielem : u32, pfval : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+pub unsafe fn VariantGetBooleanElem(var: *const VARIANT, ielem: u32) -> windows_core::Result<windows_core::BOOL> {
+    windows_targets::link!("propsys.dll" "system" fn VariantGetBooleanElem(var : *const VARIANT, ielem : u32, pfval : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         VariantGetBooleanElem(core::mem::transmute(var), ielem, &mut result__).map(|| core::mem::transmute(result__))
@@ -342,8 +342,8 @@ pub unsafe fn VariantTimeToSystemTime(vtime: f64, lpsystemtime: *mut super::supe
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantToBoolean(varin: *const VARIANT) -> windows_core::Result<super::super::Foundation::BOOL> {
-    windows_targets::link!("propsys.dll" "system" fn VariantToBoolean(varin : *const VARIANT, pfret : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+pub unsafe fn VariantToBoolean(varin: *const VARIANT) -> windows_core::Result<windows_core::BOOL> {
+    windows_targets::link!("propsys.dll" "system" fn VariantToBoolean(varin : *const VARIANT, pfret : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         VariantToBoolean(core::mem::transmute(varin), &mut result__).map(|| core::mem::transmute(result__))
@@ -351,20 +351,20 @@ pub unsafe fn VariantToBoolean(varin: *const VARIANT) -> windows_core::Result<su
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantToBooleanArray(var: *const VARIANT, prgf: &mut [super::super::Foundation::BOOL], pcelem: *mut u32) -> windows_core::Result<()> {
-    windows_targets::link!("propsys.dll" "system" fn VariantToBooleanArray(var : *const VARIANT, prgf : *mut super::super::Foundation:: BOOL, crgn : u32, pcelem : *mut u32) -> windows_core::HRESULT);
+pub unsafe fn VariantToBooleanArray(var: *const VARIANT, prgf: &mut [windows_core::BOOL], pcelem: *mut u32) -> windows_core::Result<()> {
+    windows_targets::link!("propsys.dll" "system" fn VariantToBooleanArray(var : *const VARIANT, prgf : *mut windows_core::BOOL, crgn : u32, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { VariantToBooleanArray(core::mem::transmute(var), core::mem::transmute(prgf.as_ptr()), prgf.len().try_into().unwrap(), pcelem as _).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantToBooleanArrayAlloc(var: *const VARIANT, pprgf: *mut *mut super::super::Foundation::BOOL, pcelem: *mut u32) -> windows_core::Result<()> {
-    windows_targets::link!("propsys.dll" "system" fn VariantToBooleanArrayAlloc(var : *const VARIANT, pprgf : *mut *mut super::super::Foundation:: BOOL, pcelem : *mut u32) -> windows_core::HRESULT);
+pub unsafe fn VariantToBooleanArrayAlloc(var: *const VARIANT, pprgf: *mut *mut windows_core::BOOL, pcelem: *mut u32) -> windows_core::Result<()> {
+    windows_targets::link!("propsys.dll" "system" fn VariantToBooleanArrayAlloc(var : *const VARIANT, pprgf : *mut *mut windows_core::BOOL, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { VariantToBooleanArrayAlloc(core::mem::transmute(var), pprgf as _, pcelem as _).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantToBooleanWithDefault(varin: *const VARIANT, fdefault: bool) -> super::super::Foundation::BOOL {
-    windows_targets::link!("propsys.dll" "system" fn VariantToBooleanWithDefault(varin : *const VARIANT, fdefault : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+pub unsafe fn VariantToBooleanWithDefault(varin: *const VARIANT, fdefault: bool) -> windows_core::BOOL {
+    windows_targets::link!("propsys.dll" "system" fn VariantToBooleanWithDefault(varin : *const VARIANT, fdefault : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { VariantToBooleanWithDefault(core::mem::transmute(varin), fdefault.into()) }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]

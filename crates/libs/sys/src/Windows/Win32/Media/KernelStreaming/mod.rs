@@ -55,7 +55,7 @@ pub const AUDIOPOSTURE_ORIENTATION_ROTATED90DEGREESCOUNTERCLOCKWISE: AUDIOPOSTUR
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {
-    pub ResourceGroupAcquired: super::super::Foundation::BOOL,
+    pub ResourceGroupAcquired: windows_sys::core::BOOL,
     pub ResourceGroupName: [u16; 256],
 }
 pub type AUDIO_CURVE_TYPE = i32;
@@ -223,7 +223,7 @@ pub const JACKDESC2_PRESENCE_DETECT_CAPABILITY: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSAC3_ALTERNATE_AUDIO {
-    pub fStereo: super::super::Foundation::BOOL,
+    pub fStereo: windows_sys::core::BOOL,
     pub DualMode: u32,
 }
 pub const KSAC3_ALTERNATE_AUDIO_1: u32 = 1u32;
@@ -242,19 +242,19 @@ pub struct KSAC3_DIALOGUE_LEVEL {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSAC3_DOWNMIX {
-    pub fDownMix: super::super::Foundation::BOOL,
-    pub fDolbySurround: super::super::Foundation::BOOL,
+    pub fDownMix: windows_sys::core::BOOL,
+    pub fDolbySurround: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSAC3_ERROR_CONCEALMENT {
-    pub fRepeatPreviousBlock: super::super::Foundation::BOOL,
-    pub fErrorInCurrentBlock: super::super::Foundation::BOOL,
+    pub fRepeatPreviousBlock: windows_sys::core::BOOL,
+    pub fErrorInCurrentBlock: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSAC3_ROOM_TYPE {
-    pub fLargeRoom: super::super::Foundation::BOOL,
+    pub fLargeRoom: windows_sys::core::BOOL,
 }
 pub const KSAC3_SERVICE_COMMENTARY: u32 = 5u32;
 pub const KSAC3_SERVICE_DIALOG_ONLY: u32 = 4u32;
@@ -460,8 +460,8 @@ pub struct KSAUDIO_CHANNEL_CONFIG {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSAUDIO_COPY_PROTECTION {
-    pub fCopyrighted: super::super::Foundation::BOOL,
-    pub fOriginal: super::super::Foundation::BOOL,
+    pub fCopyrighted: windows_sys::core::BOOL,
+    pub fOriginal: windows_sys::core::BOOL,
 }
 pub const KSAUDIO_CPU_RESOURCES_HOST_CPU: u32 = 2147483647u32;
 pub const KSAUDIO_CPU_RESOURCES_NOT_HOST_CPU: u32 = 0u32;
@@ -505,13 +505,13 @@ pub struct KSAUDIO_MIXCAP_TABLE {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSAUDIO_MIXLEVEL {
-    pub Mute: super::super::Foundation::BOOL,
+    pub Mute: windows_sys::core::BOOL,
     pub Level: i32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSAUDIO_MIX_CAPS {
-    pub Mute: super::super::Foundation::BOOL,
+    pub Mute: windows_sys::core::BOOL,
     pub Minimum: i32,
     pub Maximum: i32,
     pub Anonymous: KSAUDIO_MIX_CAPS_0,
@@ -1465,9 +1465,9 @@ pub struct KSDS3D_HRTF_INIT_MSG {
 pub struct KSDS3D_HRTF_PARAMS_MSG {
     pub Size: u32,
     pub Enabled: u32,
-    pub SwapChannels: super::super::Foundation::BOOL,
-    pub ZeroAzimuth: super::super::Foundation::BOOL,
-    pub CrossFadeOutput: super::super::Foundation::BOOL,
+    pub SwapChannels: windows_sys::core::BOOL,
+    pub ZeroAzimuth: windows_sys::core::BOOL,
+    pub CrossFadeOutput: windows_sys::core::BOOL,
     pub FilterSize: u32,
 }
 #[repr(C)]
@@ -1758,7 +1758,7 @@ pub struct KSJACK_DESCRIPTION {
     pub GeoLocation: EPcxGeoLocation,
     pub GenLocation: EPcxGenLocation,
     pub PortConnection: EPxcPortConnection,
-    pub IsConnected: super::super::Foundation::BOOL,
+    pub IsConnected: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1781,8 +1781,8 @@ pub struct KSJACK_SINK_INFORMATION {
     pub ManufacturerId: u16,
     pub ProductId: u16,
     pub AudioLatency: u16,
-    pub HDCPCapable: super::super::Foundation::BOOL,
-    pub AICapable: super::super::Foundation::BOOL,
+    pub HDCPCapable: windows_sys::core::BOOL,
+    pub AICapable: windows_sys::core::BOOL,
     pub SinkDescriptionLength: u8,
     pub SinkDescription: [u16; 32],
     pub PortId: super::super::Foundation::LUID,
@@ -2479,9 +2479,9 @@ pub const KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_PROPERTY_ID: KSPROPERTY_CA
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S {
     pub FocusRect: super::super::Foundation::RECT,
-    pub AutoFocusLock: super::super::Foundation::BOOL,
-    pub AutoExposureLock: super::super::Foundation::BOOL,
-    pub AutoWhitebalanceLock: super::super::Foundation::BOOL,
+    pub AutoFocusLock: windows_sys::core::BOOL,
+    pub AutoExposureLock: windows_sys::core::BOOL,
+    pub AutoWhitebalanceLock: windows_sys::core::BOOL,
     pub Anonymous: KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S_0,
 }
 #[repr(C)]
@@ -2829,10 +2829,10 @@ pub const KSPROPERTY_NETWORKCAMERACONTROL_METADATA: KSPROPERTY_NETWORKCAMERACONT
 pub struct KSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO {
     pub MetadataItems: u32,
     pub Size: u32,
-    pub PTZStatus: super::super::Foundation::BOOL,
-    pub Events: super::super::Foundation::BOOL,
-    pub Analytics: super::super::Foundation::BOOL,
-    pub Reserved: super::super::Foundation::BOOL,
+    pub PTZStatus: windows_sys::core::BOOL,
+    pub Events: windows_sys::core::BOOL,
+    pub Analytics: windows_sys::core::BOOL,
+    pub Reserved: windows_sys::core::BOOL,
 }
 pub type KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE = i32;
 pub const KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE_EVENTSINFO: KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE = 0i32;
@@ -3102,7 +3102,7 @@ pub const KSPROPERTY_TUNER_SCAN_CAPS: KSPROPERTY_TUNER = 8i32;
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_TUNER_SCAN_CAPS_S {
     pub Property: KSIDENTIFIER,
-    pub fSupportsHardwareAssistedScanning: super::super::Foundation::BOOL,
+    pub fSupportsHardwareAssistedScanning: windows_sys::core::BOOL,
     pub SupportedBroadcastStandards: u32,
     pub GUIDBucket: *mut core::ffi::c_void,
     pub lengthofBucket: u32,
@@ -3121,7 +3121,7 @@ pub const KSPROPERTY_TUNER_STANDARD_MODE: KSPROPERTY_TUNER = 10i32;
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_TUNER_STANDARD_MODE_S {
     pub Property: KSIDENTIFIER,
-    pub AutoDetect: super::super::Foundation::BOOL,
+    pub AutoDetect: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3587,14 +3587,14 @@ pub struct KSRESOLUTION {
 pub struct KSRTAUDIO_BUFFER {
     pub BufferAddress: *mut core::ffi::c_void,
     pub ActualBufferSize: u32,
-    pub CallMemoryBarrier: super::super::Foundation::BOOL,
+    pub CallMemoryBarrier: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSRTAUDIO_BUFFER32 {
     pub BufferAddress: u32,
     pub ActualBufferSize: u32,
-    pub CallMemoryBarrier: super::super::Foundation::BOOL,
+    pub CallMemoryBarrier: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3632,7 +3632,7 @@ pub struct KSRTAUDIO_GETREADPACKET_INFO {
     pub PacketNumber: u32,
     pub Flags: u32,
     pub PerformanceCounterValue: u64,
-    pub MoreData: super::super::Foundation::BOOL,
+    pub MoreData: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3918,9 +3918,9 @@ pub struct KSVPSURFACEPARAMS {
 pub struct KSWAVETABLE_WAVE_DESC {
     pub Identifier: KSIDENTIFIER,
     pub Size: u32,
-    pub Looped: super::super::Foundation::BOOL,
+    pub Looped: windows_sys::core::BOOL,
     pub LoopPoint: u32,
-    pub InROM: super::super::Foundation::BOOL,
+    pub InROM: windows_sys::core::BOOL,
     pub Format: KSDATAFORMAT,
 }
 #[repr(C)]
@@ -3993,11 +3993,11 @@ pub struct KS_AMVPDATAINFO {
     pub amvpDimInfo: KS_AMVPDIMINFO,
     pub dwPictAspectRatioX: u32,
     pub dwPictAspectRatioY: u32,
-    pub bEnableDoubleClock: super::super::Foundation::BOOL,
-    pub bEnableVACT: super::super::Foundation::BOOL,
-    pub bDataIsInterlaced: super::super::Foundation::BOOL,
+    pub bEnableDoubleClock: windows_sys::core::BOOL,
+    pub bEnableVACT: windows_sys::core::BOOL,
+    pub bDataIsInterlaced: windows_sys::core::BOOL,
     pub lHalfLinesOdd: i32,
-    pub bFieldPolarityInverted: super::super::Foundation::BOOL,
+    pub bFieldPolarityInverted: windows_sys::core::BOOL,
     pub dwNumLinesInVREF: u32,
     pub lHalfLinesEven: i32,
     pub dwReserved1: u32,
@@ -4202,8 +4202,8 @@ pub struct KS_DATARANGE_ANALOGVIDEO {
 #[derive(Clone, Copy)]
 pub struct KS_DATARANGE_H264_VIDEO {
     pub DataRange: KSDATAFORMAT,
-    pub bFixedSizeSamples: super::super::Foundation::BOOL,
-    pub bTemporalCompression: super::super::Foundation::BOOL,
+    pub bFixedSizeSamples: windows_sys::core::BOOL,
+    pub bTemporalCompression: windows_sys::core::BOOL,
     pub StreamDescriptionFlags: u32,
     pub MemoryAllocationFlags: u32,
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
@@ -4220,8 +4220,8 @@ pub struct KS_DATARANGE_IMAGE {
 #[derive(Clone, Copy)]
 pub struct KS_DATARANGE_MPEG1_VIDEO {
     pub DataRange: KSDATAFORMAT,
-    pub bFixedSizeSamples: super::super::Foundation::BOOL,
-    pub bTemporalCompression: super::super::Foundation::BOOL,
+    pub bFixedSizeSamples: windows_sys::core::BOOL,
+    pub bTemporalCompression: windows_sys::core::BOOL,
     pub StreamDescriptionFlags: u32,
     pub MemoryAllocationFlags: u32,
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
@@ -4231,8 +4231,8 @@ pub struct KS_DATARANGE_MPEG1_VIDEO {
 #[derive(Clone, Copy)]
 pub struct KS_DATARANGE_MPEG2_VIDEO {
     pub DataRange: KSDATAFORMAT,
-    pub bFixedSizeSamples: super::super::Foundation::BOOL,
-    pub bTemporalCompression: super::super::Foundation::BOOL,
+    pub bFixedSizeSamples: windows_sys::core::BOOL,
+    pub bTemporalCompression: windows_sys::core::BOOL,
     pub StreamDescriptionFlags: u32,
     pub MemoryAllocationFlags: u32,
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
@@ -4242,8 +4242,8 @@ pub struct KS_DATARANGE_MPEG2_VIDEO {
 #[derive(Clone, Copy)]
 pub struct KS_DATARANGE_VIDEO {
     pub DataRange: KSDATAFORMAT,
-    pub bFixedSizeSamples: super::super::Foundation::BOOL,
-    pub bTemporalCompression: super::super::Foundation::BOOL,
+    pub bFixedSizeSamples: windows_sys::core::BOOL,
+    pub bTemporalCompression: windows_sys::core::BOOL,
     pub StreamDescriptionFlags: u32,
     pub MemoryAllocationFlags: u32,
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
@@ -4253,8 +4253,8 @@ pub struct KS_DATARANGE_VIDEO {
 #[derive(Clone, Copy)]
 pub struct KS_DATARANGE_VIDEO2 {
     pub DataRange: KSDATAFORMAT,
-    pub bFixedSizeSamples: super::super::Foundation::BOOL,
-    pub bTemporalCompression: super::super::Foundation::BOOL,
+    pub bFixedSizeSamples: windows_sys::core::BOOL,
+    pub bTemporalCompression: windows_sys::core::BOOL,
     pub StreamDescriptionFlags: u32,
     pub MemoryAllocationFlags: u32,
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
@@ -4264,8 +4264,8 @@ pub struct KS_DATARANGE_VIDEO2 {
 #[derive(Clone, Copy)]
 pub struct KS_DATARANGE_VIDEO_PALETTE {
     pub DataRange: KSDATAFORMAT,
-    pub bFixedSizeSamples: super::super::Foundation::BOOL,
-    pub bTemporalCompression: super::super::Foundation::BOOL,
+    pub bFixedSizeSamples: windows_sys::core::BOOL,
+    pub bTemporalCompression: windows_sys::core::BOOL,
     pub StreamDescriptionFlags: u32,
     pub MemoryAllocationFlags: u32,
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
@@ -4275,8 +4275,8 @@ pub struct KS_DATARANGE_VIDEO_PALETTE {
 #[derive(Clone, Copy)]
 pub struct KS_DATARANGE_VIDEO_VBI {
     pub DataRange: KSDATAFORMAT,
-    pub bFixedSizeSamples: super::super::Foundation::BOOL,
-    pub bTemporalCompression: super::super::Foundation::BOOL,
+    pub bFixedSizeSamples: windows_sys::core::BOOL,
+    pub bTemporalCompression: windows_sys::core::BOOL,
     pub StreamDescriptionFlags: u32,
     pub MemoryAllocationFlags: u32,
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
@@ -4822,9 +4822,9 @@ pub const MAX_WST_VBI_LINES_PER_FIELD: u32 = 17u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MEDIUM_INFO {
-    pub MediaPresent: super::super::Foundation::BOOL,
+    pub MediaPresent: windows_sys::core::BOOL,
     pub MediaType: u32,
-    pub RecordInhibit: super::super::Foundation::BOOL,
+    pub RecordInhibit: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]

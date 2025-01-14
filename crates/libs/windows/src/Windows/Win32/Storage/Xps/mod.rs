@@ -52,8 +52,8 @@ pub unsafe fn ExtEscape(hdc: super::super::Graphics::Gdi::HDC, iescape: i32, lpi
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn PrintWindow(hwnd: super::super::Foundation::HWND, hdcblt: super::super::Graphics::Gdi::HDC, nflags: PRINT_WINDOW_FLAGS) -> super::super::Foundation::BOOL {
-    windows_targets::link!("user32.dll" "system" fn PrintWindow(hwnd : super::super::Foundation:: HWND, hdcblt : super::super::Graphics::Gdi:: HDC, nflags : PRINT_WINDOW_FLAGS) -> super::super::Foundation:: BOOL);
+pub unsafe fn PrintWindow(hwnd: super::super::Foundation::HWND, hdcblt: super::super::Graphics::Gdi::HDC, nflags: PRINT_WINDOW_FLAGS) -> windows_core::BOOL {
+    windows_targets::link!("user32.dll" "system" fn PrintWindow(hwnd : super::super::Foundation:: HWND, hdcblt : super::super::Graphics::Gdi:: HDC, nflags : PRINT_WINDOW_FLAGS) -> windows_core::BOOL);
     unsafe { PrintWindow(hwnd, hdcblt, nflags) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -81,7 +81,7 @@ pub unsafe fn StartPage(hdc: super::super::Graphics::Gdi::HDC) -> i32 {
     unsafe { StartPage(hdc) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type ABORTPROC = Option<unsafe extern "system" fn(param0: super::super::Graphics::Gdi::HDC, param1: i32) -> super::super::Foundation::BOOL>;
+pub type ABORTPROC = Option<unsafe extern "system" fn(param0: super::super::Graphics::Gdi::HDC, param1: i32) -> windows_core::BOOL>;
 pub const DC_BINNAMES: PRINTER_DEVICE_CAPABILITIES = PRINTER_DEVICE_CAPABILITIES(12u16);
 pub const DC_BINS: PRINTER_DEVICE_CAPABILITIES = PRINTER_DEVICE_CAPABILITIES(6u16);
 pub const DC_COLLATE: PRINTER_DEVICE_CAPABILITIES = PRINTER_DEVICE_CAPABILITIES(22u16);
@@ -395,7 +395,7 @@ impl IXpsOMCanvas {
             (windows_core::Interface::vtable(self).GetVisuals)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetUseAliasedEdgeMode(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn GetUseAliasedEdgeMode(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetUseAliasedEdgeMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -469,8 +469,8 @@ impl IXpsOMCanvas {
 pub struct IXpsOMCanvas_Vtbl {
     pub base__: IXpsOMVisual_Vtbl,
     pub GetVisuals: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetUseAliasedEdgeMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetUseAliasedEdgeMode: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetUseAliasedEdgeMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetUseAliasedEdgeMode: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub GetAccessibilityShortDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub SetAccessibilityShortDescription: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetAccessibilityLongDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -485,8 +485,8 @@ pub struct IXpsOMCanvas_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXpsOMCanvas_Impl: IXpsOMVisual_Impl {
     fn GetVisuals(&self) -> windows_core::Result<IXpsOMVisualCollection>;
-    fn GetUseAliasedEdgeMode(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn SetUseAliasedEdgeMode(&self, usealiasededgemode: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn GetUseAliasedEdgeMode(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn SetUseAliasedEdgeMode(&self, usealiasededgemode: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetAccessibilityShortDescription(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn SetAccessibilityShortDescription(&self, shortdescription: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetAccessibilityLongDescription(&self) -> windows_core::Result<windows_core::PWSTR>;
@@ -513,7 +513,7 @@ impl IXpsOMCanvas_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetUseAliasedEdgeMode<Identity: IXpsOMCanvas_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, usealiasededgemode: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetUseAliasedEdgeMode<Identity: IXpsOMCanvas_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, usealiasededgemode: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMCanvas_Impl::GetUseAliasedEdgeMode(this) {
@@ -525,7 +525,7 @@ impl IXpsOMCanvas_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetUseAliasedEdgeMode<Identity: IXpsOMCanvas_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, usealiasededgemode: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetUseAliasedEdgeMode<Identity: IXpsOMCanvas_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, usealiasededgemode: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXpsOMCanvas_Impl::SetUseAliasedEdgeMode(this, core::mem::transmute_copy(&usealiasededgemode)).into()
@@ -2803,10 +2803,10 @@ impl IXpsOMGeometryFigure {
     pub unsafe fn GetSegmentTypes(&self, segmentcount: *mut u32, segmenttypes: *mut XPS_SEGMENT_TYPE) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetSegmentTypes)(windows_core::Interface::as_raw(self), segmentcount as _, segmenttypes as _).ok() }
     }
-    pub unsafe fn GetSegmentStrokes(&self, segmentcount: *mut u32, segmentstrokes: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn GetSegmentStrokes(&self, segmentcount: *mut u32, segmentstrokes: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetSegmentStrokes)(windows_core::Interface::as_raw(self), segmentcount as _, segmentstrokes as _).ok() }
     }
-    pub unsafe fn SetSegments(&self, segmentcount: u32, segmentdatacount: u32, segmenttypes: *const XPS_SEGMENT_TYPE, segmentdata: *const f32, segmentstrokes: *const super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetSegments(&self, segmentcount: u32, segmentdatacount: u32, segmenttypes: *const XPS_SEGMENT_TYPE, segmentdata: *const f32, segmentstrokes: *const windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSegments)(windows_core::Interface::as_raw(self), segmentcount, segmentdatacount, segmenttypes, segmentdata, segmentstrokes).ok() }
     }
     pub unsafe fn GetStartPoint(&self) -> windows_core::Result<XPS_POINT> {
@@ -2818,7 +2818,7 @@ impl IXpsOMGeometryFigure {
     pub unsafe fn SetStartPoint(&self, startpoint: *const XPS_POINT) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetStartPoint)(windows_core::Interface::as_raw(self), startpoint).ok() }
     }
-    pub unsafe fn GetIsClosed(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn GetIsClosed(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetIsClosed)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2827,7 +2827,7 @@ impl IXpsOMGeometryFigure {
     pub unsafe fn SetIsClosed(&self, isclosed: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetIsClosed)(windows_core::Interface::as_raw(self), isclosed.into()).ok() }
     }
-    pub unsafe fn GetIsFilled(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn GetIsFilled(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetIsFilled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2867,14 +2867,14 @@ pub struct IXpsOMGeometryFigure_Vtbl {
     pub GetOwner: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSegmentData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut f32) -> windows_core::HRESULT,
     pub GetSegmentTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut XPS_SEGMENT_TYPE) -> windows_core::HRESULT,
-    pub GetSegmentStrokes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetSegments: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const XPS_SEGMENT_TYPE, *const f32, *const super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetSegmentStrokes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetSegments: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const XPS_SEGMENT_TYPE, *const f32, *const windows_core::BOOL) -> windows_core::HRESULT,
     pub GetStartPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_POINT) -> windows_core::HRESULT,
     pub SetStartPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_POINT) -> windows_core::HRESULT,
-    pub GetIsClosed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetIsClosed: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub GetIsFilled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetIsFilled: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetIsClosed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetIsClosed: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
+    pub GetIsFilled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetIsFilled: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub GetSegmentCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetSegmentDataCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetSegmentStrokePattern: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_SEGMENT_STROKE_PATTERN) -> windows_core::HRESULT,
@@ -2884,14 +2884,14 @@ pub trait IXpsOMGeometryFigure_Impl: windows_core::IUnknownImpl {
     fn GetOwner(&self) -> windows_core::Result<IXpsOMGeometry>;
     fn GetSegmentData(&self, datacount: *mut u32, segmentdata: *mut f32) -> windows_core::Result<()>;
     fn GetSegmentTypes(&self, segmentcount: *mut u32, segmenttypes: *mut XPS_SEGMENT_TYPE) -> windows_core::Result<()>;
-    fn GetSegmentStrokes(&self, segmentcount: *mut u32, segmentstrokes: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn SetSegments(&self, segmentcount: u32, segmentdatacount: u32, segmenttypes: *const XPS_SEGMENT_TYPE, segmentdata: *const f32, segmentstrokes: *const super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn GetSegmentStrokes(&self, segmentcount: *mut u32, segmentstrokes: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetSegments(&self, segmentcount: u32, segmentdatacount: u32, segmenttypes: *const XPS_SEGMENT_TYPE, segmentdata: *const f32, segmentstrokes: *const windows_core::BOOL) -> windows_core::Result<()>;
     fn GetStartPoint(&self) -> windows_core::Result<XPS_POINT>;
     fn SetStartPoint(&self, startpoint: *const XPS_POINT) -> windows_core::Result<()>;
-    fn GetIsClosed(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn SetIsClosed(&self, isclosed: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn GetIsFilled(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn SetIsFilled(&self, isfilled: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn GetIsClosed(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn SetIsClosed(&self, isclosed: windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetIsFilled(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn SetIsFilled(&self, isfilled: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetSegmentCount(&self) -> windows_core::Result<u32>;
     fn GetSegmentDataCount(&self) -> windows_core::Result<u32>;
     fn GetSegmentStrokePattern(&self) -> windows_core::Result<XPS_SEGMENT_STROKE_PATTERN>;
@@ -2923,13 +2923,13 @@ impl IXpsOMGeometryFigure_Vtbl {
                 IXpsOMGeometryFigure_Impl::GetSegmentTypes(this, core::mem::transmute_copy(&segmentcount), core::mem::transmute_copy(&segmenttypes)).into()
             }
         }
-        unsafe extern "system" fn GetSegmentStrokes<Identity: IXpsOMGeometryFigure_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, segmentcount: *mut u32, segmentstrokes: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSegmentStrokes<Identity: IXpsOMGeometryFigure_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, segmentcount: *mut u32, segmentstrokes: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXpsOMGeometryFigure_Impl::GetSegmentStrokes(this, core::mem::transmute_copy(&segmentcount), core::mem::transmute_copy(&segmentstrokes)).into()
             }
         }
-        unsafe extern "system" fn SetSegments<Identity: IXpsOMGeometryFigure_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, segmentcount: u32, segmentdatacount: u32, segmenttypes: *const XPS_SEGMENT_TYPE, segmentdata: *const f32, segmentstrokes: *const super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSegments<Identity: IXpsOMGeometryFigure_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, segmentcount: u32, segmentdatacount: u32, segmenttypes: *const XPS_SEGMENT_TYPE, segmentdata: *const f32, segmentstrokes: *const windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXpsOMGeometryFigure_Impl::SetSegments(this, core::mem::transmute_copy(&segmentcount), core::mem::transmute_copy(&segmentdatacount), core::mem::transmute_copy(&segmenttypes), core::mem::transmute_copy(&segmentdata), core::mem::transmute_copy(&segmentstrokes)).into()
@@ -2953,7 +2953,7 @@ impl IXpsOMGeometryFigure_Vtbl {
                 IXpsOMGeometryFigure_Impl::SetStartPoint(this, core::mem::transmute_copy(&startpoint)).into()
             }
         }
-        unsafe extern "system" fn GetIsClosed<Identity: IXpsOMGeometryFigure_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isclosed: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetIsClosed<Identity: IXpsOMGeometryFigure_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isclosed: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMGeometryFigure_Impl::GetIsClosed(this) {
@@ -2965,13 +2965,13 @@ impl IXpsOMGeometryFigure_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetIsClosed<Identity: IXpsOMGeometryFigure_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isclosed: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetIsClosed<Identity: IXpsOMGeometryFigure_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isclosed: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXpsOMGeometryFigure_Impl::SetIsClosed(this, core::mem::transmute_copy(&isclosed)).into()
             }
         }
-        unsafe extern "system" fn GetIsFilled<Identity: IXpsOMGeometryFigure_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isfilled: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetIsFilled<Identity: IXpsOMGeometryFigure_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isfilled: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMGeometryFigure_Impl::GetIsFilled(this) {
@@ -2983,7 +2983,7 @@ impl IXpsOMGeometryFigure_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetIsFilled<Identity: IXpsOMGeometryFigure_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isfilled: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetIsFilled<Identity: IXpsOMGeometryFigure_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isfilled: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXpsOMGeometryFigure_Impl::SetIsFilled(this, core::mem::transmute_copy(&isfilled)).into()
@@ -3229,7 +3229,7 @@ impl IXpsOMGlyphs {
             (windows_core::Interface::vtable(self).GetBidiLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetIsSideways(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn GetIsSideways(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetIsSideways)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3343,7 +3343,7 @@ pub struct IXpsOMGlyphs_Vtbl {
     pub GetProhibitedCaretStopCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetProhibitedCaretStops: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub GetBidiLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub GetIsSideways: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetIsSideways: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetDeviceFontName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub GetStyleSimulations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_STYLE_SIMULATION) -> windows_core::HRESULT,
     pub SetStyleSimulations: unsafe extern "system" fn(*mut core::ffi::c_void, XPS_STYLE_SIMULATION) -> windows_core::HRESULT,
@@ -3373,7 +3373,7 @@ pub trait IXpsOMGlyphs_Impl: IXpsOMVisual_Impl {
     fn GetProhibitedCaretStopCount(&self) -> windows_core::Result<u32>;
     fn GetProhibitedCaretStops(&self, prohibitedcaretstopcount: *mut u32, prohibitedcaretstops: *mut u32) -> windows_core::Result<()>;
     fn GetBidiLevel(&self) -> windows_core::Result<u32>;
-    fn GetIsSideways(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn GetIsSideways(&self) -> windows_core::Result<windows_core::BOOL>;
     fn GetDeviceFontName(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetStyleSimulations(&self) -> windows_core::Result<XPS_STYLE_SIMULATION>;
     fn SetStyleSimulations(&self, stylesimulations: XPS_STYLE_SIMULATION) -> windows_core::Result<()>;
@@ -3474,7 +3474,7 @@ impl IXpsOMGlyphs_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetIsSideways<Identity: IXpsOMGlyphs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, issideways: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetIsSideways<Identity: IXpsOMGlyphs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, issideways: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMGlyphs_Impl::GetIsSideways(this) {
@@ -3760,7 +3760,7 @@ impl IXpsOMGlyphsEditor {
     pub unsafe fn SetBidiLevel(&self, bidilevel: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetBidiLevel)(windows_core::Interface::as_raw(self), bidilevel).ok() }
     }
-    pub unsafe fn GetIsSideways(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn GetIsSideways(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetIsSideways)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3799,8 +3799,8 @@ pub struct IXpsOMGlyphsEditor_Vtbl {
     pub SetProhibitedCaretStops: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u32) -> windows_core::HRESULT,
     pub GetBidiLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetBidiLevel: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetIsSideways: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetIsSideways: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetIsSideways: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetIsSideways: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub GetDeviceFontName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub SetDeviceFontName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
@@ -3819,8 +3819,8 @@ pub trait IXpsOMGlyphsEditor_Impl: windows_core::IUnknownImpl {
     fn SetProhibitedCaretStops(&self, count: u32, prohibitedcaretstops: *const u32) -> windows_core::Result<()>;
     fn GetBidiLevel(&self) -> windows_core::Result<u32>;
     fn SetBidiLevel(&self, bidilevel: u32) -> windows_core::Result<()>;
-    fn GetIsSideways(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn SetIsSideways(&self, issideways: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn GetIsSideways(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn SetIsSideways(&self, issideways: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetDeviceFontName(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn SetDeviceFontName(&self, devicefontname: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
@@ -3940,7 +3940,7 @@ impl IXpsOMGlyphsEditor_Vtbl {
                 IXpsOMGlyphsEditor_Impl::SetBidiLevel(this, core::mem::transmute_copy(&bidilevel)).into()
             }
         }
-        unsafe extern "system" fn GetIsSideways<Identity: IXpsOMGlyphsEditor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, issideways: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetIsSideways<Identity: IXpsOMGlyphsEditor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, issideways: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMGlyphsEditor_Impl::GetIsSideways(this) {
@@ -3952,7 +3952,7 @@ impl IXpsOMGlyphsEditor_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetIsSideways<Identity: IXpsOMGlyphsEditor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, issideways: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetIsSideways<Identity: IXpsOMGlyphsEditor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, issideways: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXpsOMGlyphsEditor_Impl::SetIsSideways(this, core::mem::transmute_copy(&issideways)).into()
@@ -5435,9 +5435,9 @@ impl IXpsOMObjectFactory {
 pub struct IXpsOMObjectFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreatePackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreatePackageFromFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreatePackageFromFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub CreatePackageFromStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreatePackageFromStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     CreatePackageFromStream: usize,
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
@@ -5475,7 +5475,7 @@ pub struct IXpsOMObjectFactory_Vtbl {
     #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))]
     CreatePage: usize,
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-    pub CreatePageFromStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreatePageFromStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))]
     CreatePageFromStream: usize,
     pub CreateCanvas: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5500,7 +5500,7 @@ pub struct IXpsOMObjectFactory_Vtbl {
     #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))]
     CreatePrintTicketResource: usize,
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-    pub CreateFontResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, XPS_FONT_EMBEDDING, *mut core::ffi::c_void, super::super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateFontResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, XPS_FONT_EMBEDDING, *mut core::ffi::c_void, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))]
     CreateFontResource: usize,
     pub CreateGradientStop: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_COLOR, *mut core::ffi::c_void, f32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5513,11 +5513,11 @@ pub struct IXpsOMObjectFactory_Vtbl {
     pub CreateDictionary: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreatePartUriCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-    pub CreatePackageWriterOnFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const super::super::Security::SECURITY_ATTRIBUTES, u32, super::super::Foundation::BOOL, XPS_INTERLEAVING, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreatePackageWriterOnFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const super::super::Security::SECURITY_ATTRIBUTES, u32, windows_core::BOOL, XPS_INTERLEAVING, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))]
     CreatePackageWriterOnFile: usize,
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-    pub CreatePackageWriterOnStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::BOOL, XPS_INTERLEAVING, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreatePackageWriterOnStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL, XPS_INTERLEAVING, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))]
     CreatePackageWriterOnStream: usize,
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
@@ -5532,8 +5532,8 @@ pub struct IXpsOMObjectFactory_Vtbl {
 #[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMObjectFactory_Impl: windows_core::IUnknownImpl {
     fn CreatePackage(&self) -> windows_core::Result<IXpsOMPackage>;
-    fn CreatePackageFromFile(&self, filename: &windows_core::PCWSTR, reuseobjects: super::super::Foundation::BOOL) -> windows_core::Result<IXpsOMPackage>;
-    fn CreatePackageFromStream(&self, stream: windows_core::Ref<super::super::System::Com::IStream>, reuseobjects: super::super::Foundation::BOOL) -> windows_core::Result<IXpsOMPackage>;
+    fn CreatePackageFromFile(&self, filename: &windows_core::PCWSTR, reuseobjects: windows_core::BOOL) -> windows_core::Result<IXpsOMPackage>;
+    fn CreatePackageFromStream(&self, stream: windows_core::Ref<super::super::System::Com::IStream>, reuseobjects: windows_core::BOOL) -> windows_core::Result<IXpsOMPackage>;
     fn CreateStoryFragmentsResource(&self, acquiredstream: windows_core::Ref<super::super::System::Com::IStream>, parturi: windows_core::Ref<super::Packaging::Opc::IOpcPartUri>) -> windows_core::Result<IXpsOMStoryFragmentsResource>;
     fn CreateDocumentStructureResource(&self, acquiredstream: windows_core::Ref<super::super::System::Com::IStream>, parturi: windows_core::Ref<super::Packaging::Opc::IOpcPartUri>) -> windows_core::Result<IXpsOMDocumentStructureResource>;
     fn CreateSignatureBlockResource(&self, acquiredstream: windows_core::Ref<super::super::System::Com::IStream>, parturi: windows_core::Ref<super::Packaging::Opc::IOpcPartUri>) -> windows_core::Result<IXpsOMSignatureBlockResource>;
@@ -5544,7 +5544,7 @@ pub trait IXpsOMObjectFactory_Impl: windows_core::IUnknownImpl {
     fn CreateDocument(&self, parturi: windows_core::Ref<super::Packaging::Opc::IOpcPartUri>) -> windows_core::Result<IXpsOMDocument>;
     fn CreatePageReference(&self, advisorypagedimensions: *const XPS_SIZE) -> windows_core::Result<IXpsOMPageReference>;
     fn CreatePage(&self, pagedimensions: *const XPS_SIZE, language: &windows_core::PCWSTR, parturi: windows_core::Ref<super::Packaging::Opc::IOpcPartUri>) -> windows_core::Result<IXpsOMPage>;
-    fn CreatePageFromStream(&self, pagemarkupstream: windows_core::Ref<super::super::System::Com::IStream>, parturi: windows_core::Ref<super::Packaging::Opc::IOpcPartUri>, resources: windows_core::Ref<IXpsOMPartResources>, reuseobjects: super::super::Foundation::BOOL) -> windows_core::Result<IXpsOMPage>;
+    fn CreatePageFromStream(&self, pagemarkupstream: windows_core::Ref<super::super::System::Com::IStream>, parturi: windows_core::Ref<super::Packaging::Opc::IOpcPartUri>, resources: windows_core::Ref<IXpsOMPartResources>, reuseobjects: windows_core::BOOL) -> windows_core::Result<IXpsOMPage>;
     fn CreateCanvas(&self) -> windows_core::Result<IXpsOMCanvas>;
     fn CreateGlyphs(&self, fontresource: windows_core::Ref<IXpsOMFontResource>) -> windows_core::Result<IXpsOMGlyphs>;
     fn CreatePath(&self) -> windows_core::Result<IXpsOMPath>;
@@ -5557,15 +5557,15 @@ pub trait IXpsOMObjectFactory_Impl: windows_core::IUnknownImpl {
     fn CreateVisualBrush(&self, viewbox: *const XPS_RECT, viewport: *const XPS_RECT) -> windows_core::Result<IXpsOMVisualBrush>;
     fn CreateImageResource(&self, acquiredstream: windows_core::Ref<super::super::System::Com::IStream>, contenttype: XPS_IMAGE_TYPE, parturi: windows_core::Ref<super::Packaging::Opc::IOpcPartUri>) -> windows_core::Result<IXpsOMImageResource>;
     fn CreatePrintTicketResource(&self, acquiredstream: windows_core::Ref<super::super::System::Com::IStream>, parturi: windows_core::Ref<super::Packaging::Opc::IOpcPartUri>) -> windows_core::Result<IXpsOMPrintTicketResource>;
-    fn CreateFontResource(&self, acquiredstream: windows_core::Ref<super::super::System::Com::IStream>, fontembedding: XPS_FONT_EMBEDDING, parturi: windows_core::Ref<super::Packaging::Opc::IOpcPartUri>, isobfsourcestream: super::super::Foundation::BOOL) -> windows_core::Result<IXpsOMFontResource>;
+    fn CreateFontResource(&self, acquiredstream: windows_core::Ref<super::super::System::Com::IStream>, fontembedding: XPS_FONT_EMBEDDING, parturi: windows_core::Ref<super::Packaging::Opc::IOpcPartUri>, isobfsourcestream: windows_core::BOOL) -> windows_core::Result<IXpsOMFontResource>;
     fn CreateGradientStop(&self, color: *const XPS_COLOR, colorprofile: windows_core::Ref<IXpsOMColorProfileResource>, offset: f32) -> windows_core::Result<IXpsOMGradientStop>;
     fn CreateLinearGradientBrush(&self, gradstop1: windows_core::Ref<IXpsOMGradientStop>, gradstop2: windows_core::Ref<IXpsOMGradientStop>, startpoint: *const XPS_POINT, endpoint: *const XPS_POINT) -> windows_core::Result<IXpsOMLinearGradientBrush>;
     fn CreateRadialGradientBrush(&self, gradstop1: windows_core::Ref<IXpsOMGradientStop>, gradstop2: windows_core::Ref<IXpsOMGradientStop>, centerpoint: *const XPS_POINT, gradientorigin: *const XPS_POINT, radiisizes: *const XPS_SIZE) -> windows_core::Result<IXpsOMRadialGradientBrush>;
     fn CreateCoreProperties(&self, parturi: windows_core::Ref<super::Packaging::Opc::IOpcPartUri>) -> windows_core::Result<IXpsOMCoreProperties>;
     fn CreateDictionary(&self) -> windows_core::Result<IXpsOMDictionary>;
     fn CreatePartUriCollection(&self) -> windows_core::Result<IXpsOMPartUriCollection>;
-    fn CreatePackageWriterOnFile(&self, filename: &windows_core::PCWSTR, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: super::super::Foundation::BOOL, interleaving: XPS_INTERLEAVING, documentsequencepartname: windows_core::Ref<super::Packaging::Opc::IOpcPartUri>, coreproperties: windows_core::Ref<IXpsOMCoreProperties>, packagethumbnail: windows_core::Ref<IXpsOMImageResource>, documentsequenceprintticket: windows_core::Ref<IXpsOMPrintTicketResource>, discardcontrolpartname: windows_core::Ref<super::Packaging::Opc::IOpcPartUri>) -> windows_core::Result<IXpsOMPackageWriter>;
-    fn CreatePackageWriterOnStream(&self, outputstream: windows_core::Ref<super::super::System::Com::ISequentialStream>, optimizemarkupsize: super::super::Foundation::BOOL, interleaving: XPS_INTERLEAVING, documentsequencepartname: windows_core::Ref<super::Packaging::Opc::IOpcPartUri>, coreproperties: windows_core::Ref<IXpsOMCoreProperties>, packagethumbnail: windows_core::Ref<IXpsOMImageResource>, documentsequenceprintticket: windows_core::Ref<IXpsOMPrintTicketResource>, discardcontrolpartname: windows_core::Ref<super::Packaging::Opc::IOpcPartUri>) -> windows_core::Result<IXpsOMPackageWriter>;
+    fn CreatePackageWriterOnFile(&self, filename: &windows_core::PCWSTR, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: windows_core::BOOL, interleaving: XPS_INTERLEAVING, documentsequencepartname: windows_core::Ref<super::Packaging::Opc::IOpcPartUri>, coreproperties: windows_core::Ref<IXpsOMCoreProperties>, packagethumbnail: windows_core::Ref<IXpsOMImageResource>, documentsequenceprintticket: windows_core::Ref<IXpsOMPrintTicketResource>, discardcontrolpartname: windows_core::Ref<super::Packaging::Opc::IOpcPartUri>) -> windows_core::Result<IXpsOMPackageWriter>;
+    fn CreatePackageWriterOnStream(&self, outputstream: windows_core::Ref<super::super::System::Com::ISequentialStream>, optimizemarkupsize: windows_core::BOOL, interleaving: XPS_INTERLEAVING, documentsequencepartname: windows_core::Ref<super::Packaging::Opc::IOpcPartUri>, coreproperties: windows_core::Ref<IXpsOMCoreProperties>, packagethumbnail: windows_core::Ref<IXpsOMImageResource>, documentsequenceprintticket: windows_core::Ref<IXpsOMPrintTicketResource>, discardcontrolpartname: windows_core::Ref<super::Packaging::Opc::IOpcPartUri>) -> windows_core::Result<IXpsOMPackageWriter>;
     fn CreatePartUri(&self, uri: &windows_core::PCWSTR) -> windows_core::Result<super::Packaging::Opc::IOpcPartUri>;
     fn CreateReadOnlyStreamOnFile(&self, filename: &windows_core::PCWSTR) -> windows_core::Result<super::super::System::Com::IStream>;
 }
@@ -5584,7 +5584,7 @@ impl IXpsOMObjectFactory_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreatePackageFromFile<Identity: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, reuseobjects: super::super::Foundation::BOOL, package: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreatePackageFromFile<Identity: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, reuseobjects: windows_core::BOOL, package: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMObjectFactory_Impl::CreatePackageFromFile(this, core::mem::transmute(&filename), core::mem::transmute_copy(&reuseobjects)) {
@@ -5596,7 +5596,7 @@ impl IXpsOMObjectFactory_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreatePackageFromStream<Identity: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stream: *mut core::ffi::c_void, reuseobjects: super::super::Foundation::BOOL, package: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreatePackageFromStream<Identity: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stream: *mut core::ffi::c_void, reuseobjects: windows_core::BOOL, package: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMObjectFactory_Impl::CreatePackageFromStream(this, core::mem::transmute_copy(&stream), core::mem::transmute_copy(&reuseobjects)) {
@@ -5728,7 +5728,7 @@ impl IXpsOMObjectFactory_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreatePageFromStream<Identity: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pagemarkupstream: *mut core::ffi::c_void, parturi: *mut core::ffi::c_void, resources: *mut core::ffi::c_void, reuseobjects: super::super::Foundation::BOOL, page: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreatePageFromStream<Identity: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pagemarkupstream: *mut core::ffi::c_void, parturi: *mut core::ffi::c_void, resources: *mut core::ffi::c_void, reuseobjects: windows_core::BOOL, page: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMObjectFactory_Impl::CreatePageFromStream(this, core::mem::transmute_copy(&pagemarkupstream), core::mem::transmute_copy(&parturi), core::mem::transmute_copy(&resources), core::mem::transmute_copy(&reuseobjects)) {
@@ -5884,7 +5884,7 @@ impl IXpsOMObjectFactory_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreateFontResource<Identity: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, acquiredstream: *mut core::ffi::c_void, fontembedding: XPS_FONT_EMBEDDING, parturi: *mut core::ffi::c_void, isobfsourcestream: super::super::Foundation::BOOL, fontresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateFontResource<Identity: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, acquiredstream: *mut core::ffi::c_void, fontembedding: XPS_FONT_EMBEDDING, parturi: *mut core::ffi::c_void, isobfsourcestream: windows_core::BOOL, fontresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMObjectFactory_Impl::CreateFontResource(this, core::mem::transmute_copy(&acquiredstream), core::mem::transmute_copy(&fontembedding), core::mem::transmute_copy(&parturi), core::mem::transmute_copy(&isobfsourcestream)) {
@@ -5968,7 +5968,7 @@ impl IXpsOMObjectFactory_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreatePackageWriterOnFile<Identity: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: super::super::Foundation::BOOL, interleaving: XPS_INTERLEAVING, documentsequencepartname: *mut core::ffi::c_void, coreproperties: *mut core::ffi::c_void, packagethumbnail: *mut core::ffi::c_void, documentsequenceprintticket: *mut core::ffi::c_void, discardcontrolpartname: *mut core::ffi::c_void, packagewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreatePackageWriterOnFile<Identity: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: windows_core::BOOL, interleaving: XPS_INTERLEAVING, documentsequencepartname: *mut core::ffi::c_void, coreproperties: *mut core::ffi::c_void, packagethumbnail: *mut core::ffi::c_void, documentsequenceprintticket: *mut core::ffi::c_void, discardcontrolpartname: *mut core::ffi::c_void, packagewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMObjectFactory_Impl::CreatePackageWriterOnFile(this, core::mem::transmute(&filename), core::mem::transmute_copy(&securityattributes), core::mem::transmute_copy(&flagsandattributes), core::mem::transmute_copy(&optimizemarkupsize), core::mem::transmute_copy(&interleaving), core::mem::transmute_copy(&documentsequencepartname), core::mem::transmute_copy(&coreproperties), core::mem::transmute_copy(&packagethumbnail), core::mem::transmute_copy(&documentsequenceprintticket), core::mem::transmute_copy(&discardcontrolpartname)) {
@@ -5980,7 +5980,7 @@ impl IXpsOMObjectFactory_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreatePackageWriterOnStream<Identity: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, optimizemarkupsize: super::super::Foundation::BOOL, interleaving: XPS_INTERLEAVING, documentsequencepartname: *mut core::ffi::c_void, coreproperties: *mut core::ffi::c_void, packagethumbnail: *mut core::ffi::c_void, documentsequenceprintticket: *mut core::ffi::c_void, discardcontrolpartname: *mut core::ffi::c_void, packagewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreatePackageWriterOnStream<Identity: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, optimizemarkupsize: windows_core::BOOL, interleaving: XPS_INTERLEAVING, documentsequencepartname: *mut core::ffi::c_void, coreproperties: *mut core::ffi::c_void, packagethumbnail: *mut core::ffi::c_void, documentsequenceprintticket: *mut core::ffi::c_void, discardcontrolpartname: *mut core::ffi::c_void, packagewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMObjectFactory_Impl::CreatePackageWriterOnStream(this, core::mem::transmute_copy(&outputstream), core::mem::transmute_copy(&optimizemarkupsize), core::mem::transmute_copy(&interleaving), core::mem::transmute_copy(&documentsequencepartname), core::mem::transmute_copy(&coreproperties), core::mem::transmute_copy(&packagethumbnail), core::mem::transmute_copy(&documentsequenceprintticket), core::mem::transmute_copy(&discardcontrolpartname)) {
@@ -6205,25 +6205,25 @@ pub struct IXpsOMObjectFactory1_Vtbl {
     pub ConvertHDPhotoToJpegXR: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ConvertJpegXRToHDPhoto: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-    pub CreatePackageWriterOnFile1: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const super::super::Security::SECURITY_ATTRIBUTES, u32, super::super::Foundation::BOOL, XPS_INTERLEAVING, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, XPS_DOCUMENT_TYPE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreatePackageWriterOnFile1: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const super::super::Security::SECURITY_ATTRIBUTES, u32, windows_core::BOOL, XPS_INTERLEAVING, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, XPS_DOCUMENT_TYPE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))]
     CreatePackageWriterOnFile1: usize,
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-    pub CreatePackageWriterOnStream1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::BOOL, XPS_INTERLEAVING, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, XPS_DOCUMENT_TYPE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreatePackageWriterOnStream1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL, XPS_INTERLEAVING, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, XPS_DOCUMENT_TYPE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))]
     CreatePackageWriterOnStream1: usize,
     pub CreatePackage1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub CreatePackageFromStream1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreatePackageFromStream1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     CreatePackageFromStream1: usize,
-    pub CreatePackageFromFile1: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreatePackageFromFile1: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub CreatePage1: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_SIZE, windows_core::PCWSTR, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))]
     CreatePage1: usize,
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-    pub CreatePageFromStream1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreatePageFromStream1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))]
     CreatePageFromStream1: usize,
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
@@ -6237,13 +6237,13 @@ pub trait IXpsOMObjectFactory1_Impl: IXpsOMObjectFactory_Impl {
     fn GetDocumentTypeFromStream(&self, xpsdocumentstream: windows_core::Ref<super::super::System::Com::IStream>) -> windows_core::Result<XPS_DOCUMENT_TYPE>;
     fn ConvertHDPhotoToJpegXR(&self, imageresource: windows_core::Ref<IXpsOMImageResource>) -> windows_core::Result<()>;
     fn ConvertJpegXRToHDPhoto(&self, imageresource: windows_core::Ref<IXpsOMImageResource>) -> windows_core::Result<()>;
-    fn CreatePackageWriterOnFile1(&self, filename: &windows_core::PCWSTR, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: super::super::Foundation::BOOL, interleaving: XPS_INTERLEAVING, documentsequencepartname: windows_core::Ref<super::Packaging::Opc::IOpcPartUri>, coreproperties: windows_core::Ref<IXpsOMCoreProperties>, packagethumbnail: windows_core::Ref<IXpsOMImageResource>, documentsequenceprintticket: windows_core::Ref<IXpsOMPrintTicketResource>, discardcontrolpartname: windows_core::Ref<super::Packaging::Opc::IOpcPartUri>, documenttype: XPS_DOCUMENT_TYPE) -> windows_core::Result<IXpsOMPackageWriter>;
-    fn CreatePackageWriterOnStream1(&self, outputstream: windows_core::Ref<super::super::System::Com::ISequentialStream>, optimizemarkupsize: super::super::Foundation::BOOL, interleaving: XPS_INTERLEAVING, documentsequencepartname: windows_core::Ref<super::Packaging::Opc::IOpcPartUri>, coreproperties: windows_core::Ref<IXpsOMCoreProperties>, packagethumbnail: windows_core::Ref<IXpsOMImageResource>, documentsequenceprintticket: windows_core::Ref<IXpsOMPrintTicketResource>, discardcontrolpartname: windows_core::Ref<super::Packaging::Opc::IOpcPartUri>, documenttype: XPS_DOCUMENT_TYPE) -> windows_core::Result<IXpsOMPackageWriter>;
+    fn CreatePackageWriterOnFile1(&self, filename: &windows_core::PCWSTR, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: windows_core::BOOL, interleaving: XPS_INTERLEAVING, documentsequencepartname: windows_core::Ref<super::Packaging::Opc::IOpcPartUri>, coreproperties: windows_core::Ref<IXpsOMCoreProperties>, packagethumbnail: windows_core::Ref<IXpsOMImageResource>, documentsequenceprintticket: windows_core::Ref<IXpsOMPrintTicketResource>, discardcontrolpartname: windows_core::Ref<super::Packaging::Opc::IOpcPartUri>, documenttype: XPS_DOCUMENT_TYPE) -> windows_core::Result<IXpsOMPackageWriter>;
+    fn CreatePackageWriterOnStream1(&self, outputstream: windows_core::Ref<super::super::System::Com::ISequentialStream>, optimizemarkupsize: windows_core::BOOL, interleaving: XPS_INTERLEAVING, documentsequencepartname: windows_core::Ref<super::Packaging::Opc::IOpcPartUri>, coreproperties: windows_core::Ref<IXpsOMCoreProperties>, packagethumbnail: windows_core::Ref<IXpsOMImageResource>, documentsequenceprintticket: windows_core::Ref<IXpsOMPrintTicketResource>, discardcontrolpartname: windows_core::Ref<super::Packaging::Opc::IOpcPartUri>, documenttype: XPS_DOCUMENT_TYPE) -> windows_core::Result<IXpsOMPackageWriter>;
     fn CreatePackage1(&self) -> windows_core::Result<IXpsOMPackage1>;
-    fn CreatePackageFromStream1(&self, stream: windows_core::Ref<super::super::System::Com::IStream>, reuseobjects: super::super::Foundation::BOOL) -> windows_core::Result<IXpsOMPackage1>;
-    fn CreatePackageFromFile1(&self, filename: &windows_core::PCWSTR, reuseobjects: super::super::Foundation::BOOL) -> windows_core::Result<IXpsOMPackage1>;
+    fn CreatePackageFromStream1(&self, stream: windows_core::Ref<super::super::System::Com::IStream>, reuseobjects: windows_core::BOOL) -> windows_core::Result<IXpsOMPackage1>;
+    fn CreatePackageFromFile1(&self, filename: &windows_core::PCWSTR, reuseobjects: windows_core::BOOL) -> windows_core::Result<IXpsOMPackage1>;
     fn CreatePage1(&self, pagedimensions: *const XPS_SIZE, language: &windows_core::PCWSTR, parturi: windows_core::Ref<super::Packaging::Opc::IOpcPartUri>) -> windows_core::Result<IXpsOMPage1>;
-    fn CreatePageFromStream1(&self, pagemarkupstream: windows_core::Ref<super::super::System::Com::IStream>, parturi: windows_core::Ref<super::Packaging::Opc::IOpcPartUri>, resources: windows_core::Ref<IXpsOMPartResources>, reuseobjects: super::super::Foundation::BOOL) -> windows_core::Result<IXpsOMPage1>;
+    fn CreatePageFromStream1(&self, pagemarkupstream: windows_core::Ref<super::super::System::Com::IStream>, parturi: windows_core::Ref<super::Packaging::Opc::IOpcPartUri>, resources: windows_core::Ref<IXpsOMPartResources>, reuseobjects: windows_core::BOOL) -> windows_core::Result<IXpsOMPage1>;
     fn CreateRemoteDictionaryResourceFromStream1(&self, dictionarymarkupstream: windows_core::Ref<super::super::System::Com::IStream>, parturi: windows_core::Ref<super::Packaging::Opc::IOpcPartUri>, resources: windows_core::Ref<IXpsOMPartResources>) -> windows_core::Result<IXpsOMRemoteDictionaryResource>;
 }
 #[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
@@ -6285,7 +6285,7 @@ impl IXpsOMObjectFactory1_Vtbl {
                 IXpsOMObjectFactory1_Impl::ConvertJpegXRToHDPhoto(this, core::mem::transmute_copy(&imageresource)).into()
             }
         }
-        unsafe extern "system" fn CreatePackageWriterOnFile1<Identity: IXpsOMObjectFactory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: super::super::Foundation::BOOL, interleaving: XPS_INTERLEAVING, documentsequencepartname: *mut core::ffi::c_void, coreproperties: *mut core::ffi::c_void, packagethumbnail: *mut core::ffi::c_void, documentsequenceprintticket: *mut core::ffi::c_void, discardcontrolpartname: *mut core::ffi::c_void, documenttype: XPS_DOCUMENT_TYPE, packagewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreatePackageWriterOnFile1<Identity: IXpsOMObjectFactory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: windows_core::BOOL, interleaving: XPS_INTERLEAVING, documentsequencepartname: *mut core::ffi::c_void, coreproperties: *mut core::ffi::c_void, packagethumbnail: *mut core::ffi::c_void, documentsequenceprintticket: *mut core::ffi::c_void, discardcontrolpartname: *mut core::ffi::c_void, documenttype: XPS_DOCUMENT_TYPE, packagewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMObjectFactory1_Impl::CreatePackageWriterOnFile1(
@@ -6310,7 +6310,7 @@ impl IXpsOMObjectFactory1_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreatePackageWriterOnStream1<Identity: IXpsOMObjectFactory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, optimizemarkupsize: super::super::Foundation::BOOL, interleaving: XPS_INTERLEAVING, documentsequencepartname: *mut core::ffi::c_void, coreproperties: *mut core::ffi::c_void, packagethumbnail: *mut core::ffi::c_void, documentsequenceprintticket: *mut core::ffi::c_void, discardcontrolpartname: *mut core::ffi::c_void, documenttype: XPS_DOCUMENT_TYPE, packagewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreatePackageWriterOnStream1<Identity: IXpsOMObjectFactory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, optimizemarkupsize: windows_core::BOOL, interleaving: XPS_INTERLEAVING, documentsequencepartname: *mut core::ffi::c_void, coreproperties: *mut core::ffi::c_void, packagethumbnail: *mut core::ffi::c_void, documentsequenceprintticket: *mut core::ffi::c_void, discardcontrolpartname: *mut core::ffi::c_void, documenttype: XPS_DOCUMENT_TYPE, packagewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMObjectFactory1_Impl::CreatePackageWriterOnStream1(this, core::mem::transmute_copy(&outputstream), core::mem::transmute_copy(&optimizemarkupsize), core::mem::transmute_copy(&interleaving), core::mem::transmute_copy(&documentsequencepartname), core::mem::transmute_copy(&coreproperties), core::mem::transmute_copy(&packagethumbnail), core::mem::transmute_copy(&documentsequenceprintticket), core::mem::transmute_copy(&discardcontrolpartname), core::mem::transmute_copy(&documenttype)) {
@@ -6334,7 +6334,7 @@ impl IXpsOMObjectFactory1_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreatePackageFromStream1<Identity: IXpsOMObjectFactory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stream: *mut core::ffi::c_void, reuseobjects: super::super::Foundation::BOOL, package: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreatePackageFromStream1<Identity: IXpsOMObjectFactory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stream: *mut core::ffi::c_void, reuseobjects: windows_core::BOOL, package: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMObjectFactory1_Impl::CreatePackageFromStream1(this, core::mem::transmute_copy(&stream), core::mem::transmute_copy(&reuseobjects)) {
@@ -6346,7 +6346,7 @@ impl IXpsOMObjectFactory1_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreatePackageFromFile1<Identity: IXpsOMObjectFactory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, reuseobjects: super::super::Foundation::BOOL, package: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreatePackageFromFile1<Identity: IXpsOMObjectFactory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, reuseobjects: windows_core::BOOL, package: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMObjectFactory1_Impl::CreatePackageFromFile1(this, core::mem::transmute(&filename), core::mem::transmute_copy(&reuseobjects)) {
@@ -6370,7 +6370,7 @@ impl IXpsOMObjectFactory1_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreatePageFromStream1<Identity: IXpsOMObjectFactory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pagemarkupstream: *mut core::ffi::c_void, parturi: *mut core::ffi::c_void, resources: *mut core::ffi::c_void, reuseobjects: super::super::Foundation::BOOL, page: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreatePageFromStream1<Identity: IXpsOMObjectFactory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pagemarkupstream: *mut core::ffi::c_void, parturi: *mut core::ffi::c_void, resources: *mut core::ffi::c_void, reuseobjects: windows_core::BOOL, page: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMObjectFactory1_Impl::CreatePageFromStream1(this, core::mem::transmute_copy(&pagemarkupstream), core::mem::transmute_copy(&parturi), core::mem::transmute_copy(&resources), core::mem::transmute_copy(&reuseobjects)) {
@@ -6502,11 +6502,11 @@ pub struct IXpsOMPackage_Vtbl {
     pub GetThumbnailResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetThumbnailResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_Security")]
-    pub WriteToFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const super::super::Security::SECURITY_ATTRIBUTES, u32, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub WriteToFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const super::super::Security::SECURITY_ATTRIBUTES, u32, windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Security"))]
     WriteToFile: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub WriteToStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub WriteToStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     WriteToStream: usize,
 }
@@ -6520,8 +6520,8 @@ pub trait IXpsOMPackage_Impl: windows_core::IUnknownImpl {
     fn SetDiscardControlPartName(&self, discardcontrolparturi: windows_core::Ref<super::Packaging::Opc::IOpcPartUri>) -> windows_core::Result<()>;
     fn GetThumbnailResource(&self) -> windows_core::Result<IXpsOMImageResource>;
     fn SetThumbnailResource(&self, imageresource: windows_core::Ref<IXpsOMImageResource>) -> windows_core::Result<()>;
-    fn WriteToFile(&self, filename: &windows_core::PCWSTR, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn WriteToStream(&self, stream: windows_core::Ref<super::super::System::Com::ISequentialStream>, optimizemarkupsize: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn WriteToFile(&self, filename: &windows_core::PCWSTR, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: windows_core::BOOL) -> windows_core::Result<()>;
+    fn WriteToStream(&self, stream: windows_core::Ref<super::super::System::Com::ISequentialStream>, optimizemarkupsize: windows_core::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMPackage_Vtbl {
@@ -6598,13 +6598,13 @@ impl IXpsOMPackage_Vtbl {
                 IXpsOMPackage_Impl::SetThumbnailResource(this, core::mem::transmute_copy(&imageresource)).into()
             }
         }
-        unsafe extern "system" fn WriteToFile<Identity: IXpsOMPackage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteToFile<Identity: IXpsOMPackage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXpsOMPackage_Impl::WriteToFile(this, core::mem::transmute(&filename), core::mem::transmute_copy(&securityattributes), core::mem::transmute_copy(&flagsandattributes), core::mem::transmute_copy(&optimizemarkupsize)).into()
             }
         }
-        unsafe extern "system" fn WriteToStream<Identity: IXpsOMPackage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stream: *mut core::ffi::c_void, optimizemarkupsize: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteToStream<Identity: IXpsOMPackage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stream: *mut core::ffi::c_void, optimizemarkupsize: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXpsOMPackage_Impl::WriteToStream(this, core::mem::transmute_copy(&stream), core::mem::transmute_copy(&optimizemarkupsize)).into()
@@ -6665,19 +6665,19 @@ pub struct IXpsOMPackage1_Vtbl {
     pub base__: IXpsOMPackage_Vtbl,
     pub GetDocumentType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_DOCUMENT_TYPE) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_Security")]
-    pub WriteToFile1: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const super::super::Security::SECURITY_ATTRIBUTES, u32, super::super::Foundation::BOOL, XPS_DOCUMENT_TYPE) -> windows_core::HRESULT,
+    pub WriteToFile1: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const super::super::Security::SECURITY_ATTRIBUTES, u32, windows_core::BOOL, XPS_DOCUMENT_TYPE) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Security"))]
     WriteToFile1: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub WriteToStream1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::BOOL, XPS_DOCUMENT_TYPE) -> windows_core::HRESULT,
+    pub WriteToStream1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL, XPS_DOCUMENT_TYPE) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     WriteToStream1: usize,
 }
 #[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMPackage1_Impl: IXpsOMPackage_Impl {
     fn GetDocumentType(&self) -> windows_core::Result<XPS_DOCUMENT_TYPE>;
-    fn WriteToFile1(&self, filename: &windows_core::PCWSTR, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: super::super::Foundation::BOOL, documenttype: XPS_DOCUMENT_TYPE) -> windows_core::Result<()>;
-    fn WriteToStream1(&self, outputstream: windows_core::Ref<super::super::System::Com::ISequentialStream>, optimizemarkupsize: super::super::Foundation::BOOL, documenttype: XPS_DOCUMENT_TYPE) -> windows_core::Result<()>;
+    fn WriteToFile1(&self, filename: &windows_core::PCWSTR, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: windows_core::BOOL, documenttype: XPS_DOCUMENT_TYPE) -> windows_core::Result<()>;
+    fn WriteToStream1(&self, outputstream: windows_core::Ref<super::super::System::Com::ISequentialStream>, optimizemarkupsize: windows_core::BOOL, documenttype: XPS_DOCUMENT_TYPE) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMPackage1_Vtbl {
@@ -6694,13 +6694,13 @@ impl IXpsOMPackage1_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn WriteToFile1<Identity: IXpsOMPackage1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: super::super::Foundation::BOOL, documenttype: XPS_DOCUMENT_TYPE) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteToFile1<Identity: IXpsOMPackage1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: windows_core::BOOL, documenttype: XPS_DOCUMENT_TYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXpsOMPackage1_Impl::WriteToFile1(this, core::mem::transmute(&filename), core::mem::transmute_copy(&securityattributes), core::mem::transmute_copy(&flagsandattributes), core::mem::transmute_copy(&optimizemarkupsize), core::mem::transmute_copy(&documenttype)).into()
             }
         }
-        unsafe extern "system" fn WriteToStream1<Identity: IXpsOMPackage1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, optimizemarkupsize: super::super::Foundation::BOOL, documenttype: XPS_DOCUMENT_TYPE) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteToStream1<Identity: IXpsOMPackage1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, optimizemarkupsize: windows_core::BOOL, documenttype: XPS_DOCUMENT_TYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXpsOMPackage1_Impl::WriteToStream1(this, core::mem::transmute_copy(&outputstream), core::mem::transmute_copy(&optimizemarkupsize), core::mem::transmute_copy(&documenttype)).into()
@@ -6803,7 +6803,7 @@ impl IXpsOMPackageWriter {
     pub unsafe fn Close(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn IsClosed(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsClosed(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsClosed)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -6820,7 +6820,7 @@ pub struct IXpsOMPackageWriter_Vtbl {
     pub AddPage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const XPS_SIZE, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub IsClosed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsClosed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMPackageWriter_Impl: windows_core::IUnknownImpl {
@@ -6828,7 +6828,7 @@ pub trait IXpsOMPackageWriter_Impl: windows_core::IUnknownImpl {
     fn AddPage(&self, page: windows_core::Ref<IXpsOMPage>, advisorypagedimensions: *const XPS_SIZE, discardableresourceparts: windows_core::Ref<IXpsOMPartUriCollection>, storyfragments: windows_core::Ref<IXpsOMStoryFragmentsResource>, pageprintticket: windows_core::Ref<IXpsOMPrintTicketResource>, pagethumbnail: windows_core::Ref<IXpsOMImageResource>) -> windows_core::Result<()>;
     fn AddResource(&self, resource: windows_core::Ref<IXpsOMResource>) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
-    fn IsClosed(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn IsClosed(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMPackageWriter_Vtbl {
@@ -6857,7 +6857,7 @@ impl IXpsOMPackageWriter_Vtbl {
                 IXpsOMPackageWriter_Impl::Close(this).into()
             }
         }
-        unsafe extern "system" fn IsClosed<Identity: IXpsOMPackageWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isclosed: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsClosed<Identity: IXpsOMPackageWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isclosed: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMPackageWriter_Impl::IsClosed(this) {
@@ -7026,7 +7026,7 @@ impl IXpsOMPage {
     {
         unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), name.param().abi()).ok() }
     }
-    pub unsafe fn GetIsHyperlinkTarget(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn GetIsHyperlinkTarget(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetIsHyperlinkTarget)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -7100,15 +7100,15 @@ pub struct IXpsOMPage_Vtbl {
     pub SetLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub SetName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub GetIsHyperlinkTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetIsHyperlinkTarget: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetIsHyperlinkTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetIsHyperlinkTarget: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub GetDictionary: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDictionaryLocal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetDictionaryLocal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDictionaryResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetDictionaryResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Write: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub Write: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Write: usize,
     pub GenerateUnusedLookupKey: unsafe extern "system" fn(*mut core::ffi::c_void, XPS_OBJECT_TYPE, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -7128,14 +7128,14 @@ pub trait IXpsOMPage_Impl: IXpsOMPart_Impl {
     fn SetLanguage(&self, language: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetName(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn SetName(&self, name: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GetIsHyperlinkTarget(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn SetIsHyperlinkTarget(&self, ishyperlinktarget: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn GetIsHyperlinkTarget(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn SetIsHyperlinkTarget(&self, ishyperlinktarget: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetDictionary(&self) -> windows_core::Result<IXpsOMDictionary>;
     fn GetDictionaryLocal(&self) -> windows_core::Result<IXpsOMDictionary>;
     fn SetDictionaryLocal(&self, resourcedictionary: windows_core::Ref<IXpsOMDictionary>) -> windows_core::Result<()>;
     fn GetDictionaryResource(&self) -> windows_core::Result<IXpsOMRemoteDictionaryResource>;
     fn SetDictionaryResource(&self, remotedictionaryresource: windows_core::Ref<IXpsOMRemoteDictionaryResource>) -> windows_core::Result<()>;
-    fn Write(&self, stream: windows_core::Ref<super::super::System::Com::ISequentialStream>, optimizemarkupsize: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn Write(&self, stream: windows_core::Ref<super::super::System::Com::ISequentialStream>, optimizemarkupsize: windows_core::BOOL) -> windows_core::Result<()>;
     fn GenerateUnusedLookupKey(&self, r#type: XPS_OBJECT_TYPE) -> windows_core::Result<windows_core::PWSTR>;
     fn Clone(&self) -> windows_core::Result<IXpsOMPage>;
 }
@@ -7256,7 +7256,7 @@ impl IXpsOMPage_Vtbl {
                 IXpsOMPage_Impl::SetName(this, core::mem::transmute(&name)).into()
             }
         }
-        unsafe extern "system" fn GetIsHyperlinkTarget<Identity: IXpsOMPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ishyperlinktarget: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetIsHyperlinkTarget<Identity: IXpsOMPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ishyperlinktarget: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMPage_Impl::GetIsHyperlinkTarget(this) {
@@ -7268,7 +7268,7 @@ impl IXpsOMPage_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetIsHyperlinkTarget<Identity: IXpsOMPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ishyperlinktarget: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetIsHyperlinkTarget<Identity: IXpsOMPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ishyperlinktarget: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXpsOMPage_Impl::SetIsHyperlinkTarget(this, core::mem::transmute_copy(&ishyperlinktarget)).into()
@@ -7322,7 +7322,7 @@ impl IXpsOMPage_Vtbl {
                 IXpsOMPage_Impl::SetDictionaryResource(this, core::mem::transmute_copy(&remotedictionaryresource)).into()
             }
         }
-        unsafe extern "system" fn Write<Identity: IXpsOMPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stream: *mut core::ffi::c_void, optimizemarkupsize: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn Write<Identity: IXpsOMPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stream: *mut core::ffi::c_void, optimizemarkupsize: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXpsOMPage_Impl::Write(this, core::mem::transmute_copy(&stream), core::mem::transmute_copy(&optimizemarkupsize)).into()
@@ -7412,14 +7412,14 @@ pub struct IXpsOMPage1_Vtbl {
     pub base__: IXpsOMPage_Vtbl,
     pub GetDocumentType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_DOCUMENT_TYPE) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Write1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::BOOL, XPS_DOCUMENT_TYPE) -> windows_core::HRESULT,
+    pub Write1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL, XPS_DOCUMENT_TYPE) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Write1: usize,
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMPage1_Impl: IXpsOMPage_Impl {
     fn GetDocumentType(&self) -> windows_core::Result<XPS_DOCUMENT_TYPE>;
-    fn Write1(&self, stream: windows_core::Ref<super::super::System::Com::ISequentialStream>, optimizemarkupsize: super::super::Foundation::BOOL, documenttype: XPS_DOCUMENT_TYPE) -> windows_core::Result<()>;
+    fn Write1(&self, stream: windows_core::Ref<super::super::System::Com::ISequentialStream>, optimizemarkupsize: windows_core::BOOL, documenttype: XPS_DOCUMENT_TYPE) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMPage1_Vtbl {
@@ -7436,7 +7436,7 @@ impl IXpsOMPage1_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Write1<Identity: IXpsOMPage1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stream: *mut core::ffi::c_void, optimizemarkupsize: super::super::Foundation::BOOL, documenttype: XPS_DOCUMENT_TYPE) -> windows_core::HRESULT {
+        unsafe extern "system" fn Write1<Identity: IXpsOMPage1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stream: *mut core::ffi::c_void, optimizemarkupsize: windows_core::BOOL, documenttype: XPS_DOCUMENT_TYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXpsOMPage1_Impl::Write1(this, core::mem::transmute_copy(&stream), core::mem::transmute_copy(&optimizemarkupsize), core::mem::transmute_copy(&documenttype)).into()
@@ -7474,7 +7474,7 @@ impl IXpsOMPageReference {
     pub unsafe fn DiscardPage(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).DiscardPage)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn IsPageLoaded(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsPageLoaded(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsPageLoaded)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -7537,7 +7537,7 @@ impl IXpsOMPageReference {
             (windows_core::Interface::vtable(self).CollectPartResources)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn HasRestrictedFonts(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn HasRestrictedFonts(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).HasRestrictedFonts)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -7557,7 +7557,7 @@ pub struct IXpsOMPageReference_Vtbl {
     pub GetPage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetPage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DiscardPage: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub IsPageLoaded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsPageLoaded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetAdvisoryPageDimensions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_SIZE) -> windows_core::HRESULT,
     pub SetAdvisoryPageDimensions: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_SIZE) -> windows_core::HRESULT,
     pub GetStoryFragmentsResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7568,7 +7568,7 @@ pub struct IXpsOMPageReference_Vtbl {
     pub SetThumbnailResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CollectLinkTargets: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CollectPartResources: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub HasRestrictedFonts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub HasRestrictedFonts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IXpsOMPageReference_Impl: windows_core::IUnknownImpl {
@@ -7576,7 +7576,7 @@ pub trait IXpsOMPageReference_Impl: windows_core::IUnknownImpl {
     fn GetPage(&self) -> windows_core::Result<IXpsOMPage>;
     fn SetPage(&self, page: windows_core::Ref<IXpsOMPage>) -> windows_core::Result<()>;
     fn DiscardPage(&self) -> windows_core::Result<()>;
-    fn IsPageLoaded(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn IsPageLoaded(&self) -> windows_core::Result<windows_core::BOOL>;
     fn GetAdvisoryPageDimensions(&self) -> windows_core::Result<XPS_SIZE>;
     fn SetAdvisoryPageDimensions(&self, pagedimensions: *const XPS_SIZE) -> windows_core::Result<()>;
     fn GetStoryFragmentsResource(&self) -> windows_core::Result<IXpsOMStoryFragmentsResource>;
@@ -7587,7 +7587,7 @@ pub trait IXpsOMPageReference_Impl: windows_core::IUnknownImpl {
     fn SetThumbnailResource(&self, imageresource: windows_core::Ref<IXpsOMImageResource>) -> windows_core::Result<()>;
     fn CollectLinkTargets(&self) -> windows_core::Result<IXpsOMNameCollection>;
     fn CollectPartResources(&self) -> windows_core::Result<IXpsOMPartResources>;
-    fn HasRestrictedFonts(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn HasRestrictedFonts(&self) -> windows_core::Result<windows_core::BOOL>;
     fn Clone(&self) -> windows_core::Result<IXpsOMPageReference>;
 }
 impl IXpsOMPageReference_Vtbl {
@@ -7628,7 +7628,7 @@ impl IXpsOMPageReference_Vtbl {
                 IXpsOMPageReference_Impl::DiscardPage(this).into()
             }
         }
-        unsafe extern "system" fn IsPageLoaded<Identity: IXpsOMPageReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ispageloaded: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsPageLoaded<Identity: IXpsOMPageReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ispageloaded: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMPageReference_Impl::IsPageLoaded(this) {
@@ -7736,7 +7736,7 @@ impl IXpsOMPageReference_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn HasRestrictedFonts<Identity: IXpsOMPageReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, restrictedfonts: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn HasRestrictedFonts<Identity: IXpsOMPageReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, restrictedfonts: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMPageReference_Impl::HasRestrictedFonts(this) {
@@ -8281,7 +8281,7 @@ impl IXpsOMPath {
     {
         unsafe { (windows_core::Interface::vtable(self).SetAccessibilityLongDescription)(windows_core::Interface::as_raw(self), longdescription.param().abi()).ok() }
     }
-    pub unsafe fn GetSnapsToPixels(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn GetSnapsToPixels(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSnapsToPixels)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -8438,8 +8438,8 @@ pub struct IXpsOMPath_Vtbl {
     pub SetAccessibilityShortDescription: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetAccessibilityLongDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub SetAccessibilityLongDescription: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub GetSnapsToPixels: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetSnapsToPixels: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetSnapsToPixels: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetSnapsToPixels: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub GetStrokeBrush: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetStrokeBrushLocal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetStrokeBrushLocal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8478,8 +8478,8 @@ pub trait IXpsOMPath_Impl: IXpsOMVisual_Impl {
     fn SetAccessibilityShortDescription(&self, shortdescription: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetAccessibilityLongDescription(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn SetAccessibilityLongDescription(&self, longdescription: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GetSnapsToPixels(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn SetSnapsToPixels(&self, snapstopixels: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn GetSnapsToPixels(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn SetSnapsToPixels(&self, snapstopixels: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetStrokeBrush(&self) -> windows_core::Result<IXpsOMBrush>;
     fn GetStrokeBrushLocal(&self) -> windows_core::Result<IXpsOMBrush>;
     fn SetStrokeBrushLocal(&self, brush: windows_core::Ref<IXpsOMBrush>) -> windows_core::Result<()>;
@@ -8594,7 +8594,7 @@ impl IXpsOMPath_Vtbl {
                 IXpsOMPath_Impl::SetAccessibilityLongDescription(this, core::mem::transmute(&longdescription)).into()
             }
         }
-        unsafe extern "system" fn GetSnapsToPixels<Identity: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, snapstopixels: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSnapsToPixels<Identity: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, snapstopixels: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMPath_Impl::GetSnapsToPixels(this) {
@@ -8606,7 +8606,7 @@ impl IXpsOMPath_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetSnapsToPixels<Identity: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, snapstopixels: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSnapsToPixels<Identity: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, snapstopixels: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXpsOMPath_Impl::SetSnapsToPixels(this, core::mem::transmute_copy(&snapstopixels)).into()
@@ -10310,7 +10310,7 @@ impl IXpsOMVisual {
     {
         unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), name.param().abi()).ok() }
     }
-    pub unsafe fn GetIsHyperlinkTarget(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn GetIsHyperlinkTarget(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetIsHyperlinkTarget)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -10368,8 +10368,8 @@ pub struct IXpsOMVisual_Vtbl {
     pub SetOpacityMaskBrushLookup: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub SetName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub GetIsHyperlinkTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetIsHyperlinkTarget: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetIsHyperlinkTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetIsHyperlinkTarget: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetHyperlinkNavigateUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -10402,8 +10402,8 @@ pub trait IXpsOMVisual_Impl: IXpsOMShareable_Impl {
     fn SetOpacityMaskBrushLookup(&self, key: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetName(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn SetName(&self, name: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GetIsHyperlinkTarget(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn SetIsHyperlinkTarget(&self, ishyperlink: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn GetIsHyperlinkTarget(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn SetIsHyperlinkTarget(&self, ishyperlink: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetHyperlinkNavigateUri(&self) -> windows_core::Result<super::super::System::Com::IUri>;
     fn SetHyperlinkNavigateUri(&self, hyperlinkuri: windows_core::Ref<super::super::System::Com::IUri>) -> windows_core::Result<()>;
     fn GetLanguage(&self) -> windows_core::Result<windows_core::PWSTR>;
@@ -10592,7 +10592,7 @@ impl IXpsOMVisual_Vtbl {
                 IXpsOMVisual_Impl::SetName(this, core::mem::transmute(&name)).into()
             }
         }
-        unsafe extern "system" fn GetIsHyperlinkTarget<Identity: IXpsOMVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ishyperlink: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetIsHyperlinkTarget<Identity: IXpsOMVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ishyperlink: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMVisual_Impl::GetIsHyperlinkTarget(this) {
@@ -10604,7 +10604,7 @@ impl IXpsOMVisual_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetIsHyperlinkTarget<Identity: IXpsOMVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ishyperlink: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetIsHyperlinkTarget<Identity: IXpsOMVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ishyperlink: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXpsOMVisual_Impl::SetIsHyperlinkTarget(this, core::mem::transmute_copy(&ishyperlink)).into()
@@ -12458,8 +12458,8 @@ impl Default for PSFEATURE_CUSTPAPER {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PSFEATURE_OUTPUT {
-    pub bPageIndependent: super::super::Foundation::BOOL,
-    pub bSetPageDevice: super::super::Foundation::BOOL,
+    pub bPageIndependent: windows_core::BOOL,
+    pub bSetPageDevice: windows_core::BOOL,
 }
 impl Default for PSFEATURE_OUTPUT {
     fn default() -> Self {

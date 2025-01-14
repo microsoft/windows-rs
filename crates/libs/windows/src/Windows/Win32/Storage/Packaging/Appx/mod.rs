@@ -55,11 +55,11 @@ pub unsafe fn AppPolicyGetWindowingModel(processtoken: super::super::super::Foun
     unsafe { AppPolicyGetWindowingModel(processtoken, policy as _) }
 }
 #[inline]
-pub unsafe fn CheckIsMSIXPackage<P0>(packagefullname: P0) -> windows_core::Result<super::super::super::Foundation::BOOL>
+pub unsafe fn CheckIsMSIXPackage<P0>(packagefullname: P0) -> windows_core::Result<windows_core::BOOL>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("kernel32.dll" "system" fn CheckIsMSIXPackage(packagefullname : windows_core::PCWSTR, ismsixpackage : *mut super::super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    windows_targets::link!("kernel32.dll" "system" fn CheckIsMSIXPackage(packagefullname : windows_core::PCWSTR, ismsixpackage : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         CheckIsMSIXPackage(packagefullname.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
@@ -559,7 +559,7 @@ pub const APPX_ENCRYPTED_PACKAGE_OPTION_PAGE_HASHING: APPX_ENCRYPTED_PACKAGE_OPT
 pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS {
     pub keyLength: u32,
     pub encryptionAlgorithm: windows_core::PCWSTR,
-    pub useDiffusion: super::super::super::Foundation::BOOL,
+    pub useDiffusion: windows_core::BOOL,
     pub blockMapHashAlgorithm: core::mem::ManuallyDrop<Option<super::super::super::System::Com::IUri>>,
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -669,7 +669,7 @@ pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION_APPEND_DELTA: APPX_PACKAGE_E
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Debug, PartialEq)]
 pub struct APPX_PACKAGE_SETTINGS {
-    pub forceZip32: super::super::super::Foundation::BOOL,
+    pub forceZip32: windows_core::BOOL,
     pub hashMethod: core::mem::ManuallyDrop<Option<super::super::super::System::Com::IUri>>,
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -951,13 +951,13 @@ impl IAppxBlockMapBlocksEnumerator {
             (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetHasCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -968,13 +968,13 @@ impl IAppxBlockMapBlocksEnumerator {
 pub struct IAppxBlockMapBlocksEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetHasCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetHasCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IAppxBlockMapBlocksEnumerator_Impl: windows_core::IUnknownImpl {
     fn GetCurrent(&self) -> windows_core::Result<IAppxBlockMapBlock>;
-    fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IAppxBlockMapBlocksEnumerator_Vtbl {
     pub const fn new<Identity: IAppxBlockMapBlocksEnumerator_Impl, const OFFSET: isize>() -> Self {
@@ -990,7 +990,7 @@ impl IAppxBlockMapBlocksEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetHasCurrent<Identity: IAppxBlockMapBlocksEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetHasCurrent<Identity: IAppxBlockMapBlocksEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBlockMapBlocksEnumerator_Impl::GetHasCurrent(this) {
@@ -1002,7 +1002,7 @@ impl IAppxBlockMapBlocksEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MoveNext<Identity: IAppxBlockMapBlocksEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MoveNext<Identity: IAppxBlockMapBlocksEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBlockMapBlocksEnumerator_Impl::MoveNext(this) {
@@ -1054,7 +1054,7 @@ impl IAppxBlockMapFile {
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ValidateFileHash<P0>(&self, filestream: P0) -> windows_core::Result<super::super::super::Foundation::BOOL>
+    pub unsafe fn ValidateFileHash<P0>(&self, filestream: P0) -> windows_core::Result<windows_core::BOOL>
     where
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
     {
@@ -1072,7 +1072,7 @@ pub struct IAppxBlockMapFile_Vtbl {
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub GetUncompressedSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub ValidateFileHash: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub ValidateFileHash: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ValidateFileHash: usize,
 }
@@ -1082,7 +1082,7 @@ pub trait IAppxBlockMapFile_Impl: windows_core::IUnknownImpl {
     fn GetLocalFileHeaderSize(&self) -> windows_core::Result<u32>;
     fn GetName(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetUncompressedSize(&self) -> windows_core::Result<u64>;
-    fn ValidateFileHash(&self, filestream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn ValidateFileHash(&self, filestream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<windows_core::BOOL>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxBlockMapFile_Vtbl {
@@ -1135,7 +1135,7 @@ impl IAppxBlockMapFile_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ValidateFileHash<Identity: IAppxBlockMapFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filestream: *mut core::ffi::c_void, isvalid: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn ValidateFileHash<Identity: IAppxBlockMapFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filestream: *mut core::ffi::c_void, isvalid: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBlockMapFile_Impl::ValidateFileHash(this, core::mem::transmute_copy(&filestream)) {
@@ -1171,13 +1171,13 @@ impl IAppxBlockMapFilesEnumerator {
             (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetHasCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1188,13 +1188,13 @@ impl IAppxBlockMapFilesEnumerator {
 pub struct IAppxBlockMapFilesEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetHasCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetHasCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IAppxBlockMapFilesEnumerator_Impl: windows_core::IUnknownImpl {
     fn GetCurrent(&self) -> windows_core::Result<IAppxBlockMapFile>;
-    fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IAppxBlockMapFilesEnumerator_Vtbl {
     pub const fn new<Identity: IAppxBlockMapFilesEnumerator_Impl, const OFFSET: isize>() -> Self {
@@ -1210,7 +1210,7 @@ impl IAppxBlockMapFilesEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetHasCurrent<Identity: IAppxBlockMapFilesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetHasCurrent<Identity: IAppxBlockMapFilesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBlockMapFilesEnumerator_Impl::GetHasCurrent(this) {
@@ -1222,7 +1222,7 @@ impl IAppxBlockMapFilesEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MoveNext<Identity: IAppxBlockMapFilesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MoveNext<Identity: IAppxBlockMapFilesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBlockMapFilesEnumerator_Impl::MoveNext(this) {
@@ -1616,13 +1616,13 @@ impl IAppxBundleManifestOptionalBundleInfoEnumerator {
             (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetHasCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1633,13 +1633,13 @@ impl IAppxBundleManifestOptionalBundleInfoEnumerator {
 pub struct IAppxBundleManifestOptionalBundleInfoEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetHasCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetHasCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IAppxBundleManifestOptionalBundleInfoEnumerator_Impl: windows_core::IUnknownImpl {
     fn GetCurrent(&self) -> windows_core::Result<IAppxBundleManifestOptionalBundleInfo>;
-    fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IAppxBundleManifestOptionalBundleInfoEnumerator_Vtbl {
     pub const fn new<Identity: IAppxBundleManifestOptionalBundleInfoEnumerator_Impl, const OFFSET: isize>() -> Self {
@@ -1655,7 +1655,7 @@ impl IAppxBundleManifestOptionalBundleInfoEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetHasCurrent<Identity: IAppxBundleManifestOptionalBundleInfoEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetHasCurrent<Identity: IAppxBundleManifestOptionalBundleInfoEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBundleManifestOptionalBundleInfoEnumerator_Impl::GetHasCurrent(this) {
@@ -1667,7 +1667,7 @@ impl IAppxBundleManifestOptionalBundleInfoEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MoveNext<Identity: IAppxBundleManifestOptionalBundleInfoEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MoveNext<Identity: IAppxBundleManifestOptionalBundleInfoEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBundleManifestOptionalBundleInfoEnumerator_Impl::MoveNext(this) {
@@ -1841,19 +1841,19 @@ impl windows_core::RuntimeName for IAppxBundleManifestPackageInfo {}
 windows_core::imp::define_interface!(IAppxBundleManifestPackageInfo2, IAppxBundleManifestPackageInfo2_Vtbl, 0x44c2acbc_b2cf_4ccb_bbdb_9c6da8c3bc9e);
 windows_core::imp::interface_hierarchy!(IAppxBundleManifestPackageInfo2, windows_core::IUnknown);
 impl IAppxBundleManifestPackageInfo2 {
-    pub unsafe fn GetIsPackageReference(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetIsPackageReference(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetIsPackageReference)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetIsNonQualifiedResourcePackage(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetIsNonQualifiedResourcePackage(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetIsNonQualifiedResourcePackage)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetIsDefaultApplicablePackage(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetIsDefaultApplicablePackage(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetIsDefaultApplicablePackage)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1863,18 +1863,18 @@ impl IAppxBundleManifestPackageInfo2 {
 #[repr(C)]
 pub struct IAppxBundleManifestPackageInfo2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetIsPackageReference: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub GetIsNonQualifiedResourcePackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub GetIsDefaultApplicablePackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetIsPackageReference: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub GetIsNonQualifiedResourcePackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub GetIsDefaultApplicablePackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IAppxBundleManifestPackageInfo2_Impl: windows_core::IUnknownImpl {
-    fn GetIsPackageReference(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn GetIsNonQualifiedResourcePackage(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn GetIsDefaultApplicablePackage(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn GetIsPackageReference(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn GetIsNonQualifiedResourcePackage(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn GetIsDefaultApplicablePackage(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IAppxBundleManifestPackageInfo2_Vtbl {
     pub const fn new<Identity: IAppxBundleManifestPackageInfo2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetIsPackageReference<Identity: IAppxBundleManifestPackageInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ispackagereference: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetIsPackageReference<Identity: IAppxBundleManifestPackageInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ispackagereference: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBundleManifestPackageInfo2_Impl::GetIsPackageReference(this) {
@@ -1886,7 +1886,7 @@ impl IAppxBundleManifestPackageInfo2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetIsNonQualifiedResourcePackage<Identity: IAppxBundleManifestPackageInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isnonqualifiedresourcepackage: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetIsNonQualifiedResourcePackage<Identity: IAppxBundleManifestPackageInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isnonqualifiedresourcepackage: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBundleManifestPackageInfo2_Impl::GetIsNonQualifiedResourcePackage(this) {
@@ -1898,7 +1898,7 @@ impl IAppxBundleManifestPackageInfo2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetIsDefaultApplicablePackage<Identity: IAppxBundleManifestPackageInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isdefaultapplicablepackage: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetIsDefaultApplicablePackage<Identity: IAppxBundleManifestPackageInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isdefaultapplicablepackage: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBundleManifestPackageInfo2_Impl::GetIsDefaultApplicablePackage(this) {
@@ -1964,7 +1964,7 @@ impl windows_core::RuntimeName for IAppxBundleManifestPackageInfo3 {}
 windows_core::imp::define_interface!(IAppxBundleManifestPackageInfo4, IAppxBundleManifestPackageInfo4_Vtbl, 0x5da6f13d_a8a7_4532_857c_1393d659371d);
 windows_core::imp::interface_hierarchy!(IAppxBundleManifestPackageInfo4, windows_core::IUnknown);
 impl IAppxBundleManifestPackageInfo4 {
-    pub unsafe fn GetIsStub(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetIsStub(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetIsStub)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1974,14 +1974,14 @@ impl IAppxBundleManifestPackageInfo4 {
 #[repr(C)]
 pub struct IAppxBundleManifestPackageInfo4_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetIsStub: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetIsStub: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IAppxBundleManifestPackageInfo4_Impl: windows_core::IUnknownImpl {
-    fn GetIsStub(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn GetIsStub(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IAppxBundleManifestPackageInfo4_Vtbl {
     pub const fn new<Identity: IAppxBundleManifestPackageInfo4_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetIsStub<Identity: IAppxBundleManifestPackageInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isstub: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetIsStub<Identity: IAppxBundleManifestPackageInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isstub: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBundleManifestPackageInfo4_Impl::GetIsStub(this) {
@@ -2009,13 +2009,13 @@ impl IAppxBundleManifestPackageInfoEnumerator {
             (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetHasCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2026,13 +2026,13 @@ impl IAppxBundleManifestPackageInfoEnumerator {
 pub struct IAppxBundleManifestPackageInfoEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetHasCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetHasCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IAppxBundleManifestPackageInfoEnumerator_Impl: windows_core::IUnknownImpl {
     fn GetCurrent(&self) -> windows_core::Result<IAppxBundleManifestPackageInfo>;
-    fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IAppxBundleManifestPackageInfoEnumerator_Vtbl {
     pub const fn new<Identity: IAppxBundleManifestPackageInfoEnumerator_Impl, const OFFSET: isize>() -> Self {
@@ -2048,7 +2048,7 @@ impl IAppxBundleManifestPackageInfoEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetHasCurrent<Identity: IAppxBundleManifestPackageInfoEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetHasCurrent<Identity: IAppxBundleManifestPackageInfoEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBundleManifestPackageInfoEnumerator_Impl::GetHasCurrent(this) {
@@ -2060,7 +2060,7 @@ impl IAppxBundleManifestPackageInfoEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MoveNext<Identity: IAppxBundleManifestPackageInfoEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MoveNext<Identity: IAppxBundleManifestPackageInfoEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBundleManifestPackageInfoEnumerator_Impl::MoveNext(this) {
@@ -2531,40 +2531,40 @@ impl IAppxBundleWriter4 {
 pub struct IAppxBundleWriter4_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub AddPayloadPackage: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub AddPayloadPackage: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     AddPayloadPackage: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub AddPackageReference: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub AddPackageReference: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     AddPackageReference: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub AddExternalPackageReference: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub AddExternalPackageReference: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     AddExternalPackageReference: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxBundleWriter4_Impl: windows_core::IUnknownImpl {
-    fn AddPayloadPackage(&self, filename: &windows_core::PCWSTR, packagestream: windows_core::Ref<super::super::super::System::Com::IStream>, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn AddPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn AddExternalPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn AddPayloadPackage(&self, filename: &windows_core::PCWSTR, packagestream: windows_core::Ref<super::super::super::System::Com::IStream>, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::Result<()>;
+    fn AddPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::Result<()>;
+    fn AddExternalPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxBundleWriter4_Vtbl {
     pub const fn new<Identity: IAppxBundleWriter4_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn AddPayloadPackage<Identity: IAppxBundleWriter4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, packagestream: *mut core::ffi::c_void, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddPayloadPackage<Identity: IAppxBundleWriter4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, packagestream: *mut core::ffi::c_void, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAppxBundleWriter4_Impl::AddPayloadPackage(this, core::mem::transmute(&filename), core::mem::transmute_copy(&packagestream), core::mem::transmute_copy(&isdefaultapplicablepackage)).into()
             }
         }
-        unsafe extern "system" fn AddPackageReference<Identity: IAppxBundleWriter4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, inputstream: *mut core::ffi::c_void, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddPackageReference<Identity: IAppxBundleWriter4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, inputstream: *mut core::ffi::c_void, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAppxBundleWriter4_Impl::AddPackageReference(this, core::mem::transmute(&filename), core::mem::transmute_copy(&inputstream), core::mem::transmute_copy(&isdefaultapplicablepackage)).into()
             }
         }
-        unsafe extern "system" fn AddExternalPackageReference<Identity: IAppxBundleWriter4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, inputstream: *mut core::ffi::c_void, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddExternalPackageReference<Identity: IAppxBundleWriter4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, inputstream: *mut core::ffi::c_void, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAppxBundleWriter4_Impl::AddExternalPackageReference(this, core::mem::transmute(&filename), core::mem::transmute_copy(&inputstream), core::mem::transmute_copy(&isdefaultapplicablepackage)).into()
@@ -2651,13 +2651,13 @@ impl IAppxContentGroupFilesEnumerator {
             (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetHasCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2668,13 +2668,13 @@ impl IAppxContentGroupFilesEnumerator {
 pub struct IAppxContentGroupFilesEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub GetHasCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetHasCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IAppxContentGroupFilesEnumerator_Impl: windows_core::IUnknownImpl {
     fn GetCurrent(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IAppxContentGroupFilesEnumerator_Vtbl {
     pub const fn new<Identity: IAppxContentGroupFilesEnumerator_Impl, const OFFSET: isize>() -> Self {
@@ -2690,7 +2690,7 @@ impl IAppxContentGroupFilesEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetHasCurrent<Identity: IAppxContentGroupFilesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetHasCurrent<Identity: IAppxContentGroupFilesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxContentGroupFilesEnumerator_Impl::GetHasCurrent(this) {
@@ -2702,7 +2702,7 @@ impl IAppxContentGroupFilesEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MoveNext<Identity: IAppxContentGroupFilesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MoveNext<Identity: IAppxContentGroupFilesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxContentGroupFilesEnumerator_Impl::MoveNext(this) {
@@ -2861,13 +2861,13 @@ impl IAppxContentGroupsEnumerator {
             (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetHasCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2878,13 +2878,13 @@ impl IAppxContentGroupsEnumerator {
 pub struct IAppxContentGroupsEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetHasCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetHasCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IAppxContentGroupsEnumerator_Impl: windows_core::IUnknownImpl {
     fn GetCurrent(&self) -> windows_core::Result<IAppxContentGroup>;
-    fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IAppxContentGroupsEnumerator_Vtbl {
     pub const fn new<Identity: IAppxContentGroupsEnumerator_Impl, const OFFSET: isize>() -> Self {
@@ -2900,7 +2900,7 @@ impl IAppxContentGroupsEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetHasCurrent<Identity: IAppxContentGroupsEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetHasCurrent<Identity: IAppxContentGroupsEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxContentGroupsEnumerator_Impl::GetHasCurrent(this) {
@@ -2912,7 +2912,7 @@ impl IAppxContentGroupsEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MoveNext<Identity: IAppxContentGroupsEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MoveNext<Identity: IAppxContentGroupsEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxContentGroupsEnumerator_Impl::MoveNext(this) {
@@ -3096,29 +3096,29 @@ impl IAppxEncryptedBundleWriter3 {
 pub struct IAppxEncryptedBundleWriter3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub AddPayloadPackageEncrypted: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub AddPayloadPackageEncrypted: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     AddPayloadPackageEncrypted: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub AddExternalPackageReference: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub AddExternalPackageReference: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     AddExternalPackageReference: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxEncryptedBundleWriter3_Impl: windows_core::IUnknownImpl {
-    fn AddPayloadPackageEncrypted(&self, filename: &windows_core::PCWSTR, packagestream: windows_core::Ref<super::super::super::System::Com::IStream>, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn AddExternalPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn AddPayloadPackageEncrypted(&self, filename: &windows_core::PCWSTR, packagestream: windows_core::Ref<super::super::super::System::Com::IStream>, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::Result<()>;
+    fn AddExternalPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxEncryptedBundleWriter3_Vtbl {
     pub const fn new<Identity: IAppxEncryptedBundleWriter3_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn AddPayloadPackageEncrypted<Identity: IAppxEncryptedBundleWriter3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, packagestream: *mut core::ffi::c_void, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddPayloadPackageEncrypted<Identity: IAppxEncryptedBundleWriter3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, packagestream: *mut core::ffi::c_void, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAppxEncryptedBundleWriter3_Impl::AddPayloadPackageEncrypted(this, core::mem::transmute(&filename), core::mem::transmute_copy(&packagestream), core::mem::transmute_copy(&isdefaultapplicablepackage)).into()
             }
         }
-        unsafe extern "system" fn AddExternalPackageReference<Identity: IAppxEncryptedBundleWriter3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, inputstream: *mut core::ffi::c_void, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddExternalPackageReference<Identity: IAppxEncryptedBundleWriter3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, inputstream: *mut core::ffi::c_void, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAppxEncryptedBundleWriter3_Impl::AddExternalPackageReference(this, core::mem::transmute(&filename), core::mem::transmute_copy(&inputstream), core::mem::transmute_copy(&isdefaultapplicablepackage)).into()
@@ -4268,13 +4268,13 @@ impl IAppxFilesEnumerator {
             (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetHasCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -4285,13 +4285,13 @@ impl IAppxFilesEnumerator {
 pub struct IAppxFilesEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetHasCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetHasCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IAppxFilesEnumerator_Impl: windows_core::IUnknownImpl {
     fn GetCurrent(&self) -> windows_core::Result<IAppxFile>;
-    fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IAppxFilesEnumerator_Vtbl {
     pub const fn new<Identity: IAppxFilesEnumerator_Impl, const OFFSET: isize>() -> Self {
@@ -4307,7 +4307,7 @@ impl IAppxFilesEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetHasCurrent<Identity: IAppxFilesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetHasCurrent<Identity: IAppxFilesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxFilesEnumerator_Impl::GetHasCurrent(this) {
@@ -4319,7 +4319,7 @@ impl IAppxFilesEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MoveNext<Identity: IAppxFilesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MoveNext<Identity: IAppxFilesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxFilesEnumerator_Impl::MoveNext(this) {
@@ -4418,13 +4418,13 @@ impl IAppxManifestApplicationsEnumerator {
             (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetHasCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -4435,13 +4435,13 @@ impl IAppxManifestApplicationsEnumerator {
 pub struct IAppxManifestApplicationsEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetHasCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetHasCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IAppxManifestApplicationsEnumerator_Impl: windows_core::IUnknownImpl {
     fn GetCurrent(&self) -> windows_core::Result<IAppxManifestApplication>;
-    fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IAppxManifestApplicationsEnumerator_Vtbl {
     pub const fn new<Identity: IAppxManifestApplicationsEnumerator_Impl, const OFFSET: isize>() -> Self {
@@ -4457,7 +4457,7 @@ impl IAppxManifestApplicationsEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetHasCurrent<Identity: IAppxManifestApplicationsEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetHasCurrent<Identity: IAppxManifestApplicationsEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestApplicationsEnumerator_Impl::GetHasCurrent(this) {
@@ -4469,7 +4469,7 @@ impl IAppxManifestApplicationsEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MoveNext<Identity: IAppxManifestApplicationsEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MoveNext<Identity: IAppxManifestApplicationsEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestApplicationsEnumerator_Impl::MoveNext(this) {
@@ -4502,13 +4502,13 @@ impl IAppxManifestCapabilitiesEnumerator {
             (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetHasCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -4519,13 +4519,13 @@ impl IAppxManifestCapabilitiesEnumerator {
 pub struct IAppxManifestCapabilitiesEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub GetHasCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetHasCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IAppxManifestCapabilitiesEnumerator_Impl: windows_core::IUnknownImpl {
     fn GetCurrent(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IAppxManifestCapabilitiesEnumerator_Vtbl {
     pub const fn new<Identity: IAppxManifestCapabilitiesEnumerator_Impl, const OFFSET: isize>() -> Self {
@@ -4541,7 +4541,7 @@ impl IAppxManifestCapabilitiesEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetHasCurrent<Identity: IAppxManifestCapabilitiesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetHasCurrent<Identity: IAppxManifestCapabilitiesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestCapabilitiesEnumerator_Impl::GetHasCurrent(this) {
@@ -4553,7 +4553,7 @@ impl IAppxManifestCapabilitiesEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MoveNext<Identity: IAppxManifestCapabilitiesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MoveNext<Identity: IAppxManifestCapabilitiesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestCapabilitiesEnumerator_Impl::MoveNext(this) {
@@ -4586,13 +4586,13 @@ impl IAppxManifestDeviceCapabilitiesEnumerator {
             (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetHasCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -4603,13 +4603,13 @@ impl IAppxManifestDeviceCapabilitiesEnumerator {
 pub struct IAppxManifestDeviceCapabilitiesEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub GetHasCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetHasCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IAppxManifestDeviceCapabilitiesEnumerator_Impl: windows_core::IUnknownImpl {
     fn GetCurrent(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IAppxManifestDeviceCapabilitiesEnumerator_Vtbl {
     pub const fn new<Identity: IAppxManifestDeviceCapabilitiesEnumerator_Impl, const OFFSET: isize>() -> Self {
@@ -4625,7 +4625,7 @@ impl IAppxManifestDeviceCapabilitiesEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetHasCurrent<Identity: IAppxManifestDeviceCapabilitiesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetHasCurrent<Identity: IAppxManifestDeviceCapabilitiesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestDeviceCapabilitiesEnumerator_Impl::GetHasCurrent(this) {
@@ -4637,7 +4637,7 @@ impl IAppxManifestDeviceCapabilitiesEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MoveNext<Identity: IAppxManifestDeviceCapabilitiesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MoveNext<Identity: IAppxManifestDeviceCapabilitiesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestDeviceCapabilitiesEnumerator_Impl::MoveNext(this) {
@@ -4754,13 +4754,13 @@ impl IAppxManifestDriverConstraintsEnumerator {
             (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetHasCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -4771,13 +4771,13 @@ impl IAppxManifestDriverConstraintsEnumerator {
 pub struct IAppxManifestDriverConstraintsEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetHasCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetHasCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IAppxManifestDriverConstraintsEnumerator_Impl: windows_core::IUnknownImpl {
     fn GetCurrent(&self) -> windows_core::Result<IAppxManifestDriverConstraint>;
-    fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IAppxManifestDriverConstraintsEnumerator_Vtbl {
     pub const fn new<Identity: IAppxManifestDriverConstraintsEnumerator_Impl, const OFFSET: isize>() -> Self {
@@ -4793,7 +4793,7 @@ impl IAppxManifestDriverConstraintsEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetHasCurrent<Identity: IAppxManifestDriverConstraintsEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetHasCurrent<Identity: IAppxManifestDriverConstraintsEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestDriverConstraintsEnumerator_Impl::GetHasCurrent(this) {
@@ -4805,7 +4805,7 @@ impl IAppxManifestDriverConstraintsEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MoveNext<Identity: IAppxManifestDriverConstraintsEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MoveNext<Identity: IAppxManifestDriverConstraintsEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestDriverConstraintsEnumerator_Impl::MoveNext(this) {
@@ -4838,13 +4838,13 @@ impl IAppxManifestDriverDependenciesEnumerator {
             (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetHasCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -4855,13 +4855,13 @@ impl IAppxManifestDriverDependenciesEnumerator {
 pub struct IAppxManifestDriverDependenciesEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetHasCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetHasCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IAppxManifestDriverDependenciesEnumerator_Impl: windows_core::IUnknownImpl {
     fn GetCurrent(&self) -> windows_core::Result<IAppxManifestDriverDependency>;
-    fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IAppxManifestDriverDependenciesEnumerator_Vtbl {
     pub const fn new<Identity: IAppxManifestDriverDependenciesEnumerator_Impl, const OFFSET: isize>() -> Self {
@@ -4877,7 +4877,7 @@ impl IAppxManifestDriverDependenciesEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetHasCurrent<Identity: IAppxManifestDriverDependenciesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetHasCurrent<Identity: IAppxManifestDriverDependenciesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestDriverDependenciesEnumerator_Impl::GetHasCurrent(this) {
@@ -4889,7 +4889,7 @@ impl IAppxManifestDriverDependenciesEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MoveNext<Identity: IAppxManifestDriverDependenciesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MoveNext<Identity: IAppxManifestDriverDependenciesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestDriverDependenciesEnumerator_Impl::MoveNext(this) {
@@ -4961,13 +4961,13 @@ impl IAppxManifestHostRuntimeDependenciesEnumerator {
             (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetHasCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -4978,13 +4978,13 @@ impl IAppxManifestHostRuntimeDependenciesEnumerator {
 pub struct IAppxManifestHostRuntimeDependenciesEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetHasCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetHasCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IAppxManifestHostRuntimeDependenciesEnumerator_Impl: windows_core::IUnknownImpl {
     fn GetCurrent(&self) -> windows_core::Result<IAppxManifestHostRuntimeDependency>;
-    fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IAppxManifestHostRuntimeDependenciesEnumerator_Vtbl {
     pub const fn new<Identity: IAppxManifestHostRuntimeDependenciesEnumerator_Impl, const OFFSET: isize>() -> Self {
@@ -5000,7 +5000,7 @@ impl IAppxManifestHostRuntimeDependenciesEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetHasCurrent<Identity: IAppxManifestHostRuntimeDependenciesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetHasCurrent<Identity: IAppxManifestHostRuntimeDependenciesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestHostRuntimeDependenciesEnumerator_Impl::GetHasCurrent(this) {
@@ -5012,7 +5012,7 @@ impl IAppxManifestHostRuntimeDependenciesEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MoveNext<Identity: IAppxManifestHostRuntimeDependenciesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MoveNext<Identity: IAppxManifestHostRuntimeDependenciesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestHostRuntimeDependenciesEnumerator_Impl::MoveNext(this) {
@@ -5168,13 +5168,13 @@ impl IAppxManifestMainPackageDependenciesEnumerator {
             (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetHasCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -5185,13 +5185,13 @@ impl IAppxManifestMainPackageDependenciesEnumerator {
 pub struct IAppxManifestMainPackageDependenciesEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetHasCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetHasCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IAppxManifestMainPackageDependenciesEnumerator_Impl: windows_core::IUnknownImpl {
     fn GetCurrent(&self) -> windows_core::Result<IAppxManifestMainPackageDependency>;
-    fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IAppxManifestMainPackageDependenciesEnumerator_Vtbl {
     pub const fn new<Identity: IAppxManifestMainPackageDependenciesEnumerator_Impl, const OFFSET: isize>() -> Self {
@@ -5207,7 +5207,7 @@ impl IAppxManifestMainPackageDependenciesEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetHasCurrent<Identity: IAppxManifestMainPackageDependenciesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetHasCurrent<Identity: IAppxManifestMainPackageDependenciesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestMainPackageDependenciesEnumerator_Impl::GetHasCurrent(this) {
@@ -5219,7 +5219,7 @@ impl IAppxManifestMainPackageDependenciesEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MoveNext<Identity: IAppxManifestMainPackageDependenciesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MoveNext<Identity: IAppxManifestMainPackageDependenciesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestMainPackageDependenciesEnumerator_Impl::MoveNext(this) {
@@ -5336,13 +5336,13 @@ impl IAppxManifestOSPackageDependenciesEnumerator {
             (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetHasCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -5353,13 +5353,13 @@ impl IAppxManifestOSPackageDependenciesEnumerator {
 pub struct IAppxManifestOSPackageDependenciesEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetHasCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetHasCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IAppxManifestOSPackageDependenciesEnumerator_Impl: windows_core::IUnknownImpl {
     fn GetCurrent(&self) -> windows_core::Result<IAppxManifestOSPackageDependency>;
-    fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IAppxManifestOSPackageDependenciesEnumerator_Vtbl {
     pub const fn new<Identity: IAppxManifestOSPackageDependenciesEnumerator_Impl, const OFFSET: isize>() -> Self {
@@ -5375,7 +5375,7 @@ impl IAppxManifestOSPackageDependenciesEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetHasCurrent<Identity: IAppxManifestOSPackageDependenciesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetHasCurrent<Identity: IAppxManifestOSPackageDependenciesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestOSPackageDependenciesEnumerator_Impl::GetHasCurrent(this) {
@@ -5387,7 +5387,7 @@ impl IAppxManifestOSPackageDependenciesEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MoveNext<Identity: IAppxManifestOSPackageDependenciesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MoveNext<Identity: IAppxManifestOSPackageDependenciesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestOSPackageDependenciesEnumerator_Impl::MoveNext(this) {
@@ -5473,7 +5473,7 @@ impl windows_core::RuntimeName for IAppxManifestOSPackageDependency {}
 windows_core::imp::define_interface!(IAppxManifestOptionalPackageInfo, IAppxManifestOptionalPackageInfo_Vtbl, 0x2634847d_5b5d_4fe5_a243_002ff95edc7e);
 windows_core::imp::interface_hierarchy!(IAppxManifestOptionalPackageInfo, windows_core::IUnknown);
 impl IAppxManifestOptionalPackageInfo {
-    pub unsafe fn GetIsOptionalPackage(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetIsOptionalPackage(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetIsOptionalPackage)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -5489,16 +5489,16 @@ impl IAppxManifestOptionalPackageInfo {
 #[repr(C)]
 pub struct IAppxManifestOptionalPackageInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetIsOptionalPackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetIsOptionalPackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetMainPackageName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 pub trait IAppxManifestOptionalPackageInfo_Impl: windows_core::IUnknownImpl {
-    fn GetIsOptionalPackage(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn GetIsOptionalPackage(&self) -> windows_core::Result<windows_core::BOOL>;
     fn GetMainPackageName(&self) -> windows_core::Result<windows_core::PWSTR>;
 }
 impl IAppxManifestOptionalPackageInfo_Vtbl {
     pub const fn new<Identity: IAppxManifestOptionalPackageInfo_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetIsOptionalPackage<Identity: IAppxManifestOptionalPackageInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isoptionalpackage: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetIsOptionalPackage<Identity: IAppxManifestOptionalPackageInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isoptionalpackage: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestOptionalPackageInfo_Impl::GetIsOptionalPackage(this) {
@@ -5542,13 +5542,13 @@ impl IAppxManifestPackageDependenciesEnumerator {
             (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetHasCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -5559,13 +5559,13 @@ impl IAppxManifestPackageDependenciesEnumerator {
 pub struct IAppxManifestPackageDependenciesEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetHasCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetHasCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IAppxManifestPackageDependenciesEnumerator_Impl: windows_core::IUnknownImpl {
     fn GetCurrent(&self) -> windows_core::Result<IAppxManifestPackageDependency>;
-    fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IAppxManifestPackageDependenciesEnumerator_Vtbl {
     pub const fn new<Identity: IAppxManifestPackageDependenciesEnumerator_Impl, const OFFSET: isize>() -> Self {
@@ -5581,7 +5581,7 @@ impl IAppxManifestPackageDependenciesEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetHasCurrent<Identity: IAppxManifestPackageDependenciesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetHasCurrent<Identity: IAppxManifestPackageDependenciesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestPackageDependenciesEnumerator_Impl::GetHasCurrent(this) {
@@ -5593,7 +5593,7 @@ impl IAppxManifestPackageDependenciesEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MoveNext<Identity: IAppxManifestPackageDependenciesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MoveNext<Identity: IAppxManifestPackageDependenciesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestPackageDependenciesEnumerator_Impl::MoveNext(this) {
@@ -5749,7 +5749,7 @@ impl windows_core::RuntimeName for IAppxManifestPackageDependency2 {}
 windows_core::imp::define_interface!(IAppxManifestPackageDependency3, IAppxManifestPackageDependency3_Vtbl, 0x1ac56374_6198_4d6b_92e4_749d5ab8a895);
 windows_core::imp::interface_hierarchy!(IAppxManifestPackageDependency3, windows_core::IUnknown);
 impl IAppxManifestPackageDependency3 {
-    pub unsafe fn GetIsOptional(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetIsOptional(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetIsOptional)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -5759,14 +5759,14 @@ impl IAppxManifestPackageDependency3 {
 #[repr(C)]
 pub struct IAppxManifestPackageDependency3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetIsOptional: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetIsOptional: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IAppxManifestPackageDependency3_Impl: windows_core::IUnknownImpl {
-    fn GetIsOptional(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn GetIsOptional(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IAppxManifestPackageDependency3_Vtbl {
     pub const fn new<Identity: IAppxManifestPackageDependency3_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetIsOptional<Identity: IAppxManifestPackageDependency3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isoptional: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetIsOptional<Identity: IAppxManifestPackageDependency3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isoptional: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestPackageDependency3_Impl::GetIsOptional(this) {
@@ -5818,7 +5818,7 @@ impl IAppxManifestPackageId {
             (windows_core::Interface::vtable(self).GetResourceId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ComparePublisher<P0>(&self, other: P0) -> windows_core::Result<super::super::super::Foundation::BOOL>
+    pub unsafe fn ComparePublisher<P0>(&self, other: P0) -> windows_core::Result<windows_core::BOOL>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -5848,7 +5848,7 @@ pub struct IAppxManifestPackageId_Vtbl {
     pub GetPublisher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub GetVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
     pub GetResourceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub ComparePublisher: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub ComparePublisher: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetPackageFullName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub GetPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
@@ -5858,7 +5858,7 @@ pub trait IAppxManifestPackageId_Impl: windows_core::IUnknownImpl {
     fn GetPublisher(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetVersion(&self) -> windows_core::Result<u64>;
     fn GetResourceId(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn ComparePublisher(&self, other: &windows_core::PCWSTR) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn ComparePublisher(&self, other: &windows_core::PCWSTR) -> windows_core::Result<windows_core::BOOL>;
     fn GetPackageFullName(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetPackageFamilyName(&self) -> windows_core::Result<windows_core::PWSTR>;
 }
@@ -5924,7 +5924,7 @@ impl IAppxManifestPackageId_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ComparePublisher<Identity: IAppxManifestPackageId_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, other: windows_core::PCWSTR, issame: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn ComparePublisher<Identity: IAppxManifestPackageId_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, other: windows_core::PCWSTR, issame: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestPackageId_Impl::ComparePublisher(this, core::mem::transmute(&other)) {
@@ -6025,7 +6025,7 @@ impl windows_core::RuntimeName for IAppxManifestPackageId2 {}
 windows_core::imp::define_interface!(IAppxManifestProperties, IAppxManifestProperties_Vtbl, 0x03faf64d_f26f_4b2c_aaf7_8fe7789b8bca);
 windows_core::imp::interface_hierarchy!(IAppxManifestProperties, windows_core::IUnknown);
 impl IAppxManifestProperties {
-    pub unsafe fn GetBoolValue<P0>(&self, name: P0) -> windows_core::Result<super::super::super::Foundation::BOOL>
+    pub unsafe fn GetBoolValue<P0>(&self, name: P0) -> windows_core::Result<windows_core::BOOL>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -6047,16 +6047,16 @@ impl IAppxManifestProperties {
 #[repr(C)]
 pub struct IAppxManifestProperties_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetBoolValue: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetBoolValue: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetStringValue: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 pub trait IAppxManifestProperties_Impl: windows_core::IUnknownImpl {
-    fn GetBoolValue(&self, name: &windows_core::PCWSTR) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn GetBoolValue(&self, name: &windows_core::PCWSTR) -> windows_core::Result<windows_core::BOOL>;
     fn GetStringValue(&self, name: &windows_core::PCWSTR) -> windows_core::Result<windows_core::PWSTR>;
 }
 impl IAppxManifestProperties_Vtbl {
     pub const fn new<Identity: IAppxManifestProperties_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetBoolValue<Identity: IAppxManifestProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR, value: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetBoolValue<Identity: IAppxManifestProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR, value: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestProperties_Impl::GetBoolValue(this, core::mem::transmute(&name)) {
@@ -6184,13 +6184,13 @@ impl IAppxManifestQualifiedResourcesEnumerator {
             (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetHasCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -6201,13 +6201,13 @@ impl IAppxManifestQualifiedResourcesEnumerator {
 pub struct IAppxManifestQualifiedResourcesEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetHasCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetHasCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IAppxManifestQualifiedResourcesEnumerator_Impl: windows_core::IUnknownImpl {
     fn GetCurrent(&self) -> windows_core::Result<IAppxManifestQualifiedResource>;
-    fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IAppxManifestQualifiedResourcesEnumerator_Vtbl {
     pub const fn new<Identity: IAppxManifestQualifiedResourcesEnumerator_Impl, const OFFSET: isize>() -> Self {
@@ -6223,7 +6223,7 @@ impl IAppxManifestQualifiedResourcesEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetHasCurrent<Identity: IAppxManifestQualifiedResourcesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetHasCurrent<Identity: IAppxManifestQualifiedResourcesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestQualifiedResourcesEnumerator_Impl::GetHasCurrent(this) {
@@ -6235,7 +6235,7 @@ impl IAppxManifestQualifiedResourcesEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MoveNext<Identity: IAppxManifestQualifiedResourcesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MoveNext<Identity: IAppxManifestQualifiedResourcesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestQualifiedResourcesEnumerator_Impl::MoveNext(this) {
@@ -6689,7 +6689,7 @@ impl windows_core::RuntimeName for IAppxManifestReader5 {}
 windows_core::imp::define_interface!(IAppxManifestReader6, IAppxManifestReader6_Vtbl, 0x34deaca4_d3c0_4e3e_b312_e42625e3807e);
 windows_core::imp::interface_hierarchy!(IAppxManifestReader6, windows_core::IUnknown);
 impl IAppxManifestReader6 {
-    pub unsafe fn GetIsNonQualifiedResourcePackage(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetIsNonQualifiedResourcePackage(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetIsNonQualifiedResourcePackage)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -6699,14 +6699,14 @@ impl IAppxManifestReader6 {
 #[repr(C)]
 pub struct IAppxManifestReader6_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetIsNonQualifiedResourcePackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetIsNonQualifiedResourcePackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IAppxManifestReader6_Impl: windows_core::IUnknownImpl {
-    fn GetIsNonQualifiedResourcePackage(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn GetIsNonQualifiedResourcePackage(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IAppxManifestReader6_Vtbl {
     pub const fn new<Identity: IAppxManifestReader6_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetIsNonQualifiedResourcePackage<Identity: IAppxManifestReader6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isnonqualifiedresourcepackage: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetIsNonQualifiedResourcePackage<Identity: IAppxManifestReader6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isnonqualifiedresourcepackage: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestReader6_Impl::GetIsNonQualifiedResourcePackage(this) {
@@ -6821,13 +6821,13 @@ impl IAppxManifestResourcesEnumerator {
             (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetHasCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -6838,13 +6838,13 @@ impl IAppxManifestResourcesEnumerator {
 pub struct IAppxManifestResourcesEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub GetHasCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetHasCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IAppxManifestResourcesEnumerator_Impl: windows_core::IUnknownImpl {
     fn GetCurrent(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IAppxManifestResourcesEnumerator_Vtbl {
     pub const fn new<Identity: IAppxManifestResourcesEnumerator_Impl, const OFFSET: isize>() -> Self {
@@ -6860,7 +6860,7 @@ impl IAppxManifestResourcesEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetHasCurrent<Identity: IAppxManifestResourcesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetHasCurrent<Identity: IAppxManifestResourcesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestResourcesEnumerator_Impl::GetHasCurrent(this) {
@@ -6872,7 +6872,7 @@ impl IAppxManifestResourcesEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MoveNext<Identity: IAppxManifestResourcesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MoveNext<Identity: IAppxManifestResourcesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestResourcesEnumerator_Impl::MoveNext(this) {
@@ -6905,13 +6905,13 @@ impl IAppxManifestTargetDeviceFamiliesEnumerator {
             (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetHasCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -6922,13 +6922,13 @@ impl IAppxManifestTargetDeviceFamiliesEnumerator {
 pub struct IAppxManifestTargetDeviceFamiliesEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetHasCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetHasCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IAppxManifestTargetDeviceFamiliesEnumerator_Impl: windows_core::IUnknownImpl {
     fn GetCurrent(&self) -> windows_core::Result<IAppxManifestTargetDeviceFamily>;
-    fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IAppxManifestTargetDeviceFamiliesEnumerator_Vtbl {
     pub const fn new<Identity: IAppxManifestTargetDeviceFamiliesEnumerator_Impl, const OFFSET: isize>() -> Self {
@@ -6944,7 +6944,7 @@ impl IAppxManifestTargetDeviceFamiliesEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetHasCurrent<Identity: IAppxManifestTargetDeviceFamiliesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetHasCurrent<Identity: IAppxManifestTargetDeviceFamiliesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestTargetDeviceFamiliesEnumerator_Impl::GetHasCurrent(this) {
@@ -6956,7 +6956,7 @@ impl IAppxManifestTargetDeviceFamiliesEnumerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MoveNext<Identity: IAppxManifestTargetDeviceFamiliesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MoveNext<Identity: IAppxManifestTargetDeviceFamiliesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestTargetDeviceFamiliesEnumerator_Impl::MoveNext(this) {
@@ -7138,7 +7138,7 @@ pub struct IAppxPackageEditor_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     UpdateEncryptedPackage: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub UpdatePackageManifest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::super::super::Foundation::BOOL, APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS) -> windows_core::HRESULT,
+    pub UpdatePackageManifest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL, APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     UpdatePackageManifest: usize,
 }
@@ -7149,7 +7149,7 @@ pub trait IAppxPackageEditor_Impl: windows_core::IUnknownImpl {
     fn CreateDeltaPackageUsingBaselineBlockMap(&self, updatedpackagestream: windows_core::Ref<super::super::super::System::Com::IStream>, baselineblockmapstream: windows_core::Ref<super::super::super::System::Com::IStream>, baselinepackagefullname: &windows_core::PCWSTR, deltapackagestream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
     fn UpdatePackage(&self, baselinepackagestream: windows_core::Ref<super::super::super::System::Com::IStream>, deltapackagestream: windows_core::Ref<super::super::super::System::Com::IStream>, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION) -> windows_core::Result<()>;
     fn UpdateEncryptedPackage(&self, baselineencryptedpackagestream: windows_core::Ref<super::super::super::System::Com::IStream>, deltapackagestream: windows_core::Ref<super::super::super::System::Com::IStream>, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO) -> windows_core::Result<()>;
-    fn UpdatePackageManifest(&self, packagestream: windows_core::Ref<super::super::super::System::Com::IStream>, updatedmanifeststream: windows_core::Ref<super::super::super::System::Com::IStream>, ispackageencrypted: super::super::super::Foundation::BOOL, options: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS) -> windows_core::Result<()>;
+    fn UpdatePackageManifest(&self, packagestream: windows_core::Ref<super::super::super::System::Com::IStream>, updatedmanifeststream: windows_core::Ref<super::super::super::System::Com::IStream>, ispackageencrypted: windows_core::BOOL, options: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxPackageEditor_Vtbl {
@@ -7184,7 +7184,7 @@ impl IAppxPackageEditor_Vtbl {
                 IAppxPackageEditor_Impl::UpdateEncryptedPackage(this, core::mem::transmute_copy(&baselineencryptedpackagestream), core::mem::transmute_copy(&deltapackagestream), core::mem::transmute_copy(&updateoption), core::mem::transmute_copy(&settings), core::mem::transmute_copy(&keyinfo)).into()
             }
         }
-        unsafe extern "system" fn UpdatePackageManifest<Identity: IAppxPackageEditor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packagestream: *mut core::ffi::c_void, updatedmanifeststream: *mut core::ffi::c_void, ispackageencrypted: super::super::super::Foundation::BOOL, options: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS) -> windows_core::HRESULT {
+        unsafe extern "system" fn UpdatePackageManifest<Identity: IAppxPackageEditor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packagestream: *mut core::ffi::c_void, updatedmanifeststream: *mut core::ffi::c_void, ispackageencrypted: windows_core::BOOL, options: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAppxPackageEditor_Impl::UpdatePackageManifest(this, core::mem::transmute_copy(&packagestream), core::mem::transmute_copy(&updatedmanifeststream), core::mem::transmute_copy(&ispackageencrypted), core::mem::transmute_copy(&options)).into()

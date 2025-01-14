@@ -74,8 +74,8 @@ pub unsafe fn WebAuthNGetW3CExceptionDOMError(hr: windows_core::HRESULT) -> wind
     unsafe { WebAuthNGetW3CExceptionDOMError(hr).ok() }
 }
 #[inline]
-pub unsafe fn WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable() -> windows_core::Result<super::super::Foundation::BOOL> {
-    windows_targets::link!("webauthn.dll" "system" fn WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable(pbisuserverifyingplatformauthenticatoravailable : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+pub unsafe fn WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable() -> windows_core::Result<windows_core::BOOL> {
+    windows_targets::link!("webauthn.dll" "system" fn WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable(pbisuserverifyingplatformauthenticatoravailable : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable(&mut result__).map(|| core::mem::transmute(result__))
@@ -352,7 +352,7 @@ pub unsafe fn WsFillReader(reader: *const WS_XML_READER, minsize: u32, asynccont
 }
 #[inline]
 pub unsafe fn WsFindAttribute(reader: *const WS_XML_READER, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, required: bool, attributeindex: *mut u32, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
-    windows_targets::link!("webservices.dll" "system" fn WsFindAttribute(reader : *const WS_XML_READER, localname : *const WS_XML_STRING, ns : *const WS_XML_STRING, required : super::super::Foundation:: BOOL, attributeindex : *mut u32, error : *const WS_ERROR) -> windows_core::HRESULT);
+    windows_targets::link!("webservices.dll" "system" fn WsFindAttribute(reader : *const WS_XML_READER, localname : *const WS_XML_STRING, ns : *const WS_XML_STRING, required : windows_core::BOOL, attributeindex : *mut u32, error : *const WS_ERROR) -> windows_core::HRESULT);
     unsafe { WsFindAttribute(reader, localname, ns, required.into(), attributeindex as _, error.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
@@ -505,7 +505,7 @@ pub unsafe fn WsGetMissingMetadataDocumentAddress(metadata: *const WS_METADATA, 
 }
 #[inline]
 pub unsafe fn WsGetNamespaceFromPrefix(reader: *const WS_XML_READER, prefix: *const WS_XML_STRING, required: bool, ns: *mut *mut WS_XML_STRING, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
-    windows_targets::link!("webservices.dll" "system" fn WsGetNamespaceFromPrefix(reader : *const WS_XML_READER, prefix : *const WS_XML_STRING, required : super::super::Foundation:: BOOL, ns : *mut *mut WS_XML_STRING, error : *const WS_ERROR) -> windows_core::HRESULT);
+    windows_targets::link!("webservices.dll" "system" fn WsGetNamespaceFromPrefix(reader : *const WS_XML_READER, prefix : *const WS_XML_STRING, required : windows_core::BOOL, ns : *mut *mut WS_XML_STRING, error : *const WS_ERROR) -> windows_core::HRESULT);
     unsafe { WsGetNamespaceFromPrefix(reader, prefix, required.into(), ns as _, error.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
@@ -525,7 +525,7 @@ pub unsafe fn WsGetPolicyProperty(policy: *const WS_POLICY, id: WS_POLICY_PROPER
 }
 #[inline]
 pub unsafe fn WsGetPrefixFromNamespace(writer: *const WS_XML_WRITER, ns: *const WS_XML_STRING, required: bool, prefix: *mut *mut WS_XML_STRING, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
-    windows_targets::link!("webservices.dll" "system" fn WsGetPrefixFromNamespace(writer : *const WS_XML_WRITER, ns : *const WS_XML_STRING, required : super::super::Foundation:: BOOL, prefix : *mut *mut WS_XML_STRING, error : *const WS_ERROR) -> windows_core::HRESULT);
+    windows_targets::link!("webservices.dll" "system" fn WsGetPrefixFromNamespace(writer : *const WS_XML_WRITER, ns : *const WS_XML_STRING, required : windows_core::BOOL, prefix : *mut *mut WS_XML_STRING, error : *const WS_ERROR) -> windows_core::HRESULT);
     unsafe { WsGetPrefixFromNamespace(writer, ns, required.into(), prefix as _, error.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
@@ -590,17 +590,17 @@ pub unsafe fn WsMarkHeaderAsUnderstood(message: *const WS_MESSAGE, headerpositio
 }
 #[inline]
 pub unsafe fn WsMatchPolicyAlternative(policy: *const WS_POLICY, alternativeindex: u32, policyconstraints: *const WS_POLICY_CONSTRAINTS, matchrequired: bool, heap: *const WS_HEAP, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
-    windows_targets::link!("webservices.dll" "system" fn WsMatchPolicyAlternative(policy : *const WS_POLICY, alternativeindex : u32, policyconstraints : *const WS_POLICY_CONSTRAINTS, matchrequired : super::super::Foundation:: BOOL, heap : *const WS_HEAP, error : *const WS_ERROR) -> windows_core::HRESULT);
+    windows_targets::link!("webservices.dll" "system" fn WsMatchPolicyAlternative(policy : *const WS_POLICY, alternativeindex : u32, policyconstraints : *const WS_POLICY_CONSTRAINTS, matchrequired : windows_core::BOOL, heap : *const WS_HEAP, error : *const WS_ERROR) -> windows_core::HRESULT);
     unsafe { WsMatchPolicyAlternative(policy, alternativeindex, policyconstraints, matchrequired.into(), heap, error.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn WsMoveReader(reader: *const WS_XML_READER, moveto: WS_MOVE_TO, found: Option<*mut super::super::Foundation::BOOL>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
-    windows_targets::link!("webservices.dll" "system" fn WsMoveReader(reader : *const WS_XML_READER, moveto : WS_MOVE_TO, found : *mut super::super::Foundation:: BOOL, error : *const WS_ERROR) -> windows_core::HRESULT);
+pub unsafe fn WsMoveReader(reader: *const WS_XML_READER, moveto: WS_MOVE_TO, found: Option<*mut windows_core::BOOL>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
+    windows_targets::link!("webservices.dll" "system" fn WsMoveReader(reader : *const WS_XML_READER, moveto : WS_MOVE_TO, found : *mut windows_core::BOOL, error : *const WS_ERROR) -> windows_core::HRESULT);
     unsafe { WsMoveReader(reader, moveto, found.unwrap_or(core::mem::zeroed()) as _, error.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn WsMoveWriter(writer: *const WS_XML_WRITER, moveto: WS_MOVE_TO, found: Option<*mut super::super::Foundation::BOOL>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
-    windows_targets::link!("webservices.dll" "system" fn WsMoveWriter(writer : *const WS_XML_WRITER, moveto : WS_MOVE_TO, found : *mut super::super::Foundation:: BOOL, error : *const WS_ERROR) -> windows_core::HRESULT);
+pub unsafe fn WsMoveWriter(writer: *const WS_XML_WRITER, moveto: WS_MOVE_TO, found: Option<*mut windows_core::BOOL>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
+    windows_targets::link!("webservices.dll" "system" fn WsMoveWriter(writer : *const WS_XML_WRITER, moveto : WS_MOVE_TO, found : *mut windows_core::BOOL, error : *const WS_ERROR) -> windows_core::HRESULT);
     unsafe { WsMoveWriter(writer, moveto, found.unwrap_or(core::mem::zeroed()) as _, error.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
@@ -729,8 +729,8 @@ pub unsafe fn WsReadStartElement(reader: *const WS_XML_READER, error: Option<*co
     unsafe { WsReadStartElement(reader, error.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn WsReadToStartElement(reader: *const WS_XML_READER, localname: Option<*const WS_XML_STRING>, ns: Option<*const WS_XML_STRING>, found: Option<*mut super::super::Foundation::BOOL>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
-    windows_targets::link!("webservices.dll" "system" fn WsReadToStartElement(reader : *const WS_XML_READER, localname : *const WS_XML_STRING, ns : *const WS_XML_STRING, found : *mut super::super::Foundation:: BOOL, error : *const WS_ERROR) -> windows_core::HRESULT);
+pub unsafe fn WsReadToStartElement(reader: *const WS_XML_READER, localname: Option<*const WS_XML_STRING>, ns: Option<*const WS_XML_STRING>, found: Option<*mut windows_core::BOOL>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
+    windows_targets::link!("webservices.dll" "system" fn WsReadToStartElement(reader : *const WS_XML_READER, localname : *const WS_XML_STRING, ns : *const WS_XML_STRING, found : *mut windows_core::BOOL, error : *const WS_ERROR) -> windows_core::HRESULT);
     unsafe { WsReadToStartElement(reader, localname.unwrap_or(core::mem::zeroed()) as _, ns.unwrap_or(core::mem::zeroed()) as _, found.unwrap_or(core::mem::zeroed()) as _, error.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
@@ -1035,7 +1035,7 @@ pub unsafe fn WsWriteQualifiedName(writer: *const WS_XML_WRITER, prefix: Option<
 }
 #[inline]
 pub unsafe fn WsWriteStartAttribute(writer: *const WS_XML_WRITER, prefix: Option<*const WS_XML_STRING>, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, singlequote: bool, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
-    windows_targets::link!("webservices.dll" "system" fn WsWriteStartAttribute(writer : *const WS_XML_WRITER, prefix : *const WS_XML_STRING, localname : *const WS_XML_STRING, ns : *const WS_XML_STRING, singlequote : super::super::Foundation:: BOOL, error : *const WS_ERROR) -> windows_core::HRESULT);
+    windows_targets::link!("webservices.dll" "system" fn WsWriteStartAttribute(writer : *const WS_XML_WRITER, prefix : *const WS_XML_STRING, localname : *const WS_XML_STRING, ns : *const WS_XML_STRING, singlequote : windows_core::BOOL, error : *const WS_ERROR) -> windows_core::HRESULT);
     unsafe { WsWriteStartAttribute(writer, prefix.unwrap_or(core::mem::zeroed()) as _, localname, ns, singlequote.into(), error.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
@@ -1075,7 +1075,7 @@ pub unsafe fn WsWriteXmlBufferToBytes(writer: *const WS_XML_WRITER, xmlbuffer: *
 }
 #[inline]
 pub unsafe fn WsWriteXmlnsAttribute(writer: *const WS_XML_WRITER, prefix: Option<*const WS_XML_STRING>, ns: *const WS_XML_STRING, singlequote: bool, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
-    windows_targets::link!("webservices.dll" "system" fn WsWriteXmlnsAttribute(writer : *const WS_XML_WRITER, prefix : *const WS_XML_STRING, ns : *const WS_XML_STRING, singlequote : super::super::Foundation:: BOOL, error : *const WS_ERROR) -> windows_core::HRESULT);
+    windows_targets::link!("webservices.dll" "system" fn WsWriteXmlnsAttribute(writer : *const WS_XML_WRITER, prefix : *const WS_XML_STRING, ns : *const WS_XML_STRING, singlequote : windows_core::BOOL, error : *const WS_ERROR) -> windows_core::HRESULT);
     unsafe { WsWriteXmlnsAttribute(writer, prefix.unwrap_or(core::mem::zeroed()) as _, ns, singlequote.into(), error.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
@@ -1230,16 +1230,16 @@ pub struct WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
     pub dwUserVerificationRequirement: u32,
     pub dwFlags: u32,
     pub pwszU2fAppId: windows_core::PCWSTR,
-    pub pbU2fAppId: *mut super::super::Foundation::BOOL,
+    pub pbU2fAppId: *mut windows_core::BOOL,
     pub pCancellationId: *mut windows_core::GUID,
     pub pAllowCredentialList: *mut WEBAUTHN_CREDENTIAL_LIST,
     pub dwCredLargeBlobOperation: u32,
     pub cbCredLargeBlob: u32,
     pub pbCredLargeBlob: *mut u8,
     pub pHmacSecretSaltValues: *mut WEBAUTHN_HMAC_SECRET_SALT_VALUES,
-    pub bBrowserInPrivateMode: super::super::Foundation::BOOL,
+    pub bBrowserInPrivateMode: windows_core::BOOL,
     pub pLinkedDevice: *mut CTAPCBOR_HYBRID_STORAGE_LINKED_DATA,
-    pub bAutoFill: super::super::Foundation::BOOL,
+    pub bAutoFill: windows_core::BOOL,
     pub cbJsonExt: u32,
     pub pbJsonExt: *mut u8,
 }
@@ -1265,7 +1265,7 @@ pub struct WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {
     pub CredentialList: WEBAUTHN_CREDENTIALS,
     pub Extensions: WEBAUTHN_EXTENSIONS,
     pub dwAuthenticatorAttachment: u32,
-    pub bRequireResidentKey: super::super::Foundation::BOOL,
+    pub bRequireResidentKey: windows_core::BOOL,
     pub dwUserVerificationRequirement: u32,
     pub dwAttestationConveyancePreference: u32,
     pub dwFlags: u32,
@@ -1273,9 +1273,9 @@ pub struct WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {
     pub pExcludeCredentialList: *mut WEBAUTHN_CREDENTIAL_LIST,
     pub dwEnterpriseAttestation: u32,
     pub dwLargeBlobSupport: u32,
-    pub bPreferResidentKey: super::super::Foundation::BOOL,
-    pub bBrowserInPrivateMode: super::super::Foundation::BOOL,
-    pub bEnablePrf: super::super::Foundation::BOOL,
+    pub bPreferResidentKey: windows_core::BOOL,
+    pub bBrowserInPrivateMode: windows_core::BOOL,
+    pub bEnablePrf: windows_core::BOOL,
     pub pLinkedDevice: *mut CTAPCBOR_HYBRID_STORAGE_LINKED_DATA,
     pub cbJsonExt: u32,
     pub pbJsonExt: *mut u8,
@@ -1403,10 +1403,10 @@ pub struct WEBAUTHN_CREDENTIAL_ATTESTATION {
     pub pbCredentialId: *mut u8,
     pub Extensions: WEBAUTHN_EXTENSIONS,
     pub dwUsedTransport: u32,
-    pub bEpAtt: super::super::Foundation::BOOL,
-    pub bLargeBlobSupported: super::super::Foundation::BOOL,
-    pub bResidentKey: super::super::Foundation::BOOL,
-    pub bPrfEnabled: super::super::Foundation::BOOL,
+    pub bEpAtt: windows_core::BOOL,
+    pub bLargeBlobSupported: windows_core::BOOL,
+    pub bResidentKey: windows_core::BOOL,
+    pub bPrfEnabled: windows_core::BOOL,
     pub cbUnsignedExtensionOutputs: u32,
     pub pbUnsignedExtensionOutputs: *mut u8,
 }
@@ -1431,8 +1431,8 @@ pub struct WEBAUTHN_CREDENTIAL_DETAILS {
     pub pbCredentialID: *mut u8,
     pub pRpInformation: *mut WEBAUTHN_RP_ENTITY_INFORMATION,
     pub pUserInformation: *mut WEBAUTHN_USER_ENTITY_INFORMATION,
-    pub bRemovable: super::super::Foundation::BOOL,
-    pub bBackedUp: super::super::Foundation::BOOL,
+    pub bRemovable: windows_core::BOOL,
+    pub bBackedUp: windows_core::BOOL,
 }
 impl Default for WEBAUTHN_CREDENTIAL_DETAILS {
     fn default() -> Self {
@@ -1509,7 +1509,7 @@ pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_SUCCESS: u32 = 1u32;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WEBAUTHN_CRED_PROTECT_EXTENSION_IN {
     pub dwCredProtect: u32,
-    pub bRequireCredProtect: super::super::Foundation::BOOL,
+    pub bRequireCredProtect: windows_core::BOOL,
 }
 impl Default for WEBAUTHN_CRED_PROTECT_EXTENSION_IN {
     fn default() -> Self {
@@ -1571,7 +1571,7 @@ pub const WEBAUTHN_EXTENSIONS_IDENTIFIER_MIN_PIN_LENGTH: windows_core::PCWSTR = 
 pub struct WEBAUTHN_GET_CREDENTIALS_OPTIONS {
     pub dwVersion: u32,
     pub pwszRpId: windows_core::PCWSTR,
-    pub bBrowserInPrivateMode: super::super::Foundation::BOOL,
+    pub bBrowserInPrivateMode: windows_core::BOOL,
 }
 impl Default for WEBAUTHN_GET_CREDENTIALS_OPTIONS {
     fn default() -> Self {
@@ -1760,7 +1760,7 @@ pub const WS_BLANK_MESSAGE: WS_MESSAGE_INITIALIZATION = WS_MESSAGE_INITIALIZATIO
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_BOOL_DESCRIPTION {
-    pub value: super::super::Foundation::BOOL,
+    pub value: windows_core::BOOL,
 }
 impl Default for WS_BOOL_DESCRIPTION {
     fn default() -> Self {
@@ -2324,7 +2324,7 @@ pub const WS_DUPLICATE_MESSAGE: WS_MESSAGE_INITIALIZATION = WS_MESSAGE_INITIALIZ
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_DURATION {
-    pub negative: super::super::Foundation::BOOL,
+    pub negative: windows_core::BOOL,
     pub years: u32,
     pub months: u32,
     pub days: u32,
@@ -2354,7 +2354,7 @@ impl Default for WS_DURATION_DESCRIPTION {
 }
 pub const WS_DURATION_TYPE: WS_TYPE = WS_TYPE(32i32);
 pub const WS_DURATION_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(15i32);
-pub type WS_DYNAMIC_STRING_CALLBACK = Option<unsafe extern "system" fn(callbackstate: *const core::ffi::c_void, string: *const WS_XML_STRING, found: *mut super::super::Foundation::BOOL, id: *mut u32, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_DYNAMIC_STRING_CALLBACK = Option<unsafe extern "system" fn(callbackstate: *const core::ffi::c_void, string: *const WS_XML_STRING, found: *mut windows_core::BOOL, id: *mut u32, error: *const WS_ERROR) -> windows_core::HRESULT>;
 pub const WS_ELEMENT_CHOICE_FIELD_MAPPING: WS_FIELD_MAPPING = WS_FIELD_MAPPING(7i32);
 pub const WS_ELEMENT_CONTENT_TYPE_MAPPING: WS_TYPE_MAPPING = WS_TYPE_MAPPING(3i32);
 #[repr(C)]
@@ -3140,7 +3140,7 @@ impl Default for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_0 {
     }
 }
 pub const WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_TYPE: WS_SECURITY_BINDING_CONSTRAINT_TYPE = WS_SECURITY_BINDING_CONSTRAINT_TYPE(6i32);
-pub type WS_IS_DEFAULT_VALUE_CALLBACK = Option<unsafe extern "system" fn(descriptiondata: *const core::ffi::c_void, value: *const core::ffi::c_void, defaultvalue: *const core::ffi::c_void, valuesize: u32, isdefault: *mut super::super::Foundation::BOOL, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_IS_DEFAULT_VALUE_CALLBACK = Option<unsafe extern "system" fn(descriptiondata: *const core::ffi::c_void, value: *const core::ffi::c_void, defaultvalue: *const core::ffi::c_void, valuesize: u32, isdefault: *mut windows_core::BOOL, error: *const WS_ERROR) -> windows_core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_ITEM_RANGE {
@@ -4415,7 +4415,7 @@ pub const WS_SERVICE_PROXY_STATE_CREATED: WS_SERVICE_PROXY_STATE = WS_SERVICE_PR
 pub const WS_SERVICE_PROXY_STATE_FAULTED: WS_SERVICE_PROXY_STATE = WS_SERVICE_PROXY_STATE(5i32);
 pub const WS_SERVICE_PROXY_STATE_OPEN: WS_SERVICE_PROXY_STATE = WS_SERVICE_PROXY_STATE(2i32);
 pub const WS_SERVICE_PROXY_STATE_OPENING: WS_SERVICE_PROXY_STATE = WS_SERVICE_PROXY_STATE(1i32);
-pub type WS_SERVICE_SECURITY_CALLBACK = Option<unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, authorized: *mut super::super::Foundation::BOOL, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_SERVICE_SECURITY_CALLBACK = Option<unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, authorized: *mut windows_core::BOOL, error: *const WS_ERROR) -> windows_core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_SERVICE_SECURITY_IDENTITIES {
@@ -4486,7 +4486,7 @@ impl Default for WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT_0 {
-    pub clientCertCredentialRequired: super::super::Foundation::BOOL,
+    pub clientCertCredentialRequired: windows_core::BOOL,
 }
 impl Default for WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT_0 {
     fn default() -> Self {
@@ -5378,7 +5378,7 @@ impl Default for WS_XML_BASE64_TEXT {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_XML_BOOL_TEXT {
     pub text: WS_XML_TEXT,
-    pub value: super::super::Foundation::BOOL,
+    pub value: windows_core::BOOL,
 }
 impl Default for WS_XML_BOOL_TEXT {
     fn default() -> Self {
@@ -5476,7 +5476,7 @@ pub struct WS_XML_DICTIONARY {
     pub guid: windows_core::GUID,
     pub strings: *mut WS_XML_STRING,
     pub stringCount: u32,
-    pub isConst: super::super::Foundation::BOOL,
+    pub isConst: windows_core::BOOL,
 }
 impl Default for WS_XML_DICTIONARY {
     fn default() -> Self {
@@ -5503,7 +5503,7 @@ pub struct WS_XML_ELEMENT_NODE {
     pub ns: *mut WS_XML_STRING,
     pub attributeCount: u32,
     pub attributes: *mut *mut WS_XML_ATTRIBUTE,
-    pub isEmpty: super::super::Foundation::BOOL,
+    pub isEmpty: windows_core::BOOL,
 }
 impl Default for WS_XML_ELEMENT_NODE {
     fn default() -> Self {
@@ -5700,7 +5700,7 @@ pub const WS_XML_READER_INPUT_TYPE_STREAM: WS_XML_READER_INPUT_TYPE = WS_XML_REA
 pub struct WS_XML_READER_MTOM_ENCODING {
     pub encoding: WS_XML_READER_ENCODING,
     pub textEncoding: *mut WS_XML_READER_ENCODING,
-    pub readMimeHeader: super::super::Foundation::BOOL,
+    pub readMimeHeader: windows_core::BOOL,
     pub startInfo: WS_STRING,
     pub boundary: WS_STRING,
     pub startUri: WS_STRING,
@@ -5985,7 +5985,7 @@ pub const WS_XML_WRITER_ENCODING_TYPE_TEXT: WS_XML_WRITER_ENCODING_TYPE = WS_XML
 pub struct WS_XML_WRITER_MTOM_ENCODING {
     pub encoding: WS_XML_WRITER_ENCODING,
     pub textEncoding: *mut WS_XML_WRITER_ENCODING,
-    pub writeMimeHeader: super::super::Foundation::BOOL,
+    pub writeMimeHeader: windows_core::BOOL,
     pub boundary: WS_STRING,
     pub startInfo: WS_STRING,
     pub startUri: WS_STRING,

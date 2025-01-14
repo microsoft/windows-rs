@@ -7,7 +7,7 @@ windows_targets::link!("drtprov.dll" "system" fn DrtCreateDerivedKeySecurityProv
 windows_targets::link!("drtprov.dll" "system" fn DrtCreateDnsBootstrapResolver(port : u16, pwszaddress : windows_sys::core::PCWSTR, ppmodule : *mut *mut DRT_BOOTSTRAP_PROVIDER) -> windows_sys::core::HRESULT);
 windows_targets::link!("drttransport.dll" "system" fn DrtCreateIpv6UdpTransport(scope : DRT_SCOPE, dwscopeid : u32, dwlocalitythreshold : u32, pwport : *mut u16, phtransport : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("drtprov.dll" "system" fn DrtCreateNullSecurityProvider(ppsecurityprovider : *mut *mut DRT_SECURITY_PROVIDER) -> windows_sys::core::HRESULT);
-windows_targets::link!("drtprov.dll" "system" fn DrtCreatePnrpBootstrapResolver(fpublish : super::super::Foundation:: BOOL, pwzpeername : windows_sys::core::PCWSTR, pwzcloudname : windows_sys::core::PCWSTR, pwzpublishingidentity : windows_sys::core::PCWSTR, ppresolver : *mut *mut DRT_BOOTSTRAP_PROVIDER) -> windows_sys::core::HRESULT);
+windows_targets::link!("drtprov.dll" "system" fn DrtCreatePnrpBootstrapResolver(fpublish : windows_sys::core::BOOL, pwzpeername : windows_sys::core::PCWSTR, pwzcloudname : windows_sys::core::PCWSTR, pwzpublishingidentity : windows_sys::core::PCWSTR, ppresolver : *mut *mut DRT_BOOTSTRAP_PROVIDER) -> windows_sys::core::HRESULT);
 windows_targets::link!("drtprov.dll" "system" fn DrtDeleteDerivedKeySecurityProvider(psecurityprovider : *const DRT_SECURITY_PROVIDER));
 windows_targets::link!("drtprov.dll" "system" fn DrtDeleteDnsBootstrapResolver(presolver : *const DRT_BOOTSTRAP_PROVIDER));
 windows_targets::link!("drttransport.dll" "system" fn DrtDeleteIpv6UdpTransport(htransport : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
@@ -104,7 +104,7 @@ windows_targets::link!("peerdist.dll" "system" fn PeerDistClientOpenContent(hpee
 #[cfg(feature = "Win32_System_IO")]
 windows_targets::link!("peerdist.dll" "system" fn PeerDistClientStreamRead(hpeerdist : isize, hcontenthandle : isize, cbmaxnumberofbytes : u32, pbuffer : *mut u8, dwtimeoutinmilliseconds : u32, lpoverlapped : *const super::super::System::IO:: OVERLAPPED) -> u32);
 #[cfg(feature = "Win32_System_IO")]
-windows_targets::link!("peerdist.dll" "system" fn PeerDistGetOverlappedResult(lpoverlapped : *const super::super::System::IO:: OVERLAPPED, lpnumberofbytestransferred : *mut u32, bwait : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+windows_targets::link!("peerdist.dll" "system" fn PeerDistGetOverlappedResult(lpoverlapped : *const super::super::System::IO:: OVERLAPPED, lpnumberofbytestransferred : *mut u32, bwait : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 windows_targets::link!("peerdist.dll" "system" fn PeerDistGetStatus(hpeerdist : isize, ppeerdiststatus : *mut PEERDIST_STATUS) -> u32);
 windows_targets::link!("peerdist.dll" "system" fn PeerDistGetStatusEx(hpeerdist : isize, ppeerdiststatus : *mut PEERDIST_STATUS_INFO) -> u32);
 #[cfg(feature = "Win32_System_IO")]
@@ -141,7 +141,7 @@ windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphCloseDirectConnection
 windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphConnect(hgraph : *const core::ffi::c_void, pwzpeerid : windows_sys::core::PCWSTR, paddress : *const PEER_ADDRESS, pullconnectionid : *mut u64) -> windows_sys::core::HRESULT);
 windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphCreate(pgraphproperties : *const PEER_GRAPH_PROPERTIES, pwzdatabasename : windows_sys::core::PCWSTR, psecurityinterface : *const PEER_SECURITY_INTERFACE, phgraph : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphDelete(pwzgraphid : windows_sys::core::PCWSTR, pwzpeerid : windows_sys::core::PCWSTR, pwzdatabasename : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
-windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphDeleteRecord(hgraph : *const core::ffi::c_void, precordid : *const windows_sys::core::GUID, flocal : super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphDeleteRecord(hgraph : *const core::ffi::c_void, precordid : *const windows_sys::core::GUID, flocal : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphEndEnumeration(hpeerenum : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphEnumConnections(hgraph : *const core::ffi::c_void, dwflags : u32, phpeerenum : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphEnumNodes(hgraph : *const core::ffi::c_void, pwzpeerid : windows_sys::core::PCWSTR, phpeerenum : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
@@ -166,7 +166,7 @@ windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphRegisterEvent(hgraph 
 windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphSearchRecords(hgraph : *const core::ffi::c_void, pwzcriteria : windows_sys::core::PCWSTR, phpeerenum : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphSendData(hgraph : *const core::ffi::c_void, ullconnectionid : u64, ptype : *const windows_sys::core::GUID, cbdata : u32, pvdata : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphSetNodeAttributes(hgraph : *const core::ffi::c_void, pwzattributes : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
-windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphSetPresence(hgraph : *const core::ffi::c_void, fpresent : super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphSetPresence(hgraph : *const core::ffi::c_void, fpresent : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphSetProperties(hgraph : *const core::ffi::c_void, pgraphproperties : *const PEER_GRAPH_PROPERTIES) -> windows_sys::core::HRESULT);
 windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphShutdown() -> windows_sys::core::HRESULT);
 windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphStartup(wversionrequested : u16, pversiondata : *mut PEER_VERSION_DATA) -> windows_sys::core::HRESULT);
@@ -194,7 +194,7 @@ windows_targets::link!("p2p.dll" "system" fn PeerGroupGetEventData(hpeerevent : 
 windows_targets::link!("p2p.dll" "system" fn PeerGroupGetProperties(hgroup : *const core::ffi::c_void, ppproperties : *mut *mut PEER_GROUP_PROPERTIES) -> windows_sys::core::HRESULT);
 windows_targets::link!("p2p.dll" "system" fn PeerGroupGetRecord(hgroup : *const core::ffi::c_void, precordid : *const windows_sys::core::GUID, pprecord : *mut *mut PEER_RECORD) -> windows_sys::core::HRESULT);
 windows_targets::link!("p2p.dll" "system" fn PeerGroupGetStatus(hgroup : *const core::ffi::c_void, pdwstatus : *mut u32) -> windows_sys::core::HRESULT);
-windows_targets::link!("p2p.dll" "system" fn PeerGroupImportConfig(pwzxml : windows_sys::core::PCWSTR, pwzpassword : windows_sys::core::PCWSTR, foverwrite : super::super::Foundation:: BOOL, ppwzidentity : *mut windows_sys::core::PWSTR, ppwzgroup : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
+windows_targets::link!("p2p.dll" "system" fn PeerGroupImportConfig(pwzxml : windows_sys::core::PCWSTR, pwzpassword : windows_sys::core::PCWSTR, foverwrite : windows_sys::core::BOOL, ppwzidentity : *mut windows_sys::core::PWSTR, ppwzgroup : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 windows_targets::link!("p2p.dll" "system" fn PeerGroupImportDatabase(hgroup : *const core::ffi::c_void, pwzfilepath : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Security_Cryptography")]
 windows_targets::link!("p2p.dll" "system" fn PeerGroupIssueCredentials(hgroup : *const core::ffi::c_void, pwzsubjectidentity : windows_sys::core::PCWSTR, pcredentialinfo : *const PEER_CREDENTIAL_INFO, dwflags : u32, ppwzinvitation : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
@@ -281,7 +281,7 @@ pub struct DRT_BOOTSTRAP_PROVIDER {
     pub Unregister: isize,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-pub type DRT_BOOTSTRAP_RESOLVE_CALLBACK = Option<unsafe extern "system" fn(hr: windows_sys::core::HRESULT, pvcontext: *mut core::ffi::c_void, paddresses: *mut super::super::Networking::WinSock::SOCKET_ADDRESS_LIST, ffatalerror: super::super::Foundation::BOOL)>;
+pub type DRT_BOOTSTRAP_RESOLVE_CALLBACK = Option<unsafe extern "system" fn(hr: windows_sys::core::HRESULT, pvcontext: *mut core::ffi::c_void, paddresses: *mut super::super::Networking::WinSock::SOCKET_ADDRESS_LIST, ffatalerror: windows_sys::core::BOOL)>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DRT_DATA {
@@ -409,9 +409,9 @@ pub type DRT_SCOPE = i32;
 #[derive(Clone, Copy)]
 pub struct DRT_SEARCH_INFO {
     pub dwSize: u32,
-    pub fIterative: super::super::Foundation::BOOL,
-    pub fAllowCurrentInstanceMatch: super::super::Foundation::BOOL,
-    pub fAnyMatchInRange: super::super::Foundation::BOOL,
+    pub fIterative: windows_sys::core::BOOL,
+    pub fAllowCurrentInstanceMatch: windows_sys::core::BOOL,
+    pub fAnyMatchInRange: windows_sys::core::BOOL,
     pub cMaxEndpoints: u32,
     pub pMaximumKey: *mut DRT_DATA,
     pub pMinimumKey: *mut DRT_DATA,
@@ -472,7 +472,7 @@ pub const NS_PROVIDER_PNRPNAME: windows_sys::core::GUID = windows_sys::core::GUI
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PEERDIST_CLIENT_BASIC_INFO {
-    pub fFlashCrowd: super::super::Foundation::BOOL,
+    pub fFlashCrowd: windows_sys::core::BOOL,
 }
 pub type PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS = i32;
 #[repr(C)]
@@ -603,7 +603,7 @@ pub struct PEER_CONTACT {
     pub pwzNickName: windows_sys::core::PWSTR,
     pub pwzDisplayName: windows_sys::core::PWSTR,
     pub pwzEmailAddress: windows_sys::core::PWSTR,
-    pub fWatch: super::super::Foundation::BOOL,
+    pub fWatch: windows_sys::core::BOOL,
     pub WatcherPermissions: PEER_WATCH_PERMISSION,
     pub credentials: PEER_DATA,
 }

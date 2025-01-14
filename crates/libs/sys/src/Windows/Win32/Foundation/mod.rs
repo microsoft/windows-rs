@@ -1,13 +1,13 @@
-windows_targets::link!("kernel32.dll" "system" fn CloseHandle(hobject : HANDLE) -> BOOL);
-windows_targets::link!("api-ms-win-core-handle-l1-1-0.dll" "system" fn CompareObjectHandles(hfirstobjecthandle : HANDLE, hsecondobjecthandle : HANDLE) -> BOOL);
-windows_targets::link!("kernel32.dll" "system" fn DuplicateHandle(hsourceprocesshandle : HANDLE, hsourcehandle : HANDLE, htargetprocesshandle : HANDLE, lptargethandle : *mut HANDLE, dwdesiredaccess : u32, binherithandle : BOOL, dwoptions : DUPLICATE_HANDLE_OPTIONS) -> BOOL);
-windows_targets::link!("kernel32.dll" "system" fn FreeLibrary(hlibmodule : HMODULE) -> BOOL);
-windows_targets::link!("kernel32.dll" "system" fn GetHandleInformation(hobject : HANDLE, lpdwflags : *mut u32) -> BOOL);
+windows_targets::link!("kernel32.dll" "system" fn CloseHandle(hobject : HANDLE) -> windows_sys::core::BOOL);
+windows_targets::link!("api-ms-win-core-handle-l1-1-0.dll" "system" fn CompareObjectHandles(hfirstobjecthandle : HANDLE, hsecondobjecthandle : HANDLE) -> windows_sys::core::BOOL);
+windows_targets::link!("kernel32.dll" "system" fn DuplicateHandle(hsourceprocesshandle : HANDLE, hsourcehandle : HANDLE, htargetprocesshandle : HANDLE, lptargethandle : *mut HANDLE, dwdesiredaccess : u32, binherithandle : windows_sys::core::BOOL, dwoptions : DUPLICATE_HANDLE_OPTIONS) -> windows_sys::core::BOOL);
+windows_targets::link!("kernel32.dll" "system" fn FreeLibrary(hlibmodule : HMODULE) -> windows_sys::core::BOOL);
+windows_targets::link!("kernel32.dll" "system" fn GetHandleInformation(hobject : HANDLE, lpdwflags : *mut u32) -> windows_sys::core::BOOL);
 windows_targets::link!("kernel32.dll" "system" fn GetLastError() -> WIN32_ERROR);
 windows_targets::link!("kernel32.dll" "system" fn GlobalFree(hmem : HGLOBAL) -> HGLOBAL);
 windows_targets::link!("kernel32.dll" "system" fn LocalFree(hmem : HLOCAL) -> HLOCAL);
 windows_targets::link!("ntdll.dll" "system" fn RtlNtStatusToDosError(status : NTSTATUS) -> u32);
-windows_targets::link!("kernel32.dll" "system" fn SetHandleInformation(hobject : HANDLE, dwmask : u32, dwflags : HANDLE_FLAGS) -> BOOL);
+windows_targets::link!("kernel32.dll" "system" fn SetHandleInformation(hobject : HANDLE, dwmask : u32, dwflags : HANDLE_FLAGS) -> windows_sys::core::BOOL);
 windows_targets::link!("kernel32.dll" "system" fn SetLastError(dwerrcode : WIN32_ERROR));
 windows_targets::link!("user32.dll" "system" fn SetLastErrorEx(dwerrcode : WIN32_ERROR, dwtype : u32));
 windows_targets::link!("oleaut32.dll" "system" fn SysAddRefString(bstrstring : windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
@@ -60,7 +60,6 @@ pub struct APP_LOCAL_DEVICE_ID {
     pub value: [u8; 32],
 }
 pub const APP_LOCAL_DEVICE_ID_SIZE: u32 = 32u32;
-pub type BOOL = i32;
 pub const BT_E_SPURIOUS_ACTIVATION: windows_sys::core::HRESULT = 0x80080300_u32 as _;
 pub const CACHE_E_FIRST: i32 = -2147221136i32;
 pub const CACHE_E_LAST: i32 = -2147221121i32;
@@ -4733,7 +4732,7 @@ pub const FACILITY_WIN32K_NTGDI: NTSTATUS_FACILITY_CODE = 63u32;
 pub const FACILITY_WIN32K_NTUSER: NTSTATUS_FACILITY_CODE = 62u32;
 pub const FACILITY_XVS: NTSTATUS_FACILITY_CODE = 94u32;
 pub const FACILTIY_MUI_ERROR_CODE: u32 = 11u32;
-pub const FALSE: BOOL = 0i32;
+pub const FALSE: windows_sys::core::BOOL = 0i32;
 pub type FARPROC = Option<unsafe extern "system" fn() -> isize>;
 pub const FA_E_HOMEGROUP_NOT_AVAILABLE: windows_sys::core::HRESULT = 0x80270222_u32 as _;
 pub const FA_E_MAX_PERSISTED_ITEMS_REACHED: windows_sys::core::HRESULT = 0x80270220_u32 as _;
@@ -9784,7 +9783,7 @@ pub const TPM_E_WRITE_LOCKED: windows_sys::core::HRESULT = 0x80280041_u32 as _;
 pub const TPM_E_WRONGPCRVAL: windows_sys::core::HRESULT = 0x80280018_u32 as _;
 pub const TPM_E_WRONG_ENTITYTYPE: windows_sys::core::HRESULT = 0x80280025_u32 as _;
 pub const TPM_E_ZERO_EXHAUST_ENABLED: windows_sys::core::HRESULT = 0x80290500_u32 as _;
-pub const TRUE: BOOL = 1i32;
+pub const TRUE: windows_sys::core::BOOL = 1i32;
 pub const TRUST_E_ACTION_UNKNOWN: windows_sys::core::HRESULT = 0x800B0002_u32 as _;
 pub const TRUST_E_BAD_DIGEST: windows_sys::core::HRESULT = 0x80096010_u32 as _;
 pub const TRUST_E_BASIC_CONSTRAINTS: windows_sys::core::HRESULT = 0x80096019_u32 as _;

@@ -289,7 +289,7 @@ pub struct IXAPO_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void),
     pub LockForProcess: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const XAPO_LOCKFORPROCESS_PARAMETERS, u32, *const XAPO_LOCKFORPROCESS_PARAMETERS) -> windows_core::HRESULT,
     pub UnlockForProcess: unsafe extern "system" fn(*mut core::ffi::c_void),
-    pub Process: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const XAPO_PROCESS_BUFFER_PARAMETERS, u32, *mut XAPO_PROCESS_BUFFER_PARAMETERS, super::super::super::Foundation::BOOL),
+    pub Process: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const XAPO_PROCESS_BUFFER_PARAMETERS, u32, *mut XAPO_PROCESS_BUFFER_PARAMETERS, windows_core::BOOL),
     pub CalcInputFrames: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> u32,
     pub CalcOutputFrames: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> u32,
 }
@@ -301,7 +301,7 @@ pub trait IXAPO_Impl: windows_core::IUnknownImpl {
     fn Reset(&self);
     fn LockForProcess(&self, inputlockedparametercount: u32, pinputlockedparameters: *const XAPO_LOCKFORPROCESS_PARAMETERS, outputlockedparametercount: u32, poutputlockedparameters: *const XAPO_LOCKFORPROCESS_PARAMETERS) -> windows_core::Result<()>;
     fn UnlockForProcess(&self);
-    fn Process(&self, inputprocessparametercount: u32, pinputprocessparameters: *const XAPO_PROCESS_BUFFER_PARAMETERS, outputprocessparametercount: u32, poutputprocessparameters: *mut XAPO_PROCESS_BUFFER_PARAMETERS, isenabled: super::super::super::Foundation::BOOL);
+    fn Process(&self, inputprocessparametercount: u32, pinputprocessparameters: *const XAPO_PROCESS_BUFFER_PARAMETERS, outputprocessparametercount: u32, poutputprocessparameters: *mut XAPO_PROCESS_BUFFER_PARAMETERS, isenabled: windows_core::BOOL);
     fn CalcInputFrames(&self, outputframecount: u32) -> u32;
     fn CalcOutputFrames(&self, inputframecount: u32) -> u32;
 }
@@ -355,7 +355,7 @@ impl IXAPO_Vtbl {
                 IXAPO_Impl::UnlockForProcess(this)
             }
         }
-        unsafe extern "system" fn Process<Identity: IXAPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputprocessparametercount: u32, pinputprocessparameters: *const XAPO_PROCESS_BUFFER_PARAMETERS, outputprocessparametercount: u32, poutputprocessparameters: *mut XAPO_PROCESS_BUFFER_PARAMETERS, isenabled: super::super::super::Foundation::BOOL) {
+        unsafe extern "system" fn Process<Identity: IXAPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputprocessparametercount: u32, pinputprocessparameters: *const XAPO_PROCESS_BUFFER_PARAMETERS, outputprocessparametercount: u32, poutputprocessparameters: *mut XAPO_PROCESS_BUFFER_PARAMETERS, isenabled: windows_core::BOOL) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXAPO_Impl::Process(this, core::mem::transmute_copy(&inputprocessparametercount), core::mem::transmute_copy(&pinputprocessparameters), core::mem::transmute_copy(&outputprocessparametercount), core::mem::transmute_copy(&poutputprocessparameters), core::mem::transmute_copy(&isenabled))
@@ -1039,7 +1039,7 @@ impl IXAudio2Voice {
     pub unsafe fn DisableEffect(&self, effectindex: u32, operationset: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).DisableEffect)(windows_core::Interface::as_raw(self), effectindex, operationset).ok() }
     }
-    pub unsafe fn GetEffectState(&self, effectindex: u32) -> super::super::super::Foundation::BOOL {
+    pub unsafe fn GetEffectState(&self, effectindex: u32) -> windows_core::BOOL {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetEffectState)(windows_core::Interface::as_raw(self), effectindex, &mut result__);
@@ -1121,7 +1121,7 @@ pub struct IXAudio2Voice_Vtbl {
     pub SetEffectChain: unsafe extern "system" fn(*mut core::ffi::c_void, *const XAUDIO2_EFFECT_CHAIN) -> windows_core::HRESULT,
     pub EnableEffect: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
     pub DisableEffect: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
-    pub GetEffectState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::super::super::Foundation::BOOL),
+    pub GetEffectState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::BOOL),
     pub SetEffectParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
     pub GetEffectParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub SetFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *const XAUDIO2_FILTER_PARAMETERS, u32) -> windows_core::HRESULT,
@@ -1142,7 +1142,7 @@ pub trait IXAudio2Voice_Impl {
     fn SetEffectChain(&self, peffectchain: *const XAUDIO2_EFFECT_CHAIN) -> windows_core::Result<()>;
     fn EnableEffect(&self, effectindex: u32, operationset: u32) -> windows_core::Result<()>;
     fn DisableEffect(&self, effectindex: u32, operationset: u32) -> windows_core::Result<()>;
-    fn GetEffectState(&self, effectindex: u32, penabled: *mut super::super::super::Foundation::BOOL);
+    fn GetEffectState(&self, effectindex: u32, penabled: *mut windows_core::BOOL);
     fn SetEffectParameters(&self, effectindex: u32, pparameters: *const core::ffi::c_void, parametersbytesize: u32, operationset: u32) -> windows_core::Result<()>;
     fn GetEffectParameters(&self, effectindex: u32, pparameters: *mut core::ffi::c_void, parametersbytesize: u32) -> windows_core::Result<()>;
     fn SetFilterParameters(&self, pparameters: *const XAUDIO2_FILTER_PARAMETERS, operationset: u32) -> windows_core::Result<()>;
@@ -1194,7 +1194,7 @@ impl IXAudio2Voice_Vtbl {
                 IXAudio2Voice_Impl::DisableEffect(this, core::mem::transmute_copy(&effectindex), core::mem::transmute_copy(&operationset)).into()
             }
         }
-        unsafe extern "system" fn GetEffectState<Identity: IXAudio2Voice_Impl>(this: *mut core::ffi::c_void, effectindex: u32, penabled: *mut super::super::super::Foundation::BOOL) {
+        unsafe extern "system" fn GetEffectState<Identity: IXAudio2Voice_Impl>(this: *mut core::ffi::c_void, effectindex: u32, penabled: *mut windows_core::BOOL) {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
@@ -1671,7 +1671,7 @@ pub struct XAUDIO2FX_REVERB_PARAMETERS {
     pub DecayTime: f32,
     pub Density: f32,
     pub RoomSize: f32,
-    pub DisableLateField: super::super::super::Foundation::BOOL,
+    pub DisableLateField: windows_core::BOOL,
 }
 impl Default for XAUDIO2FX_REVERB_PARAMETERS {
     fn default() -> Self {
@@ -1728,10 +1728,10 @@ pub const XAUDIO2_COMMIT_NOW: u32 = 0u32;
 pub struct XAUDIO2_DEBUG_CONFIGURATION {
     pub TraceMask: u32,
     pub BreakMask: u32,
-    pub LogThreadID: super::super::super::Foundation::BOOL,
-    pub LogFileline: super::super::super::Foundation::BOOL,
-    pub LogFunctionName: super::super::super::Foundation::BOOL,
-    pub LogTiming: super::super::super::Foundation::BOOL,
+    pub LogThreadID: windows_core::BOOL,
+    pub LogFileline: windows_core::BOOL,
+    pub LogFunctionName: windows_core::BOOL,
+    pub LogTiming: windows_core::BOOL,
 }
 impl Default for XAUDIO2_DEBUG_CONFIGURATION {
     fn default() -> Self {
@@ -1762,7 +1762,7 @@ impl Default for XAUDIO2_EFFECT_CHAIN {
 #[repr(C, packed(1))]
 pub struct XAUDIO2_EFFECT_DESCRIPTOR {
     pub pEffect: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
-    pub InitialState: super::super::super::Foundation::BOOL,
+    pub InitialState: windows_core::BOOL,
     pub OutputChannels: u32,
 }
 impl Default for XAUDIO2_EFFECT_DESCRIPTOR {

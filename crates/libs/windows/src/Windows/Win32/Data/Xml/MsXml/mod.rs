@@ -11113,7 +11113,7 @@ impl IXMLDSOControl {
     {
         unsafe { (windows_core::Interface::vtable(self).SetXMLDocument)(windows_core::Interface::as_raw(self), ppdoc.param().abi()).ok() }
     }
-    pub unsafe fn JavaDSOCompatible(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn JavaDSOCompatible(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).JavaDSOCompatible)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -11135,16 +11135,16 @@ pub struct IXMLDSOControl_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub XMLDocument: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetXMLDocument: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub JavaDSOCompatible: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetJavaDSOCompatible: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub JavaDSOCompatible: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetJavaDSOCompatible: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub readyState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IXMLDSOControl_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn XMLDocument(&self) -> windows_core::Result<IXMLDOMDocument>;
     fn SetXMLDocument(&self, ppdoc: windows_core::Ref<IXMLDOMDocument>) -> windows_core::Result<()>;
-    fn JavaDSOCompatible(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn SetJavaDSOCompatible(&self, fjavadsocompatible: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn JavaDSOCompatible(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn SetJavaDSOCompatible(&self, fjavadsocompatible: windows_core::BOOL) -> windows_core::Result<()>;
     fn readyState(&self) -> windows_core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -11168,7 +11168,7 @@ impl IXMLDSOControl_Vtbl {
                 IXMLDSOControl_Impl::SetXMLDocument(this, core::mem::transmute_copy(&ppdoc)).into()
             }
         }
-        unsafe extern "system" fn JavaDSOCompatible<Identity: IXMLDSOControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fjavadsocompatible: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn JavaDSOCompatible<Identity: IXMLDSOControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fjavadsocompatible: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDSOControl_Impl::JavaDSOCompatible(this) {
@@ -11180,7 +11180,7 @@ impl IXMLDSOControl_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetJavaDSOCompatible<Identity: IXMLDSOControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fjavadsocompatible: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetJavaDSOCompatible<Identity: IXMLDSOControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fjavadsocompatible: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXMLDSOControl_Impl::SetJavaDSOCompatible(this, core::mem::transmute_copy(&fjavadsocompatible)).into()

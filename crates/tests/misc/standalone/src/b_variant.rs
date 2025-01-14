@@ -7,6 +7,7 @@
 )]
 
 pub type ADVANCED_FEATURE_FLAGS = u16;
+pub type BOOL = i32;
 pub type BSTR = *const u16;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -133,7 +134,8 @@ pub struct IRecordInfo_Vtbl {
     ) -> HRESULT,
     pub GetFieldNames:
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut BSTR) -> HRESULT,
-    IsMatchingType: usize,
+    pub IsMatchingType:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> BOOL,
     pub RecordCreate: unsafe extern "system" fn(*mut core::ffi::c_void) -> *mut core::ffi::c_void,
     pub RecordCreateCopy: unsafe extern "system" fn(
         *mut core::ffi::c_void,

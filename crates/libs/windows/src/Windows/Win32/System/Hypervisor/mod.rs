@@ -17,12 +17,12 @@ pub unsafe fn CallStackUnwind(vmsavedstatedumphandle: *mut core::ffi::c_void, vp
     unsafe { CallStackUnwind(vmsavedstatedumphandle as _, vpid, imageinfo, imageinfocount, framecount, callstack as _).ok() }
 }
 #[inline]
-pub unsafe fn FindSavedStateSymbolFieldInType<P2, P3>(vmsavedstatedumphandle: *mut core::ffi::c_void, vpid: u32, typename: P2, fieldname: P3, offset: *mut u32, found: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>
+pub unsafe fn FindSavedStateSymbolFieldInType<P2, P3>(vmsavedstatedumphandle: *mut core::ffi::c_void, vpid: u32, typename: P2, fieldname: P3, offset: *mut u32, found: *mut windows_core::BOOL) -> windows_core::Result<()>
 where
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn FindSavedStateSymbolFieldInType(vmsavedstatedumphandle : *mut core::ffi::c_void, vpid : u32, typename : windows_core::PCSTR, fieldname : windows_core::PCWSTR, offset : *mut u32, found : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn FindSavedStateSymbolFieldInType(vmsavedstatedumphandle : *mut core::ffi::c_void, vpid : u32, typename : windows_core::PCSTR, fieldname : windows_core::PCWSTR, offset : *mut u32, found : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { FindSavedStateSymbolFieldInType(vmsavedstatedumphandle as _, vpid, typename.param().abi(), fieldname.param().abi(), offset as _, found as _).ok() }
 }
 #[inline]
@@ -36,8 +36,8 @@ pub unsafe fn ForceArchitecture(vmsavedstatedumphandle: *mut core::ffi::c_void, 
     unsafe { ForceArchitecture(vmsavedstatedumphandle as _, vpid, architecture).ok() }
 }
 #[inline]
-pub unsafe fn ForceNestedHostMode(vmsavedstatedumphandle: *mut core::ffi::c_void, vpid: u32, hostmode: bool, oldmode: Option<*mut super::super::Foundation::BOOL>) -> windows_core::Result<()> {
-    windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ForceNestedHostMode(vmsavedstatedumphandle : *mut core::ffi::c_void, vpid : u32, hostmode : super::super::Foundation:: BOOL, oldmode : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+pub unsafe fn ForceNestedHostMode(vmsavedstatedumphandle: *mut core::ffi::c_void, vpid: u32, hostmode: bool, oldmode: Option<*mut windows_core::BOOL>) -> windows_core::Result<()> {
+    windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ForceNestedHostMode(vmsavedstatedumphandle : *mut core::ffi::c_void, vpid : u32, hostmode : windows_core::BOOL, oldmode : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { ForceNestedHostMode(vmsavedstatedumphandle as _, vpid, hostmode.into(), oldmode.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
@@ -86,8 +86,8 @@ pub unsafe fn GetMemoryBlockCacheLimit(vmsavedstatedumphandle: *mut core::ffi::c
     unsafe { GetMemoryBlockCacheLimit(vmsavedstatedumphandle as _, memoryblockcachelimit as _).ok() }
 }
 #[inline]
-pub unsafe fn GetNestedVirtualizationMode(vmsavedstatedumphandle: *mut core::ffi::c_void, vpid: u32, enabled: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
-    windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetNestedVirtualizationMode(vmsavedstatedumphandle : *mut core::ffi::c_void, vpid : u32, enabled : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+pub unsafe fn GetNestedVirtualizationMode(vmsavedstatedumphandle: *mut core::ffi::c_void, vpid: u32, enabled: *mut windows_core::BOOL) -> windows_core::Result<()> {
+    windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetNestedVirtualizationMode(vmsavedstatedumphandle : *mut core::ffi::c_void, vpid : u32, enabled : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { GetNestedVirtualizationMode(vmsavedstatedumphandle as _, vpid, enabled as _).ok() }
 }
 #[inline]
@@ -143,7 +143,7 @@ pub unsafe fn HdvCreateDeviceInstance(devicehosthandle: *const core::ffi::c_void
 }
 #[inline]
 pub unsafe fn HdvCreateGuestMemoryAperture(requestor: *const core::ffi::c_void, guestphysicaladdress: u64, bytecount: u32, writeprotected: bool, mappedaddress: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-    windows_targets::link!("vmdevicehost.dll" "system" fn HdvCreateGuestMemoryAperture(requestor : *const core::ffi::c_void, guestphysicaladdress : u64, bytecount : u32, writeprotected : super::super::Foundation:: BOOL, mappedaddress : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("vmdevicehost.dll" "system" fn HdvCreateGuestMemoryAperture(requestor : *const core::ffi::c_void, guestphysicaladdress : u64, bytecount : u32, writeprotected : windows_core::BOOL, mappedaddress : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { HdvCreateGuestMemoryAperture(requestor, guestphysicaladdress, bytecount, writeprotected.into(), mappedaddress as _).ok() }
 }
 #[inline]
@@ -204,18 +204,18 @@ pub unsafe fn HdvWriteGuestMemory(requestor: *const core::ffi::c_void, guestphys
     unsafe { HdvWriteGuestMemory(requestor, guestphysicaladdress, buffer.len().try_into().unwrap(), core::mem::transmute(buffer.as_ptr())).ok() }
 }
 #[inline]
-pub unsafe fn InKernelSpace(vmsavedstatedumphandle: *mut core::ffi::c_void, vpid: u32, inkernelspace: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
-    windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn InKernelSpace(vmsavedstatedumphandle : *mut core::ffi::c_void, vpid : u32, inkernelspace : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+pub unsafe fn InKernelSpace(vmsavedstatedumphandle: *mut core::ffi::c_void, vpid: u32, inkernelspace: *mut windows_core::BOOL) -> windows_core::Result<()> {
+    windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn InKernelSpace(vmsavedstatedumphandle : *mut core::ffi::c_void, vpid : u32, inkernelspace : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { InKernelSpace(vmsavedstatedumphandle as _, vpid, inkernelspace as _).ok() }
 }
 #[inline]
-pub unsafe fn IsActiveVirtualTrustLevelEnabled(vmsavedstatedumphandle: *mut core::ffi::c_void, vpid: u32, activevirtualtrustlevelenabled: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
-    windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn IsActiveVirtualTrustLevelEnabled(vmsavedstatedumphandle : *mut core::ffi::c_void, vpid : u32, activevirtualtrustlevelenabled : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+pub unsafe fn IsActiveVirtualTrustLevelEnabled(vmsavedstatedumphandle: *mut core::ffi::c_void, vpid: u32, activevirtualtrustlevelenabled: *mut windows_core::BOOL) -> windows_core::Result<()> {
+    windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn IsActiveVirtualTrustLevelEnabled(vmsavedstatedumphandle : *mut core::ffi::c_void, vpid : u32, activevirtualtrustlevelenabled : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { IsActiveVirtualTrustLevelEnabled(vmsavedstatedumphandle as _, vpid, activevirtualtrustlevelenabled as _).ok() }
 }
 #[inline]
-pub unsafe fn IsNestedVirtualizationEnabled(vmsavedstatedumphandle: *mut core::ffi::c_void, enabled: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
-    windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn IsNestedVirtualizationEnabled(vmsavedstatedumphandle : *mut core::ffi::c_void, enabled : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+pub unsafe fn IsNestedVirtualizationEnabled(vmsavedstatedumphandle: *mut core::ffi::c_void, enabled: *mut windows_core::BOOL) -> windows_core::Result<()> {
+    windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn IsNestedVirtualizationEnabled(vmsavedstatedumphandle : *mut core::ffi::c_void, enabled : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { IsNestedVirtualizationEnabled(vmsavedstatedumphandle as _, enabled as _).ok() }
 }
 #[inline]
@@ -258,7 +258,7 @@ pub unsafe fn LoadSavedStateSymbolProvider<P1>(vmsavedstatedumphandle: *mut core
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn LoadSavedStateSymbolProvider(vmsavedstatedumphandle : *mut core::ffi::c_void, usersymbols : windows_core::PCWSTR, force : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn LoadSavedStateSymbolProvider(vmsavedstatedumphandle : *mut core::ffi::c_void, usersymbols : windows_core::PCWSTR, force : windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { LoadSavedStateSymbolProvider(vmsavedstatedumphandle as _, usersymbols.param().abi(), force.into()).ok() }
 }
 #[inline]
@@ -636,8 +636,8 @@ pub unsafe fn WHvSetupPartition(partition: WHV_PARTITION_HANDLE) -> windows_core
     unsafe { WHvSetupPartition(partition).ok() }
 }
 #[inline]
-pub unsafe fn WHvSignalVirtualProcessorSynicEvent(partition: WHV_PARTITION_HANDLE, synicevent: WHV_SYNIC_EVENT_PARAMETERS, newlysignaled: Option<*mut super::super::Foundation::BOOL>) -> windows_core::Result<()> {
-    windows_targets::link!("winhvplatform.dll" "system" fn WHvSignalVirtualProcessorSynicEvent(partition : WHV_PARTITION_HANDLE, synicevent : WHV_SYNIC_EVENT_PARAMETERS, newlysignaled : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+pub unsafe fn WHvSignalVirtualProcessorSynicEvent(partition: WHV_PARTITION_HANDLE, synicevent: WHV_SYNIC_EVENT_PARAMETERS, newlysignaled: Option<*mut windows_core::BOOL>) -> windows_core::Result<()> {
+    windows_targets::link!("winhvplatform.dll" "system" fn WHvSignalVirtualProcessorSynicEvent(partition : WHV_PARTITION_HANDLE, synicevent : WHV_SYNIC_EVENT_PARAMETERS, newlysignaled : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { WHvSignalVirtualProcessorSynicEvent(partition, core::mem::transmute(synicevent), newlysignaled.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
@@ -802,7 +802,7 @@ impl Default for DOS_IMAGE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type FOUND_IMAGE_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, imageinfo: *const DOS_IMAGE_INFO) -> super::super::Foundation::BOOL>;
+pub type FOUND_IMAGE_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, imageinfo: *const DOS_IMAGE_INFO) -> windows_core::BOOL>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GPA_MEMORY_CHUNK {
@@ -1378,7 +1378,7 @@ pub struct WHV_CACHE_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHV_CAPABILITY {
-    pub HypervisorPresent: super::super::Foundation::BOOL,
+    pub HypervisorPresent: windows_core::BOOL,
     pub Features: WHV_CAPABILITY_FEATURES,
     pub ExtendedVmExits: WHV_EXTENDED_VM_EXITS,
     pub ProcessorVendor: WHV_PROCESSOR_VENDOR,
@@ -1847,12 +1847,12 @@ pub union WHV_PARTITION_PROPERTY {
     pub UnimplementedMsrAction: WHV_MSR_ACTION,
     pub ExceptionExitBitmap: u64,
     pub LocalApicEmulationMode: WHV_X64_LOCAL_APIC_EMULATION_MODE,
-    pub SeparateSecurityDomain: super::super::Foundation::BOOL,
-    pub NestedVirtualization: super::super::Foundation::BOOL,
+    pub SeparateSecurityDomain: windows_core::BOOL,
+    pub NestedVirtualization: windows_core::BOOL,
     pub X64MsrExitBitmap: WHV_X64_MSR_EXIT_BITMAP,
     pub ProcessorClockFrequency: u64,
     pub InterruptClockFrequency: u64,
-    pub ApicRemoteRead: super::super::Foundation::BOOL,
+    pub ApicRemoteRead: windows_core::BOOL,
     pub ProcessorFeaturesBanks: WHV_PROCESSOR_FEATURES_BANKS,
     pub ReferenceTime: u64,
     pub PrimaryNumaNode: u16,
@@ -1861,9 +1861,9 @@ pub union WHV_PARTITION_PROPERTY {
     pub CpuWeight: u32,
     pub CpuGroupId: u64,
     pub ProcessorFrequencyCap: u32,
-    pub AllowDeviceAssignment: super::super::Foundation::BOOL,
+    pub AllowDeviceAssignment: windows_core::BOOL,
     pub ProcessorPerfmonFeatures: WHV_PROCESSOR_PERFMON_FEATURES,
-    pub DisableSmt: super::super::Foundation::BOOL,
+    pub DisableSmt: windows_core::BOOL,
 }
 impl Default for WHV_PARTITION_PROPERTY {
     fn default() -> Self {

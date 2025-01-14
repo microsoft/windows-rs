@@ -43,22 +43,22 @@ where
     unsafe { RoGetParameterizedTypeInstanceIID(nameelements.len().try_into().unwrap(), core::mem::transmute(nameelements.as_ptr()), metadatalocator.param().abi(), iid as _, pextra.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn RoIsApiContractMajorVersionPresent<P0>(name: P0, majorversion: u16) -> windows_core::Result<super::super::super::Foundation::BOOL>
+pub unsafe fn RoIsApiContractMajorVersionPresent<P0>(name: P0, majorversion: u16) -> windows_core::Result<windows_core::BOOL>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("api-ms-win-ro-typeresolution-l1-1-1.dll" "system" fn RoIsApiContractMajorVersionPresent(name : windows_core::PCWSTR, majorversion : u16, present : *mut super::super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    windows_targets::link!("api-ms-win-ro-typeresolution-l1-1-1.dll" "system" fn RoIsApiContractMajorVersionPresent(name : windows_core::PCWSTR, majorversion : u16, present : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         RoIsApiContractMajorVersionPresent(name.param().abi(), majorversion, &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[inline]
-pub unsafe fn RoIsApiContractPresent<P0>(name: P0, majorversion: u16, minorversion: u16) -> windows_core::Result<super::super::super::Foundation::BOOL>
+pub unsafe fn RoIsApiContractPresent<P0>(name: P0, majorversion: u16, minorversion: u16) -> windows_core::Result<windows_core::BOOL>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("api-ms-win-ro-typeresolution-l1-1-1.dll" "system" fn RoIsApiContractPresent(name : windows_core::PCWSTR, majorversion : u16, minorversion : u16, present : *mut super::super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    windows_targets::link!("api-ms-win-ro-typeresolution-l1-1-1.dll" "system" fn RoIsApiContractPresent(name : windows_core::PCWSTR, majorversion : u16, minorversion : u16, present : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         RoIsApiContractPresent(name.param().abi(), majorversion, minorversion, &mut result__).map(|| core::mem::transmute(result__))
@@ -2409,7 +2409,7 @@ impl IMetaDataFilter {
     pub unsafe fn MarkToken(&self, tk: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).MarkToken)(windows_core::Interface::as_raw(self), tk).ok() }
     }
-    pub unsafe fn IsTokenMarked(&self, tk: u32, pismarked: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn IsTokenMarked(&self, tk: u32, pismarked: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).IsTokenMarked)(windows_core::Interface::as_raw(self), tk, pismarked as _).ok() }
     }
 }
@@ -2418,12 +2418,12 @@ pub struct IMetaDataFilter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub UnmarkAll: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub MarkToken: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub IsTokenMarked: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsTokenMarked: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IMetaDataFilter_Impl: windows_core::IUnknownImpl {
     fn UnmarkAll(&self) -> windows_core::Result<()>;
     fn MarkToken(&self, tk: u32) -> windows_core::Result<()>;
-    fn IsTokenMarked(&self, tk: u32, pismarked: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn IsTokenMarked(&self, tk: u32, pismarked: *mut windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl IMetaDataFilter_Vtbl {
     pub const fn new<Identity: IMetaDataFilter_Impl, const OFFSET: isize>() -> Self {
@@ -2439,7 +2439,7 @@ impl IMetaDataFilter_Vtbl {
                 IMetaDataFilter_Impl::MarkToken(this, core::mem::transmute_copy(&tk)).into()
             }
         }
-        unsafe extern "system" fn IsTokenMarked<Identity: IMetaDataFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tk: u32, pismarked: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsTokenMarked<Identity: IMetaDataFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tk: u32, pismarked: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IMetaDataFilter_Impl::IsTokenMarked(this, core::mem::transmute_copy(&tk), core::mem::transmute_copy(&pismarked)).into()
@@ -2670,7 +2670,7 @@ impl IMetaDataImport {
     {
         unsafe { (windows_core::Interface::vtable(self).GetCustomAttributeByName)(windows_core::Interface::as_raw(self), tkobj, szname.param().abi(), ppdata, pcbdata as _).ok() }
     }
-    pub unsafe fn IsValidToken(&self, tk: u32) -> super::super::super::Foundation::BOOL {
+    pub unsafe fn IsValidToken(&self, tk: u32) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).IsValidToken)(windows_core::Interface::as_raw(self), tk) }
     }
     pub unsafe fn GetNestedClassProps(&self, tdnestedclass: u32, ptdenclosingclass: *mut u32) -> windows_core::Result<()> {
@@ -2744,7 +2744,7 @@ pub struct IMetaDataImport_Vtbl {
     pub GetPropertyProps: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, windows_core::PCWSTR, u32, *mut u32, *mut u32, *mut *mut u8, *mut u32, *mut u32, *mut *mut core::ffi::c_void, *mut u32, *mut u32, *mut u32, *mut u32, u32, *mut u32) -> windows_core::HRESULT,
     pub GetParamProps: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, *mut u32, windows_core::PWSTR, u32, *mut u32, *mut u32, *mut u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetCustomAttributeByName: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *const *const core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub IsValidToken: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> super::super::super::Foundation::BOOL,
+    pub IsValidToken: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::BOOL,
     pub GetNestedClassProps: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub GetNativeCallConvFromSig: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub IsGlobal: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut i32) -> windows_core::HRESULT,
@@ -2808,7 +2808,7 @@ pub trait IMetaDataImport_Impl: windows_core::IUnknownImpl {
     fn GetPropertyProps(&self, prop: u32, pclass: *mut u32, szproperty: &windows_core::PCWSTR, cchproperty: u32, pchproperty: *mut u32, pdwpropflags: *mut u32, ppvsig: *mut *mut u8, pbsig: *mut u32, pdwcplustypeflag: *mut u32, ppdefaultvalue: *mut *mut core::ffi::c_void, pcchdefaultvalue: *mut u32, pmdsetter: *mut u32, pmdgetter: *mut u32, rmdothermethod: *mut u32, cmax: u32, pcothermethod: *mut u32) -> windows_core::Result<()>;
     fn GetParamProps(&self, tk: u32, pmd: *mut u32, pulsequence: *mut u32, szname: windows_core::PWSTR, cchname: u32, pchname: *mut u32, pdwattr: *mut u32, pdwcplustypeflag: *mut u32, ppvalue: *mut *mut core::ffi::c_void, pcchvalue: *mut u32) -> windows_core::Result<()>;
     fn GetCustomAttributeByName(&self, tkobj: u32, szname: &windows_core::PCWSTR, ppdata: *const *const core::ffi::c_void, pcbdata: *mut u32) -> windows_core::Result<()>;
-    fn IsValidToken(&self, tk: u32) -> super::super::super::Foundation::BOOL;
+    fn IsValidToken(&self, tk: u32) -> windows_core::BOOL;
     fn GetNestedClassProps(&self, tdnestedclass: u32, ptdenclosingclass: *mut u32) -> windows_core::Result<()>;
     fn GetNativeCallConvFromSig(&self, pvsig: *const core::ffi::c_void, cbsig: u32, pcallconv: *mut u32) -> windows_core::Result<()>;
     fn IsGlobal(&self, pd: u32, pbglobal: *mut i32) -> windows_core::Result<()>;
@@ -3214,7 +3214,7 @@ impl IMetaDataImport_Vtbl {
                 IMetaDataImport_Impl::GetCustomAttributeByName(this, core::mem::transmute_copy(&tkobj), core::mem::transmute(&szname), core::mem::transmute_copy(&ppdata), core::mem::transmute_copy(&pcbdata)).into()
             }
         }
-        unsafe extern "system" fn IsValidToken<Identity: IMetaDataImport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tk: u32) -> super::super::super::Foundation::BOOL {
+        unsafe extern "system" fn IsValidToken<Identity: IMetaDataImport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tk: u32) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IMetaDataImport_Impl::IsValidToken(this, core::mem::transmute_copy(&tk))

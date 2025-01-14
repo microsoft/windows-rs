@@ -148,7 +148,7 @@ where
 }
 #[inline]
 pub unsafe fn CoInternetSetFeatureEnabled(featureentry: INTERNETFEATURELIST, dwflags: u32, fenable: bool) -> windows_core::Result<()> {
-    windows_targets::link!("urlmon.dll" "system" fn CoInternetSetFeatureEnabled(featureentry : INTERNETFEATURELIST, dwflags : u32, fenable : super::super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    windows_targets::link!("urlmon.dll" "system" fn CoInternetSetFeatureEnabled(featureentry : INTERNETFEATURELIST, dwflags : u32, fenable : windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { CoInternetSetFeatureEnabled(featureentry, dwflags, fenable.into()).ok() }
 }
 #[inline]
@@ -393,19 +393,19 @@ where
     unsafe { IsAsyncMoniker(pmk.param().abi()).ok() }
 }
 #[inline]
-pub unsafe fn IsLoggingEnabledA<P0>(pszurl: P0) -> super::super::super::Foundation::BOOL
+pub unsafe fn IsLoggingEnabledA<P0>(pszurl: P0) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("urlmon.dll" "system" fn IsLoggingEnabledA(pszurl : windows_core::PCSTR) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("urlmon.dll" "system" fn IsLoggingEnabledA(pszurl : windows_core::PCSTR) -> windows_core::BOOL);
     unsafe { IsLoggingEnabledA(pszurl.param().abi()) }
 }
 #[inline]
-pub unsafe fn IsLoggingEnabledW<P0>(pwszurl: P0) -> super::super::super::Foundation::BOOL
+pub unsafe fn IsLoggingEnabledW<P0>(pwszurl: P0) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("urlmon.dll" "system" fn IsLoggingEnabledW(pwszurl : windows_core::PCWSTR) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("urlmon.dll" "system" fn IsLoggingEnabledW(pwszurl : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { IsLoggingEnabledW(pwszurl.param().abi()) }
 }
 #[inline]
@@ -612,8 +612,8 @@ pub unsafe fn UrlMkSetSessionOption(dwoption: u32, pbuffer: Option<*const core::
     unsafe { UrlMkSetSessionOption(dwoption, pbuffer.unwrap_or(core::mem::zeroed()) as _, dwbufferlength, dwreserved.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn WriteHitLogging(lplogginginfo: *const HIT_LOGGING_INFO) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("urlmon.dll" "system" fn WriteHitLogging(lplogginginfo : *const HIT_LOGGING_INFO) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn WriteHitLogging(lplogginginfo: *const HIT_LOGGING_INFO) -> windows_core::BOOL {
+    windows_targets::link!("urlmon.dll" "system" fn WriteHitLogging(lplogginginfo : *const HIT_LOGGING_INFO) -> windows_core::BOOL);
     unsafe { WriteHitLogging(lplogginginfo) }
 }
 #[repr(transparent)]
@@ -2490,11 +2490,11 @@ impl IInternetSecurityMgrSite {
 pub struct IInternetSecurityMgrSite_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetWindow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::HWND) -> windows_core::HRESULT,
-    pub EnableModeless: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub EnableModeless: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IInternetSecurityMgrSite_Impl: windows_core::IUnknownImpl {
     fn GetWindow(&self) -> windows_core::Result<super::super::super::Foundation::HWND>;
-    fn EnableModeless(&self, fenable: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn EnableModeless(&self, fenable: windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl IInternetSecurityMgrSite_Vtbl {
     pub const fn new<Identity: IInternetSecurityMgrSite_Impl, const OFFSET: isize>() -> Self {
@@ -2510,7 +2510,7 @@ impl IInternetSecurityMgrSite_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn EnableModeless<Identity: IInternetSecurityMgrSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fenable: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnableModeless<Identity: IInternetSecurityMgrSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fenable: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IInternetSecurityMgrSite_Impl::EnableModeless(this, core::mem::transmute_copy(&fenable)).into()
@@ -2939,10 +2939,10 @@ impl IInternetZoneManagerEx2 {
     pub unsafe fn GetZoneAttributesEx(&self, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES, dwflags: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetZoneAttributesEx)(windows_core::Interface::as_raw(self), dwzone, pzoneattributes as _, dwflags).ok() }
     }
-    pub unsafe fn GetZoneSecurityState(&self, dwzoneindex: u32, frespectpolicy: bool, pdwstate: *mut u32, pfpolicyencountered: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn GetZoneSecurityState(&self, dwzoneindex: u32, frespectpolicy: bool, pdwstate: *mut u32, pfpolicyencountered: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetZoneSecurityState)(windows_core::Interface::as_raw(self), dwzoneindex, frespectpolicy.into(), pdwstate as _, pfpolicyencountered as _).ok() }
     }
-    pub unsafe fn GetIESecurityState(&self, frespectpolicy: bool, pdwstate: *mut u32, pfpolicyencountered: *mut super::super::super::Foundation::BOOL, fnocache: bool) -> windows_core::Result<()> {
+    pub unsafe fn GetIESecurityState(&self, frespectpolicy: bool, pdwstate: *mut u32, pfpolicyencountered: *mut windows_core::BOOL, fnocache: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetIESecurityState)(windows_core::Interface::as_raw(self), frespectpolicy.into(), pdwstate as _, pfpolicyencountered as _, fnocache.into()).ok() }
     }
     pub unsafe fn FixUnsecureSettings(&self) -> windows_core::Result<()> {
@@ -2953,14 +2953,14 @@ impl IInternetZoneManagerEx2 {
 pub struct IInternetZoneManagerEx2_Vtbl {
     pub base__: IInternetZoneManagerEx_Vtbl,
     pub GetZoneAttributesEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut ZONEATTRIBUTES, u32) -> windows_core::HRESULT,
-    pub GetZoneSecurityState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::super::Foundation::BOOL, *mut u32, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub GetIESecurityState: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL, *mut u32, *mut super::super::super::Foundation::BOOL, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetZoneSecurityState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::BOOL, *mut u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub GetIESecurityState: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, *mut u32, *mut windows_core::BOOL, windows_core::BOOL) -> windows_core::HRESULT,
     pub FixUnsecureSettings: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IInternetZoneManagerEx2_Impl: IInternetZoneManagerEx_Impl {
     fn GetZoneAttributesEx(&self, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES, dwflags: u32) -> windows_core::Result<()>;
-    fn GetZoneSecurityState(&self, dwzoneindex: u32, frespectpolicy: super::super::super::Foundation::BOOL, pdwstate: *mut u32, pfpolicyencountered: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn GetIESecurityState(&self, frespectpolicy: super::super::super::Foundation::BOOL, pdwstate: *mut u32, pfpolicyencountered: *mut super::super::super::Foundation::BOOL, fnocache: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn GetZoneSecurityState(&self, dwzoneindex: u32, frespectpolicy: windows_core::BOOL, pdwstate: *mut u32, pfpolicyencountered: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetIESecurityState(&self, frespectpolicy: windows_core::BOOL, pdwstate: *mut u32, pfpolicyencountered: *mut windows_core::BOOL, fnocache: windows_core::BOOL) -> windows_core::Result<()>;
     fn FixUnsecureSettings(&self) -> windows_core::Result<()>;
 }
 impl IInternetZoneManagerEx2_Vtbl {
@@ -2971,13 +2971,13 @@ impl IInternetZoneManagerEx2_Vtbl {
                 IInternetZoneManagerEx2_Impl::GetZoneAttributesEx(this, core::mem::transmute_copy(&dwzone), core::mem::transmute_copy(&pzoneattributes), core::mem::transmute_copy(&dwflags)).into()
             }
         }
-        unsafe extern "system" fn GetZoneSecurityState<Identity: IInternetZoneManagerEx2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwzoneindex: u32, frespectpolicy: super::super::super::Foundation::BOOL, pdwstate: *mut u32, pfpolicyencountered: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetZoneSecurityState<Identity: IInternetZoneManagerEx2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwzoneindex: u32, frespectpolicy: windows_core::BOOL, pdwstate: *mut u32, pfpolicyencountered: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IInternetZoneManagerEx2_Impl::GetZoneSecurityState(this, core::mem::transmute_copy(&dwzoneindex), core::mem::transmute_copy(&frespectpolicy), core::mem::transmute_copy(&pdwstate), core::mem::transmute_copy(&pfpolicyencountered)).into()
             }
         }
-        unsafe extern "system" fn GetIESecurityState<Identity: IInternetZoneManagerEx2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, frespectpolicy: super::super::super::Foundation::BOOL, pdwstate: *mut u32, pfpolicyencountered: *mut super::super::super::Foundation::BOOL, fnocache: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetIESecurityState<Identity: IInternetZoneManagerEx2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, frespectpolicy: windows_core::BOOL, pdwstate: *mut u32, pfpolicyencountered: *mut windows_core::BOOL, fnocache: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IInternetZoneManagerEx2_Impl::GetIESecurityState(this, core::mem::transmute_copy(&frespectpolicy), core::mem::transmute_copy(&pdwstate), core::mem::transmute_copy(&pfpolicyencountered), core::mem::transmute_copy(&fnocache)).into()
@@ -3136,16 +3136,16 @@ pub struct IPersistMoniker_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetClassID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub IsDirty: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Load: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL, *mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub Save: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub Load: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, *mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub Save: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub SaveCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetCurMoniker: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IPersistMoniker_Impl: windows_core::IUnknownImpl {
     fn GetClassID(&self) -> windows_core::Result<windows_core::GUID>;
     fn IsDirty(&self) -> windows_core::HRESULT;
-    fn Load(&self, ffullyavailable: super::super::super::Foundation::BOOL, pimkname: windows_core::Ref<super::IMoniker>, pibc: windows_core::Ref<super::IBindCtx>, grfmode: u32) -> windows_core::Result<()>;
-    fn Save(&self, pimkname: windows_core::Ref<super::IMoniker>, pbc: windows_core::Ref<super::IBindCtx>, fremember: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn Load(&self, ffullyavailable: windows_core::BOOL, pimkname: windows_core::Ref<super::IMoniker>, pibc: windows_core::Ref<super::IBindCtx>, grfmode: u32) -> windows_core::Result<()>;
+    fn Save(&self, pimkname: windows_core::Ref<super::IMoniker>, pbc: windows_core::Ref<super::IBindCtx>, fremember: windows_core::BOOL) -> windows_core::Result<()>;
     fn SaveCompleted(&self, pimkname: windows_core::Ref<super::IMoniker>, pibc: windows_core::Ref<super::IBindCtx>) -> windows_core::Result<()>;
     fn GetCurMoniker(&self) -> windows_core::Result<super::IMoniker>;
 }
@@ -3169,13 +3169,13 @@ impl IPersistMoniker_Vtbl {
                 IPersistMoniker_Impl::IsDirty(this)
             }
         }
-        unsafe extern "system" fn Load<Identity: IPersistMoniker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ffullyavailable: super::super::super::Foundation::BOOL, pimkname: *mut core::ffi::c_void, pibc: *mut core::ffi::c_void, grfmode: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Load<Identity: IPersistMoniker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ffullyavailable: windows_core::BOOL, pimkname: *mut core::ffi::c_void, pibc: *mut core::ffi::c_void, grfmode: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPersistMoniker_Impl::Load(this, core::mem::transmute_copy(&ffullyavailable), core::mem::transmute_copy(&pimkname), core::mem::transmute_copy(&pibc), core::mem::transmute_copy(&grfmode)).into()
             }
         }
-        unsafe extern "system" fn Save<Identity: IPersistMoniker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pimkname: *mut core::ffi::c_void, pbc: *mut core::ffi::c_void, fremember: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn Save<Identity: IPersistMoniker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pimkname: *mut core::ffi::c_void, pbc: *mut core::ffi::c_void, fremember: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPersistMoniker_Impl::Save(this, core::mem::transmute_copy(&pimkname), core::mem::transmute_copy(&pbc), core::mem::transmute_copy(&fremember)).into()
@@ -4029,7 +4029,7 @@ pub const QUERY_USES_NETWORK: QUERYOPTION = QUERYOPTION(8i32);
 pub struct REMSECURITY_ATTRIBUTES {
     pub nLength: u32,
     pub lpSecurityDescriptor: u32,
-    pub bInheritHandle: super::super::super::Foundation::BOOL,
+    pub bInheritHandle: windows_core::BOOL,
 }
 impl Default for REMSECURITY_ATTRIBUTES {
     fn default() -> Self {

@@ -13,14 +13,14 @@ windows_targets::link!("activeds.dll" "system" fn ADsFreeEnumerator(penumvariant
 windows_targets::link!("activeds.dll" "system" fn ADsGetLastError(lperror : *mut u32, lperrorbuf : windows_sys::core::PWSTR, dwerrorbuflen : u32, lpnamebuf : windows_sys::core::PWSTR, dwnamebuflen : u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("activeds.dll" "system" fn ADsGetObject(lpszpathname : windows_sys::core::PCWSTR, riid : *const windows_sys::core::GUID, ppobject : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("activeds.dll" "system" fn ADsOpenObject(lpszpathname : windows_sys::core::PCWSTR, lpszusername : windows_sys::core::PCWSTR, lpszpassword : windows_sys::core::PCWSTR, dwreserved : ADS_AUTHENTICATION_ENUM, riid : *const windows_sys::core::GUID, ppobject : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_targets::link!("dsprop.dll" "system" fn ADsPropCheckIfWritable(pwzattr : windows_sys::core::PCWSTR, pwritableattrs : *const ADS_ATTR_INFO) -> super::super::Foundation:: BOOL);
+windows_targets::link!("dsprop.dll" "system" fn ADsPropCheckIfWritable(pwzattr : windows_sys::core::PCWSTR, pwritableattrs : *const ADS_ATTR_INFO) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("dsprop.dll" "system" fn ADsPropCreateNotifyObj(pappthddataobj : * mut core::ffi::c_void, pwzadsobjname : windows_sys::core::PCWSTR, phnotifyobj : *mut super::super::Foundation:: HWND) -> windows_sys::core::HRESULT);
-windows_targets::link!("dsprop.dll" "system" fn ADsPropGetInitInfo(hnotifyobj : super::super::Foundation:: HWND, pinitparams : *mut ADSPROPINITPARAMS) -> super::super::Foundation:: BOOL);
-windows_targets::link!("dsprop.dll" "system" fn ADsPropSendErrorMessage(hnotifyobj : super::super::Foundation:: HWND, perror : *mut ADSPROPERROR) -> super::super::Foundation:: BOOL);
-windows_targets::link!("dsprop.dll" "system" fn ADsPropSetHwnd(hnotifyobj : super::super::Foundation:: HWND, hpage : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
-windows_targets::link!("dsprop.dll" "system" fn ADsPropSetHwndWithTitle(hnotifyobj : super::super::Foundation:: HWND, hpage : super::super::Foundation:: HWND, ptztitle : *const i8) -> super::super::Foundation:: BOOL);
-windows_targets::link!("dsprop.dll" "system" fn ADsPropShowErrorDialog(hnotifyobj : super::super::Foundation:: HWND, hpage : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
+windows_targets::link!("dsprop.dll" "system" fn ADsPropGetInitInfo(hnotifyobj : super::super::Foundation:: HWND, pinitparams : *mut ADSPROPINITPARAMS) -> windows_sys::core::BOOL);
+windows_targets::link!("dsprop.dll" "system" fn ADsPropSendErrorMessage(hnotifyobj : super::super::Foundation:: HWND, perror : *mut ADSPROPERROR) -> windows_sys::core::BOOL);
+windows_targets::link!("dsprop.dll" "system" fn ADsPropSetHwnd(hnotifyobj : super::super::Foundation:: HWND, hpage : super::super::Foundation:: HWND) -> windows_sys::core::BOOL);
+windows_targets::link!("dsprop.dll" "system" fn ADsPropSetHwndWithTitle(hnotifyobj : super::super::Foundation:: HWND, hpage : super::super::Foundation:: HWND, ptztitle : *const i8) -> windows_sys::core::BOOL);
+windows_targets::link!("dsprop.dll" "system" fn ADsPropShowErrorDialog(hnotifyobj : super::super::Foundation:: HWND, hpage : super::super::Foundation:: HWND) -> windows_sys::core::BOOL);
 windows_targets::link!("activeds.dll" "system" fn ADsSetLastError(dwerr : u32, pszerror : windows_sys::core::PCWSTR, pszprovider : windows_sys::core::PCWSTR));
 windows_targets::link!("activeds.dll" "system" fn AdsFreeAdsValues(padsvalues : *mut ADSVALUE, dwnumvalues : u32));
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -66,8 +66,8 @@ windows_targets::link!("dsparse.dll" "system" fn DsCrackSpn3W(pszspn : windows_s
 windows_targets::link!("dsparse.dll" "system" fn DsCrackSpn4W(pszspn : windows_sys::core::PCWSTR, cspn : u32, pchostname : *mut u32, hostname : windows_sys::core::PWSTR, pcinstancename : *mut u32, instancename : windows_sys::core::PWSTR, pcportname : *mut u32, portname : windows_sys::core::PWSTR, pcdomainname : *mut u32, domainname : windows_sys::core::PWSTR, pcrealmname : *mut u32, realmname : windows_sys::core::PWSTR) -> u32);
 windows_targets::link!("dsparse.dll" "system" fn DsCrackSpnA(pszspn : windows_sys::core::PCSTR, pcserviceclass : *mut u32, serviceclass : windows_sys::core::PSTR, pcservicename : *mut u32, servicename : windows_sys::core::PSTR, pcinstancename : *mut u32, instancename : windows_sys::core::PSTR, pinstanceport : *mut u16) -> u32);
 windows_targets::link!("dsparse.dll" "system" fn DsCrackSpnW(pszspn : windows_sys::core::PCWSTR, pcserviceclass : *mut u32, serviceclass : windows_sys::core::PWSTR, pcservicename : *mut u32, servicename : windows_sys::core::PWSTR, pcinstancename : *mut u32, instancename : windows_sys::core::PWSTR, pinstanceport : *mut u16) -> u32);
-windows_targets::link!("dsparse.dll" "system" fn DsCrackUnquotedMangledRdnA(pszrdn : windows_sys::core::PCSTR, cchrdn : u32, pguid : *mut windows_sys::core::GUID, pedsmanglefor : *mut DS_MANGLE_FOR) -> super::super::Foundation:: BOOL);
-windows_targets::link!("dsparse.dll" "system" fn DsCrackUnquotedMangledRdnW(pszrdn : windows_sys::core::PCWSTR, cchrdn : u32, pguid : *mut windows_sys::core::GUID, pedsmanglefor : *mut DS_MANGLE_FOR) -> super::super::Foundation:: BOOL);
+windows_targets::link!("dsparse.dll" "system" fn DsCrackUnquotedMangledRdnA(pszrdn : windows_sys::core::PCSTR, cchrdn : u32, pguid : *mut windows_sys::core::GUID, pedsmanglefor : *mut DS_MANGLE_FOR) -> windows_sys::core::BOOL);
+windows_targets::link!("dsparse.dll" "system" fn DsCrackUnquotedMangledRdnW(pszrdn : windows_sys::core::PCWSTR, cchrdn : u32, pguid : *mut windows_sys::core::GUID, pedsmanglefor : *mut DS_MANGLE_FOR) -> windows_sys::core::BOOL);
 windows_targets::link!("netapi32.dll" "system" fn DsDeregisterDnsHostRecordsA(servername : windows_sys::core::PCSTR, dnsdomainname : windows_sys::core::PCSTR, domainguid : *const windows_sys::core::GUID, dsaguid : *const windows_sys::core::GUID, dnshostname : windows_sys::core::PCSTR) -> u32);
 windows_targets::link!("netapi32.dll" "system" fn DsDeregisterDnsHostRecordsW(servername : windows_sys::core::PCWSTR, dnsdomainname : windows_sys::core::PCWSTR, domainguid : *const windows_sys::core::GUID, dsaguid : *const windows_sys::core::GUID, dnshostname : windows_sys::core::PCWSTR) -> u32);
 #[cfg(feature = "Win32_Security")]
@@ -108,10 +108,10 @@ windows_targets::link!("ntdsapi.dll" "system" fn DsGetSpnA(servicetype : DS_SPN_
 windows_targets::link!("ntdsapi.dll" "system" fn DsGetSpnW(servicetype : DS_SPN_NAME_TYPE, serviceclass : windows_sys::core::PCWSTR, servicename : windows_sys::core::PCWSTR, instanceport : u16, cinstancenames : u16, pinstancenames : *const windows_sys::core::PCWSTR, pinstanceports : *const u16, pcspn : *mut u32, prpszspn : *mut *mut windows_sys::core::PWSTR) -> u32);
 windows_targets::link!("ntdsapi.dll" "system" fn DsInheritSecurityIdentityA(hds : super::super::Foundation:: HANDLE, flags : u32, srcprincipal : windows_sys::core::PCSTR, dstprincipal : windows_sys::core::PCSTR) -> u32);
 windows_targets::link!("ntdsapi.dll" "system" fn DsInheritSecurityIdentityW(hds : super::super::Foundation:: HANDLE, flags : u32, srcprincipal : windows_sys::core::PCWSTR, dstprincipal : windows_sys::core::PCWSTR) -> u32);
-windows_targets::link!("dsparse.dll" "system" fn DsIsMangledDnA(pszdn : windows_sys::core::PCSTR, edsmanglefor : DS_MANGLE_FOR) -> super::super::Foundation:: BOOL);
-windows_targets::link!("dsparse.dll" "system" fn DsIsMangledDnW(pszdn : windows_sys::core::PCWSTR, edsmanglefor : DS_MANGLE_FOR) -> super::super::Foundation:: BOOL);
-windows_targets::link!("dsparse.dll" "system" fn DsIsMangledRdnValueA(pszrdn : windows_sys::core::PCSTR, crdn : u32, edsmanglefordesired : DS_MANGLE_FOR) -> super::super::Foundation:: BOOL);
-windows_targets::link!("dsparse.dll" "system" fn DsIsMangledRdnValueW(pszrdn : windows_sys::core::PCWSTR, crdn : u32, edsmanglefordesired : DS_MANGLE_FOR) -> super::super::Foundation:: BOOL);
+windows_targets::link!("dsparse.dll" "system" fn DsIsMangledDnA(pszdn : windows_sys::core::PCSTR, edsmanglefor : DS_MANGLE_FOR) -> windows_sys::core::BOOL);
+windows_targets::link!("dsparse.dll" "system" fn DsIsMangledDnW(pszdn : windows_sys::core::PCWSTR, edsmanglefor : DS_MANGLE_FOR) -> windows_sys::core::BOOL);
+windows_targets::link!("dsparse.dll" "system" fn DsIsMangledRdnValueA(pszrdn : windows_sys::core::PCSTR, crdn : u32, edsmanglefordesired : DS_MANGLE_FOR) -> windows_sys::core::BOOL);
+windows_targets::link!("dsparse.dll" "system" fn DsIsMangledRdnValueW(pszrdn : windows_sys::core::PCWSTR, crdn : u32, edsmanglefordesired : DS_MANGLE_FOR) -> windows_sys::core::BOOL);
 windows_targets::link!("ntdsapi.dll" "system" fn DsListDomainsInSiteA(hds : super::super::Foundation:: HANDLE, site : windows_sys::core::PCSTR, ppdomains : *mut *mut DS_NAME_RESULTA) -> u32);
 windows_targets::link!("ntdsapi.dll" "system" fn DsListDomainsInSiteW(hds : super::super::Foundation:: HANDLE, site : windows_sys::core::PCWSTR, ppdomains : *mut *mut DS_NAME_RESULTW) -> u32);
 windows_targets::link!("ntdsapi.dll" "system" fn DsListInfoForServerA(hds : super::super::Foundation:: HANDLE, server : windows_sys::core::PCSTR, ppinfo : *mut *mut DS_NAME_RESULTA) -> u32);
@@ -139,8 +139,8 @@ windows_targets::link!("dsparse.dll" "system" fn DsQuoteRdnValueA(cunquotedrdnva
 windows_targets::link!("dsparse.dll" "system" fn DsQuoteRdnValueW(cunquotedrdnvaluelength : u32, psunquotedrdnvalue : windows_sys::core::PCWSTR, pcquotedrdnvaluelength : *mut u32, psquotedrdnvalue : windows_sys::core::PWSTR) -> u32);
 windows_targets::link!("ntdsapi.dll" "system" fn DsRemoveDsDomainA(hds : super::super::Foundation:: HANDLE, domaindn : windows_sys::core::PCSTR) -> u32);
 windows_targets::link!("ntdsapi.dll" "system" fn DsRemoveDsDomainW(hds : super::super::Foundation:: HANDLE, domaindn : windows_sys::core::PCWSTR) -> u32);
-windows_targets::link!("ntdsapi.dll" "system" fn DsRemoveDsServerA(hds : super::super::Foundation:: HANDLE, serverdn : windows_sys::core::PCSTR, domaindn : windows_sys::core::PCSTR, flastdcindomain : *mut super::super::Foundation:: BOOL, fcommit : super::super::Foundation:: BOOL) -> u32);
-windows_targets::link!("ntdsapi.dll" "system" fn DsRemoveDsServerW(hds : super::super::Foundation:: HANDLE, serverdn : windows_sys::core::PCWSTR, domaindn : windows_sys::core::PCWSTR, flastdcindomain : *mut super::super::Foundation:: BOOL, fcommit : super::super::Foundation:: BOOL) -> u32);
+windows_targets::link!("ntdsapi.dll" "system" fn DsRemoveDsServerA(hds : super::super::Foundation:: HANDLE, serverdn : windows_sys::core::PCSTR, domaindn : windows_sys::core::PCSTR, flastdcindomain : *mut windows_sys::core::BOOL, fcommit : windows_sys::core::BOOL) -> u32);
+windows_targets::link!("ntdsapi.dll" "system" fn DsRemoveDsServerW(hds : super::super::Foundation:: HANDLE, serverdn : windows_sys::core::PCWSTR, domaindn : windows_sys::core::PCWSTR, flastdcindomain : *mut windows_sys::core::BOOL, fcommit : windows_sys::core::BOOL) -> u32);
 windows_targets::link!("ntdsapi.dll" "system" fn DsReplicaAddA(hds : super::super::Foundation:: HANDLE, namecontext : windows_sys::core::PCSTR, sourcedsadn : windows_sys::core::PCSTR, transportdn : windows_sys::core::PCSTR, sourcedsaaddress : windows_sys::core::PCSTR, pschedule : *const SCHEDULE, options : u32) -> u32);
 windows_targets::link!("ntdsapi.dll" "system" fn DsReplicaAddW(hds : super::super::Foundation:: HANDLE, namecontext : windows_sys::core::PCWSTR, sourcedsadn : windows_sys::core::PCWSTR, transportdn : windows_sys::core::PCWSTR, sourcedsaaddress : windows_sys::core::PCWSTR, pschedule : *const SCHEDULE, options : u32) -> u32);
 windows_targets::link!("ntdsapi.dll" "system" fn DsReplicaConsistencyCheck(hds : super::super::Foundation:: HANDLE, taskid : DS_KCC_TASKID, dwflags : u32) -> u32);
@@ -171,12 +171,12 @@ windows_targets::link!("netapi32.dll" "system" fn DsValidateSubnetNameA(subnetna
 windows_targets::link!("netapi32.dll" "system" fn DsValidateSubnetNameW(subnetname : windows_sys::core::PCWSTR) -> u32);
 windows_targets::link!("ntdsapi.dll" "system" fn DsWriteAccountSpnA(hds : super::super::Foundation:: HANDLE, operation : DS_SPN_WRITE_OP, pszaccount : windows_sys::core::PCSTR, cspn : u32, rpszspn : *const windows_sys::core::PCSTR) -> u32);
 windows_targets::link!("ntdsapi.dll" "system" fn DsWriteAccountSpnW(hds : super::super::Foundation:: HANDLE, operation : DS_SPN_WRITE_OP, pszaccount : windows_sys::core::PCWSTR, cspn : u32, rpszspn : *const windows_sys::core::PCWSTR) -> u32);
-windows_targets::link!("activeds.dll" "system" fn FreeADsMem(pmem : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-windows_targets::link!("activeds.dll" "system" fn FreeADsStr(pstr : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+windows_targets::link!("activeds.dll" "system" fn FreeADsMem(pmem : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_targets::link!("activeds.dll" "system" fn FreeADsStr(pstr : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 windows_targets::link!("activeds.dll" "system" fn PropVariantToAdsType(pvariant : *mut super::super::System::Variant:: VARIANT, dwnumvariant : u32, ppadsvalues : *mut *mut ADSVALUE, pdwnumvalues : *mut u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("activeds.dll" "system" fn ReallocADsMem(poldmem : *mut core::ffi::c_void, cbold : u32, cbnew : u32) -> *mut core::ffi::c_void);
-windows_targets::link!("activeds.dll" "system" fn ReallocADsStr(ppstr : *mut windows_sys::core::PWSTR, pstr : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+windows_targets::link!("activeds.dll" "system" fn ReallocADsStr(ppstr : *mut windows_sys::core::PWSTR, pstr : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 windows_targets::link!("activeds.dll" "system" fn SecurityDescriptorToBinarySD(vvarsecdes : super::super::System::Variant:: VARIANT, ppsecuritydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR, pdwsdlength : *mut u32, pszservername : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR, password : windows_sys::core::PCWSTR, dwflags : u32) -> windows_sys::core::HRESULT);
 pub const ACTRL_DS_CONTROL_ACCESS: u32 = 256u32;
@@ -340,7 +340,7 @@ pub struct ADS_ATTR_DEF {
     pub dwADsType: ADSTYPE,
     pub dwMinRange: u32,
     pub dwMaxRange: u32,
-    pub fMultiValued: super::super::Foundation::BOOL,
+    pub fMultiValued: windows_sys::core::BOOL,
 }
 pub const ADS_ATTR_DELETE: u32 = 4u32;
 #[repr(C)]
@@ -384,7 +384,7 @@ pub struct ADS_CLASS_DEF {
     pub ppszNamingAttrs: *mut *mut windows_sys::core::PWSTR,
     pub dwSuperClasses: u32,
     pub ppszSuperClasses: *mut *mut windows_sys::core::PWSTR,
-    pub fIsContainer: super::super::Foundation::BOOL,
+    pub fIsContainer: windows_sys::core::BOOL,
 }
 pub type ADS_DEREFENUM = i32;
 pub const ADS_DEREF_ALWAYS: ADS_DEREFENUM = 3i32;
@@ -812,7 +812,7 @@ pub struct DOMAINDESC {
     pub pszTrustParent: windows_sys::core::PWSTR,
     pub pszObjectClass: windows_sys::core::PWSTR,
     pub ulFlags: u32,
-    pub fDownLevel: super::super::Foundation::BOOL,
+    pub fDownLevel: windows_sys::core::BOOL,
     pub pdChildList: *mut DOMAINDESC,
     pub pdNextSibling: *mut DOMAINDESC,
 }
@@ -1246,8 +1246,8 @@ pub struct DS_DOMAIN_CONTROLLER_INFO_1A {
     pub SiteName: windows_sys::core::PSTR,
     pub ComputerObjectName: windows_sys::core::PSTR,
     pub ServerObjectName: windows_sys::core::PSTR,
-    pub fIsPdc: super::super::Foundation::BOOL,
-    pub fDsEnabled: super::super::Foundation::BOOL,
+    pub fIsPdc: windows_sys::core::BOOL,
+    pub fDsEnabled: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1257,8 +1257,8 @@ pub struct DS_DOMAIN_CONTROLLER_INFO_1W {
     pub SiteName: windows_sys::core::PWSTR,
     pub ComputerObjectName: windows_sys::core::PWSTR,
     pub ServerObjectName: windows_sys::core::PWSTR,
-    pub fIsPdc: super::super::Foundation::BOOL,
-    pub fDsEnabled: super::super::Foundation::BOOL,
+    pub fIsPdc: windows_sys::core::BOOL,
+    pub fDsEnabled: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1270,9 +1270,9 @@ pub struct DS_DOMAIN_CONTROLLER_INFO_2A {
     pub ComputerObjectName: windows_sys::core::PSTR,
     pub ServerObjectName: windows_sys::core::PSTR,
     pub NtdsDsaObjectName: windows_sys::core::PSTR,
-    pub fIsPdc: super::super::Foundation::BOOL,
-    pub fDsEnabled: super::super::Foundation::BOOL,
-    pub fIsGc: super::super::Foundation::BOOL,
+    pub fIsPdc: windows_sys::core::BOOL,
+    pub fDsEnabled: windows_sys::core::BOOL,
+    pub fIsGc: windows_sys::core::BOOL,
     pub SiteObjectGuid: windows_sys::core::GUID,
     pub ComputerObjectGuid: windows_sys::core::GUID,
     pub ServerObjectGuid: windows_sys::core::GUID,
@@ -1288,9 +1288,9 @@ pub struct DS_DOMAIN_CONTROLLER_INFO_2W {
     pub ComputerObjectName: windows_sys::core::PWSTR,
     pub ServerObjectName: windows_sys::core::PWSTR,
     pub NtdsDsaObjectName: windows_sys::core::PWSTR,
-    pub fIsPdc: super::super::Foundation::BOOL,
-    pub fDsEnabled: super::super::Foundation::BOOL,
-    pub fIsGc: super::super::Foundation::BOOL,
+    pub fIsPdc: windows_sys::core::BOOL,
+    pub fDsEnabled: windows_sys::core::BOOL,
+    pub fIsGc: windows_sys::core::BOOL,
     pub SiteObjectGuid: windows_sys::core::GUID,
     pub ComputerObjectGuid: windows_sys::core::GUID,
     pub ServerObjectGuid: windows_sys::core::GUID,
@@ -1306,10 +1306,10 @@ pub struct DS_DOMAIN_CONTROLLER_INFO_3A {
     pub ComputerObjectName: windows_sys::core::PSTR,
     pub ServerObjectName: windows_sys::core::PSTR,
     pub NtdsDsaObjectName: windows_sys::core::PSTR,
-    pub fIsPdc: super::super::Foundation::BOOL,
-    pub fDsEnabled: super::super::Foundation::BOOL,
-    pub fIsGc: super::super::Foundation::BOOL,
-    pub fIsRodc: super::super::Foundation::BOOL,
+    pub fIsPdc: windows_sys::core::BOOL,
+    pub fDsEnabled: windows_sys::core::BOOL,
+    pub fIsGc: windows_sys::core::BOOL,
+    pub fIsRodc: windows_sys::core::BOOL,
     pub SiteObjectGuid: windows_sys::core::GUID,
     pub ComputerObjectGuid: windows_sys::core::GUID,
     pub ServerObjectGuid: windows_sys::core::GUID,
@@ -1325,10 +1325,10 @@ pub struct DS_DOMAIN_CONTROLLER_INFO_3W {
     pub ComputerObjectName: windows_sys::core::PWSTR,
     pub ServerObjectName: windows_sys::core::PWSTR,
     pub NtdsDsaObjectName: windows_sys::core::PWSTR,
-    pub fIsPdc: super::super::Foundation::BOOL,
-    pub fDsEnabled: super::super::Foundation::BOOL,
-    pub fIsGc: super::super::Foundation::BOOL,
-    pub fIsRodc: super::super::Foundation::BOOL,
+    pub fIsPdc: windows_sys::core::BOOL,
+    pub fDsEnabled: windows_sys::core::BOOL,
+    pub fIsGc: windows_sys::core::BOOL,
+    pub fIsRodc: windows_sys::core::BOOL,
     pub SiteObjectGuid: windows_sys::core::GUID,
     pub ComputerObjectGuid: windows_sys::core::GUID,
     pub ServerObjectGuid: windows_sys::core::GUID,

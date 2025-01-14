@@ -36,7 +36,7 @@ pub unsafe fn NPCancelConnection<P0>(lpname: P0, fforce: bool) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("davclnt.dll" "system" fn NPCancelConnection(lpname : windows_core::PCWSTR, fforce : super::super::Foundation:: BOOL) -> u32);
+    windows_targets::link!("davclnt.dll" "system" fn NPCancelConnection(lpname : windows_core::PCWSTR, fforce : windows_core::BOOL) -> u32);
     unsafe { NPCancelConnection(lpname.param().abi(), fforce.into()) }
 }
 #[inline]
@@ -44,7 +44,7 @@ pub unsafe fn NPCancelConnection2<P0>(lpname: P0, fforce: bool, dwflags: u32) ->
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("ntlanman.dll" "system" fn NPCancelConnection2(lpname : windows_core::PCWSTR, fforce : super::super::Foundation:: BOOL, dwflags : u32) -> u32);
+    windows_targets::link!("ntlanman.dll" "system" fn NPCancelConnection2(lpname : windows_core::PCWSTR, fforce : windows_core::BOOL, dwflags : u32) -> u32);
     unsafe { NPCancelConnection2(lpname.param().abi(), fforce.into(), dwflags) }
 }
 #[inline]
@@ -204,7 +204,7 @@ pub unsafe fn WNetCancelConnection2A<P0>(lpname: P0, dwflags: NET_CONNECT_FLAGS,
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("mpr.dll" "system" fn WNetCancelConnection2A(lpname : windows_core::PCSTR, dwflags : NET_CONNECT_FLAGS, fforce : super::super::Foundation:: BOOL) -> super::super::Foundation:: WIN32_ERROR);
+    windows_targets::link!("mpr.dll" "system" fn WNetCancelConnection2A(lpname : windows_core::PCSTR, dwflags : NET_CONNECT_FLAGS, fforce : windows_core::BOOL) -> super::super::Foundation:: WIN32_ERROR);
     unsafe { WNetCancelConnection2A(lpname.param().abi(), dwflags, fforce.into()) }
 }
 #[inline]
@@ -212,7 +212,7 @@ pub unsafe fn WNetCancelConnection2W<P0>(lpname: P0, dwflags: NET_CONNECT_FLAGS,
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("mpr.dll" "system" fn WNetCancelConnection2W(lpname : windows_core::PCWSTR, dwflags : NET_CONNECT_FLAGS, fforce : super::super::Foundation:: BOOL) -> super::super::Foundation:: WIN32_ERROR);
+    windows_targets::link!("mpr.dll" "system" fn WNetCancelConnection2W(lpname : windows_core::PCWSTR, dwflags : NET_CONNECT_FLAGS, fforce : windows_core::BOOL) -> super::super::Foundation:: WIN32_ERROR);
     unsafe { WNetCancelConnection2W(lpname.param().abi(), dwflags, fforce.into()) }
 }
 #[inline]
@@ -220,7 +220,7 @@ pub unsafe fn WNetCancelConnectionA<P0>(lpname: P0, fforce: bool) -> super::supe
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("mpr.dll" "system" fn WNetCancelConnectionA(lpname : windows_core::PCSTR, fforce : super::super::Foundation:: BOOL) -> super::super::Foundation:: WIN32_ERROR);
+    windows_targets::link!("mpr.dll" "system" fn WNetCancelConnectionA(lpname : windows_core::PCSTR, fforce : windows_core::BOOL) -> super::super::Foundation:: WIN32_ERROR);
     unsafe { WNetCancelConnectionA(lpname.param().abi(), fforce.into()) }
 }
 #[inline]
@@ -228,7 +228,7 @@ pub unsafe fn WNetCancelConnectionW<P0>(lpname: P0, fforce: bool) -> super::supe
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("mpr.dll" "system" fn WNetCancelConnectionW(lpname : windows_core::PCWSTR, fforce : super::super::Foundation:: BOOL) -> super::super::Foundation:: WIN32_ERROR);
+    windows_targets::link!("mpr.dll" "system" fn WNetCancelConnectionW(lpname : windows_core::PCWSTR, fforce : windows_core::BOOL) -> super::super::Foundation:: WIN32_ERROR);
     unsafe { WNetCancelConnectionW(lpname.param().abi(), fforce.into()) }
 }
 #[inline]
@@ -792,7 +792,7 @@ pub struct NOTIFYCANCEL {
     pub lpName: windows_core::PWSTR,
     pub lpProvider: windows_core::PWSTR,
     pub dwFlags: u32,
-    pub fForce: super::super::Foundation::BOOL,
+    pub fForce: windows_core::BOOL,
 }
 impl Default for NOTIFYCANCEL {
     fn default() -> Self {
@@ -824,21 +824,21 @@ pub type PF_CancelConnectNotify = Option<unsafe extern "system" fn(lpnotifyinfo:
 pub type PF_NPAddConnection = Option<unsafe extern "system" fn(lpnetresource: *const NETRESOURCEW, lppassword: windows_core::PCWSTR, lpusername: windows_core::PCWSTR) -> u32>;
 pub type PF_NPAddConnection3 = Option<unsafe extern "system" fn(hwndowner: super::super::Foundation::HWND, lpnetresource: *const NETRESOURCEW, lppassword: windows_core::PCWSTR, lpusername: windows_core::PCWSTR, dwflags: u32) -> u32>;
 pub type PF_NPAddConnection4 = Option<unsafe extern "system" fn(hwndowner: super::super::Foundation::HWND, lpnetresource: *const NETRESOURCEW, lpauthbuffer: *const core::ffi::c_void, cbauthbuffer: u32, dwflags: u32, lpuseoptions: *const u8, cbuseoptions: u32) -> u32>;
-pub type PF_NPCancelConnection = Option<unsafe extern "system" fn(lpname: windows_core::PCWSTR, fforce: super::super::Foundation::BOOL) -> u32>;
-pub type PF_NPCancelConnection2 = Option<unsafe extern "system" fn(lpname: windows_core::PCWSTR, fforce: super::super::Foundation::BOOL, dwflags: u32) -> u32>;
+pub type PF_NPCancelConnection = Option<unsafe extern "system" fn(lpname: windows_core::PCWSTR, fforce: windows_core::BOOL) -> u32>;
+pub type PF_NPCancelConnection2 = Option<unsafe extern "system" fn(lpname: windows_core::PCWSTR, fforce: windows_core::BOOL, dwflags: u32) -> u32>;
 pub type PF_NPCloseEnum = Option<unsafe extern "system" fn(henum: super::super::Foundation::HANDLE) -> u32>;
 pub type PF_NPDeviceMode = Option<unsafe extern "system" fn(hparent: super::super::Foundation::HWND) -> u32>;
 pub type PF_NPDirectoryNotify = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, lpdir: windows_core::PCWSTR, dwoper: u32) -> u32>;
 pub type PF_NPEnumResource = Option<unsafe extern "system" fn(henum: super::super::Foundation::HANDLE, lpccount: *mut u32, lpbuffer: *mut core::ffi::c_void, lpbuffersize: *mut u32) -> u32>;
 pub type PF_NPFMXEditPerm = Option<unsafe extern "system" fn(lpdrivename: windows_core::PCWSTR, hwndfmx: super::super::Foundation::HWND, ndialogtype: u32) -> u32>;
 pub type PF_NPFMXGetPermCaps = Option<unsafe extern "system" fn(lpdrivename: windows_core::PCWSTR) -> u32>;
-pub type PF_NPFMXGetPermHelp = Option<unsafe extern "system" fn(lpdrivename: windows_core::PCWSTR, ndialogtype: u32, fdirectory: super::super::Foundation::BOOL, lpfilenamebuffer: *mut core::ffi::c_void, lpbuffersize: *mut u32, lpnhelpcontext: *mut u32) -> u32>;
+pub type PF_NPFMXGetPermHelp = Option<unsafe extern "system" fn(lpdrivename: windows_core::PCWSTR, ndialogtype: u32, fdirectory: windows_core::BOOL, lpfilenamebuffer: *mut core::ffi::c_void, lpbuffersize: *mut u32, lpnhelpcontext: *mut u32) -> u32>;
 pub type PF_NPFormatNetworkName = Option<unsafe extern "system" fn(lpremotename: windows_core::PCWSTR, lpformattedname: windows_core::PWSTR, lpnlength: *mut u32, dwflags: u32, dwavecharperline: u32) -> u32>;
 pub type PF_NPGetCaps = Option<unsafe extern "system" fn(ndex: u32) -> u32>;
 pub type PF_NPGetConnection = Option<unsafe extern "system" fn(lplocalname: windows_core::PCWSTR, lpremotename: windows_core::PWSTR, lpnbufferlen: *mut u32) -> u32>;
 pub type PF_NPGetConnection3 = Option<unsafe extern "system" fn(lplocalname: windows_core::PCWSTR, dwlevel: u32, lpbuffer: *mut core::ffi::c_void, lpbuffersize: *mut u32) -> u32>;
 pub type PF_NPGetConnectionPerformance = Option<unsafe extern "system" fn(lpremotename: windows_core::PCWSTR, lpnetconnectinfo: *mut NETCONNECTINFOSTRUCT) -> u32>;
-pub type PF_NPGetDirectoryType = Option<unsafe extern "system" fn(lpname: windows_core::PCWSTR, lptype: *const i32, bflushcache: super::super::Foundation::BOOL) -> u32>;
+pub type PF_NPGetDirectoryType = Option<unsafe extern "system" fn(lpname: windows_core::PCWSTR, lptype: *const i32, bflushcache: windows_core::BOOL) -> u32>;
 pub type PF_NPGetPersistentUseOptionsForConnection = Option<unsafe extern "system" fn(lpremotepath: windows_core::PCWSTR, lpreaduseoptions: *const u8, cbreaduseoptions: u32, lpwriteuseoptions: *mut u8, lpsizewriteuseoptions: *mut u32) -> u32>;
 pub type PF_NPGetPropertyText = Option<unsafe extern "system" fn(ibutton: u32, npropsel: u32, lpname: windows_core::PCWSTR, lpbuttonname: windows_core::PWSTR, nbuttonnamelen: u32, ntype: u32) -> u32>;
 pub type PF_NPGetResourceInformation = Option<unsafe extern "system" fn(lpnetresource: *const NETRESOURCEW, lpbuffer: *mut core::ffi::c_void, lpbuffersize: *mut u32, lplpsystem: *mut windows_core::PWSTR) -> u32>;

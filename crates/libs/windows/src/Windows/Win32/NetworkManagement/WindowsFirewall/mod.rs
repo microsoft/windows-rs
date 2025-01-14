@@ -4,11 +4,11 @@ pub unsafe fn NcFreeNetconProperties(pprops: *mut NETCON_PROPERTIES) {
     unsafe { NcFreeNetconProperties(pprops as _) }
 }
 #[inline]
-pub unsafe fn NcIsValidConnectionName<P0>(pszwname: P0) -> super::super::Foundation::BOOL
+pub unsafe fn NcIsValidConnectionName<P0>(pszwname: P0) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("netshell.dll" "system" fn NcIsValidConnectionName(pszwname : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("netshell.dll" "system" fn NcIsValidConnectionName(pszwname : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { NcIsValidConnectionName(pszwname.param().abi()) }
 }
 #[inline]
@@ -56,7 +56,7 @@ where
 }
 #[inline]
 pub unsafe fn NetworkIsolationGetEnterpriseIdClose(hoperation: super::super::Foundation::HANDLE, bwaitforoperation: bool) -> u32 {
-    windows_targets::link!("firewallapi.dll" "system" fn NetworkIsolationGetEnterpriseIdClose(hoperation : super::super::Foundation:: HANDLE, bwaitforoperation : super::super::Foundation:: BOOL) -> u32);
+    windows_targets::link!("firewallapi.dll" "system" fn NetworkIsolationGetEnterpriseIdClose(hoperation : super::super::Foundation:: HANDLE, bwaitforoperation : windows_core::BOOL) -> u32);
     unsafe { NetworkIsolationGetEnterpriseIdClose(hoperation, bwaitforoperation.into()) }
 }
 #[cfg(feature = "Win32_Security")]
@@ -79,7 +79,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationSetupAppContainerBinaries(applicationcontainersid : super::super::Security:: PSID, packagefullname : windows_core::PCWSTR, packagefolder : windows_core::PCWSTR, displayname : windows_core::PCWSTR, bbinariesfullycomputed : super::super::Foundation:: BOOL, binaries : *const windows_core::PCWSTR, binariescount : u32) -> windows_core::HRESULT);
+    windows_targets::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationSetupAppContainerBinaries(applicationcontainersid : super::super::Security:: PSID, packagefullname : windows_core::PCWSTR, packagefolder : windows_core::PCWSTR, displayname : windows_core::PCWSTR, bbinariesfullycomputed : windows_core::BOOL, binaries : *const windows_core::PCWSTR, binariescount : u32) -> windows_core::HRESULT);
     unsafe { NetworkIsolationSetupAppContainerBinaries(applicationcontainersid, packagefullname.param().abi(), packagefolder.param().abi(), displayname.param().abi(), bbinariesfullycomputed.into(), core::mem::transmute(binaries.as_ptr()), binaries.len().try_into().unwrap()).ok() }
 }
 #[inline]
@@ -7274,7 +7274,7 @@ pub type PFN_FWDELETEDYNAMICKEYWORDADDRESS0 = Option<unsafe extern "system" fn(d
 pub type PFN_FWENUMDYNAMICKEYWORDADDRESSBYID0 = Option<unsafe extern "system" fn(dynamickeywordaddressid: windows_core::GUID, dynamickeywordaddressdata: *mut *mut FW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32>;
 pub type PFN_FWENUMDYNAMICKEYWORDADDRESSESBYTYPE0 = Option<unsafe extern "system" fn(flags: u32, dynamickeywordaddressdata: *mut *mut FW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32>;
 pub type PFN_FWFREEDYNAMICKEYWORDADDRESSDATA0 = Option<unsafe extern "system" fn(dynamickeywordaddressdata: *const FW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32>;
-pub type PFN_FWUPDATEDYNAMICKEYWORDADDRESS0 = Option<unsafe extern "system" fn(dynamickeywordaddressid: windows_core::GUID, updatedaddresses: windows_core::PCWSTR, append: super::super::Foundation::BOOL) -> u32>;
+pub type PFN_FWUPDATEDYNAMICKEYWORDADDRESS0 = Option<unsafe extern "system" fn(dynamickeywordaddressid: windows_core::GUID, updatedaddresses: windows_core::PCWSTR, append: windows_core::BOOL) -> u32>;
 pub type PNETISO_EDP_ID_CALLBACK_FN = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, wszenterpriseid: windows_core::PCWSTR, dwerr: u32)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

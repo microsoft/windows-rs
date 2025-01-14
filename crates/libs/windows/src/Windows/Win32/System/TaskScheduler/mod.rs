@@ -2146,18 +2146,18 @@ impl IProvideTaskPage {
 pub struct IProvideTaskPage_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Controls")]
-    pub GetPage: unsafe extern "system" fn(*mut core::ffi::c_void, TASKPAGE, super::super::Foundation::BOOL, *mut super::super::UI::Controls::HPROPSHEETPAGE) -> windows_core::HRESULT,
+    pub GetPage: unsafe extern "system" fn(*mut core::ffi::c_void, TASKPAGE, windows_core::BOOL, *mut super::super::UI::Controls::HPROPSHEETPAGE) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Controls"))]
     GetPage: usize,
 }
 #[cfg(feature = "Win32_UI_Controls")]
 pub trait IProvideTaskPage_Impl: windows_core::IUnknownImpl {
-    fn GetPage(&self, tptype: TASKPAGE, fpersistchanges: super::super::Foundation::BOOL) -> windows_core::Result<super::super::UI::Controls::HPROPSHEETPAGE>;
+    fn GetPage(&self, tptype: TASKPAGE, fpersistchanges: windows_core::BOOL) -> windows_core::Result<super::super::UI::Controls::HPROPSHEETPAGE>;
 }
 #[cfg(feature = "Win32_UI_Controls")]
 impl IProvideTaskPage_Vtbl {
     pub const fn new<Identity: IProvideTaskPage_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetPage<Identity: IProvideTaskPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tptype: TASKPAGE, fpersistchanges: super::super::Foundation::BOOL, phpage: *mut super::super::UI::Controls::HPROPSHEETPAGE) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPage<Identity: IProvideTaskPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tptype: TASKPAGE, fpersistchanges: windows_core::BOOL, phpage: *mut super::super::UI::Controls::HPROPSHEETPAGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IProvideTaskPage_Impl::GetPage(this, core::mem::transmute_copy(&tptype), core::mem::transmute_copy(&fpersistchanges)) {

@@ -34,32 +34,32 @@ pub unsafe fn DeregisterIdleRoutine(ftg: *mut core::ffi::c_void) {
 }
 #[inline]
 pub unsafe fn EnableIdleRoutine(ftg: *mut core::ffi::c_void, fenable: bool) {
-    windows_targets::link!("mapi32.dll" "system" fn EnableIdleRoutine(ftg : *mut core::ffi::c_void, fenable : super::super::Foundation:: BOOL));
+    windows_targets::link!("mapi32.dll" "system" fn EnableIdleRoutine(ftg : *mut core::ffi::c_void, fenable : windows_core::BOOL));
     unsafe { EnableIdleRoutine(ftg as _, fenable.into()) }
 }
 #[inline]
-pub unsafe fn FEqualNames(lpname1: *mut MAPINAMEID, lpname2: *mut MAPINAMEID) -> super::super::Foundation::BOOL {
-    windows_targets::link!("mapi32.dll" "system" fn FEqualNames(lpname1 : *mut MAPINAMEID, lpname2 : *mut MAPINAMEID) -> super::super::Foundation:: BOOL);
+pub unsafe fn FEqualNames(lpname1: *mut MAPINAMEID, lpname2: *mut MAPINAMEID) -> windows_core::BOOL {
+    windows_targets::link!("mapi32.dll" "system" fn FEqualNames(lpname1 : *mut MAPINAMEID, lpname2 : *mut MAPINAMEID) -> windows_core::BOOL);
     unsafe { FEqualNames(lpname1 as _, lpname2 as _) }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn FPropCompareProp(lpspropvalue1: *mut SPropValue, ulrelop: u32, lpspropvalue2: *mut SPropValue) -> super::super::Foundation::BOOL {
-    windows_targets::link!("mapi32.dll" "system" fn FPropCompareProp(lpspropvalue1 : *mut SPropValue, ulrelop : u32, lpspropvalue2 : *mut SPropValue) -> super::super::Foundation:: BOOL);
+pub unsafe fn FPropCompareProp(lpspropvalue1: *mut SPropValue, ulrelop: u32, lpspropvalue2: *mut SPropValue) -> windows_core::BOOL {
+    windows_targets::link!("mapi32.dll" "system" fn FPropCompareProp(lpspropvalue1 : *mut SPropValue, ulrelop : u32, lpspropvalue2 : *mut SPropValue) -> windows_core::BOOL);
     unsafe { FPropCompareProp(lpspropvalue1 as _, ulrelop, lpspropvalue2 as _) }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn FPropContainsProp(lpspropvaluedst: *mut SPropValue, lpspropvaluesrc: *mut SPropValue, ulfuzzylevel: u32) -> super::super::Foundation::BOOL {
-    windows_targets::link!("mapi32.dll" "system" fn FPropContainsProp(lpspropvaluedst : *mut SPropValue, lpspropvaluesrc : *mut SPropValue, ulfuzzylevel : u32) -> super::super::Foundation:: BOOL);
+pub unsafe fn FPropContainsProp(lpspropvaluedst: *mut SPropValue, lpspropvaluesrc: *mut SPropValue, ulfuzzylevel: u32) -> windows_core::BOOL {
+    windows_targets::link!("mapi32.dll" "system" fn FPropContainsProp(lpspropvaluedst : *mut SPropValue, lpspropvaluesrc : *mut SPropValue, ulfuzzylevel : u32) -> windows_core::BOOL);
     unsafe { FPropContainsProp(lpspropvaluedst as _, lpspropvaluesrc as _, ulfuzzylevel) }
 }
 #[inline]
-pub unsafe fn FPropExists<P0>(lpmapiprop: P0, ulproptag: u32) -> super::super::Foundation::BOOL
+pub unsafe fn FPropExists<P0>(lpmapiprop: P0, ulproptag: u32) -> windows_core::BOOL
 where
     P0: windows_core::Param<IMAPIProp>,
 {
-    windows_targets::link!("mapi32.dll" "system" fn FPropExists(lpmapiprop : * mut core::ffi::c_void, ulproptag : u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("mapi32.dll" "system" fn FPropExists(lpmapiprop : * mut core::ffi::c_void, ulproptag : u32) -> windows_core::BOOL);
     unsafe { FPropExists(lpmapiprop.param().abi(), ulproptag) }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -228,11 +228,11 @@ pub unsafe fn PropCopyMore(lpspropvaluedest: *mut SPropValue, lpspropvaluesrc: *
     unsafe { PropCopyMore(lpspropvaluedest as _, lpspropvaluesrc as _, lpfallocmore, lpvobject as _) }
 }
 #[inline]
-pub unsafe fn RTFSync<P0>(lpmessage: P0, ulflags: u32, lpfmessageupdated: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>
+pub unsafe fn RTFSync<P0>(lpmessage: P0, ulflags: u32, lpfmessageupdated: *mut windows_core::BOOL) -> windows_core::Result<()>
 where
     P0: windows_core::Param<IMessage>,
 {
-    windows_targets::link!("mapi32.dll" "system" fn RTFSync(lpmessage : * mut core::ffi::c_void, ulflags : u32, lpfmessageupdated : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    windows_targets::link!("mapi32.dll" "system" fn RTFSync(lpmessage : * mut core::ffi::c_void, ulflags : u32, lpfmessageupdated : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { RTFSync(lpmessage.param().abi(), ulflags, lpfmessageupdated as _).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3506,7 +3506,7 @@ pub type LPALLOCATEBUFFER = Option<unsafe extern "system" fn(cbsize: u32, lppbuf
 pub type LPALLOCATEMORE = Option<unsafe extern "system" fn(cbsize: u32, lpobject: *mut core::ffi::c_void, lppbuffer: *mut *mut core::ffi::c_void) -> i32>;
 pub type LPCREATECONVERSATIONINDEX = Option<unsafe extern "system" fn(cbparent: u32, lpbparent: *mut u8, lpcbconvindex: *mut u32, lppbconvindex: *mut *mut u8) -> i32>;
 pub type LPDISPATCHNOTIFICATIONS = Option<unsafe extern "system" fn(ulflags: u32) -> windows_core::HRESULT>;
-pub type LPFNABSDI = Option<unsafe extern "system" fn(uluiparam: usize, lpvmsg: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPFNABSDI = Option<unsafe extern "system" fn(uluiparam: usize, lpvmsg: *mut core::ffi::c_void) -> windows_core::BOOL>;
 pub type LPFNBUTTON = Option<unsafe extern "system" fn(uluiparam: usize, lpvcontext: *mut core::ffi::c_void, cbentryid: u32, lpselection: *mut ENTRYID, ulflags: u32) -> i32>;
 pub type LPFNDISMISS = Option<unsafe extern "system" fn(uluiparam: usize, lpvcontext: *mut core::ffi::c_void)>;
 pub type LPFREEBUFFER = Option<unsafe extern "system" fn(lpbuffer: *mut core::ffi::c_void) -> u32>;
@@ -3679,7 +3679,7 @@ impl Default for OBJECT_NOTIFICATION {
     }
 }
 pub const OPENSTREAMONFILE: windows_core::PCSTR = windows_core::s!("OpenStreamOnFile");
-pub type PFNIDLE = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type PFNIDLE = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void) -> windows_core::BOOL>;
 pub const PRIHIGHEST: u32 = 32767u32;
 pub const PRILOWEST: i32 = -32768i32;
 pub const PRIUSER: u32 = 0u32;
@@ -4167,8 +4167,8 @@ pub struct WABEXTDISPLAY {
     pub lpWABObject: core::mem::ManuallyDrop<Option<IWABObject>>,
     pub lpAdrBook: core::mem::ManuallyDrop<Option<IAddrBook>>,
     pub lpPropObj: core::mem::ManuallyDrop<Option<IMAPIProp>>,
-    pub fReadOnly: super::super::Foundation::BOOL,
-    pub fDataChanged: super::super::Foundation::BOOL,
+    pub fReadOnly: windows_core::BOOL,
+    pub fDataChanged: windows_core::BOOL,
     pub ulFlags: u32,
     pub lpv: *mut core::ffi::c_void,
     pub lpsz: *mut i8,

@@ -20,11 +20,11 @@ where
 }
 #[inline]
 pub unsafe fn GetMailslotInfo(hmailslot: super::super::Foundation::HANDLE, lpmaxmessagesize: Option<*mut u32>, lpnextsize: Option<*mut u32>, lpmessagecount: Option<*mut u32>, lpreadtimeout: Option<*mut u32>) -> windows_core::Result<()> {
-    windows_targets::link!("kernel32.dll" "system" fn GetMailslotInfo(hmailslot : super::super::Foundation:: HANDLE, lpmaxmessagesize : *mut u32, lpnextsize : *mut u32, lpmessagecount : *mut u32, lpreadtimeout : *mut u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetMailslotInfo(hmailslot : super::super::Foundation:: HANDLE, lpmaxmessagesize : *mut u32, lpnextsize : *mut u32, lpmessagecount : *mut u32, lpreadtimeout : *mut u32) -> windows_core::BOOL);
     unsafe { GetMailslotInfo(hmailslot, lpmaxmessagesize.unwrap_or(core::mem::zeroed()) as _, lpnextsize.unwrap_or(core::mem::zeroed()) as _, lpmessagecount.unwrap_or(core::mem::zeroed()) as _, lpreadtimeout.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn SetMailslotInfo(hmailslot: super::super::Foundation::HANDLE, lreadtimeout: u32) -> windows_core::Result<()> {
-    windows_targets::link!("kernel32.dll" "system" fn SetMailslotInfo(hmailslot : super::super::Foundation:: HANDLE, lreadtimeout : u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn SetMailslotInfo(hmailslot : super::super::Foundation:: HANDLE, lreadtimeout : u32) -> windows_core::BOOL);
     unsafe { SetMailslotInfo(hmailslot, lreadtimeout).ok() }
 }

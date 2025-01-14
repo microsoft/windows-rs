@@ -1,4 +1,4 @@
-use windows::{Win32::Foundation::*, Win32::System::Threading::*};
+use windows::{core::*, Win32::Foundation::*, Win32::System::Threading::*};
 
 #[test]
 fn test() {

@@ -405,12 +405,12 @@ where
     unsafe { NetGroupSetUsers(servername.param().abi(), groupname.param().abi(), level, buf, totalentries) }
 }
 #[inline]
-pub unsafe fn NetIsServiceAccount<P0, P1>(servername: P0, accountname: P1, isservice: *mut super::super::Foundation::BOOL) -> super::super::Foundation::NTSTATUS
+pub unsafe fn NetIsServiceAccount<P0, P1>(servername: P0, accountname: P1, isservice: *mut windows_core::BOOL) -> super::super::Foundation::NTSTATUS
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("netapi32.dll" "system" fn NetIsServiceAccount(servername : windows_core::PCWSTR, accountname : windows_core::PCWSTR, isservice : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: NTSTATUS);
+    windows_targets::link!("netapi32.dll" "system" fn NetIsServiceAccount(servername : windows_core::PCWSTR, accountname : windows_core::PCWSTR, isservice : *mut windows_core::BOOL) -> super::super::Foundation:: NTSTATUS);
     unsafe { NetIsServiceAccount(servername.param().abi(), accountname.param().abi(), isservice as _) }
 }
 #[inline]
@@ -1315,7 +1315,7 @@ pub unsafe fn TraceDumpExA<P6>(dwtraceid: u32, dwflags: u32, lpbbytes: *mut u8, 
 where
     P6: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("rtutils.dll" "system" fn TraceDumpExA(dwtraceid : u32, dwflags : u32, lpbbytes : *mut u8, dwbytecount : u32, dwgroupsize : u32, baddressprefix : super::super::Foundation:: BOOL, lpszprefix : windows_core::PCSTR) -> u32);
+    windows_targets::link!("rtutils.dll" "system" fn TraceDumpExA(dwtraceid : u32, dwflags : u32, lpbbytes : *mut u8, dwbytecount : u32, dwgroupsize : u32, baddressprefix : windows_core::BOOL, lpszprefix : windows_core::PCSTR) -> u32);
     unsafe { TraceDumpExA(dwtraceid, dwflags, lpbbytes as _, dwbytecount, dwgroupsize, baddressprefix.into(), lpszprefix.param().abi()) }
 }
 #[inline]
@@ -1323,7 +1323,7 @@ pub unsafe fn TraceDumpExW<P6>(dwtraceid: u32, dwflags: u32, lpbbytes: *mut u8, 
 where
     P6: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("rtutils.dll" "system" fn TraceDumpExW(dwtraceid : u32, dwflags : u32, lpbbytes : *mut u8, dwbytecount : u32, dwgroupsize : u32, baddressprefix : super::super::Foundation:: BOOL, lpszprefix : windows_core::PCWSTR) -> u32);
+    windows_targets::link!("rtutils.dll" "system" fn TraceDumpExW(dwtraceid : u32, dwflags : u32, lpbbytes : *mut u8, dwbytecount : u32, dwgroupsize : u32, baddressprefix : windows_core::BOOL, lpszprefix : windows_core::PCWSTR) -> u32);
     unsafe { TraceDumpExW(dwtraceid, dwflags, lpbbytes as _, dwbytecount, dwgroupsize, baddressprefix.into(), lpszprefix.param().abi()) }
 }
 #[inline]
@@ -3133,7 +3133,7 @@ pub struct INetCfgBindingPath_Vtbl {
     pub IsSamePathAs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsSubPathOf: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Enable: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub Enable: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub GetPathToken: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub GetOwner: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDepth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -3143,7 +3143,7 @@ pub trait INetCfgBindingPath_Impl: windows_core::IUnknownImpl {
     fn IsSamePathAs(&self, ppath: windows_core::Ref<INetCfgBindingPath>) -> windows_core::Result<()>;
     fn IsSubPathOf(&self, ppath: windows_core::Ref<INetCfgBindingPath>) -> windows_core::Result<()>;
     fn IsEnabled(&self) -> windows_core::Result<()>;
-    fn Enable(&self, fenable: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn Enable(&self, fenable: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetPathToken(&self, ppszwpathtoken: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn GetOwner(&self, ppcomponent: windows_core::OutRef<'_, INetCfgComponent>) -> windows_core::Result<()>;
     fn GetDepth(&self) -> windows_core::Result<u32>;
@@ -3169,7 +3169,7 @@ impl INetCfgBindingPath_Vtbl {
                 INetCfgBindingPath_Impl::IsEnabled(this).into()
             }
         }
-        unsafe extern "system" fn Enable<Identity: INetCfgBindingPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fenable: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn Enable<Identity: INetCfgBindingPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fenable: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 INetCfgBindingPath_Impl::Enable(this, core::mem::transmute_copy(&fenable)).into()
@@ -3736,20 +3736,20 @@ impl INetCfgComponentControl {
 #[repr(C)]
 pub struct INetCfgComponentControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub ApplyRegistryChanges: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ApplyPnpChanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CancelChanges: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait INetCfgComponentControl_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, picomp: windows_core::Ref<INetCfgComponent>, pinetcfg: windows_core::Ref<INetCfg>, finstalling: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn Initialize(&self, picomp: windows_core::Ref<INetCfgComponent>, pinetcfg: windows_core::Ref<INetCfg>, finstalling: windows_core::BOOL) -> windows_core::Result<()>;
     fn ApplyRegistryChanges(&self) -> windows_core::Result<()>;
     fn ApplyPnpChanges(&self, picallback: windows_core::Ref<INetCfgPnpReconfigCallback>) -> windows_core::Result<()>;
     fn CancelChanges(&self) -> windows_core::Result<()>;
 }
 impl INetCfgComponentControl_Vtbl {
     pub const fn new<Identity: INetCfgComponentControl_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Initialize<Identity: INetCfgComponentControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, picomp: *mut core::ffi::c_void, pinetcfg: *mut core::ffi::c_void, finstalling: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn Initialize<Identity: INetCfgComponentControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, picomp: *mut core::ffi::c_void, pinetcfg: *mut core::ffi::c_void, finstalling: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 INetCfgComponentControl_Impl::Initialize(this, core::mem::transmute_copy(&picomp), core::mem::transmute_copy(&pinetcfg), core::mem::transmute_copy(&finstalling)).into()
@@ -4348,13 +4348,13 @@ pub struct INetCfgSysPrep_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub HrSetupSetFirstDword: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
     pub HrSetupSetFirstString: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub HrSetupSetFirstStringAsBool: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub HrSetupSetFirstStringAsBool: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::BOOL) -> windows_core::HRESULT,
     pub HrSetupSetFirstMultiSzField: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 pub trait INetCfgSysPrep_Impl: windows_core::IUnknownImpl {
     fn HrSetupSetFirstDword(&self, pwszsection: &windows_core::PCWSTR, pwszkey: &windows_core::PCWSTR, dwvalue: u32) -> windows_core::Result<()>;
     fn HrSetupSetFirstString(&self, pwszsection: &windows_core::PCWSTR, pwszkey: &windows_core::PCWSTR, pwszvalue: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn HrSetupSetFirstStringAsBool(&self, pwszsection: &windows_core::PCWSTR, pwszkey: &windows_core::PCWSTR, fvalue: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn HrSetupSetFirstStringAsBool(&self, pwszsection: &windows_core::PCWSTR, pwszkey: &windows_core::PCWSTR, fvalue: windows_core::BOOL) -> windows_core::Result<()>;
     fn HrSetupSetFirstMultiSzField(&self, pwszsection: &windows_core::PCWSTR, pwszkey: &windows_core::PCWSTR, pmszvalue: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 impl INetCfgSysPrep_Vtbl {
@@ -4371,7 +4371,7 @@ impl INetCfgSysPrep_Vtbl {
                 INetCfgSysPrep_Impl::HrSetupSetFirstString(this, core::mem::transmute(&pwszsection), core::mem::transmute(&pwszkey), core::mem::transmute(&pwszvalue)).into()
             }
         }
-        unsafe extern "system" fn HrSetupSetFirstStringAsBool<Identity: INetCfgSysPrep_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszsection: windows_core::PCWSTR, pwszkey: windows_core::PCWSTR, fvalue: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn HrSetupSetFirstStringAsBool<Identity: INetCfgSysPrep_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszsection: windows_core::PCWSTR, pwszkey: windows_core::PCWSTR, fvalue: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 INetCfgSysPrep_Impl::HrSetupSetFirstStringAsBool(this, core::mem::transmute(&pwszsection), core::mem::transmute(&pwszkey), core::mem::transmute_copy(&fvalue)).into()
@@ -6026,7 +6026,7 @@ pub struct OBO_TOKEN {
     pub pszwManufacturer: windows_core::PCWSTR,
     pub pszwProduct: windows_core::PCWSTR,
     pub pszwDisplayName: windows_core::PCWSTR,
-    pub fRegistered: super::super::Foundation::BOOL,
+    pub fRegistered: windows_core::BOOL,
 }
 impl Default for OBO_TOKEN {
     fn default() -> Self {
@@ -6107,7 +6107,7 @@ pub const QNLEN: u32 = 80u32;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RASCON_IPUI {
     pub guidConnection: windows_core::GUID,
-    pub fIPv6Cfg: super::super::Foundation::BOOL,
+    pub fIPv6Cfg: windows_core::BOOL,
     pub dwFlags: u32,
     pub pszwIpAddr: [u16; 16],
     pub pszwDnsAddr: [u16; 16],
@@ -6458,7 +6458,7 @@ pub struct SERVER_INFO_103 {
     pub sv103_comment: windows_core::PWSTR,
     pub sv103_users: u32,
     pub sv103_disc: i32,
-    pub sv103_hidden: super::super::Foundation::BOOL,
+    pub sv103_hidden: windows_core::BOOL,
     pub sv103_announce: u32,
     pub sv103_anndelta: u32,
     pub sv103_licenses: u32,
@@ -6573,7 +6573,7 @@ impl Default for SERVER_INFO_1513 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVER_INFO_1514 {
-    pub sv1514_enablesoftcompat: super::super::Foundation::BOOL,
+    pub sv1514_enablesoftcompat: windows_core::BOOL,
 }
 impl Default for SERVER_INFO_1514 {
     fn default() -> Self {
@@ -6583,7 +6583,7 @@ impl Default for SERVER_INFO_1514 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVER_INFO_1515 {
-    pub sv1515_enableforcedlogoff: super::super::Foundation::BOOL,
+    pub sv1515_enableforcedlogoff: windows_core::BOOL,
 }
 impl Default for SERVER_INFO_1515 {
     fn default() -> Self {
@@ -6593,7 +6593,7 @@ impl Default for SERVER_INFO_1515 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVER_INFO_1516 {
-    pub sv1516_timesource: super::super::Foundation::BOOL,
+    pub sv1516_timesource: windows_core::BOOL,
 }
 impl Default for SERVER_INFO_1516 {
     fn default() -> Self {
@@ -6603,7 +6603,7 @@ impl Default for SERVER_INFO_1516 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVER_INFO_1518 {
-    pub sv1518_lmannounce: super::super::Foundation::BOOL,
+    pub sv1518_lmannounce: windows_core::BOOL,
 }
 impl Default for SERVER_INFO_1518 {
     fn default() -> Self {
@@ -6733,7 +6733,7 @@ impl Default for SERVER_INFO_1535 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVER_INFO_1536 {
-    pub sv1536_enableoplocks: super::super::Foundation::BOOL,
+    pub sv1536_enableoplocks: windows_core::BOOL,
 }
 impl Default for SERVER_INFO_1536 {
     fn default() -> Self {
@@ -6743,7 +6743,7 @@ impl Default for SERVER_INFO_1536 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVER_INFO_1537 {
-    pub sv1537_enableoplockforceclose: super::super::Foundation::BOOL,
+    pub sv1537_enableoplockforceclose: windows_core::BOOL,
 }
 impl Default for SERVER_INFO_1537 {
     fn default() -> Self {
@@ -6753,7 +6753,7 @@ impl Default for SERVER_INFO_1537 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVER_INFO_1538 {
-    pub sv1538_enablefcbopens: super::super::Foundation::BOOL,
+    pub sv1538_enablefcbopens: windows_core::BOOL,
 }
 impl Default for SERVER_INFO_1538 {
     fn default() -> Self {
@@ -6763,7 +6763,7 @@ impl Default for SERVER_INFO_1538 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVER_INFO_1539 {
-    pub sv1539_enableraw: super::super::Foundation::BOOL,
+    pub sv1539_enableraw: windows_core::BOOL,
 }
 impl Default for SERVER_INFO_1539 {
     fn default() -> Self {
@@ -6773,7 +6773,7 @@ impl Default for SERVER_INFO_1539 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVER_INFO_1540 {
-    pub sv1540_enablesharednetdrives: super::super::Foundation::BOOL,
+    pub sv1540_enablesharednetdrives: windows_core::BOOL,
 }
 impl Default for SERVER_INFO_1540 {
     fn default() -> Self {
@@ -6783,7 +6783,7 @@ impl Default for SERVER_INFO_1540 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVER_INFO_1541 {
-    pub sv1541_minfreeconnections: super::super::Foundation::BOOL,
+    pub sv1541_minfreeconnections: windows_core::BOOL,
 }
 impl Default for SERVER_INFO_1541 {
     fn default() -> Self {
@@ -6793,7 +6793,7 @@ impl Default for SERVER_INFO_1541 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVER_INFO_1542 {
-    pub sv1542_maxfreeconnections: super::super::Foundation::BOOL,
+    pub sv1542_maxfreeconnections: windows_core::BOOL,
 }
 impl Default for SERVER_INFO_1542 {
     fn default() -> Self {
@@ -7003,7 +7003,7 @@ impl Default for SERVER_INFO_1565 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVER_INFO_1566 {
-    pub sv1566_removeduplicatesearches: super::super::Foundation::BOOL,
+    pub sv1566_removeduplicatesearches: windows_core::BOOL,
 }
 impl Default for SERVER_INFO_1566 {
     fn default() -> Self {
@@ -7193,7 +7193,7 @@ impl Default for SERVER_INFO_1584 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVER_INFO_1585 {
-    pub sv1585_sendsfrompreferredprocessor: super::super::Foundation::BOOL,
+    pub sv1585_sendsfrompreferredprocessor: windows_core::BOOL,
 }
 impl Default for SERVER_INFO_1585 {
     fn default() -> Self {
@@ -7353,7 +7353,7 @@ impl Default for SERVER_INFO_1601 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVER_INFO_1602 {
-    pub sv_1598_disablestrictnamechecking: super::super::Foundation::BOOL,
+    pub sv_1598_disablestrictnamechecking: windows_core::BOOL,
 }
 impl Default for SERVER_INFO_1602 {
     fn default() -> Self {
@@ -7459,11 +7459,11 @@ pub struct SERVER_INFO_502 {
     pub sv502_sessconns: u32,
     pub sv502_maxpagedmemoryusage: u32,
     pub sv502_maxnonpagedmemoryusage: u32,
-    pub sv502_enablesoftcompat: super::super::Foundation::BOOL,
-    pub sv502_enableforcedlogoff: super::super::Foundation::BOOL,
-    pub sv502_timesource: super::super::Foundation::BOOL,
-    pub sv502_acceptdownlevelapis: super::super::Foundation::BOOL,
-    pub sv502_lmannounce: super::super::Foundation::BOOL,
+    pub sv502_enablesoftcompat: windows_core::BOOL,
+    pub sv502_enableforcedlogoff: windows_core::BOOL,
+    pub sv502_timesource: windows_core::BOOL,
+    pub sv502_acceptdownlevelapis: windows_core::BOOL,
+    pub sv502_lmannounce: windows_core::BOOL,
 }
 impl Default for SERVER_INFO_502 {
     fn default() -> Self {
@@ -7486,11 +7486,11 @@ pub struct SERVER_INFO_503 {
     pub sv503_sessconns: u32,
     pub sv503_maxpagedmemoryusage: u32,
     pub sv503_maxnonpagedmemoryusage: u32,
-    pub sv503_enablesoftcompat: super::super::Foundation::BOOL,
-    pub sv503_enableforcedlogoff: super::super::Foundation::BOOL,
-    pub sv503_timesource: super::super::Foundation::BOOL,
-    pub sv503_acceptdownlevelapis: super::super::Foundation::BOOL,
-    pub sv503_lmannounce: super::super::Foundation::BOOL,
+    pub sv503_enablesoftcompat: windows_core::BOOL,
+    pub sv503_enableforcedlogoff: windows_core::BOOL,
+    pub sv503_timesource: windows_core::BOOL,
+    pub sv503_acceptdownlevelapis: windows_core::BOOL,
+    pub sv503_lmannounce: windows_core::BOOL,
     pub sv503_domain: windows_core::PWSTR,
     pub sv503_maxcopyreadlen: u32,
     pub sv503_maxcopywritelen: u32,
@@ -7508,11 +7508,11 @@ pub struct SERVER_INFO_503 {
     pub sv503_maxmpxct: u32,
     pub sv503_oplockbreakwait: u32,
     pub sv503_oplockbreakresponsewait: u32,
-    pub sv503_enableoplocks: super::super::Foundation::BOOL,
-    pub sv503_enableoplockforceclose: super::super::Foundation::BOOL,
-    pub sv503_enablefcbopens: super::super::Foundation::BOOL,
-    pub sv503_enableraw: super::super::Foundation::BOOL,
-    pub sv503_enablesharednetdrives: super::super::Foundation::BOOL,
+    pub sv503_enableoplocks: windows_core::BOOL,
+    pub sv503_enableoplockforceclose: windows_core::BOOL,
+    pub sv503_enablefcbopens: windows_core::BOOL,
+    pub sv503_enableraw: windows_core::BOOL,
+    pub sv503_enablesharednetdrives: windows_core::BOOL,
     pub sv503_minfreeconnections: u32,
     pub sv503_maxfreeconnections: u32,
 }
@@ -7538,8 +7538,8 @@ pub struct SERVER_INFO_598 {
     pub sv598_mdlreadswitchover: u32,
     pub sv598_cachedopenlimit: u32,
     pub sv598_otherqueueaffinity: u32,
-    pub sv598_restrictnullsessaccess: super::super::Foundation::BOOL,
-    pub sv598_enablewfw311directipx: super::super::Foundation::BOOL,
+    pub sv598_restrictnullsessaccess: windows_core::BOOL,
+    pub sv598_enablewfw311directipx: windows_core::BOOL,
     pub sv598_queuesamplesecs: u32,
     pub sv598_balancecount: u32,
     pub sv598_preferredaffinity: u32,
@@ -7549,24 +7549,24 @@ pub struct SERVER_INFO_598 {
     pub sv598_maxfreepagedpoolchunks: u32,
     pub sv598_minpagedpoolchunksize: u32,
     pub sv598_maxpagedpoolchunksize: u32,
-    pub sv598_sendsfrompreferredprocessor: super::super::Foundation::BOOL,
+    pub sv598_sendsfrompreferredprocessor: windows_core::BOOL,
     pub sv598_cacheddirectorylimit: u32,
     pub sv598_maxcopylength: u32,
-    pub sv598_enablecompression: super::super::Foundation::BOOL,
-    pub sv598_autosharewks: super::super::Foundation::BOOL,
-    pub sv598_autoshareserver: super::super::Foundation::BOOL,
-    pub sv598_enablesecuritysignature: super::super::Foundation::BOOL,
-    pub sv598_requiresecuritysignature: super::super::Foundation::BOOL,
+    pub sv598_enablecompression: windows_core::BOOL,
+    pub sv598_autosharewks: windows_core::BOOL,
+    pub sv598_autoshareserver: windows_core::BOOL,
+    pub sv598_enablesecuritysignature: windows_core::BOOL,
+    pub sv598_requiresecuritysignature: windows_core::BOOL,
     pub sv598_minclientbuffersize: u32,
     pub sv598_serverguid: windows_core::GUID,
     pub sv598_ConnectionNoSessionsTimeout: u32,
     pub sv598_IdleThreadTimeOut: u32,
-    pub sv598_enableW9xsecuritysignature: super::super::Foundation::BOOL,
-    pub sv598_enforcekerberosreauthentication: super::super::Foundation::BOOL,
-    pub sv598_disabledos: super::super::Foundation::BOOL,
+    pub sv598_enableW9xsecuritysignature: windows_core::BOOL,
+    pub sv598_enforcekerberosreauthentication: windows_core::BOOL,
+    pub sv598_disabledos: windows_core::BOOL,
     pub sv598_lowdiskspaceminimum: u32,
-    pub sv598_disablestrictnamechecking: super::super::Foundation::BOOL,
-    pub sv598_enableauthenticateusersharing: super::super::Foundation::BOOL,
+    pub sv598_disablestrictnamechecking: windows_core::BOOL,
+    pub sv598_enableauthenticateusersharing: windows_core::BOOL,
 }
 impl Default for SERVER_INFO_598 {
     fn default() -> Self {
@@ -7589,11 +7589,11 @@ pub struct SERVER_INFO_599 {
     pub sv599_sessconns: u32,
     pub sv599_maxpagedmemoryusage: u32,
     pub sv599_maxnonpagedmemoryusage: u32,
-    pub sv599_enablesoftcompat: super::super::Foundation::BOOL,
-    pub sv599_enableforcedlogoff: super::super::Foundation::BOOL,
-    pub sv599_timesource: super::super::Foundation::BOOL,
-    pub sv599_acceptdownlevelapis: super::super::Foundation::BOOL,
-    pub sv599_lmannounce: super::super::Foundation::BOOL,
+    pub sv599_enablesoftcompat: windows_core::BOOL,
+    pub sv599_enableforcedlogoff: windows_core::BOOL,
+    pub sv599_timesource: windows_core::BOOL,
+    pub sv599_acceptdownlevelapis: windows_core::BOOL,
+    pub sv599_lmannounce: windows_core::BOOL,
     pub sv599_domain: windows_core::PWSTR,
     pub sv599_maxcopyreadlen: u32,
     pub sv599_maxcopywritelen: u32,
@@ -7611,11 +7611,11 @@ pub struct SERVER_INFO_599 {
     pub sv599_maxmpxct: u32,
     pub sv599_oplockbreakwait: u32,
     pub sv599_oplockbreakresponsewait: u32,
-    pub sv599_enableoplocks: super::super::Foundation::BOOL,
-    pub sv599_enableoplockforceclose: super::super::Foundation::BOOL,
-    pub sv599_enablefcbopens: super::super::Foundation::BOOL,
-    pub sv599_enableraw: super::super::Foundation::BOOL,
-    pub sv599_enablesharednetdrives: super::super::Foundation::BOOL,
+    pub sv599_enableoplocks: windows_core::BOOL,
+    pub sv599_enableoplockforceclose: windows_core::BOOL,
+    pub sv599_enablefcbopens: windows_core::BOOL,
+    pub sv599_enableraw: windows_core::BOOL,
+    pub sv599_enablesharednetdrives: windows_core::BOOL,
     pub sv599_minfreeconnections: u32,
     pub sv599_maxfreeconnections: u32,
     pub sv599_initsesstable: u32,
@@ -8678,7 +8678,7 @@ impl Default for USER_INFO_23 {
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct USER_INFO_24 {
-    pub usri24_internet_identity: super::super::Foundation::BOOL,
+    pub usri24_internet_identity: windows_core::BOOL,
     pub usri24_flags: u32,
     pub usri24_internet_provider_name: windows_core::PWSTR,
     pub usri24_internet_principal_name: windows_core::PWSTR,
@@ -9325,7 +9325,7 @@ impl Default for WKSTA_INFO_1047 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WKSTA_INFO_1048 {
-    pub wki1048_use_opportunistic_locking: super::super::Foundation::BOOL,
+    pub wki1048_use_opportunistic_locking: windows_core::BOOL,
 }
 impl Default for WKSTA_INFO_1048 {
     fn default() -> Self {
@@ -9335,7 +9335,7 @@ impl Default for WKSTA_INFO_1048 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WKSTA_INFO_1049 {
-    pub wki1049_use_unlock_behind: super::super::Foundation::BOOL,
+    pub wki1049_use_unlock_behind: windows_core::BOOL,
 }
 impl Default for WKSTA_INFO_1049 {
     fn default() -> Self {
@@ -9345,7 +9345,7 @@ impl Default for WKSTA_INFO_1049 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WKSTA_INFO_1050 {
-    pub wki1050_use_close_behind: super::super::Foundation::BOOL,
+    pub wki1050_use_close_behind: windows_core::BOOL,
 }
 impl Default for WKSTA_INFO_1050 {
     fn default() -> Self {
@@ -9355,7 +9355,7 @@ impl Default for WKSTA_INFO_1050 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WKSTA_INFO_1051 {
-    pub wki1051_buf_named_pipes: super::super::Foundation::BOOL,
+    pub wki1051_buf_named_pipes: windows_core::BOOL,
 }
 impl Default for WKSTA_INFO_1051 {
     fn default() -> Self {
@@ -9365,7 +9365,7 @@ impl Default for WKSTA_INFO_1051 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WKSTA_INFO_1052 {
-    pub wki1052_use_lock_read_unlock: super::super::Foundation::BOOL,
+    pub wki1052_use_lock_read_unlock: windows_core::BOOL,
 }
 impl Default for WKSTA_INFO_1052 {
     fn default() -> Self {
@@ -9375,7 +9375,7 @@ impl Default for WKSTA_INFO_1052 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WKSTA_INFO_1053 {
-    pub wki1053_utilize_nt_caching: super::super::Foundation::BOOL,
+    pub wki1053_utilize_nt_caching: windows_core::BOOL,
 }
 impl Default for WKSTA_INFO_1053 {
     fn default() -> Self {
@@ -9385,7 +9385,7 @@ impl Default for WKSTA_INFO_1053 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WKSTA_INFO_1054 {
-    pub wki1054_use_raw_read: super::super::Foundation::BOOL,
+    pub wki1054_use_raw_read: windows_core::BOOL,
 }
 impl Default for WKSTA_INFO_1054 {
     fn default() -> Self {
@@ -9395,7 +9395,7 @@ impl Default for WKSTA_INFO_1054 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WKSTA_INFO_1055 {
-    pub wki1055_use_raw_write: super::super::Foundation::BOOL,
+    pub wki1055_use_raw_write: windows_core::BOOL,
 }
 impl Default for WKSTA_INFO_1055 {
     fn default() -> Self {
@@ -9405,7 +9405,7 @@ impl Default for WKSTA_INFO_1055 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WKSTA_INFO_1056 {
-    pub wki1056_use_write_raw_data: super::super::Foundation::BOOL,
+    pub wki1056_use_write_raw_data: windows_core::BOOL,
 }
 impl Default for WKSTA_INFO_1056 {
     fn default() -> Self {
@@ -9415,7 +9415,7 @@ impl Default for WKSTA_INFO_1056 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WKSTA_INFO_1057 {
-    pub wki1057_use_encryption: super::super::Foundation::BOOL,
+    pub wki1057_use_encryption: windows_core::BOOL,
 }
 impl Default for WKSTA_INFO_1057 {
     fn default() -> Self {
@@ -9425,7 +9425,7 @@ impl Default for WKSTA_INFO_1057 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WKSTA_INFO_1058 {
-    pub wki1058_buf_files_deny_write: super::super::Foundation::BOOL,
+    pub wki1058_buf_files_deny_write: windows_core::BOOL,
 }
 impl Default for WKSTA_INFO_1058 {
     fn default() -> Self {
@@ -9435,7 +9435,7 @@ impl Default for WKSTA_INFO_1058 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WKSTA_INFO_1059 {
-    pub wki1059_buf_read_only_files: super::super::Foundation::BOOL,
+    pub wki1059_buf_read_only_files: windows_core::BOOL,
 }
 impl Default for WKSTA_INFO_1059 {
     fn default() -> Self {
@@ -9445,7 +9445,7 @@ impl Default for WKSTA_INFO_1059 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WKSTA_INFO_1060 {
-    pub wki1060_force_core_create_mode: super::super::Foundation::BOOL,
+    pub wki1060_force_core_create_mode: windows_core::BOOL,
 }
 impl Default for WKSTA_INFO_1060 {
     fn default() -> Self {
@@ -9455,7 +9455,7 @@ impl Default for WKSTA_INFO_1060 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WKSTA_INFO_1061 {
-    pub wki1061_use_512_byte_max_transfer: super::super::Foundation::BOOL,
+    pub wki1061_use_512_byte_max_transfer: windows_core::BOOL,
 }
 impl Default for WKSTA_INFO_1061 {
     fn default() -> Self {
@@ -9554,21 +9554,21 @@ pub struct WKSTA_INFO_502 {
     pub wki502_num_srv_announce_buffers: u32,
     pub wki502_max_illegal_datagram_events: u32,
     pub wki502_illegal_datagram_event_reset_frequency: u32,
-    pub wki502_log_election_packets: super::super::Foundation::BOOL,
-    pub wki502_use_opportunistic_locking: super::super::Foundation::BOOL,
-    pub wki502_use_unlock_behind: super::super::Foundation::BOOL,
-    pub wki502_use_close_behind: super::super::Foundation::BOOL,
-    pub wki502_buf_named_pipes: super::super::Foundation::BOOL,
-    pub wki502_use_lock_read_unlock: super::super::Foundation::BOOL,
-    pub wki502_utilize_nt_caching: super::super::Foundation::BOOL,
-    pub wki502_use_raw_read: super::super::Foundation::BOOL,
-    pub wki502_use_raw_write: super::super::Foundation::BOOL,
-    pub wki502_use_write_raw_data: super::super::Foundation::BOOL,
-    pub wki502_use_encryption: super::super::Foundation::BOOL,
-    pub wki502_buf_files_deny_write: super::super::Foundation::BOOL,
-    pub wki502_buf_read_only_files: super::super::Foundation::BOOL,
-    pub wki502_force_core_create_mode: super::super::Foundation::BOOL,
-    pub wki502_use_512_byte_max_transfer: super::super::Foundation::BOOL,
+    pub wki502_log_election_packets: windows_core::BOOL,
+    pub wki502_use_opportunistic_locking: windows_core::BOOL,
+    pub wki502_use_unlock_behind: windows_core::BOOL,
+    pub wki502_use_close_behind: windows_core::BOOL,
+    pub wki502_buf_named_pipes: windows_core::BOOL,
+    pub wki502_use_lock_read_unlock: windows_core::BOOL,
+    pub wki502_utilize_nt_caching: windows_core::BOOL,
+    pub wki502_use_raw_read: windows_core::BOOL,
+    pub wki502_use_raw_write: windows_core::BOOL,
+    pub wki502_use_write_raw_data: windows_core::BOOL,
+    pub wki502_use_encryption: windows_core::BOOL,
+    pub wki502_buf_files_deny_write: windows_core::BOOL,
+    pub wki502_buf_read_only_files: windows_core::BOOL,
+    pub wki502_force_core_create_mode: windows_core::BOOL,
+    pub wki502_use_512_byte_max_transfer: windows_core::BOOL,
 }
 impl Default for WKSTA_INFO_502 {
     fn default() -> Self {
@@ -9611,7 +9611,7 @@ pub struct WKSTA_TRANSPORT_INFO_0 {
     pub wkti0_number_of_vcs: u32,
     pub wkti0_transport_name: windows_core::PWSTR,
     pub wkti0_transport_address: windows_core::PWSTR,
-    pub wkti0_wan_ish: super::super::Foundation::BOOL,
+    pub wkti0_wan_ish: windows_core::BOOL,
 }
 impl Default for WKSTA_TRANSPORT_INFO_0 {
     fn default() -> Self {

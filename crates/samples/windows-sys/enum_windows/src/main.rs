@@ -1,4 +1,4 @@
-use windows_sys::{Win32::Foundation::*, Win32::UI::WindowsAndMessaging::*};
+use windows_sys::{core::*, Win32::Foundation::*, Win32::UI::WindowsAndMessaging::*};
 
 fn main() {
     unsafe {

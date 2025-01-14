@@ -381,8 +381,8 @@ pub const D3D12_BLEND_BLEND_FACTOR: D3D12_BLEND = D3D12_BLEND(14i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_BLEND_DESC {
-    pub AlphaToCoverageEnable: super::super::Foundation::BOOL,
-    pub IndependentBlendEnable: super::super::Foundation::BOOL,
+    pub AlphaToCoverageEnable: windows_core::BOOL,
+    pub IndependentBlendEnable: windows_core::BOOL,
     pub RenderTarget: [D3D12_RENDER_TARGET_BLEND_DESC; 8],
 }
 impl Default for D3D12_BLEND_DESC {
@@ -434,7 +434,7 @@ impl Default for D3D12_BOX {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_BROADCASTING_LAUNCH_OVERRIDES {
     pub pLocalRootArgumentsTableIndex: *const u32,
-    pub pProgramEntry: *const super::super::Foundation::BOOL,
+    pub pProgramEntry: *const windows_core::BOOL,
     pub pNewName: *const D3D12_NODE_ID,
     pub pShareInputOf: *const D3D12_NODE_ID,
     pub pDispatchGrid: *const u32,
@@ -715,7 +715,7 @@ pub const D3D12_CLIP_OR_CULL_DISTANCE_ELEMENT_COUNT: u32 = 2u32;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_COALESCING_LAUNCH_OVERRIDES {
     pub pLocalRootArgumentsTableIndex: *const u32,
-    pub pProgramEntry: *const super::super::Foundation::BOOL,
+    pub pProgramEntry: *const windows_core::BOOL,
     pub pNewName: *const D3D12_NODE_ID,
     pub pShareInputOf: *const D3D12_NODE_ID,
     pub NumOutputOverrides: u32,
@@ -1009,7 +1009,7 @@ pub const D3D12_COMMONSHADER_TEXEL_OFFSET_MAX_POSITIVE: u32 = 7u32;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_COMMON_COMPUTE_NODE_OVERRIDES {
     pub pLocalRootArgumentsTableIndex: *const u32,
-    pub pProgramEntry: *const super::super::Foundation::BOOL,
+    pub pProgramEntry: *const windows_core::BOOL,
     pub pNewName: *const D3D12_NODE_ID,
     pub pShareInputOf: *const D3D12_NODE_ID,
     pub NumOutputOverrides: u32,
@@ -1303,10 +1303,10 @@ impl Default for D3D12_DEPTH_STENCILOP_DESC1 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_DEPTH_STENCIL_DESC {
-    pub DepthEnable: super::super::Foundation::BOOL,
+    pub DepthEnable: windows_core::BOOL,
     pub DepthWriteMask: D3D12_DEPTH_WRITE_MASK,
     pub DepthFunc: D3D12_COMPARISON_FUNC,
-    pub StencilEnable: super::super::Foundation::BOOL,
+    pub StencilEnable: windows_core::BOOL,
     pub StencilReadMask: u8,
     pub StencilWriteMask: u8,
     pub FrontFace: D3D12_DEPTH_STENCILOP_DESC,
@@ -1320,15 +1320,15 @@ impl Default for D3D12_DEPTH_STENCIL_DESC {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_DEPTH_STENCIL_DESC1 {
-    pub DepthEnable: super::super::Foundation::BOOL,
+    pub DepthEnable: windows_core::BOOL,
     pub DepthWriteMask: D3D12_DEPTH_WRITE_MASK,
     pub DepthFunc: D3D12_COMPARISON_FUNC,
-    pub StencilEnable: super::super::Foundation::BOOL,
+    pub StencilEnable: windows_core::BOOL,
     pub StencilReadMask: u8,
     pub StencilWriteMask: u8,
     pub FrontFace: D3D12_DEPTH_STENCILOP_DESC,
     pub BackFace: D3D12_DEPTH_STENCILOP_DESC,
-    pub DepthBoundsTestEnable: super::super::Foundation::BOOL,
+    pub DepthBoundsTestEnable: windows_core::BOOL,
 }
 impl Default for D3D12_DEPTH_STENCIL_DESC1 {
     fn default() -> Self {
@@ -1338,13 +1338,13 @@ impl Default for D3D12_DEPTH_STENCIL_DESC1 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_DEPTH_STENCIL_DESC2 {
-    pub DepthEnable: super::super::Foundation::BOOL,
+    pub DepthEnable: windows_core::BOOL,
     pub DepthWriteMask: D3D12_DEPTH_WRITE_MASK,
     pub DepthFunc: D3D12_COMPARISON_FUNC,
-    pub StencilEnable: super::super::Foundation::BOOL,
+    pub StencilEnable: windows_core::BOOL,
     pub FrontFace: D3D12_DEPTH_STENCILOP_DESC1,
     pub BackFace: D3D12_DEPTH_STENCILOP_DESC1,
-    pub DepthBoundsTestEnable: super::super::Foundation::BOOL,
+    pub DepthBoundsTestEnable: windows_core::BOOL,
 }
 impl Default for D3D12_DEPTH_STENCIL_DESC2 {
     fn default() -> Self {
@@ -2243,9 +2243,9 @@ pub const D3D12_FEATURE_D3D12_OPTIONS9: D3D12_FEATURE = D3D12_FEATURE(37i32);
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_ARCHITECTURE {
     pub NodeIndex: u32,
-    pub TileBasedRenderer: super::super::Foundation::BOOL,
-    pub UMA: super::super::Foundation::BOOL,
-    pub CacheCoherentUMA: super::super::Foundation::BOOL,
+    pub TileBasedRenderer: windows_core::BOOL,
+    pub UMA: windows_core::BOOL,
+    pub CacheCoherentUMA: windows_core::BOOL,
 }
 impl Default for D3D12_FEATURE_DATA_ARCHITECTURE {
     fn default() -> Self {
@@ -2256,10 +2256,10 @@ impl Default for D3D12_FEATURE_DATA_ARCHITECTURE {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_ARCHITECTURE1 {
     pub NodeIndex: u32,
-    pub TileBasedRenderer: super::super::Foundation::BOOL,
-    pub UMA: super::super::Foundation::BOOL,
-    pub CacheCoherentUMA: super::super::Foundation::BOOL,
-    pub IsolatedMMU: super::super::Foundation::BOOL,
+    pub TileBasedRenderer: windows_core::BOOL,
+    pub UMA: windows_core::BOOL,
+    pub CacheCoherentUMA: windows_core::BOOL,
+    pub IsolatedMMU: windows_core::BOOL,
 }
 impl Default for D3D12_FEATURE_DATA_ARCHITECTURE1 {
     fn default() -> Self {
@@ -2271,7 +2271,7 @@ impl Default for D3D12_FEATURE_DATA_ARCHITECTURE1 {
 pub struct D3D12_FEATURE_DATA_COMMAND_QUEUE_PRIORITY {
     pub CommandListType: D3D12_COMMAND_LIST_TYPE,
     pub Priority: u32,
-    pub PriorityForTypeIsSupported: super::super::Foundation::BOOL,
+    pub PriorityForTypeIsSupported: windows_core::BOOL,
 }
 impl Default for D3D12_FEATURE_DATA_COMMAND_QUEUE_PRIORITY {
     fn default() -> Self {
@@ -2282,7 +2282,7 @@ impl Default for D3D12_FEATURE_DATA_COMMAND_QUEUE_PRIORITY {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_CROSS_NODE {
     pub SharingTier: D3D12_CROSS_NODE_SHARING_TIER,
-    pub AtomicShaderInstructions: super::super::Foundation::BOOL,
+    pub AtomicShaderInstructions: windows_core::BOOL,
 }
 impl Default for D3D12_FEATURE_DATA_CROSS_NODE {
     fn default() -> Self {
@@ -2292,20 +2292,20 @@ impl Default for D3D12_FEATURE_DATA_CROSS_NODE {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS {
-    pub DoublePrecisionFloatShaderOps: super::super::Foundation::BOOL,
-    pub OutputMergerLogicOp: super::super::Foundation::BOOL,
+    pub DoublePrecisionFloatShaderOps: windows_core::BOOL,
+    pub OutputMergerLogicOp: windows_core::BOOL,
     pub MinPrecisionSupport: D3D12_SHADER_MIN_PRECISION_SUPPORT,
     pub TiledResourcesTier: D3D12_TILED_RESOURCES_TIER,
     pub ResourceBindingTier: D3D12_RESOURCE_BINDING_TIER,
-    pub PSSpecifiedStencilRefSupported: super::super::Foundation::BOOL,
-    pub TypedUAVLoadAdditionalFormats: super::super::Foundation::BOOL,
-    pub ROVsSupported: super::super::Foundation::BOOL,
+    pub PSSpecifiedStencilRefSupported: windows_core::BOOL,
+    pub TypedUAVLoadAdditionalFormats: windows_core::BOOL,
+    pub ROVsSupported: windows_core::BOOL,
     pub ConservativeRasterizationTier: D3D12_CONSERVATIVE_RASTERIZATION_TIER,
     pub MaxGPUVirtualAddressBitsPerResource: u32,
-    pub StandardSwizzle64KBSupported: super::super::Foundation::BOOL,
+    pub StandardSwizzle64KBSupported: windows_core::BOOL,
     pub CrossNodeSharingTier: D3D12_CROSS_NODE_SHARING_TIER,
-    pub CrossAdapterRowMajorTextureSupported: super::super::Foundation::BOOL,
-    pub VPAndRTArrayIndexFromAnyShaderFeedingRasterizerSupportedWithoutGSEmulation: super::super::Foundation::BOOL,
+    pub CrossAdapterRowMajorTextureSupported: windows_core::BOOL,
+    pub VPAndRTArrayIndexFromAnyShaderFeedingRasterizerSupportedWithoutGSEmulation: windows_core::BOOL,
     pub ResourceHeapTier: D3D12_RESOURCE_HEAP_TIER,
 }
 impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS {
@@ -2316,12 +2316,12 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS1 {
-    pub WaveOps: super::super::Foundation::BOOL,
+    pub WaveOps: windows_core::BOOL,
     pub WaveLaneCountMin: u32,
     pub WaveLaneCountMax: u32,
     pub TotalLaneCount: u32,
-    pub ExpandedComputeResourceStates: super::super::Foundation::BOOL,
-    pub Int64ShaderOps: super::super::Foundation::BOOL,
+    pub ExpandedComputeResourceStates: windows_core::BOOL,
+    pub Int64ShaderOps: windows_core::BOOL,
 }
 impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS1 {
     fn default() -> Self {
@@ -2331,8 +2331,8 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS1 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS10 {
-    pub VariableRateShadingSumCombinerSupported: super::super::Foundation::BOOL,
-    pub MeshShaderPerPrimitiveShadingRateSupported: super::super::Foundation::BOOL,
+    pub VariableRateShadingSumCombinerSupported: windows_core::BOOL,
+    pub MeshShaderPerPrimitiveShadingRateSupported: windows_core::BOOL,
 }
 impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS10 {
     fn default() -> Self {
@@ -2342,7 +2342,7 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS10 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS11 {
-    pub AtomicInt64OnDescriptorHeapResourceSupported: super::super::Foundation::BOOL,
+    pub AtomicInt64OnDescriptorHeapResourceSupported: windows_core::BOOL,
 }
 impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS11 {
     fn default() -> Self {
@@ -2353,8 +2353,8 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS11 {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS12 {
     pub MSPrimitivesPipelineStatisticIncludesCulledPrimitives: D3D12_TRI_STATE,
-    pub EnhancedBarriersSupported: super::super::Foundation::BOOL,
-    pub RelaxedFormatCastingSupported: super::super::Foundation::BOOL,
+    pub EnhancedBarriersSupported: windows_core::BOOL,
+    pub RelaxedFormatCastingSupported: windows_core::BOOL,
 }
 impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS12 {
     fn default() -> Self {
@@ -2364,12 +2364,12 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS12 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS13 {
-    pub UnrestrictedBufferTextureCopyPitchSupported: super::super::Foundation::BOOL,
-    pub UnrestrictedVertexElementAlignmentSupported: super::super::Foundation::BOOL,
-    pub InvertedViewportHeightFlipsYSupported: super::super::Foundation::BOOL,
-    pub InvertedViewportDepthFlipsZSupported: super::super::Foundation::BOOL,
-    pub TextureCopyBetweenDimensionsSupported: super::super::Foundation::BOOL,
-    pub AlphaBlendFactorSupported: super::super::Foundation::BOOL,
+    pub UnrestrictedBufferTextureCopyPitchSupported: windows_core::BOOL,
+    pub UnrestrictedVertexElementAlignmentSupported: windows_core::BOOL,
+    pub InvertedViewportHeightFlipsYSupported: windows_core::BOOL,
+    pub InvertedViewportDepthFlipsZSupported: windows_core::BOOL,
+    pub TextureCopyBetweenDimensionsSupported: windows_core::BOOL,
+    pub AlphaBlendFactorSupported: windows_core::BOOL,
 }
 impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS13 {
     fn default() -> Self {
@@ -2379,9 +2379,9 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS13 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS14 {
-    pub AdvancedTextureOpsSupported: super::super::Foundation::BOOL,
-    pub WriteableMSAATexturesSupported: super::super::Foundation::BOOL,
-    pub IndependentFrontAndBackStencilRefMaskSupported: super::super::Foundation::BOOL,
+    pub AdvancedTextureOpsSupported: windows_core::BOOL,
+    pub WriteableMSAATexturesSupported: windows_core::BOOL,
+    pub IndependentFrontAndBackStencilRefMaskSupported: windows_core::BOOL,
 }
 impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS14 {
     fn default() -> Self {
@@ -2391,8 +2391,8 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS14 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS15 {
-    pub TriangleFanSupported: super::super::Foundation::BOOL,
-    pub DynamicIndexBufferStripCutSupported: super::super::Foundation::BOOL,
+    pub TriangleFanSupported: windows_core::BOOL,
+    pub DynamicIndexBufferStripCutSupported: windows_core::BOOL,
 }
 impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS15 {
     fn default() -> Self {
@@ -2402,8 +2402,8 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS15 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS16 {
-    pub DynamicDepthBiasSupported: super::super::Foundation::BOOL,
-    pub GPUUploadHeapSupported: super::super::Foundation::BOOL,
+    pub DynamicDepthBiasSupported: windows_core::BOOL,
+    pub GPUUploadHeapSupported: windows_core::BOOL,
 }
 impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS16 {
     fn default() -> Self {
@@ -2413,8 +2413,8 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS16 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS17 {
-    pub NonNormalizedCoordinateSamplersSupported: super::super::Foundation::BOOL,
-    pub ManualWriteTrackingResourceSupported: super::super::Foundation::BOOL,
+    pub NonNormalizedCoordinateSamplersSupported: windows_core::BOOL,
+    pub ManualWriteTrackingResourceSupported: windows_core::BOOL,
 }
 impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS17 {
     fn default() -> Self {
@@ -2424,7 +2424,7 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS17 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS18 {
-    pub RenderPassesValid: super::super::Foundation::BOOL,
+    pub RenderPassesValid: windows_core::BOOL,
 }
 impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS18 {
     fn default() -> Self {
@@ -2434,16 +2434,16 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS18 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS19 {
-    pub MismatchingOutputDimensionsSupported: super::super::Foundation::BOOL,
+    pub MismatchingOutputDimensionsSupported: windows_core::BOOL,
     pub SupportedSampleCountsWithNoOutputs: u32,
-    pub PointSamplingAddressesNeverRoundUp: super::super::Foundation::BOOL,
-    pub RasterizerDesc2Supported: super::super::Foundation::BOOL,
-    pub NarrowQuadrilateralLinesSupported: super::super::Foundation::BOOL,
-    pub AnisoFilterWithPointMipSupported: super::super::Foundation::BOOL,
+    pub PointSamplingAddressesNeverRoundUp: windows_core::BOOL,
+    pub RasterizerDesc2Supported: windows_core::BOOL,
+    pub NarrowQuadrilateralLinesSupported: windows_core::BOOL,
+    pub AnisoFilterWithPointMipSupported: windows_core::BOOL,
     pub MaxSamplerDescriptorHeapSize: u32,
     pub MaxSamplerDescriptorHeapSizeWithStaticSamplers: u32,
     pub MaxViewDescriptorHeapSize: u32,
-    pub ComputeOnlyCustomHeapSupported: super::super::Foundation::BOOL,
+    pub ComputeOnlyCustomHeapSupported: windows_core::BOOL,
 }
 impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS19 {
     fn default() -> Self {
@@ -2453,7 +2453,7 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS19 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS2 {
-    pub DepthBoundsTestSupported: super::super::Foundation::BOOL,
+    pub DepthBoundsTestSupported: windows_core::BOOL,
     pub ProgrammableSamplePositionsTier: D3D12_PROGRAMMABLE_SAMPLE_POSITIONS_TIER,
 }
 impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS2 {
@@ -2464,7 +2464,7 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS2 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS20 {
-    pub ComputeOnlyWriteWatchSupported: super::super::Foundation::BOOL,
+    pub ComputeOnlyWriteWatchSupported: windows_core::BOOL,
     pub RecreateAtTier: D3D12_RECREATE_AT_TIER,
 }
 impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS20 {
@@ -2477,8 +2477,8 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS20 {
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS21 {
     pub WorkGraphsTier: D3D12_WORK_GRAPHS_TIER,
     pub ExecuteIndirectTier: D3D12_EXECUTE_INDIRECT_TIER,
-    pub SampleCmpGradientAndBiasSupported: super::super::Foundation::BOOL,
-    pub ExtendedCommandInfoSupported: super::super::Foundation::BOOL,
+    pub SampleCmpGradientAndBiasSupported: windows_core::BOOL,
+    pub ExtendedCommandInfoSupported: windows_core::BOOL,
 }
 impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS21 {
     fn default() -> Self {
@@ -2488,11 +2488,11 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS21 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS3 {
-    pub CopyQueueTimestampQueriesSupported: super::super::Foundation::BOOL,
-    pub CastingFullyTypedFormatSupported: super::super::Foundation::BOOL,
+    pub CopyQueueTimestampQueriesSupported: windows_core::BOOL,
+    pub CastingFullyTypedFormatSupported: windows_core::BOOL,
     pub WriteBufferImmediateSupportFlags: D3D12_COMMAND_LIST_SUPPORT_FLAGS,
     pub ViewInstancingTier: D3D12_VIEW_INSTANCING_TIER,
-    pub BarycentricsSupported: super::super::Foundation::BOOL,
+    pub BarycentricsSupported: windows_core::BOOL,
 }
 impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS3 {
     fn default() -> Self {
@@ -2502,9 +2502,9 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS3 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS4 {
-    pub MSAA64KBAlignedTextureSupported: super::super::Foundation::BOOL,
+    pub MSAA64KBAlignedTextureSupported: windows_core::BOOL,
     pub SharedResourceCompatibilityTier: D3D12_SHARED_RESOURCE_COMPATIBILITY_TIER,
-    pub Native16BitShaderOpsSupported: super::super::Foundation::BOOL,
+    pub Native16BitShaderOpsSupported: windows_core::BOOL,
 }
 impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS4 {
     fn default() -> Self {
@@ -2514,7 +2514,7 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS4 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS5 {
-    pub SRVOnlyTiledResourceTier3: super::super::Foundation::BOOL,
+    pub SRVOnlyTiledResourceTier3: windows_core::BOOL,
     pub RenderPassesTier: D3D12_RENDER_PASS_TIER,
     pub RaytracingTier: D3D12_RAYTRACING_TIER,
 }
@@ -2526,11 +2526,11 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS5 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS6 {
-    pub AdditionalShadingRatesSupported: super::super::Foundation::BOOL,
-    pub PerPrimitiveShadingRateSupportedWithViewportIndexing: super::super::Foundation::BOOL,
+    pub AdditionalShadingRatesSupported: windows_core::BOOL,
+    pub PerPrimitiveShadingRateSupportedWithViewportIndexing: windows_core::BOOL,
     pub VariableShadingRateTier: D3D12_VARIABLE_SHADING_RATE_TIER,
     pub ShadingRateImageTileSize: u32,
-    pub BackgroundProcessingSupported: super::super::Foundation::BOOL,
+    pub BackgroundProcessingSupported: windows_core::BOOL,
 }
 impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS6 {
     fn default() -> Self {
@@ -2551,7 +2551,7 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS7 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS8 {
-    pub UnalignedBlockTexturesSupported: super::super::Foundation::BOOL,
+    pub UnalignedBlockTexturesSupported: windows_core::BOOL,
 }
 impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS8 {
     fn default() -> Self {
@@ -2561,11 +2561,11 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS8 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS9 {
-    pub MeshShaderPipelineStatsSupported: super::super::Foundation::BOOL,
-    pub MeshShaderSupportsFullRangeRenderTargetArrayIndex: super::super::Foundation::BOOL,
-    pub AtomicInt64OnTypedResourceSupported: super::super::Foundation::BOOL,
-    pub AtomicInt64OnGroupSharedSupported: super::super::Foundation::BOOL,
-    pub DerivativesInMeshAndAmplificationShadersSupported: super::super::Foundation::BOOL,
+    pub MeshShaderPipelineStatsSupported: windows_core::BOOL,
+    pub MeshShaderSupportsFullRangeRenderTargetArrayIndex: windows_core::BOOL,
+    pub AtomicInt64OnTypedResourceSupported: windows_core::BOOL,
+    pub AtomicInt64OnGroupSharedSupported: windows_core::BOOL,
+    pub DerivativesInMeshAndAmplificationShadersSupported: windows_core::BOOL,
     pub WaveMMATier: D3D12_WAVE_MMA_TIER,
 }
 impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS9 {
@@ -2576,7 +2576,7 @@ impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS9 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_DISPLAYABLE {
-    pub DisplayableTexture: super::super::Foundation::BOOL,
+    pub DisplayableTexture: windows_core::BOOL,
     pub SharedResourceCompatibilityTier: D3D12_SHARED_RESOURCE_COMPATIBILITY_TIER,
 }
 impl Default for D3D12_FEATURE_DATA_DISPLAYABLE {
@@ -2587,7 +2587,7 @@ impl Default for D3D12_FEATURE_DATA_DISPLAYABLE {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_EXISTING_HEAPS {
-    pub Supported: super::super::Foundation::BOOL,
+    pub Supported: windows_core::BOOL,
 }
 impl Default for D3D12_FEATURE_DATA_EXISTING_HEAPS {
     fn default() -> Self {
@@ -2649,7 +2649,7 @@ impl Default for D3D12_FEATURE_DATA_GPU_VIRTUAL_ADDRESS_SUPPORT {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_HARDWARE_COPY {
-    pub Supported: super::super::Foundation::BOOL,
+    pub Supported: windows_core::BOOL,
 }
 impl Default for D3D12_FEATURE_DATA_HARDWARE_COPY {
     fn default() -> Self {
@@ -2678,7 +2678,7 @@ pub struct D3D12_FEATURE_DATA_PLACED_RESOURCE_SUPPORT_INFO {
     pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub Dimension: D3D12_RESOURCE_DIMENSION,
     pub DestHeapProperties: D3D12_HEAP_PROPERTIES,
-    pub Supported: super::super::Foundation::BOOL,
+    pub Supported: windows_core::BOOL,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D12_FEATURE_DATA_PLACED_RESOURCE_SUPPORT_INFO {
@@ -2689,7 +2689,7 @@ impl Default for D3D12_FEATURE_DATA_PLACED_RESOURCE_SUPPORT_INFO {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_PREDICATION {
-    pub Supported: super::super::Foundation::BOOL,
+    pub Supported: windows_core::BOOL,
 }
 impl Default for D3D12_FEATURE_DATA_PREDICATION {
     fn default() -> Self {
@@ -3069,9 +3069,9 @@ pub struct D3D12_FUNCTION_DESC {
     pub RequiredFeatureFlags: u64,
     pub Name: windows_core::PCSTR,
     pub FunctionParameterCount: i32,
-    pub HasReturn: super::super::Foundation::BOOL,
-    pub Has10Level9VertexShader: super::super::Foundation::BOOL,
-    pub Has10Level9PixelShader: super::super::Foundation::BOOL,
+    pub HasReturn: windows_core::BOOL,
+    pub Has10Level9VertexShader: windows_core::BOOL,
+    pub Has10Level9PixelShader: windows_core::BOOL,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl Default for D3D12_FUNCTION_DESC {
@@ -5156,7 +5156,7 @@ impl Default for D3D12_NODE_MASK {
 pub struct D3D12_NODE_OUTPUT_OVERRIDES {
     pub OutputIndex: u32,
     pub pNewName: *const D3D12_NODE_ID,
-    pub pAllowSparseNodes: *const super::super::Foundation::BOOL,
+    pub pAllowSparseNodes: *const windows_core::BOOL,
     pub pMaxRecords: *const u32,
     pub pMaxRecordsSharedWithOutputIndex: *const u32,
 }
@@ -5604,13 +5604,13 @@ impl Default for D3D12_RANGE_UINT64 {
 pub struct D3D12_RASTERIZER_DESC {
     pub FillMode: D3D12_FILL_MODE,
     pub CullMode: D3D12_CULL_MODE,
-    pub FrontCounterClockwise: super::super::Foundation::BOOL,
+    pub FrontCounterClockwise: windows_core::BOOL,
     pub DepthBias: i32,
     pub DepthBiasClamp: f32,
     pub SlopeScaledDepthBias: f32,
-    pub DepthClipEnable: super::super::Foundation::BOOL,
-    pub MultisampleEnable: super::super::Foundation::BOOL,
-    pub AntialiasedLineEnable: super::super::Foundation::BOOL,
+    pub DepthClipEnable: windows_core::BOOL,
+    pub MultisampleEnable: windows_core::BOOL,
+    pub AntialiasedLineEnable: windows_core::BOOL,
     pub ForcedSampleCount: u32,
     pub ConservativeRaster: D3D12_CONSERVATIVE_RASTERIZATION_MODE,
 }
@@ -5624,13 +5624,13 @@ impl Default for D3D12_RASTERIZER_DESC {
 pub struct D3D12_RASTERIZER_DESC1 {
     pub FillMode: D3D12_FILL_MODE,
     pub CullMode: D3D12_CULL_MODE,
-    pub FrontCounterClockwise: super::super::Foundation::BOOL,
+    pub FrontCounterClockwise: windows_core::BOOL,
     pub DepthBias: f32,
     pub DepthBiasClamp: f32,
     pub SlopeScaledDepthBias: f32,
-    pub DepthClipEnable: super::super::Foundation::BOOL,
-    pub MultisampleEnable: super::super::Foundation::BOOL,
-    pub AntialiasedLineEnable: super::super::Foundation::BOOL,
+    pub DepthClipEnable: windows_core::BOOL,
+    pub MultisampleEnable: windows_core::BOOL,
+    pub AntialiasedLineEnable: windows_core::BOOL,
     pub ForcedSampleCount: u32,
     pub ConservativeRaster: D3D12_CONSERVATIVE_RASTERIZATION_MODE,
 }
@@ -5644,11 +5644,11 @@ impl Default for D3D12_RASTERIZER_DESC1 {
 pub struct D3D12_RASTERIZER_DESC2 {
     pub FillMode: D3D12_FILL_MODE,
     pub CullMode: D3D12_CULL_MODE,
-    pub FrontCounterClockwise: super::super::Foundation::BOOL,
+    pub FrontCounterClockwise: windows_core::BOOL,
     pub DepthBias: f32,
     pub DepthBiasClamp: f32,
     pub SlopeScaledDepthBias: f32,
-    pub DepthClipEnable: super::super::Foundation::BOOL,
+    pub DepthClipEnable: windows_core::BOOL,
     pub LineRasterizationMode: D3D12_LINE_RASTERIZATION_MODE,
     pub ForcedSampleCount: u32,
     pub ConservativeRaster: D3D12_CONSERVATIVE_RASTERIZATION_MODE,
@@ -6244,7 +6244,7 @@ pub struct D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS {
     pub pSubresourceParameters: *const D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_SUBRESOURCE_PARAMETERS,
     pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub ResolveMode: D3D12_RESOLVE_MODE,
-    pub PreserveResolveSource: super::super::Foundation::BOOL,
+    pub PreserveResolveSource: windows_core::BOOL,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS {
@@ -6346,8 +6346,8 @@ pub const D3D12_RENDER_PASS_TIER_2: D3D12_RENDER_PASS_TIER = D3D12_RENDER_PASS_T
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_RENDER_TARGET_BLEND_DESC {
-    pub BlendEnable: super::super::Foundation::BOOL,
-    pub LogicOpEnable: super::super::Foundation::BOOL,
+    pub BlendEnable: windows_core::BOOL,
+    pub LogicOpEnable: windows_core::BOOL,
     pub SrcBlend: D3D12_BLEND,
     pub DestBlend: D3D12_BLEND,
     pub BlendOp: D3D12_BLEND_OP,
@@ -8656,7 +8656,7 @@ pub const D3D12_TEXTURE_LAYOUT_UNKNOWN: D3D12_TEXTURE_LAYOUT = D3D12_TEXTURE_LAY
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_THREAD_LAUNCH_OVERRIDES {
     pub pLocalRootArgumentsTableIndex: *const u32,
-    pub pProgramEntry: *const super::super::Foundation::BOOL,
+    pub pProgramEntry: *const windows_core::BOOL,
     pub pNewName: *const D3D12_NODE_ID,
     pub pShareInputOf: *const D3D12_NODE_ID,
     pub NumOutputOverrides: u32,
@@ -8778,7 +8778,7 @@ pub const D3D12_TILE_RANGE_FLAG_SKIP: D3D12_TILE_RANGE_FLAGS = D3D12_TILE_RANGE_
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_TILE_REGION_SIZE {
     pub NumTiles: u32,
-    pub UseBox: super::super::Foundation::BOOL,
+    pub UseBox: windows_core::BOOL,
     pub Width: u32,
     pub Height: u16,
     pub Depth: u16,
@@ -9508,15 +9508,15 @@ impl ID3D12Debug1 {
 pub struct ID3D12Debug1_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EnableDebugLayer: unsafe extern "system" fn(*mut core::ffi::c_void),
-    pub SetEnableGPUBasedValidation: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL),
-    pub SetEnableSynchronizedCommandQueueValidation: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL),
+    pub SetEnableGPUBasedValidation: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL),
+    pub SetEnableSynchronizedCommandQueueValidation: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL),
 }
 unsafe impl Send for ID3D12Debug1 {}
 unsafe impl Sync for ID3D12Debug1 {}
 pub trait ID3D12Debug1_Impl: windows_core::IUnknownImpl {
     fn EnableDebugLayer(&self);
-    fn SetEnableGPUBasedValidation(&self, enable: super::super::Foundation::BOOL);
-    fn SetEnableSynchronizedCommandQueueValidation(&self, enable: super::super::Foundation::BOOL);
+    fn SetEnableGPUBasedValidation(&self, enable: windows_core::BOOL);
+    fn SetEnableSynchronizedCommandQueueValidation(&self, enable: windows_core::BOOL);
 }
 impl ID3D12Debug1_Vtbl {
     pub const fn new<Identity: ID3D12Debug1_Impl, const OFFSET: isize>() -> Self {
@@ -9526,13 +9526,13 @@ impl ID3D12Debug1_Vtbl {
                 ID3D12Debug1_Impl::EnableDebugLayer(this)
             }
         }
-        unsafe extern "system" fn SetEnableGPUBasedValidation<Identity: ID3D12Debug1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enable: super::super::Foundation::BOOL) {
+        unsafe extern "system" fn SetEnableGPUBasedValidation<Identity: ID3D12Debug1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enable: windows_core::BOOL) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D12Debug1_Impl::SetEnableGPUBasedValidation(this, core::mem::transmute_copy(&enable))
             }
         }
-        unsafe extern "system" fn SetEnableSynchronizedCommandQueueValidation<Identity: ID3D12Debug1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enable: super::super::Foundation::BOOL) {
+        unsafe extern "system" fn SetEnableSynchronizedCommandQueueValidation<Identity: ID3D12Debug1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enable: windows_core::BOOL) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D12Debug1_Impl::SetEnableSynchronizedCommandQueueValidation(this, core::mem::transmute_copy(&enable))
@@ -9604,26 +9604,26 @@ impl ID3D12Debug3 {
 #[repr(C)]
 pub struct ID3D12Debug3_Vtbl {
     pub base__: ID3D12Debug_Vtbl,
-    pub SetEnableGPUBasedValidation: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL),
-    pub SetEnableSynchronizedCommandQueueValidation: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL),
+    pub SetEnableGPUBasedValidation: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL),
+    pub SetEnableSynchronizedCommandQueueValidation: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL),
     pub SetGPUBasedValidationFlags: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_GPU_BASED_VALIDATION_FLAGS),
 }
 unsafe impl Send for ID3D12Debug3 {}
 unsafe impl Sync for ID3D12Debug3 {}
 pub trait ID3D12Debug3_Impl: ID3D12Debug_Impl {
-    fn SetEnableGPUBasedValidation(&self, enable: super::super::Foundation::BOOL);
-    fn SetEnableSynchronizedCommandQueueValidation(&self, enable: super::super::Foundation::BOOL);
+    fn SetEnableGPUBasedValidation(&self, enable: windows_core::BOOL);
+    fn SetEnableSynchronizedCommandQueueValidation(&self, enable: windows_core::BOOL);
     fn SetGPUBasedValidationFlags(&self, flags: D3D12_GPU_BASED_VALIDATION_FLAGS);
 }
 impl ID3D12Debug3_Vtbl {
     pub const fn new<Identity: ID3D12Debug3_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetEnableGPUBasedValidation<Identity: ID3D12Debug3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enable: super::super::Foundation::BOOL) {
+        unsafe extern "system" fn SetEnableGPUBasedValidation<Identity: ID3D12Debug3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enable: windows_core::BOOL) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D12Debug3_Impl::SetEnableGPUBasedValidation(this, core::mem::transmute_copy(&enable))
             }
         }
-        unsafe extern "system" fn SetEnableSynchronizedCommandQueueValidation<Identity: ID3D12Debug3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enable: super::super::Foundation::BOOL) {
+        unsafe extern "system" fn SetEnableSynchronizedCommandQueueValidation<Identity: ID3D12Debug3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enable: windows_core::BOOL) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D12Debug3_Impl::SetEnableSynchronizedCommandQueueValidation(this, core::mem::transmute_copy(&enable))
@@ -9701,16 +9701,16 @@ impl ID3D12Debug5 {
 #[repr(C)]
 pub struct ID3D12Debug5_Vtbl {
     pub base__: ID3D12Debug4_Vtbl,
-    pub SetEnableAutoName: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL),
+    pub SetEnableAutoName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL),
 }
 unsafe impl Send for ID3D12Debug5 {}
 unsafe impl Sync for ID3D12Debug5 {}
 pub trait ID3D12Debug5_Impl: ID3D12Debug4_Impl {
-    fn SetEnableAutoName(&self, enable: super::super::Foundation::BOOL);
+    fn SetEnableAutoName(&self, enable: windows_core::BOOL);
 }
 impl ID3D12Debug5_Vtbl {
     pub const fn new<Identity: ID3D12Debug5_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetEnableAutoName<Identity: ID3D12Debug5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enable: super::super::Foundation::BOOL) {
+        unsafe extern "system" fn SetEnableAutoName<Identity: ID3D12Debug5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enable: windows_core::BOOL) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D12Debug5_Impl::SetEnableAutoName(this, core::mem::transmute_copy(&enable))
@@ -9739,16 +9739,16 @@ impl ID3D12Debug6 {
 #[repr(C)]
 pub struct ID3D12Debug6_Vtbl {
     pub base__: ID3D12Debug5_Vtbl,
-    pub SetForceLegacyBarrierValidation: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL),
+    pub SetForceLegacyBarrierValidation: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL),
 }
 unsafe impl Send for ID3D12Debug6 {}
 unsafe impl Sync for ID3D12Debug6 {}
 pub trait ID3D12Debug6_Impl: ID3D12Debug5_Impl {
-    fn SetForceLegacyBarrierValidation(&self, enable: super::super::Foundation::BOOL);
+    fn SetForceLegacyBarrierValidation(&self, enable: windows_core::BOOL);
 }
 impl ID3D12Debug6_Vtbl {
     pub const fn new<Identity: ID3D12Debug6_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetForceLegacyBarrierValidation<Identity: ID3D12Debug6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enable: super::super::Foundation::BOOL) {
+        unsafe extern "system" fn SetForceLegacyBarrierValidation<Identity: ID3D12Debug6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enable: windows_core::BOOL) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D12Debug6_Impl::SetForceLegacyBarrierValidation(this, core::mem::transmute_copy(&enable))
@@ -9764,7 +9764,7 @@ impl windows_core::RuntimeName for ID3D12Debug6 {}
 windows_core::imp::define_interface!(ID3D12DebugCommandList, ID3D12DebugCommandList_Vtbl, 0x09e0bf36_54ac_484f_8847_4baeeab6053f);
 windows_core::imp::interface_hierarchy!(ID3D12DebugCommandList, windows_core::IUnknown);
 impl ID3D12DebugCommandList {
-    pub unsafe fn AssertResourceState<P0>(&self, presource: P0, subresource: u32, state: u32) -> super::super::Foundation::BOOL
+    pub unsafe fn AssertResourceState<P0>(&self, presource: P0, subresource: u32, state: u32) -> windows_core::BOOL
     where
         P0: windows_core::Param<ID3D12Resource>,
     {
@@ -9780,20 +9780,20 @@ impl ID3D12DebugCommandList {
 #[repr(C)]
 pub struct ID3D12DebugCommandList_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub AssertResourceState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32) -> super::super::Foundation::BOOL,
+    pub AssertResourceState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32) -> windows_core::BOOL,
     pub SetFeatureMask: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_DEBUG_FEATURE) -> windows_core::HRESULT,
     pub GetFeatureMask: unsafe extern "system" fn(*mut core::ffi::c_void) -> D3D12_DEBUG_FEATURE,
 }
 unsafe impl Send for ID3D12DebugCommandList {}
 unsafe impl Sync for ID3D12DebugCommandList {}
 pub trait ID3D12DebugCommandList_Impl: windows_core::IUnknownImpl {
-    fn AssertResourceState(&self, presource: windows_core::Ref<ID3D12Resource>, subresource: u32, state: u32) -> super::super::Foundation::BOOL;
+    fn AssertResourceState(&self, presource: windows_core::Ref<ID3D12Resource>, subresource: u32, state: u32) -> windows_core::BOOL;
     fn SetFeatureMask(&self, mask: D3D12_DEBUG_FEATURE) -> windows_core::Result<()>;
     fn GetFeatureMask(&self) -> D3D12_DEBUG_FEATURE;
 }
 impl ID3D12DebugCommandList_Vtbl {
     pub const fn new<Identity: ID3D12DebugCommandList_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn AssertResourceState<Identity: ID3D12DebugCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void, subresource: u32, state: u32) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn AssertResourceState<Identity: ID3D12DebugCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void, subresource: u32, state: u32) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D12DebugCommandList_Impl::AssertResourceState(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&subresource), core::mem::transmute_copy(&state))
@@ -9826,7 +9826,7 @@ impl windows_core::RuntimeName for ID3D12DebugCommandList {}
 windows_core::imp::define_interface!(ID3D12DebugCommandList1, ID3D12DebugCommandList1_Vtbl, 0x102ca951_311b_4b01_b11f_ecb83e061b37);
 windows_core::imp::interface_hierarchy!(ID3D12DebugCommandList1, windows_core::IUnknown);
 impl ID3D12DebugCommandList1 {
-    pub unsafe fn AssertResourceState<P0>(&self, presource: P0, subresource: u32, state: u32) -> super::super::Foundation::BOOL
+    pub unsafe fn AssertResourceState<P0>(&self, presource: P0, subresource: u32, state: u32) -> windows_core::BOOL
     where
         P0: windows_core::Param<ID3D12Resource>,
     {
@@ -9842,20 +9842,20 @@ impl ID3D12DebugCommandList1 {
 #[repr(C)]
 pub struct ID3D12DebugCommandList1_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub AssertResourceState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32) -> super::super::Foundation::BOOL,
+    pub AssertResourceState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32) -> windows_core::BOOL,
     pub SetDebugParameter: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetDebugParameter: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 unsafe impl Send for ID3D12DebugCommandList1 {}
 unsafe impl Sync for ID3D12DebugCommandList1 {}
 pub trait ID3D12DebugCommandList1_Impl: windows_core::IUnknownImpl {
-    fn AssertResourceState(&self, presource: windows_core::Ref<ID3D12Resource>, subresource: u32, state: u32) -> super::super::Foundation::BOOL;
+    fn AssertResourceState(&self, presource: windows_core::Ref<ID3D12Resource>, subresource: u32, state: u32) -> windows_core::BOOL;
     fn SetDebugParameter(&self, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *const core::ffi::c_void, datasize: u32) -> windows_core::Result<()>;
     fn GetDebugParameter(&self, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *mut core::ffi::c_void, datasize: u32) -> windows_core::Result<()>;
 }
 impl ID3D12DebugCommandList1_Vtbl {
     pub const fn new<Identity: ID3D12DebugCommandList1_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn AssertResourceState<Identity: ID3D12DebugCommandList1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void, subresource: u32, state: u32) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn AssertResourceState<Identity: ID3D12DebugCommandList1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void, subresource: u32, state: u32) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D12DebugCommandList1_Impl::AssertResourceState(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&subresource), core::mem::transmute_copy(&state))
@@ -10000,7 +10000,7 @@ impl windows_core::RuntimeName for ID3D12DebugCommandList3 {}
 windows_core::imp::define_interface!(ID3D12DebugCommandQueue, ID3D12DebugCommandQueue_Vtbl, 0x09e0bf36_54ac_484f_8847_4baeeab6053a);
 windows_core::imp::interface_hierarchy!(ID3D12DebugCommandQueue, windows_core::IUnknown);
 impl ID3D12DebugCommandQueue {
-    pub unsafe fn AssertResourceState<P0>(&self, presource: P0, subresource: u32, state: u32) -> super::super::Foundation::BOOL
+    pub unsafe fn AssertResourceState<P0>(&self, presource: P0, subresource: u32, state: u32) -> windows_core::BOOL
     where
         P0: windows_core::Param<ID3D12Resource>,
     {
@@ -10010,16 +10010,16 @@ impl ID3D12DebugCommandQueue {
 #[repr(C)]
 pub struct ID3D12DebugCommandQueue_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub AssertResourceState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32) -> super::super::Foundation::BOOL,
+    pub AssertResourceState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32) -> windows_core::BOOL,
 }
 unsafe impl Send for ID3D12DebugCommandQueue {}
 unsafe impl Sync for ID3D12DebugCommandQueue {}
 pub trait ID3D12DebugCommandQueue_Impl: windows_core::IUnknownImpl {
-    fn AssertResourceState(&self, presource: windows_core::Ref<ID3D12Resource>, subresource: u32, state: u32) -> super::super::Foundation::BOOL;
+    fn AssertResourceState(&self, presource: windows_core::Ref<ID3D12Resource>, subresource: u32, state: u32) -> windows_core::BOOL;
 }
 impl ID3D12DebugCommandQueue_Vtbl {
     pub const fn new<Identity: ID3D12DebugCommandQueue_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn AssertResourceState<Identity: ID3D12DebugCommandQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void, subresource: u32, state: u32) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn AssertResourceState<Identity: ID3D12DebugCommandQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void, subresource: u32, state: u32) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D12DebugCommandQueue_Impl::AssertResourceState(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&subresource), core::mem::transmute_copy(&state))
@@ -10638,7 +10638,7 @@ pub struct ID3D12Device_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetCopyableFootprints: usize,
     pub CreateQueryHeap: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_QUERY_HEAP_DESC, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetStablePowerState: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SetStablePowerState: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub CreateCommandSignature: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_COMMAND_SIGNATURE_DESC, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetResourceTiling: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32, *mut D3D12_PACKED_MIP_INFO, *mut D3D12_TILE_SHAPE, *mut u32, u32, *mut D3D12_SUBRESOURCE_TILING),
     pub GetAdapterLuid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::LUID),
@@ -10680,7 +10680,7 @@ pub trait ID3D12Device_Impl: ID3D12Object_Impl {
     fn GetDeviceRemovedReason(&self) -> windows_core::Result<()>;
     fn GetCopyableFootprints(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64);
     fn CreateQueryHeap(&self, pdesc: *const D3D12_QUERY_HEAP_DESC, riid: *const windows_core::GUID, ppvheap: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn SetStablePowerState(&self, enable: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn SetStablePowerState(&self, enable: windows_core::BOOL) -> windows_core::Result<()>;
     fn CreateCommandSignature(&self, pdesc: *const D3D12_COMMAND_SIGNATURE_DESC, prootsignature: windows_core::Ref<ID3D12RootSignature>, riid: *const windows_core::GUID, ppvcommandsignature: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetResourceTiling(&self, ptiledresource: windows_core::Ref<ID3D12Resource>, pnumtilesforentireresource: *mut u32, ppackedmipdesc: *mut D3D12_PACKED_MIP_INFO, pstandardtileshapefornonpackedmips: *mut D3D12_TILE_SHAPE, pnumsubresourcetilings: *mut u32, firstsubresourcetilingtoget: u32, psubresourcetilingsfornonpackedmips: *mut D3D12_SUBRESOURCE_TILING);
     fn GetAdapterLuid(&self) -> super::super::Foundation::LUID;
@@ -10898,7 +10898,7 @@ impl ID3D12Device_Vtbl {
                 ID3D12Device_Impl::CreateQueryHeap(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvheap)).into()
             }
         }
-        unsafe extern "system" fn SetStablePowerState<Identity: ID3D12Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enable: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetStablePowerState<Identity: ID3D12Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enable: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D12Device_Impl::SetStablePowerState(this, core::mem::transmute_copy(&enable)).into()
@@ -11777,25 +11777,25 @@ impl core::ops::Deref for ID3D12Device6 {
 }
 windows_core::imp::interface_hierarchy!(ID3D12Device6, windows_core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4, ID3D12Device5);
 impl ID3D12Device6 {
-    pub unsafe fn SetBackgroundProcessingMode(&self, mode: D3D12_BACKGROUND_PROCESSING_MODE, measurementsaction: D3D12_MEASUREMENTS_ACTION, heventtosignaluponcompletion: Option<super::super::Foundation::HANDLE>, pbfurthermeasurementsdesired: Option<*mut super::super::Foundation::BOOL>) -> windows_core::Result<()> {
+    pub unsafe fn SetBackgroundProcessingMode(&self, mode: D3D12_BACKGROUND_PROCESSING_MODE, measurementsaction: D3D12_MEASUREMENTS_ACTION, heventtosignaluponcompletion: Option<super::super::Foundation::HANDLE>, pbfurthermeasurementsdesired: Option<*mut windows_core::BOOL>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetBackgroundProcessingMode)(windows_core::Interface::as_raw(self), mode, measurementsaction, heventtosignaluponcompletion.unwrap_or(core::mem::zeroed()) as _, pbfurthermeasurementsdesired.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[repr(C)]
 pub struct ID3D12Device6_Vtbl {
     pub base__: ID3D12Device5_Vtbl,
-    pub SetBackgroundProcessingMode: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_BACKGROUND_PROCESSING_MODE, D3D12_MEASUREMENTS_ACTION, super::super::Foundation::HANDLE, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SetBackgroundProcessingMode: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_BACKGROUND_PROCESSING_MODE, D3D12_MEASUREMENTS_ACTION, super::super::Foundation::HANDLE, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 unsafe impl Send for ID3D12Device6 {}
 unsafe impl Sync for ID3D12Device6 {}
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 pub trait ID3D12Device6_Impl: ID3D12Device5_Impl {
-    fn SetBackgroundProcessingMode(&self, mode: D3D12_BACKGROUND_PROCESSING_MODE, measurementsaction: D3D12_MEASUREMENTS_ACTION, heventtosignaluponcompletion: super::super::Foundation::HANDLE, pbfurthermeasurementsdesired: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn SetBackgroundProcessingMode(&self, mode: D3D12_BACKGROUND_PROCESSING_MODE, measurementsaction: D3D12_MEASUREMENTS_ACTION, heventtosignaluponcompletion: super::super::Foundation::HANDLE, pbfurthermeasurementsdesired: *mut windows_core::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ID3D12Device6_Vtbl {
     pub const fn new<Identity: ID3D12Device6_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetBackgroundProcessingMode<Identity: ID3D12Device6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: D3D12_BACKGROUND_PROCESSING_MODE, measurementsaction: D3D12_MEASUREMENTS_ACTION, heventtosignaluponcompletion: super::super::Foundation::HANDLE, pbfurthermeasurementsdesired: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBackgroundProcessingMode<Identity: ID3D12Device6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: D3D12_BACKGROUND_PROCESSING_MODE, measurementsaction: D3D12_MEASUREMENTS_ACTION, heventtosignaluponcompletion: super::super::Foundation::HANDLE, pbfurthermeasurementsdesired: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D12Device6_Impl::SetBackgroundProcessingMode(this, core::mem::transmute_copy(&mode), core::mem::transmute_copy(&measurementsaction), core::mem::transmute_copy(&heventtosignaluponcompletion), core::mem::transmute_copy(&pbfurthermeasurementsdesired)).into()
@@ -12676,16 +12676,16 @@ impl ID3D12DeviceRemovedExtendedDataSettings2 {
 #[repr(C)]
 pub struct ID3D12DeviceRemovedExtendedDataSettings2_Vtbl {
     pub base__: ID3D12DeviceRemovedExtendedDataSettings1_Vtbl,
-    pub UseMarkersOnlyAutoBreadcrumbs: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL),
+    pub UseMarkersOnlyAutoBreadcrumbs: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL),
 }
 unsafe impl Send for ID3D12DeviceRemovedExtendedDataSettings2 {}
 unsafe impl Sync for ID3D12DeviceRemovedExtendedDataSettings2 {}
 pub trait ID3D12DeviceRemovedExtendedDataSettings2_Impl: ID3D12DeviceRemovedExtendedDataSettings1_Impl {
-    fn UseMarkersOnlyAutoBreadcrumbs(&self, markersonly: super::super::Foundation::BOOL);
+    fn UseMarkersOnlyAutoBreadcrumbs(&self, markersonly: windows_core::BOOL);
 }
 impl ID3D12DeviceRemovedExtendedDataSettings2_Vtbl {
     pub const fn new<Identity: ID3D12DeviceRemovedExtendedDataSettings2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn UseMarkersOnlyAutoBreadcrumbs<Identity: ID3D12DeviceRemovedExtendedDataSettings2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, markersonly: super::super::Foundation::BOOL) {
+        unsafe extern "system" fn UseMarkersOnlyAutoBreadcrumbs<Identity: ID3D12DeviceRemovedExtendedDataSettings2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, markersonly: windows_core::BOOL) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D12DeviceRemovedExtendedDataSettings2_Impl::UseMarkersOnlyAutoBreadcrumbs(this, core::mem::transmute_copy(&markersonly))
@@ -13408,7 +13408,7 @@ pub struct ID3D12GraphicsCommandList_Vtbl {
     IASetIndexBuffer: usize,
     pub IASetVertexBuffers: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const D3D12_VERTEX_BUFFER_VIEW),
     pub SOSetTargets: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const D3D12_STREAM_OUTPUT_BUFFER_VIEW),
-    pub OMSetRenderTargets: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const D3D12_CPU_DESCRIPTOR_HANDLE, super::super::Foundation::BOOL, *const D3D12_CPU_DESCRIPTOR_HANDLE),
+    pub OMSetRenderTargets: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const D3D12_CPU_DESCRIPTOR_HANDLE, windows_core::BOOL, *const D3D12_CPU_DESCRIPTOR_HANDLE),
     pub ClearDepthStencilView: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_CPU_DESCRIPTOR_HANDLE, D3D12_CLEAR_FLAGS, f32, u8, u32, *const super::super::Foundation::RECT),
     pub ClearRenderTargetView: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_CPU_DESCRIPTOR_HANDLE, *const f32, u32, *const super::super::Foundation::RECT),
     pub ClearUnorderedAccessViewUint: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_GPU_DESCRIPTOR_HANDLE, D3D12_CPU_DESCRIPTOR_HANDLE, *mut core::ffi::c_void, *const u32, u32, *const super::super::Foundation::RECT),
@@ -13464,7 +13464,7 @@ pub trait ID3D12GraphicsCommandList_Impl: ID3D12CommandList_Impl {
     fn IASetIndexBuffer(&self, pview: *const D3D12_INDEX_BUFFER_VIEW);
     fn IASetVertexBuffers(&self, startslot: u32, numviews: u32, pviews: *const D3D12_VERTEX_BUFFER_VIEW);
     fn SOSetTargets(&self, startslot: u32, numviews: u32, pviews: *const D3D12_STREAM_OUTPUT_BUFFER_VIEW);
-    fn OMSetRenderTargets(&self, numrendertargetdescriptors: u32, prendertargetdescriptors: *const D3D12_CPU_DESCRIPTOR_HANDLE, rtssinglehandletodescriptorrange: super::super::Foundation::BOOL, pdepthstencildescriptor: *const D3D12_CPU_DESCRIPTOR_HANDLE);
+    fn OMSetRenderTargets(&self, numrendertargetdescriptors: u32, prendertargetdescriptors: *const D3D12_CPU_DESCRIPTOR_HANDLE, rtssinglehandletodescriptorrange: windows_core::BOOL, pdepthstencildescriptor: *const D3D12_CPU_DESCRIPTOR_HANDLE);
     fn ClearDepthStencilView(&self, depthstencilview: &D3D12_CPU_DESCRIPTOR_HANDLE, clearflags: D3D12_CLEAR_FLAGS, depth: f32, stencil: u8, numrects: u32, prects: *const super::super::Foundation::RECT);
     fn ClearRenderTargetView(&self, rendertargetview: &D3D12_CPU_DESCRIPTOR_HANDLE, colorrgba: *const f32, numrects: u32, prects: *const super::super::Foundation::RECT);
     fn ClearUnorderedAccessViewUint(&self, viewgpuhandleincurrentheap: &D3D12_GPU_DESCRIPTOR_HANDLE, viewcpuhandle: &D3D12_CPU_DESCRIPTOR_HANDLE, presource: windows_core::Ref<ID3D12Resource>, values: *const u32, numrects: u32, prects: *const super::super::Foundation::RECT);
@@ -13704,7 +13704,7 @@ impl ID3D12GraphicsCommandList_Vtbl {
                 ID3D12GraphicsCommandList_Impl::SOSetTargets(this, core::mem::transmute_copy(&startslot), core::mem::transmute_copy(&numviews), core::mem::transmute_copy(&pviews))
             }
         }
-        unsafe extern "system" fn OMSetRenderTargets<Identity: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numrendertargetdescriptors: u32, prendertargetdescriptors: *const D3D12_CPU_DESCRIPTOR_HANDLE, rtssinglehandletodescriptorrange: super::super::Foundation::BOOL, pdepthstencildescriptor: *const D3D12_CPU_DESCRIPTOR_HANDLE) {
+        unsafe extern "system" fn OMSetRenderTargets<Identity: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numrendertargetdescriptors: u32, prendertargetdescriptors: *const D3D12_CPU_DESCRIPTOR_HANDLE, rtssinglehandletodescriptorrange: windows_core::BOOL, pdepthstencildescriptor: *const D3D12_CPU_DESCRIPTOR_HANDLE) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D12GraphicsCommandList_Impl::OMSetRenderTargets(this, core::mem::transmute_copy(&numrendertargetdescriptors), core::mem::transmute_copy(&prendertargetdescriptors), core::mem::transmute_copy(&rtssinglehandletodescriptorrange), core::mem::transmute_copy(&pdepthstencildescriptor))
@@ -14723,19 +14723,19 @@ impl ID3D12InfoQueue {
     pub unsafe fn SetBreakOnID(&self, id: D3D12_MESSAGE_ID, benable: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetBreakOnID)(windows_core::Interface::as_raw(self), id, benable.into()).ok() }
     }
-    pub unsafe fn GetBreakOnCategory(&self, category: D3D12_MESSAGE_CATEGORY) -> super::super::Foundation::BOOL {
+    pub unsafe fn GetBreakOnCategory(&self, category: D3D12_MESSAGE_CATEGORY) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).GetBreakOnCategory)(windows_core::Interface::as_raw(self), category) }
     }
-    pub unsafe fn GetBreakOnSeverity(&self, severity: D3D12_MESSAGE_SEVERITY) -> super::super::Foundation::BOOL {
+    pub unsafe fn GetBreakOnSeverity(&self, severity: D3D12_MESSAGE_SEVERITY) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).GetBreakOnSeverity)(windows_core::Interface::as_raw(self), severity) }
     }
-    pub unsafe fn GetBreakOnID(&self, id: D3D12_MESSAGE_ID) -> super::super::Foundation::BOOL {
+    pub unsafe fn GetBreakOnID(&self, id: D3D12_MESSAGE_ID) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).GetBreakOnID)(windows_core::Interface::as_raw(self), id) }
     }
     pub unsafe fn SetMuteDebugOutput(&self, bmute: bool) {
         unsafe { (windows_core::Interface::vtable(self).SetMuteDebugOutput)(windows_core::Interface::as_raw(self), bmute.into()) }
     }
-    pub unsafe fn GetMuteDebugOutput(&self) -> super::super::Foundation::BOOL {
+    pub unsafe fn GetMuteDebugOutput(&self) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).GetMuteDebugOutput)(windows_core::Interface::as_raw(self)) }
     }
 }
@@ -14769,14 +14769,14 @@ pub struct ID3D12InfoQueue_Vtbl {
     pub GetRetrievalFilterStackSize: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub AddMessage: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_MESSAGE_CATEGORY, D3D12_MESSAGE_SEVERITY, D3D12_MESSAGE_ID, windows_core::PCSTR) -> windows_core::HRESULT,
     pub AddApplicationMessage: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_MESSAGE_SEVERITY, windows_core::PCSTR) -> windows_core::HRESULT,
-    pub SetBreakOnCategory: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_MESSAGE_CATEGORY, super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetBreakOnSeverity: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_MESSAGE_SEVERITY, super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetBreakOnID: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_MESSAGE_ID, super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub GetBreakOnCategory: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_MESSAGE_CATEGORY) -> super::super::Foundation::BOOL,
-    pub GetBreakOnSeverity: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_MESSAGE_SEVERITY) -> super::super::Foundation::BOOL,
-    pub GetBreakOnID: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_MESSAGE_ID) -> super::super::Foundation::BOOL,
-    pub SetMuteDebugOutput: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL),
-    pub GetMuteDebugOutput: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
+    pub SetBreakOnCategory: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_MESSAGE_CATEGORY, windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetBreakOnSeverity: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_MESSAGE_SEVERITY, windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetBreakOnID: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_MESSAGE_ID, windows_core::BOOL) -> windows_core::HRESULT,
+    pub GetBreakOnCategory: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_MESSAGE_CATEGORY) -> windows_core::BOOL,
+    pub GetBreakOnSeverity: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_MESSAGE_SEVERITY) -> windows_core::BOOL,
+    pub GetBreakOnID: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_MESSAGE_ID) -> windows_core::BOOL,
+    pub SetMuteDebugOutput: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL),
+    pub GetMuteDebugOutput: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
 }
 unsafe impl Send for ID3D12InfoQueue {}
 unsafe impl Sync for ID3D12InfoQueue {}
@@ -14808,14 +14808,14 @@ pub trait ID3D12InfoQueue_Impl: windows_core::IUnknownImpl {
     fn GetRetrievalFilterStackSize(&self) -> u32;
     fn AddMessage(&self, category: D3D12_MESSAGE_CATEGORY, severity: D3D12_MESSAGE_SEVERITY, id: D3D12_MESSAGE_ID, pdescription: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn AddApplicationMessage(&self, severity: D3D12_MESSAGE_SEVERITY, pdescription: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn SetBreakOnCategory(&self, category: D3D12_MESSAGE_CATEGORY, benable: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn SetBreakOnSeverity(&self, severity: D3D12_MESSAGE_SEVERITY, benable: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn SetBreakOnID(&self, id: D3D12_MESSAGE_ID, benable: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn GetBreakOnCategory(&self, category: D3D12_MESSAGE_CATEGORY) -> super::super::Foundation::BOOL;
-    fn GetBreakOnSeverity(&self, severity: D3D12_MESSAGE_SEVERITY) -> super::super::Foundation::BOOL;
-    fn GetBreakOnID(&self, id: D3D12_MESSAGE_ID) -> super::super::Foundation::BOOL;
-    fn SetMuteDebugOutput(&self, bmute: super::super::Foundation::BOOL);
-    fn GetMuteDebugOutput(&self) -> super::super::Foundation::BOOL;
+    fn SetBreakOnCategory(&self, category: D3D12_MESSAGE_CATEGORY, benable: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetBreakOnSeverity(&self, severity: D3D12_MESSAGE_SEVERITY, benable: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetBreakOnID(&self, id: D3D12_MESSAGE_ID, benable: windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetBreakOnCategory(&self, category: D3D12_MESSAGE_CATEGORY) -> windows_core::BOOL;
+    fn GetBreakOnSeverity(&self, severity: D3D12_MESSAGE_SEVERITY) -> windows_core::BOOL;
+    fn GetBreakOnID(&self, id: D3D12_MESSAGE_ID) -> windows_core::BOOL;
+    fn SetMuteDebugOutput(&self, bmute: windows_core::BOOL);
+    fn GetMuteDebugOutput(&self) -> windows_core::BOOL;
 }
 impl ID3D12InfoQueue_Vtbl {
     pub const fn new<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>() -> Self {
@@ -14981,49 +14981,49 @@ impl ID3D12InfoQueue_Vtbl {
                 ID3D12InfoQueue_Impl::AddApplicationMessage(this, core::mem::transmute_copy(&severity), core::mem::transmute(&pdescription)).into()
             }
         }
-        unsafe extern "system" fn SetBreakOnCategory<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, category: D3D12_MESSAGE_CATEGORY, benable: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBreakOnCategory<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, category: D3D12_MESSAGE_CATEGORY, benable: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D12InfoQueue_Impl::SetBreakOnCategory(this, core::mem::transmute_copy(&category), core::mem::transmute_copy(&benable)).into()
             }
         }
-        unsafe extern "system" fn SetBreakOnSeverity<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, severity: D3D12_MESSAGE_SEVERITY, benable: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBreakOnSeverity<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, severity: D3D12_MESSAGE_SEVERITY, benable: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D12InfoQueue_Impl::SetBreakOnSeverity(this, core::mem::transmute_copy(&severity), core::mem::transmute_copy(&benable)).into()
             }
         }
-        unsafe extern "system" fn SetBreakOnID<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: D3D12_MESSAGE_ID, benable: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBreakOnID<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: D3D12_MESSAGE_ID, benable: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D12InfoQueue_Impl::SetBreakOnID(this, core::mem::transmute_copy(&id), core::mem::transmute_copy(&benable)).into()
             }
         }
-        unsafe extern "system" fn GetBreakOnCategory<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, category: D3D12_MESSAGE_CATEGORY) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn GetBreakOnCategory<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, category: D3D12_MESSAGE_CATEGORY) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D12InfoQueue_Impl::GetBreakOnCategory(this, core::mem::transmute_copy(&category))
             }
         }
-        unsafe extern "system" fn GetBreakOnSeverity<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, severity: D3D12_MESSAGE_SEVERITY) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn GetBreakOnSeverity<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, severity: D3D12_MESSAGE_SEVERITY) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D12InfoQueue_Impl::GetBreakOnSeverity(this, core::mem::transmute_copy(&severity))
             }
         }
-        unsafe extern "system" fn GetBreakOnID<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: D3D12_MESSAGE_ID) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn GetBreakOnID<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: D3D12_MESSAGE_ID) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D12InfoQueue_Impl::GetBreakOnID(this, core::mem::transmute_copy(&id))
             }
         }
-        unsafe extern "system" fn SetMuteDebugOutput<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bmute: super::super::Foundation::BOOL) {
+        unsafe extern "system" fn SetMuteDebugOutput<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bmute: windows_core::BOOL) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D12InfoQueue_Impl::SetMuteDebugOutput(this, core::mem::transmute_copy(&bmute))
             }
         }
-        unsafe extern "system" fn GetMuteDebugOutput<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn GetMuteDebugOutput<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D12InfoQueue_Impl::GetMuteDebugOutput(this)
@@ -16308,7 +16308,7 @@ impl ID3D12ShaderReflection {
     pub unsafe fn GetGSInputPrimitive(&self) -> super::Direct3D::D3D_PRIMITIVE {
         unsafe { (windows_core::Interface::vtable(self).GetGSInputPrimitive)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn IsSampleFrequencyShader(&self) -> super::super::Foundation::BOOL {
+    pub unsafe fn IsSampleFrequencyShader(&self) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).IsSampleFrequencyShader)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn GetNumInterfaceSlots(&self) -> u32 {
@@ -16366,7 +16366,7 @@ pub struct ID3D12ShaderReflection_Vtbl {
     pub GetGSInputPrimitive: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::Direct3D::D3D_PRIMITIVE,
     #[cfg(not(feature = "Win32_Graphics_Direct3D"))]
     GetGSInputPrimitive: usize,
-    pub IsSampleFrequencyShader: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
+    pub IsSampleFrequencyShader: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
     pub GetNumInterfaceSlots: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub GetMinFeatureLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Direct3D::D3D_FEATURE_LEVEL) -> windows_core::HRESULT,
@@ -16393,7 +16393,7 @@ pub trait ID3D12ShaderReflection_Impl: windows_core::IUnknownImpl {
     fn GetConversionInstructionCount(&self) -> u32;
     fn GetBitwiseInstructionCount(&self) -> u32;
     fn GetGSInputPrimitive(&self) -> super::Direct3D::D3D_PRIMITIVE;
-    fn IsSampleFrequencyShader(&self) -> super::super::Foundation::BOOL;
+    fn IsSampleFrequencyShader(&self) -> windows_core::BOOL;
     fn GetNumInterfaceSlots(&self) -> u32;
     fn GetMinFeatureLevel(&self) -> windows_core::Result<super::Direct3D::D3D_FEATURE_LEVEL>;
     fn GetThreadGroupSize(&self, psizex: *mut u32, psizey: *mut u32, psizez: *mut u32) -> u32;
@@ -16486,7 +16486,7 @@ impl ID3D12ShaderReflection_Vtbl {
                 ID3D12ShaderReflection_Impl::GetGSInputPrimitive(this)
             }
         }
-        unsafe extern "system" fn IsSampleFrequencyShader<Identity: ID3D12ShaderReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn IsSampleFrequencyShader<Identity: ID3D12ShaderReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D12ShaderReflection_Impl::IsSampleFrequencyShader(this)
@@ -17202,31 +17202,31 @@ impl ID3D12Tools {
     pub unsafe fn EnableShaderInstrumentation(&self, benable: bool) {
         unsafe { (windows_core::Interface::vtable(self).EnableShaderInstrumentation)(windows_core::Interface::as_raw(self), benable.into()) }
     }
-    pub unsafe fn ShaderInstrumentationEnabled(&self) -> super::super::Foundation::BOOL {
+    pub unsafe fn ShaderInstrumentationEnabled(&self) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).ShaderInstrumentationEnabled)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[repr(C)]
 pub struct ID3D12Tools_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub EnableShaderInstrumentation: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL),
-    pub ShaderInstrumentationEnabled: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
+    pub EnableShaderInstrumentation: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL),
+    pub ShaderInstrumentationEnabled: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
 }
 unsafe impl Send for ID3D12Tools {}
 unsafe impl Sync for ID3D12Tools {}
 pub trait ID3D12Tools_Impl: windows_core::IUnknownImpl {
-    fn EnableShaderInstrumentation(&self, benable: super::super::Foundation::BOOL);
-    fn ShaderInstrumentationEnabled(&self) -> super::super::Foundation::BOOL;
+    fn EnableShaderInstrumentation(&self, benable: windows_core::BOOL);
+    fn ShaderInstrumentationEnabled(&self) -> windows_core::BOOL;
 }
 impl ID3D12Tools_Vtbl {
     pub const fn new<Identity: ID3D12Tools_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn EnableShaderInstrumentation<Identity: ID3D12Tools_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, benable: super::super::Foundation::BOOL) {
+        unsafe extern "system" fn EnableShaderInstrumentation<Identity: ID3D12Tools_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, benable: windows_core::BOOL) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D12Tools_Impl::EnableShaderInstrumentation(this, core::mem::transmute_copy(&benable))
             }
         }
-        unsafe extern "system" fn ShaderInstrumentationEnabled<Identity: ID3D12Tools_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn ShaderInstrumentationEnabled<Identity: ID3D12Tools_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D12Tools_Impl::ShaderInstrumentationEnabled(this)

@@ -829,13 +829,13 @@ impl IMbnDeviceService {
             (windows_core::Interface::vtable(self).DeviceServiceID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn IsCommandSessionOpen(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsCommandSessionOpen(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsCommandSessionOpen)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsDataSessionOpen(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsDataSessionOpen(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsDataSessionOpen)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -864,8 +864,8 @@ pub struct IMbnDeviceService_Vtbl {
     WriteData: usize,
     pub InterfaceID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DeviceServiceID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub IsCommandSessionOpen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub IsDataSessionOpen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsCommandSessionOpen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub IsDataSessionOpen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMbnDeviceService_Impl: windows_core::IUnknownImpl {
@@ -879,8 +879,8 @@ pub trait IMbnDeviceService_Impl: windows_core::IUnknownImpl {
     fn WriteData(&self, deviceservicedata: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<u32>;
     fn InterfaceID(&self) -> windows_core::Result<windows_core::BSTR>;
     fn DeviceServiceID(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn IsCommandSessionOpen(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn IsDataSessionOpen(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn IsCommandSessionOpen(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn IsDataSessionOpen(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IMbnDeviceService_Vtbl {
@@ -1005,7 +1005,7 @@ impl IMbnDeviceService_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsCommandSessionOpen<Identity: IMbnDeviceService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsCommandSessionOpen<Identity: IMbnDeviceService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnDeviceService_Impl::IsCommandSessionOpen(this) {
@@ -1017,7 +1017,7 @@ impl IMbnDeviceService_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsDataSessionOpen<Identity: IMbnDeviceService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsDataSessionOpen<Identity: IMbnDeviceService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnDeviceService_Impl::IsDataSessionOpen(this) {

@@ -42,7 +42,7 @@ pub struct RM_PROCESS_INFO {
     pub ApplicationType: RM_APP_TYPE,
     pub AppStatus: u32,
     pub TSSessionId: u32,
-    pub bRestartable: super::super::Foundation::BOOL,
+    pub bRestartable: windows_sys::core::BOOL,
 }
 pub type RM_REBOOT_REASON = i32;
 pub type RM_SHUTDOWN_TYPE = i32;

@@ -162,8 +162,7 @@ impl CppMethod {
                         || param.has_attribute("ReservedAttribute"))
                 {
                     *hint = ParamHint::Optional;
-                } else if !flags.contains(ParamAttributes::Out) && ty.type_name() == TypeName::BOOL
-                {
+                } else if !flags.contains(ParamAttributes::Out) && *ty == Type::BOOL {
                     *hint = ParamHint::Bool;
                 } else if ty.is_primitive() && (!ty.is_pointer() || ty.deref().is_copyable()) {
                     *hint = ParamHint::ValueType;
@@ -206,12 +205,10 @@ impl CppMethod {
                         }
                     }
                 }
-                Type::CppStruct(ty)
-                    if TypeName(ty.def.namespace(), ty.def.name()) == TypeName::BOOL
-                        && last_error =>
-                {
-                    // TODO: maybe use ResultBool here to make the code gen less ambiguous
-                    return_hint = ReturnHint::ResultVoid
+                Type::BOOL => {
+                    if last_error {
+                        return_hint = ReturnHint::ResultVoid
+                    }
                 }
                 Type::GUID => return_hint = ReturnHint::ReturnStruct,
                 Type::CppStruct(ty) if !ty.is_handle() => return_hint = ReturnHint::ReturnStruct,

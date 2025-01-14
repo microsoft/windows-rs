@@ -52,8 +52,8 @@ pub unsafe fn GetCurrentPowerPolicies(pglobalpowerpolicy: *mut GLOBAL_POWER_POLI
     unsafe { GetCurrentPowerPolicies(pglobalpowerpolicy as _, ppowerpolicy as _) }
 }
 #[inline]
-pub unsafe fn GetDevicePowerState(hdevice: super::super::Foundation::HANDLE, pfon: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
-    windows_targets::link!("kernel32.dll" "system" fn GetDevicePowerState(hdevice : super::super::Foundation:: HANDLE, pfon : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+pub unsafe fn GetDevicePowerState(hdevice: super::super::Foundation::HANDLE, pfon: *mut windows_core::BOOL) -> windows_core::BOOL {
+    windows_targets::link!("kernel32.dll" "system" fn GetDevicePowerState(hdevice : super::super::Foundation:: HANDLE, pfon : *mut windows_core::BOOL) -> windows_core::BOOL);
     unsafe { GetDevicePowerState(hdevice, pfon as _) }
 }
 #[inline]
@@ -68,7 +68,7 @@ pub unsafe fn GetPwrDiskSpindownRange(puimax: *mut u32, puimin: *mut u32) -> boo
 }
 #[inline]
 pub unsafe fn GetSystemPowerStatus(lpsystempowerstatus: *mut SYSTEM_POWER_STATUS) -> windows_core::Result<()> {
-    windows_targets::link!("kernel32.dll" "system" fn GetSystemPowerStatus(lpsystempowerstatus : *mut SYSTEM_POWER_STATUS) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetSystemPowerStatus(lpsystempowerstatus : *mut SYSTEM_POWER_STATUS) -> windows_core::BOOL);
     unsafe { GetSystemPowerStatus(lpsystempowerstatus as _).ok() }
 }
 #[inline]
@@ -92,8 +92,8 @@ pub unsafe fn IsPwrSuspendAllowed() -> bool {
     unsafe { IsPwrSuspendAllowed() }
 }
 #[inline]
-pub unsafe fn IsSystemResumeAutomatic() -> super::super::Foundation::BOOL {
-    windows_targets::link!("kernel32.dll" "system" fn IsSystemResumeAutomatic() -> super::super::Foundation:: BOOL);
+pub unsafe fn IsSystemResumeAutomatic() -> windows_core::BOOL {
+    windows_targets::link!("kernel32.dll" "system" fn IsSystemResumeAutomatic() -> windows_core::BOOL);
     unsafe { IsSystemResumeAutomatic() }
 }
 #[inline]
@@ -103,7 +103,7 @@ pub unsafe fn PowerCanRestoreIndividualDefaultPowerScheme(schemeguid: *const win
 }
 #[inline]
 pub unsafe fn PowerClearRequest(powerrequest: super::super::Foundation::HANDLE, requesttype: POWER_REQUEST_TYPE) -> windows_core::Result<()> {
-    windows_targets::link!("kernel32.dll" "system" fn PowerClearRequest(powerrequest : super::super::Foundation:: HANDLE, requesttype : POWER_REQUEST_TYPE) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn PowerClearRequest(powerrequest : super::super::Foundation:: HANDLE, requesttype : POWER_REQUEST_TYPE) -> windows_core::BOOL);
     unsafe { PowerClearRequest(powerrequest, requesttype).ok() }
 }
 #[cfg(feature = "Win32_System_Registry")]
@@ -176,13 +176,13 @@ pub unsafe fn PowerIsSettingRangeDefined(subkeyguid: Option<*const windows_core:
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerOpenSystemPowerKey(phsystempowerkey: *mut super::Registry::HKEY, access: u32, openexisting: bool) -> u32 {
-    windows_targets::link!("powrprof.dll" "system" fn PowerOpenSystemPowerKey(phsystempowerkey : *mut super::Registry:: HKEY, access : u32, openexisting : super::super::Foundation:: BOOL) -> u32);
+    windows_targets::link!("powrprof.dll" "system" fn PowerOpenSystemPowerKey(phsystempowerkey : *mut super::Registry:: HKEY, access : u32, openexisting : windows_core::BOOL) -> u32);
     unsafe { PowerOpenSystemPowerKey(phsystempowerkey as _, access, openexisting.into()) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerOpenUserPowerKey(phuserpowerkey: *mut super::Registry::HKEY, access: u32, openexisting: bool) -> u32 {
-    windows_targets::link!("powrprof.dll" "system" fn PowerOpenUserPowerKey(phuserpowerkey : *mut super::Registry:: HKEY, access : u32, openexisting : super::super::Foundation:: BOOL) -> u32);
+    windows_targets::link!("powrprof.dll" "system" fn PowerOpenUserPowerKey(phuserpowerkey : *mut super::Registry:: HKEY, access : u32, openexisting : windows_core::BOOL) -> u32);
     unsafe { PowerOpenUserPowerKey(phuserpowerkey as _, access, openexisting.into()) }
 }
 #[cfg(feature = "Win32_System_Registry")]
@@ -330,7 +330,7 @@ pub unsafe fn PowerSetActiveScheme(userrootpowerkey: Option<super::Registry::HKE
 }
 #[inline]
 pub unsafe fn PowerSetRequest(powerrequest: super::super::Foundation::HANDLE, requesttype: POWER_REQUEST_TYPE) -> windows_core::Result<()> {
-    windows_targets::link!("kernel32.dll" "system" fn PowerSetRequest(powerrequest : super::super::Foundation:: HANDLE, requesttype : POWER_REQUEST_TYPE) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn PowerSetRequest(powerrequest : super::super::Foundation:: HANDLE, requesttype : POWER_REQUEST_TYPE) -> windows_core::BOOL);
     unsafe { PowerSetRequest(powerrequest, requesttype).ok() }
 }
 #[inline]
@@ -484,8 +484,8 @@ pub unsafe fn RegisterSuspendResumeNotification(hrecipient: super::super::Founda
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn RequestWakeupLatency(latency: LATENCY_TIME) -> super::super::Foundation::BOOL {
-    windows_targets::link!("kernel32.dll" "system" fn RequestWakeupLatency(latency : LATENCY_TIME) -> super::super::Foundation:: BOOL);
+pub unsafe fn RequestWakeupLatency(latency: LATENCY_TIME) -> windows_core::BOOL {
+    windows_targets::link!("kernel32.dll" "system" fn RequestWakeupLatency(latency : LATENCY_TIME) -> windows_core::BOOL);
     unsafe { RequestWakeupLatency(latency) }
 }
 #[inline]
@@ -500,7 +500,7 @@ pub unsafe fn SetSuspendState(bhibernate: bool, bforce: bool, bwakeupeventsdisab
 }
 #[inline]
 pub unsafe fn SetSystemPowerState(fsuspend: bool, fforce: bool) -> windows_core::Result<()> {
-    windows_targets::link!("kernel32.dll" "system" fn SetSystemPowerState(fsuspend : super::super::Foundation:: BOOL, fforce : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn SetSystemPowerState(fsuspend : windows_core::BOOL, fforce : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { SetSystemPowerState(fsuspend.into(), fforce.into()).ok() }
 }
 #[inline]
@@ -510,12 +510,12 @@ pub unsafe fn SetThreadExecutionState(esflags: EXECUTION_STATE) -> EXECUTION_STA
 }
 #[inline]
 pub unsafe fn UnregisterPowerSettingNotification(handle: HPOWERNOTIFY) -> windows_core::Result<()> {
-    windows_targets::link!("user32.dll" "system" fn UnregisterPowerSettingNotification(handle : HPOWERNOTIFY) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("user32.dll" "system" fn UnregisterPowerSettingNotification(handle : HPOWERNOTIFY) -> windows_core::BOOL);
     unsafe { UnregisterPowerSettingNotification(handle).ok() }
 }
 #[inline]
 pub unsafe fn UnregisterSuspendResumeNotification(handle: HPOWERNOTIFY) -> windows_core::Result<()> {
-    windows_targets::link!("user32.dll" "system" fn UnregisterSuspendResumeNotification(handle : HPOWERNOTIFY) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("user32.dll" "system" fn UnregisterSuspendResumeNotification(handle : HPOWERNOTIFY) -> windows_core::BOOL);
     unsafe { UnregisterSuspendResumeNotification(handle).ok() }
 }
 #[inline]

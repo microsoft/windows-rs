@@ -1,16 +1,16 @@
 #[inline]
-pub unsafe fn OfflineFilesEnable(benable: bool, pbrebootrequired: *mut super::super::Foundation::BOOL) -> u32 {
-    windows_targets::link!("cscapi.dll" "system" fn OfflineFilesEnable(benable : super::super::Foundation:: BOOL, pbrebootrequired : *mut super::super::Foundation:: BOOL) -> u32);
+pub unsafe fn OfflineFilesEnable(benable: bool, pbrebootrequired: *mut windows_core::BOOL) -> u32 {
+    windows_targets::link!("cscapi.dll" "system" fn OfflineFilesEnable(benable : windows_core::BOOL, pbrebootrequired : *mut windows_core::BOOL) -> u32);
     unsafe { OfflineFilesEnable(benable.into(), pbrebootrequired as _) }
 }
 #[inline]
-pub unsafe fn OfflineFilesQueryStatus(pbactive: Option<*mut super::super::Foundation::BOOL>, pbenabled: Option<*mut super::super::Foundation::BOOL>) -> u32 {
-    windows_targets::link!("cscapi.dll" "system" fn OfflineFilesQueryStatus(pbactive : *mut super::super::Foundation:: BOOL, pbenabled : *mut super::super::Foundation:: BOOL) -> u32);
+pub unsafe fn OfflineFilesQueryStatus(pbactive: Option<*mut windows_core::BOOL>, pbenabled: Option<*mut windows_core::BOOL>) -> u32 {
+    windows_targets::link!("cscapi.dll" "system" fn OfflineFilesQueryStatus(pbactive : *mut windows_core::BOOL, pbenabled : *mut windows_core::BOOL) -> u32);
     unsafe { OfflineFilesQueryStatus(pbactive.unwrap_or(core::mem::zeroed()) as _, pbenabled.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn OfflineFilesQueryStatusEx(pbactive: Option<*mut super::super::Foundation::BOOL>, pbenabled: Option<*mut super::super::Foundation::BOOL>, pbavailable: Option<*mut super::super::Foundation::BOOL>) -> u32 {
-    windows_targets::link!("cscapi.dll" "system" fn OfflineFilesQueryStatusEx(pbactive : *mut super::super::Foundation:: BOOL, pbenabled : *mut super::super::Foundation:: BOOL, pbavailable : *mut super::super::Foundation:: BOOL) -> u32);
+pub unsafe fn OfflineFilesQueryStatusEx(pbactive: Option<*mut windows_core::BOOL>, pbenabled: Option<*mut windows_core::BOOL>, pbavailable: Option<*mut windows_core::BOOL>) -> u32 {
+    windows_targets::link!("cscapi.dll" "system" fn OfflineFilesQueryStatusEx(pbactive : *mut windows_core::BOOL, pbenabled : *mut windows_core::BOOL, pbavailable : *mut windows_core::BOOL) -> u32);
     unsafe { OfflineFilesQueryStatusEx(pbactive.unwrap_or(core::mem::zeroed()) as _, pbenabled.unwrap_or(core::mem::zeroed()) as _, pbavailable.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -209,7 +209,7 @@ impl IOfflineFilesCache {
     {
         unsafe { (windows_core::Interface::vtable(self).Unpin)(windows_core::Interface::as_raw(self), hwndparent.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), bdeep.into(), basync.into(), dwpincontrolflags, piprogress.param().abi()).ok() }
     }
-    pub unsafe fn GetEncryptionStatus(&self, pbencrypted: *mut super::super::Foundation::BOOL, pbpartial: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn GetEncryptionStatus(&self, pbencrypted: *mut windows_core::BOOL, pbpartial: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetEncryptionStatus)(windows_core::Interface::as_raw(self), pbencrypted as _, pbpartial as _).ok() }
     }
     pub unsafe fn Encrypt<P4>(&self, hwndparent: Option<super::super::Foundation::HWND>, bencrypt: bool, dwencryptioncontrolflags: u32, basync: bool, piprogress: P4) -> windows_core::Result<()>
@@ -281,7 +281,7 @@ impl IOfflineFilesCache {
             (windows_core::Interface::vtable(self).EnumSettingObjects)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn IsPathCacheable<P0>(&self, pszpath: P0, pbcacheable: *mut super::super::Foundation::BOOL, psharecachingmode: *mut OFFLINEFILES_CACHING_MODE) -> windows_core::Result<()>
+    pub unsafe fn IsPathCacheable<P0>(&self, pszpath: P0, pbcacheable: *mut windows_core::BOOL, psharecachingmode: *mut OFFLINEFILES_CACHING_MODE) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -291,82 +291,82 @@ impl IOfflineFilesCache {
 #[repr(C)]
 pub struct IOfflineFilesCache_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Synchronize: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, *const windows_core::PCWSTR, u32, super::super::Foundation::BOOL, u32, *mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
-    pub DeleteItems: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::PCWSTR, u32, u32, super::super::Foundation::BOOL, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub DeleteItemsForUser: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const windows_core::PCWSTR, u32, u32, super::super::Foundation::BOOL, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Pin: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, *const windows_core::PCWSTR, u32, super::super::Foundation::BOOL, super::super::Foundation::BOOL, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Unpin: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, *const windows_core::PCWSTR, u32, super::super::Foundation::BOOL, super::super::Foundation::BOOL, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetEncryptionStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub Encrypt: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, super::super::Foundation::BOOL, u32, super::super::Foundation::BOOL, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Synchronize: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, *const windows_core::PCWSTR, u32, windows_core::BOOL, u32, *mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
+    pub DeleteItems: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::PCWSTR, u32, u32, windows_core::BOOL, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DeleteItemsForUser: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const windows_core::PCWSTR, u32, u32, windows_core::BOOL, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Pin: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, *const windows_core::PCWSTR, u32, windows_core::BOOL, windows_core::BOOL, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Unpin: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, *const windows_core::PCWSTR, u32, windows_core::BOOL, windows_core::BOOL, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetEncryptionStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub Encrypt: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, windows_core::BOOL, u32, windows_core::BOOL, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FindItem: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FindItemEx: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub RenameItem: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub RenameItem: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::BOOL) -> windows_core::HRESULT,
     pub GetLocation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub GetDiskSpaceInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64, *mut u64, *mut u64, *mut u64, *mut u64) -> windows_core::HRESULT,
     pub SetDiskSpaceLimits: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64) -> windows_core::HRESULT,
     pub ProcessAdminPinPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSettingObject: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumSettingObjects: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub IsPathCacheable: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut super::super::Foundation::BOOL, *mut OFFLINEFILES_CACHING_MODE) -> windows_core::HRESULT,
+    pub IsPathCacheable: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::BOOL, *mut OFFLINEFILES_CACHING_MODE) -> windows_core::HRESULT,
 }
 pub trait IOfflineFilesCache_Impl: windows_core::IUnknownImpl {
-    fn Synchronize(&self, hwndparent: super::super::Foundation::HWND, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, basync: super::super::Foundation::BOOL, dwsynccontrol: u32, pisyncconflicthandler: windows_core::Ref<IOfflineFilesSyncConflictHandler>, piprogress: windows_core::Ref<IOfflineFilesSyncProgress>, psyncid: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn DeleteItems(&self, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, dwflags: u32, basync: super::super::Foundation::BOOL, piprogress: windows_core::Ref<IOfflineFilesSimpleProgress>) -> windows_core::Result<()>;
-    fn DeleteItemsForUser(&self, pszuser: &windows_core::PCWSTR, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, dwflags: u32, basync: super::super::Foundation::BOOL, piprogress: windows_core::Ref<IOfflineFilesSimpleProgress>) -> windows_core::Result<()>;
-    fn Pin(&self, hwndparent: super::super::Foundation::HWND, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, bdeep: super::super::Foundation::BOOL, basync: super::super::Foundation::BOOL, dwpincontrolflags: u32, piprogress: windows_core::Ref<IOfflineFilesSyncProgress>) -> windows_core::Result<()>;
-    fn Unpin(&self, hwndparent: super::super::Foundation::HWND, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, bdeep: super::super::Foundation::BOOL, basync: super::super::Foundation::BOOL, dwpincontrolflags: u32, piprogress: windows_core::Ref<IOfflineFilesSyncProgress>) -> windows_core::Result<()>;
-    fn GetEncryptionStatus(&self, pbencrypted: *mut super::super::Foundation::BOOL, pbpartial: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn Encrypt(&self, hwndparent: super::super::Foundation::HWND, bencrypt: super::super::Foundation::BOOL, dwencryptioncontrolflags: u32, basync: super::super::Foundation::BOOL, piprogress: windows_core::Ref<IOfflineFilesSyncProgress>) -> windows_core::Result<()>;
+    fn Synchronize(&self, hwndparent: super::super::Foundation::HWND, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, basync: windows_core::BOOL, dwsynccontrol: u32, pisyncconflicthandler: windows_core::Ref<IOfflineFilesSyncConflictHandler>, piprogress: windows_core::Ref<IOfflineFilesSyncProgress>, psyncid: *const windows_core::GUID) -> windows_core::Result<()>;
+    fn DeleteItems(&self, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, dwflags: u32, basync: windows_core::BOOL, piprogress: windows_core::Ref<IOfflineFilesSimpleProgress>) -> windows_core::Result<()>;
+    fn DeleteItemsForUser(&self, pszuser: &windows_core::PCWSTR, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, dwflags: u32, basync: windows_core::BOOL, piprogress: windows_core::Ref<IOfflineFilesSimpleProgress>) -> windows_core::Result<()>;
+    fn Pin(&self, hwndparent: super::super::Foundation::HWND, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, bdeep: windows_core::BOOL, basync: windows_core::BOOL, dwpincontrolflags: u32, piprogress: windows_core::Ref<IOfflineFilesSyncProgress>) -> windows_core::Result<()>;
+    fn Unpin(&self, hwndparent: super::super::Foundation::HWND, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, bdeep: windows_core::BOOL, basync: windows_core::BOOL, dwpincontrolflags: u32, piprogress: windows_core::Ref<IOfflineFilesSyncProgress>) -> windows_core::Result<()>;
+    fn GetEncryptionStatus(&self, pbencrypted: *mut windows_core::BOOL, pbpartial: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn Encrypt(&self, hwndparent: super::super::Foundation::HWND, bencrypt: windows_core::BOOL, dwencryptioncontrolflags: u32, basync: windows_core::BOOL, piprogress: windows_core::Ref<IOfflineFilesSyncProgress>) -> windows_core::Result<()>;
     fn FindItem(&self, pszpath: &windows_core::PCWSTR, dwqueryflags: u32) -> windows_core::Result<IOfflineFilesItem>;
     fn FindItemEx(&self, pszpath: &windows_core::PCWSTR, pincludefilefilter: windows_core::Ref<IOfflineFilesItemFilter>, pincludedirfilter: windows_core::Ref<IOfflineFilesItemFilter>, pexcludefilefilter: windows_core::Ref<IOfflineFilesItemFilter>, pexcludedirfilter: windows_core::Ref<IOfflineFilesItemFilter>, dwqueryflags: u32) -> windows_core::Result<IOfflineFilesItem>;
-    fn RenameItem(&self, pszpathoriginal: &windows_core::PCWSTR, pszpathnew: &windows_core::PCWSTR, breplaceifexists: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn RenameItem(&self, pszpathoriginal: &windows_core::PCWSTR, pszpathnew: &windows_core::PCWSTR, breplaceifexists: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetLocation(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetDiskSpaceInformation(&self, pcbvolumetotal: *mut u64, pcblimit: *mut u64, pcbused: *mut u64, pcbunpinnedlimit: *mut u64, pcbunpinnedused: *mut u64) -> windows_core::Result<()>;
     fn SetDiskSpaceLimits(&self, cblimit: u64, cbunpinnedlimit: u64) -> windows_core::Result<()>;
     fn ProcessAdminPinPolicy(&self, ppinprogress: windows_core::Ref<IOfflineFilesSyncProgress>, punpinprogress: windows_core::Ref<IOfflineFilesSyncProgress>) -> windows_core::Result<()>;
     fn GetSettingObject(&self, pszsettingname: &windows_core::PCWSTR) -> windows_core::Result<IOfflineFilesSetting>;
     fn EnumSettingObjects(&self) -> windows_core::Result<IEnumOfflineFilesSettings>;
-    fn IsPathCacheable(&self, pszpath: &windows_core::PCWSTR, pbcacheable: *mut super::super::Foundation::BOOL, psharecachingmode: *mut OFFLINEFILES_CACHING_MODE) -> windows_core::Result<()>;
+    fn IsPathCacheable(&self, pszpath: &windows_core::PCWSTR, pbcacheable: *mut windows_core::BOOL, psharecachingmode: *mut OFFLINEFILES_CACHING_MODE) -> windows_core::Result<()>;
 }
 impl IOfflineFilesCache_Vtbl {
     pub const fn new<Identity: IOfflineFilesCache_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Synchronize<Identity: IOfflineFilesCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::Foundation::HWND, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, basync: super::super::Foundation::BOOL, dwsynccontrol: u32, pisyncconflicthandler: *mut core::ffi::c_void, piprogress: *mut core::ffi::c_void, psyncid: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn Synchronize<Identity: IOfflineFilesCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::Foundation::HWND, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, basync: windows_core::BOOL, dwsynccontrol: u32, pisyncconflicthandler: *mut core::ffi::c_void, piprogress: *mut core::ffi::c_void, psyncid: *const windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IOfflineFilesCache_Impl::Synchronize(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&rgpszpaths), core::mem::transmute_copy(&cpaths), core::mem::transmute_copy(&basync), core::mem::transmute_copy(&dwsynccontrol), core::mem::transmute_copy(&pisyncconflicthandler), core::mem::transmute_copy(&piprogress), core::mem::transmute_copy(&psyncid)).into()
             }
         }
-        unsafe extern "system" fn DeleteItems<Identity: IOfflineFilesCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, dwflags: u32, basync: super::super::Foundation::BOOL, piprogress: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeleteItems<Identity: IOfflineFilesCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, dwflags: u32, basync: windows_core::BOOL, piprogress: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IOfflineFilesCache_Impl::DeleteItems(this, core::mem::transmute_copy(&rgpszpaths), core::mem::transmute_copy(&cpaths), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&basync), core::mem::transmute_copy(&piprogress)).into()
             }
         }
-        unsafe extern "system" fn DeleteItemsForUser<Identity: IOfflineFilesCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszuser: windows_core::PCWSTR, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, dwflags: u32, basync: super::super::Foundation::BOOL, piprogress: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeleteItemsForUser<Identity: IOfflineFilesCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszuser: windows_core::PCWSTR, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, dwflags: u32, basync: windows_core::BOOL, piprogress: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IOfflineFilesCache_Impl::DeleteItemsForUser(this, core::mem::transmute(&pszuser), core::mem::transmute_copy(&rgpszpaths), core::mem::transmute_copy(&cpaths), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&basync), core::mem::transmute_copy(&piprogress)).into()
             }
         }
-        unsafe extern "system" fn Pin<Identity: IOfflineFilesCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::Foundation::HWND, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, bdeep: super::super::Foundation::BOOL, basync: super::super::Foundation::BOOL, dwpincontrolflags: u32, piprogress: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Pin<Identity: IOfflineFilesCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::Foundation::HWND, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, bdeep: windows_core::BOOL, basync: windows_core::BOOL, dwpincontrolflags: u32, piprogress: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IOfflineFilesCache_Impl::Pin(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&rgpszpaths), core::mem::transmute_copy(&cpaths), core::mem::transmute_copy(&bdeep), core::mem::transmute_copy(&basync), core::mem::transmute_copy(&dwpincontrolflags), core::mem::transmute_copy(&piprogress)).into()
             }
         }
-        unsafe extern "system" fn Unpin<Identity: IOfflineFilesCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::Foundation::HWND, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, bdeep: super::super::Foundation::BOOL, basync: super::super::Foundation::BOOL, dwpincontrolflags: u32, piprogress: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Unpin<Identity: IOfflineFilesCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::Foundation::HWND, rgpszpaths: *const windows_core::PCWSTR, cpaths: u32, bdeep: windows_core::BOOL, basync: windows_core::BOOL, dwpincontrolflags: u32, piprogress: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IOfflineFilesCache_Impl::Unpin(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&rgpszpaths), core::mem::transmute_copy(&cpaths), core::mem::transmute_copy(&bdeep), core::mem::transmute_copy(&basync), core::mem::transmute_copy(&dwpincontrolflags), core::mem::transmute_copy(&piprogress)).into()
             }
         }
-        unsafe extern "system" fn GetEncryptionStatus<Identity: IOfflineFilesCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbencrypted: *mut super::super::Foundation::BOOL, pbpartial: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetEncryptionStatus<Identity: IOfflineFilesCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbencrypted: *mut windows_core::BOOL, pbpartial: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IOfflineFilesCache_Impl::GetEncryptionStatus(this, core::mem::transmute_copy(&pbencrypted), core::mem::transmute_copy(&pbpartial)).into()
             }
         }
-        unsafe extern "system" fn Encrypt<Identity: IOfflineFilesCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::Foundation::HWND, bencrypt: super::super::Foundation::BOOL, dwencryptioncontrolflags: u32, basync: super::super::Foundation::BOOL, piprogress: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Encrypt<Identity: IOfflineFilesCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::Foundation::HWND, bencrypt: windows_core::BOOL, dwencryptioncontrolflags: u32, basync: windows_core::BOOL, piprogress: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IOfflineFilesCache_Impl::Encrypt(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&bencrypt), core::mem::transmute_copy(&dwencryptioncontrolflags), core::mem::transmute_copy(&basync), core::mem::transmute_copy(&piprogress)).into()
@@ -396,7 +396,7 @@ impl IOfflineFilesCache_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RenameItem<Identity: IOfflineFilesCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpathoriginal: windows_core::PCWSTR, pszpathnew: windows_core::PCWSTR, breplaceifexists: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn RenameItem<Identity: IOfflineFilesCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpathoriginal: windows_core::PCWSTR, pszpathnew: windows_core::PCWSTR, breplaceifexists: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IOfflineFilesCache_Impl::RenameItem(this, core::mem::transmute(&pszpathoriginal), core::mem::transmute(&pszpathnew), core::mem::transmute_copy(&breplaceifexists)).into()
@@ -456,7 +456,7 @@ impl IOfflineFilesCache_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsPathCacheable<Identity: IOfflineFilesCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpath: windows_core::PCWSTR, pbcacheable: *mut super::super::Foundation::BOOL, psharecachingmode: *mut OFFLINEFILES_CACHING_MODE) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsPathCacheable<Identity: IOfflineFilesCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpath: windows_core::PCWSTR, pbcacheable: *mut windows_core::BOOL, psharecachingmode: *mut OFFLINEFILES_CACHING_MODE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IOfflineFilesCache_Impl::IsPathCacheable(this, core::mem::transmute(&pszpath), core::mem::transmute_copy(&pbcacheable), core::mem::transmute_copy(&psharecachingmode)).into()
@@ -508,14 +508,14 @@ impl IOfflineFilesCache2 {
 #[repr(C)]
 pub struct IOfflineFilesCache2_Vtbl {
     pub base__: IOfflineFilesCache_Vtbl,
-    pub RenameItemEx: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub RenameItemEx: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IOfflineFilesCache2_Impl: IOfflineFilesCache_Impl {
-    fn RenameItemEx(&self, pszpathoriginal: &windows_core::PCWSTR, pszpathnew: &windows_core::PCWSTR, breplaceifexists: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn RenameItemEx(&self, pszpathoriginal: &windows_core::PCWSTR, pszpathnew: &windows_core::PCWSTR, breplaceifexists: windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl IOfflineFilesCache2_Vtbl {
     pub const fn new<Identity: IOfflineFilesCache2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn RenameItemEx<Identity: IOfflineFilesCache2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpathoriginal: windows_core::PCWSTR, pszpathnew: windows_core::PCWSTR, breplaceifexists: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn RenameItemEx<Identity: IOfflineFilesCache2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpathoriginal: windows_core::PCWSTR, pszpathnew: windows_core::PCWSTR, breplaceifexists: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IOfflineFilesCache2_Impl::RenameItemEx(this, core::mem::transmute(&pszpathoriginal), core::mem::transmute(&pszpathnew), core::mem::transmute_copy(&breplaceifexists)).into()
@@ -531,34 +531,34 @@ impl windows_core::RuntimeName for IOfflineFilesCache2 {}
 windows_core::imp::define_interface!(IOfflineFilesChangeInfo, IOfflineFilesChangeInfo_Vtbl, 0xa96e6fa4_e0d1_4c29_960b_ee508fe68c72);
 windows_core::imp::interface_hierarchy!(IOfflineFilesChangeInfo, windows_core::IUnknown);
 impl IOfflineFilesChangeInfo {
-    pub unsafe fn IsDirty(&self, pbdirty: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+    pub unsafe fn IsDirty(&self, pbdirty: *mut windows_core::BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).IsDirty)(windows_core::Interface::as_raw(self), pbdirty as _) }
     }
-    pub unsafe fn IsDeletedOffline(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsDeletedOffline(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsDeletedOffline)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsCreatedOffline(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsCreatedOffline(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsCreatedOffline)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsLocallyModifiedData(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsLocallyModifiedData(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsLocallyModifiedData)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsLocallyModifiedAttributes(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsLocallyModifiedAttributes(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsLocallyModifiedAttributes)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsLocallyModifiedTime(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsLocallyModifiedTime(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsLocallyModifiedTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -568,30 +568,30 @@ impl IOfflineFilesChangeInfo {
 #[repr(C)]
 pub struct IOfflineFilesChangeInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub IsDirty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub IsDeletedOffline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub IsCreatedOffline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub IsLocallyModifiedData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub IsLocallyModifiedAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub IsLocallyModifiedTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsDirty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub IsDeletedOffline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub IsCreatedOffline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub IsLocallyModifiedData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub IsLocallyModifiedAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub IsLocallyModifiedTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IOfflineFilesChangeInfo_Impl: windows_core::IUnknownImpl {
-    fn IsDirty(&self, pbdirty: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT;
-    fn IsDeletedOffline(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn IsCreatedOffline(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn IsLocallyModifiedData(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn IsLocallyModifiedAttributes(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn IsLocallyModifiedTime(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn IsDirty(&self, pbdirty: *mut windows_core::BOOL) -> windows_core::HRESULT;
+    fn IsDeletedOffline(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn IsCreatedOffline(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn IsLocallyModifiedData(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn IsLocallyModifiedAttributes(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn IsLocallyModifiedTime(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IOfflineFilesChangeInfo_Vtbl {
     pub const fn new<Identity: IOfflineFilesChangeInfo_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn IsDirty<Identity: IOfflineFilesChangeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbdirty: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsDirty<Identity: IOfflineFilesChangeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbdirty: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IOfflineFilesChangeInfo_Impl::IsDirty(this, core::mem::transmute_copy(&pbdirty))
             }
         }
-        unsafe extern "system" fn IsDeletedOffline<Identity: IOfflineFilesChangeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbdeletedoffline: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsDeletedOffline<Identity: IOfflineFilesChangeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbdeletedoffline: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOfflineFilesChangeInfo_Impl::IsDeletedOffline(this) {
@@ -603,7 +603,7 @@ impl IOfflineFilesChangeInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsCreatedOffline<Identity: IOfflineFilesChangeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbcreatedoffline: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsCreatedOffline<Identity: IOfflineFilesChangeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbcreatedoffline: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOfflineFilesChangeInfo_Impl::IsCreatedOffline(this) {
@@ -615,7 +615,7 @@ impl IOfflineFilesChangeInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsLocallyModifiedData<Identity: IOfflineFilesChangeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pblocallymodifieddata: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsLocallyModifiedData<Identity: IOfflineFilesChangeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pblocallymodifieddata: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOfflineFilesChangeInfo_Impl::IsLocallyModifiedData(this) {
@@ -627,7 +627,7 @@ impl IOfflineFilesChangeInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsLocallyModifiedAttributes<Identity: IOfflineFilesChangeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pblocallymodifiedattributes: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsLocallyModifiedAttributes<Identity: IOfflineFilesChangeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pblocallymodifiedattributes: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOfflineFilesChangeInfo_Impl::IsLocallyModifiedAttributes(this) {
@@ -639,7 +639,7 @@ impl IOfflineFilesChangeInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsLocallyModifiedTime<Identity: IOfflineFilesChangeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pblocallymodifiedtime: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsLocallyModifiedTime<Identity: IOfflineFilesChangeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pblocallymodifiedtime: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOfflineFilesChangeInfo_Impl::IsLocallyModifiedTime(this) {
@@ -678,7 +678,7 @@ impl IOfflineFilesConnectionInfo {
     pub unsafe fn TransitionOnline(&self, hwndparent: Option<super::super::Foundation::HWND>, dwflags: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).TransitionOnline)(windows_core::Interface::as_raw(self), hwndparent.unwrap_or(core::mem::zeroed()) as _, dwflags).ok() }
     }
-    pub unsafe fn TransitionOffline(&self, hwndparent: Option<super::super::Foundation::HWND>, dwflags: u32, bforceopenfilesclosed: bool) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn TransitionOffline(&self, hwndparent: Option<super::super::Foundation::HWND>, dwflags: u32, bforceopenfilesclosed: bool) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TransitionOffline)(windows_core::Interface::as_raw(self), hwndparent.unwrap_or(core::mem::zeroed()) as _, dwflags, bforceopenfilesclosed.into(), &mut result__).map(|| result__)
@@ -691,13 +691,13 @@ pub struct IOfflineFilesConnectionInfo_Vtbl {
     pub GetConnectState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut OFFLINEFILES_CONNECT_STATE, *mut OFFLINEFILES_OFFLINE_REASON) -> windows_core::HRESULT,
     pub SetConnectState: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, u32, OFFLINEFILES_CONNECT_STATE) -> windows_core::HRESULT,
     pub TransitionOnline: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, u32) -> windows_core::HRESULT,
-    pub TransitionOffline: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, u32, super::super::Foundation::BOOL, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub TransitionOffline: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, u32, windows_core::BOOL, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IOfflineFilesConnectionInfo_Impl: windows_core::IUnknownImpl {
     fn GetConnectState(&self, pconnectstate: *mut OFFLINEFILES_CONNECT_STATE, pofflinereason: *mut OFFLINEFILES_OFFLINE_REASON) -> windows_core::Result<()>;
     fn SetConnectState(&self, hwndparent: super::super::Foundation::HWND, dwflags: u32, connectstate: OFFLINEFILES_CONNECT_STATE) -> windows_core::Result<()>;
     fn TransitionOnline(&self, hwndparent: super::super::Foundation::HWND, dwflags: u32) -> windows_core::Result<()>;
-    fn TransitionOffline(&self, hwndparent: super::super::Foundation::HWND, dwflags: u32, bforceopenfilesclosed: super::super::Foundation::BOOL) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn TransitionOffline(&self, hwndparent: super::super::Foundation::HWND, dwflags: u32, bforceopenfilesclosed: windows_core::BOOL) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IOfflineFilesConnectionInfo_Vtbl {
     pub const fn new<Identity: IOfflineFilesConnectionInfo_Impl, const OFFSET: isize>() -> Self {
@@ -719,7 +719,7 @@ impl IOfflineFilesConnectionInfo_Vtbl {
                 IOfflineFilesConnectionInfo_Impl::TransitionOnline(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&dwflags)).into()
             }
         }
-        unsafe extern "system" fn TransitionOffline<Identity: IOfflineFilesConnectionInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::Foundation::HWND, dwflags: u32, bforceopenfilesclosed: super::super::Foundation::BOOL, pbopenfilespreventedtransition: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn TransitionOffline<Identity: IOfflineFilesConnectionInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::Foundation::HWND, dwflags: u32, bforceopenfilesclosed: windows_core::BOOL, pbopenfilespreventedtransition: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOfflineFilesConnectionInfo_Impl::TransitionOffline(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&bforceopenfilesclosed)) {
@@ -1031,8 +1031,8 @@ pub struct IOfflineFilesEvents_Vtbl {
     pub CacheMoved: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub CacheIsFull: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CacheIsCorrupted: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Enabled: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub EncryptionChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL, super::super::Foundation::BOOL, super::super::Foundation::BOOL, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub Enabled: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
+    pub EncryptionChanged: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, windows_core::BOOL, windows_core::BOOL, windows_core::BOOL) -> windows_core::HRESULT,
     pub SyncBegin: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
     pub SyncFileResult: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, windows_core::PCWSTR, windows_core::HRESULT) -> windows_core::HRESULT,
     pub SyncConflictRecAdded: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const super::super::Foundation::FILETIME, OFFLINEFILES_SYNC_STATE) -> windows_core::HRESULT,
@@ -1047,7 +1047,7 @@ pub struct IOfflineFilesEvents_Vtbl {
     pub ItemNotAvailableOffline: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, OFFLINEFILES_ITEM_TYPE) -> windows_core::HRESULT,
     pub ItemPinned: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, OFFLINEFILES_ITEM_TYPE) -> windows_core::HRESULT,
     pub ItemNotPinned: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, OFFLINEFILES_ITEM_TYPE) -> windows_core::HRESULT,
-    pub ItemModified: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, OFFLINEFILES_ITEM_TYPE, super::super::Foundation::BOOL, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub ItemModified: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, OFFLINEFILES_ITEM_TYPE, windows_core::BOOL, windows_core::BOOL) -> windows_core::HRESULT,
     pub ItemAddedToCache: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, OFFLINEFILES_ITEM_TYPE) -> windows_core::HRESULT,
     pub ItemDeletedFromCache: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, OFFLINEFILES_ITEM_TYPE) -> windows_core::HRESULT,
     pub ItemRenamed: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, OFFLINEFILES_ITEM_TYPE) -> windows_core::HRESULT,
@@ -1058,8 +1058,8 @@ pub trait IOfflineFilesEvents_Impl: windows_core::IUnknownImpl {
     fn CacheMoved(&self, pszoldpath: &windows_core::PCWSTR, psznewpath: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn CacheIsFull(&self) -> windows_core::Result<()>;
     fn CacheIsCorrupted(&self) -> windows_core::Result<()>;
-    fn Enabled(&self, benabled: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn EncryptionChanged(&self, bwasencrypted: super::super::Foundation::BOOL, bwaspartial: super::super::Foundation::BOOL, bisencrypted: super::super::Foundation::BOOL, bispartial: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn Enabled(&self, benabled: windows_core::BOOL) -> windows_core::Result<()>;
+    fn EncryptionChanged(&self, bwasencrypted: windows_core::BOOL, bwaspartial: windows_core::BOOL, bisencrypted: windows_core::BOOL, bispartial: windows_core::BOOL) -> windows_core::Result<()>;
     fn SyncBegin(&self, rsyncid: *const windows_core::GUID) -> windows_core::Result<()>;
     fn SyncFileResult(&self, rsyncid: *const windows_core::GUID, pszfile: &windows_core::PCWSTR, hrresult: windows_core::HRESULT) -> windows_core::Result<()>;
     fn SyncConflictRecAdded(&self, pszconflictpath: &windows_core::PCWSTR, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> windows_core::Result<()>;
@@ -1074,7 +1074,7 @@ pub trait IOfflineFilesEvents_Impl: windows_core::IUnknownImpl {
     fn ItemNotAvailableOffline(&self, pszpath: &windows_core::PCWSTR, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>;
     fn ItemPinned(&self, pszpath: &windows_core::PCWSTR, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>;
     fn ItemNotPinned(&self, pszpath: &windows_core::PCWSTR, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>;
-    fn ItemModified(&self, pszpath: &windows_core::PCWSTR, itemtype: OFFLINEFILES_ITEM_TYPE, bmodifieddata: super::super::Foundation::BOOL, bmodifiedattributes: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn ItemModified(&self, pszpath: &windows_core::PCWSTR, itemtype: OFFLINEFILES_ITEM_TYPE, bmodifieddata: windows_core::BOOL, bmodifiedattributes: windows_core::BOOL) -> windows_core::Result<()>;
     fn ItemAddedToCache(&self, pszpath: &windows_core::PCWSTR, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>;
     fn ItemDeletedFromCache(&self, pszpath: &windows_core::PCWSTR, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>;
     fn ItemRenamed(&self, pszoldpath: &windows_core::PCWSTR, psznewpath: &windows_core::PCWSTR, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>;
@@ -1101,13 +1101,13 @@ impl IOfflineFilesEvents_Vtbl {
                 IOfflineFilesEvents_Impl::CacheIsCorrupted(this).into()
             }
         }
-        unsafe extern "system" fn Enabled<Identity: IOfflineFilesEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, benabled: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn Enabled<Identity: IOfflineFilesEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, benabled: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IOfflineFilesEvents_Impl::Enabled(this, core::mem::transmute_copy(&benabled)).into()
             }
         }
-        unsafe extern "system" fn EncryptionChanged<Identity: IOfflineFilesEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bwasencrypted: super::super::Foundation::BOOL, bwaspartial: super::super::Foundation::BOOL, bisencrypted: super::super::Foundation::BOOL, bispartial: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn EncryptionChanged<Identity: IOfflineFilesEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bwasencrypted: windows_core::BOOL, bwaspartial: windows_core::BOOL, bisencrypted: windows_core::BOOL, bispartial: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IOfflineFilesEvents_Impl::EncryptionChanged(this, core::mem::transmute_copy(&bwasencrypted), core::mem::transmute_copy(&bwaspartial), core::mem::transmute_copy(&bisencrypted), core::mem::transmute_copy(&bispartial)).into()
@@ -1197,7 +1197,7 @@ impl IOfflineFilesEvents_Vtbl {
                 IOfflineFilesEvents_Impl::ItemNotPinned(this, core::mem::transmute(&pszpath), core::mem::transmute_copy(&itemtype)).into()
             }
         }
-        unsafe extern "system" fn ItemModified<Identity: IOfflineFilesEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpath: windows_core::PCWSTR, itemtype: OFFLINEFILES_ITEM_TYPE, bmodifieddata: super::super::Foundation::BOOL, bmodifiedattributes: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn ItemModified<Identity: IOfflineFilesEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpath: windows_core::PCWSTR, itemtype: OFFLINEFILES_ITEM_TYPE, bmodifieddata: windows_core::BOOL, bmodifiedattributes: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IOfflineFilesEvents_Impl::ItemModified(this, core::mem::transmute(&pszpath), core::mem::transmute_copy(&itemtype), core::mem::transmute_copy(&bmodifieddata), core::mem::transmute_copy(&bmodifiedattributes)).into()
@@ -1434,18 +1434,18 @@ impl IOfflineFilesEvents3 {
 #[repr(C)]
 pub struct IOfflineFilesEvents3_Vtbl {
     pub base__: IOfflineFilesEvents2_Vtbl,
-    pub TransparentCacheItemNotify: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, OFFLINEFILES_EVENTS, OFFLINEFILES_ITEM_TYPE, super::super::Foundation::BOOL, super::super::Foundation::BOOL, windows_core::PCWSTR) -> windows_core::HRESULT,
+    pub TransparentCacheItemNotify: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, OFFLINEFILES_EVENTS, OFFLINEFILES_ITEM_TYPE, windows_core::BOOL, windows_core::BOOL, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub PrefetchFileBegin: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub PrefetchFileEnd: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::HRESULT) -> windows_core::HRESULT,
 }
 pub trait IOfflineFilesEvents3_Impl: IOfflineFilesEvents2_Impl {
-    fn TransparentCacheItemNotify(&self, pszpath: &windows_core::PCWSTR, eventtype: OFFLINEFILES_EVENTS, itemtype: OFFLINEFILES_ITEM_TYPE, bmodifieddata: super::super::Foundation::BOOL, bmodifiedattributes: super::super::Foundation::BOOL, pzsoldpath: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn TransparentCacheItemNotify(&self, pszpath: &windows_core::PCWSTR, eventtype: OFFLINEFILES_EVENTS, itemtype: OFFLINEFILES_ITEM_TYPE, bmodifieddata: windows_core::BOOL, bmodifiedattributes: windows_core::BOOL, pzsoldpath: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn PrefetchFileBegin(&self, pszpath: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn PrefetchFileEnd(&self, pszpath: &windows_core::PCWSTR, hrresult: windows_core::HRESULT) -> windows_core::Result<()>;
 }
 impl IOfflineFilesEvents3_Vtbl {
     pub const fn new<Identity: IOfflineFilesEvents3_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn TransparentCacheItemNotify<Identity: IOfflineFilesEvents3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpath: windows_core::PCWSTR, eventtype: OFFLINEFILES_EVENTS, itemtype: OFFLINEFILES_ITEM_TYPE, bmodifieddata: super::super::Foundation::BOOL, bmodifiedattributes: super::super::Foundation::BOOL, pzsoldpath: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn TransparentCacheItemNotify<Identity: IOfflineFilesEvents3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpath: windows_core::PCWSTR, eventtype: OFFLINEFILES_EVENTS, itemtype: OFFLINEFILES_ITEM_TYPE, bmodifieddata: windows_core::BOOL, bmodifiedattributes: windows_core::BOOL, pzsoldpath: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IOfflineFilesEvents3_Impl::TransparentCacheItemNotify(this, core::mem::transmute(&pszpath), core::mem::transmute_copy(&eventtype), core::mem::transmute_copy(&itemtype), core::mem::transmute_copy(&bmodifieddata), core::mem::transmute_copy(&bmodifiedattributes), core::mem::transmute(&pzsoldpath)).into()
@@ -1592,13 +1592,13 @@ impl core::ops::Deref for IOfflineFilesFileItem {
 }
 windows_core::imp::interface_hierarchy!(IOfflineFilesFileItem, windows_core::IUnknown, IOfflineFilesItem);
 impl IOfflineFilesFileItem {
-    pub unsafe fn IsSparse(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsSparse(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsSparse)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsEncrypted(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsEncrypted(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsEncrypted)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1608,16 +1608,16 @@ impl IOfflineFilesFileItem {
 #[repr(C)]
 pub struct IOfflineFilesFileItem_Vtbl {
     pub base__: IOfflineFilesItem_Vtbl,
-    pub IsSparse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub IsEncrypted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsSparse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub IsEncrypted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IOfflineFilesFileItem_Impl: IOfflineFilesItem_Impl {
-    fn IsSparse(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn IsEncrypted(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn IsSparse(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn IsEncrypted(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IOfflineFilesFileItem_Vtbl {
     pub const fn new<Identity: IOfflineFilesFileItem_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn IsSparse<Identity: IOfflineFilesFileItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbissparse: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsSparse<Identity: IOfflineFilesFileItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbissparse: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOfflineFilesFileItem_Impl::IsSparse(this) {
@@ -1629,7 +1629,7 @@ impl IOfflineFilesFileItem_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsEncrypted<Identity: IOfflineFilesFileItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbisencrypted: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsEncrypted<Identity: IOfflineFilesFileItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbisencrypted: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOfflineFilesFileItem_Impl::IsEncrypted(this) {
@@ -1726,7 +1726,7 @@ impl windows_core::RuntimeName for IOfflineFilesFileSysInfo {}
 windows_core::imp::define_interface!(IOfflineFilesGhostInfo, IOfflineFilesGhostInfo_Vtbl, 0x2b09d48c_8ab5_464f_a755_a59d92f99429);
 windows_core::imp::interface_hierarchy!(IOfflineFilesGhostInfo, windows_core::IUnknown);
 impl IOfflineFilesGhostInfo {
-    pub unsafe fn IsGhosted(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsGhosted(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsGhosted)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1736,14 +1736,14 @@ impl IOfflineFilesGhostInfo {
 #[repr(C)]
 pub struct IOfflineFilesGhostInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub IsGhosted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsGhosted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IOfflineFilesGhostInfo_Impl: windows_core::IUnknownImpl {
-    fn IsGhosted(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn IsGhosted(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IOfflineFilesGhostInfo_Vtbl {
     pub const fn new<Identity: IOfflineFilesGhostInfo_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn IsGhosted<Identity: IOfflineFilesGhostInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbghosted: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsGhosted<Identity: IOfflineFilesGhostInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbghosted: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOfflineFilesGhostInfo_Impl::IsGhosted(this) {
@@ -1786,7 +1786,7 @@ impl IOfflineFilesItem {
     pub unsafe fn Refresh(&self, dwqueryflags: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self), dwqueryflags).ok() }
     }
-    pub unsafe fn IsMarkedForDeletion(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsMarkedForDeletion(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsMarkedForDeletion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1800,14 +1800,14 @@ pub struct IOfflineFilesItem_Vtbl {
     pub GetPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub GetParentItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Refresh: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub IsMarkedForDeletion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsMarkedForDeletion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IOfflineFilesItem_Impl: windows_core::IUnknownImpl {
     fn GetItemType(&self) -> windows_core::Result<OFFLINEFILES_ITEM_TYPE>;
     fn GetPath(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetParentItem(&self) -> windows_core::Result<IOfflineFilesItem>;
     fn Refresh(&self, dwqueryflags: u32) -> windows_core::Result<()>;
-    fn IsMarkedForDeletion(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn IsMarkedForDeletion(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IOfflineFilesItem_Vtbl {
     pub const fn new<Identity: IOfflineFilesItem_Impl, const OFFSET: isize>() -> Self {
@@ -1853,7 +1853,7 @@ impl IOfflineFilesItem_Vtbl {
                 IOfflineFilesItem_Impl::Refresh(this, core::mem::transmute_copy(&dwqueryflags)).into()
             }
         }
-        unsafe extern "system" fn IsMarkedForDeletion<Identity: IOfflineFilesItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbmarkedfordeletion: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsMarkedForDeletion<Identity: IOfflineFilesItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbmarkedfordeletion: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOfflineFilesItem_Impl::IsMarkedForDeletion(this) {
@@ -1954,7 +1954,7 @@ impl IOfflineFilesItemFilter {
     pub unsafe fn GetFilterFlags(&self, pullflags: *mut u64, pullmask: *mut u64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetFilterFlags)(windows_core::Interface::as_raw(self), pullflags as _, pullmask as _).ok() }
     }
-    pub unsafe fn GetTimeFilter(&self, pfttime: *mut super::super::Foundation::FILETIME, pbevaltimeofday: *mut super::super::Foundation::BOOL, ptimetype: *mut OFFLINEFILES_ITEM_TIME, pcompare: *mut OFFLINEFILES_COMPARE) -> windows_core::Result<()> {
+    pub unsafe fn GetTimeFilter(&self, pfttime: *mut super::super::Foundation::FILETIME, pbevaltimeofday: *mut windows_core::BOOL, ptimetype: *mut OFFLINEFILES_ITEM_TIME, pcompare: *mut OFFLINEFILES_COMPARE) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetTimeFilter)(windows_core::Interface::as_raw(self), pfttime as _, pbevaltimeofday as _, ptimetype as _, pcompare as _).ok() }
     }
     pub unsafe fn GetPatternFilter(&self, pszpattern: &mut [u16]) -> windows_core::Result<()> {
@@ -1965,12 +1965,12 @@ impl IOfflineFilesItemFilter {
 pub struct IOfflineFilesItemFilter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetFilterFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64, *mut u64) -> windows_core::HRESULT,
-    pub GetTimeFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::FILETIME, *mut super::super::Foundation::BOOL, *mut OFFLINEFILES_ITEM_TIME, *mut OFFLINEFILES_COMPARE) -> windows_core::HRESULT,
+    pub GetTimeFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::FILETIME, *mut windows_core::BOOL, *mut OFFLINEFILES_ITEM_TIME, *mut OFFLINEFILES_COMPARE) -> windows_core::HRESULT,
     pub GetPatternFilter: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, u32) -> windows_core::HRESULT,
 }
 pub trait IOfflineFilesItemFilter_Impl: windows_core::IUnknownImpl {
     fn GetFilterFlags(&self, pullflags: *mut u64, pullmask: *mut u64) -> windows_core::Result<()>;
-    fn GetTimeFilter(&self, pfttime: *mut super::super::Foundation::FILETIME, pbevaltimeofday: *mut super::super::Foundation::BOOL, ptimetype: *mut OFFLINEFILES_ITEM_TIME, pcompare: *mut OFFLINEFILES_COMPARE) -> windows_core::Result<()>;
+    fn GetTimeFilter(&self, pfttime: *mut super::super::Foundation::FILETIME, pbevaltimeofday: *mut windows_core::BOOL, ptimetype: *mut OFFLINEFILES_ITEM_TIME, pcompare: *mut OFFLINEFILES_COMPARE) -> windows_core::Result<()>;
     fn GetPatternFilter(&self, pszpattern: windows_core::PWSTR, cchpattern: u32) -> windows_core::Result<()>;
 }
 impl IOfflineFilesItemFilter_Vtbl {
@@ -1981,7 +1981,7 @@ impl IOfflineFilesItemFilter_Vtbl {
                 IOfflineFilesItemFilter_Impl::GetFilterFlags(this, core::mem::transmute_copy(&pullflags), core::mem::transmute_copy(&pullmask)).into()
             }
         }
-        unsafe extern "system" fn GetTimeFilter<Identity: IOfflineFilesItemFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfttime: *mut super::super::Foundation::FILETIME, pbevaltimeofday: *mut super::super::Foundation::BOOL, ptimetype: *mut OFFLINEFILES_ITEM_TIME, pcompare: *mut OFFLINEFILES_COMPARE) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetTimeFilter<Identity: IOfflineFilesItemFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfttime: *mut super::super::Foundation::FILETIME, pbevaltimeofday: *mut windows_core::BOOL, ptimetype: *mut OFFLINEFILES_ITEM_TIME, pcompare: *mut OFFLINEFILES_COMPARE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IOfflineFilesItemFilter_Impl::GetTimeFilter(this, core::mem::transmute_copy(&pfttime), core::mem::transmute_copy(&pbevaltimeofday), core::mem::transmute_copy(&ptimetype), core::mem::transmute_copy(&pcompare)).into()
@@ -2008,44 +2008,44 @@ impl windows_core::RuntimeName for IOfflineFilesItemFilter {}
 windows_core::imp::define_interface!(IOfflineFilesPinInfo, IOfflineFilesPinInfo_Vtbl, 0x5b2b0655_b3fd_497d_adeb_bd156bc8355b);
 windows_core::imp::interface_hierarchy!(IOfflineFilesPinInfo, windows_core::IUnknown);
 impl IOfflineFilesPinInfo {
-    pub unsafe fn IsPinned(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsPinned(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsPinned)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsPinnedForUser(&self, pbpinnedforuser: *mut super::super::Foundation::BOOL, pbinherit: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn IsPinnedForUser(&self, pbpinnedforuser: *mut windows_core::BOOL, pbinherit: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).IsPinnedForUser)(windows_core::Interface::as_raw(self), pbpinnedforuser as _, pbinherit as _).ok() }
     }
-    pub unsafe fn IsPinnedForUserByPolicy(&self, pbpinnedforuser: *mut super::super::Foundation::BOOL, pbinherit: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn IsPinnedForUserByPolicy(&self, pbpinnedforuser: *mut windows_core::BOOL, pbinherit: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).IsPinnedForUserByPolicy)(windows_core::Interface::as_raw(self), pbpinnedforuser as _, pbinherit as _).ok() }
     }
-    pub unsafe fn IsPinnedForComputer(&self, pbpinnedforcomputer: *mut super::super::Foundation::BOOL, pbinherit: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn IsPinnedForComputer(&self, pbpinnedforcomputer: *mut windows_core::BOOL, pbinherit: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).IsPinnedForComputer)(windows_core::Interface::as_raw(self), pbpinnedforcomputer as _, pbinherit as _).ok() }
     }
-    pub unsafe fn IsPinnedForFolderRedirection(&self, pbpinnedforfolderredirection: *mut super::super::Foundation::BOOL, pbinherit: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn IsPinnedForFolderRedirection(&self, pbpinnedforfolderredirection: *mut windows_core::BOOL, pbinherit: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).IsPinnedForFolderRedirection)(windows_core::Interface::as_raw(self), pbpinnedforfolderredirection as _, pbinherit as _).ok() }
     }
 }
 #[repr(C)]
 pub struct IOfflineFilesPinInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub IsPinned: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub IsPinnedForUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub IsPinnedForUserByPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub IsPinnedForComputer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub IsPinnedForFolderRedirection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsPinned: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub IsPinnedForUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub IsPinnedForUserByPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub IsPinnedForComputer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub IsPinnedForFolderRedirection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IOfflineFilesPinInfo_Impl: windows_core::IUnknownImpl {
-    fn IsPinned(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn IsPinnedForUser(&self, pbpinnedforuser: *mut super::super::Foundation::BOOL, pbinherit: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn IsPinnedForUserByPolicy(&self, pbpinnedforuser: *mut super::super::Foundation::BOOL, pbinherit: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn IsPinnedForComputer(&self, pbpinnedforcomputer: *mut super::super::Foundation::BOOL, pbinherit: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn IsPinnedForFolderRedirection(&self, pbpinnedforfolderredirection: *mut super::super::Foundation::BOOL, pbinherit: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn IsPinned(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn IsPinnedForUser(&self, pbpinnedforuser: *mut windows_core::BOOL, pbinherit: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn IsPinnedForUserByPolicy(&self, pbpinnedforuser: *mut windows_core::BOOL, pbinherit: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn IsPinnedForComputer(&self, pbpinnedforcomputer: *mut windows_core::BOOL, pbinherit: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn IsPinnedForFolderRedirection(&self, pbpinnedforfolderredirection: *mut windows_core::BOOL, pbinherit: *mut windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl IOfflineFilesPinInfo_Vtbl {
     pub const fn new<Identity: IOfflineFilesPinInfo_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn IsPinned<Identity: IOfflineFilesPinInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbpinned: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsPinned<Identity: IOfflineFilesPinInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbpinned: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOfflineFilesPinInfo_Impl::IsPinned(this) {
@@ -2057,25 +2057,25 @@ impl IOfflineFilesPinInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsPinnedForUser<Identity: IOfflineFilesPinInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbpinnedforuser: *mut super::super::Foundation::BOOL, pbinherit: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsPinnedForUser<Identity: IOfflineFilesPinInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbpinnedforuser: *mut windows_core::BOOL, pbinherit: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IOfflineFilesPinInfo_Impl::IsPinnedForUser(this, core::mem::transmute_copy(&pbpinnedforuser), core::mem::transmute_copy(&pbinherit)).into()
             }
         }
-        unsafe extern "system" fn IsPinnedForUserByPolicy<Identity: IOfflineFilesPinInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbpinnedforuser: *mut super::super::Foundation::BOOL, pbinherit: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsPinnedForUserByPolicy<Identity: IOfflineFilesPinInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbpinnedforuser: *mut windows_core::BOOL, pbinherit: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IOfflineFilesPinInfo_Impl::IsPinnedForUserByPolicy(this, core::mem::transmute_copy(&pbpinnedforuser), core::mem::transmute_copy(&pbinherit)).into()
             }
         }
-        unsafe extern "system" fn IsPinnedForComputer<Identity: IOfflineFilesPinInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbpinnedforcomputer: *mut super::super::Foundation::BOOL, pbinherit: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsPinnedForComputer<Identity: IOfflineFilesPinInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbpinnedforcomputer: *mut windows_core::BOOL, pbinherit: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IOfflineFilesPinInfo_Impl::IsPinnedForComputer(this, core::mem::transmute_copy(&pbpinnedforcomputer), core::mem::transmute_copy(&pbinherit)).into()
             }
         }
-        unsafe extern "system" fn IsPinnedForFolderRedirection<Identity: IOfflineFilesPinInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbpinnedforfolderredirection: *mut super::super::Foundation::BOOL, pbinherit: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsPinnedForFolderRedirection<Identity: IOfflineFilesPinInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbpinnedforfolderredirection: *mut windows_core::BOOL, pbinherit: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IOfflineFilesPinInfo_Impl::IsPinnedForFolderRedirection(this, core::mem::transmute_copy(&pbpinnedforfolderredirection), core::mem::transmute_copy(&pbinherit)).into()
@@ -2104,7 +2104,7 @@ impl core::ops::Deref for IOfflineFilesPinInfo2 {
 }
 windows_core::imp::interface_hierarchy!(IOfflineFilesPinInfo2, windows_core::IUnknown, IOfflineFilesPinInfo);
 impl IOfflineFilesPinInfo2 {
-    pub unsafe fn IsPartlyPinned(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsPartlyPinned(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsPartlyPinned)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2114,14 +2114,14 @@ impl IOfflineFilesPinInfo2 {
 #[repr(C)]
 pub struct IOfflineFilesPinInfo2_Vtbl {
     pub base__: IOfflineFilesPinInfo_Vtbl,
-    pub IsPartlyPinned: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsPartlyPinned: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IOfflineFilesPinInfo2_Impl: IOfflineFilesPinInfo_Impl {
-    fn IsPartlyPinned(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn IsPartlyPinned(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IOfflineFilesPinInfo2_Vtbl {
     pub const fn new<Identity: IOfflineFilesPinInfo2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn IsPartlyPinned<Identity: IOfflineFilesPinInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbpartlypinned: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsPartlyPinned<Identity: IOfflineFilesPinInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbpartlypinned: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOfflineFilesPinInfo2_Impl::IsPartlyPinned(this) {
@@ -2143,13 +2143,13 @@ impl windows_core::RuntimeName for IOfflineFilesPinInfo2 {}
 windows_core::imp::define_interface!(IOfflineFilesProgress, IOfflineFilesProgress_Vtbl, 0xfad63237_c55b_4911_9850_bcf96d4c979e);
 windows_core::imp::interface_hierarchy!(IOfflineFilesProgress, windows_core::IUnknown);
 impl IOfflineFilesProgress {
-    pub unsafe fn Begin(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn Begin(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Begin)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn QueryAbort(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn QueryAbort(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryAbort)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2162,18 +2162,18 @@ impl IOfflineFilesProgress {
 #[repr(C)]
 pub struct IOfflineFilesProgress_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Begin: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub QueryAbort: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub Begin: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub QueryAbort: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub End: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
 }
 pub trait IOfflineFilesProgress_Impl: windows_core::IUnknownImpl {
-    fn Begin(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn QueryAbort(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn Begin(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn QueryAbort(&self) -> windows_core::Result<windows_core::BOOL>;
     fn End(&self, hrresult: windows_core::HRESULT) -> windows_core::Result<()>;
 }
 impl IOfflineFilesProgress_Vtbl {
     pub const fn new<Identity: IOfflineFilesProgress_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Begin<Identity: IOfflineFilesProgress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbabort: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn Begin<Identity: IOfflineFilesProgress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbabort: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOfflineFilesProgress_Impl::Begin(this) {
@@ -2185,7 +2185,7 @@ impl IOfflineFilesProgress_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn QueryAbort<Identity: IOfflineFilesProgress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbabort: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn QueryAbort<Identity: IOfflineFilesProgress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbabort: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOfflineFilesProgress_Impl::QueryAbort(this) {
@@ -2280,7 +2280,7 @@ impl IOfflineFilesSetting {
         }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetValue(&self, pvarvalue: *mut super::super::System::Variant::VARIANT, pbsetbypolicy: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn GetValue(&self, pvarvalue: *mut super::super::System::Variant::VARIANT, pbsetbypolicy: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), core::mem::transmute(pvarvalue), pbsetbypolicy as _).ok() }
     }
 }
@@ -2305,7 +2305,7 @@ pub struct IOfflineFilesSetting_Vtbl {
     GetPolicy: usize,
     pub GetPolicyScope: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::System::Variant::VARIANT, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::System::Variant::VARIANT, *mut windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetValue: usize,
 }
@@ -2319,7 +2319,7 @@ pub trait IOfflineFilesSetting_Impl: windows_core::IUnknownImpl {
     fn DeletePreference(&self, dwscope: u32) -> windows_core::Result<()>;
     fn GetPolicy(&self, pvarvalue: *mut super::super::System::Variant::VARIANT, dwscope: u32) -> windows_core::Result<()>;
     fn GetPolicyScope(&self) -> windows_core::Result<u32>;
-    fn GetValue(&self, pvarvalue: *mut super::super::System::Variant::VARIANT, pbsetbypolicy: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn GetValue(&self, pvarvalue: *mut super::super::System::Variant::VARIANT, pbsetbypolicy: *mut windows_core::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IOfflineFilesSetting_Vtbl {
@@ -2396,7 +2396,7 @@ impl IOfflineFilesSetting_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetValue<Identity: IOfflineFilesSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarvalue: *mut super::super::System::Variant::VARIANT, pbsetbypolicy: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetValue<Identity: IOfflineFilesSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarvalue: *mut super::super::System::Variant::VARIANT, pbsetbypolicy: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IOfflineFilesSetting_Impl::GetValue(this, core::mem::transmute_copy(&pvarvalue), core::mem::transmute_copy(&pbsetbypolicy)).into()
@@ -2436,7 +2436,7 @@ impl IOfflineFilesShareInfo {
             (windows_core::Interface::vtable(self).GetShareCachingMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsShareDfsJunction(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsShareDfsJunction(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsShareDfsJunction)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2448,12 +2448,12 @@ pub struct IOfflineFilesShareInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetShareItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetShareCachingMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut OFFLINEFILES_CACHING_MODE) -> windows_core::HRESULT,
-    pub IsShareDfsJunction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsShareDfsJunction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IOfflineFilesShareInfo_Impl: windows_core::IUnknownImpl {
     fn GetShareItem(&self) -> windows_core::Result<IOfflineFilesShareItem>;
     fn GetShareCachingMode(&self) -> windows_core::Result<OFFLINEFILES_CACHING_MODE>;
-    fn IsShareDfsJunction(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn IsShareDfsJunction(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IOfflineFilesShareInfo_Vtbl {
     pub const fn new<Identity: IOfflineFilesShareInfo_Impl, const OFFSET: isize>() -> Self {
@@ -2481,7 +2481,7 @@ impl IOfflineFilesShareInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsShareDfsJunction<Identity: IOfflineFilesShareInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbisdfsjunction: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsShareDfsJunction<Identity: IOfflineFilesShareInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbisdfsjunction: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOfflineFilesShareInfo_Impl::IsShareDfsJunction(this) {
@@ -2612,14 +2612,14 @@ impl IOfflineFilesSuspend {
 #[repr(C)]
 pub struct IOfflineFilesSuspend_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub SuspendRoot: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SuspendRoot: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IOfflineFilesSuspend_Impl: windows_core::IUnknownImpl {
-    fn SuspendRoot(&self, bsuspend: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn SuspendRoot(&self, bsuspend: windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl IOfflineFilesSuspend_Vtbl {
     pub const fn new<Identity: IOfflineFilesSuspend_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SuspendRoot<Identity: IOfflineFilesSuspend_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bsuspend: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SuspendRoot<Identity: IOfflineFilesSuspend_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bsuspend: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IOfflineFilesSuspend_Impl::SuspendRoot(this, core::mem::transmute_copy(&bsuspend)).into()
@@ -2635,21 +2635,21 @@ impl windows_core::RuntimeName for IOfflineFilesSuspend {}
 windows_core::imp::define_interface!(IOfflineFilesSuspendInfo, IOfflineFilesSuspendInfo_Vtbl, 0xa457c25b_4e9c_4b04_85af_8932ccd97889);
 windows_core::imp::interface_hierarchy!(IOfflineFilesSuspendInfo, windows_core::IUnknown);
 impl IOfflineFilesSuspendInfo {
-    pub unsafe fn IsSuspended(&self, pbsuspended: *mut super::super::Foundation::BOOL, pbsuspendedroot: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn IsSuspended(&self, pbsuspended: *mut windows_core::BOOL, pbsuspendedroot: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).IsSuspended)(windows_core::Interface::as_raw(self), pbsuspended as _, pbsuspendedroot as _).ok() }
     }
 }
 #[repr(C)]
 pub struct IOfflineFilesSuspendInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub IsSuspended: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsSuspended: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IOfflineFilesSuspendInfo_Impl: windows_core::IUnknownImpl {
-    fn IsSuspended(&self, pbsuspended: *mut super::super::Foundation::BOOL, pbsuspendedroot: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn IsSuspended(&self, pbsuspended: *mut windows_core::BOOL, pbsuspendedroot: *mut windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl IOfflineFilesSuspendInfo_Vtbl {
     pub const fn new<Identity: IOfflineFilesSuspendInfo_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn IsSuspended<Identity: IOfflineFilesSuspendInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbsuspended: *mut super::super::Foundation::BOOL, pbsuspendedroot: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsSuspended<Identity: IOfflineFilesSuspendInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbsuspended: *mut windows_core::BOOL, pbsuspendedroot: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IOfflineFilesSuspendInfo_Impl::IsSuspended(this, core::mem::transmute_copy(&pbsuspended), core::mem::transmute_copy(&pbsuspendedroot)).into()
@@ -2716,10 +2716,10 @@ impl IOfflineFilesSyncErrorInfo {
             (windows_core::Interface::vtable(self).GetItemChangeFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn InfoEnumerated(&self, pblocalenumerated: *mut super::super::Foundation::BOOL, pbremoteenumerated: *mut super::super::Foundation::BOOL, pboriginalenumerated: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn InfoEnumerated(&self, pblocalenumerated: *mut windows_core::BOOL, pbremoteenumerated: *mut windows_core::BOOL, pboriginalenumerated: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).InfoEnumerated)(windows_core::Interface::as_raw(self), pblocalenumerated as _, pbremoteenumerated as _, pboriginalenumerated as _).ok() }
     }
-    pub unsafe fn InfoAvailable(&self, pblocalinfo: *mut super::super::Foundation::BOOL, pbremoteinfo: *mut super::super::Foundation::BOOL, pboriginalinfo: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn InfoAvailable(&self, pblocalinfo: *mut windows_core::BOOL, pbremoteinfo: *mut windows_core::BOOL, pboriginalinfo: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).InfoAvailable)(windows_core::Interface::as_raw(self), pblocalinfo as _, pbremoteinfo as _, pboriginalinfo as _).ok() }
     }
     pub unsafe fn GetLocalInfo(&self) -> windows_core::Result<IOfflineFilesSyncErrorItemInfo> {
@@ -2746,8 +2746,8 @@ pub struct IOfflineFilesSyncErrorInfo_Vtbl {
     pub base__: IOfflineFilesErrorInfo_Vtbl,
     pub GetSyncOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut OFFLINEFILES_SYNC_OPERATION) -> windows_core::HRESULT,
     pub GetItemChangeFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub InfoEnumerated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL, *mut super::super::Foundation::BOOL, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub InfoAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL, *mut super::super::Foundation::BOOL, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub InfoEnumerated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL, *mut windows_core::BOOL, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub InfoAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL, *mut windows_core::BOOL, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetLocalInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetRemoteInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetOriginalInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2756,8 +2756,8 @@ pub struct IOfflineFilesSyncErrorInfo_Vtbl {
 pub trait IOfflineFilesSyncErrorInfo_Impl: IOfflineFilesErrorInfo_Impl {
     fn GetSyncOperation(&self) -> windows_core::Result<OFFLINEFILES_SYNC_OPERATION>;
     fn GetItemChangeFlags(&self) -> windows_core::Result<u32>;
-    fn InfoEnumerated(&self, pblocalenumerated: *mut super::super::Foundation::BOOL, pbremoteenumerated: *mut super::super::Foundation::BOOL, pboriginalenumerated: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn InfoAvailable(&self, pblocalinfo: *mut super::super::Foundation::BOOL, pbremoteinfo: *mut super::super::Foundation::BOOL, pboriginalinfo: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn InfoEnumerated(&self, pblocalenumerated: *mut windows_core::BOOL, pbremoteenumerated: *mut windows_core::BOOL, pboriginalenumerated: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn InfoAvailable(&self, pblocalinfo: *mut windows_core::BOOL, pbremoteinfo: *mut windows_core::BOOL, pboriginalinfo: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn GetLocalInfo(&self) -> windows_core::Result<IOfflineFilesSyncErrorItemInfo>;
     fn GetRemoteInfo(&self) -> windows_core::Result<IOfflineFilesSyncErrorItemInfo>;
     fn GetOriginalInfo(&self) -> windows_core::Result<IOfflineFilesSyncErrorItemInfo>;
@@ -2789,13 +2789,13 @@ impl IOfflineFilesSyncErrorInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn InfoEnumerated<Identity: IOfflineFilesSyncErrorInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pblocalenumerated: *mut super::super::Foundation::BOOL, pbremoteenumerated: *mut super::super::Foundation::BOOL, pboriginalenumerated: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn InfoEnumerated<Identity: IOfflineFilesSyncErrorInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pblocalenumerated: *mut windows_core::BOOL, pbremoteenumerated: *mut windows_core::BOOL, pboriginalenumerated: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IOfflineFilesSyncErrorInfo_Impl::InfoEnumerated(this, core::mem::transmute_copy(&pblocalenumerated), core::mem::transmute_copy(&pbremoteenumerated), core::mem::transmute_copy(&pboriginalenumerated)).into()
             }
         }
-        unsafe extern "system" fn InfoAvailable<Identity: IOfflineFilesSyncErrorInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pblocalinfo: *mut super::super::Foundation::BOOL, pbremoteinfo: *mut super::super::Foundation::BOOL, pboriginalinfo: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn InfoAvailable<Identity: IOfflineFilesSyncErrorInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pblocalinfo: *mut windows_core::BOOL, pbremoteinfo: *mut windows_core::BOOL, pboriginalinfo: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IOfflineFilesSyncErrorInfo_Impl::InfoAvailable(this, core::mem::transmute_copy(&pblocalinfo), core::mem::transmute_copy(&pbremoteinfo), core::mem::transmute_copy(&pboriginalinfo)).into()
@@ -3008,7 +3008,7 @@ impl windows_core::RuntimeName for IOfflineFilesSyncProgress {}
 windows_core::imp::define_interface!(IOfflineFilesTransparentCacheInfo, IOfflineFilesTransparentCacheInfo_Vtbl, 0xbcaf4a01_5b68_4b56_a6a1_8d2786ede8e3);
 windows_core::imp::interface_hierarchy!(IOfflineFilesTransparentCacheInfo, windows_core::IUnknown);
 impl IOfflineFilesTransparentCacheInfo {
-    pub unsafe fn IsTransparentlyCached(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsTransparentlyCached(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsTransparentlyCached)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3018,14 +3018,14 @@ impl IOfflineFilesTransparentCacheInfo {
 #[repr(C)]
 pub struct IOfflineFilesTransparentCacheInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub IsTransparentlyCached: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsTransparentlyCached: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IOfflineFilesTransparentCacheInfo_Impl: windows_core::IUnknownImpl {
-    fn IsTransparentlyCached(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn IsTransparentlyCached(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IOfflineFilesTransparentCacheInfo_Vtbl {
     pub const fn new<Identity: IOfflineFilesTransparentCacheInfo_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn IsTransparentlyCached<Identity: IOfflineFilesTransparentCacheInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbtransparentlycached: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsTransparentlyCached<Identity: IOfflineFilesTransparentCacheInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbtransparentlycached: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOfflineFilesTransparentCacheInfo_Impl::IsTransparentlyCached(this) {

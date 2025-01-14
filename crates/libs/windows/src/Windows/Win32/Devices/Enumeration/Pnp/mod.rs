@@ -39,7 +39,7 @@ pub unsafe fn SwDeviceInterfaceRegister<P2>(hswdevice: HSWDEVICE, pinterfaceclas
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("cfgmgr32.dll" "system" fn SwDeviceInterfaceRegister(hswdevice : HSWDEVICE, pinterfaceclassguid : *const windows_core::GUID, pszreferencestring : windows_core::PCWSTR, cpropertycount : u32, pproperties : *const super::super::Properties:: DEVPROPERTY, fenabled : super::super::super::Foundation:: BOOL, ppszdeviceinterfaceid : *mut windows_core::PWSTR) -> windows_core::HRESULT);
+    windows_targets::link!("cfgmgr32.dll" "system" fn SwDeviceInterfaceRegister(hswdevice : HSWDEVICE, pinterfaceclassguid : *const windows_core::GUID, pszreferencestring : windows_core::PCWSTR, cpropertycount : u32, pproperties : *const super::super::Properties:: DEVPROPERTY, fenabled : windows_core::BOOL, ppszdeviceinterfaceid : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         SwDeviceInterfaceRegister(hswdevice, pinterfaceclassguid, pszreferencestring.param().abi(), pproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pproperties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), fenabled.into(), &mut result__).map(|| core::mem::transmute(result__))
@@ -50,7 +50,7 @@ pub unsafe fn SwDeviceInterfaceSetState<P1>(hswdevice: HSWDEVICE, pszdeviceinter
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("cfgmgr32.dll" "system" fn SwDeviceInterfaceSetState(hswdevice : HSWDEVICE, pszdeviceinterfaceid : windows_core::PCWSTR, fenabled : super::super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    windows_targets::link!("cfgmgr32.dll" "system" fn SwDeviceInterfaceSetState(hswdevice : HSWDEVICE, pszdeviceinterfaceid : windows_core::PCWSTR, fenabled : windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { SwDeviceInterfaceSetState(hswdevice, pszdeviceinterfaceid.param().abi(), fenabled.into()).ok() }
 }
 #[cfg(feature = "Win32_Devices_Properties")]
@@ -1526,7 +1526,7 @@ pub struct IUPnPRegistrar_Vtbl {
     pub RegisterRunningDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RegisterDeviceProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetUniqueDeviceName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub UnregisterDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub UnregisterDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub UnregisterDeviceProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUPnPRegistrar_Impl: windows_core::IUnknownImpl {
@@ -1534,7 +1534,7 @@ pub trait IUPnPRegistrar_Impl: windows_core::IUnknownImpl {
     fn RegisterRunningDevice(&self, bstrxmldesc: &windows_core::BSTR, punkdevicecontrol: windows_core::Ref<windows_core::IUnknown>, bstrinitstring: &windows_core::BSTR, bstrresourcepath: &windows_core::BSTR, nlifetime: i32) -> windows_core::Result<windows_core::BSTR>;
     fn RegisterDeviceProvider(&self, bstrprovidername: &windows_core::BSTR, bstrprogidproviderclass: &windows_core::BSTR, bstrinitstring: &windows_core::BSTR, bstrcontainerid: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetUniqueDeviceName(&self, bstrdeviceidentifier: &windows_core::BSTR, bstrtemplateudn: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
-    fn UnregisterDevice(&self, bstrdeviceidentifier: &windows_core::BSTR, fpermanent: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn UnregisterDevice(&self, bstrdeviceidentifier: &windows_core::BSTR, fpermanent: windows_core::BOOL) -> windows_core::Result<()>;
     fn UnregisterDeviceProvider(&self, bstrprovidername: &windows_core::BSTR) -> windows_core::Result<()>;
 }
 impl IUPnPRegistrar_Vtbl {
@@ -1581,7 +1581,7 @@ impl IUPnPRegistrar_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn UnregisterDevice<Identity: IUPnPRegistrar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdeviceidentifier: *mut core::ffi::c_void, fpermanent: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn UnregisterDevice<Identity: IUPnPRegistrar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdeviceidentifier: *mut core::ffi::c_void, fpermanent: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IUPnPRegistrar_Impl::UnregisterDevice(this, core::mem::transmute(&bstrdeviceidentifier), core::mem::transmute_copy(&fpermanent)).into()

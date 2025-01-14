@@ -497,31 +497,31 @@ impl IWICBitmapCodecInfo {
     pub unsafe fn GetFileExtensions(&self, wzfileextensions: &mut [u16], pcchactual: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetFileExtensions)(windows_core::Interface::as_raw(self), wzfileextensions.len().try_into().unwrap(), core::mem::transmute(wzfileextensions.as_ptr()), pcchactual as _).ok() }
     }
-    pub unsafe fn DoesSupportAnimation(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn DoesSupportAnimation(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DoesSupportAnimation)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn DoesSupportChromakey(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn DoesSupportChromakey(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DoesSupportChromakey)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn DoesSupportLossless(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn DoesSupportLossless(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DoesSupportLossless)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn DoesSupportMultiframe(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn DoesSupportMultiframe(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DoesSupportMultiframe)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MatchesMimeType<P0>(&self, wzmimetype: P0) -> windows_core::Result<super::super::Foundation::BOOL>
+    pub unsafe fn MatchesMimeType<P0>(&self, wzmimetype: P0) -> windows_core::Result<windows_core::BOOL>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -541,11 +541,11 @@ pub struct IWICBitmapCodecInfo_Vtbl {
     pub GetDeviceModels: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR, *mut u32) -> windows_core::HRESULT,
     pub GetMimeTypes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR, *mut u32) -> windows_core::HRESULT,
     pub GetFileExtensions: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR, *mut u32) -> windows_core::HRESULT,
-    pub DoesSupportAnimation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub DoesSupportChromakey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub DoesSupportLossless: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub DoesSupportMultiframe: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub MatchesMimeType: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub DoesSupportAnimation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub DoesSupportChromakey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub DoesSupportLossless: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub DoesSupportMultiframe: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub MatchesMimeType: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IWICBitmapCodecInfo_Impl: IWICComponentInfo_Impl {
     fn GetContainerFormat(&self) -> windows_core::Result<windows_core::GUID>;
@@ -555,11 +555,11 @@ pub trait IWICBitmapCodecInfo_Impl: IWICComponentInfo_Impl {
     fn GetDeviceModels(&self, cchdevicemodels: u32, wzdevicemodels: windows_core::PWSTR, pcchactual: *mut u32) -> windows_core::Result<()>;
     fn GetMimeTypes(&self, cchmimetypes: u32, wzmimetypes: windows_core::PWSTR, pcchactual: *mut u32) -> windows_core::Result<()>;
     fn GetFileExtensions(&self, cchfileextensions: u32, wzfileextensions: windows_core::PWSTR, pcchactual: *mut u32) -> windows_core::Result<()>;
-    fn DoesSupportAnimation(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn DoesSupportChromakey(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn DoesSupportLossless(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn DoesSupportMultiframe(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn MatchesMimeType(&self, wzmimetype: &windows_core::PCWSTR) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn DoesSupportAnimation(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn DoesSupportChromakey(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn DoesSupportLossless(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn DoesSupportMultiframe(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn MatchesMimeType(&self, wzmimetype: &windows_core::PCWSTR) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IWICBitmapCodecInfo_Vtbl {
     pub const fn new<Identity: IWICBitmapCodecInfo_Impl, const OFFSET: isize>() -> Self {
@@ -611,7 +611,7 @@ impl IWICBitmapCodecInfo_Vtbl {
                 IWICBitmapCodecInfo_Impl::GetFileExtensions(this, core::mem::transmute_copy(&cchfileextensions), core::mem::transmute_copy(&wzfileextensions), core::mem::transmute_copy(&pcchactual)).into()
             }
         }
-        unsafe extern "system" fn DoesSupportAnimation<Identity: IWICBitmapCodecInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfsupportanimation: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn DoesSupportAnimation<Identity: IWICBitmapCodecInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfsupportanimation: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICBitmapCodecInfo_Impl::DoesSupportAnimation(this) {
@@ -623,7 +623,7 @@ impl IWICBitmapCodecInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn DoesSupportChromakey<Identity: IWICBitmapCodecInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfsupportchromakey: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn DoesSupportChromakey<Identity: IWICBitmapCodecInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfsupportchromakey: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICBitmapCodecInfo_Impl::DoesSupportChromakey(this) {
@@ -635,7 +635,7 @@ impl IWICBitmapCodecInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn DoesSupportLossless<Identity: IWICBitmapCodecInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfsupportlossless: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn DoesSupportLossless<Identity: IWICBitmapCodecInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfsupportlossless: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICBitmapCodecInfo_Impl::DoesSupportLossless(this) {
@@ -647,7 +647,7 @@ impl IWICBitmapCodecInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn DoesSupportMultiframe<Identity: IWICBitmapCodecInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfsupportmultiframe: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn DoesSupportMultiframe<Identity: IWICBitmapCodecInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfsupportmultiframe: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICBitmapCodecInfo_Impl::DoesSupportMultiframe(this) {
@@ -659,7 +659,7 @@ impl IWICBitmapCodecInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MatchesMimeType<Identity: IWICBitmapCodecInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wzmimetype: windows_core::PCWSTR, pfmatches: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MatchesMimeType<Identity: IWICBitmapCodecInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wzmimetype: windows_core::PCWSTR, pfmatches: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICBitmapCodecInfo_Impl::MatchesMimeType(this, core::mem::transmute(&wzmimetype)) {
@@ -980,7 +980,7 @@ impl IWICBitmapDecoderInfo {
         unsafe { (windows_core::Interface::vtable(self).GetPatterns)(windows_core::Interface::as_raw(self), cbsizepatterns, ppatterns.unwrap_or(core::mem::zeroed()) as _, pcpatterns.unwrap_or(core::mem::zeroed()) as _, pcbpatternsactual as _).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MatchesPattern<P0>(&self, pistream: P0) -> windows_core::Result<super::super::Foundation::BOOL>
+    pub unsafe fn MatchesPattern<P0>(&self, pistream: P0) -> windows_core::Result<windows_core::BOOL>
     where
         P0: windows_core::Param<super::super::System::Com::IStream>,
     {
@@ -1001,7 +1001,7 @@ pub struct IWICBitmapDecoderInfo_Vtbl {
     pub base__: IWICBitmapCodecInfo_Vtbl,
     pub GetPatterns: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut WICBitmapPattern, *mut u32, *mut u32) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub MatchesPattern: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub MatchesPattern: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     MatchesPattern: usize,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1009,7 +1009,7 @@ pub struct IWICBitmapDecoderInfo_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWICBitmapDecoderInfo_Impl: IWICBitmapCodecInfo_Impl {
     fn GetPatterns(&self, cbsizepatterns: u32, ppatterns: *mut WICBitmapPattern, pcpatterns: *mut u32, pcbpatternsactual: *mut u32) -> windows_core::Result<()>;
-    fn MatchesPattern(&self, pistream: windows_core::Ref<super::super::System::Com::IStream>) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn MatchesPattern(&self, pistream: windows_core::Ref<super::super::System::Com::IStream>) -> windows_core::Result<windows_core::BOOL>;
     fn CreateInstance(&self) -> windows_core::Result<IWICBitmapDecoder>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1021,7 +1021,7 @@ impl IWICBitmapDecoderInfo_Vtbl {
                 IWICBitmapDecoderInfo_Impl::GetPatterns(this, core::mem::transmute_copy(&cbsizepatterns), core::mem::transmute_copy(&ppatterns), core::mem::transmute_copy(&pcpatterns), core::mem::transmute_copy(&pcbpatternsactual)).into()
             }
         }
-        unsafe extern "system" fn MatchesPattern<Identity: IWICBitmapDecoderInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pistream: *mut core::ffi::c_void, pfmatches: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MatchesPattern<Identity: IWICBitmapDecoderInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pistream: *mut core::ffi::c_void, pfmatches: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICBitmapDecoderInfo_Impl::MatchesPattern(this, core::mem::transmute_copy(&pistream)) {
@@ -1826,7 +1826,7 @@ impl IWICBitmapSourceTransform {
     pub unsafe fn GetClosestPixelFormat(&self, pguiddstformat: *mut windows_core::GUID) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetClosestPixelFormat)(windows_core::Interface::as_raw(self), pguiddstformat as _).ok() }
     }
-    pub unsafe fn DoesSupportTransform(&self, dsttransform: WICBitmapTransformOptions) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn DoesSupportTransform(&self, dsttransform: WICBitmapTransformOptions) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DoesSupportTransform)(windows_core::Interface::as_raw(self), dsttransform, &mut result__).map(|| result__)
@@ -1839,13 +1839,13 @@ pub struct IWICBitmapSourceTransform_Vtbl {
     pub CopyPixels: unsafe extern "system" fn(*mut core::ffi::c_void, *const WICRect, u32, u32, *const windows_core::GUID, WICBitmapTransformOptions, u32, u32, *mut u8) -> windows_core::HRESULT,
     pub GetClosestSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub GetClosestPixelFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
-    pub DoesSupportTransform: unsafe extern "system" fn(*mut core::ffi::c_void, WICBitmapTransformOptions, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub DoesSupportTransform: unsafe extern "system" fn(*mut core::ffi::c_void, WICBitmapTransformOptions, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IWICBitmapSourceTransform_Impl: windows_core::IUnknownImpl {
     fn CopyPixels(&self, prc: *const WICRect, uiwidth: u32, uiheight: u32, pguiddstformat: *const windows_core::GUID, dsttransform: WICBitmapTransformOptions, nstride: u32, cbbuffersize: u32, pbbuffer: *mut u8) -> windows_core::Result<()>;
     fn GetClosestSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> windows_core::Result<()>;
     fn GetClosestPixelFormat(&self, pguiddstformat: *mut windows_core::GUID) -> windows_core::Result<()>;
-    fn DoesSupportTransform(&self, dsttransform: WICBitmapTransformOptions) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn DoesSupportTransform(&self, dsttransform: WICBitmapTransformOptions) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IWICBitmapSourceTransform_Vtbl {
     pub const fn new<Identity: IWICBitmapSourceTransform_Impl, const OFFSET: isize>() -> Self {
@@ -1867,7 +1867,7 @@ impl IWICBitmapSourceTransform_Vtbl {
                 IWICBitmapSourceTransform_Impl::GetClosestPixelFormat(this, core::mem::transmute_copy(&pguiddstformat)).into()
             }
         }
-        unsafe extern "system" fn DoesSupportTransform<Identity: IWICBitmapSourceTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dsttransform: WICBitmapTransformOptions, pfissupported: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn DoesSupportTransform<Identity: IWICBitmapSourceTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dsttransform: WICBitmapTransformOptions, pfissupported: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICBitmapSourceTransform_Impl::DoesSupportTransform(this, core::mem::transmute_copy(&dsttransform)) {
@@ -3323,7 +3323,7 @@ impl IWICFormatConverter {
     {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pisource.param().abi(), dstformat, dither, pipalette.param().abi(), alphathresholdpercent, palettetranslate).ok() }
     }
-    pub unsafe fn CanConvert(&self, srcpixelformat: *const windows_core::GUID, dstpixelformat: *const windows_core::GUID) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CanConvert(&self, srcpixelformat: *const windows_core::GUID, dstpixelformat: *const windows_core::GUID) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CanConvert)(windows_core::Interface::as_raw(self), srcpixelformat, dstpixelformat, &mut result__).map(|| result__)
@@ -3334,11 +3334,11 @@ impl IWICFormatConverter {
 pub struct IWICFormatConverter_Vtbl {
     pub base__: IWICBitmapSource_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, WICBitmapDitherType, *mut core::ffi::c_void, f64, WICBitmapPaletteType) -> windows_core::HRESULT,
-    pub CanConvert: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CanConvert: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IWICFormatConverter_Impl: IWICBitmapSource_Impl {
     fn Initialize(&self, pisource: windows_core::Ref<IWICBitmapSource>, dstformat: *const windows_core::GUID, dither: WICBitmapDitherType, pipalette: windows_core::Ref<IWICPalette>, alphathresholdpercent: f64, palettetranslate: WICBitmapPaletteType) -> windows_core::Result<()>;
-    fn CanConvert(&self, srcpixelformat: *const windows_core::GUID, dstpixelformat: *const windows_core::GUID) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn CanConvert(&self, srcpixelformat: *const windows_core::GUID, dstpixelformat: *const windows_core::GUID) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IWICFormatConverter_Vtbl {
     pub const fn new<Identity: IWICFormatConverter_Impl, const OFFSET: isize>() -> Self {
@@ -3348,7 +3348,7 @@ impl IWICFormatConverter_Vtbl {
                 IWICFormatConverter_Impl::Initialize(this, core::mem::transmute_copy(&pisource), core::mem::transmute_copy(&dstformat), core::mem::transmute_copy(&dither), core::mem::transmute_copy(&pipalette), core::mem::transmute_copy(&alphathresholdpercent), core::mem::transmute_copy(&palettetranslate)).into()
             }
         }
-        unsafe extern "system" fn CanConvert<Identity: IWICFormatConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, srcpixelformat: *const windows_core::GUID, dstpixelformat: *const windows_core::GUID, pfcanconvert: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CanConvert<Identity: IWICFormatConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, srcpixelformat: *const windows_core::GUID, dstpixelformat: *const windows_core::GUID, pfcanconvert: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICFormatConverter_Impl::CanConvert(this, core::mem::transmute_copy(&srcpixelformat), core::mem::transmute_copy(&dstpixelformat)) {
@@ -4020,7 +4020,7 @@ impl windows_core::RuntimeName for IWICImagingFactory {}
 windows_core::imp::define_interface!(IWICJpegFrameDecode, IWICJpegFrameDecode_Vtbl, 0x8939f66e_c46a_4c21_a9d1_98b327ce1679);
 windows_core::imp::interface_hierarchy!(IWICJpegFrameDecode, windows_core::IUnknown);
 impl IWICJpegFrameDecode {
-    pub unsafe fn DoesSupportIndexing(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn DoesSupportIndexing(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DoesSupportIndexing)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -4060,7 +4060,7 @@ impl IWICJpegFrameDecode {
 #[repr(C)]
 pub struct IWICJpegFrameDecode_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub DoesSupportIndexing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub DoesSupportIndexing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub SetIndexing: unsafe extern "system" fn(*mut core::ffi::c_void, WICJpegIndexingOptions, u32) -> windows_core::HRESULT,
     pub ClearIndexing: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -4082,7 +4082,7 @@ pub struct IWICJpegFrameDecode_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IWICJpegFrameDecode_Impl: windows_core::IUnknownImpl {
-    fn DoesSupportIndexing(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn DoesSupportIndexing(&self) -> windows_core::Result<windows_core::BOOL>;
     fn SetIndexing(&self, options: WICJpegIndexingOptions, horizontalintervalsize: u32) -> windows_core::Result<()>;
     fn ClearIndexing(&self) -> windows_core::Result<()>;
     fn GetAcHuffmanTable(&self, scanindex: u32, tableindex: u32, pachuffmantable: *mut super::Dxgi::Common::DXGI_JPEG_AC_HUFFMAN_TABLE) -> windows_core::Result<()>;
@@ -4096,7 +4096,7 @@ pub trait IWICJpegFrameDecode_Impl: windows_core::IUnknownImpl {
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl IWICJpegFrameDecode_Vtbl {
     pub const fn new<Identity: IWICJpegFrameDecode_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn DoesSupportIndexing<Identity: IWICJpegFrameDecode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfindexingsupported: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn DoesSupportIndexing<Identity: IWICJpegFrameDecode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfindexingsupported: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICJpegFrameDecode_Impl::DoesSupportIndexing(this) {
@@ -4510,19 +4510,19 @@ impl IWICMetadataHandlerInfo {
     pub unsafe fn GetDeviceModels(&self, wzdevicemodels: &mut [u16], pcchactual: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetDeviceModels)(windows_core::Interface::as_raw(self), wzdevicemodels.len().try_into().unwrap(), core::mem::transmute(wzdevicemodels.as_ptr()), pcchactual as _).ok() }
     }
-    pub unsafe fn DoesRequireFullStream(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn DoesRequireFullStream(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DoesRequireFullStream)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn DoesSupportPadding(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn DoesSupportPadding(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DoesSupportPadding)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn DoesRequireFixedSize(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn DoesRequireFixedSize(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DoesRequireFixedSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -4536,18 +4536,18 @@ pub struct IWICMetadataHandlerInfo_Vtbl {
     pub GetContainerFormats: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::GUID, *mut u32) -> windows_core::HRESULT,
     pub GetDeviceManufacturer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR, *mut u32) -> windows_core::HRESULT,
     pub GetDeviceModels: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR, *mut u32) -> windows_core::HRESULT,
-    pub DoesRequireFullStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub DoesSupportPadding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub DoesRequireFixedSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub DoesRequireFullStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub DoesSupportPadding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub DoesRequireFixedSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IWICMetadataHandlerInfo_Impl: IWICComponentInfo_Impl {
     fn GetMetadataFormat(&self) -> windows_core::Result<windows_core::GUID>;
     fn GetContainerFormats(&self, ccontainerformats: u32, pguidcontainerformats: *mut windows_core::GUID, pcchactual: *mut u32) -> windows_core::Result<()>;
     fn GetDeviceManufacturer(&self, cchdevicemanufacturer: u32, wzdevicemanufacturer: windows_core::PWSTR, pcchactual: *mut u32) -> windows_core::Result<()>;
     fn GetDeviceModels(&self, cchdevicemodels: u32, wzdevicemodels: windows_core::PWSTR, pcchactual: *mut u32) -> windows_core::Result<()>;
-    fn DoesRequireFullStream(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn DoesSupportPadding(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn DoesRequireFixedSize(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn DoesRequireFullStream(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn DoesSupportPadding(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn DoesRequireFixedSize(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IWICMetadataHandlerInfo_Vtbl {
     pub const fn new<Identity: IWICMetadataHandlerInfo_Impl, const OFFSET: isize>() -> Self {
@@ -4581,7 +4581,7 @@ impl IWICMetadataHandlerInfo_Vtbl {
                 IWICMetadataHandlerInfo_Impl::GetDeviceModels(this, core::mem::transmute_copy(&cchdevicemodels), core::mem::transmute_copy(&wzdevicemodels), core::mem::transmute_copy(&pcchactual)).into()
             }
         }
-        unsafe extern "system" fn DoesRequireFullStream<Identity: IWICMetadataHandlerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfrequiresfullstream: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn DoesRequireFullStream<Identity: IWICMetadataHandlerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfrequiresfullstream: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICMetadataHandlerInfo_Impl::DoesRequireFullStream(this) {
@@ -4593,7 +4593,7 @@ impl IWICMetadataHandlerInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn DoesSupportPadding<Identity: IWICMetadataHandlerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfsupportspadding: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn DoesSupportPadding<Identity: IWICMetadataHandlerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfsupportspadding: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICMetadataHandlerInfo_Impl::DoesSupportPadding(this) {
@@ -4605,7 +4605,7 @@ impl IWICMetadataHandlerInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn DoesRequireFixedSize<Identity: IWICMetadataHandlerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pffixedsize: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn DoesRequireFixedSize<Identity: IWICMetadataHandlerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pffixedsize: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICMetadataHandlerInfo_Impl::DoesRequireFixedSize(this) {
@@ -4951,7 +4951,7 @@ impl IWICMetadataReaderInfo {
         unsafe { (windows_core::Interface::vtable(self).GetPatterns)(windows_core::Interface::as_raw(self), guidcontainerformat, cbsize, ppattern.unwrap_or(core::mem::zeroed()) as _, pccount.unwrap_or(core::mem::zeroed()) as _, pcbactual.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MatchesPattern<P1>(&self, guidcontainerformat: *const windows_core::GUID, pistream: P1) -> windows_core::Result<super::super::Foundation::BOOL>
+    pub unsafe fn MatchesPattern<P1>(&self, guidcontainerformat: *const windows_core::GUID, pistream: P1) -> windows_core::Result<windows_core::BOOL>
     where
         P1: windows_core::Param<super::super::System::Com::IStream>,
     {
@@ -4972,7 +4972,7 @@ pub struct IWICMetadataReaderInfo_Vtbl {
     pub base__: IWICMetadataHandlerInfo_Vtbl,
     pub GetPatterns: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, *mut WICMetadataPattern, *mut u32, *mut u32) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub MatchesPattern: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub MatchesPattern: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     MatchesPattern: usize,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4980,7 +4980,7 @@ pub struct IWICMetadataReaderInfo_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWICMetadataReaderInfo_Impl: IWICMetadataHandlerInfo_Impl {
     fn GetPatterns(&self, guidcontainerformat: *const windows_core::GUID, cbsize: u32, ppattern: *mut WICMetadataPattern, pccount: *mut u32, pcbactual: *mut u32) -> windows_core::Result<()>;
-    fn MatchesPattern(&self, guidcontainerformat: *const windows_core::GUID, pistream: windows_core::Ref<super::super::System::Com::IStream>) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn MatchesPattern(&self, guidcontainerformat: *const windows_core::GUID, pistream: windows_core::Ref<super::super::System::Com::IStream>) -> windows_core::Result<windows_core::BOOL>;
     fn CreateInstance(&self) -> windows_core::Result<IWICMetadataReader>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4992,7 +4992,7 @@ impl IWICMetadataReaderInfo_Vtbl {
                 IWICMetadataReaderInfo_Impl::GetPatterns(this, core::mem::transmute_copy(&guidcontainerformat), core::mem::transmute_copy(&cbsize), core::mem::transmute_copy(&ppattern), core::mem::transmute_copy(&pccount), core::mem::transmute_copy(&pcbactual)).into()
             }
         }
-        unsafe extern "system" fn MatchesPattern<Identity: IWICMetadataReaderInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidcontainerformat: *const windows_core::GUID, pistream: *mut core::ffi::c_void, pfmatches: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MatchesPattern<Identity: IWICMetadataReaderInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidcontainerformat: *const windows_core::GUID, pistream: *mut core::ffi::c_void, pfmatches: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICMetadataReaderInfo_Impl::MatchesPattern(this, core::mem::transmute_copy(&guidcontainerformat), core::mem::transmute_copy(&pistream)) {
@@ -5215,19 +5215,19 @@ impl IWICPalette {
     pub unsafe fn GetColors(&self, pcolors: &mut [u32], pcactualcolors: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetColors)(windows_core::Interface::as_raw(self), pcolors.len().try_into().unwrap(), core::mem::transmute(pcolors.as_ptr()), pcactualcolors as _).ok() }
     }
-    pub unsafe fn IsBlackWhite(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsBlackWhite(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsBlackWhite)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsGrayscale(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsGrayscale(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsGrayscale)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn HasAlpha(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn HasAlpha(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).HasAlpha)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -5237,32 +5237,32 @@ impl IWICPalette {
 #[repr(C)]
 pub struct IWICPalette_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub InitializePredefined: unsafe extern "system" fn(*mut core::ffi::c_void, WICBitmapPaletteType, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub InitializePredefined: unsafe extern "system" fn(*mut core::ffi::c_void, WICBitmapPaletteType, windows_core::BOOL) -> windows_core::HRESULT,
     pub InitializeCustom: unsafe extern "system" fn(*mut core::ffi::c_void, *const u32, u32) -> windows_core::HRESULT,
-    pub InitializeFromBitmap: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub InitializeFromBitmap: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, windows_core::BOOL) -> windows_core::HRESULT,
     pub InitializeFromPalette: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WICBitmapPaletteType) -> windows_core::HRESULT,
     pub GetColorCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetColors: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, *mut u32) -> windows_core::HRESULT,
-    pub IsBlackWhite: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub IsGrayscale: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub HasAlpha: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsBlackWhite: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub IsGrayscale: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub HasAlpha: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IWICPalette_Impl: windows_core::IUnknownImpl {
-    fn InitializePredefined(&self, epalettetype: WICBitmapPaletteType, faddtransparentcolor: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn InitializePredefined(&self, epalettetype: WICBitmapPaletteType, faddtransparentcolor: windows_core::BOOL) -> windows_core::Result<()>;
     fn InitializeCustom(&self, pcolors: *const u32, ccount: u32) -> windows_core::Result<()>;
-    fn InitializeFromBitmap(&self, pisurface: windows_core::Ref<IWICBitmapSource>, ccount: u32, faddtransparentcolor: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn InitializeFromBitmap(&self, pisurface: windows_core::Ref<IWICBitmapSource>, ccount: u32, faddtransparentcolor: windows_core::BOOL) -> windows_core::Result<()>;
     fn InitializeFromPalette(&self, pipalette: windows_core::Ref<IWICPalette>) -> windows_core::Result<()>;
     fn GetType(&self) -> windows_core::Result<WICBitmapPaletteType>;
     fn GetColorCount(&self) -> windows_core::Result<u32>;
     fn GetColors(&self, ccount: u32, pcolors: *mut u32, pcactualcolors: *mut u32) -> windows_core::Result<()>;
-    fn IsBlackWhite(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn IsGrayscale(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn HasAlpha(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn IsBlackWhite(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn IsGrayscale(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn HasAlpha(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IWICPalette_Vtbl {
     pub const fn new<Identity: IWICPalette_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn InitializePredefined<Identity: IWICPalette_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, epalettetype: WICBitmapPaletteType, faddtransparentcolor: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn InitializePredefined<Identity: IWICPalette_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, epalettetype: WICBitmapPaletteType, faddtransparentcolor: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWICPalette_Impl::InitializePredefined(this, core::mem::transmute_copy(&epalettetype), core::mem::transmute_copy(&faddtransparentcolor)).into()
@@ -5274,7 +5274,7 @@ impl IWICPalette_Vtbl {
                 IWICPalette_Impl::InitializeCustom(this, core::mem::transmute_copy(&pcolors), core::mem::transmute_copy(&ccount)).into()
             }
         }
-        unsafe extern "system" fn InitializeFromBitmap<Identity: IWICPalette_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pisurface: *mut core::ffi::c_void, ccount: u32, faddtransparentcolor: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn InitializeFromBitmap<Identity: IWICPalette_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pisurface: *mut core::ffi::c_void, ccount: u32, faddtransparentcolor: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWICPalette_Impl::InitializeFromBitmap(this, core::mem::transmute_copy(&pisurface), core::mem::transmute_copy(&ccount), core::mem::transmute_copy(&faddtransparentcolor)).into()
@@ -5316,7 +5316,7 @@ impl IWICPalette_Vtbl {
                 IWICPalette_Impl::GetColors(this, core::mem::transmute_copy(&ccount), core::mem::transmute_copy(&pcolors), core::mem::transmute_copy(&pcactualcolors)).into()
             }
         }
-        unsafe extern "system" fn IsBlackWhite<Identity: IWICPalette_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfisblackwhite: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsBlackWhite<Identity: IWICPalette_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfisblackwhite: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICPalette_Impl::IsBlackWhite(this) {
@@ -5328,7 +5328,7 @@ impl IWICPalette_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsGrayscale<Identity: IWICPalette_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfisgrayscale: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsGrayscale<Identity: IWICPalette_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfisgrayscale: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICPalette_Impl::IsGrayscale(this) {
@@ -5340,7 +5340,7 @@ impl IWICPalette_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn HasAlpha<Identity: IWICPalette_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfhasalpha: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn HasAlpha<Identity: IWICPalette_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfhasalpha: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICPalette_Impl::HasAlpha(this) {
@@ -5402,12 +5402,12 @@ impl IWICPersistStream {
 pub struct IWICPersistStream_Vtbl {
     pub base__: super::super::System::Com::IPersistStream_Vtbl,
     pub LoadEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, u32) -> windows_core::HRESULT,
-    pub SaveEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SaveEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, windows_core::BOOL) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWICPersistStream_Impl: super::super::System::Com::IPersistStream_Impl {
     fn LoadEx(&self, pistream: windows_core::Ref<super::super::System::Com::IStream>, pguidpreferredvendor: *const windows_core::GUID, dwpersistoptions: u32) -> windows_core::Result<()>;
-    fn SaveEx(&self, pistream: windows_core::Ref<super::super::System::Com::IStream>, dwpersistoptions: u32, fcleardirty: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn SaveEx(&self, pistream: windows_core::Ref<super::super::System::Com::IStream>, dwpersistoptions: u32, fcleardirty: windows_core::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IWICPersistStream_Vtbl {
@@ -5418,7 +5418,7 @@ impl IWICPersistStream_Vtbl {
                 IWICPersistStream_Impl::LoadEx(this, core::mem::transmute_copy(&pistream), core::mem::transmute_copy(&pguidpreferredvendor), core::mem::transmute_copy(&dwpersistoptions)).into()
             }
         }
-        unsafe extern "system" fn SaveEx<Identity: IWICPersistStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pistream: *mut core::ffi::c_void, dwpersistoptions: u32, fcleardirty: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SaveEx<Identity: IWICPersistStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pistream: *mut core::ffi::c_void, dwpersistoptions: u32, fcleardirty: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWICPersistStream_Impl::SaveEx(this, core::mem::transmute_copy(&pistream), core::mem::transmute_copy(&dwpersistoptions), core::mem::transmute_copy(&fcleardirty)).into()
@@ -5568,7 +5568,7 @@ impl core::ops::Deref for IWICPixelFormatInfo2 {
 }
 windows_core::imp::interface_hierarchy!(IWICPixelFormatInfo2, windows_core::IUnknown, IWICComponentInfo, IWICPixelFormatInfo);
 impl IWICPixelFormatInfo2 {
-    pub unsafe fn SupportsTransparency(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn SupportsTransparency(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SupportsTransparency)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -5584,16 +5584,16 @@ impl IWICPixelFormatInfo2 {
 #[repr(C)]
 pub struct IWICPixelFormatInfo2_Vtbl {
     pub base__: IWICPixelFormatInfo_Vtbl,
-    pub SupportsTransparency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SupportsTransparency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetNumericRepresentation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WICPixelFormatNumericRepresentation) -> windows_core::HRESULT,
 }
 pub trait IWICPixelFormatInfo2_Impl: IWICPixelFormatInfo_Impl {
-    fn SupportsTransparency(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn SupportsTransparency(&self) -> windows_core::Result<windows_core::BOOL>;
     fn GetNumericRepresentation(&self) -> windows_core::Result<WICPixelFormatNumericRepresentation>;
 }
 impl IWICPixelFormatInfo2_Vtbl {
     pub const fn new<Identity: IWICPixelFormatInfo2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SupportsTransparency<Identity: IWICPixelFormatInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfsupportstransparency: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SupportsTransparency<Identity: IWICPixelFormatInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfsupportstransparency: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICPixelFormatInfo2_Impl::SupportsTransparency(this) {
@@ -5676,7 +5676,7 @@ impl windows_core::RuntimeName for IWICPlanarBitmapFrameEncode {}
 windows_core::imp::define_interface!(IWICPlanarBitmapSourceTransform, IWICPlanarBitmapSourceTransform_Vtbl, 0x3aff9cce_be95_4303_b927_e7d16ff4a613);
 windows_core::imp::interface_hierarchy!(IWICPlanarBitmapSourceTransform, windows_core::IUnknown);
 impl IWICPlanarBitmapSourceTransform {
-    pub unsafe fn DoesSupportTransform(&self, puiwidth: *mut u32, puiheight: *mut u32, dsttransform: WICBitmapTransformOptions, dstplanaroptions: WICPlanarOptions, pguiddstformats: *const windows_core::GUID, pplanedescriptions: *mut WICBitmapPlaneDescription, cplanes: u32, pfissupported: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn DoesSupportTransform(&self, puiwidth: *mut u32, puiheight: *mut u32, dsttransform: WICBitmapTransformOptions, dstplanaroptions: WICPlanarOptions, pguiddstformats: *const windows_core::GUID, pplanedescriptions: *mut WICBitmapPlaneDescription, cplanes: u32, pfissupported: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).DoesSupportTransform)(windows_core::Interface::as_raw(self), puiwidth as _, puiheight as _, dsttransform, dstplanaroptions, pguiddstformats, pplanedescriptions as _, cplanes, pfissupported as _).ok() }
     }
     pub unsafe fn CopyPixels(&self, prcsource: *const WICRect, uiwidth: u32, uiheight: u32, dsttransform: WICBitmapTransformOptions, dstplanaroptions: WICPlanarOptions, pdstplanes: &[WICBitmapPlane]) -> windows_core::Result<()> {
@@ -5686,16 +5686,16 @@ impl IWICPlanarBitmapSourceTransform {
 #[repr(C)]
 pub struct IWICPlanarBitmapSourceTransform_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub DoesSupportTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32, WICBitmapTransformOptions, WICPlanarOptions, *const windows_core::GUID, *mut WICBitmapPlaneDescription, u32, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub DoesSupportTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32, WICBitmapTransformOptions, WICPlanarOptions, *const windows_core::GUID, *mut WICBitmapPlaneDescription, u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CopyPixels: unsafe extern "system" fn(*mut core::ffi::c_void, *const WICRect, u32, u32, WICBitmapTransformOptions, WICPlanarOptions, *const WICBitmapPlane, u32) -> windows_core::HRESULT,
 }
 pub trait IWICPlanarBitmapSourceTransform_Impl: windows_core::IUnknownImpl {
-    fn DoesSupportTransform(&self, puiwidth: *mut u32, puiheight: *mut u32, dsttransform: WICBitmapTransformOptions, dstplanaroptions: WICPlanarOptions, pguiddstformats: *const windows_core::GUID, pplanedescriptions: *mut WICBitmapPlaneDescription, cplanes: u32, pfissupported: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn DoesSupportTransform(&self, puiwidth: *mut u32, puiheight: *mut u32, dsttransform: WICBitmapTransformOptions, dstplanaroptions: WICPlanarOptions, pguiddstformats: *const windows_core::GUID, pplanedescriptions: *mut WICBitmapPlaneDescription, cplanes: u32, pfissupported: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn CopyPixels(&self, prcsource: *const WICRect, uiwidth: u32, uiheight: u32, dsttransform: WICBitmapTransformOptions, dstplanaroptions: WICPlanarOptions, pdstplanes: *const WICBitmapPlane, cplanes: u32) -> windows_core::Result<()>;
 }
 impl IWICPlanarBitmapSourceTransform_Vtbl {
     pub const fn new<Identity: IWICPlanarBitmapSourceTransform_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn DoesSupportTransform<Identity: IWICPlanarBitmapSourceTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puiwidth: *mut u32, puiheight: *mut u32, dsttransform: WICBitmapTransformOptions, dstplanaroptions: WICPlanarOptions, pguiddstformats: *const windows_core::GUID, pplanedescriptions: *mut WICBitmapPlaneDescription, cplanes: u32, pfissupported: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn DoesSupportTransform<Identity: IWICPlanarBitmapSourceTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puiwidth: *mut u32, puiheight: *mut u32, dsttransform: WICBitmapTransformOptions, dstplanaroptions: WICPlanarOptions, pguiddstformats: *const windows_core::GUID, pplanedescriptions: *mut WICBitmapPlaneDescription, cplanes: u32, pfissupported: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWICPlanarBitmapSourceTransform_Impl::DoesSupportTransform(this, core::mem::transmute_copy(&puiwidth), core::mem::transmute_copy(&puiheight), core::mem::transmute_copy(&dsttransform), core::mem::transmute_copy(&dstplanaroptions), core::mem::transmute_copy(&pguiddstformats), core::mem::transmute_copy(&pplanedescriptions), core::mem::transmute_copy(&cplanes), core::mem::transmute_copy(&pfissupported)).into()
@@ -5733,7 +5733,7 @@ impl IWICPlanarFormatConverter {
     {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute(ppplanes.as_ptr()), ppplanes.len().try_into().unwrap(), dstformat, dither, pipalette.param().abi(), alphathresholdpercent, palettetranslate).ok() }
     }
-    pub unsafe fn CanConvert(&self, psrcpixelformats: &[windows_core::GUID], dstpixelformat: *const windows_core::GUID) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn CanConvert(&self, psrcpixelformats: &[windows_core::GUID], dstpixelformat: *const windows_core::GUID) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CanConvert)(windows_core::Interface::as_raw(self), core::mem::transmute(psrcpixelformats.as_ptr()), psrcpixelformats.len().try_into().unwrap(), dstpixelformat, &mut result__).map(|| result__)
@@ -5744,11 +5744,11 @@ impl IWICPlanarFormatConverter {
 pub struct IWICPlanarFormatConverter_Vtbl {
     pub base__: IWICBitmapSource_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *const *mut core::ffi::c_void, u32, *const windows_core::GUID, WICBitmapDitherType, *mut core::ffi::c_void, f64, WICBitmapPaletteType) -> windows_core::HRESULT,
-    pub CanConvert: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, *const windows_core::GUID, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CanConvert: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, *const windows_core::GUID, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IWICPlanarFormatConverter_Impl: IWICBitmapSource_Impl {
     fn Initialize(&self, ppplanes: *const Option<IWICBitmapSource>, cplanes: u32, dstformat: *const windows_core::GUID, dither: WICBitmapDitherType, pipalette: windows_core::Ref<IWICPalette>, alphathresholdpercent: f64, palettetranslate: WICBitmapPaletteType) -> windows_core::Result<()>;
-    fn CanConvert(&self, psrcpixelformats: *const windows_core::GUID, csrcplanes: u32, dstpixelformat: *const windows_core::GUID) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn CanConvert(&self, psrcpixelformats: *const windows_core::GUID, csrcplanes: u32, dstpixelformat: *const windows_core::GUID) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IWICPlanarFormatConverter_Vtbl {
     pub const fn new<Identity: IWICPlanarFormatConverter_Impl, const OFFSET: isize>() -> Self {
@@ -5758,7 +5758,7 @@ impl IWICPlanarFormatConverter_Vtbl {
                 IWICPlanarFormatConverter_Impl::Initialize(this, core::mem::transmute_copy(&ppplanes), core::mem::transmute_copy(&cplanes), core::mem::transmute_copy(&dstformat), core::mem::transmute_copy(&dither), core::mem::transmute_copy(&pipalette), core::mem::transmute_copy(&alphathresholdpercent), core::mem::transmute_copy(&palettetranslate)).into()
             }
         }
-        unsafe extern "system" fn CanConvert<Identity: IWICPlanarFormatConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psrcpixelformats: *const windows_core::GUID, csrcplanes: u32, dstpixelformat: *const windows_core::GUID, pfcanconvert: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CanConvert<Identity: IWICPlanarFormatConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psrcpixelformats: *const windows_core::GUID, csrcplanes: u32, dstpixelformat: *const windows_core::GUID, pfcanconvert: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICPlanarFormatConverter_Impl::CanConvert(this, core::mem::transmute_copy(&psrcpixelformats), core::mem::transmute_copy(&csrcplanes), core::mem::transmute_copy(&dstpixelformat)) {
@@ -6175,7 +6175,7 @@ pub struct WICBitmapPattern {
     pub Length: u32,
     pub Pattern: *mut u8,
     pub Mask: *mut u8,
-    pub EndOfStream: super::super::Foundation::BOOL,
+    pub EndOfStream: windows_core::BOOL,
 }
 impl Default for WICBitmapPattern {
     fn default() -> Self {

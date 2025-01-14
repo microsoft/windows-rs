@@ -16,17 +16,17 @@ where
 }
 #[inline]
 pub unsafe fn AddClipboardFormatListener(hwnd: super::super::Foundation::HWND) -> windows_core::Result<()> {
-    windows_targets::link!("user32.dll" "system" fn AddClipboardFormatListener(hwnd : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("user32.dll" "system" fn AddClipboardFormatListener(hwnd : super::super::Foundation:: HWND) -> windows_core::BOOL);
     unsafe { AddClipboardFormatListener(hwnd).ok() }
 }
 #[inline]
-pub unsafe fn ChangeClipboardChain(hwndremove: super::super::Foundation::HWND, hwndnewnext: super::super::Foundation::HWND) -> super::super::Foundation::BOOL {
-    windows_targets::link!("user32.dll" "system" fn ChangeClipboardChain(hwndremove : super::super::Foundation:: HWND, hwndnewnext : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
+pub unsafe fn ChangeClipboardChain(hwndremove: super::super::Foundation::HWND, hwndnewnext: super::super::Foundation::HWND) -> windows_core::BOOL {
+    windows_targets::link!("user32.dll" "system" fn ChangeClipboardChain(hwndremove : super::super::Foundation:: HWND, hwndnewnext : super::super::Foundation:: HWND) -> windows_core::BOOL);
     unsafe { ChangeClipboardChain(hwndremove, hwndnewnext) }
 }
 #[inline]
 pub unsafe fn CloseClipboard() -> windows_core::Result<()> {
-    windows_targets::link!("user32.dll" "system" fn CloseClipboard() -> super::super::Foundation:: BOOL);
+    windows_targets::link!("user32.dll" "system" fn CloseClipboard() -> windows_core::BOOL);
     unsafe { CloseClipboard().ok() }
 }
 #[inline]
@@ -35,8 +35,8 @@ pub unsafe fn CountClipboardFormats() -> i32 {
     unsafe { CountClipboardFormats() }
 }
 #[inline]
-pub unsafe fn DdeAbandonTransaction(idinst: u32, hconv: HCONV, idtransaction: u32) -> super::super::Foundation::BOOL {
-    windows_targets::link!("user32.dll" "system" fn DdeAbandonTransaction(idinst : u32, hconv : HCONV, idtransaction : u32) -> super::super::Foundation:: BOOL);
+pub unsafe fn DdeAbandonTransaction(idinst: u32, hconv: HCONV, idtransaction: u32) -> windows_core::BOOL {
+    windows_targets::link!("user32.dll" "system" fn DdeAbandonTransaction(idinst : u32, hconv : HCONV, idtransaction : u32) -> windows_core::BOOL);
     unsafe { DdeAbandonTransaction(idinst, hconv, idtransaction) }
 }
 #[inline]
@@ -93,28 +93,28 @@ where
     unsafe { DdeCreateStringHandleW(idinst, psz.param().abi(), icodepage) }
 }
 #[inline]
-pub unsafe fn DdeDisconnect(hconv: HCONV) -> super::super::Foundation::BOOL {
-    windows_targets::link!("user32.dll" "system" fn DdeDisconnect(hconv : HCONV) -> super::super::Foundation:: BOOL);
+pub unsafe fn DdeDisconnect(hconv: HCONV) -> windows_core::BOOL {
+    windows_targets::link!("user32.dll" "system" fn DdeDisconnect(hconv : HCONV) -> windows_core::BOOL);
     unsafe { DdeDisconnect(hconv) }
 }
 #[inline]
-pub unsafe fn DdeDisconnectList(hconvlist: HCONVLIST) -> super::super::Foundation::BOOL {
-    windows_targets::link!("user32.dll" "system" fn DdeDisconnectList(hconvlist : HCONVLIST) -> super::super::Foundation:: BOOL);
+pub unsafe fn DdeDisconnectList(hconvlist: HCONVLIST) -> windows_core::BOOL {
+    windows_targets::link!("user32.dll" "system" fn DdeDisconnectList(hconvlist : HCONVLIST) -> windows_core::BOOL);
     unsafe { DdeDisconnectList(hconvlist) }
 }
 #[inline]
-pub unsafe fn DdeEnableCallback(idinst: u32, hconv: HCONV, wcmd: DDE_ENABLE_CALLBACK_CMD) -> super::super::Foundation::BOOL {
-    windows_targets::link!("user32.dll" "system" fn DdeEnableCallback(idinst : u32, hconv : HCONV, wcmd : DDE_ENABLE_CALLBACK_CMD) -> super::super::Foundation:: BOOL);
+pub unsafe fn DdeEnableCallback(idinst: u32, hconv: HCONV, wcmd: DDE_ENABLE_CALLBACK_CMD) -> windows_core::BOOL {
+    windows_targets::link!("user32.dll" "system" fn DdeEnableCallback(idinst : u32, hconv : HCONV, wcmd : DDE_ENABLE_CALLBACK_CMD) -> windows_core::BOOL);
     unsafe { DdeEnableCallback(idinst, hconv, wcmd) }
 }
 #[inline]
-pub unsafe fn DdeFreeDataHandle(hdata: HDDEDATA) -> super::super::Foundation::BOOL {
-    windows_targets::link!("user32.dll" "system" fn DdeFreeDataHandle(hdata : HDDEDATA) -> super::super::Foundation:: BOOL);
+pub unsafe fn DdeFreeDataHandle(hdata: HDDEDATA) -> windows_core::BOOL {
+    windows_targets::link!("user32.dll" "system" fn DdeFreeDataHandle(hdata : HDDEDATA) -> windows_core::BOOL);
     unsafe { DdeFreeDataHandle(hdata) }
 }
 #[inline]
-pub unsafe fn DdeFreeStringHandle(idinst: u32, hsz: HSZ) -> super::super::Foundation::BOOL {
-    windows_targets::link!("user32.dll" "system" fn DdeFreeStringHandle(idinst : u32, hsz : HSZ) -> super::super::Foundation:: BOOL);
+pub unsafe fn DdeFreeStringHandle(idinst: u32, hsz: HSZ) -> windows_core::BOOL {
+    windows_targets::link!("user32.dll" "system" fn DdeFreeStringHandle(idinst : u32, hsz : HSZ) -> windows_core::BOOL);
     unsafe { DdeFreeStringHandle(idinst, hsz) }
 }
 #[inline]
@@ -129,7 +129,7 @@ pub unsafe fn DdeGetLastError(idinst: u32) -> u32 {
 }
 #[inline]
 pub unsafe fn DdeImpersonateClient(hconv: HCONV) -> windows_core::Result<()> {
-    windows_targets::link!("user32.dll" "system" fn DdeImpersonateClient(hconv : HCONV) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("user32.dll" "system" fn DdeImpersonateClient(hconv : HCONV) -> windows_core::BOOL);
     unsafe { DdeImpersonateClient(hconv).ok() }
 }
 #[inline]
@@ -143,8 +143,8 @@ pub unsafe fn DdeInitializeW(pidinst: *mut u32, pfncallback: PFNCALLBACK, afcmd:
     unsafe { DdeInitializeW(pidinst as _, pfncallback, afcmd, ulres.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn DdeKeepStringHandle(idinst: u32, hsz: HSZ) -> super::super::Foundation::BOOL {
-    windows_targets::link!("user32.dll" "system" fn DdeKeepStringHandle(idinst : u32, hsz : HSZ) -> super::super::Foundation:: BOOL);
+pub unsafe fn DdeKeepStringHandle(idinst: u32, hsz: HSZ) -> windows_core::BOOL {
+    windows_targets::link!("user32.dll" "system" fn DdeKeepStringHandle(idinst : u32, hsz : HSZ) -> windows_core::BOOL);
     unsafe { DdeKeepStringHandle(idinst, hsz) }
 }
 #[inline]
@@ -153,8 +153,8 @@ pub unsafe fn DdeNameService(idinst: u32, hsz1: Option<HSZ>, hsz2: Option<HSZ>, 
     unsafe { DdeNameService(idinst, hsz1.unwrap_or(core::mem::zeroed()) as _, hsz2.unwrap_or(core::mem::zeroed()) as _, afcmd) }
 }
 #[inline]
-pub unsafe fn DdePostAdvise(idinst: u32, hsztopic: HSZ, hszitem: HSZ) -> super::super::Foundation::BOOL {
-    windows_targets::link!("user32.dll" "system" fn DdePostAdvise(idinst : u32, hsztopic : HSZ, hszitem : HSZ) -> super::super::Foundation:: BOOL);
+pub unsafe fn DdePostAdvise(idinst: u32, hsztopic: HSZ, hszitem: HSZ) -> windows_core::BOOL {
+    windows_targets::link!("user32.dll" "system" fn DdePostAdvise(idinst : u32, hsztopic : HSZ, hszitem : HSZ) -> windows_core::BOOL);
     unsafe { DdePostAdvise(idinst, hsztopic, hszitem) }
 }
 #[cfg(feature = "Win32_Security")]
@@ -186,22 +186,22 @@ pub unsafe fn DdeReconnect(hconv: HCONV) -> HCONV {
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn DdeSetQualityOfService(hwndclient: super::super::Foundation::HWND, pqosnew: *const super::super::Security::SECURITY_QUALITY_OF_SERVICE, pqosprev: *mut super::super::Security::SECURITY_QUALITY_OF_SERVICE) -> windows_core::Result<()> {
-    windows_targets::link!("user32.dll" "system" fn DdeSetQualityOfService(hwndclient : super::super::Foundation:: HWND, pqosnew : *const super::super::Security:: SECURITY_QUALITY_OF_SERVICE, pqosprev : *mut super::super::Security:: SECURITY_QUALITY_OF_SERVICE) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("user32.dll" "system" fn DdeSetQualityOfService(hwndclient : super::super::Foundation:: HWND, pqosnew : *const super::super::Security:: SECURITY_QUALITY_OF_SERVICE, pqosprev : *mut super::super::Security:: SECURITY_QUALITY_OF_SERVICE) -> windows_core::BOOL);
     unsafe { DdeSetQualityOfService(hwndclient, pqosnew, pqosprev as _).ok() }
 }
 #[inline]
-pub unsafe fn DdeSetUserHandle(hconv: HCONV, id: u32, huser: usize) -> super::super::Foundation::BOOL {
-    windows_targets::link!("user32.dll" "system" fn DdeSetUserHandle(hconv : HCONV, id : u32, huser : usize) -> super::super::Foundation:: BOOL);
+pub unsafe fn DdeSetUserHandle(hconv: HCONV, id: u32, huser: usize) -> windows_core::BOOL {
+    windows_targets::link!("user32.dll" "system" fn DdeSetUserHandle(hconv : HCONV, id : u32, huser : usize) -> windows_core::BOOL);
     unsafe { DdeSetUserHandle(hconv, id, huser) }
 }
 #[inline]
-pub unsafe fn DdeUnaccessData(hdata: HDDEDATA) -> super::super::Foundation::BOOL {
-    windows_targets::link!("user32.dll" "system" fn DdeUnaccessData(hdata : HDDEDATA) -> super::super::Foundation:: BOOL);
+pub unsafe fn DdeUnaccessData(hdata: HDDEDATA) -> windows_core::BOOL {
+    windows_targets::link!("user32.dll" "system" fn DdeUnaccessData(hdata : HDDEDATA) -> windows_core::BOOL);
     unsafe { DdeUnaccessData(hdata) }
 }
 #[inline]
-pub unsafe fn DdeUninitialize(idinst: u32) -> super::super::Foundation::BOOL {
-    windows_targets::link!("user32.dll" "system" fn DdeUninitialize(idinst : u32) -> super::super::Foundation:: BOOL);
+pub unsafe fn DdeUninitialize(idinst: u32) -> windows_core::BOOL {
+    windows_targets::link!("user32.dll" "system" fn DdeUninitialize(idinst : u32) -> windows_core::BOOL);
     unsafe { DdeUninitialize(idinst) }
 }
 #[inline]
@@ -211,7 +211,7 @@ pub unsafe fn DeleteAtom(natom: u16) -> u16 {
 }
 #[inline]
 pub unsafe fn EmptyClipboard() -> windows_core::Result<()> {
-    windows_targets::link!("user32.dll" "system" fn EmptyClipboard() -> super::super::Foundation:: BOOL);
+    windows_targets::link!("user32.dll" "system" fn EmptyClipboard() -> windows_core::BOOL);
     unsafe { EmptyClipboard().ok() }
 }
 #[inline]
@@ -236,8 +236,8 @@ where
     unsafe { FindAtomW(lpstring.param().abi()) }
 }
 #[inline]
-pub unsafe fn FreeDDElParam(msg: u32, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL {
-    windows_targets::link!("user32.dll" "system" fn FreeDDElParam(msg : u32, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
+pub unsafe fn FreeDDElParam(msg: u32, lparam: super::super::Foundation::LPARAM) -> windows_core::BOOL {
+    windows_targets::link!("user32.dll" "system" fn FreeDDElParam(msg : u32, lparam : super::super::Foundation:: LPARAM) -> windows_core::BOOL);
     unsafe { FreeDDElParam(msg, lparam) }
 }
 #[inline]
@@ -296,7 +296,7 @@ pub unsafe fn GetPriorityClipboardFormat(paformatprioritylist: &[u32]) -> i32 {
 }
 #[inline]
 pub unsafe fn GetUpdatedClipboardFormats(lpuiformats: &mut [u32], pcformatsout: *mut u32) -> windows_core::Result<()> {
-    windows_targets::link!("user32.dll" "system" fn GetUpdatedClipboardFormats(lpuiformats : *mut u32, cformats : u32, pcformatsout : *mut u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("user32.dll" "system" fn GetUpdatedClipboardFormats(lpuiformats : *mut u32, cformats : u32, pcformatsout : *mut u32) -> windows_core::BOOL);
     unsafe { GetUpdatedClipboardFormats(core::mem::transmute(lpuiformats.as_ptr()), lpuiformats.len().try_into().unwrap(), pcformatsout as _).ok() }
 }
 #[inline]
@@ -364,22 +364,22 @@ pub unsafe fn GlobalGetAtomNameW(natom: u16, lpbuffer: &mut [u16]) -> u32 {
 }
 #[inline]
 pub unsafe fn ImpersonateDdeClientWindow(hwndclient: super::super::Foundation::HWND, hwndserver: super::super::Foundation::HWND) -> windows_core::Result<()> {
-    windows_targets::link!("user32.dll" "system" fn ImpersonateDdeClientWindow(hwndclient : super::super::Foundation:: HWND, hwndserver : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("user32.dll" "system" fn ImpersonateDdeClientWindow(hwndclient : super::super::Foundation:: HWND, hwndserver : super::super::Foundation:: HWND) -> windows_core::BOOL);
     unsafe { ImpersonateDdeClientWindow(hwndclient, hwndserver).ok() }
 }
 #[inline]
-pub unsafe fn InitAtomTable(nsize: u32) -> super::super::Foundation::BOOL {
-    windows_targets::link!("kernel32.dll" "system" fn InitAtomTable(nsize : u32) -> super::super::Foundation:: BOOL);
+pub unsafe fn InitAtomTable(nsize: u32) -> windows_core::BOOL {
+    windows_targets::link!("kernel32.dll" "system" fn InitAtomTable(nsize : u32) -> windows_core::BOOL);
     unsafe { InitAtomTable(nsize) }
 }
 #[inline]
 pub unsafe fn IsClipboardFormatAvailable(format: u32) -> windows_core::Result<()> {
-    windows_targets::link!("user32.dll" "system" fn IsClipboardFormatAvailable(format : u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("user32.dll" "system" fn IsClipboardFormatAvailable(format : u32) -> windows_core::BOOL);
     unsafe { IsClipboardFormatAvailable(format).ok() }
 }
 #[inline]
 pub unsafe fn OpenClipboard(hwndnewowner: Option<super::super::Foundation::HWND>) -> windows_core::Result<()> {
-    windows_targets::link!("user32.dll" "system" fn OpenClipboard(hwndnewowner : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("user32.dll" "system" fn OpenClipboard(hwndnewowner : super::super::Foundation:: HWND) -> windows_core::BOOL);
     unsafe { OpenClipboard(hwndnewowner.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
@@ -405,7 +405,7 @@ where
 }
 #[inline]
 pub unsafe fn RemoveClipboardFormatListener(hwnd: super::super::Foundation::HWND) -> windows_core::Result<()> {
-    windows_targets::link!("user32.dll" "system" fn RemoveClipboardFormatListener(hwnd : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("user32.dll" "system" fn RemoveClipboardFormatListener(hwnd : super::super::Foundation:: HWND) -> windows_core::BOOL);
     unsafe { RemoveClipboardFormatListener(hwnd).ok() }
 }
 #[inline]
@@ -432,8 +432,8 @@ pub unsafe fn SetWinMetaFileBits(lpmeta16data: &[u8], hdcref: Option<super::supe
     unsafe { SetWinMetaFileBits(lpmeta16data.len().try_into().unwrap(), core::mem::transmute(lpmeta16data.as_ptr()), hdcref.unwrap_or(core::mem::zeroed()) as _, lpmfp.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn UnpackDDElParam(msg: u32, lparam: super::super::Foundation::LPARAM, puilo: *mut usize, puihi: *mut usize) -> super::super::Foundation::BOOL {
-    windows_targets::link!("user32.dll" "system" fn UnpackDDElParam(msg : u32, lparam : super::super::Foundation:: LPARAM, puilo : *mut usize, puihi : *mut usize) -> super::super::Foundation:: BOOL);
+pub unsafe fn UnpackDDElParam(msg: u32, lparam: super::super::Foundation::LPARAM, puilo: *mut usize, puihi: *mut usize) -> windows_core::BOOL {
+    windows_targets::link!("user32.dll" "system" fn UnpackDDElParam(msg : u32, lparam : super::super::Foundation:: LPARAM, puilo : *mut usize, puihi : *mut usize) -> windows_core::BOOL);
     unsafe { UnpackDDElParam(msg, lparam, puilo as _, puihi as _) }
 }
 pub const APPCLASS_MASK: i32 = 15i32;
@@ -872,7 +872,7 @@ impl Default for MONCBSTRUCT {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MONCONVSTRUCT {
     pub cb: u32,
-    pub fConnect: super::super::Foundation::BOOL,
+    pub fConnect: windows_core::BOOL,
     pub dwTime: u32,
     pub hTask: super::super::Foundation::HANDLE,
     pub hszSvc: HSZ,
@@ -902,7 +902,7 @@ impl Default for MONERRSTRUCT {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MONHSZSTRUCTA {
     pub cb: u32,
-    pub fsAction: super::super::Foundation::BOOL,
+    pub fsAction: windows_core::BOOL,
     pub dwTime: u32,
     pub hsz: HSZ,
     pub hTask: super::super::Foundation::HANDLE,
@@ -917,7 +917,7 @@ impl Default for MONHSZSTRUCTA {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MONHSZSTRUCTW {
     pub cb: u32,
-    pub fsAction: super::super::Foundation::BOOL,
+    pub fsAction: windows_core::BOOL,
     pub dwTime: u32,
     pub hsz: HSZ,
     pub hTask: super::super::Foundation::HANDLE,
@@ -934,13 +934,13 @@ pub struct MONLINKSTRUCT {
     pub cb: u32,
     pub dwTime: u32,
     pub hTask: super::super::Foundation::HANDLE,
-    pub fEstablished: super::super::Foundation::BOOL,
-    pub fNoData: super::super::Foundation::BOOL,
+    pub fEstablished: windows_core::BOOL,
+    pub fNoData: windows_core::BOOL,
     pub hszSvc: HSZ,
     pub hszTopic: HSZ,
     pub hszItem: HSZ,
     pub wFmt: u32,
-    pub fServer: super::super::Foundation::BOOL,
+    pub fServer: windows_core::BOOL,
     pub hConvServer: HCONV,
     pub hConvClient: HCONV,
 }

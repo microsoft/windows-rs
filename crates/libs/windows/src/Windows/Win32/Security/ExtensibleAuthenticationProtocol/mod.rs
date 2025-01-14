@@ -63,8 +63,8 @@ pub unsafe fn EapHostPeerGetAuthStatus(sessionhandle: u32, authparam: EapHostPee
     unsafe { EapHostPeerGetAuthStatus(sessionhandle, authparam, pcbauthdata as _, ppauthdata as _, ppeaperror as _) }
 }
 #[inline]
-pub unsafe fn EapHostPeerGetDataToUnplumbCredentials(pconnectionidthatlastsavedcreds: *mut windows_core::GUID, phcredentialimpersonationtoken: *mut isize, sessionhandle: u32, ppeaperror: *mut *mut EAP_ERROR, fsavetocredman: *mut super::super::Foundation::BOOL) -> u32 {
-    windows_targets::link!("eappprxy.dll" "system" fn EapHostPeerGetDataToUnplumbCredentials(pconnectionidthatlastsavedcreds : *mut windows_core::GUID, phcredentialimpersonationtoken : *mut isize, sessionhandle : u32, ppeaperror : *mut *mut EAP_ERROR, fsavetocredman : *mut super::super::Foundation:: BOOL) -> u32);
+pub unsafe fn EapHostPeerGetDataToUnplumbCredentials(pconnectionidthatlastsavedcreds: *mut windows_core::GUID, phcredentialimpersonationtoken: *mut isize, sessionhandle: u32, ppeaperror: *mut *mut EAP_ERROR, fsavetocredman: *mut windows_core::BOOL) -> u32 {
+    windows_targets::link!("eappprxy.dll" "system" fn EapHostPeerGetDataToUnplumbCredentials(pconnectionidthatlastsavedcreds : *mut windows_core::GUID, phcredentialimpersonationtoken : *mut isize, sessionhandle : u32, ppeaperror : *mut *mut EAP_ERROR, fsavetocredman : *mut windows_core::BOOL) -> u32);
     unsafe { EapHostPeerGetDataToUnplumbCredentials(pconnectionidthatlastsavedcreds as _, phcredentialimpersonationtoken as _, sessionhandle, ppeaperror as _, fsavetocredman as _) }
 }
 #[inline]
@@ -76,8 +76,8 @@ where
     unsafe { EapHostPeerGetEncryptedPassword(dwsizeofpassword, szpassword.param().abi(), ppszencpassword as _) }
 }
 #[inline]
-pub unsafe fn EapHostPeerGetIdentity(dwversion: u32, dwflags: u32, eapmethodtype: EAP_METHOD_TYPE, pconnectiondata: &[u8], puserdata: Option<&[u8]>, htokenimpersonateuser: super::super::Foundation::HANDLE, pfinvokeui: *mut super::super::Foundation::BOOL, pdwsizeofuserdataout: *mut u32, ppuserdataout: *mut *mut u8, ppwszidentity: *mut windows_core::PWSTR, ppeaperror: *mut *mut EAP_ERROR, ppvreserved: *mut *mut u8) -> u32 {
-    windows_targets::link!("eappprxy.dll" "system" fn EapHostPeerGetIdentity(dwversion : u32, dwflags : u32, eapmethodtype : EAP_METHOD_TYPE, dwsizeofconnectiondata : u32, pconnectiondata : *const u8, dwsizeofuserdata : u32, puserdata : *const u8, htokenimpersonateuser : super::super::Foundation:: HANDLE, pfinvokeui : *mut super::super::Foundation:: BOOL, pdwsizeofuserdataout : *mut u32, ppuserdataout : *mut *mut u8, ppwszidentity : *mut windows_core::PWSTR, ppeaperror : *mut *mut EAP_ERROR, ppvreserved : *mut *mut u8) -> u32);
+pub unsafe fn EapHostPeerGetIdentity(dwversion: u32, dwflags: u32, eapmethodtype: EAP_METHOD_TYPE, pconnectiondata: &[u8], puserdata: Option<&[u8]>, htokenimpersonateuser: super::super::Foundation::HANDLE, pfinvokeui: *mut windows_core::BOOL, pdwsizeofuserdataout: *mut u32, ppuserdataout: *mut *mut u8, ppwszidentity: *mut windows_core::PWSTR, ppeaperror: *mut *mut EAP_ERROR, ppvreserved: *mut *mut u8) -> u32 {
+    windows_targets::link!("eappprxy.dll" "system" fn EapHostPeerGetIdentity(dwversion : u32, dwflags : u32, eapmethodtype : EAP_METHOD_TYPE, dwsizeofconnectiondata : u32, pconnectiondata : *const u8, dwsizeofuserdata : u32, puserdata : *const u8, htokenimpersonateuser : super::super::Foundation:: HANDLE, pfinvokeui : *mut windows_core::BOOL, pdwsizeofuserdataout : *mut u32, ppuserdataout : *mut *mut u8, ppwszidentity : *mut windows_core::PWSTR, ppeaperror : *mut *mut EAP_ERROR, ppvreserved : *mut *mut u8) -> u32);
     unsafe { EapHostPeerGetIdentity(dwversion, dwflags, core::mem::transmute(eapmethodtype), pconnectiondata.len().try_into().unwrap(), core::mem::transmute(pconnectiondata.as_ptr()), puserdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(puserdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), htokenimpersonateuser, pfinvokeui as _, pdwsizeofuserdataout as _, ppuserdataout as _, ppwszidentity as _, ppeaperror as _, ppvreserved as _) }
 }
 #[inline]
@@ -463,7 +463,7 @@ pub const EAP_METHOD_AUTHENTICATOR_RESPONSE_SEND: EAP_METHOD_AUTHENTICATOR_RESPO
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EAP_METHOD_AUTHENTICATOR_RESULT {
-    pub fIsSuccess: super::super::Foundation::BOOL,
+    pub fIsSuccess: windows_core::BOOL,
     pub dwFailureReason: u32,
     pub pAuthAttribs: *mut EAP_ATTRIBUTES,
 }
@@ -565,7 +565,7 @@ impl Default for EAP_METHOD_PROPERTY_VALUE {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EAP_METHOD_PROPERTY_VALUE_BOOL {
     pub length: u32,
-    pub value: super::super::Foundation::BOOL,
+    pub value: windows_core::BOOL,
 }
 impl Default for EAP_METHOD_PROPERTY_VALUE_BOOL {
     fn default() -> Self {
@@ -754,12 +754,12 @@ pub const EapHostPeerIdentityExtendedInfo: EapHostPeerAuthParams = EapHostPeerAu
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EapHostPeerMethodResult {
-    pub fIsSuccess: super::super::Foundation::BOOL,
+    pub fIsSuccess: windows_core::BOOL,
     pub dwFailureReasonCode: u32,
-    pub fSaveConnectionData: super::super::Foundation::BOOL,
+    pub fSaveConnectionData: windows_core::BOOL,
     pub dwSizeofConnectionData: u32,
     pub pConnectionData: *mut u8,
-    pub fSaveUserData: super::super::Foundation::BOOL,
+    pub fSaveUserData: windows_core::BOOL,
     pub dwSizeofUserData: u32,
     pub pUserData: *mut u8,
     pub pAttribArray: *mut EAP_ATTRIBUTES,
@@ -805,7 +805,7 @@ impl Default for EapPacket {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EapPeerMethodOutput {
     pub action: EapPeerMethodResponseAction,
-    pub fAllowNotifications: super::super::Foundation::BOOL,
+    pub fAllowNotifications: windows_core::BOOL,
 }
 impl Default for EapPeerMethodOutput {
     fn default() -> Self {
@@ -825,18 +825,18 @@ pub const EapPeerMethodResponseActionSend: EapPeerMethodResponseAction = EapPeer
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EapPeerMethodResult {
-    pub fIsSuccess: super::super::Foundation::BOOL,
+    pub fIsSuccess: windows_core::BOOL,
     pub dwFailureReasonCode: u32,
-    pub fSaveConnectionData: super::super::Foundation::BOOL,
+    pub fSaveConnectionData: windows_core::BOOL,
     pub dwSizeofConnectionData: u32,
     pub pConnectionData: *mut u8,
-    pub fSaveUserData: super::super::Foundation::BOOL,
+    pub fSaveUserData: windows_core::BOOL,
     pub dwSizeofUserData: u32,
     pub pUserData: *mut u8,
     pub pAttribArray: *mut EAP_ATTRIBUTES,
     pub pEapError: *mut EAP_ERROR,
     pub pNgcKerbTicket: *mut NgcTicketContext,
-    pub fSaveToCredMan: super::super::Foundation::BOOL,
+    pub fSaveToCredMan: windows_core::BOOL,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for EapPeerMethodResult {
@@ -1431,16 +1431,16 @@ impl Default for PPP_EAP_INFO {
 pub struct PPP_EAP_INPUT {
     pub dwSizeInBytes: u32,
     pub fFlags: u32,
-    pub fAuthenticator: super::super::Foundation::BOOL,
+    pub fAuthenticator: windows_core::BOOL,
     pub pwszIdentity: windows_core::PWSTR,
     pub pwszPassword: windows_core::PWSTR,
     pub bInitialId: u8,
     pub pUserAttributes: *mut RAS_AUTH_ATTRIBUTE,
-    pub fAuthenticationComplete: super::super::Foundation::BOOL,
+    pub fAuthenticationComplete: windows_core::BOOL,
     pub dwAuthResultCode: u32,
     pub hTokenImpersonateUser: super::super::Foundation::HANDLE,
-    pub fSuccessPacketReceived: super::super::Foundation::BOOL,
-    pub fDataReceivedFromInteractiveUI: super::super::Foundation::BOOL,
+    pub fSuccessPacketReceived: windows_core::BOOL,
+    pub fDataReceivedFromInteractiveUI: windows_core::BOOL,
     pub pDataFromInteractiveUI: *mut u8,
     pub dwSizeOfDataFromInteractiveUI: u32,
     pub pConnectionData: *mut u8,
@@ -1449,7 +1449,7 @@ pub struct PPP_EAP_INPUT {
     pub dwSizeOfUserData: u32,
     pub hReserved: super::super::Foundation::HANDLE,
     pub guidConnectionId: windows_core::GUID,
-    pub isVpn: super::super::Foundation::BOOL,
+    pub isVpn: windows_core::BOOL,
 }
 impl Default for PPP_EAP_INPUT {
     fn default() -> Self {
@@ -1464,17 +1464,17 @@ pub struct PPP_EAP_OUTPUT {
     pub Action: PPP_EAP_ACTION,
     pub dwAuthResultCode: u32,
     pub pUserAttributes: *mut RAS_AUTH_ATTRIBUTE,
-    pub fInvokeInteractiveUI: super::super::Foundation::BOOL,
+    pub fInvokeInteractiveUI: windows_core::BOOL,
     pub pUIContextData: *mut u8,
     pub dwSizeOfUIContextData: u32,
-    pub fSaveConnectionData: super::super::Foundation::BOOL,
+    pub fSaveConnectionData: windows_core::BOOL,
     pub pConnectionData: *mut u8,
     pub dwSizeOfConnectionData: u32,
-    pub fSaveUserData: super::super::Foundation::BOOL,
+    pub fSaveUserData: windows_core::BOOL,
     pub pUserData: *mut u8,
     pub dwSizeOfUserData: u32,
     pub pNgcKerbTicket: *mut NgcTicketContext,
-    pub fSaveToCredMan: super::super::Foundation::BOOL,
+    pub fSaveToCredMan: windows_core::BOOL,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for PPP_EAP_OUTPUT {

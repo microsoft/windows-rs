@@ -207,7 +207,7 @@ where
     P0: windows_core::Param<super::ID3DBlob>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("d3dcompiler_47.dll" "system" fn D3DWriteBlobToFile(pblob : * mut core::ffi::c_void, pfilename : windows_core::PCWSTR, boverwrite : super::super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    windows_targets::link!("d3dcompiler_47.dll" "system" fn D3DWriteBlobToFile(pblob : * mut core::ffi::c_void, pfilename : windows_core::PCWSTR, boverwrite : windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { D3DWriteBlobToFile(pblob.param().abi(), pfilename.param().abi(), boverwrite.into()).ok() }
 }
 pub const D3DCOMPILER_DLL_A: windows_core::PCSTR = windows_core::s!("d3dcompiler_47.dll");

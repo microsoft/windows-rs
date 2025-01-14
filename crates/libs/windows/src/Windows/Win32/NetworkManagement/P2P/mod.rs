@@ -57,7 +57,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("drtprov.dll" "system" fn DrtCreatePnrpBootstrapResolver(fpublish : super::super::Foundation:: BOOL, pwzpeername : windows_core::PCWSTR, pwzcloudname : windows_core::PCWSTR, pwzpublishingidentity : windows_core::PCWSTR, ppresolver : *mut *mut DRT_BOOTSTRAP_PROVIDER) -> windows_core::HRESULT);
+    windows_targets::link!("drtprov.dll" "system" fn DrtCreatePnrpBootstrapResolver(fpublish : windows_core::BOOL, pwzpeername : windows_core::PCWSTR, pwzcloudname : windows_core::PCWSTR, pwzpublishingidentity : windows_core::PCWSTR, ppresolver : *mut *mut DRT_BOOTSTRAP_PROVIDER) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         DrtCreatePnrpBootstrapResolver(fpublish.into(), pwzpeername.param().abi(), pwzcloudname.param().abi(), pwzpublishingidentity.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
@@ -524,8 +524,8 @@ pub unsafe fn PeerDistClientStreamRead(hpeerdist: isize, hcontenthandle: isize, 
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn PeerDistGetOverlappedResult(lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpnumberofbytestransferred: *mut u32, bwait: bool) -> super::super::Foundation::BOOL {
-    windows_targets::link!("peerdist.dll" "system" fn PeerDistGetOverlappedResult(lpoverlapped : *const super::super::System::IO:: OVERLAPPED, lpnumberofbytestransferred : *mut u32, bwait : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+pub unsafe fn PeerDistGetOverlappedResult(lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpnumberofbytestransferred: *mut u32, bwait: bool) -> windows_core::BOOL {
+    windows_targets::link!("peerdist.dll" "system" fn PeerDistGetOverlappedResult(lpoverlapped : *const super::super::System::IO:: OVERLAPPED, lpnumberofbytestransferred : *mut u32, bwait : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { PeerDistGetOverlappedResult(lpoverlapped, lpnumberofbytestransferred as _, bwait.into()) }
 }
 #[inline]
@@ -705,7 +705,7 @@ where
 }
 #[inline]
 pub unsafe fn PeerGraphDeleteRecord(hgraph: *const core::ffi::c_void, precordid: *const windows_core::GUID, flocal: bool) -> windows_core::Result<()> {
-    windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphDeleteRecord(hgraph : *const core::ffi::c_void, precordid : *const windows_core::GUID, flocal : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphDeleteRecord(hgraph : *const core::ffi::c_void, precordid : *const windows_core::GUID, flocal : windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { PeerGraphDeleteRecord(hgraph, precordid, flocal.into()).ok() }
 }
 #[inline]
@@ -872,7 +872,7 @@ where
 }
 #[inline]
 pub unsafe fn PeerGraphSetPresence(hgraph: *const core::ffi::c_void, fpresent: bool) -> windows_core::Result<()> {
-    windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphSetPresence(hgraph : *const core::ffi::c_void, fpresent : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphSetPresence(hgraph : *const core::ffi::c_void, fpresent : windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { PeerGraphSetPresence(hgraph, fpresent.into()).ok() }
 }
 #[inline]
@@ -1058,7 +1058,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("p2p.dll" "system" fn PeerGroupImportConfig(pwzxml : windows_core::PCWSTR, pwzpassword : windows_core::PCWSTR, foverwrite : super::super::Foundation:: BOOL, ppwzidentity : *mut windows_core::PWSTR, ppwzgroup : *mut windows_core::PWSTR) -> windows_core::HRESULT);
+    windows_targets::link!("p2p.dll" "system" fn PeerGroupImportConfig(pwzxml : windows_core::PCWSTR, pwzpassword : windows_core::PCWSTR, foverwrite : windows_core::BOOL, ppwzidentity : *mut windows_core::PWSTR, ppwzgroup : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe { PeerGroupImportConfig(pwzxml.param().abi(), pwzpassword.param().abi(), foverwrite.into(), ppwzidentity as _, ppwzgroup as _).ok() }
 }
 #[inline]
@@ -1443,7 +1443,7 @@ impl Default for DRT_BOOTSTRAP_PROVIDER {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-pub type DRT_BOOTSTRAP_RESOLVE_CALLBACK = Option<unsafe extern "system" fn(hr: windows_core::HRESULT, pvcontext: *mut core::ffi::c_void, paddresses: *mut super::super::Networking::WinSock::SOCKET_ADDRESS_LIST, ffatalerror: super::super::Foundation::BOOL)>;
+pub type DRT_BOOTSTRAP_RESOLVE_CALLBACK = Option<unsafe extern "system" fn(hr: windows_core::HRESULT, pvcontext: *mut core::ffi::c_void, paddresses: *mut super::super::Networking::WinSock::SOCKET_ADDRESS_LIST, ffatalerror: windows_core::BOOL)>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DRT_DATA {
@@ -1627,9 +1627,9 @@ pub struct DRT_SCOPE(pub i32);
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DRT_SEARCH_INFO {
     pub dwSize: u32,
-    pub fIterative: super::super::Foundation::BOOL,
-    pub fAllowCurrentInstanceMatch: super::super::Foundation::BOOL,
-    pub fAnyMatchInRange: super::super::Foundation::BOOL,
+    pub fIterative: windows_core::BOOL,
+    pub fAllowCurrentInstanceMatch: windows_core::BOOL,
+    pub fAnyMatchInRange: windows_core::BOOL,
     pub cMaxEndpoints: u32,
     pub pMaximumKey: *mut DRT_DATA,
     pub pMinimumKey: *mut DRT_DATA,
@@ -1714,7 +1714,7 @@ pub const NS_PROVIDER_PNRPNAME: windows_core::GUID = windows_core::GUID::from_u1
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PEERDIST_CLIENT_BASIC_INFO {
-    pub fFlashCrowd: super::super::Foundation::BOOL,
+    pub fFlashCrowd: windows_core::BOOL,
 }
 impl Default for PEERDIST_CLIENT_BASIC_INFO {
     fn default() -> Self {
@@ -1931,7 +1931,7 @@ pub struct PEER_CONTACT {
     pub pwzNickName: windows_core::PWSTR,
     pub pwzDisplayName: windows_core::PWSTR,
     pub pwzEmailAddress: windows_core::PWSTR,
-    pub fWatch: super::super::Foundation::BOOL,
+    pub fWatch: windows_core::BOOL,
     pub WatcherPermissions: PEER_WATCH_PERMISSION,
     pub credentials: PEER_DATA,
 }

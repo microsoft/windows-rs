@@ -6,9 +6,9 @@ windows_targets::link!("eappcfg.dll" "system" fn EapHostPeerFreeErrorMemory(peap
 windows_targets::link!("eappcfg.dll" "system" fn EapHostPeerFreeMemory(pdata : *mut u8));
 windows_targets::link!("eappprxy.dll" "system" fn EapHostPeerFreeRuntimeMemory(pdata : *mut u8));
 windows_targets::link!("eappprxy.dll" "system" fn EapHostPeerGetAuthStatus(sessionhandle : u32, authparam : EapHostPeerAuthParams, pcbauthdata : *mut u32, ppauthdata : *mut *mut u8, ppeaperror : *mut *mut EAP_ERROR) -> u32);
-windows_targets::link!("eappprxy.dll" "system" fn EapHostPeerGetDataToUnplumbCredentials(pconnectionidthatlastsavedcreds : *mut windows_sys::core::GUID, phcredentialimpersonationtoken : *mut isize, sessionhandle : u32, ppeaperror : *mut *mut EAP_ERROR, fsavetocredman : *mut super::super::Foundation:: BOOL) -> u32);
+windows_targets::link!("eappprxy.dll" "system" fn EapHostPeerGetDataToUnplumbCredentials(pconnectionidthatlastsavedcreds : *mut windows_sys::core::GUID, phcredentialimpersonationtoken : *mut isize, sessionhandle : u32, ppeaperror : *mut *mut EAP_ERROR, fsavetocredman : *mut windows_sys::core::BOOL) -> u32);
 windows_targets::link!("eappprxy.dll" "system" fn EapHostPeerGetEncryptedPassword(dwsizeofpassword : u32, szpassword : windows_sys::core::PCWSTR, ppszencpassword : *mut windows_sys::core::PWSTR) -> u32);
-windows_targets::link!("eappprxy.dll" "system" fn EapHostPeerGetIdentity(dwversion : u32, dwflags : u32, eapmethodtype : EAP_METHOD_TYPE, dwsizeofconnectiondata : u32, pconnectiondata : *const u8, dwsizeofuserdata : u32, puserdata : *const u8, htokenimpersonateuser : super::super::Foundation:: HANDLE, pfinvokeui : *mut super::super::Foundation:: BOOL, pdwsizeofuserdataout : *mut u32, ppuserdataout : *mut *mut u8, ppwszidentity : *mut windows_sys::core::PWSTR, ppeaperror : *mut *mut EAP_ERROR, ppvreserved : *mut *mut u8) -> u32);
+windows_targets::link!("eappprxy.dll" "system" fn EapHostPeerGetIdentity(dwversion : u32, dwflags : u32, eapmethodtype : EAP_METHOD_TYPE, dwsizeofconnectiondata : u32, pconnectiondata : *const u8, dwsizeofuserdata : u32, puserdata : *const u8, htokenimpersonateuser : super::super::Foundation:: HANDLE, pfinvokeui : *mut windows_sys::core::BOOL, pdwsizeofuserdataout : *mut u32, ppuserdataout : *mut *mut u8, ppwszidentity : *mut windows_sys::core::PWSTR, ppeaperror : *mut *mut EAP_ERROR, ppvreserved : *mut *mut u8) -> u32);
 windows_targets::link!("eappcfg.dll" "system" fn EapHostPeerGetMethodProperties(dwversion : u32, dwflags : u32, eapmethodtype : EAP_METHOD_TYPE, huserimpersonationtoken : super::super::Foundation:: HANDLE, dweapconndatasize : u32, pbeapconndata : *const u8, dwuserdatasize : u32, pbuserdata : *const u8, pmethodpropertyarray : *mut EAP_METHOD_PROPERTY_ARRAY, ppeaperror : *mut *mut EAP_ERROR) -> u32);
 windows_targets::link!("eappcfg.dll" "system" fn EapHostPeerGetMethods(peapmethodinfoarray : *mut EAP_METHOD_INFO_ARRAY, ppeaperror : *mut *mut EAP_ERROR) -> u32);
 windows_targets::link!("eappprxy.dll" "system" fn EapHostPeerGetResponseAttributes(sessionhandle : u32, pattribs : *mut EAP_ATTRIBUTES, ppeaperror : *mut *mut EAP_ERROR) -> u32);
@@ -253,7 +253,7 @@ pub const EAP_METHOD_AUTHENTICATOR_RESPONSE_SEND: EAP_METHOD_AUTHENTICATOR_RESPO
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct EAP_METHOD_AUTHENTICATOR_RESULT {
-    pub fIsSuccess: super::super::Foundation::BOOL,
+    pub fIsSuccess: windows_sys::core::BOOL,
     pub dwFailureReason: u32,
     pub pAuthAttribs: *mut EAP_ATTRIBUTES,
 }
@@ -313,7 +313,7 @@ pub union EAP_METHOD_PROPERTY_VALUE {
 #[derive(Clone, Copy)]
 pub struct EAP_METHOD_PROPERTY_VALUE_BOOL {
     pub length: u32,
-    pub value: super::super::Foundation::BOOL,
+    pub value: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -444,12 +444,12 @@ pub const EapHostPeerIdentityExtendedInfo: EapHostPeerAuthParams = 3i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct EapHostPeerMethodResult {
-    pub fIsSuccess: super::super::Foundation::BOOL,
+    pub fIsSuccess: windows_sys::core::BOOL,
     pub dwFailureReasonCode: u32,
-    pub fSaveConnectionData: super::super::Foundation::BOOL,
+    pub fSaveConnectionData: windows_sys::core::BOOL,
     pub dwSizeofConnectionData: u32,
     pub pConnectionData: *mut u8,
-    pub fSaveUserData: super::super::Foundation::BOOL,
+    pub fSaveUserData: windows_sys::core::BOOL,
     pub dwSizeofUserData: u32,
     pub pUserData: *mut u8,
     pub pAttribArray: *mut EAP_ATTRIBUTES,
@@ -481,7 +481,7 @@ pub struct EapPacket {
 #[derive(Clone, Copy)]
 pub struct EapPeerMethodOutput {
     pub action: EapPeerMethodResponseAction,
-    pub fAllowNotifications: super::super::Foundation::BOOL,
+    pub fAllowNotifications: windows_sys::core::BOOL,
 }
 pub type EapPeerMethodResponseAction = i32;
 pub const EapPeerMethodResponseActionDiscard: EapPeerMethodResponseAction = 0i32;
@@ -494,18 +494,18 @@ pub const EapPeerMethodResponseActionSend: EapPeerMethodResponseAction = 1i32;
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy)]
 pub struct EapPeerMethodResult {
-    pub fIsSuccess: super::super::Foundation::BOOL,
+    pub fIsSuccess: windows_sys::core::BOOL,
     pub dwFailureReasonCode: u32,
-    pub fSaveConnectionData: super::super::Foundation::BOOL,
+    pub fSaveConnectionData: windows_sys::core::BOOL,
     pub dwSizeofConnectionData: u32,
     pub pConnectionData: *mut u8,
-    pub fSaveUserData: super::super::Foundation::BOOL,
+    pub fSaveUserData: windows_sys::core::BOOL,
     pub dwSizeofUserData: u32,
     pub pUserData: *mut u8,
     pub pAttribArray: *mut EAP_ATTRIBUTES,
     pub pEapError: *mut EAP_ERROR,
     pub pNgcKerbTicket: *mut NgcTicketContext,
-    pub fSaveToCredMan: super::super::Foundation::BOOL,
+    pub fSaveToCredMan: windows_sys::core::BOOL,
 }
 pub const EapPeerMethodResultFailure: EapPeerMethodResultReason = 3i32;
 pub type EapPeerMethodResultReason = i32;
@@ -635,16 +635,16 @@ pub struct PPP_EAP_INFO {
 pub struct PPP_EAP_INPUT {
     pub dwSizeInBytes: u32,
     pub fFlags: u32,
-    pub fAuthenticator: super::super::Foundation::BOOL,
+    pub fAuthenticator: windows_sys::core::BOOL,
     pub pwszIdentity: windows_sys::core::PWSTR,
     pub pwszPassword: windows_sys::core::PWSTR,
     pub bInitialId: u8,
     pub pUserAttributes: *mut RAS_AUTH_ATTRIBUTE,
-    pub fAuthenticationComplete: super::super::Foundation::BOOL,
+    pub fAuthenticationComplete: windows_sys::core::BOOL,
     pub dwAuthResultCode: u32,
     pub hTokenImpersonateUser: super::super::Foundation::HANDLE,
-    pub fSuccessPacketReceived: super::super::Foundation::BOOL,
-    pub fDataReceivedFromInteractiveUI: super::super::Foundation::BOOL,
+    pub fSuccessPacketReceived: windows_sys::core::BOOL,
+    pub fDataReceivedFromInteractiveUI: windows_sys::core::BOOL,
     pub pDataFromInteractiveUI: *mut u8,
     pub dwSizeOfDataFromInteractiveUI: u32,
     pub pConnectionData: *mut u8,
@@ -653,7 +653,7 @@ pub struct PPP_EAP_INPUT {
     pub dwSizeOfUserData: u32,
     pub hReserved: super::super::Foundation::HANDLE,
     pub guidConnectionId: windows_sys::core::GUID,
-    pub isVpn: super::super::Foundation::BOOL,
+    pub isVpn: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -663,17 +663,17 @@ pub struct PPP_EAP_OUTPUT {
     pub Action: PPP_EAP_ACTION,
     pub dwAuthResultCode: u32,
     pub pUserAttributes: *mut RAS_AUTH_ATTRIBUTE,
-    pub fInvokeInteractiveUI: super::super::Foundation::BOOL,
+    pub fInvokeInteractiveUI: windows_sys::core::BOOL,
     pub pUIContextData: *mut u8,
     pub dwSizeOfUIContextData: u32,
-    pub fSaveConnectionData: super::super::Foundation::BOOL,
+    pub fSaveConnectionData: windows_sys::core::BOOL,
     pub pConnectionData: *mut u8,
     pub dwSizeOfConnectionData: u32,
-    pub fSaveUserData: super::super::Foundation::BOOL,
+    pub fSaveUserData: windows_sys::core::BOOL,
     pub pUserData: *mut u8,
     pub dwSizeOfUserData: u32,
     pub pNgcKerbTicket: *mut NgcTicketContext,
-    pub fSaveToCredMan: super::super::Foundation::BOOL,
+    pub fSaveToCredMan: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]

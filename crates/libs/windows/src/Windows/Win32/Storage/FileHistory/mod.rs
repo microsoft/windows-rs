@@ -10,7 +10,7 @@ pub unsafe fn FhServiceClosePipe(pipe: FH_SERVICE_PIPE_HANDLE) -> windows_core::
 }
 #[inline]
 pub unsafe fn FhServiceOpenPipe(startserviceifstopped: bool) -> windows_core::Result<FH_SERVICE_PIPE_HANDLE> {
-    windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceOpenPipe(startserviceifstopped : super::super::Foundation:: BOOL, pipe : *mut FH_SERVICE_PIPE_HANDLE) -> windows_core::HRESULT);
+    windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceOpenPipe(startserviceifstopped : windows_core::BOOL, pipe : *mut FH_SERVICE_PIPE_HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         FhServiceOpenPipe(startserviceifstopped.into(), &mut result__).map(|| core::mem::transmute(result__))
@@ -23,12 +23,12 @@ pub unsafe fn FhServiceReloadConfiguration(pipe: FH_SERVICE_PIPE_HANDLE) -> wind
 }
 #[inline]
 pub unsafe fn FhServiceStartBackup(pipe: FH_SERVICE_PIPE_HANDLE, lowpriorityio: bool) -> windows_core::Result<()> {
-    windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceStartBackup(pipe : FH_SERVICE_PIPE_HANDLE, lowpriorityio : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceStartBackup(pipe : FH_SERVICE_PIPE_HANDLE, lowpriorityio : windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { FhServiceStartBackup(pipe, lowpriorityio.into()).ok() }
 }
 #[inline]
 pub unsafe fn FhServiceStopBackup(pipe: FH_SERVICE_PIPE_HANDLE, stoptracking: bool) -> windows_core::Result<()> {
-    windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceStopBackup(pipe : FH_SERVICE_PIPE_HANDLE, stoptracking : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceStopBackup(pipe : FH_SERVICE_PIPE_HANDLE, stoptracking : windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { FhServiceStopBackup(pipe, stoptracking.into()).ok() }
 }
 #[inline]
@@ -224,10 +224,10 @@ impl IFhConfigMgr {
 pub struct IFhConfigMgr_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub LoadConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateDefaultConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CreateDefaultConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub SaveConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRemoveExcludeRule: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL, FH_PROTECTED_ITEM_CATEGORY, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetIncludeExcludeRules: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL, FH_PROTECTED_ITEM_CATEGORY, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub AddRemoveExcludeRule: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, FH_PROTECTED_ITEM_CATEGORY, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetIncludeExcludeRules: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, FH_PROTECTED_ITEM_CATEGORY, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetLocalPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, FH_LOCAL_POLICY_TYPE, *mut u64) -> windows_core::HRESULT,
     pub SetLocalPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, FH_LOCAL_POLICY_TYPE, u64) -> windows_core::HRESULT,
     pub GetBackupStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FH_BACKUP_STATUS) -> windows_core::HRESULT,
@@ -235,15 +235,15 @@ pub struct IFhConfigMgr_Vtbl {
     pub GetDefaultTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ValidateTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut FH_DEVICE_VALIDATION_RESULT) -> windows_core::HRESULT,
     pub ProvisionAndSetNewTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ChangeDefaultTargetRecommendation: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub ChangeDefaultTargetRecommendation: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub QueryProtectionStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IFhConfigMgr_Impl: windows_core::IUnknownImpl {
     fn LoadConfiguration(&self) -> windows_core::Result<()>;
-    fn CreateDefaultConfiguration(&self, overwriteifexists: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn CreateDefaultConfiguration(&self, overwriteifexists: windows_core::BOOL) -> windows_core::Result<()>;
     fn SaveConfiguration(&self) -> windows_core::Result<()>;
-    fn AddRemoveExcludeRule(&self, add: super::super::Foundation::BOOL, category: FH_PROTECTED_ITEM_CATEGORY, item: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetIncludeExcludeRules(&self, include: super::super::Foundation::BOOL, category: FH_PROTECTED_ITEM_CATEGORY) -> windows_core::Result<IFhScopeIterator>;
+    fn AddRemoveExcludeRule(&self, add: windows_core::BOOL, category: FH_PROTECTED_ITEM_CATEGORY, item: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn GetIncludeExcludeRules(&self, include: windows_core::BOOL, category: FH_PROTECTED_ITEM_CATEGORY) -> windows_core::Result<IFhScopeIterator>;
     fn GetLocalPolicy(&self, localpolicytype: FH_LOCAL_POLICY_TYPE) -> windows_core::Result<u64>;
     fn SetLocalPolicy(&self, localpolicytype: FH_LOCAL_POLICY_TYPE, policyvalue: u64) -> windows_core::Result<()>;
     fn GetBackupStatus(&self) -> windows_core::Result<FH_BACKUP_STATUS>;
@@ -251,7 +251,7 @@ pub trait IFhConfigMgr_Impl: windows_core::IUnknownImpl {
     fn GetDefaultTarget(&self) -> windows_core::Result<IFhTarget>;
     fn ValidateTarget(&self, targeturl: &windows_core::BSTR) -> windows_core::Result<FH_DEVICE_VALIDATION_RESULT>;
     fn ProvisionAndSetNewTarget(&self, targeturl: &windows_core::BSTR, targetname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn ChangeDefaultTargetRecommendation(&self, recommend: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn ChangeDefaultTargetRecommendation(&self, recommend: windows_core::BOOL) -> windows_core::Result<()>;
     fn QueryProtectionStatus(&self, protectionstate: *mut u32, protecteduntiltime: *mut windows_core::BSTR) -> windows_core::Result<()>;
 }
 impl IFhConfigMgr_Vtbl {
@@ -262,7 +262,7 @@ impl IFhConfigMgr_Vtbl {
                 IFhConfigMgr_Impl::LoadConfiguration(this).into()
             }
         }
-        unsafe extern "system" fn CreateDefaultConfiguration<Identity: IFhConfigMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, overwriteifexists: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateDefaultConfiguration<Identity: IFhConfigMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, overwriteifexists: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IFhConfigMgr_Impl::CreateDefaultConfiguration(this, core::mem::transmute_copy(&overwriteifexists)).into()
@@ -274,13 +274,13 @@ impl IFhConfigMgr_Vtbl {
                 IFhConfigMgr_Impl::SaveConfiguration(this).into()
             }
         }
-        unsafe extern "system" fn AddRemoveExcludeRule<Identity: IFhConfigMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, add: super::super::Foundation::BOOL, category: FH_PROTECTED_ITEM_CATEGORY, item: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddRemoveExcludeRule<Identity: IFhConfigMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, add: windows_core::BOOL, category: FH_PROTECTED_ITEM_CATEGORY, item: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IFhConfigMgr_Impl::AddRemoveExcludeRule(this, core::mem::transmute_copy(&add), core::mem::transmute_copy(&category), core::mem::transmute(&item)).into()
             }
         }
-        unsafe extern "system" fn GetIncludeExcludeRules<Identity: IFhConfigMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, include: super::super::Foundation::BOOL, category: FH_PROTECTED_ITEM_CATEGORY, iterator: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetIncludeExcludeRules<Identity: IFhConfigMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, include: windows_core::BOOL, category: FH_PROTECTED_ITEM_CATEGORY, iterator: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFhConfigMgr_Impl::GetIncludeExcludeRules(this, core::mem::transmute_copy(&include), core::mem::transmute_copy(&category)) {
@@ -358,7 +358,7 @@ impl IFhConfigMgr_Vtbl {
                 IFhConfigMgr_Impl::ProvisionAndSetNewTarget(this, core::mem::transmute(&targeturl), core::mem::transmute(&targetname)).into()
             }
         }
-        unsafe extern "system" fn ChangeDefaultTargetRecommendation<Identity: IFhConfigMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, recommend: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn ChangeDefaultTargetRecommendation<Identity: IFhConfigMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, recommend: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IFhConfigMgr_Impl::ChangeDefaultTargetRecommendation(this, core::mem::transmute_copy(&recommend)).into()
@@ -422,14 +422,14 @@ pub struct IFhReassociation_Vtbl {
     pub ScanTargetForConfigurations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetConfigurationDetails: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut super::super::Foundation::FILETIME) -> windows_core::HRESULT,
     pub SelectConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub PerformReassociation: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub PerformReassociation: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IFhReassociation_Impl: windows_core::IUnknownImpl {
     fn ValidateTarget(&self, targeturl: &windows_core::BSTR) -> windows_core::Result<FH_DEVICE_VALIDATION_RESULT>;
     fn ScanTargetForConfigurations(&self, targeturl: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetConfigurationDetails(&self, index: u32, username: *mut windows_core::BSTR, pcname: *mut windows_core::BSTR, backuptime: *mut super::super::Foundation::FILETIME) -> windows_core::Result<()>;
     fn SelectConfiguration(&self, index: u32) -> windows_core::Result<()>;
-    fn PerformReassociation(&self, overwriteifexists: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn PerformReassociation(&self, overwriteifexists: windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl IFhReassociation_Vtbl {
     pub const fn new<Identity: IFhReassociation_Impl, const OFFSET: isize>() -> Self {
@@ -463,7 +463,7 @@ impl IFhReassociation_Vtbl {
                 IFhReassociation_Impl::SelectConfiguration(this, core::mem::transmute_copy(&index)).into()
             }
         }
-        unsafe extern "system" fn PerformReassociation<Identity: IFhReassociation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, overwriteifexists: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn PerformReassociation<Identity: IFhReassociation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, overwriteifexists: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IFhReassociation_Impl::PerformReassociation(this, core::mem::transmute_copy(&overwriteifexists)).into()

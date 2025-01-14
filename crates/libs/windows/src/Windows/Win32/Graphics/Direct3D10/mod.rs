@@ -105,7 +105,7 @@ pub unsafe fn D3D10DisassembleEffect<P0>(peffect: P0, enablecolorcode: bool) -> 
 where
     P0: windows_core::Param<ID3D10Effect>,
 {
-    windows_targets::link!("d3d10.dll" "system" fn D3D10DisassembleEffect(peffect : * mut core::ffi::c_void, enablecolorcode : super::super::Foundation:: BOOL, ppdisassembly : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("d3d10.dll" "system" fn D3D10DisassembleEffect(peffect : * mut core::ffi::c_void, enablecolorcode : windows_core::BOOL, ppdisassembly : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         D3D10DisassembleEffect(peffect.param().abi(), enablecolorcode.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -117,7 +117,7 @@ pub unsafe fn D3D10DisassembleShader<P3>(pshader: *const core::ffi::c_void, byte
 where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("d3d10.dll" "system" fn D3D10DisassembleShader(pshader : *const core::ffi::c_void, bytecodelength : usize, enablecolorcode : super::super::Foundation:: BOOL, pcomments : windows_core::PCSTR, ppdisassembly : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("d3d10.dll" "system" fn D3D10DisassembleShader(pshader : *const core::ffi::c_void, bytecodelength : usize, enablecolorcode : windows_core::BOOL, pcomments : windows_core::PCSTR, ppdisassembly : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         D3D10DisassembleShader(pshader, bytecodelength, enablecolorcode.into(), pcomments.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -227,8 +227,8 @@ pub unsafe fn D3D10StateBlockMaskEnableCapture(pmask: *mut D3D10_STATE_BLOCK_MAS
     unsafe { D3D10StateBlockMaskEnableCapture(pmask as _, statetype, rangestart, rangelength).ok() }
 }
 #[inline]
-pub unsafe fn D3D10StateBlockMaskGetSetting(pmask: *const D3D10_STATE_BLOCK_MASK, statetype: D3D10_DEVICE_STATE_TYPES, entry: u32) -> super::super::Foundation::BOOL {
-    windows_targets::link!("d3d10.dll" "system" fn D3D10StateBlockMaskGetSetting(pmask : *const D3D10_STATE_BLOCK_MASK, statetype : D3D10_DEVICE_STATE_TYPES, entry : u32) -> super::super::Foundation:: BOOL);
+pub unsafe fn D3D10StateBlockMaskGetSetting(pmask: *const D3D10_STATE_BLOCK_MASK, statetype: D3D10_DEVICE_STATE_TYPES, entry: u32) -> windows_core::BOOL {
+    windows_targets::link!("d3d10.dll" "system" fn D3D10StateBlockMaskGetSetting(pmask : *const D3D10_STATE_BLOCK_MASK, statetype : D3D10_DEVICE_STATE_TYPES, entry : u32) -> windows_core::BOOL);
     unsafe { D3D10StateBlockMaskGetSetting(pmask, statetype, entry) }
 }
 #[inline]
@@ -292,8 +292,8 @@ pub const D3D10_BLEND_BLEND_FACTOR: D3D10_BLEND = D3D10_BLEND(14i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D10_BLEND_DESC {
-    pub AlphaToCoverageEnable: super::super::Foundation::BOOL,
-    pub BlendEnable: [super::super::Foundation::BOOL; 8],
+    pub AlphaToCoverageEnable: windows_core::BOOL,
+    pub BlendEnable: [windows_core::BOOL; 8],
     pub SrcBlend: D3D10_BLEND,
     pub DestBlend: D3D10_BLEND,
     pub BlendOp: D3D10_BLEND_OP,
@@ -310,8 +310,8 @@ impl Default for D3D10_BLEND_DESC {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D10_BLEND_DESC1 {
-    pub AlphaToCoverageEnable: super::super::Foundation::BOOL,
-    pub IndependentBlendEnable: super::super::Foundation::BOOL,
+    pub AlphaToCoverageEnable: windows_core::BOOL,
+    pub IndependentBlendEnable: windows_core::BOOL,
     pub RenderTarget: [D3D10_RENDER_TARGET_BLEND_DESC1; 8],
 }
 impl Default for D3D10_BLEND_DESC1 {
@@ -624,10 +624,10 @@ impl Default for D3D10_DEPTH_STENCILOP_DESC {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D10_DEPTH_STENCIL_DESC {
-    pub DepthEnable: super::super::Foundation::BOOL,
+    pub DepthEnable: windows_core::BOOL,
     pub DepthWriteMask: D3D10_DEPTH_WRITE_MASK,
     pub DepthFunc: D3D10_COMPARISON_FUNC,
-    pub StencilEnable: super::super::Foundation::BOOL,
+    pub StencilEnable: windows_core::BOOL,
     pub StencilReadMask: u8,
     pub StencilWriteMask: u8,
     pub FrontFace: D3D10_DEPTH_STENCILOP_DESC,
@@ -724,7 +724,7 @@ pub const D3D10_EFFECT_COMPILE_CHILD_EFFECT: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D10_EFFECT_DESC {
-    pub IsChildEffect: super::super::Foundation::BOOL,
+    pub IsChildEffect: windows_core::BOOL,
     pub ConstantBuffers: u32,
     pub SharedConstantBuffers: u32,
     pub GlobalVariables: u32,
@@ -740,7 +740,7 @@ impl Default for D3D10_EFFECT_DESC {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D10_EFFECT_SHADER_DESC {
     pub pInputSignature: *const u8,
-    pub IsInline: super::super::Foundation::BOOL,
+    pub IsInline: windows_core::BOOL,
     pub pBytecode: *const u8,
     pub BytecodeLength: u32,
     pub SODecl: windows_core::PCSTR,
@@ -1640,7 +1640,7 @@ impl Default for D3D10_QUERY_DATA_SO_STATISTICS {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D10_QUERY_DATA_TIMESTAMP_DISJOINT {
     pub Frequency: u64,
-    pub Disjoint: super::super::Foundation::BOOL,
+    pub Disjoint: windows_core::BOOL,
 }
 impl Default for D3D10_QUERY_DATA_TIMESTAMP_DISJOINT {
     fn default() -> Self {
@@ -1679,14 +1679,14 @@ pub const D3D10_RAISE_FLAG_DRIVER_INTERNAL_ERROR: D3D10_RAISE_FLAG = D3D10_RAISE
 pub struct D3D10_RASTERIZER_DESC {
     pub FillMode: D3D10_FILL_MODE,
     pub CullMode: D3D10_CULL_MODE,
-    pub FrontCounterClockwise: super::super::Foundation::BOOL,
+    pub FrontCounterClockwise: windows_core::BOOL,
     pub DepthBias: i32,
     pub DepthBiasClamp: f32,
     pub SlopeScaledDepthBias: f32,
-    pub DepthClipEnable: super::super::Foundation::BOOL,
-    pub ScissorEnable: super::super::Foundation::BOOL,
-    pub MultisampleEnable: super::super::Foundation::BOOL,
-    pub AntialiasedLineEnable: super::super::Foundation::BOOL,
+    pub DepthClipEnable: windows_core::BOOL,
+    pub ScissorEnable: windows_core::BOOL,
+    pub MultisampleEnable: windows_core::BOOL,
+    pub AntialiasedLineEnable: windows_core::BOOL,
 }
 impl Default for D3D10_RASTERIZER_DESC {
     fn default() -> Self {
@@ -1697,7 +1697,7 @@ pub const D3D10_REGKEY_PATH: windows_core::PCWSTR = windows_core::w!("Software\\
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D10_RENDER_TARGET_BLEND_DESC1 {
-    pub BlendEnable: super::super::Foundation::BOOL,
+    pub BlendEnable: windows_core::BOOL,
     pub SrcBlend: D3D10_BLEND,
     pub DestBlend: D3D10_BLEND,
     pub BlendOp: D3D10_BLEND_OP,
@@ -1940,8 +1940,8 @@ pub struct D3D10_SHADER_DEBUG_OUTPUTVAR {
     pub iValueMax: i32,
     pub fValueMin: f32,
     pub fValueMax: f32,
-    pub bNaNPossible: super::super::Foundation::BOOL,
-    pub bInfPossible: super::super::Foundation::BOOL,
+    pub bNaNPossible: windows_core::BOOL,
+    pub bInfPossible: windows_core::BOOL,
 }
 impl Default for D3D10_SHADER_DEBUG_OUTPUTVAR {
     fn default() -> Self {
@@ -3435,7 +3435,7 @@ impl ID3D10Device {
     pub unsafe fn VSGetSamplers(&self, startslot: u32, ppsamplers: Option<&mut [Option<ID3D10SamplerState>]>) {
         unsafe { (windows_core::Interface::vtable(self).VSGetSamplers)(windows_core::Interface::as_raw(self), startslot, ppsamplers.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppsamplers.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
     }
-    pub unsafe fn GetPredication(&self, pppredicate: Option<*mut Option<ID3D10Predicate>>, ppredicatevalue: Option<*mut super::super::Foundation::BOOL>) {
+    pub unsafe fn GetPredication(&self, pppredicate: Option<*mut Option<ID3D10Predicate>>, ppredicatevalue: Option<*mut windows_core::BOOL>) {
         unsafe { (windows_core::Interface::vtable(self).GetPredication)(windows_core::Interface::as_raw(self), pppredicate.unwrap_or(core::mem::zeroed()) as _, ppredicatevalue.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GSGetShaderResources(&self, startslot: u32, ppshaderresourceviews: Option<&mut [Option<ID3D10ShaderResourceView>]>) {
@@ -3642,7 +3642,7 @@ pub struct ID3D10Device_Vtbl {
     IASetPrimitiveTopology: usize,
     pub VSSetShaderResources: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const *mut core::ffi::c_void),
     pub VSSetSamplers: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const *mut core::ffi::c_void),
-    pub SetPredication: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::BOOL),
+    pub SetPredication: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL),
     pub GSSetShaderResources: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const *mut core::ffi::c_void),
     pub GSSetSamplers: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const *mut core::ffi::c_void),
     pub OMSetRenderTargets: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const *mut core::ffi::c_void, *mut core::ffi::c_void),
@@ -3683,7 +3683,7 @@ pub struct ID3D10Device_Vtbl {
     IAGetPrimitiveTopology: usize,
     pub VSGetShaderResources: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void),
     pub VSGetSamplers: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void),
-    pub GetPredication: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut super::super::Foundation::BOOL),
+    pub GetPredication: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut windows_core::BOOL),
     pub GSGetShaderResources: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void),
     pub GSGetSamplers: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void),
     pub OMGetRenderTargets: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void),
@@ -3778,7 +3778,7 @@ pub trait ID3D10Device_Impl: windows_core::IUnknownImpl {
     fn IASetPrimitiveTopology(&self, topology: super::Direct3D::D3D_PRIMITIVE_TOPOLOGY);
     fn VSSetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *const Option<ID3D10ShaderResourceView>);
     fn VSSetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *const Option<ID3D10SamplerState>);
-    fn SetPredication(&self, ppredicate: windows_core::Ref<ID3D10Predicate>, predicatevalue: super::super::Foundation::BOOL);
+    fn SetPredication(&self, ppredicate: windows_core::Ref<ID3D10Predicate>, predicatevalue: windows_core::BOOL);
     fn GSSetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *const Option<ID3D10ShaderResourceView>);
     fn GSSetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *const Option<ID3D10SamplerState>);
     fn OMSetRenderTargets(&self, numviews: u32, pprendertargetviews: *const Option<ID3D10RenderTargetView>, pdepthstencilview: windows_core::Ref<ID3D10DepthStencilView>);
@@ -3810,7 +3810,7 @@ pub trait ID3D10Device_Impl: windows_core::IUnknownImpl {
     fn IAGetPrimitiveTopology(&self, ptopology: *mut super::Direct3D::D3D_PRIMITIVE_TOPOLOGY);
     fn VSGetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: windows_core::OutRef<'_, ID3D10ShaderResourceView>);
     fn VSGetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: windows_core::OutRef<'_, ID3D10SamplerState>);
-    fn GetPredication(&self, pppredicate: windows_core::OutRef<'_, ID3D10Predicate>, ppredicatevalue: *mut super::super::Foundation::BOOL);
+    fn GetPredication(&self, pppredicate: windows_core::OutRef<'_, ID3D10Predicate>, ppredicatevalue: *mut windows_core::BOOL);
     fn GSGetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: windows_core::OutRef<'_, ID3D10ShaderResourceView>);
     fn GSGetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: windows_core::OutRef<'_, ID3D10SamplerState>);
     fn OMGetRenderTargets(&self, numviews: u32, pprendertargetviews: windows_core::OutRef<'_, ID3D10RenderTargetView>, ppdepthstencilview: windows_core::OutRef<'_, ID3D10DepthStencilView>);
@@ -3967,7 +3967,7 @@ impl ID3D10Device_Vtbl {
                 ID3D10Device_Impl::VSSetSamplers(this, core::mem::transmute_copy(&startslot), core::mem::transmute_copy(&numsamplers), core::mem::transmute_copy(&ppsamplers))
             }
         }
-        unsafe extern "system" fn SetPredication<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppredicate: *mut core::ffi::c_void, predicatevalue: super::super::Foundation::BOOL) {
+        unsafe extern "system" fn SetPredication<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppredicate: *mut core::ffi::c_void, predicatevalue: windows_core::BOOL) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D10Device_Impl::SetPredication(this, core::mem::transmute_copy(&ppredicate), core::mem::transmute_copy(&predicatevalue))
@@ -4159,7 +4159,7 @@ impl ID3D10Device_Vtbl {
                 ID3D10Device_Impl::VSGetSamplers(this, core::mem::transmute_copy(&startslot), core::mem::transmute_copy(&numsamplers), core::mem::transmute_copy(&ppsamplers))
             }
         }
-        unsafe extern "system" fn GetPredication<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppredicate: *mut *mut core::ffi::c_void, ppredicatevalue: *mut super::super::Foundation::BOOL) {
+        unsafe extern "system" fn GetPredication<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppredicate: *mut *mut core::ffi::c_void, ppredicatevalue: *mut windows_core::BOOL) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D10Device_Impl::GetPredication(this, core::mem::transmute_copy(&pppredicate), core::mem::transmute_copy(&ppredicatevalue))
@@ -4720,10 +4720,10 @@ impl windows_core::RuntimeName for ID3D10DeviceChild {}
 windows_core::imp::define_interface!(ID3D10Effect, ID3D10Effect_Vtbl, 0x51b0ca8b_ec0b_4519_870d_8ee1cb5017c7);
 windows_core::imp::interface_hierarchy!(ID3D10Effect, windows_core::IUnknown);
 impl ID3D10Effect {
-    pub unsafe fn IsValid(&self) -> super::super::Foundation::BOOL {
+    pub unsafe fn IsValid(&self) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).IsValid)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn IsPool(&self) -> super::super::Foundation::BOOL {
+    pub unsafe fn IsPool(&self) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).IsPool)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn GetDevice(&self) -> windows_core::Result<ID3D10Device> {
@@ -4771,15 +4771,15 @@ impl ID3D10Effect {
     pub unsafe fn Optimize(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Optimize)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn IsOptimized(&self) -> super::super::Foundation::BOOL {
+    pub unsafe fn IsOptimized(&self) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).IsOptimized)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[repr(C)]
 pub struct ID3D10Effect_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub IsValid: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
-    pub IsPool: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
+    pub IsValid: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
+    pub IsPool: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
     pub GetDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D10_EFFECT_DESC) -> windows_core::HRESULT,
     pub GetConstantBufferByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> Option<ID3D10EffectConstantBuffer>,
@@ -4790,13 +4790,13 @@ pub struct ID3D10Effect_Vtbl {
     pub GetTechniqueByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> Option<ID3D10EffectTechnique>,
     pub GetTechniqueByName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR) -> Option<ID3D10EffectTechnique>,
     pub Optimize: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub IsOptimized: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
+    pub IsOptimized: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
 }
 unsafe impl Send for ID3D10Effect {}
 unsafe impl Sync for ID3D10Effect {}
 pub trait ID3D10Effect_Impl: windows_core::IUnknownImpl {
-    fn IsValid(&self) -> super::super::Foundation::BOOL;
-    fn IsPool(&self) -> super::super::Foundation::BOOL;
+    fn IsValid(&self) -> windows_core::BOOL;
+    fn IsPool(&self) -> windows_core::BOOL;
     fn GetDevice(&self) -> windows_core::Result<ID3D10Device>;
     fn GetDesc(&self, pdesc: *mut D3D10_EFFECT_DESC) -> windows_core::Result<()>;
     fn GetConstantBufferByIndex(&self, index: u32) -> Option<ID3D10EffectConstantBuffer>;
@@ -4807,17 +4807,17 @@ pub trait ID3D10Effect_Impl: windows_core::IUnknownImpl {
     fn GetTechniqueByIndex(&self, index: u32) -> Option<ID3D10EffectTechnique>;
     fn GetTechniqueByName(&self, name: &windows_core::PCSTR) -> Option<ID3D10EffectTechnique>;
     fn Optimize(&self) -> windows_core::Result<()>;
-    fn IsOptimized(&self) -> super::super::Foundation::BOOL;
+    fn IsOptimized(&self) -> windows_core::BOOL;
 }
 impl ID3D10Effect_Vtbl {
     pub const fn new<Identity: ID3D10Effect_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn IsValid<Identity: ID3D10Effect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn IsValid<Identity: ID3D10Effect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D10Effect_Impl::IsValid(this)
             }
         }
-        unsafe extern "system" fn IsPool<Identity: ID3D10Effect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn IsPool<Identity: ID3D10Effect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D10Effect_Impl::IsPool(this)
@@ -4889,7 +4889,7 @@ impl ID3D10Effect_Vtbl {
                 ID3D10Effect_Impl::Optimize(this).into()
             }
         }
-        unsafe extern "system" fn IsOptimized<Identity: ID3D10Effect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn IsOptimized<Identity: ID3D10Effect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D10Effect_Impl::IsOptimized(this)
@@ -5409,7 +5409,7 @@ impl ID3D10EffectMatrixVariable {
 }
 windows_core::imp::define_interface!(ID3D10EffectPass, ID3D10EffectPass_Vtbl);
 impl ID3D10EffectPass {
-    pub unsafe fn IsValid(&self) -> super::super::Foundation::BOOL {
+    pub unsafe fn IsValid(&self) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).IsValid)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn GetDesc(&self, pdesc: *mut D3D10_PASS_DESC) -> windows_core::Result<()> {
@@ -5442,7 +5442,7 @@ impl ID3D10EffectPass {
 }
 #[repr(C)]
 pub struct ID3D10EffectPass_Vtbl {
-    pub IsValid: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
+    pub IsValid: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D10_PASS_DESC) -> windows_core::HRESULT,
     pub GetVertexShaderDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D10_PASS_SHADER_DESC) -> windows_core::HRESULT,
     pub GetGeometryShaderDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D10_PASS_SHADER_DESC) -> windows_core::HRESULT,
@@ -5455,7 +5455,7 @@ pub struct ID3D10EffectPass_Vtbl {
 unsafe impl Send for ID3D10EffectPass {}
 unsafe impl Sync for ID3D10EffectPass {}
 pub trait ID3D10EffectPass_Impl {
-    fn IsValid(&self) -> super::super::Foundation::BOOL;
+    fn IsValid(&self) -> windows_core::BOOL;
     fn GetDesc(&self, pdesc: *mut D3D10_PASS_DESC) -> windows_core::Result<()>;
     fn GetVertexShaderDesc(&self, pdesc: *mut D3D10_PASS_SHADER_DESC) -> windows_core::Result<()>;
     fn GetGeometryShaderDesc(&self, pdesc: *mut D3D10_PASS_SHADER_DESC) -> windows_core::Result<()>;
@@ -5467,7 +5467,7 @@ pub trait ID3D10EffectPass_Impl {
 }
 impl ID3D10EffectPass_Vtbl {
     pub const fn new<Identity: ID3D10EffectPass_Impl>() -> Self {
-        unsafe extern "system" fn IsValid<Identity: ID3D10EffectPass_Impl>(this: *mut core::ffi::c_void) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn IsValid<Identity: ID3D10EffectPass_Impl>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
@@ -5866,16 +5866,16 @@ impl ID3D10EffectScalarVariable {
     pub unsafe fn SetBool(&self, value: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetBool)(windows_core::Interface::as_raw(self), value.into()).ok() }
     }
-    pub unsafe fn GetBool(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn GetBool(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetBool)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetBoolArray(&self, pdata: &[super::super::Foundation::BOOL], offset: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetBoolArray(&self, pdata: &[windows_core::BOOL], offset: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetBoolArray)(windows_core::Interface::as_raw(self), core::mem::transmute(pdata.as_ptr()), offset, pdata.len().try_into().unwrap()).ok() }
     }
-    pub unsafe fn GetBoolArray(&self, pdata: &mut [super::super::Foundation::BOOL], offset: u32) -> windows_core::Result<()> {
+    pub unsafe fn GetBoolArray(&self, pdata: &mut [windows_core::BOOL], offset: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetBoolArray)(windows_core::Interface::as_raw(self), core::mem::transmute(pdata.as_ptr()), offset, pdata.len().try_into().unwrap()).ok() }
     }
 }
@@ -5890,10 +5890,10 @@ pub struct ID3D10EffectScalarVariable_Vtbl {
     pub GetInt: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetIntArray: unsafe extern "system" fn(*mut core::ffi::c_void, *const i32, u32, u32) -> windows_core::HRESULT,
     pub GetIntArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, u32, u32) -> windows_core::HRESULT,
-    pub SetBool: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub GetBool: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetBoolArray: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::BOOL, u32, u32) -> windows_core::HRESULT,
-    pub GetBoolArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL, u32, u32) -> windows_core::HRESULT,
+    pub SetBool: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
+    pub GetBool: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetBoolArray: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::BOOL, u32, u32) -> windows_core::HRESULT,
+    pub GetBoolArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL, u32, u32) -> windows_core::HRESULT,
 }
 unsafe impl Send for ID3D10EffectScalarVariable {}
 unsafe impl Sync for ID3D10EffectScalarVariable {}
@@ -5906,10 +5906,10 @@ pub trait ID3D10EffectScalarVariable_Impl: ID3D10EffectVariable_Impl {
     fn GetInt(&self) -> windows_core::Result<i32>;
     fn SetIntArray(&self, pdata: *const i32, offset: u32, count: u32) -> windows_core::Result<()>;
     fn GetIntArray(&self, pdata: *mut i32, offset: u32, count: u32) -> windows_core::Result<()>;
-    fn SetBool(&self, value: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn GetBool(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn SetBoolArray(&self, pdata: *const super::super::Foundation::BOOL, offset: u32, count: u32) -> windows_core::Result<()>;
-    fn GetBoolArray(&self, pdata: *mut super::super::Foundation::BOOL, offset: u32, count: u32) -> windows_core::Result<()>;
+    fn SetBool(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetBool(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn SetBoolArray(&self, pdata: *const windows_core::BOOL, offset: u32, count: u32) -> windows_core::Result<()>;
+    fn GetBoolArray(&self, pdata: *mut windows_core::BOOL, offset: u32, count: u32) -> windows_core::Result<()>;
 }
 impl ID3D10EffectScalarVariable_Vtbl {
     pub const fn new<Identity: ID3D10EffectScalarVariable_Impl>() -> Self {
@@ -5981,14 +5981,14 @@ impl ID3D10EffectScalarVariable_Vtbl {
                 ID3D10EffectScalarVariable_Impl::GetIntArray(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count)).into()
             }
         }
-        unsafe extern "system" fn SetBool<Identity: ID3D10EffectScalarVariable_Impl>(this: *mut core::ffi::c_void, value: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBool<Identity: ID3D10EffectScalarVariable_Impl>(this: *mut core::ffi::c_void, value: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
                 ID3D10EffectScalarVariable_Impl::SetBool(this, core::mem::transmute_copy(&value)).into()
             }
         }
-        unsafe extern "system" fn GetBool<Identity: ID3D10EffectScalarVariable_Impl>(this: *mut core::ffi::c_void, pvalue: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetBool<Identity: ID3D10EffectScalarVariable_Impl>(this: *mut core::ffi::c_void, pvalue: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
@@ -6001,14 +6001,14 @@ impl ID3D10EffectScalarVariable_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetBoolArray<Identity: ID3D10EffectScalarVariable_Impl>(this: *mut core::ffi::c_void, pdata: *const super::super::Foundation::BOOL, offset: u32, count: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBoolArray<Identity: ID3D10EffectScalarVariable_Impl>(this: *mut core::ffi::c_void, pdata: *const windows_core::BOOL, offset: u32, count: u32) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
                 ID3D10EffectScalarVariable_Impl::SetBoolArray(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count)).into()
             }
         }
-        unsafe extern "system" fn GetBoolArray<Identity: ID3D10EffectScalarVariable_Impl>(this: *mut core::ffi::c_void, pdata: *mut super::super::Foundation::BOOL, offset: u32, count: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetBoolArray<Identity: ID3D10EffectScalarVariable_Impl>(this: *mut core::ffi::c_void, pdata: *mut windows_core::BOOL, offset: u32, count: u32) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
@@ -6366,7 +6366,7 @@ impl ID3D10EffectStringVariable {
 }
 windows_core::imp::define_interface!(ID3D10EffectTechnique, ID3D10EffectTechnique_Vtbl);
 impl ID3D10EffectTechnique {
-    pub unsafe fn IsValid(&self) -> super::super::Foundation::BOOL {
+    pub unsafe fn IsValid(&self) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).IsValid)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn GetDesc(&self, pdesc: *mut D3D10_TECHNIQUE_DESC) -> windows_core::Result<()> {
@@ -6396,7 +6396,7 @@ impl ID3D10EffectTechnique {
 }
 #[repr(C)]
 pub struct ID3D10EffectTechnique_Vtbl {
-    pub IsValid: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
+    pub IsValid: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D10_TECHNIQUE_DESC) -> windows_core::HRESULT,
     pub GetAnnotationByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> Option<ID3D10EffectVariable>,
     pub GetAnnotationByName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR) -> Option<ID3D10EffectVariable>,
@@ -6407,7 +6407,7 @@ pub struct ID3D10EffectTechnique_Vtbl {
 unsafe impl Send for ID3D10EffectTechnique {}
 unsafe impl Sync for ID3D10EffectTechnique {}
 pub trait ID3D10EffectTechnique_Impl {
-    fn IsValid(&self) -> super::super::Foundation::BOOL;
+    fn IsValid(&self) -> windows_core::BOOL;
     fn GetDesc(&self, pdesc: *mut D3D10_TECHNIQUE_DESC) -> windows_core::Result<()>;
     fn GetAnnotationByIndex(&self, index: u32) -> Option<ID3D10EffectVariable>;
     fn GetAnnotationByName(&self, name: &windows_core::PCSTR) -> Option<ID3D10EffectVariable>;
@@ -6417,7 +6417,7 @@ pub trait ID3D10EffectTechnique_Impl {
 }
 impl ID3D10EffectTechnique_Vtbl {
     pub const fn new<Identity: ID3D10EffectTechnique_Impl>() -> Self {
-        unsafe extern "system" fn IsValid<Identity: ID3D10EffectTechnique_Impl>(this: *mut core::ffi::c_void) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn IsValid<Identity: ID3D10EffectTechnique_Impl>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
@@ -6490,7 +6490,7 @@ impl ID3D10EffectTechnique {
 }
 windows_core::imp::define_interface!(ID3D10EffectType, ID3D10EffectType_Vtbl);
 impl ID3D10EffectType {
-    pub unsafe fn IsValid(&self) -> super::super::Foundation::BOOL {
+    pub unsafe fn IsValid(&self) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).IsValid)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -6521,7 +6521,7 @@ impl ID3D10EffectType {
 }
 #[repr(C)]
 pub struct ID3D10EffectType_Vtbl {
-    pub IsValid: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
+    pub IsValid: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D10_EFFECT_TYPE_DESC) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D"))]
@@ -6536,7 +6536,7 @@ unsafe impl Send for ID3D10EffectType {}
 unsafe impl Sync for ID3D10EffectType {}
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub trait ID3D10EffectType_Impl {
-    fn IsValid(&self) -> super::super::Foundation::BOOL;
+    fn IsValid(&self) -> windows_core::BOOL;
     fn GetDesc(&self, pdesc: *mut D3D10_EFFECT_TYPE_DESC) -> windows_core::Result<()>;
     fn GetMemberTypeByIndex(&self, index: u32) -> Option<ID3D10EffectType>;
     fn GetMemberTypeByName(&self, name: &windows_core::PCSTR) -> Option<ID3D10EffectType>;
@@ -6547,7 +6547,7 @@ pub trait ID3D10EffectType_Impl {
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ID3D10EffectType_Vtbl {
     pub const fn new<Identity: ID3D10EffectType_Impl>() -> Self {
-        unsafe extern "system" fn IsValid<Identity: ID3D10EffectType_Impl>(this: *mut core::ffi::c_void) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn IsValid<Identity: ID3D10EffectType_Impl>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
@@ -6623,7 +6623,7 @@ impl ID3D10EffectType {
 }
 windows_core::imp::define_interface!(ID3D10EffectVariable, ID3D10EffectVariable_Vtbl);
 impl ID3D10EffectVariable {
-    pub unsafe fn IsValid(&self) -> super::super::Foundation::BOOL {
+    pub unsafe fn IsValid(&self) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).IsValid)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn GetType(&self) -> Option<ID3D10EffectType> {
@@ -6710,7 +6710,7 @@ impl ID3D10EffectVariable {
 }
 #[repr(C)]
 pub struct ID3D10EffectVariable_Vtbl {
-    pub IsValid: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
+    pub IsValid: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void) -> Option<ID3D10EffectType>,
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D10_EFFECT_VARIABLE_DESC) -> windows_core::HRESULT,
     pub GetAnnotationByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> Option<ID3D10EffectVariable>,
@@ -6739,7 +6739,7 @@ pub struct ID3D10EffectVariable_Vtbl {
 unsafe impl Send for ID3D10EffectVariable {}
 unsafe impl Sync for ID3D10EffectVariable {}
 pub trait ID3D10EffectVariable_Impl {
-    fn IsValid(&self) -> super::super::Foundation::BOOL;
+    fn IsValid(&self) -> windows_core::BOOL;
     fn GetType(&self) -> Option<ID3D10EffectType>;
     fn GetDesc(&self, pdesc: *mut D3D10_EFFECT_VARIABLE_DESC) -> windows_core::Result<()>;
     fn GetAnnotationByIndex(&self, index: u32) -> Option<ID3D10EffectVariable>;
@@ -6767,7 +6767,7 @@ pub trait ID3D10EffectVariable_Impl {
 }
 impl ID3D10EffectVariable_Vtbl {
     pub const fn new<Identity: ID3D10EffectVariable_Impl>() -> Self {
-        unsafe extern "system" fn IsValid<Identity: ID3D10EffectVariable_Impl>(this: *mut core::ffi::c_void) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn IsValid<Identity: ID3D10EffectVariable_Impl>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
@@ -6991,7 +6991,7 @@ impl core::ops::Deref for ID3D10EffectVectorVariable {
 }
 windows_core::imp::interface_hierarchy!(ID3D10EffectVectorVariable, ID3D10EffectVariable);
 impl ID3D10EffectVectorVariable {
-    pub unsafe fn SetBoolVector(&self, pdata: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetBoolVector(&self, pdata: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetBoolVector)(windows_core::Interface::as_raw(self), pdata as _).ok() }
     }
     pub unsafe fn SetIntVector(&self, pdata: *mut i32) -> windows_core::Result<()> {
@@ -7000,7 +7000,7 @@ impl ID3D10EffectVectorVariable {
     pub unsafe fn SetFloatVector(&self, pdata: *mut f32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetFloatVector)(windows_core::Interface::as_raw(self), pdata as _).ok() }
     }
-    pub unsafe fn GetBoolVector(&self, pdata: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn GetBoolVector(&self, pdata: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetBoolVector)(windows_core::Interface::as_raw(self), pdata as _).ok() }
     }
     pub unsafe fn GetIntVector(&self, pdata: *mut i32) -> windows_core::Result<()> {
@@ -7009,7 +7009,7 @@ impl ID3D10EffectVectorVariable {
     pub unsafe fn GetFloatVector(&self, pdata: *mut f32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetFloatVector)(windows_core::Interface::as_raw(self), pdata as _).ok() }
     }
-    pub unsafe fn SetBoolVectorArray(&self, pdata: *mut super::super::Foundation::BOOL, offset: u32, count: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetBoolVectorArray(&self, pdata: *mut windows_core::BOOL, offset: u32, count: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetBoolVectorArray)(windows_core::Interface::as_raw(self), pdata as _, offset, count).ok() }
     }
     pub unsafe fn SetIntVectorArray(&self, pdata: *mut i32, offset: u32, count: u32) -> windows_core::Result<()> {
@@ -7018,7 +7018,7 @@ impl ID3D10EffectVectorVariable {
     pub unsafe fn SetFloatVectorArray(&self, pdata: *mut f32, offset: u32, count: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetFloatVectorArray)(windows_core::Interface::as_raw(self), pdata as _, offset, count).ok() }
     }
-    pub unsafe fn GetBoolVectorArray(&self, pdata: *mut super::super::Foundation::BOOL, offset: u32, count: u32) -> windows_core::Result<()> {
+    pub unsafe fn GetBoolVectorArray(&self, pdata: *mut windows_core::BOOL, offset: u32, count: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetBoolVectorArray)(windows_core::Interface::as_raw(self), pdata as _, offset, count).ok() }
     }
     pub unsafe fn GetIntVectorArray(&self, pdata: *mut i32, offset: u32, count: u32) -> windows_core::Result<()> {
@@ -7031,38 +7031,38 @@ impl ID3D10EffectVectorVariable {
 #[repr(C)]
 pub struct ID3D10EffectVectorVariable_Vtbl {
     pub base__: ID3D10EffectVariable_Vtbl,
-    pub SetBoolVector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SetBoolVector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub SetIntVector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetFloatVector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub GetBoolVector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetBoolVector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetIntVector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub GetFloatVector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SetBoolVectorArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL, u32, u32) -> windows_core::HRESULT,
+    pub SetBoolVectorArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL, u32, u32) -> windows_core::HRESULT,
     pub SetIntVectorArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, u32, u32) -> windows_core::HRESULT,
     pub SetFloatVectorArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32, u32, u32) -> windows_core::HRESULT,
-    pub GetBoolVectorArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL, u32, u32) -> windows_core::HRESULT,
+    pub GetBoolVectorArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL, u32, u32) -> windows_core::HRESULT,
     pub GetIntVectorArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, u32, u32) -> windows_core::HRESULT,
     pub GetFloatVectorArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32, u32, u32) -> windows_core::HRESULT,
 }
 unsafe impl Send for ID3D10EffectVectorVariable {}
 unsafe impl Sync for ID3D10EffectVectorVariable {}
 pub trait ID3D10EffectVectorVariable_Impl: ID3D10EffectVariable_Impl {
-    fn SetBoolVector(&self, pdata: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn SetBoolVector(&self, pdata: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn SetIntVector(&self, pdata: *mut i32) -> windows_core::Result<()>;
     fn SetFloatVector(&self, pdata: *mut f32) -> windows_core::Result<()>;
-    fn GetBoolVector(&self, pdata: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn GetBoolVector(&self, pdata: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn GetIntVector(&self, pdata: *mut i32) -> windows_core::Result<()>;
     fn GetFloatVector(&self, pdata: *mut f32) -> windows_core::Result<()>;
-    fn SetBoolVectorArray(&self, pdata: *mut super::super::Foundation::BOOL, offset: u32, count: u32) -> windows_core::Result<()>;
+    fn SetBoolVectorArray(&self, pdata: *mut windows_core::BOOL, offset: u32, count: u32) -> windows_core::Result<()>;
     fn SetIntVectorArray(&self, pdata: *mut i32, offset: u32, count: u32) -> windows_core::Result<()>;
     fn SetFloatVectorArray(&self, pdata: *mut f32, offset: u32, count: u32) -> windows_core::Result<()>;
-    fn GetBoolVectorArray(&self, pdata: *mut super::super::Foundation::BOOL, offset: u32, count: u32) -> windows_core::Result<()>;
+    fn GetBoolVectorArray(&self, pdata: *mut windows_core::BOOL, offset: u32, count: u32) -> windows_core::Result<()>;
     fn GetIntVectorArray(&self, pdata: *mut i32, offset: u32, count: u32) -> windows_core::Result<()>;
     fn GetFloatVectorArray(&self, pdata: *mut f32, offset: u32, count: u32) -> windows_core::Result<()>;
 }
 impl ID3D10EffectVectorVariable_Vtbl {
     pub const fn new<Identity: ID3D10EffectVectorVariable_Impl>() -> Self {
-        unsafe extern "system" fn SetBoolVector<Identity: ID3D10EffectVectorVariable_Impl>(this: *mut core::ffi::c_void, pdata: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBoolVector<Identity: ID3D10EffectVectorVariable_Impl>(this: *mut core::ffi::c_void, pdata: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
@@ -7083,7 +7083,7 @@ impl ID3D10EffectVectorVariable_Vtbl {
                 ID3D10EffectVectorVariable_Impl::SetFloatVector(this, core::mem::transmute_copy(&pdata)).into()
             }
         }
-        unsafe extern "system" fn GetBoolVector<Identity: ID3D10EffectVectorVariable_Impl>(this: *mut core::ffi::c_void, pdata: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetBoolVector<Identity: ID3D10EffectVectorVariable_Impl>(this: *mut core::ffi::c_void, pdata: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
@@ -7104,7 +7104,7 @@ impl ID3D10EffectVectorVariable_Vtbl {
                 ID3D10EffectVectorVariable_Impl::GetFloatVector(this, core::mem::transmute_copy(&pdata)).into()
             }
         }
-        unsafe extern "system" fn SetBoolVectorArray<Identity: ID3D10EffectVectorVariable_Impl>(this: *mut core::ffi::c_void, pdata: *mut super::super::Foundation::BOOL, offset: u32, count: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBoolVectorArray<Identity: ID3D10EffectVectorVariable_Impl>(this: *mut core::ffi::c_void, pdata: *mut windows_core::BOOL, offset: u32, count: u32) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
@@ -7125,7 +7125,7 @@ impl ID3D10EffectVectorVariable_Vtbl {
                 ID3D10EffectVectorVariable_Impl::SetFloatVectorArray(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count)).into()
             }
         }
-        unsafe extern "system" fn GetBoolVectorArray<Identity: ID3D10EffectVectorVariable_Impl>(this: *mut core::ffi::c_void, pdata: *mut super::super::Foundation::BOOL, offset: u32, count: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetBoolVectorArray<Identity: ID3D10EffectVectorVariable_Impl>(this: *mut core::ffi::c_void, pdata: *mut windows_core::BOOL, offset: u32, count: u32) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
@@ -7297,19 +7297,19 @@ impl ID3D10InfoQueue {
     pub unsafe fn SetBreakOnID(&self, id: D3D10_MESSAGE_ID, benable: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetBreakOnID)(windows_core::Interface::as_raw(self), id, benable.into()).ok() }
     }
-    pub unsafe fn GetBreakOnCategory(&self, category: D3D10_MESSAGE_CATEGORY) -> super::super::Foundation::BOOL {
+    pub unsafe fn GetBreakOnCategory(&self, category: D3D10_MESSAGE_CATEGORY) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).GetBreakOnCategory)(windows_core::Interface::as_raw(self), category) }
     }
-    pub unsafe fn GetBreakOnSeverity(&self, severity: D3D10_MESSAGE_SEVERITY) -> super::super::Foundation::BOOL {
+    pub unsafe fn GetBreakOnSeverity(&self, severity: D3D10_MESSAGE_SEVERITY) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).GetBreakOnSeverity)(windows_core::Interface::as_raw(self), severity) }
     }
-    pub unsafe fn GetBreakOnID(&self, id: D3D10_MESSAGE_ID) -> super::super::Foundation::BOOL {
+    pub unsafe fn GetBreakOnID(&self, id: D3D10_MESSAGE_ID) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).GetBreakOnID)(windows_core::Interface::as_raw(self), id) }
     }
     pub unsafe fn SetMuteDebugOutput(&self, bmute: bool) {
         unsafe { (windows_core::Interface::vtable(self).SetMuteDebugOutput)(windows_core::Interface::as_raw(self), bmute.into()) }
     }
-    pub unsafe fn GetMuteDebugOutput(&self) -> super::super::Foundation::BOOL {
+    pub unsafe fn GetMuteDebugOutput(&self) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).GetMuteDebugOutput)(windows_core::Interface::as_raw(self)) }
     }
 }
@@ -7343,14 +7343,14 @@ pub struct ID3D10InfoQueue_Vtbl {
     pub GetRetrievalFilterStackSize: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub AddMessage: unsafe extern "system" fn(*mut core::ffi::c_void, D3D10_MESSAGE_CATEGORY, D3D10_MESSAGE_SEVERITY, D3D10_MESSAGE_ID, windows_core::PCSTR) -> windows_core::HRESULT,
     pub AddApplicationMessage: unsafe extern "system" fn(*mut core::ffi::c_void, D3D10_MESSAGE_SEVERITY, windows_core::PCSTR) -> windows_core::HRESULT,
-    pub SetBreakOnCategory: unsafe extern "system" fn(*mut core::ffi::c_void, D3D10_MESSAGE_CATEGORY, super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetBreakOnSeverity: unsafe extern "system" fn(*mut core::ffi::c_void, D3D10_MESSAGE_SEVERITY, super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetBreakOnID: unsafe extern "system" fn(*mut core::ffi::c_void, D3D10_MESSAGE_ID, super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub GetBreakOnCategory: unsafe extern "system" fn(*mut core::ffi::c_void, D3D10_MESSAGE_CATEGORY) -> super::super::Foundation::BOOL,
-    pub GetBreakOnSeverity: unsafe extern "system" fn(*mut core::ffi::c_void, D3D10_MESSAGE_SEVERITY) -> super::super::Foundation::BOOL,
-    pub GetBreakOnID: unsafe extern "system" fn(*mut core::ffi::c_void, D3D10_MESSAGE_ID) -> super::super::Foundation::BOOL,
-    pub SetMuteDebugOutput: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL),
-    pub GetMuteDebugOutput: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
+    pub SetBreakOnCategory: unsafe extern "system" fn(*mut core::ffi::c_void, D3D10_MESSAGE_CATEGORY, windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetBreakOnSeverity: unsafe extern "system" fn(*mut core::ffi::c_void, D3D10_MESSAGE_SEVERITY, windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetBreakOnID: unsafe extern "system" fn(*mut core::ffi::c_void, D3D10_MESSAGE_ID, windows_core::BOOL) -> windows_core::HRESULT,
+    pub GetBreakOnCategory: unsafe extern "system" fn(*mut core::ffi::c_void, D3D10_MESSAGE_CATEGORY) -> windows_core::BOOL,
+    pub GetBreakOnSeverity: unsafe extern "system" fn(*mut core::ffi::c_void, D3D10_MESSAGE_SEVERITY) -> windows_core::BOOL,
+    pub GetBreakOnID: unsafe extern "system" fn(*mut core::ffi::c_void, D3D10_MESSAGE_ID) -> windows_core::BOOL,
+    pub SetMuteDebugOutput: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL),
+    pub GetMuteDebugOutput: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
 }
 unsafe impl Send for ID3D10InfoQueue {}
 unsafe impl Sync for ID3D10InfoQueue {}
@@ -7382,14 +7382,14 @@ pub trait ID3D10InfoQueue_Impl: windows_core::IUnknownImpl {
     fn GetRetrievalFilterStackSize(&self) -> u32;
     fn AddMessage(&self, category: D3D10_MESSAGE_CATEGORY, severity: D3D10_MESSAGE_SEVERITY, id: D3D10_MESSAGE_ID, pdescription: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn AddApplicationMessage(&self, severity: D3D10_MESSAGE_SEVERITY, pdescription: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn SetBreakOnCategory(&self, category: D3D10_MESSAGE_CATEGORY, benable: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn SetBreakOnSeverity(&self, severity: D3D10_MESSAGE_SEVERITY, benable: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn SetBreakOnID(&self, id: D3D10_MESSAGE_ID, benable: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn GetBreakOnCategory(&self, category: D3D10_MESSAGE_CATEGORY) -> super::super::Foundation::BOOL;
-    fn GetBreakOnSeverity(&self, severity: D3D10_MESSAGE_SEVERITY) -> super::super::Foundation::BOOL;
-    fn GetBreakOnID(&self, id: D3D10_MESSAGE_ID) -> super::super::Foundation::BOOL;
-    fn SetMuteDebugOutput(&self, bmute: super::super::Foundation::BOOL);
-    fn GetMuteDebugOutput(&self) -> super::super::Foundation::BOOL;
+    fn SetBreakOnCategory(&self, category: D3D10_MESSAGE_CATEGORY, benable: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetBreakOnSeverity(&self, severity: D3D10_MESSAGE_SEVERITY, benable: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetBreakOnID(&self, id: D3D10_MESSAGE_ID, benable: windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetBreakOnCategory(&self, category: D3D10_MESSAGE_CATEGORY) -> windows_core::BOOL;
+    fn GetBreakOnSeverity(&self, severity: D3D10_MESSAGE_SEVERITY) -> windows_core::BOOL;
+    fn GetBreakOnID(&self, id: D3D10_MESSAGE_ID) -> windows_core::BOOL;
+    fn SetMuteDebugOutput(&self, bmute: windows_core::BOOL);
+    fn GetMuteDebugOutput(&self) -> windows_core::BOOL;
 }
 impl ID3D10InfoQueue_Vtbl {
     pub const fn new<Identity: ID3D10InfoQueue_Impl, const OFFSET: isize>() -> Self {
@@ -7555,49 +7555,49 @@ impl ID3D10InfoQueue_Vtbl {
                 ID3D10InfoQueue_Impl::AddApplicationMessage(this, core::mem::transmute_copy(&severity), core::mem::transmute(&pdescription)).into()
             }
         }
-        unsafe extern "system" fn SetBreakOnCategory<Identity: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, category: D3D10_MESSAGE_CATEGORY, benable: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBreakOnCategory<Identity: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, category: D3D10_MESSAGE_CATEGORY, benable: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D10InfoQueue_Impl::SetBreakOnCategory(this, core::mem::transmute_copy(&category), core::mem::transmute_copy(&benable)).into()
             }
         }
-        unsafe extern "system" fn SetBreakOnSeverity<Identity: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, severity: D3D10_MESSAGE_SEVERITY, benable: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBreakOnSeverity<Identity: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, severity: D3D10_MESSAGE_SEVERITY, benable: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D10InfoQueue_Impl::SetBreakOnSeverity(this, core::mem::transmute_copy(&severity), core::mem::transmute_copy(&benable)).into()
             }
         }
-        unsafe extern "system" fn SetBreakOnID<Identity: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: D3D10_MESSAGE_ID, benable: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBreakOnID<Identity: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: D3D10_MESSAGE_ID, benable: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D10InfoQueue_Impl::SetBreakOnID(this, core::mem::transmute_copy(&id), core::mem::transmute_copy(&benable)).into()
             }
         }
-        unsafe extern "system" fn GetBreakOnCategory<Identity: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, category: D3D10_MESSAGE_CATEGORY) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn GetBreakOnCategory<Identity: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, category: D3D10_MESSAGE_CATEGORY) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D10InfoQueue_Impl::GetBreakOnCategory(this, core::mem::transmute_copy(&category))
             }
         }
-        unsafe extern "system" fn GetBreakOnSeverity<Identity: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, severity: D3D10_MESSAGE_SEVERITY) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn GetBreakOnSeverity<Identity: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, severity: D3D10_MESSAGE_SEVERITY) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D10InfoQueue_Impl::GetBreakOnSeverity(this, core::mem::transmute_copy(&severity))
             }
         }
-        unsafe extern "system" fn GetBreakOnID<Identity: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: D3D10_MESSAGE_ID) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn GetBreakOnID<Identity: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: D3D10_MESSAGE_ID) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D10InfoQueue_Impl::GetBreakOnID(this, core::mem::transmute_copy(&id))
             }
         }
-        unsafe extern "system" fn SetMuteDebugOutput<Identity: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bmute: super::super::Foundation::BOOL) {
+        unsafe extern "system" fn SetMuteDebugOutput<Identity: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bmute: windows_core::BOOL) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D10InfoQueue_Impl::SetMuteDebugOutput(this, core::mem::transmute_copy(&bmute))
             }
         }
-        unsafe extern "system" fn GetMuteDebugOutput<Identity: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn GetMuteDebugOutput<Identity: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D10InfoQueue_Impl::GetMuteDebugOutput(this)
@@ -7680,10 +7680,10 @@ impl ID3D10Multithread {
     pub unsafe fn Leave(&self) {
         unsafe { (windows_core::Interface::vtable(self).Leave)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn SetMultithreadProtected(&self, bmtprotect: bool) -> super::super::Foundation::BOOL {
+    pub unsafe fn SetMultithreadProtected(&self, bmtprotect: bool) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).SetMultithreadProtected)(windows_core::Interface::as_raw(self), bmtprotect.into()) }
     }
-    pub unsafe fn GetMultithreadProtected(&self) -> super::super::Foundation::BOOL {
+    pub unsafe fn GetMultithreadProtected(&self) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).GetMultithreadProtected)(windows_core::Interface::as_raw(self)) }
     }
 }
@@ -7692,16 +7692,16 @@ pub struct ID3D10Multithread_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Enter: unsafe extern "system" fn(*mut core::ffi::c_void),
     pub Leave: unsafe extern "system" fn(*mut core::ffi::c_void),
-    pub SetMultithreadProtected: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> super::super::Foundation::BOOL,
-    pub GetMultithreadProtected: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
+    pub SetMultithreadProtected: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::BOOL,
+    pub GetMultithreadProtected: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
 }
 unsafe impl Send for ID3D10Multithread {}
 unsafe impl Sync for ID3D10Multithread {}
 pub trait ID3D10Multithread_Impl: windows_core::IUnknownImpl {
     fn Enter(&self);
     fn Leave(&self);
-    fn SetMultithreadProtected(&self, bmtprotect: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    fn GetMultithreadProtected(&self) -> super::super::Foundation::BOOL;
+    fn SetMultithreadProtected(&self, bmtprotect: windows_core::BOOL) -> windows_core::BOOL;
+    fn GetMultithreadProtected(&self) -> windows_core::BOOL;
 }
 impl ID3D10Multithread_Vtbl {
     pub const fn new<Identity: ID3D10Multithread_Impl, const OFFSET: isize>() -> Self {
@@ -7717,13 +7717,13 @@ impl ID3D10Multithread_Vtbl {
                 ID3D10Multithread_Impl::Leave(this)
             }
         }
-        unsafe extern "system" fn SetMultithreadProtected<Identity: ID3D10Multithread_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bmtprotect: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn SetMultithreadProtected<Identity: ID3D10Multithread_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bmtprotect: windows_core::BOOL) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D10Multithread_Impl::SetMultithreadProtected(this, core::mem::transmute_copy(&bmtprotect))
             }
         }
-        unsafe extern "system" fn GetMultithreadProtected<Identity: ID3D10Multithread_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn GetMultithreadProtected<Identity: ID3D10Multithread_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D10Multithread_Impl::GetMultithreadProtected(this)
@@ -8211,13 +8211,13 @@ impl ID3D10ShaderReflection1 {
             (windows_core::Interface::vtable(self).GetGSInputPrimitive)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsLevel9Shader(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsLevel9Shader(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsLevel9Shader)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsSampleFrequencyShader(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsSampleFrequencyShader(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsSampleFrequencyShader)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -8258,8 +8258,8 @@ pub struct ID3D10ShaderReflection1_Vtbl {
     pub GetGSInputPrimitive: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Direct3D::D3D_PRIMITIVE) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D"))]
     GetGSInputPrimitive: usize,
-    pub IsLevel9Shader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub IsSampleFrequencyShader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsLevel9Shader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub IsSampleFrequencyShader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 unsafe impl Send for ID3D10ShaderReflection1 {}
 unsafe impl Sync for ID3D10ShaderReflection1 {}
@@ -8278,8 +8278,8 @@ pub trait ID3D10ShaderReflection1_Impl: windows_core::IUnknownImpl {
     fn GetConversionInstructionCount(&self) -> windows_core::Result<u32>;
     fn GetBitwiseInstructionCount(&self) -> windows_core::Result<u32>;
     fn GetGSInputPrimitive(&self) -> windows_core::Result<super::Direct3D::D3D_PRIMITIVE>;
-    fn IsLevel9Shader(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn IsSampleFrequencyShader(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn IsLevel9Shader(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn IsSampleFrequencyShader(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ID3D10ShaderReflection1_Vtbl {
@@ -8392,7 +8392,7 @@ impl ID3D10ShaderReflection1_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsLevel9Shader<Identity: ID3D10ShaderReflection1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pblevel9shader: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsLevel9Shader<Identity: ID3D10ShaderReflection1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pblevel9shader: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D10ShaderReflection1_Impl::IsLevel9Shader(this) {
@@ -8404,7 +8404,7 @@ impl ID3D10ShaderReflection1_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsSampleFrequencyShader<Identity: ID3D10ShaderReflection1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbsamplefrequency: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsSampleFrequencyShader<Identity: ID3D10ShaderReflection1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbsamplefrequency: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D10ShaderReflection1_Impl::IsSampleFrequencyShader(this) {
@@ -8829,34 +8829,34 @@ impl windows_core::RuntimeName for ID3D10StateBlock {}
 windows_core::imp::define_interface!(ID3D10SwitchToRef, ID3D10SwitchToRef_Vtbl, 0x9b7e4e02_342c_4106_a19f_4f2704f689f0);
 windows_core::imp::interface_hierarchy!(ID3D10SwitchToRef, windows_core::IUnknown);
 impl ID3D10SwitchToRef {
-    pub unsafe fn SetUseRef(&self, useref: bool) -> super::super::Foundation::BOOL {
+    pub unsafe fn SetUseRef(&self, useref: bool) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).SetUseRef)(windows_core::Interface::as_raw(self), useref.into()) }
     }
-    pub unsafe fn GetUseRef(&self) -> super::super::Foundation::BOOL {
+    pub unsafe fn GetUseRef(&self) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).GetUseRef)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[repr(C)]
 pub struct ID3D10SwitchToRef_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub SetUseRef: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> super::super::Foundation::BOOL,
-    pub GetUseRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
+    pub SetUseRef: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::BOOL,
+    pub GetUseRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
 }
 unsafe impl Send for ID3D10SwitchToRef {}
 unsafe impl Sync for ID3D10SwitchToRef {}
 pub trait ID3D10SwitchToRef_Impl: windows_core::IUnknownImpl {
-    fn SetUseRef(&self, useref: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    fn GetUseRef(&self) -> super::super::Foundation::BOOL;
+    fn SetUseRef(&self, useref: windows_core::BOOL) -> windows_core::BOOL;
+    fn GetUseRef(&self) -> windows_core::BOOL;
 }
 impl ID3D10SwitchToRef_Vtbl {
     pub const fn new<Identity: ID3D10SwitchToRef_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetUseRef<Identity: ID3D10SwitchToRef_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, useref: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn SetUseRef<Identity: ID3D10SwitchToRef_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, useref: windows_core::BOOL) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D10SwitchToRef_Impl::SetUseRef(this, core::mem::transmute_copy(&useref))
             }
         }
-        unsafe extern "system" fn GetUseRef<Identity: ID3D10SwitchToRef_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn GetUseRef<Identity: ID3D10SwitchToRef_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D10SwitchToRef_Impl::GetUseRef(this)

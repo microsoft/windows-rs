@@ -8,6 +8,6 @@
 
 #[inline]
 pub unsafe fn EnableMouseInPointer(fenable: bool) -> windows_core::Result<()> {
-    windows_targets::link!("user32.dll" "system" fn EnableMouseInPointer(fenable : windows::Win32::Foundation:: BOOL) -> windows::Win32::Foundation:: BOOL);
+    windows_targets::link!("user32.dll" "system" fn EnableMouseInPointer(fenable : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { EnableMouseInPointer(fenable.into()).ok() }
 }

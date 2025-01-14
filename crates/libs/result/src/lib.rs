@@ -31,5 +31,8 @@ pub use error::*;
 mod hresult;
 pub use hresult::HRESULT;
 
+mod bool;
+pub use bool::BOOL;
+
 /// A specialized [`Result`] type that provides Windows error information.
 pub type Result<T> = core::result::Result<T, Error>;

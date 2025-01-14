@@ -1,23 +1,23 @@
 #[inline]
-pub unsafe fn ChooseColorA(param0: *mut CHOOSECOLORA) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("comdlg32.dll" "system" fn ChooseColorA(param0 : *mut CHOOSECOLORA) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ChooseColorA(param0: *mut CHOOSECOLORA) -> windows_core::BOOL {
+    windows_targets::link!("comdlg32.dll" "system" fn ChooseColorA(param0 : *mut CHOOSECOLORA) -> windows_core::BOOL);
     unsafe { ChooseColorA(param0 as _) }
 }
 #[inline]
-pub unsafe fn ChooseColorW(param0: *mut CHOOSECOLORW) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("comdlg32.dll" "system" fn ChooseColorW(param0 : *mut CHOOSECOLORW) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ChooseColorW(param0: *mut CHOOSECOLORW) -> windows_core::BOOL {
+    windows_targets::link!("comdlg32.dll" "system" fn ChooseColorW(param0 : *mut CHOOSECOLORW) -> windows_core::BOOL);
     unsafe { ChooseColorW(param0 as _) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ChooseFontA(param0: *mut CHOOSEFONTA) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("comdlg32.dll" "system" fn ChooseFontA(param0 : *mut CHOOSEFONTA) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ChooseFontA(param0: *mut CHOOSEFONTA) -> windows_core::BOOL {
+    windows_targets::link!("comdlg32.dll" "system" fn ChooseFontA(param0 : *mut CHOOSEFONTA) -> windows_core::BOOL);
     unsafe { ChooseFontA(param0 as _) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ChooseFontW(param0: *mut CHOOSEFONTW) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("comdlg32.dll" "system" fn ChooseFontW(param0 : *mut CHOOSEFONTW) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ChooseFontW(param0: *mut CHOOSEFONTW) -> windows_core::BOOL {
+    windows_targets::link!("comdlg32.dll" "system" fn ChooseFontW(param0 : *mut CHOOSEFONTW) -> windows_core::BOOL);
     unsafe { ChooseFontW(param0 as _) }
 }
 #[inline]
@@ -52,39 +52,39 @@ where
     unsafe { GetFileTitleW(param0.param().abi(), core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap()) }
 }
 #[inline]
-pub unsafe fn GetOpenFileNameA(param0: *mut OPENFILENAMEA) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("comdlg32.dll" "system" fn GetOpenFileNameA(param0 : *mut OPENFILENAMEA) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn GetOpenFileNameA(param0: *mut OPENFILENAMEA) -> windows_core::BOOL {
+    windows_targets::link!("comdlg32.dll" "system" fn GetOpenFileNameA(param0 : *mut OPENFILENAMEA) -> windows_core::BOOL);
     unsafe { GetOpenFileNameA(param0 as _) }
 }
 #[inline]
-pub unsafe fn GetOpenFileNameW(param0: *mut OPENFILENAMEW) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("comdlg32.dll" "system" fn GetOpenFileNameW(param0 : *mut OPENFILENAMEW) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn GetOpenFileNameW(param0: *mut OPENFILENAMEW) -> windows_core::BOOL {
+    windows_targets::link!("comdlg32.dll" "system" fn GetOpenFileNameW(param0 : *mut OPENFILENAMEW) -> windows_core::BOOL);
     unsafe { GetOpenFileNameW(param0 as _) }
 }
 #[inline]
-pub unsafe fn GetSaveFileNameA(param0: *mut OPENFILENAMEA) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("comdlg32.dll" "system" fn GetSaveFileNameA(param0 : *mut OPENFILENAMEA) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn GetSaveFileNameA(param0: *mut OPENFILENAMEA) -> windows_core::BOOL {
+    windows_targets::link!("comdlg32.dll" "system" fn GetSaveFileNameA(param0 : *mut OPENFILENAMEA) -> windows_core::BOOL);
     unsafe { GetSaveFileNameA(param0 as _) }
 }
 #[inline]
-pub unsafe fn GetSaveFileNameW(param0: *mut OPENFILENAMEW) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("comdlg32.dll" "system" fn GetSaveFileNameW(param0 : *mut OPENFILENAMEW) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn GetSaveFileNameW(param0: *mut OPENFILENAMEW) -> windows_core::BOOL {
+    windows_targets::link!("comdlg32.dll" "system" fn GetSaveFileNameW(param0 : *mut OPENFILENAMEW) -> windows_core::BOOL);
     unsafe { GetSaveFileNameW(param0 as _) }
 }
 #[inline]
-pub unsafe fn PageSetupDlgA(param0: *mut PAGESETUPDLGA) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("comdlg32.dll" "system" fn PageSetupDlgA(param0 : *mut PAGESETUPDLGA) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn PageSetupDlgA(param0: *mut PAGESETUPDLGA) -> windows_core::BOOL {
+    windows_targets::link!("comdlg32.dll" "system" fn PageSetupDlgA(param0 : *mut PAGESETUPDLGA) -> windows_core::BOOL);
     unsafe { PageSetupDlgA(param0 as _) }
 }
 #[inline]
-pub unsafe fn PageSetupDlgW(param0: *mut PAGESETUPDLGW) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("comdlg32.dll" "system" fn PageSetupDlgW(param0 : *mut PAGESETUPDLGW) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn PageSetupDlgW(param0: *mut PAGESETUPDLGW) -> windows_core::BOOL {
+    windows_targets::link!("comdlg32.dll" "system" fn PageSetupDlgW(param0 : *mut PAGESETUPDLGW) -> windows_core::BOOL);
     unsafe { PageSetupDlgW(param0 as _) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn PrintDlgA(ppd: *mut PRINTDLGA) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("comdlg32.dll" "system" fn PrintDlgA(ppd : *mut PRINTDLGA) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn PrintDlgA(ppd: *mut PRINTDLGA) -> windows_core::BOOL {
+    windows_targets::link!("comdlg32.dll" "system" fn PrintDlgA(ppd : *mut PRINTDLGA) -> windows_core::BOOL);
     unsafe { PrintDlgA(ppd as _) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -101,8 +101,8 @@ pub unsafe fn PrintDlgExW(ppd: *mut PRINTDLGEXW) -> windows_core::Result<()> {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn PrintDlgW(ppd: *mut PRINTDLGW) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("comdlg32.dll" "system" fn PrintDlgW(ppd : *mut PRINTDLGW) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn PrintDlgW(ppd: *mut PRINTDLGW) -> windows_core::BOOL {
+    windows_targets::link!("comdlg32.dll" "system" fn PrintDlgW(ppd : *mut PRINTDLGW) -> windows_core::BOOL);
     unsafe { PrintDlgW(ppd as _) }
 }
 #[inline]

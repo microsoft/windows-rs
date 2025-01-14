@@ -2,7 +2,7 @@
 windows_targets::link!("propsys.dll" "system" fn ClearVariantArray(pvars : *mut VARIANT, cvars : u32));
 windows_targets::link!("oleaut32.dll" "system" fn DosDateTimeToVariantTime(wdosdate : u16, wdostime : u16, pvtime : *mut f64) -> i32);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-windows_targets::link!("propsys.dll" "system" fn InitVariantFromBooleanArray(prgf : *const super::super::Foundation:: BOOL, celems : u32, pvar : *mut VARIANT) -> windows_sys::core::HRESULT);
+windows_targets::link!("propsys.dll" "system" fn InitVariantFromBooleanArray(prgf : *const windows_sys::core::BOOL, celems : u32, pvar : *mut VARIANT) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_targets::link!("propsys.dll" "system" fn InitVariantFromBuffer(pv : *const core::ffi::c_void, cb : u32, pvar : *mut VARIANT) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -61,7 +61,7 @@ windows_targets::link!("oleaut32.dll" "system" fn VariantCopy(pvargdest : *mut V
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_targets::link!("oleaut32.dll" "system" fn VariantCopyInd(pvardest : *mut VARIANT, pvargsrc : *const VARIANT) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-windows_targets::link!("propsys.dll" "system" fn VariantGetBooleanElem(var : *const VARIANT, ielem : u32, pfval : *mut super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+windows_targets::link!("propsys.dll" "system" fn VariantGetBooleanElem(var : *const VARIANT, ielem : u32, pfval : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_targets::link!("propsys.dll" "system" fn VariantGetDoubleElem(var : *const VARIANT, ielem : u32, pnval : *mut f64) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -85,13 +85,13 @@ windows_targets::link!("oleaut32.dll" "system" fn VariantInit(pvarg : *mut VARIA
 windows_targets::link!("oleaut32.dll" "system" fn VariantTimeToDosDateTime(vtime : f64, pwdosdate : *mut u16, pwdostime : *mut u16) -> i32);
 windows_targets::link!("oleaut32.dll" "system" fn VariantTimeToSystemTime(vtime : f64, lpsystemtime : *mut super::super::Foundation:: SYSTEMTIME) -> i32);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-windows_targets::link!("propsys.dll" "system" fn VariantToBoolean(varin : *const VARIANT, pfret : *mut super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+windows_targets::link!("propsys.dll" "system" fn VariantToBoolean(varin : *const VARIANT, pfret : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-windows_targets::link!("propsys.dll" "system" fn VariantToBooleanArray(var : *const VARIANT, prgf : *mut super::super::Foundation:: BOOL, crgn : u32, pcelem : *mut u32) -> windows_sys::core::HRESULT);
+windows_targets::link!("propsys.dll" "system" fn VariantToBooleanArray(var : *const VARIANT, prgf : *mut windows_sys::core::BOOL, crgn : u32, pcelem : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-windows_targets::link!("propsys.dll" "system" fn VariantToBooleanArrayAlloc(var : *const VARIANT, pprgf : *mut *mut super::super::Foundation:: BOOL, pcelem : *mut u32) -> windows_sys::core::HRESULT);
+windows_targets::link!("propsys.dll" "system" fn VariantToBooleanArrayAlloc(var : *const VARIANT, pprgf : *mut *mut windows_sys::core::BOOL, pcelem : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-windows_targets::link!("propsys.dll" "system" fn VariantToBooleanWithDefault(varin : *const VARIANT, fdefault : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+windows_targets::link!("propsys.dll" "system" fn VariantToBooleanWithDefault(varin : *const VARIANT, fdefault : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_targets::link!("propsys.dll" "system" fn VariantToBuffer(varin : *const VARIANT, pv : *mut core::ffi::c_void, cb : u32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]

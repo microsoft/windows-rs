@@ -46,7 +46,7 @@ pub struct CProperty {
     pub cbData: u32,
     pub dwType: u32,
     pub Anonymous: CProperty_0,
-    pub fPersist: super::super::Foundation::BOOL,
+    pub fPersist: windows_core::BOOL,
 }
 impl Default for CProperty {
     fn default() -> Self {
@@ -262,13 +262,13 @@ pub const HHWIN_TB_MARGIN: u32 = 268435456u32;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HH_AKLINK {
     pub cbStruct: i32,
-    pub fReserved: super::super::Foundation::BOOL,
+    pub fReserved: windows_core::BOOL,
     pub pszKeywords: *mut i8,
     pub pszUrl: *mut i8,
     pub pszMsgText: *mut i8,
     pub pszMsgTitle: *mut i8,
     pub pszWindow: *mut i8,
-    pub fIndexOnFail: super::super::Foundation::BOOL,
+    pub fIndexOnFail: windows_core::BOOL,
 }
 impl Default for HH_AKLINK {
     fn default() -> Self {
@@ -316,12 +316,12 @@ pub const HH_FTS_DEFAULT_PROXIMITY: HTML_HELP_COMMAND = HTML_HELP_COMMAND(-1i32)
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HH_FTS_QUERY {
     pub cbStruct: i32,
-    pub fUniCodeStrings: super::super::Foundation::BOOL,
+    pub fUniCodeStrings: windows_core::BOOL,
     pub pszSearchQuery: *mut i8,
     pub iProximity: i32,
-    pub fStemmedSearch: super::super::Foundation::BOOL,
-    pub fTitleOnly: super::super::Foundation::BOOL,
-    pub fExecute: super::super::Foundation::BOOL,
+    pub fStemmedSearch: windows_core::BOOL,
+    pub fTitleOnly: windows_core::BOOL,
+    pub fExecute: windows_core::BOOL,
     pub pszWindow: *mut i8,
 }
 impl Default for HH_FTS_QUERY {
@@ -422,7 +422,7 @@ pub const HH_UNINITIALIZE: HTML_HELP_COMMAND = HTML_HELP_COMMAND(29i32);
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HH_WINTYPE {
     pub cbStruct: i32,
-    pub fUniCodeStrings: super::super::Foundation::BOOL,
+    pub fUniCodeStrings: windows_core::BOOL,
     pub pszType: *mut i8,
     pub fsValidMembers: u32,
     pub fsWinProperties: u32,
@@ -444,7 +444,7 @@ pub struct HH_WINTYPE {
     pub pszFile: *mut i8,
     pub pszHome: *mut i8,
     pub fsToolBarFlags: u32,
-    pub fNotExpanded: super::super::Foundation::BOOL,
+    pub fNotExpanded: windows_core::BOOL,
     pub curNavType: i32,
     pub tabpos: i32,
     pub idNotify: i32,
@@ -523,14 +523,14 @@ pub struct IITDatabase_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateObject: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut u32) -> windows_core::HRESULT,
     pub GetObject: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetObjectPersistence: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, *mut *mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetObjectPersistence: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, *mut *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IITDatabase_Impl: windows_core::IUnknownImpl {
     fn Open(&self, lpszhost: &windows_core::PCWSTR, lpszmoniker: &windows_core::PCWSTR, dwflags: u32) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
     fn CreateObject(&self, rclsid: *const windows_core::GUID, pdwobjinstance: *mut u32) -> windows_core::Result<()>;
     fn GetObject(&self, dwobjinstance: u32, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetObjectPersistence(&self, lpwszobject: &windows_core::PCWSTR, dwobjinstance: u32, ppvpersistence: *mut *mut core::ffi::c_void, fstream: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn GetObjectPersistence(&self, lpwszobject: &windows_core::PCWSTR, dwobjinstance: u32, ppvpersistence: *mut *mut core::ffi::c_void, fstream: windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl IITDatabase_Vtbl {
     pub const fn new<Identity: IITDatabase_Impl, const OFFSET: isize>() -> Self {
@@ -558,7 +558,7 @@ impl IITDatabase_Vtbl {
                 IITDatabase_Impl::GetObject(this, core::mem::transmute_copy(&dwobjinstance), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
             }
         }
-        unsafe extern "system" fn GetObjectPersistence<Identity: IITDatabase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpwszobject: windows_core::PCWSTR, dwobjinstance: u32, ppvpersistence: *mut *mut core::ffi::c_void, fstream: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetObjectPersistence<Identity: IITDatabase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpwszobject: windows_core::PCWSTR, dwobjinstance: u32, ppvpersistence: *mut *mut core::ffi::c_void, fstream: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IITDatabase_Impl::GetObjectPersistence(this, core::mem::transmute(&lpwszobject), core::mem::transmute_copy(&dwobjinstance), core::mem::transmute_copy(&ppvpersistence), core::mem::transmute_copy(&fstream)).into()
@@ -662,8 +662,8 @@ pub struct IITPropList_Vtbl {
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CProperty) -> windows_core::HRESULT,
     pub Get: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut CProperty) -> windows_core::HRESULT,
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetPersist: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetPersist2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SetPersist: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetPersist2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::BOOL) -> windows_core::HRESULT,
     pub GetFirst: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CProperty) -> windows_core::HRESULT,
     pub GetNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CProperty) -> windows_core::HRESULT,
     pub GetPropCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -683,8 +683,8 @@ pub trait IITPropList_Impl: super::super::System::Com::IPersistStreamInit_Impl {
     fn Add(&self, prop: *mut CProperty) -> windows_core::Result<()>;
     fn Get(&self, propid: u32, property: *mut CProperty) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
-    fn SetPersist(&self, fpersist: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn SetPersist2(&self, propid: u32, fpersist: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn SetPersist(&self, fpersist: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetPersist2(&self, propid: u32, fpersist: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetFirst(&self, property: *mut CProperty) -> windows_core::Result<()>;
     fn GetNext(&self, property: *mut CProperty) -> windows_core::Result<()>;
     fn GetPropCount(&self, cprop: *mut i32) -> windows_core::Result<()>;
@@ -735,13 +735,13 @@ impl IITPropList_Vtbl {
                 IITPropList_Impl::Clear(this).into()
             }
         }
-        unsafe extern "system" fn SetPersist<Identity: IITPropList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fpersist: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPersist<Identity: IITPropList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fpersist: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IITPropList_Impl::SetPersist(this, core::mem::transmute_copy(&fpersist)).into()
             }
         }
-        unsafe extern "system" fn SetPersist2<Identity: IITPropList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propid: u32, fpersist: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPersist2<Identity: IITPropList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propid: u32, fpersist: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IITPropList_Impl::SetPersist2(this, core::mem::transmute_copy(&propid), core::mem::transmute_copy(&fpersist)).into()
@@ -971,7 +971,7 @@ pub struct IITResultSet_Vtbl {
     pub Free: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsCompleted: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Pause: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub Pause: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub GetRowStatus: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut ROWSTATUS) -> windows_core::HRESULT,
     pub GetColumnStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut COLUMNSTATUS) -> windows_core::HRESULT,
 }
@@ -1003,7 +1003,7 @@ pub trait IITResultSet_Impl: windows_core::IUnknownImpl {
     fn Free(&self) -> windows_core::Result<()>;
     fn IsCompleted(&self) -> windows_core::Result<()>;
     fn Cancel(&self) -> windows_core::Result<()>;
-    fn Pause(&self, fpause: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn Pause(&self, fpause: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetRowStatus(&self, lrowfirst: i32, crows: i32, lprowstatus: *mut ROWSTATUS) -> windows_core::Result<()>;
     fn GetColumnStatus(&self, lpcolstatus: *mut COLUMNSTATUS) -> windows_core::Result<()>;
 }
@@ -1171,7 +1171,7 @@ impl IITResultSet_Vtbl {
                 IITResultSet_Impl::Cancel(this).into()
             }
         }
-        unsafe extern "system" fn Pause<Identity: IITResultSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fpause: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn Pause<Identity: IITResultSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fpause: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IITResultSet_Impl::Pause(this, core::mem::transmute_copy(&fpause)).into()

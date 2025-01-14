@@ -1,29 +1,29 @@
-windows_targets::link!("wintrust.dll" "system" fn OpenPersonalTrustDBDialog(hwndparent : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
-windows_targets::link!("wintrust.dll" "system" fn OpenPersonalTrustDBDialogEx(hwndparent : super::super::Foundation:: HWND, dwflags : u32, pvreserved : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
+windows_targets::link!("wintrust.dll" "system" fn OpenPersonalTrustDBDialog(hwndparent : super::super::Foundation:: HWND) -> windows_sys::core::BOOL);
+windows_targets::link!("wintrust.dll" "system" fn OpenPersonalTrustDBDialogEx(hwndparent : super::super::Foundation:: HWND, dwflags : u32, pvreserved : *mut *mut core::ffi::c_void) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 windows_targets::link!("wintrust.dll" "system" fn WTHelperCertCheckValidSignature(pprovdata : *mut CRYPT_PROVIDER_DATA) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Security_Cryptography")]
-windows_targets::link!("wintrust.dll" "system" fn WTHelperCertIsSelfSigned(dwencoding : u32, pcert : *mut super::Cryptography:: CERT_INFO) -> super::super::Foundation:: BOOL);
+windows_targets::link!("wintrust.dll" "system" fn WTHelperCertIsSelfSigned(dwencoding : u32, pcert : *mut super::Cryptography:: CERT_INFO) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Security_Cryptography")]
 windows_targets::link!("wintrust.dll" "system" fn WTHelperGetProvCertFromChain(psgnr : *mut CRYPT_PROVIDER_SGNR, idxcert : u32) -> *mut CRYPT_PROVIDER_CERT);
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 windows_targets::link!("wintrust.dll" "system" fn WTHelperGetProvPrivateDataFromChain(pprovdata : *mut CRYPT_PROVIDER_DATA, pgproviderid : *mut windows_sys::core::GUID) -> *mut CRYPT_PROVIDER_PRIVDATA);
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
-windows_targets::link!("wintrust.dll" "system" fn WTHelperGetProvSignerFromChain(pprovdata : *mut CRYPT_PROVIDER_DATA, idxsigner : u32, fcountersigner : super::super::Foundation:: BOOL, idxcountersigner : u32) -> *mut CRYPT_PROVIDER_SGNR);
+windows_targets::link!("wintrust.dll" "system" fn WTHelperGetProvSignerFromChain(pprovdata : *mut CRYPT_PROVIDER_DATA, idxsigner : u32, fcountersigner : windows_sys::core::BOOL, idxcountersigner : u32) -> *mut CRYPT_PROVIDER_SGNR);
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 windows_targets::link!("wintrust.dll" "system" fn WTHelperProvDataFromStateData(hstatedata : super::super::Foundation:: HANDLE) -> *mut CRYPT_PROVIDER_DATA);
 windows_targets::link!("wintrust.dll" "system" fn WinVerifyTrust(hwnd : super::super::Foundation:: HWND, pgactionid : *mut windows_sys::core::GUID, pwvtdata : *mut core::ffi::c_void) -> i32);
 #[cfg(feature = "Win32_Security_Cryptography")]
 windows_targets::link!("wintrust.dll" "system" fn WinVerifyTrustEx(hwnd : super::super::Foundation:: HWND, pgactionid : *mut windows_sys::core::GUID, pwintrustdata : *mut WINTRUST_DATA) -> i32);
-windows_targets::link!("wintrust.dll" "system" fn WintrustAddActionID(pgactionid : *const windows_sys::core::GUID, fdwflags : u32, psprovinfo : *const CRYPT_REGISTER_ACTIONID) -> super::super::Foundation:: BOOL);
-windows_targets::link!("wintrust.dll" "system" fn WintrustAddDefaultForUsage(pszusageoid : windows_sys::core::PCSTR, psdefusage : *const CRYPT_PROVIDER_REGDEFUSAGE) -> super::super::Foundation:: BOOL);
-windows_targets::link!("wintrust.dll" "system" fn WintrustGetDefaultForUsage(dwaction : WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION, pszusageoid : windows_sys::core::PCSTR, psusage : *mut CRYPT_PROVIDER_DEFUSAGE) -> super::super::Foundation:: BOOL);
+windows_targets::link!("wintrust.dll" "system" fn WintrustAddActionID(pgactionid : *const windows_sys::core::GUID, fdwflags : u32, psprovinfo : *const CRYPT_REGISTER_ACTIONID) -> windows_sys::core::BOOL);
+windows_targets::link!("wintrust.dll" "system" fn WintrustAddDefaultForUsage(pszusageoid : windows_sys::core::PCSTR, psdefusage : *const CRYPT_PROVIDER_REGDEFUSAGE) -> windows_sys::core::BOOL);
+windows_targets::link!("wintrust.dll" "system" fn WintrustGetDefaultForUsage(dwaction : WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION, pszusageoid : windows_sys::core::PCSTR, psusage : *mut CRYPT_PROVIDER_DEFUSAGE) -> windows_sys::core::BOOL);
 windows_targets::link!("wintrust.dll" "system" fn WintrustGetRegPolicyFlags(pdwpolicyflags : *mut WINTRUST_POLICY_FLAGS));
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
-windows_targets::link!("wintrust.dll" "system" fn WintrustLoadFunctionPointers(pgactionid : *mut windows_sys::core::GUID, ppfns : *mut CRYPT_PROVIDER_FUNCTIONS) -> super::super::Foundation:: BOOL);
-windows_targets::link!("wintrust.dll" "system" fn WintrustRemoveActionID(pgactionid : *const windows_sys::core::GUID) -> super::super::Foundation:: BOOL);
-windows_targets::link!("wintrust.dll" "system" fn WintrustSetDefaultIncludePEPageHashes(fincludepepagehashes : super::super::Foundation:: BOOL));
-windows_targets::link!("wintrust.dll" "system" fn WintrustSetRegPolicyFlags(dwpolicyflags : WINTRUST_POLICY_FLAGS) -> super::super::Foundation:: BOOL);
+windows_targets::link!("wintrust.dll" "system" fn WintrustLoadFunctionPointers(pgactionid : *mut windows_sys::core::GUID, ppfns : *mut CRYPT_PROVIDER_FUNCTIONS) -> windows_sys::core::BOOL);
+windows_targets::link!("wintrust.dll" "system" fn WintrustRemoveActionID(pgactionid : *const windows_sys::core::GUID) -> windows_sys::core::BOOL);
+windows_targets::link!("wintrust.dll" "system" fn WintrustSetDefaultIncludePEPageHashes(fincludepepagehashes : windows_sys::core::BOOL));
+windows_targets::link!("wintrust.dll" "system" fn WintrustSetRegPolicyFlags(dwpolicyflags : WINTRUST_POLICY_FLAGS) -> windows_sys::core::BOOL);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CAT_MEMBERINFO {
@@ -108,18 +108,18 @@ pub const CPD_USE_NT5_CHAIN_FLAG: u32 = 2147483648u32;
 pub struct CRYPT_PROVIDER_CERT {
     pub cbStruct: u32,
     pub pCert: *const super::Cryptography::CERT_CONTEXT,
-    pub fCommercial: super::super::Foundation::BOOL,
-    pub fTrustedRoot: super::super::Foundation::BOOL,
-    pub fSelfSigned: super::super::Foundation::BOOL,
-    pub fTestCert: super::super::Foundation::BOOL,
+    pub fCommercial: windows_sys::core::BOOL,
+    pub fTrustedRoot: windows_sys::core::BOOL,
+    pub fSelfSigned: windows_sys::core::BOOL,
+    pub fTestCert: windows_sys::core::BOOL,
     pub dwRevokedReason: u32,
     pub dwConfidence: u32,
     pub dwError: u32,
     pub pTrustListContext: *mut super::Cryptography::CTL_CONTEXT,
-    pub fTrustListSignerCert: super::super::Foundation::BOOL,
+    pub fTrustListSignerCert: windows_sys::core::BOOL,
     pub pCtlContext: *mut super::Cryptography::CTL_CONTEXT,
     pub dwCtlError: u32,
-    pub fIsCyclic: super::super::Foundation::BOOL,
+    pub fIsCyclic: windows_sys::core::BOOL,
     pub pChainElement: *mut super::Cryptography::CERT_CHAIN_ELEMENT,
 }
 #[repr(C)]
@@ -128,7 +128,7 @@ pub struct CRYPT_PROVIDER_CERT {
 pub struct CRYPT_PROVIDER_DATA {
     pub cbStruct: u32,
     pub pWintrustData: *mut WINTRUST_DATA,
-    pub fOpenedFile: super::super::Foundation::BOOL,
+    pub fOpenedFile: windows_sys::core::BOOL,
     pub hWndParent: super::super::Foundation::HWND,
     pub pgActionID: *mut windows_sys::core::GUID,
     pub hProv: usize,
@@ -149,7 +149,7 @@ pub struct CRYPT_PROVIDER_DATA {
     pub dwSubjectChoice: u32,
     pub Anonymous: CRYPT_PROVIDER_DATA_0,
     pub pszUsageOID: windows_sys::core::PSTR,
-    pub fRecallWithState: super::super::Foundation::BOOL,
+    pub fRecallWithState: windows_sys::core::BOOL,
     pub sftSystemTime: super::super::Foundation::FILETIME,
     pub pszCTLSignerUsageOID: windows_sys::core::PSTR,
     pub dwProvFlags: u32,
@@ -234,14 +234,14 @@ pub struct CRYPT_PROVIDER_SIGSTATE {
     pub cbStruct: u32,
     pub rhSecondarySigs: *mut *mut core::ffi::c_void,
     pub hPrimarySig: *mut core::ffi::c_void,
-    pub fFirstAttemptMade: super::super::Foundation::BOOL,
-    pub fNoMoreSigs: super::super::Foundation::BOOL,
+    pub fFirstAttemptMade: windows_sys::core::BOOL,
+    pub fNoMoreSigs: windows_sys::core::BOOL,
     pub cSecondarySigs: u32,
     pub dwCurrentIndex: u32,
-    pub fSupportMultiSig: super::super::Foundation::BOOL,
+    pub fSupportMultiSig: windows_sys::core::BOOL,
     pub dwCryptoPolicySupport: u32,
     pub iAttemptCount: u32,
-    pub fCheckedSealing: super::super::Foundation::BOOL,
+    pub fCheckedSealing: windows_sys::core::BOOL,
     pub pSealingSignature: *mut SEALING_SIGNATURE_ATTRIBUTE,
 }
 #[repr(C)]
@@ -334,20 +334,20 @@ pub const OFFICESIGN_ACTION_VERIFY: windows_sys::core::GUID = windows_sys::core:
 pub const OFFICE_CLEANUPPOLICY_FUNCTION: windows_sys::core::PCWSTR = windows_sys::core::w!("OfficeCleanupPolicy");
 pub const OFFICE_INITPROV_FUNCTION: windows_sys::core::PCWSTR = windows_sys::core::w!("OfficeInitializePolicy");
 pub const OFFICE_POLICY_PROVIDER_DLL_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("WINTRUST.DLL");
-pub type PFN_ALLOCANDFILLDEFUSAGE = Option<unsafe extern "system" fn(pszusageoid: windows_sys::core::PCSTR, psdefusage: *const CRYPT_PROVIDER_DEFUSAGE) -> super::super::Foundation::BOOL>;
+pub type PFN_ALLOCANDFILLDEFUSAGE = Option<unsafe extern "system" fn(pszusageoid: windows_sys::core::PCSTR, psdefusage: *const CRYPT_PROVIDER_DEFUSAGE) -> windows_sys::core::BOOL>;
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
-pub type PFN_CPD_ADD_CERT = Option<unsafe extern "system" fn(pprovdata: *const CRYPT_PROVIDER_DATA, idxsigner: u32, fcountersigner: super::super::Foundation::BOOL, idxcountersigner: u32, pcert2add: *const super::Cryptography::CERT_CONTEXT) -> super::super::Foundation::BOOL>;
+pub type PFN_CPD_ADD_CERT = Option<unsafe extern "system" fn(pprovdata: *const CRYPT_PROVIDER_DATA, idxsigner: u32, fcountersigner: windows_sys::core::BOOL, idxcountersigner: u32, pcert2add: *const super::Cryptography::CERT_CONTEXT) -> windows_sys::core::BOOL>;
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
-pub type PFN_CPD_ADD_PRIVDATA = Option<unsafe extern "system" fn(pprovdata: *const CRYPT_PROVIDER_DATA, pprivdata2add: *const CRYPT_PROVIDER_PRIVDATA) -> super::super::Foundation::BOOL>;
+pub type PFN_CPD_ADD_PRIVDATA = Option<unsafe extern "system" fn(pprovdata: *const CRYPT_PROVIDER_DATA, pprivdata2add: *const CRYPT_PROVIDER_PRIVDATA) -> windows_sys::core::BOOL>;
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
-pub type PFN_CPD_ADD_SGNR = Option<unsafe extern "system" fn(pprovdata: *const CRYPT_PROVIDER_DATA, fcountersigner: super::super::Foundation::BOOL, idxsigner: u32, psgnr2add: *const CRYPT_PROVIDER_SGNR) -> super::super::Foundation::BOOL>;
+pub type PFN_CPD_ADD_SGNR = Option<unsafe extern "system" fn(pprovdata: *const CRYPT_PROVIDER_DATA, fcountersigner: windows_sys::core::BOOL, idxsigner: u32, psgnr2add: *const CRYPT_PROVIDER_SGNR) -> windows_sys::core::BOOL>;
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
-pub type PFN_CPD_ADD_STORE = Option<unsafe extern "system" fn(pprovdata: *const CRYPT_PROVIDER_DATA, hstore2add: super::Cryptography::HCERTSTORE) -> super::super::Foundation::BOOL>;
+pub type PFN_CPD_ADD_STORE = Option<unsafe extern "system" fn(pprovdata: *const CRYPT_PROVIDER_DATA, hstore2add: super::Cryptography::HCERTSTORE) -> windows_sys::core::BOOL>;
 pub type PFN_CPD_MEM_ALLOC = Option<unsafe extern "system" fn(cbsize: u32) -> *mut core::ffi::c_void>;
 pub type PFN_CPD_MEM_FREE = Option<unsafe extern "system" fn(pvmem2free: *const core::ffi::c_void)>;
-pub type PFN_FREEDEFUSAGE = Option<unsafe extern "system" fn(pszusageoid: windows_sys::core::PCSTR, psdefusage: *const CRYPT_PROVIDER_DEFUSAGE) -> super::super::Foundation::BOOL>;
+pub type PFN_FREEDEFUSAGE = Option<unsafe extern "system" fn(pszusageoid: windows_sys::core::PCSTR, psdefusage: *const CRYPT_PROVIDER_DEFUSAGE) -> windows_sys::core::BOOL>;
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
-pub type PFN_PROVIDER_CERTCHKPOLICY_CALL = Option<unsafe extern "system" fn(pprovdata: *const CRYPT_PROVIDER_DATA, idxsigner: u32, fcountersignerchain: super::super::Foundation::BOOL, idxcountersigner: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_PROVIDER_CERTCHKPOLICY_CALL = Option<unsafe extern "system" fn(pprovdata: *const CRYPT_PROVIDER_DATA, idxsigner: u32, fcountersignerchain: windows_sys::core::BOOL, idxcountersigner: u32) -> windows_sys::core::BOOL>;
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub type PFN_PROVIDER_CERTTRUST_CALL = Option<unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> windows_sys::core::HRESULT>;
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
@@ -363,7 +363,7 @@ pub type PFN_PROVIDER_SIGTRUST_CALL = Option<unsafe extern "system" fn(pprovdata
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub type PFN_PROVIDER_TESTFINALPOLICY_CALL = Option<unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> windows_sys::core::HRESULT>;
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
-pub type PFN_PROVUI_CALL = Option<unsafe extern "system" fn(hwndsecuritydialog: super::super::Foundation::HWND, pprovdata: *const CRYPT_PROVIDER_DATA) -> super::super::Foundation::BOOL>;
+pub type PFN_PROVUI_CALL = Option<unsafe extern "system" fn(hwndsecuritydialog: super::super::Foundation::HWND, pprovdata: *const CRYPT_PROVIDER_DATA) -> windows_sys::core::BOOL>;
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub type PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK = Option<unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA, dwsteperror: u32, dwregpolicysettings: u32, csigner: u32, rgpsigner: *mut *mut WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO, pvpolicyarg: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
 #[repr(C)]
@@ -408,8 +408,8 @@ pub const SPC_FILE_LINK_CHOICE: u32 = 3u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SPC_FINANCIAL_CRITERIA {
-    pub fFinancialInfoAvailable: super::super::Foundation::BOOL,
-    pub fMeetsCriteria: super::super::Foundation::BOOL,
+    pub fFinancialInfoAvailable: windows_sys::core::BOOL,
+    pub fMeetsCriteria: windows_sys::core::BOOL,
 }
 pub const SPC_FINANCIAL_CRITERIA_OBJID: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.2.1.27");
 pub const SPC_FINANCIAL_CRITERIA_STRUCT: windows_sys::core::PCSTR = 2002i32 as _;

@@ -138,7 +138,7 @@ pub const AUDIOPOSTURE_ORIENTATION_ROTATED90DEGREESCOUNTERCLOCKWISE: AUDIOPOSTUR
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {
-    pub ResourceGroupAcquired: super::super::Foundation::BOOL,
+    pub ResourceGroupAcquired: windows_core::BOOL,
     pub ResourceGroupName: [u16; 256],
 }
 impl Default for AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {
@@ -858,7 +858,7 @@ impl IKsDataTypeHandler {
 pub struct IKsDataTypeHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Media_DirectShow")]
-    pub KsCompleteIoOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, KSIOOPERATION, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub KsCompleteIoOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, KSIOOPERATION, windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Media_DirectShow"))]
     KsCompleteIoOperation: usize,
     pub KsIsMediaTypeInRanges: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
@@ -874,7 +874,7 @@ pub struct IKsDataTypeHandler_Vtbl {
 }
 #[cfg(all(feature = "Win32_Media_DirectShow", feature = "Win32_Media_MediaFoundation"))]
 pub trait IKsDataTypeHandler_Impl: windows_core::IUnknownImpl {
-    fn KsCompleteIoOperation(&self, sample: windows_core::Ref<super::DirectShow::IMediaSample>, streamheader: *mut core::ffi::c_void, iooperation: KSIOOPERATION, cancelled: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn KsCompleteIoOperation(&self, sample: windows_core::Ref<super::DirectShow::IMediaSample>, streamheader: *mut core::ffi::c_void, iooperation: KSIOOPERATION, cancelled: windows_core::BOOL) -> windows_core::Result<()>;
     fn KsIsMediaTypeInRanges(&self, dataranges: *const core::ffi::c_void) -> windows_core::Result<()>;
     fn KsPrepareIoOperation(&self, sample: windows_core::Ref<super::DirectShow::IMediaSample>, streamheader: *mut core::ffi::c_void, iooperation: KSIOOPERATION) -> windows_core::Result<()>;
     fn KsQueryExtendedSize(&self) -> windows_core::Result<u32>;
@@ -883,7 +883,7 @@ pub trait IKsDataTypeHandler_Impl: windows_core::IUnknownImpl {
 #[cfg(all(feature = "Win32_Media_DirectShow", feature = "Win32_Media_MediaFoundation"))]
 impl IKsDataTypeHandler_Vtbl {
     pub const fn new<Identity: IKsDataTypeHandler_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn KsCompleteIoOperation<Identity: IKsDataTypeHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sample: *mut core::ffi::c_void, streamheader: *mut core::ffi::c_void, iooperation: KSIOOPERATION, cancelled: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn KsCompleteIoOperation<Identity: IKsDataTypeHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sample: *mut core::ffi::c_void, streamheader: *mut core::ffi::c_void, iooperation: KSIOOPERATION, cancelled: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IKsDataTypeHandler_Impl::KsCompleteIoOperation(this, core::mem::transmute_copy(&sample), core::mem::transmute_copy(&streamheader), core::mem::transmute_copy(&iooperation), core::mem::transmute_copy(&cancelled)).into()
@@ -937,7 +937,7 @@ impl windows_core::RuntimeName for IKsDataTypeHandler {}
 windows_core::imp::define_interface!(IKsFormatSupport, IKsFormatSupport_Vtbl, 0x3cb4a69d_bb6f_4d2b_95b7_452d2c155db5);
 windows_core::imp::interface_hierarchy!(IKsFormatSupport, windows_core::IUnknown);
 impl IKsFormatSupport {
-    pub unsafe fn IsFormatSupported(&self, pksformat: *mut KSDATAFORMAT, cbformat: u32, pbsupported: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn IsFormatSupported(&self, pksformat: *mut KSDATAFORMAT, cbformat: u32, pbsupported: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).IsFormatSupported)(windows_core::Interface::as_raw(self), pksformat as _, cbformat, pbsupported as _).ok() }
     }
     pub unsafe fn GetDevicePreferredFormat(&self) -> windows_core::Result<*mut KSDATAFORMAT> {
@@ -950,16 +950,16 @@ impl IKsFormatSupport {
 #[repr(C)]
 pub struct IKsFormatSupport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub IsFormatSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut KSDATAFORMAT, u32, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsFormatSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut KSDATAFORMAT, u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetDevicePreferredFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut KSDATAFORMAT) -> windows_core::HRESULT,
 }
 pub trait IKsFormatSupport_Impl: windows_core::IUnknownImpl {
-    fn IsFormatSupported(&self, pksformat: *mut KSDATAFORMAT, cbformat: u32, pbsupported: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn IsFormatSupported(&self, pksformat: *mut KSDATAFORMAT, cbformat: u32, pbsupported: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn GetDevicePreferredFormat(&self) -> windows_core::Result<*mut KSDATAFORMAT>;
 }
 impl IKsFormatSupport_Vtbl {
     pub const fn new<Identity: IKsFormatSupport_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn IsFormatSupported<Identity: IKsFormatSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pksformat: *mut KSDATAFORMAT, cbformat: u32, pbsupported: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsFormatSupported<Identity: IKsFormatSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pksformat: *mut KSDATAFORMAT, cbformat: u32, pbsupported: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IKsFormatSupport_Impl::IsFormatSupported(this, core::mem::transmute_copy(&pksformat), core::mem::transmute_copy(&cbformat), core::mem::transmute_copy(&pbsupported)).into()
@@ -2218,7 +2218,7 @@ pub const JACKDESC2_PRESENCE_DETECT_CAPABILITY: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSAC3_ALTERNATE_AUDIO {
-    pub fStereo: super::super::Foundation::BOOL,
+    pub fStereo: windows_core::BOOL,
     pub DualMode: u32,
 }
 impl Default for KSAC3_ALTERNATE_AUDIO {
@@ -2252,8 +2252,8 @@ impl Default for KSAC3_DIALOGUE_LEVEL {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSAC3_DOWNMIX {
-    pub fDownMix: super::super::Foundation::BOOL,
-    pub fDolbySurround: super::super::Foundation::BOOL,
+    pub fDownMix: windows_core::BOOL,
+    pub fDolbySurround: windows_core::BOOL,
 }
 impl Default for KSAC3_DOWNMIX {
     fn default() -> Self {
@@ -2263,8 +2263,8 @@ impl Default for KSAC3_DOWNMIX {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSAC3_ERROR_CONCEALMENT {
-    pub fRepeatPreviousBlock: super::super::Foundation::BOOL,
-    pub fErrorInCurrentBlock: super::super::Foundation::BOOL,
+    pub fRepeatPreviousBlock: windows_core::BOOL,
+    pub fErrorInCurrentBlock: windows_core::BOOL,
 }
 impl Default for KSAC3_ERROR_CONCEALMENT {
     fn default() -> Self {
@@ -2274,7 +2274,7 @@ impl Default for KSAC3_ERROR_CONCEALMENT {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSAC3_ROOM_TYPE {
-    pub fLargeRoom: super::super::Foundation::BOOL,
+    pub fLargeRoom: windows_core::BOOL,
 }
 impl Default for KSAC3_ROOM_TYPE {
     fn default() -> Self {
@@ -2567,8 +2567,8 @@ impl Default for KSAUDIO_CHANNEL_CONFIG {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSAUDIO_COPY_PROTECTION {
-    pub fCopyrighted: super::super::Foundation::BOOL,
-    pub fOriginal: super::super::Foundation::BOOL,
+    pub fCopyrighted: windows_core::BOOL,
+    pub fOriginal: windows_core::BOOL,
 }
 impl Default for KSAUDIO_COPY_PROTECTION {
     fn default() -> Self {
@@ -2637,7 +2637,7 @@ impl Default for KSAUDIO_MIXCAP_TABLE {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSAUDIO_MIXLEVEL {
-    pub Mute: super::super::Foundation::BOOL,
+    pub Mute: windows_core::BOOL,
     pub Level: i32,
 }
 impl Default for KSAUDIO_MIXLEVEL {
@@ -2648,7 +2648,7 @@ impl Default for KSAUDIO_MIXLEVEL {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSAUDIO_MIX_CAPS {
-    pub Mute: super::super::Foundation::BOOL,
+    pub Mute: windows_core::BOOL,
     pub Minimum: i32,
     pub Maximum: i32,
     pub Anonymous: KSAUDIO_MIX_CAPS_0,
@@ -3963,9 +3963,9 @@ impl Default for KSDS3D_HRTF_INIT_MSG {
 pub struct KSDS3D_HRTF_PARAMS_MSG {
     pub Size: u32,
     pub Enabled: u32,
-    pub SwapChannels: super::super::Foundation::BOOL,
-    pub ZeroAzimuth: super::super::Foundation::BOOL,
-    pub CrossFadeOutput: super::super::Foundation::BOOL,
+    pub SwapChannels: windows_core::BOOL,
+    pub ZeroAzimuth: windows_core::BOOL,
+    pub CrossFadeOutput: windows_core::BOOL,
     pub FilterSize: u32,
 }
 impl Default for KSDS3D_HRTF_PARAMS_MSG {
@@ -4416,7 +4416,7 @@ pub struct KSJACK_DESCRIPTION {
     pub GeoLocation: EPcxGeoLocation,
     pub GenLocation: EPcxGenLocation,
     pub PortConnection: EPxcPortConnection,
-    pub IsConnected: super::super::Foundation::BOOL,
+    pub IsConnected: windows_core::BOOL,
 }
 impl Default for KSJACK_DESCRIPTION {
     fn default() -> Self {
@@ -4456,8 +4456,8 @@ pub struct KSJACK_SINK_INFORMATION {
     pub ManufacturerId: u16,
     pub ProductId: u16,
     pub AudioLatency: u16,
-    pub HDCPCapable: super::super::Foundation::BOOL,
-    pub AICapable: super::super::Foundation::BOOL,
+    pub HDCPCapable: windows_core::BOOL,
+    pub AICapable: windows_core::BOOL,
     pub SinkDescriptionLength: u8,
     pub SinkDescription: [u16; 32],
     pub PortId: super::super::Foundation::LUID,
@@ -5385,9 +5385,9 @@ pub const KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_PROPERTY_ID: KSPROPERTY_CA
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S {
     pub FocusRect: super::super::Foundation::RECT,
-    pub AutoFocusLock: super::super::Foundation::BOOL,
-    pub AutoExposureLock: super::super::Foundation::BOOL,
-    pub AutoWhitebalanceLock: super::super::Foundation::BOOL,
+    pub AutoFocusLock: windows_core::BOOL,
+    pub AutoExposureLock: windows_core::BOOL,
+    pub AutoWhitebalanceLock: windows_core::BOOL,
     pub Anonymous: KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S_0,
 }
 impl Default for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S {
@@ -5906,10 +5906,10 @@ pub const KSPROPERTY_NETWORKCAMERACONTROL_METADATA: KSPROPERTY_NETWORKCAMERACONT
 pub struct KSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO {
     pub MetadataItems: u32,
     pub Size: u32,
-    pub PTZStatus: super::super::Foundation::BOOL,
-    pub Events: super::super::Foundation::BOOL,
-    pub Analytics: super::super::Foundation::BOOL,
-    pub Reserved: super::super::Foundation::BOOL,
+    pub PTZStatus: windows_core::BOOL,
+    pub Events: windows_core::BOOL,
+    pub Analytics: windows_core::BOOL,
+    pub Reserved: windows_core::BOOL,
 }
 impl Default for KSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO {
     fn default() -> Self {
@@ -6313,7 +6313,7 @@ pub const KSPROPERTY_TUNER_SCAN_CAPS: KSPROPERTY_TUNER = KSPROPERTY_TUNER(8i32);
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_TUNER_SCAN_CAPS_S {
     pub Property: KSIDENTIFIER,
-    pub fSupportsHardwareAssistedScanning: super::super::Foundation::BOOL,
+    pub fSupportsHardwareAssistedScanning: windows_core::BOOL,
     pub SupportedBroadcastStandards: u32,
     pub GUIDBucket: *mut core::ffi::c_void,
     pub lengthofBucket: u32,
@@ -6342,7 +6342,7 @@ pub const KSPROPERTY_TUNER_STANDARD_MODE: KSPROPERTY_TUNER = KSPROPERTY_TUNER(10
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_TUNER_STANDARD_MODE_S {
     pub Property: KSIDENTIFIER,
-    pub AutoDetect: super::super::Foundation::BOOL,
+    pub AutoDetect: windows_core::BOOL,
 }
 impl Default for KSPROPERTY_TUNER_STANDARD_MODE_S {
     fn default() -> Self {
@@ -7050,7 +7050,7 @@ impl Default for KSRESOLUTION {
 pub struct KSRTAUDIO_BUFFER {
     pub BufferAddress: *mut core::ffi::c_void,
     pub ActualBufferSize: u32,
-    pub CallMemoryBarrier: super::super::Foundation::BOOL,
+    pub CallMemoryBarrier: windows_core::BOOL,
 }
 impl Default for KSRTAUDIO_BUFFER {
     fn default() -> Self {
@@ -7062,7 +7062,7 @@ impl Default for KSRTAUDIO_BUFFER {
 pub struct KSRTAUDIO_BUFFER32 {
     pub BufferAddress: u32,
     pub ActualBufferSize: u32,
-    pub CallMemoryBarrier: super::super::Foundation::BOOL,
+    pub CallMemoryBarrier: windows_core::BOOL,
 }
 impl Default for KSRTAUDIO_BUFFER32 {
     fn default() -> Self {
@@ -7125,7 +7125,7 @@ pub struct KSRTAUDIO_GETREADPACKET_INFO {
     pub PacketNumber: u32,
     pub Flags: u32,
     pub PerformanceCounterValue: u64,
-    pub MoreData: super::super::Foundation::BOOL,
+    pub MoreData: windows_core::BOOL,
 }
 impl Default for KSRTAUDIO_GETREADPACKET_INFO {
     fn default() -> Self {
@@ -7580,9 +7580,9 @@ impl Default for KSVPSURFACEPARAMS {
 pub struct KSWAVETABLE_WAVE_DESC {
     pub Identifier: KSIDENTIFIER,
     pub Size: u32,
-    pub Looped: super::super::Foundation::BOOL,
+    pub Looped: windows_core::BOOL,
     pub LoopPoint: u32,
-    pub InROM: super::super::Foundation::BOOL,
+    pub InROM: windows_core::BOOL,
     pub Format: KSDATAFORMAT,
 }
 impl Default for KSWAVETABLE_WAVE_DESC {
@@ -7687,11 +7687,11 @@ pub struct KS_AMVPDATAINFO {
     pub amvpDimInfo: KS_AMVPDIMINFO,
     pub dwPictAspectRatioX: u32,
     pub dwPictAspectRatioY: u32,
-    pub bEnableDoubleClock: super::super::Foundation::BOOL,
-    pub bEnableVACT: super::super::Foundation::BOOL,
-    pub bDataIsInterlaced: super::super::Foundation::BOOL,
+    pub bEnableDoubleClock: windows_core::BOOL,
+    pub bEnableVACT: windows_core::BOOL,
+    pub bDataIsInterlaced: windows_core::BOOL,
     pub lHalfLinesOdd: i32,
-    pub bFieldPolarityInverted: super::super::Foundation::BOOL,
+    pub bFieldPolarityInverted: windows_core::BOOL,
     pub dwNumLinesInVREF: u32,
     pub lHalfLinesEven: i32,
     pub dwReserved1: u32,
@@ -8000,8 +8000,8 @@ impl Default for KS_DATARANGE_ANALOGVIDEO {
 #[derive(Clone, Copy)]
 pub struct KS_DATARANGE_H264_VIDEO {
     pub DataRange: KSDATAFORMAT,
-    pub bFixedSizeSamples: super::super::Foundation::BOOL,
-    pub bTemporalCompression: super::super::Foundation::BOOL,
+    pub bFixedSizeSamples: windows_core::BOOL,
+    pub bTemporalCompression: windows_core::BOOL,
     pub StreamDescriptionFlags: u32,
     pub MemoryAllocationFlags: u32,
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
@@ -8028,8 +8028,8 @@ impl Default for KS_DATARANGE_IMAGE {
 #[derive(Clone, Copy)]
 pub struct KS_DATARANGE_MPEG1_VIDEO {
     pub DataRange: KSDATAFORMAT,
-    pub bFixedSizeSamples: super::super::Foundation::BOOL,
-    pub bTemporalCompression: super::super::Foundation::BOOL,
+    pub bFixedSizeSamples: windows_core::BOOL,
+    pub bTemporalCompression: windows_core::BOOL,
     pub StreamDescriptionFlags: u32,
     pub MemoryAllocationFlags: u32,
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
@@ -8044,8 +8044,8 @@ impl Default for KS_DATARANGE_MPEG1_VIDEO {
 #[derive(Clone, Copy)]
 pub struct KS_DATARANGE_MPEG2_VIDEO {
     pub DataRange: KSDATAFORMAT,
-    pub bFixedSizeSamples: super::super::Foundation::BOOL,
-    pub bTemporalCompression: super::super::Foundation::BOOL,
+    pub bFixedSizeSamples: windows_core::BOOL,
+    pub bTemporalCompression: windows_core::BOOL,
     pub StreamDescriptionFlags: u32,
     pub MemoryAllocationFlags: u32,
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
@@ -8060,8 +8060,8 @@ impl Default for KS_DATARANGE_MPEG2_VIDEO {
 #[derive(Clone, Copy)]
 pub struct KS_DATARANGE_VIDEO {
     pub DataRange: KSDATAFORMAT,
-    pub bFixedSizeSamples: super::super::Foundation::BOOL,
-    pub bTemporalCompression: super::super::Foundation::BOOL,
+    pub bFixedSizeSamples: windows_core::BOOL,
+    pub bTemporalCompression: windows_core::BOOL,
     pub StreamDescriptionFlags: u32,
     pub MemoryAllocationFlags: u32,
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
@@ -8076,8 +8076,8 @@ impl Default for KS_DATARANGE_VIDEO {
 #[derive(Clone, Copy)]
 pub struct KS_DATARANGE_VIDEO2 {
     pub DataRange: KSDATAFORMAT,
-    pub bFixedSizeSamples: super::super::Foundation::BOOL,
-    pub bTemporalCompression: super::super::Foundation::BOOL,
+    pub bFixedSizeSamples: windows_core::BOOL,
+    pub bTemporalCompression: windows_core::BOOL,
     pub StreamDescriptionFlags: u32,
     pub MemoryAllocationFlags: u32,
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
@@ -8092,8 +8092,8 @@ impl Default for KS_DATARANGE_VIDEO2 {
 #[derive(Clone, Copy)]
 pub struct KS_DATARANGE_VIDEO_PALETTE {
     pub DataRange: KSDATAFORMAT,
-    pub bFixedSizeSamples: super::super::Foundation::BOOL,
-    pub bTemporalCompression: super::super::Foundation::BOOL,
+    pub bFixedSizeSamples: windows_core::BOOL,
+    pub bTemporalCompression: windows_core::BOOL,
     pub StreamDescriptionFlags: u32,
     pub MemoryAllocationFlags: u32,
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
@@ -8108,8 +8108,8 @@ impl Default for KS_DATARANGE_VIDEO_PALETTE {
 #[derive(Clone, Copy)]
 pub struct KS_DATARANGE_VIDEO_VBI {
     pub DataRange: KSDATAFORMAT,
-    pub bFixedSizeSamples: super::super::Foundation::BOOL,
-    pub bTemporalCompression: super::super::Foundation::BOOL,
+    pub bFixedSizeSamples: windows_core::BOOL,
+    pub bTemporalCompression: windows_core::BOOL,
     pub StreamDescriptionFlags: u32,
     pub MemoryAllocationFlags: u32,
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
@@ -8844,9 +8844,9 @@ pub const MAX_WST_VBI_LINES_PER_FIELD: u32 = 17u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MEDIUM_INFO {
-    pub MediaPresent: super::super::Foundation::BOOL,
+    pub MediaPresent: windows_core::BOOL,
     pub MediaType: u32,
-    pub RecordInhibit: super::super::Foundation::BOOL,
+    pub RecordInhibit: windows_core::BOOL,
 }
 impl Default for MEDIUM_INFO {
     fn default() -> Self {

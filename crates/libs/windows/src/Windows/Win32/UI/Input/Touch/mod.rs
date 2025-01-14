@@ -1,51 +1,51 @@
 #[inline]
 pub unsafe fn CloseGestureInfoHandle(hgestureinfo: HGESTUREINFO) -> windows_core::Result<()> {
-    windows_targets::link!("user32.dll" "system" fn CloseGestureInfoHandle(hgestureinfo : HGESTUREINFO) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("user32.dll" "system" fn CloseGestureInfoHandle(hgestureinfo : HGESTUREINFO) -> windows_core::BOOL);
     unsafe { CloseGestureInfoHandle(hgestureinfo).ok() }
 }
 #[inline]
 pub unsafe fn CloseTouchInputHandle(htouchinput: HTOUCHINPUT) -> windows_core::Result<()> {
-    windows_targets::link!("user32.dll" "system" fn CloseTouchInputHandle(htouchinput : HTOUCHINPUT) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("user32.dll" "system" fn CloseTouchInputHandle(htouchinput : HTOUCHINPUT) -> windows_core::BOOL);
     unsafe { CloseTouchInputHandle(htouchinput).ok() }
 }
 #[inline]
 pub unsafe fn GetGestureConfig(hwnd: super::super::super::Foundation::HWND, dwreserved: u32, dwflags: u32, pcids: *const u32, pgestureconfig: *mut GESTURECONFIG, cbsize: u32) -> windows_core::Result<()> {
-    windows_targets::link!("user32.dll" "system" fn GetGestureConfig(hwnd : super::super::super::Foundation:: HWND, dwreserved : u32, dwflags : u32, pcids : *const u32, pgestureconfig : *mut GESTURECONFIG, cbsize : u32) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("user32.dll" "system" fn GetGestureConfig(hwnd : super::super::super::Foundation:: HWND, dwreserved : u32, dwflags : u32, pcids : *const u32, pgestureconfig : *mut GESTURECONFIG, cbsize : u32) -> windows_core::BOOL);
     unsafe { GetGestureConfig(hwnd, dwreserved, dwflags, pcids, pgestureconfig as _, cbsize).ok() }
 }
 #[inline]
 pub unsafe fn GetGestureExtraArgs(hgestureinfo: HGESTUREINFO, pextraargs: &mut [u8]) -> windows_core::Result<()> {
-    windows_targets::link!("user32.dll" "system" fn GetGestureExtraArgs(hgestureinfo : HGESTUREINFO, cbextraargs : u32, pextraargs : *mut u8) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("user32.dll" "system" fn GetGestureExtraArgs(hgestureinfo : HGESTUREINFO, cbextraargs : u32, pextraargs : *mut u8) -> windows_core::BOOL);
     unsafe { GetGestureExtraArgs(hgestureinfo, pextraargs.len().try_into().unwrap(), core::mem::transmute(pextraargs.as_ptr())).ok() }
 }
 #[inline]
 pub unsafe fn GetGestureInfo(hgestureinfo: HGESTUREINFO, pgestureinfo: *mut GESTUREINFO) -> windows_core::Result<()> {
-    windows_targets::link!("user32.dll" "system" fn GetGestureInfo(hgestureinfo : HGESTUREINFO, pgestureinfo : *mut GESTUREINFO) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("user32.dll" "system" fn GetGestureInfo(hgestureinfo : HGESTUREINFO, pgestureinfo : *mut GESTUREINFO) -> windows_core::BOOL);
     unsafe { GetGestureInfo(hgestureinfo, pgestureinfo as _).ok() }
 }
 #[inline]
 pub unsafe fn GetTouchInputInfo(htouchinput: HTOUCHINPUT, pinputs: &mut [TOUCHINPUT], cbsize: i32) -> windows_core::Result<()> {
-    windows_targets::link!("user32.dll" "system" fn GetTouchInputInfo(htouchinput : HTOUCHINPUT, cinputs : u32, pinputs : *mut TOUCHINPUT, cbsize : i32) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("user32.dll" "system" fn GetTouchInputInfo(htouchinput : HTOUCHINPUT, cinputs : u32, pinputs : *mut TOUCHINPUT, cbsize : i32) -> windows_core::BOOL);
     unsafe { GetTouchInputInfo(htouchinput, pinputs.len().try_into().unwrap(), core::mem::transmute(pinputs.as_ptr()), cbsize).ok() }
 }
 #[inline]
-pub unsafe fn IsTouchWindow(hwnd: super::super::super::Foundation::HWND, pulflags: Option<*mut u32>) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("user32.dll" "system" fn IsTouchWindow(hwnd : super::super::super::Foundation:: HWND, pulflags : *mut u32) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn IsTouchWindow(hwnd: super::super::super::Foundation::HWND, pulflags: Option<*mut u32>) -> windows_core::BOOL {
+    windows_targets::link!("user32.dll" "system" fn IsTouchWindow(hwnd : super::super::super::Foundation:: HWND, pulflags : *mut u32) -> windows_core::BOOL);
     unsafe { IsTouchWindow(hwnd, pulflags.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn RegisterTouchWindow(hwnd: super::super::super::Foundation::HWND, ulflags: REGISTER_TOUCH_WINDOW_FLAGS) -> windows_core::Result<()> {
-    windows_targets::link!("user32.dll" "system" fn RegisterTouchWindow(hwnd : super::super::super::Foundation:: HWND, ulflags : REGISTER_TOUCH_WINDOW_FLAGS) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("user32.dll" "system" fn RegisterTouchWindow(hwnd : super::super::super::Foundation:: HWND, ulflags : REGISTER_TOUCH_WINDOW_FLAGS) -> windows_core::BOOL);
     unsafe { RegisterTouchWindow(hwnd, ulflags).ok() }
 }
 #[inline]
 pub unsafe fn SetGestureConfig(hwnd: super::super::super::Foundation::HWND, dwreserved: u32, pgestureconfig: &[GESTURECONFIG], cbsize: u32) -> windows_core::Result<()> {
-    windows_targets::link!("user32.dll" "system" fn SetGestureConfig(hwnd : super::super::super::Foundation:: HWND, dwreserved : u32, cids : u32, pgestureconfig : *const GESTURECONFIG, cbsize : u32) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("user32.dll" "system" fn SetGestureConfig(hwnd : super::super::super::Foundation:: HWND, dwreserved : u32, cids : u32, pgestureconfig : *const GESTURECONFIG, cbsize : u32) -> windows_core::BOOL);
     unsafe { SetGestureConfig(hwnd, dwreserved, pgestureconfig.len().try_into().unwrap(), core::mem::transmute(pgestureconfig.as_ptr()), cbsize).ok() }
 }
 #[inline]
 pub unsafe fn UnregisterTouchWindow(hwnd: super::super::super::Foundation::HWND) -> windows_core::Result<()> {
-    windows_targets::link!("user32.dll" "system" fn UnregisterTouchWindow(hwnd : super::super::super::Foundation:: HWND) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("user32.dll" "system" fn UnregisterTouchWindow(hwnd : super::super::super::Foundation:: HWND) -> windows_core::BOOL);
     unsafe { UnregisterTouchWindow(hwnd).ok() }
 }
 #[repr(C)]
@@ -388,13 +388,13 @@ impl IInertiaProcessor {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Process(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn Process(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Process)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ProcessTime(&self, timestamp: u32) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn ProcessTime(&self, timestamp: u32) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ProcessTime)(windows_core::Interface::as_raw(self), timestamp, &mut result__).map(|| result__)
@@ -455,8 +455,8 @@ pub struct IInertiaProcessor_Vtbl {
     pub InitialTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetInitialTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Process: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub ProcessTime: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub Process: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub ProcessTime: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CompleteTime: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
@@ -506,8 +506,8 @@ pub trait IInertiaProcessor_Impl: windows_core::IUnknownImpl {
     fn InitialTimestamp(&self) -> windows_core::Result<u32>;
     fn SetInitialTimestamp(&self, timestamp: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
-    fn Process(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn ProcessTime(&self, timestamp: u32) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn Process(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn ProcessTime(&self, timestamp: u32) -> windows_core::Result<windows_core::BOOL>;
     fn Complete(&self) -> windows_core::Result<()>;
     fn CompleteTime(&self, timestamp: u32) -> windows_core::Result<()>;
 }
@@ -915,7 +915,7 @@ impl IInertiaProcessor_Vtbl {
                 IInertiaProcessor_Impl::Reset(this).into()
             }
         }
-        unsafe extern "system" fn Process<Identity: IInertiaProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, completed: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn Process<Identity: IInertiaProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, completed: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInertiaProcessor_Impl::Process(this) {
@@ -927,7 +927,7 @@ impl IInertiaProcessor_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ProcessTime<Identity: IInertiaProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, timestamp: u32, completed: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn ProcessTime<Identity: IInertiaProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, timestamp: u32, completed: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInertiaProcessor_Impl::ProcessTime(this, core::mem::transmute_copy(&timestamp)) {
