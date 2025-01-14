@@ -2007,6 +2007,8 @@ pub struct IRestrictedErrorInfo_Vtbl {
     pub GetErrorDetails: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut windows_core::HRESULT, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetReference: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IRestrictedErrorInfo {}
+unsafe impl Sync for IRestrictedErrorInfo {}
 pub trait IRestrictedErrorInfo_Impl: windows_core::IUnknownImpl {
     fn GetErrorDetails(&self, description: *mut windows_core::BSTR, error: *mut windows_core::HRESULT, restricteddescription: *mut windows_core::BSTR, capabilitysid: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn GetReference(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -2042,8 +2044,6 @@ impl IRestrictedErrorInfo_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IRestrictedErrorInfo {}
-unsafe impl Send for IRestrictedErrorInfo {}
-unsafe impl Sync for IRestrictedErrorInfo {}
 windows_core::imp::define_interface!(IShareWindowCommandEventArgsInterop, IShareWindowCommandEventArgsInterop_Vtbl, 0x6571a721_643d_43d4_aca4_6b6f5f30f1ad);
 windows_core::imp::interface_hierarchy!(IShareWindowCommandEventArgsInterop, windows_core::IUnknown);
 impl IShareWindowCommandEventArgsInterop {

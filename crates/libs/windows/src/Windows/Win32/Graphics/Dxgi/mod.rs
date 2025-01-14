@@ -1755,6 +1755,8 @@ pub struct IDXGIAdapter_Vtbl {
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_ADAPTER_DESC) -> windows_core::HRESULT,
     pub CheckInterfaceSupport: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut i64) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDXGIAdapter {}
+unsafe impl Sync for IDXGIAdapter {}
 pub trait IDXGIAdapter_Impl: IDXGIObject_Impl {
     fn EnumOutputs(&self, output: u32) -> windows_core::Result<IDXGIOutput>;
     fn GetDesc(&self) -> windows_core::Result<DXGI_ADAPTER_DESC>;
@@ -1810,8 +1812,6 @@ impl IDXGIAdapter_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDXGIAdapter {}
-unsafe impl Send for IDXGIAdapter {}
-unsafe impl Sync for IDXGIAdapter {}
 windows_core::imp::define_interface!(IDXGIAdapter1, IDXGIAdapter1_Vtbl, 0x29038f61_3839_4626_91fd_086879011a05);
 impl core::ops::Deref for IDXGIAdapter1 {
     type Target = IDXGIAdapter;
@@ -1833,6 +1833,8 @@ pub struct IDXGIAdapter1_Vtbl {
     pub base__: IDXGIAdapter_Vtbl,
     pub GetDesc1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_ADAPTER_DESC1) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDXGIAdapter1 {}
+unsafe impl Sync for IDXGIAdapter1 {}
 pub trait IDXGIAdapter1_Impl: IDXGIAdapter_Impl {
     fn GetDesc1(&self) -> windows_core::Result<DXGI_ADAPTER_DESC1>;
 }
@@ -1857,8 +1859,6 @@ impl IDXGIAdapter1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDXGIAdapter1 {}
-unsafe impl Send for IDXGIAdapter1 {}
-unsafe impl Sync for IDXGIAdapter1 {}
 windows_core::imp::define_interface!(IDXGIAdapter2, IDXGIAdapter2_Vtbl, 0x0aa1ae0a_fa0e_4b84_8644_e05ff8e5acb5);
 impl core::ops::Deref for IDXGIAdapter2 {
     type Target = IDXGIAdapter1;
@@ -1880,6 +1880,8 @@ pub struct IDXGIAdapter2_Vtbl {
     pub base__: IDXGIAdapter1_Vtbl,
     pub GetDesc2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_ADAPTER_DESC2) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDXGIAdapter2 {}
+unsafe impl Sync for IDXGIAdapter2 {}
 pub trait IDXGIAdapter2_Impl: IDXGIAdapter1_Impl {
     fn GetDesc2(&self) -> windows_core::Result<DXGI_ADAPTER_DESC2>;
 }
@@ -1904,8 +1906,6 @@ impl IDXGIAdapter2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDXGIAdapter2 {}
-unsafe impl Send for IDXGIAdapter2 {}
-unsafe impl Sync for IDXGIAdapter2 {}
 windows_core::imp::define_interface!(IDXGIAdapter3, IDXGIAdapter3_Vtbl, 0x645967a4_1392_4310_a798_8053ce3e93fd);
 impl core::ops::Deref for IDXGIAdapter3 {
     type Target = IDXGIAdapter2;
@@ -1950,6 +1950,8 @@ pub struct IDXGIAdapter3_Vtbl {
     pub RegisterVideoMemoryBudgetChangeNotificationEvent: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HANDLE, *mut u32) -> windows_core::HRESULT,
     pub UnregisterVideoMemoryBudgetChangeNotification: unsafe extern "system" fn(*mut core::ffi::c_void, u32),
 }
+unsafe impl Send for IDXGIAdapter3 {}
+unsafe impl Sync for IDXGIAdapter3 {}
 pub trait IDXGIAdapter3_Impl: IDXGIAdapter2_Impl {
     fn RegisterHardwareContentProtectionTeardownStatusEvent(&self, hevent: super::super::Foundation::HANDLE) -> windows_core::Result<u32>;
     fn UnregisterHardwareContentProtectionTeardownStatus(&self, dwcookie: u32);
@@ -2023,8 +2025,6 @@ impl IDXGIAdapter3_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDXGIAdapter3 {}
-unsafe impl Send for IDXGIAdapter3 {}
-unsafe impl Sync for IDXGIAdapter3 {}
 windows_core::imp::define_interface!(IDXGIAdapter4, IDXGIAdapter4_Vtbl, 0x3c8d99d1_4fbf_4181_a82c_af66bf7bd24e);
 impl core::ops::Deref for IDXGIAdapter4 {
     type Target = IDXGIAdapter3;
@@ -2046,6 +2046,8 @@ pub struct IDXGIAdapter4_Vtbl {
     pub base__: IDXGIAdapter3_Vtbl,
     pub GetDesc3: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_ADAPTER_DESC3) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDXGIAdapter4 {}
+unsafe impl Sync for IDXGIAdapter4 {}
 pub trait IDXGIAdapter4_Impl: IDXGIAdapter3_Impl {
     fn GetDesc3(&self) -> windows_core::Result<DXGI_ADAPTER_DESC3>;
 }
@@ -2070,8 +2072,6 @@ impl IDXGIAdapter4_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDXGIAdapter4 {}
-unsafe impl Send for IDXGIAdapter4 {}
-unsafe impl Sync for IDXGIAdapter4 {}
 windows_core::imp::define_interface!(IDXGIDebug, IDXGIDebug_Vtbl, 0x119e7452_de9e_40fe_8806_88f90c12b441);
 windows_core::imp::interface_hierarchy!(IDXGIDebug, windows_core::IUnknown);
 impl IDXGIDebug {
@@ -2084,6 +2084,8 @@ pub struct IDXGIDebug_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ReportLiveObjects: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, DXGI_DEBUG_RLO_FLAGS) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDXGIDebug {}
+unsafe impl Sync for IDXGIDebug {}
 pub trait IDXGIDebug_Impl: windows_core::IUnknownImpl {
     fn ReportLiveObjects(&self, apiid: &windows_core::GUID, flags: DXGI_DEBUG_RLO_FLAGS) -> windows_core::Result<()>;
 }
@@ -2102,8 +2104,6 @@ impl IDXGIDebug_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDXGIDebug {}
-unsafe impl Send for IDXGIDebug {}
-unsafe impl Sync for IDXGIDebug {}
 windows_core::imp::define_interface!(IDXGIDebug1, IDXGIDebug1_Vtbl, 0xc5a05f0c_16f2_4adf_9f4d_a8c4d58ac550);
 impl core::ops::Deref for IDXGIDebug1 {
     type Target = IDXGIDebug;
@@ -2130,6 +2130,8 @@ pub struct IDXGIDebug1_Vtbl {
     pub DisableLeakTrackingForThread: unsafe extern "system" fn(*mut core::ffi::c_void),
     pub IsLeakTrackingEnabledForThread: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
 }
+unsafe impl Send for IDXGIDebug1 {}
+unsafe impl Sync for IDXGIDebug1 {}
 pub trait IDXGIDebug1_Impl: IDXGIDebug_Impl {
     fn EnableLeakTrackingForThread(&self);
     fn DisableLeakTrackingForThread(&self);
@@ -2167,8 +2169,6 @@ impl IDXGIDebug1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDXGIDebug1 {}
-unsafe impl Send for IDXGIDebug1 {}
-unsafe impl Sync for IDXGIDebug1 {}
 windows_core::imp::define_interface!(IDXGIDecodeSwapChain, IDXGIDecodeSwapChain_Vtbl, 0x2633066b_4514_4c7a_8fd8_12ea98059d18);
 windows_core::imp::interface_hierarchy!(IDXGIDecodeSwapChain, windows_core::IUnknown);
 impl IDXGIDecodeSwapChain {
@@ -2219,6 +2219,8 @@ pub struct IDXGIDecodeSwapChain_Vtbl {
     pub SetColorSpace: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS) -> windows_core::HRESULT,
     pub GetColorSpace: unsafe extern "system" fn(*mut core::ffi::c_void) -> DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS,
 }
+unsafe impl Send for IDXGIDecodeSwapChain {}
+unsafe impl Sync for IDXGIDecodeSwapChain {}
 pub trait IDXGIDecodeSwapChain_Impl: windows_core::IUnknownImpl {
     fn PresentBuffer(&self, buffertopresent: u32, syncinterval: u32, flags: DXGI_PRESENT) -> windows_core::HRESULT;
     fn SetSourceRect(&self, prect: *const super::super::Foundation::RECT) -> windows_core::Result<()>;
@@ -2316,8 +2318,6 @@ impl IDXGIDecodeSwapChain_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDXGIDecodeSwapChain {}
-unsafe impl Send for IDXGIDecodeSwapChain {}
-unsafe impl Sync for IDXGIDecodeSwapChain {}
 windows_core::imp::define_interface!(IDXGIDevice, IDXGIDevice_Vtbl, 0x54ec77fa_1377_44e6_8c32_88fd5f44c84c);
 impl core::ops::Deref for IDXGIDevice {
     type Target = IDXGIObject;
@@ -2362,6 +2362,8 @@ pub struct IDXGIDevice_Vtbl {
     pub SetGPUThreadPriority: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub GetGPUThreadPriority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDXGIDevice {}
+unsafe impl Sync for IDXGIDevice {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IDXGIDevice_Impl: IDXGIObject_Impl {
     fn GetAdapter(&self) -> windows_core::Result<IDXGIAdapter>;
@@ -2430,10 +2432,6 @@ impl IDXGIDevice_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIDevice {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for IDXGIDevice {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for IDXGIDevice {}
 windows_core::imp::define_interface!(IDXGIDevice1, IDXGIDevice1_Vtbl, 0x77db970f_6276_48ba_ba28_070143b4392c);
 impl core::ops::Deref for IDXGIDevice1 {
     type Target = IDXGIDevice;
@@ -2459,6 +2457,8 @@ pub struct IDXGIDevice1_Vtbl {
     pub SetMaximumFrameLatency: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetMaximumFrameLatency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDXGIDevice1 {}
+unsafe impl Sync for IDXGIDevice1 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IDXGIDevice1_Impl: IDXGIDevice_Impl {
     fn SetMaximumFrameLatency(&self, maxlatency: u32) -> windows_core::Result<()>;
@@ -2497,10 +2497,6 @@ impl IDXGIDevice1_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIDevice1 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for IDXGIDevice1 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for IDXGIDevice1 {}
 windows_core::imp::define_interface!(IDXGIDevice2, IDXGIDevice2_Vtbl, 0x05008617_fbfd_4051_a790_144884b4f6a9);
 impl core::ops::Deref for IDXGIDevice2 {
     type Target = IDXGIDevice1;
@@ -2527,6 +2523,8 @@ pub struct IDXGIDevice2_Vtbl {
     pub ReclaimResources: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const *mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub EnqueueSetEvent: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HANDLE) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDXGIDevice2 {}
+unsafe impl Sync for IDXGIDevice2 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IDXGIDevice2_Impl: IDXGIDevice1_Impl {
     fn OfferResources(&self, numresources: u32, ppresources: *const Option<IDXGIResource>, priority: DXGI_OFFER_RESOURCE_PRIORITY) -> windows_core::Result<()>;
@@ -2567,10 +2565,6 @@ impl IDXGIDevice2_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIDevice2 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for IDXGIDevice2 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for IDXGIDevice2 {}
 windows_core::imp::define_interface!(IDXGIDevice3, IDXGIDevice3_Vtbl, 0x6007896c_3244_4afd_bf18_a6d3beda5023);
 impl core::ops::Deref for IDXGIDevice3 {
     type Target = IDXGIDevice2;
@@ -2589,6 +2583,8 @@ pub struct IDXGIDevice3_Vtbl {
     pub base__: IDXGIDevice2_Vtbl,
     pub Trim: unsafe extern "system" fn(*mut core::ffi::c_void),
 }
+unsafe impl Send for IDXGIDevice3 {}
+unsafe impl Sync for IDXGIDevice3 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IDXGIDevice3_Impl: IDXGIDevice2_Impl {
     fn Trim(&self);
@@ -2610,10 +2606,6 @@ impl IDXGIDevice3_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIDevice3 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for IDXGIDevice3 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for IDXGIDevice3 {}
 windows_core::imp::define_interface!(IDXGIDevice4, IDXGIDevice4_Vtbl, 0x95b4f95f_d8da_4ca4_9ee6_3b76d5968a10);
 impl core::ops::Deref for IDXGIDevice4 {
     type Target = IDXGIDevice3;
@@ -2636,6 +2628,8 @@ pub struct IDXGIDevice4_Vtbl {
     pub OfferResources1: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const *mut core::ffi::c_void, DXGI_OFFER_RESOURCE_PRIORITY, u32) -> windows_core::HRESULT,
     pub ReclaimResources1: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const *mut core::ffi::c_void, *mut DXGI_RECLAIM_RESOURCE_RESULTS) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDXGIDevice4 {}
+unsafe impl Sync for IDXGIDevice4 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IDXGIDevice4_Impl: IDXGIDevice3_Impl {
     fn OfferResources1(&self, numresources: u32, ppresources: *const Option<IDXGIResource>, priority: DXGI_OFFER_RESOURCE_PRIORITY, flags: &DXGI_OFFER_RESOURCE_FLAGS) -> windows_core::Result<()>;
@@ -2668,10 +2662,6 @@ impl IDXGIDevice4_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIDevice4 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for IDXGIDevice4 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for IDXGIDevice4 {}
 windows_core::imp::define_interface!(IDXGIDeviceSubObject, IDXGIDeviceSubObject_Vtbl, 0x3d3e0379_f9de_4d58_bb6c_18d62992f1a6);
 impl core::ops::Deref for IDXGIDeviceSubObject {
     type Target = IDXGIObject;
@@ -2694,6 +2684,8 @@ pub struct IDXGIDeviceSubObject_Vtbl {
     pub base__: IDXGIObject_Vtbl,
     pub GetDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDXGIDeviceSubObject {}
+unsafe impl Sync for IDXGIDeviceSubObject {}
 pub trait IDXGIDeviceSubObject_Impl: IDXGIObject_Impl {
     fn GetDevice(&self, riid: *const windows_core::GUID, ppdevice: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
@@ -2712,8 +2704,6 @@ impl IDXGIDeviceSubObject_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDXGIDeviceSubObject {}
-unsafe impl Send for IDXGIDeviceSubObject {}
-unsafe impl Sync for IDXGIDeviceSubObject {}
 windows_core::imp::define_interface!(IDXGIDisplayControl, IDXGIDisplayControl_Vtbl, 0xea9dbf1a_c88e_4486_854a_98aa0138f30c);
 windows_core::imp::interface_hierarchy!(IDXGIDisplayControl, windows_core::IUnknown);
 impl IDXGIDisplayControl {
@@ -2730,6 +2720,8 @@ pub struct IDXGIDisplayControl_Vtbl {
     pub IsStereoEnabled: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
     pub SetStereoEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL),
 }
+unsafe impl Send for IDXGIDisplayControl {}
+unsafe impl Sync for IDXGIDisplayControl {}
 pub trait IDXGIDisplayControl_Impl: windows_core::IUnknownImpl {
     fn IsStereoEnabled(&self) -> super::super::Foundation::BOOL;
     fn SetStereoEnabled(&self, enabled: super::super::Foundation::BOOL);
@@ -2759,8 +2751,6 @@ impl IDXGIDisplayControl_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDXGIDisplayControl {}
-unsafe impl Send for IDXGIDisplayControl {}
-unsafe impl Sync for IDXGIDisplayControl {}
 windows_core::imp::define_interface!(IDXGIFactory, IDXGIFactory_Vtbl, 0x7b7166ec_21c7_44ae_b21a_c9ae321ae369);
 impl core::ops::Deref for IDXGIFactory {
     type Target = IDXGIObject;
@@ -2811,6 +2801,8 @@ pub struct IDXGIFactory_Vtbl {
     CreateSwapChain: usize,
     pub CreateSoftwareAdapter: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HMODULE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDXGIFactory {}
+unsafe impl Sync for IDXGIFactory {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IDXGIFactory_Impl: IDXGIObject_Impl {
     fn EnumAdapters(&self, adapter: u32) -> windows_core::Result<IDXGIAdapter>;
@@ -2885,10 +2877,6 @@ impl IDXGIFactory_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIFactory {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for IDXGIFactory {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for IDXGIFactory {}
 windows_core::imp::define_interface!(IDXGIFactory1, IDXGIFactory1_Vtbl, 0x770aae78_f26f_4dba_a829_253c83d1b387);
 impl core::ops::Deref for IDXGIFactory1 {
     type Target = IDXGIFactory;
@@ -2914,6 +2902,8 @@ pub struct IDXGIFactory1_Vtbl {
     pub EnumAdapters1: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsCurrent: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
 }
+unsafe impl Send for IDXGIFactory1 {}
+unsafe impl Sync for IDXGIFactory1 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IDXGIFactory1_Impl: IDXGIFactory_Impl {
     fn EnumAdapters1(&self, adapter: u32) -> windows_core::Result<IDXGIAdapter1>;
@@ -2948,10 +2938,6 @@ impl IDXGIFactory1_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIFactory1 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for IDXGIFactory1 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for IDXGIFactory1 {}
 windows_core::imp::define_interface!(IDXGIFactory2, IDXGIFactory2_Vtbl, 0x50c83a1c_e072_4c48_87b0_3630fa36a6d0);
 impl core::ops::Deref for IDXGIFactory2 {
     type Target = IDXGIFactory1;
@@ -3059,6 +3045,8 @@ pub struct IDXGIFactory2_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     CreateSwapChainForComposition: usize,
 }
+unsafe impl Send for IDXGIFactory2 {}
+unsafe impl Sync for IDXGIFactory2 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IDXGIFactory2_Impl: IDXGIFactory1_Impl {
     fn IsWindowedStereoEnabled(&self) -> super::super::Foundation::BOOL;
@@ -3211,10 +3199,6 @@ impl IDXGIFactory2_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIFactory2 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for IDXGIFactory2 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for IDXGIFactory2 {}
 windows_core::imp::define_interface!(IDXGIFactory3, IDXGIFactory3_Vtbl, 0x25483823_cd46_4c7d_86ca_47aa95b837bd);
 impl core::ops::Deref for IDXGIFactory3 {
     type Target = IDXGIFactory2;
@@ -3233,6 +3217,8 @@ pub struct IDXGIFactory3_Vtbl {
     pub base__: IDXGIFactory2_Vtbl,
     pub GetCreationFlags: unsafe extern "system" fn(*mut core::ffi::c_void) -> DXGI_CREATE_FACTORY_FLAGS,
 }
+unsafe impl Send for IDXGIFactory3 {}
+unsafe impl Sync for IDXGIFactory3 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IDXGIFactory3_Impl: IDXGIFactory2_Impl {
     fn GetCreationFlags(&self) -> DXGI_CREATE_FACTORY_FLAGS;
@@ -3254,10 +3240,6 @@ impl IDXGIFactory3_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIFactory3 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for IDXGIFactory3 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for IDXGIFactory3 {}
 windows_core::imp::define_interface!(IDXGIFactory4, IDXGIFactory4_Vtbl, 0x1bc6ea02_ef36_464f_bf0c_21ca39e5168a);
 impl core::ops::Deref for IDXGIFactory4 {
     type Target = IDXGIFactory3;
@@ -3288,6 +3270,8 @@ pub struct IDXGIFactory4_Vtbl {
     pub EnumAdapterByLuid: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::LUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumWarpAdapter: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDXGIFactory4 {}
+unsafe impl Sync for IDXGIFactory4 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IDXGIFactory4_Impl: IDXGIFactory3_Impl {
     fn EnumAdapterByLuid(&self, adapterluid: &super::super::Foundation::LUID, riid: *const windows_core::GUID, ppvadapter: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
@@ -3320,10 +3304,6 @@ impl IDXGIFactory4_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIFactory4 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for IDXGIFactory4 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for IDXGIFactory4 {}
 windows_core::imp::define_interface!(IDXGIFactory5, IDXGIFactory5_Vtbl, 0x7632e1f5_ee65_4dca_87fd_84cd75f8838d);
 impl core::ops::Deref for IDXGIFactory5 {
     type Target = IDXGIFactory4;
@@ -3342,6 +3322,8 @@ pub struct IDXGIFactory5_Vtbl {
     pub base__: IDXGIFactory4_Vtbl,
     pub CheckFeatureSupport: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_FEATURE, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDXGIFactory5 {}
+unsafe impl Sync for IDXGIFactory5 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IDXGIFactory5_Impl: IDXGIFactory4_Impl {
     fn CheckFeatureSupport(&self, feature: DXGI_FEATURE, pfeaturesupportdata: *mut core::ffi::c_void, featuresupportdatasize: u32) -> windows_core::Result<()>;
@@ -3363,10 +3345,6 @@ impl IDXGIFactory5_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIFactory5 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for IDXGIFactory5 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for IDXGIFactory5 {}
 windows_core::imp::define_interface!(IDXGIFactory6, IDXGIFactory6_Vtbl, 0xc1b6694f_ff09_44a9_b03c_77900a0a1d17);
 impl core::ops::Deref for IDXGIFactory6 {
     type Target = IDXGIFactory5;
@@ -3389,6 +3367,8 @@ pub struct IDXGIFactory6_Vtbl {
     pub base__: IDXGIFactory5_Vtbl,
     pub EnumAdapterByGpuPreference: unsafe extern "system" fn(*mut core::ffi::c_void, u32, DXGI_GPU_PREFERENCE, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDXGIFactory6 {}
+unsafe impl Sync for IDXGIFactory6 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IDXGIFactory6_Impl: IDXGIFactory5_Impl {
     fn EnumAdapterByGpuPreference(&self, adapter: u32, gpupreference: DXGI_GPU_PREFERENCE, riid: *const windows_core::GUID, ppvadapter: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
@@ -3410,10 +3390,6 @@ impl IDXGIFactory6_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIFactory6 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for IDXGIFactory6 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for IDXGIFactory6 {}
 windows_core::imp::define_interface!(IDXGIFactory7, IDXGIFactory7_Vtbl, 0xa4966eed_76db_44da_84c1_ee9a7afb20a8);
 impl core::ops::Deref for IDXGIFactory7 {
     type Target = IDXGIFactory6;
@@ -3439,6 +3415,8 @@ pub struct IDXGIFactory7_Vtbl {
     pub RegisterAdaptersChangedEvent: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HANDLE, *mut u32) -> windows_core::HRESULT,
     pub UnregisterAdaptersChangedEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDXGIFactory7 {}
+unsafe impl Sync for IDXGIFactory7 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IDXGIFactory7_Impl: IDXGIFactory6_Impl {
     fn RegisterAdaptersChangedEvent(&self, hevent: super::super::Foundation::HANDLE) -> windows_core::Result<u32>;
@@ -3477,10 +3455,6 @@ impl IDXGIFactory7_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIFactory7 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for IDXGIFactory7 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for IDXGIFactory7 {}
 windows_core::imp::define_interface!(IDXGIFactoryMedia, IDXGIFactoryMedia_Vtbl, 0x41e7d1f2_a591_4f7b_a2e5_fa9c843e1c12);
 windows_core::imp::interface_hierarchy!(IDXGIFactoryMedia, windows_core::IUnknown);
 impl IDXGIFactoryMedia {
@@ -3516,6 +3490,8 @@ pub struct IDXGIFactoryMedia_Vtbl {
     CreateSwapChainForCompositionSurfaceHandle: usize,
     pub CreateDecodeSwapChainForCompositionSurfaceHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::HANDLE, *const DXGI_DECODE_SWAP_CHAIN_DESC, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDXGIFactoryMedia {}
+unsafe impl Sync for IDXGIFactoryMedia {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IDXGIFactoryMedia_Impl: windows_core::IUnknownImpl {
     fn CreateSwapChainForCompositionSurfaceHandle(&self, pdevice: windows_core::Ref<windows_core::IUnknown>, hsurface: super::super::Foundation::HANDLE, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: windows_core::Ref<IDXGIOutput>) -> windows_core::Result<IDXGISwapChain1>;
@@ -3560,10 +3536,6 @@ impl IDXGIFactoryMedia_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIFactoryMedia {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for IDXGIFactoryMedia {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for IDXGIFactoryMedia {}
 windows_core::imp::define_interface!(IDXGIInfoQueue, IDXGIInfoQueue_Vtbl, 0xd67441c7_672a_476f_9e82_cd55b44949ce);
 windows_core::imp::interface_hierarchy!(IDXGIInfoQueue, windows_core::IUnknown);
 impl IDXGIInfoQueue {
@@ -3726,6 +3698,8 @@ pub struct IDXGIInfoQueue_Vtbl {
     pub SetMuteDebugOutput: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, super::super::Foundation::BOOL),
     pub GetMuteDebugOutput: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> super::super::Foundation::BOOL,
 }
+unsafe impl Send for IDXGIInfoQueue {}
+unsafe impl Sync for IDXGIInfoQueue {}
 pub trait IDXGIInfoQueue_Impl: windows_core::IUnknownImpl {
     fn SetMessageCountLimit(&self, producer: &windows_core::GUID, messagecountlimit: u64) -> windows_core::Result<()>;
     fn ClearStoredMessages(&self, producer: &windows_core::GUID);
@@ -4035,8 +4009,6 @@ impl IDXGIInfoQueue_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDXGIInfoQueue {}
-unsafe impl Send for IDXGIInfoQueue {}
-unsafe impl Sync for IDXGIInfoQueue {}
 windows_core::imp::define_interface!(IDXGIKeyedMutex, IDXGIKeyedMutex_Vtbl, 0x9d8e1289_d7b3_465f_8126_250e349af85d);
 impl core::ops::Deref for IDXGIKeyedMutex {
     type Target = IDXGIDeviceSubObject;
@@ -4059,6 +4031,8 @@ pub struct IDXGIKeyedMutex_Vtbl {
     pub AcquireSync: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32) -> windows_core::HRESULT,
     pub ReleaseSync: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDXGIKeyedMutex {}
+unsafe impl Sync for IDXGIKeyedMutex {}
 pub trait IDXGIKeyedMutex_Impl: IDXGIDeviceSubObject_Impl {
     fn AcquireSync(&self, key: u64, dwmilliseconds: u32) -> windows_core::Result<()>;
     fn ReleaseSync(&self, key: u64) -> windows_core::Result<()>;
@@ -4088,8 +4062,6 @@ impl IDXGIKeyedMutex_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDXGIKeyedMutex {}
-unsafe impl Send for IDXGIKeyedMutex {}
-unsafe impl Sync for IDXGIKeyedMutex {}
 windows_core::imp::define_interface!(IDXGIObject, IDXGIObject_Vtbl, 0xaec22fb8_76f3_4639_9be0_28eb43a67a2e);
 windows_core::imp::interface_hierarchy!(IDXGIObject, windows_core::IUnknown);
 impl IDXGIObject {
@@ -4121,6 +4093,8 @@ pub struct IDXGIObject_Vtbl {
     pub GetPrivateData: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetParent: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDXGIObject {}
+unsafe impl Sync for IDXGIObject {}
 pub trait IDXGIObject_Impl: windows_core::IUnknownImpl {
     fn SetPrivateData(&self, name: *const windows_core::GUID, datasize: u32, pdata: *const core::ffi::c_void) -> windows_core::Result<()>;
     fn SetPrivateDataInterface(&self, name: *const windows_core::GUID, punknown: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
@@ -4166,8 +4140,6 @@ impl IDXGIObject_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDXGIObject {}
-unsafe impl Send for IDXGIObject {}
-unsafe impl Sync for IDXGIObject {}
 windows_core::imp::define_interface!(IDXGIOutput, IDXGIOutput_Vtbl, 0xae02eedb_c735_4690_8d52_5a8dc20213aa);
 impl core::ops::Deref for IDXGIOutput {
     type Target = IDXGIObject;
@@ -4269,6 +4241,8 @@ pub struct IDXGIOutput_Vtbl {
     pub GetDisplaySurfaceData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFrameStatistics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_FRAME_STATISTICS) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDXGIOutput {}
+unsafe impl Sync for IDXGIOutput {}
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 pub trait IDXGIOutput_Impl: IDXGIObject_Impl {
     fn GetDesc(&self) -> windows_core::Result<DXGI_OUTPUT_DESC>;
@@ -4387,10 +4361,6 @@ impl IDXGIOutput_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IDXGIOutput {}
-#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-unsafe impl Send for IDXGIOutput {}
-#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-unsafe impl Sync for IDXGIOutput {}
 windows_core::imp::define_interface!(IDXGIOutput1, IDXGIOutput1_Vtbl, 0x00cddea8_939b_4b83_a340_a685226666cc);
 impl core::ops::Deref for IDXGIOutput1 {
     type Target = IDXGIOutput;
@@ -4441,6 +4411,8 @@ pub struct IDXGIOutput1_Vtbl {
     pub GetDisplaySurfaceData1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DuplicateOutput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDXGIOutput1 {}
+unsafe impl Sync for IDXGIOutput1 {}
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 pub trait IDXGIOutput1_Impl: IDXGIOutput_Impl {
     fn GetDisplayModeList1(&self, enumformat: Common::DXGI_FORMAT, flags: DXGI_ENUM_MODES, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> windows_core::Result<()>;
@@ -4495,10 +4467,6 @@ impl IDXGIOutput1_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IDXGIOutput1 {}
-#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-unsafe impl Send for IDXGIOutput1 {}
-#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-unsafe impl Sync for IDXGIOutput1 {}
 windows_core::imp::define_interface!(IDXGIOutput2, IDXGIOutput2_Vtbl, 0x595e39d1_2724_4663_99b1_da969de28364);
 impl core::ops::Deref for IDXGIOutput2 {
     type Target = IDXGIOutput1;
@@ -4517,6 +4485,8 @@ pub struct IDXGIOutput2_Vtbl {
     pub base__: IDXGIOutput1_Vtbl,
     pub SupportsOverlays: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
 }
+unsafe impl Send for IDXGIOutput2 {}
+unsafe impl Sync for IDXGIOutput2 {}
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 pub trait IDXGIOutput2_Impl: IDXGIOutput1_Impl {
     fn SupportsOverlays(&self) -> super::super::Foundation::BOOL;
@@ -4538,10 +4508,6 @@ impl IDXGIOutput2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IDXGIOutput2 {}
-#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-unsafe impl Send for IDXGIOutput2 {}
-#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-unsafe impl Sync for IDXGIOutput2 {}
 windows_core::imp::define_interface!(IDXGIOutput3, IDXGIOutput3_Vtbl, 0x8a6bb301_7e7e_41f4_a8e0_5b32f7f99b18);
 impl core::ops::Deref for IDXGIOutput3 {
     type Target = IDXGIOutput2;
@@ -4570,6 +4536,8 @@ pub struct IDXGIOutput3_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     CheckOverlaySupport: usize,
 }
+unsafe impl Send for IDXGIOutput3 {}
+unsafe impl Sync for IDXGIOutput3 {}
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 pub trait IDXGIOutput3_Impl: IDXGIOutput2_Impl {
     fn CheckOverlaySupport(&self, enumformat: Common::DXGI_FORMAT, pconcerneddevice: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<u32>;
@@ -4597,10 +4565,6 @@ impl IDXGIOutput3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IDXGIOutput3 {}
-#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-unsafe impl Send for IDXGIOutput3 {}
-#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-unsafe impl Sync for IDXGIOutput3 {}
 windows_core::imp::define_interface!(IDXGIOutput4, IDXGIOutput4_Vtbl, 0xdc7dca35_2196_414d_9f53_617884032a60);
 impl core::ops::Deref for IDXGIOutput4 {
     type Target = IDXGIOutput3;
@@ -4629,6 +4593,8 @@ pub struct IDXGIOutput4_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     CheckOverlayColorSpaceSupport: usize,
 }
+unsafe impl Send for IDXGIOutput4 {}
+unsafe impl Sync for IDXGIOutput4 {}
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 pub trait IDXGIOutput4_Impl: IDXGIOutput3_Impl {
     fn CheckOverlayColorSpaceSupport(&self, format: Common::DXGI_FORMAT, colorspace: Common::DXGI_COLOR_SPACE_TYPE, pconcerneddevice: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<u32>;
@@ -4656,10 +4622,6 @@ impl IDXGIOutput4_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IDXGIOutput4 {}
-#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-unsafe impl Send for IDXGIOutput4 {}
-#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-unsafe impl Sync for IDXGIOutput4 {}
 windows_core::imp::define_interface!(IDXGIOutput5, IDXGIOutput5_Vtbl, 0x80a07424_ab52_42eb_833c_0c42fd282d98);
 impl core::ops::Deref for IDXGIOutput5 {
     type Target = IDXGIOutput4;
@@ -4688,6 +4650,8 @@ pub struct IDXGIOutput5_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     DuplicateOutput1: usize,
 }
+unsafe impl Send for IDXGIOutput5 {}
+unsafe impl Sync for IDXGIOutput5 {}
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 pub trait IDXGIOutput5_Impl: IDXGIOutput4_Impl {
     fn DuplicateOutput1(&self, pdevice: windows_core::Ref<windows_core::IUnknown>, flags: u32, supportedformatscount: u32, psupportedformats: *const Common::DXGI_FORMAT) -> windows_core::Result<IDXGIOutputDuplication>;
@@ -4715,10 +4679,6 @@ impl IDXGIOutput5_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IDXGIOutput5 {}
-#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-unsafe impl Send for IDXGIOutput5 {}
-#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-unsafe impl Sync for IDXGIOutput5 {}
 windows_core::imp::define_interface!(IDXGIOutput6, IDXGIOutput6_Vtbl, 0x068346e8_aaec_4b84_add7_137f513f77a1);
 impl core::ops::Deref for IDXGIOutput6 {
     type Target = IDXGIOutput5;
@@ -4751,6 +4711,8 @@ pub struct IDXGIOutput6_Vtbl {
     GetDesc1: usize,
     pub CheckHardwareCompositionSupport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDXGIOutput6 {}
+unsafe impl Sync for IDXGIOutput6 {}
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 pub trait IDXGIOutput6_Impl: IDXGIOutput5_Impl {
     fn GetDesc1(&self) -> windows_core::Result<DXGI_OUTPUT_DESC1>;
@@ -4795,10 +4757,6 @@ impl IDXGIOutput6_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IDXGIOutput6 {}
-#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-unsafe impl Send for IDXGIOutput6 {}
-#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-unsafe impl Sync for IDXGIOutput6 {}
 windows_core::imp::define_interface!(IDXGIOutputDuplication, IDXGIOutputDuplication_Vtbl, 0x191cfac3_a341_470d_b26e_a864f428319c);
 impl core::ops::Deref for IDXGIOutputDuplication {
     type Target = IDXGIObject;
@@ -4856,6 +4814,8 @@ pub struct IDXGIOutputDuplication_Vtbl {
     pub UnMapDesktopSurface: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ReleaseFrame: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDXGIOutputDuplication {}
+unsafe impl Sync for IDXGIOutputDuplication {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IDXGIOutputDuplication_Impl: IDXGIObject_Impl {
     fn GetDesc(&self, pdesc: *mut DXGI_OUTDUPL_DESC);
@@ -4942,10 +4902,6 @@ impl IDXGIOutputDuplication_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIOutputDuplication {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for IDXGIOutputDuplication {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for IDXGIOutputDuplication {}
 windows_core::imp::define_interface!(IDXGIResource, IDXGIResource_Vtbl, 0x035f3ab4_482e_4e50_b41f_8a7f8bd8960b);
 impl core::ops::Deref for IDXGIResource {
     type Target = IDXGIDeviceSubObject;
@@ -4985,6 +4941,8 @@ pub struct IDXGIResource_Vtbl {
     pub SetEvictionPriority: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_RESOURCE_PRIORITY) -> windows_core::HRESULT,
     pub GetEvictionPriority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_RESOURCE_PRIORITY) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDXGIResource {}
+unsafe impl Sync for IDXGIResource {}
 pub trait IDXGIResource_Impl: IDXGIDeviceSubObject_Impl {
     fn GetSharedHandle(&self) -> windows_core::Result<super::super::Foundation::HANDLE>;
     fn GetUsage(&self) -> windows_core::Result<DXGI_USAGE>;
@@ -5048,8 +5006,6 @@ impl IDXGIResource_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDXGIResource {}
-unsafe impl Send for IDXGIResource {}
-unsafe impl Sync for IDXGIResource {}
 windows_core::imp::define_interface!(IDXGIResource1, IDXGIResource1_Vtbl, 0x30961379_4609_4a41_998e_54fe567ee0c1);
 impl core::ops::Deref for IDXGIResource1 {
     type Target = IDXGIResource;
@@ -5085,6 +5041,8 @@ pub struct IDXGIResource1_Vtbl {
     #[cfg(not(feature = "Win32_Security"))]
     CreateSharedHandle: usize,
 }
+unsafe impl Send for IDXGIResource1 {}
+unsafe impl Sync for IDXGIResource1 {}
 #[cfg(feature = "Win32_Security")]
 pub trait IDXGIResource1_Impl: IDXGIResource_Impl {
     fn CreateSubresourceSurface(&self, index: u32) -> windows_core::Result<IDXGISurface2>;
@@ -5129,10 +5087,6 @@ impl IDXGIResource1_Vtbl {
 }
 #[cfg(feature = "Win32_Security")]
 impl windows_core::RuntimeName for IDXGIResource1 {}
-#[cfg(feature = "Win32_Security")]
-unsafe impl Send for IDXGIResource1 {}
-#[cfg(feature = "Win32_Security")]
-unsafe impl Sync for IDXGIResource1 {}
 windows_core::imp::define_interface!(IDXGISurface, IDXGISurface_Vtbl, 0xcafcb56c_6ac3_4889_bf47_9e23bbd260ec);
 impl core::ops::Deref for IDXGISurface {
     type Target = IDXGIDeviceSubObject;
@@ -5166,6 +5120,8 @@ pub struct IDXGISurface_Vtbl {
     pub Map: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_MAPPED_RECT, DXGI_MAP_FLAGS) -> windows_core::HRESULT,
     pub Unmap: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDXGISurface {}
+unsafe impl Sync for IDXGISurface {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IDXGISurface_Impl: IDXGIDeviceSubObject_Impl {
     fn GetDesc(&self) -> windows_core::Result<DXGI_SURFACE_DESC>;
@@ -5212,10 +5168,6 @@ impl IDXGISurface_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGISurface {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for IDXGISurface {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for IDXGISurface {}
 windows_core::imp::define_interface!(IDXGISurface1, IDXGISurface1_Vtbl, 0x4ae63092_6327_4c1b_80ae_bfe12ea32b86);
 impl core::ops::Deref for IDXGISurface1 {
     type Target = IDXGISurface;
@@ -5245,6 +5197,8 @@ pub struct IDXGISurface1_Vtbl {
     GetDC: usize,
     pub ReleaseDC: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::RECT) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDXGISurface1 {}
+unsafe impl Sync for IDXGISurface1 {}
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 pub trait IDXGISurface1_Impl: IDXGISurface_Impl {
     fn GetDC(&self, discard: super::super::Foundation::BOOL) -> windows_core::Result<super::Gdi::HDC>;
@@ -5279,10 +5233,6 @@ impl IDXGISurface1_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IDXGISurface1 {}
-#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-unsafe impl Send for IDXGISurface1 {}
-#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-unsafe impl Sync for IDXGISurface1 {}
 windows_core::imp::define_interface!(IDXGISurface2, IDXGISurface2_Vtbl, 0xaba496dd_b617_4cb8_a866_bc44d7eb1fa2);
 impl core::ops::Deref for IDXGISurface2 {
     type Target = IDXGISurface1;
@@ -5305,6 +5255,8 @@ pub struct IDXGISurface2_Vtbl {
     pub base__: IDXGISurface1_Vtbl,
     pub GetResource: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDXGISurface2 {}
+unsafe impl Sync for IDXGISurface2 {}
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 pub trait IDXGISurface2_Impl: IDXGISurface1_Impl {
     fn GetResource(&self, riid: *const windows_core::GUID, ppparentresource: *mut *mut core::ffi::c_void, psubresourceindex: *mut u32) -> windows_core::Result<()>;
@@ -5326,10 +5278,6 @@ impl IDXGISurface2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IDXGISurface2 {}
-#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-unsafe impl Send for IDXGISurface2 {}
-#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-unsafe impl Sync for IDXGISurface2 {}
 windows_core::imp::define_interface!(IDXGISwapChain, IDXGISwapChain_Vtbl, 0x310d36a0_d2e7_4c0a_aa04_6a9d23b8886a);
 impl core::ops::Deref for IDXGISwapChain {
     type Target = IDXGIDeviceSubObject;
@@ -5412,6 +5360,8 @@ pub struct IDXGISwapChain_Vtbl {
     pub GetFrameStatistics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_FRAME_STATISTICS) -> windows_core::HRESULT,
     pub GetLastPresentCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDXGISwapChain {}
+unsafe impl Sync for IDXGISwapChain {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IDXGISwapChain_Impl: IDXGIDeviceSubObject_Impl {
     fn Present(&self, syncinterval: u32, flags: DXGI_PRESENT) -> windows_core::HRESULT;
@@ -5526,10 +5476,6 @@ impl IDXGISwapChain_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGISwapChain {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for IDXGISwapChain {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for IDXGISwapChain {}
 windows_core::imp::define_interface!(IDXGISwapChain1, IDXGISwapChain1_Vtbl, 0x790a45f7_0d42_4876_983a_0a55cfe6f4aa);
 impl core::ops::Deref for IDXGISwapChain1 {
     type Target = IDXGISwapChain;
@@ -5626,6 +5572,8 @@ pub struct IDXGISwapChain1_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetRotation: usize,
 }
+unsafe impl Send for IDXGISwapChain1 {}
+unsafe impl Sync for IDXGISwapChain1 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IDXGISwapChain1_Impl: IDXGISwapChain_Impl {
     fn GetDesc1(&self) -> windows_core::Result<DXGI_SWAP_CHAIN_DESC1>;
@@ -5766,10 +5714,6 @@ impl IDXGISwapChain1_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGISwapChain1 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for IDXGISwapChain1 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for IDXGISwapChain1 {}
 windows_core::imp::define_interface!(IDXGISwapChain2, IDXGISwapChain2_Vtbl, 0xa8be2ac4_199f_4946_b331_79599fb98de7);
 impl core::ops::Deref for IDXGISwapChain2 {
     type Target = IDXGISwapChain1;
@@ -5815,6 +5759,8 @@ pub struct IDXGISwapChain2_Vtbl {
     pub SetMatrixTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *const DXGI_MATRIX_3X2_F) -> windows_core::HRESULT,
     pub GetMatrixTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_MATRIX_3X2_F) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDXGISwapChain2 {}
+unsafe impl Sync for IDXGISwapChain2 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IDXGISwapChain2_Impl: IDXGISwapChain1_Impl {
     fn SetSourceSize(&self, width: u32, height: u32) -> windows_core::Result<()>;
@@ -5893,10 +5839,6 @@ impl IDXGISwapChain2_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGISwapChain2 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for IDXGISwapChain2 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for IDXGISwapChain2 {}
 windows_core::imp::define_interface!(IDXGISwapChain3, IDXGISwapChain3_Vtbl, 0x94d99bdb_f1f8_4ab0_b236_7da0170edab1);
 impl core::ops::Deref for IDXGISwapChain3 {
     type Target = IDXGISwapChain2;
@@ -5942,6 +5884,8 @@ pub struct IDXGISwapChain3_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     ResizeBuffers1: usize,
 }
+unsafe impl Send for IDXGISwapChain3 {}
+unsafe impl Sync for IDXGISwapChain3 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IDXGISwapChain3_Impl: IDXGISwapChain2_Impl {
     fn GetCurrentBackBufferIndex(&self) -> u32;
@@ -5996,10 +5940,6 @@ impl IDXGISwapChain3_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGISwapChain3 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for IDXGISwapChain3 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for IDXGISwapChain3 {}
 windows_core::imp::define_interface!(IDXGISwapChain4, IDXGISwapChain4_Vtbl, 0x3d585d5a_bd4a_489e_b1f4_3dbcb6452ffb);
 impl core::ops::Deref for IDXGISwapChain4 {
     type Target = IDXGISwapChain3;
@@ -6018,6 +5958,8 @@ pub struct IDXGISwapChain4_Vtbl {
     pub base__: IDXGISwapChain3_Vtbl,
     pub SetHDRMetaData: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_HDR_METADATA_TYPE, u32, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDXGISwapChain4 {}
+unsafe impl Sync for IDXGISwapChain4 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IDXGISwapChain4_Impl: IDXGISwapChain3_Impl {
     fn SetHDRMetaData(&self, r#type: DXGI_HDR_METADATA_TYPE, size: u32, pmetadata: *const core::ffi::c_void) -> windows_core::Result<()>;
@@ -6039,10 +5981,6 @@ impl IDXGISwapChain4_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGISwapChain4 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for IDXGISwapChain4 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for IDXGISwapChain4 {}
 windows_core::imp::define_interface!(IDXGISwapChainMedia, IDXGISwapChainMedia_Vtbl, 0xdd95b90b_f05f_4f6a_bd65_25bfb264bd84);
 windows_core::imp::interface_hierarchy!(IDXGISwapChainMedia, windows_core::IUnknown);
 impl IDXGISwapChainMedia {
@@ -6063,6 +6001,8 @@ pub struct IDXGISwapChainMedia_Vtbl {
     pub SetPresentDuration: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub CheckPresentDurationSupport: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, *mut u32) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDXGISwapChainMedia {}
+unsafe impl Sync for IDXGISwapChainMedia {}
 pub trait IDXGISwapChainMedia_Impl: windows_core::IUnknownImpl {
     fn GetFrameStatisticsMedia(&self, pstats: *mut DXGI_FRAME_STATISTICS_MEDIA) -> windows_core::Result<()>;
     fn SetPresentDuration(&self, duration: u32) -> windows_core::Result<()>;
@@ -6100,8 +6040,6 @@ impl IDXGISwapChainMedia_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDXGISwapChainMedia {}
-unsafe impl Send for IDXGISwapChainMedia {}
-unsafe impl Sync for IDXGISwapChainMedia {}
 windows_core::imp::define_interface!(IDXGraphicsAnalysis, IDXGraphicsAnalysis_Vtbl, 0x9f251514_9d4d_4902_9d60_18988ab7d4b5);
 windows_core::imp::interface_hierarchy!(IDXGraphicsAnalysis, windows_core::IUnknown);
 impl IDXGraphicsAnalysis {

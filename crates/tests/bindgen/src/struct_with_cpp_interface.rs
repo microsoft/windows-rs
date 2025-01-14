@@ -52,6 +52,8 @@ pub struct ID3D12DeviceChild_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
+unsafe impl Send for ID3D12DeviceChild {}
+unsafe impl Sync for ID3D12DeviceChild {}
 pub trait ID3D12DeviceChild_Impl: ID3D12Object_Impl {
     fn GetDevice(
         &self,
@@ -91,8 +93,6 @@ impl ID3D12DeviceChild_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12DeviceChild {}
-unsafe impl Send for ID3D12DeviceChild {}
-unsafe impl Sync for ID3D12DeviceChild {}
 windows_core::imp::define_interface!(
     ID3D12Object,
     ID3D12Object_Vtbl,
@@ -187,6 +187,8 @@ pub struct ID3D12Object_Vtbl {
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
 }
+unsafe impl Send for ID3D12Object {}
+unsafe impl Sync for ID3D12Object {}
 pub trait ID3D12Object_Impl: windows_core::IUnknownImpl {
     fn GetPrivateData(
         &self,
@@ -293,8 +295,6 @@ impl ID3D12Object_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12Object {}
-unsafe impl Send for ID3D12Object {}
-unsafe impl Sync for ID3D12Object {}
 windows_core::imp::define_interface!(
     ID3D12Pageable,
     ID3D12Pageable_Vtbl,
@@ -316,6 +316,8 @@ windows_core::imp::interface_hierarchy!(
 pub struct ID3D12Pageable_Vtbl {
     pub base__: ID3D12DeviceChild_Vtbl,
 }
+unsafe impl Send for ID3D12Pageable {}
+unsafe impl Sync for ID3D12Pageable {}
 pub trait ID3D12Pageable_Impl: ID3D12DeviceChild_Impl {}
 impl ID3D12Pageable_Vtbl {
     pub const fn new<Identity: ID3D12Pageable_Impl, const OFFSET: isize>() -> Self {
@@ -330,8 +332,6 @@ impl ID3D12Pageable_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12Pageable {}
-unsafe impl Send for ID3D12Pageable {}
-unsafe impl Sync for ID3D12Pageable {}
 windows_core::imp::define_interface!(
     ID3D12Resource,
     ID3D12Resource_Vtbl,
@@ -370,6 +370,8 @@ pub struct ID3D12Resource_Vtbl {
     ReadFromSubresource: usize,
     GetHeapProperties: usize,
 }
+unsafe impl Send for ID3D12Resource {}
+unsafe impl Sync for ID3D12Resource {}
 pub trait ID3D12Resource_Impl: ID3D12Pageable_Impl {
     fn GetGPUVirtualAddress(&self) -> u64;
 }
@@ -406,5 +408,3 @@ impl ID3D12Resource_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12Resource {}
-unsafe impl Send for ID3D12Resource {}
-unsafe impl Sync for ID3D12Resource {}

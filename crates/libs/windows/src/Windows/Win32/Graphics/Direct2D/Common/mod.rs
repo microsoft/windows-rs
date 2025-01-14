@@ -470,6 +470,8 @@ pub struct ID2D1SimplifiedGeometrySink_Vtbl {
     pub EndFigure: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_FIGURE_END),
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for ID2D1SimplifiedGeometrySink {}
+unsafe impl Sync for ID2D1SimplifiedGeometrySink {}
 pub trait ID2D1SimplifiedGeometrySink_Impl: windows_core::IUnknownImpl {
     fn SetFillMode(&self, fillmode: D2D1_FILL_MODE);
     fn SetSegmentFlags(&self, vertexflags: D2D1_PATH_SEGMENT);
@@ -539,5 +541,3 @@ impl ID2D1SimplifiedGeometrySink_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1SimplifiedGeometrySink {}
-unsafe impl Send for ID2D1SimplifiedGeometrySink {}
-unsafe impl Sync for ID2D1SimplifiedGeometrySink {}
