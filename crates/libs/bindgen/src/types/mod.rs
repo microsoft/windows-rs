@@ -78,6 +78,7 @@ pub enum Type {
     HRESULT,
     IUnknown,
     BSTR,
+    BOOL,
 }
 
 impl Ord for Type {
@@ -167,6 +168,7 @@ impl Type {
             TypeName::IInspectable => Remap::Type(Self::Object),
             TypeName::CHAR => Remap::Type(Self::I8),
             TypeName::BOOLEAN => Remap::Type(Self::Bool),
+            TypeName::BOOL => Remap::Type(Self::BOOL),
             TypeName::IUnknown => Remap::Type(Self::IUnknown),
             TypeName::Type => Remap::Type(Self::Type),
             TypeName::EventRegistrationToken => Remap::Type(Type::I64),
@@ -397,6 +399,10 @@ impl Type {
             Self::HRESULT => {
                 let name = writer.write_core();
                 quote! { #name HRESULT }
+            }
+            Self::BOOL => {
+                let name = writer.write_core();
+                quote! { #name BOOL }
             }
             Self::String => {
                 let name = writer.write_core();
@@ -764,6 +770,7 @@ impl Type {
             | Self::ISize
             | Self::USize
             | Self::HRESULT
+            | Self::BOOL
             | Self::PtrConst(_, _)
             | Self::PtrMut(_, _) => true,
             _ => false,
@@ -848,6 +855,7 @@ impl Type {
             Self::Enum(ty) => ty.def.underlying_type(),
             Self::CppStruct(ty) => ty.def.underlying_type(),
             Self::HRESULT => Type::I32,
+            Self::BOOL => Type::I32,
             _ => self.clone(),
         }
     }
@@ -861,6 +869,7 @@ impl Type {
 
         match self {
             Self::HRESULT => quote! { pub type HRESULT = i32; },
+            Self::BOOL => quote! { pub type BOOL = i32; },
 
             Self::PWSTR => quote! { pub type PWSTR = *mut u16; },
             Self::PCSTR => quote! { pub type PCSTR = *const u8; },
@@ -955,6 +964,7 @@ impl Type {
             Self::PCWSTR => TypeName("", "PCWSTR"),
             Self::GUID => TypeName("", "GUID"),
             Self::HRESULT => TypeName("", "HRESULT"),
+            Self::BOOL => TypeName("", "BOOL"),
             Self::IUnknown => TypeName("", "IUnknown"),
             Self::BSTR => TypeName("", "BSTR"),
             Self::String => TypeName("", "String"),
@@ -973,6 +983,7 @@ impl Type {
                 | Self::PCWSTR
                 | Self::GUID
                 | Self::HRESULT
+                | Self::BOOL
                 | Self::IUnknown
                 | Self::Object
                 | Self::BSTR

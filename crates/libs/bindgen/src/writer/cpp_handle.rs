@@ -90,10 +90,7 @@ impl Writer {
                 quote! {}
             };
 
-            let must_use = if matches!(
-                tn,
-                TypeName::BOOL | TypeName::NTSTATUS | TypeName::RPC_STATUS
-            ) {
+            let must_use = if matches!(tn, TypeName::NTSTATUS | TypeName::RPC_STATUS) {
                 quote! { #[must_use] }
             } else {
                 quote! {}
