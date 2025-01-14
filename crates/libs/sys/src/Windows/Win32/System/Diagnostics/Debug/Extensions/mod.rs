@@ -516,7 +516,7 @@ pub const DEBUG_DATA_SuiteMask: u32 = 100024u32;
 pub struct DEBUG_DECODE_ERROR {
     pub SizeOfStruct: u32,
     pub Code: u32,
-    pub TreatAsStatus: super::super::super::super::Foundation::BOOL,
+    pub TreatAsStatus: windows_sys::core::BOOL,
     pub Source: [i8; 64],
     pub Message: [i8; 260],
 }
@@ -526,7 +526,7 @@ pub struct DEBUG_DEVICE_OBJECT_INFO {
     pub SizeOfStruct: u32,
     pub DevObjAddress: u64,
     pub ReferenceCount: u32,
-    pub QBusy: super::super::super::super::Foundation::BOOL,
+    pub QBusy: windows_sys::core::BOOL,
     pub DriverObject: u64,
     pub CurrentIrp: u64,
     pub DevExtension: u64,
@@ -2057,7 +2057,7 @@ pub struct DEBUG_STACK_FRAME {
     pub FuncTableEntry: u64,
     pub Params: [u64; 4],
     pub Reserved: [u64; 6],
-    pub Virtual: super::super::super::super::Foundation::BOOL,
+    pub Virtual: windows_sys::core::BOOL,
     pub FrameNumber: u32,
 }
 pub const DEBUG_STACK_FRAME_ADDRESSES: u32 = 8u32;
@@ -2073,7 +2073,7 @@ pub struct DEBUG_STACK_FRAME_EX {
     pub FuncTableEntry: u64,
     pub Params: [u64; 4],
     pub Reserved: [u64; 6],
-    pub Virtual: super::super::super::super::Foundation::BOOL,
+    pub Virtual: windows_sys::core::BOOL,
     pub FrameNumber: u32,
     pub InlineFrameContext: u32,
     pub Reserved1: u32,
@@ -2282,7 +2282,7 @@ pub union DEBUG_VALUE_0 {
 #[derive(Clone, Copy)]
 pub struct DEBUG_VALUE_0_0 {
     pub I64: u64,
-    pub Nat: super::super::super::super::Foundation::BOOL,
+    pub Nat: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3004,7 +3004,7 @@ pub struct KDEXTS_LOCK_INFO {
     pub SizeOfStruct: u32,
     pub Address: u64,
     pub OwningThread: u64,
-    pub ExclusiveOwned: super::super::super::super::Foundation::BOOL,
+    pub ExclusiveOwned: windows_sys::core::BOOL,
     pub NumOwners: u32,
     pub ContentionCount: u32,
     pub NumExclusiveWaiters: u32,

@@ -1,4 +1,4 @@
-windows_targets::link!("msctfmonitor.dll" "system" fn DoMsCtfMonitor(dwflags : u32, heventforservicestop : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+windows_targets::link!("msctfmonitor.dll" "system" fn DoMsCtfMonitor(dwflags : u32, heventforservicestop : super::super::Foundation:: HANDLE) -> windows_sys::core::BOOL);
 windows_targets::link!("msctfmonitor.dll" "system" fn InitLocalMsCtfMonitor(dwflags : u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("msctfmonitor.dll" "system" fn UninitLocalMsCtfMonitor() -> windows_sys::core::HRESULT);
 pub type ANCHOR_CHANGE_HISTORY_FLAGS = u32;
@@ -252,7 +252,7 @@ pub struct TF_DISPLAYATTRIBUTE {
     pub crText: TF_DA_COLOR,
     pub crBk: TF_DA_COLOR,
     pub lsStyle: TF_DA_LINESTYLE,
-    pub fBoldLine: super::super::Foundation::BOOL,
+    pub fBoldLine: windows_sys::core::BOOL,
     pub crLine: TF_DA_COLOR,
     pub bAttr: TF_DA_ATTR_INFO,
 }
@@ -353,7 +353,7 @@ pub struct TF_LANGUAGEPROFILE {
     pub clsid: windows_sys::core::GUID,
     pub langid: u16,
     pub catid: windows_sys::core::GUID,
-    pub fActive: super::super::Foundation::BOOL,
+    pub fActive: windows_sys::core::BOOL,
     pub guidProfile: windows_sys::core::GUID,
 }
 #[repr(C)]
@@ -497,7 +497,7 @@ pub struct TF_SELECTION {
 #[derive(Clone, Copy)]
 pub struct TF_SELECTIONSTYLE {
     pub ase: TfActiveSelEnd,
-    pub fInterimChar: super::super::Foundation::BOOL,
+    pub fInterimChar: windows_sys::core::BOOL,
 }
 pub const TF_SENTENCEMODE_AUTOMATIC: u32 = 4u32;
 pub const TF_SENTENCEMODE_CONVERSATION: u32 = 16u32;
@@ -728,7 +728,7 @@ pub const TS_SD_UIINTEGRATIONENABLE: u32 = 32u32;
 #[derive(Clone, Copy)]
 pub struct TS_SELECTIONSTYLE {
     pub ase: TsActiveSelEnd,
-    pub fInterimChar: super::super::Foundation::BOOL,
+    pub fInterimChar: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]

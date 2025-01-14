@@ -1,68 +1,68 @@
-windows_targets::link!("kernel32.dll" "system" fn ActivateActCtx(hactctx : super::super::Foundation:: HANDLE, lpcookie : *mut usize) -> super::super::Foundation:: BOOL);
+windows_targets::link!("kernel32.dll" "system" fn ActivateActCtx(hactctx : super::super::Foundation:: HANDLE, lpcookie : *mut usize) -> windows_sys::core::BOOL);
 windows_targets::link!("kernel32.dll" "system" fn AddRefActCtx(hactctx : super::super::Foundation:: HANDLE));
-windows_targets::link!("msdelta.dll" "system" fn ApplyDeltaA(applyflags : i64, lpsourcename : windows_sys::core::PCSTR, lpdeltaname : windows_sys::core::PCSTR, lptargetname : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-windows_targets::link!("msdelta.dll" "system" fn ApplyDeltaB(applyflags : i64, source : DELTA_INPUT, delta : DELTA_INPUT, lptarget : *mut DELTA_OUTPUT) -> super::super::Foundation:: BOOL);
-windows_targets::link!("msdelta.dll" "system" fn ApplyDeltaGetReverseB(applyflags : i64, source : DELTA_INPUT, delta : DELTA_INPUT, lpreversefiletime : *const super::super::Foundation:: FILETIME, lptarget : *mut DELTA_OUTPUT, lptargetreverse : *mut DELTA_OUTPUT) -> super::super::Foundation:: BOOL);
-windows_targets::link!("msdelta.dll" "system" fn ApplyDeltaProvidedB(applyflags : i64, source : DELTA_INPUT, delta : DELTA_INPUT, lptarget : *mut core::ffi::c_void, utargetsize : usize) -> super::super::Foundation:: BOOL);
-windows_targets::link!("msdelta.dll" "system" fn ApplyDeltaW(applyflags : i64, lpsourcename : windows_sys::core::PCWSTR, lpdeltaname : windows_sys::core::PCWSTR, lptargetname : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-windows_targets::link!("mspatcha.dll" "system" fn ApplyPatchToFileA(patchfilename : windows_sys::core::PCSTR, oldfilename : windows_sys::core::PCSTR, newfilename : windows_sys::core::PCSTR, applyoptionflags : u32) -> super::super::Foundation:: BOOL);
-windows_targets::link!("mspatcha.dll" "system" fn ApplyPatchToFileByBuffers(patchfilemapped : *const u8, patchfilesize : u32, oldfilemapped : *const u8, oldfilesize : u32, newfilebuffer : *mut *mut u8, newfilebuffersize : u32, newfileactualsize : *mut u32, newfiletime : *mut super::super::Foundation:: FILETIME, applyoptionflags : u32, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-windows_targets::link!("mspatcha.dll" "system" fn ApplyPatchToFileByHandles(patchfilehandle : super::super::Foundation:: HANDLE, oldfilehandle : super::super::Foundation:: HANDLE, newfilehandle : super::super::Foundation:: HANDLE, applyoptionflags : u32) -> super::super::Foundation:: BOOL);
-windows_targets::link!("mspatcha.dll" "system" fn ApplyPatchToFileByHandlesEx(patchfilehandle : super::super::Foundation:: HANDLE, oldfilehandle : super::super::Foundation:: HANDLE, newfilehandle : super::super::Foundation:: HANDLE, applyoptionflags : u32, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-windows_targets::link!("mspatcha.dll" "system" fn ApplyPatchToFileExA(patchfilename : windows_sys::core::PCSTR, oldfilename : windows_sys::core::PCSTR, newfilename : windows_sys::core::PCSTR, applyoptionflags : u32, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-windows_targets::link!("mspatcha.dll" "system" fn ApplyPatchToFileExW(patchfilename : windows_sys::core::PCWSTR, oldfilename : windows_sys::core::PCWSTR, newfilename : windows_sys::core::PCWSTR, applyoptionflags : u32, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-windows_targets::link!("mspatcha.dll" "system" fn ApplyPatchToFileW(patchfilename : windows_sys::core::PCWSTR, oldfilename : windows_sys::core::PCWSTR, newfilename : windows_sys::core::PCWSTR, applyoptionflags : u32) -> super::super::Foundation:: BOOL);
+windows_targets::link!("msdelta.dll" "system" fn ApplyDeltaA(applyflags : i64, lpsourcename : windows_sys::core::PCSTR, lpdeltaname : windows_sys::core::PCSTR, lptargetname : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
+windows_targets::link!("msdelta.dll" "system" fn ApplyDeltaB(applyflags : i64, source : DELTA_INPUT, delta : DELTA_INPUT, lptarget : *mut DELTA_OUTPUT) -> windows_sys::core::BOOL);
+windows_targets::link!("msdelta.dll" "system" fn ApplyDeltaGetReverseB(applyflags : i64, source : DELTA_INPUT, delta : DELTA_INPUT, lpreversefiletime : *const super::super::Foundation:: FILETIME, lptarget : *mut DELTA_OUTPUT, lptargetreverse : *mut DELTA_OUTPUT) -> windows_sys::core::BOOL);
+windows_targets::link!("msdelta.dll" "system" fn ApplyDeltaProvidedB(applyflags : i64, source : DELTA_INPUT, delta : DELTA_INPUT, lptarget : *mut core::ffi::c_void, utargetsize : usize) -> windows_sys::core::BOOL);
+windows_targets::link!("msdelta.dll" "system" fn ApplyDeltaW(applyflags : i64, lpsourcename : windows_sys::core::PCWSTR, lpdeltaname : windows_sys::core::PCWSTR, lptargetname : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
+windows_targets::link!("mspatcha.dll" "system" fn ApplyPatchToFileA(patchfilename : windows_sys::core::PCSTR, oldfilename : windows_sys::core::PCSTR, newfilename : windows_sys::core::PCSTR, applyoptionflags : u32) -> windows_sys::core::BOOL);
+windows_targets::link!("mspatcha.dll" "system" fn ApplyPatchToFileByBuffers(patchfilemapped : *const u8, patchfilesize : u32, oldfilemapped : *const u8, oldfilesize : u32, newfilebuffer : *mut *mut u8, newfilebuffersize : u32, newfileactualsize : *mut u32, newfiletime : *mut super::super::Foundation:: FILETIME, applyoptionflags : u32, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_targets::link!("mspatcha.dll" "system" fn ApplyPatchToFileByHandles(patchfilehandle : super::super::Foundation:: HANDLE, oldfilehandle : super::super::Foundation:: HANDLE, newfilehandle : super::super::Foundation:: HANDLE, applyoptionflags : u32) -> windows_sys::core::BOOL);
+windows_targets::link!("mspatcha.dll" "system" fn ApplyPatchToFileByHandlesEx(patchfilehandle : super::super::Foundation:: HANDLE, oldfilehandle : super::super::Foundation:: HANDLE, newfilehandle : super::super::Foundation:: HANDLE, applyoptionflags : u32, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_targets::link!("mspatcha.dll" "system" fn ApplyPatchToFileExA(patchfilename : windows_sys::core::PCSTR, oldfilename : windows_sys::core::PCSTR, newfilename : windows_sys::core::PCSTR, applyoptionflags : u32, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_targets::link!("mspatcha.dll" "system" fn ApplyPatchToFileExW(patchfilename : windows_sys::core::PCWSTR, oldfilename : windows_sys::core::PCWSTR, newfilename : windows_sys::core::PCWSTR, applyoptionflags : u32, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_targets::link!("mspatcha.dll" "system" fn ApplyPatchToFileW(patchfilename : windows_sys::core::PCWSTR, oldfilename : windows_sys::core::PCWSTR, newfilename : windows_sys::core::PCWSTR, applyoptionflags : u32) -> windows_sys::core::BOOL);
 windows_targets::link!("kernel32.dll" "system" fn CreateActCtxA(pactctx : *const ACTCTXA) -> super::super::Foundation:: HANDLE);
 windows_targets::link!("kernel32.dll" "system" fn CreateActCtxW(pactctx : *const ACTCTXW) -> super::super::Foundation:: HANDLE);
 #[cfg(feature = "Win32_Security_Cryptography")]
-windows_targets::link!("msdelta.dll" "system" fn CreateDeltaA(filetypeset : i64, setflags : i64, resetflags : i64, lpsourcename : windows_sys::core::PCSTR, lptargetname : windows_sys::core::PCSTR, lpsourceoptionsname : windows_sys::core::PCSTR, lptargetoptionsname : windows_sys::core::PCSTR, globaloptions : DELTA_INPUT, lptargetfiletime : *const super::super::Foundation:: FILETIME, hashalgid : super::super::Security::Cryptography:: ALG_ID, lpdeltaname : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+windows_targets::link!("msdelta.dll" "system" fn CreateDeltaA(filetypeset : i64, setflags : i64, resetflags : i64, lpsourcename : windows_sys::core::PCSTR, lptargetname : windows_sys::core::PCSTR, lpsourceoptionsname : windows_sys::core::PCSTR, lptargetoptionsname : windows_sys::core::PCSTR, globaloptions : DELTA_INPUT, lptargetfiletime : *const super::super::Foundation:: FILETIME, hashalgid : super::super::Security::Cryptography:: ALG_ID, lpdeltaname : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Security_Cryptography")]
-windows_targets::link!("msdelta.dll" "system" fn CreateDeltaB(filetypeset : i64, setflags : i64, resetflags : i64, source : DELTA_INPUT, target : DELTA_INPUT, sourceoptions : DELTA_INPUT, targetoptions : DELTA_INPUT, globaloptions : DELTA_INPUT, lptargetfiletime : *const super::super::Foundation:: FILETIME, hashalgid : super::super::Security::Cryptography:: ALG_ID, lpdelta : *mut DELTA_OUTPUT) -> super::super::Foundation:: BOOL);
+windows_targets::link!("msdelta.dll" "system" fn CreateDeltaB(filetypeset : i64, setflags : i64, resetflags : i64, source : DELTA_INPUT, target : DELTA_INPUT, sourceoptions : DELTA_INPUT, targetoptions : DELTA_INPUT, globaloptions : DELTA_INPUT, lptargetfiletime : *const super::super::Foundation:: FILETIME, hashalgid : super::super::Security::Cryptography:: ALG_ID, lpdelta : *mut DELTA_OUTPUT) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Security_Cryptography")]
-windows_targets::link!("msdelta.dll" "system" fn CreateDeltaW(filetypeset : i64, setflags : i64, resetflags : i64, lpsourcename : windows_sys::core::PCWSTR, lptargetname : windows_sys::core::PCWSTR, lpsourceoptionsname : windows_sys::core::PCWSTR, lptargetoptionsname : windows_sys::core::PCWSTR, globaloptions : DELTA_INPUT, lptargetfiletime : *const super::super::Foundation:: FILETIME, hashalgid : super::super::Security::Cryptography:: ALG_ID, lpdeltaname : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-windows_targets::link!("mspatchc.dll" "system" fn CreatePatchFileA(oldfilename : windows_sys::core::PCSTR, newfilename : windows_sys::core::PCSTR, patchfilename : windows_sys::core::PCSTR, optionflags : u32, optiondata : *const PATCH_OPTION_DATA) -> super::super::Foundation:: BOOL);
-windows_targets::link!("mspatchc.dll" "system" fn CreatePatchFileByHandles(oldfilehandle : super::super::Foundation:: HANDLE, newfilehandle : super::super::Foundation:: HANDLE, patchfilehandle : super::super::Foundation:: HANDLE, optionflags : u32, optiondata : *const PATCH_OPTION_DATA) -> super::super::Foundation:: BOOL);
-windows_targets::link!("mspatchc.dll" "system" fn CreatePatchFileByHandlesEx(oldfilecount : u32, oldfileinfoarray : *const PATCH_OLD_FILE_INFO_H, newfilehandle : super::super::Foundation:: HANDLE, patchfilehandle : super::super::Foundation:: HANDLE, optionflags : u32, optiondata : *const PATCH_OPTION_DATA, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-windows_targets::link!("mspatchc.dll" "system" fn CreatePatchFileExA(oldfilecount : u32, oldfileinfoarray : *const PATCH_OLD_FILE_INFO_A, newfilename : windows_sys::core::PCSTR, patchfilename : windows_sys::core::PCSTR, optionflags : u32, optiondata : *const PATCH_OPTION_DATA, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-windows_targets::link!("mspatchc.dll" "system" fn CreatePatchFileExW(oldfilecount : u32, oldfileinfoarray : *const PATCH_OLD_FILE_INFO_W, newfilename : windows_sys::core::PCWSTR, patchfilename : windows_sys::core::PCWSTR, optionflags : u32, optiondata : *const PATCH_OPTION_DATA, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-windows_targets::link!("mspatchc.dll" "system" fn CreatePatchFileW(oldfilename : windows_sys::core::PCWSTR, newfilename : windows_sys::core::PCWSTR, patchfilename : windows_sys::core::PCWSTR, optionflags : u32, optiondata : *const PATCH_OPTION_DATA) -> super::super::Foundation:: BOOL);
-windows_targets::link!("kernel32.dll" "system" fn DeactivateActCtx(dwflags : u32, ulcookie : usize) -> super::super::Foundation:: BOOL);
-windows_targets::link!("msdelta.dll" "system" fn DeltaFree(lpmemory : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-windows_targets::link!("msdelta.dll" "system" fn DeltaNormalizeProvidedB(filetypeset : i64, normalizeflags : i64, normalizeoptions : DELTA_INPUT, lpsource : *mut core::ffi::c_void, usourcesize : usize) -> super::super::Foundation:: BOOL);
-windows_targets::link!("mspatchc.dll" "system" fn ExtractPatchHeaderToFileA(patchfilename : windows_sys::core::PCSTR, patchheaderfilename : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-windows_targets::link!("mspatchc.dll" "system" fn ExtractPatchHeaderToFileByHandles(patchfilehandle : super::super::Foundation:: HANDLE, patchheaderfilehandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-windows_targets::link!("mspatchc.dll" "system" fn ExtractPatchHeaderToFileW(patchfilename : windows_sys::core::PCWSTR, patchheaderfilename : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+windows_targets::link!("msdelta.dll" "system" fn CreateDeltaW(filetypeset : i64, setflags : i64, resetflags : i64, lpsourcename : windows_sys::core::PCWSTR, lptargetname : windows_sys::core::PCWSTR, lpsourceoptionsname : windows_sys::core::PCWSTR, lptargetoptionsname : windows_sys::core::PCWSTR, globaloptions : DELTA_INPUT, lptargetfiletime : *const super::super::Foundation:: FILETIME, hashalgid : super::super::Security::Cryptography:: ALG_ID, lpdeltaname : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
+windows_targets::link!("mspatchc.dll" "system" fn CreatePatchFileA(oldfilename : windows_sys::core::PCSTR, newfilename : windows_sys::core::PCSTR, patchfilename : windows_sys::core::PCSTR, optionflags : u32, optiondata : *const PATCH_OPTION_DATA) -> windows_sys::core::BOOL);
+windows_targets::link!("mspatchc.dll" "system" fn CreatePatchFileByHandles(oldfilehandle : super::super::Foundation:: HANDLE, newfilehandle : super::super::Foundation:: HANDLE, patchfilehandle : super::super::Foundation:: HANDLE, optionflags : u32, optiondata : *const PATCH_OPTION_DATA) -> windows_sys::core::BOOL);
+windows_targets::link!("mspatchc.dll" "system" fn CreatePatchFileByHandlesEx(oldfilecount : u32, oldfileinfoarray : *const PATCH_OLD_FILE_INFO_H, newfilehandle : super::super::Foundation:: HANDLE, patchfilehandle : super::super::Foundation:: HANDLE, optionflags : u32, optiondata : *const PATCH_OPTION_DATA, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_targets::link!("mspatchc.dll" "system" fn CreatePatchFileExA(oldfilecount : u32, oldfileinfoarray : *const PATCH_OLD_FILE_INFO_A, newfilename : windows_sys::core::PCSTR, patchfilename : windows_sys::core::PCSTR, optionflags : u32, optiondata : *const PATCH_OPTION_DATA, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_targets::link!("mspatchc.dll" "system" fn CreatePatchFileExW(oldfilecount : u32, oldfileinfoarray : *const PATCH_OLD_FILE_INFO_W, newfilename : windows_sys::core::PCWSTR, patchfilename : windows_sys::core::PCWSTR, optionflags : u32, optiondata : *const PATCH_OPTION_DATA, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_targets::link!("mspatchc.dll" "system" fn CreatePatchFileW(oldfilename : windows_sys::core::PCWSTR, newfilename : windows_sys::core::PCWSTR, patchfilename : windows_sys::core::PCWSTR, optionflags : u32, optiondata : *const PATCH_OPTION_DATA) -> windows_sys::core::BOOL);
+windows_targets::link!("kernel32.dll" "system" fn DeactivateActCtx(dwflags : u32, ulcookie : usize) -> windows_sys::core::BOOL);
+windows_targets::link!("msdelta.dll" "system" fn DeltaFree(lpmemory : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_targets::link!("msdelta.dll" "system" fn DeltaNormalizeProvidedB(filetypeset : i64, normalizeflags : i64, normalizeoptions : DELTA_INPUT, lpsource : *mut core::ffi::c_void, usourcesize : usize) -> windows_sys::core::BOOL);
+windows_targets::link!("mspatchc.dll" "system" fn ExtractPatchHeaderToFileA(patchfilename : windows_sys::core::PCSTR, patchheaderfilename : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
+windows_targets::link!("mspatchc.dll" "system" fn ExtractPatchHeaderToFileByHandles(patchfilehandle : super::super::Foundation:: HANDLE, patchheaderfilehandle : super::super::Foundation:: HANDLE) -> windows_sys::core::BOOL);
+windows_targets::link!("mspatchc.dll" "system" fn ExtractPatchHeaderToFileW(patchfilename : windows_sys::core::PCWSTR, patchheaderfilename : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_System_WindowsProgramming")]
-windows_targets::link!("kernel32.dll" "system" fn FindActCtxSectionGuid(dwflags : u32, lpextensionguid : *const windows_sys::core::GUID, ulsectionid : u32, lpguidtofind : *const windows_sys::core::GUID, returneddata : *mut ACTCTX_SECTION_KEYED_DATA) -> super::super::Foundation:: BOOL);
+windows_targets::link!("kernel32.dll" "system" fn FindActCtxSectionGuid(dwflags : u32, lpextensionguid : *const windows_sys::core::GUID, ulsectionid : u32, lpguidtofind : *const windows_sys::core::GUID, returneddata : *mut ACTCTX_SECTION_KEYED_DATA) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_System_WindowsProgramming")]
-windows_targets::link!("kernel32.dll" "system" fn FindActCtxSectionStringA(dwflags : u32, lpextensionguid : *const windows_sys::core::GUID, ulsectionid : u32, lpstringtofind : windows_sys::core::PCSTR, returneddata : *mut ACTCTX_SECTION_KEYED_DATA) -> super::super::Foundation:: BOOL);
+windows_targets::link!("kernel32.dll" "system" fn FindActCtxSectionStringA(dwflags : u32, lpextensionguid : *const windows_sys::core::GUID, ulsectionid : u32, lpstringtofind : windows_sys::core::PCSTR, returneddata : *mut ACTCTX_SECTION_KEYED_DATA) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_System_WindowsProgramming")]
-windows_targets::link!("kernel32.dll" "system" fn FindActCtxSectionStringW(dwflags : u32, lpextensionguid : *const windows_sys::core::GUID, ulsectionid : u32, lpstringtofind : windows_sys::core::PCWSTR, returneddata : *mut ACTCTX_SECTION_KEYED_DATA) -> super::super::Foundation:: BOOL);
-windows_targets::link!("kernel32.dll" "system" fn GetCurrentActCtx(lphactctx : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+windows_targets::link!("kernel32.dll" "system" fn FindActCtxSectionStringW(dwflags : u32, lpextensionguid : *const windows_sys::core::GUID, ulsectionid : u32, lpstringtofind : windows_sys::core::PCWSTR, returneddata : *mut ACTCTX_SECTION_KEYED_DATA) -> windows_sys::core::BOOL);
+windows_targets::link!("kernel32.dll" "system" fn GetCurrentActCtx(lphactctx : *mut super::super::Foundation:: HANDLE) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Security_Cryptography")]
-windows_targets::link!("msdelta.dll" "system" fn GetDeltaInfoA(lpdeltaname : windows_sys::core::PCSTR, lpheaderinfo : *mut DELTA_HEADER_INFO) -> super::super::Foundation:: BOOL);
+windows_targets::link!("msdelta.dll" "system" fn GetDeltaInfoA(lpdeltaname : windows_sys::core::PCSTR, lpheaderinfo : *mut DELTA_HEADER_INFO) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Security_Cryptography")]
-windows_targets::link!("msdelta.dll" "system" fn GetDeltaInfoB(delta : DELTA_INPUT, lpheaderinfo : *mut DELTA_HEADER_INFO) -> super::super::Foundation:: BOOL);
+windows_targets::link!("msdelta.dll" "system" fn GetDeltaInfoB(delta : DELTA_INPUT, lpheaderinfo : *mut DELTA_HEADER_INFO) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Security_Cryptography")]
-windows_targets::link!("msdelta.dll" "system" fn GetDeltaInfoW(lpdeltaname : windows_sys::core::PCWSTR, lpheaderinfo : *mut DELTA_HEADER_INFO) -> super::super::Foundation:: BOOL);
+windows_targets::link!("msdelta.dll" "system" fn GetDeltaInfoW(lpdeltaname : windows_sys::core::PCWSTR, lpheaderinfo : *mut DELTA_HEADER_INFO) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Security_Cryptography")]
-windows_targets::link!("msdelta.dll" "system" fn GetDeltaSignatureA(filetypeset : i64, hashalgid : super::super::Security::Cryptography:: ALG_ID, lpsourcename : windows_sys::core::PCSTR, lphash : *mut DELTA_HASH) -> super::super::Foundation:: BOOL);
+windows_targets::link!("msdelta.dll" "system" fn GetDeltaSignatureA(filetypeset : i64, hashalgid : super::super::Security::Cryptography:: ALG_ID, lpsourcename : windows_sys::core::PCSTR, lphash : *mut DELTA_HASH) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Security_Cryptography")]
-windows_targets::link!("msdelta.dll" "system" fn GetDeltaSignatureB(filetypeset : i64, hashalgid : super::super::Security::Cryptography:: ALG_ID, source : DELTA_INPUT, lphash : *mut DELTA_HASH) -> super::super::Foundation:: BOOL);
+windows_targets::link!("msdelta.dll" "system" fn GetDeltaSignatureB(filetypeset : i64, hashalgid : super::super::Security::Cryptography:: ALG_ID, source : DELTA_INPUT, lphash : *mut DELTA_HASH) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Security_Cryptography")]
-windows_targets::link!("msdelta.dll" "system" fn GetDeltaSignatureW(filetypeset : i64, hashalgid : super::super::Security::Cryptography:: ALG_ID, lpsourcename : windows_sys::core::PCWSTR, lphash : *mut DELTA_HASH) -> super::super::Foundation:: BOOL);
-windows_targets::link!("mspatcha.dll" "system" fn GetFilePatchSignatureA(filename : windows_sys::core::PCSTR, optionflags : u32, optiondata : *const core::ffi::c_void, ignorerangecount : u32, ignorerangearray : *const PATCH_IGNORE_RANGE, retainrangecount : u32, retainrangearray : *const PATCH_RETAIN_RANGE, signaturebuffersize : u32, signaturebuffer : windows_sys::core::PSTR) -> super::super::Foundation:: BOOL);
-windows_targets::link!("mspatcha.dll" "system" fn GetFilePatchSignatureByBuffer(filebufferwritable : *mut u8, filesize : u32, optionflags : u32, optiondata : *const core::ffi::c_void, ignorerangecount : u32, ignorerangearray : *const PATCH_IGNORE_RANGE, retainrangecount : u32, retainrangearray : *const PATCH_RETAIN_RANGE, signaturebuffersize : u32, signaturebuffer : windows_sys::core::PSTR) -> super::super::Foundation:: BOOL);
-windows_targets::link!("mspatcha.dll" "system" fn GetFilePatchSignatureByHandle(filehandle : super::super::Foundation:: HANDLE, optionflags : u32, optiondata : *const core::ffi::c_void, ignorerangecount : u32, ignorerangearray : *const PATCH_IGNORE_RANGE, retainrangecount : u32, retainrangearray : *const PATCH_RETAIN_RANGE, signaturebuffersize : u32, signaturebuffer : windows_sys::core::PSTR) -> super::super::Foundation:: BOOL);
-windows_targets::link!("mspatcha.dll" "system" fn GetFilePatchSignatureW(filename : windows_sys::core::PCWSTR, optionflags : u32, optiondata : *const core::ffi::c_void, ignorerangecount : u32, ignorerangearray : *const PATCH_IGNORE_RANGE, retainrangecount : u32, retainrangearray : *const PATCH_RETAIN_RANGE, signaturebuffersize : u32, signaturebuffer : windows_sys::core::PWSTR) -> super::super::Foundation:: BOOL);
+windows_targets::link!("msdelta.dll" "system" fn GetDeltaSignatureW(filetypeset : i64, hashalgid : super::super::Security::Cryptography:: ALG_ID, lpsourcename : windows_sys::core::PCWSTR, lphash : *mut DELTA_HASH) -> windows_sys::core::BOOL);
+windows_targets::link!("mspatcha.dll" "system" fn GetFilePatchSignatureA(filename : windows_sys::core::PCSTR, optionflags : u32, optiondata : *const core::ffi::c_void, ignorerangecount : u32, ignorerangearray : *const PATCH_IGNORE_RANGE, retainrangecount : u32, retainrangearray : *const PATCH_RETAIN_RANGE, signaturebuffersize : u32, signaturebuffer : windows_sys::core::PSTR) -> windows_sys::core::BOOL);
+windows_targets::link!("mspatcha.dll" "system" fn GetFilePatchSignatureByBuffer(filebufferwritable : *mut u8, filesize : u32, optionflags : u32, optiondata : *const core::ffi::c_void, ignorerangecount : u32, ignorerangearray : *const PATCH_IGNORE_RANGE, retainrangecount : u32, retainrangearray : *const PATCH_RETAIN_RANGE, signaturebuffersize : u32, signaturebuffer : windows_sys::core::PSTR) -> windows_sys::core::BOOL);
+windows_targets::link!("mspatcha.dll" "system" fn GetFilePatchSignatureByHandle(filehandle : super::super::Foundation:: HANDLE, optionflags : u32, optiondata : *const core::ffi::c_void, ignorerangecount : u32, ignorerangearray : *const PATCH_IGNORE_RANGE, retainrangecount : u32, retainrangearray : *const PATCH_RETAIN_RANGE, signaturebuffersize : u32, signaturebuffer : windows_sys::core::PSTR) -> windows_sys::core::BOOL);
+windows_targets::link!("mspatcha.dll" "system" fn GetFilePatchSignatureW(filename : windows_sys::core::PCWSTR, optionflags : u32, optiondata : *const core::ffi::c_void, ignorerangecount : u32, ignorerangearray : *const PATCH_IGNORE_RANGE, retainrangecount : u32, retainrangearray : *const PATCH_RETAIN_RANGE, signaturebuffersize : u32, signaturebuffer : windows_sys::core::PWSTR) -> windows_sys::core::BOOL);
 windows_targets::link!("msi.dll" "system" fn MsiAdvertiseProductA(szpackagepath : windows_sys::core::PCSTR, szscriptfilepath : windows_sys::core::PCSTR, sztransforms : windows_sys::core::PCSTR, lgidlanguage : u16) -> u32);
 windows_targets::link!("msi.dll" "system" fn MsiAdvertiseProductExA(szpackagepath : windows_sys::core::PCSTR, szscriptfilepath : windows_sys::core::PCSTR, sztransforms : windows_sys::core::PCSTR, lgidlanguage : u16, dwplatform : u32, dwoptions : u32) -> u32);
 windows_targets::link!("msi.dll" "system" fn MsiAdvertiseProductExW(szpackagepath : windows_sys::core::PCWSTR, szscriptfilepath : windows_sys::core::PCWSTR, sztransforms : windows_sys::core::PCWSTR, lgidlanguage : u16, dwplatform : u32, dwoptions : u32) -> u32);
 windows_targets::link!("msi.dll" "system" fn MsiAdvertiseProductW(szpackagepath : windows_sys::core::PCWSTR, szscriptfilepath : windows_sys::core::PCWSTR, sztransforms : windows_sys::core::PCWSTR, lgidlanguage : u16) -> u32);
 #[cfg(feature = "Win32_System_Registry")]
-windows_targets::link!("msi.dll" "system" fn MsiAdvertiseScriptA(szscriptfile : windows_sys::core::PCSTR, dwflags : u32, phregdata : *const super::Registry:: HKEY, fremoveitems : super::super::Foundation:: BOOL) -> u32);
+windows_targets::link!("msi.dll" "system" fn MsiAdvertiseScriptA(szscriptfile : windows_sys::core::PCSTR, dwflags : u32, phregdata : *const super::Registry:: HKEY, fremoveitems : windows_sys::core::BOOL) -> u32);
 #[cfg(feature = "Win32_System_Registry")]
-windows_targets::link!("msi.dll" "system" fn MsiAdvertiseScriptW(szscriptfile : windows_sys::core::PCWSTR, dwflags : u32, phregdata : *const super::Registry:: HKEY, fremoveitems : super::super::Foundation:: BOOL) -> u32);
+windows_targets::link!("msi.dll" "system" fn MsiAdvertiseScriptW(szscriptfile : windows_sys::core::PCWSTR, dwflags : u32, phregdata : *const super::Registry:: HKEY, fremoveitems : windows_sys::core::BOOL) -> u32);
 windows_targets::link!("msi.dll" "system" fn MsiApplyMultiplePatchesA(szpatchpackages : windows_sys::core::PCSTR, szproductcode : windows_sys::core::PCSTR, szpropertieslist : windows_sys::core::PCSTR) -> u32);
 windows_targets::link!("msi.dll" "system" fn MsiApplyMultiplePatchesW(szpatchpackages : windows_sys::core::PCWSTR, szproductcode : windows_sys::core::PCWSTR, szpropertieslist : windows_sys::core::PCWSTR) -> u32);
 windows_targets::link!("msi.dll" "system" fn MsiApplyPatchA(szpatchpackage : windows_sys::core::PCSTR, szinstallpackage : windows_sys::core::PCSTR, einstalltype : INSTALLTYPE, szcommandline : windows_sys::core::PCSTR) -> u32);
@@ -167,7 +167,7 @@ windows_targets::link!("msi.dll" "system" fn MsiGetFileVersionA(szfilepath : win
 windows_targets::link!("msi.dll" "system" fn MsiGetFileVersionW(szfilepath : windows_sys::core::PCWSTR, lpversionbuf : windows_sys::core::PWSTR, pcchversionbuf : *mut u32, lplangbuf : windows_sys::core::PWSTR, pcchlangbuf : *mut u32) -> u32);
 windows_targets::link!("msi.dll" "system" fn MsiGetLanguage(hinstall : MSIHANDLE) -> u16);
 windows_targets::link!("msi.dll" "system" fn MsiGetLastErrorRecord() -> MSIHANDLE);
-windows_targets::link!("msi.dll" "system" fn MsiGetMode(hinstall : MSIHANDLE, erunmode : MSIRUNMODE) -> super::super::Foundation:: BOOL);
+windows_targets::link!("msi.dll" "system" fn MsiGetMode(hinstall : MSIHANDLE, erunmode : MSIRUNMODE) -> windows_sys::core::BOOL);
 windows_targets::link!("msi.dll" "system" fn MsiGetPatchFileListA(szproductcode : windows_sys::core::PCSTR, szpatchpackages : windows_sys::core::PCSTR, pcfiles : *mut u32, pphfilerecords : *mut *mut MSIHANDLE) -> u32);
 windows_targets::link!("msi.dll" "system" fn MsiGetPatchFileListW(szproductcode : windows_sys::core::PCWSTR, szpatchpackages : windows_sys::core::PCWSTR, pcfiles : *mut u32, pphfilerecords : *mut *mut MSIHANDLE) -> u32);
 windows_targets::link!("msi.dll" "system" fn MsiGetPatchInfoA(szpatch : windows_sys::core::PCSTR, szattribute : windows_sys::core::PCSTR, lpvaluebuf : windows_sys::core::PSTR, pcchvaluebuf : *mut u32) -> u32);
@@ -202,8 +202,8 @@ windows_targets::link!("msi.dll" "system" fn MsiInstallMissingFileA(szproduct : 
 windows_targets::link!("msi.dll" "system" fn MsiInstallMissingFileW(szproduct : windows_sys::core::PCWSTR, szfile : windows_sys::core::PCWSTR) -> u32);
 windows_targets::link!("msi.dll" "system" fn MsiInstallProductA(szpackagepath : windows_sys::core::PCSTR, szcommandline : windows_sys::core::PCSTR) -> u32);
 windows_targets::link!("msi.dll" "system" fn MsiInstallProductW(szpackagepath : windows_sys::core::PCWSTR, szcommandline : windows_sys::core::PCWSTR) -> u32);
-windows_targets::link!("msi.dll" "system" fn MsiIsProductElevatedA(szproduct : windows_sys::core::PCSTR, pfelevated : *mut super::super::Foundation:: BOOL) -> u32);
-windows_targets::link!("msi.dll" "system" fn MsiIsProductElevatedW(szproduct : windows_sys::core::PCWSTR, pfelevated : *mut super::super::Foundation:: BOOL) -> u32);
+windows_targets::link!("msi.dll" "system" fn MsiIsProductElevatedA(szproduct : windows_sys::core::PCSTR, pfelevated : *mut windows_sys::core::BOOL) -> u32);
+windows_targets::link!("msi.dll" "system" fn MsiIsProductElevatedW(szproduct : windows_sys::core::PCWSTR, pfelevated : *mut windows_sys::core::BOOL) -> u32);
 windows_targets::link!("msi.dll" "system" fn MsiJoinTransaction(htransactionhandle : MSIHANDLE, dwtransactionattributes : u32, phchangeofownerevent : *mut super::super::Foundation:: HANDLE) -> u32);
 windows_targets::link!("msi.dll" "system" fn MsiLocateComponentA(szcomponent : windows_sys::core::PCSTR, lppathbuf : windows_sys::core::PSTR, pcchbuf : *mut u32) -> INSTALLSTATE);
 windows_targets::link!("msi.dll" "system" fn MsiLocateComponentW(szcomponent : windows_sys::core::PCWSTR, lppathbuf : windows_sys::core::PWSTR, pcchbuf : *mut u32) -> INSTALLSTATE);
@@ -222,9 +222,9 @@ windows_targets::link!("msi.dll" "system" fn MsiPreviewBillboardW(hpreview : MSI
 windows_targets::link!("msi.dll" "system" fn MsiPreviewDialogA(hpreview : MSIHANDLE, szdialogname : windows_sys::core::PCSTR) -> u32);
 windows_targets::link!("msi.dll" "system" fn MsiPreviewDialogW(hpreview : MSIHANDLE, szdialogname : windows_sys::core::PCWSTR) -> u32);
 #[cfg(feature = "Win32_System_Registry")]
-windows_targets::link!("msi.dll" "system" fn MsiProcessAdvertiseScriptA(szscriptfile : windows_sys::core::PCSTR, sziconfolder : windows_sys::core::PCSTR, hregdata : super::Registry:: HKEY, fshortcuts : super::super::Foundation:: BOOL, fremoveitems : super::super::Foundation:: BOOL) -> u32);
+windows_targets::link!("msi.dll" "system" fn MsiProcessAdvertiseScriptA(szscriptfile : windows_sys::core::PCSTR, sziconfolder : windows_sys::core::PCSTR, hregdata : super::Registry:: HKEY, fshortcuts : windows_sys::core::BOOL, fremoveitems : windows_sys::core::BOOL) -> u32);
 #[cfg(feature = "Win32_System_Registry")]
-windows_targets::link!("msi.dll" "system" fn MsiProcessAdvertiseScriptW(szscriptfile : windows_sys::core::PCWSTR, sziconfolder : windows_sys::core::PCWSTR, hregdata : super::Registry:: HKEY, fshortcuts : super::super::Foundation:: BOOL, fremoveitems : super::super::Foundation:: BOOL) -> u32);
+windows_targets::link!("msi.dll" "system" fn MsiProcessAdvertiseScriptW(szscriptfile : windows_sys::core::PCWSTR, sziconfolder : windows_sys::core::PCWSTR, hregdata : super::Registry:: HKEY, fshortcuts : windows_sys::core::BOOL, fremoveitems : windows_sys::core::BOOL) -> u32);
 windows_targets::link!("msi.dll" "system" fn MsiProcessMessage(hinstall : MSIHANDLE, emessagetype : INSTALLMESSAGE, hrecord : MSIHANDLE) -> i32);
 windows_targets::link!("msi.dll" "system" fn MsiProvideAssemblyA(szassemblyname : windows_sys::core::PCSTR, szappcontext : windows_sys::core::PCSTR, dwinstallmode : u32, dwassemblyinfo : MSIASSEMBLYINFO, lppathbuf : windows_sys::core::PSTR, pcchpathbuf : *mut u32) -> u32);
 windows_targets::link!("msi.dll" "system" fn MsiProvideAssemblyW(szassemblyname : windows_sys::core::PCWSTR, szappcontext : windows_sys::core::PCWSTR, dwinstallmode : u32, dwassemblyinfo : MSIASSEMBLYINFO, lppathbuf : windows_sys::core::PWSTR, pcchpathbuf : *mut u32) -> u32);
@@ -248,7 +248,7 @@ windows_targets::link!("msi.dll" "system" fn MsiRecordGetFieldCount(hrecord : MS
 windows_targets::link!("msi.dll" "system" fn MsiRecordGetInteger(hrecord : MSIHANDLE, ifield : u32) -> i32);
 windows_targets::link!("msi.dll" "system" fn MsiRecordGetStringA(hrecord : MSIHANDLE, ifield : u32, szvaluebuf : windows_sys::core::PSTR, pcchvaluebuf : *mut u32) -> u32);
 windows_targets::link!("msi.dll" "system" fn MsiRecordGetStringW(hrecord : MSIHANDLE, ifield : u32, szvaluebuf : windows_sys::core::PWSTR, pcchvaluebuf : *mut u32) -> u32);
-windows_targets::link!("msi.dll" "system" fn MsiRecordIsNull(hrecord : MSIHANDLE, ifield : u32) -> super::super::Foundation:: BOOL);
+windows_targets::link!("msi.dll" "system" fn MsiRecordIsNull(hrecord : MSIHANDLE, ifield : u32) -> windows_sys::core::BOOL);
 windows_targets::link!("msi.dll" "system" fn MsiRecordReadStream(hrecord : MSIHANDLE, ifield : u32, szdatabuf : windows_sys::core::PSTR, pcbdatabuf : *mut u32) -> u32);
 windows_targets::link!("msi.dll" "system" fn MsiRecordSetInteger(hrecord : MSIHANDLE, ifield : u32, ivalue : i32) -> u32);
 windows_targets::link!("msi.dll" "system" fn MsiRecordSetStreamA(hrecord : MSIHANDLE, ifield : u32, szfilepath : windows_sys::core::PCSTR) -> u32);
@@ -274,7 +274,7 @@ windows_targets::link!("msi.dll" "system" fn MsiSetFeatureStateA(hinstall : MSIH
 windows_targets::link!("msi.dll" "system" fn MsiSetFeatureStateW(hinstall : MSIHANDLE, szfeature : windows_sys::core::PCWSTR, istate : INSTALLSTATE) -> u32);
 windows_targets::link!("msi.dll" "system" fn MsiSetInstallLevel(hinstall : MSIHANDLE, iinstalllevel : i32) -> u32);
 windows_targets::link!("msi.dll" "system" fn MsiSetInternalUI(dwuilevel : INSTALLUILEVEL, phwnd : *mut super::super::Foundation:: HWND) -> INSTALLUILEVEL);
-windows_targets::link!("msi.dll" "system" fn MsiSetMode(hinstall : MSIHANDLE, erunmode : MSIRUNMODE, fstate : super::super::Foundation:: BOOL) -> u32);
+windows_targets::link!("msi.dll" "system" fn MsiSetMode(hinstall : MSIHANDLE, erunmode : MSIRUNMODE, fstate : windows_sys::core::BOOL) -> u32);
 windows_targets::link!("msi.dll" "system" fn MsiSetPropertyA(hinstall : MSIHANDLE, szname : windows_sys::core::PCSTR, szvalue : windows_sys::core::PCSTR) -> u32);
 windows_targets::link!("msi.dll" "system" fn MsiSetPropertyW(hinstall : MSIHANDLE, szname : windows_sys::core::PCWSTR, szvalue : windows_sys::core::PCWSTR) -> u32);
 windows_targets::link!("msi.dll" "system" fn MsiSetTargetPathA(hinstall : MSIHANDLE, szfolder : windows_sys::core::PCSTR, szfolderpath : windows_sys::core::PCSTR) -> u32);
@@ -326,19 +326,19 @@ windows_targets::link!("msi.dll" "system" fn MsiViewGetErrorA(hview : MSIHANDLE,
 windows_targets::link!("msi.dll" "system" fn MsiViewGetErrorW(hview : MSIHANDLE, szcolumnnamebuffer : windows_sys::core::PWSTR, pcchbuf : *mut u32) -> MSIDBERROR);
 windows_targets::link!("msi.dll" "system" fn MsiViewModify(hview : MSIHANDLE, emodifymode : MSIMODIFY, hrecord : MSIHANDLE) -> u32);
 windows_targets::link!("mspatcha.dll" "system" fn NormalizeFileForPatchSignature(filebuffer : *mut core::ffi::c_void, filesize : u32, optionflags : u32, optiondata : *const PATCH_OPTION_DATA, newfilecoffbase : u32, newfilecofftime : u32, ignorerangecount : u32, ignorerangearray : *const PATCH_IGNORE_RANGE, retainrangecount : u32, retainrangearray : *const PATCH_RETAIN_RANGE) -> i32);
-windows_targets::link!("kernel32.dll" "system" fn QueryActCtxSettingsW(dwflags : u32, hactctx : super::super::Foundation:: HANDLE, settingsnamespace : windows_sys::core::PCWSTR, settingname : windows_sys::core::PCWSTR, pvbuffer : windows_sys::core::PWSTR, dwbuffer : usize, pdwwrittenorrequired : *mut usize) -> super::super::Foundation:: BOOL);
-windows_targets::link!("kernel32.dll" "system" fn QueryActCtxW(dwflags : u32, hactctx : super::super::Foundation:: HANDLE, pvsubinstance : *const core::ffi::c_void, ulinfoclass : u32, pvbuffer : *mut core::ffi::c_void, cbbuffer : usize, pcbwrittenorrequired : *mut usize) -> super::super::Foundation:: BOOL);
+windows_targets::link!("kernel32.dll" "system" fn QueryActCtxSettingsW(dwflags : u32, hactctx : super::super::Foundation:: HANDLE, settingsnamespace : windows_sys::core::PCWSTR, settingname : windows_sys::core::PCWSTR, pvbuffer : windows_sys::core::PWSTR, dwbuffer : usize, pdwwrittenorrequired : *mut usize) -> windows_sys::core::BOOL);
+windows_targets::link!("kernel32.dll" "system" fn QueryActCtxW(dwflags : u32, hactctx : super::super::Foundation:: HANDLE, pvsubinstance : *const core::ffi::c_void, ulinfoclass : u32, pvbuffer : *mut core::ffi::c_void, cbbuffer : usize, pcbwrittenorrequired : *mut usize) -> windows_sys::core::BOOL);
 windows_targets::link!("kernel32.dll" "system" fn ReleaseActCtx(hactctx : super::super::Foundation:: HANDLE));
-windows_targets::link!("sfc.dll" "system" fn SfcGetNextProtectedFile(rpchandle : super::super::Foundation:: HANDLE, protfiledata : *mut PROTECTED_FILE_DATA) -> super::super::Foundation:: BOOL);
-windows_targets::link!("sfc.dll" "system" fn SfcIsFileProtected(rpchandle : super::super::Foundation:: HANDLE, protfilename : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+windows_targets::link!("sfc.dll" "system" fn SfcGetNextProtectedFile(rpchandle : super::super::Foundation:: HANDLE, protfiledata : *mut PROTECTED_FILE_DATA) -> windows_sys::core::BOOL);
+windows_targets::link!("sfc.dll" "system" fn SfcIsFileProtected(rpchandle : super::super::Foundation:: HANDLE, protfilename : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_System_Registry")]
-windows_targets::link!("sfc.dll" "system" fn SfcIsKeyProtected(keyhandle : super::Registry:: HKEY, subkeyname : windows_sys::core::PCWSTR, keysam : u32) -> super::super::Foundation:: BOOL);
-windows_targets::link!("sfc.dll" "system" fn SfpVerifyFile(pszfilename : windows_sys::core::PCSTR, pszerror : windows_sys::core::PCSTR, dwerrsize : u32) -> super::super::Foundation:: BOOL);
-windows_targets::link!("mspatcha.dll" "system" fn TestApplyPatchToFileA(patchfilename : windows_sys::core::PCSTR, oldfilename : windows_sys::core::PCSTR, applyoptionflags : u32) -> super::super::Foundation:: BOOL);
-windows_targets::link!("mspatcha.dll" "system" fn TestApplyPatchToFileByBuffers(patchfilebuffer : *const u8, patchfilesize : u32, oldfilebuffer : *const u8, oldfilesize : u32, newfilesize : *mut u32, applyoptionflags : u32) -> super::super::Foundation:: BOOL);
-windows_targets::link!("mspatcha.dll" "system" fn TestApplyPatchToFileByHandles(patchfilehandle : super::super::Foundation:: HANDLE, oldfilehandle : super::super::Foundation:: HANDLE, applyoptionflags : u32) -> super::super::Foundation:: BOOL);
-windows_targets::link!("mspatcha.dll" "system" fn TestApplyPatchToFileW(patchfilename : windows_sys::core::PCWSTR, oldfilename : windows_sys::core::PCWSTR, applyoptionflags : u32) -> super::super::Foundation:: BOOL);
-windows_targets::link!("kernel32.dll" "system" fn ZombifyActCtx(hactctx : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+windows_targets::link!("sfc.dll" "system" fn SfcIsKeyProtected(keyhandle : super::Registry:: HKEY, subkeyname : windows_sys::core::PCWSTR, keysam : u32) -> windows_sys::core::BOOL);
+windows_targets::link!("sfc.dll" "system" fn SfpVerifyFile(pszfilename : windows_sys::core::PCSTR, pszerror : windows_sys::core::PCSTR, dwerrsize : u32) -> windows_sys::core::BOOL);
+windows_targets::link!("mspatcha.dll" "system" fn TestApplyPatchToFileA(patchfilename : windows_sys::core::PCSTR, oldfilename : windows_sys::core::PCSTR, applyoptionflags : u32) -> windows_sys::core::BOOL);
+windows_targets::link!("mspatcha.dll" "system" fn TestApplyPatchToFileByBuffers(patchfilebuffer : *const u8, patchfilesize : u32, oldfilebuffer : *const u8, oldfilesize : u32, newfilesize : *mut u32, applyoptionflags : u32) -> windows_sys::core::BOOL);
+windows_targets::link!("mspatcha.dll" "system" fn TestApplyPatchToFileByHandles(patchfilehandle : super::super::Foundation:: HANDLE, oldfilehandle : super::super::Foundation:: HANDLE, applyoptionflags : u32) -> windows_sys::core::BOOL);
+windows_targets::link!("mspatcha.dll" "system" fn TestApplyPatchToFileW(patchfilename : windows_sys::core::PCWSTR, oldfilename : windows_sys::core::PCWSTR, applyoptionflags : u32) -> windows_sys::core::BOOL);
+windows_targets::link!("kernel32.dll" "system" fn ZombifyActCtx(hactctx : super::super::Foundation:: HANDLE) -> windows_sys::core::BOOL);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACTCTXA {
@@ -564,7 +564,7 @@ pub struct DELTA_HEADER_INFO {
 pub struct DELTA_INPUT {
     pub Anonymous: DELTA_INPUT_0,
     pub uSize: usize,
-    pub Editable: super::super::Foundation::BOOL,
+    pub Editable: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1173,8 +1173,8 @@ pub const LOGTOKEN_SETUPAPI_DEVLOG: u32 = 3u32;
 pub const LOGTOKEN_TYPE_MASK: u32 = 3u32;
 pub const LOGTOKEN_UNSPECIFIED: u32 = 0u32;
 pub const LOGWARN: u32 = 2u32;
-pub type LPDISPLAYVAL = Option<unsafe extern "system" fn(pcontext: *mut core::ffi::c_void, uitype: RESULTTYPES, szwval: windows_sys::core::PCWSTR, szwdescription: windows_sys::core::PCWSTR, szwlocation: windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
-pub type LPEVALCOMCALLBACK = Option<unsafe extern "system" fn(istatus: STATUSTYPES, szdata: windows_sys::core::PCWSTR, pcontext: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPDISPLAYVAL = Option<unsafe extern "system" fn(pcontext: *mut core::ffi::c_void, uitype: RESULTTYPES, szwval: windows_sys::core::PCWSTR, szwdescription: windows_sys::core::PCWSTR, szwlocation: windows_sys::core::PCWSTR) -> windows_sys::core::BOOL>;
+pub type LPEVALCOMCALLBACK = Option<unsafe extern "system" fn(istatus: STATUSTYPES, szdata: windows_sys::core::PCWSTR, pcontext: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
 pub const MAX_FEATURE_CHARS: u32 = 38u32;
 pub const MAX_GUID_CHARS: u32 = 38u32;
 pub type MSIADVERTISEOPTIONFLAGS = i32;
@@ -1636,7 +1636,7 @@ pub struct PM_INSTALLINFO {
     pub InstanceID: windows_sys::core::GUID,
     pub pbLicense: *mut u8,
     pub cbLicense: u32,
-    pub IsUninstallDisabled: super::super::Foundation::BOOL,
+    pub IsUninstallDisabled: windows_sys::core::BOOL,
     pub DeploymentOptions: u32,
     pub OfferID: windows_sys::core::GUID,
     pub MarketplaceAppVersion: windows_sys::core::BSTR,
@@ -1664,12 +1664,12 @@ pub struct PM_STARTAPPBLOB {
     pub ProductID: windows_sys::core::GUID,
     pub AppTitle: windows_sys::core::BSTR,
     pub IconPath: windows_sys::core::BSTR,
-    pub IsUninstallable: super::super::Foundation::BOOL,
+    pub IsUninstallable: windows_sys::core::BOOL,
     pub AppInstallType: PM_APPLICATION_INSTALL_TYPE,
     pub InstanceID: windows_sys::core::GUID,
     pub State: PM_APPLICATION_STATE,
-    pub IsModern: super::super::Foundation::BOOL,
-    pub IsModernLightUp: super::super::Foundation::BOOL,
+    pub IsModern: windows_sys::core::BOOL,
+    pub IsModernLightUp: windows_sys::core::BOOL,
     pub LightUpSupportMask: u16,
 }
 #[repr(C)]
@@ -1681,12 +1681,12 @@ pub struct PM_STARTTILEBLOB {
     pub TemplateType: TILE_TEMPLATE_TYPE,
     pub HubPosition: [u32; 32],
     pub HubVisibilityBitmask: u32,
-    pub IsDefault: super::super::Foundation::BOOL,
+    pub IsDefault: windows_sys::core::BOOL,
     pub TileType: PM_STARTTILE_TYPE,
     pub pbPropBlob: *mut u8,
     pub cbPropBlob: u32,
-    pub IsRestoring: super::super::Foundation::BOOL,
-    pub IsModern: super::super::Foundation::BOOL,
+    pub IsRestoring: windows_sys::core::BOOL,
+    pub IsModern: windows_sys::core::BOOL,
     pub InvocationInfo: PM_INVOCATIONINFO,
 }
 pub type PM_STARTTILE_TYPE = i32;
@@ -1760,8 +1760,8 @@ pub struct PM_UPDATEINFO_LEGACY {
     pub cbLicense: u32,
     pub MarketplaceAppVersion: windows_sys::core::BSTR,
 }
-pub type PPATCH_PROGRESS_CALLBACK = Option<unsafe extern "system" fn(callbackcontext: *mut core::ffi::c_void, currentposition: u32, maximumposition: u32) -> super::super::Foundation::BOOL>;
-pub type PPATCH_SYMLOAD_CALLBACK = Option<unsafe extern "system" fn(whichfile: u32, symbolfilename: windows_sys::core::PCSTR, symtype: u32, symbolfilechecksum: u32, symbolfiletimedate: u32, imagefilechecksum: u32, imagefiletimedate: u32, callbackcontext: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type PPATCH_PROGRESS_CALLBACK = Option<unsafe extern "system" fn(callbackcontext: *mut core::ffi::c_void, currentposition: u32, maximumposition: u32) -> windows_sys::core::BOOL>;
+pub type PPATCH_SYMLOAD_CALLBACK = Option<unsafe extern "system" fn(whichfile: u32, symbolfilename: windows_sys::core::PCSTR, symtype: u32, symbolfilechecksum: u32, symbolfiletimedate: u32, imagefilechecksum: u32, imagefiletimedate: u32, callbackcontext: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PROTECTED_FILE_DATA {

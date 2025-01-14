@@ -1,10 +1,10 @@
 windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ApplyGuestMemoryFix(vmsavedstatedumphandle : *mut core::ffi::c_void, vpid : u32, virtualaddress : u64, fixbuffer : *const core::ffi::c_void, fixbuffersize : u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ApplyPendingSavedStateFileReplayLog(vmrsfile : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn CallStackUnwind(vmsavedstatedumphandle : *mut core::ffi::c_void, vpid : u32, imageinfo : *const MODULE_INFO, imageinfocount : u32, framecount : u32, callstack : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
-windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn FindSavedStateSymbolFieldInType(vmsavedstatedumphandle : *mut core::ffi::c_void, vpid : u32, typename : windows_sys::core::PCSTR, fieldname : windows_sys::core::PCWSTR, offset : *mut u32, found : *mut super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn FindSavedStateSymbolFieldInType(vmsavedstatedumphandle : *mut core::ffi::c_void, vpid : u32, typename : windows_sys::core::PCSTR, fieldname : windows_sys::core::PCWSTR, offset : *mut u32, found : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ForceActiveVirtualTrustLevel(vmsavedstatedumphandle : *mut core::ffi::c_void, vpid : u32, virtualtrustlevel : u8) -> windows_sys::core::HRESULT);
 windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ForceArchitecture(vmsavedstatedumphandle : *mut core::ffi::c_void, vpid : u32, architecture : VIRTUAL_PROCESSOR_ARCH) -> windows_sys::core::HRESULT);
-windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ForceNestedHostMode(vmsavedstatedumphandle : *mut core::ffi::c_void, vpid : u32, hostmode : super::super::Foundation:: BOOL, oldmode : *mut super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ForceNestedHostMode(vmsavedstatedumphandle : *mut core::ffi::c_void, vpid : u32, hostmode : windows_sys::core::BOOL, oldmode : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ForcePagingMode(vmsavedstatedumphandle : *mut core::ffi::c_void, vpid : u32, pagingmode : PAGING_MODE) -> windows_sys::core::HRESULT);
 windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetActiveVirtualTrustLevel(vmsavedstatedumphandle : *mut core::ffi::c_void, vpid : u32, virtualtrustlevel : *mut u8) -> windows_sys::core::HRESULT);
 windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetArchitecture(vmsavedstatedumphandle : *mut core::ffi::c_void, vpid : u32, architecture : *mut VIRTUAL_PROCESSOR_ARCH) -> windows_sys::core::HRESULT);
@@ -14,7 +14,7 @@ windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetGuestOsInfo
 windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetGuestPhysicalMemoryChunks(vmsavedstatedumphandle : *mut core::ffi::c_void, memorychunkpagesize : *mut u64, memorychunks : *mut GPA_MEMORY_CHUNK, memorychunkcount : *mut u64) -> windows_sys::core::HRESULT);
 windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetGuestRawSavedMemorySize(vmsavedstatedumphandle : *mut core::ffi::c_void, guestrawsavedmemorysize : *mut u64) -> windows_sys::core::HRESULT);
 windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetMemoryBlockCacheLimit(vmsavedstatedumphandle : *mut core::ffi::c_void, memoryblockcachelimit : *mut u64) -> windows_sys::core::HRESULT);
-windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetNestedVirtualizationMode(vmsavedstatedumphandle : *mut core::ffi::c_void, vpid : u32, enabled : *mut super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetNestedVirtualizationMode(vmsavedstatedumphandle : *mut core::ffi::c_void, vpid : u32, enabled : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetPagingMode(vmsavedstatedumphandle : *mut core::ffi::c_void, vpid : u32, pagingmode : *mut PAGING_MODE) -> windows_sys::core::HRESULT);
 windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetRegisterValue(vmsavedstatedumphandle : *mut core::ffi::c_void, vpid : u32, registerid : u32, registervalue : *mut VIRTUAL_PROCESSOR_REGISTER) -> windows_sys::core::HRESULT);
 windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetSavedStateSymbolFieldInfo(vmsavedstatedumphandle : *mut core::ffi::c_void, vpid : u32, typename : windows_sys::core::PCSTR, typefieldinfomap : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
@@ -24,7 +24,7 @@ windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetVpCount(vms
 windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GuestPhysicalAddressToRawSavedMemoryOffset(vmsavedstatedumphandle : *mut core::ffi::c_void, physicaladdress : u64, rawsavedmemoryoffset : *mut u64) -> windows_sys::core::HRESULT);
 windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GuestVirtualAddressToPhysicalAddress(vmsavedstatedumphandle : *mut core::ffi::c_void, vpid : u32, virtualaddress : u64, physicaladdress : *mut u64, unmappedregionsize : *mut u64) -> windows_sys::core::HRESULT);
 windows_targets::link!("vmdevicehost.dll" "system" fn HdvCreateDeviceInstance(devicehosthandle : *const core::ffi::c_void, devicetype : HDV_DEVICE_TYPE, deviceclassid : *const windows_sys::core::GUID, deviceinstanceid : *const windows_sys::core::GUID, deviceinterface : *const core::ffi::c_void, devicecontext : *const core::ffi::c_void, devicehandle : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_targets::link!("vmdevicehost.dll" "system" fn HdvCreateGuestMemoryAperture(requestor : *const core::ffi::c_void, guestphysicaladdress : u64, bytecount : u32, writeprotected : super::super::Foundation:: BOOL, mappedaddress : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_targets::link!("vmdevicehost.dll" "system" fn HdvCreateGuestMemoryAperture(requestor : *const core::ffi::c_void, guestphysicaladdress : u64, bytecount : u32, writeprotected : windows_sys::core::BOOL, mappedaddress : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("vmdevicehost.dll" "system" fn HdvCreateSectionBackedMmioRange(requestor : *const core::ffi::c_void, barindex : HDV_PCI_BAR_SELECTOR, offsetinpages : u64, lengthinpages : u64, mappingflags : HDV_MMIO_MAPPING_FLAGS, sectionhandle : super::super::Foundation:: HANDLE, sectionoffsetinpages : u64) -> windows_sys::core::HRESULT);
 windows_targets::link!("vmdevicehost.dll" "system" fn HdvDeliverGuestInterrupt(requestor : *const core::ffi::c_void, msiaddress : u64, msidata : u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("vmdevicehost.dll" "system" fn HdvDestroyGuestMemoryAperture(requestor : *const core::ffi::c_void, mappedaddress : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
@@ -38,14 +38,14 @@ windows_targets::link!("vmdevicehost.dll" "system" fn HdvRegisterDoorbell(reques
 windows_targets::link!("vmdevicehost.dll" "system" fn HdvTeardownDeviceHost(devicehosthandle : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("vmdevicehost.dll" "system" fn HdvUnregisterDoorbell(requestor : *const core::ffi::c_void, barindex : HDV_PCI_BAR_SELECTOR, baroffset : u64, triggervalue : u64, flags : u64) -> windows_sys::core::HRESULT);
 windows_targets::link!("vmdevicehost.dll" "system" fn HdvWriteGuestMemory(requestor : *const core::ffi::c_void, guestphysicaladdress : u64, bytecount : u32, buffer : *const u8) -> windows_sys::core::HRESULT);
-windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn InKernelSpace(vmsavedstatedumphandle : *mut core::ffi::c_void, vpid : u32, inkernelspace : *mut super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
-windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn IsActiveVirtualTrustLevelEnabled(vmsavedstatedumphandle : *mut core::ffi::c_void, vpid : u32, activevirtualtrustlevelenabled : *mut super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
-windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn IsNestedVirtualizationEnabled(vmsavedstatedumphandle : *mut core::ffi::c_void, enabled : *mut super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn InKernelSpace(vmsavedstatedumphandle : *mut core::ffi::c_void, vpid : u32, inkernelspace : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
+windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn IsActiveVirtualTrustLevelEnabled(vmsavedstatedumphandle : *mut core::ffi::c_void, vpid : u32, activevirtualtrustlevelenabled : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
+windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn IsNestedVirtualizationEnabled(vmsavedstatedumphandle : *mut core::ffi::c_void, enabled : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn LoadSavedStateFile(vmrsfile : windows_sys::core::PCWSTR, vmsavedstatedumphandle : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn LoadSavedStateFiles(binfile : windows_sys::core::PCWSTR, vsvfile : windows_sys::core::PCWSTR, vmsavedstatedumphandle : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn LoadSavedStateModuleSymbols(vmsavedstatedumphandle : *mut core::ffi::c_void, imagename : windows_sys::core::PCSTR, modulename : windows_sys::core::PCSTR, baseaddress : u64, sizeofbase : u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn LoadSavedStateModuleSymbolsEx(vmsavedstatedumphandle : *mut core::ffi::c_void, imagename : windows_sys::core::PCSTR, imagetimestamp : u32, modulename : windows_sys::core::PCSTR, baseaddress : u64, sizeofbase : u32) -> windows_sys::core::HRESULT);
-windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn LoadSavedStateSymbolProvider(vmsavedstatedumphandle : *mut core::ffi::c_void, usersymbols : windows_sys::core::PCWSTR, force : super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn LoadSavedStateSymbolProvider(vmsavedstatedumphandle : *mut core::ffi::c_void, usersymbols : windows_sys::core::PCWSTR, force : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn LocateSavedStateFiles(vmname : windows_sys::core::PCWSTR, snapshotname : windows_sys::core::PCWSTR, binpath : *mut windows_sys::core::PWSTR, vsvpath : *mut windows_sys::core::PWSTR, vmrspath : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ReadGuestPhysicalAddress(vmsavedstatedumphandle : *mut core::ffi::c_void, physicaladdress : u64, buffer : *mut core::ffi::c_void, buffersize : u32, bytesread : *mut u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ReadGuestRawSavedMemory(vmsavedstatedumphandle : *mut core::ffi::c_void, rawsavedmemoryoffset : u64, buffer : *mut core::ffi::c_void, buffersize : u32, bytesread : *mut u32) -> windows_sys::core::HRESULT);
@@ -116,7 +116,7 @@ windows_targets::link!("winhvplatform.dll" "system" fn WHvSetVirtualProcessorXsa
 #[cfg(feature = "Win32_System_Power")]
 windows_targets::link!("winhvplatform.dll" "system" fn WHvSetVpciDevicePowerState(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64, powerstate : super::Power:: DEVICE_POWER_STATE) -> windows_sys::core::HRESULT);
 windows_targets::link!("winhvplatform.dll" "system" fn WHvSetupPartition(partition : WHV_PARTITION_HANDLE) -> windows_sys::core::HRESULT);
-windows_targets::link!("winhvplatform.dll" "system" fn WHvSignalVirtualProcessorSynicEvent(partition : WHV_PARTITION_HANDLE, synicevent : WHV_SYNIC_EVENT_PARAMETERS, newlysignaled : *mut super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+windows_targets::link!("winhvplatform.dll" "system" fn WHvSignalVirtualProcessorSynicEvent(partition : WHV_PARTITION_HANDLE, synicevent : WHV_SYNIC_EVENT_PARAMETERS, newlysignaled : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 windows_targets::link!("winhvplatform.dll" "system" fn WHvStartPartitionMigration(partition : WHV_PARTITION_HANDLE, migrationhandle : *mut super::super::Foundation:: HANDLE) -> windows_sys::core::HRESULT);
 windows_targets::link!("winhvplatform.dll" "system" fn WHvSuspendPartitionTime(partition : WHV_PARTITION_HANDLE) -> windows_sys::core::HRESULT);
 windows_targets::link!("winhvplatform.dll" "system" fn WHvTranslateGva(partition : WHV_PARTITION_HANDLE, vpindex : u32, gva : u64, translateflags : WHV_TRANSLATE_GVA_FLAGS, translationresult : *mut WHV_TRANSLATE_GVA_RESULT, gpa : *mut u64) -> windows_sys::core::HRESULT);
@@ -231,7 +231,7 @@ pub struct DOS_IMAGE_INFO {
     pub ImageSize: u32,
     pub Timestamp: u32,
 }
-pub type FOUND_IMAGE_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, imageinfo: *const DOS_IMAGE_INFO) -> super::super::Foundation::BOOL>;
+pub type FOUND_IMAGE_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, imageinfo: *const DOS_IMAGE_INFO) -> windows_sys::core::BOOL>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct GPA_MEMORY_CHUNK {
@@ -530,7 +530,7 @@ pub type WHV_CACHE_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHV_CAPABILITY {
-    pub HypervisorPresent: super::super::Foundation::BOOL,
+    pub HypervisorPresent: windows_sys::core::BOOL,
     pub Features: WHV_CAPABILITY_FEATURES,
     pub ExtendedVmExits: WHV_EXTENDED_VM_EXITS,
     pub ProcessorVendor: WHV_PROCESSOR_VENDOR,
@@ -761,12 +761,12 @@ pub union WHV_PARTITION_PROPERTY {
     pub UnimplementedMsrAction: WHV_MSR_ACTION,
     pub ExceptionExitBitmap: u64,
     pub LocalApicEmulationMode: WHV_X64_LOCAL_APIC_EMULATION_MODE,
-    pub SeparateSecurityDomain: super::super::Foundation::BOOL,
-    pub NestedVirtualization: super::super::Foundation::BOOL,
+    pub SeparateSecurityDomain: windows_sys::core::BOOL,
+    pub NestedVirtualization: windows_sys::core::BOOL,
     pub X64MsrExitBitmap: WHV_X64_MSR_EXIT_BITMAP,
     pub ProcessorClockFrequency: u64,
     pub InterruptClockFrequency: u64,
-    pub ApicRemoteRead: super::super::Foundation::BOOL,
+    pub ApicRemoteRead: windows_sys::core::BOOL,
     pub ProcessorFeaturesBanks: WHV_PROCESSOR_FEATURES_BANKS,
     pub ReferenceTime: u64,
     pub PrimaryNumaNode: u16,
@@ -775,9 +775,9 @@ pub union WHV_PARTITION_PROPERTY {
     pub CpuWeight: u32,
     pub CpuGroupId: u64,
     pub ProcessorFrequencyCap: u32,
-    pub AllowDeviceAssignment: super::super::Foundation::BOOL,
+    pub AllowDeviceAssignment: windows_sys::core::BOOL,
     pub ProcessorPerfmonFeatures: WHV_PROCESSOR_PERFMON_FEATURES,
-    pub DisableSmt: super::super::Foundation::BOOL,
+    pub DisableSmt: windows_sys::core::BOOL,
 }
 pub type WHV_PARTITION_PROPERTY_CODE = i32;
 #[repr(C)]

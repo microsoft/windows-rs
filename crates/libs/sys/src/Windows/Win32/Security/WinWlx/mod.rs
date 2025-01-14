@@ -1,11 +1,11 @@
-pub type PFNMSGECALLBACK = Option<unsafe extern "system" fn(bverbose: super::super::Foundation::BOOL, lpmessage: windows_sys::core::PCWSTR) -> u32>;
+pub type PFNMSGECALLBACK = Option<unsafe extern "system" fn(bverbose: windows_sys::core::BOOL, lpmessage: windows_sys::core::PCWSTR) -> u32>;
 pub type PWLX_ASSIGN_SHELL_PROTECTION = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, htoken: super::super::Foundation::HANDLE, hprocess: super::super::Foundation::HANDLE, hthread: super::super::Foundation::HANDLE) -> i32>;
 pub type PWLX_CHANGE_PASSWORD_NOTIFY = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pmprinfo: *mut WLX_MPR_NOTIFY_INFO, dwchangeinfo: u32) -> i32>;
 pub type PWLX_CHANGE_PASSWORD_NOTIFY_EX = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pmprinfo: *mut WLX_MPR_NOTIFY_INFO, dwchangeinfo: u32, providername: windows_sys::core::PCWSTR, reserved: *mut core::ffi::c_void) -> i32>;
 #[cfg(feature = "Win32_System_StationsAndDesktops")]
-pub type PWLX_CLOSE_USER_DESKTOP = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pdesktop: *mut WLX_DESKTOP, htoken: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+pub type PWLX_CLOSE_USER_DESKTOP = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pdesktop: *mut WLX_DESKTOP, htoken: super::super::Foundation::HANDLE) -> windows_sys::core::BOOL>;
 #[cfg(feature = "Win32_System_StationsAndDesktops")]
-pub type PWLX_CREATE_USER_DESKTOP = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, htoken: super::super::Foundation::HANDLE, flags: u32, pszdesktopname: windows_sys::core::PCWSTR, ppdesktop: *mut *mut WLX_DESKTOP) -> super::super::Foundation::BOOL>;
+pub type PWLX_CREATE_USER_DESKTOP = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, htoken: super::super::Foundation::HANDLE, flags: u32, pszdesktopname: windows_sys::core::PCWSTR, ppdesktop: *mut *mut WLX_DESKTOP) -> windows_sys::core::BOOL>;
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub type PWLX_DIALOG_BOX = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hinst: super::super::Foundation::HANDLE, lpsztemplate: windows_sys::core::PCWSTR, hwndowner: super::super::Foundation::HWND, dlgprc: super::super::UI::WindowsAndMessaging::DLGPROC) -> i32>;
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -14,22 +14,22 @@ pub type PWLX_DIALOG_BOX_INDIRECT = Option<unsafe extern "system" fn(hwlx: super
 pub type PWLX_DIALOG_BOX_INDIRECT_PARAM = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hinst: super::super::Foundation::HANDLE, hdialogtemplate: *mut super::super::UI::WindowsAndMessaging::DLGTEMPLATE, hwndowner: super::super::Foundation::HWND, dlgprc: super::super::UI::WindowsAndMessaging::DLGPROC, dwinitparam: super::super::Foundation::LPARAM) -> i32>;
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub type PWLX_DIALOG_BOX_PARAM = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hinst: super::super::Foundation::HANDLE, lpsztemplate: windows_sys::core::PCWSTR, hwndowner: super::super::Foundation::HWND, dlgprc: super::super::UI::WindowsAndMessaging::DLGPROC, dwinitparam: super::super::Foundation::LPARAM) -> i32>;
-pub type PWLX_DISCONNECT = Option<unsafe extern "system" fn() -> super::super::Foundation::BOOL>;
-pub type PWLX_GET_OPTION = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, option: u32, value: *mut usize) -> super::super::Foundation::BOOL>;
+pub type PWLX_DISCONNECT = Option<unsafe extern "system" fn() -> windows_sys::core::BOOL>;
+pub type PWLX_GET_OPTION = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, option: u32, value: *mut usize) -> windows_sys::core::BOOL>;
 #[cfg(feature = "Win32_System_StationsAndDesktops")]
-pub type PWLX_GET_SOURCE_DESKTOP = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, ppdesktop: *mut *mut WLX_DESKTOP) -> super::super::Foundation::BOOL>;
+pub type PWLX_GET_SOURCE_DESKTOP = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, ppdesktop: *mut *mut WLX_DESKTOP) -> windows_sys::core::BOOL>;
 pub type PWLX_MESSAGE_BOX = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hwndowner: super::super::Foundation::HWND, lpsztext: windows_sys::core::PCWSTR, lpsztitle: windows_sys::core::PCWSTR, fustyle: u32) -> i32>;
-pub type PWLX_QUERY_CLIENT_CREDENTIALS = Option<unsafe extern "system" fn(pcred: *mut WLX_CLIENT_CREDENTIALS_INFO_V1_0) -> super::super::Foundation::BOOL>;
+pub type PWLX_QUERY_CLIENT_CREDENTIALS = Option<unsafe extern "system" fn(pcred: *mut WLX_CLIENT_CREDENTIALS_INFO_V1_0) -> windows_sys::core::BOOL>;
 pub type PWLX_QUERY_CONSOLESWITCH_CREDENTIALS = Option<unsafe extern "system" fn(pcred: *mut WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0) -> u32>;
-pub type PWLX_QUERY_IC_CREDENTIALS = Option<unsafe extern "system" fn(pcred: *mut WLX_CLIENT_CREDENTIALS_INFO_V1_0) -> super::super::Foundation::BOOL>;
+pub type PWLX_QUERY_IC_CREDENTIALS = Option<unsafe extern "system" fn(pcred: *mut WLX_CLIENT_CREDENTIALS_INFO_V1_0) -> windows_sys::core::BOOL>;
 pub type PWLX_QUERY_TERMINAL_SERVICES_DATA = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, ptsdata: *mut WLX_TERMINAL_SERVICES_DATA, username: windows_sys::core::PCWSTR, domain: windows_sys::core::PCWSTR) -> u32>;
-pub type PWLX_QUERY_TS_LOGON_CREDENTIALS = Option<unsafe extern "system" fn(pcred: *mut WLX_CLIENT_CREDENTIALS_INFO_V2_0) -> super::super::Foundation::BOOL>;
+pub type PWLX_QUERY_TS_LOGON_CREDENTIALS = Option<unsafe extern "system" fn(pcred: *mut WLX_CLIENT_CREDENTIALS_INFO_V2_0) -> windows_sys::core::BOOL>;
 pub type PWLX_SAS_NOTIFY = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, dwsastype: u32)>;
 pub type PWLX_SET_CONTEXT_POINTER = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pwlxcontext: *mut core::ffi::c_void)>;
-pub type PWLX_SET_OPTION = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, option: u32, value: usize, oldvalue: *mut usize) -> super::super::Foundation::BOOL>;
+pub type PWLX_SET_OPTION = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, option: u32, value: usize, oldvalue: *mut usize) -> windows_sys::core::BOOL>;
 #[cfg(feature = "Win32_System_StationsAndDesktops")]
-pub type PWLX_SET_RETURN_DESKTOP = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pdesktop: *mut WLX_DESKTOP) -> super::super::Foundation::BOOL>;
-pub type PWLX_SET_TIMEOUT = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, timeout: u32) -> super::super::Foundation::BOOL>;
+pub type PWLX_SET_RETURN_DESKTOP = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pdesktop: *mut WLX_DESKTOP) -> windows_sys::core::BOOL>;
+pub type PWLX_SET_TIMEOUT = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, timeout: u32) -> windows_sys::core::BOOL>;
 pub type PWLX_SWITCH_DESKTOP_TO_USER = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE) -> i32>;
 pub type PWLX_SWITCH_DESKTOP_TO_WINLOGON = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE) -> i32>;
 pub type PWLX_USE_CTRL_ALT_DEL = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE)>;
@@ -43,7 +43,7 @@ pub struct WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
     pub pszUserName: windows_sys::core::PWSTR,
     pub pszDomain: windows_sys::core::PWSTR,
     pub pszPassword: windows_sys::core::PWSTR,
-    pub fPromptForPassword: super::super::Foundation::BOOL,
+    pub fPromptForPassword: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -52,8 +52,8 @@ pub struct WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
     pub pszUserName: windows_sys::core::PWSTR,
     pub pszDomain: windows_sys::core::PWSTR,
     pub pszPassword: windows_sys::core::PWSTR,
-    pub fPromptForPassword: super::super::Foundation::BOOL,
-    pub fDisconnectOnLogonFailure: super::super::Foundation::BOOL,
+    pub fPromptForPassword: windows_sys::core::BOOL,
+    pub fDisconnectOnLogonFailure: windows_sys::core::BOOL,
 }
 pub const WLX_CONSOLESWITCHCREDENTIAL_TYPE_V1_0: u32 = 1u32;
 #[repr(C)]
@@ -66,7 +66,7 @@ pub struct WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
     pub UserName: windows_sys::core::PWSTR,
     pub Domain: windows_sys::core::PWSTR,
     pub LogonTime: i64,
-    pub SmartCardLogon: super::super::Foundation::BOOL,
+    pub SmartCardLogon: windows_sys::core::BOOL,
     pub ProfileLength: u32,
     pub MessageType: u32,
     pub LogonCount: u16,

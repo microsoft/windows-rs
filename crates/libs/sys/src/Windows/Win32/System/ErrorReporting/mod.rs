@@ -1,8 +1,8 @@
-windows_targets::link!("faultrep.dll" "system" fn AddERExcludedApplicationA(szapplication : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-windows_targets::link!("faultrep.dll" "system" fn AddERExcludedApplicationW(wszapplication : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+windows_targets::link!("faultrep.dll" "system" fn AddERExcludedApplicationA(szapplication : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
+windows_targets::link!("faultrep.dll" "system" fn AddERExcludedApplicationW(wszapplication : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 windows_targets::link!("faultrep.dll" "system" fn ReportFault(pep : *const super::Diagnostics::Debug:: EXCEPTION_POINTERS, dwopt : u32) -> EFaultRepRetVal);
-windows_targets::link!("wer.dll" "system" fn WerAddExcludedApplication(pwzexename : windows_sys::core::PCWSTR, ballusers : super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+windows_targets::link!("wer.dll" "system" fn WerAddExcludedApplication(pwzexename : windows_sys::core::PCWSTR, ballusers : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 windows_targets::link!("wer.dll" "system" fn WerFreeString(pwszstr : windows_sys::core::PCWSTR));
 windows_targets::link!("kernel32.dll" "system" fn WerGetFlags(hprocess : super::super::Foundation:: HANDLE, pdwflags : *mut WER_FAULT_REPORTING) -> windows_sys::core::HRESULT);
 windows_targets::link!("kernel32.dll" "system" fn WerRegisterAdditionalProcess(processid : u32, captureextrainfoforthreadid : u32) -> windows_sys::core::HRESULT);
@@ -12,7 +12,7 @@ windows_targets::link!("kernel32.dll" "system" fn WerRegisterExcludedMemoryBlock
 windows_targets::link!("kernel32.dll" "system" fn WerRegisterFile(pwzfile : windows_sys::core::PCWSTR, regfiletype : WER_REGISTER_FILE_TYPE, dwflags : WER_FILE) -> windows_sys::core::HRESULT);
 windows_targets::link!("kernel32.dll" "system" fn WerRegisterMemoryBlock(pvaddress : *const core::ffi::c_void, dwsize : u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("kernel32.dll" "system" fn WerRegisterRuntimeExceptionModule(pwszoutofprocesscallbackdll : windows_sys::core::PCWSTR, pcontext : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_targets::link!("wer.dll" "system" fn WerRemoveExcludedApplication(pwzexename : windows_sys::core::PCWSTR, ballusers : super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+windows_targets::link!("wer.dll" "system" fn WerRemoveExcludedApplication(pwzexename : windows_sys::core::PCWSTR, ballusers : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 windows_targets::link!("wer.dll" "system" fn WerReportAddDump(hreporthandle : HREPORT, hprocess : super::super::Foundation:: HANDLE, hthread : super::super::Foundation:: HANDLE, dumptype : WER_DUMP_TYPE, pexceptionparam : *const WER_EXCEPTION_INFORMATION, pdumpcustomoptions : *const WER_DUMP_CUSTOM_OPTIONS, dwflags : u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("wer.dll" "system" fn WerReportAddFile(hreporthandle : HREPORT, pwzpath : windows_sys::core::PCWSTR, repfiletype : WER_FILE_TYPE, dwfileflags : WER_FILE) -> windows_sys::core::HRESULT);
@@ -52,9 +52,9 @@ pub type HREPORT = *mut core::ffi::c_void;
 pub type HREPORTSTORE = *mut core::ffi::c_void;
 pub const PACKAGED_APPCRASH_EVENT: windows_sys::core::PCWSTR = windows_sys::core::w!("MoAppCrash");
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-pub type PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH = Option<unsafe extern "system" fn(pcontext: *const core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, pbiscustomdebugger: *mut super::super::Foundation::BOOL, pwszdebuggerlaunch: windows_sys::core::PWSTR, pchdebuggerlaunch: *mut u32, pbisdebuggerautolaunch: *mut super::super::Foundation::BOOL) -> windows_sys::core::HRESULT>;
+pub type PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH = Option<unsafe extern "system" fn(pcontext: *const core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, pbiscustomdebugger: *mut windows_sys::core::BOOL, pwszdebuggerlaunch: windows_sys::core::PWSTR, pchdebuggerlaunch: *mut u32, pbisdebuggerautolaunch: *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT>;
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-pub type PFN_WER_RUNTIME_EXCEPTION_EVENT = Option<unsafe extern "system" fn(pcontext: *const core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, pbownershipclaimed: *mut super::super::Foundation::BOOL, pwszeventname: windows_sys::core::PWSTR, pchsize: *mut u32, pdwsignaturecount: *mut u32) -> windows_sys::core::HRESULT>;
+pub type PFN_WER_RUNTIME_EXCEPTION_EVENT = Option<unsafe extern "system" fn(pcontext: *const core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, pbownershipclaimed: *mut windows_sys::core::BOOL, pwszeventname: windows_sys::core::PWSTR, pchsize: *mut u32, pdwsignaturecount: *mut u32) -> windows_sys::core::HRESULT>;
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type PFN_WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE = Option<unsafe extern "system" fn(pcontext: *const core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, dwindex: u32, pwszname: windows_sys::core::PWSTR, pchname: *mut u32, pwszvalue: windows_sys::core::PWSTR, pchvalue: *mut u32) -> windows_sys::core::HRESULT>;
 pub type REPORT_STORE_TYPES = i32;
@@ -66,7 +66,7 @@ pub struct WER_DUMP_CUSTOM_OPTIONS {
     pub dwSize: u32,
     pub dwMask: u32,
     pub dwDumpFlags: u32,
-    pub bOnlyThisThread: super::super::Foundation::BOOL,
+    pub bOnlyThisThread: windows_sys::core::BOOL,
     pub dwExceptionThreadFlags: u32,
     pub dwOtherThreadFlags: u32,
     pub dwExceptionThreadExFlags: u32,
@@ -81,7 +81,7 @@ pub struct WER_DUMP_CUSTOM_OPTIONS_V2 {
     pub dwSize: u32,
     pub dwMask: u32,
     pub dwDumpFlags: u32,
-    pub bOnlyThisThread: super::super::Foundation::BOOL,
+    pub bOnlyThisThread: windows_sys::core::BOOL,
     pub dwExceptionThreadFlags: u32,
     pub dwOtherThreadFlags: u32,
     pub dwExceptionThreadExFlags: u32,
@@ -98,7 +98,7 @@ pub struct WER_DUMP_CUSTOM_OPTIONS_V3 {
     pub dwSize: u32,
     pub dwMask: u32,
     pub dwDumpFlags: u32,
-    pub bOnlyThisThread: super::super::Foundation::BOOL,
+    pub bOnlyThisThread: windows_sys::core::BOOL,
     pub dwExceptionThreadFlags: u32,
     pub dwOtherThreadFlags: u32,
     pub dwExceptionThreadExFlags: u32,
@@ -120,7 +120,7 @@ pub type WER_DUMP_TYPE = i32;
 #[derive(Clone, Copy)]
 pub struct WER_EXCEPTION_INFORMATION {
     pub pExceptionPointers: *mut super::Diagnostics::Debug::EXCEPTION_POINTERS,
-    pub bClientPointers: super::super::Foundation::BOOL,
+    pub bClientPointers: windows_sys::core::BOOL,
 }
 pub type WER_FAULT_REPORTING = u32;
 pub const WER_FAULT_REPORTING_ALWAYS_SHOW_UI: WER_FAULT_REPORTING = 16u32;
@@ -301,7 +301,7 @@ pub struct WER_RUNTIME_EXCEPTION_INFORMATION {
     pub exceptionRecord: super::Diagnostics::Debug::EXCEPTION_RECORD,
     pub context: super::Diagnostics::Debug::CONTEXT,
     pub pwszReportId: windows_sys::core::PCWSTR,
-    pub bIsFatal: super::super::Foundation::BOOL,
+    pub bIsFatal: windows_sys::core::BOOL,
     pub dwReserved: u32,
 }
 pub const WER_SUBMIT_ADD_REGISTERED_DATA: WER_SUBMIT_FLAGS = 16u32;

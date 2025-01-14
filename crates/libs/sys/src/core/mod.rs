@@ -3,6 +3,7 @@ mod literals;
 #[doc(hidden)]
 pub use literals::*;
 
+pub type BOOL = i32;
 pub type HRESULT = i32;
 pub type PSTR = *mut u8;
 pub type PWSTR = *mut u16;

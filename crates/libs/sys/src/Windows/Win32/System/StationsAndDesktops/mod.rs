@@ -2,8 +2,8 @@ windows_targets::link!("user32.dll" "system" fn BroadcastSystemMessageA(flags : 
 windows_targets::link!("user32.dll" "system" fn BroadcastSystemMessageExA(flags : BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo : *mut BROADCAST_SYSTEM_MESSAGE_INFO, msg : u32, wparam : super::super::Foundation:: WPARAM, lparam : super::super::Foundation:: LPARAM, pbsminfo : *mut BSMINFO) -> i32);
 windows_targets::link!("user32.dll" "system" fn BroadcastSystemMessageExW(flags : BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo : *mut BROADCAST_SYSTEM_MESSAGE_INFO, msg : u32, wparam : super::super::Foundation:: WPARAM, lparam : super::super::Foundation:: LPARAM, pbsminfo : *mut BSMINFO) -> i32);
 windows_targets::link!("user32.dll" "system" fn BroadcastSystemMessageW(flags : BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo : *mut BROADCAST_SYSTEM_MESSAGE_INFO, msg : u32, wparam : super::super::Foundation:: WPARAM, lparam : super::super::Foundation:: LPARAM) -> i32);
-windows_targets::link!("user32.dll" "system" fn CloseDesktop(hdesktop : HDESK) -> super::super::Foundation:: BOOL);
-windows_targets::link!("user32.dll" "system" fn CloseWindowStation(hwinsta : HWINSTA) -> super::super::Foundation:: BOOL);
+windows_targets::link!("user32.dll" "system" fn CloseDesktop(hdesktop : HDESK) -> windows_sys::core::BOOL);
+windows_targets::link!("user32.dll" "system" fn CloseWindowStation(hwinsta : HWINSTA) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 windows_targets::link!("user32.dll" "system" fn CreateDesktopA(lpszdesktop : windows_sys::core::PCSTR, lpszdevice : windows_sys::core::PCSTR, pdevmode : *const super::super::Graphics::Gdi:: DEVMODEA, dwflags : DESKTOP_CONTROL_FLAGS, dwdesiredaccess : u32, lpsa : *const super::super::Security:: SECURITY_ATTRIBUTES) -> HDESK);
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
@@ -17,25 +17,25 @@ windows_targets::link!("user32.dll" "system" fn CreateWindowStationA(lpwinsta : 
 #[cfg(feature = "Win32_Security")]
 windows_targets::link!("user32.dll" "system" fn CreateWindowStationW(lpwinsta : windows_sys::core::PCWSTR, dwflags : u32, dwdesiredaccess : u32, lpsa : *const super::super::Security:: SECURITY_ATTRIBUTES) -> HWINSTA);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-windows_targets::link!("user32.dll" "system" fn EnumDesktopWindows(hdesktop : HDESK, lpfn : super::super::UI::WindowsAndMessaging:: WNDENUMPROC, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
-windows_targets::link!("user32.dll" "system" fn EnumDesktopsA(hwinsta : HWINSTA, lpenumfunc : DESKTOPENUMPROCA, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
-windows_targets::link!("user32.dll" "system" fn EnumDesktopsW(hwinsta : HWINSTA, lpenumfunc : DESKTOPENUMPROCW, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
-windows_targets::link!("user32.dll" "system" fn EnumWindowStationsA(lpenumfunc : WINSTAENUMPROCA, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
-windows_targets::link!("user32.dll" "system" fn EnumWindowStationsW(lpenumfunc : WINSTAENUMPROCW, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
+windows_targets::link!("user32.dll" "system" fn EnumDesktopWindows(hdesktop : HDESK, lpfn : super::super::UI::WindowsAndMessaging:: WNDENUMPROC, lparam : super::super::Foundation:: LPARAM) -> windows_sys::core::BOOL);
+windows_targets::link!("user32.dll" "system" fn EnumDesktopsA(hwinsta : HWINSTA, lpenumfunc : DESKTOPENUMPROCA, lparam : super::super::Foundation:: LPARAM) -> windows_sys::core::BOOL);
+windows_targets::link!("user32.dll" "system" fn EnumDesktopsW(hwinsta : HWINSTA, lpenumfunc : DESKTOPENUMPROCW, lparam : super::super::Foundation:: LPARAM) -> windows_sys::core::BOOL);
+windows_targets::link!("user32.dll" "system" fn EnumWindowStationsA(lpenumfunc : WINSTAENUMPROCA, lparam : super::super::Foundation:: LPARAM) -> windows_sys::core::BOOL);
+windows_targets::link!("user32.dll" "system" fn EnumWindowStationsW(lpenumfunc : WINSTAENUMPROCW, lparam : super::super::Foundation:: LPARAM) -> windows_sys::core::BOOL);
 windows_targets::link!("user32.dll" "system" fn GetProcessWindowStation() -> HWINSTA);
 windows_targets::link!("user32.dll" "system" fn GetThreadDesktop(dwthreadid : u32) -> HDESK);
-windows_targets::link!("user32.dll" "system" fn GetUserObjectInformationA(hobj : super::super::Foundation:: HANDLE, nindex : USER_OBJECT_INFORMATION_INDEX, pvinfo : *mut core::ffi::c_void, nlength : u32, lpnlengthneeded : *mut u32) -> super::super::Foundation:: BOOL);
-windows_targets::link!("user32.dll" "system" fn GetUserObjectInformationW(hobj : super::super::Foundation:: HANDLE, nindex : USER_OBJECT_INFORMATION_INDEX, pvinfo : *mut core::ffi::c_void, nlength : u32, lpnlengthneeded : *mut u32) -> super::super::Foundation:: BOOL);
-windows_targets::link!("user32.dll" "system" fn OpenDesktopA(lpszdesktop : windows_sys::core::PCSTR, dwflags : DESKTOP_CONTROL_FLAGS, finherit : super::super::Foundation:: BOOL, dwdesiredaccess : u32) -> HDESK);
-windows_targets::link!("user32.dll" "system" fn OpenDesktopW(lpszdesktop : windows_sys::core::PCWSTR, dwflags : DESKTOP_CONTROL_FLAGS, finherit : super::super::Foundation:: BOOL, dwdesiredaccess : u32) -> HDESK);
-windows_targets::link!("user32.dll" "system" fn OpenInputDesktop(dwflags : DESKTOP_CONTROL_FLAGS, finherit : super::super::Foundation:: BOOL, dwdesiredaccess : DESKTOP_ACCESS_FLAGS) -> HDESK);
-windows_targets::link!("user32.dll" "system" fn OpenWindowStationA(lpszwinsta : windows_sys::core::PCSTR, finherit : super::super::Foundation:: BOOL, dwdesiredaccess : u32) -> HWINSTA);
-windows_targets::link!("user32.dll" "system" fn OpenWindowStationW(lpszwinsta : windows_sys::core::PCWSTR, finherit : super::super::Foundation:: BOOL, dwdesiredaccess : u32) -> HWINSTA);
-windows_targets::link!("user32.dll" "system" fn SetProcessWindowStation(hwinsta : HWINSTA) -> super::super::Foundation:: BOOL);
-windows_targets::link!("user32.dll" "system" fn SetThreadDesktop(hdesktop : HDESK) -> super::super::Foundation:: BOOL);
-windows_targets::link!("user32.dll" "system" fn SetUserObjectInformationA(hobj : super::super::Foundation:: HANDLE, nindex : i32, pvinfo : *const core::ffi::c_void, nlength : u32) -> super::super::Foundation:: BOOL);
-windows_targets::link!("user32.dll" "system" fn SetUserObjectInformationW(hobj : super::super::Foundation:: HANDLE, nindex : i32, pvinfo : *const core::ffi::c_void, nlength : u32) -> super::super::Foundation:: BOOL);
-windows_targets::link!("user32.dll" "system" fn SwitchDesktop(hdesktop : HDESK) -> super::super::Foundation:: BOOL);
+windows_targets::link!("user32.dll" "system" fn GetUserObjectInformationA(hobj : super::super::Foundation:: HANDLE, nindex : USER_OBJECT_INFORMATION_INDEX, pvinfo : *mut core::ffi::c_void, nlength : u32, lpnlengthneeded : *mut u32) -> windows_sys::core::BOOL);
+windows_targets::link!("user32.dll" "system" fn GetUserObjectInformationW(hobj : super::super::Foundation:: HANDLE, nindex : USER_OBJECT_INFORMATION_INDEX, pvinfo : *mut core::ffi::c_void, nlength : u32, lpnlengthneeded : *mut u32) -> windows_sys::core::BOOL);
+windows_targets::link!("user32.dll" "system" fn OpenDesktopA(lpszdesktop : windows_sys::core::PCSTR, dwflags : DESKTOP_CONTROL_FLAGS, finherit : windows_sys::core::BOOL, dwdesiredaccess : u32) -> HDESK);
+windows_targets::link!("user32.dll" "system" fn OpenDesktopW(lpszdesktop : windows_sys::core::PCWSTR, dwflags : DESKTOP_CONTROL_FLAGS, finherit : windows_sys::core::BOOL, dwdesiredaccess : u32) -> HDESK);
+windows_targets::link!("user32.dll" "system" fn OpenInputDesktop(dwflags : DESKTOP_CONTROL_FLAGS, finherit : windows_sys::core::BOOL, dwdesiredaccess : DESKTOP_ACCESS_FLAGS) -> HDESK);
+windows_targets::link!("user32.dll" "system" fn OpenWindowStationA(lpszwinsta : windows_sys::core::PCSTR, finherit : windows_sys::core::BOOL, dwdesiredaccess : u32) -> HWINSTA);
+windows_targets::link!("user32.dll" "system" fn OpenWindowStationW(lpszwinsta : windows_sys::core::PCWSTR, finherit : windows_sys::core::BOOL, dwdesiredaccess : u32) -> HWINSTA);
+windows_targets::link!("user32.dll" "system" fn SetProcessWindowStation(hwinsta : HWINSTA) -> windows_sys::core::BOOL);
+windows_targets::link!("user32.dll" "system" fn SetThreadDesktop(hdesktop : HDESK) -> windows_sys::core::BOOL);
+windows_targets::link!("user32.dll" "system" fn SetUserObjectInformationA(hobj : super::super::Foundation:: HANDLE, nindex : i32, pvinfo : *const core::ffi::c_void, nlength : u32) -> windows_sys::core::BOOL);
+windows_targets::link!("user32.dll" "system" fn SetUserObjectInformationW(hobj : super::super::Foundation:: HANDLE, nindex : i32, pvinfo : *const core::ffi::c_void, nlength : u32) -> windows_sys::core::BOOL);
+windows_targets::link!("user32.dll" "system" fn SwitchDesktop(hdesktop : HDESK) -> windows_sys::core::BOOL);
 pub type BROADCAST_SYSTEM_MESSAGE_FLAGS = u32;
 pub type BROADCAST_SYSTEM_MESSAGE_INFO = u32;
 pub const BSF_ALLOWSFW: BROADCAST_SYSTEM_MESSAGE_FLAGS = 128u32;
@@ -60,8 +60,8 @@ pub struct BSMINFO {
 pub const BSM_ALLCOMPONENTS: BROADCAST_SYSTEM_MESSAGE_INFO = 0u32;
 pub const BSM_ALLDESKTOPS: BROADCAST_SYSTEM_MESSAGE_INFO = 16u32;
 pub const BSM_APPLICATIONS: BROADCAST_SYSTEM_MESSAGE_INFO = 8u32;
-pub type DESKTOPENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
-pub type DESKTOPENUMPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
+pub type DESKTOPENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: super::super::Foundation::LPARAM) -> windows_sys::core::BOOL>;
+pub type DESKTOPENUMPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: super::super::Foundation::LPARAM) -> windows_sys::core::BOOL>;
 pub type DESKTOP_ACCESS_FLAGS = u32;
 pub type DESKTOP_CONTROL_FLAGS = u32;
 pub const DESKTOP_CREATEMENU: DESKTOP_ACCESS_FLAGS = 4u32;
@@ -90,10 +90,10 @@ pub const UOI_USER_SID: USER_OBJECT_INFORMATION_INDEX = 4i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USEROBJECTFLAGS {
-    pub fInherit: super::super::Foundation::BOOL,
-    pub fReserved: super::super::Foundation::BOOL,
+    pub fInherit: windows_sys::core::BOOL,
+    pub fReserved: windows_sys::core::BOOL,
     pub dwFlags: u32,
 }
 pub type USER_OBJECT_INFORMATION_INDEX = i32;
-pub type WINSTAENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
-pub type WINSTAENUMPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
+pub type WINSTAENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: super::super::Foundation::LPARAM) -> windows_sys::core::BOOL>;
+pub type WINSTAENUMPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: super::super::Foundation::LPARAM) -> windows_sys::core::BOOL>;

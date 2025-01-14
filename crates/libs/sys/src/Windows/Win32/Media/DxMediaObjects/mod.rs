@@ -43,8 +43,8 @@ pub const DMO_INPUT_STREAMF_WHOLE_SAMPLES: _DMO_INPUT_STREAM_INFO_FLAGS = 1i32;
 pub struct DMO_MEDIA_TYPE {
     pub majortype: windows_sys::core::GUID,
     pub subtype: windows_sys::core::GUID,
-    pub bFixedSizeSamples: super::super::Foundation::BOOL,
-    pub bTemporalCompression: super::super::Foundation::BOOL,
+    pub bFixedSizeSamples: windows_sys::core::BOOL,
+    pub bTemporalCompression: windows_sys::core::BOOL,
     pub lSampleSize: u32,
     pub formattype: windows_sys::core::GUID,
     pub pUnk: *mut core::ffi::c_void,

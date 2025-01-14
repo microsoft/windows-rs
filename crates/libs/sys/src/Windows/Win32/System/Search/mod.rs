@@ -1,7 +1,7 @@
 #[cfg(feature = "Win32_System_Search_Common")]
 pub mod Common;
 windows_targets::link!("odbc32.dll" "system" fn ODBCGetTryWaitValue() -> u32);
-windows_targets::link!("odbc32.dll" "system" fn ODBCSetTryWaitValue(dwvalue : u32) -> super::super::Foundation:: BOOL);
+windows_targets::link!("odbc32.dll" "system" fn ODBCSetTryWaitValue(dwvalue : u32) -> windows_sys::core::BOOL);
 windows_targets::link!("odbc32.dll" "system" fn SQLAllocConnect(environmenthandle : *mut core::ffi::c_void, connectionhandle : *mut *mut core::ffi::c_void) -> i16);
 windows_targets::link!("odbc32.dll" "system" fn SQLAllocEnv(environmenthandle : *mut *mut core::ffi::c_void) -> i16);
 windows_targets::link!("odbc32.dll" "system" fn SQLAllocHandle(handletype : i16, inputhandle : *mut core::ffi::c_void, outputhandle : *mut *mut core::ffi::c_void) -> i16);
@@ -993,7 +993,7 @@ pub struct DBLITERALINFO {
     pub pwszInvalidChars: windows_sys::core::PWSTR,
     pub pwszInvalidStartingChars: windows_sys::core::PWSTR,
     pub lt: u32,
-    pub fSupported: super::super::Foundation::BOOL,
+    pub fSupported: windows_sys::core::BOOL,
     pub cchMaxLen: u32,
 }
 #[repr(C)]
@@ -1004,7 +1004,7 @@ pub struct DBLITERALINFO {
     pub pwszInvalidChars: windows_sys::core::PWSTR,
     pub pwszInvalidStartingChars: windows_sys::core::PWSTR,
     pub lt: u32,
-    pub fSupported: super::super::Foundation::BOOL,
+    pub fSupported: windows_sys::core::BOOL,
     pub cchMaxLen: u32,
 }
 pub const DBLITERAL_BINARY_LITERAL: DBLITERALENUM = 1i32;
@@ -3488,7 +3488,7 @@ pub struct PROXY_INFO {
     pub dwSize: u32,
     pub pcwszUserAgent: windows_sys::core::PCWSTR,
     pub paUseProxy: PROXY_ACCESS,
-    pub fLocalBypass: super::super::Foundation::BOOL,
+    pub fLocalBypass: windows_sys::core::BOOL,
     pub dwPortNumber: u32,
     pub pcwszProxyName: windows_sys::core::PCWSTR,
     pub pcwszBypassList: windows_sys::core::PCWSTR,
@@ -4063,7 +4063,7 @@ pub const SQL_ASYNC_ENABLE_OFF: u32 = 0u32;
 pub const SQL_ASYNC_ENABLE_ON: u32 = 1u32;
 pub const SQL_ASYNC_MODE: u32 = 10021u32;
 pub const SQL_ASYNC_NOTIFICATION: u32 = 10025u32;
-pub type SQL_ASYNC_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(pcontext: *const core::ffi::c_void, flast: super::super::Foundation::BOOL) -> i16>;
+pub type SQL_ASYNC_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(pcontext: *const core::ffi::c_void, flast: windows_sys::core::BOOL) -> i16>;
 pub const SQL_ASYNC_NOTIFICATION_CAPABLE: i32 = 1i32;
 pub const SQL_ASYNC_NOTIFICATION_NOT_CAPABLE: i32 = 0i32;
 pub const SQL_ATTR_ACCESS_MODE: u32 = 101u32;
@@ -5820,10 +5820,10 @@ pub struct SUBSCRIPTIONINFO {
     pub pTrigger: *mut core::ffi::c_void,
     pub dwRecurseLevels: u32,
     pub fWebcrawlerFlags: u32,
-    pub bMailNotification: super::super::Foundation::BOOL,
-    pub bGleam: super::super::Foundation::BOOL,
-    pub bChangesOnly: super::super::Foundation::BOOL,
-    pub bNeedPassword: super::super::Foundation::BOOL,
+    pub bMailNotification: windows_sys::core::BOOL,
+    pub bGleam: windows_sys::core::BOOL,
+    pub bChangesOnly: windows_sys::core::BOOL,
+    pub bNeedPassword: windows_sys::core::BOOL,
     pub fChannelFlags: u32,
     pub bstrUserName: windows_sys::core::BSTR,
     pub bstrPassword: windows_sys::core::BSTR,

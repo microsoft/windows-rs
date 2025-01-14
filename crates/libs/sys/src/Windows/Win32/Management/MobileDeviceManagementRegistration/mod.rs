@@ -4,16 +4,16 @@ windows_targets::link!("mdmregistration.dll" "system" fn DiscoverManagementServi
 windows_targets::link!("mdmregistration.dll" "system" fn GetDeviceManagementConfigInfo(providerid : windows_sys::core::PCWSTR, configstringbufferlength : *mut u32, configstring : windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 windows_targets::link!("mdmregistration.dll" "system" fn GetDeviceRegistrationInfo(deviceinformationclass : REGISTRATION_INFORMATION_CLASS, ppdeviceregistrationinfo : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("mdmregistration.dll" "system" fn GetManagementAppHyperlink(cchhyperlink : u32, pszhyperlink : windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
-windows_targets::link!("mdmregistration.dll" "system" fn IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement : *mut super::super::Foundation:: BOOL, cchupn : u32, pszupn : windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
-windows_targets::link!("mdmregistration.dll" "system" fn IsManagementRegistrationAllowed(pfismanagementregistrationallowed : *mut super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
-windows_targets::link!("mdmregistration.dll" "system" fn IsMdmUxWithoutAadAllowed(isenrollmentallowed : *mut super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
-windows_targets::link!("mdmlocalmanagement.dll" "system" fn RegisterDeviceWithLocalManagement(alreadyregistered : *mut super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+windows_targets::link!("mdmregistration.dll" "system" fn IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement : *mut windows_sys::core::BOOL, cchupn : u32, pszupn : windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
+windows_targets::link!("mdmregistration.dll" "system" fn IsManagementRegistrationAllowed(pfismanagementregistrationallowed : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
+windows_targets::link!("mdmregistration.dll" "system" fn IsMdmUxWithoutAadAllowed(isenrollmentallowed : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
+windows_targets::link!("mdmlocalmanagement.dll" "system" fn RegisterDeviceWithLocalManagement(alreadyregistered : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 windows_targets::link!("mdmregistration.dll" "system" fn RegisterDeviceWithManagement(pszupn : windows_sys::core::PCWSTR, ppszmdmserviceuri : windows_sys::core::PCWSTR, ppzsaccesstoken : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_targets::link!("mdmregistration.dll" "system" fn RegisterDeviceWithManagementUsingAADCredentials(usertoken : super::super::Foundation:: HANDLE) -> windows_sys::core::HRESULT);
 windows_targets::link!("mdmregistration.dll" "system" fn RegisterDeviceWithManagementUsingAADDeviceCredentials() -> windows_sys::core::HRESULT);
 windows_targets::link!("mdmregistration.dll" "system" fn RegisterDeviceWithManagementUsingAADDeviceCredentials2(mdmapplicationid : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_targets::link!("mdmregistration.dll" "system" fn SetDeviceManagementConfigInfo(providerid : windows_sys::core::PCWSTR, configstring : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
-windows_targets::link!("mdmregistration.dll" "system" fn SetManagedExternally(ismanagedexternally : super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+windows_targets::link!("mdmregistration.dll" "system" fn SetManagedExternally(ismanagedexternally : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 windows_targets::link!("mdmlocalmanagement.dll" "system" fn UnregisterDeviceWithLocalManagement() -> windows_sys::core::HRESULT);
 windows_targets::link!("mdmregistration.dll" "system" fn UnregisterDeviceWithManagement(enrollmentid : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 pub const DEVICEREGISTRATIONTYPE_MAM: u32 = 5u32;
@@ -25,7 +25,7 @@ pub const DeviceRegistrationBasicInfo: REGISTRATION_INFORMATION_CLASS = 1i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MANAGEMENT_REGISTRATION_INFO {
-    pub fDeviceRegisteredWithManagement: super::super::Foundation::BOOL,
+    pub fDeviceRegisteredWithManagement: windows_sys::core::BOOL,
     pub dwDeviceRegistionKind: u32,
     pub pszUPN: windows_sys::core::PWSTR,
     pub pszMDMServiceUri: windows_sys::core::PWSTR,

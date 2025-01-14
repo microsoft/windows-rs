@@ -15,7 +15,7 @@ windows_targets::link!("wsmsvc.dll" "system" fn WSManGetSessionOptionAsString(se
 windows_targets::link!("wsmsvc.dll" "system" fn WSManInitialize(flags : u32, apihandle : *mut WSMAN_API_HANDLE) -> u32);
 windows_targets::link!("wsmsvc.dll" "system" fn WSManPluginAuthzOperationComplete(senderdetails : *const WSMAN_SENDER_DETAILS, flags : u32, userauthorizationcontext : *const core::ffi::c_void, errorcode : u32, extendederrorinformation : windows_sys::core::PCWSTR) -> u32);
 windows_targets::link!("wsmsvc.dll" "system" fn WSManPluginAuthzQueryQuotaComplete(senderdetails : *const WSMAN_SENDER_DETAILS, flags : u32, quota : *const WSMAN_AUTHZ_QUOTA, errorcode : u32, extendederrorinformation : windows_sys::core::PCWSTR) -> u32);
-windows_targets::link!("wsmsvc.dll" "system" fn WSManPluginAuthzUserComplete(senderdetails : *const WSMAN_SENDER_DETAILS, flags : u32, userauthorizationcontext : *const core::ffi::c_void, impersonationtoken : super::super::Foundation:: HANDLE, userisadministrator : super::super::Foundation:: BOOL, errorcode : u32, extendederrorinformation : windows_sys::core::PCWSTR) -> u32);
+windows_targets::link!("wsmsvc.dll" "system" fn WSManPluginAuthzUserComplete(senderdetails : *const WSMAN_SENDER_DETAILS, flags : u32, userauthorizationcontext : *const core::ffi::c_void, impersonationtoken : super::super::Foundation:: HANDLE, userisadministrator : windows_sys::core::BOOL, errorcode : u32, extendederrorinformation : windows_sys::core::PCWSTR) -> u32);
 windows_targets::link!("wsmsvc.dll" "system" fn WSManPluginFreeRequestDetails(requestdetails : *const WSMAN_PLUGIN_REQUEST) -> u32);
 windows_targets::link!("wsmsvc.dll" "system" fn WSManPluginGetConfiguration(plugincontext : *const core::ffi::c_void, flags : u32, data : *mut WSMAN_DATA) -> u32);
 windows_targets::link!("wsmsvc.dll" "system" fn WSManPluginGetOperationParameters(requestdetails : *const WSMAN_PLUGIN_REQUEST, flags : u32, data : *mut WSMAN_DATA) -> u32);
@@ -28,7 +28,7 @@ windows_targets::link!("wsmsvc.dll" "system" fn WSManReconnectShell(shell : WSMA
 windows_targets::link!("wsmsvc.dll" "system" fn WSManReconnectShellCommand(commandhandle : WSMAN_COMMAND_HANDLE, flags : u32, r#async : *const WSMAN_SHELL_ASYNC));
 windows_targets::link!("wsmsvc.dll" "system" fn WSManRunShellCommand(shell : WSMAN_SHELL_HANDLE, flags : u32, commandline : windows_sys::core::PCWSTR, args : *const WSMAN_COMMAND_ARG_SET, options : *const WSMAN_OPTION_SET, r#async : *const WSMAN_SHELL_ASYNC, command : *mut WSMAN_COMMAND_HANDLE));
 windows_targets::link!("wsmsvc.dll" "system" fn WSManRunShellCommandEx(shell : WSMAN_SHELL_HANDLE, flags : u32, commandid : windows_sys::core::PCWSTR, commandline : windows_sys::core::PCWSTR, args : *const WSMAN_COMMAND_ARG_SET, options : *const WSMAN_OPTION_SET, r#async : *const WSMAN_SHELL_ASYNC, command : *mut WSMAN_COMMAND_HANDLE));
-windows_targets::link!("wsmsvc.dll" "system" fn WSManSendShellInput(shell : WSMAN_SHELL_HANDLE, command : WSMAN_COMMAND_HANDLE, flags : u32, streamid : windows_sys::core::PCWSTR, streamdata : *const WSMAN_DATA, endofstream : super::super::Foundation:: BOOL, r#async : *const WSMAN_SHELL_ASYNC, sendoperation : *mut WSMAN_OPERATION_HANDLE));
+windows_targets::link!("wsmsvc.dll" "system" fn WSManSendShellInput(shell : WSMAN_SHELL_HANDLE, command : WSMAN_COMMAND_HANDLE, flags : u32, streamid : windows_sys::core::PCWSTR, streamdata : *const WSMAN_DATA, endofstream : windows_sys::core::BOOL, r#async : *const WSMAN_SHELL_ASYNC, sendoperation : *mut WSMAN_OPERATION_HANDLE));
 windows_targets::link!("wsmsvc.dll" "system" fn WSManSetSessionOption(session : WSMAN_SESSION_HANDLE, option : WSManSessionOption, data : *const WSMAN_DATA) -> u32);
 windows_targets::link!("wsmsvc.dll" "system" fn WSManSignalShell(shell : WSMAN_SHELL_HANDLE, command : WSMAN_COMMAND_HANDLE, flags : u32, code : windows_sys::core::PCWSTR, r#async : *const WSMAN_SHELL_ASYNC, signaloperation : *mut WSMAN_OPERATION_HANDLE));
 pub const ERROR_REDIRECT_LOCATION_INVALID: u32 = 2150859191u32;
@@ -719,7 +719,7 @@ pub const WSMAN_OPERATION_INFOV2: u32 = 2864434397u32;
 pub struct WSMAN_OPTION {
     pub name: windows_sys::core::PCWSTR,
     pub value: windows_sys::core::PCWSTR,
-    pub mustComply: super::super::Foundation::BOOL,
+    pub mustComply: windows_sys::core::BOOL,
 }
 pub const WSMAN_OPTION_ALLOW_NEGOTIATE_IMPLICIT_CREDENTIALS: WSManSessionOption = 32i32;
 pub const WSMAN_OPTION_DEFAULT_OPERATION_TIMEOUTMS: WSManSessionOption = 1i32;
@@ -738,14 +738,14 @@ pub const WSMAN_OPTION_REDIRECT_LOCATION: WSManSessionOption = 30i32;
 pub struct WSMAN_OPTION_SET {
     pub optionsCount: u32,
     pub options: *mut WSMAN_OPTION,
-    pub optionsMustUnderstand: super::super::Foundation::BOOL,
+    pub optionsMustUnderstand: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSMAN_OPTION_SETEX {
     pub optionsCount: u32,
     pub options: *mut WSMAN_OPTION,
-    pub optionsMustUnderstand: super::super::Foundation::BOOL,
+    pub optionsMustUnderstand: windows_sys::core::BOOL,
     pub optionTypes: *const windows_sys::core::PCWSTR,
 }
 pub const WSMAN_OPTION_SHELL_MAX_DATA_SIZE_PER_MESSAGE_KB: WSManSessionOption = 29i32;
@@ -790,7 +790,7 @@ pub struct WSMAN_PLUGIN_REQUEST {
     pub locale: windows_sys::core::PCWSTR,
     pub resourceUri: windows_sys::core::PCWSTR,
     pub operationInfo: *mut WSMAN_OPERATION_INFO,
-    pub shutdownNotification: super::super::Foundation::BOOL,
+    pub shutdownNotification: windows_sys::core::BOOL,
     pub shutdownNotificationHandle: super::super::Foundation::HANDLE,
     pub dataLocale: windows_sys::core::PCWSTR,
 }

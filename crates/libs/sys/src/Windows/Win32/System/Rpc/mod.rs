@@ -425,7 +425,7 @@ windows_targets::link!("rpcrt4.dll" "system" fn NdrXmitOrRepAsUnmarshall(pstubms
 #[cfg(feature = "Win32_System_IO")]
 windows_targets::link!("rpcrt4.dll" "system" fn RpcAsyncAbortCall(pasync : *mut RPC_ASYNC_STATE, exceptioncode : u32) -> RPC_STATUS);
 #[cfg(feature = "Win32_System_IO")]
-windows_targets::link!("rpcrt4.dll" "system" fn RpcAsyncCancelCall(pasync : *mut RPC_ASYNC_STATE, fabort : super::super::Foundation:: BOOL) -> RPC_STATUS);
+windows_targets::link!("rpcrt4.dll" "system" fn RpcAsyncCancelCall(pasync : *mut RPC_ASYNC_STATE, fabort : windows_sys::core::BOOL) -> RPC_STATUS);
 #[cfg(feature = "Win32_System_IO")]
 windows_targets::link!("rpcrt4.dll" "system" fn RpcAsyncCompleteCall(pasync : *mut RPC_ASYNC_STATE, reply : *mut core::ffi::c_void) -> RPC_STATUS);
 #[cfg(feature = "Win32_System_IO")]
@@ -486,7 +486,7 @@ windows_targets::link!("rpcrt4.dll" "system" fn RpcEpUnregister(ifspec : *const 
 windows_targets::link!("rpcrt4.dll" "system" fn RpcErrorAddRecord(errorinfo : *const RPC_EXTENDED_ERROR_INFO) -> RPC_STATUS);
 windows_targets::link!("rpcrt4.dll" "system" fn RpcErrorClearInformation());
 windows_targets::link!("rpcrt4.dll" "system" fn RpcErrorEndEnumeration(enumhandle : *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS);
-windows_targets::link!("rpcrt4.dll" "system" fn RpcErrorGetNextRecord(enumhandle : *const RPC_ERROR_ENUM_HANDLE, copystrings : super::super::Foundation:: BOOL, errorinfo : *mut RPC_EXTENDED_ERROR_INFO) -> RPC_STATUS);
+windows_targets::link!("rpcrt4.dll" "system" fn RpcErrorGetNextRecord(enumhandle : *const RPC_ERROR_ENUM_HANDLE, copystrings : windows_sys::core::BOOL, errorinfo : *mut RPC_EXTENDED_ERROR_INFO) -> RPC_STATUS);
 windows_targets::link!("rpcrt4.dll" "system" fn RpcErrorGetNumberOfRecords(enumhandle : *const RPC_ERROR_ENUM_HANDLE, records : *mut i32) -> RPC_STATUS);
 windows_targets::link!("rpcrt4.dll" "system" fn RpcErrorLoadErrorInfo(errorblob : *const core::ffi::c_void, blobsize : usize, enumhandle : *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS);
 windows_targets::link!("rpcrt4.dll" "system" fn RpcErrorResetEnumeration(enumhandle : *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS);
@@ -494,7 +494,7 @@ windows_targets::link!("rpcrt4.dll" "system" fn RpcErrorSaveErrorInfo(enumhandle
 windows_targets::link!("rpcrt4.dll" "system" fn RpcErrorStartEnumeration(enumhandle : *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS);
 windows_targets::link!("rpcrt4.dll" "system" fn RpcExceptionFilter(exceptioncode : u32) -> i32);
 windows_targets::link!("rpcrt4.dll" "system" fn RpcFreeAuthorizationContext(pauthzclientcontext : *mut *mut core::ffi::c_void) -> RPC_STATUS);
-windows_targets::link!("rpcrt4.dll" "system" fn RpcGetAuthorizationContextForClient(clientbinding : *const core::ffi::c_void, impersonateonreturn : super::super::Foundation:: BOOL, reserved1 : *const core::ffi::c_void, pexpirationtime : *const i64, reserved2 : super::super::Foundation:: LUID, reserved3 : u32, reserved4 : *const core::ffi::c_void, pauthzclientcontext : *mut *mut core::ffi::c_void) -> RPC_STATUS);
+windows_targets::link!("rpcrt4.dll" "system" fn RpcGetAuthorizationContextForClient(clientbinding : *const core::ffi::c_void, impersonateonreturn : windows_sys::core::BOOL, reserved1 : *const core::ffi::c_void, pexpirationtime : *const i64, reserved2 : super::super::Foundation:: LUID, reserved3 : u32, reserved4 : *const core::ffi::c_void, pauthzclientcontext : *mut *mut core::ffi::c_void) -> RPC_STATUS);
 windows_targets::link!("rpcns4.dll" "system" fn RpcIfIdVectorFree(ifidvector : *mut *mut RPC_IF_ID_VECTOR) -> RPC_STATUS);
 windows_targets::link!("rpcrt4.dll" "system" fn RpcIfInqId(rpcifhandle : *const core::ffi::c_void, rpcifid : *mut RPC_IF_ID) -> RPC_STATUS);
 windows_targets::link!("rpcrt4.dll" "system" fn RpcImpersonateClient(bindinghandle : *const core::ffi::c_void) -> RPC_STATUS);
@@ -1767,7 +1767,7 @@ pub struct RPC_CALL_ATTRIBUTES_V1_A {
     pub ClientPrincipalName: *mut u8,
     pub AuthenticationLevel: u32,
     pub AuthenticationService: u32,
-    pub NullSession: super::super::Foundation::BOOL,
+    pub NullSession: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1780,7 +1780,7 @@ pub struct RPC_CALL_ATTRIBUTES_V1_W {
     pub ClientPrincipalName: *mut u16,
     pub AuthenticationLevel: u32,
     pub AuthenticationService: u32,
-    pub NullSession: super::super::Foundation::BOOL,
+    pub NullSession: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1793,8 +1793,8 @@ pub struct RPC_CALL_ATTRIBUTES_V2_A {
     pub ClientPrincipalName: *mut u8,
     pub AuthenticationLevel: u32,
     pub AuthenticationService: u32,
-    pub NullSession: super::super::Foundation::BOOL,
-    pub KernelModeCaller: super::super::Foundation::BOOL,
+    pub NullSession: windows_sys::core::BOOL,
+    pub KernelModeCaller: windows_sys::core::BOOL,
     pub ProtocolSequence: u32,
     pub IsClientLocal: u32,
     pub ClientPID: super::super::Foundation::HANDLE,
@@ -1815,8 +1815,8 @@ pub struct RPC_CALL_ATTRIBUTES_V2_W {
     pub ClientPrincipalName: *mut u16,
     pub AuthenticationLevel: u32,
     pub AuthenticationService: u32,
-    pub NullSession: super::super::Foundation::BOOL,
-    pub KernelModeCaller: super::super::Foundation::BOOL,
+    pub NullSession: windows_sys::core::BOOL,
+    pub KernelModeCaller: windows_sys::core::BOOL,
     pub ProtocolSequence: u32,
     pub IsClientLocal: RpcCallClientLocality,
     pub ClientPID: super::super::Foundation::HANDLE,
@@ -1837,8 +1837,8 @@ pub struct RPC_CALL_ATTRIBUTES_V3_A {
     pub ClientPrincipalName: *mut u8,
     pub AuthenticationLevel: u32,
     pub AuthenticationService: u32,
-    pub NullSession: super::super::Foundation::BOOL,
-    pub KernelModeCaller: super::super::Foundation::BOOL,
+    pub NullSession: windows_sys::core::BOOL,
+    pub KernelModeCaller: windows_sys::core::BOOL,
     pub ProtocolSequence: u32,
     pub IsClientLocal: u32,
     pub ClientPID: super::super::Foundation::HANDLE,
@@ -1861,8 +1861,8 @@ pub struct RPC_CALL_ATTRIBUTES_V3_W {
     pub ClientPrincipalName: *mut u16,
     pub AuthenticationLevel: u32,
     pub AuthenticationService: u32,
-    pub NullSession: super::super::Foundation::BOOL,
-    pub KernelModeCaller: super::super::Foundation::BOOL,
+    pub NullSession: windows_sys::core::BOOL,
+    pub KernelModeCaller: windows_sys::core::BOOL,
     pub ProtocolSequence: u32,
     pub IsClientLocal: RpcCallClientLocality,
     pub ClientPID: super::super::Foundation::HANDLE,

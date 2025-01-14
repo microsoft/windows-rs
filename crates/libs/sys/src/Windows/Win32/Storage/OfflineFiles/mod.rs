@@ -1,6 +1,6 @@
-windows_targets::link!("cscapi.dll" "system" fn OfflineFilesEnable(benable : super::super::Foundation:: BOOL, pbrebootrequired : *mut super::super::Foundation:: BOOL) -> u32);
-windows_targets::link!("cscapi.dll" "system" fn OfflineFilesQueryStatus(pbactive : *mut super::super::Foundation:: BOOL, pbenabled : *mut super::super::Foundation:: BOOL) -> u32);
-windows_targets::link!("cscapi.dll" "system" fn OfflineFilesQueryStatusEx(pbactive : *mut super::super::Foundation:: BOOL, pbenabled : *mut super::super::Foundation:: BOOL, pbavailable : *mut super::super::Foundation:: BOOL) -> u32);
+windows_targets::link!("cscapi.dll" "system" fn OfflineFilesEnable(benable : windows_sys::core::BOOL, pbrebootrequired : *mut windows_sys::core::BOOL) -> u32);
+windows_targets::link!("cscapi.dll" "system" fn OfflineFilesQueryStatus(pbactive : *mut windows_sys::core::BOOL, pbenabled : *mut windows_sys::core::BOOL) -> u32);
+windows_targets::link!("cscapi.dll" "system" fn OfflineFilesQueryStatusEx(pbactive : *mut windows_sys::core::BOOL, pbenabled : *mut windows_sys::core::BOOL, pbavailable : *mut windows_sys::core::BOOL) -> u32);
 windows_targets::link!("cscapi.dll" "system" fn OfflineFilesStart() -> u32);
 pub type OFFLINEFILES_CACHING_MODE = i32;
 pub const OFFLINEFILES_CACHING_MODE_AUTO_DOC: OFFLINEFILES_CACHING_MODE = 3i32;

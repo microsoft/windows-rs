@@ -6,7 +6,7 @@ windows_targets::link!("ondemandconnroutehelper.dll" "system" fn OnDemandUnRegis
 windows_targets::link!("wcmapi.dll" "system" fn WcmFreeMemory(pmemory : *mut core::ffi::c_void));
 windows_targets::link!("wcmapi.dll" "system" fn WcmGetProfileList(preserved : *const core::ffi::c_void, ppprofilelist : *mut *mut WCM_PROFILE_INFO_LIST) -> u32);
 windows_targets::link!("wcmapi.dll" "system" fn WcmQueryProperty(pinterface : *const windows_sys::core::GUID, strprofilename : windows_sys::core::PCWSTR, property : WCM_PROPERTY, preserved : *const core::ffi::c_void, pdwdatasize : *mut u32, ppdata : *mut *mut u8) -> u32);
-windows_targets::link!("wcmapi.dll" "system" fn WcmSetProfileList(pprofilelist : *const WCM_PROFILE_INFO_LIST, dwposition : u32, fignoreunknownprofiles : super::super::Foundation:: BOOL, preserved : *const core::ffi::c_void) -> u32);
+windows_targets::link!("wcmapi.dll" "system" fn WcmSetProfileList(pprofilelist : *const WCM_PROFILE_INFO_LIST, dwposition : u32, fignoreunknownprofiles : windows_sys::core::BOOL, preserved : *const core::ffi::c_void) -> u32);
 windows_targets::link!("wcmapi.dll" "system" fn WcmSetProperty(pinterface : *const windows_sys::core::GUID, strprofilename : windows_sys::core::PCWSTR, property : WCM_PROPERTY, preserved : *const core::ffi::c_void, dwdatasize : u32, pbdata : *const u8) -> u32);
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -31,7 +31,7 @@ pub const WCM_API_VERSION_1_0: u32 = 1u32;
 pub struct WCM_BILLING_CYCLE_INFO {
     pub StartDate: super::super::Foundation::FILETIME,
     pub Duration: WCM_TIME_INTERVAL,
-    pub Reset: super::super::Foundation::BOOL,
+    pub Reset: windows_sys::core::BOOL,
 }
 pub type WCM_CONNECTION_COST = i32;
 pub const WCM_CONNECTION_COST_APPROACHINGDATALIMIT: WCM_CONNECTION_COST = 524288i32;
@@ -69,8 +69,8 @@ pub type WCM_MEDIA_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WCM_POLICY_VALUE {
-    pub fValue: super::super::Foundation::BOOL,
-    pub fIsGroupPolicy: super::super::Foundation::BOOL,
+    pub fValue: windows_sys::core::BOOL,
+    pub fIsGroupPolicy: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]

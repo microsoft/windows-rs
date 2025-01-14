@@ -50,7 +50,7 @@ windows_targets::link!("netapi32.dll" "system" fn NetGroupGetInfo(servername : w
 windows_targets::link!("netapi32.dll" "system" fn NetGroupGetUsers(servername : windows_sys::core::PCWSTR, groupname : windows_sys::core::PCWSTR, level : u32, bufptr : *mut *mut u8, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resumehandle : *mut usize) -> u32);
 windows_targets::link!("netapi32.dll" "system" fn NetGroupSetInfo(servername : windows_sys::core::PCWSTR, groupname : windows_sys::core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
 windows_targets::link!("netapi32.dll" "system" fn NetGroupSetUsers(servername : windows_sys::core::PCWSTR, groupname : windows_sys::core::PCWSTR, level : u32, buf : *const u8, totalentries : u32) -> u32);
-windows_targets::link!("netapi32.dll" "system" fn NetIsServiceAccount(servername : windows_sys::core::PCWSTR, accountname : windows_sys::core::PCWSTR, isservice : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: NTSTATUS);
+windows_targets::link!("netapi32.dll" "system" fn NetIsServiceAccount(servername : windows_sys::core::PCWSTR, accountname : windows_sys::core::PCWSTR, isservice : *mut windows_sys::core::BOOL) -> super::super::Foundation:: NTSTATUS);
 windows_targets::link!("netapi32.dll" "system" fn NetJoinDomain(lpserver : windows_sys::core::PCWSTR, lpdomain : windows_sys::core::PCWSTR, lpmachineaccountou : windows_sys::core::PCWSTR, lpaccount : windows_sys::core::PCWSTR, lppassword : windows_sys::core::PCWSTR, fjoinoptions : NET_JOIN_DOMAIN_JOIN_OPTIONS) -> u32);
 windows_targets::link!("netapi32.dll" "system" fn NetLocalGroupAdd(servername : windows_sys::core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
 #[cfg(feature = "Win32_Security")]
@@ -163,8 +163,8 @@ windows_targets::link!("rtutils.dll" "system" fn TraceDeregisterA(dwtraceid : u3
 windows_targets::link!("rtutils.dll" "system" fn TraceDeregisterExA(dwtraceid : u32, dwflags : u32) -> u32);
 windows_targets::link!("rtutils.dll" "system" fn TraceDeregisterExW(dwtraceid : u32, dwflags : u32) -> u32);
 windows_targets::link!("rtutils.dll" "system" fn TraceDeregisterW(dwtraceid : u32) -> u32);
-windows_targets::link!("rtutils.dll" "system" fn TraceDumpExA(dwtraceid : u32, dwflags : u32, lpbbytes : *mut u8, dwbytecount : u32, dwgroupsize : u32, baddressprefix : super::super::Foundation:: BOOL, lpszprefix : windows_sys::core::PCSTR) -> u32);
-windows_targets::link!("rtutils.dll" "system" fn TraceDumpExW(dwtraceid : u32, dwflags : u32, lpbbytes : *mut u8, dwbytecount : u32, dwgroupsize : u32, baddressprefix : super::super::Foundation:: BOOL, lpszprefix : windows_sys::core::PCWSTR) -> u32);
+windows_targets::link!("rtutils.dll" "system" fn TraceDumpExA(dwtraceid : u32, dwflags : u32, lpbbytes : *mut u8, dwbytecount : u32, dwgroupsize : u32, baddressprefix : windows_sys::core::BOOL, lpszprefix : windows_sys::core::PCSTR) -> u32);
+windows_targets::link!("rtutils.dll" "system" fn TraceDumpExW(dwtraceid : u32, dwflags : u32, lpbbytes : *mut u8, dwbytecount : u32, dwgroupsize : u32, baddressprefix : windows_sys::core::BOOL, lpszprefix : windows_sys::core::PCWSTR) -> u32);
 windows_targets::link!("rtutils.dll" "system" fn TraceGetConsoleA(dwtraceid : u32, lphconsole : *mut super::super::Foundation:: HANDLE) -> u32);
 windows_targets::link!("rtutils.dll" "system" fn TraceGetConsoleW(dwtraceid : u32, lphconsole : *mut super::super::Foundation:: HANDLE) -> u32);
 windows_targets::link!("rtutils.dll" "cdecl" fn TracePrintfA(dwtraceid : u32, lpszformat : windows_sys::core::PCSTR, ...) -> u32);
@@ -2342,7 +2342,7 @@ pub struct OBO_TOKEN {
     pub pszwManufacturer: windows_sys::core::PCWSTR,
     pub pszwProduct: windows_sys::core::PCWSTR,
     pub pszwDisplayName: windows_sys::core::PCWSTR,
-    pub fRegistered: super::super::Foundation::BOOL,
+    pub fRegistered: windows_sys::core::BOOL,
 }
 pub type OBO_TOKEN_TYPE = i32;
 pub const OBO_USER: OBO_TOKEN_TYPE = 1i32;
@@ -2411,7 +2411,7 @@ pub const QNLEN: u32 = 80u32;
 #[derive(Clone, Copy)]
 pub struct RASCON_IPUI {
     pub guidConnection: windows_sys::core::GUID,
-    pub fIPv6Cfg: super::super::Foundation::BOOL,
+    pub fIPv6Cfg: windows_sys::core::BOOL,
     pub dwFlags: u32,
     pub pszwIpAddr: [u16; 16],
     pub pszwDnsAddr: [u16; 16],
@@ -2645,7 +2645,7 @@ pub struct SERVER_INFO_103 {
     pub sv103_comment: windows_sys::core::PWSTR,
     pub sv103_users: u32,
     pub sv103_disc: i32,
-    pub sv103_hidden: super::super::Foundation::BOOL,
+    pub sv103_hidden: windows_sys::core::BOOL,
     pub sv103_announce: u32,
     pub sv103_anndelta: u32,
     pub sv103_licenses: u32,
@@ -2705,22 +2705,22 @@ pub struct SERVER_INFO_1513 {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SERVER_INFO_1514 {
-    pub sv1514_enablesoftcompat: super::super::Foundation::BOOL,
+    pub sv1514_enablesoftcompat: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SERVER_INFO_1515 {
-    pub sv1515_enableforcedlogoff: super::super::Foundation::BOOL,
+    pub sv1515_enableforcedlogoff: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SERVER_INFO_1516 {
-    pub sv1516_timesource: super::super::Foundation::BOOL,
+    pub sv1516_timesource: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SERVER_INFO_1518 {
-    pub sv1518_lmannounce: super::super::Foundation::BOOL,
+    pub sv1518_lmannounce: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2785,37 +2785,37 @@ pub struct SERVER_INFO_1535 {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SERVER_INFO_1536 {
-    pub sv1536_enableoplocks: super::super::Foundation::BOOL,
+    pub sv1536_enableoplocks: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SERVER_INFO_1537 {
-    pub sv1537_enableoplockforceclose: super::super::Foundation::BOOL,
+    pub sv1537_enableoplockforceclose: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SERVER_INFO_1538 {
-    pub sv1538_enablefcbopens: super::super::Foundation::BOOL,
+    pub sv1538_enablefcbopens: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SERVER_INFO_1539 {
-    pub sv1539_enableraw: super::super::Foundation::BOOL,
+    pub sv1539_enableraw: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SERVER_INFO_1540 {
-    pub sv1540_enablesharednetdrives: super::super::Foundation::BOOL,
+    pub sv1540_enablesharednetdrives: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SERVER_INFO_1541 {
-    pub sv1541_minfreeconnections: super::super::Foundation::BOOL,
+    pub sv1541_minfreeconnections: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SERVER_INFO_1542 {
-    pub sv1542_maxfreeconnections: super::super::Foundation::BOOL,
+    pub sv1542_maxfreeconnections: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2920,7 +2920,7 @@ pub struct SERVER_INFO_1565 {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SERVER_INFO_1566 {
-    pub sv1566_removeduplicatesearches: super::super::Foundation::BOOL,
+    pub sv1566_removeduplicatesearches: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3015,7 +3015,7 @@ pub struct SERVER_INFO_1584 {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SERVER_INFO_1585 {
-    pub sv1585_sendsfrompreferredprocessor: super::super::Foundation::BOOL,
+    pub sv1585_sendsfrompreferredprocessor: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3095,7 +3095,7 @@ pub struct SERVER_INFO_1601 {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SERVER_INFO_1602 {
-    pub sv_1598_disablestrictnamechecking: super::super::Foundation::BOOL,
+    pub sv_1598_disablestrictnamechecking: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3186,11 +3186,11 @@ pub struct SERVER_INFO_502 {
     pub sv502_sessconns: u32,
     pub sv502_maxpagedmemoryusage: u32,
     pub sv502_maxnonpagedmemoryusage: u32,
-    pub sv502_enablesoftcompat: super::super::Foundation::BOOL,
-    pub sv502_enableforcedlogoff: super::super::Foundation::BOOL,
-    pub sv502_timesource: super::super::Foundation::BOOL,
-    pub sv502_acceptdownlevelapis: super::super::Foundation::BOOL,
-    pub sv502_lmannounce: super::super::Foundation::BOOL,
+    pub sv502_enablesoftcompat: windows_sys::core::BOOL,
+    pub sv502_enableforcedlogoff: windows_sys::core::BOOL,
+    pub sv502_timesource: windows_sys::core::BOOL,
+    pub sv502_acceptdownlevelapis: windows_sys::core::BOOL,
+    pub sv502_lmannounce: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3208,11 +3208,11 @@ pub struct SERVER_INFO_503 {
     pub sv503_sessconns: u32,
     pub sv503_maxpagedmemoryusage: u32,
     pub sv503_maxnonpagedmemoryusage: u32,
-    pub sv503_enablesoftcompat: super::super::Foundation::BOOL,
-    pub sv503_enableforcedlogoff: super::super::Foundation::BOOL,
-    pub sv503_timesource: super::super::Foundation::BOOL,
-    pub sv503_acceptdownlevelapis: super::super::Foundation::BOOL,
-    pub sv503_lmannounce: super::super::Foundation::BOOL,
+    pub sv503_enablesoftcompat: windows_sys::core::BOOL,
+    pub sv503_enableforcedlogoff: windows_sys::core::BOOL,
+    pub sv503_timesource: windows_sys::core::BOOL,
+    pub sv503_acceptdownlevelapis: windows_sys::core::BOOL,
+    pub sv503_lmannounce: windows_sys::core::BOOL,
     pub sv503_domain: windows_sys::core::PWSTR,
     pub sv503_maxcopyreadlen: u32,
     pub sv503_maxcopywritelen: u32,
@@ -3230,11 +3230,11 @@ pub struct SERVER_INFO_503 {
     pub sv503_maxmpxct: u32,
     pub sv503_oplockbreakwait: u32,
     pub sv503_oplockbreakresponsewait: u32,
-    pub sv503_enableoplocks: super::super::Foundation::BOOL,
-    pub sv503_enableoplockforceclose: super::super::Foundation::BOOL,
-    pub sv503_enablefcbopens: super::super::Foundation::BOOL,
-    pub sv503_enableraw: super::super::Foundation::BOOL,
-    pub sv503_enablesharednetdrives: super::super::Foundation::BOOL,
+    pub sv503_enableoplocks: windows_sys::core::BOOL,
+    pub sv503_enableoplockforceclose: windows_sys::core::BOOL,
+    pub sv503_enablefcbopens: windows_sys::core::BOOL,
+    pub sv503_enableraw: windows_sys::core::BOOL,
+    pub sv503_enablesharednetdrives: windows_sys::core::BOOL,
     pub sv503_minfreeconnections: u32,
     pub sv503_maxfreeconnections: u32,
 }
@@ -3255,8 +3255,8 @@ pub struct SERVER_INFO_598 {
     pub sv598_mdlreadswitchover: u32,
     pub sv598_cachedopenlimit: u32,
     pub sv598_otherqueueaffinity: u32,
-    pub sv598_restrictnullsessaccess: super::super::Foundation::BOOL,
-    pub sv598_enablewfw311directipx: super::super::Foundation::BOOL,
+    pub sv598_restrictnullsessaccess: windows_sys::core::BOOL,
+    pub sv598_enablewfw311directipx: windows_sys::core::BOOL,
     pub sv598_queuesamplesecs: u32,
     pub sv598_balancecount: u32,
     pub sv598_preferredaffinity: u32,
@@ -3266,24 +3266,24 @@ pub struct SERVER_INFO_598 {
     pub sv598_maxfreepagedpoolchunks: u32,
     pub sv598_minpagedpoolchunksize: u32,
     pub sv598_maxpagedpoolchunksize: u32,
-    pub sv598_sendsfrompreferredprocessor: super::super::Foundation::BOOL,
+    pub sv598_sendsfrompreferredprocessor: windows_sys::core::BOOL,
     pub sv598_cacheddirectorylimit: u32,
     pub sv598_maxcopylength: u32,
-    pub sv598_enablecompression: super::super::Foundation::BOOL,
-    pub sv598_autosharewks: super::super::Foundation::BOOL,
-    pub sv598_autoshareserver: super::super::Foundation::BOOL,
-    pub sv598_enablesecuritysignature: super::super::Foundation::BOOL,
-    pub sv598_requiresecuritysignature: super::super::Foundation::BOOL,
+    pub sv598_enablecompression: windows_sys::core::BOOL,
+    pub sv598_autosharewks: windows_sys::core::BOOL,
+    pub sv598_autoshareserver: windows_sys::core::BOOL,
+    pub sv598_enablesecuritysignature: windows_sys::core::BOOL,
+    pub sv598_requiresecuritysignature: windows_sys::core::BOOL,
     pub sv598_minclientbuffersize: u32,
     pub sv598_serverguid: windows_sys::core::GUID,
     pub sv598_ConnectionNoSessionsTimeout: u32,
     pub sv598_IdleThreadTimeOut: u32,
-    pub sv598_enableW9xsecuritysignature: super::super::Foundation::BOOL,
-    pub sv598_enforcekerberosreauthentication: super::super::Foundation::BOOL,
-    pub sv598_disabledos: super::super::Foundation::BOOL,
+    pub sv598_enableW9xsecuritysignature: windows_sys::core::BOOL,
+    pub sv598_enforcekerberosreauthentication: windows_sys::core::BOOL,
+    pub sv598_disabledos: windows_sys::core::BOOL,
     pub sv598_lowdiskspaceminimum: u32,
-    pub sv598_disablestrictnamechecking: super::super::Foundation::BOOL,
-    pub sv598_enableauthenticateusersharing: super::super::Foundation::BOOL,
+    pub sv598_disablestrictnamechecking: windows_sys::core::BOOL,
+    pub sv598_enableauthenticateusersharing: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3301,11 +3301,11 @@ pub struct SERVER_INFO_599 {
     pub sv599_sessconns: u32,
     pub sv599_maxpagedmemoryusage: u32,
     pub sv599_maxnonpagedmemoryusage: u32,
-    pub sv599_enablesoftcompat: super::super::Foundation::BOOL,
-    pub sv599_enableforcedlogoff: super::super::Foundation::BOOL,
-    pub sv599_timesource: super::super::Foundation::BOOL,
-    pub sv599_acceptdownlevelapis: super::super::Foundation::BOOL,
-    pub sv599_lmannounce: super::super::Foundation::BOOL,
+    pub sv599_enablesoftcompat: windows_sys::core::BOOL,
+    pub sv599_enableforcedlogoff: windows_sys::core::BOOL,
+    pub sv599_timesource: windows_sys::core::BOOL,
+    pub sv599_acceptdownlevelapis: windows_sys::core::BOOL,
+    pub sv599_lmannounce: windows_sys::core::BOOL,
     pub sv599_domain: windows_sys::core::PWSTR,
     pub sv599_maxcopyreadlen: u32,
     pub sv599_maxcopywritelen: u32,
@@ -3323,11 +3323,11 @@ pub struct SERVER_INFO_599 {
     pub sv599_maxmpxct: u32,
     pub sv599_oplockbreakwait: u32,
     pub sv599_oplockbreakresponsewait: u32,
-    pub sv599_enableoplocks: super::super::Foundation::BOOL,
-    pub sv599_enableoplockforceclose: super::super::Foundation::BOOL,
-    pub sv599_enablefcbopens: super::super::Foundation::BOOL,
-    pub sv599_enableraw: super::super::Foundation::BOOL,
-    pub sv599_enablesharednetdrives: super::super::Foundation::BOOL,
+    pub sv599_enableoplocks: windows_sys::core::BOOL,
+    pub sv599_enableoplockforceclose: windows_sys::core::BOOL,
+    pub sv599_enablefcbopens: windows_sys::core::BOOL,
+    pub sv599_enableraw: windows_sys::core::BOOL,
+    pub sv599_enablesharednetdrives: windows_sys::core::BOOL,
     pub sv599_minfreeconnections: u32,
     pub sv599_maxfreeconnections: u32,
     pub sv599_initsesstable: u32,
@@ -4131,7 +4131,7 @@ pub struct USER_INFO_23 {
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub struct USER_INFO_24 {
-    pub usri24_internet_identity: super::super::Foundation::BOOL,
+    pub usri24_internet_identity: windows_sys::core::BOOL,
     pub usri24_flags: u32,
     pub usri24_internet_provider_name: windows_sys::core::PWSTR,
     pub usri24_internet_principal_name: windows_sys::core::PWSTR,
@@ -4544,72 +4544,72 @@ pub struct WKSTA_INFO_1047 {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1048 {
-    pub wki1048_use_opportunistic_locking: super::super::Foundation::BOOL,
+    pub wki1048_use_opportunistic_locking: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1049 {
-    pub wki1049_use_unlock_behind: super::super::Foundation::BOOL,
+    pub wki1049_use_unlock_behind: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1050 {
-    pub wki1050_use_close_behind: super::super::Foundation::BOOL,
+    pub wki1050_use_close_behind: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1051 {
-    pub wki1051_buf_named_pipes: super::super::Foundation::BOOL,
+    pub wki1051_buf_named_pipes: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1052 {
-    pub wki1052_use_lock_read_unlock: super::super::Foundation::BOOL,
+    pub wki1052_use_lock_read_unlock: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1053 {
-    pub wki1053_utilize_nt_caching: super::super::Foundation::BOOL,
+    pub wki1053_utilize_nt_caching: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1054 {
-    pub wki1054_use_raw_read: super::super::Foundation::BOOL,
+    pub wki1054_use_raw_read: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1055 {
-    pub wki1055_use_raw_write: super::super::Foundation::BOOL,
+    pub wki1055_use_raw_write: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1056 {
-    pub wki1056_use_write_raw_data: super::super::Foundation::BOOL,
+    pub wki1056_use_write_raw_data: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1057 {
-    pub wki1057_use_encryption: super::super::Foundation::BOOL,
+    pub wki1057_use_encryption: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1058 {
-    pub wki1058_buf_files_deny_write: super::super::Foundation::BOOL,
+    pub wki1058_buf_files_deny_write: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1059 {
-    pub wki1059_buf_read_only_files: super::super::Foundation::BOOL,
+    pub wki1059_buf_read_only_files: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1060 {
-    pub wki1060_force_core_create_mode: super::super::Foundation::BOOL,
+    pub wki1060_force_core_create_mode: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1061 {
-    pub wki1061_use_512_byte_max_transfer: super::super::Foundation::BOOL,
+    pub wki1061_use_512_byte_max_transfer: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4688,21 +4688,21 @@ pub struct WKSTA_INFO_502 {
     pub wki502_num_srv_announce_buffers: u32,
     pub wki502_max_illegal_datagram_events: u32,
     pub wki502_illegal_datagram_event_reset_frequency: u32,
-    pub wki502_log_election_packets: super::super::Foundation::BOOL,
-    pub wki502_use_opportunistic_locking: super::super::Foundation::BOOL,
-    pub wki502_use_unlock_behind: super::super::Foundation::BOOL,
-    pub wki502_use_close_behind: super::super::Foundation::BOOL,
-    pub wki502_buf_named_pipes: super::super::Foundation::BOOL,
-    pub wki502_use_lock_read_unlock: super::super::Foundation::BOOL,
-    pub wki502_utilize_nt_caching: super::super::Foundation::BOOL,
-    pub wki502_use_raw_read: super::super::Foundation::BOOL,
-    pub wki502_use_raw_write: super::super::Foundation::BOOL,
-    pub wki502_use_write_raw_data: super::super::Foundation::BOOL,
-    pub wki502_use_encryption: super::super::Foundation::BOOL,
-    pub wki502_buf_files_deny_write: super::super::Foundation::BOOL,
-    pub wki502_buf_read_only_files: super::super::Foundation::BOOL,
-    pub wki502_force_core_create_mode: super::super::Foundation::BOOL,
-    pub wki502_use_512_byte_max_transfer: super::super::Foundation::BOOL,
+    pub wki502_log_election_packets: windows_sys::core::BOOL,
+    pub wki502_use_opportunistic_locking: windows_sys::core::BOOL,
+    pub wki502_use_unlock_behind: windows_sys::core::BOOL,
+    pub wki502_use_close_behind: windows_sys::core::BOOL,
+    pub wki502_buf_named_pipes: windows_sys::core::BOOL,
+    pub wki502_use_lock_read_unlock: windows_sys::core::BOOL,
+    pub wki502_utilize_nt_caching: windows_sys::core::BOOL,
+    pub wki502_use_raw_read: windows_sys::core::BOOL,
+    pub wki502_use_raw_write: windows_sys::core::BOOL,
+    pub wki502_use_write_raw_data: windows_sys::core::BOOL,
+    pub wki502_use_encryption: windows_sys::core::BOOL,
+    pub wki502_buf_files_deny_write: windows_sys::core::BOOL,
+    pub wki502_buf_read_only_files: windows_sys::core::BOOL,
+    pub wki502_force_core_create_mode: windows_sys::core::BOOL,
+    pub wki502_use_512_byte_max_transfer: windows_sys::core::BOOL,
 }
 pub const WKSTA_KEEPCONN_PARMNUM: u32 = 13u32;
 pub const WKSTA_KEEPSEARCH_PARMNUM: u32 = 14u32;
@@ -4740,7 +4740,7 @@ pub struct WKSTA_TRANSPORT_INFO_0 {
     pub wkti0_number_of_vcs: u32,
     pub wkti0_transport_name: windows_sys::core::PWSTR,
     pub wkti0_transport_address: windows_sys::core::PWSTR,
-    pub wkti0_wan_ish: super::super::Foundation::BOOL,
+    pub wkti0_wan_ish: windows_sys::core::BOOL,
 }
 pub const WKSTA_USE512BYTESMAXTRANSFER_PARMNUM: u32 = 61u32;
 pub const WKSTA_USECLOSEBEHIND_PARMNUM: u32 = 50u32;

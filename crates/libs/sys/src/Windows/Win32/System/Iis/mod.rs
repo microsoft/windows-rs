@@ -1,5 +1,5 @@
-windows_targets::link!("rpcproxy.dll" "system" fn GetExtensionVersion(pver : *mut HSE_VERSION_INFO) -> super::super::Foundation:: BOOL);
-windows_targets::link!("rpcproxy.dll" "system" fn GetFilterVersion(pver : *mut HTTP_FILTER_VERSION) -> super::super::Foundation:: BOOL);
+windows_targets::link!("rpcproxy.dll" "system" fn GetExtensionVersion(pver : *mut HSE_VERSION_INFO) -> windows_sys::core::BOOL);
+windows_targets::link!("rpcproxy.dll" "system" fn GetFilterVersion(pver : *mut HTTP_FILTER_VERSION) -> windows_sys::core::BOOL);
 windows_targets::link!("rpcproxy.dll" "system" fn HttpExtensionProc(pecb : *const EXTENSION_CONTROL_BLOCK) -> u32);
 windows_targets::link!("rpcproxy.dll" "system" fn HttpFilterProc(pfc : *mut HTTP_FILTER_CONTEXT, notificationtype : u32, pvnotification : *mut core::ffi::c_void) -> u32);
 pub const ADMINDATA_MAX_NAME_LEN: u32 = 256u32;
@@ -114,7 +114,7 @@ pub const HSE_APP_FLAG_POOLED_OOP: u32 = 2u32;
 pub struct HSE_CUSTOM_ERROR_INFO {
     pub pszStatus: windows_sys::core::PSTR,
     pub uHttpSubError: u16,
-    pub fAsync: super::super::Foundation::BOOL,
+    pub fAsync: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -237,7 +237,7 @@ pub struct HSE_SEND_HEADER_EX_INFO {
     pub pszHeader: windows_sys::core::PCSTR,
     pub cchStatus: u32,
     pub cchHeader: u32,
-    pub fKeepConn: super::super::Foundation::BOOL,
+    pub fKeepConn: windows_sys::core::BOOL,
 }
 pub const HSE_STATUS_ERROR: u32 = 4u32;
 pub const HSE_STATUS_PENDING: u32 = 3u32;
@@ -263,7 +263,7 @@ pub struct HSE_TF_INFO {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HSE_TRACE_INFO {
-    pub fTraceRequest: super::super::Foundation::BOOL,
+    pub fTraceRequest: windows_sys::core::BOOL,
     pub TraceContextId: [u8; 16],
     pub dwReserved1: u32,
     pub dwReserved2: u32,
@@ -338,7 +338,7 @@ pub struct HTTP_FILTER_AUTH_COMPLETE_INFO {
     pub AddHeader: isize,
     pub GetUserToken: isize,
     pub HttpStatus: u32,
-    pub fResetAuth: super::super::Foundation::BOOL,
+    pub fResetAuth: windows_sys::core::BOOL,
     pub dwReserved: u32,
 }
 #[repr(C)]
@@ -348,7 +348,7 @@ pub struct HTTP_FILTER_CONTEXT {
     pub Revision: u32,
     pub ServerContext: *mut core::ffi::c_void,
     pub ulReserved: u32,
-    pub fIsSecurePort: super::super::Foundation::BOOL,
+    pub fIsSecurePort: windows_sys::core::BOOL,
     pub pFilterContext: *mut core::ffi::c_void,
     pub GetServerVariable: isize,
     pub AddResponseHeaders: isize,
@@ -420,7 +420,7 @@ pub struct HTTP_TRACE_CONFIGURATION {
     pub pProviderGuid: *const windows_sys::core::GUID,
     pub dwAreas: u32,
     pub dwVerbosity: u32,
-    pub fProviderEnabled: super::super::Foundation::BOOL,
+    pub fProviderEnabled: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1295,16 +1295,16 @@ pub const MSCS_MD_ID_END_RESERVED: u32 = 57343u32;
 pub const MULTISZ_METADATA: METADATATYPES = 5i32;
 pub const NNTP_MD_ID_BEGIN_RESERVED: u32 = 45056u32;
 pub const NNTP_MD_ID_END_RESERVED: u32 = 49151u32;
-pub type PFN_GETEXTENSIONVERSION = Option<unsafe extern "system" fn(pver: *mut HSE_VERSION_INFO) -> super::super::Foundation::BOOL>;
+pub type PFN_GETEXTENSIONVERSION = Option<unsafe extern "system" fn(pver: *mut HSE_VERSION_INFO) -> windows_sys::core::BOOL>;
 pub type PFN_HSE_CACHE_INVALIDATION_CALLBACK = Option<unsafe extern "system" fn(pszurl: windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT>;
 pub type PFN_HSE_GET_PROTOCOL_MANAGER_CUSTOM_INTERFACE_CALLBACK = Option<unsafe extern "system" fn(pszprotocolmanagerdll: windows_sys::core::PCWSTR, pszprotocolmanagerdllinitfunction: windows_sys::core::PCWSTR, dwcustominterfaceid: u32, ppcustominterface: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
 pub type PFN_HSE_IO_COMPLETION = Option<unsafe extern "system" fn(pecb: *mut EXTENSION_CONTROL_BLOCK, pcontext: *mut core::ffi::c_void, cbio: u32, dwerror: u32)>;
 pub type PFN_HTTPEXTENSIONPROC = Option<unsafe extern "system" fn(pecb: *mut EXTENSION_CONTROL_BLOCK) -> u32>;
-pub type PFN_IIS_GETSERVERVARIABLE = Option<unsafe extern "system" fn(param0: HCONN, param1: windows_sys::core::PCSTR, param2: *mut core::ffi::c_void, param3: *mut u32) -> super::super::Foundation::BOOL>;
-pub type PFN_IIS_READCLIENT = Option<unsafe extern "system" fn(param0: HCONN, param1: *mut core::ffi::c_void, param2: *mut u32) -> super::super::Foundation::BOOL>;
-pub type PFN_IIS_SERVERSUPPORTFUNCTION = Option<unsafe extern "system" fn(param0: HCONN, param1: u32, param2: *mut core::ffi::c_void, param3: *mut u32, param4: *mut u32) -> super::super::Foundation::BOOL>;
-pub type PFN_IIS_WRITECLIENT = Option<unsafe extern "system" fn(param0: HCONN, param1: *mut core::ffi::c_void, param2: *mut u32, param3: u32) -> super::super::Foundation::BOOL>;
-pub type PFN_TERMINATEEXTENSION = Option<unsafe extern "system" fn(dwflags: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_IIS_GETSERVERVARIABLE = Option<unsafe extern "system" fn(param0: HCONN, param1: windows_sys::core::PCSTR, param2: *mut core::ffi::c_void, param3: *mut u32) -> windows_sys::core::BOOL>;
+pub type PFN_IIS_READCLIENT = Option<unsafe extern "system" fn(param0: HCONN, param1: *mut core::ffi::c_void, param2: *mut u32) -> windows_sys::core::BOOL>;
+pub type PFN_IIS_SERVERSUPPORTFUNCTION = Option<unsafe extern "system" fn(param0: HCONN, param1: u32, param2: *mut core::ffi::c_void, param3: *mut u32, param4: *mut u32) -> windows_sys::core::BOOL>;
+pub type PFN_IIS_WRITECLIENT = Option<unsafe extern "system" fn(param0: HCONN, param1: *mut core::ffi::c_void, param2: *mut u32, param3: u32) -> windows_sys::core::BOOL>;
+pub type PFN_TERMINATEEXTENSION = Option<unsafe extern "system" fn(dwflags: u32) -> windows_sys::core::BOOL>;
 pub type PFN_WEB_CORE_ACTIVATE = Option<unsafe extern "system" fn(pszapphostconfigfile: windows_sys::core::PCWSTR, pszrootwebconfigfile: windows_sys::core::PCWSTR, pszinstancename: windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT>;
 pub type PFN_WEB_CORE_SET_METADATA_DLL_ENTRY = Option<unsafe extern "system" fn(pszmetadatatype: windows_sys::core::PCWSTR, pszvalue: windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT>;
 pub type PFN_WEB_CORE_SHUTDOWN = Option<unsafe extern "system" fn(fimmediate: u32) -> windows_sys::core::HRESULT>;

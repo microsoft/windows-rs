@@ -17,7 +17,7 @@ pub type FailureCategory = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FailureCategoryMapping {
-    pub mappingCompliance: [super::super::Foundation::BOOL; 5],
+    pub mappingCompliance: [windows_sys::core::BOOL; 5],
 }
 #[repr(C)]
 #[derive(Clone, Copy)]

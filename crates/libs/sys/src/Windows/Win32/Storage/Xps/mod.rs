@@ -13,7 +13,7 @@ windows_targets::link!("gdi32.dll" "system" fn Escape(hdc : super::super::Graphi
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_targets::link!("gdi32.dll" "system" fn ExtEscape(hdc : super::super::Graphics::Gdi:: HDC, iescape : i32, cjinput : i32, lpindata : windows_sys::core::PCSTR, cjoutput : i32, lpoutdata : windows_sys::core::PSTR) -> i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-windows_targets::link!("user32.dll" "system" fn PrintWindow(hwnd : super::super::Foundation:: HWND, hdcblt : super::super::Graphics::Gdi:: HDC, nflags : PRINT_WINDOW_FLAGS) -> super::super::Foundation:: BOOL);
+windows_targets::link!("user32.dll" "system" fn PrintWindow(hwnd : super::super::Foundation:: HWND, hdcblt : super::super::Graphics::Gdi:: HDC, nflags : PRINT_WINDOW_FLAGS) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_targets::link!("gdi32.dll" "system" fn SetAbortProc(hdc : super::super::Graphics::Gdi:: HDC, proc : ABORTPROC) -> i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -23,7 +23,7 @@ windows_targets::link!("gdi32.dll" "system" fn StartDocW(hdc : super::super::Gra
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_targets::link!("gdi32.dll" "system" fn StartPage(hdc : super::super::Graphics::Gdi:: HDC) -> i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type ABORTPROC = Option<unsafe extern "system" fn(param0: super::super::Graphics::Gdi::HDC, param1: i32) -> super::super::Foundation::BOOL>;
+pub type ABORTPROC = Option<unsafe extern "system" fn(param0: super::super::Graphics::Gdi::HDC, param1: i32) -> windows_sys::core::BOOL>;
 pub const DC_BINNAMES: PRINTER_DEVICE_CAPABILITIES = 12u16;
 pub const DC_BINS: PRINTER_DEVICE_CAPABILITIES = 6u16;
 pub const DC_COLLATE: PRINTER_DEVICE_CAPABILITIES = 22u16;
@@ -94,8 +94,8 @@ pub struct PSFEATURE_CUSTPAPER {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PSFEATURE_OUTPUT {
-    pub bPageIndependent: super::super::Foundation::BOOL,
-    pub bSetPageDevice: super::super::Foundation::BOOL,
+    pub bPageIndependent: windows_sys::core::BOOL,
+    pub bSetPageDevice: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]

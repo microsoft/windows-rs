@@ -201,7 +201,7 @@ windows_targets::link!("secur32.dll" "system" fn SaslInitializeSecurityContextA(
 windows_targets::link!("secur32.dll" "system" fn SaslInitializeSecurityContextW(phcredential : *const super::super::Credentials:: SecHandle, phcontext : *const super::super::Credentials:: SecHandle, psztargetname : windows_sys::core::PCWSTR, fcontextreq : ISC_REQ_FLAGS, reserved1 : u32, targetdatarep : u32, pinput : *const SecBufferDesc, reserved2 : u32, phnewcontext : *mut super::super::Credentials:: SecHandle, poutput : *mut SecBufferDesc, pfcontextattr : *mut u32, ptsexpiry : *mut i64) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Security_Credentials")]
 windows_targets::link!("secur32.dll" "system" fn SaslSetContextOption(contexthandle : *const super::super::Credentials:: SecHandle, option : u32, value : *const core::ffi::c_void, size : u32) -> windows_sys::core::HRESULT);
-windows_targets::link!("sas.dll" "system" fn SendSAS(asuser : super::super::super::Foundation:: BOOL));
+windows_targets::link!("sas.dll" "system" fn SendSAS(asuser : windows_sys::core::BOOL));
 #[cfg(feature = "Win32_Security_Credentials")]
 windows_targets::link!("secur32.dll" "system" fn SetContextAttributesA(phcontext : *const super::super::Credentials:: SecHandle, ulattribute : SECPKG_ATTR, pbuffer : *const core::ffi::c_void, cbbuffer : u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Security_Credentials")]
@@ -211,11 +211,11 @@ windows_targets::link!("secur32.dll" "system" fn SetCredentialsAttributesA(phcre
 #[cfg(feature = "Win32_Security_Credentials")]
 windows_targets::link!("secur32.dll" "system" fn SetCredentialsAttributesW(phcredential : *const super::super::Credentials:: SecHandle, ulattribute : u32, pbuffer : *const core::ffi::c_void, cbbuffer : u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Security_Cryptography")]
-windows_targets::link!("schannel.dll" "system" fn SslCrackCertificate(pbcertificate : *mut u8, cbcertificate : u32, dwflags : u32, ppcertificate : *mut *mut X509Certificate) -> super::super::super::Foundation:: BOOL);
+windows_targets::link!("schannel.dll" "system" fn SslCrackCertificate(pbcertificate : *mut u8, cbcertificate : u32, dwflags : u32, ppcertificate : *mut *mut X509Certificate) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Security_Cryptography")]
 windows_targets::link!("schannel.dll" "system" fn SslDeserializeCertificateStore(serializedcertificatestore : super::super::Cryptography:: CRYPT_INTEGER_BLOB, ppcertcontext : *mut *mut super::super::Cryptography:: CERT_CONTEXT) -> windows_sys::core::HRESULT);
-windows_targets::link!("schannel.dll" "system" fn SslEmptyCacheA(psztargetname : windows_sys::core::PCSTR, dwflags : u32) -> super::super::super::Foundation:: BOOL);
-windows_targets::link!("schannel.dll" "system" fn SslEmptyCacheW(psztargetname : windows_sys::core::PCWSTR, dwflags : u32) -> super::super::super::Foundation:: BOOL);
+windows_targets::link!("schannel.dll" "system" fn SslEmptyCacheA(psztargetname : windows_sys::core::PCSTR, dwflags : u32) -> windows_sys::core::BOOL);
+windows_targets::link!("schannel.dll" "system" fn SslEmptyCacheW(psztargetname : windows_sys::core::PCWSTR, dwflags : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Security_Cryptography")]
 windows_targets::link!("schannel.dll" "system" fn SslFreeCertificate(pcertificate : *mut X509Certificate));
 windows_targets::link!("schannel.dll" "system" fn SslGenerateRandomBits(prandomdata : *mut u8, crandomdata : i32));
@@ -4588,7 +4588,7 @@ pub const SSL3SP_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("Micros
 pub const SSL3SP_NAME_A: windows_sys::core::PCSTR = windows_sys::core::s!("Microsoft SSL 3.0");
 pub const SSL3SP_NAME_W: windows_sys::core::PCWSTR = windows_sys::core::w!("Microsoft SSL 3.0");
 #[cfg(feature = "Win32_Security_Cryptography")]
-pub type SSL_CRACK_CERTIFICATE_FN = Option<unsafe extern "system" fn(pbcertificate: *mut u8, cbcertificate: u32, verifysignature: super::super::super::Foundation::BOOL, ppcertificate: *mut *mut X509Certificate) -> super::super::super::Foundation::BOOL>;
+pub type SSL_CRACK_CERTIFICATE_FN = Option<unsafe extern "system" fn(pbcertificate: *mut u8, cbcertificate: u32, verifysignature: windows_sys::core::BOOL, ppcertificate: *mut *mut X509Certificate) -> windows_sys::core::BOOL>;
 pub const SSL_CRACK_CERTIFICATE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SslCrackCertificate");
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4599,8 +4599,8 @@ pub struct SSL_CREDENTIAL_CERTIFICATE {
     pub pCertificate: *mut u8,
     pub pszPassword: windows_sys::core::PSTR,
 }
-pub type SSL_EMPTY_CACHE_FN_A = Option<unsafe extern "system" fn(psztargetname: windows_sys::core::PCSTR, dwflags: u32) -> super::super::super::Foundation::BOOL>;
-pub type SSL_EMPTY_CACHE_FN_W = Option<unsafe extern "system" fn(psztargetname: windows_sys::core::PCWSTR, dwflags: u32) -> super::super::super::Foundation::BOOL>;
+pub type SSL_EMPTY_CACHE_FN_A = Option<unsafe extern "system" fn(psztargetname: windows_sys::core::PCSTR, dwflags: u32) -> windows_sys::core::BOOL>;
+pub type SSL_EMPTY_CACHE_FN_W = Option<unsafe extern "system" fn(psztargetname: windows_sys::core::PCWSTR, dwflags: u32) -> windows_sys::core::BOOL>;
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub type SSL_FREE_CERTIFICATE_FN = Option<unsafe extern "system" fn(pcertificate: *mut X509Certificate)>;
 pub const SSL_FREE_CERTIFICATE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SslFreeCertificate");
@@ -5142,9 +5142,9 @@ pub struct SecPkgCred_ClientCertPolicy {
     pub guidPolicyId: windows_sys::core::GUID,
     pub dwCertFlags: u32,
     pub dwUrlRetrievalTimeout: u32,
-    pub fCheckRevocationFreshnessTime: super::super::super::Foundation::BOOL,
+    pub fCheckRevocationFreshnessTime: windows_sys::core::BOOL,
     pub dwRevocationFreshnessTime: u32,
-    pub fOmitUsageCheck: super::super::super::Foundation::BOOL,
+    pub fOmitUsageCheck: windows_sys::core::BOOL,
     pub pwszSslCtlStoreName: windows_sys::core::PWSTR,
     pub pwszSslCtlIdentifier: windows_sys::core::PWSTR,
 }
