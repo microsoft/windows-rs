@@ -16,7 +16,7 @@ pub unsafe fn CreateEventW<P3>(
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("kernel32.dll" "system" fn CreateEventW(lpeventattributes : *const windows::Win32::Security:: SECURITY_ATTRIBUTES, bmanualreset : windows::Win32::Foundation:: BOOL, binitialstate : windows::Win32::Foundation:: BOOL, lpname : windows_core::PCWSTR) -> windows::Win32::Foundation:: HANDLE);
+    windows_targets::link!("kernel32.dll" "system" fn CreateEventW(lpeventattributes : *const windows::Win32::Security:: SECURITY_ATTRIBUTES, bmanualreset : windows_core::BOOL, binitialstate : windows_core::BOOL, lpname : windows_core::PCWSTR) -> windows::Win32::Foundation:: HANDLE);
     let result__ = unsafe {
         CreateEventW(
             lpeventattributes.unwrap_or(core::mem::zeroed()) as _,
@@ -40,7 +40,7 @@ pub unsafe fn NtWaitForSingleObject(
 }
 #[inline]
 pub unsafe fn SetEvent(hevent: windows::Win32::Foundation::HANDLE) -> windows_core::Result<()> {
-    windows_targets::link!("kernel32.dll" "system" fn SetEvent(hevent : windows::Win32::Foundation:: HANDLE) -> windows::Win32::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn SetEvent(hevent : windows::Win32::Foundation:: HANDLE) -> windows_core::BOOL);
     unsafe { SetEvent(hevent).ok() }
 }
 #[inline]
@@ -49,6 +49,6 @@ pub unsafe fn WaitForSingleObjectEx(
     dwmilliseconds: u32,
     balertable: bool,
 ) -> windows::Win32::Foundation::WAIT_EVENT {
-    windows_targets::link!("kernel32.dll" "system" fn WaitForSingleObjectEx(hhandle : windows::Win32::Foundation:: HANDLE, dwmilliseconds : u32, balertable : windows::Win32::Foundation:: BOOL) -> windows::Win32::Foundation:: WAIT_EVENT);
+    windows_targets::link!("kernel32.dll" "system" fn WaitForSingleObjectEx(hhandle : windows::Win32::Foundation:: HANDLE, dwmilliseconds : u32, balertable : windows_core::BOOL) -> windows::Win32::Foundation:: WAIT_EVENT);
     unsafe { WaitForSingleObjectEx(hhandle, dwmilliseconds, balertable.into()) }
 }

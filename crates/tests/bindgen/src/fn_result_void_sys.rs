@@ -6,5 +6,4 @@
     clippy::all
 )]
 
-windows_targets::link!("kernel32.dll" "system" fn SetComputerNameA(lpcomputername : windows_sys::core::PCSTR) -> BOOL);
-pub type BOOL = i32;
+windows_targets::link!("kernel32.dll" "system" fn SetComputerNameA(lpcomputername : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);

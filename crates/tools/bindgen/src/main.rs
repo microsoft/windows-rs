@@ -98,6 +98,7 @@ fn main() {
     // Tests for delegates
     test("--out delegate.rs --filter DeferralCompletedHandler");
     test("--out delegate_generic.rs --filter EventHandler");
+    test("--out delegate_cpp.rs --filter GetProcAddress EnumWindows");
 
     // Tests for classes
     test("--out class.rs --filter Deferral");
@@ -138,9 +139,11 @@ fn main() {
     test("--out reference_struct_sys_reference_namespace.rs --sys --filter GAMING_DEVICE_MODEL_INFORMATION --reference windows_sys,skip-root,Windows.Win32.Gaming");
 
     // Tests for BOOL and BOOLEAN parameters
-    // TODO: this requires BOOL extensions which are currently only in the `windows` crate hence the --reference below
-    test("--out bool.rs --filter EnableMouseInPointer --reference windows,skip-root,Windows");
+    test("--out bool.rs --filter EnableMouseInPointer");
+    test("--out bool_sys.rs --filter EnableMouseInPointer --sys");
+    test("--out bool_sys_no_core.rs --filter EnableMouseInPointer --sys --no-core");
     test("--out bool_event.rs --filter CreateEventW SetEvent NtWaitForSingleObject WaitForSingleObjectEx --reference windows,skip-root,Windows");
+    test("--out bool_event_sans_reference.rs --filter CreateEventW SetEvent NtWaitForSingleObject WaitForSingleObjectEx");
 
     // Tests Ref and OutRef for COM interfaces since we can't use MIDLRT for that.
     test("--out ref_params.rs --filter IDynamicConceptProviderConcept IModelObject IKeyStore");
