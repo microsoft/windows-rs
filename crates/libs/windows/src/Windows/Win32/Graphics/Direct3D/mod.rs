@@ -767,6 +767,8 @@ pub struct ID3DBlob_Vtbl {
     pub GetBufferPointer: unsafe extern "system" fn(*mut core::ffi::c_void) -> *mut core::ffi::c_void,
     pub GetBufferSize: unsafe extern "system" fn(*mut core::ffi::c_void) -> usize,
 }
+unsafe impl Send for ID3DBlob {}
+unsafe impl Sync for ID3DBlob {}
 pub trait ID3DBlob_Impl: windows_core::IUnknownImpl {
     fn GetBufferPointer(&self) -> *mut core::ffi::c_void;
     fn GetBufferSize(&self) -> usize;
@@ -796,8 +798,6 @@ impl ID3DBlob_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3DBlob {}
-unsafe impl Send for ID3DBlob {}
-unsafe impl Sync for ID3DBlob {}
 windows_core::imp::define_interface!(ID3DDestructionNotifier, ID3DDestructionNotifier_Vtbl, 0xa06eb39a_50da_425b_8c31_4eecd6c270f3);
 windows_core::imp::interface_hierarchy!(ID3DDestructionNotifier, windows_core::IUnknown);
 impl ID3DDestructionNotifier {
@@ -817,6 +817,8 @@ pub struct ID3DDestructionNotifier_Vtbl {
     pub RegisterDestructionCallback: unsafe extern "system" fn(*mut core::ffi::c_void, PFN_DESTRUCTION_CALLBACK, *const core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub UnregisterDestructionCallback: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
+unsafe impl Send for ID3DDestructionNotifier {}
+unsafe impl Sync for ID3DDestructionNotifier {}
 pub trait ID3DDestructionNotifier_Impl: windows_core::IUnknownImpl {
     fn RegisterDestructionCallback(&self, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const core::ffi::c_void) -> windows_core::Result<u32>;
     fn UnregisterDestructionCallback(&self, callbackid: u32) -> windows_core::Result<()>;
@@ -852,8 +854,6 @@ impl ID3DDestructionNotifier_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3DDestructionNotifier {}
-unsafe impl Send for ID3DDestructionNotifier {}
-unsafe impl Sync for ID3DDestructionNotifier {}
 windows_core::imp::define_interface!(ID3DInclude, ID3DInclude_Vtbl);
 impl ID3DInclude {
     pub unsafe fn Open<P1>(&self, includetype: D3D_INCLUDE_TYPE, pfilename: P1, pparentdata: *const core::ffi::c_void, ppdata: *mut *mut core::ffi::c_void, pbytes: *mut u32) -> windows_core::Result<()>
@@ -871,6 +871,8 @@ pub struct ID3DInclude_Vtbl {
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, D3D_INCLUDE_TYPE, windows_core::PCSTR, *const core::ffi::c_void, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for ID3DInclude {}
+unsafe impl Sync for ID3DInclude {}
 pub trait ID3DInclude_Impl {
     fn Open(&self, includetype: D3D_INCLUDE_TYPE, pfilename: &windows_core::PCSTR, pparentdata: *const core::ffi::c_void, ppdata: *mut *mut core::ffi::c_void, pbytes: *mut u32) -> windows_core::Result<()>;
     fn Close(&self, pdata: *const core::ffi::c_void) -> windows_core::Result<()>;
@@ -905,8 +907,6 @@ impl ID3DInclude {
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
-unsafe impl Send for ID3DInclude {}
-unsafe impl Sync for ID3DInclude {}
 pub type PFN_DESTRUCTION_CALLBACK = Option<unsafe extern "system" fn(pdata: *mut core::ffi::c_void)>;
 pub const WKPDID_CommentStringW: windows_core::GUID = windows_core::GUID::from_u128(0xd0149dc0_90e8_4ec8_8144_e900ad266bb2);
 pub const WKPDID_D3D12UniqueObjectId: windows_core::GUID = windows_core::GUID::from_u128(0x1b39de15_ec04_4bae_ba4d_8cef79fc04c1);

@@ -6085,6 +6085,8 @@ pub struct ID3D11Asynchronous_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
     pub GetDataSize: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
 }
+unsafe impl Send for ID3D11Asynchronous {}
+unsafe impl Sync for ID3D11Asynchronous {}
 pub trait ID3D11Asynchronous_Impl: ID3D11DeviceChild_Impl {
     fn GetDataSize(&self) -> u32;
 }
@@ -6103,8 +6105,6 @@ impl ID3D11Asynchronous_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11Asynchronous {}
-unsafe impl Send for ID3D11Asynchronous {}
-unsafe impl Sync for ID3D11Asynchronous {}
 windows_core::imp::define_interface!(ID3D11AuthenticatedChannel, ID3D11AuthenticatedChannel_Vtbl, 0x3015a308_dcbd_47aa_a747_192486d14d4a);
 impl core::ops::Deref for ID3D11AuthenticatedChannel {
     type Target = ID3D11DeviceChild;
@@ -6138,6 +6138,8 @@ pub struct ID3D11AuthenticatedChannel_Vtbl {
     pub GetCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u8) -> windows_core::HRESULT,
     pub GetChannelHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::HANDLE),
 }
+unsafe impl Send for ID3D11AuthenticatedChannel {}
+unsafe impl Sync for ID3D11AuthenticatedChannel {}
 pub trait ID3D11AuthenticatedChannel_Impl: ID3D11DeviceChild_Impl {
     fn GetCertificateSize(&self) -> windows_core::Result<u32>;
     fn GetCertificate(&self, certificatesize: u32, pcertificate: *mut u8) -> windows_core::Result<()>;
@@ -6181,8 +6183,6 @@ impl ID3D11AuthenticatedChannel_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11AuthenticatedChannel {}
-unsafe impl Send for ID3D11AuthenticatedChannel {}
-unsafe impl Sync for ID3D11AuthenticatedChannel {}
 windows_core::imp::define_interface!(ID3D11BlendState, ID3D11BlendState_Vtbl, 0x75b68faa_347d_4159_8f45_a0640f01cd9a);
 impl core::ops::Deref for ID3D11BlendState {
     type Target = ID3D11DeviceChild;
@@ -6201,6 +6201,8 @@ pub struct ID3D11BlendState_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D11_BLEND_DESC),
 }
+unsafe impl Send for ID3D11BlendState {}
+unsafe impl Sync for ID3D11BlendState {}
 pub trait ID3D11BlendState_Impl: ID3D11DeviceChild_Impl {
     fn GetDesc(&self, pdesc: *mut D3D11_BLEND_DESC);
 }
@@ -6219,8 +6221,6 @@ impl ID3D11BlendState_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11BlendState {}
-unsafe impl Send for ID3D11BlendState {}
-unsafe impl Sync for ID3D11BlendState {}
 windows_core::imp::define_interface!(ID3D11BlendState1, ID3D11BlendState1_Vtbl, 0xcc86fabe_da55_401d_85e7_e3c9de2877e9);
 impl core::ops::Deref for ID3D11BlendState1 {
     type Target = ID3D11BlendState;
@@ -6239,6 +6239,8 @@ pub struct ID3D11BlendState1_Vtbl {
     pub base__: ID3D11BlendState_Vtbl,
     pub GetDesc1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D11_BLEND_DESC1),
 }
+unsafe impl Send for ID3D11BlendState1 {}
+unsafe impl Sync for ID3D11BlendState1 {}
 pub trait ID3D11BlendState1_Impl: ID3D11BlendState_Impl {
     fn GetDesc1(&self, pdesc: *mut D3D11_BLEND_DESC1);
 }
@@ -6257,8 +6259,6 @@ impl ID3D11BlendState1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11BlendState1 {}
-unsafe impl Send for ID3D11BlendState1 {}
-unsafe impl Sync for ID3D11BlendState1 {}
 windows_core::imp::define_interface!(ID3D11Buffer, ID3D11Buffer_Vtbl, 0x48570b85_d1ee_4fcd_a250_eb350722b037);
 impl core::ops::Deref for ID3D11Buffer {
     type Target = ID3D11Resource;
@@ -6277,6 +6277,8 @@ pub struct ID3D11Buffer_Vtbl {
     pub base__: ID3D11Resource_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D11_BUFFER_DESC),
 }
+unsafe impl Send for ID3D11Buffer {}
+unsafe impl Sync for ID3D11Buffer {}
 pub trait ID3D11Buffer_Impl: ID3D11Resource_Impl {
     fn GetDesc(&self, pdesc: *mut D3D11_BUFFER_DESC);
 }
@@ -6295,8 +6297,6 @@ impl ID3D11Buffer_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11Buffer {}
-unsafe impl Send for ID3D11Buffer {}
-unsafe impl Sync for ID3D11Buffer {}
 windows_core::imp::define_interface!(ID3D11ClassInstance, ID3D11ClassInstance_Vtbl, 0xa6cd7faa_b0b7_4a2f_9436_8662a65797cb);
 impl core::ops::Deref for ID3D11ClassInstance {
     type Target = ID3D11DeviceChild;
@@ -6331,6 +6331,8 @@ pub struct ID3D11ClassInstance_Vtbl {
     pub GetInstanceName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, *mut usize),
     pub GetTypeName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, *mut usize),
 }
+unsafe impl Send for ID3D11ClassInstance {}
+unsafe impl Sync for ID3D11ClassInstance {}
 pub trait ID3D11ClassInstance_Impl: ID3D11DeviceChild_Impl {
     fn GetClassLinkage(&self, pplinkage: windows_core::OutRef<'_, ID3D11ClassLinkage>);
     fn GetDesc(&self, pdesc: *mut D3D11_CLASS_INSTANCE_DESC);
@@ -6376,8 +6378,6 @@ impl ID3D11ClassInstance_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11ClassInstance {}
-unsafe impl Send for ID3D11ClassInstance {}
-unsafe impl Sync for ID3D11ClassInstance {}
 windows_core::imp::define_interface!(ID3D11ClassLinkage, ID3D11ClassLinkage_Vtbl, 0xddf57cba_9543_46e4_a12b_f207a0fe7fed);
 impl core::ops::Deref for ID3D11ClassLinkage {
     type Target = ID3D11DeviceChild;
@@ -6412,6 +6412,8 @@ pub struct ID3D11ClassLinkage_Vtbl {
     pub GetClassInstance: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateClassInstance: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, u32, u32, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for ID3D11ClassLinkage {}
+unsafe impl Sync for ID3D11ClassLinkage {}
 pub trait ID3D11ClassLinkage_Impl: ID3D11DeviceChild_Impl {
     fn GetClassInstance(&self, pclassinstancename: &windows_core::PCSTR, instanceindex: u32) -> windows_core::Result<ID3D11ClassInstance>;
     fn CreateClassInstance(&self, pclasstypename: &windows_core::PCSTR, constantbufferoffset: u32, constantvectoroffset: u32, textureoffset: u32, sampleroffset: u32) -> windows_core::Result<ID3D11ClassInstance>;
@@ -6453,8 +6455,6 @@ impl ID3D11ClassLinkage_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11ClassLinkage {}
-unsafe impl Send for ID3D11ClassLinkage {}
-unsafe impl Sync for ID3D11ClassLinkage {}
 windows_core::imp::define_interface!(ID3D11CommandList, ID3D11CommandList_Vtbl, 0xa24bc4d1_769e_43f7_8013_98ff566c18e2);
 impl core::ops::Deref for ID3D11CommandList {
     type Target = ID3D11DeviceChild;
@@ -6473,6 +6473,8 @@ pub struct ID3D11CommandList_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
     pub GetContextFlags: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
 }
+unsafe impl Send for ID3D11CommandList {}
+unsafe impl Sync for ID3D11CommandList {}
 pub trait ID3D11CommandList_Impl: ID3D11DeviceChild_Impl {
     fn GetContextFlags(&self) -> u32;
 }
@@ -6491,8 +6493,6 @@ impl ID3D11CommandList_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11CommandList {}
-unsafe impl Send for ID3D11CommandList {}
-unsafe impl Sync for ID3D11CommandList {}
 windows_core::imp::define_interface!(ID3D11ComputeShader, ID3D11ComputeShader_Vtbl, 0x4f5b196e_c2bd_495e_bd01_1fded38e4969);
 impl core::ops::Deref for ID3D11ComputeShader {
     type Target = ID3D11DeviceChild;
@@ -6505,6 +6505,8 @@ windows_core::imp::interface_hierarchy!(ID3D11ComputeShader, windows_core::IUnkn
 pub struct ID3D11ComputeShader_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
 }
+unsafe impl Send for ID3D11ComputeShader {}
+unsafe impl Sync for ID3D11ComputeShader {}
 pub trait ID3D11ComputeShader_Impl: ID3D11DeviceChild_Impl {}
 impl ID3D11ComputeShader_Vtbl {
     pub const fn new<Identity: ID3D11ComputeShader_Impl, const OFFSET: isize>() -> Self {
@@ -6515,8 +6517,6 @@ impl ID3D11ComputeShader_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11ComputeShader {}
-unsafe impl Send for ID3D11ComputeShader {}
-unsafe impl Sync for ID3D11ComputeShader {}
 windows_core::imp::define_interface!(ID3D11Counter, ID3D11Counter_Vtbl, 0x6e8c49fb_a371_4770_b440_29086022b741);
 impl core::ops::Deref for ID3D11Counter {
     type Target = ID3D11Asynchronous;
@@ -6539,6 +6539,8 @@ pub struct ID3D11Counter_Vtbl {
     pub base__: ID3D11Asynchronous_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D11_COUNTER_DESC),
 }
+unsafe impl Send for ID3D11Counter {}
+unsafe impl Sync for ID3D11Counter {}
 pub trait ID3D11Counter_Impl: ID3D11Asynchronous_Impl {
     fn GetDesc(&self, pdesc: *mut D3D11_COUNTER_DESC);
 }
@@ -6557,8 +6559,6 @@ impl ID3D11Counter_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11Counter {}
-unsafe impl Send for ID3D11Counter {}
-unsafe impl Sync for ID3D11Counter {}
 windows_core::imp::define_interface!(ID3D11CryptoSession, ID3D11CryptoSession_Vtbl, 0x9b32f9ad_bdcc_40a6_a39d_d5c865845720);
 impl core::ops::Deref for ID3D11CryptoSession {
     type Target = ID3D11DeviceChild;
@@ -6608,6 +6608,8 @@ pub struct ID3D11CryptoSession_Vtbl {
     pub GetCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u8) -> windows_core::HRESULT,
     pub GetCryptoSessionHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::HANDLE),
 }
+unsafe impl Send for ID3D11CryptoSession {}
+unsafe impl Sync for ID3D11CryptoSession {}
 pub trait ID3D11CryptoSession_Impl: ID3D11DeviceChild_Impl {
     fn GetCryptoType(&self, pcryptotype: *mut windows_core::GUID);
     fn GetDecoderProfile(&self, pdecoderprofile: *mut windows_core::GUID);
@@ -6667,8 +6669,6 @@ impl ID3D11CryptoSession_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11CryptoSession {}
-unsafe impl Send for ID3D11CryptoSession {}
-unsafe impl Sync for ID3D11CryptoSession {}
 windows_core::imp::define_interface!(ID3D11Debug, ID3D11Debug_Vtbl, 0x79cf2233_7536_4948_9d36_1e4692dc5760);
 windows_core::imp::interface_hierarchy!(ID3D11Debug, windows_core::IUnknown);
 impl ID3D11Debug {
@@ -6733,6 +6733,8 @@ pub struct ID3D11Debug_Vtbl {
     pub ReportLiveDeviceObjects: unsafe extern "system" fn(*mut core::ffi::c_void, D3D11_RLDO_FLAGS) -> windows_core::HRESULT,
     pub ValidateContextForDispatch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for ID3D11Debug {}
+unsafe impl Sync for ID3D11Debug {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 pub trait ID3D11Debug_Impl: windows_core::IUnknownImpl {
     fn SetFeatureMask(&self, mask: u32) -> windows_core::Result<()>;
@@ -6827,10 +6829,6 @@ impl ID3D11Debug_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 impl windows_core::RuntimeName for ID3D11Debug {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
-unsafe impl Send for ID3D11Debug {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
-unsafe impl Sync for ID3D11Debug {}
 windows_core::imp::define_interface!(ID3D11DepthStencilState, ID3D11DepthStencilState_Vtbl, 0x03823efb_8d8f_4e1c_9aa2_f64bb2cbfdf1);
 impl core::ops::Deref for ID3D11DepthStencilState {
     type Target = ID3D11DeviceChild;
@@ -6849,6 +6847,8 @@ pub struct ID3D11DepthStencilState_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D11_DEPTH_STENCIL_DESC),
 }
+unsafe impl Send for ID3D11DepthStencilState {}
+unsafe impl Sync for ID3D11DepthStencilState {}
 pub trait ID3D11DepthStencilState_Impl: ID3D11DeviceChild_Impl {
     fn GetDesc(&self, pdesc: *mut D3D11_DEPTH_STENCIL_DESC);
 }
@@ -6867,8 +6867,6 @@ impl ID3D11DepthStencilState_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11DepthStencilState {}
-unsafe impl Send for ID3D11DepthStencilState {}
-unsafe impl Sync for ID3D11DepthStencilState {}
 windows_core::imp::define_interface!(ID3D11DepthStencilView, ID3D11DepthStencilView_Vtbl, 0x9fdac92a_1876_48c3_afad_25b94f84a9b6);
 impl core::ops::Deref for ID3D11DepthStencilView {
     type Target = ID3D11View;
@@ -6891,6 +6889,8 @@ pub struct ID3D11DepthStencilView_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetDesc: usize,
 }
+unsafe impl Send for ID3D11DepthStencilView {}
+unsafe impl Sync for ID3D11DepthStencilView {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D11DepthStencilView_Impl: ID3D11View_Impl {
     fn GetDesc(&self, pdesc: *mut D3D11_DEPTH_STENCIL_VIEW_DESC);
@@ -6912,10 +6912,6 @@ impl ID3D11DepthStencilView_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11DepthStencilView {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for ID3D11DepthStencilView {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for ID3D11DepthStencilView {}
 windows_core::imp::define_interface!(ID3D11Device, ID3D11Device_Vtbl, 0xdb6f6ddb_ac77_4e88_8253_819df9bbf140);
 windows_core::imp::interface_hierarchy!(ID3D11Device, windows_core::IUnknown);
 impl ID3D11Device {
@@ -7198,6 +7194,8 @@ pub struct ID3D11Device_Vtbl {
     pub SetExceptionMode: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetExceptionMode: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
 }
+unsafe impl Send for ID3D11Device {}
+unsafe impl Sync for ID3D11Device {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D11Device_Impl: windows_core::IUnknownImpl {
     fn CreateBuffer(&self, pdesc: *const D3D11_BUFFER_DESC, pinitialdata: *const D3D11_SUBRESOURCE_DATA, ppbuffer: windows_core::OutRef<'_, ID3D11Buffer>) -> windows_core::Result<()>;
@@ -7552,10 +7550,6 @@ impl ID3D11Device_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D11Device {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-unsafe impl Send for ID3D11Device {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-unsafe impl Sync for ID3D11Device {}
 windows_core::imp::define_interface!(ID3D11Device1, ID3D11Device1_Vtbl, 0xa04bfb29_08ef_43d6_a49c_a9bdbdcbe686);
 impl core::ops::Deref for ID3D11Device1 {
     type Target = ID3D11Device;
@@ -7615,6 +7609,8 @@ pub struct ID3D11Device1_Vtbl {
     pub OpenSharedResource1: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HANDLE, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub OpenSharedResourceByName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for ID3D11Device1 {}
+unsafe impl Sync for ID3D11Device1 {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D11Device1_Impl: ID3D11Device_Impl {
     fn GetImmediateContext1(&self, ppimmediatecontext: windows_core::OutRef<'_, ID3D11DeviceContext1>);
@@ -7687,10 +7683,6 @@ impl ID3D11Device1_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D11Device1 {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-unsafe impl Send for ID3D11Device1 {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-unsafe impl Sync for ID3D11Device1 {}
 windows_core::imp::define_interface!(ID3D11Device2, ID3D11Device2_Vtbl, 0x9d06dffa_d1e5_4d07_83a8_1bb123f2f841);
 impl core::ops::Deref for ID3D11Device2 {
     type Target = ID3D11Device1;
@@ -7735,6 +7727,8 @@ pub struct ID3D11Device2_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     CheckMultisampleQualityLevels1: usize,
 }
+unsafe impl Send for ID3D11Device2 {}
+unsafe impl Sync for ID3D11Device2 {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D11Device2_Impl: ID3D11Device1_Impl {
     fn GetImmediateContext2(&self, ppimmediatecontext: windows_core::OutRef<'_, ID3D11DeviceContext2>);
@@ -7789,10 +7783,6 @@ impl ID3D11Device2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D11Device2 {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-unsafe impl Send for ID3D11Device2 {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-unsafe impl Sync for ID3D11Device2 {}
 windows_core::imp::define_interface!(ID3D11Device3, ID3D11Device3_Vtbl, 0xa05c8c37_d2c6_4732_b3a0_9ce0b0dc9ae6);
 impl core::ops::Deref for ID3D11Device3 {
     type Target = ID3D11Device2;
@@ -7890,6 +7880,8 @@ pub struct ID3D11Device3_Vtbl {
     pub WriteToSubresource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const D3D11_BOX, *const core::ffi::c_void, u32, u32),
     pub ReadFromSubresource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, *mut core::ffi::c_void, u32, *const D3D11_BOX),
 }
+unsafe impl Send for ID3D11Device3 {}
+unsafe impl Sync for ID3D11Device3 {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D11Device3_Impl: ID3D11Device2_Impl {
     fn CreateTexture2D1(&self, pdesc1: *const D3D11_TEXTURE2D_DESC1, pinitialdata: *const D3D11_SUBRESOURCE_DATA, pptexture2d: windows_core::OutRef<'_, ID3D11Texture2D1>) -> windows_core::Result<()>;
@@ -7994,10 +7986,6 @@ impl ID3D11Device3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D11Device3 {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-unsafe impl Send for ID3D11Device3 {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-unsafe impl Sync for ID3D11Device3 {}
 windows_core::imp::define_interface!(ID3D11Device4, ID3D11Device4_Vtbl, 0x8992ab71_02e6_4b8d_ba48_b056dcda42c4);
 impl core::ops::Deref for ID3D11Device4 {
     type Target = ID3D11Device3;
@@ -8023,6 +8011,8 @@ pub struct ID3D11Device4_Vtbl {
     pub RegisterDeviceRemovedEvent: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HANDLE, *mut u32) -> windows_core::HRESULT,
     pub UnregisterDeviceRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, u32),
 }
+unsafe impl Send for ID3D11Device4 {}
+unsafe impl Sync for ID3D11Device4 {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D11Device4_Impl: ID3D11Device3_Impl {
     fn RegisterDeviceRemovedEvent(&self, hevent: super::super::Foundation::HANDLE) -> windows_core::Result<u32>;
@@ -8061,10 +8051,6 @@ impl ID3D11Device4_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D11Device4 {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-unsafe impl Send for ID3D11Device4 {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-unsafe impl Sync for ID3D11Device4 {}
 windows_core::imp::define_interface!(ID3D11Device5, ID3D11Device5_Vtbl, 0x8ffde202_a0e7_45df_9e01_e837801b5ea0);
 impl core::ops::Deref for ID3D11Device5 {
     type Target = ID3D11Device4;
@@ -8093,6 +8079,8 @@ pub struct ID3D11Device5_Vtbl {
     pub OpenSharedFence: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HANDLE, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateFence: unsafe extern "system" fn(*mut core::ffi::c_void, u64, D3D11_FENCE_FLAG, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for ID3D11Device5 {}
+unsafe impl Sync for ID3D11Device5 {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D11Device5_Impl: ID3D11Device4_Impl {
     fn OpenSharedFence(&self, hfence: super::super::Foundation::HANDLE, returnedinterface: *const windows_core::GUID, ppfence: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
@@ -8125,10 +8113,6 @@ impl ID3D11Device5_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D11Device5 {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-unsafe impl Send for ID3D11Device5 {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-unsafe impl Sync for ID3D11Device5 {}
 windows_core::imp::define_interface!(ID3D11DeviceChild, ID3D11DeviceChild_Vtbl, 0x1841e5c8_16b0_489b_bcc8_44cfb0d5deae);
 windows_core::imp::interface_hierarchy!(ID3D11DeviceChild, windows_core::IUnknown);
 impl ID3D11DeviceChild {
@@ -8160,6 +8144,8 @@ pub struct ID3D11DeviceChild_Vtbl {
     pub SetPrivateData: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, *const core::ffi::c_void) -> windows_core::HRESULT,
     pub SetPrivateDataInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for ID3D11DeviceChild {}
+unsafe impl Sync for ID3D11DeviceChild {}
 pub trait ID3D11DeviceChild_Impl: windows_core::IUnknownImpl {
     fn GetDevice(&self, ppdevice: windows_core::OutRef<'_, ID3D11Device>);
     fn GetPrivateData(&self, guid: *const windows_core::GUID, pdatasize: *mut u32, pdata: *mut core::ffi::c_void) -> windows_core::Result<()>;
@@ -8205,8 +8191,6 @@ impl ID3D11DeviceChild_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11DeviceChild {}
-unsafe impl Send for ID3D11DeviceChild {}
-unsafe impl Sync for ID3D11DeviceChild {}
 windows_core::imp::define_interface!(ID3D11DeviceContext, ID3D11DeviceContext_Vtbl, 0xc0bfa96c_e089_44fb_8eaf_26f8796190da);
 impl core::ops::Deref for ID3D11DeviceContext {
     type Target = ID3D11DeviceChild;
@@ -8804,6 +8788,8 @@ pub struct ID3D11DeviceContext_Vtbl {
     pub GetContextFlags: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub FinishCommandList: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for ID3D11DeviceContext {}
+unsafe impl Sync for ID3D11DeviceContext {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D11DeviceContext_Impl: ID3D11DeviceChild_Impl {
     fn VSSetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const Option<ID3D11Buffer>);
@@ -9684,10 +9670,6 @@ impl ID3D11DeviceContext_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D11DeviceContext {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-unsafe impl Send for ID3D11DeviceContext {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-unsafe impl Sync for ID3D11DeviceContext {}
 windows_core::imp::define_interface!(ID3D11DeviceContext1, ID3D11DeviceContext1_Vtbl, 0xbb2c6faa_b5fb_4082_8e6b_388b8cfa90e1);
 impl core::ops::Deref for ID3D11DeviceContext1 {
     type Target = ID3D11DeviceContext;
@@ -9800,6 +9782,8 @@ pub struct ID3D11DeviceContext1_Vtbl {
     pub ClearView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const f32, *const super::super::Foundation::RECT, u32),
     pub DiscardView1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::super::Foundation::RECT, u32),
 }
+unsafe impl Send for ID3D11DeviceContext1 {}
+unsafe impl Sync for ID3D11DeviceContext1 {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D11DeviceContext1_Impl: ID3D11DeviceContext_Impl {
     fn CopySubresourceRegion1(&self, pdstresource: windows_core::Ref<ID3D11Resource>, dstsubresource: u32, dstx: u32, dsty: u32, dstz: u32, psrcresource: windows_core::Ref<ID3D11Resource>, srcsubresource: u32, psrcbox: *const D3D11_BOX, copyflags: u32);
@@ -9968,10 +9952,6 @@ impl ID3D11DeviceContext1_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D11DeviceContext1 {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-unsafe impl Send for ID3D11DeviceContext1 {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-unsafe impl Sync for ID3D11DeviceContext1 {}
 windows_core::imp::define_interface!(ID3D11DeviceContext2, ID3D11DeviceContext2_Vtbl, 0x420d5b32_b90c_4da4_bef0_359f6a24a83a);
 impl core::ops::Deref for ID3D11DeviceContext2 {
     type Target = ID3D11DeviceContext1;
@@ -10054,6 +10034,8 @@ pub struct ID3D11DeviceContext2_Vtbl {
     pub BeginEventInt: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32),
     pub EndEvent: unsafe extern "system" fn(*mut core::ffi::c_void),
 }
+unsafe impl Send for ID3D11DeviceContext2 {}
+unsafe impl Sync for ID3D11DeviceContext2 {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D11DeviceContext2_Impl: ID3D11DeviceContext1_Impl {
     fn UpdateTileMappings(&self, ptiledresource: windows_core::Ref<ID3D11Resource>, numtiledresourceregions: u32, ptiledresourceregionstartcoordinates: *const D3D11_TILED_RESOURCE_COORDINATE, ptiledresourceregionsizes: *const D3D11_TILE_REGION_SIZE, ptilepool: windows_core::Ref<ID3D11Buffer>, numranges: u32, prangeflags: *const u32, ptilepoolstartoffsets: *const u32, prangetilecounts: *const u32, flags: u32) -> windows_core::Result<()>;
@@ -10150,10 +10132,6 @@ impl ID3D11DeviceContext2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D11DeviceContext2 {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-unsafe impl Send for ID3D11DeviceContext2 {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-unsafe impl Sync for ID3D11DeviceContext2 {}
 windows_core::imp::define_interface!(ID3D11DeviceContext3, ID3D11DeviceContext3_Vtbl, 0xb4e3c01d_e79e_4637_91b2_510e9f4c9b8f);
 impl core::ops::Deref for ID3D11DeviceContext3 {
     type Target = ID3D11DeviceContext2;
@@ -10184,6 +10162,8 @@ pub struct ID3D11DeviceContext3_Vtbl {
     pub SetHardwareProtectionState: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL),
     pub GetHardwareProtectionState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL),
 }
+unsafe impl Send for ID3D11DeviceContext3 {}
+unsafe impl Sync for ID3D11DeviceContext3 {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D11DeviceContext3_Impl: ID3D11DeviceContext2_Impl {
     fn Flush1(&self, contexttype: D3D11_CONTEXT_TYPE, hevent: super::super::Foundation::HANDLE);
@@ -10224,10 +10204,6 @@ impl ID3D11DeviceContext3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D11DeviceContext3 {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-unsafe impl Send for ID3D11DeviceContext3 {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-unsafe impl Sync for ID3D11DeviceContext3 {}
 windows_core::imp::define_interface!(ID3D11DeviceContext4, ID3D11DeviceContext4_Vtbl, 0x917600da_f58c_4c33_98d8_3e15b390fa24);
 impl core::ops::Deref for ID3D11DeviceContext4 {
     type Target = ID3D11DeviceContext3;
@@ -10256,6 +10232,8 @@ pub struct ID3D11DeviceContext4_Vtbl {
     pub Signal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u64) -> windows_core::HRESULT,
     pub Wait: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u64) -> windows_core::HRESULT,
 }
+unsafe impl Send for ID3D11DeviceContext4 {}
+unsafe impl Sync for ID3D11DeviceContext4 {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D11DeviceContext4_Impl: ID3D11DeviceContext3_Impl {
     fn Signal(&self, pfence: windows_core::Ref<ID3D11Fence>, value: u64) -> windows_core::Result<()>;
@@ -10284,10 +10262,6 @@ impl ID3D11DeviceContext4_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D11DeviceContext4 {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-unsafe impl Send for ID3D11DeviceContext4 {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-unsafe impl Sync for ID3D11DeviceContext4 {}
 windows_core::imp::define_interface!(ID3D11DomainShader, ID3D11DomainShader_Vtbl, 0xf582c508_0f36_490c_9977_31eece268cfa);
 impl core::ops::Deref for ID3D11DomainShader {
     type Target = ID3D11DeviceChild;
@@ -10300,6 +10274,8 @@ windows_core::imp::interface_hierarchy!(ID3D11DomainShader, windows_core::IUnkno
 pub struct ID3D11DomainShader_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
 }
+unsafe impl Send for ID3D11DomainShader {}
+unsafe impl Sync for ID3D11DomainShader {}
 pub trait ID3D11DomainShader_Impl: ID3D11DeviceChild_Impl {}
 impl ID3D11DomainShader_Vtbl {
     pub const fn new<Identity: ID3D11DomainShader_Impl, const OFFSET: isize>() -> Self {
@@ -10310,8 +10286,6 @@ impl ID3D11DomainShader_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11DomainShader {}
-unsafe impl Send for ID3D11DomainShader {}
-unsafe impl Sync for ID3D11DomainShader {}
 windows_core::imp::define_interface!(ID3D11Fence, ID3D11Fence_Vtbl, 0xaffde9d1_1df7_4bb7_8a34_0f46251dab80);
 impl core::ops::Deref for ID3D11Fence {
     type Target = ID3D11DeviceChild;
@@ -10348,6 +10322,8 @@ pub struct ID3D11Fence_Vtbl {
     pub GetCompletedValue: unsafe extern "system" fn(*mut core::ffi::c_void) -> u64,
     pub SetEventOnCompletion: unsafe extern "system" fn(*mut core::ffi::c_void, u64, super::super::Foundation::HANDLE) -> windows_core::HRESULT,
 }
+unsafe impl Send for ID3D11Fence {}
+unsafe impl Sync for ID3D11Fence {}
 #[cfg(feature = "Win32_Security")]
 pub trait ID3D11Fence_Impl: ID3D11DeviceChild_Impl {
     fn CreateSharedHandle(&self, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwaccess: u32, lpname: &windows_core::PCWSTR) -> windows_core::Result<super::super::Foundation::HANDLE>;
@@ -10394,10 +10370,6 @@ impl ID3D11Fence_Vtbl {
 }
 #[cfg(feature = "Win32_Security")]
 impl windows_core::RuntimeName for ID3D11Fence {}
-#[cfg(feature = "Win32_Security")]
-unsafe impl Send for ID3D11Fence {}
-#[cfg(feature = "Win32_Security")]
-unsafe impl Sync for ID3D11Fence {}
 windows_core::imp::define_interface!(ID3D11FunctionLinkingGraph, ID3D11FunctionLinkingGraph_Vtbl, 0x54133220_1ce8_43d3_8236_9855c5ceecff);
 windows_core::imp::interface_hierarchy!(ID3D11FunctionLinkingGraph, windows_core::IUnknown);
 impl ID3D11FunctionLinkingGraph {
@@ -10485,6 +10457,8 @@ pub struct ID3D11FunctionLinkingGraph_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct3D"))]
     GenerateHlsl: usize,
 }
+unsafe impl Send for ID3D11FunctionLinkingGraph {}
+unsafe impl Sync for ID3D11FunctionLinkingGraph {}
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub trait ID3D11FunctionLinkingGraph_Impl: windows_core::IUnknownImpl {
     fn CreateModuleInstance(&self, ppmoduleinstance: windows_core::OutRef<'_, ID3D11ModuleInstance>, pperrorbuffer: windows_core::OutRef<'_, super::Direct3D::ID3DBlob>) -> windows_core::Result<()>;
@@ -10589,10 +10563,6 @@ impl ID3D11FunctionLinkingGraph_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl windows_core::RuntimeName for ID3D11FunctionLinkingGraph {}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-unsafe impl Send for ID3D11FunctionLinkingGraph {}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-unsafe impl Sync for ID3D11FunctionLinkingGraph {}
 windows_core::imp::define_interface!(ID3D11FunctionParameterReflection, ID3D11FunctionParameterReflection_Vtbl);
 impl ID3D11FunctionParameterReflection {
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -10607,6 +10577,8 @@ pub struct ID3D11FunctionParameterReflection_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct3D"))]
     GetDesc: usize,
 }
+unsafe impl Send for ID3D11FunctionParameterReflection {}
+unsafe impl Sync for ID3D11FunctionParameterReflection {}
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub trait ID3D11FunctionParameterReflection_Impl {
     fn GetDesc(&self, pdesc: *mut D3D11_PARAMETER_DESC) -> windows_core::Result<()>;
@@ -10638,10 +10610,6 @@ impl ID3D11FunctionParameterReflection {
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-unsafe impl Send for ID3D11FunctionParameterReflection {}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-unsafe impl Sync for ID3D11FunctionParameterReflection {}
 windows_core::imp::define_interface!(ID3D11FunctionReflection, ID3D11FunctionReflection_Vtbl);
 impl ID3D11FunctionReflection {
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -10697,6 +10665,8 @@ pub struct ID3D11FunctionReflection_Vtbl {
     GetResourceBindingDescByName: usize,
     pub GetFunctionParameter: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> Option<ID3D11FunctionParameterReflection>,
 }
+unsafe impl Send for ID3D11FunctionReflection {}
+unsafe impl Sync for ID3D11FunctionReflection {}
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub trait ID3D11FunctionReflection_Impl {
     fn GetDesc(&self, pdesc: *mut D3D11_FUNCTION_DESC) -> windows_core::Result<()>;
@@ -10784,10 +10754,6 @@ impl ID3D11FunctionReflection {
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-unsafe impl Send for ID3D11FunctionReflection {}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-unsafe impl Sync for ID3D11FunctionReflection {}
 windows_core::imp::define_interface!(ID3D11GeometryShader, ID3D11GeometryShader_Vtbl, 0x38325b96_effb_4022_ba02_2e795b70275c);
 impl core::ops::Deref for ID3D11GeometryShader {
     type Target = ID3D11DeviceChild;
@@ -10800,6 +10766,8 @@ windows_core::imp::interface_hierarchy!(ID3D11GeometryShader, windows_core::IUnk
 pub struct ID3D11GeometryShader_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
 }
+unsafe impl Send for ID3D11GeometryShader {}
+unsafe impl Sync for ID3D11GeometryShader {}
 pub trait ID3D11GeometryShader_Impl: ID3D11DeviceChild_Impl {}
 impl ID3D11GeometryShader_Vtbl {
     pub const fn new<Identity: ID3D11GeometryShader_Impl, const OFFSET: isize>() -> Self {
@@ -10810,8 +10778,6 @@ impl ID3D11GeometryShader_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11GeometryShader {}
-unsafe impl Send for ID3D11GeometryShader {}
-unsafe impl Sync for ID3D11GeometryShader {}
 windows_core::imp::define_interface!(ID3D11HullShader, ID3D11HullShader_Vtbl, 0x8e5c6061_628a_4c8e_8264_bbe45cb3d5dd);
 impl core::ops::Deref for ID3D11HullShader {
     type Target = ID3D11DeviceChild;
@@ -10824,6 +10790,8 @@ windows_core::imp::interface_hierarchy!(ID3D11HullShader, windows_core::IUnknown
 pub struct ID3D11HullShader_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
 }
+unsafe impl Send for ID3D11HullShader {}
+unsafe impl Sync for ID3D11HullShader {}
 pub trait ID3D11HullShader_Impl: ID3D11DeviceChild_Impl {}
 impl ID3D11HullShader_Vtbl {
     pub const fn new<Identity: ID3D11HullShader_Impl, const OFFSET: isize>() -> Self {
@@ -10834,8 +10802,6 @@ impl ID3D11HullShader_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11HullShader {}
-unsafe impl Send for ID3D11HullShader {}
-unsafe impl Sync for ID3D11HullShader {}
 windows_core::imp::define_interface!(ID3D11InfoQueue, ID3D11InfoQueue_Vtbl, 0x6543dbb6_1b48_42f5_ab82_e97ec74326f6);
 windows_core::imp::interface_hierarchy!(ID3D11InfoQueue, windows_core::IUnknown);
 impl ID3D11InfoQueue {
@@ -10990,6 +10956,8 @@ pub struct ID3D11InfoQueue_Vtbl {
     pub SetMuteDebugOutput: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL),
     pub GetMuteDebugOutput: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
 }
+unsafe impl Send for ID3D11InfoQueue {}
+unsafe impl Sync for ID3D11InfoQueue {}
 pub trait ID3D11InfoQueue_Impl: windows_core::IUnknownImpl {
     fn SetMessageCountLimit(&self, messagecountlimit: u64) -> windows_core::Result<()>;
     fn ClearStoredMessages(&self);
@@ -11283,8 +11251,6 @@ impl ID3D11InfoQueue_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11InfoQueue {}
-unsafe impl Send for ID3D11InfoQueue {}
-unsafe impl Sync for ID3D11InfoQueue {}
 windows_core::imp::define_interface!(ID3D11InputLayout, ID3D11InputLayout_Vtbl, 0xe4819ddc_4cf0_4025_bd26_5de82a3e07b7);
 impl core::ops::Deref for ID3D11InputLayout {
     type Target = ID3D11DeviceChild;
@@ -11297,6 +11263,8 @@ windows_core::imp::interface_hierarchy!(ID3D11InputLayout, windows_core::IUnknow
 pub struct ID3D11InputLayout_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
 }
+unsafe impl Send for ID3D11InputLayout {}
+unsafe impl Sync for ID3D11InputLayout {}
 pub trait ID3D11InputLayout_Impl: ID3D11DeviceChild_Impl {}
 impl ID3D11InputLayout_Vtbl {
     pub const fn new<Identity: ID3D11InputLayout_Impl, const OFFSET: isize>() -> Self {
@@ -11307,8 +11275,6 @@ impl ID3D11InputLayout_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11InputLayout {}
-unsafe impl Send for ID3D11InputLayout {}
-unsafe impl Sync for ID3D11InputLayout {}
 windows_core::imp::define_interface!(ID3D11LibraryReflection, ID3D11LibraryReflection_Vtbl, 0x54384f1b_5b3e_4bb7_ae01_60ba3097cbb6);
 windows_core::imp::interface_hierarchy!(ID3D11LibraryReflection, windows_core::IUnknown);
 impl ID3D11LibraryReflection {
@@ -11328,6 +11294,8 @@ pub struct ID3D11LibraryReflection_Vtbl {
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D11_LIBRARY_DESC) -> windows_core::HRESULT,
     pub GetFunctionByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> Option<ID3D11FunctionReflection>,
 }
+unsafe impl Send for ID3D11LibraryReflection {}
+unsafe impl Sync for ID3D11LibraryReflection {}
 pub trait ID3D11LibraryReflection_Impl: windows_core::IUnknownImpl {
     fn GetDesc(&self) -> windows_core::Result<D3D11_LIBRARY_DESC>;
     fn GetFunctionByIndex(&self, functionindex: i32) -> Option<ID3D11FunctionReflection>;
@@ -11363,8 +11331,6 @@ impl ID3D11LibraryReflection_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11LibraryReflection {}
-unsafe impl Send for ID3D11LibraryReflection {}
-unsafe impl Sync for ID3D11LibraryReflection {}
 windows_core::imp::define_interface!(ID3D11Linker, ID3D11Linker_Vtbl, 0x59a6cd0e_e10d_4c1f_88c0_63aba1daf30e);
 windows_core::imp::interface_hierarchy!(ID3D11Linker, windows_core::IUnknown);
 impl ID3D11Linker {
@@ -11397,6 +11363,8 @@ pub struct ID3D11Linker_Vtbl {
     pub UseLibrary: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddClipPlaneFromCBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
+unsafe impl Send for ID3D11Linker {}
+unsafe impl Sync for ID3D11Linker {}
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub trait ID3D11Linker_Impl: windows_core::IUnknownImpl {
     fn Link(&self, pentry: windows_core::Ref<ID3D11ModuleInstance>, pentryname: &windows_core::PCSTR, ptargetname: &windows_core::PCSTR, uflags: u32, ppshaderblob: windows_core::OutRef<'_, super::Direct3D::ID3DBlob>, pperrorbuffer: windows_core::OutRef<'_, super::Direct3D::ID3DBlob>) -> windows_core::Result<()>;
@@ -11437,16 +11405,14 @@ impl ID3D11Linker_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl windows_core::RuntimeName for ID3D11Linker {}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-unsafe impl Send for ID3D11Linker {}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-unsafe impl Sync for ID3D11Linker {}
 windows_core::imp::define_interface!(ID3D11LinkingNode, ID3D11LinkingNode_Vtbl, 0xd80dd70c_8d2f_4751_94a1_03c79b3556db);
 windows_core::imp::interface_hierarchy!(ID3D11LinkingNode, windows_core::IUnknown);
 #[repr(C)]
 pub struct ID3D11LinkingNode_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
 }
+unsafe impl Send for ID3D11LinkingNode {}
+unsafe impl Sync for ID3D11LinkingNode {}
 pub trait ID3D11LinkingNode_Impl: windows_core::IUnknownImpl {}
 impl ID3D11LinkingNode_Vtbl {
     pub const fn new<Identity: ID3D11LinkingNode_Impl, const OFFSET: isize>() -> Self {
@@ -11457,8 +11423,6 @@ impl ID3D11LinkingNode_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11LinkingNode {}
-unsafe impl Send for ID3D11LinkingNode {}
-unsafe impl Sync for ID3D11LinkingNode {}
 windows_core::imp::define_interface!(ID3D11Module, ID3D11Module_Vtbl, 0xcac701ee_80fc_4122_8242_10b39c8cec34);
 windows_core::imp::interface_hierarchy!(ID3D11Module, windows_core::IUnknown);
 impl ID3D11Module {
@@ -11477,6 +11441,8 @@ pub struct ID3D11Module_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for ID3D11Module {}
+unsafe impl Sync for ID3D11Module {}
 pub trait ID3D11Module_Impl: windows_core::IUnknownImpl {
     fn CreateInstance(&self, pnamespace: &windows_core::PCSTR) -> windows_core::Result<ID3D11ModuleInstance>;
 }
@@ -11501,8 +11467,6 @@ impl ID3D11Module_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11Module {}
-unsafe impl Send for ID3D11Module {}
-unsafe impl Sync for ID3D11Module {}
 windows_core::imp::define_interface!(ID3D11ModuleInstance, ID3D11ModuleInstance_Vtbl, 0x469e07f7_045a_48d5_aa12_68a478cdf75d);
 windows_core::imp::interface_hierarchy!(ID3D11ModuleInstance, windows_core::IUnknown);
 impl ID3D11ModuleInstance {
@@ -11566,6 +11530,8 @@ pub struct ID3D11ModuleInstance_Vtbl {
     pub BindResourceAsUnorderedAccessView: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32) -> windows_core::HRESULT,
     pub BindResourceAsUnorderedAccessViewByName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, u32, u32) -> windows_core::HRESULT,
 }
+unsafe impl Send for ID3D11ModuleInstance {}
+unsafe impl Sync for ID3D11ModuleInstance {}
 pub trait ID3D11ModuleInstance_Impl: windows_core::IUnknownImpl {
     fn BindConstantBuffer(&self, usrcslot: u32, udstslot: u32, cbdstoffset: u32) -> windows_core::Result<()>;
     fn BindConstantBufferByName(&self, pname: &windows_core::PCSTR, udstslot: u32, cbdstoffset: u32) -> windows_core::Result<()>;
@@ -11659,8 +11625,6 @@ impl ID3D11ModuleInstance_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11ModuleInstance {}
-unsafe impl Send for ID3D11ModuleInstance {}
-unsafe impl Sync for ID3D11ModuleInstance {}
 windows_core::imp::define_interface!(ID3D11Multithread, ID3D11Multithread_Vtbl, 0x9b7e4e00_342c_4106_a19f_4f2704f689f0);
 windows_core::imp::interface_hierarchy!(ID3D11Multithread, windows_core::IUnknown);
 impl ID3D11Multithread {
@@ -11685,6 +11649,8 @@ pub struct ID3D11Multithread_Vtbl {
     pub SetMultithreadProtected: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> super::super::Foundation::BOOL,
     pub GetMultithreadProtected: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
 }
+unsafe impl Send for ID3D11Multithread {}
+unsafe impl Sync for ID3D11Multithread {}
 pub trait ID3D11Multithread_Impl: windows_core::IUnknownImpl {
     fn Enter(&self);
     fn Leave(&self);
@@ -11730,8 +11696,6 @@ impl ID3D11Multithread_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11Multithread {}
-unsafe impl Send for ID3D11Multithread {}
-unsafe impl Sync for ID3D11Multithread {}
 windows_core::imp::define_interface!(ID3D11PixelShader, ID3D11PixelShader_Vtbl, 0xea82e40d_51dc_4f33_93d4_db7c9125ae8c);
 impl core::ops::Deref for ID3D11PixelShader {
     type Target = ID3D11DeviceChild;
@@ -11744,6 +11708,8 @@ windows_core::imp::interface_hierarchy!(ID3D11PixelShader, windows_core::IUnknow
 pub struct ID3D11PixelShader_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
 }
+unsafe impl Send for ID3D11PixelShader {}
+unsafe impl Sync for ID3D11PixelShader {}
 pub trait ID3D11PixelShader_Impl: ID3D11DeviceChild_Impl {}
 impl ID3D11PixelShader_Vtbl {
     pub const fn new<Identity: ID3D11PixelShader_Impl, const OFFSET: isize>() -> Self {
@@ -11754,8 +11720,6 @@ impl ID3D11PixelShader_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11PixelShader {}
-unsafe impl Send for ID3D11PixelShader {}
-unsafe impl Sync for ID3D11PixelShader {}
 windows_core::imp::define_interface!(ID3D11Predicate, ID3D11Predicate_Vtbl, 0x9eb576dd_9f77_4d86_81aa_8bab5fe490e2);
 impl core::ops::Deref for ID3D11Predicate {
     type Target = ID3D11Query;
@@ -11768,6 +11732,8 @@ windows_core::imp::interface_hierarchy!(ID3D11Predicate, windows_core::IUnknown,
 pub struct ID3D11Predicate_Vtbl {
     pub base__: ID3D11Query_Vtbl,
 }
+unsafe impl Send for ID3D11Predicate {}
+unsafe impl Sync for ID3D11Predicate {}
 pub trait ID3D11Predicate_Impl: ID3D11Query_Impl {}
 impl ID3D11Predicate_Vtbl {
     pub const fn new<Identity: ID3D11Predicate_Impl, const OFFSET: isize>() -> Self {
@@ -11778,8 +11744,6 @@ impl ID3D11Predicate_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11Predicate {}
-unsafe impl Send for ID3D11Predicate {}
-unsafe impl Sync for ID3D11Predicate {}
 windows_core::imp::define_interface!(ID3D11Query, ID3D11Query_Vtbl, 0xd6c00747_87b7_425e_b84d_44d108560afd);
 impl core::ops::Deref for ID3D11Query {
     type Target = ID3D11Asynchronous;
@@ -11802,6 +11766,8 @@ pub struct ID3D11Query_Vtbl {
     pub base__: ID3D11Asynchronous_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D11_QUERY_DESC),
 }
+unsafe impl Send for ID3D11Query {}
+unsafe impl Sync for ID3D11Query {}
 pub trait ID3D11Query_Impl: ID3D11Asynchronous_Impl {
     fn GetDesc(&self, pdesc: *mut D3D11_QUERY_DESC);
 }
@@ -11820,8 +11786,6 @@ impl ID3D11Query_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11Query {}
-unsafe impl Send for ID3D11Query {}
-unsafe impl Sync for ID3D11Query {}
 windows_core::imp::define_interface!(ID3D11Query1, ID3D11Query1_Vtbl, 0x631b4766_36dc_461d_8db6_c47e13e60916);
 impl core::ops::Deref for ID3D11Query1 {
     type Target = ID3D11Query;
@@ -11844,6 +11808,8 @@ pub struct ID3D11Query1_Vtbl {
     pub base__: ID3D11Query_Vtbl,
     pub GetDesc1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D11_QUERY_DESC1),
 }
+unsafe impl Send for ID3D11Query1 {}
+unsafe impl Sync for ID3D11Query1 {}
 pub trait ID3D11Query1_Impl: ID3D11Query_Impl {
     fn GetDesc1(&self, pdesc1: *mut D3D11_QUERY_DESC1);
 }
@@ -11862,8 +11828,6 @@ impl ID3D11Query1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11Query1 {}
-unsafe impl Send for ID3D11Query1 {}
-unsafe impl Sync for ID3D11Query1 {}
 windows_core::imp::define_interface!(ID3D11RasterizerState, ID3D11RasterizerState_Vtbl, 0x9bb4ab81_ab1a_4d8f_b506_fc04200b6ee7);
 impl core::ops::Deref for ID3D11RasterizerState {
     type Target = ID3D11DeviceChild;
@@ -11882,6 +11846,8 @@ pub struct ID3D11RasterizerState_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D11_RASTERIZER_DESC),
 }
+unsafe impl Send for ID3D11RasterizerState {}
+unsafe impl Sync for ID3D11RasterizerState {}
 pub trait ID3D11RasterizerState_Impl: ID3D11DeviceChild_Impl {
     fn GetDesc(&self, pdesc: *mut D3D11_RASTERIZER_DESC);
 }
@@ -11900,8 +11866,6 @@ impl ID3D11RasterizerState_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11RasterizerState {}
-unsafe impl Send for ID3D11RasterizerState {}
-unsafe impl Sync for ID3D11RasterizerState {}
 windows_core::imp::define_interface!(ID3D11RasterizerState1, ID3D11RasterizerState1_Vtbl, 0x1217d7a6_5039_418c_b042_9cbe256afd6e);
 impl core::ops::Deref for ID3D11RasterizerState1 {
     type Target = ID3D11RasterizerState;
@@ -11920,6 +11884,8 @@ pub struct ID3D11RasterizerState1_Vtbl {
     pub base__: ID3D11RasterizerState_Vtbl,
     pub GetDesc1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D11_RASTERIZER_DESC1),
 }
+unsafe impl Send for ID3D11RasterizerState1 {}
+unsafe impl Sync for ID3D11RasterizerState1 {}
 pub trait ID3D11RasterizerState1_Impl: ID3D11RasterizerState_Impl {
     fn GetDesc1(&self, pdesc: *mut D3D11_RASTERIZER_DESC1);
 }
@@ -11938,8 +11904,6 @@ impl ID3D11RasterizerState1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11RasterizerState1 {}
-unsafe impl Send for ID3D11RasterizerState1 {}
-unsafe impl Sync for ID3D11RasterizerState1 {}
 windows_core::imp::define_interface!(ID3D11RasterizerState2, ID3D11RasterizerState2_Vtbl, 0x6fbd02fb_209f_46c4_b059_2ed15586a6ac);
 impl core::ops::Deref for ID3D11RasterizerState2 {
     type Target = ID3D11RasterizerState1;
@@ -11958,6 +11922,8 @@ pub struct ID3D11RasterizerState2_Vtbl {
     pub base__: ID3D11RasterizerState1_Vtbl,
     pub GetDesc2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D11_RASTERIZER_DESC2),
 }
+unsafe impl Send for ID3D11RasterizerState2 {}
+unsafe impl Sync for ID3D11RasterizerState2 {}
 pub trait ID3D11RasterizerState2_Impl: ID3D11RasterizerState1_Impl {
     fn GetDesc2(&self, pdesc: *mut D3D11_RASTERIZER_DESC2);
 }
@@ -11976,8 +11942,6 @@ impl ID3D11RasterizerState2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11RasterizerState2 {}
-unsafe impl Send for ID3D11RasterizerState2 {}
-unsafe impl Sync for ID3D11RasterizerState2 {}
 windows_core::imp::define_interface!(ID3D11RefDefaultTrackingOptions, ID3D11RefDefaultTrackingOptions_Vtbl, 0x03916615_c644_418c_9bf4_75db5be63ca0);
 windows_core::imp::interface_hierarchy!(ID3D11RefDefaultTrackingOptions, windows_core::IUnknown);
 impl ID3D11RefDefaultTrackingOptions {
@@ -11990,6 +11954,8 @@ pub struct ID3D11RefDefaultTrackingOptions_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetTrackingOptions: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
+unsafe impl Send for ID3D11RefDefaultTrackingOptions {}
+unsafe impl Sync for ID3D11RefDefaultTrackingOptions {}
 pub trait ID3D11RefDefaultTrackingOptions_Impl: windows_core::IUnknownImpl {
     fn SetTrackingOptions(&self, resourcetypeflags: u32, options: u32) -> windows_core::Result<()>;
 }
@@ -12008,8 +11974,6 @@ impl ID3D11RefDefaultTrackingOptions_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11RefDefaultTrackingOptions {}
-unsafe impl Send for ID3D11RefDefaultTrackingOptions {}
-unsafe impl Sync for ID3D11RefDefaultTrackingOptions {}
 windows_core::imp::define_interface!(ID3D11RefTrackingOptions, ID3D11RefTrackingOptions_Vtbl, 0x193dacdf_0db2_4c05_a55c_ef06cac56fd9);
 windows_core::imp::interface_hierarchy!(ID3D11RefTrackingOptions, windows_core::IUnknown);
 impl ID3D11RefTrackingOptions {
@@ -12022,6 +11986,8 @@ pub struct ID3D11RefTrackingOptions_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetTrackingOptions: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
+unsafe impl Send for ID3D11RefTrackingOptions {}
+unsafe impl Sync for ID3D11RefTrackingOptions {}
 pub trait ID3D11RefTrackingOptions_Impl: windows_core::IUnknownImpl {
     fn SetTrackingOptions(&self, uoptions: u32) -> windows_core::Result<()>;
 }
@@ -12040,8 +12006,6 @@ impl ID3D11RefTrackingOptions_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11RefTrackingOptions {}
-unsafe impl Send for ID3D11RefTrackingOptions {}
-unsafe impl Sync for ID3D11RefTrackingOptions {}
 windows_core::imp::define_interface!(ID3D11RenderTargetView, ID3D11RenderTargetView_Vtbl, 0xdfdba067_0b8d_4865_875b_d7b4516cc164);
 impl core::ops::Deref for ID3D11RenderTargetView {
     type Target = ID3D11View;
@@ -12064,6 +12028,8 @@ pub struct ID3D11RenderTargetView_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetDesc: usize,
 }
+unsafe impl Send for ID3D11RenderTargetView {}
+unsafe impl Sync for ID3D11RenderTargetView {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D11RenderTargetView_Impl: ID3D11View_Impl {
     fn GetDesc(&self, pdesc: *mut D3D11_RENDER_TARGET_VIEW_DESC);
@@ -12085,10 +12051,6 @@ impl ID3D11RenderTargetView_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11RenderTargetView {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for ID3D11RenderTargetView {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for ID3D11RenderTargetView {}
 windows_core::imp::define_interface!(ID3D11RenderTargetView1, ID3D11RenderTargetView1_Vtbl, 0xffbe2e23_f011_418a_ac56_5ceed7c5b94b);
 impl core::ops::Deref for ID3D11RenderTargetView1 {
     type Target = ID3D11RenderTargetView;
@@ -12111,6 +12073,8 @@ pub struct ID3D11RenderTargetView1_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetDesc1: usize,
 }
+unsafe impl Send for ID3D11RenderTargetView1 {}
+unsafe impl Sync for ID3D11RenderTargetView1 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D11RenderTargetView1_Impl: ID3D11RenderTargetView_Impl {
     fn GetDesc1(&self, pdesc1: *mut D3D11_RENDER_TARGET_VIEW_DESC1);
@@ -12132,10 +12096,6 @@ impl ID3D11RenderTargetView1_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11RenderTargetView1 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for ID3D11RenderTargetView1 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for ID3D11RenderTargetView1 {}
 windows_core::imp::define_interface!(ID3D11Resource, ID3D11Resource_Vtbl, 0xdc8e63f3_d12b_4952_b47b_5e45026a862d);
 impl core::ops::Deref for ID3D11Resource {
     type Target = ID3D11DeviceChild;
@@ -12166,6 +12126,8 @@ pub struct ID3D11Resource_Vtbl {
     pub SetEvictionPriority: unsafe extern "system" fn(*mut core::ffi::c_void, u32),
     pub GetEvictionPriority: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
 }
+unsafe impl Send for ID3D11Resource {}
+unsafe impl Sync for ID3D11Resource {}
 pub trait ID3D11Resource_Impl: ID3D11DeviceChild_Impl {
     fn GetType(&self, presourcedimension: *mut D3D11_RESOURCE_DIMENSION);
     fn SetEvictionPriority(&self, evictionpriority: u32);
@@ -12203,8 +12165,6 @@ impl ID3D11Resource_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11Resource {}
-unsafe impl Send for ID3D11Resource {}
-unsafe impl Sync for ID3D11Resource {}
 windows_core::imp::define_interface!(ID3D11SamplerState, ID3D11SamplerState_Vtbl, 0xda6fea51_564c_4487_9810_f0d0f9b4e3a5);
 impl core::ops::Deref for ID3D11SamplerState {
     type Target = ID3D11DeviceChild;
@@ -12223,6 +12183,8 @@ pub struct ID3D11SamplerState_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D11_SAMPLER_DESC),
 }
+unsafe impl Send for ID3D11SamplerState {}
+unsafe impl Sync for ID3D11SamplerState {}
 pub trait ID3D11SamplerState_Impl: ID3D11DeviceChild_Impl {
     fn GetDesc(&self, pdesc: *mut D3D11_SAMPLER_DESC);
 }
@@ -12241,8 +12203,6 @@ impl ID3D11SamplerState_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11SamplerState {}
-unsafe impl Send for ID3D11SamplerState {}
-unsafe impl Sync for ID3D11SamplerState {}
 windows_core::imp::define_interface!(ID3D11ShaderReflection, ID3D11ShaderReflection_Vtbl, 0x8d536ca1_0cca_4956_a837_786963755584);
 windows_core::imp::interface_hierarchy!(ID3D11ShaderReflection, windows_core::IUnknown);
 impl ID3D11ShaderReflection {
@@ -12371,6 +12331,8 @@ pub struct ID3D11ShaderReflection_Vtbl {
     pub GetThreadGroupSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32, *mut u32) -> u32,
     pub GetRequiresFlags: unsafe extern "system" fn(*mut core::ffi::c_void) -> u64,
 }
+unsafe impl Send for ID3D11ShaderReflection {}
+unsafe impl Sync for ID3D11ShaderReflection {}
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub trait ID3D11ShaderReflection_Impl: windows_core::IUnknownImpl {
     fn GetDesc(&self, pdesc: *mut D3D11_SHADER_DESC) -> windows_core::Result<()>;
@@ -12545,10 +12507,6 @@ impl ID3D11ShaderReflection_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl windows_core::RuntimeName for ID3D11ShaderReflection {}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-unsafe impl Send for ID3D11ShaderReflection {}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-unsafe impl Sync for ID3D11ShaderReflection {}
 windows_core::imp::define_interface!(ID3D11ShaderReflectionConstantBuffer, ID3D11ShaderReflectionConstantBuffer_Vtbl);
 impl ID3D11ShaderReflectionConstantBuffer {
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -12574,6 +12532,8 @@ pub struct ID3D11ShaderReflectionConstantBuffer_Vtbl {
     pub GetVariableByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> Option<ID3D11ShaderReflectionVariable>,
     pub GetVariableByName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR) -> Option<ID3D11ShaderReflectionVariable>,
 }
+unsafe impl Send for ID3D11ShaderReflectionConstantBuffer {}
+unsafe impl Sync for ID3D11ShaderReflectionConstantBuffer {}
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub trait ID3D11ShaderReflectionConstantBuffer_Impl {
     fn GetDesc(&self, pdesc: *mut D3D11_SHADER_BUFFER_DESC) -> windows_core::Result<()>;
@@ -12621,10 +12581,6 @@ impl ID3D11ShaderReflectionConstantBuffer {
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-unsafe impl Send for ID3D11ShaderReflectionConstantBuffer {}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-unsafe impl Sync for ID3D11ShaderReflectionConstantBuffer {}
 windows_core::imp::define_interface!(ID3D11ShaderReflectionType, ID3D11ShaderReflectionType_Vtbl);
 impl ID3D11ShaderReflectionType {
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -12691,6 +12647,8 @@ pub struct ID3D11ShaderReflectionType_Vtbl {
     pub IsOfType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ImplementsInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for ID3D11ShaderReflectionType {}
+unsafe impl Sync for ID3D11ShaderReflectionType {}
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub trait ID3D11ShaderReflectionType_Impl {
     fn GetDesc(&self, pdesc: *mut D3D11_SHADER_TYPE_DESC) -> windows_core::Result<()>;
@@ -12814,10 +12772,6 @@ impl ID3D11ShaderReflectionType {
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-unsafe impl Send for ID3D11ShaderReflectionType {}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-unsafe impl Sync for ID3D11ShaderReflectionType {}
 windows_core::imp::define_interface!(ID3D11ShaderReflectionVariable, ID3D11ShaderReflectionVariable_Vtbl);
 impl ID3D11ShaderReflectionVariable {
     pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_SHADER_VARIABLE_DESC) -> windows_core::Result<()> {
@@ -12840,6 +12794,8 @@ pub struct ID3D11ShaderReflectionVariable_Vtbl {
     pub GetBuffer: unsafe extern "system" fn(*mut core::ffi::c_void) -> Option<ID3D11ShaderReflectionConstantBuffer>,
     pub GetInterfaceSlot: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> u32,
 }
+unsafe impl Send for ID3D11ShaderReflectionVariable {}
+unsafe impl Sync for ID3D11ShaderReflectionVariable {}
 pub trait ID3D11ShaderReflectionVariable_Impl {
     fn GetDesc(&self, pdesc: *mut D3D11_SHADER_VARIABLE_DESC) -> windows_core::Result<()>;
     fn GetType(&self) -> Option<ID3D11ShaderReflectionType>;
@@ -12890,8 +12846,6 @@ impl ID3D11ShaderReflectionVariable {
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
-unsafe impl Send for ID3D11ShaderReflectionVariable {}
-unsafe impl Sync for ID3D11ShaderReflectionVariable {}
 windows_core::imp::define_interface!(ID3D11ShaderResourceView, ID3D11ShaderResourceView_Vtbl, 0xb0e06fe0_8192_4e1a_b1ca_36d7414710b2);
 impl core::ops::Deref for ID3D11ShaderResourceView {
     type Target = ID3D11View;
@@ -12914,6 +12868,8 @@ pub struct ID3D11ShaderResourceView_Vtbl {
     #[cfg(not(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common")))]
     GetDesc: usize,
 }
+unsafe impl Send for ID3D11ShaderResourceView {}
+unsafe impl Sync for ID3D11ShaderResourceView {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D11ShaderResourceView_Impl: ID3D11View_Impl {
     fn GetDesc(&self, pdesc: *mut D3D11_SHADER_RESOURCE_VIEW_DESC);
@@ -12935,10 +12891,6 @@ impl ID3D11ShaderResourceView_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D11ShaderResourceView {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-unsafe impl Send for ID3D11ShaderResourceView {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-unsafe impl Sync for ID3D11ShaderResourceView {}
 windows_core::imp::define_interface!(ID3D11ShaderResourceView1, ID3D11ShaderResourceView1_Vtbl, 0x91308b87_9040_411d_8c67_c39253ce3802);
 impl core::ops::Deref for ID3D11ShaderResourceView1 {
     type Target = ID3D11ShaderResourceView;
@@ -12961,6 +12913,8 @@ pub struct ID3D11ShaderResourceView1_Vtbl {
     #[cfg(not(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common")))]
     GetDesc1: usize,
 }
+unsafe impl Send for ID3D11ShaderResourceView1 {}
+unsafe impl Sync for ID3D11ShaderResourceView1 {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D11ShaderResourceView1_Impl: ID3D11ShaderResourceView_Impl {
     fn GetDesc1(&self, pdesc1: *mut D3D11_SHADER_RESOURCE_VIEW_DESC1);
@@ -12982,10 +12936,6 @@ impl ID3D11ShaderResourceView1_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D11ShaderResourceView1 {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-unsafe impl Send for ID3D11ShaderResourceView1 {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-unsafe impl Sync for ID3D11ShaderResourceView1 {}
 windows_core::imp::define_interface!(ID3D11ShaderTrace, ID3D11ShaderTrace_Vtbl, 0x36b013e6_2811_4845_baa7_d623fe0df104);
 windows_core::imp::interface_hierarchy!(ID3D11ShaderTrace, windows_core::IUnknown);
 impl ID3D11ShaderTrace {
@@ -13026,6 +12976,8 @@ pub struct ID3D11ShaderTrace_Vtbl {
     pub GetWrittenRegister: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut D3D11_TRACE_REGISTER, *mut D3D11_TRACE_VALUE) -> windows_core::HRESULT,
     pub GetReadRegister: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut D3D11_TRACE_REGISTER, *mut D3D11_TRACE_VALUE) -> windows_core::HRESULT,
 }
+unsafe impl Send for ID3D11ShaderTrace {}
+unsafe impl Sync for ID3D11ShaderTrace {}
 pub trait ID3D11ShaderTrace_Impl: windows_core::IUnknownImpl {
     fn TraceReady(&self, ptestcount: *mut u64) -> windows_core::Result<()>;
     fn ResetTrace(&self);
@@ -13103,8 +13055,6 @@ impl ID3D11ShaderTrace_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11ShaderTrace {}
-unsafe impl Send for ID3D11ShaderTrace {}
-unsafe impl Sync for ID3D11ShaderTrace {}
 windows_core::imp::define_interface!(ID3D11ShaderTraceFactory, ID3D11ShaderTraceFactory_Vtbl, 0x1fbad429_66ab_41cc_9617_667ac10e4459);
 windows_core::imp::interface_hierarchy!(ID3D11ShaderTraceFactory, windows_core::IUnknown);
 impl ID3D11ShaderTraceFactory {
@@ -13123,6 +13073,8 @@ pub struct ID3D11ShaderTraceFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateShaderTrace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const D3D11_SHADER_TRACE_DESC, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for ID3D11ShaderTraceFactory {}
+unsafe impl Sync for ID3D11ShaderTraceFactory {}
 pub trait ID3D11ShaderTraceFactory_Impl: windows_core::IUnknownImpl {
     fn CreateShaderTrace(&self, pshader: windows_core::Ref<windows_core::IUnknown>, ptracedesc: *const D3D11_SHADER_TRACE_DESC) -> windows_core::Result<ID3D11ShaderTrace>;
 }
@@ -13147,8 +13099,6 @@ impl ID3D11ShaderTraceFactory_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11ShaderTraceFactory {}
-unsafe impl Send for ID3D11ShaderTraceFactory {}
-unsafe impl Sync for ID3D11ShaderTraceFactory {}
 windows_core::imp::define_interface!(ID3D11SwitchToRef, ID3D11SwitchToRef_Vtbl, 0x1ef337e3_58e7_4f83_a692_db221f5ed47e);
 windows_core::imp::interface_hierarchy!(ID3D11SwitchToRef, windows_core::IUnknown);
 impl ID3D11SwitchToRef {
@@ -13165,6 +13115,8 @@ pub struct ID3D11SwitchToRef_Vtbl {
     pub SetUseRef: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> super::super::Foundation::BOOL,
     pub GetUseRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
 }
+unsafe impl Send for ID3D11SwitchToRef {}
+unsafe impl Sync for ID3D11SwitchToRef {}
 pub trait ID3D11SwitchToRef_Impl: windows_core::IUnknownImpl {
     fn SetUseRef(&self, useref: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     fn GetUseRef(&self) -> super::super::Foundation::BOOL;
@@ -13194,8 +13146,6 @@ impl ID3D11SwitchToRef_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11SwitchToRef {}
-unsafe impl Send for ID3D11SwitchToRef {}
-unsafe impl Sync for ID3D11SwitchToRef {}
 windows_core::imp::define_interface!(ID3D11Texture1D, ID3D11Texture1D_Vtbl, 0xf8fb5c27_c6b3_4f75_a4c8_439af2ef564c);
 impl core::ops::Deref for ID3D11Texture1D {
     type Target = ID3D11Resource;
@@ -13218,6 +13168,8 @@ pub struct ID3D11Texture1D_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetDesc: usize,
 }
+unsafe impl Send for ID3D11Texture1D {}
+unsafe impl Sync for ID3D11Texture1D {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D11Texture1D_Impl: ID3D11Resource_Impl {
     fn GetDesc(&self, pdesc: *mut D3D11_TEXTURE1D_DESC);
@@ -13239,10 +13191,6 @@ impl ID3D11Texture1D_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11Texture1D {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for ID3D11Texture1D {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for ID3D11Texture1D {}
 windows_core::imp::define_interface!(ID3D11Texture2D, ID3D11Texture2D_Vtbl, 0x6f15aaf2_d208_4e89_9ab4_489535d34f9c);
 impl core::ops::Deref for ID3D11Texture2D {
     type Target = ID3D11Resource;
@@ -13265,6 +13213,8 @@ pub struct ID3D11Texture2D_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetDesc: usize,
 }
+unsafe impl Send for ID3D11Texture2D {}
+unsafe impl Sync for ID3D11Texture2D {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D11Texture2D_Impl: ID3D11Resource_Impl {
     fn GetDesc(&self, pdesc: *mut D3D11_TEXTURE2D_DESC);
@@ -13286,10 +13236,6 @@ impl ID3D11Texture2D_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11Texture2D {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for ID3D11Texture2D {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for ID3D11Texture2D {}
 windows_core::imp::define_interface!(ID3D11Texture2D1, ID3D11Texture2D1_Vtbl, 0x51218251_1e33_4617_9ccb_4d3a4367e7bb);
 impl core::ops::Deref for ID3D11Texture2D1 {
     type Target = ID3D11Texture2D;
@@ -13312,6 +13258,8 @@ pub struct ID3D11Texture2D1_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetDesc1: usize,
 }
+unsafe impl Send for ID3D11Texture2D1 {}
+unsafe impl Sync for ID3D11Texture2D1 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D11Texture2D1_Impl: ID3D11Texture2D_Impl {
     fn GetDesc1(&self, pdesc: *mut D3D11_TEXTURE2D_DESC1);
@@ -13333,10 +13281,6 @@ impl ID3D11Texture2D1_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11Texture2D1 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for ID3D11Texture2D1 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for ID3D11Texture2D1 {}
 windows_core::imp::define_interface!(ID3D11Texture3D, ID3D11Texture3D_Vtbl, 0x037e866e_f56d_4357_a8af_9dabbe6e250e);
 impl core::ops::Deref for ID3D11Texture3D {
     type Target = ID3D11Resource;
@@ -13359,6 +13303,8 @@ pub struct ID3D11Texture3D_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetDesc: usize,
 }
+unsafe impl Send for ID3D11Texture3D {}
+unsafe impl Sync for ID3D11Texture3D {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D11Texture3D_Impl: ID3D11Resource_Impl {
     fn GetDesc(&self, pdesc: *mut D3D11_TEXTURE3D_DESC);
@@ -13380,10 +13326,6 @@ impl ID3D11Texture3D_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11Texture3D {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for ID3D11Texture3D {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for ID3D11Texture3D {}
 windows_core::imp::define_interface!(ID3D11Texture3D1, ID3D11Texture3D1_Vtbl, 0x0c711683_2853_4846_9bb0_f3e60639e46a);
 impl core::ops::Deref for ID3D11Texture3D1 {
     type Target = ID3D11Texture3D;
@@ -13406,6 +13348,8 @@ pub struct ID3D11Texture3D1_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetDesc1: usize,
 }
+unsafe impl Send for ID3D11Texture3D1 {}
+unsafe impl Sync for ID3D11Texture3D1 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D11Texture3D1_Impl: ID3D11Texture3D_Impl {
     fn GetDesc1(&self, pdesc: *mut D3D11_TEXTURE3D_DESC1);
@@ -13427,10 +13371,6 @@ impl ID3D11Texture3D1_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11Texture3D1 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for ID3D11Texture3D1 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for ID3D11Texture3D1 {}
 windows_core::imp::define_interface!(ID3D11TracingDevice, ID3D11TracingDevice_Vtbl, 0x1911c771_1587_413e_a7e0_fb26c3de0268);
 windows_core::imp::interface_hierarchy!(ID3D11TracingDevice, windows_core::IUnknown);
 impl ID3D11TracingDevice {
@@ -13450,6 +13390,8 @@ pub struct ID3D11TracingDevice_Vtbl {
     pub SetShaderTrackingOptionsByType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
     pub SetShaderTrackingOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
+unsafe impl Send for ID3D11TracingDevice {}
+unsafe impl Sync for ID3D11TracingDevice {}
 pub trait ID3D11TracingDevice_Impl: windows_core::IUnknownImpl {
     fn SetShaderTrackingOptionsByType(&self, resourcetypeflags: u32, options: u32) -> windows_core::Result<()>;
     fn SetShaderTrackingOptions(&self, pshader: windows_core::Ref<windows_core::IUnknown>, options: u32) -> windows_core::Result<()>;
@@ -13479,8 +13421,6 @@ impl ID3D11TracingDevice_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11TracingDevice {}
-unsafe impl Send for ID3D11TracingDevice {}
-unsafe impl Sync for ID3D11TracingDevice {}
 windows_core::imp::define_interface!(ID3D11UnorderedAccessView, ID3D11UnorderedAccessView_Vtbl, 0x28acf509_7f5c_48f6_8611_f316010a6380);
 impl core::ops::Deref for ID3D11UnorderedAccessView {
     type Target = ID3D11View;
@@ -13503,6 +13443,8 @@ pub struct ID3D11UnorderedAccessView_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetDesc: usize,
 }
+unsafe impl Send for ID3D11UnorderedAccessView {}
+unsafe impl Sync for ID3D11UnorderedAccessView {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D11UnorderedAccessView_Impl: ID3D11View_Impl {
     fn GetDesc(&self, pdesc: *mut D3D11_UNORDERED_ACCESS_VIEW_DESC);
@@ -13524,10 +13466,6 @@ impl ID3D11UnorderedAccessView_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11UnorderedAccessView {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for ID3D11UnorderedAccessView {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for ID3D11UnorderedAccessView {}
 windows_core::imp::define_interface!(ID3D11UnorderedAccessView1, ID3D11UnorderedAccessView1_Vtbl, 0x7b3b6153_a886_4544_ab37_6537c8500403);
 impl core::ops::Deref for ID3D11UnorderedAccessView1 {
     type Target = ID3D11UnorderedAccessView;
@@ -13550,6 +13488,8 @@ pub struct ID3D11UnorderedAccessView1_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetDesc1: usize,
 }
+unsafe impl Send for ID3D11UnorderedAccessView1 {}
+unsafe impl Sync for ID3D11UnorderedAccessView1 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D11UnorderedAccessView1_Impl: ID3D11UnorderedAccessView_Impl {
     fn GetDesc1(&self, pdesc1: *mut D3D11_UNORDERED_ACCESS_VIEW_DESC1);
@@ -13571,10 +13511,6 @@ impl ID3D11UnorderedAccessView1_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11UnorderedAccessView1 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for ID3D11UnorderedAccessView1 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for ID3D11UnorderedAccessView1 {}
 windows_core::imp::define_interface!(ID3D11VertexShader, ID3D11VertexShader_Vtbl, 0x3b301d64_d678_4289_8897_22f8928b72f3);
 impl core::ops::Deref for ID3D11VertexShader {
     type Target = ID3D11DeviceChild;
@@ -13587,6 +13523,8 @@ windows_core::imp::interface_hierarchy!(ID3D11VertexShader, windows_core::IUnkno
 pub struct ID3D11VertexShader_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
 }
+unsafe impl Send for ID3D11VertexShader {}
+unsafe impl Sync for ID3D11VertexShader {}
 pub trait ID3D11VertexShader_Impl: ID3D11DeviceChild_Impl {}
 impl ID3D11VertexShader_Vtbl {
     pub const fn new<Identity: ID3D11VertexShader_Impl, const OFFSET: isize>() -> Self {
@@ -13597,8 +13535,6 @@ impl ID3D11VertexShader_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11VertexShader {}
-unsafe impl Send for ID3D11VertexShader {}
-unsafe impl Sync for ID3D11VertexShader {}
 windows_core::imp::define_interface!(ID3D11VideoContext, ID3D11VideoContext_Vtbl, 0x61f21c45_3c0e_4a74_9cea_67100d9ad5e4);
 impl core::ops::Deref for ID3D11VideoContext {
     type Target = ID3D11DeviceChild;
@@ -14061,6 +13997,8 @@ pub struct ID3D11VideoContext_Vtbl {
     pub VideoProcessorSetStreamRotation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, super::super::Foundation::BOOL, D3D11_VIDEO_PROCESSOR_ROTATION),
     pub VideoProcessorGetStreamRotation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut super::super::Foundation::BOOL, *mut D3D11_VIDEO_PROCESSOR_ROTATION),
 }
+unsafe impl Send for ID3D11VideoContext {}
+unsafe impl Sync for ID3D11VideoContext {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D11VideoContext_Impl: ID3D11DeviceChild_Impl {
     fn GetDecoderBuffer(&self, pdecoder: windows_core::Ref<ID3D11VideoDecoder>, r#type: D3D11_VIDEO_DECODER_BUFFER_TYPE, pbuffersize: *mut u32, ppbuffer: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
@@ -14541,10 +14479,6 @@ impl ID3D11VideoContext_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11VideoContext {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for ID3D11VideoContext {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for ID3D11VideoContext {}
 windows_core::imp::define_interface!(ID3D11VideoContext1, ID3D11VideoContext1_Vtbl, 0xa7f026da_a5f8_4487_a564_15e34357651e);
 impl core::ops::Deref for ID3D11VideoContext1 {
     type Target = ID3D11VideoContext;
@@ -14706,6 +14640,8 @@ pub struct ID3D11VideoContext1_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     VideoProcessorGetBehaviorHints: usize,
 }
+unsafe impl Send for ID3D11VideoContext1 {}
+unsafe impl Sync for ID3D11VideoContext1 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D11VideoContext1_Impl: ID3D11VideoContext_Impl {
     fn SubmitDecoderBuffers1(&self, pdecoder: windows_core::Ref<ID3D11VideoDecoder>, numbuffers: u32, pbufferdesc: *const D3D11_VIDEO_DECODER_BUFFER_DESC1) -> windows_core::Result<()>;
@@ -14852,10 +14788,6 @@ impl ID3D11VideoContext1_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11VideoContext1 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for ID3D11VideoContext1 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for ID3D11VideoContext1 {}
 windows_core::imp::define_interface!(ID3D11VideoContext2, ID3D11VideoContext2_Vtbl, 0xc4e7374c_6243_4d1b_ae87_52b4f740e261);
 impl core::ops::Deref for ID3D11VideoContext2 {
     type Target = ID3D11VideoContext1;
@@ -14914,6 +14846,8 @@ pub struct ID3D11VideoContext2_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))]
     VideoProcessorGetStreamHDRMetaData: usize,
 }
+unsafe impl Send for ID3D11VideoContext2 {}
+unsafe impl Sync for ID3D11VideoContext2 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D11VideoContext2_Impl: ID3D11VideoContext1_Impl {
     fn VideoProcessorSetOutputHDRMetaData(&self, pvideoprocessor: windows_core::Ref<ID3D11VideoProcessor>, r#type: super::Dxgi::DXGI_HDR_METADATA_TYPE, size: u32, phdrmetadata: *const core::ffi::c_void);
@@ -14962,10 +14896,6 @@ impl ID3D11VideoContext2_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11VideoContext2 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for ID3D11VideoContext2 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for ID3D11VideoContext2 {}
 windows_core::imp::define_interface!(ID3D11VideoContext3, ID3D11VideoContext3_Vtbl, 0xa9e2faa0_cb39_418f_a0b7_d8aad4de672e);
 impl core::ops::Deref for ID3D11VideoContext3 {
     type Target = ID3D11VideoContext2;
@@ -14995,6 +14925,8 @@ pub struct ID3D11VideoContext3_Vtbl {
     pub DecoderBeginFrame1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const core::ffi::c_void, u32, *const u32, *const *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SubmitDecoderBuffers2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const D3D11_VIDEO_DECODER_BUFFER_DESC2) -> windows_core::HRESULT,
 }
+unsafe impl Send for ID3D11VideoContext3 {}
+unsafe impl Sync for ID3D11VideoContext3 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D11VideoContext3_Impl: ID3D11VideoContext2_Impl {
     fn DecoderBeginFrame1(&self, pdecoder: windows_core::Ref<ID3D11VideoDecoder>, pview: windows_core::Ref<ID3D11VideoDecoderOutputView>, contentkeysize: u32, pcontentkey: *const core::ffi::c_void, numcomponenthistograms: u32, phistogramoffsets: *const u32, pphistogrambuffers: *const Option<ID3D11Buffer>) -> windows_core::Result<()>;
@@ -15027,10 +14959,6 @@ impl ID3D11VideoContext3_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11VideoContext3 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for ID3D11VideoContext3 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for ID3D11VideoContext3 {}
 windows_core::imp::define_interface!(ID3D11VideoDecoder, ID3D11VideoDecoder_Vtbl, 0x3c9c5b51_995d_48d1_9b8d_fa5caeded65c);
 impl core::ops::Deref for ID3D11VideoDecoder {
     type Target = ID3D11DeviceChild;
@@ -15060,6 +14988,8 @@ pub struct ID3D11VideoDecoder_Vtbl {
     GetCreationParameters: usize,
     pub GetDriverHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::HANDLE) -> windows_core::HRESULT,
 }
+unsafe impl Send for ID3D11VideoDecoder {}
+unsafe impl Sync for ID3D11VideoDecoder {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D11VideoDecoder_Impl: ID3D11DeviceChild_Impl {
     fn GetCreationParameters(&self, pvideodesc: *mut D3D11_VIDEO_DECODER_DESC, pconfig: *mut D3D11_VIDEO_DECODER_CONFIG) -> windows_core::Result<()>;
@@ -15098,10 +15028,6 @@ impl ID3D11VideoDecoder_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11VideoDecoder {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for ID3D11VideoDecoder {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for ID3D11VideoDecoder {}
 windows_core::imp::define_interface!(ID3D11VideoDecoderOutputView, ID3D11VideoDecoderOutputView_Vtbl, 0xc2931aea_2a85_4f20_860f_fba1fd256e18);
 impl core::ops::Deref for ID3D11VideoDecoderOutputView {
     type Target = ID3D11View;
@@ -15120,6 +15046,8 @@ pub struct ID3D11VideoDecoderOutputView_Vtbl {
     pub base__: ID3D11View_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC),
 }
+unsafe impl Send for ID3D11VideoDecoderOutputView {}
+unsafe impl Sync for ID3D11VideoDecoderOutputView {}
 pub trait ID3D11VideoDecoderOutputView_Impl: ID3D11View_Impl {
     fn GetDesc(&self, pdesc: *mut D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC);
 }
@@ -15138,8 +15066,6 @@ impl ID3D11VideoDecoderOutputView_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11VideoDecoderOutputView {}
-unsafe impl Send for ID3D11VideoDecoderOutputView {}
-unsafe impl Sync for ID3D11VideoDecoderOutputView {}
 windows_core::imp::define_interface!(ID3D11VideoDevice, ID3D11VideoDevice_Vtbl, 0x10ec4d5b_975a_4689_b9e4_d0aac30fe333);
 windows_core::imp::interface_hierarchy!(ID3D11VideoDevice, windows_core::IUnknown);
 impl ID3D11VideoDevice {
@@ -15280,6 +15206,8 @@ pub struct ID3D11VideoDevice_Vtbl {
     pub SetPrivateData: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, *const core::ffi::c_void) -> windows_core::HRESULT,
     pub SetPrivateDataInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for ID3D11VideoDevice {}
+unsafe impl Sync for ID3D11VideoDevice {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D11VideoDevice_Impl: windows_core::IUnknownImpl {
     fn CreateVideoDecoder(&self, pvideodesc: *const D3D11_VIDEO_DECODER_DESC, pconfig: *const D3D11_VIDEO_DECODER_CONFIG) -> windows_core::Result<ID3D11VideoDecoder>;
@@ -15486,10 +15414,6 @@ impl ID3D11VideoDevice_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11VideoDevice {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for ID3D11VideoDevice {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for ID3D11VideoDevice {}
 windows_core::imp::define_interface!(ID3D11VideoDevice1, ID3D11VideoDevice1_Vtbl, 0x29da1d51_1321_4454_804b_f5fc9f861f0f);
 impl core::ops::Deref for ID3D11VideoDevice1 {
     type Target = ID3D11VideoDevice;
@@ -15538,6 +15462,8 @@ pub struct ID3D11VideoDevice1_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     RecommendVideoDecoderDownsampleParameters: usize,
 }
+unsafe impl Send for ID3D11VideoDevice1 {}
+unsafe impl Sync for ID3D11VideoDevice1 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D11VideoDevice1_Impl: ID3D11VideoDevice_Impl {
     fn GetCryptoSessionPrivateDataSize(&self, pcryptotype: *const windows_core::GUID, pdecoderprofile: *const windows_core::GUID, pkeyexchangetype: *const windows_core::GUID, pprivateinputsize: *mut u32, pprivateoutputsize: *mut u32) -> windows_core::Result<()>;
@@ -15598,10 +15524,6 @@ impl ID3D11VideoDevice1_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11VideoDevice1 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for ID3D11VideoDevice1 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for ID3D11VideoDevice1 {}
 windows_core::imp::define_interface!(ID3D11VideoDevice2, ID3D11VideoDevice2_Vtbl, 0x59c0cb01_35f0_4a70_8f67_87905c906a53);
 impl core::ops::Deref for ID3D11VideoDevice2 {
     type Target = ID3D11VideoDevice1;
@@ -15627,6 +15549,8 @@ pub struct ID3D11VideoDevice2_Vtbl {
     pub CheckFeatureSupport: unsafe extern "system" fn(*mut core::ffi::c_void, D3D11_FEATURE_VIDEO, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub NegotiateCryptoSessionKeyExchangeMT: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for ID3D11VideoDevice2 {}
+unsafe impl Sync for ID3D11VideoDevice2 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D11VideoDevice2_Impl: ID3D11VideoDevice1_Impl {
     fn CheckFeatureSupport(&self, feature: D3D11_FEATURE_VIDEO, pfeaturesupportdata: *mut core::ffi::c_void, featuresupportdatasize: u32) -> windows_core::Result<()>;
@@ -15659,10 +15583,6 @@ impl ID3D11VideoDevice2_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11VideoDevice2 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for ID3D11VideoDevice2 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for ID3D11VideoDevice2 {}
 windows_core::imp::define_interface!(ID3D11VideoProcessor, ID3D11VideoProcessor_Vtbl, 0x1d7b0652_185f_41c6_85ce_0c5be3d4ae6c);
 impl core::ops::Deref for ID3D11VideoProcessor {
     type Target = ID3D11DeviceChild;
@@ -15689,6 +15609,8 @@ pub struct ID3D11VideoProcessor_Vtbl {
     GetContentDesc: usize,
     pub GetRateConversionCaps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D11_VIDEO_PROCESSOR_RATE_CONVERSION_CAPS),
 }
+unsafe impl Send for ID3D11VideoProcessor {}
+unsafe impl Sync for ID3D11VideoProcessor {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D11VideoProcessor_Impl: ID3D11DeviceChild_Impl {
     fn GetContentDesc(&self, pdesc: *mut D3D11_VIDEO_PROCESSOR_CONTENT_DESC);
@@ -15721,10 +15643,6 @@ impl ID3D11VideoProcessor_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11VideoProcessor {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for ID3D11VideoProcessor {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for ID3D11VideoProcessor {}
 windows_core::imp::define_interface!(ID3D11VideoProcessorEnumerator, ID3D11VideoProcessorEnumerator_Vtbl, 0x31627037_53ab_4200_9061_05faa9ab45f9);
 impl core::ops::Deref for ID3D11VideoProcessorEnumerator {
     type Target = ID3D11DeviceChild;
@@ -15781,6 +15699,8 @@ pub struct ID3D11VideoProcessorEnumerator_Vtbl {
     GetVideoProcessorCustomRate: usize,
     pub GetVideoProcessorFilterRange: unsafe extern "system" fn(*mut core::ffi::c_void, D3D11_VIDEO_PROCESSOR_FILTER, *mut D3D11_VIDEO_PROCESSOR_FILTER_RANGE) -> windows_core::HRESULT,
 }
+unsafe impl Send for ID3D11VideoProcessorEnumerator {}
+unsafe impl Sync for ID3D11VideoProcessorEnumerator {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D11VideoProcessorEnumerator_Impl: ID3D11DeviceChild_Impl {
     fn GetVideoProcessorContentDesc(&self, pcontentdesc: *mut D3D11_VIDEO_PROCESSOR_CONTENT_DESC) -> windows_core::Result<()>;
@@ -15857,10 +15777,6 @@ impl ID3D11VideoProcessorEnumerator_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11VideoProcessorEnumerator {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for ID3D11VideoProcessorEnumerator {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for ID3D11VideoProcessorEnumerator {}
 windows_core::imp::define_interface!(ID3D11VideoProcessorEnumerator1, ID3D11VideoProcessorEnumerator1_Vtbl, 0x465217f2_5568_43cf_b5b9_f61d54531ca1);
 impl core::ops::Deref for ID3D11VideoProcessorEnumerator1 {
     type Target = ID3D11VideoProcessorEnumerator;
@@ -15886,6 +15802,8 @@ pub struct ID3D11VideoProcessorEnumerator1_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     CheckVideoProcessorFormatConversion: usize,
 }
+unsafe impl Send for ID3D11VideoProcessorEnumerator1 {}
+unsafe impl Sync for ID3D11VideoProcessorEnumerator1 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D11VideoProcessorEnumerator1_Impl: ID3D11VideoProcessorEnumerator_Impl {
     fn CheckVideoProcessorFormatConversion(&self, inputformat: super::Dxgi::Common::DXGI_FORMAT, inputcolorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, outputformat: super::Dxgi::Common::DXGI_FORMAT, outputcolorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) -> windows_core::Result<super::super::Foundation::BOOL>;
@@ -15916,10 +15834,6 @@ impl ID3D11VideoProcessorEnumerator1_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11VideoProcessorEnumerator1 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Send for ID3D11VideoProcessorEnumerator1 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl Sync for ID3D11VideoProcessorEnumerator1 {}
 windows_core::imp::define_interface!(ID3D11VideoProcessorInputView, ID3D11VideoProcessorInputView_Vtbl, 0x11ec5a5f_51dc_4945_ab34_6e8c21300ea5);
 impl core::ops::Deref for ID3D11VideoProcessorInputView {
     type Target = ID3D11View;
@@ -15942,6 +15856,8 @@ pub struct ID3D11VideoProcessorInputView_Vtbl {
     pub base__: ID3D11View_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC),
 }
+unsafe impl Send for ID3D11VideoProcessorInputView {}
+unsafe impl Sync for ID3D11VideoProcessorInputView {}
 pub trait ID3D11VideoProcessorInputView_Impl: ID3D11View_Impl {
     fn GetDesc(&self, pdesc: *mut D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC);
 }
@@ -15960,8 +15876,6 @@ impl ID3D11VideoProcessorInputView_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11VideoProcessorInputView {}
-unsafe impl Send for ID3D11VideoProcessorInputView {}
-unsafe impl Sync for ID3D11VideoProcessorInputView {}
 windows_core::imp::define_interface!(ID3D11VideoProcessorOutputView, ID3D11VideoProcessorOutputView_Vtbl, 0xa048285e_25a9_4527_bd93_d68b68c44254);
 impl core::ops::Deref for ID3D11VideoProcessorOutputView {
     type Target = ID3D11View;
@@ -15984,6 +15898,8 @@ pub struct ID3D11VideoProcessorOutputView_Vtbl {
     pub base__: ID3D11View_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC),
 }
+unsafe impl Send for ID3D11VideoProcessorOutputView {}
+unsafe impl Sync for ID3D11VideoProcessorOutputView {}
 pub trait ID3D11VideoProcessorOutputView_Impl: ID3D11View_Impl {
     fn GetDesc(&self, pdesc: *mut D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC);
 }
@@ -16002,8 +15918,6 @@ impl ID3D11VideoProcessorOutputView_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11VideoProcessorOutputView {}
-unsafe impl Send for ID3D11VideoProcessorOutputView {}
-unsafe impl Sync for ID3D11VideoProcessorOutputView {}
 windows_core::imp::define_interface!(ID3D11View, ID3D11View_Vtbl, 0x839d1216_bb2e_412b_b7f4_a9dbebe08ed1);
 impl core::ops::Deref for ID3D11View {
     type Target = ID3D11DeviceChild;
@@ -16026,6 +15940,8 @@ pub struct ID3D11View_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
     pub GetResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void),
 }
+unsafe impl Send for ID3D11View {}
+unsafe impl Sync for ID3D11View {}
 pub trait ID3D11View_Impl: ID3D11DeviceChild_Impl {
     fn GetResource(&self, ppresource: windows_core::OutRef<'_, ID3D11Resource>);
 }
@@ -16044,8 +15960,6 @@ impl ID3D11View_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D11View {}
-unsafe impl Send for ID3D11View {}
-unsafe impl Sync for ID3D11View {}
 windows_core::imp::define_interface!(ID3DDeviceContextState, ID3DDeviceContextState_Vtbl, 0x5c1e0d8a_7c23_48f9_8c59_a92958ceff11);
 impl core::ops::Deref for ID3DDeviceContextState {
     type Target = ID3D11DeviceChild;
@@ -16058,6 +15972,8 @@ windows_core::imp::interface_hierarchy!(ID3DDeviceContextState, windows_core::IU
 pub struct ID3DDeviceContextState_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
 }
+unsafe impl Send for ID3DDeviceContextState {}
+unsafe impl Sync for ID3DDeviceContextState {}
 pub trait ID3DDeviceContextState_Impl: ID3D11DeviceChild_Impl {}
 impl ID3DDeviceContextState_Vtbl {
     pub const fn new<Identity: ID3DDeviceContextState_Impl, const OFFSET: isize>() -> Self {
@@ -16068,8 +15984,6 @@ impl ID3DDeviceContextState_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3DDeviceContextState {}
-unsafe impl Send for ID3DDeviceContextState {}
-unsafe impl Sync for ID3DDeviceContextState {}
 windows_core::imp::define_interface!(ID3DUserDefinedAnnotation, ID3DUserDefinedAnnotation_Vtbl, 0xb2daad8b_03d4_4dbf_95eb_32ab4b63d0ab);
 windows_core::imp::interface_hierarchy!(ID3DUserDefinedAnnotation, windows_core::IUnknown);
 impl ID3DUserDefinedAnnotation {
@@ -16100,6 +16014,8 @@ pub struct ID3DUserDefinedAnnotation_Vtbl {
     pub SetMarker: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR),
     pub GetStatus: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
 }
+unsafe impl Send for ID3DUserDefinedAnnotation {}
+unsafe impl Sync for ID3DUserDefinedAnnotation {}
 pub trait ID3DUserDefinedAnnotation_Impl: windows_core::IUnknownImpl {
     fn BeginEvent(&self, name: &windows_core::PCWSTR) -> i32;
     fn EndEvent(&self) -> i32;
@@ -16145,8 +16061,6 @@ impl ID3DUserDefinedAnnotation_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3DUserDefinedAnnotation {}
-unsafe impl Send for ID3DUserDefinedAnnotation {}
-unsafe impl Sync for ID3DUserDefinedAnnotation {}
 windows_core::imp::define_interface!(ID3DX11FFT, ID3DX11FFT_Vtbl, 0xb3f7a938_4c93_4310_a675_b30d6de50553);
 windows_core::imp::interface_hierarchy!(ID3DX11FFT, windows_core::IUnknown);
 impl ID3DX11FFT {
@@ -16189,6 +16103,8 @@ pub struct ID3DX11FFT_Vtbl {
     pub ForwardTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub InverseTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for ID3DX11FFT {}
+unsafe impl Sync for ID3DX11FFT {}
 pub trait ID3DX11FFT_Impl: windows_core::IUnknownImpl {
     fn SetForwardScale(&self, forwardscale: f32) -> windows_core::Result<()>;
     fn GetForwardScale(&self) -> f32;
@@ -16258,8 +16174,6 @@ impl ID3DX11FFT_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3DX11FFT {}
-unsafe impl Send for ID3DX11FFT {}
-unsafe impl Sync for ID3DX11FFT {}
 windows_core::imp::define_interface!(ID3DX11Scan, ID3DX11Scan_Vtbl, 0x5089b68f_e71d_4d38_be8e_f363b95a9405);
 windows_core::imp::interface_hierarchy!(ID3DX11Scan, windows_core::IUnknown);
 impl ID3DX11Scan {
@@ -16288,6 +16202,8 @@ pub struct ID3DX11Scan_Vtbl {
     pub Scan: unsafe extern "system" fn(*mut core::ffi::c_void, D3DX11_SCAN_DATA_TYPE, D3DX11_SCAN_OPCODE, u32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Multiscan: unsafe extern "system" fn(*mut core::ffi::c_void, D3DX11_SCAN_DATA_TYPE, D3DX11_SCAN_OPCODE, u32, u32, u32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for ID3DX11Scan {}
+unsafe impl Sync for ID3DX11Scan {}
 pub trait ID3DX11Scan_Impl: windows_core::IUnknownImpl {
     fn SetScanDirection(&self, direction: D3DX11_SCAN_DIRECTION) -> windows_core::Result<()>;
     fn Scan(&self, elementtype: D3DX11_SCAN_DATA_TYPE, opcode: D3DX11_SCAN_OPCODE, elementscansize: u32, psrc: windows_core::Ref<ID3D11UnorderedAccessView>, pdst: windows_core::Ref<ID3D11UnorderedAccessView>) -> windows_core::Result<()>;
@@ -16325,8 +16241,6 @@ impl ID3DX11Scan_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3DX11Scan {}
-unsafe impl Send for ID3DX11Scan {}
-unsafe impl Sync for ID3DX11Scan {}
 windows_core::imp::define_interface!(ID3DX11SegmentedScan, ID3DX11SegmentedScan_Vtbl, 0xa915128c_d954_4c79_bfe1_64db923194d6);
 windows_core::imp::interface_hierarchy!(ID3DX11SegmentedScan, windows_core::IUnknown);
 impl ID3DX11SegmentedScan {
@@ -16348,6 +16262,8 @@ pub struct ID3DX11SegmentedScan_Vtbl {
     pub SetScanDirection: unsafe extern "system" fn(*mut core::ffi::c_void, D3DX11_SCAN_DIRECTION) -> windows_core::HRESULT,
     pub SegScan: unsafe extern "system" fn(*mut core::ffi::c_void, D3DX11_SCAN_DATA_TYPE, D3DX11_SCAN_OPCODE, u32, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for ID3DX11SegmentedScan {}
+unsafe impl Sync for ID3DX11SegmentedScan {}
 pub trait ID3DX11SegmentedScan_Impl: windows_core::IUnknownImpl {
     fn SetScanDirection(&self, direction: D3DX11_SCAN_DIRECTION) -> windows_core::Result<()>;
     fn SegScan(&self, elementtype: D3DX11_SCAN_DATA_TYPE, opcode: D3DX11_SCAN_OPCODE, elementscansize: u32, psrc: windows_core::Ref<ID3D11UnorderedAccessView>, psrcelementflags: windows_core::Ref<ID3D11UnorderedAccessView>, pdst: windows_core::Ref<ID3D11UnorderedAccessView>) -> windows_core::Result<()>;
@@ -16377,8 +16293,6 @@ impl ID3DX11SegmentedScan_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3DX11SegmentedScan {}
-unsafe impl Send for ID3DX11SegmentedScan {}
-unsafe impl Sync for ID3DX11SegmentedScan {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi"))]
 pub type PFN_D3D11_CREATE_DEVICE = Option<unsafe extern "system" fn(param0: Option<super::Dxgi::IDXGIAdapter>, param1: super::Direct3D::D3D_DRIVER_TYPE, param2: super::super::Foundation::HMODULE, param3: u32, param4: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, param6: u32, param7: *mut Option<ID3D11Device>, param8: *mut super::Direct3D::D3D_FEATURE_LEVEL, param9: *mut Option<ID3D11DeviceContext>) -> windows_core::HRESULT>;
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]

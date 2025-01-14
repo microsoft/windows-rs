@@ -211,6 +211,15 @@ impl CppInterface {
 
             result.combine(vtbl);
 
+            if self.def.is_agile() {
+                result.combine(quote! {
+                    #cfg
+                    unsafe impl Send for #name {}
+                    #cfg
+                    unsafe impl Sync for #name {}
+                });
+            }
+
             let impl_name: TokenStream = format!("{}_Impl", self.def.name()).into();
 
             let cfg = if writer.config.package {
@@ -387,15 +396,6 @@ impl CppInterface {
                     }
                 }
             });
-
-            if self.def.is_agile() {
-                result.combine(quote! {
-                    #cfg
-                    unsafe impl Send for #name {}
-                    #cfg
-                    unsafe impl Sync for #name {}
-                });
-            }
 
             result
         }

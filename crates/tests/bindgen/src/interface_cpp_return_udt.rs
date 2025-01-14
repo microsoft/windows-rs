@@ -66,6 +66,8 @@ pub struct ID2D1Bitmap_Vtbl {
     CopyFromRenderTarget: usize,
     CopyFromMemory: usize,
 }
+unsafe impl Send for ID2D1Bitmap {}
+unsafe impl Sync for ID2D1Bitmap {}
 pub trait ID2D1Bitmap_Impl: ID2D1Image_Impl {
     fn GetSize(&self) -> D2D_SIZE_F;
     fn GetDpi(&self, dpix: *mut f32, dpiy: *mut f32);
@@ -115,8 +117,6 @@ impl ID2D1Bitmap_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1Bitmap {}
-unsafe impl Send for ID2D1Bitmap {}
-unsafe impl Sync for ID2D1Bitmap {}
 windows_core::imp::define_interface!(
     ID2D1Image,
     ID2D1Image_Vtbl,
@@ -133,6 +133,8 @@ windows_core::imp::interface_hierarchy!(ID2D1Image, windows_core::IUnknown, ID2D
 pub struct ID2D1Image_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
 }
+unsafe impl Send for ID2D1Image {}
+unsafe impl Sync for ID2D1Image {}
 pub trait ID2D1Image_Impl: ID2D1Resource_Impl {}
 impl ID2D1Image_Vtbl {
     pub const fn new<Identity: ID2D1Image_Impl, const OFFSET: isize>() -> Self {
@@ -146,8 +148,6 @@ impl ID2D1Image_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1Image {}
-unsafe impl Send for ID2D1Image {}
-unsafe impl Sync for ID2D1Image {}
 windows_core::imp::define_interface!(
     ID2D1Resource,
     ID2D1Resource_Vtbl,
@@ -159,6 +159,8 @@ pub struct ID2D1Resource_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     GetFactory: usize,
 }
+unsafe impl Send for ID2D1Resource {}
+unsafe impl Sync for ID2D1Resource {}
 pub trait ID2D1Resource_Impl: windows_core::IUnknownImpl {}
 impl ID2D1Resource_Vtbl {
     pub const fn new<Identity: ID2D1Resource_Impl, const OFFSET: isize>() -> Self {
@@ -172,5 +174,3 @@ impl ID2D1Resource_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1Resource {}
-unsafe impl Send for ID2D1Resource {}
-unsafe impl Sync for ID2D1Resource {}

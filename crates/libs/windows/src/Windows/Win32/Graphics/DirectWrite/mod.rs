@@ -1856,6 +1856,8 @@ pub struct IDWriteAsyncResult_Vtbl {
     pub GetWaitHandle: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::HANDLE,
     pub GetResult: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteAsyncResult {}
+unsafe impl Sync for IDWriteAsyncResult {}
 pub trait IDWriteAsyncResult_Impl: windows_core::IUnknownImpl {
     fn GetWaitHandle(&self) -> super::super::Foundation::HANDLE;
     fn GetResult(&self) -> windows_core::Result<()>;
@@ -1885,8 +1887,6 @@ impl IDWriteAsyncResult_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteAsyncResult {}
-unsafe impl Send for IDWriteAsyncResult {}
-unsafe impl Sync for IDWriteAsyncResult {}
 windows_core::imp::define_interface!(IDWriteBitmapRenderTarget, IDWriteBitmapRenderTarget_Vtbl, 0x5e5a32a3_8dff_4773_9ff6_0696eab77267);
 windows_core::imp::interface_hierarchy!(IDWriteBitmapRenderTarget, windows_core::IUnknown);
 impl IDWriteBitmapRenderTarget {
@@ -1937,6 +1937,8 @@ pub struct IDWriteBitmapRenderTarget_Vtbl {
     pub GetSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::SIZE) -> windows_core::HRESULT,
     pub Resize: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteBitmapRenderTarget {}
+unsafe impl Sync for IDWriteBitmapRenderTarget {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IDWriteBitmapRenderTarget_Impl: windows_core::IUnknownImpl {
     fn DrawGlyphRun(&self, baselineoriginx: f32, baselineoriginy: f32, measuringmode: DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, renderingparams: windows_core::Ref<IDWriteRenderingParams>, textcolor: super::super::Foundation::COLORREF, blackboxrect: *mut super::super::Foundation::RECT) -> windows_core::Result<()>;
@@ -2023,10 +2025,6 @@ impl IDWriteBitmapRenderTarget_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for IDWriteBitmapRenderTarget {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl Send for IDWriteBitmapRenderTarget {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl Sync for IDWriteBitmapRenderTarget {}
 windows_core::imp::define_interface!(IDWriteBitmapRenderTarget1, IDWriteBitmapRenderTarget1_Vtbl, 0x791e8298_3ef3_4230_9880_c9bdecc42064);
 impl core::ops::Deref for IDWriteBitmapRenderTarget1 {
     type Target = IDWriteBitmapRenderTarget;
@@ -2049,6 +2047,8 @@ pub struct IDWriteBitmapRenderTarget1_Vtbl {
     pub GetTextAntialiasMode: unsafe extern "system" fn(*mut core::ffi::c_void) -> DWRITE_TEXT_ANTIALIAS_MODE,
     pub SetTextAntialiasMode: unsafe extern "system" fn(*mut core::ffi::c_void, DWRITE_TEXT_ANTIALIAS_MODE) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteBitmapRenderTarget1 {}
+unsafe impl Sync for IDWriteBitmapRenderTarget1 {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IDWriteBitmapRenderTarget1_Impl: IDWriteBitmapRenderTarget_Impl {
     fn GetTextAntialiasMode(&self) -> DWRITE_TEXT_ANTIALIAS_MODE;
@@ -2081,10 +2081,6 @@ impl IDWriteBitmapRenderTarget1_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for IDWriteBitmapRenderTarget1 {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl Send for IDWriteBitmapRenderTarget1 {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl Sync for IDWriteBitmapRenderTarget1 {}
 windows_core::imp::define_interface!(IDWriteBitmapRenderTarget2, IDWriteBitmapRenderTarget2_Vtbl, 0xc553a742_fc01_44da_a66e_b8b9ed6c3995);
 impl core::ops::Deref for IDWriteBitmapRenderTarget2 {
     type Target = IDWriteBitmapRenderTarget1;
@@ -2106,6 +2102,8 @@ pub struct IDWriteBitmapRenderTarget2_Vtbl {
     pub base__: IDWriteBitmapRenderTarget1_Vtbl,
     pub GetBitmapData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DWRITE_BITMAP_DATA_BGRA32) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteBitmapRenderTarget2 {}
+unsafe impl Sync for IDWriteBitmapRenderTarget2 {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IDWriteBitmapRenderTarget2_Impl: IDWriteBitmapRenderTarget1_Impl {
     fn GetBitmapData(&self) -> windows_core::Result<DWRITE_BITMAP_DATA_BGRA32>;
@@ -2133,10 +2131,6 @@ impl IDWriteBitmapRenderTarget2_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for IDWriteBitmapRenderTarget2 {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl Send for IDWriteBitmapRenderTarget2 {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl Sync for IDWriteBitmapRenderTarget2 {}
 windows_core::imp::define_interface!(IDWriteBitmapRenderTarget3, IDWriteBitmapRenderTarget3_Vtbl, 0xaeec37db_c337_40f1_8e2a_9a41b167b238);
 impl core::ops::Deref for IDWriteBitmapRenderTarget3 {
     type Target = IDWriteBitmapRenderTarget2;
@@ -2166,6 +2160,8 @@ pub struct IDWriteBitmapRenderTarget3_Vtbl {
     pub DrawPaintGlyphRun: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, DWRITE_MEASURING_MODE, *const DWRITE_GLYPH_RUN, DWRITE_GLYPH_IMAGE_FORMATS, super::super::Foundation::COLORREF, u32, *mut super::super::Foundation::RECT) -> windows_core::HRESULT,
     pub DrawGlyphRunWithColorSupport: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, DWRITE_MEASURING_MODE, *const DWRITE_GLYPH_RUN, *mut core::ffi::c_void, super::super::Foundation::COLORREF, u32, *mut super::super::Foundation::RECT) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteBitmapRenderTarget3 {}
+unsafe impl Sync for IDWriteBitmapRenderTarget3 {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IDWriteBitmapRenderTarget3_Impl: IDWriteBitmapRenderTarget2_Impl {
     fn GetPaintFeatureLevel(&self) -> DWRITE_PAINT_FEATURE_LEVEL;
@@ -2206,10 +2202,6 @@ impl IDWriteBitmapRenderTarget3_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for IDWriteBitmapRenderTarget3 {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl Send for IDWriteBitmapRenderTarget3 {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl Sync for IDWriteBitmapRenderTarget3 {}
 windows_core::imp::define_interface!(IDWriteColorGlyphRunEnumerator, IDWriteColorGlyphRunEnumerator_Vtbl, 0xd31fbe17_f157_41a2_8d24_cb779e0560e8);
 windows_core::imp::interface_hierarchy!(IDWriteColorGlyphRunEnumerator, windows_core::IUnknown);
 impl IDWriteColorGlyphRunEnumerator {
@@ -2232,6 +2224,8 @@ pub struct IDWriteColorGlyphRunEnumerator_Vtbl {
     pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub GetCurrentRun: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut DWRITE_COLOR_GLYPH_RUN) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteColorGlyphRunEnumerator {}
+unsafe impl Sync for IDWriteColorGlyphRunEnumerator {}
 pub trait IDWriteColorGlyphRunEnumerator_Impl: windows_core::IUnknownImpl {
     fn MoveNext(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn GetCurrentRun(&self) -> windows_core::Result<*mut DWRITE_COLOR_GLYPH_RUN>;
@@ -2273,8 +2267,6 @@ impl IDWriteColorGlyphRunEnumerator_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteColorGlyphRunEnumerator {}
-unsafe impl Send for IDWriteColorGlyphRunEnumerator {}
-unsafe impl Sync for IDWriteColorGlyphRunEnumerator {}
 windows_core::imp::define_interface!(IDWriteColorGlyphRunEnumerator1, IDWriteColorGlyphRunEnumerator1_Vtbl, 0x7c5f86da_c7a1_4f05_b8e1_55a179fe5a35);
 impl core::ops::Deref for IDWriteColorGlyphRunEnumerator1 {
     type Target = IDWriteColorGlyphRunEnumerator;
@@ -2296,6 +2288,8 @@ pub struct IDWriteColorGlyphRunEnumerator1_Vtbl {
     pub base__: IDWriteColorGlyphRunEnumerator_Vtbl,
     pub GetCurrentRun: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut DWRITE_COLOR_GLYPH_RUN1) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteColorGlyphRunEnumerator1 {}
+unsafe impl Sync for IDWriteColorGlyphRunEnumerator1 {}
 pub trait IDWriteColorGlyphRunEnumerator1_Impl: IDWriteColorGlyphRunEnumerator_Impl {
     fn GetCurrentRun(&self) -> windows_core::Result<*mut DWRITE_COLOR_GLYPH_RUN1>;
 }
@@ -2320,8 +2314,6 @@ impl IDWriteColorGlyphRunEnumerator1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteColorGlyphRunEnumerator1 {}
-unsafe impl Send for IDWriteColorGlyphRunEnumerator1 {}
-unsafe impl Sync for IDWriteColorGlyphRunEnumerator1 {}
 windows_core::imp::define_interface!(IDWriteFactory, IDWriteFactory_Vtbl, 0xb859ee5a_d838_4b5b_a2e8_1adc7d93db48);
 windows_core::imp::interface_hierarchy!(IDWriteFactory, windows_core::IUnknown);
 impl IDWriteFactory {
@@ -2504,6 +2496,8 @@ pub struct IDWriteFactory_Vtbl {
     pub CreateNumberSubstitution: unsafe extern "system" fn(*mut core::ffi::c_void, DWRITE_NUMBER_SUBSTITUTION_METHOD, windows_core::PCWSTR, super::super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateGlyphRunAnalysis: unsafe extern "system" fn(*mut core::ffi::c_void, *const DWRITE_GLYPH_RUN, f32, *const DWRITE_MATRIX, DWRITE_RENDERING_MODE, DWRITE_MEASURING_MODE, f32, f32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteFactory {}
+unsafe impl Sync for IDWriteFactory {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IDWriteFactory_Impl: windows_core::IUnknownImpl {
     fn GetSystemFontCollection(&self, fontcollection: windows_core::OutRef<'_, IDWriteFontCollection>, checkforupdates: super::super::Foundation::BOOL) -> windows_core::Result<()>;
@@ -2784,10 +2778,6 @@ impl IDWriteFactory_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for IDWriteFactory {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl Send for IDWriteFactory {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl Sync for IDWriteFactory {}
 windows_core::imp::define_interface!(IDWriteFactory1, IDWriteFactory1_Vtbl, 0x30572f99_dac6_41db_a16e_0486307e606a);
 impl core::ops::Deref for IDWriteFactory1 {
     type Target = IDWriteFactory;
@@ -2813,6 +2803,8 @@ pub struct IDWriteFactory1_Vtbl {
     pub GetEudcFontCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub CreateCustomRenderingParams: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, f32, f32, DWRITE_PIXEL_GEOMETRY, DWRITE_RENDERING_MODE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteFactory1 {}
+unsafe impl Sync for IDWriteFactory1 {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IDWriteFactory1_Impl: IDWriteFactory_Impl {
     fn GetEudcFontCollection(&self, fontcollection: windows_core::OutRef<'_, IDWriteFontCollection>, checkforupdates: super::super::Foundation::BOOL) -> windows_core::Result<()>;
@@ -2851,10 +2843,6 @@ impl IDWriteFactory1_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for IDWriteFactory1 {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl Send for IDWriteFactory1 {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl Sync for IDWriteFactory1 {}
 windows_core::imp::define_interface!(IDWriteFactory2, IDWriteFactory2_Vtbl, 0x0439fc60_ca44_4994_8dee_3a9af7b732ec);
 impl core::ops::Deref for IDWriteFactory2 {
     type Target = IDWriteFactory1;
@@ -2904,6 +2892,8 @@ pub struct IDWriteFactory2_Vtbl {
     pub CreateCustomRenderingParams: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, f32, f32, DWRITE_PIXEL_GEOMETRY, DWRITE_RENDERING_MODE, DWRITE_GRID_FIT_MODE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateGlyphRunAnalysis: unsafe extern "system" fn(*mut core::ffi::c_void, *const DWRITE_GLYPH_RUN, *const DWRITE_MATRIX, DWRITE_RENDERING_MODE, DWRITE_MEASURING_MODE, DWRITE_GRID_FIT_MODE, DWRITE_TEXT_ANTIALIAS_MODE, f32, f32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteFactory2 {}
+unsafe impl Sync for IDWriteFactory2 {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IDWriteFactory2_Impl: IDWriteFactory1_Impl {
     fn GetSystemFontFallback(&self) -> windows_core::Result<IDWriteFontFallback>;
@@ -2990,10 +2980,6 @@ impl IDWriteFactory2_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for IDWriteFactory2 {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl Send for IDWriteFactory2 {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl Sync for IDWriteFactory2 {}
 windows_core::imp::define_interface!(IDWriteFactory3, IDWriteFactory3_Vtbl, 0x9a1b41c3_d3bb_466a_87fc_fe67556a3b65);
 impl core::ops::Deref for IDWriteFactory3 {
     type Target = IDWriteFactory2;
@@ -3077,6 +3063,8 @@ pub struct IDWriteFactory3_Vtbl {
     pub GetSystemFontCollection: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL, *mut *mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub GetFontDownloadQueue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteFactory3 {}
+unsafe impl Sync for IDWriteFactory3 {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IDWriteFactory3_Impl: IDWriteFactory2_Impl {
     fn CreateGlyphRunAnalysis(&self, glyphrun: *const DWRITE_GLYPH_RUN, transform: *const DWRITE_MATRIX, renderingmode: DWRITE_RENDERING_MODE1, measuringmode: DWRITE_MEASURING_MODE, gridfitmode: DWRITE_GRID_FIT_MODE, antialiasmode: DWRITE_TEXT_ANTIALIAS_MODE, baselineoriginx: f32, baselineoriginy: f32) -> windows_core::Result<IDWriteGlyphRunAnalysis>;
@@ -3213,10 +3201,6 @@ impl IDWriteFactory3_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for IDWriteFactory3 {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl Send for IDWriteFactory3 {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl Sync for IDWriteFactory3 {}
 windows_core::imp::define_interface!(IDWriteFactory4, IDWriteFactory4_Vtbl, 0x4b0b5bd3_0797_4549_8ac5_fe915cc53856);
 impl core::ops::Deref for IDWriteFactory4 {
     type Target = IDWriteFactory3;
@@ -3264,6 +3248,8 @@ pub struct IDWriteFactory4_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
     ComputeGlyphOrigins2: usize,
 }
+unsafe impl Send for IDWriteFactory4 {}
+unsafe impl Sync for IDWriteFactory4 {}
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
 pub trait IDWriteFactory4_Impl: IDWriteFactory3_Impl {
     fn TranslateColorGlyphRun(&self, baselineorigin: &super::Direct2D::Common::D2D_POINT_2F, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, desiredglyphimageformats: DWRITE_GLYPH_IMAGE_FORMATS, measuringmode: DWRITE_MEASURING_MODE, worldanddpitransform: *const DWRITE_MATRIX, colorpaletteindex: u32) -> windows_core::Result<IDWriteColorGlyphRunEnumerator1>;
@@ -3322,10 +3308,6 @@ impl IDWriteFactory4_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IDWriteFactory4 {}
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
-unsafe impl Send for IDWriteFactory4 {}
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
-unsafe impl Sync for IDWriteFactory4 {}
 windows_core::imp::define_interface!(IDWriteFactory5, IDWriteFactory5_Vtbl, 0x958db99a_be2a_4f09_af7d_65189803d1d3);
 impl core::ops::Deref for IDWriteFactory5 {
     type Target = IDWriteFactory4;
@@ -3376,6 +3358,8 @@ pub struct IDWriteFactory5_Vtbl {
     pub AnalyzeContainerType: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32) -> DWRITE_CONTAINER_TYPE,
     pub UnpackFontFile: unsafe extern "system" fn(*mut core::ffi::c_void, DWRITE_CONTAINER_TYPE, *const core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteFactory5 {}
+unsafe impl Sync for IDWriteFactory5 {}
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
 pub trait IDWriteFactory5_Impl: IDWriteFactory4_Impl {
     fn CreateFontSetBuilder(&self) -> windows_core::Result<IDWriteFontSetBuilder1>;
@@ -3456,10 +3440,6 @@ impl IDWriteFactory5_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IDWriteFactory5 {}
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
-unsafe impl Send for IDWriteFactory5 {}
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
-unsafe impl Sync for IDWriteFactory5 {}
 windows_core::imp::define_interface!(IDWriteFactory6, IDWriteFactory6_Vtbl, 0xf3744d80_21f7_42eb_b35d_995bc72fc223);
 impl core::ops::Deref for IDWriteFactory6 {
     type Target = IDWriteFactory5;
@@ -3537,6 +3517,8 @@ pub struct IDWriteFactory6_Vtbl {
     pub CreateFontSetBuilder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateTextFormat: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, *const DWRITE_FONT_AXIS_VALUE, u32, f32, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteFactory6 {}
+unsafe impl Sync for IDWriteFactory6 {}
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
 pub trait IDWriteFactory6_Impl: IDWriteFactory5_Impl {
     fn CreateFontFaceReference(&self, fontfile: windows_core::Ref<IDWriteFontFile>, faceindex: u32, fontsimulations: DWRITE_FONT_SIMULATIONS, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32) -> windows_core::Result<IDWriteFontFaceReference1>;
@@ -3651,10 +3633,6 @@ impl IDWriteFactory6_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IDWriteFactory6 {}
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
-unsafe impl Send for IDWriteFactory6 {}
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
-unsafe impl Sync for IDWriteFactory6 {}
 windows_core::imp::define_interface!(IDWriteFactory7, IDWriteFactory7_Vtbl, 0x35d0e0b3_9076_4d2e_a016_a91b568a06b4);
 impl core::ops::Deref for IDWriteFactory7 {
     type Target = IDWriteFactory6;
@@ -3683,6 +3661,8 @@ pub struct IDWriteFactory7_Vtbl {
     pub GetSystemFontSet: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSystemFontCollection: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL, DWRITE_FONT_FAMILY_MODEL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteFactory7 {}
+unsafe impl Sync for IDWriteFactory7 {}
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
 pub trait IDWriteFactory7_Impl: IDWriteFactory6_Impl {
     fn GetSystemFontSet(&self, includedownloadablefonts: super::super::Foundation::BOOL) -> windows_core::Result<IDWriteFontSet2>;
@@ -3727,10 +3707,6 @@ impl IDWriteFactory7_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IDWriteFactory7 {}
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
-unsafe impl Send for IDWriteFactory7 {}
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
-unsafe impl Sync for IDWriteFactory7 {}
 windows_core::imp::define_interface!(IDWriteFactory8, IDWriteFactory8_Vtbl, 0xee0a7fb5_def4_4c23_a454_c9c7dc878398);
 impl core::ops::Deref for IDWriteFactory8 {
     type Target = IDWriteFactory7;
@@ -3756,6 +3732,8 @@ pub struct IDWriteFactory8_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
     TranslateColorGlyphRun: usize,
 }
+unsafe impl Send for IDWriteFactory8 {}
+unsafe impl Sync for IDWriteFactory8 {}
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
 pub trait IDWriteFactory8_Impl: IDWriteFactory7_Impl {
     fn TranslateColorGlyphRun(&self, baselineorigin: &super::Direct2D::Common::D2D_POINT_2F, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, desiredglyphimageformats: DWRITE_GLYPH_IMAGE_FORMATS, paintfeaturelevel: DWRITE_PAINT_FEATURE_LEVEL, measuringmode: DWRITE_MEASURING_MODE, worldanddpitransform: *const DWRITE_MATRIX, colorpaletteindex: u32) -> windows_core::Result<IDWriteColorGlyphRunEnumerator1>;
@@ -3783,10 +3761,6 @@ impl IDWriteFactory8_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IDWriteFactory8 {}
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
-unsafe impl Send for IDWriteFactory8 {}
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
-unsafe impl Sync for IDWriteFactory8 {}
 windows_core::imp::define_interface!(IDWriteFont, IDWriteFont_Vtbl, 0xacd16696_8c14_4f5d_877e_fe3fc1d32737);
 windows_core::imp::interface_hierarchy!(IDWriteFont, windows_core::IUnknown);
 impl IDWriteFont {
@@ -3851,6 +3825,8 @@ pub struct IDWriteFont_Vtbl {
     pub HasCharacter: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub CreateFontFace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteFont {}
+unsafe impl Sync for IDWriteFont {}
 pub trait IDWriteFont_Impl: windows_core::IUnknownImpl {
     fn GetFontFamily(&self) -> windows_core::Result<IDWriteFontFamily>;
     fn GetWeight(&self) -> DWRITE_FONT_WEIGHT;
@@ -3976,8 +3952,6 @@ impl IDWriteFont_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFont {}
-unsafe impl Send for IDWriteFont {}
-unsafe impl Sync for IDWriteFont {}
 windows_core::imp::define_interface!(IDWriteFont1, IDWriteFont1_Vtbl, 0xacd16696_8c14_4f5d_877e_fe3fc1d32738);
 impl core::ops::Deref for IDWriteFont1 {
     type Target = IDWriteFont;
@@ -4012,6 +3986,8 @@ pub struct IDWriteFont1_Vtbl {
     pub GetUnicodeRanges: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DWRITE_UNICODE_RANGE, *mut u32) -> windows_core::HRESULT,
     pub IsMonospacedFont: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
 }
+unsafe impl Send for IDWriteFont1 {}
+unsafe impl Sync for IDWriteFont1 {}
 pub trait IDWriteFont1_Impl: IDWriteFont_Impl {
     fn GetMetrics(&self, fontmetrics: *mut DWRITE_FONT_METRICS1);
     fn GetPanose(&self, panose: *mut DWRITE_PANOSE);
@@ -4057,8 +4033,6 @@ impl IDWriteFont1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFont1 {}
-unsafe impl Send for IDWriteFont1 {}
-unsafe impl Sync for IDWriteFont1 {}
 windows_core::imp::define_interface!(IDWriteFont2, IDWriteFont2_Vtbl, 0x29748ed6_8c9c_4a6a_be0b_d912e8538944);
 impl core::ops::Deref for IDWriteFont2 {
     type Target = IDWriteFont1;
@@ -4077,6 +4051,8 @@ pub struct IDWriteFont2_Vtbl {
     pub base__: IDWriteFont1_Vtbl,
     pub IsColorFont: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
 }
+unsafe impl Send for IDWriteFont2 {}
+unsafe impl Sync for IDWriteFont2 {}
 pub trait IDWriteFont2_Impl: IDWriteFont1_Impl {
     fn IsColorFont(&self) -> super::super::Foundation::BOOL;
 }
@@ -4095,8 +4071,6 @@ impl IDWriteFont2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFont2 {}
-unsafe impl Send for IDWriteFont2 {}
-unsafe impl Sync for IDWriteFont2 {}
 windows_core::imp::define_interface!(IDWriteFont3, IDWriteFont3_Vtbl, 0x29748ed6_8c9c_4a6a_be0b_d912e8538944);
 impl core::ops::Deref for IDWriteFont3 {
     type Target = IDWriteFont2;
@@ -4140,6 +4114,8 @@ pub struct IDWriteFont3_Vtbl {
     pub HasCharacter: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> super::super::Foundation::BOOL,
     pub GetLocality: unsafe extern "system" fn(*mut core::ffi::c_void) -> DWRITE_LOCALITY,
 }
+unsafe impl Send for IDWriteFont3 {}
+unsafe impl Sync for IDWriteFont3 {}
 pub trait IDWriteFont3_Impl: IDWriteFont2_Impl {
     fn CreateFontFace(&self) -> windows_core::Result<IDWriteFontFace3>;
     fn Equals(&self, font: windows_core::Ref<IDWriteFont>) -> super::super::Foundation::BOOL;
@@ -4205,8 +4181,6 @@ impl IDWriteFont3_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFont3 {}
-unsafe impl Send for IDWriteFont3 {}
-unsafe impl Sync for IDWriteFont3 {}
 windows_core::imp::define_interface!(IDWriteFontCollection, IDWriteFontCollection_Vtbl, 0xa84cee02_3eea_4eee_a827_87c1a02a0fcc);
 windows_core::imp::interface_hierarchy!(IDWriteFontCollection, windows_core::IUnknown);
 impl IDWriteFontCollection {
@@ -4243,6 +4217,8 @@ pub struct IDWriteFontCollection_Vtbl {
     pub FindFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut u32, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub GetFontFromFontFace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteFontCollection {}
+unsafe impl Sync for IDWriteFontCollection {}
 pub trait IDWriteFontCollection_Impl: windows_core::IUnknownImpl {
     fn GetFontFamilyCount(&self) -> u32;
     fn GetFontFamily(&self, index: u32) -> windows_core::Result<IDWriteFontFamily>;
@@ -4300,8 +4276,6 @@ impl IDWriteFontCollection_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontCollection {}
-unsafe impl Send for IDWriteFontCollection {}
-unsafe impl Sync for IDWriteFontCollection {}
 windows_core::imp::define_interface!(IDWriteFontCollection1, IDWriteFontCollection1_Vtbl, 0x53585141_d9f8_4095_8321_d73cf6bd116c);
 impl core::ops::Deref for IDWriteFontCollection1 {
     type Target = IDWriteFontCollection;
@@ -4330,6 +4304,8 @@ pub struct IDWriteFontCollection1_Vtbl {
     pub GetFontSet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFontFamily: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteFontCollection1 {}
+unsafe impl Sync for IDWriteFontCollection1 {}
 pub trait IDWriteFontCollection1_Impl: IDWriteFontCollection_Impl {
     fn GetFontSet(&self) -> windows_core::Result<IDWriteFontSet>;
     fn GetFontFamily(&self, index: u32) -> windows_core::Result<IDWriteFontFamily1>;
@@ -4371,8 +4347,6 @@ impl IDWriteFontCollection1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontCollection1 {}
-unsafe impl Send for IDWriteFontCollection1 {}
-unsafe impl Sync for IDWriteFontCollection1 {}
 windows_core::imp::define_interface!(IDWriteFontCollection2, IDWriteFontCollection2_Vtbl, 0x514039c6_4617_4064_bf8b_92ea83e506e0);
 impl core::ops::Deref for IDWriteFontCollection2 {
     type Target = IDWriteFontCollection1;
@@ -4415,6 +4389,8 @@ pub struct IDWriteFontCollection2_Vtbl {
     pub GetFontFamilyModel: unsafe extern "system" fn(*mut core::ffi::c_void) -> DWRITE_FONT_FAMILY_MODEL,
     pub GetFontSet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteFontCollection2 {}
+unsafe impl Sync for IDWriteFontCollection2 {}
 pub trait IDWriteFontCollection2_Impl: IDWriteFontCollection1_Impl {
     fn GetFontFamily(&self, index: u32) -> windows_core::Result<IDWriteFontFamily2>;
     fn GetMatchingFonts(&self, familyname: &windows_core::PCWSTR, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32) -> windows_core::Result<IDWriteFontList2>;
@@ -4478,8 +4454,6 @@ impl IDWriteFontCollection2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontCollection2 {}
-unsafe impl Send for IDWriteFontCollection2 {}
-unsafe impl Sync for IDWriteFontCollection2 {}
 windows_core::imp::define_interface!(IDWriteFontCollection3, IDWriteFontCollection3_Vtbl, 0xa4d055a6_f9e3_4e25_93b7_9e309f3af8e9);
 impl core::ops::Deref for IDWriteFontCollection3 {
     type Target = IDWriteFontCollection2;
@@ -4498,6 +4472,8 @@ pub struct IDWriteFontCollection3_Vtbl {
     pub base__: IDWriteFontCollection2_Vtbl,
     pub GetExpirationEvent: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::HANDLE,
 }
+unsafe impl Send for IDWriteFontCollection3 {}
+unsafe impl Sync for IDWriteFontCollection3 {}
 pub trait IDWriteFontCollection3_Impl: IDWriteFontCollection2_Impl {
     fn GetExpirationEvent(&self) -> super::super::Foundation::HANDLE;
 }
@@ -4516,8 +4492,6 @@ impl IDWriteFontCollection3_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontCollection3 {}
-unsafe impl Send for IDWriteFontCollection3 {}
-unsafe impl Sync for IDWriteFontCollection3 {}
 windows_core::imp::define_interface!(IDWriteFontCollectionLoader, IDWriteFontCollectionLoader_Vtbl, 0xcca920e4_52f0_492b_bfa8_29c72ee0a468);
 windows_core::imp::interface_hierarchy!(IDWriteFontCollectionLoader, windows_core::IUnknown);
 impl IDWriteFontCollectionLoader {
@@ -4536,6 +4510,8 @@ pub struct IDWriteFontCollectionLoader_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateEnumeratorFromKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteFontCollectionLoader {}
+unsafe impl Sync for IDWriteFontCollectionLoader {}
 pub trait IDWriteFontCollectionLoader_Impl: windows_core::IUnknownImpl {
     fn CreateEnumeratorFromKey(&self, factory: windows_core::Ref<IDWriteFactory>, collectionkey: *const core::ffi::c_void, collectionkeysize: u32) -> windows_core::Result<IDWriteFontFileEnumerator>;
 }
@@ -4560,8 +4536,6 @@ impl IDWriteFontCollectionLoader_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontCollectionLoader {}
-unsafe impl Send for IDWriteFontCollectionLoader {}
-unsafe impl Sync for IDWriteFontCollectionLoader {}
 windows_core::imp::define_interface!(IDWriteFontDownloadListener, IDWriteFontDownloadListener_Vtbl, 0xb06fe5b9_43ec_4393_881b_dbe4dc72fda7);
 windows_core::imp::interface_hierarchy!(IDWriteFontDownloadListener, windows_core::IUnknown);
 impl IDWriteFontDownloadListener {
@@ -4578,6 +4552,8 @@ pub struct IDWriteFontDownloadListener_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub DownloadCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::HRESULT),
 }
+unsafe impl Send for IDWriteFontDownloadListener {}
+unsafe impl Sync for IDWriteFontDownloadListener {}
 pub trait IDWriteFontDownloadListener_Impl: windows_core::IUnknownImpl {
     fn DownloadCompleted(&self, downloadqueue: windows_core::Ref<IDWriteFontDownloadQueue>, context: windows_core::Ref<windows_core::IUnknown>, downloadresult: windows_core::HRESULT);
 }
@@ -4596,8 +4572,6 @@ impl IDWriteFontDownloadListener_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontDownloadListener {}
-unsafe impl Send for IDWriteFontDownloadListener {}
-unsafe impl Sync for IDWriteFontDownloadListener {}
 windows_core::imp::define_interface!(IDWriteFontDownloadQueue, IDWriteFontDownloadQueue_Vtbl, 0xb71e6052_5aea_4fa3_832e_f60d431f7e91);
 windows_core::imp::interface_hierarchy!(IDWriteFontDownloadQueue, windows_core::IUnknown);
 impl IDWriteFontDownloadQueue {
@@ -4639,6 +4613,8 @@ pub struct IDWriteFontDownloadQueue_Vtbl {
     pub CancelDownload: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetGenerationCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u64,
 }
+unsafe impl Send for IDWriteFontDownloadQueue {}
+unsafe impl Sync for IDWriteFontDownloadQueue {}
 pub trait IDWriteFontDownloadQueue_Impl: windows_core::IUnknownImpl {
     fn AddListener(&self, listener: windows_core::Ref<IDWriteFontDownloadListener>) -> windows_core::Result<u32>;
     fn RemoveListener(&self, token: u32) -> windows_core::Result<()>;
@@ -4706,8 +4682,6 @@ impl IDWriteFontDownloadQueue_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontDownloadQueue {}
-unsafe impl Send for IDWriteFontDownloadQueue {}
-unsafe impl Sync for IDWriteFontDownloadQueue {}
 windows_core::imp::define_interface!(IDWriteFontFace, IDWriteFontFace_Vtbl, 0x5f49804d_7024_4d43_bfa9_d25984f53849);
 windows_core::imp::interface_hierarchy!(IDWriteFontFace, windows_core::IUnknown);
 impl IDWriteFontFace {
@@ -4789,6 +4763,8 @@ pub struct IDWriteFontFace_Vtbl {
     pub GetGdiCompatibleMetrics: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, *const DWRITE_MATRIX, *mut DWRITE_FONT_METRICS) -> windows_core::HRESULT,
     pub GetGdiCompatibleGlyphMetrics: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, *const DWRITE_MATRIX, super::super::Foundation::BOOL, *const u16, u32, *mut DWRITE_GLYPH_METRICS, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteFontFace {}
+unsafe impl Sync for IDWriteFontFace {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub trait IDWriteFontFace_Impl: windows_core::IUnknownImpl {
     fn GetType(&self) -> DWRITE_FONT_FACE_TYPE;
@@ -4931,10 +4907,6 @@ impl IDWriteFontFace_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for IDWriteFontFace {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-unsafe impl Send for IDWriteFontFace {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-unsafe impl Sync for IDWriteFontFace {}
 windows_core::imp::define_interface!(IDWriteFontFace1, IDWriteFontFace1_Vtbl, 0xa71efdb4_9fdb_4838_ad90_cfc3be8c3daf);
 impl core::ops::Deref for IDWriteFontFace1 {
     type Target = IDWriteFontFace;
@@ -5004,6 +4976,8 @@ pub struct IDWriteFontFace1_Vtbl {
     pub GetVerticalGlyphVariants: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u16, *mut u16) -> windows_core::HRESULT,
     pub HasVerticalGlyphVariants: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
 }
+unsafe impl Send for IDWriteFontFace1 {}
+unsafe impl Sync for IDWriteFontFace1 {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub trait IDWriteFontFace1_Impl: IDWriteFontFace_Impl {
     fn GetMetrics(&self, fontmetrics: *mut DWRITE_FONT_METRICS1);
@@ -5122,10 +5096,6 @@ impl IDWriteFontFace1_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for IDWriteFontFace1 {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-unsafe impl Send for IDWriteFontFace1 {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-unsafe impl Sync for IDWriteFontFace1 {}
 windows_core::imp::define_interface!(IDWriteFontFace2, IDWriteFontFace2_Vtbl, 0xd8b768ff_64bc_4e66_982b_ec8e87f693f7);
 impl core::ops::Deref for IDWriteFontFace2 {
     type Target = IDWriteFontFace1;
@@ -5163,6 +5133,8 @@ pub struct IDWriteFontFace2_Vtbl {
     pub GetPaletteEntries: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, *mut DWRITE_COLOR_F) -> windows_core::HRESULT,
     pub GetRecommendedRenderingMode: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, f32, *const DWRITE_MATRIX, super::super::Foundation::BOOL, DWRITE_OUTLINE_THRESHOLD, DWRITE_MEASURING_MODE, *mut core::ffi::c_void, *mut DWRITE_RENDERING_MODE, *mut DWRITE_GRID_FIT_MODE) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteFontFace2 {}
+unsafe impl Sync for IDWriteFontFace2 {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub trait IDWriteFontFace2_Impl: IDWriteFontFace1_Impl {
     fn IsColorFont(&self) -> super::super::Foundation::BOOL;
@@ -5219,10 +5191,6 @@ impl IDWriteFontFace2_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for IDWriteFontFace2 {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-unsafe impl Send for IDWriteFontFace2 {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-unsafe impl Sync for IDWriteFontFace2 {}
 windows_core::imp::define_interface!(IDWriteFontFace3, IDWriteFontFace3_Vtbl, 0xd37d7598_09be_4222_a236_2081341cc1f2);
 impl core::ops::Deref for IDWriteFontFace3 {
     type Target = IDWriteFontFace2;
@@ -5315,6 +5283,8 @@ pub struct IDWriteFontFace3_Vtbl {
     pub AreCharactersLocal: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, super::super::Foundation::BOOL, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub AreGlyphsLocal: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, u32, super::super::Foundation::BOOL, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteFontFace3 {}
+unsafe impl Sync for IDWriteFontFace3 {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub trait IDWriteFontFace3_Impl: IDWriteFontFace2_Impl {
     fn GetFontFaceReference(&self) -> windows_core::Result<IDWriteFontFaceReference>;
@@ -5473,10 +5443,6 @@ impl IDWriteFontFace3_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for IDWriteFontFace3 {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-unsafe impl Send for IDWriteFontFace3 {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-unsafe impl Sync for IDWriteFontFace3 {}
 windows_core::imp::define_interface!(IDWriteFontFace4, IDWriteFontFace4_Vtbl, 0x27f2a904_4eb8_441d_9678_0563f53e3e2f);
 impl core::ops::Deref for IDWriteFontFace4 {
     type Target = IDWriteFontFace3;
@@ -5514,6 +5480,8 @@ pub struct IDWriteFontFace4_Vtbl {
     GetGlyphImageData: usize,
     pub ReleaseGlyphImageData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
 }
+unsafe impl Send for IDWriteFontFace4 {}
+unsafe impl Sync for IDWriteFontFace4 {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub trait IDWriteFontFace4_Impl: IDWriteFontFace3_Impl {
     fn GetGlyphImageFormats(&self, glyphid: u16, pixelsperemfirst: u32, pixelsperemlast: u32) -> windows_core::Result<DWRITE_GLYPH_IMAGE_FORMATS>;
@@ -5568,10 +5536,6 @@ impl IDWriteFontFace4_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for IDWriteFontFace4 {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-unsafe impl Send for IDWriteFontFace4 {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-unsafe impl Sync for IDWriteFontFace4 {}
 windows_core::imp::define_interface!(IDWriteFontFace5, IDWriteFontFace5_Vtbl, 0x98eff3a5_b667_479a_b145_e2fa5b9fdc29);
 impl core::ops::Deref for IDWriteFontFace5 {
     type Target = IDWriteFontFace4;
@@ -5612,6 +5576,8 @@ pub struct IDWriteFontFace5_Vtbl {
     pub GetFontResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Equals: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> super::super::Foundation::BOOL,
 }
+unsafe impl Send for IDWriteFontFace5 {}
+unsafe impl Sync for IDWriteFontFace5 {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub trait IDWriteFontFace5_Impl: IDWriteFontFace4_Impl {
     fn GetFontAxisValueCount(&self) -> u32;
@@ -5674,10 +5640,6 @@ impl IDWriteFontFace5_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for IDWriteFontFace5 {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-unsafe impl Send for IDWriteFontFace5 {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-unsafe impl Sync for IDWriteFontFace5 {}
 windows_core::imp::define_interface!(IDWriteFontFace6, IDWriteFontFace6_Vtbl, 0xc4b1fe1b_6e84_47d5_b54c_a597981b06ad);
 impl core::ops::Deref for IDWriteFontFace6 {
     type Target = IDWriteFontFace5;
@@ -5706,6 +5668,8 @@ pub struct IDWriteFontFace6_Vtbl {
     pub GetFamilyNames: unsafe extern "system" fn(*mut core::ffi::c_void, DWRITE_FONT_FAMILY_MODEL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFaceNames: unsafe extern "system" fn(*mut core::ffi::c_void, DWRITE_FONT_FAMILY_MODEL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteFontFace6 {}
+unsafe impl Sync for IDWriteFontFace6 {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub trait IDWriteFontFace6_Impl: IDWriteFontFace5_Impl {
     fn GetFamilyNames(&self, fontfamilymodel: DWRITE_FONT_FAMILY_MODEL) -> windows_core::Result<IDWriteLocalizedStrings>;
@@ -5750,10 +5714,6 @@ impl IDWriteFontFace6_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for IDWriteFontFace6 {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-unsafe impl Send for IDWriteFontFace6 {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-unsafe impl Sync for IDWriteFontFace6 {}
 windows_core::imp::define_interface!(IDWriteFontFace7, IDWriteFontFace7_Vtbl, 0x3945b85b_bc95_40f7_b72c_8b73bfc7e13b);
 impl core::ops::Deref for IDWriteFontFace7 {
     type Target = IDWriteFontFace6;
@@ -5779,6 +5739,8 @@ pub struct IDWriteFontFace7_Vtbl {
     pub GetPaintFeatureLevel: unsafe extern "system" fn(*mut core::ffi::c_void, DWRITE_GLYPH_IMAGE_FORMATS) -> DWRITE_PAINT_FEATURE_LEVEL,
     pub CreatePaintReader: unsafe extern "system" fn(*mut core::ffi::c_void, DWRITE_GLYPH_IMAGE_FORMATS, DWRITE_PAINT_FEATURE_LEVEL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteFontFace7 {}
+unsafe impl Sync for IDWriteFontFace7 {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub trait IDWriteFontFace7_Impl: IDWriteFontFace6_Impl {
     fn GetPaintFeatureLevel(&self, glyphimageformat: DWRITE_GLYPH_IMAGE_FORMATS) -> DWRITE_PAINT_FEATURE_LEVEL;
@@ -5817,10 +5779,6 @@ impl IDWriteFontFace7_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for IDWriteFontFace7 {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-unsafe impl Send for IDWriteFontFace7 {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-unsafe impl Sync for IDWriteFontFace7 {}
 windows_core::imp::define_interface!(IDWriteFontFaceReference, IDWriteFontFaceReference_Vtbl, 0x5e7fa7ca_dde3_424c_89f0_9fcd6fed58cd);
 windows_core::imp::interface_hierarchy!(IDWriteFontFaceReference, windows_core::IUnknown);
 impl IDWriteFontFaceReference {
@@ -5900,6 +5858,8 @@ pub struct IDWriteFontFaceReference_Vtbl {
     pub EnqueueGlyphDownloadRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, u32) -> windows_core::HRESULT,
     pub EnqueueFileFragmentDownloadRequest: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteFontFaceReference {}
+unsafe impl Sync for IDWriteFontFaceReference {}
 pub trait IDWriteFontFaceReference_Impl: windows_core::IUnknownImpl {
     fn CreateFontFace(&self) -> windows_core::Result<IDWriteFontFace3>;
     fn CreateFontFaceWithSimulations(&self, fontfacesimulationflags: DWRITE_FONT_SIMULATIONS) -> windows_core::Result<IDWriteFontFace3>;
@@ -6049,8 +6009,6 @@ impl IDWriteFontFaceReference_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontFaceReference {}
-unsafe impl Send for IDWriteFontFaceReference {}
-unsafe impl Sync for IDWriteFontFaceReference {}
 windows_core::imp::define_interface!(IDWriteFontFaceReference1, IDWriteFontFaceReference1_Vtbl, 0xc081fe77_2fd1_41ac_a5a3_34983c4ba61a);
 impl core::ops::Deref for IDWriteFontFaceReference1 {
     type Target = IDWriteFontFaceReference;
@@ -6080,6 +6038,8 @@ pub struct IDWriteFontFaceReference1_Vtbl {
     pub GetFontAxisValueCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetFontAxisValues: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DWRITE_FONT_AXIS_VALUE, u32) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteFontFaceReference1 {}
+unsafe impl Sync for IDWriteFontFaceReference1 {}
 pub trait IDWriteFontFaceReference1_Impl: IDWriteFontFaceReference_Impl {
     fn CreateFontFace(&self) -> windows_core::Result<IDWriteFontFace5>;
     fn GetFontAxisValueCount(&self) -> u32;
@@ -6123,8 +6083,6 @@ impl IDWriteFontFaceReference1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontFaceReference1 {}
-unsafe impl Send for IDWriteFontFaceReference1 {}
-unsafe impl Sync for IDWriteFontFaceReference1 {}
 windows_core::imp::define_interface!(IDWriteFontFallback, IDWriteFontFallback_Vtbl, 0xefa008f9_f7a1_48bf_b05c_f224713cc0ff);
 windows_core::imp::interface_hierarchy!(IDWriteFontFallback, windows_core::IUnknown);
 impl IDWriteFontFallback {
@@ -6142,6 +6100,8 @@ pub struct IDWriteFontFallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub MapCharacters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, *mut core::ffi::c_void, windows_core::PCWSTR, DWRITE_FONT_WEIGHT, DWRITE_FONT_STYLE, DWRITE_FONT_STRETCH, *mut u32, *mut *mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteFontFallback {}
+unsafe impl Sync for IDWriteFontFallback {}
 pub trait IDWriteFontFallback_Impl: windows_core::IUnknownImpl {
     fn MapCharacters(&self, analysissource: windows_core::Ref<IDWriteTextAnalysisSource>, textposition: u32, textlength: u32, basefontcollection: windows_core::Ref<IDWriteFontCollection>, basefamilyname: &windows_core::PCWSTR, baseweight: DWRITE_FONT_WEIGHT, basestyle: DWRITE_FONT_STYLE, basestretch: DWRITE_FONT_STRETCH, mappedlength: *mut u32, mappedfont: windows_core::OutRef<'_, IDWriteFont>, scale: *mut f32) -> windows_core::Result<()>;
 }
@@ -6160,8 +6120,6 @@ impl IDWriteFontFallback_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontFallback {}
-unsafe impl Send for IDWriteFontFallback {}
-unsafe impl Sync for IDWriteFontFallback {}
 windows_core::imp::define_interface!(IDWriteFontFallback1, IDWriteFontFallback1_Vtbl, 0x2397599d_dd0d_4681_bd6a_f4f31eaade77);
 impl core::ops::Deref for IDWriteFontFallback1 {
     type Target = IDWriteFontFallback;
@@ -6185,6 +6143,8 @@ pub struct IDWriteFontFallback1_Vtbl {
     pub base__: IDWriteFontFallback_Vtbl,
     pub MapCharacters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, *mut core::ffi::c_void, windows_core::PCWSTR, *const DWRITE_FONT_AXIS_VALUE, u32, *mut u32, *mut f32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteFontFallback1 {}
+unsafe impl Sync for IDWriteFontFallback1 {}
 pub trait IDWriteFontFallback1_Impl: IDWriteFontFallback_Impl {
     fn MapCharacters(&self, analysissource: windows_core::Ref<IDWriteTextAnalysisSource>, textposition: u32, textlength: u32, basefontcollection: windows_core::Ref<IDWriteFontCollection>, basefamilyname: &windows_core::PCWSTR, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32, mappedlength: *mut u32, scale: *mut f32, mappedfontface: windows_core::OutRef<'_, IDWriteFontFace5>) -> windows_core::Result<()>;
 }
@@ -6203,8 +6163,6 @@ impl IDWriteFontFallback1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontFallback1 {}
-unsafe impl Send for IDWriteFontFallback1 {}
-unsafe impl Sync for IDWriteFontFallback1 {}
 windows_core::imp::define_interface!(IDWriteFontFallbackBuilder, IDWriteFontFallbackBuilder_Vtbl, 0xfd882d06_8aba_4fb8_b849_8be8b73e14de);
 windows_core::imp::interface_hierarchy!(IDWriteFontFallbackBuilder, windows_core::IUnknown);
 impl IDWriteFontFallbackBuilder {
@@ -6236,6 +6194,8 @@ pub struct IDWriteFontFallbackBuilder_Vtbl {
     pub AddMappings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateFontFallback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteFontFallbackBuilder {}
+unsafe impl Sync for IDWriteFontFallbackBuilder {}
 pub trait IDWriteFontFallbackBuilder_Impl: windows_core::IUnknownImpl {
     fn AddMapping(&self, ranges: *const DWRITE_UNICODE_RANGE, rangescount: u32, targetfamilynames: *const *const u16, targetfamilynamescount: u32, fontcollection: windows_core::Ref<IDWriteFontCollection>, localename: &windows_core::PCWSTR, basefamilyname: &windows_core::PCWSTR, scale: f32) -> windows_core::Result<()>;
     fn AddMappings(&self, fontfallback: windows_core::Ref<IDWriteFontFallback>) -> windows_core::Result<()>;
@@ -6279,8 +6239,6 @@ impl IDWriteFontFallbackBuilder_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontFallbackBuilder {}
-unsafe impl Send for IDWriteFontFallbackBuilder {}
-unsafe impl Sync for IDWriteFontFallbackBuilder {}
 windows_core::imp::define_interface!(IDWriteFontFamily, IDWriteFontFamily_Vtbl, 0xda20d8ef_812a_4c43_9802_62ec4abd7add);
 impl core::ops::Deref for IDWriteFontFamily {
     type Target = IDWriteFontList;
@@ -6316,6 +6274,8 @@ pub struct IDWriteFontFamily_Vtbl {
     pub GetFirstMatchingFont: unsafe extern "system" fn(*mut core::ffi::c_void, DWRITE_FONT_WEIGHT, DWRITE_FONT_STRETCH, DWRITE_FONT_STYLE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetMatchingFonts: unsafe extern "system" fn(*mut core::ffi::c_void, DWRITE_FONT_WEIGHT, DWRITE_FONT_STRETCH, DWRITE_FONT_STYLE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteFontFamily {}
+unsafe impl Sync for IDWriteFontFamily {}
 pub trait IDWriteFontFamily_Impl: IDWriteFontList_Impl {
     fn GetFamilyNames(&self) -> windows_core::Result<IDWriteLocalizedStrings>;
     fn GetFirstMatchingFont(&self, weight: DWRITE_FONT_WEIGHT, stretch: DWRITE_FONT_STRETCH, style: DWRITE_FONT_STYLE) -> windows_core::Result<IDWriteFont>;
@@ -6371,8 +6331,6 @@ impl IDWriteFontFamily_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontFamily {}
-unsafe impl Send for IDWriteFontFamily {}
-unsafe impl Sync for IDWriteFontFamily {}
 windows_core::imp::define_interface!(IDWriteFontFamily1, IDWriteFontFamily1_Vtbl, 0xda20d8ef_812a_4c43_9802_62ec4abd7adf);
 impl core::ops::Deref for IDWriteFontFamily1 {
     type Target = IDWriteFontFamily;
@@ -6405,6 +6363,8 @@ pub struct IDWriteFontFamily1_Vtbl {
     pub GetFont: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFontFaceReference: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteFontFamily1 {}
+unsafe impl Sync for IDWriteFontFamily1 {}
 pub trait IDWriteFontFamily1_Impl: IDWriteFontFamily_Impl {
     fn GetFontLocality(&self, listindex: u32) -> DWRITE_LOCALITY;
     fn GetFont(&self, listindex: u32) -> windows_core::Result<IDWriteFont3>;
@@ -6454,8 +6414,6 @@ impl IDWriteFontFamily1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontFamily1 {}
-unsafe impl Send for IDWriteFontFamily1 {}
-unsafe impl Sync for IDWriteFontFamily1 {}
 windows_core::imp::define_interface!(IDWriteFontFamily2, IDWriteFontFamily2_Vtbl, 0x3ed49e77_a398_4261_b9cf_c126c2131ef3);
 impl core::ops::Deref for IDWriteFontFamily2 {
     type Target = IDWriteFontFamily1;
@@ -6484,6 +6442,8 @@ pub struct IDWriteFontFamily2_Vtbl {
     pub GetMatchingFonts: unsafe extern "system" fn(*mut core::ffi::c_void, *const DWRITE_FONT_AXIS_VALUE, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFontSet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteFontFamily2 {}
+unsafe impl Sync for IDWriteFontFamily2 {}
 pub trait IDWriteFontFamily2_Impl: IDWriteFontFamily1_Impl {
     fn GetMatchingFonts(&self, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32) -> windows_core::Result<IDWriteFontList2>;
     fn GetFontSet(&self) -> windows_core::Result<IDWriteFontSet1>;
@@ -6525,8 +6485,6 @@ impl IDWriteFontFamily2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontFamily2 {}
-unsafe impl Send for IDWriteFontFamily2 {}
-unsafe impl Sync for IDWriteFontFamily2 {}
 windows_core::imp::define_interface!(IDWriteFontFile, IDWriteFontFile_Vtbl, 0x739d886a_cef5_47dc_8769_1a8b41bebbb0);
 windows_core::imp::interface_hierarchy!(IDWriteFontFile, windows_core::IUnknown);
 impl IDWriteFontFile {
@@ -6550,6 +6508,8 @@ pub struct IDWriteFontFile_Vtbl {
     pub GetLoader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Analyze: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL, *mut DWRITE_FONT_FILE_TYPE, *mut DWRITE_FONT_FACE_TYPE, *mut u32) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteFontFile {}
+unsafe impl Sync for IDWriteFontFile {}
 pub trait IDWriteFontFile_Impl: windows_core::IUnknownImpl {
     fn GetReferenceKey(&self, fontfilereferencekey: *mut *mut core::ffi::c_void, fontfilereferencekeysize: *mut u32) -> windows_core::Result<()>;
     fn GetLoader(&self) -> windows_core::Result<IDWriteFontFileLoader>;
@@ -6593,8 +6553,6 @@ impl IDWriteFontFile_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontFile {}
-unsafe impl Send for IDWriteFontFile {}
-unsafe impl Sync for IDWriteFontFile {}
 windows_core::imp::define_interface!(IDWriteFontFileEnumerator, IDWriteFontFileEnumerator_Vtbl, 0x72755049_5ff7_435d_8348_4be97cfa6c7c);
 windows_core::imp::interface_hierarchy!(IDWriteFontFileEnumerator, windows_core::IUnknown);
 impl IDWriteFontFileEnumerator {
@@ -6617,6 +6575,8 @@ pub struct IDWriteFontFileEnumerator_Vtbl {
     pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub GetCurrentFontFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteFontFileEnumerator {}
+unsafe impl Sync for IDWriteFontFileEnumerator {}
 pub trait IDWriteFontFileEnumerator_Impl: windows_core::IUnknownImpl {
     fn MoveNext(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn GetCurrentFontFile(&self) -> windows_core::Result<IDWriteFontFile>;
@@ -6658,8 +6618,6 @@ impl IDWriteFontFileEnumerator_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontFileEnumerator {}
-unsafe impl Send for IDWriteFontFileEnumerator {}
-unsafe impl Sync for IDWriteFontFileEnumerator {}
 windows_core::imp::define_interface!(IDWriteFontFileLoader, IDWriteFontFileLoader_Vtbl, 0x727cad4e_d6af_4c9e_8a08_d695b11caa49);
 windows_core::imp::interface_hierarchy!(IDWriteFontFileLoader, windows_core::IUnknown);
 impl IDWriteFontFileLoader {
@@ -6675,6 +6633,8 @@ pub struct IDWriteFontFileLoader_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateStreamFromKey: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteFontFileLoader {}
+unsafe impl Sync for IDWriteFontFileLoader {}
 pub trait IDWriteFontFileLoader_Impl: windows_core::IUnknownImpl {
     fn CreateStreamFromKey(&self, fontfilereferencekey: *const core::ffi::c_void, fontfilereferencekeysize: u32) -> windows_core::Result<IDWriteFontFileStream>;
 }
@@ -6699,8 +6659,6 @@ impl IDWriteFontFileLoader_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontFileLoader {}
-unsafe impl Send for IDWriteFontFileLoader {}
-unsafe impl Sync for IDWriteFontFileLoader {}
 windows_core::imp::define_interface!(IDWriteFontFileStream, IDWriteFontFileStream_Vtbl, 0x6d4865fe_0ab8_4d91_8f62_5dd6be34a3e0);
 windows_core::imp::interface_hierarchy!(IDWriteFontFileStream, windows_core::IUnknown);
 impl IDWriteFontFileStream {
@@ -6731,6 +6689,8 @@ pub struct IDWriteFontFileStream_Vtbl {
     pub GetFileSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
     pub GetLastWriteTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteFontFileStream {}
+unsafe impl Sync for IDWriteFontFileStream {}
 pub trait IDWriteFontFileStream_Impl: windows_core::IUnknownImpl {
     fn ReadFileFragment(&self, fragmentstart: *mut *mut core::ffi::c_void, fileoffset: u64, fragmentsize: u64, fragmentcontext: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn ReleaseFileFragment(&self, fragmentcontext: *mut core::ffi::c_void);
@@ -6788,8 +6748,6 @@ impl IDWriteFontFileStream_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontFileStream {}
-unsafe impl Send for IDWriteFontFileStream {}
-unsafe impl Sync for IDWriteFontFileStream {}
 windows_core::imp::define_interface!(IDWriteFontList, IDWriteFontList_Vtbl, 0x1a0d8438_1d97_4ec1_aef9_a2fb86ed6acb);
 windows_core::imp::interface_hierarchy!(IDWriteFontList, windows_core::IUnknown);
 impl IDWriteFontList {
@@ -6816,6 +6774,8 @@ pub struct IDWriteFontList_Vtbl {
     pub GetFontCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetFont: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteFontList {}
+unsafe impl Sync for IDWriteFontList {}
 pub trait IDWriteFontList_Impl: windows_core::IUnknownImpl {
     fn GetFontCollection(&self) -> windows_core::Result<IDWriteFontCollection>;
     fn GetFontCount(&self) -> u32;
@@ -6865,8 +6825,6 @@ impl IDWriteFontList_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontList {}
-unsafe impl Send for IDWriteFontList {}
-unsafe impl Sync for IDWriteFontList {}
 windows_core::imp::define_interface!(IDWriteFontList1, IDWriteFontList1_Vtbl, 0xda20d8ef_812a_4c43_9802_62ec4abd7ade);
 impl core::ops::Deref for IDWriteFontList1 {
     type Target = IDWriteFontList;
@@ -6899,6 +6857,8 @@ pub struct IDWriteFontList1_Vtbl {
     pub GetFont: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFontFaceReference: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteFontList1 {}
+unsafe impl Sync for IDWriteFontList1 {}
 pub trait IDWriteFontList1_Impl: IDWriteFontList_Impl {
     fn GetFontLocality(&self, listindex: u32) -> DWRITE_LOCALITY;
     fn GetFont(&self, listindex: u32) -> windows_core::Result<IDWriteFont3>;
@@ -6948,8 +6908,6 @@ impl IDWriteFontList1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontList1 {}
-unsafe impl Send for IDWriteFontList1 {}
-unsafe impl Sync for IDWriteFontList1 {}
 windows_core::imp::define_interface!(IDWriteFontList2, IDWriteFontList2_Vtbl, 0xc0763a34_77af_445a_b735_08c37b0a5bf5);
 impl core::ops::Deref for IDWriteFontList2 {
     type Target = IDWriteFontList1;
@@ -6971,6 +6929,8 @@ pub struct IDWriteFontList2_Vtbl {
     pub base__: IDWriteFontList1_Vtbl,
     pub GetFontSet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteFontList2 {}
+unsafe impl Sync for IDWriteFontList2 {}
 pub trait IDWriteFontList2_Impl: IDWriteFontList1_Impl {
     fn GetFontSet(&self) -> windows_core::Result<IDWriteFontSet1>;
 }
@@ -6995,8 +6955,6 @@ impl IDWriteFontList2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontList2 {}
-unsafe impl Send for IDWriteFontList2 {}
-unsafe impl Sync for IDWriteFontList2 {}
 windows_core::imp::define_interface!(IDWriteFontResource, IDWriteFontResource_Vtbl, 0x1f803a76_6871_48e8_987f_b975551c50f2);
 windows_core::imp::interface_hierarchy!(IDWriteFontResource, windows_core::IUnknown);
 impl IDWriteFontResource {
@@ -7065,6 +7023,8 @@ pub struct IDWriteFontResource_Vtbl {
     pub CreateFontFace: unsafe extern "system" fn(*mut core::ffi::c_void, DWRITE_FONT_SIMULATIONS, *const DWRITE_FONT_AXIS_VALUE, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateFontFaceReference: unsafe extern "system" fn(*mut core::ffi::c_void, DWRITE_FONT_SIMULATIONS, *const DWRITE_FONT_AXIS_VALUE, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteFontResource {}
+unsafe impl Sync for IDWriteFontResource {}
 pub trait IDWriteFontResource_Impl: windows_core::IUnknownImpl {
     fn GetFontFile(&self) -> windows_core::Result<IDWriteFontFile>;
     fn GetFontFaceIndex(&self) -> u32;
@@ -7198,8 +7158,6 @@ impl IDWriteFontResource_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontResource {}
-unsafe impl Send for IDWriteFontResource {}
-unsafe impl Sync for IDWriteFontResource {}
 windows_core::imp::define_interface!(IDWriteFontSet, IDWriteFontSet_Vtbl, 0x53585141_d9f8_4095_8321_d73cf6bd116b);
 windows_core::imp::interface_hierarchy!(IDWriteFontSet, windows_core::IUnknown);
 impl IDWriteFontSet {
@@ -7278,6 +7236,8 @@ pub struct IDWriteFontSet_Vtbl {
     pub GetMatchingFonts: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, DWRITE_FONT_WEIGHT, DWRITE_FONT_STRETCH, DWRITE_FONT_STYLE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetMatchingFonts2: unsafe extern "system" fn(*mut core::ffi::c_void, *const DWRITE_FONT_PROPERTY, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteFontSet {}
+unsafe impl Sync for IDWriteFontSet {}
 pub trait IDWriteFontSet_Impl: windows_core::IUnknownImpl {
     fn GetFontCount(&self) -> u32;
     fn GetFontFaceReference(&self, listindex: u32) -> windows_core::Result<IDWriteFontFaceReference>;
@@ -7407,8 +7367,6 @@ impl IDWriteFontSet_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontSet {}
-unsafe impl Send for IDWriteFontSet {}
-unsafe impl Sync for IDWriteFontSet {}
 windows_core::imp::define_interface!(IDWriteFontSet1, IDWriteFontSet1_Vtbl, 0x7e9fda85_6c92_4053_bc47_7ae3530db4d3);
 impl core::ops::Deref for IDWriteFontSet1 {
     type Target = IDWriteFontSet;
@@ -7499,6 +7457,8 @@ pub struct IDWriteFontSet1_Vtbl {
     pub CreateFontFace: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFontLocality: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> DWRITE_LOCALITY,
 }
+unsafe impl Send for IDWriteFontSet1 {}
+unsafe impl Sync for IDWriteFontSet1 {}
 pub trait IDWriteFontSet1_Impl: IDWriteFontSet_Impl {
     fn GetMatchingFonts(&self, fontproperty: *const DWRITE_FONT_PROPERTY, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32) -> windows_core::Result<IDWriteFontSet1>;
     fn GetFirstFontResources(&self) -> windows_core::Result<IDWriteFontSet1>;
@@ -7664,8 +7624,6 @@ impl IDWriteFontSet1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontSet1 {}
-unsafe impl Send for IDWriteFontSet1 {}
-unsafe impl Sync for IDWriteFontSet1 {}
 windows_core::imp::define_interface!(IDWriteFontSet2, IDWriteFontSet2_Vtbl, 0xdc7ead19_e54c_43af_b2da_4e2b79ba3f7f);
 impl core::ops::Deref for IDWriteFontSet2 {
     type Target = IDWriteFontSet1;
@@ -7684,6 +7642,8 @@ pub struct IDWriteFontSet2_Vtbl {
     pub base__: IDWriteFontSet1_Vtbl,
     pub GetExpirationEvent: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::HANDLE,
 }
+unsafe impl Send for IDWriteFontSet2 {}
+unsafe impl Sync for IDWriteFontSet2 {}
 pub trait IDWriteFontSet2_Impl: IDWriteFontSet1_Impl {
     fn GetExpirationEvent(&self) -> super::super::Foundation::HANDLE;
 }
@@ -7702,8 +7662,6 @@ impl IDWriteFontSet2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontSet2 {}
-unsafe impl Send for IDWriteFontSet2 {}
-unsafe impl Sync for IDWriteFontSet2 {}
 windows_core::imp::define_interface!(IDWriteFontSet3, IDWriteFontSet3_Vtbl, 0x7c073ef2_a7f4_4045_8c32_8ab8ae640f90);
 impl core::ops::Deref for IDWriteFontSet3 {
     type Target = IDWriteFontSet2;
@@ -7730,6 +7688,8 @@ pub struct IDWriteFontSet3_Vtbl {
     pub GetFontSourceNameLength: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> u32,
     pub GetFontSourceName: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR, u32) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteFontSet3 {}
+unsafe impl Sync for IDWriteFontSet3 {}
 pub trait IDWriteFontSet3_Impl: IDWriteFontSet2_Impl {
     fn GetFontSourceType(&self, fontindex: u32) -> DWRITE_FONT_SOURCE_TYPE;
     fn GetFontSourceNameLength(&self, listindex: u32) -> u32;
@@ -7767,8 +7727,6 @@ impl IDWriteFontSet3_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontSet3 {}
-unsafe impl Send for IDWriteFontSet3 {}
-unsafe impl Sync for IDWriteFontSet3 {}
 windows_core::imp::define_interface!(IDWriteFontSet4, IDWriteFontSet4_Vtbl, 0xeec175fc_bea9_4c86_8b53_ccbdd7df0c82);
 impl core::ops::Deref for IDWriteFontSet4 {
     type Target = IDWriteFontSet3;
@@ -7797,6 +7755,8 @@ pub struct IDWriteFontSet4_Vtbl {
     pub ConvertWeightStretchStyleToFontAxisValues: unsafe extern "system" fn(*mut core::ffi::c_void, *const DWRITE_FONT_AXIS_VALUE, u32, DWRITE_FONT_WEIGHT, DWRITE_FONT_STRETCH, DWRITE_FONT_STYLE, f32, *mut DWRITE_FONT_AXIS_VALUE) -> u32,
     pub GetMatchingFonts: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const DWRITE_FONT_AXIS_VALUE, u32, DWRITE_FONT_SIMULATIONS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteFontSet4 {}
+unsafe impl Sync for IDWriteFontSet4 {}
 pub trait IDWriteFontSet4_Impl: IDWriteFontSet3_Impl {
     fn ConvertWeightStretchStyleToFontAxisValues(&self, inputaxisvalues: *const DWRITE_FONT_AXIS_VALUE, inputaxiscount: u32, fontweight: DWRITE_FONT_WEIGHT, fontstretch: DWRITE_FONT_STRETCH, fontstyle: DWRITE_FONT_STYLE, fontsize: f32, outputaxisvalues: *mut DWRITE_FONT_AXIS_VALUE) -> u32;
     fn GetMatchingFonts(&self, familyname: &windows_core::PCWSTR, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32, allowedsimulations: DWRITE_FONT_SIMULATIONS) -> windows_core::Result<IDWriteFontSet4>;
@@ -7832,8 +7792,6 @@ impl IDWriteFontSet4_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontSet4 {}
-unsafe impl Send for IDWriteFontSet4 {}
-unsafe impl Sync for IDWriteFontSet4 {}
 windows_core::imp::define_interface!(IDWriteFontSetBuilder, IDWriteFontSetBuilder_Vtbl, 0x2f642afe_9c68_4f40_b8be_457401afcb3d);
 windows_core::imp::interface_hierarchy!(IDWriteFontSetBuilder, windows_core::IUnknown);
 impl IDWriteFontSetBuilder {
@@ -7870,6 +7828,8 @@ pub struct IDWriteFontSetBuilder_Vtbl {
     pub AddFontSet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateFontSet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteFontSetBuilder {}
+unsafe impl Sync for IDWriteFontSetBuilder {}
 pub trait IDWriteFontSetBuilder_Impl: windows_core::IUnknownImpl {
     fn AddFontFaceReference(&self, fontfacereference: windows_core::Ref<IDWriteFontFaceReference>, properties: *const DWRITE_FONT_PROPERTY, propertycount: u32) -> windows_core::Result<()>;
     fn AddFontFaceReference2(&self, fontfacereference: windows_core::Ref<IDWriteFontFaceReference>) -> windows_core::Result<()>;
@@ -7921,8 +7881,6 @@ impl IDWriteFontSetBuilder_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontSetBuilder {}
-unsafe impl Send for IDWriteFontSetBuilder {}
-unsafe impl Sync for IDWriteFontSetBuilder {}
 windows_core::imp::define_interface!(IDWriteFontSetBuilder1, IDWriteFontSetBuilder1_Vtbl, 0x3ff7715f_3cdc_4dc6_9b72_ec5621dccafd);
 impl core::ops::Deref for IDWriteFontSetBuilder1 {
     type Target = IDWriteFontSetBuilder;
@@ -7944,6 +7902,8 @@ pub struct IDWriteFontSetBuilder1_Vtbl {
     pub base__: IDWriteFontSetBuilder_Vtbl,
     pub AddFontFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteFontSetBuilder1 {}
+unsafe impl Sync for IDWriteFontSetBuilder1 {}
 pub trait IDWriteFontSetBuilder1_Impl: IDWriteFontSetBuilder_Impl {
     fn AddFontFile(&self, fontfile: windows_core::Ref<IDWriteFontFile>) -> windows_core::Result<()>;
 }
@@ -7962,8 +7922,6 @@ impl IDWriteFontSetBuilder1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontSetBuilder1 {}
-unsafe impl Send for IDWriteFontSetBuilder1 {}
-unsafe impl Sync for IDWriteFontSetBuilder1 {}
 windows_core::imp::define_interface!(IDWriteFontSetBuilder2, IDWriteFontSetBuilder2_Vtbl, 0xee5ba612_b131_463c_8f4f_3189b9401e45);
 impl core::ops::Deref for IDWriteFontSetBuilder2 {
     type Target = IDWriteFontSetBuilder1;
@@ -7992,6 +7950,8 @@ pub struct IDWriteFontSetBuilder2_Vtbl {
     pub AddFont: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, DWRITE_FONT_SIMULATIONS, *const DWRITE_FONT_AXIS_VALUE, u32, *const DWRITE_FONT_AXIS_RANGE, u32, *const DWRITE_FONT_PROPERTY, u32) -> windows_core::HRESULT,
     pub AddFontFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteFontSetBuilder2 {}
+unsafe impl Sync for IDWriteFontSetBuilder2 {}
 pub trait IDWriteFontSetBuilder2_Impl: IDWriteFontSetBuilder1_Impl {
     fn AddFont(&self, fontfile: windows_core::Ref<IDWriteFontFile>, fontfaceindex: u32, fontsimulations: DWRITE_FONT_SIMULATIONS, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32, fontaxisranges: *const DWRITE_FONT_AXIS_RANGE, fontaxisrangecount: u32, properties: *const DWRITE_FONT_PROPERTY, propertycount: u32) -> windows_core::Result<()>;
     fn AddFontFile(&self, filepath: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -8021,8 +7981,6 @@ impl IDWriteFontSetBuilder2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontSetBuilder2 {}
-unsafe impl Send for IDWriteFontSetBuilder2 {}
-unsafe impl Sync for IDWriteFontSetBuilder2 {}
 windows_core::imp::define_interface!(IDWriteGdiInterop, IDWriteGdiInterop_Vtbl, 0x1edd9491_9853_4299_898f_6432983b6f3a);
 windows_core::imp::interface_hierarchy!(IDWriteGdiInterop, windows_core::IUnknown);
 impl IDWriteGdiInterop {
@@ -8086,6 +8044,8 @@ pub struct IDWriteGdiInterop_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     CreateBitmapRenderTarget: usize,
 }
+unsafe impl Send for IDWriteGdiInterop {}
+unsafe impl Sync for IDWriteGdiInterop {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IDWriteGdiInterop_Impl: windows_core::IUnknownImpl {
     fn CreateFontFromLOGFONT(&self, logfont: *const super::Gdi::LOGFONTW) -> windows_core::Result<IDWriteFont>;
@@ -8160,10 +8120,6 @@ impl IDWriteGdiInterop_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for IDWriteGdiInterop {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl Send for IDWriteGdiInterop {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl Sync for IDWriteGdiInterop {}
 windows_core::imp::define_interface!(IDWriteGdiInterop1, IDWriteGdiInterop1_Vtbl, 0x4556be70_3abd_4f70_90be_421780a6f515);
 impl core::ops::Deref for IDWriteGdiInterop1 {
     type Target = IDWriteGdiInterop;
@@ -8228,6 +8184,8 @@ pub struct IDWriteGdiInterop1_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     GetMatchingFontsByLOGFONT: usize,
 }
+unsafe impl Send for IDWriteGdiInterop1 {}
+unsafe impl Sync for IDWriteGdiInterop1 {}
 #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 pub trait IDWriteGdiInterop1_Impl: IDWriteGdiInterop_Impl {
     fn CreateFontFromLOGFONT(&self, logfont: *const super::Gdi::LOGFONTW, fontcollection: windows_core::Ref<IDWriteFontCollection>) -> windows_core::Result<IDWriteFont>;
@@ -8288,10 +8246,6 @@ impl IDWriteGdiInterop1_Vtbl {
 }
 #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IDWriteGdiInterop1 {}
-#[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
-unsafe impl Send for IDWriteGdiInterop1 {}
-#[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
-unsafe impl Sync for IDWriteGdiInterop1 {}
 windows_core::imp::define_interface!(IDWriteGlyphRunAnalysis, IDWriteGlyphRunAnalysis_Vtbl, 0x7d97dbf7_e085_42d4_81e3_6a883bded118);
 windows_core::imp::interface_hierarchy!(IDWriteGlyphRunAnalysis, windows_core::IUnknown);
 impl IDWriteGlyphRunAnalysis {
@@ -8318,6 +8272,8 @@ pub struct IDWriteGlyphRunAnalysis_Vtbl {
     pub CreateAlphaTexture: unsafe extern "system" fn(*mut core::ffi::c_void, DWRITE_TEXTURE_TYPE, *const super::super::Foundation::RECT, *mut u8, u32) -> windows_core::HRESULT,
     pub GetAlphaBlendParams: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut f32, *mut f32, *mut f32) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteGlyphRunAnalysis {}
+unsafe impl Sync for IDWriteGlyphRunAnalysis {}
 pub trait IDWriteGlyphRunAnalysis_Impl: windows_core::IUnknownImpl {
     fn GetAlphaTextureBounds(&self, texturetype: DWRITE_TEXTURE_TYPE) -> windows_core::Result<super::super::Foundation::RECT>;
     fn CreateAlphaTexture(&self, texturetype: DWRITE_TEXTURE_TYPE, texturebounds: *const super::super::Foundation::RECT, alphavalues: *mut u8, buffersize: u32) -> windows_core::Result<()>;
@@ -8361,8 +8317,6 @@ impl IDWriteGlyphRunAnalysis_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteGlyphRunAnalysis {}
-unsafe impl Send for IDWriteGlyphRunAnalysis {}
-unsafe impl Sync for IDWriteGlyphRunAnalysis {}
 windows_core::imp::define_interface!(IDWriteInMemoryFontFileLoader, IDWriteInMemoryFontFileLoader_Vtbl, 0xdc102f47_a12d_4b1c_822d_9e117e33043f);
 impl core::ops::Deref for IDWriteInMemoryFontFileLoader {
     type Target = IDWriteFontFileLoader;
@@ -8392,6 +8346,8 @@ pub struct IDWriteInMemoryFontFileLoader_Vtbl {
     pub CreateInMemoryFontFileReference: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const core::ffi::c_void, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFileCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
 }
+unsafe impl Send for IDWriteInMemoryFontFileLoader {}
+unsafe impl Sync for IDWriteInMemoryFontFileLoader {}
 pub trait IDWriteInMemoryFontFileLoader_Impl: IDWriteFontFileLoader_Impl {
     fn CreateInMemoryFontFileReference(&self, factory: windows_core::Ref<IDWriteFactory>, fontdata: *const core::ffi::c_void, fontdatasize: u32, ownerobject: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<IDWriteFontFile>;
     fn GetFileCount(&self) -> u32;
@@ -8427,8 +8383,6 @@ impl IDWriteInMemoryFontFileLoader_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteInMemoryFontFileLoader {}
-unsafe impl Send for IDWriteInMemoryFontFileLoader {}
-unsafe impl Sync for IDWriteInMemoryFontFileLoader {}
 windows_core::imp::define_interface!(IDWriteInlineObject, IDWriteInlineObject_Vtbl, 0x8339fde3_106f_47ab_8373_1c6295eb10b3);
 windows_core::imp::interface_hierarchy!(IDWriteInlineObject, windows_core::IUnknown);
 impl IDWriteInlineObject {
@@ -8463,6 +8417,8 @@ pub struct IDWriteInlineObject_Vtbl {
     pub GetOverhangMetrics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DWRITE_OVERHANG_METRICS) -> windows_core::HRESULT,
     pub GetBreakConditions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DWRITE_BREAK_CONDITION, *mut DWRITE_BREAK_CONDITION) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteInlineObject {}
+unsafe impl Sync for IDWriteInlineObject {}
 pub trait IDWriteInlineObject_Impl: windows_core::IUnknownImpl {
     fn Draw(&self, clientdrawingcontext: *const core::ffi::c_void, renderer: windows_core::Ref<IDWriteTextRenderer>, originx: f32, originy: f32, issideways: super::super::Foundation::BOOL, isrighttoleft: super::super::Foundation::BOOL, clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetMetrics(&self) -> windows_core::Result<DWRITE_INLINE_OBJECT_METRICS>;
@@ -8520,8 +8476,6 @@ impl IDWriteInlineObject_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteInlineObject {}
-unsafe impl Send for IDWriteInlineObject {}
-unsafe impl Sync for IDWriteInlineObject {}
 windows_core::imp::define_interface!(IDWriteLocalFontFileLoader, IDWriteLocalFontFileLoader_Vtbl, 0xb2d9f3ec_c9fe_4a11_a2ec_d86208f7c0a2);
 impl core::ops::Deref for IDWriteLocalFontFileLoader {
     type Target = IDWriteFontFileLoader;
@@ -8554,6 +8508,8 @@ pub struct IDWriteLocalFontFileLoader_Vtbl {
     pub GetFilePathFromKey: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, windows_core::PWSTR, u32) -> windows_core::HRESULT,
     pub GetLastWriteTimeFromKey: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, *mut super::super::Foundation::FILETIME) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteLocalFontFileLoader {}
+unsafe impl Sync for IDWriteLocalFontFileLoader {}
 pub trait IDWriteLocalFontFileLoader_Impl: IDWriteFontFileLoader_Impl {
     fn GetFilePathLengthFromKey(&self, fontfilereferencekey: *const core::ffi::c_void, fontfilereferencekeysize: u32) -> windows_core::Result<u32>;
     fn GetFilePathFromKey(&self, fontfilereferencekey: *const core::ffi::c_void, fontfilereferencekeysize: u32, filepath: windows_core::PWSTR, filepathsize: u32) -> windows_core::Result<()>;
@@ -8603,8 +8559,6 @@ impl IDWriteLocalFontFileLoader_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteLocalFontFileLoader {}
-unsafe impl Send for IDWriteLocalFontFileLoader {}
-unsafe impl Sync for IDWriteLocalFontFileLoader {}
 windows_core::imp::define_interface!(IDWriteLocalizedStrings, IDWriteLocalizedStrings_Vtbl, 0x08256209_099a_4b34_b86d_c22b110e7771);
 windows_core::imp::interface_hierarchy!(IDWriteLocalizedStrings, windows_core::IUnknown);
 impl IDWriteLocalizedStrings {
@@ -8646,6 +8600,8 @@ pub struct IDWriteLocalizedStrings_Vtbl {
     pub GetStringLength: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub GetString: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR, u32) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteLocalizedStrings {}
+unsafe impl Sync for IDWriteLocalizedStrings {}
 pub trait IDWriteLocalizedStrings_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> u32;
     fn FindLocaleName(&self, localename: &windows_core::PCWSTR, index: *mut u32, exists: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
@@ -8719,14 +8675,14 @@ impl IDWriteLocalizedStrings_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteLocalizedStrings {}
-unsafe impl Send for IDWriteLocalizedStrings {}
-unsafe impl Sync for IDWriteLocalizedStrings {}
 windows_core::imp::define_interface!(IDWriteNumberSubstitution, IDWriteNumberSubstitution_Vtbl, 0x14885cc9_bab0_4f90_b6ed_5c366a2cd03d);
 windows_core::imp::interface_hierarchy!(IDWriteNumberSubstitution, windows_core::IUnknown);
 #[repr(C)]
 pub struct IDWriteNumberSubstitution_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
 }
+unsafe impl Send for IDWriteNumberSubstitution {}
+unsafe impl Sync for IDWriteNumberSubstitution {}
 pub trait IDWriteNumberSubstitution_Impl: windows_core::IUnknownImpl {}
 impl IDWriteNumberSubstitution_Vtbl {
     pub const fn new<Identity: IDWriteNumberSubstitution_Impl, const OFFSET: isize>() -> Self {
@@ -8737,8 +8693,6 @@ impl IDWriteNumberSubstitution_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteNumberSubstitution {}
-unsafe impl Send for IDWriteNumberSubstitution {}
-unsafe impl Sync for IDWriteNumberSubstitution {}
 windows_core::imp::define_interface!(IDWritePaintReader, IDWritePaintReader_Vtbl, 0x8128e912_3b97_42a5_ab6c_24aad3a86e54);
 windows_core::imp::interface_hierarchy!(IDWritePaintReader, windows_core::IUnknown);
 impl IDWritePaintReader {
@@ -8799,6 +8753,8 @@ pub struct IDWritePaintReader_Vtbl {
     GetGradientStops: usize,
     pub GetGradientStopColors: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut DWRITE_PAINT_COLOR) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWritePaintReader {}
+unsafe impl Sync for IDWritePaintReader {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub trait IDWritePaintReader_Impl: windows_core::IUnknownImpl {
     fn SetCurrentGlyph(&self, glyphindex: u32, paintelement: *mut DWRITE_PAINT_ELEMENT, structsize: u32, clipbox: *mut super::Direct2D::Common::D2D_RECT_F, glyphattributes: *mut DWRITE_PAINT_ATTRIBUTES) -> windows_core::Result<()>;
@@ -8887,10 +8843,6 @@ impl IDWritePaintReader_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for IDWritePaintReader {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-unsafe impl Send for IDWritePaintReader {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-unsafe impl Sync for IDWritePaintReader {}
 windows_core::imp::define_interface!(IDWritePixelSnapping, IDWritePixelSnapping_Vtbl, 0xeaf3a2da_ecf4_4d24_b644_b34f6842024b);
 windows_core::imp::interface_hierarchy!(IDWritePixelSnapping, windows_core::IUnknown);
 impl IDWritePixelSnapping {
@@ -8917,6 +8869,8 @@ pub struct IDWritePixelSnapping_Vtbl {
     pub GetCurrentTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, *mut DWRITE_MATRIX) -> windows_core::HRESULT,
     pub GetPixelsPerDip: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWritePixelSnapping {}
+unsafe impl Sync for IDWritePixelSnapping {}
 pub trait IDWritePixelSnapping_Impl: windows_core::IUnknownImpl {
     fn IsPixelSnappingDisabled(&self, clientdrawingcontext: *const core::ffi::c_void) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn GetCurrentTransform(&self, clientdrawingcontext: *const core::ffi::c_void, transform: *mut DWRITE_MATRIX) -> windows_core::Result<()>;
@@ -8966,8 +8920,6 @@ impl IDWritePixelSnapping_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWritePixelSnapping {}
-unsafe impl Send for IDWritePixelSnapping {}
-unsafe impl Sync for IDWritePixelSnapping {}
 windows_core::imp::define_interface!(IDWriteRemoteFontFileLoader, IDWriteRemoteFontFileLoader_Vtbl, 0x68648c83_6ede_46c0_ab46_20083a887fde);
 impl core::ops::Deref for IDWriteRemoteFontFileLoader {
     type Target = IDWriteFontFileLoader;
@@ -9008,6 +8960,8 @@ pub struct IDWriteRemoteFontFileLoader_Vtbl {
     pub GetLocalityFromKey: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, *mut DWRITE_LOCALITY) -> windows_core::HRESULT,
     pub CreateFontFileReferenceFromUrl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteRemoteFontFileLoader {}
+unsafe impl Sync for IDWriteRemoteFontFileLoader {}
 pub trait IDWriteRemoteFontFileLoader_Impl: IDWriteFontFileLoader_Impl {
     fn CreateRemoteStreamFromKey(&self, fontfilereferencekey: *const core::ffi::c_void, fontfilereferencekeysize: u32) -> windows_core::Result<IDWriteRemoteFontFileStream>;
     fn GetLocalityFromKey(&self, fontfilereferencekey: *const core::ffi::c_void, fontfilereferencekeysize: u32) -> windows_core::Result<DWRITE_LOCALITY>;
@@ -9063,8 +9017,6 @@ impl IDWriteRemoteFontFileLoader_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteRemoteFontFileLoader {}
-unsafe impl Send for IDWriteRemoteFontFileLoader {}
-unsafe impl Sync for IDWriteRemoteFontFileLoader {}
 windows_core::imp::define_interface!(IDWriteRemoteFontFileStream, IDWriteRemoteFontFileStream_Vtbl, 0x4db3757a_2c72_4ed9_b2b6_1ababe1aff9c);
 impl core::ops::Deref for IDWriteRemoteFontFileStream {
     type Target = IDWriteFontFileStream;
@@ -9101,6 +9053,8 @@ pub struct IDWriteRemoteFontFileStream_Vtbl {
     pub GetLocality: unsafe extern "system" fn(*mut core::ffi::c_void) -> DWRITE_LOCALITY,
     pub BeginDownload: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const DWRITE_FILE_FRAGMENT, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteRemoteFontFileStream {}
+unsafe impl Sync for IDWriteRemoteFontFileStream {}
 pub trait IDWriteRemoteFontFileStream_Impl: IDWriteFontFileStream_Impl {
     fn GetLocalFileSize(&self) -> windows_core::Result<u64>;
     fn GetFileFragmentLocality(&self, fileoffset: u64, fragmentsize: u64, islocal: *mut super::super::Foundation::BOOL, partialsize: *mut u64) -> windows_core::Result<()>;
@@ -9158,8 +9112,6 @@ impl IDWriteRemoteFontFileStream_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteRemoteFontFileStream {}
-unsafe impl Send for IDWriteRemoteFontFileStream {}
-unsafe impl Sync for IDWriteRemoteFontFileStream {}
 windows_core::imp::define_interface!(IDWriteRenderingParams, IDWriteRenderingParams_Vtbl, 0x2f0da53a_2add_47cd_82ee_d9ec34688e75);
 windows_core::imp::interface_hierarchy!(IDWriteRenderingParams, windows_core::IUnknown);
 impl IDWriteRenderingParams {
@@ -9188,6 +9140,8 @@ pub struct IDWriteRenderingParams_Vtbl {
     pub GetPixelGeometry: unsafe extern "system" fn(*mut core::ffi::c_void) -> DWRITE_PIXEL_GEOMETRY,
     pub GetRenderingMode: unsafe extern "system" fn(*mut core::ffi::c_void) -> DWRITE_RENDERING_MODE,
 }
+unsafe impl Send for IDWriteRenderingParams {}
+unsafe impl Sync for IDWriteRenderingParams {}
 pub trait IDWriteRenderingParams_Impl: windows_core::IUnknownImpl {
     fn GetGamma(&self) -> f32;
     fn GetEnhancedContrast(&self) -> f32;
@@ -9241,8 +9195,6 @@ impl IDWriteRenderingParams_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteRenderingParams {}
-unsafe impl Send for IDWriteRenderingParams {}
-unsafe impl Sync for IDWriteRenderingParams {}
 windows_core::imp::define_interface!(IDWriteRenderingParams1, IDWriteRenderingParams1_Vtbl, 0x94413cf4_a6fc_4248_8b50_6674348fcad3);
 impl core::ops::Deref for IDWriteRenderingParams1 {
     type Target = IDWriteRenderingParams;
@@ -9261,6 +9213,8 @@ pub struct IDWriteRenderingParams1_Vtbl {
     pub base__: IDWriteRenderingParams_Vtbl,
     pub GetGrayscaleEnhancedContrast: unsafe extern "system" fn(*mut core::ffi::c_void) -> f32,
 }
+unsafe impl Send for IDWriteRenderingParams1 {}
+unsafe impl Sync for IDWriteRenderingParams1 {}
 pub trait IDWriteRenderingParams1_Impl: IDWriteRenderingParams_Impl {
     fn GetGrayscaleEnhancedContrast(&self) -> f32;
 }
@@ -9279,8 +9233,6 @@ impl IDWriteRenderingParams1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteRenderingParams1 {}
-unsafe impl Send for IDWriteRenderingParams1 {}
-unsafe impl Sync for IDWriteRenderingParams1 {}
 windows_core::imp::define_interface!(IDWriteRenderingParams2, IDWriteRenderingParams2_Vtbl, 0xf9d711c3_9777_40ae_87e8_3e5af9bf0948);
 impl core::ops::Deref for IDWriteRenderingParams2 {
     type Target = IDWriteRenderingParams1;
@@ -9299,6 +9251,8 @@ pub struct IDWriteRenderingParams2_Vtbl {
     pub base__: IDWriteRenderingParams1_Vtbl,
     pub GetGridFitMode: unsafe extern "system" fn(*mut core::ffi::c_void) -> DWRITE_GRID_FIT_MODE,
 }
+unsafe impl Send for IDWriteRenderingParams2 {}
+unsafe impl Sync for IDWriteRenderingParams2 {}
 pub trait IDWriteRenderingParams2_Impl: IDWriteRenderingParams1_Impl {
     fn GetGridFitMode(&self) -> DWRITE_GRID_FIT_MODE;
 }
@@ -9317,8 +9271,6 @@ impl IDWriteRenderingParams2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteRenderingParams2 {}
-unsafe impl Send for IDWriteRenderingParams2 {}
-unsafe impl Sync for IDWriteRenderingParams2 {}
 windows_core::imp::define_interface!(IDWriteRenderingParams3, IDWriteRenderingParams3_Vtbl, 0xb7924baa_391b_412a_8c5c_e44cc2d867dc);
 impl core::ops::Deref for IDWriteRenderingParams3 {
     type Target = IDWriteRenderingParams2;
@@ -9337,6 +9289,8 @@ pub struct IDWriteRenderingParams3_Vtbl {
     pub base__: IDWriteRenderingParams2_Vtbl,
     pub GetRenderingMode1: unsafe extern "system" fn(*mut core::ffi::c_void) -> DWRITE_RENDERING_MODE1,
 }
+unsafe impl Send for IDWriteRenderingParams3 {}
+unsafe impl Sync for IDWriteRenderingParams3 {}
 pub trait IDWriteRenderingParams3_Impl: IDWriteRenderingParams2_Impl {
     fn GetRenderingMode1(&self) -> DWRITE_RENDERING_MODE1;
 }
@@ -9355,8 +9309,6 @@ impl IDWriteRenderingParams3_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteRenderingParams3 {}
-unsafe impl Send for IDWriteRenderingParams3 {}
-unsafe impl Sync for IDWriteRenderingParams3 {}
 windows_core::imp::define_interface!(IDWriteStringList, IDWriteStringList_Vtbl, 0xcfee3140_1157_47ca_8b85_31bfcf3f2d0e);
 windows_core::imp::interface_hierarchy!(IDWriteStringList, windows_core::IUnknown);
 impl IDWriteStringList {
@@ -9391,6 +9343,8 @@ pub struct IDWriteStringList_Vtbl {
     pub GetStringLength: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub GetString: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR, u32) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteStringList {}
+unsafe impl Sync for IDWriteStringList {}
 pub trait IDWriteStringList_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> u32;
     fn GetLocaleNameLength(&self, listindex: u32) -> windows_core::Result<u32>;
@@ -9456,8 +9410,6 @@ impl IDWriteStringList_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteStringList {}
-unsafe impl Send for IDWriteStringList {}
-unsafe impl Sync for IDWriteStringList {}
 windows_core::imp::define_interface!(IDWriteTextAnalysisSink, IDWriteTextAnalysisSink_Vtbl, 0x5810cd44_0ca0_4701_b3fa_bec5182ae4f6);
 windows_core::imp::interface_hierarchy!(IDWriteTextAnalysisSink, windows_core::IUnknown);
 impl IDWriteTextAnalysisSink {
@@ -9485,6 +9437,8 @@ pub struct IDWriteTextAnalysisSink_Vtbl {
     pub SetBidiLevel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u8, u8) -> windows_core::HRESULT,
     pub SetNumberSubstitution: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteTextAnalysisSink {}
+unsafe impl Sync for IDWriteTextAnalysisSink {}
 pub trait IDWriteTextAnalysisSink_Impl: windows_core::IUnknownImpl {
     fn SetScriptAnalysis(&self, textposition: u32, textlength: u32, scriptanalysis: *const DWRITE_SCRIPT_ANALYSIS) -> windows_core::Result<()>;
     fn SetLineBreakpoints(&self, textposition: u32, textlength: u32, linebreakpoints: *const DWRITE_LINE_BREAKPOINT) -> windows_core::Result<()>;
@@ -9530,8 +9484,6 @@ impl IDWriteTextAnalysisSink_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteTextAnalysisSink {}
-unsafe impl Send for IDWriteTextAnalysisSink {}
-unsafe impl Sync for IDWriteTextAnalysisSink {}
 windows_core::imp::define_interface!(IDWriteTextAnalysisSink1, IDWriteTextAnalysisSink1_Vtbl, 0xb0d941a0_85e7_4d8b_9fd3_5ced9934482a);
 impl core::ops::Deref for IDWriteTextAnalysisSink1 {
     type Target = IDWriteTextAnalysisSink;
@@ -9550,6 +9502,8 @@ pub struct IDWriteTextAnalysisSink1_Vtbl {
     pub base__: IDWriteTextAnalysisSink_Vtbl,
     pub SetGlyphOrientation: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, DWRITE_GLYPH_ORIENTATION_ANGLE, u8, super::super::Foundation::BOOL, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteTextAnalysisSink1 {}
+unsafe impl Sync for IDWriteTextAnalysisSink1 {}
 pub trait IDWriteTextAnalysisSink1_Impl: IDWriteTextAnalysisSink_Impl {
     fn SetGlyphOrientation(&self, textposition: u32, textlength: u32, glyphorientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, adjustedbidilevel: u8, issideways: super::super::Foundation::BOOL, isrighttoleft: super::super::Foundation::BOOL) -> windows_core::Result<()>;
 }
@@ -9568,8 +9522,6 @@ impl IDWriteTextAnalysisSink1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteTextAnalysisSink1 {}
-unsafe impl Send for IDWriteTextAnalysisSink1 {}
-unsafe impl Sync for IDWriteTextAnalysisSink1 {}
 windows_core::imp::define_interface!(IDWriteTextAnalysisSource, IDWriteTextAnalysisSource_Vtbl, 0x688e1a58_5094_47c8_adc8_fbcea60ae92b);
 windows_core::imp::interface_hierarchy!(IDWriteTextAnalysisSource, windows_core::IUnknown);
 impl IDWriteTextAnalysisSource {
@@ -9598,6 +9550,8 @@ pub struct IDWriteTextAnalysisSource_Vtbl {
     pub GetLocaleName: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, *mut *mut u16) -> windows_core::HRESULT,
     pub GetNumberSubstitution: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteTextAnalysisSource {}
+unsafe impl Sync for IDWriteTextAnalysisSource {}
 pub trait IDWriteTextAnalysisSource_Impl: windows_core::IUnknownImpl {
     fn GetTextAtPosition(&self, textposition: u32, textstring: *mut *mut u16, textlength: *mut u32) -> windows_core::Result<()>;
     fn GetTextBeforePosition(&self, textposition: u32, textstring: *mut *mut u16, textlength: *mut u32) -> windows_core::Result<()>;
@@ -9651,8 +9605,6 @@ impl IDWriteTextAnalysisSource_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteTextAnalysisSource {}
-unsafe impl Send for IDWriteTextAnalysisSource {}
-unsafe impl Sync for IDWriteTextAnalysisSource {}
 windows_core::imp::define_interface!(IDWriteTextAnalysisSource1, IDWriteTextAnalysisSource1_Vtbl, 0x639cfad8_0fb4_4b21_a58a_067920120009);
 impl core::ops::Deref for IDWriteTextAnalysisSource1 {
     type Target = IDWriteTextAnalysisSource;
@@ -9671,6 +9623,8 @@ pub struct IDWriteTextAnalysisSource1_Vtbl {
     pub base__: IDWriteTextAnalysisSource_Vtbl,
     pub GetVerticalGlyphOrientation: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, *mut DWRITE_VERTICAL_GLYPH_ORIENTATION, *mut u8) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteTextAnalysisSource1 {}
+unsafe impl Sync for IDWriteTextAnalysisSource1 {}
 pub trait IDWriteTextAnalysisSource1_Impl: IDWriteTextAnalysisSource_Impl {
     fn GetVerticalGlyphOrientation(&self, textposition: u32, textlength: *mut u32, glyphorientation: *mut DWRITE_VERTICAL_GLYPH_ORIENTATION, bidilevel: *mut u8) -> windows_core::Result<()>;
 }
@@ -9689,8 +9643,6 @@ impl IDWriteTextAnalysisSource1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteTextAnalysisSource1 {}
-unsafe impl Send for IDWriteTextAnalysisSource1 {}
-unsafe impl Sync for IDWriteTextAnalysisSource1 {}
 windows_core::imp::define_interface!(IDWriteTextAnalyzer, IDWriteTextAnalyzer_Vtbl, 0xb7e6163e_7f46_43b4_84b3_e4e6249c365d);
 windows_core::imp::interface_hierarchy!(IDWriteTextAnalyzer, windows_core::IUnknown);
 impl IDWriteTextAnalyzer {
@@ -9785,6 +9737,8 @@ pub struct IDWriteTextAnalyzer_Vtbl {
     pub GetGlyphPlacements: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const u16, *mut DWRITE_SHAPING_TEXT_PROPERTIES, u32, *const u16, *const DWRITE_SHAPING_GLYPH_PROPERTIES, u32, *mut core::ffi::c_void, f32, super::super::Foundation::BOOL, super::super::Foundation::BOOL, *const DWRITE_SCRIPT_ANALYSIS, windows_core::PCWSTR, *const *const DWRITE_TYPOGRAPHIC_FEATURES, *const u32, u32, *mut f32, *mut DWRITE_GLYPH_OFFSET) -> windows_core::HRESULT,
     pub GetGdiCompatibleGlyphPlacements: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const u16, *const DWRITE_SHAPING_TEXT_PROPERTIES, u32, *const u16, *const DWRITE_SHAPING_GLYPH_PROPERTIES, u32, *mut core::ffi::c_void, f32, f32, *const DWRITE_MATRIX, super::super::Foundation::BOOL, super::super::Foundation::BOOL, super::super::Foundation::BOOL, *const DWRITE_SCRIPT_ANALYSIS, windows_core::PCWSTR, *const *const DWRITE_TYPOGRAPHIC_FEATURES, *const u32, u32, *mut f32, *mut DWRITE_GLYPH_OFFSET) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteTextAnalyzer {}
+unsafe impl Sync for IDWriteTextAnalyzer {}
 pub trait IDWriteTextAnalyzer_Impl: windows_core::IUnknownImpl {
     fn AnalyzeScript(&self, analysissource: windows_core::Ref<IDWriteTextAnalysisSource>, textposition: u32, textlength: u32, analysissink: windows_core::Ref<IDWriteTextAnalysisSink>) -> windows_core::Result<()>;
     fn AnalyzeBidi(&self, analysissource: windows_core::Ref<IDWriteTextAnalysisSource>, textposition: u32, textlength: u32, analysissink: windows_core::Ref<IDWriteTextAnalysisSink>) -> windows_core::Result<()>;
@@ -9965,8 +9919,6 @@ impl IDWriteTextAnalyzer_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteTextAnalyzer {}
-unsafe impl Send for IDWriteTextAnalyzer {}
-unsafe impl Sync for IDWriteTextAnalyzer {}
 windows_core::imp::define_interface!(IDWriteTextAnalyzer1, IDWriteTextAnalyzer1_Vtbl, 0x80dad800_e21f_4e83_96ce_bfcce500db7c);
 impl core::ops::Deref for IDWriteTextAnalyzer1 {
     type Target = IDWriteTextAnalyzer;
@@ -10036,6 +9988,8 @@ pub struct IDWriteTextAnalyzer1_Vtbl {
     pub JustifyGlyphAdvances: unsafe extern "system" fn(*mut core::ffi::c_void, f32, u32, *const DWRITE_JUSTIFICATION_OPPORTUNITY, *const f32, *const DWRITE_GLYPH_OFFSET, *mut f32, *mut DWRITE_GLYPH_OFFSET) -> windows_core::HRESULT,
     pub GetJustifiedGlyphs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, f32, DWRITE_SCRIPT_ANALYSIS, u32, u32, u32, *const u16, *const u16, *const f32, *const f32, *const DWRITE_GLYPH_OFFSET, *const DWRITE_SHAPING_GLYPH_PROPERTIES, *mut u32, *mut u16, *mut u16, *mut f32, *mut DWRITE_GLYPH_OFFSET) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteTextAnalyzer1 {}
+unsafe impl Sync for IDWriteTextAnalyzer1 {}
 pub trait IDWriteTextAnalyzer1_Impl: IDWriteTextAnalyzer_Impl {
     fn ApplyCharacterSpacing(&self, leadingspacing: f32, trailingspacing: f32, minimumadvancewidth: f32, textlength: u32, glyphcount: u32, clustermap: *const u16, glyphadvances: *const f32, glyphoffsets: *const DWRITE_GLYPH_OFFSET, glyphproperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES, modifiedglyphadvances: *mut f32, modifiedglyphoffsets: *mut DWRITE_GLYPH_OFFSET) -> windows_core::Result<()>;
     fn GetBaseline(&self, fontface: windows_core::Ref<IDWriteFontFace>, baseline: DWRITE_BASELINE, isvertical: super::super::Foundation::BOOL, issimulationallowed: super::super::Foundation::BOOL, scriptanalysis: &DWRITE_SCRIPT_ANALYSIS, localename: &windows_core::PCWSTR, baselinecoordinate: *mut i32, exists: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
@@ -10155,8 +10109,6 @@ impl IDWriteTextAnalyzer1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteTextAnalyzer1 {}
-unsafe impl Send for IDWriteTextAnalyzer1 {}
-unsafe impl Sync for IDWriteTextAnalyzer1 {}
 windows_core::imp::define_interface!(IDWriteTextAnalyzer2, IDWriteTextAnalyzer2_Vtbl, 0x553a9ff3_5693_4df7_b52b_74806f7f2eb9);
 impl core::ops::Deref for IDWriteTextAnalyzer2 {
     type Target = IDWriteTextAnalyzer1;
@@ -10191,6 +10143,8 @@ pub struct IDWriteTextAnalyzer2_Vtbl {
     pub GetTypographicFeatures: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, DWRITE_SCRIPT_ANALYSIS, windows_core::PCWSTR, u32, *mut u32, *mut DWRITE_FONT_FEATURE_TAG) -> windows_core::HRESULT,
     pub CheckTypographicFeature: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, DWRITE_SCRIPT_ANALYSIS, windows_core::PCWSTR, DWRITE_FONT_FEATURE_TAG, u32, *const u16, *mut u8) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteTextAnalyzer2 {}
+unsafe impl Sync for IDWriteTextAnalyzer2 {}
 pub trait IDWriteTextAnalyzer2_Impl: IDWriteTextAnalyzer1_Impl {
     fn GetGlyphOrientationTransform(&self, glyphorientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, issideways: super::super::Foundation::BOOL, originx: f32, originy: f32, transform: *mut DWRITE_MATRIX) -> windows_core::Result<()>;
     fn GetTypographicFeatures(&self, fontface: windows_core::Ref<IDWriteFontFace>, scriptanalysis: &DWRITE_SCRIPT_ANALYSIS, localename: &windows_core::PCWSTR, maxtagcount: u32, actualtagcount: *mut u32, tags: *mut DWRITE_FONT_FEATURE_TAG) -> windows_core::Result<()>;
@@ -10228,8 +10182,6 @@ impl IDWriteTextAnalyzer2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteTextAnalyzer2 {}
-unsafe impl Send for IDWriteTextAnalyzer2 {}
-unsafe impl Sync for IDWriteTextAnalyzer2 {}
 windows_core::imp::define_interface!(IDWriteTextFormat, IDWriteTextFormat_Vtbl, 0x9c906818_31d7_4fd3_a151_7c5e225db55a);
 windows_core::imp::interface_hierarchy!(IDWriteTextFormat, windows_core::IUnknown);
 impl IDWriteTextFormat {
@@ -10344,6 +10296,8 @@ pub struct IDWriteTextFormat_Vtbl {
     pub GetLocaleNameLength: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetLocaleName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, u32) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteTextFormat {}
+unsafe impl Sync for IDWriteTextFormat {}
 pub trait IDWriteTextFormat_Impl: windows_core::IUnknownImpl {
     fn SetTextAlignment(&self, textalignment: DWRITE_TEXT_ALIGNMENT) -> windows_core::Result<()>;
     fn SetParagraphAlignment(&self, paragraphalignment: DWRITE_PARAGRAPH_ALIGNMENT) -> windows_core::Result<()>;
@@ -10563,8 +10517,6 @@ impl IDWriteTextFormat_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteTextFormat {}
-unsafe impl Send for IDWriteTextFormat {}
-unsafe impl Sync for IDWriteTextFormat {}
 windows_core::imp::define_interface!(IDWriteTextFormat1, IDWriteTextFormat1_Vtbl, 0x5f174b49_0d8b_4cfb_8bca_f1cce9d06c67);
 impl core::ops::Deref for IDWriteTextFormat1 {
     type Target = IDWriteTextFormat;
@@ -10617,6 +10569,8 @@ pub struct IDWriteTextFormat1_Vtbl {
     pub SetFontFallback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFontFallback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteTextFormat1 {}
+unsafe impl Sync for IDWriteTextFormat1 {}
 pub trait IDWriteTextFormat1_Impl: IDWriteTextFormat_Impl {
     fn SetVerticalGlyphOrientation(&self, glyphorientation: DWRITE_VERTICAL_GLYPH_ORIENTATION) -> windows_core::Result<()>;
     fn GetVerticalGlyphOrientation(&self) -> DWRITE_VERTICAL_GLYPH_ORIENTATION;
@@ -10700,8 +10654,6 @@ impl IDWriteTextFormat1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteTextFormat1 {}
-unsafe impl Send for IDWriteTextFormat1 {}
-unsafe impl Sync for IDWriteTextFormat1 {}
 windows_core::imp::define_interface!(IDWriteTextFormat2, IDWriteTextFormat2_Vtbl, 0xf67e0edd_9e3d_4ecc_8c32_4183253dfe70);
 impl core::ops::Deref for IDWriteTextFormat2 {
     type Target = IDWriteTextFormat1;
@@ -10724,6 +10676,8 @@ pub struct IDWriteTextFormat2_Vtbl {
     pub SetLineSpacing: unsafe extern "system" fn(*mut core::ffi::c_void, *const DWRITE_LINE_SPACING) -> windows_core::HRESULT,
     pub GetLineSpacing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DWRITE_LINE_SPACING) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteTextFormat2 {}
+unsafe impl Sync for IDWriteTextFormat2 {}
 pub trait IDWriteTextFormat2_Impl: IDWriteTextFormat1_Impl {
     fn SetLineSpacing(&self, linespacingoptions: *const DWRITE_LINE_SPACING) -> windows_core::Result<()>;
     fn GetLineSpacing(&self, linespacingoptions: *mut DWRITE_LINE_SPACING) -> windows_core::Result<()>;
@@ -10753,8 +10707,6 @@ impl IDWriteTextFormat2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteTextFormat2 {}
-unsafe impl Send for IDWriteTextFormat2 {}
-unsafe impl Sync for IDWriteTextFormat2 {}
 windows_core::imp::define_interface!(IDWriteTextFormat3, IDWriteTextFormat3_Vtbl, 0x6d3b5641_e550_430d_a85b_b7bf48a93427);
 impl core::ops::Deref for IDWriteTextFormat3 {
     type Target = IDWriteTextFormat2;
@@ -10789,6 +10741,8 @@ pub struct IDWriteTextFormat3_Vtbl {
     pub GetAutomaticFontAxes: unsafe extern "system" fn(*mut core::ffi::c_void) -> DWRITE_AUTOMATIC_FONT_AXES,
     pub SetAutomaticFontAxes: unsafe extern "system" fn(*mut core::ffi::c_void, DWRITE_AUTOMATIC_FONT_AXES) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteTextFormat3 {}
+unsafe impl Sync for IDWriteTextFormat3 {}
 pub trait IDWriteTextFormat3_Impl: IDWriteTextFormat2_Impl {
     fn SetFontAxisValues(&self, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32) -> windows_core::Result<()>;
     fn GetFontAxisValueCount(&self) -> u32;
@@ -10842,8 +10796,6 @@ impl IDWriteTextFormat3_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteTextFormat3 {}
-unsafe impl Send for IDWriteTextFormat3 {}
-unsafe impl Sync for IDWriteTextFormat3 {}
 windows_core::imp::define_interface!(IDWriteTextLayout, IDWriteTextLayout_Vtbl, 0x53737037_6d14_410b_9bfe_0b182bb70961);
 impl core::ops::Deref for IDWriteTextLayout {
     type Target = IDWriteTextFormat;
@@ -11041,6 +10993,8 @@ pub struct IDWriteTextLayout_Vtbl {
     pub HitTestTextPosition: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::BOOL, *mut f32, *mut f32, *mut DWRITE_HIT_TEST_METRICS) -> windows_core::HRESULT,
     pub HitTestTextRange: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, f32, f32, *mut DWRITE_HIT_TEST_METRICS, u32, *mut u32) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteTextLayout {}
+unsafe impl Sync for IDWriteTextLayout {}
 pub trait IDWriteTextLayout_Impl: IDWriteTextFormat_Impl {
     fn SetMaxWidth(&self, maxwidth: f32) -> windows_core::Result<()>;
     fn SetMaxHeight(&self, maxheight: f32) -> windows_core::Result<()>;
@@ -11378,8 +11332,6 @@ impl IDWriteTextLayout_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteTextLayout {}
-unsafe impl Send for IDWriteTextLayout {}
-unsafe impl Sync for IDWriteTextLayout {}
 windows_core::imp::define_interface!(IDWriteTextLayout1, IDWriteTextLayout1_Vtbl, 0x9064d822_80a7_465c_a986_df65f78b8feb);
 impl core::ops::Deref for IDWriteTextLayout1 {
     type Target = IDWriteTextLayout;
@@ -11410,6 +11362,8 @@ pub struct IDWriteTextLayout1_Vtbl {
     pub SetCharacterSpacing: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, f32, DWRITE_TEXT_RANGE) -> windows_core::HRESULT,
     pub GetCharacterSpacing: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut f32, *mut f32, *mut f32, *mut DWRITE_TEXT_RANGE) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteTextLayout1 {}
+unsafe impl Sync for IDWriteTextLayout1 {}
 pub trait IDWriteTextLayout1_Impl: IDWriteTextLayout_Impl {
     fn SetPairKerning(&self, ispairkerningenabled: super::super::Foundation::BOOL, textrange: &DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
     fn GetPairKerning(&self, currentposition: u32, ispairkerningenabled: *mut super::super::Foundation::BOOL, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
@@ -11455,8 +11409,6 @@ impl IDWriteTextLayout1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteTextLayout1 {}
-unsafe impl Send for IDWriteTextLayout1 {}
-unsafe impl Sync for IDWriteTextLayout1 {}
 windows_core::imp::define_interface!(IDWriteTextLayout2, IDWriteTextLayout2_Vtbl, 0x1093c18f_8d5e_43f0_b064_0917311b525e);
 impl core::ops::Deref for IDWriteTextLayout2 {
     type Target = IDWriteTextLayout1;
@@ -11513,6 +11465,8 @@ pub struct IDWriteTextLayout2_Vtbl {
     pub SetFontFallback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFontFallback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteTextLayout2 {}
+unsafe impl Sync for IDWriteTextLayout2 {}
 pub trait IDWriteTextLayout2_Impl: IDWriteTextLayout1_Impl {
     fn GetMetrics(&self, textmetrics: *mut DWRITE_TEXT_METRICS1) -> windows_core::Result<()>;
     fn SetVerticalGlyphOrientation(&self, glyphorientation: DWRITE_VERTICAL_GLYPH_ORIENTATION) -> windows_core::Result<()>;
@@ -11604,8 +11558,6 @@ impl IDWriteTextLayout2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteTextLayout2 {}
-unsafe impl Send for IDWriteTextLayout2 {}
-unsafe impl Sync for IDWriteTextLayout2 {}
 windows_core::imp::define_interface!(IDWriteTextLayout3, IDWriteTextLayout3_Vtbl, 0x07ddcd52_020e_4de8_ac33_6c953d83f92d);
 impl core::ops::Deref for IDWriteTextLayout3 {
     type Target = IDWriteTextLayout2;
@@ -11636,6 +11588,8 @@ pub struct IDWriteTextLayout3_Vtbl {
     pub GetLineSpacing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DWRITE_LINE_SPACING) -> windows_core::HRESULT,
     pub GetLineMetrics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DWRITE_LINE_METRICS1, u32, *mut u32) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteTextLayout3 {}
+unsafe impl Sync for IDWriteTextLayout3 {}
 pub trait IDWriteTextLayout3_Impl: IDWriteTextLayout2_Impl {
     fn InvalidateLayout(&self) -> windows_core::Result<()>;
     fn SetLineSpacing(&self, linespacingoptions: *const DWRITE_LINE_SPACING) -> windows_core::Result<()>;
@@ -11681,8 +11635,6 @@ impl IDWriteTextLayout3_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteTextLayout3 {}
-unsafe impl Send for IDWriteTextLayout3 {}
-unsafe impl Sync for IDWriteTextLayout3 {}
 windows_core::imp::define_interface!(IDWriteTextLayout4, IDWriteTextLayout4_Vtbl, 0x05a9bf42_223f_4441_b5fb_8263685f55e9);
 impl core::ops::Deref for IDWriteTextLayout4 {
     type Target = IDWriteTextLayout3;
@@ -11717,6 +11669,8 @@ pub struct IDWriteTextLayout4_Vtbl {
     pub GetAutomaticFontAxes: unsafe extern "system" fn(*mut core::ffi::c_void) -> DWRITE_AUTOMATIC_FONT_AXES,
     pub SetAutomaticFontAxes: unsafe extern "system" fn(*mut core::ffi::c_void, DWRITE_AUTOMATIC_FONT_AXES) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteTextLayout4 {}
+unsafe impl Sync for IDWriteTextLayout4 {}
 pub trait IDWriteTextLayout4_Impl: IDWriteTextLayout3_Impl {
     fn SetFontAxisValues(&self, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32, textrange: &DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
     fn GetFontAxisValueCount(&self, currentposition: u32) -> u32;
@@ -11770,8 +11724,6 @@ impl IDWriteTextLayout4_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteTextLayout4 {}
-unsafe impl Send for IDWriteTextLayout4 {}
-unsafe impl Sync for IDWriteTextLayout4 {}
 windows_core::imp::define_interface!(IDWriteTextRenderer, IDWriteTextRenderer_Vtbl, 0xef8a8135_5cc6_45fe_8825_c5a0724eb819);
 impl core::ops::Deref for IDWriteTextRenderer {
     type Target = IDWritePixelSnapping;
@@ -11815,6 +11767,8 @@ pub struct IDWriteTextRenderer_Vtbl {
     pub DrawStrikethrough: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, f32, f32, *const DWRITE_STRIKETHROUGH, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DrawInlineObject: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, f32, f32, *mut core::ffi::c_void, super::super::Foundation::BOOL, super::super::Foundation::BOOL, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteTextRenderer {}
+unsafe impl Sync for IDWriteTextRenderer {}
 pub trait IDWriteTextRenderer_Impl: IDWritePixelSnapping_Impl {
     fn DrawGlyphRun(&self, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, measuringmode: DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn DrawUnderline(&self, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, underline: *const DWRITE_UNDERLINE, clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
@@ -11860,8 +11814,6 @@ impl IDWriteTextRenderer_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteTextRenderer {}
-unsafe impl Send for IDWriteTextRenderer {}
-unsafe impl Sync for IDWriteTextRenderer {}
 windows_core::imp::define_interface!(IDWriteTextRenderer1, IDWriteTextRenderer1_Vtbl, 0xd3e0e934_22a0_427e_aae4_7d9574b59db1);
 impl core::ops::Deref for IDWriteTextRenderer1 {
     type Target = IDWriteTextRenderer;
@@ -11905,6 +11857,8 @@ pub struct IDWriteTextRenderer1_Vtbl {
     pub DrawStrikethrough: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, f32, f32, DWRITE_GLYPH_ORIENTATION_ANGLE, *const DWRITE_STRIKETHROUGH, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DrawInlineObject: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, f32, f32, DWRITE_GLYPH_ORIENTATION_ANGLE, *mut core::ffi::c_void, super::super::Foundation::BOOL, super::super::Foundation::BOOL, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteTextRenderer1 {}
+unsafe impl Sync for IDWriteTextRenderer1 {}
 pub trait IDWriteTextRenderer1_Impl: IDWriteTextRenderer_Impl {
     fn DrawGlyphRun(&self, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, orientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, measuringmode: DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn DrawUnderline(&self, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, orientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, underline: *const DWRITE_UNDERLINE, clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
@@ -11950,8 +11904,6 @@ impl IDWriteTextRenderer1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteTextRenderer1 {}
-unsafe impl Send for IDWriteTextRenderer1 {}
-unsafe impl Sync for IDWriteTextRenderer1 {}
 windows_core::imp::define_interface!(IDWriteTypography, IDWriteTypography_Vtbl, 0x55f1112b_1dc2_4b3c_9541_f46894ed85b6);
 windows_core::imp::interface_hierarchy!(IDWriteTypography, windows_core::IUnknown);
 impl IDWriteTypography {
@@ -11975,6 +11927,8 @@ pub struct IDWriteTypography_Vtbl {
     pub GetFontFeatureCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetFontFeature: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DWRITE_FONT_FEATURE) -> windows_core::HRESULT,
 }
+unsafe impl Send for IDWriteTypography {}
+unsafe impl Sync for IDWriteTypography {}
 pub trait IDWriteTypography_Impl: windows_core::IUnknownImpl {
     fn AddFontFeature(&self, fontfeature: &DWRITE_FONT_FEATURE) -> windows_core::Result<()>;
     fn GetFontFeatureCount(&self) -> u32;
@@ -12018,5 +11972,3 @@ impl IDWriteTypography_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteTypography {}
-unsafe impl Send for IDWriteTypography {}
-unsafe impl Sync for IDWriteTypography {}
